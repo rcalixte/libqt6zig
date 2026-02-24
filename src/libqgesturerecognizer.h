@@ -29,11 +29,11 @@ int QGestureRecognizer_RegisterRecognizer(QGestureRecognizer* recognizer);
 void QGestureRecognizer_UnregisterRecognizer(int typeVal);
 void QGestureRecognizer_OperatorAssign(QGestureRecognizer* self, const QGestureRecognizer* param1);
 void QGestureRecognizer_OnCreate(QGestureRecognizer* self, intptr_t slot);
-QGesture* QGestureRecognizer_QBaseCreate(QGestureRecognizer* self, QObject* target);
+QGesture* QGestureRecognizer_SuperCreate(QGestureRecognizer* self, QObject* target);
 void QGestureRecognizer_OnRecognize(QGestureRecognizer* self, intptr_t slot);
-int QGestureRecognizer_QBaseRecognize(QGestureRecognizer* self, QGesture* state, QObject* watched, QEvent* event);
+int QGestureRecognizer_SuperRecognize(QGestureRecognizer* self, QGesture* state, QObject* watched, QEvent* event);
 void QGestureRecognizer_OnReset(QGestureRecognizer* self, intptr_t slot);
-void QGestureRecognizer_QBaseReset(QGestureRecognizer* self, QGesture* state);
+void QGestureRecognizer_SuperReset(QGestureRecognizer* self, QGesture* state);
 void QGestureRecognizer_Delete(QGestureRecognizer* self);
 
 #ifdef __cplusplus

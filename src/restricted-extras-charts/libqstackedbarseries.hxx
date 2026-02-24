@@ -347,23 +347,23 @@ class VirtualQStackedBarSeries final : public QStackedBarSeries {
 
     // Friend functions
     friend void QStackedBarSeries_TimerEvent(QStackedBarSeries* self, QTimerEvent* event);
-    friend void QStackedBarSeries_QBaseTimerEvent(QStackedBarSeries* self, QTimerEvent* event);
+    friend void QStackedBarSeries_SuperTimerEvent(QStackedBarSeries* self, QTimerEvent* event);
     friend void QStackedBarSeries_ChildEvent(QStackedBarSeries* self, QChildEvent* event);
-    friend void QStackedBarSeries_QBaseChildEvent(QStackedBarSeries* self, QChildEvent* event);
+    friend void QStackedBarSeries_SuperChildEvent(QStackedBarSeries* self, QChildEvent* event);
     friend void QStackedBarSeries_CustomEvent(QStackedBarSeries* self, QEvent* event);
-    friend void QStackedBarSeries_QBaseCustomEvent(QStackedBarSeries* self, QEvent* event);
+    friend void QStackedBarSeries_SuperCustomEvent(QStackedBarSeries* self, QEvent* event);
     friend void QStackedBarSeries_ConnectNotify(QStackedBarSeries* self, const QMetaMethod* signal);
-    friend void QStackedBarSeries_QBaseConnectNotify(QStackedBarSeries* self, const QMetaMethod* signal);
+    friend void QStackedBarSeries_SuperConnectNotify(QStackedBarSeries* self, const QMetaMethod* signal);
     friend void QStackedBarSeries_DisconnectNotify(QStackedBarSeries* self, const QMetaMethod* signal);
-    friend void QStackedBarSeries_QBaseDisconnectNotify(QStackedBarSeries* self, const QMetaMethod* signal);
+    friend void QStackedBarSeries_SuperDisconnectNotify(QStackedBarSeries* self, const QMetaMethod* signal);
     friend QObject* QStackedBarSeries_Sender(const QStackedBarSeries* self);
-    friend QObject* QStackedBarSeries_QBaseSender(const QStackedBarSeries* self);
+    friend QObject* QStackedBarSeries_SuperSender(const QStackedBarSeries* self);
     friend int QStackedBarSeries_SenderSignalIndex(const QStackedBarSeries* self);
-    friend int QStackedBarSeries_QBaseSenderSignalIndex(const QStackedBarSeries* self);
+    friend int QStackedBarSeries_SuperSenderSignalIndex(const QStackedBarSeries* self);
     friend int QStackedBarSeries_Receivers(const QStackedBarSeries* self, const char* signal);
-    friend int QStackedBarSeries_QBaseReceivers(const QStackedBarSeries* self, const char* signal);
+    friend int QStackedBarSeries_SuperReceivers(const QStackedBarSeries* self, const char* signal);
     friend bool QStackedBarSeries_IsSignalConnected(const QStackedBarSeries* self, const QMetaMethod* signal);
-    friend bool QStackedBarSeries_QBaseIsSignalConnected(const QStackedBarSeries* self, const QMetaMethod* signal);
+    friend bool QStackedBarSeries_SuperIsSignalConnected(const QStackedBarSeries* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -138,7 +138,7 @@ bool QTemporaryFile_Open2(QTemporaryFile* self, int flags) {
 }
 
 // Base class handler implementation
-QMetaObject* QTemporaryFile_QBaseMetaObject(const QTemporaryFile* self) {
+QMetaObject* QTemporaryFile_SuperMetaObject(const QTemporaryFile* self) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_MetaObject_IsBase(true);
@@ -157,7 +157,7 @@ void QTemporaryFile_OnMetaObject(const QTemporaryFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QTemporaryFile_QBaseMetacast(QTemporaryFile* self, const char* param1) {
+void* QTemporaryFile_SuperMetacast(QTemporaryFile* self, const char* param1) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_Metacast_IsBase(true);
@@ -176,7 +176,7 @@ void QTemporaryFile_OnMetacast(QTemporaryFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTemporaryFile_QBaseMetacall(QTemporaryFile* self, int param1, int param2, void** param3) {
+int QTemporaryFile_SuperMetacall(QTemporaryFile* self, int param1, int param2, void** param3) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_Metacall_IsBase(true);
@@ -195,7 +195,7 @@ void QTemporaryFile_OnMetacall(QTemporaryFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string QTemporaryFile_QBaseFileName(const QTemporaryFile* self) {
+libqt_string QTemporaryFile_SuperFileName(const QTemporaryFile* self) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_FileName_IsBase(true);
@@ -230,7 +230,7 @@ void QTemporaryFile_OnFileName(const QTemporaryFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QTemporaryFile_QBaseOpen2(QTemporaryFile* self, int flags) {
+bool QTemporaryFile_SuperOpen2(QTemporaryFile* self, int flags) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_Open2_IsBase(true);
@@ -259,7 +259,7 @@ long long QTemporaryFile_Size(const QTemporaryFile* self) {
 }
 
 // Base class handler implementation
-long long QTemporaryFile_QBaseSize(const QTemporaryFile* self) {
+long long QTemporaryFile_SuperSize(const QTemporaryFile* self) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_Size_IsBase(true);
@@ -288,7 +288,7 @@ bool QTemporaryFile_Resize(QTemporaryFile* self, long long sz) {
 }
 
 // Base class handler implementation
-bool QTemporaryFile_QBaseResize(QTemporaryFile* self, long long sz) {
+bool QTemporaryFile_SuperResize(QTemporaryFile* self, long long sz) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_Resize_IsBase(true);
@@ -317,7 +317,7 @@ int QTemporaryFile_Permissions(const QTemporaryFile* self) {
 }
 
 // Base class handler implementation
-int QTemporaryFile_QBasePermissions(const QTemporaryFile* self) {
+int QTemporaryFile_SuperPermissions(const QTemporaryFile* self) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_Permissions_IsBase(true);
@@ -346,7 +346,7 @@ bool QTemporaryFile_SetPermissions(QTemporaryFile* self, int permissionSpec) {
 }
 
 // Base class handler implementation
-bool QTemporaryFile_QBaseSetPermissions(QTemporaryFile* self, int permissionSpec) {
+bool QTemporaryFile_SuperSetPermissions(QTemporaryFile* self, int permissionSpec) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_SetPermissions_IsBase(true);
@@ -375,7 +375,7 @@ void QTemporaryFile_Close(QTemporaryFile* self) {
 }
 
 // Base class handler implementation
-void QTemporaryFile_QBaseClose(QTemporaryFile* self) {
+void QTemporaryFile_SuperClose(QTemporaryFile* self) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_Close_IsBase(true);
@@ -404,7 +404,7 @@ bool QTemporaryFile_IsSequential(const QTemporaryFile* self) {
 }
 
 // Base class handler implementation
-bool QTemporaryFile_QBaseIsSequential(const QTemporaryFile* self) {
+bool QTemporaryFile_SuperIsSequential(const QTemporaryFile* self) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_IsSequential_IsBase(true);
@@ -433,7 +433,7 @@ long long QTemporaryFile_Pos(const QTemporaryFile* self) {
 }
 
 // Base class handler implementation
-long long QTemporaryFile_QBasePos(const QTemporaryFile* self) {
+long long QTemporaryFile_SuperPos(const QTemporaryFile* self) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_Pos_IsBase(true);
@@ -462,7 +462,7 @@ bool QTemporaryFile_Seek(QTemporaryFile* self, long long offset) {
 }
 
 // Base class handler implementation
-bool QTemporaryFile_QBaseSeek(QTemporaryFile* self, long long offset) {
+bool QTemporaryFile_SuperSeek(QTemporaryFile* self, long long offset) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_Seek_IsBase(true);
@@ -491,7 +491,7 @@ bool QTemporaryFile_AtEnd(const QTemporaryFile* self) {
 }
 
 // Base class handler implementation
-bool QTemporaryFile_QBaseAtEnd(const QTemporaryFile* self) {
+bool QTemporaryFile_SuperAtEnd(const QTemporaryFile* self) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_AtEnd_IsBase(true);
@@ -520,7 +520,7 @@ long long QTemporaryFile_ReadData(QTemporaryFile* self, char* data, long long ma
 }
 
 // Base class handler implementation
-long long QTemporaryFile_QBaseReadData(QTemporaryFile* self, char* data, long long maxlen) {
+long long QTemporaryFile_SuperReadData(QTemporaryFile* self, char* data, long long maxlen) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_ReadData_IsBase(true);
@@ -549,7 +549,7 @@ long long QTemporaryFile_WriteData(QTemporaryFile* self, const char* data, long 
 }
 
 // Base class handler implementation
-long long QTemporaryFile_QBaseWriteData(QTemporaryFile* self, const char* data, long long lenVal) {
+long long QTemporaryFile_SuperWriteData(QTemporaryFile* self, const char* data, long long lenVal) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_WriteData_IsBase(true);
@@ -578,7 +578,7 @@ long long QTemporaryFile_ReadLineData(QTemporaryFile* self, char* data, long lon
 }
 
 // Base class handler implementation
-long long QTemporaryFile_QBaseReadLineData(QTemporaryFile* self, char* data, long long maxlen) {
+long long QTemporaryFile_SuperReadLineData(QTemporaryFile* self, char* data, long long maxlen) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_ReadLineData_IsBase(true);
@@ -607,7 +607,7 @@ bool QTemporaryFile_Reset(QTemporaryFile* self) {
 }
 
 // Base class handler implementation
-bool QTemporaryFile_QBaseReset(QTemporaryFile* self) {
+bool QTemporaryFile_SuperReset(QTemporaryFile* self) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_Reset_IsBase(true);
@@ -636,7 +636,7 @@ long long QTemporaryFile_BytesAvailable(const QTemporaryFile* self) {
 }
 
 // Base class handler implementation
-long long QTemporaryFile_QBaseBytesAvailable(const QTemporaryFile* self) {
+long long QTemporaryFile_SuperBytesAvailable(const QTemporaryFile* self) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_BytesAvailable_IsBase(true);
@@ -665,7 +665,7 @@ long long QTemporaryFile_BytesToWrite(const QTemporaryFile* self) {
 }
 
 // Base class handler implementation
-long long QTemporaryFile_QBaseBytesToWrite(const QTemporaryFile* self) {
+long long QTemporaryFile_SuperBytesToWrite(const QTemporaryFile* self) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_BytesToWrite_IsBase(true);
@@ -694,7 +694,7 @@ bool QTemporaryFile_CanReadLine(const QTemporaryFile* self) {
 }
 
 // Base class handler implementation
-bool QTemporaryFile_QBaseCanReadLine(const QTemporaryFile* self) {
+bool QTemporaryFile_SuperCanReadLine(const QTemporaryFile* self) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_CanReadLine_IsBase(true);
@@ -723,7 +723,7 @@ bool QTemporaryFile_WaitForReadyRead(QTemporaryFile* self, int msecs) {
 }
 
 // Base class handler implementation
-bool QTemporaryFile_QBaseWaitForReadyRead(QTemporaryFile* self, int msecs) {
+bool QTemporaryFile_SuperWaitForReadyRead(QTemporaryFile* self, int msecs) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_WaitForReadyRead_IsBase(true);
@@ -752,7 +752,7 @@ bool QTemporaryFile_WaitForBytesWritten(QTemporaryFile* self, int msecs) {
 }
 
 // Base class handler implementation
-bool QTemporaryFile_QBaseWaitForBytesWritten(QTemporaryFile* self, int msecs) {
+bool QTemporaryFile_SuperWaitForBytesWritten(QTemporaryFile* self, int msecs) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_WaitForBytesWritten_IsBase(true);
@@ -781,7 +781,7 @@ long long QTemporaryFile_SkipData(QTemporaryFile* self, long long maxSize) {
 }
 
 // Base class handler implementation
-long long QTemporaryFile_QBaseSkipData(QTemporaryFile* self, long long maxSize) {
+long long QTemporaryFile_SuperSkipData(QTemporaryFile* self, long long maxSize) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_SkipData_IsBase(true);
@@ -810,7 +810,7 @@ bool QTemporaryFile_Event(QTemporaryFile* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTemporaryFile_QBaseEvent(QTemporaryFile* self, QEvent* event) {
+bool QTemporaryFile_SuperEvent(QTemporaryFile* self, QEvent* event) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_Event_IsBase(true);
@@ -839,7 +839,7 @@ bool QTemporaryFile_EventFilter(QTemporaryFile* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QTemporaryFile_QBaseEventFilter(QTemporaryFile* self, QObject* watched, QEvent* event) {
+bool QTemporaryFile_SuperEventFilter(QTemporaryFile* self, QObject* watched, QEvent* event) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_EventFilter_IsBase(true);
@@ -868,7 +868,7 @@ void QTemporaryFile_TimerEvent(QTemporaryFile* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QTemporaryFile_QBaseTimerEvent(QTemporaryFile* self, QTimerEvent* event) {
+void QTemporaryFile_SuperTimerEvent(QTemporaryFile* self, QTimerEvent* event) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_TimerEvent_IsBase(true);
@@ -897,7 +897,7 @@ void QTemporaryFile_ChildEvent(QTemporaryFile* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QTemporaryFile_QBaseChildEvent(QTemporaryFile* self, QChildEvent* event) {
+void QTemporaryFile_SuperChildEvent(QTemporaryFile* self, QChildEvent* event) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_ChildEvent_IsBase(true);
@@ -926,7 +926,7 @@ void QTemporaryFile_CustomEvent(QTemporaryFile* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTemporaryFile_QBaseCustomEvent(QTemporaryFile* self, QEvent* event) {
+void QTemporaryFile_SuperCustomEvent(QTemporaryFile* self, QEvent* event) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_CustomEvent_IsBase(true);
@@ -955,7 +955,7 @@ void QTemporaryFile_ConnectNotify(QTemporaryFile* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QTemporaryFile_QBaseConnectNotify(QTemporaryFile* self, const QMetaMethod* signal) {
+void QTemporaryFile_SuperConnectNotify(QTemporaryFile* self, const QMetaMethod* signal) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_ConnectNotify_IsBase(true);
@@ -984,7 +984,7 @@ void QTemporaryFile_DisconnectNotify(QTemporaryFile* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QTemporaryFile_QBaseDisconnectNotify(QTemporaryFile* self, const QMetaMethod* signal) {
+void QTemporaryFile_SuperDisconnectNotify(QTemporaryFile* self, const QMetaMethod* signal) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_DisconnectNotify_IsBase(true);
@@ -1013,7 +1013,7 @@ void QTemporaryFile_SetOpenMode(QTemporaryFile* self, int openMode) {
 }
 
 // Base class handler implementation
-void QTemporaryFile_QBaseSetOpenMode(QTemporaryFile* self, int openMode) {
+void QTemporaryFile_SuperSetOpenMode(QTemporaryFile* self, int openMode) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_SetOpenMode_IsBase(true);
@@ -1043,7 +1043,7 @@ void QTemporaryFile_SetErrorString(QTemporaryFile* self, const libqt_string erro
 }
 
 // Base class handler implementation
-void QTemporaryFile_QBaseSetErrorString(QTemporaryFile* self, const libqt_string errorString) {
+void QTemporaryFile_SuperSetErrorString(QTemporaryFile* self, const libqt_string errorString) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
@@ -1073,7 +1073,7 @@ QObject* QTemporaryFile_Sender(const QTemporaryFile* self) {
 }
 
 // Base class handler implementation
-QObject* QTemporaryFile_QBaseSender(const QTemporaryFile* self) {
+QObject* QTemporaryFile_SuperSender(const QTemporaryFile* self) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_Sender_IsBase(true);
@@ -1102,7 +1102,7 @@ int QTemporaryFile_SenderSignalIndex(const QTemporaryFile* self) {
 }
 
 // Base class handler implementation
-int QTemporaryFile_QBaseSenderSignalIndex(const QTemporaryFile* self) {
+int QTemporaryFile_SuperSenderSignalIndex(const QTemporaryFile* self) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_SenderSignalIndex_IsBase(true);
@@ -1131,7 +1131,7 @@ int QTemporaryFile_Receivers(const QTemporaryFile* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QTemporaryFile_QBaseReceivers(const QTemporaryFile* self, const char* signal) {
+int QTemporaryFile_SuperReceivers(const QTemporaryFile* self, const char* signal) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_Receivers_IsBase(true);
@@ -1160,7 +1160,7 @@ bool QTemporaryFile_IsSignalConnected(const QTemporaryFile* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QTemporaryFile_QBaseIsSignalConnected(const QTemporaryFile* self, const QMetaMethod* signal) {
+bool QTemporaryFile_SuperIsSignalConnected(const QTemporaryFile* self, const QMetaMethod* signal) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_IsSignalConnected_IsBase(true);

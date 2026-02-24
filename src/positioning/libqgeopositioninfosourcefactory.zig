@@ -125,6 +125,10 @@ pub const qgeopositioninfosourcefactory = struct {
         qtc.QGeoPositionInfoSourceFactory_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosourcefactory.html#dtor.QGeoPositionInfoSourceFactory)
     ///
     /// Delete this object from C++ memory.
@@ -133,7 +137,7 @@ pub const qgeopositioninfosourcefactory = struct {
     ///
     /// ` self: QtC.QGeoPositionInfoSourceFactory `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGeoPositionInfoSourceFactory_Delete(@ptrCast(self));
     }
 };

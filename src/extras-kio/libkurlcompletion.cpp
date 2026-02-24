@@ -260,7 +260,7 @@ libqt_string KUrlCompletion_ReplacedPath3(const libqt_string text, bool replaceH
 }
 
 // Base class handler implementation
-QMetaObject* KUrlCompletion_QBaseMetaObject(const KUrlCompletion* self) {
+QMetaObject* KUrlCompletion_SuperMetaObject(const KUrlCompletion* self) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_MetaObject_IsBase(true);
@@ -279,7 +279,7 @@ void KUrlCompletion_OnMetaObject(const KUrlCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KUrlCompletion_QBaseMetacast(KUrlCompletion* self, const char* param1) {
+void* KUrlCompletion_SuperMetacast(KUrlCompletion* self, const char* param1) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_Metacast_IsBase(true);
@@ -298,7 +298,7 @@ void KUrlCompletion_OnMetacast(KUrlCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KUrlCompletion_QBaseMetacall(KUrlCompletion* self, int param1, int param2, void** param3) {
+int KUrlCompletion_SuperMetacall(KUrlCompletion* self, int param1, int param2, void** param3) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_Metacall_IsBase(true);
@@ -317,7 +317,7 @@ void KUrlCompletion_OnMetacall(KUrlCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string KUrlCompletion_QBaseMakeCompletion(KUrlCompletion* self, const libqt_string text) {
+libqt_string KUrlCompletion_SuperMakeCompletion(KUrlCompletion* self, const libqt_string text) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
@@ -353,7 +353,7 @@ void KUrlCompletion_OnMakeCompletion(KUrlCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KUrlCompletion_QBaseSetDir(KUrlCompletion* self, const QUrl* dir) {
+void KUrlCompletion_SuperSetDir(KUrlCompletion* self, const QUrl* dir) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_SetDir_IsBase(true);
@@ -372,7 +372,7 @@ void KUrlCompletion_OnSetDir(KUrlCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QUrl* KUrlCompletion_QBaseDir(const KUrlCompletion* self) {
+QUrl* KUrlCompletion_SuperDir(const KUrlCompletion* self) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_Dir_IsBase(true);
@@ -391,7 +391,7 @@ void KUrlCompletion_OnDir(const KUrlCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KUrlCompletion_QBaseIsRunning(const KUrlCompletion* self) {
+bool KUrlCompletion_SuperIsRunning(const KUrlCompletion* self) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_IsRunning_IsBase(true);
@@ -410,7 +410,7 @@ void KUrlCompletion_OnIsRunning(const KUrlCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KUrlCompletion_QBaseStop(KUrlCompletion* self) {
+void KUrlCompletion_SuperStop(KUrlCompletion* self) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_Stop_IsBase(true);
@@ -429,7 +429,7 @@ void KUrlCompletion_OnStop(KUrlCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KUrlCompletion_QBaseMode(const KUrlCompletion* self) {
+int KUrlCompletion_SuperMode(const KUrlCompletion* self) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_Mode_IsBase(true);
@@ -448,7 +448,7 @@ void KUrlCompletion_OnMode(const KUrlCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KUrlCompletion_QBaseSetMode(KUrlCompletion* self, int mode) {
+void KUrlCompletion_SuperSetMode(KUrlCompletion* self, int mode) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_SetMode_IsBase(true);
@@ -467,7 +467,7 @@ void KUrlCompletion_OnSetMode(KUrlCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KUrlCompletion_QBaseReplaceEnv(const KUrlCompletion* self) {
+bool KUrlCompletion_SuperReplaceEnv(const KUrlCompletion* self) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_ReplaceEnv_IsBase(true);
@@ -486,7 +486,7 @@ void KUrlCompletion_OnReplaceEnv(const KUrlCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KUrlCompletion_QBaseSetReplaceEnv(KUrlCompletion* self, bool replace) {
+void KUrlCompletion_SuperSetReplaceEnv(KUrlCompletion* self, bool replace) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_SetReplaceEnv_IsBase(true);
@@ -505,7 +505,7 @@ void KUrlCompletion_OnSetReplaceEnv(KUrlCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KUrlCompletion_QBaseReplaceHome(const KUrlCompletion* self) {
+bool KUrlCompletion_SuperReplaceHome(const KUrlCompletion* self) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_ReplaceHome_IsBase(true);
@@ -524,7 +524,7 @@ void KUrlCompletion_OnReplaceHome(const KUrlCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KUrlCompletion_QBaseSetReplaceHome(KUrlCompletion* self, bool replace) {
+void KUrlCompletion_SuperSetReplaceHome(KUrlCompletion* self, bool replace) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_SetReplaceHome_IsBase(true);
@@ -543,7 +543,7 @@ void KUrlCompletion_OnSetReplaceHome(KUrlCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KUrlCompletion_QBasePostProcessMatches(const KUrlCompletion* self, libqt_list /* of libqt_string */ matches) {
+void KUrlCompletion_SuperPostProcessMatches(const KUrlCompletion* self, libqt_list /* of libqt_string */ matches) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
     QList<QString> matches_QList;
     matches_QList.reserve(matches.len);
@@ -569,7 +569,7 @@ void KUrlCompletion_OnPostProcessMatches(const KUrlCompletion* self, intptr_t sl
 }
 
 // Base class handler implementation
-void KUrlCompletion_QBasePostProcessMatches2(const KUrlCompletion* self, KCompletionMatches* matches) {
+void KUrlCompletion_SuperPostProcessMatches2(const KUrlCompletion* self, KCompletionMatches* matches) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_PostProcessMatches2_IsBase(true);
@@ -614,7 +614,7 @@ libqt_string KUrlCompletion_LastMatch(const KUrlCompletion* self) {
 }
 
 // Base class handler implementation
-libqt_string KUrlCompletion_QBaseLastMatch(const KUrlCompletion* self) {
+libqt_string KUrlCompletion_SuperLastMatch(const KUrlCompletion* self) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_LastMatch_IsBase(true);
@@ -659,7 +659,7 @@ void KUrlCompletion_SetCompletionMode(KUrlCompletion* self, int mode) {
 }
 
 // Base class handler implementation
-void KUrlCompletion_QBaseSetCompletionMode(KUrlCompletion* self, int mode) {
+void KUrlCompletion_SuperSetCompletionMode(KUrlCompletion* self, int mode) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_SetCompletionMode_IsBase(true);
@@ -688,7 +688,7 @@ void KUrlCompletion_SetOrder(KUrlCompletion* self, int order) {
 }
 
 // Base class handler implementation
-void KUrlCompletion_QBaseSetOrder(KUrlCompletion* self, int order) {
+void KUrlCompletion_SuperSetOrder(KUrlCompletion* self, int order) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_SetOrder_IsBase(true);
@@ -717,7 +717,7 @@ void KUrlCompletion_SetIgnoreCase(KUrlCompletion* self, bool ignoreCase) {
 }
 
 // Base class handler implementation
-void KUrlCompletion_QBaseSetIgnoreCase(KUrlCompletion* self, bool ignoreCase) {
+void KUrlCompletion_SuperSetIgnoreCase(KUrlCompletion* self, bool ignoreCase) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_SetIgnoreCase_IsBase(true);
@@ -746,7 +746,7 @@ void KUrlCompletion_SetSoundsEnabled(KUrlCompletion* self, bool enable) {
 }
 
 // Base class handler implementation
-void KUrlCompletion_QBaseSetSoundsEnabled(KUrlCompletion* self, bool enable) {
+void KUrlCompletion_SuperSetSoundsEnabled(KUrlCompletion* self, bool enable) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_SetSoundsEnabled_IsBase(true);
@@ -782,7 +782,7 @@ void KUrlCompletion_SetItems(KUrlCompletion* self, const libqt_list /* of libqt_
 }
 
 // Base class handler implementation
-void KUrlCompletion_QBaseSetItems(KUrlCompletion* self, const libqt_list /* of libqt_string */ itemList) {
+void KUrlCompletion_SuperSetItems(KUrlCompletion* self, const libqt_list /* of libqt_string */ itemList) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     QList<QString> itemList_QList;
     itemList_QList.reserve(itemList.len);
@@ -818,7 +818,7 @@ void KUrlCompletion_Clear(KUrlCompletion* self) {
 }
 
 // Base class handler implementation
-void KUrlCompletion_QBaseClear(KUrlCompletion* self) {
+void KUrlCompletion_SuperClear(KUrlCompletion* self) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_Clear_IsBase(true);
@@ -847,7 +847,7 @@ bool KUrlCompletion_Event(KUrlCompletion* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KUrlCompletion_QBaseEvent(KUrlCompletion* self, QEvent* event) {
+bool KUrlCompletion_SuperEvent(KUrlCompletion* self, QEvent* event) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_Event_IsBase(true);
@@ -876,7 +876,7 @@ bool KUrlCompletion_EventFilter(KUrlCompletion* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool KUrlCompletion_QBaseEventFilter(KUrlCompletion* self, QObject* watched, QEvent* event) {
+bool KUrlCompletion_SuperEventFilter(KUrlCompletion* self, QObject* watched, QEvent* event) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_EventFilter_IsBase(true);
@@ -905,7 +905,7 @@ void KUrlCompletion_TimerEvent(KUrlCompletion* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlCompletion_QBaseTimerEvent(KUrlCompletion* self, QTimerEvent* event) {
+void KUrlCompletion_SuperTimerEvent(KUrlCompletion* self, QTimerEvent* event) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_TimerEvent_IsBase(true);
@@ -934,7 +934,7 @@ void KUrlCompletion_ChildEvent(KUrlCompletion* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlCompletion_QBaseChildEvent(KUrlCompletion* self, QChildEvent* event) {
+void KUrlCompletion_SuperChildEvent(KUrlCompletion* self, QChildEvent* event) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_ChildEvent_IsBase(true);
@@ -963,7 +963,7 @@ void KUrlCompletion_CustomEvent(KUrlCompletion* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlCompletion_QBaseCustomEvent(KUrlCompletion* self, QEvent* event) {
+void KUrlCompletion_SuperCustomEvent(KUrlCompletion* self, QEvent* event) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_CustomEvent_IsBase(true);
@@ -992,7 +992,7 @@ void KUrlCompletion_ConnectNotify(KUrlCompletion* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void KUrlCompletion_QBaseConnectNotify(KUrlCompletion* self, const QMetaMethod* signal) {
+void KUrlCompletion_SuperConnectNotify(KUrlCompletion* self, const QMetaMethod* signal) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_ConnectNotify_IsBase(true);
@@ -1021,7 +1021,7 @@ void KUrlCompletion_DisconnectNotify(KUrlCompletion* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void KUrlCompletion_QBaseDisconnectNotify(KUrlCompletion* self, const QMetaMethod* signal) {
+void KUrlCompletion_SuperDisconnectNotify(KUrlCompletion* self, const QMetaMethod* signal) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_DisconnectNotify_IsBase(true);
@@ -1050,7 +1050,7 @@ void KUrlCompletion_SetShouldAutoSuggest(KUrlCompletion* self, bool shouldAutosu
 }
 
 // Base class handler implementation
-void KUrlCompletion_QBaseSetShouldAutoSuggest(KUrlCompletion* self, bool shouldAutosuggest) {
+void KUrlCompletion_SuperSetShouldAutoSuggest(KUrlCompletion* self, bool shouldAutosuggest) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_SetShouldAutoSuggest_IsBase(true);
@@ -1079,7 +1079,7 @@ QObject* KUrlCompletion_Sender(const KUrlCompletion* self) {
 }
 
 // Base class handler implementation
-QObject* KUrlCompletion_QBaseSender(const KUrlCompletion* self) {
+QObject* KUrlCompletion_SuperSender(const KUrlCompletion* self) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_Sender_IsBase(true);
@@ -1108,7 +1108,7 @@ int KUrlCompletion_SenderSignalIndex(const KUrlCompletion* self) {
 }
 
 // Base class handler implementation
-int KUrlCompletion_QBaseSenderSignalIndex(const KUrlCompletion* self) {
+int KUrlCompletion_SuperSenderSignalIndex(const KUrlCompletion* self) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_SenderSignalIndex_IsBase(true);
@@ -1137,7 +1137,7 @@ int KUrlCompletion_Receivers(const KUrlCompletion* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KUrlCompletion_QBaseReceivers(const KUrlCompletion* self, const char* signal) {
+int KUrlCompletion_SuperReceivers(const KUrlCompletion* self, const char* signal) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_Receivers_IsBase(true);
@@ -1166,7 +1166,7 @@ bool KUrlCompletion_IsSignalConnected(const KUrlCompletion* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool KUrlCompletion_QBaseIsSignalConnected(const KUrlCompletion* self, const QMetaMethod* signal) {
+bool KUrlCompletion_SuperIsSignalConnected(const KUrlCompletion* self, const QMetaMethod* signal) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_IsSignalConnected_IsBase(true);

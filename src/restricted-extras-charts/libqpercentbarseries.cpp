@@ -59,7 +59,7 @@ int QPercentBarSeries_Type(const QPercentBarSeries* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QPercentBarSeries_QBaseMetaObject(const QPercentBarSeries* self) {
+QMetaObject* QPercentBarSeries_SuperMetaObject(const QPercentBarSeries* self) {
     auto* vqpercentbarseries = const_cast<VirtualQPercentBarSeries*>(dynamic_cast<const VirtualQPercentBarSeries*>(self));
     if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
         vqpercentbarseries->setQPercentBarSeries_MetaObject_IsBase(true);
@@ -78,7 +78,7 @@ void QPercentBarSeries_OnMetaObject(const QPercentBarSeries* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* QPercentBarSeries_QBaseMetacast(QPercentBarSeries* self, const char* param1) {
+void* QPercentBarSeries_SuperMetacast(QPercentBarSeries* self, const char* param1) {
     auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
     if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
         vqpercentbarseries->setQPercentBarSeries_Metacast_IsBase(true);
@@ -97,7 +97,7 @@ void QPercentBarSeries_OnMetacast(QPercentBarSeries* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPercentBarSeries_QBaseMetacall(QPercentBarSeries* self, int param1, int param2, void** param3) {
+int QPercentBarSeries_SuperMetacall(QPercentBarSeries* self, int param1, int param2, void** param3) {
     auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
     if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
         vqpercentbarseries->setQPercentBarSeries_Metacall_IsBase(true);
@@ -116,7 +116,7 @@ void QPercentBarSeries_OnMetacall(QPercentBarSeries* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPercentBarSeries_QBaseType(const QPercentBarSeries* self) {
+int QPercentBarSeries_SuperType(const QPercentBarSeries* self) {
     auto* vqpercentbarseries = const_cast<VirtualQPercentBarSeries*>(dynamic_cast<const VirtualQPercentBarSeries*>(self));
     if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
         vqpercentbarseries->setQPercentBarSeries_Type_IsBase(true);
@@ -145,7 +145,7 @@ bool QPercentBarSeries_Event(QPercentBarSeries* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QPercentBarSeries_QBaseEvent(QPercentBarSeries* self, QEvent* event) {
+bool QPercentBarSeries_SuperEvent(QPercentBarSeries* self, QEvent* event) {
     auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
     if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
         vqpercentbarseries->setQPercentBarSeries_Event_IsBase(true);
@@ -174,7 +174,7 @@ bool QPercentBarSeries_EventFilter(QPercentBarSeries* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool QPercentBarSeries_QBaseEventFilter(QPercentBarSeries* self, QObject* watched, QEvent* event) {
+bool QPercentBarSeries_SuperEventFilter(QPercentBarSeries* self, QObject* watched, QEvent* event) {
     auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
     if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
         vqpercentbarseries->setQPercentBarSeries_EventFilter_IsBase(true);
@@ -203,7 +203,7 @@ void QPercentBarSeries_TimerEvent(QPercentBarSeries* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QPercentBarSeries_QBaseTimerEvent(QPercentBarSeries* self, QTimerEvent* event) {
+void QPercentBarSeries_SuperTimerEvent(QPercentBarSeries* self, QTimerEvent* event) {
     auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
     if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
         vqpercentbarseries->setQPercentBarSeries_TimerEvent_IsBase(true);
@@ -232,7 +232,7 @@ void QPercentBarSeries_ChildEvent(QPercentBarSeries* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QPercentBarSeries_QBaseChildEvent(QPercentBarSeries* self, QChildEvent* event) {
+void QPercentBarSeries_SuperChildEvent(QPercentBarSeries* self, QChildEvent* event) {
     auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
     if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
         vqpercentbarseries->setQPercentBarSeries_ChildEvent_IsBase(true);
@@ -261,7 +261,7 @@ void QPercentBarSeries_CustomEvent(QPercentBarSeries* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPercentBarSeries_QBaseCustomEvent(QPercentBarSeries* self, QEvent* event) {
+void QPercentBarSeries_SuperCustomEvent(QPercentBarSeries* self, QEvent* event) {
     auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
     if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
         vqpercentbarseries->setQPercentBarSeries_CustomEvent_IsBase(true);
@@ -290,7 +290,7 @@ void QPercentBarSeries_ConnectNotify(QPercentBarSeries* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void QPercentBarSeries_QBaseConnectNotify(QPercentBarSeries* self, const QMetaMethod* signal) {
+void QPercentBarSeries_SuperConnectNotify(QPercentBarSeries* self, const QMetaMethod* signal) {
     auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
     if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
         vqpercentbarseries->setQPercentBarSeries_ConnectNotify_IsBase(true);
@@ -319,7 +319,7 @@ void QPercentBarSeries_DisconnectNotify(QPercentBarSeries* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void QPercentBarSeries_QBaseDisconnectNotify(QPercentBarSeries* self, const QMetaMethod* signal) {
+void QPercentBarSeries_SuperDisconnectNotify(QPercentBarSeries* self, const QMetaMethod* signal) {
     auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
     if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
         vqpercentbarseries->setQPercentBarSeries_DisconnectNotify_IsBase(true);
@@ -348,7 +348,7 @@ QObject* QPercentBarSeries_Sender(const QPercentBarSeries* self) {
 }
 
 // Base class handler implementation
-QObject* QPercentBarSeries_QBaseSender(const QPercentBarSeries* self) {
+QObject* QPercentBarSeries_SuperSender(const QPercentBarSeries* self) {
     auto* vqpercentbarseries = const_cast<VirtualQPercentBarSeries*>(dynamic_cast<const VirtualQPercentBarSeries*>(self));
     if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
         vqpercentbarseries->setQPercentBarSeries_Sender_IsBase(true);
@@ -377,7 +377,7 @@ int QPercentBarSeries_SenderSignalIndex(const QPercentBarSeries* self) {
 }
 
 // Base class handler implementation
-int QPercentBarSeries_QBaseSenderSignalIndex(const QPercentBarSeries* self) {
+int QPercentBarSeries_SuperSenderSignalIndex(const QPercentBarSeries* self) {
     auto* vqpercentbarseries = const_cast<VirtualQPercentBarSeries*>(dynamic_cast<const VirtualQPercentBarSeries*>(self));
     if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
         vqpercentbarseries->setQPercentBarSeries_SenderSignalIndex_IsBase(true);
@@ -406,7 +406,7 @@ int QPercentBarSeries_Receivers(const QPercentBarSeries* self, const char* signa
 }
 
 // Base class handler implementation
-int QPercentBarSeries_QBaseReceivers(const QPercentBarSeries* self, const char* signal) {
+int QPercentBarSeries_SuperReceivers(const QPercentBarSeries* self, const char* signal) {
     auto* vqpercentbarseries = const_cast<VirtualQPercentBarSeries*>(dynamic_cast<const VirtualQPercentBarSeries*>(self));
     if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
         vqpercentbarseries->setQPercentBarSeries_Receivers_IsBase(true);
@@ -435,7 +435,7 @@ bool QPercentBarSeries_IsSignalConnected(const QPercentBarSeries* self, const QM
 }
 
 // Base class handler implementation
-bool QPercentBarSeries_QBaseIsSignalConnected(const QPercentBarSeries* self, const QMetaMethod* signal) {
+bool QPercentBarSeries_SuperIsSignalConnected(const QPercentBarSeries* self, const QMetaMethod* signal) {
     auto* vqpercentbarseries = const_cast<VirtualQPercentBarSeries*>(dynamic_cast<const VirtualQPercentBarSeries*>(self));
     if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
         vqpercentbarseries->setQPercentBarSeries_IsSignalConnected_IsBase(true);

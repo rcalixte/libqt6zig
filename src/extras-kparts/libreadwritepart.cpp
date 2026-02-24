@@ -175,7 +175,7 @@ bool KParts__ReadWritePart_SaveToUrl(KParts__ReadWritePart* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KParts__ReadWritePart_QBaseMetaObject(const KParts__ReadWritePart* self) {
+QMetaObject* KParts__ReadWritePart_SuperMetaObject(const KParts__ReadWritePart* self) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_MetaObject_IsBase(true);
@@ -194,7 +194,7 @@ void KParts__ReadWritePart_OnMetaObject(const KParts__ReadWritePart* self, intpt
 }
 
 // Base class handler implementation
-void* KParts__ReadWritePart_QBaseMetacast(KParts__ReadWritePart* self, const char* param1) {
+void* KParts__ReadWritePart_SuperMetacast(KParts__ReadWritePart* self, const char* param1) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_Metacast_IsBase(true);
@@ -213,7 +213,7 @@ void KParts__ReadWritePart_OnMetacast(KParts__ReadWritePart* self, intptr_t slot
 }
 
 // Base class handler implementation
-int KParts__ReadWritePart_QBaseMetacall(KParts__ReadWritePart* self, int param1, int param2, void** param3) {
+int KParts__ReadWritePart_SuperMetacall(KParts__ReadWritePart* self, int param1, int param2, void** param3) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_Metacall_IsBase(true);
@@ -232,7 +232,7 @@ void KParts__ReadWritePart_OnMetacall(KParts__ReadWritePart* self, intptr_t slot
 }
 
 // Base class handler implementation
-void KParts__ReadWritePart_QBaseSetReadWrite(KParts__ReadWritePart* self, bool readwrite) {
+void KParts__ReadWritePart_SuperSetReadWrite(KParts__ReadWritePart* self, bool readwrite) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_SetReadWrite_IsBase(true);
@@ -251,7 +251,7 @@ void KParts__ReadWritePart_OnSetReadWrite(KParts__ReadWritePart* self, intptr_t 
 }
 
 // Base class handler implementation
-bool KParts__ReadWritePart_QBaseQueryClose(KParts__ReadWritePart* self) {
+bool KParts__ReadWritePart_SuperQueryClose(KParts__ReadWritePart* self) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_QueryClose_IsBase(true);
@@ -270,7 +270,7 @@ void KParts__ReadWritePart_OnQueryClose(KParts__ReadWritePart* self, intptr_t sl
 }
 
 // Base class handler implementation
-bool KParts__ReadWritePart_QBaseCloseUrl(KParts__ReadWritePart* self) {
+bool KParts__ReadWritePart_SuperCloseUrl(KParts__ReadWritePart* self) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_CloseUrl_IsBase(true);
@@ -289,7 +289,7 @@ void KParts__ReadWritePart_OnCloseUrl(KParts__ReadWritePart* self, intptr_t slot
 }
 
 // Base class handler implementation
-bool KParts__ReadWritePart_QBaseCloseUrl2(KParts__ReadWritePart* self, bool promptToSave) {
+bool KParts__ReadWritePart_SuperCloseUrl2(KParts__ReadWritePart* self, bool promptToSave) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_CloseUrl2_IsBase(true);
@@ -308,7 +308,7 @@ void KParts__ReadWritePart_OnCloseUrl2(KParts__ReadWritePart* self, intptr_t slo
 }
 
 // Base class handler implementation
-bool KParts__ReadWritePart_QBaseSaveAs(KParts__ReadWritePart* self, const QUrl* url) {
+bool KParts__ReadWritePart_SuperSaveAs(KParts__ReadWritePart* self, const QUrl* url) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_SaveAs_IsBase(true);
@@ -327,7 +327,7 @@ void KParts__ReadWritePart_OnSaveAs(KParts__ReadWritePart* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void KParts__ReadWritePart_QBaseSetModified(KParts__ReadWritePart* self, bool modified) {
+void KParts__ReadWritePart_SuperSetModified(KParts__ReadWritePart* self, bool modified) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_SetModified_IsBase(true);
@@ -346,7 +346,7 @@ void KParts__ReadWritePart_OnSetModified(KParts__ReadWritePart* self, intptr_t s
 }
 
 // Base class handler implementation
-bool KParts__ReadWritePart_QBaseSave(KParts__ReadWritePart* self) {
+bool KParts__ReadWritePart_SuperSave(KParts__ReadWritePart* self) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_Save_IsBase(true);
@@ -365,7 +365,7 @@ void KParts__ReadWritePart_OnSave(KParts__ReadWritePart* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KParts__ReadWritePart_QBaseSaveFile(KParts__ReadWritePart* self) {
+bool KParts__ReadWritePart_SuperSaveFile(KParts__ReadWritePart* self) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_SaveFile_IsBase(true);
@@ -384,7 +384,7 @@ void KParts__ReadWritePart_OnSaveFile(KParts__ReadWritePart* self, intptr_t slot
 }
 
 // Base class handler implementation
-bool KParts__ReadWritePart_QBaseSaveToUrl(KParts__ReadWritePart* self) {
+bool KParts__ReadWritePart_SuperSaveToUrl(KParts__ReadWritePart* self) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_SaveToUrl_IsBase(true);
@@ -413,7 +413,7 @@ bool KParts__ReadWritePart_OpenUrl(KParts__ReadWritePart* self, const QUrl* url)
 }
 
 // Base class handler implementation
-bool KParts__ReadWritePart_QBaseOpenUrl(KParts__ReadWritePart* self, const QUrl* url) {
+bool KParts__ReadWritePart_SuperOpenUrl(KParts__ReadWritePart* self, const QUrl* url) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_OpenUrl_IsBase(true);
@@ -442,7 +442,7 @@ bool KParts__ReadWritePart_OpenFile(KParts__ReadWritePart* self) {
 }
 
 // Base class handler implementation
-bool KParts__ReadWritePart_QBaseOpenFile(KParts__ReadWritePart* self) {
+bool KParts__ReadWritePart_SuperOpenFile(KParts__ReadWritePart* self) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_OpenFile_IsBase(true);
@@ -471,7 +471,7 @@ void KParts__ReadWritePart_GuiActivateEvent(KParts__ReadWritePart* self, KParts_
 }
 
 // Base class handler implementation
-void KParts__ReadWritePart_QBaseGuiActivateEvent(KParts__ReadWritePart* self, KParts__GUIActivateEvent* event) {
+void KParts__ReadWritePart_SuperGuiActivateEvent(KParts__ReadWritePart* self, KParts__GUIActivateEvent* event) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_GuiActivateEvent_IsBase(true);
@@ -500,7 +500,7 @@ QWidget* KParts__ReadWritePart_Widget(KParts__ReadWritePart* self) {
 }
 
 // Base class handler implementation
-QWidget* KParts__ReadWritePart_QBaseWidget(KParts__ReadWritePart* self) {
+QWidget* KParts__ReadWritePart_SuperWidget(KParts__ReadWritePart* self) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_Widget_IsBase(true);
@@ -529,7 +529,7 @@ void KParts__ReadWritePart_SetManager(KParts__ReadWritePart* self, KParts__PartM
 }
 
 // Base class handler implementation
-void KParts__ReadWritePart_QBaseSetManager(KParts__ReadWritePart* self, KParts__PartManager* manager) {
+void KParts__ReadWritePart_SuperSetManager(KParts__ReadWritePart* self, KParts__PartManager* manager) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_SetManager_IsBase(true);
@@ -558,7 +558,7 @@ KParts__Part* KParts__ReadWritePart_HitTest(KParts__ReadWritePart* self, QWidget
 }
 
 // Base class handler implementation
-KParts__Part* KParts__ReadWritePart_QBaseHitTest(KParts__ReadWritePart* self, QWidget* widget, const QPoint* globalPos) {
+KParts__Part* KParts__ReadWritePart_SuperHitTest(KParts__ReadWritePart* self, QWidget* widget, const QPoint* globalPos) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_HitTest_IsBase(true);
@@ -587,7 +587,7 @@ void KParts__ReadWritePart_SetWidget(KParts__ReadWritePart* self, QWidget* widge
 }
 
 // Base class handler implementation
-void KParts__ReadWritePart_QBaseSetWidget(KParts__ReadWritePart* self, QWidget* widget) {
+void KParts__ReadWritePart_SuperSetWidget(KParts__ReadWritePart* self, QWidget* widget) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_SetWidget_IsBase(true);
@@ -616,7 +616,7 @@ void KParts__ReadWritePart_CustomEvent(KParts__ReadWritePart* self, QEvent* even
 }
 
 // Base class handler implementation
-void KParts__ReadWritePart_QBaseCustomEvent(KParts__ReadWritePart* self, QEvent* event) {
+void KParts__ReadWritePart_SuperCustomEvent(KParts__ReadWritePart* self, QEvent* event) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_CustomEvent_IsBase(true);
@@ -645,7 +645,7 @@ void KParts__ReadWritePart_PartActivateEvent(KParts__ReadWritePart* self, KParts
 }
 
 // Base class handler implementation
-void KParts__ReadWritePart_QBasePartActivateEvent(KParts__ReadWritePart* self, KParts__PartActivateEvent* event) {
+void KParts__ReadWritePart_SuperPartActivateEvent(KParts__ReadWritePart* self, KParts__PartActivateEvent* event) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_PartActivateEvent_IsBase(true);
@@ -674,7 +674,7 @@ bool KParts__ReadWritePart_Event(KParts__ReadWritePart* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KParts__ReadWritePart_QBaseEvent(KParts__ReadWritePart* self, QEvent* event) {
+bool KParts__ReadWritePart_SuperEvent(KParts__ReadWritePart* self, QEvent* event) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_Event_IsBase(true);
@@ -703,7 +703,7 @@ bool KParts__ReadWritePart_EventFilter(KParts__ReadWritePart* self, QObject* wat
 }
 
 // Base class handler implementation
-bool KParts__ReadWritePart_QBaseEventFilter(KParts__ReadWritePart* self, QObject* watched, QEvent* event) {
+bool KParts__ReadWritePart_SuperEventFilter(KParts__ReadWritePart* self, QObject* watched, QEvent* event) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_EventFilter_IsBase(true);
@@ -732,7 +732,7 @@ void KParts__ReadWritePart_TimerEvent(KParts__ReadWritePart* self, QTimerEvent* 
 }
 
 // Base class handler implementation
-void KParts__ReadWritePart_QBaseTimerEvent(KParts__ReadWritePart* self, QTimerEvent* event) {
+void KParts__ReadWritePart_SuperTimerEvent(KParts__ReadWritePart* self, QTimerEvent* event) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_TimerEvent_IsBase(true);
@@ -761,7 +761,7 @@ void KParts__ReadWritePart_ChildEvent(KParts__ReadWritePart* self, QChildEvent* 
 }
 
 // Base class handler implementation
-void KParts__ReadWritePart_QBaseChildEvent(KParts__ReadWritePart* self, QChildEvent* event) {
+void KParts__ReadWritePart_SuperChildEvent(KParts__ReadWritePart* self, QChildEvent* event) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_ChildEvent_IsBase(true);
@@ -790,7 +790,7 @@ void KParts__ReadWritePart_ConnectNotify(KParts__ReadWritePart* self, const QMet
 }
 
 // Base class handler implementation
-void KParts__ReadWritePart_QBaseConnectNotify(KParts__ReadWritePart* self, const QMetaMethod* signal) {
+void KParts__ReadWritePart_SuperConnectNotify(KParts__ReadWritePart* self, const QMetaMethod* signal) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_ConnectNotify_IsBase(true);
@@ -819,7 +819,7 @@ void KParts__ReadWritePart_DisconnectNotify(KParts__ReadWritePart* self, const Q
 }
 
 // Base class handler implementation
-void KParts__ReadWritePart_QBaseDisconnectNotify(KParts__ReadWritePart* self, const QMetaMethod* signal) {
+void KParts__ReadWritePart_SuperDisconnectNotify(KParts__ReadWritePart* self, const QMetaMethod* signal) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_DisconnectNotify_IsBase(true);
@@ -848,7 +848,7 @@ QAction* KParts__ReadWritePart_Action2(const KParts__ReadWritePart* self, const 
 }
 
 // Base class handler implementation
-QAction* KParts__ReadWritePart_QBaseAction2(const KParts__ReadWritePart* self, const QDomElement* element) {
+QAction* KParts__ReadWritePart_SuperAction2(const KParts__ReadWritePart* self, const QDomElement* element) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_Action2_IsBase(true);
@@ -877,7 +877,7 @@ KActionCollection* KParts__ReadWritePart_ActionCollection(const KParts__ReadWrit
 }
 
 // Base class handler implementation
-KActionCollection* KParts__ReadWritePart_QBaseActionCollection(const KParts__ReadWritePart* self) {
+KActionCollection* KParts__ReadWritePart_SuperActionCollection(const KParts__ReadWritePart* self) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_ActionCollection_IsBase(true);
@@ -922,7 +922,7 @@ libqt_string KParts__ReadWritePart_ComponentName(const KParts__ReadWritePart* se
 }
 
 // Base class handler implementation
-libqt_string KParts__ReadWritePart_QBaseComponentName(const KParts__ReadWritePart* self) {
+libqt_string KParts__ReadWritePart_SuperComponentName(const KParts__ReadWritePart* self) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_ComponentName_IsBase(true);
@@ -967,7 +967,7 @@ QDomDocument* KParts__ReadWritePart_DomDocument(const KParts__ReadWritePart* sel
 }
 
 // Base class handler implementation
-QDomDocument* KParts__ReadWritePart_QBaseDomDocument(const KParts__ReadWritePart* self) {
+QDomDocument* KParts__ReadWritePart_SuperDomDocument(const KParts__ReadWritePart* self) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_DomDocument_IsBase(true);
@@ -1012,7 +1012,7 @@ libqt_string KParts__ReadWritePart_XmlFile(const KParts__ReadWritePart* self) {
 }
 
 // Base class handler implementation
-libqt_string KParts__ReadWritePart_QBaseXmlFile(const KParts__ReadWritePart* self) {
+libqt_string KParts__ReadWritePart_SuperXmlFile(const KParts__ReadWritePart* self) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_XmlFile_IsBase(true);
@@ -1073,7 +1073,7 @@ libqt_string KParts__ReadWritePart_LocalXMLFile(const KParts__ReadWritePart* sel
 }
 
 // Base class handler implementation
-libqt_string KParts__ReadWritePart_QBaseLocalXMLFile(const KParts__ReadWritePart* self) {
+libqt_string KParts__ReadWritePart_SuperLocalXMLFile(const KParts__ReadWritePart* self) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_LocalXMLFile_IsBase(true);
@@ -1120,7 +1120,7 @@ void KParts__ReadWritePart_SetComponentName(KParts__ReadWritePart* self, const l
 }
 
 // Base class handler implementation
-void KParts__ReadWritePart_QBaseSetComponentName(KParts__ReadWritePart* self, const libqt_string componentName, const libqt_string componentDisplayName) {
+void KParts__ReadWritePart_SuperSetComponentName(KParts__ReadWritePart* self, const libqt_string componentName, const libqt_string componentDisplayName) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     QString componentName_QString = QString::fromUtf8(componentName.data, componentName.len);
     QString componentDisplayName_QString = QString::fromUtf8(componentDisplayName.data, componentDisplayName.len);
@@ -1152,7 +1152,7 @@ void KParts__ReadWritePart_SetXMLFile(KParts__ReadWritePart* self, const libqt_s
 }
 
 // Base class handler implementation
-void KParts__ReadWritePart_QBaseSetXMLFile(KParts__ReadWritePart* self, const libqt_string file, bool merge, bool setXMLDoc) {
+void KParts__ReadWritePart_SuperSetXMLFile(KParts__ReadWritePart* self, const libqt_string file, bool merge, bool setXMLDoc) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
@@ -1183,7 +1183,7 @@ void KParts__ReadWritePart_SetLocalXMLFile(KParts__ReadWritePart* self, const li
 }
 
 // Base class handler implementation
-void KParts__ReadWritePart_QBaseSetLocalXMLFile(KParts__ReadWritePart* self, const libqt_string file) {
+void KParts__ReadWritePart_SuperSetLocalXMLFile(KParts__ReadWritePart* self, const libqt_string file) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
@@ -1214,7 +1214,7 @@ void KParts__ReadWritePart_SetXML(KParts__ReadWritePart* self, const libqt_strin
 }
 
 // Base class handler implementation
-void KParts__ReadWritePart_QBaseSetXML(KParts__ReadWritePart* self, const libqt_string document, bool merge) {
+void KParts__ReadWritePart_SuperSetXML(KParts__ReadWritePart* self, const libqt_string document, bool merge) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     QString document_QString = QString::fromUtf8(document.data, document.len);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
@@ -1244,7 +1244,7 @@ void KParts__ReadWritePart_SetDOMDocument(KParts__ReadWritePart* self, const QDo
 }
 
 // Base class handler implementation
-void KParts__ReadWritePart_QBaseSetDOMDocument(KParts__ReadWritePart* self, const QDomDocument* document, bool merge) {
+void KParts__ReadWritePart_SuperSetDOMDocument(KParts__ReadWritePart* self, const QDomDocument* document, bool merge) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_SetDOMDocument_IsBase(true);
@@ -1274,7 +1274,7 @@ void KParts__ReadWritePart_StateChanged(KParts__ReadWritePart* self, const libqt
 }
 
 // Base class handler implementation
-void KParts__ReadWritePart_QBaseStateChanged(KParts__ReadWritePart* self, const libqt_string newstate, int reverse) {
+void KParts__ReadWritePart_SuperStateChanged(KParts__ReadWritePart* self, const libqt_string newstate, int reverse) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     QString newstate_QString = QString::fromUtf8(newstate.data, newstate.len);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
@@ -1304,7 +1304,7 @@ void KParts__ReadWritePart_AbortLoad(KParts__ReadWritePart* self) {
 }
 
 // Base class handler implementation
-void KParts__ReadWritePart_QBaseAbortLoad(KParts__ReadWritePart* self) {
+void KParts__ReadWritePart_SuperAbortLoad(KParts__ReadWritePart* self) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_AbortLoad_IsBase(true);
@@ -1333,7 +1333,7 @@ void KParts__ReadWritePart_SetUrl(KParts__ReadWritePart* self, const QUrl* url) 
 }
 
 // Base class handler implementation
-void KParts__ReadWritePart_QBaseSetUrl(KParts__ReadWritePart* self, const QUrl* url) {
+void KParts__ReadWritePart_SuperSetUrl(KParts__ReadWritePart* self, const QUrl* url) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_SetUrl_IsBase(true);
@@ -1378,7 +1378,7 @@ libqt_string KParts__ReadWritePart_LocalFilePath(const KParts__ReadWritePart* se
 }
 
 // Base class handler implementation
-libqt_string KParts__ReadWritePart_QBaseLocalFilePath(const KParts__ReadWritePart* self) {
+libqt_string KParts__ReadWritePart_SuperLocalFilePath(const KParts__ReadWritePart* self) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_LocalFilePath_IsBase(true);
@@ -1424,7 +1424,7 @@ void KParts__ReadWritePart_SetLocalFilePath(KParts__ReadWritePart* self, const l
 }
 
 // Base class handler implementation
-void KParts__ReadWritePart_QBaseSetLocalFilePath(KParts__ReadWritePart* self, const libqt_string localFilePath) {
+void KParts__ReadWritePart_SuperSetLocalFilePath(KParts__ReadWritePart* self, const libqt_string localFilePath) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     QString localFilePath_QString = QString::fromUtf8(localFilePath.data, localFilePath.len);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
@@ -1455,7 +1455,7 @@ QWidget* KParts__ReadWritePart_HostContainer(KParts__ReadWritePart* self, const 
 }
 
 // Base class handler implementation
-QWidget* KParts__ReadWritePart_QBaseHostContainer(KParts__ReadWritePart* self, const libqt_string containerName) {
+QWidget* KParts__ReadWritePart_SuperHostContainer(KParts__ReadWritePart* self, const libqt_string containerName) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     QString containerName_QString = QString::fromUtf8(containerName.data, containerName.len);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
@@ -1485,7 +1485,7 @@ void KParts__ReadWritePart_SlotWidgetDestroyed(KParts__ReadWritePart* self) {
 }
 
 // Base class handler implementation
-void KParts__ReadWritePart_QBaseSlotWidgetDestroyed(KParts__ReadWritePart* self) {
+void KParts__ReadWritePart_SuperSlotWidgetDestroyed(KParts__ReadWritePart* self) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_SlotWidgetDestroyed_IsBase(true);
@@ -1514,7 +1514,7 @@ QObject* KParts__ReadWritePart_Sender(const KParts__ReadWritePart* self) {
 }
 
 // Base class handler implementation
-QObject* KParts__ReadWritePart_QBaseSender(const KParts__ReadWritePart* self) {
+QObject* KParts__ReadWritePart_SuperSender(const KParts__ReadWritePart* self) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_Sender_IsBase(true);
@@ -1543,7 +1543,7 @@ int KParts__ReadWritePart_SenderSignalIndex(const KParts__ReadWritePart* self) {
 }
 
 // Base class handler implementation
-int KParts__ReadWritePart_QBaseSenderSignalIndex(const KParts__ReadWritePart* self) {
+int KParts__ReadWritePart_SuperSenderSignalIndex(const KParts__ReadWritePart* self) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_SenderSignalIndex_IsBase(true);
@@ -1572,7 +1572,7 @@ int KParts__ReadWritePart_Receivers(const KParts__ReadWritePart* self, const cha
 }
 
 // Base class handler implementation
-int KParts__ReadWritePart_QBaseReceivers(const KParts__ReadWritePart* self, const char* signal) {
+int KParts__ReadWritePart_SuperReceivers(const KParts__ReadWritePart* self, const char* signal) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_Receivers_IsBase(true);
@@ -1601,7 +1601,7 @@ bool KParts__ReadWritePart_IsSignalConnected(const KParts__ReadWritePart* self, 
 }
 
 // Base class handler implementation
-bool KParts__ReadWritePart_QBaseIsSignalConnected(const KParts__ReadWritePart* self, const QMetaMethod* signal) {
+bool KParts__ReadWritePart_SuperIsSignalConnected(const KParts__ReadWritePart* self, const QMetaMethod* signal) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_IsSignalConnected_IsBase(true);
@@ -1646,7 +1646,7 @@ libqt_string KParts__ReadWritePart_StandardsXmlFileLocation(KParts__ReadWritePar
 }
 
 // Base class handler implementation
-libqt_string KParts__ReadWritePart_QBaseStandardsXmlFileLocation(KParts__ReadWritePart* self) {
+libqt_string KParts__ReadWritePart_SuperStandardsXmlFileLocation(KParts__ReadWritePart* self) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_StandardsXmlFileLocation_IsBase(true);
@@ -1691,7 +1691,7 @@ void KParts__ReadWritePart_LoadStandardsXmlFile(KParts__ReadWritePart* self) {
 }
 
 // Base class handler implementation
-void KParts__ReadWritePart_QBaseLoadStandardsXmlFile(KParts__ReadWritePart* self) {
+void KParts__ReadWritePart_SuperLoadStandardsXmlFile(KParts__ReadWritePart* self) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
     if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
         vkpartsreadwritepart->setKParts__ReadWritePart_LoadStandardsXmlFile_IsBase(true);

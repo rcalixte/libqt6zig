@@ -1041,6 +1041,9 @@ pub const qwebenginewebauthuxrequest = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#dtor.QWebEngineWebAuthUxRequest)
     ///
@@ -1050,7 +1053,7 @@ pub const qwebenginewebauthuxrequest = struct {
     ///
     /// ` self: QtC.QWebEngineWebAuthUxRequest `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebEngineWebAuthUxRequest_Delete(@ptrCast(self));
     }
 };
@@ -1153,6 +1156,10 @@ pub const qwebenginewebauthpinrequest = struct {
         qtc.QWebEngineWebAuthPinRequest_SetRemainingAttempts(@ptrCast(self), @bitCast(remainingAttempts));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#dtor.QWebEngineWebAuthPinRequest)
     ///
     /// Delete this object from C++ memory.
@@ -1161,7 +1168,7 @@ pub const qwebenginewebauthpinrequest = struct {
     ///
     /// ` self: QtC.QWebEngineWebAuthPinRequest `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebEngineWebAuthPinRequest_Delete(@ptrCast(self));
     }
 };

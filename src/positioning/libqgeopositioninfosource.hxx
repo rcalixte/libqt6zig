@@ -535,23 +535,23 @@ class VirtualQGeoPositionInfoSource : public QGeoPositionInfoSource {
 
     // Friend functions
     friend void QGeoPositionInfoSource_TimerEvent(QGeoPositionInfoSource* self, QTimerEvent* event);
-    friend void QGeoPositionInfoSource_QBaseTimerEvent(QGeoPositionInfoSource* self, QTimerEvent* event);
+    friend void QGeoPositionInfoSource_SuperTimerEvent(QGeoPositionInfoSource* self, QTimerEvent* event);
     friend void QGeoPositionInfoSource_ChildEvent(QGeoPositionInfoSource* self, QChildEvent* event);
-    friend void QGeoPositionInfoSource_QBaseChildEvent(QGeoPositionInfoSource* self, QChildEvent* event);
+    friend void QGeoPositionInfoSource_SuperChildEvent(QGeoPositionInfoSource* self, QChildEvent* event);
     friend void QGeoPositionInfoSource_CustomEvent(QGeoPositionInfoSource* self, QEvent* event);
-    friend void QGeoPositionInfoSource_QBaseCustomEvent(QGeoPositionInfoSource* self, QEvent* event);
+    friend void QGeoPositionInfoSource_SuperCustomEvent(QGeoPositionInfoSource* self, QEvent* event);
     friend void QGeoPositionInfoSource_ConnectNotify(QGeoPositionInfoSource* self, const QMetaMethod* signal);
-    friend void QGeoPositionInfoSource_QBaseConnectNotify(QGeoPositionInfoSource* self, const QMetaMethod* signal);
+    friend void QGeoPositionInfoSource_SuperConnectNotify(QGeoPositionInfoSource* self, const QMetaMethod* signal);
     friend void QGeoPositionInfoSource_DisconnectNotify(QGeoPositionInfoSource* self, const QMetaMethod* signal);
-    friend void QGeoPositionInfoSource_QBaseDisconnectNotify(QGeoPositionInfoSource* self, const QMetaMethod* signal);
+    friend void QGeoPositionInfoSource_SuperDisconnectNotify(QGeoPositionInfoSource* self, const QMetaMethod* signal);
     friend QObject* QGeoPositionInfoSource_Sender(const QGeoPositionInfoSource* self);
-    friend QObject* QGeoPositionInfoSource_QBaseSender(const QGeoPositionInfoSource* self);
+    friend QObject* QGeoPositionInfoSource_SuperSender(const QGeoPositionInfoSource* self);
     friend int QGeoPositionInfoSource_SenderSignalIndex(const QGeoPositionInfoSource* self);
-    friend int QGeoPositionInfoSource_QBaseSenderSignalIndex(const QGeoPositionInfoSource* self);
+    friend int QGeoPositionInfoSource_SuperSenderSignalIndex(const QGeoPositionInfoSource* self);
     friend int QGeoPositionInfoSource_Receivers(const QGeoPositionInfoSource* self, const char* signal);
-    friend int QGeoPositionInfoSource_QBaseReceivers(const QGeoPositionInfoSource* self, const char* signal);
+    friend int QGeoPositionInfoSource_SuperReceivers(const QGeoPositionInfoSource* self, const char* signal);
     friend bool QGeoPositionInfoSource_IsSignalConnected(const QGeoPositionInfoSource* self, const QMetaMethod* signal);
-    friend bool QGeoPositionInfoSource_QBaseIsSignalConnected(const QGeoPositionInfoSource* self, const QMetaMethod* signal);
+    friend bool QGeoPositionInfoSource_SuperIsSignalConnected(const QGeoPositionInfoSource* self, const QMetaMethod* signal);
 };
 
 #endif

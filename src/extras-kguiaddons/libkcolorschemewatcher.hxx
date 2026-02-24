@@ -328,23 +328,23 @@ class VirtualKColorSchemeWatcher final : public KColorSchemeWatcher {
 
     // Friend functions
     friend void KColorSchemeWatcher_TimerEvent(KColorSchemeWatcher* self, QTimerEvent* event);
-    friend void KColorSchemeWatcher_QBaseTimerEvent(KColorSchemeWatcher* self, QTimerEvent* event);
+    friend void KColorSchemeWatcher_SuperTimerEvent(KColorSchemeWatcher* self, QTimerEvent* event);
     friend void KColorSchemeWatcher_ChildEvent(KColorSchemeWatcher* self, QChildEvent* event);
-    friend void KColorSchemeWatcher_QBaseChildEvent(KColorSchemeWatcher* self, QChildEvent* event);
+    friend void KColorSchemeWatcher_SuperChildEvent(KColorSchemeWatcher* self, QChildEvent* event);
     friend void KColorSchemeWatcher_CustomEvent(KColorSchemeWatcher* self, QEvent* event);
-    friend void KColorSchemeWatcher_QBaseCustomEvent(KColorSchemeWatcher* self, QEvent* event);
+    friend void KColorSchemeWatcher_SuperCustomEvent(KColorSchemeWatcher* self, QEvent* event);
     friend void KColorSchemeWatcher_ConnectNotify(KColorSchemeWatcher* self, const QMetaMethod* signal);
-    friend void KColorSchemeWatcher_QBaseConnectNotify(KColorSchemeWatcher* self, const QMetaMethod* signal);
+    friend void KColorSchemeWatcher_SuperConnectNotify(KColorSchemeWatcher* self, const QMetaMethod* signal);
     friend void KColorSchemeWatcher_DisconnectNotify(KColorSchemeWatcher* self, const QMetaMethod* signal);
-    friend void KColorSchemeWatcher_QBaseDisconnectNotify(KColorSchemeWatcher* self, const QMetaMethod* signal);
+    friend void KColorSchemeWatcher_SuperDisconnectNotify(KColorSchemeWatcher* self, const QMetaMethod* signal);
     friend QObject* KColorSchemeWatcher_Sender(const KColorSchemeWatcher* self);
-    friend QObject* KColorSchemeWatcher_QBaseSender(const KColorSchemeWatcher* self);
+    friend QObject* KColorSchemeWatcher_SuperSender(const KColorSchemeWatcher* self);
     friend int KColorSchemeWatcher_SenderSignalIndex(const KColorSchemeWatcher* self);
-    friend int KColorSchemeWatcher_QBaseSenderSignalIndex(const KColorSchemeWatcher* self);
+    friend int KColorSchemeWatcher_SuperSenderSignalIndex(const KColorSchemeWatcher* self);
     friend int KColorSchemeWatcher_Receivers(const KColorSchemeWatcher* self, const char* signal);
-    friend int KColorSchemeWatcher_QBaseReceivers(const KColorSchemeWatcher* self, const char* signal);
+    friend int KColorSchemeWatcher_SuperReceivers(const KColorSchemeWatcher* self, const char* signal);
     friend bool KColorSchemeWatcher_IsSignalConnected(const KColorSchemeWatcher* self, const QMetaMethod* signal);
-    friend bool KColorSchemeWatcher_QBaseIsSignalConnected(const KColorSchemeWatcher* self, const QMetaMethod* signal);
+    friend bool KColorSchemeWatcher_SuperIsSignalConnected(const KColorSchemeWatcher* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -435,6 +435,10 @@ pub const qgeopolygon = struct {
         return qtc.QGeoShape_Center(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopolygon.html#dtor.QGeoPolygon)
     ///
     /// Delete this object from C++ memory.
@@ -443,7 +447,7 @@ pub const qgeopolygon = struct {
     ///
     /// ` self: QtC.QGeoPolygon `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGeoPolygon_Delete(@ptrCast(self));
     }
 };

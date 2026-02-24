@@ -194,6 +194,10 @@ pub const kparts__partactivateevent = struct {
         qtc.KParts__PartActivateEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -206,8 +210,8 @@ pub const kparts__partactivateevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.KParts__PartActivateEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.KParts__PartActivateEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -240,6 +244,10 @@ pub const kparts__partactivateevent = struct {
         return qtc.KParts__PartActivateEvent_Clone(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
@@ -250,8 +258,8 @@ pub const kparts__partactivateevent = struct {
     ///
     /// ` self: QtC.KParts__PartActivateEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QEvent {
-        return qtc.KParts__PartActivateEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.KParts__PartActivateEvent_SuperClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -269,6 +277,9 @@ pub const kparts__partactivateevent = struct {
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
         qtc.KParts__PartActivateEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -276,7 +287,7 @@ pub const kparts__partactivateevent = struct {
     ///
     /// ` self: QtC.KParts__PartActivateEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KParts__PartActivateEvent_Delete(@ptrCast(self));
     }
 };

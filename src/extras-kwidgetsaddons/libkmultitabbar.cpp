@@ -174,7 +174,7 @@ int KMultiTabBar_AppendTab3(KMultiTabBar* self, const QIcon* icon, int id, const
 }
 
 // Base class handler implementation
-QMetaObject* KMultiTabBar_QBaseMetaObject(const KMultiTabBar* self) {
+QMetaObject* KMultiTabBar_SuperMetaObject(const KMultiTabBar* self) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_MetaObject_IsBase(true);
@@ -193,7 +193,7 @@ void KMultiTabBar_OnMetaObject(const KMultiTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KMultiTabBar_QBaseMetacast(KMultiTabBar* self, const char* param1) {
+void* KMultiTabBar_SuperMetacast(KMultiTabBar* self, const char* param1) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_Metacast_IsBase(true);
@@ -212,7 +212,7 @@ void KMultiTabBar_OnMetacast(KMultiTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KMultiTabBar_QBaseMetacall(KMultiTabBar* self, int param1, int param2, void** param3) {
+int KMultiTabBar_SuperMetacall(KMultiTabBar* self, int param1, int param2, void** param3) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_Metacall_IsBase(true);
@@ -231,7 +231,7 @@ void KMultiTabBar_OnMetacall(KMultiTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseFontChange(KMultiTabBar* self, const QFont* param1) {
+void KMultiTabBar_SuperFontChange(KMultiTabBar* self, const QFont* param1) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_FontChange_IsBase(true);
@@ -250,7 +250,7 @@ void KMultiTabBar_OnFontChange(KMultiTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBasePaintEvent(KMultiTabBar* self, QPaintEvent* param1) {
+void KMultiTabBar_SuperPaintEvent(KMultiTabBar* self, QPaintEvent* param1) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_PaintEvent_IsBase(true);
@@ -279,7 +279,7 @@ int KMultiTabBar_DevType(const KMultiTabBar* self) {
 }
 
 // Base class handler implementation
-int KMultiTabBar_QBaseDevType(const KMultiTabBar* self) {
+int KMultiTabBar_SuperDevType(const KMultiTabBar* self) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_DevType_IsBase(true);
@@ -308,7 +308,7 @@ void KMultiTabBar_SetVisible(KMultiTabBar* self, bool visible) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseSetVisible(KMultiTabBar* self, bool visible) {
+void KMultiTabBar_SuperSetVisible(KMultiTabBar* self, bool visible) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_SetVisible_IsBase(true);
@@ -337,7 +337,7 @@ QSize* KMultiTabBar_SizeHint(const KMultiTabBar* self) {
 }
 
 // Base class handler implementation
-QSize* KMultiTabBar_QBaseSizeHint(const KMultiTabBar* self) {
+QSize* KMultiTabBar_SuperSizeHint(const KMultiTabBar* self) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_SizeHint_IsBase(true);
@@ -366,7 +366,7 @@ QSize* KMultiTabBar_MinimumSizeHint(const KMultiTabBar* self) {
 }
 
 // Base class handler implementation
-QSize* KMultiTabBar_QBaseMinimumSizeHint(const KMultiTabBar* self) {
+QSize* KMultiTabBar_SuperMinimumSizeHint(const KMultiTabBar* self) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_MinimumSizeHint_IsBase(true);
@@ -395,7 +395,7 @@ int KMultiTabBar_HeightForWidth(const KMultiTabBar* self, int param1) {
 }
 
 // Base class handler implementation
-int KMultiTabBar_QBaseHeightForWidth(const KMultiTabBar* self, int param1) {
+int KMultiTabBar_SuperHeightForWidth(const KMultiTabBar* self, int param1) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_HeightForWidth_IsBase(true);
@@ -424,7 +424,7 @@ bool KMultiTabBar_HasHeightForWidth(const KMultiTabBar* self) {
 }
 
 // Base class handler implementation
-bool KMultiTabBar_QBaseHasHeightForWidth(const KMultiTabBar* self) {
+bool KMultiTabBar_SuperHasHeightForWidth(const KMultiTabBar* self) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_HasHeightForWidth_IsBase(true);
@@ -453,7 +453,7 @@ QPaintEngine* KMultiTabBar_PaintEngine(const KMultiTabBar* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KMultiTabBar_QBasePaintEngine(const KMultiTabBar* self) {
+QPaintEngine* KMultiTabBar_SuperPaintEngine(const KMultiTabBar* self) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_PaintEngine_IsBase(true);
@@ -482,7 +482,7 @@ bool KMultiTabBar_Event(KMultiTabBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KMultiTabBar_QBaseEvent(KMultiTabBar* self, QEvent* event) {
+bool KMultiTabBar_SuperEvent(KMultiTabBar* self, QEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_Event_IsBase(true);
@@ -511,7 +511,7 @@ void KMultiTabBar_MousePressEvent(KMultiTabBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseMousePressEvent(KMultiTabBar* self, QMouseEvent* event) {
+void KMultiTabBar_SuperMousePressEvent(KMultiTabBar* self, QMouseEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_MousePressEvent_IsBase(true);
@@ -540,7 +540,7 @@ void KMultiTabBar_MouseReleaseEvent(KMultiTabBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseMouseReleaseEvent(KMultiTabBar* self, QMouseEvent* event) {
+void KMultiTabBar_SuperMouseReleaseEvent(KMultiTabBar* self, QMouseEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_MouseReleaseEvent_IsBase(true);
@@ -569,7 +569,7 @@ void KMultiTabBar_MouseDoubleClickEvent(KMultiTabBar* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseMouseDoubleClickEvent(KMultiTabBar* self, QMouseEvent* event) {
+void KMultiTabBar_SuperMouseDoubleClickEvent(KMultiTabBar* self, QMouseEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_MouseDoubleClickEvent_IsBase(true);
@@ -598,7 +598,7 @@ void KMultiTabBar_MouseMoveEvent(KMultiTabBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseMouseMoveEvent(KMultiTabBar* self, QMouseEvent* event) {
+void KMultiTabBar_SuperMouseMoveEvent(KMultiTabBar* self, QMouseEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_MouseMoveEvent_IsBase(true);
@@ -627,7 +627,7 @@ void KMultiTabBar_WheelEvent(KMultiTabBar* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseWheelEvent(KMultiTabBar* self, QWheelEvent* event) {
+void KMultiTabBar_SuperWheelEvent(KMultiTabBar* self, QWheelEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_WheelEvent_IsBase(true);
@@ -656,7 +656,7 @@ void KMultiTabBar_KeyPressEvent(KMultiTabBar* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseKeyPressEvent(KMultiTabBar* self, QKeyEvent* event) {
+void KMultiTabBar_SuperKeyPressEvent(KMultiTabBar* self, QKeyEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_KeyPressEvent_IsBase(true);
@@ -685,7 +685,7 @@ void KMultiTabBar_KeyReleaseEvent(KMultiTabBar* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseKeyReleaseEvent(KMultiTabBar* self, QKeyEvent* event) {
+void KMultiTabBar_SuperKeyReleaseEvent(KMultiTabBar* self, QKeyEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_KeyReleaseEvent_IsBase(true);
@@ -714,7 +714,7 @@ void KMultiTabBar_FocusInEvent(KMultiTabBar* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseFocusInEvent(KMultiTabBar* self, QFocusEvent* event) {
+void KMultiTabBar_SuperFocusInEvent(KMultiTabBar* self, QFocusEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_FocusInEvent_IsBase(true);
@@ -743,7 +743,7 @@ void KMultiTabBar_FocusOutEvent(KMultiTabBar* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseFocusOutEvent(KMultiTabBar* self, QFocusEvent* event) {
+void KMultiTabBar_SuperFocusOutEvent(KMultiTabBar* self, QFocusEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_FocusOutEvent_IsBase(true);
@@ -772,7 +772,7 @@ void KMultiTabBar_EnterEvent(KMultiTabBar* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseEnterEvent(KMultiTabBar* self, QEnterEvent* event) {
+void KMultiTabBar_SuperEnterEvent(KMultiTabBar* self, QEnterEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_EnterEvent_IsBase(true);
@@ -801,7 +801,7 @@ void KMultiTabBar_LeaveEvent(KMultiTabBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseLeaveEvent(KMultiTabBar* self, QEvent* event) {
+void KMultiTabBar_SuperLeaveEvent(KMultiTabBar* self, QEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_LeaveEvent_IsBase(true);
@@ -830,7 +830,7 @@ void KMultiTabBar_MoveEvent(KMultiTabBar* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseMoveEvent(KMultiTabBar* self, QMoveEvent* event) {
+void KMultiTabBar_SuperMoveEvent(KMultiTabBar* self, QMoveEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_MoveEvent_IsBase(true);
@@ -859,7 +859,7 @@ void KMultiTabBar_ResizeEvent(KMultiTabBar* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseResizeEvent(KMultiTabBar* self, QResizeEvent* event) {
+void KMultiTabBar_SuperResizeEvent(KMultiTabBar* self, QResizeEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_ResizeEvent_IsBase(true);
@@ -888,7 +888,7 @@ void KMultiTabBar_CloseEvent(KMultiTabBar* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseCloseEvent(KMultiTabBar* self, QCloseEvent* event) {
+void KMultiTabBar_SuperCloseEvent(KMultiTabBar* self, QCloseEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_CloseEvent_IsBase(true);
@@ -917,7 +917,7 @@ void KMultiTabBar_ContextMenuEvent(KMultiTabBar* self, QContextMenuEvent* event)
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseContextMenuEvent(KMultiTabBar* self, QContextMenuEvent* event) {
+void KMultiTabBar_SuperContextMenuEvent(KMultiTabBar* self, QContextMenuEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_ContextMenuEvent_IsBase(true);
@@ -946,7 +946,7 @@ void KMultiTabBar_TabletEvent(KMultiTabBar* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseTabletEvent(KMultiTabBar* self, QTabletEvent* event) {
+void KMultiTabBar_SuperTabletEvent(KMultiTabBar* self, QTabletEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_TabletEvent_IsBase(true);
@@ -975,7 +975,7 @@ void KMultiTabBar_ActionEvent(KMultiTabBar* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseActionEvent(KMultiTabBar* self, QActionEvent* event) {
+void KMultiTabBar_SuperActionEvent(KMultiTabBar* self, QActionEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_ActionEvent_IsBase(true);
@@ -1004,7 +1004,7 @@ void KMultiTabBar_DragEnterEvent(KMultiTabBar* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseDragEnterEvent(KMultiTabBar* self, QDragEnterEvent* event) {
+void KMultiTabBar_SuperDragEnterEvent(KMultiTabBar* self, QDragEnterEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_DragEnterEvent_IsBase(true);
@@ -1033,7 +1033,7 @@ void KMultiTabBar_DragMoveEvent(KMultiTabBar* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseDragMoveEvent(KMultiTabBar* self, QDragMoveEvent* event) {
+void KMultiTabBar_SuperDragMoveEvent(KMultiTabBar* self, QDragMoveEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_DragMoveEvent_IsBase(true);
@@ -1062,7 +1062,7 @@ void KMultiTabBar_DragLeaveEvent(KMultiTabBar* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseDragLeaveEvent(KMultiTabBar* self, QDragLeaveEvent* event) {
+void KMultiTabBar_SuperDragLeaveEvent(KMultiTabBar* self, QDragLeaveEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_DragLeaveEvent_IsBase(true);
@@ -1091,7 +1091,7 @@ void KMultiTabBar_DropEvent(KMultiTabBar* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseDropEvent(KMultiTabBar* self, QDropEvent* event) {
+void KMultiTabBar_SuperDropEvent(KMultiTabBar* self, QDropEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_DropEvent_IsBase(true);
@@ -1120,7 +1120,7 @@ void KMultiTabBar_ShowEvent(KMultiTabBar* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseShowEvent(KMultiTabBar* self, QShowEvent* event) {
+void KMultiTabBar_SuperShowEvent(KMultiTabBar* self, QShowEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_ShowEvent_IsBase(true);
@@ -1149,7 +1149,7 @@ void KMultiTabBar_HideEvent(KMultiTabBar* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseHideEvent(KMultiTabBar* self, QHideEvent* event) {
+void KMultiTabBar_SuperHideEvent(KMultiTabBar* self, QHideEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_HideEvent_IsBase(true);
@@ -1179,7 +1179,7 @@ bool KMultiTabBar_NativeEvent(KMultiTabBar* self, const libqt_string eventType, 
 }
 
 // Base class handler implementation
-bool KMultiTabBar_QBaseNativeEvent(KMultiTabBar* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KMultiTabBar_SuperNativeEvent(KMultiTabBar* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
@@ -1209,7 +1209,7 @@ void KMultiTabBar_ChangeEvent(KMultiTabBar* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseChangeEvent(KMultiTabBar* self, QEvent* param1) {
+void KMultiTabBar_SuperChangeEvent(KMultiTabBar* self, QEvent* param1) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_ChangeEvent_IsBase(true);
@@ -1238,7 +1238,7 @@ int KMultiTabBar_Metric(const KMultiTabBar* self, int param1) {
 }
 
 // Base class handler implementation
-int KMultiTabBar_QBaseMetric(const KMultiTabBar* self, int param1) {
+int KMultiTabBar_SuperMetric(const KMultiTabBar* self, int param1) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_Metric_IsBase(true);
@@ -1267,7 +1267,7 @@ void KMultiTabBar_InitPainter(const KMultiTabBar* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseInitPainter(const KMultiTabBar* self, QPainter* painter) {
+void KMultiTabBar_SuperInitPainter(const KMultiTabBar* self, QPainter* painter) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_InitPainter_IsBase(true);
@@ -1296,7 +1296,7 @@ QPaintDevice* KMultiTabBar_Redirected(const KMultiTabBar* self, QPoint* offset) 
 }
 
 // Base class handler implementation
-QPaintDevice* KMultiTabBar_QBaseRedirected(const KMultiTabBar* self, QPoint* offset) {
+QPaintDevice* KMultiTabBar_SuperRedirected(const KMultiTabBar* self, QPoint* offset) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_Redirected_IsBase(true);
@@ -1325,7 +1325,7 @@ QPainter* KMultiTabBar_SharedPainter(const KMultiTabBar* self) {
 }
 
 // Base class handler implementation
-QPainter* KMultiTabBar_QBaseSharedPainter(const KMultiTabBar* self) {
+QPainter* KMultiTabBar_SuperSharedPainter(const KMultiTabBar* self) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_SharedPainter_IsBase(true);
@@ -1354,7 +1354,7 @@ void KMultiTabBar_InputMethodEvent(KMultiTabBar* self, QInputMethodEvent* param1
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseInputMethodEvent(KMultiTabBar* self, QInputMethodEvent* param1) {
+void KMultiTabBar_SuperInputMethodEvent(KMultiTabBar* self, QInputMethodEvent* param1) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_InputMethodEvent_IsBase(true);
@@ -1383,7 +1383,7 @@ QVariant* KMultiTabBar_InputMethodQuery(const KMultiTabBar* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KMultiTabBar_QBaseInputMethodQuery(const KMultiTabBar* self, int param1) {
+QVariant* KMultiTabBar_SuperInputMethodQuery(const KMultiTabBar* self, int param1) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_InputMethodQuery_IsBase(true);
@@ -1412,7 +1412,7 @@ bool KMultiTabBar_FocusNextPrevChild(KMultiTabBar* self, bool next) {
 }
 
 // Base class handler implementation
-bool KMultiTabBar_QBaseFocusNextPrevChild(KMultiTabBar* self, bool next) {
+bool KMultiTabBar_SuperFocusNextPrevChild(KMultiTabBar* self, bool next) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_FocusNextPrevChild_IsBase(true);
@@ -1441,7 +1441,7 @@ bool KMultiTabBar_EventFilter(KMultiTabBar* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool KMultiTabBar_QBaseEventFilter(KMultiTabBar* self, QObject* watched, QEvent* event) {
+bool KMultiTabBar_SuperEventFilter(KMultiTabBar* self, QObject* watched, QEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_EventFilter_IsBase(true);
@@ -1470,7 +1470,7 @@ void KMultiTabBar_TimerEvent(KMultiTabBar* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseTimerEvent(KMultiTabBar* self, QTimerEvent* event) {
+void KMultiTabBar_SuperTimerEvent(KMultiTabBar* self, QTimerEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_TimerEvent_IsBase(true);
@@ -1499,7 +1499,7 @@ void KMultiTabBar_ChildEvent(KMultiTabBar* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseChildEvent(KMultiTabBar* self, QChildEvent* event) {
+void KMultiTabBar_SuperChildEvent(KMultiTabBar* self, QChildEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_ChildEvent_IsBase(true);
@@ -1528,7 +1528,7 @@ void KMultiTabBar_CustomEvent(KMultiTabBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseCustomEvent(KMultiTabBar* self, QEvent* event) {
+void KMultiTabBar_SuperCustomEvent(KMultiTabBar* self, QEvent* event) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_CustomEvent_IsBase(true);
@@ -1557,7 +1557,7 @@ void KMultiTabBar_ConnectNotify(KMultiTabBar* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseConnectNotify(KMultiTabBar* self, const QMetaMethod* signal) {
+void KMultiTabBar_SuperConnectNotify(KMultiTabBar* self, const QMetaMethod* signal) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_ConnectNotify_IsBase(true);
@@ -1586,7 +1586,7 @@ void KMultiTabBar_DisconnectNotify(KMultiTabBar* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseDisconnectNotify(KMultiTabBar* self, const QMetaMethod* signal) {
+void KMultiTabBar_SuperDisconnectNotify(KMultiTabBar* self, const QMetaMethod* signal) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_DisconnectNotify_IsBase(true);
@@ -1615,7 +1615,7 @@ void KMultiTabBar_UpdateSeparator(KMultiTabBar* self) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseUpdateSeparator(KMultiTabBar* self) {
+void KMultiTabBar_SuperUpdateSeparator(KMultiTabBar* self) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_UpdateSeparator_IsBase(true);
@@ -1644,7 +1644,7 @@ void KMultiTabBar_UpdateMicroFocus(KMultiTabBar* self) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseUpdateMicroFocus(KMultiTabBar* self) {
+void KMultiTabBar_SuperUpdateMicroFocus(KMultiTabBar* self) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_UpdateMicroFocus_IsBase(true);
@@ -1673,7 +1673,7 @@ void KMultiTabBar_Create(KMultiTabBar* self) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseCreate(KMultiTabBar* self) {
+void KMultiTabBar_SuperCreate(KMultiTabBar* self) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_Create_IsBase(true);
@@ -1702,7 +1702,7 @@ void KMultiTabBar_Destroy(KMultiTabBar* self) {
 }
 
 // Base class handler implementation
-void KMultiTabBar_QBaseDestroy(KMultiTabBar* self) {
+void KMultiTabBar_SuperDestroy(KMultiTabBar* self) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_Destroy_IsBase(true);
@@ -1731,7 +1731,7 @@ bool KMultiTabBar_FocusNextChild(KMultiTabBar* self) {
 }
 
 // Base class handler implementation
-bool KMultiTabBar_QBaseFocusNextChild(KMultiTabBar* self) {
+bool KMultiTabBar_SuperFocusNextChild(KMultiTabBar* self) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_FocusNextChild_IsBase(true);
@@ -1760,7 +1760,7 @@ bool KMultiTabBar_FocusPreviousChild(KMultiTabBar* self) {
 }
 
 // Base class handler implementation
-bool KMultiTabBar_QBaseFocusPreviousChild(KMultiTabBar* self) {
+bool KMultiTabBar_SuperFocusPreviousChild(KMultiTabBar* self) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_FocusPreviousChild_IsBase(true);
@@ -1789,7 +1789,7 @@ QObject* KMultiTabBar_Sender(const KMultiTabBar* self) {
 }
 
 // Base class handler implementation
-QObject* KMultiTabBar_QBaseSender(const KMultiTabBar* self) {
+QObject* KMultiTabBar_SuperSender(const KMultiTabBar* self) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_Sender_IsBase(true);
@@ -1818,7 +1818,7 @@ int KMultiTabBar_SenderSignalIndex(const KMultiTabBar* self) {
 }
 
 // Base class handler implementation
-int KMultiTabBar_QBaseSenderSignalIndex(const KMultiTabBar* self) {
+int KMultiTabBar_SuperSenderSignalIndex(const KMultiTabBar* self) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_SenderSignalIndex_IsBase(true);
@@ -1847,7 +1847,7 @@ int KMultiTabBar_Receivers(const KMultiTabBar* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KMultiTabBar_QBaseReceivers(const KMultiTabBar* self, const char* signal) {
+int KMultiTabBar_SuperReceivers(const KMultiTabBar* self, const char* signal) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_Receivers_IsBase(true);
@@ -1876,7 +1876,7 @@ bool KMultiTabBar_IsSignalConnected(const KMultiTabBar* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool KMultiTabBar_QBaseIsSignalConnected(const KMultiTabBar* self, const QMetaMethod* signal) {
+bool KMultiTabBar_SuperIsSignalConnected(const KMultiTabBar* self, const QMetaMethod* signal) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_IsSignalConnected_IsBase(true);
@@ -1905,7 +1905,7 @@ double KMultiTabBar_GetDecodedMetricF(const KMultiTabBar* self, int metricA, int
 }
 
 // Base class handler implementation
-double KMultiTabBar_QBaseGetDecodedMetricF(const KMultiTabBar* self, int metricA, int metricB) {
+double KMultiTabBar_SuperGetDecodedMetricF(const KMultiTabBar* self, int metricA, int metricB) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->setKMultiTabBar_GetDecodedMetricF_IsBase(true);

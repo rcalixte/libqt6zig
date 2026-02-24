@@ -1178,13 +1178,17 @@ pub const attica__provider = struct {
         return qtc.Attica__Provider_PostLocation4(@ptrCast(self), @bitCast(latitude), @bitCast(longitude), city_str, country_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Attica__Provider `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Attica__Provider_Delete(@ptrCast(self));
     }
 };

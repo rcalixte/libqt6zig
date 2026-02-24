@@ -140,7 +140,7 @@ void KBusyIndicatorWidget_SetRunning1(KBusyIndicatorWidget* self, const bool ena
 }
 
 // Base class handler implementation
-QMetaObject* KBusyIndicatorWidget_QBaseMetaObject(const KBusyIndicatorWidget* self) {
+QMetaObject* KBusyIndicatorWidget_SuperMetaObject(const KBusyIndicatorWidget* self) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_MetaObject_IsBase(true);
@@ -159,7 +159,7 @@ void KBusyIndicatorWidget_OnMetaObject(const KBusyIndicatorWidget* self, intptr_
 }
 
 // Base class handler implementation
-void* KBusyIndicatorWidget_QBaseMetacast(KBusyIndicatorWidget* self, const char* param1) {
+void* KBusyIndicatorWidget_SuperMetacast(KBusyIndicatorWidget* self, const char* param1) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_Metacast_IsBase(true);
@@ -178,7 +178,7 @@ void KBusyIndicatorWidget_OnMetacast(KBusyIndicatorWidget* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int KBusyIndicatorWidget_QBaseMetacall(KBusyIndicatorWidget* self, int param1, int param2, void** param3) {
+int KBusyIndicatorWidget_SuperMetacall(KBusyIndicatorWidget* self, int param1, int param2, void** param3) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_Metacall_IsBase(true);
@@ -197,7 +197,7 @@ void KBusyIndicatorWidget_OnMetacall(KBusyIndicatorWidget* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-QSize* KBusyIndicatorWidget_QBaseMinimumSizeHint(const KBusyIndicatorWidget* self) {
+QSize* KBusyIndicatorWidget_SuperMinimumSizeHint(const KBusyIndicatorWidget* self) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_MinimumSizeHint_IsBase(true);
@@ -216,7 +216,7 @@ void KBusyIndicatorWidget_OnMinimumSizeHint(const KBusyIndicatorWidget* self, in
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseShowEvent(KBusyIndicatorWidget* self, QShowEvent* event) {
+void KBusyIndicatorWidget_SuperShowEvent(KBusyIndicatorWidget* self, QShowEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_ShowEvent_IsBase(true);
@@ -235,7 +235,7 @@ void KBusyIndicatorWidget_OnShowEvent(KBusyIndicatorWidget* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseHideEvent(KBusyIndicatorWidget* self, QHideEvent* event) {
+void KBusyIndicatorWidget_SuperHideEvent(KBusyIndicatorWidget* self, QHideEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_HideEvent_IsBase(true);
@@ -254,7 +254,7 @@ void KBusyIndicatorWidget_OnHideEvent(KBusyIndicatorWidget* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseResizeEvent(KBusyIndicatorWidget* self, QResizeEvent* event) {
+void KBusyIndicatorWidget_SuperResizeEvent(KBusyIndicatorWidget* self, QResizeEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_ResizeEvent_IsBase(true);
@@ -273,7 +273,7 @@ void KBusyIndicatorWidget_OnResizeEvent(KBusyIndicatorWidget* self, intptr_t slo
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBasePaintEvent(KBusyIndicatorWidget* self, QPaintEvent* param1) {
+void KBusyIndicatorWidget_SuperPaintEvent(KBusyIndicatorWidget* self, QPaintEvent* param1) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_PaintEvent_IsBase(true);
@@ -292,7 +292,7 @@ void KBusyIndicatorWidget_OnPaintEvent(KBusyIndicatorWidget* self, intptr_t slot
 }
 
 // Base class handler implementation
-bool KBusyIndicatorWidget_QBaseEvent(KBusyIndicatorWidget* self, QEvent* event) {
+bool KBusyIndicatorWidget_SuperEvent(KBusyIndicatorWidget* self, QEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_Event_IsBase(true);
@@ -321,7 +321,7 @@ int KBusyIndicatorWidget_DevType(const KBusyIndicatorWidget* self) {
 }
 
 // Base class handler implementation
-int KBusyIndicatorWidget_QBaseDevType(const KBusyIndicatorWidget* self) {
+int KBusyIndicatorWidget_SuperDevType(const KBusyIndicatorWidget* self) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_DevType_IsBase(true);
@@ -350,7 +350,7 @@ void KBusyIndicatorWidget_SetVisible(KBusyIndicatorWidget* self, bool visible) {
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseSetVisible(KBusyIndicatorWidget* self, bool visible) {
+void KBusyIndicatorWidget_SuperSetVisible(KBusyIndicatorWidget* self, bool visible) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_SetVisible_IsBase(true);
@@ -379,7 +379,7 @@ QSize* KBusyIndicatorWidget_SizeHint(const KBusyIndicatorWidget* self) {
 }
 
 // Base class handler implementation
-QSize* KBusyIndicatorWidget_QBaseSizeHint(const KBusyIndicatorWidget* self) {
+QSize* KBusyIndicatorWidget_SuperSizeHint(const KBusyIndicatorWidget* self) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_SizeHint_IsBase(true);
@@ -408,7 +408,7 @@ int KBusyIndicatorWidget_HeightForWidth(const KBusyIndicatorWidget* self, int pa
 }
 
 // Base class handler implementation
-int KBusyIndicatorWidget_QBaseHeightForWidth(const KBusyIndicatorWidget* self, int param1) {
+int KBusyIndicatorWidget_SuperHeightForWidth(const KBusyIndicatorWidget* self, int param1) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_HeightForWidth_IsBase(true);
@@ -437,7 +437,7 @@ bool KBusyIndicatorWidget_HasHeightForWidth(const KBusyIndicatorWidget* self) {
 }
 
 // Base class handler implementation
-bool KBusyIndicatorWidget_QBaseHasHeightForWidth(const KBusyIndicatorWidget* self) {
+bool KBusyIndicatorWidget_SuperHasHeightForWidth(const KBusyIndicatorWidget* self) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_HasHeightForWidth_IsBase(true);
@@ -466,7 +466,7 @@ QPaintEngine* KBusyIndicatorWidget_PaintEngine(const KBusyIndicatorWidget* self)
 }
 
 // Base class handler implementation
-QPaintEngine* KBusyIndicatorWidget_QBasePaintEngine(const KBusyIndicatorWidget* self) {
+QPaintEngine* KBusyIndicatorWidget_SuperPaintEngine(const KBusyIndicatorWidget* self) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_PaintEngine_IsBase(true);
@@ -495,7 +495,7 @@ void KBusyIndicatorWidget_MousePressEvent(KBusyIndicatorWidget* self, QMouseEven
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseMousePressEvent(KBusyIndicatorWidget* self, QMouseEvent* event) {
+void KBusyIndicatorWidget_SuperMousePressEvent(KBusyIndicatorWidget* self, QMouseEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_MousePressEvent_IsBase(true);
@@ -524,7 +524,7 @@ void KBusyIndicatorWidget_MouseReleaseEvent(KBusyIndicatorWidget* self, QMouseEv
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseMouseReleaseEvent(KBusyIndicatorWidget* self, QMouseEvent* event) {
+void KBusyIndicatorWidget_SuperMouseReleaseEvent(KBusyIndicatorWidget* self, QMouseEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_MouseReleaseEvent_IsBase(true);
@@ -553,7 +553,7 @@ void KBusyIndicatorWidget_MouseDoubleClickEvent(KBusyIndicatorWidget* self, QMou
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseMouseDoubleClickEvent(KBusyIndicatorWidget* self, QMouseEvent* event) {
+void KBusyIndicatorWidget_SuperMouseDoubleClickEvent(KBusyIndicatorWidget* self, QMouseEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_MouseDoubleClickEvent_IsBase(true);
@@ -582,7 +582,7 @@ void KBusyIndicatorWidget_MouseMoveEvent(KBusyIndicatorWidget* self, QMouseEvent
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseMouseMoveEvent(KBusyIndicatorWidget* self, QMouseEvent* event) {
+void KBusyIndicatorWidget_SuperMouseMoveEvent(KBusyIndicatorWidget* self, QMouseEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_MouseMoveEvent_IsBase(true);
@@ -611,7 +611,7 @@ void KBusyIndicatorWidget_WheelEvent(KBusyIndicatorWidget* self, QWheelEvent* ev
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseWheelEvent(KBusyIndicatorWidget* self, QWheelEvent* event) {
+void KBusyIndicatorWidget_SuperWheelEvent(KBusyIndicatorWidget* self, QWheelEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_WheelEvent_IsBase(true);
@@ -640,7 +640,7 @@ void KBusyIndicatorWidget_KeyPressEvent(KBusyIndicatorWidget* self, QKeyEvent* e
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseKeyPressEvent(KBusyIndicatorWidget* self, QKeyEvent* event) {
+void KBusyIndicatorWidget_SuperKeyPressEvent(KBusyIndicatorWidget* self, QKeyEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_KeyPressEvent_IsBase(true);
@@ -669,7 +669,7 @@ void KBusyIndicatorWidget_KeyReleaseEvent(KBusyIndicatorWidget* self, QKeyEvent*
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseKeyReleaseEvent(KBusyIndicatorWidget* self, QKeyEvent* event) {
+void KBusyIndicatorWidget_SuperKeyReleaseEvent(KBusyIndicatorWidget* self, QKeyEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_KeyReleaseEvent_IsBase(true);
@@ -698,7 +698,7 @@ void KBusyIndicatorWidget_FocusInEvent(KBusyIndicatorWidget* self, QFocusEvent* 
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseFocusInEvent(KBusyIndicatorWidget* self, QFocusEvent* event) {
+void KBusyIndicatorWidget_SuperFocusInEvent(KBusyIndicatorWidget* self, QFocusEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_FocusInEvent_IsBase(true);
@@ -727,7 +727,7 @@ void KBusyIndicatorWidget_FocusOutEvent(KBusyIndicatorWidget* self, QFocusEvent*
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseFocusOutEvent(KBusyIndicatorWidget* self, QFocusEvent* event) {
+void KBusyIndicatorWidget_SuperFocusOutEvent(KBusyIndicatorWidget* self, QFocusEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_FocusOutEvent_IsBase(true);
@@ -756,7 +756,7 @@ void KBusyIndicatorWidget_EnterEvent(KBusyIndicatorWidget* self, QEnterEvent* ev
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseEnterEvent(KBusyIndicatorWidget* self, QEnterEvent* event) {
+void KBusyIndicatorWidget_SuperEnterEvent(KBusyIndicatorWidget* self, QEnterEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_EnterEvent_IsBase(true);
@@ -785,7 +785,7 @@ void KBusyIndicatorWidget_LeaveEvent(KBusyIndicatorWidget* self, QEvent* event) 
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseLeaveEvent(KBusyIndicatorWidget* self, QEvent* event) {
+void KBusyIndicatorWidget_SuperLeaveEvent(KBusyIndicatorWidget* self, QEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_LeaveEvent_IsBase(true);
@@ -814,7 +814,7 @@ void KBusyIndicatorWidget_MoveEvent(KBusyIndicatorWidget* self, QMoveEvent* even
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseMoveEvent(KBusyIndicatorWidget* self, QMoveEvent* event) {
+void KBusyIndicatorWidget_SuperMoveEvent(KBusyIndicatorWidget* self, QMoveEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_MoveEvent_IsBase(true);
@@ -843,7 +843,7 @@ void KBusyIndicatorWidget_CloseEvent(KBusyIndicatorWidget* self, QCloseEvent* ev
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseCloseEvent(KBusyIndicatorWidget* self, QCloseEvent* event) {
+void KBusyIndicatorWidget_SuperCloseEvent(KBusyIndicatorWidget* self, QCloseEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_CloseEvent_IsBase(true);
@@ -872,7 +872,7 @@ void KBusyIndicatorWidget_ContextMenuEvent(KBusyIndicatorWidget* self, QContextM
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseContextMenuEvent(KBusyIndicatorWidget* self, QContextMenuEvent* event) {
+void KBusyIndicatorWidget_SuperContextMenuEvent(KBusyIndicatorWidget* self, QContextMenuEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_ContextMenuEvent_IsBase(true);
@@ -901,7 +901,7 @@ void KBusyIndicatorWidget_TabletEvent(KBusyIndicatorWidget* self, QTabletEvent* 
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseTabletEvent(KBusyIndicatorWidget* self, QTabletEvent* event) {
+void KBusyIndicatorWidget_SuperTabletEvent(KBusyIndicatorWidget* self, QTabletEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_TabletEvent_IsBase(true);
@@ -930,7 +930,7 @@ void KBusyIndicatorWidget_ActionEvent(KBusyIndicatorWidget* self, QActionEvent* 
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseActionEvent(KBusyIndicatorWidget* self, QActionEvent* event) {
+void KBusyIndicatorWidget_SuperActionEvent(KBusyIndicatorWidget* self, QActionEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_ActionEvent_IsBase(true);
@@ -959,7 +959,7 @@ void KBusyIndicatorWidget_DragEnterEvent(KBusyIndicatorWidget* self, QDragEnterE
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseDragEnterEvent(KBusyIndicatorWidget* self, QDragEnterEvent* event) {
+void KBusyIndicatorWidget_SuperDragEnterEvent(KBusyIndicatorWidget* self, QDragEnterEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_DragEnterEvent_IsBase(true);
@@ -988,7 +988,7 @@ void KBusyIndicatorWidget_DragMoveEvent(KBusyIndicatorWidget* self, QDragMoveEve
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseDragMoveEvent(KBusyIndicatorWidget* self, QDragMoveEvent* event) {
+void KBusyIndicatorWidget_SuperDragMoveEvent(KBusyIndicatorWidget* self, QDragMoveEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_DragMoveEvent_IsBase(true);
@@ -1017,7 +1017,7 @@ void KBusyIndicatorWidget_DragLeaveEvent(KBusyIndicatorWidget* self, QDragLeaveE
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseDragLeaveEvent(KBusyIndicatorWidget* self, QDragLeaveEvent* event) {
+void KBusyIndicatorWidget_SuperDragLeaveEvent(KBusyIndicatorWidget* self, QDragLeaveEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_DragLeaveEvent_IsBase(true);
@@ -1046,7 +1046,7 @@ void KBusyIndicatorWidget_DropEvent(KBusyIndicatorWidget* self, QDropEvent* even
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseDropEvent(KBusyIndicatorWidget* self, QDropEvent* event) {
+void KBusyIndicatorWidget_SuperDropEvent(KBusyIndicatorWidget* self, QDropEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_DropEvent_IsBase(true);
@@ -1076,7 +1076,7 @@ bool KBusyIndicatorWidget_NativeEvent(KBusyIndicatorWidget* self, const libqt_st
 }
 
 // Base class handler implementation
-bool KBusyIndicatorWidget_QBaseNativeEvent(KBusyIndicatorWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KBusyIndicatorWidget_SuperNativeEvent(KBusyIndicatorWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
@@ -1106,7 +1106,7 @@ void KBusyIndicatorWidget_ChangeEvent(KBusyIndicatorWidget* self, QEvent* param1
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseChangeEvent(KBusyIndicatorWidget* self, QEvent* param1) {
+void KBusyIndicatorWidget_SuperChangeEvent(KBusyIndicatorWidget* self, QEvent* param1) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_ChangeEvent_IsBase(true);
@@ -1135,7 +1135,7 @@ int KBusyIndicatorWidget_Metric(const KBusyIndicatorWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int KBusyIndicatorWidget_QBaseMetric(const KBusyIndicatorWidget* self, int param1) {
+int KBusyIndicatorWidget_SuperMetric(const KBusyIndicatorWidget* self, int param1) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_Metric_IsBase(true);
@@ -1164,7 +1164,7 @@ void KBusyIndicatorWidget_InitPainter(const KBusyIndicatorWidget* self, QPainter
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseInitPainter(const KBusyIndicatorWidget* self, QPainter* painter) {
+void KBusyIndicatorWidget_SuperInitPainter(const KBusyIndicatorWidget* self, QPainter* painter) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_InitPainter_IsBase(true);
@@ -1193,7 +1193,7 @@ QPaintDevice* KBusyIndicatorWidget_Redirected(const KBusyIndicatorWidget* self, 
 }
 
 // Base class handler implementation
-QPaintDevice* KBusyIndicatorWidget_QBaseRedirected(const KBusyIndicatorWidget* self, QPoint* offset) {
+QPaintDevice* KBusyIndicatorWidget_SuperRedirected(const KBusyIndicatorWidget* self, QPoint* offset) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_Redirected_IsBase(true);
@@ -1222,7 +1222,7 @@ QPainter* KBusyIndicatorWidget_SharedPainter(const KBusyIndicatorWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* KBusyIndicatorWidget_QBaseSharedPainter(const KBusyIndicatorWidget* self) {
+QPainter* KBusyIndicatorWidget_SuperSharedPainter(const KBusyIndicatorWidget* self) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_SharedPainter_IsBase(true);
@@ -1251,7 +1251,7 @@ void KBusyIndicatorWidget_InputMethodEvent(KBusyIndicatorWidget* self, QInputMet
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseInputMethodEvent(KBusyIndicatorWidget* self, QInputMethodEvent* param1) {
+void KBusyIndicatorWidget_SuperInputMethodEvent(KBusyIndicatorWidget* self, QInputMethodEvent* param1) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_InputMethodEvent_IsBase(true);
@@ -1280,7 +1280,7 @@ QVariant* KBusyIndicatorWidget_InputMethodQuery(const KBusyIndicatorWidget* self
 }
 
 // Base class handler implementation
-QVariant* KBusyIndicatorWidget_QBaseInputMethodQuery(const KBusyIndicatorWidget* self, int param1) {
+QVariant* KBusyIndicatorWidget_SuperInputMethodQuery(const KBusyIndicatorWidget* self, int param1) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_InputMethodQuery_IsBase(true);
@@ -1309,7 +1309,7 @@ bool KBusyIndicatorWidget_FocusNextPrevChild(KBusyIndicatorWidget* self, bool ne
 }
 
 // Base class handler implementation
-bool KBusyIndicatorWidget_QBaseFocusNextPrevChild(KBusyIndicatorWidget* self, bool next) {
+bool KBusyIndicatorWidget_SuperFocusNextPrevChild(KBusyIndicatorWidget* self, bool next) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_FocusNextPrevChild_IsBase(true);
@@ -1338,7 +1338,7 @@ bool KBusyIndicatorWidget_EventFilter(KBusyIndicatorWidget* self, QObject* watch
 }
 
 // Base class handler implementation
-bool KBusyIndicatorWidget_QBaseEventFilter(KBusyIndicatorWidget* self, QObject* watched, QEvent* event) {
+bool KBusyIndicatorWidget_SuperEventFilter(KBusyIndicatorWidget* self, QObject* watched, QEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_EventFilter_IsBase(true);
@@ -1367,7 +1367,7 @@ void KBusyIndicatorWidget_TimerEvent(KBusyIndicatorWidget* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseTimerEvent(KBusyIndicatorWidget* self, QTimerEvent* event) {
+void KBusyIndicatorWidget_SuperTimerEvent(KBusyIndicatorWidget* self, QTimerEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_TimerEvent_IsBase(true);
@@ -1396,7 +1396,7 @@ void KBusyIndicatorWidget_ChildEvent(KBusyIndicatorWidget* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseChildEvent(KBusyIndicatorWidget* self, QChildEvent* event) {
+void KBusyIndicatorWidget_SuperChildEvent(KBusyIndicatorWidget* self, QChildEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_ChildEvent_IsBase(true);
@@ -1425,7 +1425,7 @@ void KBusyIndicatorWidget_CustomEvent(KBusyIndicatorWidget* self, QEvent* event)
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseCustomEvent(KBusyIndicatorWidget* self, QEvent* event) {
+void KBusyIndicatorWidget_SuperCustomEvent(KBusyIndicatorWidget* self, QEvent* event) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_CustomEvent_IsBase(true);
@@ -1454,7 +1454,7 @@ void KBusyIndicatorWidget_ConnectNotify(KBusyIndicatorWidget* self, const QMetaM
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseConnectNotify(KBusyIndicatorWidget* self, const QMetaMethod* signal) {
+void KBusyIndicatorWidget_SuperConnectNotify(KBusyIndicatorWidget* self, const QMetaMethod* signal) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_ConnectNotify_IsBase(true);
@@ -1483,7 +1483,7 @@ void KBusyIndicatorWidget_DisconnectNotify(KBusyIndicatorWidget* self, const QMe
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseDisconnectNotify(KBusyIndicatorWidget* self, const QMetaMethod* signal) {
+void KBusyIndicatorWidget_SuperDisconnectNotify(KBusyIndicatorWidget* self, const QMetaMethod* signal) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_DisconnectNotify_IsBase(true);
@@ -1512,7 +1512,7 @@ void KBusyIndicatorWidget_UpdateMicroFocus(KBusyIndicatorWidget* self) {
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseUpdateMicroFocus(KBusyIndicatorWidget* self) {
+void KBusyIndicatorWidget_SuperUpdateMicroFocus(KBusyIndicatorWidget* self) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_UpdateMicroFocus_IsBase(true);
@@ -1541,7 +1541,7 @@ void KBusyIndicatorWidget_Create(KBusyIndicatorWidget* self) {
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseCreate(KBusyIndicatorWidget* self) {
+void KBusyIndicatorWidget_SuperCreate(KBusyIndicatorWidget* self) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_Create_IsBase(true);
@@ -1570,7 +1570,7 @@ void KBusyIndicatorWidget_Destroy(KBusyIndicatorWidget* self) {
 }
 
 // Base class handler implementation
-void KBusyIndicatorWidget_QBaseDestroy(KBusyIndicatorWidget* self) {
+void KBusyIndicatorWidget_SuperDestroy(KBusyIndicatorWidget* self) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_Destroy_IsBase(true);
@@ -1599,7 +1599,7 @@ bool KBusyIndicatorWidget_FocusNextChild(KBusyIndicatorWidget* self) {
 }
 
 // Base class handler implementation
-bool KBusyIndicatorWidget_QBaseFocusNextChild(KBusyIndicatorWidget* self) {
+bool KBusyIndicatorWidget_SuperFocusNextChild(KBusyIndicatorWidget* self) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_FocusNextChild_IsBase(true);
@@ -1628,7 +1628,7 @@ bool KBusyIndicatorWidget_FocusPreviousChild(KBusyIndicatorWidget* self) {
 }
 
 // Base class handler implementation
-bool KBusyIndicatorWidget_QBaseFocusPreviousChild(KBusyIndicatorWidget* self) {
+bool KBusyIndicatorWidget_SuperFocusPreviousChild(KBusyIndicatorWidget* self) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_FocusPreviousChild_IsBase(true);
@@ -1657,7 +1657,7 @@ QObject* KBusyIndicatorWidget_Sender(const KBusyIndicatorWidget* self) {
 }
 
 // Base class handler implementation
-QObject* KBusyIndicatorWidget_QBaseSender(const KBusyIndicatorWidget* self) {
+QObject* KBusyIndicatorWidget_SuperSender(const KBusyIndicatorWidget* self) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_Sender_IsBase(true);
@@ -1686,7 +1686,7 @@ int KBusyIndicatorWidget_SenderSignalIndex(const KBusyIndicatorWidget* self) {
 }
 
 // Base class handler implementation
-int KBusyIndicatorWidget_QBaseSenderSignalIndex(const KBusyIndicatorWidget* self) {
+int KBusyIndicatorWidget_SuperSenderSignalIndex(const KBusyIndicatorWidget* self) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_SenderSignalIndex_IsBase(true);
@@ -1715,7 +1715,7 @@ int KBusyIndicatorWidget_Receivers(const KBusyIndicatorWidget* self, const char*
 }
 
 // Base class handler implementation
-int KBusyIndicatorWidget_QBaseReceivers(const KBusyIndicatorWidget* self, const char* signal) {
+int KBusyIndicatorWidget_SuperReceivers(const KBusyIndicatorWidget* self, const char* signal) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_Receivers_IsBase(true);
@@ -1744,7 +1744,7 @@ bool KBusyIndicatorWidget_IsSignalConnected(const KBusyIndicatorWidget* self, co
 }
 
 // Base class handler implementation
-bool KBusyIndicatorWidget_QBaseIsSignalConnected(const KBusyIndicatorWidget* self, const QMetaMethod* signal) {
+bool KBusyIndicatorWidget_SuperIsSignalConnected(const KBusyIndicatorWidget* self, const QMetaMethod* signal) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_IsSignalConnected_IsBase(true);
@@ -1773,7 +1773,7 @@ double KBusyIndicatorWidget_GetDecodedMetricF(const KBusyIndicatorWidget* self, 
 }
 
 // Base class handler implementation
-double KBusyIndicatorWidget_QBaseGetDecodedMetricF(const KBusyIndicatorWidget* self, int metricA, int metricB) {
+double KBusyIndicatorWidget_SuperGetDecodedMetricF(const KBusyIndicatorWidget* self, int metricA, int metricB) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
     if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
         vkbusyindicatorwidget->setKBusyIndicatorWidget_GetDecodedMetricF_IsBase(true);

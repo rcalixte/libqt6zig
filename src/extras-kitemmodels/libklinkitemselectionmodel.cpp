@@ -97,7 +97,7 @@ void KLinkItemSelectionModel_Connect_LinkedItemSelectionModelChanged(KLinkItemSe
 }
 
 // Base class handler implementation
-QMetaObject* KLinkItemSelectionModel_QBaseMetaObject(const KLinkItemSelectionModel* self) {
+QMetaObject* KLinkItemSelectionModel_SuperMetaObject(const KLinkItemSelectionModel* self) {
     auto* vklinkitemselectionmodel = const_cast<VirtualKLinkItemSelectionModel*>(dynamic_cast<const VirtualKLinkItemSelectionModel*>(self));
     if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
         vklinkitemselectionmodel->setKLinkItemSelectionModel_MetaObject_IsBase(true);
@@ -116,7 +116,7 @@ void KLinkItemSelectionModel_OnMetaObject(const KLinkItemSelectionModel* self, i
 }
 
 // Base class handler implementation
-void* KLinkItemSelectionModel_QBaseMetacast(KLinkItemSelectionModel* self, const char* param1) {
+void* KLinkItemSelectionModel_SuperMetacast(KLinkItemSelectionModel* self, const char* param1) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
     if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
         vklinkitemselectionmodel->setKLinkItemSelectionModel_Metacast_IsBase(true);
@@ -135,7 +135,7 @@ void KLinkItemSelectionModel_OnMetacast(KLinkItemSelectionModel* self, intptr_t 
 }
 
 // Base class handler implementation
-int KLinkItemSelectionModel_QBaseMetacall(KLinkItemSelectionModel* self, int param1, int param2, void** param3) {
+int KLinkItemSelectionModel_SuperMetacall(KLinkItemSelectionModel* self, int param1, int param2, void** param3) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
     if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
         vklinkitemselectionmodel->setKLinkItemSelectionModel_Metacall_IsBase(true);
@@ -154,7 +154,7 @@ void KLinkItemSelectionModel_OnMetacall(KLinkItemSelectionModel* self, intptr_t 
 }
 
 // Base class handler implementation
-void KLinkItemSelectionModel_QBaseSelect(KLinkItemSelectionModel* self, const QModelIndex* index, int command) {
+void KLinkItemSelectionModel_SuperSelect(KLinkItemSelectionModel* self, const QModelIndex* index, int command) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
     if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
         vklinkitemselectionmodel->setKLinkItemSelectionModel_Select_IsBase(true);
@@ -173,7 +173,7 @@ void KLinkItemSelectionModel_OnSelect(KLinkItemSelectionModel* self, intptr_t sl
 }
 
 // Base class handler implementation
-void KLinkItemSelectionModel_QBaseSelect2(KLinkItemSelectionModel* self, const QItemSelection* selection, int command) {
+void KLinkItemSelectionModel_SuperSelect2(KLinkItemSelectionModel* self, const QItemSelection* selection, int command) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
     if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
         vklinkitemselectionmodel->setKLinkItemSelectionModel_Select2_IsBase(true);
@@ -202,7 +202,7 @@ void KLinkItemSelectionModel_SetCurrentIndex(KLinkItemSelectionModel* self, cons
 }
 
 // Base class handler implementation
-void KLinkItemSelectionModel_QBaseSetCurrentIndex(KLinkItemSelectionModel* self, const QModelIndex* index, int command) {
+void KLinkItemSelectionModel_SuperSetCurrentIndex(KLinkItemSelectionModel* self, const QModelIndex* index, int command) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
     if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
         vklinkitemselectionmodel->setKLinkItemSelectionModel_SetCurrentIndex_IsBase(true);
@@ -231,7 +231,7 @@ void KLinkItemSelectionModel_Clear(KLinkItemSelectionModel* self) {
 }
 
 // Base class handler implementation
-void KLinkItemSelectionModel_QBaseClear(KLinkItemSelectionModel* self) {
+void KLinkItemSelectionModel_SuperClear(KLinkItemSelectionModel* self) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
     if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
         vklinkitemselectionmodel->setKLinkItemSelectionModel_Clear_IsBase(true);
@@ -260,7 +260,7 @@ void KLinkItemSelectionModel_Reset(KLinkItemSelectionModel* self) {
 }
 
 // Base class handler implementation
-void KLinkItemSelectionModel_QBaseReset(KLinkItemSelectionModel* self) {
+void KLinkItemSelectionModel_SuperReset(KLinkItemSelectionModel* self) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
     if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
         vklinkitemselectionmodel->setKLinkItemSelectionModel_Reset_IsBase(true);
@@ -289,7 +289,7 @@ void KLinkItemSelectionModel_ClearCurrentIndex(KLinkItemSelectionModel* self) {
 }
 
 // Base class handler implementation
-void KLinkItemSelectionModel_QBaseClearCurrentIndex(KLinkItemSelectionModel* self) {
+void KLinkItemSelectionModel_SuperClearCurrentIndex(KLinkItemSelectionModel* self) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
     if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
         vklinkitemselectionmodel->setKLinkItemSelectionModel_ClearCurrentIndex_IsBase(true);
@@ -318,7 +318,7 @@ bool KLinkItemSelectionModel_Event(KLinkItemSelectionModel* self, QEvent* event)
 }
 
 // Base class handler implementation
-bool KLinkItemSelectionModel_QBaseEvent(KLinkItemSelectionModel* self, QEvent* event) {
+bool KLinkItemSelectionModel_SuperEvent(KLinkItemSelectionModel* self, QEvent* event) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
     if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
         vklinkitemselectionmodel->setKLinkItemSelectionModel_Event_IsBase(true);
@@ -347,7 +347,7 @@ bool KLinkItemSelectionModel_EventFilter(KLinkItemSelectionModel* self, QObject*
 }
 
 // Base class handler implementation
-bool KLinkItemSelectionModel_QBaseEventFilter(KLinkItemSelectionModel* self, QObject* watched, QEvent* event) {
+bool KLinkItemSelectionModel_SuperEventFilter(KLinkItemSelectionModel* self, QObject* watched, QEvent* event) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
     if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
         vklinkitemselectionmodel->setKLinkItemSelectionModel_EventFilter_IsBase(true);
@@ -376,7 +376,7 @@ void KLinkItemSelectionModel_TimerEvent(KLinkItemSelectionModel* self, QTimerEve
 }
 
 // Base class handler implementation
-void KLinkItemSelectionModel_QBaseTimerEvent(KLinkItemSelectionModel* self, QTimerEvent* event) {
+void KLinkItemSelectionModel_SuperTimerEvent(KLinkItemSelectionModel* self, QTimerEvent* event) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
     if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
         vklinkitemselectionmodel->setKLinkItemSelectionModel_TimerEvent_IsBase(true);
@@ -405,7 +405,7 @@ void KLinkItemSelectionModel_ChildEvent(KLinkItemSelectionModel* self, QChildEve
 }
 
 // Base class handler implementation
-void KLinkItemSelectionModel_QBaseChildEvent(KLinkItemSelectionModel* self, QChildEvent* event) {
+void KLinkItemSelectionModel_SuperChildEvent(KLinkItemSelectionModel* self, QChildEvent* event) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
     if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
         vklinkitemselectionmodel->setKLinkItemSelectionModel_ChildEvent_IsBase(true);
@@ -434,7 +434,7 @@ void KLinkItemSelectionModel_CustomEvent(KLinkItemSelectionModel* self, QEvent* 
 }
 
 // Base class handler implementation
-void KLinkItemSelectionModel_QBaseCustomEvent(KLinkItemSelectionModel* self, QEvent* event) {
+void KLinkItemSelectionModel_SuperCustomEvent(KLinkItemSelectionModel* self, QEvent* event) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
     if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
         vklinkitemselectionmodel->setKLinkItemSelectionModel_CustomEvent_IsBase(true);
@@ -463,7 +463,7 @@ void KLinkItemSelectionModel_ConnectNotify(KLinkItemSelectionModel* self, const 
 }
 
 // Base class handler implementation
-void KLinkItemSelectionModel_QBaseConnectNotify(KLinkItemSelectionModel* self, const QMetaMethod* signal) {
+void KLinkItemSelectionModel_SuperConnectNotify(KLinkItemSelectionModel* self, const QMetaMethod* signal) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
     if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
         vklinkitemselectionmodel->setKLinkItemSelectionModel_ConnectNotify_IsBase(true);
@@ -492,7 +492,7 @@ void KLinkItemSelectionModel_DisconnectNotify(KLinkItemSelectionModel* self, con
 }
 
 // Base class handler implementation
-void KLinkItemSelectionModel_QBaseDisconnectNotify(KLinkItemSelectionModel* self, const QMetaMethod* signal) {
+void KLinkItemSelectionModel_SuperDisconnectNotify(KLinkItemSelectionModel* self, const QMetaMethod* signal) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
     if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
         vklinkitemselectionmodel->setKLinkItemSelectionModel_DisconnectNotify_IsBase(true);
@@ -521,7 +521,7 @@ void KLinkItemSelectionModel_EmitSelectionChanged(KLinkItemSelectionModel* self,
 }
 
 // Base class handler implementation
-void KLinkItemSelectionModel_QBaseEmitSelectionChanged(KLinkItemSelectionModel* self, const QItemSelection* newSelection, const QItemSelection* oldSelection) {
+void KLinkItemSelectionModel_SuperEmitSelectionChanged(KLinkItemSelectionModel* self, const QItemSelection* newSelection, const QItemSelection* oldSelection) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
     if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
         vklinkitemselectionmodel->setKLinkItemSelectionModel_EmitSelectionChanged_IsBase(true);
@@ -550,7 +550,7 @@ QObject* KLinkItemSelectionModel_Sender(const KLinkItemSelectionModel* self) {
 }
 
 // Base class handler implementation
-QObject* KLinkItemSelectionModel_QBaseSender(const KLinkItemSelectionModel* self) {
+QObject* KLinkItemSelectionModel_SuperSender(const KLinkItemSelectionModel* self) {
     auto* vklinkitemselectionmodel = const_cast<VirtualKLinkItemSelectionModel*>(dynamic_cast<const VirtualKLinkItemSelectionModel*>(self));
     if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
         vklinkitemselectionmodel->setKLinkItemSelectionModel_Sender_IsBase(true);
@@ -579,7 +579,7 @@ int KLinkItemSelectionModel_SenderSignalIndex(const KLinkItemSelectionModel* sel
 }
 
 // Base class handler implementation
-int KLinkItemSelectionModel_QBaseSenderSignalIndex(const KLinkItemSelectionModel* self) {
+int KLinkItemSelectionModel_SuperSenderSignalIndex(const KLinkItemSelectionModel* self) {
     auto* vklinkitemselectionmodel = const_cast<VirtualKLinkItemSelectionModel*>(dynamic_cast<const VirtualKLinkItemSelectionModel*>(self));
     if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
         vklinkitemselectionmodel->setKLinkItemSelectionModel_SenderSignalIndex_IsBase(true);
@@ -608,7 +608,7 @@ int KLinkItemSelectionModel_Receivers(const KLinkItemSelectionModel* self, const
 }
 
 // Base class handler implementation
-int KLinkItemSelectionModel_QBaseReceivers(const KLinkItemSelectionModel* self, const char* signal) {
+int KLinkItemSelectionModel_SuperReceivers(const KLinkItemSelectionModel* self, const char* signal) {
     auto* vklinkitemselectionmodel = const_cast<VirtualKLinkItemSelectionModel*>(dynamic_cast<const VirtualKLinkItemSelectionModel*>(self));
     if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
         vklinkitemselectionmodel->setKLinkItemSelectionModel_Receivers_IsBase(true);
@@ -637,7 +637,7 @@ bool KLinkItemSelectionModel_IsSignalConnected(const KLinkItemSelectionModel* se
 }
 
 // Base class handler implementation
-bool KLinkItemSelectionModel_QBaseIsSignalConnected(const KLinkItemSelectionModel* self, const QMetaMethod* signal) {
+bool KLinkItemSelectionModel_SuperIsSignalConnected(const KLinkItemSelectionModel* self, const QMetaMethod* signal) {
     auto* vklinkitemselectionmodel = const_cast<VirtualKLinkItemSelectionModel*>(dynamic_cast<const VirtualKLinkItemSelectionModel*>(self));
     if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
         vklinkitemselectionmodel->setKLinkItemSelectionModel_IsSignalConnected_IsBase(true);

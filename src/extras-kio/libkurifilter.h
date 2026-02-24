@@ -31,19 +31,19 @@ libqt_list /* of libqt_string */ KUriFilterSearchProvider_Keys(const KUriFilterS
 libqt_string KUriFilterSearchProvider_DefaultKey(const KUriFilterSearchProvider* self);
 void KUriFilterSearchProvider_OperatorAssign(KUriFilterSearchProvider* self, const KUriFilterSearchProvider* param1);
 void KUriFilterSearchProvider_OnIconName(const KUriFilterSearchProvider* self, intptr_t slot);
-libqt_string KUriFilterSearchProvider_QBaseIconName(const KUriFilterSearchProvider* self);
+libqt_string KUriFilterSearchProvider_SuperIconName(const KUriFilterSearchProvider* self);
 void KUriFilterSearchProvider_SetDesktopEntryName(KUriFilterSearchProvider* self, const libqt_string desktopEntryName);
 void KUriFilterSearchProvider_OnSetDesktopEntryName(KUriFilterSearchProvider* self, intptr_t slot);
-void KUriFilterSearchProvider_QBaseSetDesktopEntryName(KUriFilterSearchProvider* self, const libqt_string desktopEntryName);
+void KUriFilterSearchProvider_SuperSetDesktopEntryName(KUriFilterSearchProvider* self, const libqt_string desktopEntryName);
 void KUriFilterSearchProvider_SetIconName(KUriFilterSearchProvider* self, const libqt_string iconName);
 void KUriFilterSearchProvider_OnSetIconName(KUriFilterSearchProvider* self, intptr_t slot);
-void KUriFilterSearchProvider_QBaseSetIconName(KUriFilterSearchProvider* self, const libqt_string iconName);
+void KUriFilterSearchProvider_SuperSetIconName(KUriFilterSearchProvider* self, const libqt_string iconName);
 void KUriFilterSearchProvider_SetKeys(KUriFilterSearchProvider* self, const libqt_list /* of libqt_string */ keys);
 void KUriFilterSearchProvider_OnSetKeys(KUriFilterSearchProvider* self, intptr_t slot);
-void KUriFilterSearchProvider_QBaseSetKeys(KUriFilterSearchProvider* self, const libqt_list /* of libqt_string */ keys);
+void KUriFilterSearchProvider_SuperSetKeys(KUriFilterSearchProvider* self, const libqt_list /* of libqt_string */ keys);
 void KUriFilterSearchProvider_SetName(KUriFilterSearchProvider* self, const libqt_string name);
 void KUriFilterSearchProvider_OnSetName(KUriFilterSearchProvider* self, intptr_t slot);
-void KUriFilterSearchProvider_QBaseSetName(KUriFilterSearchProvider* self, const libqt_string name);
+void KUriFilterSearchProvider_SuperSetName(KUriFilterSearchProvider* self, const libqt_string name);
 void KUriFilterSearchProvider_Delete(KUriFilterSearchProvider* self);
 
 KUriFilterData* KUriFilterData_new();

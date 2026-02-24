@@ -39,11 +39,11 @@ libqt_map /* of int to libqt_list of QVariant* */ KFileMetaData__SimpleExtractio
 libqt_string KFileMetaData__SimpleExtractionResult_Text(const KFileMetaData__SimpleExtractionResult* self);
 libqt_list /* of int */ KFileMetaData__SimpleExtractionResult_Types(const KFileMetaData__SimpleExtractionResult* self);
 void KFileMetaData__SimpleExtractionResult_OnAdd(KFileMetaData__SimpleExtractionResult* self, intptr_t slot);
-void KFileMetaData__SimpleExtractionResult_QBaseAdd(KFileMetaData__SimpleExtractionResult* self, int property, const QVariant* value);
+void KFileMetaData__SimpleExtractionResult_SuperAdd(KFileMetaData__SimpleExtractionResult* self, int property, const QVariant* value);
 void KFileMetaData__SimpleExtractionResult_OnAddType(KFileMetaData__SimpleExtractionResult* self, intptr_t slot);
-void KFileMetaData__SimpleExtractionResult_QBaseAddType(KFileMetaData__SimpleExtractionResult* self, int typeVal);
+void KFileMetaData__SimpleExtractionResult_SuperAddType(KFileMetaData__SimpleExtractionResult* self, int typeVal);
 void KFileMetaData__SimpleExtractionResult_OnAppend(KFileMetaData__SimpleExtractionResult* self, intptr_t slot);
-void KFileMetaData__SimpleExtractionResult_QBaseAppend(KFileMetaData__SimpleExtractionResult* self, const libqt_string text);
+void KFileMetaData__SimpleExtractionResult_SuperAppend(KFileMetaData__SimpleExtractionResult* self, const libqt_string text);
 void KFileMetaData__SimpleExtractionResult_Delete(KFileMetaData__SimpleExtractionResult* self);
 
 #ifdef __cplusplus

@@ -164,6 +164,10 @@ pub const qlibraryinfo = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#dtor.QLibraryInfo)
     ///
     /// Delete this object from C++ memory.
@@ -172,7 +176,7 @@ pub const qlibraryinfo = struct {
     ///
     /// ` self: QtC.QLibraryInfo `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QLibraryInfo_Delete(@ptrCast(self));
     }
 };

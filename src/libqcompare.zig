@@ -57,6 +57,10 @@ pub const partial_ordering = struct {
         qtc.partial_ordering_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/partial-ordering.html#dtor.partial_ordering)
     ///
     /// Delete this object from C++ memory.
@@ -65,7 +69,7 @@ pub const partial_ordering = struct {
     ///
     /// ` self: QtC.partial_ordering `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.partial_ordering_Delete(@ptrCast(self));
     }
 };
@@ -136,6 +140,10 @@ pub const weak_ordering = struct {
         return qtc.weak_ordering_ToPartialOrdering(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/weak-ordering.html#dtor.weak_ordering)
     ///
     /// Delete this object from C++ memory.
@@ -144,7 +152,7 @@ pub const weak_ordering = struct {
     ///
     /// ` self: QtC.weak_ordering `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.weak_ordering_Delete(@ptrCast(self));
     }
 };
@@ -225,6 +233,10 @@ pub const strong_ordering = struct {
         return qtc.strong_ordering_ToWeakOrdering(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/strong-ordering.html#dtor.strong_ordering)
     ///
     /// Delete this object from C++ memory.
@@ -233,7 +245,7 @@ pub const strong_ordering = struct {
     ///
     /// ` self: QtC.strong_ordering `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.strong_ordering_Delete(@ptrCast(self));
     }
 };
@@ -334,6 +346,10 @@ pub const qpartialordering = struct {
         return qtc.QPartialOrdering_ToPartialOrdering(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpartialordering.html#dtor.QPartialOrdering)
     ///
     /// Delete this object from C++ memory.
@@ -342,7 +358,7 @@ pub const qpartialordering = struct {
     ///
     /// ` self: QtC.QPartialOrdering `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPartialOrdering_Delete(@ptrCast(self));
     }
 };

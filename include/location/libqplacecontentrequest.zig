@@ -157,6 +157,10 @@ pub const qplacecontentrequest = struct {
         qtc.QPlaceContentRequest_Clear(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentrequest.html#dtor.QPlaceContentRequest)
     ///
     /// Delete this object from C++ memory.
@@ -165,7 +169,7 @@ pub const qplacecontentrequest = struct {
     ///
     /// ` self: QtC.QPlaceContentRequest `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPlaceContentRequest_Delete(@ptrCast(self));
     }
 };

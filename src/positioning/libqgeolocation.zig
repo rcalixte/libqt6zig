@@ -187,6 +187,10 @@ pub const qgeolocation = struct {
         return qtc.QGeoLocation_IsEmpty(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeolocation.html#dtor.QGeoLocation)
     ///
     /// Delete this object from C++ memory.
@@ -195,7 +199,7 @@ pub const qgeolocation = struct {
     ///
     /// ` self: QtC.QGeoLocation `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGeoLocation_Delete(@ptrCast(self));
     }
 };

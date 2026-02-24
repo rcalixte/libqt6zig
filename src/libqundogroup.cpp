@@ -244,7 +244,7 @@ QAction* QUndoGroup_CreateRedoAction2(const QUndoGroup* self, QObject* parent, c
 }
 
 // Base class handler implementation
-QMetaObject* QUndoGroup_QBaseMetaObject(const QUndoGroup* self) {
+QMetaObject* QUndoGroup_SuperMetaObject(const QUndoGroup* self) {
     auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self));
     if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_MetaObject_IsBase(true);
@@ -263,7 +263,7 @@ void QUndoGroup_OnMetaObject(const QUndoGroup* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QUndoGroup_QBaseMetacast(QUndoGroup* self, const char* param1) {
+void* QUndoGroup_SuperMetacast(QUndoGroup* self, const char* param1) {
     auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
     if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_Metacast_IsBase(true);
@@ -282,7 +282,7 @@ void QUndoGroup_OnMetacast(QUndoGroup* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QUndoGroup_QBaseMetacall(QUndoGroup* self, int param1, int param2, void** param3) {
+int QUndoGroup_SuperMetacall(QUndoGroup* self, int param1, int param2, void** param3) {
     auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
     if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_Metacall_IsBase(true);
@@ -311,7 +311,7 @@ bool QUndoGroup_Event(QUndoGroup* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QUndoGroup_QBaseEvent(QUndoGroup* self, QEvent* event) {
+bool QUndoGroup_SuperEvent(QUndoGroup* self, QEvent* event) {
     auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
     if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_Event_IsBase(true);
@@ -340,7 +340,7 @@ bool QUndoGroup_EventFilter(QUndoGroup* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QUndoGroup_QBaseEventFilter(QUndoGroup* self, QObject* watched, QEvent* event) {
+bool QUndoGroup_SuperEventFilter(QUndoGroup* self, QObject* watched, QEvent* event) {
     auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
     if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_EventFilter_IsBase(true);
@@ -369,7 +369,7 @@ void QUndoGroup_TimerEvent(QUndoGroup* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoGroup_QBaseTimerEvent(QUndoGroup* self, QTimerEvent* event) {
+void QUndoGroup_SuperTimerEvent(QUndoGroup* self, QTimerEvent* event) {
     auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
     if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_TimerEvent_IsBase(true);
@@ -398,7 +398,7 @@ void QUndoGroup_ChildEvent(QUndoGroup* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoGroup_QBaseChildEvent(QUndoGroup* self, QChildEvent* event) {
+void QUndoGroup_SuperChildEvent(QUndoGroup* self, QChildEvent* event) {
     auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
     if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_ChildEvent_IsBase(true);
@@ -427,7 +427,7 @@ void QUndoGroup_CustomEvent(QUndoGroup* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoGroup_QBaseCustomEvent(QUndoGroup* self, QEvent* event) {
+void QUndoGroup_SuperCustomEvent(QUndoGroup* self, QEvent* event) {
     auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
     if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_CustomEvent_IsBase(true);
@@ -456,7 +456,7 @@ void QUndoGroup_ConnectNotify(QUndoGroup* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QUndoGroup_QBaseConnectNotify(QUndoGroup* self, const QMetaMethod* signal) {
+void QUndoGroup_SuperConnectNotify(QUndoGroup* self, const QMetaMethod* signal) {
     auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
     if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_ConnectNotify_IsBase(true);
@@ -485,7 +485,7 @@ void QUndoGroup_DisconnectNotify(QUndoGroup* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QUndoGroup_QBaseDisconnectNotify(QUndoGroup* self, const QMetaMethod* signal) {
+void QUndoGroup_SuperDisconnectNotify(QUndoGroup* self, const QMetaMethod* signal) {
     auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
     if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_DisconnectNotify_IsBase(true);
@@ -514,7 +514,7 @@ QObject* QUndoGroup_Sender(const QUndoGroup* self) {
 }
 
 // Base class handler implementation
-QObject* QUndoGroup_QBaseSender(const QUndoGroup* self) {
+QObject* QUndoGroup_SuperSender(const QUndoGroup* self) {
     auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self));
     if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_Sender_IsBase(true);
@@ -543,7 +543,7 @@ int QUndoGroup_SenderSignalIndex(const QUndoGroup* self) {
 }
 
 // Base class handler implementation
-int QUndoGroup_QBaseSenderSignalIndex(const QUndoGroup* self) {
+int QUndoGroup_SuperSenderSignalIndex(const QUndoGroup* self) {
     auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self));
     if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_SenderSignalIndex_IsBase(true);
@@ -572,7 +572,7 @@ int QUndoGroup_Receivers(const QUndoGroup* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QUndoGroup_QBaseReceivers(const QUndoGroup* self, const char* signal) {
+int QUndoGroup_SuperReceivers(const QUndoGroup* self, const char* signal) {
     auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self));
     if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_Receivers_IsBase(true);
@@ -601,7 +601,7 @@ bool QUndoGroup_IsSignalConnected(const QUndoGroup* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QUndoGroup_QBaseIsSignalConnected(const QUndoGroup* self, const QMetaMethod* signal) {
+bool QUndoGroup_SuperIsSignalConnected(const QUndoGroup* self, const QMetaMethod* signal) {
     auto* vqundogroup = const_cast<VirtualQUndoGroup*>(dynamic_cast<const VirtualQUndoGroup*>(self));
     if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
         vqundogroup->setQUndoGroup_IsSignalConnected_IsBase(true);

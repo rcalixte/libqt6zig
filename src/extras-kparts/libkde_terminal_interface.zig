@@ -207,6 +207,10 @@ pub const terminalinterface = struct {
         qtc.TerminalInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/terminalinterface.html#dtor.TerminalInterface)
     ///
     /// Delete this object from C++ memory.
@@ -215,7 +219,7 @@ pub const terminalinterface = struct {
     ///
     /// ` self: QtC.TerminalInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.TerminalInterface_Delete(@ptrCast(self));
     }
 };

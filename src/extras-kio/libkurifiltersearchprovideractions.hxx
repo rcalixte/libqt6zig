@@ -328,23 +328,23 @@ class VirtualKIOKUriFilterSearchProviderActions final : public KIO::KUriFilterSe
 
     // Friend functions
     friend void KIO__KUriFilterSearchProviderActions_TimerEvent(KIO::KUriFilterSearchProviderActions* self, QTimerEvent* event);
-    friend void KIO__KUriFilterSearchProviderActions_QBaseTimerEvent(KIO::KUriFilterSearchProviderActions* self, QTimerEvent* event);
+    friend void KIO__KUriFilterSearchProviderActions_SuperTimerEvent(KIO::KUriFilterSearchProviderActions* self, QTimerEvent* event);
     friend void KIO__KUriFilterSearchProviderActions_ChildEvent(KIO::KUriFilterSearchProviderActions* self, QChildEvent* event);
-    friend void KIO__KUriFilterSearchProviderActions_QBaseChildEvent(KIO::KUriFilterSearchProviderActions* self, QChildEvent* event);
+    friend void KIO__KUriFilterSearchProviderActions_SuperChildEvent(KIO::KUriFilterSearchProviderActions* self, QChildEvent* event);
     friend void KIO__KUriFilterSearchProviderActions_CustomEvent(KIO::KUriFilterSearchProviderActions* self, QEvent* event);
-    friend void KIO__KUriFilterSearchProviderActions_QBaseCustomEvent(KIO::KUriFilterSearchProviderActions* self, QEvent* event);
+    friend void KIO__KUriFilterSearchProviderActions_SuperCustomEvent(KIO::KUriFilterSearchProviderActions* self, QEvent* event);
     friend void KIO__KUriFilterSearchProviderActions_ConnectNotify(KIO::KUriFilterSearchProviderActions* self, const QMetaMethod* signal);
-    friend void KIO__KUriFilterSearchProviderActions_QBaseConnectNotify(KIO::KUriFilterSearchProviderActions* self, const QMetaMethod* signal);
+    friend void KIO__KUriFilterSearchProviderActions_SuperConnectNotify(KIO::KUriFilterSearchProviderActions* self, const QMetaMethod* signal);
     friend void KIO__KUriFilterSearchProviderActions_DisconnectNotify(KIO::KUriFilterSearchProviderActions* self, const QMetaMethod* signal);
-    friend void KIO__KUriFilterSearchProviderActions_QBaseDisconnectNotify(KIO::KUriFilterSearchProviderActions* self, const QMetaMethod* signal);
+    friend void KIO__KUriFilterSearchProviderActions_SuperDisconnectNotify(KIO::KUriFilterSearchProviderActions* self, const QMetaMethod* signal);
     friend QObject* KIO__KUriFilterSearchProviderActions_Sender(const KIO::KUriFilterSearchProviderActions* self);
-    friend QObject* KIO__KUriFilterSearchProviderActions_QBaseSender(const KIO::KUriFilterSearchProviderActions* self);
+    friend QObject* KIO__KUriFilterSearchProviderActions_SuperSender(const KIO::KUriFilterSearchProviderActions* self);
     friend int KIO__KUriFilterSearchProviderActions_SenderSignalIndex(const KIO::KUriFilterSearchProviderActions* self);
-    friend int KIO__KUriFilterSearchProviderActions_QBaseSenderSignalIndex(const KIO::KUriFilterSearchProviderActions* self);
+    friend int KIO__KUriFilterSearchProviderActions_SuperSenderSignalIndex(const KIO::KUriFilterSearchProviderActions* self);
     friend int KIO__KUriFilterSearchProviderActions_Receivers(const KIO::KUriFilterSearchProviderActions* self, const char* signal);
-    friend int KIO__KUriFilterSearchProviderActions_QBaseReceivers(const KIO::KUriFilterSearchProviderActions* self, const char* signal);
+    friend int KIO__KUriFilterSearchProviderActions_SuperReceivers(const KIO::KUriFilterSearchProviderActions* self, const char* signal);
     friend bool KIO__KUriFilterSearchProviderActions_IsSignalConnected(const KIO::KUriFilterSearchProviderActions* self, const QMetaMethod* signal);
-    friend bool KIO__KUriFilterSearchProviderActions_QBaseIsSignalConnected(const KIO::KUriFilterSearchProviderActions* self, const QMetaMethod* signal);
+    friend bool KIO__KUriFilterSearchProviderActions_SuperIsSignalConnected(const KIO::KUriFilterSearchProviderActions* self, const QMetaMethod* signal);
 };
 
 #endif

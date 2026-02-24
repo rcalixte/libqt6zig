@@ -89,7 +89,7 @@ void KLocalizedTranslator_RemoveContextToMonitor(KLocalizedTranslator* self, con
 }
 
 // Base class handler implementation
-QMetaObject* KLocalizedTranslator_QBaseMetaObject(const KLocalizedTranslator* self) {
+QMetaObject* KLocalizedTranslator_SuperMetaObject(const KLocalizedTranslator* self) {
     auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
     if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
         vklocalizedtranslator->setKLocalizedTranslator_MetaObject_IsBase(true);
@@ -108,7 +108,7 @@ void KLocalizedTranslator_OnMetaObject(const KLocalizedTranslator* self, intptr_
 }
 
 // Base class handler implementation
-void* KLocalizedTranslator_QBaseMetacast(KLocalizedTranslator* self, const char* param1) {
+void* KLocalizedTranslator_SuperMetacast(KLocalizedTranslator* self, const char* param1) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
     if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
         vklocalizedtranslator->setKLocalizedTranslator_Metacast_IsBase(true);
@@ -127,7 +127,7 @@ void KLocalizedTranslator_OnMetacast(KLocalizedTranslator* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int KLocalizedTranslator_QBaseMetacall(KLocalizedTranslator* self, int param1, int param2, void** param3) {
+int KLocalizedTranslator_SuperMetacall(KLocalizedTranslator* self, int param1, int param2, void** param3) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
     if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
         vklocalizedtranslator->setKLocalizedTranslator_Metacall_IsBase(true);
@@ -146,7 +146,7 @@ void KLocalizedTranslator_OnMetacall(KLocalizedTranslator* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-libqt_string KLocalizedTranslator_QBaseTranslate(const KLocalizedTranslator* self, const char* context, const char* sourceText, const char* disambiguation, int n) {
+libqt_string KLocalizedTranslator_SuperTranslate(const KLocalizedTranslator* self, const char* context, const char* sourceText, const char* disambiguation, int n) {
     auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
     if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
         vklocalizedtranslator->setKLocalizedTranslator_Translate_IsBase(true);
@@ -191,7 +191,7 @@ bool KLocalizedTranslator_IsEmpty(const KLocalizedTranslator* self) {
 }
 
 // Base class handler implementation
-bool KLocalizedTranslator_QBaseIsEmpty(const KLocalizedTranslator* self) {
+bool KLocalizedTranslator_SuperIsEmpty(const KLocalizedTranslator* self) {
     auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
     if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
         vklocalizedtranslator->setKLocalizedTranslator_IsEmpty_IsBase(true);
@@ -220,7 +220,7 @@ bool KLocalizedTranslator_Event(KLocalizedTranslator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KLocalizedTranslator_QBaseEvent(KLocalizedTranslator* self, QEvent* event) {
+bool KLocalizedTranslator_SuperEvent(KLocalizedTranslator* self, QEvent* event) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
     if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
         vklocalizedtranslator->setKLocalizedTranslator_Event_IsBase(true);
@@ -249,7 +249,7 @@ bool KLocalizedTranslator_EventFilter(KLocalizedTranslator* self, QObject* watch
 }
 
 // Base class handler implementation
-bool KLocalizedTranslator_QBaseEventFilter(KLocalizedTranslator* self, QObject* watched, QEvent* event) {
+bool KLocalizedTranslator_SuperEventFilter(KLocalizedTranslator* self, QObject* watched, QEvent* event) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
     if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
         vklocalizedtranslator->setKLocalizedTranslator_EventFilter_IsBase(true);
@@ -278,7 +278,7 @@ void KLocalizedTranslator_TimerEvent(KLocalizedTranslator* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void KLocalizedTranslator_QBaseTimerEvent(KLocalizedTranslator* self, QTimerEvent* event) {
+void KLocalizedTranslator_SuperTimerEvent(KLocalizedTranslator* self, QTimerEvent* event) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
     if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
         vklocalizedtranslator->setKLocalizedTranslator_TimerEvent_IsBase(true);
@@ -307,7 +307,7 @@ void KLocalizedTranslator_ChildEvent(KLocalizedTranslator* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void KLocalizedTranslator_QBaseChildEvent(KLocalizedTranslator* self, QChildEvent* event) {
+void KLocalizedTranslator_SuperChildEvent(KLocalizedTranslator* self, QChildEvent* event) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
     if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
         vklocalizedtranslator->setKLocalizedTranslator_ChildEvent_IsBase(true);
@@ -336,7 +336,7 @@ void KLocalizedTranslator_CustomEvent(KLocalizedTranslator* self, QEvent* event)
 }
 
 // Base class handler implementation
-void KLocalizedTranslator_QBaseCustomEvent(KLocalizedTranslator* self, QEvent* event) {
+void KLocalizedTranslator_SuperCustomEvent(KLocalizedTranslator* self, QEvent* event) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
     if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
         vklocalizedtranslator->setKLocalizedTranslator_CustomEvent_IsBase(true);
@@ -365,7 +365,7 @@ void KLocalizedTranslator_ConnectNotify(KLocalizedTranslator* self, const QMetaM
 }
 
 // Base class handler implementation
-void KLocalizedTranslator_QBaseConnectNotify(KLocalizedTranslator* self, const QMetaMethod* signal) {
+void KLocalizedTranslator_SuperConnectNotify(KLocalizedTranslator* self, const QMetaMethod* signal) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
     if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
         vklocalizedtranslator->setKLocalizedTranslator_ConnectNotify_IsBase(true);
@@ -394,7 +394,7 @@ void KLocalizedTranslator_DisconnectNotify(KLocalizedTranslator* self, const QMe
 }
 
 // Base class handler implementation
-void KLocalizedTranslator_QBaseDisconnectNotify(KLocalizedTranslator* self, const QMetaMethod* signal) {
+void KLocalizedTranslator_SuperDisconnectNotify(KLocalizedTranslator* self, const QMetaMethod* signal) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
     if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
         vklocalizedtranslator->setKLocalizedTranslator_DisconnectNotify_IsBase(true);
@@ -423,7 +423,7 @@ QObject* KLocalizedTranslator_Sender(const KLocalizedTranslator* self) {
 }
 
 // Base class handler implementation
-QObject* KLocalizedTranslator_QBaseSender(const KLocalizedTranslator* self) {
+QObject* KLocalizedTranslator_SuperSender(const KLocalizedTranslator* self) {
     auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
     if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
         vklocalizedtranslator->setKLocalizedTranslator_Sender_IsBase(true);
@@ -452,7 +452,7 @@ int KLocalizedTranslator_SenderSignalIndex(const KLocalizedTranslator* self) {
 }
 
 // Base class handler implementation
-int KLocalizedTranslator_QBaseSenderSignalIndex(const KLocalizedTranslator* self) {
+int KLocalizedTranslator_SuperSenderSignalIndex(const KLocalizedTranslator* self) {
     auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
     if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
         vklocalizedtranslator->setKLocalizedTranslator_SenderSignalIndex_IsBase(true);
@@ -481,7 +481,7 @@ int KLocalizedTranslator_Receivers(const KLocalizedTranslator* self, const char*
 }
 
 // Base class handler implementation
-int KLocalizedTranslator_QBaseReceivers(const KLocalizedTranslator* self, const char* signal) {
+int KLocalizedTranslator_SuperReceivers(const KLocalizedTranslator* self, const char* signal) {
     auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
     if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
         vklocalizedtranslator->setKLocalizedTranslator_Receivers_IsBase(true);
@@ -510,7 +510,7 @@ bool KLocalizedTranslator_IsSignalConnected(const KLocalizedTranslator* self, co
 }
 
 // Base class handler implementation
-bool KLocalizedTranslator_QBaseIsSignalConnected(const KLocalizedTranslator* self, const QMetaMethod* signal) {
+bool KLocalizedTranslator_SuperIsSignalConnected(const KLocalizedTranslator* self, const QMetaMethod* signal) {
     auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
     if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
         vklocalizedtranslator->setKLocalizedTranslator_IsSignalConnected_IsBase(true);

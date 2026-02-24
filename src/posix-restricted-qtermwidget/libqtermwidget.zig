@@ -74,6 +74,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -82,8 +86,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QTermWidget_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QTermWidget_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -109,6 +113,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -117,9 +125,9 @@ pub const qtermwidget = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QTermWidget_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QTermWidget_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -148,6 +156,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -160,8 +172,8 @@ pub const qtermwidget = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTermWidget_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QTermWidget_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -205,6 +217,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -213,8 +229,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTermWidget_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QTermWidget_SuperSizeHint(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -243,6 +259,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetTerminalSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTerminalSizeHint` instead
+    ///
+    pub const QBaseSetTerminalSizeHint = SuperSetTerminalSizeHint;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -253,8 +273,8 @@ pub const qtermwidget = struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn QBaseSetTerminalSizeHint(self: ?*anyopaque, enabled: bool) void {
-        qtc.QTermWidget_QBaseSetTerminalSizeHint(@ptrCast(self), enabled);
+    pub fn SuperSetTerminalSizeHint(self: ?*anyopaque, enabled: bool) void {
+        qtc.QTermWidget_SuperSetTerminalSizeHint(@ptrCast(self), enabled);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -281,6 +301,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnTerminalSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperTerminalSizeHint` instead
+    ///
+    pub const QBaseTerminalSizeHint = SuperTerminalSizeHint;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -289,8 +313,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseTerminalSizeHint(self: ?*anyopaque) bool {
-        return qtc.QTermWidget_QBaseTerminalSizeHint(@ptrCast(self));
+    pub fn SuperTerminalSizeHint(self: ?*anyopaque) bool {
+        return qtc.QTermWidget_SuperTerminalSizeHint(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -317,6 +341,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnStartShellProgram(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperStartShellProgram` instead
+    ///
+    pub const QBaseStartShellProgram = SuperStartShellProgram;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -325,8 +353,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseStartShellProgram(self: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseStartShellProgram(@ptrCast(self));
+    pub fn SuperStartShellProgram(self: ?*anyopaque) void {
+        qtc.QTermWidget_SuperStartShellProgram(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -353,6 +381,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnStartTerminalTeletype(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperStartTerminalTeletype` instead
+    ///
+    pub const QBaseStartTerminalTeletype = SuperStartTerminalTeletype;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -361,8 +393,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseStartTerminalTeletype(self: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseStartTerminalTeletype(@ptrCast(self));
+    pub fn SuperStartTerminalTeletype(self: ?*anyopaque) void {
+        qtc.QTermWidget_SuperStartTerminalTeletype(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -389,6 +421,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnGetShellPID(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGetShellPID` instead
+    ///
+    pub const QBaseGetShellPID = SuperGetShellPID;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -397,8 +433,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseGetShellPID(self: ?*anyopaque) i32 {
-        return qtc.QTermWidget_QBaseGetShellPID(@ptrCast(self));
+    pub fn SuperGetShellPID(self: ?*anyopaque) i32 {
+        return qtc.QTermWidget_SuperGetShellPID(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -425,6 +461,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnGetForegroundProcessId(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGetForegroundProcessId` instead
+    ///
+    pub const QBaseGetForegroundProcessId = SuperGetForegroundProcessId;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -433,8 +473,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseGetForegroundProcessId(self: ?*anyopaque) i32 {
-        return qtc.QTermWidget_QBaseGetForegroundProcessId(@ptrCast(self));
+    pub fn SuperGetForegroundProcessId(self: ?*anyopaque) i32 {
+        return qtc.QTermWidget_SuperGetForegroundProcessId(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -467,6 +507,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnChangeDir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperChangeDir` instead
+    ///
+    pub const QBaseChangeDir = SuperChangeDir;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -477,12 +521,12 @@ pub const qtermwidget = struct {
     ///
     /// ` dir: []const u8 `
     ///
-    pub fn QBaseChangeDir(self: ?*anyopaque, dir: []const u8) void {
+    pub fn SuperChangeDir(self: ?*anyopaque, dir: []const u8) void {
         const dir_str = qtc.libqt_string{
             .len = dir.len,
             .data = dir.ptr,
         };
-        qtc.QTermWidget_QBaseChangeDir(@ptrCast(self), dir_str);
+        qtc.QTermWidget_SuperChangeDir(@ptrCast(self), dir_str);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -511,6 +555,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetTerminalFont(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTerminalFont` instead
+    ///
+    pub const QBaseSetTerminalFont = SuperSetTerminalFont;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -521,8 +569,8 @@ pub const qtermwidget = struct {
     ///
     /// ` font: QtC.QFont `
     ///
-    pub fn QBaseSetTerminalFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseSetTerminalFont(@ptrCast(self), @ptrCast(font));
+    pub fn SuperSetTerminalFont(self: ?*anyopaque, font: ?*anyopaque) void {
+        qtc.QTermWidget_SuperSetTerminalFont(@ptrCast(self), @ptrCast(font));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -549,6 +597,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnGetTerminalFont(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGetTerminalFont` instead
+    ///
+    pub const QBaseGetTerminalFont = SuperGetTerminalFont;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -557,8 +609,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseGetTerminalFont(self: ?*anyopaque) QtC.QFont {
-        return qtc.QTermWidget_QBaseGetTerminalFont(@ptrCast(self));
+    pub fn SuperGetTerminalFont(self: ?*anyopaque) QtC.QFont {
+        return qtc.QTermWidget_SuperGetTerminalFont(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -587,6 +639,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetTerminalOpacity(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTerminalOpacity` instead
+    ///
+    pub const QBaseSetTerminalOpacity = SuperSetTerminalOpacity;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -597,8 +653,8 @@ pub const qtermwidget = struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn QBaseSetTerminalOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QTermWidget_QBaseSetTerminalOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SuperSetTerminalOpacity(self: ?*anyopaque, level: f64) void {
+        qtc.QTermWidget_SuperSetTerminalOpacity(@ptrCast(self), @bitCast(level));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -631,6 +687,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetTerminalBackgroundImage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTerminalBackgroundImage` instead
+    ///
+    pub const QBaseSetTerminalBackgroundImage = SuperSetTerminalBackgroundImage;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -641,12 +701,12 @@ pub const qtermwidget = struct {
     ///
     /// ` backgroundImage: []const u8 `
     ///
-    pub fn QBaseSetTerminalBackgroundImage(self: ?*anyopaque, backgroundImage: []const u8) void {
+    pub fn SuperSetTerminalBackgroundImage(self: ?*anyopaque, backgroundImage: []const u8) void {
         const backgroundImage_str = qtc.libqt_string{
             .len = backgroundImage.len,
             .data = backgroundImage.ptr,
         };
-        qtc.QTermWidget_QBaseSetTerminalBackgroundImage(@ptrCast(self), backgroundImage_str);
+        qtc.QTermWidget_SuperSetTerminalBackgroundImage(@ptrCast(self), backgroundImage_str);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -675,6 +735,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetTerminalBackgroundMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTerminalBackgroundMode` instead
+    ///
+    pub const QBaseSetTerminalBackgroundMode = SuperSetTerminalBackgroundMode;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -685,8 +749,8 @@ pub const qtermwidget = struct {
     ///
     /// ` mode: i32 `
     ///
-    pub fn QBaseSetTerminalBackgroundMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QTermWidget_QBaseSetTerminalBackgroundMode(@ptrCast(self), @bitCast(mode));
+    pub fn SuperSetTerminalBackgroundMode(self: ?*anyopaque, mode: i32) void {
+        qtc.QTermWidget_SuperSetTerminalBackgroundMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -729,6 +793,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetEnvironment(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetEnvironment` instead
+    ///
+    pub const QBaseSetEnvironment = SuperSetEnvironment;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -741,7 +809,7 @@ pub const qtermwidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetEnvironment(self: ?*anyopaque, environment: []const []const u8, allocator: std.mem.Allocator) void {
+    pub fn SuperSetEnvironment(self: ?*anyopaque, environment: []const []const u8, allocator: std.mem.Allocator) void {
         const environment_arr = allocator.alloc(qtc.libqt_string, environment.len) catch @panic("qtermwidget.SetEnvironment: Memory allocation failed");
         defer allocator.free(environment_arr);
         for (environment, 0..environment.len) |item, i| {
@@ -754,7 +822,7 @@ pub const qtermwidget = struct {
             .len = environment.len,
             .data = environment_arr.ptr,
         };
-        qtc.QTermWidget_QBaseSetEnvironment(@ptrCast(self), environment_list);
+        qtc.QTermWidget_SuperSetEnvironment(@ptrCast(self), environment_list);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -787,6 +855,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetShellProgram(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetShellProgram` instead
+    ///
+    pub const QBaseSetShellProgram = SuperSetShellProgram;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -797,12 +869,12 @@ pub const qtermwidget = struct {
     ///
     /// ` program: []const u8 `
     ///
-    pub fn QBaseSetShellProgram(self: ?*anyopaque, program: []const u8) void {
+    pub fn SuperSetShellProgram(self: ?*anyopaque, program: []const u8) void {
         const program_str = qtc.libqt_string{
             .len = program.len,
             .data = program.ptr,
         };
-        qtc.QTermWidget_QBaseSetShellProgram(@ptrCast(self), program_str);
+        qtc.QTermWidget_SuperSetShellProgram(@ptrCast(self), program_str);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -835,6 +907,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetWorkingDirectory(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetWorkingDirectory` instead
+    ///
+    pub const QBaseSetWorkingDirectory = SuperSetWorkingDirectory;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -845,12 +921,12 @@ pub const qtermwidget = struct {
     ///
     /// ` dir: []const u8 `
     ///
-    pub fn QBaseSetWorkingDirectory(self: ?*anyopaque, dir: []const u8) void {
+    pub fn SuperSetWorkingDirectory(self: ?*anyopaque, dir: []const u8) void {
         const dir_str = qtc.libqt_string{
             .len = dir.len,
             .data = dir.ptr,
         };
-        qtc.QTermWidget_QBaseSetWorkingDirectory(@ptrCast(self), dir_str);
+        qtc.QTermWidget_SuperSetWorkingDirectory(@ptrCast(self), dir_str);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -885,6 +961,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnWorkingDirectory(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWorkingDirectory` instead
+    ///
+    pub const QBaseWorkingDirectory = SuperWorkingDirectory;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -895,8 +975,8 @@ pub const qtermwidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseWorkingDirectory(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTermWidget_QBaseWorkingDirectory(@ptrCast(self));
+    pub fn SuperWorkingDirectory(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTermWidget_SuperWorkingDirectory(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtermwidget.WorkingDirectory: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -943,6 +1023,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetArgs(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetArgs` instead
+    ///
+    pub const QBaseSetArgs = SuperSetArgs;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -955,7 +1039,7 @@ pub const qtermwidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetArgs(self: ?*anyopaque, args: []const []const u8, allocator: std.mem.Allocator) void {
+    pub fn SuperSetArgs(self: ?*anyopaque, args: []const []const u8, allocator: std.mem.Allocator) void {
         const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("qtermwidget.SetArgs: Memory allocation failed");
         defer allocator.free(args_arr);
         for (args, 0..args.len) |item, i| {
@@ -968,7 +1052,7 @@ pub const qtermwidget = struct {
             .len = args.len,
             .data = args_arr.ptr,
         };
-        qtc.QTermWidget_QBaseSetArgs(@ptrCast(self), args_list);
+        qtc.QTermWidget_SuperSetArgs(@ptrCast(self), args_list);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1001,6 +1085,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetColorScheme(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetColorScheme` instead
+    ///
+    pub const QBaseSetColorScheme = SuperSetColorScheme;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1011,12 +1099,12 @@ pub const qtermwidget = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn QBaseSetColorScheme(self: ?*anyopaque, name: []const u8) void {
+    pub fn SuperSetColorScheme(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QTermWidget_QBaseSetColorScheme(@ptrCast(self), name_str);
+        qtc.QTermWidget_SuperSetColorScheme(@ptrCast(self), name_str);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1062,6 +1150,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnGetAvailableColorSchemes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGetAvailableColorSchemes` instead
+    ///
+    pub const QBaseGetAvailableColorSchemes = SuperGetAvailableColorSchemes;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1072,8 +1164,8 @@ pub const qtermwidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseGetAvailableColorSchemes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QTermWidget_QBaseGetAvailableColorSchemes(@ptrCast(self));
+    pub fn SuperGetAvailableColorSchemes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QTermWidget_SuperGetAvailableColorSchemes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -1156,6 +1248,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetHistorySize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetHistorySize` instead
+    ///
+    pub const QBaseSetHistorySize = SuperSetHistorySize;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1166,8 +1262,8 @@ pub const qtermwidget = struct {
     ///
     /// ` lines: i32 `
     ///
-    pub fn QBaseSetHistorySize(self: ?*anyopaque, lines: i32) void {
-        qtc.QTermWidget_QBaseSetHistorySize(@ptrCast(self), @bitCast(lines));
+    pub fn SuperSetHistorySize(self: ?*anyopaque, lines: i32) void {
+        qtc.QTermWidget_SuperSetHistorySize(@ptrCast(self), @bitCast(lines));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1194,6 +1290,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnHistorySize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHistorySize` instead
+    ///
+    pub const QBaseHistorySize = SuperHistorySize;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1202,8 +1302,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseHistorySize(self: ?*anyopaque) i32 {
-        return qtc.QTermWidget_QBaseHistorySize(@ptrCast(self));
+    pub fn SuperHistorySize(self: ?*anyopaque) i32 {
+        return qtc.QTermWidget_SuperHistorySize(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1232,6 +1332,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetScrollBarPosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetScrollBarPosition` instead
+    ///
+    pub const QBaseSetScrollBarPosition = SuperSetScrollBarPosition;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1242,8 +1346,8 @@ pub const qtermwidget = struct {
     ///
     /// ` scrollBarPosition: qtermwidget_interface_enums.ScrollBarPosition `
     ///
-    pub fn QBaseSetScrollBarPosition(self: ?*anyopaque, scrollBarPosition: i32) void {
-        qtc.QTermWidget_QBaseSetScrollBarPosition(@ptrCast(self), @bitCast(scrollBarPosition));
+    pub fn SuperSetScrollBarPosition(self: ?*anyopaque, scrollBarPosition: i32) void {
+        qtc.QTermWidget_SuperSetScrollBarPosition(@ptrCast(self), @bitCast(scrollBarPosition));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1270,6 +1374,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnScrollToEnd(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperScrollToEnd` instead
+    ///
+    pub const QBaseScrollToEnd = SuperScrollToEnd;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1278,8 +1386,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseScrollToEnd(self: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseScrollToEnd(@ptrCast(self));
+    pub fn SuperScrollToEnd(self: ?*anyopaque) void {
+        qtc.QTermWidget_SuperScrollToEnd(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1312,6 +1420,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSendText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSendText` instead
+    ///
+    pub const QBaseSendText = SuperSendText;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1322,12 +1434,12 @@ pub const qtermwidget = struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn QBaseSendText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SuperSendText(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QTermWidget_QBaseSendText(@ptrCast(self), text_str);
+        qtc.QTermWidget_SuperSendText(@ptrCast(self), text_str);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1356,6 +1468,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSendKeyEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSendKeyEvent` instead
+    ///
+    pub const QBaseSendKeyEvent = SuperSendKeyEvent;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1366,8 +1482,8 @@ pub const qtermwidget = struct {
     ///
     /// ` e: QtC.QKeyEvent `
     ///
-    pub fn QBaseSendKeyEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseSendKeyEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperSendKeyEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QTermWidget_SuperSendKeyEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1396,6 +1512,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetFlowControlEnabled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFlowControlEnabled` instead
+    ///
+    pub const QBaseSetFlowControlEnabled = SuperSetFlowControlEnabled;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1406,8 +1526,8 @@ pub const qtermwidget = struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn QBaseSetFlowControlEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QTermWidget_QBaseSetFlowControlEnabled(@ptrCast(self), enabled);
+    pub fn SuperSetFlowControlEnabled(self: ?*anyopaque, enabled: bool) void {
+        qtc.QTermWidget_SuperSetFlowControlEnabled(@ptrCast(self), enabled);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1434,6 +1554,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnFlowControlEnabled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFlowControlEnabled` instead
+    ///
+    pub const QBaseFlowControlEnabled = SuperFlowControlEnabled;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1442,8 +1566,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseFlowControlEnabled(self: ?*anyopaque) bool {
-        return qtc.QTermWidget_QBaseFlowControlEnabled(@ptrCast(self));
+    pub fn SuperFlowControlEnabled(self: ?*anyopaque) bool {
+        return qtc.QTermWidget_SuperFlowControlEnabled(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1472,6 +1596,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetFlowControlWarningEnabled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFlowControlWarningEnabled` instead
+    ///
+    pub const QBaseSetFlowControlWarningEnabled = SuperSetFlowControlWarningEnabled;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1482,8 +1610,8 @@ pub const qtermwidget = struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn QBaseSetFlowControlWarningEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QTermWidget_QBaseSetFlowControlWarningEnabled(@ptrCast(self), enabled);
+    pub fn SuperSetFlowControlWarningEnabled(self: ?*anyopaque, enabled: bool) void {
+        qtc.QTermWidget_SuperSetFlowControlWarningEnabled(@ptrCast(self), enabled);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1543,6 +1671,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnKeyBindings(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyBindings` instead
+    ///
+    pub const QBaseKeyBindings = SuperKeyBindings;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1553,8 +1685,8 @@ pub const qtermwidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseKeyBindings(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTermWidget_QBaseKeyBindings(@ptrCast(self));
+    pub fn SuperKeyBindings(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTermWidget_SuperKeyBindings(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtermwidget.KeyBindings: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1587,6 +1719,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetMotionAfterPasting(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetMotionAfterPasting` instead
+    ///
+    pub const QBaseSetMotionAfterPasting = SuperSetMotionAfterPasting;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1597,8 +1733,8 @@ pub const qtermwidget = struct {
     ///
     /// ` motionAfterPasting: i32 `
     ///
-    pub fn QBaseSetMotionAfterPasting(self: ?*anyopaque, motionAfterPasting: i32) void {
-        qtc.QTermWidget_QBaseSetMotionAfterPasting(@ptrCast(self), @bitCast(motionAfterPasting));
+    pub fn SuperSetMotionAfterPasting(self: ?*anyopaque, motionAfterPasting: i32) void {
+        qtc.QTermWidget_SuperSetMotionAfterPasting(@ptrCast(self), @bitCast(motionAfterPasting));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1625,6 +1761,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnHistoryLinesCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHistoryLinesCount` instead
+    ///
+    pub const QBaseHistoryLinesCount = SuperHistoryLinesCount;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1633,8 +1773,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseHistoryLinesCount(self: ?*anyopaque) i32 {
-        return qtc.QTermWidget_QBaseHistoryLinesCount(@ptrCast(self));
+    pub fn SuperHistoryLinesCount(self: ?*anyopaque) i32 {
+        return qtc.QTermWidget_SuperHistoryLinesCount(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1661,6 +1801,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnScreenColumnsCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperScreenColumnsCount` instead
+    ///
+    pub const QBaseScreenColumnsCount = SuperScreenColumnsCount;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1669,8 +1813,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseScreenColumnsCount(self: ?*anyopaque) i32 {
-        return qtc.QTermWidget_QBaseScreenColumnsCount(@ptrCast(self));
+    pub fn SuperScreenColumnsCount(self: ?*anyopaque) i32 {
+        return qtc.QTermWidget_SuperScreenColumnsCount(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1697,6 +1841,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnScreenLinesCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperScreenLinesCount` instead
+    ///
+    pub const QBaseScreenLinesCount = SuperScreenLinesCount;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1705,8 +1853,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseScreenLinesCount(self: ?*anyopaque) i32 {
-        return qtc.QTermWidget_QBaseScreenLinesCount(@ptrCast(self));
+    pub fn SuperScreenLinesCount(self: ?*anyopaque) i32 {
+        return qtc.QTermWidget_SuperScreenLinesCount(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1737,6 +1885,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetSelectionStart(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetSelectionStart` instead
+    ///
+    pub const QBaseSetSelectionStart = SuperSetSelectionStart;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1749,8 +1901,8 @@ pub const qtermwidget = struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn QBaseSetSelectionStart(self: ?*anyopaque, row: i32, column: i32) void {
-        qtc.QTermWidget_QBaseSetSelectionStart(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn SuperSetSelectionStart(self: ?*anyopaque, row: i32, column: i32) void {
+        qtc.QTermWidget_SuperSetSelectionStart(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1781,6 +1933,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetSelectionEnd(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetSelectionEnd` instead
+    ///
+    pub const QBaseSetSelectionEnd = SuperSetSelectionEnd;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1793,8 +1949,8 @@ pub const qtermwidget = struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn QBaseSetSelectionEnd(self: ?*anyopaque, row: i32, column: i32) void {
-        qtc.QTermWidget_QBaseSetSelectionEnd(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn SuperSetSelectionEnd(self: ?*anyopaque, row: i32, column: i32) void {
+        qtc.QTermWidget_SuperSetSelectionEnd(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1825,6 +1981,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnGetSelectionStart(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGetSelectionStart` instead
+    ///
+    pub const QBaseGetSelectionStart = SuperGetSelectionStart;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1837,8 +1997,8 @@ pub const qtermwidget = struct {
     ///
     /// ` column: *i32 `
     ///
-    pub fn QBaseGetSelectionStart(self: ?*anyopaque, row: *i32, column: *i32) void {
-        qtc.QTermWidget_QBaseGetSelectionStart(@ptrCast(self), @ptrCast(row), @ptrCast(column));
+    pub fn SuperGetSelectionStart(self: ?*anyopaque, row: *i32, column: *i32) void {
+        qtc.QTermWidget_SuperGetSelectionStart(@ptrCast(self), @ptrCast(row), @ptrCast(column));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1869,6 +2029,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnGetSelectionEnd(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGetSelectionEnd` instead
+    ///
+    pub const QBaseGetSelectionEnd = SuperGetSelectionEnd;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1881,8 +2045,8 @@ pub const qtermwidget = struct {
     ///
     /// ` column: *i32 `
     ///
-    pub fn QBaseGetSelectionEnd(self: ?*anyopaque, row: *i32, column: *i32) void {
-        qtc.QTermWidget_QBaseGetSelectionEnd(@ptrCast(self), @ptrCast(row), @ptrCast(column));
+    pub fn SuperGetSelectionEnd(self: ?*anyopaque, row: *i32, column: *i32) void {
+        qtc.QTermWidget_SuperGetSelectionEnd(@ptrCast(self), @ptrCast(row), @ptrCast(column));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1919,6 +2083,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSelectedText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSelectedText` instead
+    ///
+    pub const QBaseSelectedText = SuperSelectedText;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1931,8 +2099,8 @@ pub const qtermwidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSelectedText(self: ?*anyopaque, preserveLineBreaks: bool, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTermWidget_QBaseSelectedText(@ptrCast(self), preserveLineBreaks);
+    pub fn SuperSelectedText(self: ?*anyopaque, preserveLineBreaks: bool, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTermWidget_SuperSelectedText(@ptrCast(self), preserveLineBreaks);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtermwidget.SelectedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1965,6 +2133,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetMonitorActivity(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetMonitorActivity` instead
+    ///
+    pub const QBaseSetMonitorActivity = SuperSetMonitorActivity;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1975,8 +2147,8 @@ pub const qtermwidget = struct {
     ///
     /// ` monitorActivity: bool `
     ///
-    pub fn QBaseSetMonitorActivity(self: ?*anyopaque, monitorActivity: bool) void {
-        qtc.QTermWidget_QBaseSetMonitorActivity(@ptrCast(self), monitorActivity);
+    pub fn SuperSetMonitorActivity(self: ?*anyopaque, monitorActivity: bool) void {
+        qtc.QTermWidget_SuperSetMonitorActivity(@ptrCast(self), monitorActivity);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2005,6 +2177,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetMonitorSilence(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetMonitorSilence` instead
+    ///
+    pub const QBaseSetMonitorSilence = SuperSetMonitorSilence;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2015,8 +2191,8 @@ pub const qtermwidget = struct {
     ///
     /// ` monitorSilence: bool `
     ///
-    pub fn QBaseSetMonitorSilence(self: ?*anyopaque, monitorSilence: bool) void {
-        qtc.QTermWidget_QBaseSetMonitorSilence(@ptrCast(self), monitorSilence);
+    pub fn SuperSetMonitorSilence(self: ?*anyopaque, monitorSilence: bool) void {
+        qtc.QTermWidget_SuperSetMonitorSilence(@ptrCast(self), monitorSilence);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2045,6 +2221,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetSilenceTimeout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetSilenceTimeout` instead
+    ///
+    pub const QBaseSetSilenceTimeout = SuperSetSilenceTimeout;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2055,8 +2235,8 @@ pub const qtermwidget = struct {
     ///
     /// ` seconds: i32 `
     ///
-    pub fn QBaseSetSilenceTimeout(self: ?*anyopaque, seconds: i32) void {
-        qtc.QTermWidget_QBaseSetSilenceTimeout(@ptrCast(self), @bitCast(seconds));
+    pub fn SuperSetSilenceTimeout(self: ?*anyopaque, seconds: i32) void {
+        qtc.QTermWidget_SuperSetSilenceTimeout(@ptrCast(self), @bitCast(seconds));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2124,6 +2304,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnFilterActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFilterActions` instead
+    ///
+    pub const QBaseFilterActions = SuperFilterActions;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2136,8 +2320,8 @@ pub const qtermwidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseFilterActions(self: ?*anyopaque, position: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QTermWidget_QBaseFilterActions(@ptrCast(self), @ptrCast(position));
+    pub fn SuperFilterActions(self: ?*anyopaque, position: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
+        const _arr: qtc.libqt_list = qtc.QTermWidget_SuperFilterActions(@ptrCast(self), @ptrCast(position));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qtermwidget.FilterActions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
@@ -2169,6 +2353,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnGetPtySlaveFd(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGetPtySlaveFd` instead
+    ///
+    pub const QBaseGetPtySlaveFd = SuperGetPtySlaveFd;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2177,8 +2365,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseGetPtySlaveFd(self: ?*anyopaque) i32 {
-        return qtc.QTermWidget_QBaseGetPtySlaveFd(@ptrCast(self));
+    pub fn SuperGetPtySlaveFd(self: ?*anyopaque) i32 {
+        return qtc.QTermWidget_SuperGetPtySlaveFd(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2219,6 +2407,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetBlinkingCursor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetBlinkingCursor` instead
+    ///
+    pub const QBaseSetBlinkingCursor = SuperSetBlinkingCursor;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2229,8 +2421,8 @@ pub const qtermwidget = struct {
     ///
     /// ` blink: bool `
     ///
-    pub fn QBaseSetBlinkingCursor(self: ?*anyopaque, blink: bool) void {
-        qtc.QTermWidget_QBaseSetBlinkingCursor(@ptrCast(self), blink);
+    pub fn SuperSetBlinkingCursor(self: ?*anyopaque, blink: bool) void {
+        qtc.QTermWidget_SuperSetBlinkingCursor(@ptrCast(self), blink);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2259,6 +2451,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetBidiEnabled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetBidiEnabled` instead
+    ///
+    pub const QBaseSetBidiEnabled = SuperSetBidiEnabled;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2269,8 +2465,8 @@ pub const qtermwidget = struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn QBaseSetBidiEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QTermWidget_QBaseSetBidiEnabled(@ptrCast(self), enabled);
+    pub fn SuperSetBidiEnabled(self: ?*anyopaque, enabled: bool) void {
+        qtc.QTermWidget_SuperSetBidiEnabled(@ptrCast(self), enabled);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2297,6 +2493,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnIsBidiEnabled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsBidiEnabled` instead
+    ///
+    pub const QBaseIsBidiEnabled = SuperIsBidiEnabled;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2305,8 +2505,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseIsBidiEnabled(self: ?*anyopaque) bool {
-        return qtc.QTermWidget_QBaseIsBidiEnabled(@ptrCast(self));
+    pub fn SuperIsBidiEnabled(self: ?*anyopaque) bool {
+        return qtc.QTermWidget_SuperIsBidiEnabled(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2335,6 +2535,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetAutoClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetAutoClose` instead
+    ///
+    pub const QBaseSetAutoClose = SuperSetAutoClose;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2345,8 +2549,8 @@ pub const qtermwidget = struct {
     ///
     /// ` autoClose: bool `
     ///
-    pub fn QBaseSetAutoClose(self: ?*anyopaque, autoClose: bool) void {
-        qtc.QTermWidget_QBaseSetAutoClose(@ptrCast(self), autoClose);
+    pub fn SuperSetAutoClose(self: ?*anyopaque, autoClose: bool) void {
+        qtc.QTermWidget_SuperSetAutoClose(@ptrCast(self), autoClose);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2381,6 +2585,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnTitle(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperTitle` instead
+    ///
+    pub const QBaseTitle = SuperTitle;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2391,8 +2599,8 @@ pub const qtermwidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTermWidget_QBaseTitle(@ptrCast(self));
+    pub fn SuperTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTermWidget_SuperTitle(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtermwidget.Title: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2431,6 +2639,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnIcon(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIcon` instead
+    ///
+    pub const QBaseIcon = SuperIcon;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2441,8 +2653,8 @@ pub const qtermwidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseIcon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTermWidget_QBaseIcon(@ptrCast(self));
+    pub fn SuperIcon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTermWidget_SuperIcon(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtermwidget.Icon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2473,6 +2685,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnIsTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsTitleChanged` instead
+    ///
+    pub const QBaseIsTitleChanged = SuperIsTitleChanged;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2481,8 +2697,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseIsTitleChanged(self: ?*anyopaque) bool {
-        return qtc.QTermWidget_QBaseIsTitleChanged(@ptrCast(self));
+    pub fn SuperIsTitleChanged(self: ?*anyopaque) bool {
+        return qtc.QTermWidget_SuperIsTitleChanged(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2515,6 +2731,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnBracketText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBracketText` instead
+    ///
+    pub const QBaseBracketText = SuperBracketText;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2525,12 +2745,12 @@ pub const qtermwidget = struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn QBaseBracketText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SuperBracketText(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QTermWidget_QBaseBracketText(@ptrCast(self), text_str);
+        qtc.QTermWidget_SuperBracketText(@ptrCast(self), text_str);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2559,6 +2779,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnDisableBracketedPasteMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDisableBracketedPasteMode` instead
+    ///
+    pub const QBaseDisableBracketedPasteMode = SuperDisableBracketedPasteMode;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2569,8 +2793,8 @@ pub const qtermwidget = struct {
     ///
     /// ` disable: bool `
     ///
-    pub fn QBaseDisableBracketedPasteMode(self: ?*anyopaque, disable: bool) void {
-        qtc.QTermWidget_QBaseDisableBracketedPasteMode(@ptrCast(self), disable);
+    pub fn SuperDisableBracketedPasteMode(self: ?*anyopaque, disable: bool) void {
+        qtc.QTermWidget_SuperDisableBracketedPasteMode(@ptrCast(self), disable);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2597,6 +2821,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnBracketedPasteModeIsDisabled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBracketedPasteModeIsDisabled` instead
+    ///
+    pub const QBaseBracketedPasteModeIsDisabled = SuperBracketedPasteModeIsDisabled;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2605,8 +2833,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseBracketedPasteModeIsDisabled(self: ?*anyopaque) bool {
-        return qtc.QTermWidget_QBaseBracketedPasteModeIsDisabled(@ptrCast(self));
+    pub fn SuperBracketedPasteModeIsDisabled(self: ?*anyopaque) bool {
+        return qtc.QTermWidget_SuperBracketedPasteModeIsDisabled(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2635,6 +2863,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetMargin(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetMargin` instead
+    ///
+    pub const QBaseSetMargin = SuperSetMargin;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2645,8 +2877,8 @@ pub const qtermwidget = struct {
     ///
     /// ` margin: i32 `
     ///
-    pub fn QBaseSetMargin(self: ?*anyopaque, margin: i32) void {
-        qtc.QTermWidget_QBaseSetMargin(@ptrCast(self), @bitCast(margin));
+    pub fn SuperSetMargin(self: ?*anyopaque, margin: i32) void {
+        qtc.QTermWidget_SuperSetMargin(@ptrCast(self), @bitCast(margin));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2673,6 +2905,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnGetMargin(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGetMargin` instead
+    ///
+    pub const QBaseGetMargin = SuperGetMargin;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2681,8 +2917,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseGetMargin(self: ?*anyopaque) i32 {
-        return qtc.QTermWidget_QBaseGetMargin(@ptrCast(self));
+    pub fn SuperGetMargin(self: ?*anyopaque) i32 {
+        return qtc.QTermWidget_SuperGetMargin(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2711,6 +2947,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetDrawLineChars(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetDrawLineChars` instead
+    ///
+    pub const QBaseSetDrawLineChars = SuperSetDrawLineChars;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2721,8 +2961,8 @@ pub const qtermwidget = struct {
     ///
     /// ` drawLineChars: bool `
     ///
-    pub fn QBaseSetDrawLineChars(self: ?*anyopaque, drawLineChars: bool) void {
-        qtc.QTermWidget_QBaseSetDrawLineChars(@ptrCast(self), drawLineChars);
+    pub fn SuperSetDrawLineChars(self: ?*anyopaque, drawLineChars: bool) void {
+        qtc.QTermWidget_SuperSetDrawLineChars(@ptrCast(self), drawLineChars);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2751,6 +2991,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetBoldIntense(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetBoldIntense` instead
+    ///
+    pub const QBaseSetBoldIntense = SuperSetBoldIntense;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2761,8 +3005,8 @@ pub const qtermwidget = struct {
     ///
     /// ` boldIntense: bool `
     ///
-    pub fn QBaseSetBoldIntense(self: ?*anyopaque, boldIntense: bool) void {
-        qtc.QTermWidget_QBaseSetBoldIntense(@ptrCast(self), boldIntense);
+    pub fn SuperSetBoldIntense(self: ?*anyopaque, boldIntense: bool) void {
+        qtc.QTermWidget_SuperSetBoldIntense(@ptrCast(self), boldIntense);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2791,6 +3035,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetConfirmMultilinePaste(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetConfirmMultilinePaste` instead
+    ///
+    pub const QBaseSetConfirmMultilinePaste = SuperSetConfirmMultilinePaste;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2801,8 +3049,8 @@ pub const qtermwidget = struct {
     ///
     /// ` confirmMultilinePaste: bool `
     ///
-    pub fn QBaseSetConfirmMultilinePaste(self: ?*anyopaque, confirmMultilinePaste: bool) void {
-        qtc.QTermWidget_QBaseSetConfirmMultilinePaste(@ptrCast(self), confirmMultilinePaste);
+    pub fn SuperSetConfirmMultilinePaste(self: ?*anyopaque, confirmMultilinePaste: bool) void {
+        qtc.QTermWidget_SuperSetConfirmMultilinePaste(@ptrCast(self), confirmMultilinePaste);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2831,6 +3079,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetTrimPastedTrailingNewlines(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTrimPastedTrailingNewlines` instead
+    ///
+    pub const QBaseSetTrimPastedTrailingNewlines = SuperSetTrimPastedTrailingNewlines;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2841,8 +3093,8 @@ pub const qtermwidget = struct {
     ///
     /// ` trimPastedTrailingNewlines: bool `
     ///
-    pub fn QBaseSetTrimPastedTrailingNewlines(self: ?*anyopaque, trimPastedTrailingNewlines: bool) void {
-        qtc.QTermWidget_QBaseSetTrimPastedTrailingNewlines(@ptrCast(self), trimPastedTrailingNewlines);
+    pub fn SuperSetTrimPastedTrailingNewlines(self: ?*anyopaque, trimPastedTrailingNewlines: bool) void {
+        qtc.QTermWidget_SuperSetTrimPastedTrailingNewlines(@ptrCast(self), trimPastedTrailingNewlines);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2877,6 +3129,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnWordCharacters(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWordCharacters` instead
+    ///
+    pub const QBaseWordCharacters = SuperWordCharacters;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2887,8 +3143,8 @@ pub const qtermwidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseWordCharacters(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTermWidget_QBaseWordCharacters(@ptrCast(self));
+    pub fn SuperWordCharacters(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTermWidget_SuperWordCharacters(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtermwidget.WordCharacters: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2925,6 +3181,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSetWordCharacters(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetWordCharacters` instead
+    ///
+    pub const QBaseSetWordCharacters = SuperSetWordCharacters;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2935,12 +3195,12 @@ pub const qtermwidget = struct {
     ///
     /// ` chars: []const u8 `
     ///
-    pub fn QBaseSetWordCharacters(self: ?*anyopaque, chars: []const u8) void {
+    pub fn SuperSetWordCharacters(self: ?*anyopaque, chars: []const u8) void {
         const chars_str = qtc.libqt_string{
             .len = chars.len,
             .data = chars.ptr,
         };
-        qtc.QTermWidget_QBaseSetWordCharacters(@ptrCast(self), chars_str);
+        qtc.QTermWidget_SuperSetWordCharacters(@ptrCast(self), chars_str);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2969,6 +3229,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnCreateWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateWidget` instead
+    ///
+    pub const QBaseCreateWidget = SuperCreateWidget;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -2979,8 +3243,8 @@ pub const qtermwidget = struct {
     ///
     /// ` startnow: i32 `
     ///
-    pub fn QBaseCreateWidget(self: ?*anyopaque, startnow: i32) QtC.QTermWidgetInterface {
-        return qtc.QTermWidget_QBaseCreateWidget(@ptrCast(self), @bitCast(startnow));
+    pub fn SuperCreateWidget(self: ?*anyopaque, startnow: i32) QtC.QTermWidgetInterface {
+        return qtc.QTermWidget_SuperCreateWidget(@ptrCast(self), @bitCast(startnow));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -3436,6 +3700,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -3446,8 +3714,8 @@ pub const qtermwidget = struct {
     ///
     /// ` param1: QtC.QResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseResizeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QTermWidget_SuperResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -3474,6 +3742,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSessionFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSessionFinished` instead
+    ///
+    pub const QBaseSessionFinished = SuperSessionFinished;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -3482,8 +3754,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseSessionFinished(self: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseSessionFinished(@ptrCast(self));
+    pub fn SuperSessionFinished(self: ?*anyopaque) void {
+        qtc.QTermWidget_SuperSessionFinished(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -3512,6 +3784,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_OnSelectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSelectionChanged` instead
+    ///
+    pub const QBaseSelectionChanged = SuperSelectionChanged;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -3522,8 +3798,8 @@ pub const qtermwidget = struct {
     ///
     /// ` textSelected: bool `
     ///
-    pub fn QBaseSelectionChanged(self: ?*anyopaque, textSelected: bool) void {
-        qtc.QTermWidget_QBaseSelectionChanged(@ptrCast(self), textSelected);
+    pub fn SuperSelectionChanged(self: ?*anyopaque, textSelected: bool) void {
+        qtc.QTermWidget_SuperSelectionChanged(@ptrCast(self), textSelected);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -8319,6 +8595,10 @@ pub const qtermwidget = struct {
         return qtc.QTermWidget_DevType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
@@ -8329,8 +8609,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.QTermWidget_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.QTermWidget_SuperDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8365,6 +8645,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_SetVisible(@ptrCast(self), visible);
     }
 
+    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    ///
+    pub const QBaseSetVisible = SuperSetVisible;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
@@ -8377,8 +8661,8 @@ pub const qtermwidget = struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QTermWidget_QBaseSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
+        qtc.QTermWidget_SuperSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
@@ -8411,6 +8695,10 @@ pub const qtermwidget = struct {
         return qtc.QTermWidget_MinimumSizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    ///
+    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSizeHint)
@@ -8421,8 +8709,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTermWidget_QBaseMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QTermWidget_SuperMinimumSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8457,6 +8745,10 @@ pub const qtermwidget = struct {
         return qtc.QTermWidget_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
@@ -8469,8 +8761,8 @@ pub const qtermwidget = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTermWidget_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QTermWidget_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -8503,6 +8795,10 @@ pub const qtermwidget = struct {
         return qtc.QTermWidget_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
@@ -8513,8 +8809,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QTermWidget_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.QTermWidget_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8547,6 +8843,10 @@ pub const qtermwidget = struct {
         return qtc.QTermWidget_PaintEngine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    ///
+    pub const QBasePaintEngine = SuperPaintEngine;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
@@ -8557,8 +8857,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QTermWidget_QBasePaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.QTermWidget_SuperPaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8593,6 +8893,10 @@ pub const qtermwidget = struct {
         return qtc.QTermWidget_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#event)
@@ -8605,8 +8909,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTermWidget_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QTermWidget_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8641,6 +8945,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_MousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -8653,8 +8961,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8689,6 +8997,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -8701,8 +9013,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8737,6 +9049,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -8749,8 +9065,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8785,6 +9101,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -8797,8 +9117,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8833,6 +9153,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_WheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
@@ -8845,8 +9169,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8881,6 +9205,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_KeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -8893,8 +9221,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperKeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8929,6 +9257,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -8941,8 +9273,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8977,6 +9309,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_FocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -8989,8 +9325,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9025,6 +9361,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_FocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -9037,8 +9377,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9073,6 +9413,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    ///
+    pub const QBaseEnterEvent = SuperEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
@@ -9085,8 +9429,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QEnterEvent `
     ///
-    pub fn QBaseEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9121,6 +9465,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    ///
+    pub const QBaseLeaveEvent = SuperLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
@@ -9133,8 +9481,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9169,6 +9517,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_PaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    ///
+    pub const QBasePaintEvent = SuperPaintEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEvent)
@@ -9181,8 +9533,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QPaintEvent `
     ///
-    pub fn QBasePaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBasePaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperPaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperPaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9217,6 +9569,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
@@ -9229,8 +9585,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9265,6 +9621,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
@@ -9277,8 +9637,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9313,6 +9673,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_ContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    ///
+    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuEvent)
@@ -9325,8 +9689,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QContextMenuEvent `
     ///
-    pub fn QBaseContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9361,6 +9725,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    ///
+    pub const QBaseTabletEvent = SuperTabletEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
@@ -9373,8 +9741,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QTabletEvent `
     ///
-    pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9409,6 +9777,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_ActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    ///
+    pub const QBaseActionEvent = SuperActionEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
@@ -9421,8 +9793,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QActionEvent `
     ///
-    pub fn QBaseActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9457,6 +9829,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_DragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    ///
+    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
@@ -9469,8 +9845,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QDragEnterEvent `
     ///
-    pub fn QBaseDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9505,6 +9881,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_DragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    ///
+    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
@@ -9517,8 +9897,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QDragMoveEvent `
     ///
-    pub fn QBaseDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9553,6 +9933,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    ///
+    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
@@ -9565,8 +9949,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QDragLeaveEvent `
     ///
-    pub fn QBaseDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9601,6 +9985,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_DropEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    ///
+    pub const QBaseDropEvent = SuperDropEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
@@ -9613,8 +10001,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QDropEvent `
     ///
-    pub fn QBaseDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9649,6 +10037,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
@@ -9661,8 +10053,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9697,6 +10089,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
@@ -9709,8 +10105,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9753,6 +10149,10 @@ pub const qtermwidget = struct {
         return qtc.QTermWidget_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
+    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    ///
+    pub const QBaseNativeEvent = SuperNativeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
@@ -9769,12 +10169,12 @@ pub const qtermwidget = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QTermWidget_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QTermWidget_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -9809,6 +10209,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_ChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    ///
+    pub const QBaseChangeEvent = SuperChangeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#changeEvent)
@@ -9821,8 +10225,8 @@ pub const qtermwidget = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QTermWidget_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -9857,6 +10261,10 @@ pub const qtermwidget = struct {
         return qtc.QTermWidget_Metric(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
@@ -9869,8 +10277,8 @@ pub const qtermwidget = struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTermWidget_QBaseMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QTermWidget_SuperMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -9905,6 +10313,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
@@ -9917,8 +10329,8 @@ pub const qtermwidget = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QTermWidget_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
@@ -9953,6 +10365,10 @@ pub const qtermwidget = struct {
         return qtc.QTermWidget_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
@@ -9965,8 +10381,8 @@ pub const qtermwidget = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QTermWidget_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.QTermWidget_SuperRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
@@ -9999,6 +10415,10 @@ pub const qtermwidget = struct {
         return qtc.QTermWidget_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
@@ -10009,8 +10429,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QTermWidget_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.QTermWidget_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10045,6 +10465,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    ///
+    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
@@ -10057,8 +10481,8 @@ pub const qtermwidget = struct {
     ///
     /// ` param1: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QTermWidget_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -10093,6 +10517,10 @@ pub const qtermwidget = struct {
         return qtc.QTermWidget_InputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    ///
+    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
@@ -10105,8 +10533,8 @@ pub const qtermwidget = struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QTermWidget_QBaseInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
+        return qtc.QTermWidget_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -10141,6 +10569,10 @@ pub const qtermwidget = struct {
         return qtc.QTermWidget_FocusNextPrevChild(@ptrCast(self), next);
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    ///
+    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
@@ -10153,8 +10585,8 @@ pub const qtermwidget = struct {
     ///
     /// ` next: bool `
     ///
-    pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QTermWidget_QBaseFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
+        return qtc.QTermWidget_SuperFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QWidget
@@ -10191,6 +10623,10 @@ pub const qtermwidget = struct {
         return qtc.QTermWidget_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -10205,8 +10641,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTermWidget_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QTermWidget_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -10241,6 +10677,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -10253,8 +10693,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -10289,6 +10729,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -10301,8 +10745,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -10337,6 +10781,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -10349,8 +10797,8 @@ pub const qtermwidget = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTermWidget_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -10385,6 +10833,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -10397,8 +10849,8 @@ pub const qtermwidget = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QTermWidget_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -10433,6 +10885,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -10445,8 +10901,8 @@ pub const qtermwidget = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QTermWidget_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -10479,6 +10935,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_UpdateMicroFocus(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    ///
+    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -10489,8 +10949,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
+        qtc.QTermWidget_SuperUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10523,6 +10983,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_Create(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCreate` instead
+    ///
+    pub const QBaseCreate = SuperCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -10533,8 +10997,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseCreate(self: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseCreate(@ptrCast(self));
+    pub fn SuperCreate(self: ?*anyopaque) void {
+        qtc.QTermWidget_SuperCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10567,6 +11031,10 @@ pub const qtermwidget = struct {
         qtc.QTermWidget_Destroy(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDestroy` instead
+    ///
+    pub const QBaseDestroy = SuperDestroy;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
@@ -10577,8 +11045,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseDestroy(self: ?*anyopaque) void {
-        qtc.QTermWidget_QBaseDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: ?*anyopaque) void {
+        qtc.QTermWidget_SuperDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10611,6 +11079,10 @@ pub const qtermwidget = struct {
         return qtc.QTermWidget_FocusNextChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    ///
+    pub const QBaseFocusNextChild = SuperFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -10621,8 +11093,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QTermWidget_QBaseFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
+        return qtc.QTermWidget_SuperFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10655,6 +11127,10 @@ pub const qtermwidget = struct {
         return qtc.QTermWidget_FocusPreviousChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    ///
+    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
@@ -10665,8 +11141,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QTermWidget_QBaseFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
+        return qtc.QTermWidget_SuperFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10699,6 +11175,10 @@ pub const qtermwidget = struct {
         return qtc.QTermWidget_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -10709,8 +11189,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QTermWidget_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QTermWidget_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -10743,6 +11223,10 @@ pub const qtermwidget = struct {
         return qtc.QTermWidget_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -10753,8 +11237,8 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QTermWidget_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QTermWidget_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -10790,6 +11274,10 @@ pub const qtermwidget = struct {
         return qtc.QTermWidget_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -10802,9 +11290,9 @@ pub const qtermwidget = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QTermWidget_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QTermWidget_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -10839,6 +11327,10 @@ pub const qtermwidget = struct {
         return qtc.QTermWidget_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -10851,8 +11343,8 @@ pub const qtermwidget = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QTermWidget_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QTermWidget_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -10889,6 +11381,10 @@ pub const qtermwidget = struct {
         return qtc.QTermWidget_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -10903,8 +11399,8 @@ pub const qtermwidget = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QTermWidget_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.QTermWidget_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -10938,6 +11434,9 @@ pub const qtermwidget = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
@@ -10947,7 +11446,7 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTermWidget_Delete(@ptrCast(self));
     }
 };

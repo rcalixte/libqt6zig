@@ -820,6 +820,10 @@ pub const qcbormap = struct {
         return qtc.QCborMap_ToJsonObject(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#dtor.QCborMap)
     ///
     /// Delete this object from C++ memory.
@@ -828,7 +832,7 @@ pub const qcbormap = struct {
     ///
     /// ` self: QtC.QCborMap `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCborMap_Delete(@ptrCast(self));
     }
 };
@@ -1041,13 +1045,17 @@ pub const qcbormap__iterator = struct {
         return qtc.QCborMap__Iterator_OperatorMinus2(@ptrCast(self), @ptrCast(j));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QCborMap__Iterator `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCborMap__Iterator_Delete(@ptrCast(self));
     }
 };
@@ -1250,13 +1258,17 @@ pub const qcbormap__constiterator = struct {
         return qtc.QCborMap__ConstIterator_OperatorMinus2(@ptrCast(self), @ptrCast(j));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QCborMap__ConstIterator `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCborMap__ConstIterator_Delete(@ptrCast(self));
     }
 };

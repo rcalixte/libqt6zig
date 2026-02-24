@@ -162,6 +162,10 @@ pub const qplacesupplier = struct {
         return qtc.QPlaceSupplier_IsEmpty(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesupplier.html#dtor.QPlaceSupplier)
     ///
     /// Delete this object from C++ memory.
@@ -170,7 +174,7 @@ pub const qplacesupplier = struct {
     ///
     /// ` self: QtC.QPlaceSupplier `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPlaceSupplier_Delete(@ptrCast(self));
     }
 };

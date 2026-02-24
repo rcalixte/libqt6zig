@@ -46,6 +46,10 @@ pub const qhcandlestickmodelmapper = struct {
         qtc.QHCandlestickModelMapper_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -54,8 +58,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` self: QtC.QHCandlestickModelMapper `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QHCandlestickModelMapper_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QHCandlestickModelMapper_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -81,6 +85,10 @@ pub const qhcandlestickmodelmapper = struct {
         qtc.QHCandlestickModelMapper_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -89,9 +97,9 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QHCandlestickModelMapper_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QHCandlestickModelMapper_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -120,6 +128,10 @@ pub const qhcandlestickmodelmapper = struct {
         qtc.QHCandlestickModelMapper_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -132,8 +144,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QHCandlestickModelMapper_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QHCandlestickModelMapper_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -181,6 +193,10 @@ pub const qhcandlestickmodelmapper = struct {
         qtc.QHCandlestickModelMapper_OnOrientation(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperOrientation` instead
+    ///
+    pub const QBaseOrientation = SuperOrientation;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhcandlestickmodelmapper-qtcharts.html#orientation)
     ///
     /// Base class method implementation
@@ -193,8 +209,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn QBaseOrientation(self: ?*anyopaque) i32 {
-        return qtc.QHCandlestickModelMapper_QBaseOrientation(@ptrCast(self));
+    pub fn SuperOrientation(self: ?*anyopaque) i32 {
+        return qtc.QHCandlestickModelMapper_SuperOrientation(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhcandlestickmodelmapper-qtcharts.html#setTimestampColumn)
@@ -1405,6 +1421,10 @@ pub const qhcandlestickmodelmapper = struct {
         return qtc.QHCandlestickModelMapper_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1417,8 +1437,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QHCandlestickModelMapper_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QHCandlestickModelMapper_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1455,6 +1475,10 @@ pub const qhcandlestickmodelmapper = struct {
         return qtc.QHCandlestickModelMapper_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1469,8 +1493,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QHCandlestickModelMapper_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QHCandlestickModelMapper_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1505,6 +1529,10 @@ pub const qhcandlestickmodelmapper = struct {
         qtc.QHCandlestickModelMapper_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1517,8 +1545,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QHCandlestickModelMapper_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QHCandlestickModelMapper_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1553,6 +1581,10 @@ pub const qhcandlestickmodelmapper = struct {
         qtc.QHCandlestickModelMapper_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1565,8 +1597,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QHCandlestickModelMapper_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QHCandlestickModelMapper_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1601,6 +1633,10 @@ pub const qhcandlestickmodelmapper = struct {
         qtc.QHCandlestickModelMapper_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1613,8 +1649,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QHCandlestickModelMapper_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QHCandlestickModelMapper_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1649,6 +1685,10 @@ pub const qhcandlestickmodelmapper = struct {
         qtc.QHCandlestickModelMapper_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1661,8 +1701,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QHCandlestickModelMapper_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QHCandlestickModelMapper_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1697,6 +1737,10 @@ pub const qhcandlestickmodelmapper = struct {
         qtc.QHCandlestickModelMapper_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1709,8 +1753,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QHCandlestickModelMapper_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QHCandlestickModelMapper_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1745,6 +1789,10 @@ pub const qhcandlestickmodelmapper = struct {
         qtc.QHCandlestickModelMapper_SetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTimestamp` instead
+    ///
+    pub const QBaseSetTimestamp = SuperSetTimestamp;
+
     /// Inherited from QCandlestickModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setTimestamp)
@@ -1757,8 +1805,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` timestamp: i32 `
     ///
-    pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: i32) void {
-        qtc.QHCandlestickModelMapper_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
+    pub fn SuperSetTimestamp(self: ?*anyopaque, timestamp: i32) void {
+        qtc.QHCandlestickModelMapper_SuperSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -1791,6 +1839,10 @@ pub const qhcandlestickmodelmapper = struct {
         return qtc.QHCandlestickModelMapper_Timestamp(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperTimestamp` instead
+    ///
+    pub const QBaseTimestamp = SuperTimestamp;
+
     /// Inherited from QCandlestickModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#timestamp)
@@ -1801,8 +1853,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` self: QtC.QHCandlestickModelMapper `
     ///
-    pub fn QBaseTimestamp(self: ?*anyopaque) i32 {
-        return qtc.QHCandlestickModelMapper_QBaseTimestamp(@ptrCast(self));
+    pub fn SuperTimestamp(self: ?*anyopaque) i32 {
+        return qtc.QHCandlestickModelMapper_SuperTimestamp(@ptrCast(self));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -1837,6 +1889,10 @@ pub const qhcandlestickmodelmapper = struct {
         qtc.QHCandlestickModelMapper_SetOpen(@ptrCast(self), @bitCast(open));
     }
 
+    /// ### DEPRECATED: Use `SuperSetOpen` instead
+    ///
+    pub const QBaseSetOpen = SuperSetOpen;
+
     /// Inherited from QCandlestickModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setOpen)
@@ -1849,8 +1905,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` open: i32 `
     ///
-    pub fn QBaseSetOpen(self: ?*anyopaque, open: i32) void {
-        qtc.QHCandlestickModelMapper_QBaseSetOpen(@ptrCast(self), @bitCast(open));
+    pub fn SuperSetOpen(self: ?*anyopaque, open: i32) void {
+        qtc.QHCandlestickModelMapper_SuperSetOpen(@ptrCast(self), @bitCast(open));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -1883,6 +1939,10 @@ pub const qhcandlestickmodelmapper = struct {
         return qtc.QHCandlestickModelMapper_Open(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperOpen` instead
+    ///
+    pub const QBaseOpen = SuperOpen;
+
     /// Inherited from QCandlestickModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#open)
@@ -1893,8 +1953,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` self: QtC.QHCandlestickModelMapper `
     ///
-    pub fn QBaseOpen(self: ?*anyopaque) i32 {
-        return qtc.QHCandlestickModelMapper_QBaseOpen(@ptrCast(self));
+    pub fn SuperOpen(self: ?*anyopaque) i32 {
+        return qtc.QHCandlestickModelMapper_SuperOpen(@ptrCast(self));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -1929,6 +1989,10 @@ pub const qhcandlestickmodelmapper = struct {
         qtc.QHCandlestickModelMapper_SetHigh(@ptrCast(self), @bitCast(high));
     }
 
+    /// ### DEPRECATED: Use `SuperSetHigh` instead
+    ///
+    pub const QBaseSetHigh = SuperSetHigh;
+
     /// Inherited from QCandlestickModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setHigh)
@@ -1941,8 +2005,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` high: i32 `
     ///
-    pub fn QBaseSetHigh(self: ?*anyopaque, high: i32) void {
-        qtc.QHCandlestickModelMapper_QBaseSetHigh(@ptrCast(self), @bitCast(high));
+    pub fn SuperSetHigh(self: ?*anyopaque, high: i32) void {
+        qtc.QHCandlestickModelMapper_SuperSetHigh(@ptrCast(self), @bitCast(high));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -1975,6 +2039,10 @@ pub const qhcandlestickmodelmapper = struct {
         return qtc.QHCandlestickModelMapper_High(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHigh` instead
+    ///
+    pub const QBaseHigh = SuperHigh;
+
     /// Inherited from QCandlestickModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#high)
@@ -1985,8 +2053,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` self: QtC.QHCandlestickModelMapper `
     ///
-    pub fn QBaseHigh(self: ?*anyopaque) i32 {
-        return qtc.QHCandlestickModelMapper_QBaseHigh(@ptrCast(self));
+    pub fn SuperHigh(self: ?*anyopaque) i32 {
+        return qtc.QHCandlestickModelMapper_SuperHigh(@ptrCast(self));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -2021,6 +2089,10 @@ pub const qhcandlestickmodelmapper = struct {
         qtc.QHCandlestickModelMapper_SetLow(@ptrCast(self), @bitCast(low));
     }
 
+    /// ### DEPRECATED: Use `SuperSetLow` instead
+    ///
+    pub const QBaseSetLow = SuperSetLow;
+
     /// Inherited from QCandlestickModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setLow)
@@ -2033,8 +2105,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` low: i32 `
     ///
-    pub fn QBaseSetLow(self: ?*anyopaque, low: i32) void {
-        qtc.QHCandlestickModelMapper_QBaseSetLow(@ptrCast(self), @bitCast(low));
+    pub fn SuperSetLow(self: ?*anyopaque, low: i32) void {
+        qtc.QHCandlestickModelMapper_SuperSetLow(@ptrCast(self), @bitCast(low));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -2067,6 +2139,10 @@ pub const qhcandlestickmodelmapper = struct {
         return qtc.QHCandlestickModelMapper_Low(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperLow` instead
+    ///
+    pub const QBaseLow = SuperLow;
+
     /// Inherited from QCandlestickModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#low)
@@ -2077,8 +2153,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` self: QtC.QHCandlestickModelMapper `
     ///
-    pub fn QBaseLow(self: ?*anyopaque) i32 {
-        return qtc.QHCandlestickModelMapper_QBaseLow(@ptrCast(self));
+    pub fn SuperLow(self: ?*anyopaque) i32 {
+        return qtc.QHCandlestickModelMapper_SuperLow(@ptrCast(self));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -2113,6 +2189,10 @@ pub const qhcandlestickmodelmapper = struct {
         qtc.QHCandlestickModelMapper_SetClose(@ptrCast(self), @bitCast(close));
     }
 
+    /// ### DEPRECATED: Use `SuperSetClose` instead
+    ///
+    pub const QBaseSetClose = SuperSetClose;
+
     /// Inherited from QCandlestickModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setClose)
@@ -2125,8 +2205,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` close: i32 `
     ///
-    pub fn QBaseSetClose(self: ?*anyopaque, close: i32) void {
-        qtc.QHCandlestickModelMapper_QBaseSetClose(@ptrCast(self), @bitCast(close));
+    pub fn SuperSetClose(self: ?*anyopaque, close: i32) void {
+        qtc.QHCandlestickModelMapper_SuperSetClose(@ptrCast(self), @bitCast(close));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -2159,6 +2239,10 @@ pub const qhcandlestickmodelmapper = struct {
         return qtc.QHCandlestickModelMapper_Close(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperClose` instead
+    ///
+    pub const QBaseClose = SuperClose;
+
     /// Inherited from QCandlestickModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#close)
@@ -2169,8 +2253,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` self: QtC.QHCandlestickModelMapper `
     ///
-    pub fn QBaseClose(self: ?*anyopaque) i32 {
-        return qtc.QHCandlestickModelMapper_QBaseClose(@ptrCast(self));
+    pub fn SuperClose(self: ?*anyopaque) i32 {
+        return qtc.QHCandlestickModelMapper_SuperClose(@ptrCast(self));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -2205,6 +2289,10 @@ pub const qhcandlestickmodelmapper = struct {
         qtc.QHCandlestickModelMapper_SetFirstSetSection(@ptrCast(self), @bitCast(firstSetSection));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFirstSetSection` instead
+    ///
+    pub const QBaseSetFirstSetSection = SuperSetFirstSetSection;
+
     /// Inherited from QCandlestickModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setFirstSetSection)
@@ -2217,8 +2305,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` firstSetSection: i32 `
     ///
-    pub fn QBaseSetFirstSetSection(self: ?*anyopaque, firstSetSection: i32) void {
-        qtc.QHCandlestickModelMapper_QBaseSetFirstSetSection(@ptrCast(self), @bitCast(firstSetSection));
+    pub fn SuperSetFirstSetSection(self: ?*anyopaque, firstSetSection: i32) void {
+        qtc.QHCandlestickModelMapper_SuperSetFirstSetSection(@ptrCast(self), @bitCast(firstSetSection));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -2251,6 +2339,10 @@ pub const qhcandlestickmodelmapper = struct {
         return qtc.QHCandlestickModelMapper_FirstSetSection(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFirstSetSection` instead
+    ///
+    pub const QBaseFirstSetSection = SuperFirstSetSection;
+
     /// Inherited from QCandlestickModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#firstSetSection)
@@ -2261,8 +2353,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` self: QtC.QHCandlestickModelMapper `
     ///
-    pub fn QBaseFirstSetSection(self: ?*anyopaque) i32 {
-        return qtc.QHCandlestickModelMapper_QBaseFirstSetSection(@ptrCast(self));
+    pub fn SuperFirstSetSection(self: ?*anyopaque) i32 {
+        return qtc.QHCandlestickModelMapper_SuperFirstSetSection(@ptrCast(self));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -2297,6 +2389,10 @@ pub const qhcandlestickmodelmapper = struct {
         qtc.QHCandlestickModelMapper_SetLastSetSection(@ptrCast(self), @bitCast(lastSetSection));
     }
 
+    /// ### DEPRECATED: Use `SuperSetLastSetSection` instead
+    ///
+    pub const QBaseSetLastSetSection = SuperSetLastSetSection;
+
     /// Inherited from QCandlestickModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setLastSetSection)
@@ -2309,8 +2405,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` lastSetSection: i32 `
     ///
-    pub fn QBaseSetLastSetSection(self: ?*anyopaque, lastSetSection: i32) void {
-        qtc.QHCandlestickModelMapper_QBaseSetLastSetSection(@ptrCast(self), @bitCast(lastSetSection));
+    pub fn SuperSetLastSetSection(self: ?*anyopaque, lastSetSection: i32) void {
+        qtc.QHCandlestickModelMapper_SuperSetLastSetSection(@ptrCast(self), @bitCast(lastSetSection));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -2343,6 +2439,10 @@ pub const qhcandlestickmodelmapper = struct {
         return qtc.QHCandlestickModelMapper_LastSetSection(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperLastSetSection` instead
+    ///
+    pub const QBaseLastSetSection = SuperLastSetSection;
+
     /// Inherited from QCandlestickModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#lastSetSection)
@@ -2353,8 +2453,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` self: QtC.QHCandlestickModelMapper `
     ///
-    pub fn QBaseLastSetSection(self: ?*anyopaque) i32 {
-        return qtc.QHCandlestickModelMapper_QBaseLastSetSection(@ptrCast(self));
+    pub fn SuperLastSetSection(self: ?*anyopaque) i32 {
+        return qtc.QHCandlestickModelMapper_SuperLastSetSection(@ptrCast(self));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -2387,6 +2487,10 @@ pub const qhcandlestickmodelmapper = struct {
         return qtc.QHCandlestickModelMapper_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2397,8 +2501,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` self: QtC.QHCandlestickModelMapper `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QHCandlestickModelMapper_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QHCandlestickModelMapper_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2431,6 +2535,10 @@ pub const qhcandlestickmodelmapper = struct {
         return qtc.QHCandlestickModelMapper_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2441,8 +2549,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` self: QtC.QHCandlestickModelMapper `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QHCandlestickModelMapper_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QHCandlestickModelMapper_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2478,6 +2586,10 @@ pub const qhcandlestickmodelmapper = struct {
         return qtc.QHCandlestickModelMapper_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2490,9 +2602,9 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QHCandlestickModelMapper_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QHCandlestickModelMapper_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2527,6 +2639,10 @@ pub const qhcandlestickmodelmapper = struct {
         return qtc.QHCandlestickModelMapper_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2539,8 +2655,8 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QHCandlestickModelMapper_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QHCandlestickModelMapper_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2574,6 +2690,9 @@ pub const qhcandlestickmodelmapper = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhcandlestickmodelmapper-qtcharts.html#dtor.QHCandlestickModelMapper)
     ///
@@ -2583,7 +2702,7 @@ pub const qhcandlestickmodelmapper = struct {
     ///
     /// ` self: QtC.QHCandlestickModelMapper `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QHCandlestickModelMapper_Delete(@ptrCast(self));
     }
 };

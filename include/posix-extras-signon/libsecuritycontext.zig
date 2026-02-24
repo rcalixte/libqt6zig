@@ -105,6 +105,10 @@ pub const signon__securitycontext = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
     ///
     /// Delete this object from C++ memory.
@@ -113,7 +117,7 @@ pub const signon__securitycontext = struct {
     ///
     /// ` self: QtC.SignOn__SecurityContext `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.SignOn__SecurityContext_Delete(@ptrCast(self));
     }
 };

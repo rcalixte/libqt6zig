@@ -212,7 +212,7 @@ void KTextEditor__Message_SetAutoHide1(KTextEditor__Message* self, int delay) {
 }
 
 // Base class handler implementation
-QMetaObject* KTextEditor__Message_QBaseMetaObject(const KTextEditor__Message* self) {
+QMetaObject* KTextEditor__Message_SuperMetaObject(const KTextEditor__Message* self) {
     auto* vktexteditormessage = const_cast<VirtualKTextEditorMessage*>(dynamic_cast<const VirtualKTextEditorMessage*>(self));
     if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
         vktexteditormessage->setKTextEditor__Message_MetaObject_IsBase(true);
@@ -231,7 +231,7 @@ void KTextEditor__Message_OnMetaObject(const KTextEditor__Message* self, intptr_
 }
 
 // Base class handler implementation
-void* KTextEditor__Message_QBaseMetacast(KTextEditor__Message* self, const char* param1) {
+void* KTextEditor__Message_SuperMetacast(KTextEditor__Message* self, const char* param1) {
     auto* vktexteditormessage = dynamic_cast<VirtualKTextEditorMessage*>(self);
     if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
         vktexteditormessage->setKTextEditor__Message_Metacast_IsBase(true);
@@ -250,7 +250,7 @@ void KTextEditor__Message_OnMetacast(KTextEditor__Message* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int KTextEditor__Message_QBaseMetacall(KTextEditor__Message* self, int param1, int param2, void** param3) {
+int KTextEditor__Message_SuperMetacall(KTextEditor__Message* self, int param1, int param2, void** param3) {
     auto* vktexteditormessage = dynamic_cast<VirtualKTextEditorMessage*>(self);
     if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
         vktexteditormessage->setKTextEditor__Message_Metacall_IsBase(true);
@@ -279,7 +279,7 @@ bool KTextEditor__Message_Event(KTextEditor__Message* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KTextEditor__Message_QBaseEvent(KTextEditor__Message* self, QEvent* event) {
+bool KTextEditor__Message_SuperEvent(KTextEditor__Message* self, QEvent* event) {
     auto* vktexteditormessage = dynamic_cast<VirtualKTextEditorMessage*>(self);
     if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
         vktexteditormessage->setKTextEditor__Message_Event_IsBase(true);
@@ -308,7 +308,7 @@ bool KTextEditor__Message_EventFilter(KTextEditor__Message* self, QObject* watch
 }
 
 // Base class handler implementation
-bool KTextEditor__Message_QBaseEventFilter(KTextEditor__Message* self, QObject* watched, QEvent* event) {
+bool KTextEditor__Message_SuperEventFilter(KTextEditor__Message* self, QObject* watched, QEvent* event) {
     auto* vktexteditormessage = dynamic_cast<VirtualKTextEditorMessage*>(self);
     if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
         vktexteditormessage->setKTextEditor__Message_EventFilter_IsBase(true);
@@ -337,7 +337,7 @@ void KTextEditor__Message_TimerEvent(KTextEditor__Message* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void KTextEditor__Message_QBaseTimerEvent(KTextEditor__Message* self, QTimerEvent* event) {
+void KTextEditor__Message_SuperTimerEvent(KTextEditor__Message* self, QTimerEvent* event) {
     auto* vktexteditormessage = dynamic_cast<VirtualKTextEditorMessage*>(self);
     if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
         vktexteditormessage->setKTextEditor__Message_TimerEvent_IsBase(true);
@@ -366,7 +366,7 @@ void KTextEditor__Message_ChildEvent(KTextEditor__Message* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void KTextEditor__Message_QBaseChildEvent(KTextEditor__Message* self, QChildEvent* event) {
+void KTextEditor__Message_SuperChildEvent(KTextEditor__Message* self, QChildEvent* event) {
     auto* vktexteditormessage = dynamic_cast<VirtualKTextEditorMessage*>(self);
     if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
         vktexteditormessage->setKTextEditor__Message_ChildEvent_IsBase(true);
@@ -395,7 +395,7 @@ void KTextEditor__Message_CustomEvent(KTextEditor__Message* self, QEvent* event)
 }
 
 // Base class handler implementation
-void KTextEditor__Message_QBaseCustomEvent(KTextEditor__Message* self, QEvent* event) {
+void KTextEditor__Message_SuperCustomEvent(KTextEditor__Message* self, QEvent* event) {
     auto* vktexteditormessage = dynamic_cast<VirtualKTextEditorMessage*>(self);
     if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
         vktexteditormessage->setKTextEditor__Message_CustomEvent_IsBase(true);
@@ -424,7 +424,7 @@ void KTextEditor__Message_ConnectNotify(KTextEditor__Message* self, const QMetaM
 }
 
 // Base class handler implementation
-void KTextEditor__Message_QBaseConnectNotify(KTextEditor__Message* self, const QMetaMethod* signal) {
+void KTextEditor__Message_SuperConnectNotify(KTextEditor__Message* self, const QMetaMethod* signal) {
     auto* vktexteditormessage = dynamic_cast<VirtualKTextEditorMessage*>(self);
     if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
         vktexteditormessage->setKTextEditor__Message_ConnectNotify_IsBase(true);
@@ -453,7 +453,7 @@ void KTextEditor__Message_DisconnectNotify(KTextEditor__Message* self, const QMe
 }
 
 // Base class handler implementation
-void KTextEditor__Message_QBaseDisconnectNotify(KTextEditor__Message* self, const QMetaMethod* signal) {
+void KTextEditor__Message_SuperDisconnectNotify(KTextEditor__Message* self, const QMetaMethod* signal) {
     auto* vktexteditormessage = dynamic_cast<VirtualKTextEditorMessage*>(self);
     if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
         vktexteditormessage->setKTextEditor__Message_DisconnectNotify_IsBase(true);
@@ -482,7 +482,7 @@ QObject* KTextEditor__Message_Sender(const KTextEditor__Message* self) {
 }
 
 // Base class handler implementation
-QObject* KTextEditor__Message_QBaseSender(const KTextEditor__Message* self) {
+QObject* KTextEditor__Message_SuperSender(const KTextEditor__Message* self) {
     auto* vktexteditormessage = const_cast<VirtualKTextEditorMessage*>(dynamic_cast<const VirtualKTextEditorMessage*>(self));
     if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
         vktexteditormessage->setKTextEditor__Message_Sender_IsBase(true);
@@ -511,7 +511,7 @@ int KTextEditor__Message_SenderSignalIndex(const KTextEditor__Message* self) {
 }
 
 // Base class handler implementation
-int KTextEditor__Message_QBaseSenderSignalIndex(const KTextEditor__Message* self) {
+int KTextEditor__Message_SuperSenderSignalIndex(const KTextEditor__Message* self) {
     auto* vktexteditormessage = const_cast<VirtualKTextEditorMessage*>(dynamic_cast<const VirtualKTextEditorMessage*>(self));
     if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
         vktexteditormessage->setKTextEditor__Message_SenderSignalIndex_IsBase(true);
@@ -540,7 +540,7 @@ int KTextEditor__Message_Receivers(const KTextEditor__Message* self, const char*
 }
 
 // Base class handler implementation
-int KTextEditor__Message_QBaseReceivers(const KTextEditor__Message* self, const char* signal) {
+int KTextEditor__Message_SuperReceivers(const KTextEditor__Message* self, const char* signal) {
     auto* vktexteditormessage = const_cast<VirtualKTextEditorMessage*>(dynamic_cast<const VirtualKTextEditorMessage*>(self));
     if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
         vktexteditormessage->setKTextEditor__Message_Receivers_IsBase(true);
@@ -569,7 +569,7 @@ bool KTextEditor__Message_IsSignalConnected(const KTextEditor__Message* self, co
 }
 
 // Base class handler implementation
-bool KTextEditor__Message_QBaseIsSignalConnected(const KTextEditor__Message* self, const QMetaMethod* signal) {
+bool KTextEditor__Message_SuperIsSignalConnected(const KTextEditor__Message* self, const QMetaMethod* signal) {
     auto* vktexteditormessage = const_cast<VirtualKTextEditorMessage*>(dynamic_cast<const VirtualKTextEditorMessage*>(self));
     if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
         vktexteditormessage->setKTextEditor__Message_IsSignalConnected_IsBase(true);

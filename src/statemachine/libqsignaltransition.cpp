@@ -104,7 +104,7 @@ bool QSignalTransition_Event(QSignalTransition* self, QEvent* e) {
 }
 
 // Base class handler implementation
-QMetaObject* QSignalTransition_QBaseMetaObject(const QSignalTransition* self) {
+QMetaObject* QSignalTransition_SuperMetaObject(const QSignalTransition* self) {
     auto* vqsignaltransition = const_cast<VirtualQSignalTransition*>(dynamic_cast<const VirtualQSignalTransition*>(self));
     if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
         vqsignaltransition->setQSignalTransition_MetaObject_IsBase(true);
@@ -123,7 +123,7 @@ void QSignalTransition_OnMetaObject(const QSignalTransition* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* QSignalTransition_QBaseMetacast(QSignalTransition* self, const char* param1) {
+void* QSignalTransition_SuperMetacast(QSignalTransition* self, const char* param1) {
     auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
     if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
         vqsignaltransition->setQSignalTransition_Metacast_IsBase(true);
@@ -142,7 +142,7 @@ void QSignalTransition_OnMetacast(QSignalTransition* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSignalTransition_QBaseMetacall(QSignalTransition* self, int param1, int param2, void** param3) {
+int QSignalTransition_SuperMetacall(QSignalTransition* self, int param1, int param2, void** param3) {
     auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
     if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
         vqsignaltransition->setQSignalTransition_Metacall_IsBase(true);
@@ -161,7 +161,7 @@ void QSignalTransition_OnMetacall(QSignalTransition* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSignalTransition_QBaseEventTest(QSignalTransition* self, QEvent* event) {
+bool QSignalTransition_SuperEventTest(QSignalTransition* self, QEvent* event) {
     auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
     if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
         vqsignaltransition->setQSignalTransition_EventTest_IsBase(true);
@@ -180,7 +180,7 @@ void QSignalTransition_OnEventTest(QSignalTransition* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSignalTransition_QBaseOnTransition(QSignalTransition* self, QEvent* event) {
+void QSignalTransition_SuperOnTransition(QSignalTransition* self, QEvent* event) {
     auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
     if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
         vqsignaltransition->setQSignalTransition_OnTransition_IsBase(true);
@@ -199,7 +199,7 @@ void QSignalTransition_OnOnTransition(QSignalTransition* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSignalTransition_QBaseEvent(QSignalTransition* self, QEvent* e) {
+bool QSignalTransition_SuperEvent(QSignalTransition* self, QEvent* e) {
     auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
     if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
         vqsignaltransition->setQSignalTransition_Event_IsBase(true);
@@ -228,7 +228,7 @@ bool QSignalTransition_EventFilter(QSignalTransition* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool QSignalTransition_QBaseEventFilter(QSignalTransition* self, QObject* watched, QEvent* event) {
+bool QSignalTransition_SuperEventFilter(QSignalTransition* self, QObject* watched, QEvent* event) {
     auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
     if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
         vqsignaltransition->setQSignalTransition_EventFilter_IsBase(true);
@@ -257,7 +257,7 @@ void QSignalTransition_TimerEvent(QSignalTransition* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QSignalTransition_QBaseTimerEvent(QSignalTransition* self, QTimerEvent* event) {
+void QSignalTransition_SuperTimerEvent(QSignalTransition* self, QTimerEvent* event) {
     auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
     if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
         vqsignaltransition->setQSignalTransition_TimerEvent_IsBase(true);
@@ -286,7 +286,7 @@ void QSignalTransition_ChildEvent(QSignalTransition* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QSignalTransition_QBaseChildEvent(QSignalTransition* self, QChildEvent* event) {
+void QSignalTransition_SuperChildEvent(QSignalTransition* self, QChildEvent* event) {
     auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
     if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
         vqsignaltransition->setQSignalTransition_ChildEvent_IsBase(true);
@@ -315,7 +315,7 @@ void QSignalTransition_CustomEvent(QSignalTransition* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSignalTransition_QBaseCustomEvent(QSignalTransition* self, QEvent* event) {
+void QSignalTransition_SuperCustomEvent(QSignalTransition* self, QEvent* event) {
     auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
     if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
         vqsignaltransition->setQSignalTransition_CustomEvent_IsBase(true);
@@ -344,7 +344,7 @@ void QSignalTransition_ConnectNotify(QSignalTransition* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void QSignalTransition_QBaseConnectNotify(QSignalTransition* self, const QMetaMethod* signal) {
+void QSignalTransition_SuperConnectNotify(QSignalTransition* self, const QMetaMethod* signal) {
     auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
     if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
         vqsignaltransition->setQSignalTransition_ConnectNotify_IsBase(true);
@@ -373,7 +373,7 @@ void QSignalTransition_DisconnectNotify(QSignalTransition* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void QSignalTransition_QBaseDisconnectNotify(QSignalTransition* self, const QMetaMethod* signal) {
+void QSignalTransition_SuperDisconnectNotify(QSignalTransition* self, const QMetaMethod* signal) {
     auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
     if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
         vqsignaltransition->setQSignalTransition_DisconnectNotify_IsBase(true);
@@ -402,7 +402,7 @@ QObject* QSignalTransition_Sender(const QSignalTransition* self) {
 }
 
 // Base class handler implementation
-QObject* QSignalTransition_QBaseSender(const QSignalTransition* self) {
+QObject* QSignalTransition_SuperSender(const QSignalTransition* self) {
     auto* vqsignaltransition = const_cast<VirtualQSignalTransition*>(dynamic_cast<const VirtualQSignalTransition*>(self));
     if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
         vqsignaltransition->setQSignalTransition_Sender_IsBase(true);
@@ -431,7 +431,7 @@ int QSignalTransition_SenderSignalIndex(const QSignalTransition* self) {
 }
 
 // Base class handler implementation
-int QSignalTransition_QBaseSenderSignalIndex(const QSignalTransition* self) {
+int QSignalTransition_SuperSenderSignalIndex(const QSignalTransition* self) {
     auto* vqsignaltransition = const_cast<VirtualQSignalTransition*>(dynamic_cast<const VirtualQSignalTransition*>(self));
     if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
         vqsignaltransition->setQSignalTransition_SenderSignalIndex_IsBase(true);
@@ -460,7 +460,7 @@ int QSignalTransition_Receivers(const QSignalTransition* self, const char* signa
 }
 
 // Base class handler implementation
-int QSignalTransition_QBaseReceivers(const QSignalTransition* self, const char* signal) {
+int QSignalTransition_SuperReceivers(const QSignalTransition* self, const char* signal) {
     auto* vqsignaltransition = const_cast<VirtualQSignalTransition*>(dynamic_cast<const VirtualQSignalTransition*>(self));
     if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
         vqsignaltransition->setQSignalTransition_Receivers_IsBase(true);
@@ -489,7 +489,7 @@ bool QSignalTransition_IsSignalConnected(const QSignalTransition* self, const QM
 }
 
 // Base class handler implementation
-bool QSignalTransition_QBaseIsSignalConnected(const QSignalTransition* self, const QMetaMethod* signal) {
+bool QSignalTransition_SuperIsSignalConnected(const QSignalTransition* self, const QMetaMethod* signal) {
     auto* vqsignaltransition = const_cast<VirtualQSignalTransition*>(dynamic_cast<const VirtualQSignalTransition*>(self));
     if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
         vqsignaltransition->setQSignalTransition_IsSignalConnected_IsBase(true);

@@ -120,7 +120,7 @@ QImage* KPixmapRegionSelectorDialog_GetSelectedImage4(const QPixmap* pixmap, int
 }
 
 // Base class handler implementation
-QMetaObject* KPixmapRegionSelectorDialog_QBaseMetaObject(const KPixmapRegionSelectorDialog* self) {
+QMetaObject* KPixmapRegionSelectorDialog_SuperMetaObject(const KPixmapRegionSelectorDialog* self) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MetaObject_IsBase(true);
@@ -139,7 +139,7 @@ void KPixmapRegionSelectorDialog_OnMetaObject(const KPixmapRegionSelectorDialog*
 }
 
 // Base class handler implementation
-void* KPixmapRegionSelectorDialog_QBaseMetacast(KPixmapRegionSelectorDialog* self, const char* param1) {
+void* KPixmapRegionSelectorDialog_SuperMetacast(KPixmapRegionSelectorDialog* self, const char* param1) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Metacast_IsBase(true);
@@ -158,7 +158,7 @@ void KPixmapRegionSelectorDialog_OnMetacast(KPixmapRegionSelectorDialog* self, i
 }
 
 // Base class handler implementation
-int KPixmapRegionSelectorDialog_QBaseMetacall(KPixmapRegionSelectorDialog* self, int param1, int param2, void** param3) {
+int KPixmapRegionSelectorDialog_SuperMetacall(KPixmapRegionSelectorDialog* self, int param1, int param2, void** param3) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Metacall_IsBase(true);
@@ -187,7 +187,7 @@ void KPixmapRegionSelectorDialog_SetVisible(KPixmapRegionSelectorDialog* self, b
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseSetVisible(KPixmapRegionSelectorDialog* self, bool visible) {
+void KPixmapRegionSelectorDialog_SuperSetVisible(KPixmapRegionSelectorDialog* self, bool visible) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_SetVisible_IsBase(true);
@@ -216,7 +216,7 @@ QSize* KPixmapRegionSelectorDialog_SizeHint(const KPixmapRegionSelectorDialog* s
 }
 
 // Base class handler implementation
-QSize* KPixmapRegionSelectorDialog_QBaseSizeHint(const KPixmapRegionSelectorDialog* self) {
+QSize* KPixmapRegionSelectorDialog_SuperSizeHint(const KPixmapRegionSelectorDialog* self) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_SizeHint_IsBase(true);
@@ -245,7 +245,7 @@ QSize* KPixmapRegionSelectorDialog_MinimumSizeHint(const KPixmapRegionSelectorDi
 }
 
 // Base class handler implementation
-QSize* KPixmapRegionSelectorDialog_QBaseMinimumSizeHint(const KPixmapRegionSelectorDialog* self) {
+QSize* KPixmapRegionSelectorDialog_SuperMinimumSizeHint(const KPixmapRegionSelectorDialog* self) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MinimumSizeHint_IsBase(true);
@@ -274,7 +274,7 @@ void KPixmapRegionSelectorDialog_Open(KPixmapRegionSelectorDialog* self) {
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseOpen(KPixmapRegionSelectorDialog* self) {
+void KPixmapRegionSelectorDialog_SuperOpen(KPixmapRegionSelectorDialog* self) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Open_IsBase(true);
@@ -303,7 +303,7 @@ int KPixmapRegionSelectorDialog_Exec(KPixmapRegionSelectorDialog* self) {
 }
 
 // Base class handler implementation
-int KPixmapRegionSelectorDialog_QBaseExec(KPixmapRegionSelectorDialog* self) {
+int KPixmapRegionSelectorDialog_SuperExec(KPixmapRegionSelectorDialog* self) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Exec_IsBase(true);
@@ -332,7 +332,7 @@ void KPixmapRegionSelectorDialog_Done(KPixmapRegionSelectorDialog* self, int par
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseDone(KPixmapRegionSelectorDialog* self, int param1) {
+void KPixmapRegionSelectorDialog_SuperDone(KPixmapRegionSelectorDialog* self, int param1) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Done_IsBase(true);
@@ -361,7 +361,7 @@ void KPixmapRegionSelectorDialog_Accept(KPixmapRegionSelectorDialog* self) {
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseAccept(KPixmapRegionSelectorDialog* self) {
+void KPixmapRegionSelectorDialog_SuperAccept(KPixmapRegionSelectorDialog* self) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Accept_IsBase(true);
@@ -390,7 +390,7 @@ void KPixmapRegionSelectorDialog_Reject(KPixmapRegionSelectorDialog* self) {
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseReject(KPixmapRegionSelectorDialog* self) {
+void KPixmapRegionSelectorDialog_SuperReject(KPixmapRegionSelectorDialog* self) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Reject_IsBase(true);
@@ -419,7 +419,7 @@ void KPixmapRegionSelectorDialog_KeyPressEvent(KPixmapRegionSelectorDialog* self
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseKeyPressEvent(KPixmapRegionSelectorDialog* self, QKeyEvent* param1) {
+void KPixmapRegionSelectorDialog_SuperKeyPressEvent(KPixmapRegionSelectorDialog* self, QKeyEvent* param1) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_KeyPressEvent_IsBase(true);
@@ -448,7 +448,7 @@ void KPixmapRegionSelectorDialog_CloseEvent(KPixmapRegionSelectorDialog* self, Q
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseCloseEvent(KPixmapRegionSelectorDialog* self, QCloseEvent* param1) {
+void KPixmapRegionSelectorDialog_SuperCloseEvent(KPixmapRegionSelectorDialog* self, QCloseEvent* param1) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_CloseEvent_IsBase(true);
@@ -477,7 +477,7 @@ void KPixmapRegionSelectorDialog_ShowEvent(KPixmapRegionSelectorDialog* self, QS
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseShowEvent(KPixmapRegionSelectorDialog* self, QShowEvent* param1) {
+void KPixmapRegionSelectorDialog_SuperShowEvent(KPixmapRegionSelectorDialog* self, QShowEvent* param1) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ShowEvent_IsBase(true);
@@ -506,7 +506,7 @@ void KPixmapRegionSelectorDialog_ResizeEvent(KPixmapRegionSelectorDialog* self, 
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseResizeEvent(KPixmapRegionSelectorDialog* self, QResizeEvent* param1) {
+void KPixmapRegionSelectorDialog_SuperResizeEvent(KPixmapRegionSelectorDialog* self, QResizeEvent* param1) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ResizeEvent_IsBase(true);
@@ -535,7 +535,7 @@ void KPixmapRegionSelectorDialog_ContextMenuEvent(KPixmapRegionSelectorDialog* s
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseContextMenuEvent(KPixmapRegionSelectorDialog* self, QContextMenuEvent* param1) {
+void KPixmapRegionSelectorDialog_SuperContextMenuEvent(KPixmapRegionSelectorDialog* self, QContextMenuEvent* param1) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ContextMenuEvent_IsBase(true);
@@ -564,7 +564,7 @@ bool KPixmapRegionSelectorDialog_EventFilter(KPixmapRegionSelectorDialog* self, 
 }
 
 // Base class handler implementation
-bool KPixmapRegionSelectorDialog_QBaseEventFilter(KPixmapRegionSelectorDialog* self, QObject* param1, QEvent* param2) {
+bool KPixmapRegionSelectorDialog_SuperEventFilter(KPixmapRegionSelectorDialog* self, QObject* param1, QEvent* param2) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_EventFilter_IsBase(true);
@@ -593,7 +593,7 @@ int KPixmapRegionSelectorDialog_DevType(const KPixmapRegionSelectorDialog* self)
 }
 
 // Base class handler implementation
-int KPixmapRegionSelectorDialog_QBaseDevType(const KPixmapRegionSelectorDialog* self) {
+int KPixmapRegionSelectorDialog_SuperDevType(const KPixmapRegionSelectorDialog* self) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DevType_IsBase(true);
@@ -622,7 +622,7 @@ int KPixmapRegionSelectorDialog_HeightForWidth(const KPixmapRegionSelectorDialog
 }
 
 // Base class handler implementation
-int KPixmapRegionSelectorDialog_QBaseHeightForWidth(const KPixmapRegionSelectorDialog* self, int param1) {
+int KPixmapRegionSelectorDialog_SuperHeightForWidth(const KPixmapRegionSelectorDialog* self, int param1) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_HeightForWidth_IsBase(true);
@@ -651,7 +651,7 @@ bool KPixmapRegionSelectorDialog_HasHeightForWidth(const KPixmapRegionSelectorDi
 }
 
 // Base class handler implementation
-bool KPixmapRegionSelectorDialog_QBaseHasHeightForWidth(const KPixmapRegionSelectorDialog* self) {
+bool KPixmapRegionSelectorDialog_SuperHasHeightForWidth(const KPixmapRegionSelectorDialog* self) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_HasHeightForWidth_IsBase(true);
@@ -680,7 +680,7 @@ QPaintEngine* KPixmapRegionSelectorDialog_PaintEngine(const KPixmapRegionSelecto
 }
 
 // Base class handler implementation
-QPaintEngine* KPixmapRegionSelectorDialog_QBasePaintEngine(const KPixmapRegionSelectorDialog* self) {
+QPaintEngine* KPixmapRegionSelectorDialog_SuperPaintEngine(const KPixmapRegionSelectorDialog* self) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_PaintEngine_IsBase(true);
@@ -709,7 +709,7 @@ bool KPixmapRegionSelectorDialog_Event(KPixmapRegionSelectorDialog* self, QEvent
 }
 
 // Base class handler implementation
-bool KPixmapRegionSelectorDialog_QBaseEvent(KPixmapRegionSelectorDialog* self, QEvent* event) {
+bool KPixmapRegionSelectorDialog_SuperEvent(KPixmapRegionSelectorDialog* self, QEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Event_IsBase(true);
@@ -738,7 +738,7 @@ void KPixmapRegionSelectorDialog_MousePressEvent(KPixmapRegionSelectorDialog* se
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseMousePressEvent(KPixmapRegionSelectorDialog* self, QMouseEvent* event) {
+void KPixmapRegionSelectorDialog_SuperMousePressEvent(KPixmapRegionSelectorDialog* self, QMouseEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MousePressEvent_IsBase(true);
@@ -767,7 +767,7 @@ void KPixmapRegionSelectorDialog_MouseReleaseEvent(KPixmapRegionSelectorDialog* 
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseMouseReleaseEvent(KPixmapRegionSelectorDialog* self, QMouseEvent* event) {
+void KPixmapRegionSelectorDialog_SuperMouseReleaseEvent(KPixmapRegionSelectorDialog* self, QMouseEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MouseReleaseEvent_IsBase(true);
@@ -796,7 +796,7 @@ void KPixmapRegionSelectorDialog_MouseDoubleClickEvent(KPixmapRegionSelectorDial
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseMouseDoubleClickEvent(KPixmapRegionSelectorDialog* self, QMouseEvent* event) {
+void KPixmapRegionSelectorDialog_SuperMouseDoubleClickEvent(KPixmapRegionSelectorDialog* self, QMouseEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MouseDoubleClickEvent_IsBase(true);
@@ -825,7 +825,7 @@ void KPixmapRegionSelectorDialog_MouseMoveEvent(KPixmapRegionSelectorDialog* sel
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseMouseMoveEvent(KPixmapRegionSelectorDialog* self, QMouseEvent* event) {
+void KPixmapRegionSelectorDialog_SuperMouseMoveEvent(KPixmapRegionSelectorDialog* self, QMouseEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MouseMoveEvent_IsBase(true);
@@ -854,7 +854,7 @@ void KPixmapRegionSelectorDialog_WheelEvent(KPixmapRegionSelectorDialog* self, Q
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseWheelEvent(KPixmapRegionSelectorDialog* self, QWheelEvent* event) {
+void KPixmapRegionSelectorDialog_SuperWheelEvent(KPixmapRegionSelectorDialog* self, QWheelEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_WheelEvent_IsBase(true);
@@ -883,7 +883,7 @@ void KPixmapRegionSelectorDialog_KeyReleaseEvent(KPixmapRegionSelectorDialog* se
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseKeyReleaseEvent(KPixmapRegionSelectorDialog* self, QKeyEvent* event) {
+void KPixmapRegionSelectorDialog_SuperKeyReleaseEvent(KPixmapRegionSelectorDialog* self, QKeyEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_KeyReleaseEvent_IsBase(true);
@@ -912,7 +912,7 @@ void KPixmapRegionSelectorDialog_FocusInEvent(KPixmapRegionSelectorDialog* self,
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseFocusInEvent(KPixmapRegionSelectorDialog* self, QFocusEvent* event) {
+void KPixmapRegionSelectorDialog_SuperFocusInEvent(KPixmapRegionSelectorDialog* self, QFocusEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_FocusInEvent_IsBase(true);
@@ -941,7 +941,7 @@ void KPixmapRegionSelectorDialog_FocusOutEvent(KPixmapRegionSelectorDialog* self
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseFocusOutEvent(KPixmapRegionSelectorDialog* self, QFocusEvent* event) {
+void KPixmapRegionSelectorDialog_SuperFocusOutEvent(KPixmapRegionSelectorDialog* self, QFocusEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_FocusOutEvent_IsBase(true);
@@ -970,7 +970,7 @@ void KPixmapRegionSelectorDialog_EnterEvent(KPixmapRegionSelectorDialog* self, Q
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseEnterEvent(KPixmapRegionSelectorDialog* self, QEnterEvent* event) {
+void KPixmapRegionSelectorDialog_SuperEnterEvent(KPixmapRegionSelectorDialog* self, QEnterEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_EnterEvent_IsBase(true);
@@ -999,7 +999,7 @@ void KPixmapRegionSelectorDialog_LeaveEvent(KPixmapRegionSelectorDialog* self, Q
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseLeaveEvent(KPixmapRegionSelectorDialog* self, QEvent* event) {
+void KPixmapRegionSelectorDialog_SuperLeaveEvent(KPixmapRegionSelectorDialog* self, QEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_LeaveEvent_IsBase(true);
@@ -1028,7 +1028,7 @@ void KPixmapRegionSelectorDialog_PaintEvent(KPixmapRegionSelectorDialog* self, Q
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBasePaintEvent(KPixmapRegionSelectorDialog* self, QPaintEvent* event) {
+void KPixmapRegionSelectorDialog_SuperPaintEvent(KPixmapRegionSelectorDialog* self, QPaintEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_PaintEvent_IsBase(true);
@@ -1057,7 +1057,7 @@ void KPixmapRegionSelectorDialog_MoveEvent(KPixmapRegionSelectorDialog* self, QM
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseMoveEvent(KPixmapRegionSelectorDialog* self, QMoveEvent* event) {
+void KPixmapRegionSelectorDialog_SuperMoveEvent(KPixmapRegionSelectorDialog* self, QMoveEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MoveEvent_IsBase(true);
@@ -1086,7 +1086,7 @@ void KPixmapRegionSelectorDialog_TabletEvent(KPixmapRegionSelectorDialog* self, 
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseTabletEvent(KPixmapRegionSelectorDialog* self, QTabletEvent* event) {
+void KPixmapRegionSelectorDialog_SuperTabletEvent(KPixmapRegionSelectorDialog* self, QTabletEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_TabletEvent_IsBase(true);
@@ -1115,7 +1115,7 @@ void KPixmapRegionSelectorDialog_ActionEvent(KPixmapRegionSelectorDialog* self, 
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseActionEvent(KPixmapRegionSelectorDialog* self, QActionEvent* event) {
+void KPixmapRegionSelectorDialog_SuperActionEvent(KPixmapRegionSelectorDialog* self, QActionEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ActionEvent_IsBase(true);
@@ -1144,7 +1144,7 @@ void KPixmapRegionSelectorDialog_DragEnterEvent(KPixmapRegionSelectorDialog* sel
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseDragEnterEvent(KPixmapRegionSelectorDialog* self, QDragEnterEvent* event) {
+void KPixmapRegionSelectorDialog_SuperDragEnterEvent(KPixmapRegionSelectorDialog* self, QDragEnterEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DragEnterEvent_IsBase(true);
@@ -1173,7 +1173,7 @@ void KPixmapRegionSelectorDialog_DragMoveEvent(KPixmapRegionSelectorDialog* self
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseDragMoveEvent(KPixmapRegionSelectorDialog* self, QDragMoveEvent* event) {
+void KPixmapRegionSelectorDialog_SuperDragMoveEvent(KPixmapRegionSelectorDialog* self, QDragMoveEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DragMoveEvent_IsBase(true);
@@ -1202,7 +1202,7 @@ void KPixmapRegionSelectorDialog_DragLeaveEvent(KPixmapRegionSelectorDialog* sel
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseDragLeaveEvent(KPixmapRegionSelectorDialog* self, QDragLeaveEvent* event) {
+void KPixmapRegionSelectorDialog_SuperDragLeaveEvent(KPixmapRegionSelectorDialog* self, QDragLeaveEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DragLeaveEvent_IsBase(true);
@@ -1231,7 +1231,7 @@ void KPixmapRegionSelectorDialog_DropEvent(KPixmapRegionSelectorDialog* self, QD
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseDropEvent(KPixmapRegionSelectorDialog* self, QDropEvent* event) {
+void KPixmapRegionSelectorDialog_SuperDropEvent(KPixmapRegionSelectorDialog* self, QDropEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DropEvent_IsBase(true);
@@ -1260,7 +1260,7 @@ void KPixmapRegionSelectorDialog_HideEvent(KPixmapRegionSelectorDialog* self, QH
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseHideEvent(KPixmapRegionSelectorDialog* self, QHideEvent* event) {
+void KPixmapRegionSelectorDialog_SuperHideEvent(KPixmapRegionSelectorDialog* self, QHideEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_HideEvent_IsBase(true);
@@ -1290,7 +1290,7 @@ bool KPixmapRegionSelectorDialog_NativeEvent(KPixmapRegionSelectorDialog* self, 
 }
 
 // Base class handler implementation
-bool KPixmapRegionSelectorDialog_QBaseNativeEvent(KPixmapRegionSelectorDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KPixmapRegionSelectorDialog_SuperNativeEvent(KPixmapRegionSelectorDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
@@ -1320,7 +1320,7 @@ void KPixmapRegionSelectorDialog_ChangeEvent(KPixmapRegionSelectorDialog* self, 
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseChangeEvent(KPixmapRegionSelectorDialog* self, QEvent* param1) {
+void KPixmapRegionSelectorDialog_SuperChangeEvent(KPixmapRegionSelectorDialog* self, QEvent* param1) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ChangeEvent_IsBase(true);
@@ -1349,7 +1349,7 @@ int KPixmapRegionSelectorDialog_Metric(const KPixmapRegionSelectorDialog* self, 
 }
 
 // Base class handler implementation
-int KPixmapRegionSelectorDialog_QBaseMetric(const KPixmapRegionSelectorDialog* self, int param1) {
+int KPixmapRegionSelectorDialog_SuperMetric(const KPixmapRegionSelectorDialog* self, int param1) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Metric_IsBase(true);
@@ -1378,7 +1378,7 @@ void KPixmapRegionSelectorDialog_InitPainter(const KPixmapRegionSelectorDialog* 
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseInitPainter(const KPixmapRegionSelectorDialog* self, QPainter* painter) {
+void KPixmapRegionSelectorDialog_SuperInitPainter(const KPixmapRegionSelectorDialog* self, QPainter* painter) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_InitPainter_IsBase(true);
@@ -1407,7 +1407,7 @@ QPaintDevice* KPixmapRegionSelectorDialog_Redirected(const KPixmapRegionSelector
 }
 
 // Base class handler implementation
-QPaintDevice* KPixmapRegionSelectorDialog_QBaseRedirected(const KPixmapRegionSelectorDialog* self, QPoint* offset) {
+QPaintDevice* KPixmapRegionSelectorDialog_SuperRedirected(const KPixmapRegionSelectorDialog* self, QPoint* offset) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Redirected_IsBase(true);
@@ -1436,7 +1436,7 @@ QPainter* KPixmapRegionSelectorDialog_SharedPainter(const KPixmapRegionSelectorD
 }
 
 // Base class handler implementation
-QPainter* KPixmapRegionSelectorDialog_QBaseSharedPainter(const KPixmapRegionSelectorDialog* self) {
+QPainter* KPixmapRegionSelectorDialog_SuperSharedPainter(const KPixmapRegionSelectorDialog* self) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_SharedPainter_IsBase(true);
@@ -1465,7 +1465,7 @@ void KPixmapRegionSelectorDialog_InputMethodEvent(KPixmapRegionSelectorDialog* s
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseInputMethodEvent(KPixmapRegionSelectorDialog* self, QInputMethodEvent* param1) {
+void KPixmapRegionSelectorDialog_SuperInputMethodEvent(KPixmapRegionSelectorDialog* self, QInputMethodEvent* param1) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_InputMethodEvent_IsBase(true);
@@ -1494,7 +1494,7 @@ QVariant* KPixmapRegionSelectorDialog_InputMethodQuery(const KPixmapRegionSelect
 }
 
 // Base class handler implementation
-QVariant* KPixmapRegionSelectorDialog_QBaseInputMethodQuery(const KPixmapRegionSelectorDialog* self, int param1) {
+QVariant* KPixmapRegionSelectorDialog_SuperInputMethodQuery(const KPixmapRegionSelectorDialog* self, int param1) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_InputMethodQuery_IsBase(true);
@@ -1523,7 +1523,7 @@ bool KPixmapRegionSelectorDialog_FocusNextPrevChild(KPixmapRegionSelectorDialog*
 }
 
 // Base class handler implementation
-bool KPixmapRegionSelectorDialog_QBaseFocusNextPrevChild(KPixmapRegionSelectorDialog* self, bool next) {
+bool KPixmapRegionSelectorDialog_SuperFocusNextPrevChild(KPixmapRegionSelectorDialog* self, bool next) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_FocusNextPrevChild_IsBase(true);
@@ -1552,7 +1552,7 @@ void KPixmapRegionSelectorDialog_TimerEvent(KPixmapRegionSelectorDialog* self, Q
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseTimerEvent(KPixmapRegionSelectorDialog* self, QTimerEvent* event) {
+void KPixmapRegionSelectorDialog_SuperTimerEvent(KPixmapRegionSelectorDialog* self, QTimerEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_TimerEvent_IsBase(true);
@@ -1581,7 +1581,7 @@ void KPixmapRegionSelectorDialog_ChildEvent(KPixmapRegionSelectorDialog* self, Q
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseChildEvent(KPixmapRegionSelectorDialog* self, QChildEvent* event) {
+void KPixmapRegionSelectorDialog_SuperChildEvent(KPixmapRegionSelectorDialog* self, QChildEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ChildEvent_IsBase(true);
@@ -1610,7 +1610,7 @@ void KPixmapRegionSelectorDialog_CustomEvent(KPixmapRegionSelectorDialog* self, 
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseCustomEvent(KPixmapRegionSelectorDialog* self, QEvent* event) {
+void KPixmapRegionSelectorDialog_SuperCustomEvent(KPixmapRegionSelectorDialog* self, QEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_CustomEvent_IsBase(true);
@@ -1639,7 +1639,7 @@ void KPixmapRegionSelectorDialog_ConnectNotify(KPixmapRegionSelectorDialog* self
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseConnectNotify(KPixmapRegionSelectorDialog* self, const QMetaMethod* signal) {
+void KPixmapRegionSelectorDialog_SuperConnectNotify(KPixmapRegionSelectorDialog* self, const QMetaMethod* signal) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ConnectNotify_IsBase(true);
@@ -1668,7 +1668,7 @@ void KPixmapRegionSelectorDialog_DisconnectNotify(KPixmapRegionSelectorDialog* s
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseDisconnectNotify(KPixmapRegionSelectorDialog* self, const QMetaMethod* signal) {
+void KPixmapRegionSelectorDialog_SuperDisconnectNotify(KPixmapRegionSelectorDialog* self, const QMetaMethod* signal) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DisconnectNotify_IsBase(true);
@@ -1697,7 +1697,7 @@ void KPixmapRegionSelectorDialog_AdjustPosition(KPixmapRegionSelectorDialog* sel
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseAdjustPosition(KPixmapRegionSelectorDialog* self, QWidget* param1) {
+void KPixmapRegionSelectorDialog_SuperAdjustPosition(KPixmapRegionSelectorDialog* self, QWidget* param1) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_AdjustPosition_IsBase(true);
@@ -1726,7 +1726,7 @@ void KPixmapRegionSelectorDialog_UpdateMicroFocus(KPixmapRegionSelectorDialog* s
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseUpdateMicroFocus(KPixmapRegionSelectorDialog* self) {
+void KPixmapRegionSelectorDialog_SuperUpdateMicroFocus(KPixmapRegionSelectorDialog* self) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_UpdateMicroFocus_IsBase(true);
@@ -1755,7 +1755,7 @@ void KPixmapRegionSelectorDialog_Create(KPixmapRegionSelectorDialog* self) {
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseCreate(KPixmapRegionSelectorDialog* self) {
+void KPixmapRegionSelectorDialog_SuperCreate(KPixmapRegionSelectorDialog* self) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Create_IsBase(true);
@@ -1784,7 +1784,7 @@ void KPixmapRegionSelectorDialog_Destroy(KPixmapRegionSelectorDialog* self) {
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorDialog_QBaseDestroy(KPixmapRegionSelectorDialog* self) {
+void KPixmapRegionSelectorDialog_SuperDestroy(KPixmapRegionSelectorDialog* self) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Destroy_IsBase(true);
@@ -1813,7 +1813,7 @@ bool KPixmapRegionSelectorDialog_FocusNextChild(KPixmapRegionSelectorDialog* sel
 }
 
 // Base class handler implementation
-bool KPixmapRegionSelectorDialog_QBaseFocusNextChild(KPixmapRegionSelectorDialog* self) {
+bool KPixmapRegionSelectorDialog_SuperFocusNextChild(KPixmapRegionSelectorDialog* self) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_FocusNextChild_IsBase(true);
@@ -1842,7 +1842,7 @@ bool KPixmapRegionSelectorDialog_FocusPreviousChild(KPixmapRegionSelectorDialog*
 }
 
 // Base class handler implementation
-bool KPixmapRegionSelectorDialog_QBaseFocusPreviousChild(KPixmapRegionSelectorDialog* self) {
+bool KPixmapRegionSelectorDialog_SuperFocusPreviousChild(KPixmapRegionSelectorDialog* self) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_FocusPreviousChild_IsBase(true);
@@ -1871,7 +1871,7 @@ QObject* KPixmapRegionSelectorDialog_Sender(const KPixmapRegionSelectorDialog* s
 }
 
 // Base class handler implementation
-QObject* KPixmapRegionSelectorDialog_QBaseSender(const KPixmapRegionSelectorDialog* self) {
+QObject* KPixmapRegionSelectorDialog_SuperSender(const KPixmapRegionSelectorDialog* self) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Sender_IsBase(true);
@@ -1900,7 +1900,7 @@ int KPixmapRegionSelectorDialog_SenderSignalIndex(const KPixmapRegionSelectorDia
 }
 
 // Base class handler implementation
-int KPixmapRegionSelectorDialog_QBaseSenderSignalIndex(const KPixmapRegionSelectorDialog* self) {
+int KPixmapRegionSelectorDialog_SuperSenderSignalIndex(const KPixmapRegionSelectorDialog* self) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_SenderSignalIndex_IsBase(true);
@@ -1929,7 +1929,7 @@ int KPixmapRegionSelectorDialog_Receivers(const KPixmapRegionSelectorDialog* sel
 }
 
 // Base class handler implementation
-int KPixmapRegionSelectorDialog_QBaseReceivers(const KPixmapRegionSelectorDialog* self, const char* signal) {
+int KPixmapRegionSelectorDialog_SuperReceivers(const KPixmapRegionSelectorDialog* self, const char* signal) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Receivers_IsBase(true);
@@ -1958,7 +1958,7 @@ bool KPixmapRegionSelectorDialog_IsSignalConnected(const KPixmapRegionSelectorDi
 }
 
 // Base class handler implementation
-bool KPixmapRegionSelectorDialog_QBaseIsSignalConnected(const KPixmapRegionSelectorDialog* self, const QMetaMethod* signal) {
+bool KPixmapRegionSelectorDialog_SuperIsSignalConnected(const KPixmapRegionSelectorDialog* self, const QMetaMethod* signal) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_IsSignalConnected_IsBase(true);
@@ -1987,7 +1987,7 @@ double KPixmapRegionSelectorDialog_GetDecodedMetricF(const KPixmapRegionSelector
 }
 
 // Base class handler implementation
-double KPixmapRegionSelectorDialog_QBaseGetDecodedMetricF(const KPixmapRegionSelectorDialog* self, int metricA, int metricB) {
+double KPixmapRegionSelectorDialog_SuperGetDecodedMetricF(const KPixmapRegionSelectorDialog* self, int metricA, int metricB) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
     if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_GetDecodedMetricF_IsBase(true);

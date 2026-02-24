@@ -121,7 +121,7 @@ void kColorPicker__KColorPicker_ResetColors1(kColorPicker__KColorPicker* self, b
 }
 
 // Base class handler implementation
-QMetaObject* kColorPicker__KColorPicker_QBaseMetaObject(const kColorPicker__KColorPicker* self) {
+QMetaObject* kColorPicker__KColorPicker_SuperMetaObject(const kColorPicker__KColorPicker* self) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MetaObject_IsBase(true);
@@ -140,7 +140,7 @@ void kColorPicker__KColorPicker_OnMetaObject(const kColorPicker__KColorPicker* s
 }
 
 // Base class handler implementation
-void* kColorPicker__KColorPicker_QBaseMetacast(kColorPicker__KColorPicker* self, const char* param1) {
+void* kColorPicker__KColorPicker_SuperMetacast(kColorPicker__KColorPicker* self, const char* param1) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Metacast_IsBase(true);
@@ -159,7 +159,7 @@ void kColorPicker__KColorPicker_OnMetacast(kColorPicker__KColorPicker* self, int
 }
 
 // Base class handler implementation
-int kColorPicker__KColorPicker_QBaseMetacall(kColorPicker__KColorPicker* self, int param1, int param2, void** param3) {
+int kColorPicker__KColorPicker_SuperMetacall(kColorPicker__KColorPicker* self, int param1, int param2, void** param3) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Metacall_IsBase(true);
@@ -188,7 +188,7 @@ QSize* kColorPicker__KColorPicker_SizeHint(const kColorPicker__KColorPicker* sel
 }
 
 // Base class handler implementation
-QSize* kColorPicker__KColorPicker_QBaseSizeHint(const kColorPicker__KColorPicker* self) {
+QSize* kColorPicker__KColorPicker_SuperSizeHint(const kColorPicker__KColorPicker* self) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_SizeHint_IsBase(true);
@@ -217,7 +217,7 @@ QSize* kColorPicker__KColorPicker_MinimumSizeHint(const kColorPicker__KColorPick
 }
 
 // Base class handler implementation
-QSize* kColorPicker__KColorPicker_QBaseMinimumSizeHint(const kColorPicker__KColorPicker* self) {
+QSize* kColorPicker__KColorPicker_SuperMinimumSizeHint(const kColorPicker__KColorPicker* self) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MinimumSizeHint_IsBase(true);
@@ -246,7 +246,7 @@ bool kColorPicker__KColorPicker_Event(kColorPicker__KColorPicker* self, QEvent* 
 }
 
 // Base class handler implementation
-bool kColorPicker__KColorPicker_QBaseEvent(kColorPicker__KColorPicker* self, QEvent* e) {
+bool kColorPicker__KColorPicker_SuperEvent(kColorPicker__KColorPicker* self, QEvent* e) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Event_IsBase(true);
@@ -275,7 +275,7 @@ void kColorPicker__KColorPicker_MousePressEvent(kColorPicker__KColorPicker* self
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseMousePressEvent(kColorPicker__KColorPicker* self, QMouseEvent* param1) {
+void kColorPicker__KColorPicker_SuperMousePressEvent(kColorPicker__KColorPicker* self, QMouseEvent* param1) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MousePressEvent_IsBase(true);
@@ -304,7 +304,7 @@ void kColorPicker__KColorPicker_MouseReleaseEvent(kColorPicker__KColorPicker* se
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseMouseReleaseEvent(kColorPicker__KColorPicker* self, QMouseEvent* param1) {
+void kColorPicker__KColorPicker_SuperMouseReleaseEvent(kColorPicker__KColorPicker* self, QMouseEvent* param1) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MouseReleaseEvent_IsBase(true);
@@ -333,7 +333,7 @@ void kColorPicker__KColorPicker_PaintEvent(kColorPicker__KColorPicker* self, QPa
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBasePaintEvent(kColorPicker__KColorPicker* self, QPaintEvent* param1) {
+void kColorPicker__KColorPicker_SuperPaintEvent(kColorPicker__KColorPicker* self, QPaintEvent* param1) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_PaintEvent_IsBase(true);
@@ -362,7 +362,7 @@ void kColorPicker__KColorPicker_ActionEvent(kColorPicker__KColorPicker* self, QA
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseActionEvent(kColorPicker__KColorPicker* self, QActionEvent* param1) {
+void kColorPicker__KColorPicker_SuperActionEvent(kColorPicker__KColorPicker* self, QActionEvent* param1) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ActionEvent_IsBase(true);
@@ -391,7 +391,7 @@ void kColorPicker__KColorPicker_EnterEvent(kColorPicker__KColorPicker* self, QEn
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseEnterEvent(kColorPicker__KColorPicker* self, QEnterEvent* param1) {
+void kColorPicker__KColorPicker_SuperEnterEvent(kColorPicker__KColorPicker* self, QEnterEvent* param1) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_EnterEvent_IsBase(true);
@@ -420,7 +420,7 @@ void kColorPicker__KColorPicker_LeaveEvent(kColorPicker__KColorPicker* self, QEv
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseLeaveEvent(kColorPicker__KColorPicker* self, QEvent* param1) {
+void kColorPicker__KColorPicker_SuperLeaveEvent(kColorPicker__KColorPicker* self, QEvent* param1) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_LeaveEvent_IsBase(true);
@@ -449,7 +449,7 @@ void kColorPicker__KColorPicker_TimerEvent(kColorPicker__KColorPicker* self, QTi
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseTimerEvent(kColorPicker__KColorPicker* self, QTimerEvent* param1) {
+void kColorPicker__KColorPicker_SuperTimerEvent(kColorPicker__KColorPicker* self, QTimerEvent* param1) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_TimerEvent_IsBase(true);
@@ -478,7 +478,7 @@ void kColorPicker__KColorPicker_ChangeEvent(kColorPicker__KColorPicker* self, QE
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseChangeEvent(kColorPicker__KColorPicker* self, QEvent* param1) {
+void kColorPicker__KColorPicker_SuperChangeEvent(kColorPicker__KColorPicker* self, QEvent* param1) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ChangeEvent_IsBase(true);
@@ -507,7 +507,7 @@ bool kColorPicker__KColorPicker_HitButton(const kColorPicker__KColorPicker* self
 }
 
 // Base class handler implementation
-bool kColorPicker__KColorPicker_QBaseHitButton(const kColorPicker__KColorPicker* self, const QPoint* pos) {
+bool kColorPicker__KColorPicker_SuperHitButton(const kColorPicker__KColorPicker* self, const QPoint* pos) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_HitButton_IsBase(true);
@@ -536,7 +536,7 @@ void kColorPicker__KColorPicker_CheckStateSet(kColorPicker__KColorPicker* self) 
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseCheckStateSet(kColorPicker__KColorPicker* self) {
+void kColorPicker__KColorPicker_SuperCheckStateSet(kColorPicker__KColorPicker* self) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_CheckStateSet_IsBase(true);
@@ -565,7 +565,7 @@ void kColorPicker__KColorPicker_NextCheckState(kColorPicker__KColorPicker* self)
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseNextCheckState(kColorPicker__KColorPicker* self) {
+void kColorPicker__KColorPicker_SuperNextCheckState(kColorPicker__KColorPicker* self) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_NextCheckState_IsBase(true);
@@ -594,7 +594,7 @@ void kColorPicker__KColorPicker_InitStyleOption(const kColorPicker__KColorPicker
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseInitStyleOption(const kColorPicker__KColorPicker* self, QStyleOptionToolButton* option) {
+void kColorPicker__KColorPicker_SuperInitStyleOption(const kColorPicker__KColorPicker* self, QStyleOptionToolButton* option) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_InitStyleOption_IsBase(true);
@@ -623,7 +623,7 @@ void kColorPicker__KColorPicker_KeyPressEvent(kColorPicker__KColorPicker* self, 
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseKeyPressEvent(kColorPicker__KColorPicker* self, QKeyEvent* e) {
+void kColorPicker__KColorPicker_SuperKeyPressEvent(kColorPicker__KColorPicker* self, QKeyEvent* e) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_KeyPressEvent_IsBase(true);
@@ -652,7 +652,7 @@ void kColorPicker__KColorPicker_KeyReleaseEvent(kColorPicker__KColorPicker* self
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseKeyReleaseEvent(kColorPicker__KColorPicker* self, QKeyEvent* e) {
+void kColorPicker__KColorPicker_SuperKeyReleaseEvent(kColorPicker__KColorPicker* self, QKeyEvent* e) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_KeyReleaseEvent_IsBase(true);
@@ -681,7 +681,7 @@ void kColorPicker__KColorPicker_MouseMoveEvent(kColorPicker__KColorPicker* self,
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseMouseMoveEvent(kColorPicker__KColorPicker* self, QMouseEvent* e) {
+void kColorPicker__KColorPicker_SuperMouseMoveEvent(kColorPicker__KColorPicker* self, QMouseEvent* e) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MouseMoveEvent_IsBase(true);
@@ -710,7 +710,7 @@ void kColorPicker__KColorPicker_FocusInEvent(kColorPicker__KColorPicker* self, Q
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseFocusInEvent(kColorPicker__KColorPicker* self, QFocusEvent* e) {
+void kColorPicker__KColorPicker_SuperFocusInEvent(kColorPicker__KColorPicker* self, QFocusEvent* e) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_FocusInEvent_IsBase(true);
@@ -739,7 +739,7 @@ void kColorPicker__KColorPicker_FocusOutEvent(kColorPicker__KColorPicker* self, 
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseFocusOutEvent(kColorPicker__KColorPicker* self, QFocusEvent* e) {
+void kColorPicker__KColorPicker_SuperFocusOutEvent(kColorPicker__KColorPicker* self, QFocusEvent* e) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_FocusOutEvent_IsBase(true);
@@ -768,7 +768,7 @@ int kColorPicker__KColorPicker_DevType(const kColorPicker__KColorPicker* self) {
 }
 
 // Base class handler implementation
-int kColorPicker__KColorPicker_QBaseDevType(const kColorPicker__KColorPicker* self) {
+int kColorPicker__KColorPicker_SuperDevType(const kColorPicker__KColorPicker* self) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DevType_IsBase(true);
@@ -797,7 +797,7 @@ void kColorPicker__KColorPicker_SetVisible(kColorPicker__KColorPicker* self, boo
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseSetVisible(kColorPicker__KColorPicker* self, bool visible) {
+void kColorPicker__KColorPicker_SuperSetVisible(kColorPicker__KColorPicker* self, bool visible) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_SetVisible_IsBase(true);
@@ -826,7 +826,7 @@ int kColorPicker__KColorPicker_HeightForWidth(const kColorPicker__KColorPicker* 
 }
 
 // Base class handler implementation
-int kColorPicker__KColorPicker_QBaseHeightForWidth(const kColorPicker__KColorPicker* self, int param1) {
+int kColorPicker__KColorPicker_SuperHeightForWidth(const kColorPicker__KColorPicker* self, int param1) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_HeightForWidth_IsBase(true);
@@ -855,7 +855,7 @@ bool kColorPicker__KColorPicker_HasHeightForWidth(const kColorPicker__KColorPick
 }
 
 // Base class handler implementation
-bool kColorPicker__KColorPicker_QBaseHasHeightForWidth(const kColorPicker__KColorPicker* self) {
+bool kColorPicker__KColorPicker_SuperHasHeightForWidth(const kColorPicker__KColorPicker* self) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_HasHeightForWidth_IsBase(true);
@@ -884,7 +884,7 @@ QPaintEngine* kColorPicker__KColorPicker_PaintEngine(const kColorPicker__KColorP
 }
 
 // Base class handler implementation
-QPaintEngine* kColorPicker__KColorPicker_QBasePaintEngine(const kColorPicker__KColorPicker* self) {
+QPaintEngine* kColorPicker__KColorPicker_SuperPaintEngine(const kColorPicker__KColorPicker* self) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_PaintEngine_IsBase(true);
@@ -913,7 +913,7 @@ void kColorPicker__KColorPicker_MouseDoubleClickEvent(kColorPicker__KColorPicker
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseMouseDoubleClickEvent(kColorPicker__KColorPicker* self, QMouseEvent* event) {
+void kColorPicker__KColorPicker_SuperMouseDoubleClickEvent(kColorPicker__KColorPicker* self, QMouseEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MouseDoubleClickEvent_IsBase(true);
@@ -942,7 +942,7 @@ void kColorPicker__KColorPicker_WheelEvent(kColorPicker__KColorPicker* self, QWh
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseWheelEvent(kColorPicker__KColorPicker* self, QWheelEvent* event) {
+void kColorPicker__KColorPicker_SuperWheelEvent(kColorPicker__KColorPicker* self, QWheelEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_WheelEvent_IsBase(true);
@@ -971,7 +971,7 @@ void kColorPicker__KColorPicker_MoveEvent(kColorPicker__KColorPicker* self, QMov
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseMoveEvent(kColorPicker__KColorPicker* self, QMoveEvent* event) {
+void kColorPicker__KColorPicker_SuperMoveEvent(kColorPicker__KColorPicker* self, QMoveEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MoveEvent_IsBase(true);
@@ -1000,7 +1000,7 @@ void kColorPicker__KColorPicker_ResizeEvent(kColorPicker__KColorPicker* self, QR
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseResizeEvent(kColorPicker__KColorPicker* self, QResizeEvent* event) {
+void kColorPicker__KColorPicker_SuperResizeEvent(kColorPicker__KColorPicker* self, QResizeEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ResizeEvent_IsBase(true);
@@ -1029,7 +1029,7 @@ void kColorPicker__KColorPicker_CloseEvent(kColorPicker__KColorPicker* self, QCl
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseCloseEvent(kColorPicker__KColorPicker* self, QCloseEvent* event) {
+void kColorPicker__KColorPicker_SuperCloseEvent(kColorPicker__KColorPicker* self, QCloseEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_CloseEvent_IsBase(true);
@@ -1058,7 +1058,7 @@ void kColorPicker__KColorPicker_ContextMenuEvent(kColorPicker__KColorPicker* sel
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseContextMenuEvent(kColorPicker__KColorPicker* self, QContextMenuEvent* event) {
+void kColorPicker__KColorPicker_SuperContextMenuEvent(kColorPicker__KColorPicker* self, QContextMenuEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ContextMenuEvent_IsBase(true);
@@ -1087,7 +1087,7 @@ void kColorPicker__KColorPicker_TabletEvent(kColorPicker__KColorPicker* self, QT
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseTabletEvent(kColorPicker__KColorPicker* self, QTabletEvent* event) {
+void kColorPicker__KColorPicker_SuperTabletEvent(kColorPicker__KColorPicker* self, QTabletEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_TabletEvent_IsBase(true);
@@ -1116,7 +1116,7 @@ void kColorPicker__KColorPicker_DragEnterEvent(kColorPicker__KColorPicker* self,
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseDragEnterEvent(kColorPicker__KColorPicker* self, QDragEnterEvent* event) {
+void kColorPicker__KColorPicker_SuperDragEnterEvent(kColorPicker__KColorPicker* self, QDragEnterEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DragEnterEvent_IsBase(true);
@@ -1145,7 +1145,7 @@ void kColorPicker__KColorPicker_DragMoveEvent(kColorPicker__KColorPicker* self, 
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseDragMoveEvent(kColorPicker__KColorPicker* self, QDragMoveEvent* event) {
+void kColorPicker__KColorPicker_SuperDragMoveEvent(kColorPicker__KColorPicker* self, QDragMoveEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DragMoveEvent_IsBase(true);
@@ -1174,7 +1174,7 @@ void kColorPicker__KColorPicker_DragLeaveEvent(kColorPicker__KColorPicker* self,
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseDragLeaveEvent(kColorPicker__KColorPicker* self, QDragLeaveEvent* event) {
+void kColorPicker__KColorPicker_SuperDragLeaveEvent(kColorPicker__KColorPicker* self, QDragLeaveEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DragLeaveEvent_IsBase(true);
@@ -1203,7 +1203,7 @@ void kColorPicker__KColorPicker_DropEvent(kColorPicker__KColorPicker* self, QDro
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseDropEvent(kColorPicker__KColorPicker* self, QDropEvent* event) {
+void kColorPicker__KColorPicker_SuperDropEvent(kColorPicker__KColorPicker* self, QDropEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DropEvent_IsBase(true);
@@ -1232,7 +1232,7 @@ void kColorPicker__KColorPicker_ShowEvent(kColorPicker__KColorPicker* self, QSho
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseShowEvent(kColorPicker__KColorPicker* self, QShowEvent* event) {
+void kColorPicker__KColorPicker_SuperShowEvent(kColorPicker__KColorPicker* self, QShowEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ShowEvent_IsBase(true);
@@ -1261,7 +1261,7 @@ void kColorPicker__KColorPicker_HideEvent(kColorPicker__KColorPicker* self, QHid
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseHideEvent(kColorPicker__KColorPicker* self, QHideEvent* event) {
+void kColorPicker__KColorPicker_SuperHideEvent(kColorPicker__KColorPicker* self, QHideEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_HideEvent_IsBase(true);
@@ -1291,7 +1291,7 @@ bool kColorPicker__KColorPicker_NativeEvent(kColorPicker__KColorPicker* self, co
 }
 
 // Base class handler implementation
-bool kColorPicker__KColorPicker_QBaseNativeEvent(kColorPicker__KColorPicker* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool kColorPicker__KColorPicker_SuperNativeEvent(kColorPicker__KColorPicker* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
@@ -1321,7 +1321,7 @@ int kColorPicker__KColorPicker_Metric(const kColorPicker__KColorPicker* self, in
 }
 
 // Base class handler implementation
-int kColorPicker__KColorPicker_QBaseMetric(const kColorPicker__KColorPicker* self, int param1) {
+int kColorPicker__KColorPicker_SuperMetric(const kColorPicker__KColorPicker* self, int param1) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Metric_IsBase(true);
@@ -1350,7 +1350,7 @@ void kColorPicker__KColorPicker_InitPainter(const kColorPicker__KColorPicker* se
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseInitPainter(const kColorPicker__KColorPicker* self, QPainter* painter) {
+void kColorPicker__KColorPicker_SuperInitPainter(const kColorPicker__KColorPicker* self, QPainter* painter) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_InitPainter_IsBase(true);
@@ -1379,7 +1379,7 @@ QPaintDevice* kColorPicker__KColorPicker_Redirected(const kColorPicker__KColorPi
 }
 
 // Base class handler implementation
-QPaintDevice* kColorPicker__KColorPicker_QBaseRedirected(const kColorPicker__KColorPicker* self, QPoint* offset) {
+QPaintDevice* kColorPicker__KColorPicker_SuperRedirected(const kColorPicker__KColorPicker* self, QPoint* offset) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Redirected_IsBase(true);
@@ -1408,7 +1408,7 @@ QPainter* kColorPicker__KColorPicker_SharedPainter(const kColorPicker__KColorPic
 }
 
 // Base class handler implementation
-QPainter* kColorPicker__KColorPicker_QBaseSharedPainter(const kColorPicker__KColorPicker* self) {
+QPainter* kColorPicker__KColorPicker_SuperSharedPainter(const kColorPicker__KColorPicker* self) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_SharedPainter_IsBase(true);
@@ -1437,7 +1437,7 @@ void kColorPicker__KColorPicker_InputMethodEvent(kColorPicker__KColorPicker* sel
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseInputMethodEvent(kColorPicker__KColorPicker* self, QInputMethodEvent* param1) {
+void kColorPicker__KColorPicker_SuperInputMethodEvent(kColorPicker__KColorPicker* self, QInputMethodEvent* param1) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_InputMethodEvent_IsBase(true);
@@ -1466,7 +1466,7 @@ QVariant* kColorPicker__KColorPicker_InputMethodQuery(const kColorPicker__KColor
 }
 
 // Base class handler implementation
-QVariant* kColorPicker__KColorPicker_QBaseInputMethodQuery(const kColorPicker__KColorPicker* self, int param1) {
+QVariant* kColorPicker__KColorPicker_SuperInputMethodQuery(const kColorPicker__KColorPicker* self, int param1) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_InputMethodQuery_IsBase(true);
@@ -1495,7 +1495,7 @@ bool kColorPicker__KColorPicker_FocusNextPrevChild(kColorPicker__KColorPicker* s
 }
 
 // Base class handler implementation
-bool kColorPicker__KColorPicker_QBaseFocusNextPrevChild(kColorPicker__KColorPicker* self, bool next) {
+bool kColorPicker__KColorPicker_SuperFocusNextPrevChild(kColorPicker__KColorPicker* self, bool next) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_FocusNextPrevChild_IsBase(true);
@@ -1524,7 +1524,7 @@ bool kColorPicker__KColorPicker_EventFilter(kColorPicker__KColorPicker* self, QO
 }
 
 // Base class handler implementation
-bool kColorPicker__KColorPicker_QBaseEventFilter(kColorPicker__KColorPicker* self, QObject* watched, QEvent* event) {
+bool kColorPicker__KColorPicker_SuperEventFilter(kColorPicker__KColorPicker* self, QObject* watched, QEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_EventFilter_IsBase(true);
@@ -1553,7 +1553,7 @@ void kColorPicker__KColorPicker_ChildEvent(kColorPicker__KColorPicker* self, QCh
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseChildEvent(kColorPicker__KColorPicker* self, QChildEvent* event) {
+void kColorPicker__KColorPicker_SuperChildEvent(kColorPicker__KColorPicker* self, QChildEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ChildEvent_IsBase(true);
@@ -1582,7 +1582,7 @@ void kColorPicker__KColorPicker_CustomEvent(kColorPicker__KColorPicker* self, QE
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseCustomEvent(kColorPicker__KColorPicker* self, QEvent* event) {
+void kColorPicker__KColorPicker_SuperCustomEvent(kColorPicker__KColorPicker* self, QEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_CustomEvent_IsBase(true);
@@ -1611,7 +1611,7 @@ void kColorPicker__KColorPicker_ConnectNotify(kColorPicker__KColorPicker* self, 
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseConnectNotify(kColorPicker__KColorPicker* self, const QMetaMethod* signal) {
+void kColorPicker__KColorPicker_SuperConnectNotify(kColorPicker__KColorPicker* self, const QMetaMethod* signal) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ConnectNotify_IsBase(true);
@@ -1640,7 +1640,7 @@ void kColorPicker__KColorPicker_DisconnectNotify(kColorPicker__KColorPicker* sel
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseDisconnectNotify(kColorPicker__KColorPicker* self, const QMetaMethod* signal) {
+void kColorPicker__KColorPicker_SuperDisconnectNotify(kColorPicker__KColorPicker* self, const QMetaMethod* signal) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DisconnectNotify_IsBase(true);
@@ -1669,7 +1669,7 @@ void kColorPicker__KColorPicker_UpdateMicroFocus(kColorPicker__KColorPicker* sel
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseUpdateMicroFocus(kColorPicker__KColorPicker* self) {
+void kColorPicker__KColorPicker_SuperUpdateMicroFocus(kColorPicker__KColorPicker* self) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_UpdateMicroFocus_IsBase(true);
@@ -1698,7 +1698,7 @@ void kColorPicker__KColorPicker_Create(kColorPicker__KColorPicker* self) {
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseCreate(kColorPicker__KColorPicker* self) {
+void kColorPicker__KColorPicker_SuperCreate(kColorPicker__KColorPicker* self) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Create_IsBase(true);
@@ -1727,7 +1727,7 @@ void kColorPicker__KColorPicker_Destroy(kColorPicker__KColorPicker* self) {
 }
 
 // Base class handler implementation
-void kColorPicker__KColorPicker_QBaseDestroy(kColorPicker__KColorPicker* self) {
+void kColorPicker__KColorPicker_SuperDestroy(kColorPicker__KColorPicker* self) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Destroy_IsBase(true);
@@ -1756,7 +1756,7 @@ bool kColorPicker__KColorPicker_FocusNextChild(kColorPicker__KColorPicker* self)
 }
 
 // Base class handler implementation
-bool kColorPicker__KColorPicker_QBaseFocusNextChild(kColorPicker__KColorPicker* self) {
+bool kColorPicker__KColorPicker_SuperFocusNextChild(kColorPicker__KColorPicker* self) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_FocusNextChild_IsBase(true);
@@ -1785,7 +1785,7 @@ bool kColorPicker__KColorPicker_FocusPreviousChild(kColorPicker__KColorPicker* s
 }
 
 // Base class handler implementation
-bool kColorPicker__KColorPicker_QBaseFocusPreviousChild(kColorPicker__KColorPicker* self) {
+bool kColorPicker__KColorPicker_SuperFocusPreviousChild(kColorPicker__KColorPicker* self) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_FocusPreviousChild_IsBase(true);
@@ -1814,7 +1814,7 @@ QObject* kColorPicker__KColorPicker_Sender(const kColorPicker__KColorPicker* sel
 }
 
 // Base class handler implementation
-QObject* kColorPicker__KColorPicker_QBaseSender(const kColorPicker__KColorPicker* self) {
+QObject* kColorPicker__KColorPicker_SuperSender(const kColorPicker__KColorPicker* self) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Sender_IsBase(true);
@@ -1843,7 +1843,7 @@ int kColorPicker__KColorPicker_SenderSignalIndex(const kColorPicker__KColorPicke
 }
 
 // Base class handler implementation
-int kColorPicker__KColorPicker_QBaseSenderSignalIndex(const kColorPicker__KColorPicker* self) {
+int kColorPicker__KColorPicker_SuperSenderSignalIndex(const kColorPicker__KColorPicker* self) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_SenderSignalIndex_IsBase(true);
@@ -1872,7 +1872,7 @@ int kColorPicker__KColorPicker_Receivers(const kColorPicker__KColorPicker* self,
 }
 
 // Base class handler implementation
-int kColorPicker__KColorPicker_QBaseReceivers(const kColorPicker__KColorPicker* self, const char* signal) {
+int kColorPicker__KColorPicker_SuperReceivers(const kColorPicker__KColorPicker* self, const char* signal) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Receivers_IsBase(true);
@@ -1901,7 +1901,7 @@ bool kColorPicker__KColorPicker_IsSignalConnected(const kColorPicker__KColorPick
 }
 
 // Base class handler implementation
-bool kColorPicker__KColorPicker_QBaseIsSignalConnected(const kColorPicker__KColorPicker* self, const QMetaMethod* signal) {
+bool kColorPicker__KColorPicker_SuperIsSignalConnected(const kColorPicker__KColorPicker* self, const QMetaMethod* signal) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_IsSignalConnected_IsBase(true);
@@ -1930,7 +1930,7 @@ double kColorPicker__KColorPicker_GetDecodedMetricF(const kColorPicker__KColorPi
 }
 
 // Base class handler implementation
-double kColorPicker__KColorPicker_QBaseGetDecodedMetricF(const kColorPicker__KColorPicker* self, int metricA, int metricB) {
+double kColorPicker__KColorPicker_SuperGetDecodedMetricF(const kColorPicker__KColorPicker* self, int metricA, int metricB) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
     if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_GetDecodedMetricF_IsBase(true);

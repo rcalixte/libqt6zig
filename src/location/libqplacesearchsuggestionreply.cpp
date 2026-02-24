@@ -80,7 +80,7 @@ int QPlaceSearchSuggestionReply_Type(const QPlaceSearchSuggestionReply* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QPlaceSearchSuggestionReply_QBaseMetaObject(const QPlaceSearchSuggestionReply* self) {
+QMetaObject* QPlaceSearchSuggestionReply_SuperMetaObject(const QPlaceSearchSuggestionReply* self) {
     auto* vqplacesearchsuggestionreply = const_cast<VirtualQPlaceSearchSuggestionReply*>(dynamic_cast<const VirtualQPlaceSearchSuggestionReply*>(self));
     if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_MetaObject_IsBase(true);
@@ -99,7 +99,7 @@ void QPlaceSearchSuggestionReply_OnMetaObject(const QPlaceSearchSuggestionReply*
 }
 
 // Base class handler implementation
-void* QPlaceSearchSuggestionReply_QBaseMetacast(QPlaceSearchSuggestionReply* self, const char* param1) {
+void* QPlaceSearchSuggestionReply_SuperMetacast(QPlaceSearchSuggestionReply* self, const char* param1) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
     if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_Metacast_IsBase(true);
@@ -118,7 +118,7 @@ void QPlaceSearchSuggestionReply_OnMetacast(QPlaceSearchSuggestionReply* self, i
 }
 
 // Base class handler implementation
-int QPlaceSearchSuggestionReply_QBaseMetacall(QPlaceSearchSuggestionReply* self, int param1, int param2, void** param3) {
+int QPlaceSearchSuggestionReply_SuperMetacall(QPlaceSearchSuggestionReply* self, int param1, int param2, void** param3) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
     if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_Metacall_IsBase(true);
@@ -137,7 +137,7 @@ void QPlaceSearchSuggestionReply_OnMetacall(QPlaceSearchSuggestionReply* self, i
 }
 
 // Base class handler implementation
-int QPlaceSearchSuggestionReply_QBaseType(const QPlaceSearchSuggestionReply* self) {
+int QPlaceSearchSuggestionReply_SuperType(const QPlaceSearchSuggestionReply* self) {
     auto* vqplacesearchsuggestionreply = const_cast<VirtualQPlaceSearchSuggestionReply*>(dynamic_cast<const VirtualQPlaceSearchSuggestionReply*>(self));
     if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_Type_IsBase(true);
@@ -166,7 +166,7 @@ void QPlaceSearchSuggestionReply_Abort(QPlaceSearchSuggestionReply* self) {
 }
 
 // Base class handler implementation
-void QPlaceSearchSuggestionReply_QBaseAbort(QPlaceSearchSuggestionReply* self) {
+void QPlaceSearchSuggestionReply_SuperAbort(QPlaceSearchSuggestionReply* self) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
     if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_Abort_IsBase(true);
@@ -195,7 +195,7 @@ bool QPlaceSearchSuggestionReply_Event(QPlaceSearchSuggestionReply* self, QEvent
 }
 
 // Base class handler implementation
-bool QPlaceSearchSuggestionReply_QBaseEvent(QPlaceSearchSuggestionReply* self, QEvent* event) {
+bool QPlaceSearchSuggestionReply_SuperEvent(QPlaceSearchSuggestionReply* self, QEvent* event) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
     if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_Event_IsBase(true);
@@ -224,7 +224,7 @@ bool QPlaceSearchSuggestionReply_EventFilter(QPlaceSearchSuggestionReply* self, 
 }
 
 // Base class handler implementation
-bool QPlaceSearchSuggestionReply_QBaseEventFilter(QPlaceSearchSuggestionReply* self, QObject* watched, QEvent* event) {
+bool QPlaceSearchSuggestionReply_SuperEventFilter(QPlaceSearchSuggestionReply* self, QObject* watched, QEvent* event) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
     if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_EventFilter_IsBase(true);
@@ -253,7 +253,7 @@ void QPlaceSearchSuggestionReply_TimerEvent(QPlaceSearchSuggestionReply* self, Q
 }
 
 // Base class handler implementation
-void QPlaceSearchSuggestionReply_QBaseTimerEvent(QPlaceSearchSuggestionReply* self, QTimerEvent* event) {
+void QPlaceSearchSuggestionReply_SuperTimerEvent(QPlaceSearchSuggestionReply* self, QTimerEvent* event) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
     if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_TimerEvent_IsBase(true);
@@ -282,7 +282,7 @@ void QPlaceSearchSuggestionReply_ChildEvent(QPlaceSearchSuggestionReply* self, Q
 }
 
 // Base class handler implementation
-void QPlaceSearchSuggestionReply_QBaseChildEvent(QPlaceSearchSuggestionReply* self, QChildEvent* event) {
+void QPlaceSearchSuggestionReply_SuperChildEvent(QPlaceSearchSuggestionReply* self, QChildEvent* event) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
     if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_ChildEvent_IsBase(true);
@@ -311,7 +311,7 @@ void QPlaceSearchSuggestionReply_CustomEvent(QPlaceSearchSuggestionReply* self, 
 }
 
 // Base class handler implementation
-void QPlaceSearchSuggestionReply_QBaseCustomEvent(QPlaceSearchSuggestionReply* self, QEvent* event) {
+void QPlaceSearchSuggestionReply_SuperCustomEvent(QPlaceSearchSuggestionReply* self, QEvent* event) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
     if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_CustomEvent_IsBase(true);
@@ -340,7 +340,7 @@ void QPlaceSearchSuggestionReply_ConnectNotify(QPlaceSearchSuggestionReply* self
 }
 
 // Base class handler implementation
-void QPlaceSearchSuggestionReply_QBaseConnectNotify(QPlaceSearchSuggestionReply* self, const QMetaMethod* signal) {
+void QPlaceSearchSuggestionReply_SuperConnectNotify(QPlaceSearchSuggestionReply* self, const QMetaMethod* signal) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
     if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_ConnectNotify_IsBase(true);
@@ -369,7 +369,7 @@ void QPlaceSearchSuggestionReply_DisconnectNotify(QPlaceSearchSuggestionReply* s
 }
 
 // Base class handler implementation
-void QPlaceSearchSuggestionReply_QBaseDisconnectNotify(QPlaceSearchSuggestionReply* self, const QMetaMethod* signal) {
+void QPlaceSearchSuggestionReply_SuperDisconnectNotify(QPlaceSearchSuggestionReply* self, const QMetaMethod* signal) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
     if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_DisconnectNotify_IsBase(true);
@@ -405,7 +405,7 @@ void QPlaceSearchSuggestionReply_SetSuggestions(QPlaceSearchSuggestionReply* sel
 }
 
 // Base class handler implementation
-void QPlaceSearchSuggestionReply_QBaseSetSuggestions(QPlaceSearchSuggestionReply* self, const libqt_list /* of libqt_string */ suggestions) {
+void QPlaceSearchSuggestionReply_SuperSetSuggestions(QPlaceSearchSuggestionReply* self, const libqt_list /* of libqt_string */ suggestions) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
     QList<QString> suggestions_QList;
     suggestions_QList.reserve(suggestions.len);
@@ -441,7 +441,7 @@ void QPlaceSearchSuggestionReply_SetFinished(QPlaceSearchSuggestionReply* self, 
 }
 
 // Base class handler implementation
-void QPlaceSearchSuggestionReply_QBaseSetFinished(QPlaceSearchSuggestionReply* self, bool finished) {
+void QPlaceSearchSuggestionReply_SuperSetFinished(QPlaceSearchSuggestionReply* self, bool finished) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
     if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_SetFinished_IsBase(true);
@@ -471,7 +471,7 @@ void QPlaceSearchSuggestionReply_SetError(QPlaceSearchSuggestionReply* self, int
 }
 
 // Base class handler implementation
-void QPlaceSearchSuggestionReply_QBaseSetError(QPlaceSearchSuggestionReply* self, int errorVal, const libqt_string errorString) {
+void QPlaceSearchSuggestionReply_SuperSetError(QPlaceSearchSuggestionReply* self, int errorVal, const libqt_string errorString) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
     if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
@@ -501,7 +501,7 @@ QObject* QPlaceSearchSuggestionReply_Sender(const QPlaceSearchSuggestionReply* s
 }
 
 // Base class handler implementation
-QObject* QPlaceSearchSuggestionReply_QBaseSender(const QPlaceSearchSuggestionReply* self) {
+QObject* QPlaceSearchSuggestionReply_SuperSender(const QPlaceSearchSuggestionReply* self) {
     auto* vqplacesearchsuggestionreply = const_cast<VirtualQPlaceSearchSuggestionReply*>(dynamic_cast<const VirtualQPlaceSearchSuggestionReply*>(self));
     if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_Sender_IsBase(true);
@@ -530,7 +530,7 @@ int QPlaceSearchSuggestionReply_SenderSignalIndex(const QPlaceSearchSuggestionRe
 }
 
 // Base class handler implementation
-int QPlaceSearchSuggestionReply_QBaseSenderSignalIndex(const QPlaceSearchSuggestionReply* self) {
+int QPlaceSearchSuggestionReply_SuperSenderSignalIndex(const QPlaceSearchSuggestionReply* self) {
     auto* vqplacesearchsuggestionreply = const_cast<VirtualQPlaceSearchSuggestionReply*>(dynamic_cast<const VirtualQPlaceSearchSuggestionReply*>(self));
     if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_SenderSignalIndex_IsBase(true);
@@ -559,7 +559,7 @@ int QPlaceSearchSuggestionReply_Receivers(const QPlaceSearchSuggestionReply* sel
 }
 
 // Base class handler implementation
-int QPlaceSearchSuggestionReply_QBaseReceivers(const QPlaceSearchSuggestionReply* self, const char* signal) {
+int QPlaceSearchSuggestionReply_SuperReceivers(const QPlaceSearchSuggestionReply* self, const char* signal) {
     auto* vqplacesearchsuggestionreply = const_cast<VirtualQPlaceSearchSuggestionReply*>(dynamic_cast<const VirtualQPlaceSearchSuggestionReply*>(self));
     if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_Receivers_IsBase(true);
@@ -588,7 +588,7 @@ bool QPlaceSearchSuggestionReply_IsSignalConnected(const QPlaceSearchSuggestionR
 }
 
 // Base class handler implementation
-bool QPlaceSearchSuggestionReply_QBaseIsSignalConnected(const QPlaceSearchSuggestionReply* self, const QMetaMethod* signal) {
+bool QPlaceSearchSuggestionReply_SuperIsSignalConnected(const QPlaceSearchSuggestionReply* self, const QMetaMethod* signal) {
     auto* vqplacesearchsuggestionreply = const_cast<VirtualQPlaceSearchSuggestionReply*>(dynamic_cast<const VirtualQPlaceSearchSuggestionReply*>(self));
     if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_IsSignalConnected_IsBase(true);

@@ -762,6 +762,10 @@ pub const qdate = struct {
         return qtc.QDate_FromString34(stringVal_str, format_str, @bitCast(baseYear));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdate.html#dtor.QDate)
     ///
     /// Delete this object from C++ memory.
@@ -770,7 +774,7 @@ pub const qdate = struct {
     ///
     /// ` self: QtC.QDate `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDate_Delete(@ptrCast(self));
     }
 };
@@ -1183,6 +1187,10 @@ pub const qtime = struct {
         return qtc.QTime_IsValid4(@bitCast(h), @bitCast(m), @bitCast(s), @bitCast(ms));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtime.html#dtor.QTime)
     ///
     /// Delete this object from C++ memory.
@@ -1191,7 +1199,7 @@ pub const qtime = struct {
     ///
     /// ` self: QtC.QTime `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTime_Delete(@ptrCast(self));
     }
 };
@@ -2096,6 +2104,10 @@ pub const qdatetime = struct {
         return qtc.QDateTime_FromSecsSinceEpoch32(@bitCast(secs), @bitCast(spec), @bitCast(offsetFromUtc));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#dtor.QDateTime)
     ///
     /// Delete this object from C++ memory.
@@ -2104,7 +2116,7 @@ pub const qdatetime = struct {
     ///
     /// ` self: QtC.QDateTime `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDateTime_Delete(@ptrCast(self));
     }
 };

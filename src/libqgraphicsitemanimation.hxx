@@ -368,27 +368,27 @@ class VirtualQGraphicsItemAnimation final : public QGraphicsItemAnimation {
 
     // Friend functions
     friend void QGraphicsItemAnimation_BeforeAnimationStep(QGraphicsItemAnimation* self, double step);
-    friend void QGraphicsItemAnimation_QBaseBeforeAnimationStep(QGraphicsItemAnimation* self, double step);
+    friend void QGraphicsItemAnimation_SuperBeforeAnimationStep(QGraphicsItemAnimation* self, double step);
     friend void QGraphicsItemAnimation_AfterAnimationStep(QGraphicsItemAnimation* self, double step);
-    friend void QGraphicsItemAnimation_QBaseAfterAnimationStep(QGraphicsItemAnimation* self, double step);
+    friend void QGraphicsItemAnimation_SuperAfterAnimationStep(QGraphicsItemAnimation* self, double step);
     friend void QGraphicsItemAnimation_TimerEvent(QGraphicsItemAnimation* self, QTimerEvent* event);
-    friend void QGraphicsItemAnimation_QBaseTimerEvent(QGraphicsItemAnimation* self, QTimerEvent* event);
+    friend void QGraphicsItemAnimation_SuperTimerEvent(QGraphicsItemAnimation* self, QTimerEvent* event);
     friend void QGraphicsItemAnimation_ChildEvent(QGraphicsItemAnimation* self, QChildEvent* event);
-    friend void QGraphicsItemAnimation_QBaseChildEvent(QGraphicsItemAnimation* self, QChildEvent* event);
+    friend void QGraphicsItemAnimation_SuperChildEvent(QGraphicsItemAnimation* self, QChildEvent* event);
     friend void QGraphicsItemAnimation_CustomEvent(QGraphicsItemAnimation* self, QEvent* event);
-    friend void QGraphicsItemAnimation_QBaseCustomEvent(QGraphicsItemAnimation* self, QEvent* event);
+    friend void QGraphicsItemAnimation_SuperCustomEvent(QGraphicsItemAnimation* self, QEvent* event);
     friend void QGraphicsItemAnimation_ConnectNotify(QGraphicsItemAnimation* self, const QMetaMethod* signal);
-    friend void QGraphicsItemAnimation_QBaseConnectNotify(QGraphicsItemAnimation* self, const QMetaMethod* signal);
+    friend void QGraphicsItemAnimation_SuperConnectNotify(QGraphicsItemAnimation* self, const QMetaMethod* signal);
     friend void QGraphicsItemAnimation_DisconnectNotify(QGraphicsItemAnimation* self, const QMetaMethod* signal);
-    friend void QGraphicsItemAnimation_QBaseDisconnectNotify(QGraphicsItemAnimation* self, const QMetaMethod* signal);
+    friend void QGraphicsItemAnimation_SuperDisconnectNotify(QGraphicsItemAnimation* self, const QMetaMethod* signal);
     friend QObject* QGraphicsItemAnimation_Sender(const QGraphicsItemAnimation* self);
-    friend QObject* QGraphicsItemAnimation_QBaseSender(const QGraphicsItemAnimation* self);
+    friend QObject* QGraphicsItemAnimation_SuperSender(const QGraphicsItemAnimation* self);
     friend int QGraphicsItemAnimation_SenderSignalIndex(const QGraphicsItemAnimation* self);
-    friend int QGraphicsItemAnimation_QBaseSenderSignalIndex(const QGraphicsItemAnimation* self);
+    friend int QGraphicsItemAnimation_SuperSenderSignalIndex(const QGraphicsItemAnimation* self);
     friend int QGraphicsItemAnimation_Receivers(const QGraphicsItemAnimation* self, const char* signal);
-    friend int QGraphicsItemAnimation_QBaseReceivers(const QGraphicsItemAnimation* self, const char* signal);
+    friend int QGraphicsItemAnimation_SuperReceivers(const QGraphicsItemAnimation* self, const char* signal);
     friend bool QGraphicsItemAnimation_IsSignalConnected(const QGraphicsItemAnimation* self, const QMetaMethod* signal);
-    friend bool QGraphicsItemAnimation_QBaseIsSignalConnected(const QGraphicsItemAnimation* self, const QMetaMethod* signal);
+    friend bool QGraphicsItemAnimation_SuperIsSignalConnected(const QGraphicsItemAnimation* self, const QMetaMethod* signal);
 };
 
 #endif

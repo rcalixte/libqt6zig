@@ -330,23 +330,23 @@ class VirtualQDBusServer final : public QDBusServer {
 
     // Friend functions
     friend void QDBusServer_TimerEvent(QDBusServer* self, QTimerEvent* event);
-    friend void QDBusServer_QBaseTimerEvent(QDBusServer* self, QTimerEvent* event);
+    friend void QDBusServer_SuperTimerEvent(QDBusServer* self, QTimerEvent* event);
     friend void QDBusServer_ChildEvent(QDBusServer* self, QChildEvent* event);
-    friend void QDBusServer_QBaseChildEvent(QDBusServer* self, QChildEvent* event);
+    friend void QDBusServer_SuperChildEvent(QDBusServer* self, QChildEvent* event);
     friend void QDBusServer_CustomEvent(QDBusServer* self, QEvent* event);
-    friend void QDBusServer_QBaseCustomEvent(QDBusServer* self, QEvent* event);
+    friend void QDBusServer_SuperCustomEvent(QDBusServer* self, QEvent* event);
     friend void QDBusServer_ConnectNotify(QDBusServer* self, const QMetaMethod* signal);
-    friend void QDBusServer_QBaseConnectNotify(QDBusServer* self, const QMetaMethod* signal);
+    friend void QDBusServer_SuperConnectNotify(QDBusServer* self, const QMetaMethod* signal);
     friend void QDBusServer_DisconnectNotify(QDBusServer* self, const QMetaMethod* signal);
-    friend void QDBusServer_QBaseDisconnectNotify(QDBusServer* self, const QMetaMethod* signal);
+    friend void QDBusServer_SuperDisconnectNotify(QDBusServer* self, const QMetaMethod* signal);
     friend QObject* QDBusServer_Sender(const QDBusServer* self);
-    friend QObject* QDBusServer_QBaseSender(const QDBusServer* self);
+    friend QObject* QDBusServer_SuperSender(const QDBusServer* self);
     friend int QDBusServer_SenderSignalIndex(const QDBusServer* self);
-    friend int QDBusServer_QBaseSenderSignalIndex(const QDBusServer* self);
+    friend int QDBusServer_SuperSenderSignalIndex(const QDBusServer* self);
     friend int QDBusServer_Receivers(const QDBusServer* self, const char* signal);
-    friend int QDBusServer_QBaseReceivers(const QDBusServer* self, const char* signal);
+    friend int QDBusServer_SuperReceivers(const QDBusServer* self, const char* signal);
     friend bool QDBusServer_IsSignalConnected(const QDBusServer* self, const QMetaMethod* signal);
-    friend bool QDBusServer_QBaseIsSignalConnected(const QDBusServer* self, const QMetaMethod* signal);
+    friend bool QDBusServer_SuperIsSignalConnected(const QDBusServer* self, const QMetaMethod* signal);
 };
 
 #endif

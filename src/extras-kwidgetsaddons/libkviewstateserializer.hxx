@@ -394,29 +394,29 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
 
     // Friend functions
     friend QModelIndex* KViewStateSerializer_IndexFromConfigString(const KViewStateSerializer* self, const QAbstractItemModel* model, const libqt_string key);
-    friend QModelIndex* KViewStateSerializer_QBaseIndexFromConfigString(const KViewStateSerializer* self, const QAbstractItemModel* model, const libqt_string key);
+    friend QModelIndex* KViewStateSerializer_SuperIndexFromConfigString(const KViewStateSerializer* self, const QAbstractItemModel* model, const libqt_string key);
     friend libqt_string KViewStateSerializer_IndexToConfigString(const KViewStateSerializer* self, const QModelIndex* index);
-    friend libqt_string KViewStateSerializer_QBaseIndexToConfigString(const KViewStateSerializer* self, const QModelIndex* index);
+    friend libqt_string KViewStateSerializer_SuperIndexToConfigString(const KViewStateSerializer* self, const QModelIndex* index);
     friend void KViewStateSerializer_TimerEvent(KViewStateSerializer* self, QTimerEvent* event);
-    friend void KViewStateSerializer_QBaseTimerEvent(KViewStateSerializer* self, QTimerEvent* event);
+    friend void KViewStateSerializer_SuperTimerEvent(KViewStateSerializer* self, QTimerEvent* event);
     friend void KViewStateSerializer_ChildEvent(KViewStateSerializer* self, QChildEvent* event);
-    friend void KViewStateSerializer_QBaseChildEvent(KViewStateSerializer* self, QChildEvent* event);
+    friend void KViewStateSerializer_SuperChildEvent(KViewStateSerializer* self, QChildEvent* event);
     friend void KViewStateSerializer_CustomEvent(KViewStateSerializer* self, QEvent* event);
-    friend void KViewStateSerializer_QBaseCustomEvent(KViewStateSerializer* self, QEvent* event);
+    friend void KViewStateSerializer_SuperCustomEvent(KViewStateSerializer* self, QEvent* event);
     friend void KViewStateSerializer_ConnectNotify(KViewStateSerializer* self, const QMetaMethod* signal);
-    friend void KViewStateSerializer_QBaseConnectNotify(KViewStateSerializer* self, const QMetaMethod* signal);
+    friend void KViewStateSerializer_SuperConnectNotify(KViewStateSerializer* self, const QMetaMethod* signal);
     friend void KViewStateSerializer_DisconnectNotify(KViewStateSerializer* self, const QMetaMethod* signal);
-    friend void KViewStateSerializer_QBaseDisconnectNotify(KViewStateSerializer* self, const QMetaMethod* signal);
+    friend void KViewStateSerializer_SuperDisconnectNotify(KViewStateSerializer* self, const QMetaMethod* signal);
     friend void KViewStateSerializer_RestoreState(KViewStateSerializer* self);
-    friend void KViewStateSerializer_QBaseRestoreState(KViewStateSerializer* self);
+    friend void KViewStateSerializer_SuperRestoreState(KViewStateSerializer* self);
     friend QObject* KViewStateSerializer_Sender(const KViewStateSerializer* self);
-    friend QObject* KViewStateSerializer_QBaseSender(const KViewStateSerializer* self);
+    friend QObject* KViewStateSerializer_SuperSender(const KViewStateSerializer* self);
     friend int KViewStateSerializer_SenderSignalIndex(const KViewStateSerializer* self);
-    friend int KViewStateSerializer_QBaseSenderSignalIndex(const KViewStateSerializer* self);
+    friend int KViewStateSerializer_SuperSenderSignalIndex(const KViewStateSerializer* self);
     friend int KViewStateSerializer_Receivers(const KViewStateSerializer* self, const char* signal);
-    friend int KViewStateSerializer_QBaseReceivers(const KViewStateSerializer* self, const char* signal);
+    friend int KViewStateSerializer_SuperReceivers(const KViewStateSerializer* self, const char* signal);
     friend bool KViewStateSerializer_IsSignalConnected(const KViewStateSerializer* self, const QMetaMethod* signal);
-    friend bool KViewStateSerializer_QBaseIsSignalConnected(const KViewStateSerializer* self, const QMetaMethod* signal);
+    friend bool KViewStateSerializer_SuperIsSignalConnected(const KViewStateSerializer* self, const QMetaMethod* signal);
 };
 
 #endif

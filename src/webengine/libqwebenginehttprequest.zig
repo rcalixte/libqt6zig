@@ -313,6 +313,10 @@ pub const qwebenginehttprequest = struct {
         qtc.QWebEngineHttpRequest_UnsetHeader(@ptrCast(self), headerName_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#dtor.QWebEngineHttpRequest)
     ///
     /// Delete this object from C++ memory.
@@ -321,7 +325,7 @@ pub const qwebenginehttprequest = struct {
     ///
     /// ` self: QtC.QWebEngineHttpRequest `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebEngineHttpRequest_Delete(@ptrCast(self));
     }
 };

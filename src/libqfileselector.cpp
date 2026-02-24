@@ -120,7 +120,7 @@ libqt_list /* of libqt_string */ QFileSelector_AllSelectors(const QFileSelector*
 }
 
 // Base class handler implementation
-QMetaObject* QFileSelector_QBaseMetaObject(const QFileSelector* self) {
+QMetaObject* QFileSelector_SuperMetaObject(const QFileSelector* self) {
     auto* vqfileselector = const_cast<VirtualQFileSelector*>(dynamic_cast<const VirtualQFileSelector*>(self));
     if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
         vqfileselector->setQFileSelector_MetaObject_IsBase(true);
@@ -139,7 +139,7 @@ void QFileSelector_OnMetaObject(const QFileSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QFileSelector_QBaseMetacast(QFileSelector* self, const char* param1) {
+void* QFileSelector_SuperMetacast(QFileSelector* self, const char* param1) {
     auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
     if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
         vqfileselector->setQFileSelector_Metacast_IsBase(true);
@@ -158,7 +158,7 @@ void QFileSelector_OnMetacast(QFileSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QFileSelector_QBaseMetacall(QFileSelector* self, int param1, int param2, void** param3) {
+int QFileSelector_SuperMetacall(QFileSelector* self, int param1, int param2, void** param3) {
     auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
     if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
         vqfileselector->setQFileSelector_Metacall_IsBase(true);
@@ -187,7 +187,7 @@ bool QFileSelector_Event(QFileSelector* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QFileSelector_QBaseEvent(QFileSelector* self, QEvent* event) {
+bool QFileSelector_SuperEvent(QFileSelector* self, QEvent* event) {
     auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
     if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
         vqfileselector->setQFileSelector_Event_IsBase(true);
@@ -216,7 +216,7 @@ bool QFileSelector_EventFilter(QFileSelector* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QFileSelector_QBaseEventFilter(QFileSelector* self, QObject* watched, QEvent* event) {
+bool QFileSelector_SuperEventFilter(QFileSelector* self, QObject* watched, QEvent* event) {
     auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
     if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
         vqfileselector->setQFileSelector_EventFilter_IsBase(true);
@@ -245,7 +245,7 @@ void QFileSelector_TimerEvent(QFileSelector* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QFileSelector_QBaseTimerEvent(QFileSelector* self, QTimerEvent* event) {
+void QFileSelector_SuperTimerEvent(QFileSelector* self, QTimerEvent* event) {
     auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
     if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
         vqfileselector->setQFileSelector_TimerEvent_IsBase(true);
@@ -274,7 +274,7 @@ void QFileSelector_ChildEvent(QFileSelector* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QFileSelector_QBaseChildEvent(QFileSelector* self, QChildEvent* event) {
+void QFileSelector_SuperChildEvent(QFileSelector* self, QChildEvent* event) {
     auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
     if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
         vqfileselector->setQFileSelector_ChildEvent_IsBase(true);
@@ -303,7 +303,7 @@ void QFileSelector_CustomEvent(QFileSelector* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QFileSelector_QBaseCustomEvent(QFileSelector* self, QEvent* event) {
+void QFileSelector_SuperCustomEvent(QFileSelector* self, QEvent* event) {
     auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
     if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
         vqfileselector->setQFileSelector_CustomEvent_IsBase(true);
@@ -332,7 +332,7 @@ void QFileSelector_ConnectNotify(QFileSelector* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QFileSelector_QBaseConnectNotify(QFileSelector* self, const QMetaMethod* signal) {
+void QFileSelector_SuperConnectNotify(QFileSelector* self, const QMetaMethod* signal) {
     auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
     if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
         vqfileselector->setQFileSelector_ConnectNotify_IsBase(true);
@@ -361,7 +361,7 @@ void QFileSelector_DisconnectNotify(QFileSelector* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QFileSelector_QBaseDisconnectNotify(QFileSelector* self, const QMetaMethod* signal) {
+void QFileSelector_SuperDisconnectNotify(QFileSelector* self, const QMetaMethod* signal) {
     auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
     if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
         vqfileselector->setQFileSelector_DisconnectNotify_IsBase(true);
@@ -390,7 +390,7 @@ QObject* QFileSelector_Sender(const QFileSelector* self) {
 }
 
 // Base class handler implementation
-QObject* QFileSelector_QBaseSender(const QFileSelector* self) {
+QObject* QFileSelector_SuperSender(const QFileSelector* self) {
     auto* vqfileselector = const_cast<VirtualQFileSelector*>(dynamic_cast<const VirtualQFileSelector*>(self));
     if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
         vqfileselector->setQFileSelector_Sender_IsBase(true);
@@ -419,7 +419,7 @@ int QFileSelector_SenderSignalIndex(const QFileSelector* self) {
 }
 
 // Base class handler implementation
-int QFileSelector_QBaseSenderSignalIndex(const QFileSelector* self) {
+int QFileSelector_SuperSenderSignalIndex(const QFileSelector* self) {
     auto* vqfileselector = const_cast<VirtualQFileSelector*>(dynamic_cast<const VirtualQFileSelector*>(self));
     if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
         vqfileselector->setQFileSelector_SenderSignalIndex_IsBase(true);
@@ -448,7 +448,7 @@ int QFileSelector_Receivers(const QFileSelector* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QFileSelector_QBaseReceivers(const QFileSelector* self, const char* signal) {
+int QFileSelector_SuperReceivers(const QFileSelector* self, const char* signal) {
     auto* vqfileselector = const_cast<VirtualQFileSelector*>(dynamic_cast<const VirtualQFileSelector*>(self));
     if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
         vqfileselector->setQFileSelector_Receivers_IsBase(true);
@@ -477,7 +477,7 @@ bool QFileSelector_IsSignalConnected(const QFileSelector* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QFileSelector_QBaseIsSignalConnected(const QFileSelector* self, const QMetaMethod* signal) {
+bool QFileSelector_SuperIsSignalConnected(const QFileSelector* self, const QMetaMethod* signal) {
     auto* vqfileselector = const_cast<VirtualQFileSelector*>(dynamic_cast<const VirtualQFileSelector*>(self));
     if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
         vqfileselector->setQFileSelector_IsSignalConnected_IsBase(true);

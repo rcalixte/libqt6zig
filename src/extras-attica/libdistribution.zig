@@ -86,13 +86,17 @@ pub const attica__distribution = struct {
         qtc.Attica__Distribution_SetName(@ptrCast(self), name_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Attica__Distribution `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Attica__Distribution_Delete(@ptrCast(self));
     }
 };

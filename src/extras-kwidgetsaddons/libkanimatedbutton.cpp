@@ -103,7 +103,7 @@ void KAnimatedButton_Stop(KAnimatedButton* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KAnimatedButton_QBaseMetaObject(const KAnimatedButton* self) {
+QMetaObject* KAnimatedButton_SuperMetaObject(const KAnimatedButton* self) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_MetaObject_IsBase(true);
@@ -122,7 +122,7 @@ void KAnimatedButton_OnMetaObject(const KAnimatedButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KAnimatedButton_QBaseMetacast(KAnimatedButton* self, const char* param1) {
+void* KAnimatedButton_SuperMetacast(KAnimatedButton* self, const char* param1) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_Metacast_IsBase(true);
@@ -141,7 +141,7 @@ void KAnimatedButton_OnMetacast(KAnimatedButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KAnimatedButton_QBaseMetacall(KAnimatedButton* self, int param1, int param2, void** param3) {
+int KAnimatedButton_SuperMetacall(KAnimatedButton* self, int param1, int param2, void** param3) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_Metacall_IsBase(true);
@@ -170,7 +170,7 @@ QSize* KAnimatedButton_SizeHint(const KAnimatedButton* self) {
 }
 
 // Base class handler implementation
-QSize* KAnimatedButton_QBaseSizeHint(const KAnimatedButton* self) {
+QSize* KAnimatedButton_SuperSizeHint(const KAnimatedButton* self) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_SizeHint_IsBase(true);
@@ -199,7 +199,7 @@ QSize* KAnimatedButton_MinimumSizeHint(const KAnimatedButton* self) {
 }
 
 // Base class handler implementation
-QSize* KAnimatedButton_QBaseMinimumSizeHint(const KAnimatedButton* self) {
+QSize* KAnimatedButton_SuperMinimumSizeHint(const KAnimatedButton* self) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_MinimumSizeHint_IsBase(true);
@@ -228,7 +228,7 @@ bool KAnimatedButton_Event(KAnimatedButton* self, QEvent* e) {
 }
 
 // Base class handler implementation
-bool KAnimatedButton_QBaseEvent(KAnimatedButton* self, QEvent* e) {
+bool KAnimatedButton_SuperEvent(KAnimatedButton* self, QEvent* e) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_Event_IsBase(true);
@@ -257,7 +257,7 @@ void KAnimatedButton_MousePressEvent(KAnimatedButton* self, QMouseEvent* param1)
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseMousePressEvent(KAnimatedButton* self, QMouseEvent* param1) {
+void KAnimatedButton_SuperMousePressEvent(KAnimatedButton* self, QMouseEvent* param1) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_MousePressEvent_IsBase(true);
@@ -286,7 +286,7 @@ void KAnimatedButton_MouseReleaseEvent(KAnimatedButton* self, QMouseEvent* param
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseMouseReleaseEvent(KAnimatedButton* self, QMouseEvent* param1) {
+void KAnimatedButton_SuperMouseReleaseEvent(KAnimatedButton* self, QMouseEvent* param1) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_MouseReleaseEvent_IsBase(true);
@@ -315,7 +315,7 @@ void KAnimatedButton_PaintEvent(KAnimatedButton* self, QPaintEvent* param1) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBasePaintEvent(KAnimatedButton* self, QPaintEvent* param1) {
+void KAnimatedButton_SuperPaintEvent(KAnimatedButton* self, QPaintEvent* param1) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_PaintEvent_IsBase(true);
@@ -344,7 +344,7 @@ void KAnimatedButton_ActionEvent(KAnimatedButton* self, QActionEvent* param1) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseActionEvent(KAnimatedButton* self, QActionEvent* param1) {
+void KAnimatedButton_SuperActionEvent(KAnimatedButton* self, QActionEvent* param1) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_ActionEvent_IsBase(true);
@@ -373,7 +373,7 @@ void KAnimatedButton_EnterEvent(KAnimatedButton* self, QEnterEvent* param1) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseEnterEvent(KAnimatedButton* self, QEnterEvent* param1) {
+void KAnimatedButton_SuperEnterEvent(KAnimatedButton* self, QEnterEvent* param1) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_EnterEvent_IsBase(true);
@@ -402,7 +402,7 @@ void KAnimatedButton_LeaveEvent(KAnimatedButton* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseLeaveEvent(KAnimatedButton* self, QEvent* param1) {
+void KAnimatedButton_SuperLeaveEvent(KAnimatedButton* self, QEvent* param1) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_LeaveEvent_IsBase(true);
@@ -431,7 +431,7 @@ void KAnimatedButton_TimerEvent(KAnimatedButton* self, QTimerEvent* param1) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseTimerEvent(KAnimatedButton* self, QTimerEvent* param1) {
+void KAnimatedButton_SuperTimerEvent(KAnimatedButton* self, QTimerEvent* param1) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_TimerEvent_IsBase(true);
@@ -460,7 +460,7 @@ void KAnimatedButton_ChangeEvent(KAnimatedButton* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseChangeEvent(KAnimatedButton* self, QEvent* param1) {
+void KAnimatedButton_SuperChangeEvent(KAnimatedButton* self, QEvent* param1) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_ChangeEvent_IsBase(true);
@@ -489,7 +489,7 @@ bool KAnimatedButton_HitButton(const KAnimatedButton* self, const QPoint* pos) {
 }
 
 // Base class handler implementation
-bool KAnimatedButton_QBaseHitButton(const KAnimatedButton* self, const QPoint* pos) {
+bool KAnimatedButton_SuperHitButton(const KAnimatedButton* self, const QPoint* pos) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_HitButton_IsBase(true);
@@ -518,7 +518,7 @@ void KAnimatedButton_CheckStateSet(KAnimatedButton* self) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseCheckStateSet(KAnimatedButton* self) {
+void KAnimatedButton_SuperCheckStateSet(KAnimatedButton* self) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_CheckStateSet_IsBase(true);
@@ -547,7 +547,7 @@ void KAnimatedButton_NextCheckState(KAnimatedButton* self) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseNextCheckState(KAnimatedButton* self) {
+void KAnimatedButton_SuperNextCheckState(KAnimatedButton* self) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_NextCheckState_IsBase(true);
@@ -576,7 +576,7 @@ void KAnimatedButton_InitStyleOption(const KAnimatedButton* self, QStyleOptionTo
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseInitStyleOption(const KAnimatedButton* self, QStyleOptionToolButton* option) {
+void KAnimatedButton_SuperInitStyleOption(const KAnimatedButton* self, QStyleOptionToolButton* option) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_InitStyleOption_IsBase(true);
@@ -605,7 +605,7 @@ void KAnimatedButton_KeyPressEvent(KAnimatedButton* self, QKeyEvent* e) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseKeyPressEvent(KAnimatedButton* self, QKeyEvent* e) {
+void KAnimatedButton_SuperKeyPressEvent(KAnimatedButton* self, QKeyEvent* e) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_KeyPressEvent_IsBase(true);
@@ -634,7 +634,7 @@ void KAnimatedButton_KeyReleaseEvent(KAnimatedButton* self, QKeyEvent* e) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseKeyReleaseEvent(KAnimatedButton* self, QKeyEvent* e) {
+void KAnimatedButton_SuperKeyReleaseEvent(KAnimatedButton* self, QKeyEvent* e) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_KeyReleaseEvent_IsBase(true);
@@ -663,7 +663,7 @@ void KAnimatedButton_MouseMoveEvent(KAnimatedButton* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseMouseMoveEvent(KAnimatedButton* self, QMouseEvent* e) {
+void KAnimatedButton_SuperMouseMoveEvent(KAnimatedButton* self, QMouseEvent* e) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_MouseMoveEvent_IsBase(true);
@@ -692,7 +692,7 @@ void KAnimatedButton_FocusInEvent(KAnimatedButton* self, QFocusEvent* e) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseFocusInEvent(KAnimatedButton* self, QFocusEvent* e) {
+void KAnimatedButton_SuperFocusInEvent(KAnimatedButton* self, QFocusEvent* e) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_FocusInEvent_IsBase(true);
@@ -721,7 +721,7 @@ void KAnimatedButton_FocusOutEvent(KAnimatedButton* self, QFocusEvent* e) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseFocusOutEvent(KAnimatedButton* self, QFocusEvent* e) {
+void KAnimatedButton_SuperFocusOutEvent(KAnimatedButton* self, QFocusEvent* e) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_FocusOutEvent_IsBase(true);
@@ -750,7 +750,7 @@ int KAnimatedButton_DevType(const KAnimatedButton* self) {
 }
 
 // Base class handler implementation
-int KAnimatedButton_QBaseDevType(const KAnimatedButton* self) {
+int KAnimatedButton_SuperDevType(const KAnimatedButton* self) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_DevType_IsBase(true);
@@ -779,7 +779,7 @@ void KAnimatedButton_SetVisible(KAnimatedButton* self, bool visible) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseSetVisible(KAnimatedButton* self, bool visible) {
+void KAnimatedButton_SuperSetVisible(KAnimatedButton* self, bool visible) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_SetVisible_IsBase(true);
@@ -808,7 +808,7 @@ int KAnimatedButton_HeightForWidth(const KAnimatedButton* self, int param1) {
 }
 
 // Base class handler implementation
-int KAnimatedButton_QBaseHeightForWidth(const KAnimatedButton* self, int param1) {
+int KAnimatedButton_SuperHeightForWidth(const KAnimatedButton* self, int param1) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_HeightForWidth_IsBase(true);
@@ -837,7 +837,7 @@ bool KAnimatedButton_HasHeightForWidth(const KAnimatedButton* self) {
 }
 
 // Base class handler implementation
-bool KAnimatedButton_QBaseHasHeightForWidth(const KAnimatedButton* self) {
+bool KAnimatedButton_SuperHasHeightForWidth(const KAnimatedButton* self) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_HasHeightForWidth_IsBase(true);
@@ -866,7 +866,7 @@ QPaintEngine* KAnimatedButton_PaintEngine(const KAnimatedButton* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KAnimatedButton_QBasePaintEngine(const KAnimatedButton* self) {
+QPaintEngine* KAnimatedButton_SuperPaintEngine(const KAnimatedButton* self) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_PaintEngine_IsBase(true);
@@ -895,7 +895,7 @@ void KAnimatedButton_MouseDoubleClickEvent(KAnimatedButton* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseMouseDoubleClickEvent(KAnimatedButton* self, QMouseEvent* event) {
+void KAnimatedButton_SuperMouseDoubleClickEvent(KAnimatedButton* self, QMouseEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_MouseDoubleClickEvent_IsBase(true);
@@ -924,7 +924,7 @@ void KAnimatedButton_WheelEvent(KAnimatedButton* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseWheelEvent(KAnimatedButton* self, QWheelEvent* event) {
+void KAnimatedButton_SuperWheelEvent(KAnimatedButton* self, QWheelEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_WheelEvent_IsBase(true);
@@ -953,7 +953,7 @@ void KAnimatedButton_MoveEvent(KAnimatedButton* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseMoveEvent(KAnimatedButton* self, QMoveEvent* event) {
+void KAnimatedButton_SuperMoveEvent(KAnimatedButton* self, QMoveEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_MoveEvent_IsBase(true);
@@ -982,7 +982,7 @@ void KAnimatedButton_ResizeEvent(KAnimatedButton* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseResizeEvent(KAnimatedButton* self, QResizeEvent* event) {
+void KAnimatedButton_SuperResizeEvent(KAnimatedButton* self, QResizeEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_ResizeEvent_IsBase(true);
@@ -1011,7 +1011,7 @@ void KAnimatedButton_CloseEvent(KAnimatedButton* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseCloseEvent(KAnimatedButton* self, QCloseEvent* event) {
+void KAnimatedButton_SuperCloseEvent(KAnimatedButton* self, QCloseEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_CloseEvent_IsBase(true);
@@ -1040,7 +1040,7 @@ void KAnimatedButton_ContextMenuEvent(KAnimatedButton* self, QContextMenuEvent* 
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseContextMenuEvent(KAnimatedButton* self, QContextMenuEvent* event) {
+void KAnimatedButton_SuperContextMenuEvent(KAnimatedButton* self, QContextMenuEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_ContextMenuEvent_IsBase(true);
@@ -1069,7 +1069,7 @@ void KAnimatedButton_TabletEvent(KAnimatedButton* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseTabletEvent(KAnimatedButton* self, QTabletEvent* event) {
+void KAnimatedButton_SuperTabletEvent(KAnimatedButton* self, QTabletEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_TabletEvent_IsBase(true);
@@ -1098,7 +1098,7 @@ void KAnimatedButton_DragEnterEvent(KAnimatedButton* self, QDragEnterEvent* even
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseDragEnterEvent(KAnimatedButton* self, QDragEnterEvent* event) {
+void KAnimatedButton_SuperDragEnterEvent(KAnimatedButton* self, QDragEnterEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_DragEnterEvent_IsBase(true);
@@ -1127,7 +1127,7 @@ void KAnimatedButton_DragMoveEvent(KAnimatedButton* self, QDragMoveEvent* event)
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseDragMoveEvent(KAnimatedButton* self, QDragMoveEvent* event) {
+void KAnimatedButton_SuperDragMoveEvent(KAnimatedButton* self, QDragMoveEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_DragMoveEvent_IsBase(true);
@@ -1156,7 +1156,7 @@ void KAnimatedButton_DragLeaveEvent(KAnimatedButton* self, QDragLeaveEvent* even
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseDragLeaveEvent(KAnimatedButton* self, QDragLeaveEvent* event) {
+void KAnimatedButton_SuperDragLeaveEvent(KAnimatedButton* self, QDragLeaveEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_DragLeaveEvent_IsBase(true);
@@ -1185,7 +1185,7 @@ void KAnimatedButton_DropEvent(KAnimatedButton* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseDropEvent(KAnimatedButton* self, QDropEvent* event) {
+void KAnimatedButton_SuperDropEvent(KAnimatedButton* self, QDropEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_DropEvent_IsBase(true);
@@ -1214,7 +1214,7 @@ void KAnimatedButton_ShowEvent(KAnimatedButton* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseShowEvent(KAnimatedButton* self, QShowEvent* event) {
+void KAnimatedButton_SuperShowEvent(KAnimatedButton* self, QShowEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_ShowEvent_IsBase(true);
@@ -1243,7 +1243,7 @@ void KAnimatedButton_HideEvent(KAnimatedButton* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseHideEvent(KAnimatedButton* self, QHideEvent* event) {
+void KAnimatedButton_SuperHideEvent(KAnimatedButton* self, QHideEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_HideEvent_IsBase(true);
@@ -1273,7 +1273,7 @@ bool KAnimatedButton_NativeEvent(KAnimatedButton* self, const libqt_string event
 }
 
 // Base class handler implementation
-bool KAnimatedButton_QBaseNativeEvent(KAnimatedButton* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KAnimatedButton_SuperNativeEvent(KAnimatedButton* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
@@ -1303,7 +1303,7 @@ int KAnimatedButton_Metric(const KAnimatedButton* self, int param1) {
 }
 
 // Base class handler implementation
-int KAnimatedButton_QBaseMetric(const KAnimatedButton* self, int param1) {
+int KAnimatedButton_SuperMetric(const KAnimatedButton* self, int param1) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_Metric_IsBase(true);
@@ -1332,7 +1332,7 @@ void KAnimatedButton_InitPainter(const KAnimatedButton* self, QPainter* painter)
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseInitPainter(const KAnimatedButton* self, QPainter* painter) {
+void KAnimatedButton_SuperInitPainter(const KAnimatedButton* self, QPainter* painter) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_InitPainter_IsBase(true);
@@ -1361,7 +1361,7 @@ QPaintDevice* KAnimatedButton_Redirected(const KAnimatedButton* self, QPoint* of
 }
 
 // Base class handler implementation
-QPaintDevice* KAnimatedButton_QBaseRedirected(const KAnimatedButton* self, QPoint* offset) {
+QPaintDevice* KAnimatedButton_SuperRedirected(const KAnimatedButton* self, QPoint* offset) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_Redirected_IsBase(true);
@@ -1390,7 +1390,7 @@ QPainter* KAnimatedButton_SharedPainter(const KAnimatedButton* self) {
 }
 
 // Base class handler implementation
-QPainter* KAnimatedButton_QBaseSharedPainter(const KAnimatedButton* self) {
+QPainter* KAnimatedButton_SuperSharedPainter(const KAnimatedButton* self) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_SharedPainter_IsBase(true);
@@ -1419,7 +1419,7 @@ void KAnimatedButton_InputMethodEvent(KAnimatedButton* self, QInputMethodEvent* 
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseInputMethodEvent(KAnimatedButton* self, QInputMethodEvent* param1) {
+void KAnimatedButton_SuperInputMethodEvent(KAnimatedButton* self, QInputMethodEvent* param1) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_InputMethodEvent_IsBase(true);
@@ -1448,7 +1448,7 @@ QVariant* KAnimatedButton_InputMethodQuery(const KAnimatedButton* self, int para
 }
 
 // Base class handler implementation
-QVariant* KAnimatedButton_QBaseInputMethodQuery(const KAnimatedButton* self, int param1) {
+QVariant* KAnimatedButton_SuperInputMethodQuery(const KAnimatedButton* self, int param1) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_InputMethodQuery_IsBase(true);
@@ -1477,7 +1477,7 @@ bool KAnimatedButton_FocusNextPrevChild(KAnimatedButton* self, bool next) {
 }
 
 // Base class handler implementation
-bool KAnimatedButton_QBaseFocusNextPrevChild(KAnimatedButton* self, bool next) {
+bool KAnimatedButton_SuperFocusNextPrevChild(KAnimatedButton* self, bool next) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_FocusNextPrevChild_IsBase(true);
@@ -1506,7 +1506,7 @@ bool KAnimatedButton_EventFilter(KAnimatedButton* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool KAnimatedButton_QBaseEventFilter(KAnimatedButton* self, QObject* watched, QEvent* event) {
+bool KAnimatedButton_SuperEventFilter(KAnimatedButton* self, QObject* watched, QEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_EventFilter_IsBase(true);
@@ -1535,7 +1535,7 @@ void KAnimatedButton_ChildEvent(KAnimatedButton* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseChildEvent(KAnimatedButton* self, QChildEvent* event) {
+void KAnimatedButton_SuperChildEvent(KAnimatedButton* self, QChildEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_ChildEvent_IsBase(true);
@@ -1564,7 +1564,7 @@ void KAnimatedButton_CustomEvent(KAnimatedButton* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseCustomEvent(KAnimatedButton* self, QEvent* event) {
+void KAnimatedButton_SuperCustomEvent(KAnimatedButton* self, QEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_CustomEvent_IsBase(true);
@@ -1593,7 +1593,7 @@ void KAnimatedButton_ConnectNotify(KAnimatedButton* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseConnectNotify(KAnimatedButton* self, const QMetaMethod* signal) {
+void KAnimatedButton_SuperConnectNotify(KAnimatedButton* self, const QMetaMethod* signal) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_ConnectNotify_IsBase(true);
@@ -1622,7 +1622,7 @@ void KAnimatedButton_DisconnectNotify(KAnimatedButton* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseDisconnectNotify(KAnimatedButton* self, const QMetaMethod* signal) {
+void KAnimatedButton_SuperDisconnectNotify(KAnimatedButton* self, const QMetaMethod* signal) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_DisconnectNotify_IsBase(true);
@@ -1651,7 +1651,7 @@ void KAnimatedButton_UpdateMicroFocus(KAnimatedButton* self) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseUpdateMicroFocus(KAnimatedButton* self) {
+void KAnimatedButton_SuperUpdateMicroFocus(KAnimatedButton* self) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_UpdateMicroFocus_IsBase(true);
@@ -1680,7 +1680,7 @@ void KAnimatedButton_Create(KAnimatedButton* self) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseCreate(KAnimatedButton* self) {
+void KAnimatedButton_SuperCreate(KAnimatedButton* self) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_Create_IsBase(true);
@@ -1709,7 +1709,7 @@ void KAnimatedButton_Destroy(KAnimatedButton* self) {
 }
 
 // Base class handler implementation
-void KAnimatedButton_QBaseDestroy(KAnimatedButton* self) {
+void KAnimatedButton_SuperDestroy(KAnimatedButton* self) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_Destroy_IsBase(true);
@@ -1738,7 +1738,7 @@ bool KAnimatedButton_FocusNextChild(KAnimatedButton* self) {
 }
 
 // Base class handler implementation
-bool KAnimatedButton_QBaseFocusNextChild(KAnimatedButton* self) {
+bool KAnimatedButton_SuperFocusNextChild(KAnimatedButton* self) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_FocusNextChild_IsBase(true);
@@ -1767,7 +1767,7 @@ bool KAnimatedButton_FocusPreviousChild(KAnimatedButton* self) {
 }
 
 // Base class handler implementation
-bool KAnimatedButton_QBaseFocusPreviousChild(KAnimatedButton* self) {
+bool KAnimatedButton_SuperFocusPreviousChild(KAnimatedButton* self) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_FocusPreviousChild_IsBase(true);
@@ -1796,7 +1796,7 @@ QObject* KAnimatedButton_Sender(const KAnimatedButton* self) {
 }
 
 // Base class handler implementation
-QObject* KAnimatedButton_QBaseSender(const KAnimatedButton* self) {
+QObject* KAnimatedButton_SuperSender(const KAnimatedButton* self) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_Sender_IsBase(true);
@@ -1825,7 +1825,7 @@ int KAnimatedButton_SenderSignalIndex(const KAnimatedButton* self) {
 }
 
 // Base class handler implementation
-int KAnimatedButton_QBaseSenderSignalIndex(const KAnimatedButton* self) {
+int KAnimatedButton_SuperSenderSignalIndex(const KAnimatedButton* self) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_SenderSignalIndex_IsBase(true);
@@ -1854,7 +1854,7 @@ int KAnimatedButton_Receivers(const KAnimatedButton* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KAnimatedButton_QBaseReceivers(const KAnimatedButton* self, const char* signal) {
+int KAnimatedButton_SuperReceivers(const KAnimatedButton* self, const char* signal) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_Receivers_IsBase(true);
@@ -1883,7 +1883,7 @@ bool KAnimatedButton_IsSignalConnected(const KAnimatedButton* self, const QMetaM
 }
 
 // Base class handler implementation
-bool KAnimatedButton_QBaseIsSignalConnected(const KAnimatedButton* self, const QMetaMethod* signal) {
+bool KAnimatedButton_SuperIsSignalConnected(const KAnimatedButton* self, const QMetaMethod* signal) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_IsSignalConnected_IsBase(true);
@@ -1912,7 +1912,7 @@ double KAnimatedButton_GetDecodedMetricF(const KAnimatedButton* self, int metric
 }
 
 // Base class handler implementation
-double KAnimatedButton_QBaseGetDecodedMetricF(const KAnimatedButton* self, int metricA, int metricB) {
+double KAnimatedButton_SuperGetDecodedMetricF(const KAnimatedButton* self, int metricA, int metricB) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
     if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
         vkanimatedbutton->setKAnimatedButton_GetDecodedMetricF_IsBase(true);

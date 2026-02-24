@@ -1009,6 +1009,10 @@ pub const klocalizedstring = struct {
         return qtc.KLocalizedString_Subs311(@ptrCast(self), @ptrCast(a), @bitCast(fieldWidth), @ptrCast(fillChar));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/klocalizedstring.html#dtor.KLocalizedString)
     ///
     /// Delete this object from C++ memory.
@@ -1017,7 +1021,7 @@ pub const klocalizedstring = struct {
     ///
     /// ` self: QtC.KLocalizedString `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KLocalizedString_Delete(@ptrCast(self));
     }
 };

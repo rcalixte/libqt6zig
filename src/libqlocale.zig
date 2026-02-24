@@ -2920,6 +2920,10 @@ pub const qlocale = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#dtor.QLocale)
     ///
     /// Delete this object from C++ memory.
@@ -2928,7 +2932,7 @@ pub const qlocale = struct {
     ///
     /// ` self: QtC.QLocale `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QLocale_Delete(@ptrCast(self));
     }
 };

@@ -80,6 +80,10 @@ pub const kfontsizeaction = struct {
         qtc.KFontSizeAction_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -88,8 +92,8 @@ pub const kfontsizeaction = struct {
     ///
     /// ` self: QtC.KFontSizeAction `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KFontSizeAction_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KFontSizeAction_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -115,6 +119,10 @@ pub const kfontsizeaction = struct {
         qtc.KFontSizeAction_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -123,9 +131,9 @@ pub const kfontsizeaction = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KFontSizeAction_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KFontSizeAction_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -154,6 +162,10 @@ pub const kfontsizeaction = struct {
         qtc.KFontSizeAction_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -166,8 +178,8 @@ pub const kfontsizeaction = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KFontSizeAction_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KFontSizeAction_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -259,6 +271,10 @@ pub const kfontsizeaction = struct {
         qtc.KFontSizeAction_OnSlotActionTriggered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotActionTriggered` instead
+    ///
+    pub const QBaseSlotActionTriggered = SuperSlotActionTriggered;
+
     /// ### [Upstream resources](https://api.kde.org/kfontsizeaction.html#slotActionTriggered)
     ///
     /// Base class method implementation
@@ -269,8 +285,8 @@ pub const kfontsizeaction = struct {
     ///
     /// ` action: QtC.QAction `
     ///
-    pub fn QBaseSlotActionTriggered(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.KFontSizeAction_QBaseSlotActionTriggered(@ptrCast(self), @ptrCast(action));
+    pub fn SuperSlotActionTriggered(self: ?*anyopaque, action: ?*anyopaque) void {
+        qtc.KFontSizeAction_SuperSlotActionTriggered(@ptrCast(self), @ptrCast(action));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2703,6 +2719,10 @@ pub const kfontsizeaction = struct {
         return qtc.KFontSizeAction_RemoveAction(@ptrCast(self), @ptrCast(action));
     }
 
+    /// ### DEPRECATED: Use `SuperRemoveAction` instead
+    ///
+    pub const QBaseRemoveAction = SuperRemoveAction;
+
     /// Inherited from KSelectAction
     ///
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#removeAction)
@@ -2715,8 +2735,8 @@ pub const kfontsizeaction = struct {
     ///
     /// ` action: QtC.QAction `
     ///
-    pub fn QBaseRemoveAction(self: ?*anyopaque, action: ?*anyopaque) QtC.QAction {
-        return qtc.KFontSizeAction_QBaseRemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn SuperRemoveAction(self: ?*anyopaque, action: ?*anyopaque) QtC.QAction {
+        return qtc.KFontSizeAction_SuperRemoveAction(@ptrCast(self), @ptrCast(action));
     }
 
     /// Inherited from KSelectAction
@@ -2753,6 +2773,10 @@ pub const kfontsizeaction = struct {
         qtc.KFontSizeAction_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
     }
 
+    /// ### DEPRECATED: Use `SuperInsertAction` instead
+    ///
+    pub const QBaseInsertAction = SuperInsertAction;
+
     /// Inherited from KSelectAction
     ///
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#insertAction)
@@ -2767,8 +2791,8 @@ pub const kfontsizeaction = struct {
     ///
     /// ` action: QtC.QAction `
     ///
-    pub fn QBaseInsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.KFontSizeAction_QBaseInsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn SuperInsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
+        qtc.KFontSizeAction_SuperInsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
     }
 
     /// Inherited from KSelectAction
@@ -2803,6 +2827,10 @@ pub const kfontsizeaction = struct {
         return qtc.KFontSizeAction_CreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateWidget` instead
+    ///
+    pub const QBaseCreateWidget = SuperCreateWidget;
+
     /// Inherited from KSelectAction
     ///
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#createWidget)
@@ -2815,8 +2843,8 @@ pub const kfontsizeaction = struct {
     ///
     /// ` parent: QtC.QWidget `
     ///
-    pub fn QBaseCreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.KFontSizeAction_QBaseCreateWidget(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperCreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
+        return qtc.KFontSizeAction_SuperCreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from KSelectAction
@@ -2851,6 +2879,10 @@ pub const kfontsizeaction = struct {
         qtc.KFontSizeAction_DeleteWidget(@ptrCast(self), @ptrCast(widget));
     }
 
+    /// ### DEPRECATED: Use `SuperDeleteWidget` instead
+    ///
+    pub const QBaseDeleteWidget = SuperDeleteWidget;
+
     /// Inherited from KSelectAction
     ///
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#deleteWidget)
@@ -2863,8 +2895,8 @@ pub const kfontsizeaction = struct {
     ///
     /// ` widget: QtC.QWidget `
     ///
-    pub fn QBaseDeleteWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.KFontSizeAction_QBaseDeleteWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn SuperDeleteWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
+        qtc.KFontSizeAction_SuperDeleteWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from KSelectAction
@@ -2899,6 +2931,10 @@ pub const kfontsizeaction = struct {
         return qtc.KFontSizeAction_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from KSelectAction
     ///
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#event)
@@ -2911,8 +2947,8 @@ pub const kfontsizeaction = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KFontSizeAction_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KFontSizeAction_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from KSelectAction
@@ -2949,6 +2985,10 @@ pub const kfontsizeaction = struct {
         return qtc.KFontSizeAction_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from KSelectAction
     ///
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#eventFilter)
@@ -2963,8 +3003,8 @@ pub const kfontsizeaction = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KFontSizeAction_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KFontSizeAction_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from KSelectAction
@@ -2999,6 +3039,10 @@ pub const kfontsizeaction = struct {
         qtc.KFontSizeAction_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -3011,8 +3055,8 @@ pub const kfontsizeaction = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KFontSizeAction_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KFontSizeAction_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3047,6 +3091,10 @@ pub const kfontsizeaction = struct {
         qtc.KFontSizeAction_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -3059,8 +3107,8 @@ pub const kfontsizeaction = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KFontSizeAction_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KFontSizeAction_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3095,6 +3143,10 @@ pub const kfontsizeaction = struct {
         qtc.KFontSizeAction_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -3107,8 +3159,8 @@ pub const kfontsizeaction = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KFontSizeAction_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KFontSizeAction_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3143,6 +3195,10 @@ pub const kfontsizeaction = struct {
         qtc.KFontSizeAction_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3155,8 +3211,8 @@ pub const kfontsizeaction = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KFontSizeAction_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KFontSizeAction_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3191,6 +3247,10 @@ pub const kfontsizeaction = struct {
         qtc.KFontSizeAction_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -3203,8 +3263,8 @@ pub const kfontsizeaction = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KFontSizeAction_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KFontSizeAction_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3239,6 +3299,10 @@ pub const kfontsizeaction = struct {
         qtc.KFontSizeAction_SlotToggled(@ptrCast(self), param1);
     }
 
+    /// ### DEPRECATED: Use `SuperSlotToggled` instead
+    ///
+    pub const QBaseSlotToggled = SuperSlotToggled;
+
     /// Inherited from KSelectAction
     ///
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#slotToggled)
@@ -3251,8 +3315,8 @@ pub const kfontsizeaction = struct {
     ///
     /// ` param1: bool `
     ///
-    pub fn QBaseSlotToggled(self: ?*anyopaque, param1: bool) void {
-        qtc.KFontSizeAction_QBaseSlotToggled(@ptrCast(self), param1);
+    pub fn SuperSlotToggled(self: ?*anyopaque, param1: bool) void {
+        qtc.KFontSizeAction_SuperSlotToggled(@ptrCast(self), param1);
     }
 
     /// Inherited from KSelectAction
@@ -3292,6 +3356,10 @@ pub const kfontsizeaction = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperCreatedWidgets` instead
+    ///
+    pub const QBaseCreatedWidgets = SuperCreatedWidgets;
+
     /// Inherited from QWidgetAction
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
@@ -3304,8 +3372,8 @@ pub const kfontsizeaction = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseCreatedWidgets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWidget {
-        const _arr: qtc.libqt_list = qtc.KFontSizeAction_QBaseCreatedWidgets(@ptrCast(self));
+    pub fn SuperCreatedWidgets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWidget {
+        const _arr: qtc.libqt_list = qtc.KFontSizeAction_SuperCreatedWidgets(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("kfontsizeaction.CreatedWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
@@ -3349,6 +3417,10 @@ pub const kfontsizeaction = struct {
         return qtc.KFontSizeAction_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -3359,8 +3431,8 @@ pub const kfontsizeaction = struct {
     ///
     /// ` self: QtC.KFontSizeAction `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KFontSizeAction_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KFontSizeAction_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3393,6 +3465,10 @@ pub const kfontsizeaction = struct {
         return qtc.KFontSizeAction_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -3403,8 +3479,8 @@ pub const kfontsizeaction = struct {
     ///
     /// ` self: QtC.KFontSizeAction `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KFontSizeAction_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KFontSizeAction_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3440,6 +3516,10 @@ pub const kfontsizeaction = struct {
         return qtc.KFontSizeAction_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -3452,9 +3532,9 @@ pub const kfontsizeaction = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KFontSizeAction_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KFontSizeAction_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3489,6 +3569,10 @@ pub const kfontsizeaction = struct {
         return qtc.KFontSizeAction_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -3501,8 +3585,8 @@ pub const kfontsizeaction = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KFontSizeAction_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KFontSizeAction_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3536,6 +3620,9 @@ pub const kfontsizeaction = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kfontsizeaction.html#dtor.KFontSizeAction)
     ///
@@ -3545,7 +3632,7 @@ pub const kfontsizeaction = struct {
     ///
     /// ` self: QtC.KFontSizeAction `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KFontSizeAction_Delete(@ptrCast(self));
     }
 };

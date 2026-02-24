@@ -185,6 +185,10 @@ pub const qaudiobuffer = struct {
         return qtc.QAudioBuffer_StartTime(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiobuffer.html#dtor.QAudioBuffer)
     ///
     /// Delete this object from C++ memory.
@@ -193,7 +197,7 @@ pub const qaudiobuffer = struct {
     ///
     /// ` self: QtC.QAudioBuffer `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAudioBuffer_Delete(@ptrCast(self));
     }
 };

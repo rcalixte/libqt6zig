@@ -114,7 +114,7 @@ void QDesignerActionEditorInterface_SetFormWindow(QDesignerActionEditorInterface
 }
 
 // Base class handler implementation
-QMetaObject* QDesignerActionEditorInterface_QBaseMetaObject(const QDesignerActionEditorInterface* self) {
+QMetaObject* QDesignerActionEditorInterface_SuperMetaObject(const QDesignerActionEditorInterface* self) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MetaObject_IsBase(true);
@@ -133,7 +133,7 @@ void QDesignerActionEditorInterface_OnMetaObject(const QDesignerActionEditorInte
 }
 
 // Base class handler implementation
-void* QDesignerActionEditorInterface_QBaseMetacast(QDesignerActionEditorInterface* self, const char* param1) {
+void* QDesignerActionEditorInterface_SuperMetacast(QDesignerActionEditorInterface* self, const char* param1) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Metacast_IsBase(true);
@@ -152,7 +152,7 @@ void QDesignerActionEditorInterface_OnMetacast(QDesignerActionEditorInterface* s
 }
 
 // Base class handler implementation
-int QDesignerActionEditorInterface_QBaseMetacall(QDesignerActionEditorInterface* self, int param1, int param2, void** param3) {
+int QDesignerActionEditorInterface_SuperMetacall(QDesignerActionEditorInterface* self, int param1, int param2, void** param3) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Metacall_IsBase(true);
@@ -171,7 +171,7 @@ void QDesignerActionEditorInterface_OnMetacall(QDesignerActionEditorInterface* s
 }
 
 // Base class handler implementation
-QDesignerFormEditorInterface* QDesignerActionEditorInterface_QBaseCore(const QDesignerActionEditorInterface* self) {
+QDesignerFormEditorInterface* QDesignerActionEditorInterface_SuperCore(const QDesignerActionEditorInterface* self) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Core_IsBase(true);
@@ -190,7 +190,7 @@ void QDesignerActionEditorInterface_OnCore(const QDesignerActionEditorInterface*
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseManageAction(QDesignerActionEditorInterface* self, QAction* action) {
+void QDesignerActionEditorInterface_SuperManageAction(QDesignerActionEditorInterface* self, QAction* action) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ManageAction_IsBase(true);
@@ -209,7 +209,7 @@ void QDesignerActionEditorInterface_OnManageAction(QDesignerActionEditorInterfac
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseUnmanageAction(QDesignerActionEditorInterface* self, QAction* action) {
+void QDesignerActionEditorInterface_SuperUnmanageAction(QDesignerActionEditorInterface* self, QAction* action) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_UnmanageAction_IsBase(true);
@@ -228,7 +228,7 @@ void QDesignerActionEditorInterface_OnUnmanageAction(QDesignerActionEditorInterf
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseSetFormWindow(QDesignerActionEditorInterface* self, QDesignerFormWindowInterface* formWindow) {
+void QDesignerActionEditorInterface_SuperSetFormWindow(QDesignerActionEditorInterface* self, QDesignerFormWindowInterface* formWindow) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_SetFormWindow_IsBase(true);
@@ -257,7 +257,7 @@ int QDesignerActionEditorInterface_DevType(const QDesignerActionEditorInterface*
 }
 
 // Base class handler implementation
-int QDesignerActionEditorInterface_QBaseDevType(const QDesignerActionEditorInterface* self) {
+int QDesignerActionEditorInterface_SuperDevType(const QDesignerActionEditorInterface* self) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DevType_IsBase(true);
@@ -286,7 +286,7 @@ void QDesignerActionEditorInterface_SetVisible(QDesignerActionEditorInterface* s
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseSetVisible(QDesignerActionEditorInterface* self, bool visible) {
+void QDesignerActionEditorInterface_SuperSetVisible(QDesignerActionEditorInterface* self, bool visible) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_SetVisible_IsBase(true);
@@ -315,7 +315,7 @@ QSize* QDesignerActionEditorInterface_SizeHint(const QDesignerActionEditorInterf
 }
 
 // Base class handler implementation
-QSize* QDesignerActionEditorInterface_QBaseSizeHint(const QDesignerActionEditorInterface* self) {
+QSize* QDesignerActionEditorInterface_SuperSizeHint(const QDesignerActionEditorInterface* self) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_SizeHint_IsBase(true);
@@ -344,7 +344,7 @@ QSize* QDesignerActionEditorInterface_MinimumSizeHint(const QDesignerActionEdito
 }
 
 // Base class handler implementation
-QSize* QDesignerActionEditorInterface_QBaseMinimumSizeHint(const QDesignerActionEditorInterface* self) {
+QSize* QDesignerActionEditorInterface_SuperMinimumSizeHint(const QDesignerActionEditorInterface* self) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MinimumSizeHint_IsBase(true);
@@ -373,7 +373,7 @@ int QDesignerActionEditorInterface_HeightForWidth(const QDesignerActionEditorInt
 }
 
 // Base class handler implementation
-int QDesignerActionEditorInterface_QBaseHeightForWidth(const QDesignerActionEditorInterface* self, int param1) {
+int QDesignerActionEditorInterface_SuperHeightForWidth(const QDesignerActionEditorInterface* self, int param1) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_HeightForWidth_IsBase(true);
@@ -402,7 +402,7 @@ bool QDesignerActionEditorInterface_HasHeightForWidth(const QDesignerActionEdito
 }
 
 // Base class handler implementation
-bool QDesignerActionEditorInterface_QBaseHasHeightForWidth(const QDesignerActionEditorInterface* self) {
+bool QDesignerActionEditorInterface_SuperHasHeightForWidth(const QDesignerActionEditorInterface* self) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_HasHeightForWidth_IsBase(true);
@@ -431,7 +431,7 @@ QPaintEngine* QDesignerActionEditorInterface_PaintEngine(const QDesignerActionEd
 }
 
 // Base class handler implementation
-QPaintEngine* QDesignerActionEditorInterface_QBasePaintEngine(const QDesignerActionEditorInterface* self) {
+QPaintEngine* QDesignerActionEditorInterface_SuperPaintEngine(const QDesignerActionEditorInterface* self) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_PaintEngine_IsBase(true);
@@ -460,7 +460,7 @@ bool QDesignerActionEditorInterface_Event(QDesignerActionEditorInterface* self, 
 }
 
 // Base class handler implementation
-bool QDesignerActionEditorInterface_QBaseEvent(QDesignerActionEditorInterface* self, QEvent* event) {
+bool QDesignerActionEditorInterface_SuperEvent(QDesignerActionEditorInterface* self, QEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Event_IsBase(true);
@@ -489,7 +489,7 @@ void QDesignerActionEditorInterface_MousePressEvent(QDesignerActionEditorInterfa
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseMousePressEvent(QDesignerActionEditorInterface* self, QMouseEvent* event) {
+void QDesignerActionEditorInterface_SuperMousePressEvent(QDesignerActionEditorInterface* self, QMouseEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MousePressEvent_IsBase(true);
@@ -518,7 +518,7 @@ void QDesignerActionEditorInterface_MouseReleaseEvent(QDesignerActionEditorInter
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseMouseReleaseEvent(QDesignerActionEditorInterface* self, QMouseEvent* event) {
+void QDesignerActionEditorInterface_SuperMouseReleaseEvent(QDesignerActionEditorInterface* self, QMouseEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MouseReleaseEvent_IsBase(true);
@@ -547,7 +547,7 @@ void QDesignerActionEditorInterface_MouseDoubleClickEvent(QDesignerActionEditorI
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseMouseDoubleClickEvent(QDesignerActionEditorInterface* self, QMouseEvent* event) {
+void QDesignerActionEditorInterface_SuperMouseDoubleClickEvent(QDesignerActionEditorInterface* self, QMouseEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MouseDoubleClickEvent_IsBase(true);
@@ -576,7 +576,7 @@ void QDesignerActionEditorInterface_MouseMoveEvent(QDesignerActionEditorInterfac
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseMouseMoveEvent(QDesignerActionEditorInterface* self, QMouseEvent* event) {
+void QDesignerActionEditorInterface_SuperMouseMoveEvent(QDesignerActionEditorInterface* self, QMouseEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MouseMoveEvent_IsBase(true);
@@ -605,7 +605,7 @@ void QDesignerActionEditorInterface_WheelEvent(QDesignerActionEditorInterface* s
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseWheelEvent(QDesignerActionEditorInterface* self, QWheelEvent* event) {
+void QDesignerActionEditorInterface_SuperWheelEvent(QDesignerActionEditorInterface* self, QWheelEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_WheelEvent_IsBase(true);
@@ -634,7 +634,7 @@ void QDesignerActionEditorInterface_KeyPressEvent(QDesignerActionEditorInterface
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseKeyPressEvent(QDesignerActionEditorInterface* self, QKeyEvent* event) {
+void QDesignerActionEditorInterface_SuperKeyPressEvent(QDesignerActionEditorInterface* self, QKeyEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_KeyPressEvent_IsBase(true);
@@ -663,7 +663,7 @@ void QDesignerActionEditorInterface_KeyReleaseEvent(QDesignerActionEditorInterfa
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseKeyReleaseEvent(QDesignerActionEditorInterface* self, QKeyEvent* event) {
+void QDesignerActionEditorInterface_SuperKeyReleaseEvent(QDesignerActionEditorInterface* self, QKeyEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_KeyReleaseEvent_IsBase(true);
@@ -692,7 +692,7 @@ void QDesignerActionEditorInterface_FocusInEvent(QDesignerActionEditorInterface*
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseFocusInEvent(QDesignerActionEditorInterface* self, QFocusEvent* event) {
+void QDesignerActionEditorInterface_SuperFocusInEvent(QDesignerActionEditorInterface* self, QFocusEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_FocusInEvent_IsBase(true);
@@ -721,7 +721,7 @@ void QDesignerActionEditorInterface_FocusOutEvent(QDesignerActionEditorInterface
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseFocusOutEvent(QDesignerActionEditorInterface* self, QFocusEvent* event) {
+void QDesignerActionEditorInterface_SuperFocusOutEvent(QDesignerActionEditorInterface* self, QFocusEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_FocusOutEvent_IsBase(true);
@@ -750,7 +750,7 @@ void QDesignerActionEditorInterface_EnterEvent(QDesignerActionEditorInterface* s
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseEnterEvent(QDesignerActionEditorInterface* self, QEnterEvent* event) {
+void QDesignerActionEditorInterface_SuperEnterEvent(QDesignerActionEditorInterface* self, QEnterEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_EnterEvent_IsBase(true);
@@ -779,7 +779,7 @@ void QDesignerActionEditorInterface_LeaveEvent(QDesignerActionEditorInterface* s
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseLeaveEvent(QDesignerActionEditorInterface* self, QEvent* event) {
+void QDesignerActionEditorInterface_SuperLeaveEvent(QDesignerActionEditorInterface* self, QEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_LeaveEvent_IsBase(true);
@@ -808,7 +808,7 @@ void QDesignerActionEditorInterface_PaintEvent(QDesignerActionEditorInterface* s
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBasePaintEvent(QDesignerActionEditorInterface* self, QPaintEvent* event) {
+void QDesignerActionEditorInterface_SuperPaintEvent(QDesignerActionEditorInterface* self, QPaintEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_PaintEvent_IsBase(true);
@@ -837,7 +837,7 @@ void QDesignerActionEditorInterface_MoveEvent(QDesignerActionEditorInterface* se
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseMoveEvent(QDesignerActionEditorInterface* self, QMoveEvent* event) {
+void QDesignerActionEditorInterface_SuperMoveEvent(QDesignerActionEditorInterface* self, QMoveEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MoveEvent_IsBase(true);
@@ -866,7 +866,7 @@ void QDesignerActionEditorInterface_ResizeEvent(QDesignerActionEditorInterface* 
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseResizeEvent(QDesignerActionEditorInterface* self, QResizeEvent* event) {
+void QDesignerActionEditorInterface_SuperResizeEvent(QDesignerActionEditorInterface* self, QResizeEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ResizeEvent_IsBase(true);
@@ -895,7 +895,7 @@ void QDesignerActionEditorInterface_CloseEvent(QDesignerActionEditorInterface* s
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseCloseEvent(QDesignerActionEditorInterface* self, QCloseEvent* event) {
+void QDesignerActionEditorInterface_SuperCloseEvent(QDesignerActionEditorInterface* self, QCloseEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_CloseEvent_IsBase(true);
@@ -924,7 +924,7 @@ void QDesignerActionEditorInterface_ContextMenuEvent(QDesignerActionEditorInterf
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseContextMenuEvent(QDesignerActionEditorInterface* self, QContextMenuEvent* event) {
+void QDesignerActionEditorInterface_SuperContextMenuEvent(QDesignerActionEditorInterface* self, QContextMenuEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ContextMenuEvent_IsBase(true);
@@ -953,7 +953,7 @@ void QDesignerActionEditorInterface_TabletEvent(QDesignerActionEditorInterface* 
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseTabletEvent(QDesignerActionEditorInterface* self, QTabletEvent* event) {
+void QDesignerActionEditorInterface_SuperTabletEvent(QDesignerActionEditorInterface* self, QTabletEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_TabletEvent_IsBase(true);
@@ -982,7 +982,7 @@ void QDesignerActionEditorInterface_ActionEvent(QDesignerActionEditorInterface* 
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseActionEvent(QDesignerActionEditorInterface* self, QActionEvent* event) {
+void QDesignerActionEditorInterface_SuperActionEvent(QDesignerActionEditorInterface* self, QActionEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ActionEvent_IsBase(true);
@@ -1011,7 +1011,7 @@ void QDesignerActionEditorInterface_DragEnterEvent(QDesignerActionEditorInterfac
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseDragEnterEvent(QDesignerActionEditorInterface* self, QDragEnterEvent* event) {
+void QDesignerActionEditorInterface_SuperDragEnterEvent(QDesignerActionEditorInterface* self, QDragEnterEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DragEnterEvent_IsBase(true);
@@ -1040,7 +1040,7 @@ void QDesignerActionEditorInterface_DragMoveEvent(QDesignerActionEditorInterface
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseDragMoveEvent(QDesignerActionEditorInterface* self, QDragMoveEvent* event) {
+void QDesignerActionEditorInterface_SuperDragMoveEvent(QDesignerActionEditorInterface* self, QDragMoveEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DragMoveEvent_IsBase(true);
@@ -1069,7 +1069,7 @@ void QDesignerActionEditorInterface_DragLeaveEvent(QDesignerActionEditorInterfac
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseDragLeaveEvent(QDesignerActionEditorInterface* self, QDragLeaveEvent* event) {
+void QDesignerActionEditorInterface_SuperDragLeaveEvent(QDesignerActionEditorInterface* self, QDragLeaveEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DragLeaveEvent_IsBase(true);
@@ -1098,7 +1098,7 @@ void QDesignerActionEditorInterface_DropEvent(QDesignerActionEditorInterface* se
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseDropEvent(QDesignerActionEditorInterface* self, QDropEvent* event) {
+void QDesignerActionEditorInterface_SuperDropEvent(QDesignerActionEditorInterface* self, QDropEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DropEvent_IsBase(true);
@@ -1127,7 +1127,7 @@ void QDesignerActionEditorInterface_ShowEvent(QDesignerActionEditorInterface* se
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseShowEvent(QDesignerActionEditorInterface* self, QShowEvent* event) {
+void QDesignerActionEditorInterface_SuperShowEvent(QDesignerActionEditorInterface* self, QShowEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ShowEvent_IsBase(true);
@@ -1156,7 +1156,7 @@ void QDesignerActionEditorInterface_HideEvent(QDesignerActionEditorInterface* se
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseHideEvent(QDesignerActionEditorInterface* self, QHideEvent* event) {
+void QDesignerActionEditorInterface_SuperHideEvent(QDesignerActionEditorInterface* self, QHideEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_HideEvent_IsBase(true);
@@ -1186,7 +1186,7 @@ bool QDesignerActionEditorInterface_NativeEvent(QDesignerActionEditorInterface* 
 }
 
 // Base class handler implementation
-bool QDesignerActionEditorInterface_QBaseNativeEvent(QDesignerActionEditorInterface* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QDesignerActionEditorInterface_SuperNativeEvent(QDesignerActionEditorInterface* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
@@ -1216,7 +1216,7 @@ void QDesignerActionEditorInterface_ChangeEvent(QDesignerActionEditorInterface* 
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseChangeEvent(QDesignerActionEditorInterface* self, QEvent* param1) {
+void QDesignerActionEditorInterface_SuperChangeEvent(QDesignerActionEditorInterface* self, QEvent* param1) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ChangeEvent_IsBase(true);
@@ -1245,7 +1245,7 @@ int QDesignerActionEditorInterface_Metric(const QDesignerActionEditorInterface* 
 }
 
 // Base class handler implementation
-int QDesignerActionEditorInterface_QBaseMetric(const QDesignerActionEditorInterface* self, int param1) {
+int QDesignerActionEditorInterface_SuperMetric(const QDesignerActionEditorInterface* self, int param1) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Metric_IsBase(true);
@@ -1274,7 +1274,7 @@ void QDesignerActionEditorInterface_InitPainter(const QDesignerActionEditorInter
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseInitPainter(const QDesignerActionEditorInterface* self, QPainter* painter) {
+void QDesignerActionEditorInterface_SuperInitPainter(const QDesignerActionEditorInterface* self, QPainter* painter) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_InitPainter_IsBase(true);
@@ -1303,7 +1303,7 @@ QPaintDevice* QDesignerActionEditorInterface_Redirected(const QDesignerActionEdi
 }
 
 // Base class handler implementation
-QPaintDevice* QDesignerActionEditorInterface_QBaseRedirected(const QDesignerActionEditorInterface* self, QPoint* offset) {
+QPaintDevice* QDesignerActionEditorInterface_SuperRedirected(const QDesignerActionEditorInterface* self, QPoint* offset) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Redirected_IsBase(true);
@@ -1332,7 +1332,7 @@ QPainter* QDesignerActionEditorInterface_SharedPainter(const QDesignerActionEdit
 }
 
 // Base class handler implementation
-QPainter* QDesignerActionEditorInterface_QBaseSharedPainter(const QDesignerActionEditorInterface* self) {
+QPainter* QDesignerActionEditorInterface_SuperSharedPainter(const QDesignerActionEditorInterface* self) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_SharedPainter_IsBase(true);
@@ -1361,7 +1361,7 @@ void QDesignerActionEditorInterface_InputMethodEvent(QDesignerActionEditorInterf
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseInputMethodEvent(QDesignerActionEditorInterface* self, QInputMethodEvent* param1) {
+void QDesignerActionEditorInterface_SuperInputMethodEvent(QDesignerActionEditorInterface* self, QInputMethodEvent* param1) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_InputMethodEvent_IsBase(true);
@@ -1390,7 +1390,7 @@ QVariant* QDesignerActionEditorInterface_InputMethodQuery(const QDesignerActionE
 }
 
 // Base class handler implementation
-QVariant* QDesignerActionEditorInterface_QBaseInputMethodQuery(const QDesignerActionEditorInterface* self, int param1) {
+QVariant* QDesignerActionEditorInterface_SuperInputMethodQuery(const QDesignerActionEditorInterface* self, int param1) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_InputMethodQuery_IsBase(true);
@@ -1419,7 +1419,7 @@ bool QDesignerActionEditorInterface_FocusNextPrevChild(QDesignerActionEditorInte
 }
 
 // Base class handler implementation
-bool QDesignerActionEditorInterface_QBaseFocusNextPrevChild(QDesignerActionEditorInterface* self, bool next) {
+bool QDesignerActionEditorInterface_SuperFocusNextPrevChild(QDesignerActionEditorInterface* self, bool next) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_FocusNextPrevChild_IsBase(true);
@@ -1448,7 +1448,7 @@ bool QDesignerActionEditorInterface_EventFilter(QDesignerActionEditorInterface* 
 }
 
 // Base class handler implementation
-bool QDesignerActionEditorInterface_QBaseEventFilter(QDesignerActionEditorInterface* self, QObject* watched, QEvent* event) {
+bool QDesignerActionEditorInterface_SuperEventFilter(QDesignerActionEditorInterface* self, QObject* watched, QEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_EventFilter_IsBase(true);
@@ -1477,7 +1477,7 @@ void QDesignerActionEditorInterface_TimerEvent(QDesignerActionEditorInterface* s
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseTimerEvent(QDesignerActionEditorInterface* self, QTimerEvent* event) {
+void QDesignerActionEditorInterface_SuperTimerEvent(QDesignerActionEditorInterface* self, QTimerEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_TimerEvent_IsBase(true);
@@ -1506,7 +1506,7 @@ void QDesignerActionEditorInterface_ChildEvent(QDesignerActionEditorInterface* s
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseChildEvent(QDesignerActionEditorInterface* self, QChildEvent* event) {
+void QDesignerActionEditorInterface_SuperChildEvent(QDesignerActionEditorInterface* self, QChildEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ChildEvent_IsBase(true);
@@ -1535,7 +1535,7 @@ void QDesignerActionEditorInterface_CustomEvent(QDesignerActionEditorInterface* 
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseCustomEvent(QDesignerActionEditorInterface* self, QEvent* event) {
+void QDesignerActionEditorInterface_SuperCustomEvent(QDesignerActionEditorInterface* self, QEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_CustomEvent_IsBase(true);
@@ -1564,7 +1564,7 @@ void QDesignerActionEditorInterface_ConnectNotify(QDesignerActionEditorInterface
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseConnectNotify(QDesignerActionEditorInterface* self, const QMetaMethod* signal) {
+void QDesignerActionEditorInterface_SuperConnectNotify(QDesignerActionEditorInterface* self, const QMetaMethod* signal) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ConnectNotify_IsBase(true);
@@ -1593,7 +1593,7 @@ void QDesignerActionEditorInterface_DisconnectNotify(QDesignerActionEditorInterf
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseDisconnectNotify(QDesignerActionEditorInterface* self, const QMetaMethod* signal) {
+void QDesignerActionEditorInterface_SuperDisconnectNotify(QDesignerActionEditorInterface* self, const QMetaMethod* signal) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DisconnectNotify_IsBase(true);
@@ -1622,7 +1622,7 @@ void QDesignerActionEditorInterface_UpdateMicroFocus(QDesignerActionEditorInterf
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseUpdateMicroFocus(QDesignerActionEditorInterface* self) {
+void QDesignerActionEditorInterface_SuperUpdateMicroFocus(QDesignerActionEditorInterface* self) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_UpdateMicroFocus_IsBase(true);
@@ -1651,7 +1651,7 @@ void QDesignerActionEditorInterface_Create(QDesignerActionEditorInterface* self)
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseCreate(QDesignerActionEditorInterface* self) {
+void QDesignerActionEditorInterface_SuperCreate(QDesignerActionEditorInterface* self) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Create_IsBase(true);
@@ -1680,7 +1680,7 @@ void QDesignerActionEditorInterface_Destroy(QDesignerActionEditorInterface* self
 }
 
 // Base class handler implementation
-void QDesignerActionEditorInterface_QBaseDestroy(QDesignerActionEditorInterface* self) {
+void QDesignerActionEditorInterface_SuperDestroy(QDesignerActionEditorInterface* self) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Destroy_IsBase(true);
@@ -1709,7 +1709,7 @@ bool QDesignerActionEditorInterface_FocusNextChild(QDesignerActionEditorInterfac
 }
 
 // Base class handler implementation
-bool QDesignerActionEditorInterface_QBaseFocusNextChild(QDesignerActionEditorInterface* self) {
+bool QDesignerActionEditorInterface_SuperFocusNextChild(QDesignerActionEditorInterface* self) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_FocusNextChild_IsBase(true);
@@ -1738,7 +1738,7 @@ bool QDesignerActionEditorInterface_FocusPreviousChild(QDesignerActionEditorInte
 }
 
 // Base class handler implementation
-bool QDesignerActionEditorInterface_QBaseFocusPreviousChild(QDesignerActionEditorInterface* self) {
+bool QDesignerActionEditorInterface_SuperFocusPreviousChild(QDesignerActionEditorInterface* self) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_FocusPreviousChild_IsBase(true);
@@ -1767,7 +1767,7 @@ QObject* QDesignerActionEditorInterface_Sender(const QDesignerActionEditorInterf
 }
 
 // Base class handler implementation
-QObject* QDesignerActionEditorInterface_QBaseSender(const QDesignerActionEditorInterface* self) {
+QObject* QDesignerActionEditorInterface_SuperSender(const QDesignerActionEditorInterface* self) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Sender_IsBase(true);
@@ -1796,7 +1796,7 @@ int QDesignerActionEditorInterface_SenderSignalIndex(const QDesignerActionEditor
 }
 
 // Base class handler implementation
-int QDesignerActionEditorInterface_QBaseSenderSignalIndex(const QDesignerActionEditorInterface* self) {
+int QDesignerActionEditorInterface_SuperSenderSignalIndex(const QDesignerActionEditorInterface* self) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_SenderSignalIndex_IsBase(true);
@@ -1825,7 +1825,7 @@ int QDesignerActionEditorInterface_Receivers(const QDesignerActionEditorInterfac
 }
 
 // Base class handler implementation
-int QDesignerActionEditorInterface_QBaseReceivers(const QDesignerActionEditorInterface* self, const char* signal) {
+int QDesignerActionEditorInterface_SuperReceivers(const QDesignerActionEditorInterface* self, const char* signal) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Receivers_IsBase(true);
@@ -1854,7 +1854,7 @@ bool QDesignerActionEditorInterface_IsSignalConnected(const QDesignerActionEdito
 }
 
 // Base class handler implementation
-bool QDesignerActionEditorInterface_QBaseIsSignalConnected(const QDesignerActionEditorInterface* self, const QMetaMethod* signal) {
+bool QDesignerActionEditorInterface_SuperIsSignalConnected(const QDesignerActionEditorInterface* self, const QMetaMethod* signal) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_IsSignalConnected_IsBase(true);
@@ -1883,7 +1883,7 @@ double QDesignerActionEditorInterface_GetDecodedMetricF(const QDesignerActionEdi
 }
 
 // Base class handler implementation
-double QDesignerActionEditorInterface_QBaseGetDecodedMetricF(const QDesignerActionEditorInterface* self, int metricA, int metricB) {
+double QDesignerActionEditorInterface_SuperGetDecodedMetricF(const QDesignerActionEditorInterface* self, int metricA, int metricB) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
     if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_GetDecodedMetricF_IsBase(true);

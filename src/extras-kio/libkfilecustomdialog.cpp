@@ -111,7 +111,7 @@ void KFileCustomDialog_Accept(KFileCustomDialog* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KFileCustomDialog_QBaseMetaObject(const KFileCustomDialog* self) {
+QMetaObject* KFileCustomDialog_SuperMetaObject(const KFileCustomDialog* self) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_MetaObject_IsBase(true);
@@ -130,7 +130,7 @@ void KFileCustomDialog_OnMetaObject(const KFileCustomDialog* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* KFileCustomDialog_QBaseMetacast(KFileCustomDialog* self, const char* param1) {
+void* KFileCustomDialog_SuperMetacast(KFileCustomDialog* self, const char* param1) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_Metacast_IsBase(true);
@@ -149,7 +149,7 @@ void KFileCustomDialog_OnMetacast(KFileCustomDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KFileCustomDialog_QBaseMetacall(KFileCustomDialog* self, int param1, int param2, void** param3) {
+int KFileCustomDialog_SuperMetacall(KFileCustomDialog* self, int param1, int param2, void** param3) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_Metacall_IsBase(true);
@@ -168,7 +168,7 @@ void KFileCustomDialog_OnMetacall(KFileCustomDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseAccept(KFileCustomDialog* self) {
+void KFileCustomDialog_SuperAccept(KFileCustomDialog* self) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_Accept_IsBase(true);
@@ -197,7 +197,7 @@ void KFileCustomDialog_SetVisible(KFileCustomDialog* self, bool visible) {
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseSetVisible(KFileCustomDialog* self, bool visible) {
+void KFileCustomDialog_SuperSetVisible(KFileCustomDialog* self, bool visible) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_SetVisible_IsBase(true);
@@ -226,7 +226,7 @@ QSize* KFileCustomDialog_SizeHint(const KFileCustomDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KFileCustomDialog_QBaseSizeHint(const KFileCustomDialog* self) {
+QSize* KFileCustomDialog_SuperSizeHint(const KFileCustomDialog* self) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_SizeHint_IsBase(true);
@@ -255,7 +255,7 @@ QSize* KFileCustomDialog_MinimumSizeHint(const KFileCustomDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KFileCustomDialog_QBaseMinimumSizeHint(const KFileCustomDialog* self) {
+QSize* KFileCustomDialog_SuperMinimumSizeHint(const KFileCustomDialog* self) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_MinimumSizeHint_IsBase(true);
@@ -284,7 +284,7 @@ void KFileCustomDialog_Open(KFileCustomDialog* self) {
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseOpen(KFileCustomDialog* self) {
+void KFileCustomDialog_SuperOpen(KFileCustomDialog* self) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_Open_IsBase(true);
@@ -313,7 +313,7 @@ int KFileCustomDialog_Exec(KFileCustomDialog* self) {
 }
 
 // Base class handler implementation
-int KFileCustomDialog_QBaseExec(KFileCustomDialog* self) {
+int KFileCustomDialog_SuperExec(KFileCustomDialog* self) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_Exec_IsBase(true);
@@ -342,7 +342,7 @@ void KFileCustomDialog_Done(KFileCustomDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseDone(KFileCustomDialog* self, int param1) {
+void KFileCustomDialog_SuperDone(KFileCustomDialog* self, int param1) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_Done_IsBase(true);
@@ -371,7 +371,7 @@ void KFileCustomDialog_Reject(KFileCustomDialog* self) {
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseReject(KFileCustomDialog* self) {
+void KFileCustomDialog_SuperReject(KFileCustomDialog* self) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_Reject_IsBase(true);
@@ -400,7 +400,7 @@ void KFileCustomDialog_KeyPressEvent(KFileCustomDialog* self, QKeyEvent* param1)
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseKeyPressEvent(KFileCustomDialog* self, QKeyEvent* param1) {
+void KFileCustomDialog_SuperKeyPressEvent(KFileCustomDialog* self, QKeyEvent* param1) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_KeyPressEvent_IsBase(true);
@@ -429,7 +429,7 @@ void KFileCustomDialog_CloseEvent(KFileCustomDialog* self, QCloseEvent* param1) 
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseCloseEvent(KFileCustomDialog* self, QCloseEvent* param1) {
+void KFileCustomDialog_SuperCloseEvent(KFileCustomDialog* self, QCloseEvent* param1) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_CloseEvent_IsBase(true);
@@ -458,7 +458,7 @@ void KFileCustomDialog_ShowEvent(KFileCustomDialog* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseShowEvent(KFileCustomDialog* self, QShowEvent* param1) {
+void KFileCustomDialog_SuperShowEvent(KFileCustomDialog* self, QShowEvent* param1) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_ShowEvent_IsBase(true);
@@ -487,7 +487,7 @@ void KFileCustomDialog_ResizeEvent(KFileCustomDialog* self, QResizeEvent* param1
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseResizeEvent(KFileCustomDialog* self, QResizeEvent* param1) {
+void KFileCustomDialog_SuperResizeEvent(KFileCustomDialog* self, QResizeEvent* param1) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_ResizeEvent_IsBase(true);
@@ -516,7 +516,7 @@ void KFileCustomDialog_ContextMenuEvent(KFileCustomDialog* self, QContextMenuEve
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseContextMenuEvent(KFileCustomDialog* self, QContextMenuEvent* param1) {
+void KFileCustomDialog_SuperContextMenuEvent(KFileCustomDialog* self, QContextMenuEvent* param1) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_ContextMenuEvent_IsBase(true);
@@ -545,7 +545,7 @@ bool KFileCustomDialog_EventFilter(KFileCustomDialog* self, QObject* param1, QEv
 }
 
 // Base class handler implementation
-bool KFileCustomDialog_QBaseEventFilter(KFileCustomDialog* self, QObject* param1, QEvent* param2) {
+bool KFileCustomDialog_SuperEventFilter(KFileCustomDialog* self, QObject* param1, QEvent* param2) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_EventFilter_IsBase(true);
@@ -574,7 +574,7 @@ int KFileCustomDialog_DevType(const KFileCustomDialog* self) {
 }
 
 // Base class handler implementation
-int KFileCustomDialog_QBaseDevType(const KFileCustomDialog* self) {
+int KFileCustomDialog_SuperDevType(const KFileCustomDialog* self) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_DevType_IsBase(true);
@@ -603,7 +603,7 @@ int KFileCustomDialog_HeightForWidth(const KFileCustomDialog* self, int param1) 
 }
 
 // Base class handler implementation
-int KFileCustomDialog_QBaseHeightForWidth(const KFileCustomDialog* self, int param1) {
+int KFileCustomDialog_SuperHeightForWidth(const KFileCustomDialog* self, int param1) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_HeightForWidth_IsBase(true);
@@ -632,7 +632,7 @@ bool KFileCustomDialog_HasHeightForWidth(const KFileCustomDialog* self) {
 }
 
 // Base class handler implementation
-bool KFileCustomDialog_QBaseHasHeightForWidth(const KFileCustomDialog* self) {
+bool KFileCustomDialog_SuperHasHeightForWidth(const KFileCustomDialog* self) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_HasHeightForWidth_IsBase(true);
@@ -661,7 +661,7 @@ QPaintEngine* KFileCustomDialog_PaintEngine(const KFileCustomDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KFileCustomDialog_QBasePaintEngine(const KFileCustomDialog* self) {
+QPaintEngine* KFileCustomDialog_SuperPaintEngine(const KFileCustomDialog* self) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_PaintEngine_IsBase(true);
@@ -690,7 +690,7 @@ bool KFileCustomDialog_Event(KFileCustomDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KFileCustomDialog_QBaseEvent(KFileCustomDialog* self, QEvent* event) {
+bool KFileCustomDialog_SuperEvent(KFileCustomDialog* self, QEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_Event_IsBase(true);
@@ -719,7 +719,7 @@ void KFileCustomDialog_MousePressEvent(KFileCustomDialog* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseMousePressEvent(KFileCustomDialog* self, QMouseEvent* event) {
+void KFileCustomDialog_SuperMousePressEvent(KFileCustomDialog* self, QMouseEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_MousePressEvent_IsBase(true);
@@ -748,7 +748,7 @@ void KFileCustomDialog_MouseReleaseEvent(KFileCustomDialog* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseMouseReleaseEvent(KFileCustomDialog* self, QMouseEvent* event) {
+void KFileCustomDialog_SuperMouseReleaseEvent(KFileCustomDialog* self, QMouseEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_MouseReleaseEvent_IsBase(true);
@@ -777,7 +777,7 @@ void KFileCustomDialog_MouseDoubleClickEvent(KFileCustomDialog* self, QMouseEven
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseMouseDoubleClickEvent(KFileCustomDialog* self, QMouseEvent* event) {
+void KFileCustomDialog_SuperMouseDoubleClickEvent(KFileCustomDialog* self, QMouseEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_MouseDoubleClickEvent_IsBase(true);
@@ -806,7 +806,7 @@ void KFileCustomDialog_MouseMoveEvent(KFileCustomDialog* self, QMouseEvent* even
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseMouseMoveEvent(KFileCustomDialog* self, QMouseEvent* event) {
+void KFileCustomDialog_SuperMouseMoveEvent(KFileCustomDialog* self, QMouseEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_MouseMoveEvent_IsBase(true);
@@ -835,7 +835,7 @@ void KFileCustomDialog_WheelEvent(KFileCustomDialog* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseWheelEvent(KFileCustomDialog* self, QWheelEvent* event) {
+void KFileCustomDialog_SuperWheelEvent(KFileCustomDialog* self, QWheelEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_WheelEvent_IsBase(true);
@@ -864,7 +864,7 @@ void KFileCustomDialog_KeyReleaseEvent(KFileCustomDialog* self, QKeyEvent* event
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseKeyReleaseEvent(KFileCustomDialog* self, QKeyEvent* event) {
+void KFileCustomDialog_SuperKeyReleaseEvent(KFileCustomDialog* self, QKeyEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_KeyReleaseEvent_IsBase(true);
@@ -893,7 +893,7 @@ void KFileCustomDialog_FocusInEvent(KFileCustomDialog* self, QFocusEvent* event)
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseFocusInEvent(KFileCustomDialog* self, QFocusEvent* event) {
+void KFileCustomDialog_SuperFocusInEvent(KFileCustomDialog* self, QFocusEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_FocusInEvent_IsBase(true);
@@ -922,7 +922,7 @@ void KFileCustomDialog_FocusOutEvent(KFileCustomDialog* self, QFocusEvent* event
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseFocusOutEvent(KFileCustomDialog* self, QFocusEvent* event) {
+void KFileCustomDialog_SuperFocusOutEvent(KFileCustomDialog* self, QFocusEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_FocusOutEvent_IsBase(true);
@@ -951,7 +951,7 @@ void KFileCustomDialog_EnterEvent(KFileCustomDialog* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseEnterEvent(KFileCustomDialog* self, QEnterEvent* event) {
+void KFileCustomDialog_SuperEnterEvent(KFileCustomDialog* self, QEnterEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_EnterEvent_IsBase(true);
@@ -980,7 +980,7 @@ void KFileCustomDialog_LeaveEvent(KFileCustomDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseLeaveEvent(KFileCustomDialog* self, QEvent* event) {
+void KFileCustomDialog_SuperLeaveEvent(KFileCustomDialog* self, QEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_LeaveEvent_IsBase(true);
@@ -1009,7 +1009,7 @@ void KFileCustomDialog_PaintEvent(KFileCustomDialog* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBasePaintEvent(KFileCustomDialog* self, QPaintEvent* event) {
+void KFileCustomDialog_SuperPaintEvent(KFileCustomDialog* self, QPaintEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_PaintEvent_IsBase(true);
@@ -1038,7 +1038,7 @@ void KFileCustomDialog_MoveEvent(KFileCustomDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseMoveEvent(KFileCustomDialog* self, QMoveEvent* event) {
+void KFileCustomDialog_SuperMoveEvent(KFileCustomDialog* self, QMoveEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_MoveEvent_IsBase(true);
@@ -1067,7 +1067,7 @@ void KFileCustomDialog_TabletEvent(KFileCustomDialog* self, QTabletEvent* event)
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseTabletEvent(KFileCustomDialog* self, QTabletEvent* event) {
+void KFileCustomDialog_SuperTabletEvent(KFileCustomDialog* self, QTabletEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_TabletEvent_IsBase(true);
@@ -1096,7 +1096,7 @@ void KFileCustomDialog_ActionEvent(KFileCustomDialog* self, QActionEvent* event)
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseActionEvent(KFileCustomDialog* self, QActionEvent* event) {
+void KFileCustomDialog_SuperActionEvent(KFileCustomDialog* self, QActionEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_ActionEvent_IsBase(true);
@@ -1125,7 +1125,7 @@ void KFileCustomDialog_DragEnterEvent(KFileCustomDialog* self, QDragEnterEvent* 
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseDragEnterEvent(KFileCustomDialog* self, QDragEnterEvent* event) {
+void KFileCustomDialog_SuperDragEnterEvent(KFileCustomDialog* self, QDragEnterEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_DragEnterEvent_IsBase(true);
@@ -1154,7 +1154,7 @@ void KFileCustomDialog_DragMoveEvent(KFileCustomDialog* self, QDragMoveEvent* ev
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseDragMoveEvent(KFileCustomDialog* self, QDragMoveEvent* event) {
+void KFileCustomDialog_SuperDragMoveEvent(KFileCustomDialog* self, QDragMoveEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_DragMoveEvent_IsBase(true);
@@ -1183,7 +1183,7 @@ void KFileCustomDialog_DragLeaveEvent(KFileCustomDialog* self, QDragLeaveEvent* 
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseDragLeaveEvent(KFileCustomDialog* self, QDragLeaveEvent* event) {
+void KFileCustomDialog_SuperDragLeaveEvent(KFileCustomDialog* self, QDragLeaveEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_DragLeaveEvent_IsBase(true);
@@ -1212,7 +1212,7 @@ void KFileCustomDialog_DropEvent(KFileCustomDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseDropEvent(KFileCustomDialog* self, QDropEvent* event) {
+void KFileCustomDialog_SuperDropEvent(KFileCustomDialog* self, QDropEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_DropEvent_IsBase(true);
@@ -1241,7 +1241,7 @@ void KFileCustomDialog_HideEvent(KFileCustomDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseHideEvent(KFileCustomDialog* self, QHideEvent* event) {
+void KFileCustomDialog_SuperHideEvent(KFileCustomDialog* self, QHideEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_HideEvent_IsBase(true);
@@ -1271,7 +1271,7 @@ bool KFileCustomDialog_NativeEvent(KFileCustomDialog* self, const libqt_string e
 }
 
 // Base class handler implementation
-bool KFileCustomDialog_QBaseNativeEvent(KFileCustomDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KFileCustomDialog_SuperNativeEvent(KFileCustomDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
@@ -1301,7 +1301,7 @@ void KFileCustomDialog_ChangeEvent(KFileCustomDialog* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseChangeEvent(KFileCustomDialog* self, QEvent* param1) {
+void KFileCustomDialog_SuperChangeEvent(KFileCustomDialog* self, QEvent* param1) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_ChangeEvent_IsBase(true);
@@ -1330,7 +1330,7 @@ int KFileCustomDialog_Metric(const KFileCustomDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KFileCustomDialog_QBaseMetric(const KFileCustomDialog* self, int param1) {
+int KFileCustomDialog_SuperMetric(const KFileCustomDialog* self, int param1) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_Metric_IsBase(true);
@@ -1359,7 +1359,7 @@ void KFileCustomDialog_InitPainter(const KFileCustomDialog* self, QPainter* pain
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseInitPainter(const KFileCustomDialog* self, QPainter* painter) {
+void KFileCustomDialog_SuperInitPainter(const KFileCustomDialog* self, QPainter* painter) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_InitPainter_IsBase(true);
@@ -1388,7 +1388,7 @@ QPaintDevice* KFileCustomDialog_Redirected(const KFileCustomDialog* self, QPoint
 }
 
 // Base class handler implementation
-QPaintDevice* KFileCustomDialog_QBaseRedirected(const KFileCustomDialog* self, QPoint* offset) {
+QPaintDevice* KFileCustomDialog_SuperRedirected(const KFileCustomDialog* self, QPoint* offset) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_Redirected_IsBase(true);
@@ -1417,7 +1417,7 @@ QPainter* KFileCustomDialog_SharedPainter(const KFileCustomDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* KFileCustomDialog_QBaseSharedPainter(const KFileCustomDialog* self) {
+QPainter* KFileCustomDialog_SuperSharedPainter(const KFileCustomDialog* self) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_SharedPainter_IsBase(true);
@@ -1446,7 +1446,7 @@ void KFileCustomDialog_InputMethodEvent(KFileCustomDialog* self, QInputMethodEve
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseInputMethodEvent(KFileCustomDialog* self, QInputMethodEvent* param1) {
+void KFileCustomDialog_SuperInputMethodEvent(KFileCustomDialog* self, QInputMethodEvent* param1) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_InputMethodEvent_IsBase(true);
@@ -1475,7 +1475,7 @@ QVariant* KFileCustomDialog_InputMethodQuery(const KFileCustomDialog* self, int 
 }
 
 // Base class handler implementation
-QVariant* KFileCustomDialog_QBaseInputMethodQuery(const KFileCustomDialog* self, int param1) {
+QVariant* KFileCustomDialog_SuperInputMethodQuery(const KFileCustomDialog* self, int param1) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_InputMethodQuery_IsBase(true);
@@ -1504,7 +1504,7 @@ bool KFileCustomDialog_FocusNextPrevChild(KFileCustomDialog* self, bool next) {
 }
 
 // Base class handler implementation
-bool KFileCustomDialog_QBaseFocusNextPrevChild(KFileCustomDialog* self, bool next) {
+bool KFileCustomDialog_SuperFocusNextPrevChild(KFileCustomDialog* self, bool next) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_FocusNextPrevChild_IsBase(true);
@@ -1533,7 +1533,7 @@ void KFileCustomDialog_TimerEvent(KFileCustomDialog* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseTimerEvent(KFileCustomDialog* self, QTimerEvent* event) {
+void KFileCustomDialog_SuperTimerEvent(KFileCustomDialog* self, QTimerEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_TimerEvent_IsBase(true);
@@ -1562,7 +1562,7 @@ void KFileCustomDialog_ChildEvent(KFileCustomDialog* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseChildEvent(KFileCustomDialog* self, QChildEvent* event) {
+void KFileCustomDialog_SuperChildEvent(KFileCustomDialog* self, QChildEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_ChildEvent_IsBase(true);
@@ -1591,7 +1591,7 @@ void KFileCustomDialog_CustomEvent(KFileCustomDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseCustomEvent(KFileCustomDialog* self, QEvent* event) {
+void KFileCustomDialog_SuperCustomEvent(KFileCustomDialog* self, QEvent* event) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_CustomEvent_IsBase(true);
@@ -1620,7 +1620,7 @@ void KFileCustomDialog_ConnectNotify(KFileCustomDialog* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseConnectNotify(KFileCustomDialog* self, const QMetaMethod* signal) {
+void KFileCustomDialog_SuperConnectNotify(KFileCustomDialog* self, const QMetaMethod* signal) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_ConnectNotify_IsBase(true);
@@ -1649,7 +1649,7 @@ void KFileCustomDialog_DisconnectNotify(KFileCustomDialog* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseDisconnectNotify(KFileCustomDialog* self, const QMetaMethod* signal) {
+void KFileCustomDialog_SuperDisconnectNotify(KFileCustomDialog* self, const QMetaMethod* signal) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_DisconnectNotify_IsBase(true);
@@ -1678,7 +1678,7 @@ void KFileCustomDialog_AdjustPosition(KFileCustomDialog* self, QWidget* param1) 
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseAdjustPosition(KFileCustomDialog* self, QWidget* param1) {
+void KFileCustomDialog_SuperAdjustPosition(KFileCustomDialog* self, QWidget* param1) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_AdjustPosition_IsBase(true);
@@ -1707,7 +1707,7 @@ void KFileCustomDialog_UpdateMicroFocus(KFileCustomDialog* self) {
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseUpdateMicroFocus(KFileCustomDialog* self) {
+void KFileCustomDialog_SuperUpdateMicroFocus(KFileCustomDialog* self) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_UpdateMicroFocus_IsBase(true);
@@ -1736,7 +1736,7 @@ void KFileCustomDialog_Create(KFileCustomDialog* self) {
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseCreate(KFileCustomDialog* self) {
+void KFileCustomDialog_SuperCreate(KFileCustomDialog* self) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_Create_IsBase(true);
@@ -1765,7 +1765,7 @@ void KFileCustomDialog_Destroy(KFileCustomDialog* self) {
 }
 
 // Base class handler implementation
-void KFileCustomDialog_QBaseDestroy(KFileCustomDialog* self) {
+void KFileCustomDialog_SuperDestroy(KFileCustomDialog* self) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_Destroy_IsBase(true);
@@ -1794,7 +1794,7 @@ bool KFileCustomDialog_FocusNextChild(KFileCustomDialog* self) {
 }
 
 // Base class handler implementation
-bool KFileCustomDialog_QBaseFocusNextChild(KFileCustomDialog* self) {
+bool KFileCustomDialog_SuperFocusNextChild(KFileCustomDialog* self) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_FocusNextChild_IsBase(true);
@@ -1823,7 +1823,7 @@ bool KFileCustomDialog_FocusPreviousChild(KFileCustomDialog* self) {
 }
 
 // Base class handler implementation
-bool KFileCustomDialog_QBaseFocusPreviousChild(KFileCustomDialog* self) {
+bool KFileCustomDialog_SuperFocusPreviousChild(KFileCustomDialog* self) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_FocusPreviousChild_IsBase(true);
@@ -1852,7 +1852,7 @@ QObject* KFileCustomDialog_Sender(const KFileCustomDialog* self) {
 }
 
 // Base class handler implementation
-QObject* KFileCustomDialog_QBaseSender(const KFileCustomDialog* self) {
+QObject* KFileCustomDialog_SuperSender(const KFileCustomDialog* self) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_Sender_IsBase(true);
@@ -1881,7 +1881,7 @@ int KFileCustomDialog_SenderSignalIndex(const KFileCustomDialog* self) {
 }
 
 // Base class handler implementation
-int KFileCustomDialog_QBaseSenderSignalIndex(const KFileCustomDialog* self) {
+int KFileCustomDialog_SuperSenderSignalIndex(const KFileCustomDialog* self) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_SenderSignalIndex_IsBase(true);
@@ -1910,7 +1910,7 @@ int KFileCustomDialog_Receivers(const KFileCustomDialog* self, const char* signa
 }
 
 // Base class handler implementation
-int KFileCustomDialog_QBaseReceivers(const KFileCustomDialog* self, const char* signal) {
+int KFileCustomDialog_SuperReceivers(const KFileCustomDialog* self, const char* signal) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_Receivers_IsBase(true);
@@ -1939,7 +1939,7 @@ bool KFileCustomDialog_IsSignalConnected(const KFileCustomDialog* self, const QM
 }
 
 // Base class handler implementation
-bool KFileCustomDialog_QBaseIsSignalConnected(const KFileCustomDialog* self, const QMetaMethod* signal) {
+bool KFileCustomDialog_SuperIsSignalConnected(const KFileCustomDialog* self, const QMetaMethod* signal) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_IsSignalConnected_IsBase(true);
@@ -1968,7 +1968,7 @@ double KFileCustomDialog_GetDecodedMetricF(const KFileCustomDialog* self, int me
 }
 
 // Base class handler implementation
-double KFileCustomDialog_QBaseGetDecodedMetricF(const KFileCustomDialog* self, int metricA, int metricB) {
+double KFileCustomDialog_SuperGetDecodedMetricF(const KFileCustomDialog* self, int metricA, int metricB) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
     if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
         vkfilecustomdialog->setKFileCustomDialog_GetDecodedMetricF_IsBase(true);

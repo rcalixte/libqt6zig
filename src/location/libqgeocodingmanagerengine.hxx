@@ -414,23 +414,23 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
 
     // Friend functions
     friend void QGeoCodingManagerEngine_TimerEvent(QGeoCodingManagerEngine* self, QTimerEvent* event);
-    friend void QGeoCodingManagerEngine_QBaseTimerEvent(QGeoCodingManagerEngine* self, QTimerEvent* event);
+    friend void QGeoCodingManagerEngine_SuperTimerEvent(QGeoCodingManagerEngine* self, QTimerEvent* event);
     friend void QGeoCodingManagerEngine_ChildEvent(QGeoCodingManagerEngine* self, QChildEvent* event);
-    friend void QGeoCodingManagerEngine_QBaseChildEvent(QGeoCodingManagerEngine* self, QChildEvent* event);
+    friend void QGeoCodingManagerEngine_SuperChildEvent(QGeoCodingManagerEngine* self, QChildEvent* event);
     friend void QGeoCodingManagerEngine_CustomEvent(QGeoCodingManagerEngine* self, QEvent* event);
-    friend void QGeoCodingManagerEngine_QBaseCustomEvent(QGeoCodingManagerEngine* self, QEvent* event);
+    friend void QGeoCodingManagerEngine_SuperCustomEvent(QGeoCodingManagerEngine* self, QEvent* event);
     friend void QGeoCodingManagerEngine_ConnectNotify(QGeoCodingManagerEngine* self, const QMetaMethod* signal);
-    friend void QGeoCodingManagerEngine_QBaseConnectNotify(QGeoCodingManagerEngine* self, const QMetaMethod* signal);
+    friend void QGeoCodingManagerEngine_SuperConnectNotify(QGeoCodingManagerEngine* self, const QMetaMethod* signal);
     friend void QGeoCodingManagerEngine_DisconnectNotify(QGeoCodingManagerEngine* self, const QMetaMethod* signal);
-    friend void QGeoCodingManagerEngine_QBaseDisconnectNotify(QGeoCodingManagerEngine* self, const QMetaMethod* signal);
+    friend void QGeoCodingManagerEngine_SuperDisconnectNotify(QGeoCodingManagerEngine* self, const QMetaMethod* signal);
     friend QObject* QGeoCodingManagerEngine_Sender(const QGeoCodingManagerEngine* self);
-    friend QObject* QGeoCodingManagerEngine_QBaseSender(const QGeoCodingManagerEngine* self);
+    friend QObject* QGeoCodingManagerEngine_SuperSender(const QGeoCodingManagerEngine* self);
     friend int QGeoCodingManagerEngine_SenderSignalIndex(const QGeoCodingManagerEngine* self);
-    friend int QGeoCodingManagerEngine_QBaseSenderSignalIndex(const QGeoCodingManagerEngine* self);
+    friend int QGeoCodingManagerEngine_SuperSenderSignalIndex(const QGeoCodingManagerEngine* self);
     friend int QGeoCodingManagerEngine_Receivers(const QGeoCodingManagerEngine* self, const char* signal);
-    friend int QGeoCodingManagerEngine_QBaseReceivers(const QGeoCodingManagerEngine* self, const char* signal);
+    friend int QGeoCodingManagerEngine_SuperReceivers(const QGeoCodingManagerEngine* self, const char* signal);
     friend bool QGeoCodingManagerEngine_IsSignalConnected(const QGeoCodingManagerEngine* self, const QMetaMethod* signal);
-    friend bool QGeoCodingManagerEngine_QBaseIsSignalConnected(const QGeoCodingManagerEngine* self, const QMetaMethod* signal);
+    friend bool QGeoCodingManagerEngine_SuperIsSignalConnected(const QGeoCodingManagerEngine* self, const QMetaMethod* signal);
 };
 
 #endif

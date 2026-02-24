@@ -328,23 +328,23 @@ class VirtualSonnetSettings final : public Sonnet::Settings {
 
     // Friend functions
     friend void Sonnet__Settings_TimerEvent(Sonnet::Settings* self, QTimerEvent* event);
-    friend void Sonnet__Settings_QBaseTimerEvent(Sonnet::Settings* self, QTimerEvent* event);
+    friend void Sonnet__Settings_SuperTimerEvent(Sonnet::Settings* self, QTimerEvent* event);
     friend void Sonnet__Settings_ChildEvent(Sonnet::Settings* self, QChildEvent* event);
-    friend void Sonnet__Settings_QBaseChildEvent(Sonnet::Settings* self, QChildEvent* event);
+    friend void Sonnet__Settings_SuperChildEvent(Sonnet::Settings* self, QChildEvent* event);
     friend void Sonnet__Settings_CustomEvent(Sonnet::Settings* self, QEvent* event);
-    friend void Sonnet__Settings_QBaseCustomEvent(Sonnet::Settings* self, QEvent* event);
+    friend void Sonnet__Settings_SuperCustomEvent(Sonnet::Settings* self, QEvent* event);
     friend void Sonnet__Settings_ConnectNotify(Sonnet::Settings* self, const QMetaMethod* signal);
-    friend void Sonnet__Settings_QBaseConnectNotify(Sonnet::Settings* self, const QMetaMethod* signal);
+    friend void Sonnet__Settings_SuperConnectNotify(Sonnet::Settings* self, const QMetaMethod* signal);
     friend void Sonnet__Settings_DisconnectNotify(Sonnet::Settings* self, const QMetaMethod* signal);
-    friend void Sonnet__Settings_QBaseDisconnectNotify(Sonnet::Settings* self, const QMetaMethod* signal);
+    friend void Sonnet__Settings_SuperDisconnectNotify(Sonnet::Settings* self, const QMetaMethod* signal);
     friend QObject* Sonnet__Settings_Sender(const Sonnet::Settings* self);
-    friend QObject* Sonnet__Settings_QBaseSender(const Sonnet::Settings* self);
+    friend QObject* Sonnet__Settings_SuperSender(const Sonnet::Settings* self);
     friend int Sonnet__Settings_SenderSignalIndex(const Sonnet::Settings* self);
-    friend int Sonnet__Settings_QBaseSenderSignalIndex(const Sonnet::Settings* self);
+    friend int Sonnet__Settings_SuperSenderSignalIndex(const Sonnet::Settings* self);
     friend int Sonnet__Settings_Receivers(const Sonnet::Settings* self, const char* signal);
-    friend int Sonnet__Settings_QBaseReceivers(const Sonnet::Settings* self, const char* signal);
+    friend int Sonnet__Settings_SuperReceivers(const Sonnet::Settings* self, const char* signal);
     friend bool Sonnet__Settings_IsSignalConnected(const Sonnet::Settings* self, const QMetaMethod* signal);
-    friend bool Sonnet__Settings_QBaseIsSignalConnected(const Sonnet::Settings* self, const QMetaMethod* signal);
+    friend bool Sonnet__Settings_SuperIsSignalConnected(const Sonnet::Settings* self, const QMetaMethod* signal);
 };
 
 #endif

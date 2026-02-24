@@ -330,23 +330,23 @@ class VirtualQPieSlice final : public QPieSlice {
 
     // Friend functions
     friend void QPieSlice_TimerEvent(QPieSlice* self, QTimerEvent* event);
-    friend void QPieSlice_QBaseTimerEvent(QPieSlice* self, QTimerEvent* event);
+    friend void QPieSlice_SuperTimerEvent(QPieSlice* self, QTimerEvent* event);
     friend void QPieSlice_ChildEvent(QPieSlice* self, QChildEvent* event);
-    friend void QPieSlice_QBaseChildEvent(QPieSlice* self, QChildEvent* event);
+    friend void QPieSlice_SuperChildEvent(QPieSlice* self, QChildEvent* event);
     friend void QPieSlice_CustomEvent(QPieSlice* self, QEvent* event);
-    friend void QPieSlice_QBaseCustomEvent(QPieSlice* self, QEvent* event);
+    friend void QPieSlice_SuperCustomEvent(QPieSlice* self, QEvent* event);
     friend void QPieSlice_ConnectNotify(QPieSlice* self, const QMetaMethod* signal);
-    friend void QPieSlice_QBaseConnectNotify(QPieSlice* self, const QMetaMethod* signal);
+    friend void QPieSlice_SuperConnectNotify(QPieSlice* self, const QMetaMethod* signal);
     friend void QPieSlice_DisconnectNotify(QPieSlice* self, const QMetaMethod* signal);
-    friend void QPieSlice_QBaseDisconnectNotify(QPieSlice* self, const QMetaMethod* signal);
+    friend void QPieSlice_SuperDisconnectNotify(QPieSlice* self, const QMetaMethod* signal);
     friend QObject* QPieSlice_Sender(const QPieSlice* self);
-    friend QObject* QPieSlice_QBaseSender(const QPieSlice* self);
+    friend QObject* QPieSlice_SuperSender(const QPieSlice* self);
     friend int QPieSlice_SenderSignalIndex(const QPieSlice* self);
-    friend int QPieSlice_QBaseSenderSignalIndex(const QPieSlice* self);
+    friend int QPieSlice_SuperSenderSignalIndex(const QPieSlice* self);
     friend int QPieSlice_Receivers(const QPieSlice* self, const char* signal);
-    friend int QPieSlice_QBaseReceivers(const QPieSlice* self, const char* signal);
+    friend int QPieSlice_SuperReceivers(const QPieSlice* self, const char* signal);
     friend bool QPieSlice_IsSignalConnected(const QPieSlice* self, const QMetaMethod* signal);
-    friend bool QPieSlice_QBaseIsSignalConnected(const QPieSlice* self, const QMetaMethod* signal);
+    friend bool QPieSlice_SuperIsSignalConnected(const QPieSlice* self, const QMetaMethod* signal);
 };
 
 #endif

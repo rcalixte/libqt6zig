@@ -51,6 +51,10 @@ pub const qlineseries = struct {
         qtc.QLineSeries_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -59,8 +63,8 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QLineSeries_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QLineSeries_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -86,6 +90,10 @@ pub const qlineseries = struct {
         qtc.QLineSeries_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -94,9 +102,9 @@ pub const qlineseries = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QLineSeries_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QLineSeries_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -125,6 +133,10 @@ pub const qlineseries = struct {
         qtc.QLineSeries_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -137,8 +149,8 @@ pub const qlineseries = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QLineSeries_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QLineSeries_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -186,6 +198,10 @@ pub const qlineseries = struct {
         qtc.QLineSeries_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperType` instead
+    ///
+    pub const QBaseType = SuperType;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineseries-qtcharts.html#type)
     ///
     /// Base class method implementation
@@ -198,8 +214,8 @@ pub const qlineseries = struct {
     ///
     /// ` qabstractseries_enums.SeriesType `
     ///
-    pub fn QBaseType(self: ?*anyopaque) i32 {
-        return qtc.QLineSeries_QBaseType(@ptrCast(self));
+    pub fn SuperType(self: ?*anyopaque) i32 {
+        return qtc.QLineSeries_SuperType(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -3248,6 +3264,10 @@ pub const qlineseries = struct {
         qtc.QLineSeries_SetPen(@ptrCast(self), @ptrCast(pen));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPen` instead
+    ///
+    pub const QBaseSetPen = SuperSetPen;
+
     /// Inherited from QXYSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setPen)
@@ -3260,8 +3280,8 @@ pub const qlineseries = struct {
     ///
     /// ` pen: QtC.QPen `
     ///
-    pub fn QBaseSetPen(self: ?*anyopaque, pen: ?*anyopaque) void {
-        qtc.QLineSeries_QBaseSetPen(@ptrCast(self), @ptrCast(pen));
+    pub fn SuperSetPen(self: ?*anyopaque, pen: ?*anyopaque) void {
+        qtc.QLineSeries_SuperSetPen(@ptrCast(self), @ptrCast(pen));
     }
 
     /// Inherited from QXYSeries
@@ -3296,6 +3316,10 @@ pub const qlineseries = struct {
         qtc.QLineSeries_SetBrush(@ptrCast(self), @ptrCast(brush));
     }
 
+    /// ### DEPRECATED: Use `SuperSetBrush` instead
+    ///
+    pub const QBaseSetBrush = SuperSetBrush;
+
     /// Inherited from QXYSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setBrush)
@@ -3308,8 +3332,8 @@ pub const qlineseries = struct {
     ///
     /// ` brush: QtC.QBrush `
     ///
-    pub fn QBaseSetBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
-        qtc.QLineSeries_QBaseSetBrush(@ptrCast(self), @ptrCast(brush));
+    pub fn SuperSetBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
+        qtc.QLineSeries_SuperSetBrush(@ptrCast(self), @ptrCast(brush));
     }
 
     /// Inherited from QXYSeries
@@ -3344,6 +3368,10 @@ pub const qlineseries = struct {
         qtc.QLineSeries_SetColor(@ptrCast(self), @ptrCast(color));
     }
 
+    /// ### DEPRECATED: Use `SuperSetColor` instead
+    ///
+    pub const QBaseSetColor = SuperSetColor;
+
     /// Inherited from QXYSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setColor)
@@ -3356,8 +3384,8 @@ pub const qlineseries = struct {
     ///
     /// ` color: QtC.QColor `
     ///
-    pub fn QBaseSetColor(self: ?*anyopaque, color: ?*anyopaque) void {
-        qtc.QLineSeries_QBaseSetColor(@ptrCast(self), @ptrCast(color));
+    pub fn SuperSetColor(self: ?*anyopaque, color: ?*anyopaque) void {
+        qtc.QLineSeries_SuperSetColor(@ptrCast(self), @ptrCast(color));
     }
 
     /// Inherited from QXYSeries
@@ -3390,6 +3418,10 @@ pub const qlineseries = struct {
         return qtc.QLineSeries_Color(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperColor` instead
+    ///
+    pub const QBaseColor = SuperColor;
+
     /// Inherited from QXYSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#color)
@@ -3400,8 +3432,8 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    pub fn QBaseColor(self: ?*anyopaque) QtC.QColor {
-        return qtc.QLineSeries_QBaseColor(@ptrCast(self));
+    pub fn SuperColor(self: ?*anyopaque) QtC.QColor {
+        return qtc.QLineSeries_SuperColor(@ptrCast(self));
     }
 
     /// Inherited from QXYSeries
@@ -3436,6 +3468,10 @@ pub const qlineseries = struct {
         return qtc.QLineSeries_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -3448,8 +3484,8 @@ pub const qlineseries = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QLineSeries_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QLineSeries_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3486,6 +3522,10 @@ pub const qlineseries = struct {
         return qtc.QLineSeries_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -3500,8 +3540,8 @@ pub const qlineseries = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QLineSeries_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QLineSeries_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3536,6 +3576,10 @@ pub const qlineseries = struct {
         qtc.QLineSeries_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -3548,8 +3592,8 @@ pub const qlineseries = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLineSeries_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QLineSeries_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3584,6 +3628,10 @@ pub const qlineseries = struct {
         qtc.QLineSeries_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -3596,8 +3644,8 @@ pub const qlineseries = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLineSeries_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QLineSeries_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3632,6 +3680,10 @@ pub const qlineseries = struct {
         qtc.QLineSeries_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -3644,8 +3696,8 @@ pub const qlineseries = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLineSeries_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QLineSeries_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3680,6 +3732,10 @@ pub const qlineseries = struct {
         qtc.QLineSeries_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3692,8 +3748,8 @@ pub const qlineseries = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QLineSeries_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QLineSeries_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3728,6 +3784,10 @@ pub const qlineseries = struct {
         qtc.QLineSeries_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -3740,8 +3800,8 @@ pub const qlineseries = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QLineSeries_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QLineSeries_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3774,6 +3834,10 @@ pub const qlineseries = struct {
         return qtc.QLineSeries_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -3784,8 +3848,8 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QLineSeries_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QLineSeries_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3818,6 +3882,10 @@ pub const qlineseries = struct {
         return qtc.QLineSeries_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -3828,8 +3896,8 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QLineSeries_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QLineSeries_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3865,6 +3933,10 @@ pub const qlineseries = struct {
         return qtc.QLineSeries_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -3877,9 +3949,9 @@ pub const qlineseries = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QLineSeries_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QLineSeries_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3914,6 +3986,10 @@ pub const qlineseries = struct {
         return qtc.QLineSeries_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -3926,8 +4002,8 @@ pub const qlineseries = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QLineSeries_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QLineSeries_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3961,6 +4037,9 @@ pub const qlineseries = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineseries-qtcharts.html#dtor.QLineSeries)
     ///
@@ -3970,7 +4049,7 @@ pub const qlineseries = struct {
     ///
     /// ` self: QtC.QLineSeries `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QLineSeries_Delete(@ptrCast(self));
     }
 };

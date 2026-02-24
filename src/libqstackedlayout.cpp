@@ -199,7 +199,7 @@ void QStackedLayout_SetCurrentWidget(QStackedLayout* self, QWidget* w) {
 }
 
 // Base class handler implementation
-QMetaObject* QStackedLayout_QBaseMetaObject(const QStackedLayout* self) {
+QMetaObject* QStackedLayout_SuperMetaObject(const QStackedLayout* self) {
     auto* vqstackedlayout = const_cast<VirtualQStackedLayout*>(dynamic_cast<const VirtualQStackedLayout*>(self));
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_MetaObject_IsBase(true);
@@ -218,7 +218,7 @@ void QStackedLayout_OnMetaObject(const QStackedLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QStackedLayout_QBaseMetacast(QStackedLayout* self, const char* param1) {
+void* QStackedLayout_SuperMetacast(QStackedLayout* self, const char* param1) {
     auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_Metacast_IsBase(true);
@@ -237,7 +237,7 @@ void QStackedLayout_OnMetacast(QStackedLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QStackedLayout_QBaseMetacall(QStackedLayout* self, int param1, int param2, void** param3) {
+int QStackedLayout_SuperMetacall(QStackedLayout* self, int param1, int param2, void** param3) {
     auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_Metacall_IsBase(true);
@@ -256,7 +256,7 @@ void QStackedLayout_OnMetacall(QStackedLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QStackedLayout_QBaseCount(const QStackedLayout* self) {
+int QStackedLayout_SuperCount(const QStackedLayout* self) {
     auto* vqstackedlayout = const_cast<VirtualQStackedLayout*>(dynamic_cast<const VirtualQStackedLayout*>(self));
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_Count_IsBase(true);
@@ -275,7 +275,7 @@ void QStackedLayout_OnCount(const QStackedLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStackedLayout_QBaseAddItem(QStackedLayout* self, QLayoutItem* item) {
+void QStackedLayout_SuperAddItem(QStackedLayout* self, QLayoutItem* item) {
     auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_AddItem_IsBase(true);
@@ -294,7 +294,7 @@ void QStackedLayout_OnAddItem(QStackedLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QStackedLayout_QBaseSizeHint(const QStackedLayout* self) {
+QSize* QStackedLayout_SuperSizeHint(const QStackedLayout* self) {
     auto* vqstackedlayout = const_cast<VirtualQStackedLayout*>(dynamic_cast<const VirtualQStackedLayout*>(self));
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_SizeHint_IsBase(true);
@@ -313,7 +313,7 @@ void QStackedLayout_OnSizeHint(const QStackedLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QStackedLayout_QBaseMinimumSize(const QStackedLayout* self) {
+QSize* QStackedLayout_SuperMinimumSize(const QStackedLayout* self) {
     auto* vqstackedlayout = const_cast<VirtualQStackedLayout*>(dynamic_cast<const VirtualQStackedLayout*>(self));
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_MinimumSize_IsBase(true);
@@ -332,7 +332,7 @@ void QStackedLayout_OnMinimumSize(const QStackedLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QLayoutItem* QStackedLayout_QBaseItemAt(const QStackedLayout* self, int param1) {
+QLayoutItem* QStackedLayout_SuperItemAt(const QStackedLayout* self, int param1) {
     auto* vqstackedlayout = const_cast<VirtualQStackedLayout*>(dynamic_cast<const VirtualQStackedLayout*>(self));
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_ItemAt_IsBase(true);
@@ -351,7 +351,7 @@ void QStackedLayout_OnItemAt(const QStackedLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QLayoutItem* QStackedLayout_QBaseTakeAt(QStackedLayout* self, int param1) {
+QLayoutItem* QStackedLayout_SuperTakeAt(QStackedLayout* self, int param1) {
     auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_TakeAt_IsBase(true);
@@ -370,7 +370,7 @@ void QStackedLayout_OnTakeAt(QStackedLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStackedLayout_QBaseSetGeometry(QStackedLayout* self, const QRect* rect) {
+void QStackedLayout_SuperSetGeometry(QStackedLayout* self, const QRect* rect) {
     auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_SetGeometry_IsBase(true);
@@ -389,7 +389,7 @@ void QStackedLayout_OnSetGeometry(QStackedLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QStackedLayout_QBaseHasHeightForWidth(const QStackedLayout* self) {
+bool QStackedLayout_SuperHasHeightForWidth(const QStackedLayout* self) {
     auto* vqstackedlayout = const_cast<VirtualQStackedLayout*>(dynamic_cast<const VirtualQStackedLayout*>(self));
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_HasHeightForWidth_IsBase(true);
@@ -408,7 +408,7 @@ void QStackedLayout_OnHasHeightForWidth(const QStackedLayout* self, intptr_t slo
 }
 
 // Base class handler implementation
-int QStackedLayout_QBaseHeightForWidth(const QStackedLayout* self, int width) {
+int QStackedLayout_SuperHeightForWidth(const QStackedLayout* self, int width) {
     auto* vqstackedlayout = const_cast<VirtualQStackedLayout*>(dynamic_cast<const VirtualQStackedLayout*>(self));
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_HeightForWidth_IsBase(true);
@@ -437,7 +437,7 @@ int QStackedLayout_Spacing(const QStackedLayout* self) {
 }
 
 // Base class handler implementation
-int QStackedLayout_QBaseSpacing(const QStackedLayout* self) {
+int QStackedLayout_SuperSpacing(const QStackedLayout* self) {
     auto* vqstackedlayout = const_cast<VirtualQStackedLayout*>(dynamic_cast<const VirtualQStackedLayout*>(self));
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_Spacing_IsBase(true);
@@ -466,7 +466,7 @@ void QStackedLayout_SetSpacing(QStackedLayout* self, int spacing) {
 }
 
 // Base class handler implementation
-void QStackedLayout_QBaseSetSpacing(QStackedLayout* self, int spacing) {
+void QStackedLayout_SuperSetSpacing(QStackedLayout* self, int spacing) {
     auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_SetSpacing_IsBase(true);
@@ -495,7 +495,7 @@ void QStackedLayout_Invalidate(QStackedLayout* self) {
 }
 
 // Base class handler implementation
-void QStackedLayout_QBaseInvalidate(QStackedLayout* self) {
+void QStackedLayout_SuperInvalidate(QStackedLayout* self) {
     auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_Invalidate_IsBase(true);
@@ -524,7 +524,7 @@ QRect* QStackedLayout_Geometry(const QStackedLayout* self) {
 }
 
 // Base class handler implementation
-QRect* QStackedLayout_QBaseGeometry(const QStackedLayout* self) {
+QRect* QStackedLayout_SuperGeometry(const QStackedLayout* self) {
     auto* vqstackedlayout = const_cast<VirtualQStackedLayout*>(dynamic_cast<const VirtualQStackedLayout*>(self));
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_Geometry_IsBase(true);
@@ -553,7 +553,7 @@ int QStackedLayout_ExpandingDirections(const QStackedLayout* self) {
 }
 
 // Base class handler implementation
-int QStackedLayout_QBaseExpandingDirections(const QStackedLayout* self) {
+int QStackedLayout_SuperExpandingDirections(const QStackedLayout* self) {
     auto* vqstackedlayout = const_cast<VirtualQStackedLayout*>(dynamic_cast<const VirtualQStackedLayout*>(self));
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_ExpandingDirections_IsBase(true);
@@ -582,7 +582,7 @@ QSize* QStackedLayout_MaximumSize(const QStackedLayout* self) {
 }
 
 // Base class handler implementation
-QSize* QStackedLayout_QBaseMaximumSize(const QStackedLayout* self) {
+QSize* QStackedLayout_SuperMaximumSize(const QStackedLayout* self) {
     auto* vqstackedlayout = const_cast<VirtualQStackedLayout*>(dynamic_cast<const VirtualQStackedLayout*>(self));
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_MaximumSize_IsBase(true);
@@ -611,7 +611,7 @@ int QStackedLayout_IndexOf(const QStackedLayout* self, const QWidget* param1) {
 }
 
 // Base class handler implementation
-int QStackedLayout_QBaseIndexOf(const QStackedLayout* self, const QWidget* param1) {
+int QStackedLayout_SuperIndexOf(const QStackedLayout* self, const QWidget* param1) {
     auto* vqstackedlayout = const_cast<VirtualQStackedLayout*>(dynamic_cast<const VirtualQStackedLayout*>(self));
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_IndexOf_IsBase(true);
@@ -640,7 +640,7 @@ bool QStackedLayout_IsEmpty(const QStackedLayout* self) {
 }
 
 // Base class handler implementation
-bool QStackedLayout_QBaseIsEmpty(const QStackedLayout* self) {
+bool QStackedLayout_SuperIsEmpty(const QStackedLayout* self) {
     auto* vqstackedlayout = const_cast<VirtualQStackedLayout*>(dynamic_cast<const VirtualQStackedLayout*>(self));
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_IsEmpty_IsBase(true);
@@ -669,7 +669,7 @@ int QStackedLayout_ControlTypes(const QStackedLayout* self) {
 }
 
 // Base class handler implementation
-int QStackedLayout_QBaseControlTypes(const QStackedLayout* self) {
+int QStackedLayout_SuperControlTypes(const QStackedLayout* self) {
     auto* vqstackedlayout = const_cast<VirtualQStackedLayout*>(dynamic_cast<const VirtualQStackedLayout*>(self));
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_ControlTypes_IsBase(true);
@@ -698,7 +698,7 @@ QLayoutItem* QStackedLayout_ReplaceWidget(QStackedLayout* self, QWidget* from, Q
 }
 
 // Base class handler implementation
-QLayoutItem* QStackedLayout_QBaseReplaceWidget(QStackedLayout* self, QWidget* from, QWidget* to, int options) {
+QLayoutItem* QStackedLayout_SuperReplaceWidget(QStackedLayout* self, QWidget* from, QWidget* to, int options) {
     auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_ReplaceWidget_IsBase(true);
@@ -727,7 +727,7 @@ QLayout* QStackedLayout_Layout(QStackedLayout* self) {
 }
 
 // Base class handler implementation
-QLayout* QStackedLayout_QBaseLayout(QStackedLayout* self) {
+QLayout* QStackedLayout_SuperLayout(QStackedLayout* self) {
     auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_Layout_IsBase(true);
@@ -756,7 +756,7 @@ void QStackedLayout_ChildEvent(QStackedLayout* self, QChildEvent* e) {
 }
 
 // Base class handler implementation
-void QStackedLayout_QBaseChildEvent(QStackedLayout* self, QChildEvent* e) {
+void QStackedLayout_SuperChildEvent(QStackedLayout* self, QChildEvent* e) {
     auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_ChildEvent_IsBase(true);
@@ -785,7 +785,7 @@ bool QStackedLayout_Event(QStackedLayout* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QStackedLayout_QBaseEvent(QStackedLayout* self, QEvent* event) {
+bool QStackedLayout_SuperEvent(QStackedLayout* self, QEvent* event) {
     auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_Event_IsBase(true);
@@ -814,7 +814,7 @@ bool QStackedLayout_EventFilter(QStackedLayout* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QStackedLayout_QBaseEventFilter(QStackedLayout* self, QObject* watched, QEvent* event) {
+bool QStackedLayout_SuperEventFilter(QStackedLayout* self, QObject* watched, QEvent* event) {
     auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_EventFilter_IsBase(true);
@@ -843,7 +843,7 @@ void QStackedLayout_TimerEvent(QStackedLayout* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedLayout_QBaseTimerEvent(QStackedLayout* self, QTimerEvent* event) {
+void QStackedLayout_SuperTimerEvent(QStackedLayout* self, QTimerEvent* event) {
     auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_TimerEvent_IsBase(true);
@@ -872,7 +872,7 @@ void QStackedLayout_CustomEvent(QStackedLayout* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedLayout_QBaseCustomEvent(QStackedLayout* self, QEvent* event) {
+void QStackedLayout_SuperCustomEvent(QStackedLayout* self, QEvent* event) {
     auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_CustomEvent_IsBase(true);
@@ -901,7 +901,7 @@ void QStackedLayout_ConnectNotify(QStackedLayout* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QStackedLayout_QBaseConnectNotify(QStackedLayout* self, const QMetaMethod* signal) {
+void QStackedLayout_SuperConnectNotify(QStackedLayout* self, const QMetaMethod* signal) {
     auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_ConnectNotify_IsBase(true);
@@ -930,7 +930,7 @@ void QStackedLayout_DisconnectNotify(QStackedLayout* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QStackedLayout_QBaseDisconnectNotify(QStackedLayout* self, const QMetaMethod* signal) {
+void QStackedLayout_SuperDisconnectNotify(QStackedLayout* self, const QMetaMethod* signal) {
     auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_DisconnectNotify_IsBase(true);
@@ -959,7 +959,7 @@ int QStackedLayout_MinimumHeightForWidth(const QStackedLayout* self, int param1)
 }
 
 // Base class handler implementation
-int QStackedLayout_QBaseMinimumHeightForWidth(const QStackedLayout* self, int param1) {
+int QStackedLayout_SuperMinimumHeightForWidth(const QStackedLayout* self, int param1) {
     auto* vqstackedlayout = const_cast<VirtualQStackedLayout*>(dynamic_cast<const VirtualQStackedLayout*>(self));
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_MinimumHeightForWidth_IsBase(true);
@@ -988,7 +988,7 @@ QSpacerItem* QStackedLayout_SpacerItem(QStackedLayout* self) {
 }
 
 // Base class handler implementation
-QSpacerItem* QStackedLayout_QBaseSpacerItem(QStackedLayout* self) {
+QSpacerItem* QStackedLayout_SuperSpacerItem(QStackedLayout* self) {
     auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_SpacerItem_IsBase(true);
@@ -1017,7 +1017,7 @@ void QStackedLayout_WidgetEvent(QStackedLayout* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QStackedLayout_QBaseWidgetEvent(QStackedLayout* self, QEvent* param1) {
+void QStackedLayout_SuperWidgetEvent(QStackedLayout* self, QEvent* param1) {
     auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_WidgetEvent_IsBase(true);
@@ -1046,7 +1046,7 @@ void QStackedLayout_AddChildLayout(QStackedLayout* self, QLayout* l) {
 }
 
 // Base class handler implementation
-void QStackedLayout_QBaseAddChildLayout(QStackedLayout* self, QLayout* l) {
+void QStackedLayout_SuperAddChildLayout(QStackedLayout* self, QLayout* l) {
     auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_AddChildLayout_IsBase(true);
@@ -1075,7 +1075,7 @@ void QStackedLayout_AddChildWidget(QStackedLayout* self, QWidget* w) {
 }
 
 // Base class handler implementation
-void QStackedLayout_QBaseAddChildWidget(QStackedLayout* self, QWidget* w) {
+void QStackedLayout_SuperAddChildWidget(QStackedLayout* self, QWidget* w) {
     auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_AddChildWidget_IsBase(true);
@@ -1104,7 +1104,7 @@ bool QStackedLayout_AdoptLayout(QStackedLayout* self, QLayout* layout) {
 }
 
 // Base class handler implementation
-bool QStackedLayout_QBaseAdoptLayout(QStackedLayout* self, QLayout* layout) {
+bool QStackedLayout_SuperAdoptLayout(QStackedLayout* self, QLayout* layout) {
     auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_AdoptLayout_IsBase(true);
@@ -1132,7 +1132,7 @@ QRect* QStackedLayout_AlignmentRect(const QStackedLayout* self, const QRect* par
 }
 
 // Base class handler implementation
-QRect* QStackedLayout_QBaseAlignmentRect(const QStackedLayout* self, const QRect* param1) {
+QRect* QStackedLayout_SuperAlignmentRect(const QStackedLayout* self, const QRect* param1) {
     auto* vqstackedlayout = const_cast<VirtualQStackedLayout*>(dynamic_cast<const VirtualQStackedLayout*>(self));
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_AlignmentRect_IsBase(true);
@@ -1160,7 +1160,7 @@ QObject* QStackedLayout_Sender(const QStackedLayout* self) {
 }
 
 // Base class handler implementation
-QObject* QStackedLayout_QBaseSender(const QStackedLayout* self) {
+QObject* QStackedLayout_SuperSender(const QStackedLayout* self) {
     auto* vqstackedlayout = const_cast<VirtualQStackedLayout*>(dynamic_cast<const VirtualQStackedLayout*>(self));
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_Sender_IsBase(true);
@@ -1189,7 +1189,7 @@ int QStackedLayout_SenderSignalIndex(const QStackedLayout* self) {
 }
 
 // Base class handler implementation
-int QStackedLayout_QBaseSenderSignalIndex(const QStackedLayout* self) {
+int QStackedLayout_SuperSenderSignalIndex(const QStackedLayout* self) {
     auto* vqstackedlayout = const_cast<VirtualQStackedLayout*>(dynamic_cast<const VirtualQStackedLayout*>(self));
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_SenderSignalIndex_IsBase(true);
@@ -1218,7 +1218,7 @@ int QStackedLayout_Receivers(const QStackedLayout* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QStackedLayout_QBaseReceivers(const QStackedLayout* self, const char* signal) {
+int QStackedLayout_SuperReceivers(const QStackedLayout* self, const char* signal) {
     auto* vqstackedlayout = const_cast<VirtualQStackedLayout*>(dynamic_cast<const VirtualQStackedLayout*>(self));
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_Receivers_IsBase(true);
@@ -1247,7 +1247,7 @@ bool QStackedLayout_IsSignalConnected(const QStackedLayout* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QStackedLayout_QBaseIsSignalConnected(const QStackedLayout* self, const QMetaMethod* signal) {
+bool QStackedLayout_SuperIsSignalConnected(const QStackedLayout* self, const QMetaMethod* signal) {
     auto* vqstackedlayout = const_cast<VirtualQStackedLayout*>(dynamic_cast<const VirtualQStackedLayout*>(self));
     if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
         vqstackedlayout->setQStackedLayout_IsSignalConnected_IsBase(true);

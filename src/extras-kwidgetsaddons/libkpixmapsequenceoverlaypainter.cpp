@@ -120,7 +120,7 @@ bool KPixmapSequenceOverlayPainter_EventFilter(KPixmapSequenceOverlayPainter* se
 }
 
 // Base class handler implementation
-QMetaObject* KPixmapSequenceOverlayPainter_QBaseMetaObject(const KPixmapSequenceOverlayPainter* self) {
+QMetaObject* KPixmapSequenceOverlayPainter_SuperMetaObject(const KPixmapSequenceOverlayPainter* self) {
     auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
     if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_MetaObject_IsBase(true);
@@ -139,7 +139,7 @@ void KPixmapSequenceOverlayPainter_OnMetaObject(const KPixmapSequenceOverlayPain
 }
 
 // Base class handler implementation
-void* KPixmapSequenceOverlayPainter_QBaseMetacast(KPixmapSequenceOverlayPainter* self, const char* param1) {
+void* KPixmapSequenceOverlayPainter_SuperMetacast(KPixmapSequenceOverlayPainter* self, const char* param1) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
     if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Metacast_IsBase(true);
@@ -158,7 +158,7 @@ void KPixmapSequenceOverlayPainter_OnMetacast(KPixmapSequenceOverlayPainter* sel
 }
 
 // Base class handler implementation
-int KPixmapSequenceOverlayPainter_QBaseMetacall(KPixmapSequenceOverlayPainter* self, int param1, int param2, void** param3) {
+int KPixmapSequenceOverlayPainter_SuperMetacall(KPixmapSequenceOverlayPainter* self, int param1, int param2, void** param3) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
     if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Metacall_IsBase(true);
@@ -177,7 +177,7 @@ void KPixmapSequenceOverlayPainter_OnMetacall(KPixmapSequenceOverlayPainter* sel
 }
 
 // Base class handler implementation
-bool KPixmapSequenceOverlayPainter_QBaseEventFilter(KPixmapSequenceOverlayPainter* self, QObject* obj, QEvent* event) {
+bool KPixmapSequenceOverlayPainter_SuperEventFilter(KPixmapSequenceOverlayPainter* self, QObject* obj, QEvent* event) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
     if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_EventFilter_IsBase(true);
@@ -206,7 +206,7 @@ bool KPixmapSequenceOverlayPainter_Event(KPixmapSequenceOverlayPainter* self, QE
 }
 
 // Base class handler implementation
-bool KPixmapSequenceOverlayPainter_QBaseEvent(KPixmapSequenceOverlayPainter* self, QEvent* event) {
+bool KPixmapSequenceOverlayPainter_SuperEvent(KPixmapSequenceOverlayPainter* self, QEvent* event) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
     if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Event_IsBase(true);
@@ -235,7 +235,7 @@ void KPixmapSequenceOverlayPainter_TimerEvent(KPixmapSequenceOverlayPainter* sel
 }
 
 // Base class handler implementation
-void KPixmapSequenceOverlayPainter_QBaseTimerEvent(KPixmapSequenceOverlayPainter* self, QTimerEvent* event) {
+void KPixmapSequenceOverlayPainter_SuperTimerEvent(KPixmapSequenceOverlayPainter* self, QTimerEvent* event) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
     if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_TimerEvent_IsBase(true);
@@ -264,7 +264,7 @@ void KPixmapSequenceOverlayPainter_ChildEvent(KPixmapSequenceOverlayPainter* sel
 }
 
 // Base class handler implementation
-void KPixmapSequenceOverlayPainter_QBaseChildEvent(KPixmapSequenceOverlayPainter* self, QChildEvent* event) {
+void KPixmapSequenceOverlayPainter_SuperChildEvent(KPixmapSequenceOverlayPainter* self, QChildEvent* event) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
     if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_ChildEvent_IsBase(true);
@@ -293,7 +293,7 @@ void KPixmapSequenceOverlayPainter_CustomEvent(KPixmapSequenceOverlayPainter* se
 }
 
 // Base class handler implementation
-void KPixmapSequenceOverlayPainter_QBaseCustomEvent(KPixmapSequenceOverlayPainter* self, QEvent* event) {
+void KPixmapSequenceOverlayPainter_SuperCustomEvent(KPixmapSequenceOverlayPainter* self, QEvent* event) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
     if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_CustomEvent_IsBase(true);
@@ -322,7 +322,7 @@ void KPixmapSequenceOverlayPainter_ConnectNotify(KPixmapSequenceOverlayPainter* 
 }
 
 // Base class handler implementation
-void KPixmapSequenceOverlayPainter_QBaseConnectNotify(KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal) {
+void KPixmapSequenceOverlayPainter_SuperConnectNotify(KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
     if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_ConnectNotify_IsBase(true);
@@ -351,7 +351,7 @@ void KPixmapSequenceOverlayPainter_DisconnectNotify(KPixmapSequenceOverlayPainte
 }
 
 // Base class handler implementation
-void KPixmapSequenceOverlayPainter_QBaseDisconnectNotify(KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal) {
+void KPixmapSequenceOverlayPainter_SuperDisconnectNotify(KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
     if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_DisconnectNotify_IsBase(true);
@@ -380,7 +380,7 @@ QObject* KPixmapSequenceOverlayPainter_Sender(const KPixmapSequenceOverlayPainte
 }
 
 // Base class handler implementation
-QObject* KPixmapSequenceOverlayPainter_QBaseSender(const KPixmapSequenceOverlayPainter* self) {
+QObject* KPixmapSequenceOverlayPainter_SuperSender(const KPixmapSequenceOverlayPainter* self) {
     auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
     if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Sender_IsBase(true);
@@ -409,7 +409,7 @@ int KPixmapSequenceOverlayPainter_SenderSignalIndex(const KPixmapSequenceOverlay
 }
 
 // Base class handler implementation
-int KPixmapSequenceOverlayPainter_QBaseSenderSignalIndex(const KPixmapSequenceOverlayPainter* self) {
+int KPixmapSequenceOverlayPainter_SuperSenderSignalIndex(const KPixmapSequenceOverlayPainter* self) {
     auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
     if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_SenderSignalIndex_IsBase(true);
@@ -438,7 +438,7 @@ int KPixmapSequenceOverlayPainter_Receivers(const KPixmapSequenceOverlayPainter*
 }
 
 // Base class handler implementation
-int KPixmapSequenceOverlayPainter_QBaseReceivers(const KPixmapSequenceOverlayPainter* self, const char* signal) {
+int KPixmapSequenceOverlayPainter_SuperReceivers(const KPixmapSequenceOverlayPainter* self, const char* signal) {
     auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
     if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Receivers_IsBase(true);
@@ -467,7 +467,7 @@ bool KPixmapSequenceOverlayPainter_IsSignalConnected(const KPixmapSequenceOverla
 }
 
 // Base class handler implementation
-bool KPixmapSequenceOverlayPainter_QBaseIsSignalConnected(const KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal) {
+bool KPixmapSequenceOverlayPainter_SuperIsSignalConnected(const KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal) {
     auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
     if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_IsSignalConnected_IsBase(true);

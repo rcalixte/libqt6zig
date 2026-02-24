@@ -59,7 +59,7 @@ int QHorizontalBarSeries_Type(const QHorizontalBarSeries* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QHorizontalBarSeries_QBaseMetaObject(const QHorizontalBarSeries* self) {
+QMetaObject* QHorizontalBarSeries_SuperMetaObject(const QHorizontalBarSeries* self) {
     auto* vqhorizontalbarseries = const_cast<VirtualQHorizontalBarSeries*>(dynamic_cast<const VirtualQHorizontalBarSeries*>(self));
     if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
         vqhorizontalbarseries->setQHorizontalBarSeries_MetaObject_IsBase(true);
@@ -78,7 +78,7 @@ void QHorizontalBarSeries_OnMetaObject(const QHorizontalBarSeries* self, intptr_
 }
 
 // Base class handler implementation
-void* QHorizontalBarSeries_QBaseMetacast(QHorizontalBarSeries* self, const char* param1) {
+void* QHorizontalBarSeries_SuperMetacast(QHorizontalBarSeries* self, const char* param1) {
     auto* vqhorizontalbarseries = dynamic_cast<VirtualQHorizontalBarSeries*>(self);
     if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
         vqhorizontalbarseries->setQHorizontalBarSeries_Metacast_IsBase(true);
@@ -97,7 +97,7 @@ void QHorizontalBarSeries_OnMetacast(QHorizontalBarSeries* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int QHorizontalBarSeries_QBaseMetacall(QHorizontalBarSeries* self, int param1, int param2, void** param3) {
+int QHorizontalBarSeries_SuperMetacall(QHorizontalBarSeries* self, int param1, int param2, void** param3) {
     auto* vqhorizontalbarseries = dynamic_cast<VirtualQHorizontalBarSeries*>(self);
     if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
         vqhorizontalbarseries->setQHorizontalBarSeries_Metacall_IsBase(true);
@@ -116,7 +116,7 @@ void QHorizontalBarSeries_OnMetacall(QHorizontalBarSeries* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int QHorizontalBarSeries_QBaseType(const QHorizontalBarSeries* self) {
+int QHorizontalBarSeries_SuperType(const QHorizontalBarSeries* self) {
     auto* vqhorizontalbarseries = const_cast<VirtualQHorizontalBarSeries*>(dynamic_cast<const VirtualQHorizontalBarSeries*>(self));
     if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
         vqhorizontalbarseries->setQHorizontalBarSeries_Type_IsBase(true);
@@ -145,7 +145,7 @@ bool QHorizontalBarSeries_Event(QHorizontalBarSeries* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QHorizontalBarSeries_QBaseEvent(QHorizontalBarSeries* self, QEvent* event) {
+bool QHorizontalBarSeries_SuperEvent(QHorizontalBarSeries* self, QEvent* event) {
     auto* vqhorizontalbarseries = dynamic_cast<VirtualQHorizontalBarSeries*>(self);
     if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
         vqhorizontalbarseries->setQHorizontalBarSeries_Event_IsBase(true);
@@ -174,7 +174,7 @@ bool QHorizontalBarSeries_EventFilter(QHorizontalBarSeries* self, QObject* watch
 }
 
 // Base class handler implementation
-bool QHorizontalBarSeries_QBaseEventFilter(QHorizontalBarSeries* self, QObject* watched, QEvent* event) {
+bool QHorizontalBarSeries_SuperEventFilter(QHorizontalBarSeries* self, QObject* watched, QEvent* event) {
     auto* vqhorizontalbarseries = dynamic_cast<VirtualQHorizontalBarSeries*>(self);
     if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
         vqhorizontalbarseries->setQHorizontalBarSeries_EventFilter_IsBase(true);
@@ -203,7 +203,7 @@ void QHorizontalBarSeries_TimerEvent(QHorizontalBarSeries* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void QHorizontalBarSeries_QBaseTimerEvent(QHorizontalBarSeries* self, QTimerEvent* event) {
+void QHorizontalBarSeries_SuperTimerEvent(QHorizontalBarSeries* self, QTimerEvent* event) {
     auto* vqhorizontalbarseries = dynamic_cast<VirtualQHorizontalBarSeries*>(self);
     if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
         vqhorizontalbarseries->setQHorizontalBarSeries_TimerEvent_IsBase(true);
@@ -232,7 +232,7 @@ void QHorizontalBarSeries_ChildEvent(QHorizontalBarSeries* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void QHorizontalBarSeries_QBaseChildEvent(QHorizontalBarSeries* self, QChildEvent* event) {
+void QHorizontalBarSeries_SuperChildEvent(QHorizontalBarSeries* self, QChildEvent* event) {
     auto* vqhorizontalbarseries = dynamic_cast<VirtualQHorizontalBarSeries*>(self);
     if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
         vqhorizontalbarseries->setQHorizontalBarSeries_ChildEvent_IsBase(true);
@@ -261,7 +261,7 @@ void QHorizontalBarSeries_CustomEvent(QHorizontalBarSeries* self, QEvent* event)
 }
 
 // Base class handler implementation
-void QHorizontalBarSeries_QBaseCustomEvent(QHorizontalBarSeries* self, QEvent* event) {
+void QHorizontalBarSeries_SuperCustomEvent(QHorizontalBarSeries* self, QEvent* event) {
     auto* vqhorizontalbarseries = dynamic_cast<VirtualQHorizontalBarSeries*>(self);
     if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
         vqhorizontalbarseries->setQHorizontalBarSeries_CustomEvent_IsBase(true);
@@ -290,7 +290,7 @@ void QHorizontalBarSeries_ConnectNotify(QHorizontalBarSeries* self, const QMetaM
 }
 
 // Base class handler implementation
-void QHorizontalBarSeries_QBaseConnectNotify(QHorizontalBarSeries* self, const QMetaMethod* signal) {
+void QHorizontalBarSeries_SuperConnectNotify(QHorizontalBarSeries* self, const QMetaMethod* signal) {
     auto* vqhorizontalbarseries = dynamic_cast<VirtualQHorizontalBarSeries*>(self);
     if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
         vqhorizontalbarseries->setQHorizontalBarSeries_ConnectNotify_IsBase(true);
@@ -319,7 +319,7 @@ void QHorizontalBarSeries_DisconnectNotify(QHorizontalBarSeries* self, const QMe
 }
 
 // Base class handler implementation
-void QHorizontalBarSeries_QBaseDisconnectNotify(QHorizontalBarSeries* self, const QMetaMethod* signal) {
+void QHorizontalBarSeries_SuperDisconnectNotify(QHorizontalBarSeries* self, const QMetaMethod* signal) {
     auto* vqhorizontalbarseries = dynamic_cast<VirtualQHorizontalBarSeries*>(self);
     if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
         vqhorizontalbarseries->setQHorizontalBarSeries_DisconnectNotify_IsBase(true);
@@ -348,7 +348,7 @@ QObject* QHorizontalBarSeries_Sender(const QHorizontalBarSeries* self) {
 }
 
 // Base class handler implementation
-QObject* QHorizontalBarSeries_QBaseSender(const QHorizontalBarSeries* self) {
+QObject* QHorizontalBarSeries_SuperSender(const QHorizontalBarSeries* self) {
     auto* vqhorizontalbarseries = const_cast<VirtualQHorizontalBarSeries*>(dynamic_cast<const VirtualQHorizontalBarSeries*>(self));
     if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
         vqhorizontalbarseries->setQHorizontalBarSeries_Sender_IsBase(true);
@@ -377,7 +377,7 @@ int QHorizontalBarSeries_SenderSignalIndex(const QHorizontalBarSeries* self) {
 }
 
 // Base class handler implementation
-int QHorizontalBarSeries_QBaseSenderSignalIndex(const QHorizontalBarSeries* self) {
+int QHorizontalBarSeries_SuperSenderSignalIndex(const QHorizontalBarSeries* self) {
     auto* vqhorizontalbarseries = const_cast<VirtualQHorizontalBarSeries*>(dynamic_cast<const VirtualQHorizontalBarSeries*>(self));
     if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
         vqhorizontalbarseries->setQHorizontalBarSeries_SenderSignalIndex_IsBase(true);
@@ -406,7 +406,7 @@ int QHorizontalBarSeries_Receivers(const QHorizontalBarSeries* self, const char*
 }
 
 // Base class handler implementation
-int QHorizontalBarSeries_QBaseReceivers(const QHorizontalBarSeries* self, const char* signal) {
+int QHorizontalBarSeries_SuperReceivers(const QHorizontalBarSeries* self, const char* signal) {
     auto* vqhorizontalbarseries = const_cast<VirtualQHorizontalBarSeries*>(dynamic_cast<const VirtualQHorizontalBarSeries*>(self));
     if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
         vqhorizontalbarseries->setQHorizontalBarSeries_Receivers_IsBase(true);
@@ -435,7 +435,7 @@ bool QHorizontalBarSeries_IsSignalConnected(const QHorizontalBarSeries* self, co
 }
 
 // Base class handler implementation
-bool QHorizontalBarSeries_QBaseIsSignalConnected(const QHorizontalBarSeries* self, const QMetaMethod* signal) {
+bool QHorizontalBarSeries_SuperIsSignalConnected(const QHorizontalBarSeries* self, const QMetaMethod* signal) {
     auto* vqhorizontalbarseries = const_cast<VirtualQHorizontalBarSeries*>(dynamic_cast<const VirtualQHorizontalBarSeries*>(self));
     if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
         vqhorizontalbarseries->setQHorizontalBarSeries_IsSignalConnected_IsBase(true);

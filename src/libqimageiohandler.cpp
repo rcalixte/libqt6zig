@@ -172,7 +172,7 @@ bool QImageIOHandler_AllocateImage(QSize* size, int format, QImage* image) {
 }
 
 // Base class handler implementation
-bool QImageIOHandler_QBaseCanRead(const QImageIOHandler* self) {
+bool QImageIOHandler_SuperCanRead(const QImageIOHandler* self) {
     auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
     if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
         vqimageiohandler->setQImageIOHandler_CanRead_IsBase(true);
@@ -191,7 +191,7 @@ void QImageIOHandler_OnCanRead(const QImageIOHandler* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QImageIOHandler_QBaseRead(QImageIOHandler* self, QImage* image) {
+bool QImageIOHandler_SuperRead(QImageIOHandler* self, QImage* image) {
     auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self);
     if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
         vqimageiohandler->setQImageIOHandler_Read_IsBase(true);
@@ -210,7 +210,7 @@ void QImageIOHandler_OnRead(QImageIOHandler* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QImageIOHandler_QBaseWrite(QImageIOHandler* self, const QImage* image) {
+bool QImageIOHandler_SuperWrite(QImageIOHandler* self, const QImage* image) {
     auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self);
     if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
         vqimageiohandler->setQImageIOHandler_Write_IsBase(true);
@@ -229,7 +229,7 @@ void QImageIOHandler_OnWrite(QImageIOHandler* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QImageIOHandler_QBaseOption(const QImageIOHandler* self, int option) {
+QVariant* QImageIOHandler_SuperOption(const QImageIOHandler* self, int option) {
     auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
     if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
         vqimageiohandler->setQImageIOHandler_Option_IsBase(true);
@@ -248,7 +248,7 @@ void QImageIOHandler_OnOption(const QImageIOHandler* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QImageIOHandler_QBaseSetOption(QImageIOHandler* self, int option, const QVariant* value) {
+void QImageIOHandler_SuperSetOption(QImageIOHandler* self, int option, const QVariant* value) {
     auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self);
     if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
         vqimageiohandler->setQImageIOHandler_SetOption_IsBase(true);
@@ -267,7 +267,7 @@ void QImageIOHandler_OnSetOption(QImageIOHandler* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QImageIOHandler_QBaseSupportsOption(const QImageIOHandler* self, int option) {
+bool QImageIOHandler_SuperSupportsOption(const QImageIOHandler* self, int option) {
     auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
     if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
         vqimageiohandler->setQImageIOHandler_SupportsOption_IsBase(true);
@@ -286,7 +286,7 @@ void QImageIOHandler_OnSupportsOption(const QImageIOHandler* self, intptr_t slot
 }
 
 // Base class handler implementation
-bool QImageIOHandler_QBaseJumpToNextImage(QImageIOHandler* self) {
+bool QImageIOHandler_SuperJumpToNextImage(QImageIOHandler* self) {
     auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self);
     if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
         vqimageiohandler->setQImageIOHandler_JumpToNextImage_IsBase(true);
@@ -305,7 +305,7 @@ void QImageIOHandler_OnJumpToNextImage(QImageIOHandler* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QImageIOHandler_QBaseJumpToImage(QImageIOHandler* self, int imageNumber) {
+bool QImageIOHandler_SuperJumpToImage(QImageIOHandler* self, int imageNumber) {
     auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self);
     if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
         vqimageiohandler->setQImageIOHandler_JumpToImage_IsBase(true);
@@ -324,7 +324,7 @@ void QImageIOHandler_OnJumpToImage(QImageIOHandler* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QImageIOHandler_QBaseLoopCount(const QImageIOHandler* self) {
+int QImageIOHandler_SuperLoopCount(const QImageIOHandler* self) {
     auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
     if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
         vqimageiohandler->setQImageIOHandler_LoopCount_IsBase(true);
@@ -343,7 +343,7 @@ void QImageIOHandler_OnLoopCount(const QImageIOHandler* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QImageIOHandler_QBaseImageCount(const QImageIOHandler* self) {
+int QImageIOHandler_SuperImageCount(const QImageIOHandler* self) {
     auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
     if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
         vqimageiohandler->setQImageIOHandler_ImageCount_IsBase(true);
@@ -362,7 +362,7 @@ void QImageIOHandler_OnImageCount(const QImageIOHandler* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QImageIOHandler_QBaseNextImageDelay(const QImageIOHandler* self) {
+int QImageIOHandler_SuperNextImageDelay(const QImageIOHandler* self) {
     auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
     if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
         vqimageiohandler->setQImageIOHandler_NextImageDelay_IsBase(true);
@@ -381,7 +381,7 @@ void QImageIOHandler_OnNextImageDelay(const QImageIOHandler* self, intptr_t slot
 }
 
 // Base class handler implementation
-int QImageIOHandler_QBaseCurrentImageNumber(const QImageIOHandler* self) {
+int QImageIOHandler_SuperCurrentImageNumber(const QImageIOHandler* self) {
     auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
     if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
         vqimageiohandler->setQImageIOHandler_CurrentImageNumber_IsBase(true);
@@ -400,7 +400,7 @@ void QImageIOHandler_OnCurrentImageNumber(const QImageIOHandler* self, intptr_t 
 }
 
 // Base class handler implementation
-QRect* QImageIOHandler_QBaseCurrentImageRect(const QImageIOHandler* self) {
+QRect* QImageIOHandler_SuperCurrentImageRect(const QImageIOHandler* self) {
     auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
     if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
         vqimageiohandler->setQImageIOHandler_CurrentImageRect_IsBase(true);
@@ -478,7 +478,7 @@ QImageIOHandler* QImageIOPlugin_Create(const QImageIOPlugin* self, QIODevice* de
 }
 
 // Base class handler implementation
-QMetaObject* QImageIOPlugin_QBaseMetaObject(const QImageIOPlugin* self) {
+QMetaObject* QImageIOPlugin_SuperMetaObject(const QImageIOPlugin* self) {
     auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
     if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
         vqimageioplugin->setQImageIOPlugin_MetaObject_IsBase(true);
@@ -497,7 +497,7 @@ void QImageIOPlugin_OnMetaObject(const QImageIOPlugin* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QImageIOPlugin_QBaseMetacast(QImageIOPlugin* self, const char* param1) {
+void* QImageIOPlugin_SuperMetacast(QImageIOPlugin* self, const char* param1) {
     auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
     if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
         vqimageioplugin->setQImageIOPlugin_Metacast_IsBase(true);
@@ -516,7 +516,7 @@ void QImageIOPlugin_OnMetacast(QImageIOPlugin* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QImageIOPlugin_QBaseMetacall(QImageIOPlugin* self, int param1, int param2, void** param3) {
+int QImageIOPlugin_SuperMetacall(QImageIOPlugin* self, int param1, int param2, void** param3) {
     auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
     if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
         vqimageioplugin->setQImageIOPlugin_Metacall_IsBase(true);
@@ -535,7 +535,7 @@ void QImageIOPlugin_OnMetacall(QImageIOPlugin* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QImageIOPlugin_QBaseCapabilities(const QImageIOPlugin* self, QIODevice* device, const libqt_string format) {
+int QImageIOPlugin_SuperCapabilities(const QImageIOPlugin* self, QIODevice* device, const libqt_string format) {
     auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
     QByteArray format_QByteArray(format.data, format.len);
     if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
@@ -555,7 +555,7 @@ void QImageIOPlugin_OnCapabilities(const QImageIOPlugin* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QImageIOHandler* QImageIOPlugin_QBaseCreate(const QImageIOPlugin* self, QIODevice* device, const libqt_string format) {
+QImageIOHandler* QImageIOPlugin_SuperCreate(const QImageIOPlugin* self, QIODevice* device, const libqt_string format) {
     auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
     QByteArray format_QByteArray(format.data, format.len);
     if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
@@ -585,7 +585,7 @@ bool QImageIOPlugin_Event(QImageIOPlugin* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QImageIOPlugin_QBaseEvent(QImageIOPlugin* self, QEvent* event) {
+bool QImageIOPlugin_SuperEvent(QImageIOPlugin* self, QEvent* event) {
     auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
     if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
         vqimageioplugin->setQImageIOPlugin_Event_IsBase(true);
@@ -614,7 +614,7 @@ bool QImageIOPlugin_EventFilter(QImageIOPlugin* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QImageIOPlugin_QBaseEventFilter(QImageIOPlugin* self, QObject* watched, QEvent* event) {
+bool QImageIOPlugin_SuperEventFilter(QImageIOPlugin* self, QObject* watched, QEvent* event) {
     auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
     if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
         vqimageioplugin->setQImageIOPlugin_EventFilter_IsBase(true);
@@ -643,7 +643,7 @@ void QImageIOPlugin_TimerEvent(QImageIOPlugin* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QImageIOPlugin_QBaseTimerEvent(QImageIOPlugin* self, QTimerEvent* event) {
+void QImageIOPlugin_SuperTimerEvent(QImageIOPlugin* self, QTimerEvent* event) {
     auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
     if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
         vqimageioplugin->setQImageIOPlugin_TimerEvent_IsBase(true);
@@ -672,7 +672,7 @@ void QImageIOPlugin_ChildEvent(QImageIOPlugin* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QImageIOPlugin_QBaseChildEvent(QImageIOPlugin* self, QChildEvent* event) {
+void QImageIOPlugin_SuperChildEvent(QImageIOPlugin* self, QChildEvent* event) {
     auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
     if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
         vqimageioplugin->setQImageIOPlugin_ChildEvent_IsBase(true);
@@ -701,7 +701,7 @@ void QImageIOPlugin_CustomEvent(QImageIOPlugin* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QImageIOPlugin_QBaseCustomEvent(QImageIOPlugin* self, QEvent* event) {
+void QImageIOPlugin_SuperCustomEvent(QImageIOPlugin* self, QEvent* event) {
     auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
     if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
         vqimageioplugin->setQImageIOPlugin_CustomEvent_IsBase(true);
@@ -730,7 +730,7 @@ void QImageIOPlugin_ConnectNotify(QImageIOPlugin* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QImageIOPlugin_QBaseConnectNotify(QImageIOPlugin* self, const QMetaMethod* signal) {
+void QImageIOPlugin_SuperConnectNotify(QImageIOPlugin* self, const QMetaMethod* signal) {
     auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
     if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
         vqimageioplugin->setQImageIOPlugin_ConnectNotify_IsBase(true);
@@ -759,7 +759,7 @@ void QImageIOPlugin_DisconnectNotify(QImageIOPlugin* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QImageIOPlugin_QBaseDisconnectNotify(QImageIOPlugin* self, const QMetaMethod* signal) {
+void QImageIOPlugin_SuperDisconnectNotify(QImageIOPlugin* self, const QMetaMethod* signal) {
     auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
     if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
         vqimageioplugin->setQImageIOPlugin_DisconnectNotify_IsBase(true);
@@ -788,7 +788,7 @@ QObject* QImageIOPlugin_Sender(const QImageIOPlugin* self) {
 }
 
 // Base class handler implementation
-QObject* QImageIOPlugin_QBaseSender(const QImageIOPlugin* self) {
+QObject* QImageIOPlugin_SuperSender(const QImageIOPlugin* self) {
     auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
     if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
         vqimageioplugin->setQImageIOPlugin_Sender_IsBase(true);
@@ -817,7 +817,7 @@ int QImageIOPlugin_SenderSignalIndex(const QImageIOPlugin* self) {
 }
 
 // Base class handler implementation
-int QImageIOPlugin_QBaseSenderSignalIndex(const QImageIOPlugin* self) {
+int QImageIOPlugin_SuperSenderSignalIndex(const QImageIOPlugin* self) {
     auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
     if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
         vqimageioplugin->setQImageIOPlugin_SenderSignalIndex_IsBase(true);
@@ -846,7 +846,7 @@ int QImageIOPlugin_Receivers(const QImageIOPlugin* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QImageIOPlugin_QBaseReceivers(const QImageIOPlugin* self, const char* signal) {
+int QImageIOPlugin_SuperReceivers(const QImageIOPlugin* self, const char* signal) {
     auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
     if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
         vqimageioplugin->setQImageIOPlugin_Receivers_IsBase(true);
@@ -875,7 +875,7 @@ bool QImageIOPlugin_IsSignalConnected(const QImageIOPlugin* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QImageIOPlugin_QBaseIsSignalConnected(const QImageIOPlugin* self, const QMetaMethod* signal) {
+bool QImageIOPlugin_SuperIsSignalConnected(const QImageIOPlugin* self, const QMetaMethod* signal) {
     auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
     if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
         vqimageioplugin->setQImageIOPlugin_IsSignalConnected_IsBase(true);

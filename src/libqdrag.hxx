@@ -327,23 +327,23 @@ class VirtualQDrag final : public QDrag {
 
     // Friend functions
     friend void QDrag_TimerEvent(QDrag* self, QTimerEvent* event);
-    friend void QDrag_QBaseTimerEvent(QDrag* self, QTimerEvent* event);
+    friend void QDrag_SuperTimerEvent(QDrag* self, QTimerEvent* event);
     friend void QDrag_ChildEvent(QDrag* self, QChildEvent* event);
-    friend void QDrag_QBaseChildEvent(QDrag* self, QChildEvent* event);
+    friend void QDrag_SuperChildEvent(QDrag* self, QChildEvent* event);
     friend void QDrag_CustomEvent(QDrag* self, QEvent* event);
-    friend void QDrag_QBaseCustomEvent(QDrag* self, QEvent* event);
+    friend void QDrag_SuperCustomEvent(QDrag* self, QEvent* event);
     friend void QDrag_ConnectNotify(QDrag* self, const QMetaMethod* signal);
-    friend void QDrag_QBaseConnectNotify(QDrag* self, const QMetaMethod* signal);
+    friend void QDrag_SuperConnectNotify(QDrag* self, const QMetaMethod* signal);
     friend void QDrag_DisconnectNotify(QDrag* self, const QMetaMethod* signal);
-    friend void QDrag_QBaseDisconnectNotify(QDrag* self, const QMetaMethod* signal);
+    friend void QDrag_SuperDisconnectNotify(QDrag* self, const QMetaMethod* signal);
     friend QObject* QDrag_Sender(const QDrag* self);
-    friend QObject* QDrag_QBaseSender(const QDrag* self);
+    friend QObject* QDrag_SuperSender(const QDrag* self);
     friend int QDrag_SenderSignalIndex(const QDrag* self);
-    friend int QDrag_QBaseSenderSignalIndex(const QDrag* self);
+    friend int QDrag_SuperSenderSignalIndex(const QDrag* self);
     friend int QDrag_Receivers(const QDrag* self, const char* signal);
-    friend int QDrag_QBaseReceivers(const QDrag* self, const char* signal);
+    friend int QDrag_SuperReceivers(const QDrag* self, const char* signal);
     friend bool QDrag_IsSignalConnected(const QDrag* self, const QMetaMethod* signal);
-    friend bool QDrag_QBaseIsSignalConnected(const QDrag* self, const QMetaMethod* signal);
+    friend bool QDrag_SuperIsSignalConnected(const QDrag* self, const QMetaMethod* signal);
 };
 
 #endif

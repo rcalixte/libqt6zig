@@ -1098,31 +1098,31 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
 
     // Friend functions
     friend bool QsciLexerVerilog_ReadProperties(QsciLexerVerilog* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerVerilog_QBaseReadProperties(QsciLexerVerilog* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerVerilog_SuperReadProperties(QsciLexerVerilog* self, QSettings* qs, const libqt_string prefix);
     friend bool QsciLexerVerilog_WriteProperties(const QsciLexerVerilog* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerVerilog_QBaseWriteProperties(const QsciLexerVerilog* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerVerilog_SuperWriteProperties(const QsciLexerVerilog* self, QSettings* qs, const libqt_string prefix);
     friend void QsciLexerVerilog_TimerEvent(QsciLexerVerilog* self, QTimerEvent* event);
-    friend void QsciLexerVerilog_QBaseTimerEvent(QsciLexerVerilog* self, QTimerEvent* event);
+    friend void QsciLexerVerilog_SuperTimerEvent(QsciLexerVerilog* self, QTimerEvent* event);
     friend void QsciLexerVerilog_ChildEvent(QsciLexerVerilog* self, QChildEvent* event);
-    friend void QsciLexerVerilog_QBaseChildEvent(QsciLexerVerilog* self, QChildEvent* event);
+    friend void QsciLexerVerilog_SuperChildEvent(QsciLexerVerilog* self, QChildEvent* event);
     friend void QsciLexerVerilog_CustomEvent(QsciLexerVerilog* self, QEvent* event);
-    friend void QsciLexerVerilog_QBaseCustomEvent(QsciLexerVerilog* self, QEvent* event);
+    friend void QsciLexerVerilog_SuperCustomEvent(QsciLexerVerilog* self, QEvent* event);
     friend void QsciLexerVerilog_ConnectNotify(QsciLexerVerilog* self, const QMetaMethod* signal);
-    friend void QsciLexerVerilog_QBaseConnectNotify(QsciLexerVerilog* self, const QMetaMethod* signal);
+    friend void QsciLexerVerilog_SuperConnectNotify(QsciLexerVerilog* self, const QMetaMethod* signal);
     friend void QsciLexerVerilog_DisconnectNotify(QsciLexerVerilog* self, const QMetaMethod* signal);
-    friend void QsciLexerVerilog_QBaseDisconnectNotify(QsciLexerVerilog* self, const QMetaMethod* signal);
+    friend void QsciLexerVerilog_SuperDisconnectNotify(QsciLexerVerilog* self, const QMetaMethod* signal);
     friend libqt_string QsciLexerVerilog_TextAsBytes(const QsciLexerVerilog* self, const libqt_string text);
-    friend libqt_string QsciLexerVerilog_QBaseTextAsBytes(const QsciLexerVerilog* self, const libqt_string text);
+    friend libqt_string QsciLexerVerilog_SuperTextAsBytes(const QsciLexerVerilog* self, const libqt_string text);
     friend libqt_string QsciLexerVerilog_BytesAsText(const QsciLexerVerilog* self, const char* bytes, int size);
-    friend libqt_string QsciLexerVerilog_QBaseBytesAsText(const QsciLexerVerilog* self, const char* bytes, int size);
+    friend libqt_string QsciLexerVerilog_SuperBytesAsText(const QsciLexerVerilog* self, const char* bytes, int size);
     friend QObject* QsciLexerVerilog_Sender(const QsciLexerVerilog* self);
-    friend QObject* QsciLexerVerilog_QBaseSender(const QsciLexerVerilog* self);
+    friend QObject* QsciLexerVerilog_SuperSender(const QsciLexerVerilog* self);
     friend int QsciLexerVerilog_SenderSignalIndex(const QsciLexerVerilog* self);
-    friend int QsciLexerVerilog_QBaseSenderSignalIndex(const QsciLexerVerilog* self);
+    friend int QsciLexerVerilog_SuperSenderSignalIndex(const QsciLexerVerilog* self);
     friend int QsciLexerVerilog_Receivers(const QsciLexerVerilog* self, const char* signal);
-    friend int QsciLexerVerilog_QBaseReceivers(const QsciLexerVerilog* self, const char* signal);
+    friend int QsciLexerVerilog_SuperReceivers(const QsciLexerVerilog* self, const char* signal);
     friend bool QsciLexerVerilog_IsSignalConnected(const QsciLexerVerilog* self, const QMetaMethod* signal);
-    friend bool QsciLexerVerilog_QBaseIsSignalConnected(const QsciLexerVerilog* self, const QMetaMethod* signal);
+    friend bool QsciLexerVerilog_SuperIsSignalConnected(const QsciLexerVerilog* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -59,7 +59,7 @@ int QBarSeries_Type(const QBarSeries* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QBarSeries_QBaseMetaObject(const QBarSeries* self) {
+QMetaObject* QBarSeries_SuperMetaObject(const QBarSeries* self) {
     auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
     if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
         vqbarseries->setQBarSeries_MetaObject_IsBase(true);
@@ -78,7 +78,7 @@ void QBarSeries_OnMetaObject(const QBarSeries* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QBarSeries_QBaseMetacast(QBarSeries* self, const char* param1) {
+void* QBarSeries_SuperMetacast(QBarSeries* self, const char* param1) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
     if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
         vqbarseries->setQBarSeries_Metacast_IsBase(true);
@@ -97,7 +97,7 @@ void QBarSeries_OnMetacast(QBarSeries* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QBarSeries_QBaseMetacall(QBarSeries* self, int param1, int param2, void** param3) {
+int QBarSeries_SuperMetacall(QBarSeries* self, int param1, int param2, void** param3) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
     if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
         vqbarseries->setQBarSeries_Metacall_IsBase(true);
@@ -116,7 +116,7 @@ void QBarSeries_OnMetacall(QBarSeries* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QBarSeries_QBaseType(const QBarSeries* self) {
+int QBarSeries_SuperType(const QBarSeries* self) {
     auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
     if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
         vqbarseries->setQBarSeries_Type_IsBase(true);
@@ -145,7 +145,7 @@ bool QBarSeries_Event(QBarSeries* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QBarSeries_QBaseEvent(QBarSeries* self, QEvent* event) {
+bool QBarSeries_SuperEvent(QBarSeries* self, QEvent* event) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
     if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
         vqbarseries->setQBarSeries_Event_IsBase(true);
@@ -174,7 +174,7 @@ bool QBarSeries_EventFilter(QBarSeries* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QBarSeries_QBaseEventFilter(QBarSeries* self, QObject* watched, QEvent* event) {
+bool QBarSeries_SuperEventFilter(QBarSeries* self, QObject* watched, QEvent* event) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
     if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
         vqbarseries->setQBarSeries_EventFilter_IsBase(true);
@@ -203,7 +203,7 @@ void QBarSeries_TimerEvent(QBarSeries* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QBarSeries_QBaseTimerEvent(QBarSeries* self, QTimerEvent* event) {
+void QBarSeries_SuperTimerEvent(QBarSeries* self, QTimerEvent* event) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
     if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
         vqbarseries->setQBarSeries_TimerEvent_IsBase(true);
@@ -232,7 +232,7 @@ void QBarSeries_ChildEvent(QBarSeries* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QBarSeries_QBaseChildEvent(QBarSeries* self, QChildEvent* event) {
+void QBarSeries_SuperChildEvent(QBarSeries* self, QChildEvent* event) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
     if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
         vqbarseries->setQBarSeries_ChildEvent_IsBase(true);
@@ -261,7 +261,7 @@ void QBarSeries_CustomEvent(QBarSeries* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QBarSeries_QBaseCustomEvent(QBarSeries* self, QEvent* event) {
+void QBarSeries_SuperCustomEvent(QBarSeries* self, QEvent* event) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
     if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
         vqbarseries->setQBarSeries_CustomEvent_IsBase(true);
@@ -290,7 +290,7 @@ void QBarSeries_ConnectNotify(QBarSeries* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QBarSeries_QBaseConnectNotify(QBarSeries* self, const QMetaMethod* signal) {
+void QBarSeries_SuperConnectNotify(QBarSeries* self, const QMetaMethod* signal) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
     if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
         vqbarseries->setQBarSeries_ConnectNotify_IsBase(true);
@@ -319,7 +319,7 @@ void QBarSeries_DisconnectNotify(QBarSeries* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QBarSeries_QBaseDisconnectNotify(QBarSeries* self, const QMetaMethod* signal) {
+void QBarSeries_SuperDisconnectNotify(QBarSeries* self, const QMetaMethod* signal) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
     if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
         vqbarseries->setQBarSeries_DisconnectNotify_IsBase(true);
@@ -348,7 +348,7 @@ QObject* QBarSeries_Sender(const QBarSeries* self) {
 }
 
 // Base class handler implementation
-QObject* QBarSeries_QBaseSender(const QBarSeries* self) {
+QObject* QBarSeries_SuperSender(const QBarSeries* self) {
     auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
     if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
         vqbarseries->setQBarSeries_Sender_IsBase(true);
@@ -377,7 +377,7 @@ int QBarSeries_SenderSignalIndex(const QBarSeries* self) {
 }
 
 // Base class handler implementation
-int QBarSeries_QBaseSenderSignalIndex(const QBarSeries* self) {
+int QBarSeries_SuperSenderSignalIndex(const QBarSeries* self) {
     auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
     if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
         vqbarseries->setQBarSeries_SenderSignalIndex_IsBase(true);
@@ -406,7 +406,7 @@ int QBarSeries_Receivers(const QBarSeries* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QBarSeries_QBaseReceivers(const QBarSeries* self, const char* signal) {
+int QBarSeries_SuperReceivers(const QBarSeries* self, const char* signal) {
     auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
     if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
         vqbarseries->setQBarSeries_Receivers_IsBase(true);
@@ -435,7 +435,7 @@ bool QBarSeries_IsSignalConnected(const QBarSeries* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QBarSeries_QBaseIsSignalConnected(const QBarSeries* self, const QMetaMethod* signal) {
+bool QBarSeries_SuperIsSignalConnected(const QBarSeries* self, const QMetaMethod* signal) {
     auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
     if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
         vqbarseries->setQBarSeries_IsSignalConnected_IsBase(true);

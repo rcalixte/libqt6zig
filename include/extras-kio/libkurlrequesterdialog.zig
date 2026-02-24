@@ -75,6 +75,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -83,8 +87,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` self: QtC.KUrlRequesterDialog `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KUrlRequesterDialog_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KUrlRequesterDialog_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -110,6 +114,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -118,9 +126,9 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KUrlRequesterDialog_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KUrlRequesterDialog_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -149,6 +157,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -161,8 +173,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KUrlRequesterDialog_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KUrlRequesterDialog_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -5175,6 +5187,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_SetVisible(@ptrCast(self), visible);
     }
 
+    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    ///
+    pub const QBaseSetVisible = SuperSetVisible;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#setVisible)
@@ -5187,8 +5203,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.KUrlRequesterDialog_QBaseSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
+        qtc.KUrlRequesterDialog_SuperSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QDialog
@@ -5221,6 +5237,10 @@ pub const kurlrequesterdialog = struct {
         return qtc.KUrlRequesterDialog_SizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#sizeHint)
@@ -5231,8 +5251,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` self: QtC.KUrlRequesterDialog `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KUrlRequesterDialog_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.KUrlRequesterDialog_SuperSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QDialog
@@ -5265,6 +5285,10 @@ pub const kurlrequesterdialog = struct {
         return qtc.KUrlRequesterDialog_MinimumSizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    ///
+    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#minimumSizeHint)
@@ -5275,8 +5299,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` self: QtC.KUrlRequesterDialog `
     ///
-    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KUrlRequesterDialog_QBaseMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.KUrlRequesterDialog_SuperMinimumSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QDialog
@@ -5309,6 +5333,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_Open(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperOpen` instead
+    ///
+    pub const QBaseOpen = SuperOpen;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#open)
@@ -5319,8 +5347,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` self: QtC.KUrlRequesterDialog `
     ///
-    pub fn QBaseOpen(self: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseOpen(@ptrCast(self));
+    pub fn SuperOpen(self: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperOpen(@ptrCast(self));
     }
 
     /// Inherited from QDialog
@@ -5353,6 +5381,10 @@ pub const kurlrequesterdialog = struct {
         return qtc.KUrlRequesterDialog_Exec(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperExec` instead
+    ///
+    pub const QBaseExec = SuperExec;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#exec)
@@ -5363,8 +5395,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` self: QtC.KUrlRequesterDialog `
     ///
-    pub fn QBaseExec(self: ?*anyopaque) i32 {
-        return qtc.KUrlRequesterDialog_QBaseExec(@ptrCast(self));
+    pub fn SuperExec(self: ?*anyopaque) i32 {
+        return qtc.KUrlRequesterDialog_SuperExec(@ptrCast(self));
     }
 
     /// Inherited from QDialog
@@ -5399,6 +5431,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_Done(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperDone` instead
+    ///
+    pub const QBaseDone = SuperDone;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#done)
@@ -5411,8 +5447,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseDone(self: ?*anyopaque, param1: i32) void {
-        qtc.KUrlRequesterDialog_QBaseDone(@ptrCast(self), @bitCast(param1));
+    pub fn SuperDone(self: ?*anyopaque, param1: i32) void {
+        qtc.KUrlRequesterDialog_SuperDone(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QDialog
@@ -5445,6 +5481,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_Accept(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperAccept` instead
+    ///
+    pub const QBaseAccept = SuperAccept;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accept)
@@ -5455,8 +5495,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` self: QtC.KUrlRequesterDialog `
     ///
-    pub fn QBaseAccept(self: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseAccept(@ptrCast(self));
+    pub fn SuperAccept(self: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperAccept(@ptrCast(self));
     }
 
     /// Inherited from QDialog
@@ -5489,6 +5529,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_Reject(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperReject` instead
+    ///
+    pub const QBaseReject = SuperReject;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#reject)
@@ -5499,8 +5543,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` self: QtC.KUrlRequesterDialog `
     ///
-    pub fn QBaseReject(self: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseReject(@ptrCast(self));
+    pub fn SuperReject(self: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperReject(@ptrCast(self));
     }
 
     /// Inherited from QDialog
@@ -5535,6 +5579,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#keyPressEvent)
@@ -5547,8 +5595,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` param1: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperKeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QDialog
@@ -5583,6 +5631,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_CloseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#closeEvent)
@@ -5595,8 +5647,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` param1: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseCloseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperCloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperCloseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QDialog
@@ -5631,6 +5683,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_ShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#showEvent)
@@ -5643,8 +5699,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` param1: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseShowEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QDialog
@@ -5679,6 +5735,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_ResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#resizeEvent)
@@ -5691,8 +5751,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` param1: QtC.QResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseResizeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QDialog
@@ -5727,6 +5787,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    ///
+    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#contextMenuEvent)
@@ -5739,8 +5803,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` param1: QtC.QContextMenuEvent `
     ///
-    pub fn QBaseContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QDialog
@@ -5777,6 +5841,10 @@ pub const kurlrequesterdialog = struct {
         return qtc.KUrlRequesterDialog_EventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#eventFilter)
@@ -5791,8 +5859,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` param2: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.KUrlRequesterDialog_QBaseEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn SuperEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
+        return qtc.KUrlRequesterDialog_SuperEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QDialog
@@ -5825,6 +5893,10 @@ pub const kurlrequesterdialog = struct {
         return qtc.KUrlRequesterDialog_DevType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
@@ -5835,8 +5907,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` self: QtC.KUrlRequesterDialog `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.KUrlRequesterDialog_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.KUrlRequesterDialog_SuperDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -5871,6 +5943,10 @@ pub const kurlrequesterdialog = struct {
         return qtc.KUrlRequesterDialog_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
@@ -5883,8 +5959,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KUrlRequesterDialog_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.KUrlRequesterDialog_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5917,6 +5993,10 @@ pub const kurlrequesterdialog = struct {
         return qtc.KUrlRequesterDialog_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
@@ -5927,8 +6007,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` self: QtC.KUrlRequesterDialog `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.KUrlRequesterDialog_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.KUrlRequesterDialog_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -5961,6 +6041,10 @@ pub const kurlrequesterdialog = struct {
         return qtc.KUrlRequesterDialog_PaintEngine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    ///
+    pub const QBasePaintEngine = SuperPaintEngine;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
@@ -5971,8 +6055,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` self: QtC.KUrlRequesterDialog `
     ///
-    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.KUrlRequesterDialog_QBasePaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.KUrlRequesterDialog_SuperPaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -6007,6 +6091,10 @@ pub const kurlrequesterdialog = struct {
         return qtc.KUrlRequesterDialog_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#event)
@@ -6019,8 +6107,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KUrlRequesterDialog_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KUrlRequesterDialog_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6055,6 +6143,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_MousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -6067,8 +6159,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6103,6 +6195,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -6115,8 +6211,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6151,6 +6247,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6163,8 +6263,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6199,6 +6299,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -6211,8 +6315,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6247,6 +6351,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_WheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
@@ -6259,8 +6367,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6295,6 +6403,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -6307,8 +6419,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6343,6 +6455,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_FocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6355,8 +6471,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6391,6 +6507,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_FocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6403,8 +6523,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6439,6 +6559,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    ///
+    pub const QBaseEnterEvent = SuperEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
@@ -6451,8 +6575,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QEnterEvent `
     ///
-    pub fn QBaseEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6487,6 +6611,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    ///
+    pub const QBaseLeaveEvent = SuperLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
@@ -6499,8 +6627,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6535,6 +6663,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_PaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    ///
+    pub const QBasePaintEvent = SuperPaintEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEvent)
@@ -6547,8 +6679,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QPaintEvent `
     ///
-    pub fn QBasePaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBasePaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperPaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperPaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6583,6 +6715,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
@@ -6595,8 +6731,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6631,6 +6767,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    ///
+    pub const QBaseTabletEvent = SuperTabletEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
@@ -6643,8 +6783,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QTabletEvent `
     ///
-    pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6679,6 +6819,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_ActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    ///
+    pub const QBaseActionEvent = SuperActionEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
@@ -6691,8 +6835,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QActionEvent `
     ///
-    pub fn QBaseActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6727,6 +6871,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_DragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    ///
+    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
@@ -6739,8 +6887,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QDragEnterEvent `
     ///
-    pub fn QBaseDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6775,6 +6923,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_DragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    ///
+    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
@@ -6787,8 +6939,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QDragMoveEvent `
     ///
-    pub fn QBaseDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6823,6 +6975,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    ///
+    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
@@ -6835,8 +6991,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QDragLeaveEvent `
     ///
-    pub fn QBaseDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6871,6 +7027,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_DropEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    ///
+    pub const QBaseDropEvent = SuperDropEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
@@ -6883,8 +7043,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QDropEvent `
     ///
-    pub fn QBaseDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6919,6 +7079,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
@@ -6931,8 +7095,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6975,6 +7139,10 @@ pub const kurlrequesterdialog = struct {
         return qtc.KUrlRequesterDialog_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
+    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    ///
+    pub const QBaseNativeEvent = SuperNativeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
@@ -6991,12 +7159,12 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KUrlRequesterDialog_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KUrlRequesterDialog_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -7031,6 +7199,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_ChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    ///
+    pub const QBaseChangeEvent = SuperChangeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#changeEvent)
@@ -7043,8 +7215,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7079,6 +7251,10 @@ pub const kurlrequesterdialog = struct {
         return qtc.KUrlRequesterDialog_Metric(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
@@ -7091,8 +7267,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KUrlRequesterDialog_QBaseMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.KUrlRequesterDialog_SuperMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7127,6 +7303,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
@@ -7139,8 +7319,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
@@ -7175,6 +7355,10 @@ pub const kurlrequesterdialog = struct {
         return qtc.KUrlRequesterDialog_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
@@ -7187,8 +7371,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.KUrlRequesterDialog_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.KUrlRequesterDialog_SuperRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
@@ -7221,6 +7405,10 @@ pub const kurlrequesterdialog = struct {
         return qtc.KUrlRequesterDialog_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
@@ -7231,8 +7419,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` self: QtC.KUrlRequesterDialog `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.KUrlRequesterDialog_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.KUrlRequesterDialog_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7267,6 +7455,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    ///
+    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
@@ -7279,8 +7471,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` param1: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7315,6 +7507,10 @@ pub const kurlrequesterdialog = struct {
         return qtc.KUrlRequesterDialog_InputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    ///
+    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
@@ -7327,8 +7523,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.KUrlRequesterDialog_QBaseInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
+        return qtc.KUrlRequesterDialog_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7363,6 +7559,10 @@ pub const kurlrequesterdialog = struct {
         return qtc.KUrlRequesterDialog_FocusNextPrevChild(@ptrCast(self), next);
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    ///
+    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
@@ -7375,8 +7575,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` next: bool `
     ///
-    pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.KUrlRequesterDialog_QBaseFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
+        return qtc.KUrlRequesterDialog_SuperFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QWidget
@@ -7411,6 +7611,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -7423,8 +7627,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7459,6 +7663,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -7471,8 +7679,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7507,6 +7715,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -7519,8 +7731,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7555,6 +7767,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -7567,8 +7783,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -7603,6 +7819,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -7615,8 +7835,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -7651,6 +7871,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_AdjustPosition(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperAdjustPosition` instead
+    ///
+    pub const QBaseAdjustPosition = SuperAdjustPosition;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
@@ -7663,8 +7887,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` param1: QtC.QWidget `
     ///
-    pub fn QBaseAdjustPosition(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseAdjustPosition(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperAdjustPosition(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperAdjustPosition(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QDialog
@@ -7697,6 +7921,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_UpdateMicroFocus(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    ///
+    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7707,8 +7935,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` self: QtC.KUrlRequesterDialog `
     ///
-    pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7741,6 +7969,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_Create(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCreate` instead
+    ///
+    pub const QBaseCreate = SuperCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -7751,8 +7983,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` self: QtC.KUrlRequesterDialog `
     ///
-    pub fn QBaseCreate(self: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseCreate(@ptrCast(self));
+    pub fn SuperCreate(self: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7785,6 +8017,10 @@ pub const kurlrequesterdialog = struct {
         qtc.KUrlRequesterDialog_Destroy(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDestroy` instead
+    ///
+    pub const QBaseDestroy = SuperDestroy;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
@@ -7795,8 +8031,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` self: QtC.KUrlRequesterDialog `
     ///
-    pub fn QBaseDestroy(self: ?*anyopaque) void {
-        qtc.KUrlRequesterDialog_QBaseDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: ?*anyopaque) void {
+        qtc.KUrlRequesterDialog_SuperDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7829,6 +8065,10 @@ pub const kurlrequesterdialog = struct {
         return qtc.KUrlRequesterDialog_FocusNextChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    ///
+    pub const QBaseFocusNextChild = SuperFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -7839,8 +8079,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` self: QtC.KUrlRequesterDialog `
     ///
-    pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.KUrlRequesterDialog_QBaseFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
+        return qtc.KUrlRequesterDialog_SuperFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7873,6 +8113,10 @@ pub const kurlrequesterdialog = struct {
         return qtc.KUrlRequesterDialog_FocusPreviousChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    ///
+    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
@@ -7883,8 +8127,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` self: QtC.KUrlRequesterDialog `
     ///
-    pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.KUrlRequesterDialog_QBaseFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
+        return qtc.KUrlRequesterDialog_SuperFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7917,6 +8161,10 @@ pub const kurlrequesterdialog = struct {
         return qtc.KUrlRequesterDialog_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -7927,8 +8175,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` self: QtC.KUrlRequesterDialog `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KUrlRequesterDialog_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KUrlRequesterDialog_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -7961,6 +8209,10 @@ pub const kurlrequesterdialog = struct {
         return qtc.KUrlRequesterDialog_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -7971,8 +8223,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` self: QtC.KUrlRequesterDialog `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KUrlRequesterDialog_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KUrlRequesterDialog_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -8008,6 +8260,10 @@ pub const kurlrequesterdialog = struct {
         return qtc.KUrlRequesterDialog_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -8020,9 +8276,9 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KUrlRequesterDialog_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KUrlRequesterDialog_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -8057,6 +8313,10 @@ pub const kurlrequesterdialog = struct {
         return qtc.KUrlRequesterDialog_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -8069,8 +8329,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KUrlRequesterDialog_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KUrlRequesterDialog_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -8107,6 +8367,10 @@ pub const kurlrequesterdialog = struct {
         return qtc.KUrlRequesterDialog_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -8121,8 +8385,8 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KUrlRequesterDialog_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.KUrlRequesterDialog_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -8156,6 +8420,9 @@ pub const kurlrequesterdialog = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kurlrequesterdialog.html#dtor.KUrlRequesterDialog)
     ///
@@ -8165,7 +8432,7 @@ pub const kurlrequesterdialog = struct {
     ///
     /// ` self: QtC.KUrlRequesterDialog `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KUrlRequesterDialog_Delete(@ptrCast(self));
     }
 };

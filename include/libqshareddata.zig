@@ -19,6 +19,10 @@ pub const qshareddata = struct {
         return qtc.QSharedData_new2(@ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qshareddata.html#dtor.QSharedData)
     ///
     /// Delete this object from C++ memory.
@@ -27,7 +31,7 @@ pub const qshareddata = struct {
     ///
     /// ` self: QtC.QSharedData `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSharedData_Delete(@ptrCast(self));
     }
 };
@@ -84,6 +88,10 @@ pub const qadoptshareddatatag = struct {
         qtc.QAdoptSharedDataTag_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qadoptshareddatatag.html#dtor.QAdoptSharedDataTag)
     ///
     /// Delete this object from C++ memory.
@@ -92,7 +100,7 @@ pub const qadoptshareddatatag = struct {
     ///
     /// ` self: QtC.QAdoptSharedDataTag `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAdoptSharedDataTag_Delete(@ptrCast(self));
     }
 };

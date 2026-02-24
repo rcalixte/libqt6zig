@@ -133,6 +133,10 @@ pub const qtemporarydir = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporarydir.html#dtor.QTemporaryDir)
     ///
     /// Delete this object from C++ memory.
@@ -141,7 +145,7 @@ pub const qtemporarydir = struct {
     ///
     /// ` self: QtC.QTemporaryDir `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTemporaryDir_Delete(@ptrCast(self));
     }
 };

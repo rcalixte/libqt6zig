@@ -113,9 +113,9 @@ class VirtualKArchiveEntry final : public KArchiveEntry {
 
     // Friend functions
     friend void KArchiveEntry_VirtualHook(KArchiveEntry* self, int id, void* data);
-    friend void KArchiveEntry_QBaseVirtualHook(KArchiveEntry* self, int id, void* data);
+    friend void KArchiveEntry_SuperVirtualHook(KArchiveEntry* self, int id, void* data);
     friend KArchive* KArchiveEntry_Archive(const KArchiveEntry* self);
-    friend KArchive* KArchiveEntry_QBaseArchive(const KArchiveEntry* self);
+    friend KArchive* KArchiveEntry_SuperArchive(const KArchiveEntry* self);
 };
 
 #endif

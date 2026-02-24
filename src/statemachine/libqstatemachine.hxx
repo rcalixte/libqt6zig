@@ -450,37 +450,37 @@ class VirtualQStateMachine final : public QStateMachine {
 
     // Friend functions
     friend void QStateMachine_OnEntry(QStateMachine* self, QEvent* event);
-    friend void QStateMachine_QBaseOnEntry(QStateMachine* self, QEvent* event);
+    friend void QStateMachine_SuperOnEntry(QStateMachine* self, QEvent* event);
     friend void QStateMachine_OnExit(QStateMachine* self, QEvent* event);
-    friend void QStateMachine_QBaseOnExit(QStateMachine* self, QEvent* event);
+    friend void QStateMachine_SuperOnExit(QStateMachine* self, QEvent* event);
     friend void QStateMachine_BeginSelectTransitions(QStateMachine* self, QEvent* event);
-    friend void QStateMachine_QBaseBeginSelectTransitions(QStateMachine* self, QEvent* event);
+    friend void QStateMachine_SuperBeginSelectTransitions(QStateMachine* self, QEvent* event);
     friend void QStateMachine_EndSelectTransitions(QStateMachine* self, QEvent* event);
-    friend void QStateMachine_QBaseEndSelectTransitions(QStateMachine* self, QEvent* event);
+    friend void QStateMachine_SuperEndSelectTransitions(QStateMachine* self, QEvent* event);
     friend void QStateMachine_BeginMicrostep(QStateMachine* self, QEvent* event);
-    friend void QStateMachine_QBaseBeginMicrostep(QStateMachine* self, QEvent* event);
+    friend void QStateMachine_SuperBeginMicrostep(QStateMachine* self, QEvent* event);
     friend void QStateMachine_EndMicrostep(QStateMachine* self, QEvent* event);
-    friend void QStateMachine_QBaseEndMicrostep(QStateMachine* self, QEvent* event);
+    friend void QStateMachine_SuperEndMicrostep(QStateMachine* self, QEvent* event);
     friend bool QStateMachine_Event(QStateMachine* self, QEvent* e);
-    friend bool QStateMachine_QBaseEvent(QStateMachine* self, QEvent* e);
+    friend bool QStateMachine_SuperEvent(QStateMachine* self, QEvent* e);
     friend void QStateMachine_TimerEvent(QStateMachine* self, QTimerEvent* event);
-    friend void QStateMachine_QBaseTimerEvent(QStateMachine* self, QTimerEvent* event);
+    friend void QStateMachine_SuperTimerEvent(QStateMachine* self, QTimerEvent* event);
     friend void QStateMachine_ChildEvent(QStateMachine* self, QChildEvent* event);
-    friend void QStateMachine_QBaseChildEvent(QStateMachine* self, QChildEvent* event);
+    friend void QStateMachine_SuperChildEvent(QStateMachine* self, QChildEvent* event);
     friend void QStateMachine_CustomEvent(QStateMachine* self, QEvent* event);
-    friend void QStateMachine_QBaseCustomEvent(QStateMachine* self, QEvent* event);
+    friend void QStateMachine_SuperCustomEvent(QStateMachine* self, QEvent* event);
     friend void QStateMachine_ConnectNotify(QStateMachine* self, const QMetaMethod* signal);
-    friend void QStateMachine_QBaseConnectNotify(QStateMachine* self, const QMetaMethod* signal);
+    friend void QStateMachine_SuperConnectNotify(QStateMachine* self, const QMetaMethod* signal);
     friend void QStateMachine_DisconnectNotify(QStateMachine* self, const QMetaMethod* signal);
-    friend void QStateMachine_QBaseDisconnectNotify(QStateMachine* self, const QMetaMethod* signal);
+    friend void QStateMachine_SuperDisconnectNotify(QStateMachine* self, const QMetaMethod* signal);
     friend QObject* QStateMachine_Sender(const QStateMachine* self);
-    friend QObject* QStateMachine_QBaseSender(const QStateMachine* self);
+    friend QObject* QStateMachine_SuperSender(const QStateMachine* self);
     friend int QStateMachine_SenderSignalIndex(const QStateMachine* self);
-    friend int QStateMachine_QBaseSenderSignalIndex(const QStateMachine* self);
+    friend int QStateMachine_SuperSenderSignalIndex(const QStateMachine* self);
     friend int QStateMachine_Receivers(const QStateMachine* self, const char* signal);
-    friend int QStateMachine_QBaseReceivers(const QStateMachine* self, const char* signal);
+    friend int QStateMachine_SuperReceivers(const QStateMachine* self, const char* signal);
     friend bool QStateMachine_IsSignalConnected(const QStateMachine* self, const QMetaMethod* signal);
-    friend bool QStateMachine_QBaseIsSignalConnected(const QStateMachine* self, const QMetaMethod* signal);
+    friend bool QStateMachine_SuperIsSignalConnected(const QStateMachine* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QStateMachine::SignalEvent so that we can call protected methods

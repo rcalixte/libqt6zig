@@ -190,7 +190,7 @@ bool QDesignerPropertySheetExtension_IsEnabled(const QDesignerPropertySheetExten
 }
 
 // Base class handler implementation
-int QDesignerPropertySheetExtension_QBaseCount(const QDesignerPropertySheetExtension* self) {
+int QDesignerPropertySheetExtension_SuperCount(const QDesignerPropertySheetExtension* self) {
     auto* vqdesignerpropertysheetextension = const_cast<VirtualQDesignerPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self));
     if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_Count_IsBase(true);
@@ -209,7 +209,7 @@ void QDesignerPropertySheetExtension_OnCount(const QDesignerPropertySheetExtensi
 }
 
 // Base class handler implementation
-int QDesignerPropertySheetExtension_QBaseIndexOf(const QDesignerPropertySheetExtension* self, const libqt_string name) {
+int QDesignerPropertySheetExtension_SuperIndexOf(const QDesignerPropertySheetExtension* self, const libqt_string name) {
     auto* vqdesignerpropertysheetextension = const_cast<VirtualQDesignerPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self));
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
@@ -229,7 +229,7 @@ void QDesignerPropertySheetExtension_OnIndexOf(const QDesignerPropertySheetExten
 }
 
 // Base class handler implementation
-libqt_string QDesignerPropertySheetExtension_QBasePropertyName(const QDesignerPropertySheetExtension* self, int index) {
+libqt_string QDesignerPropertySheetExtension_SuperPropertyName(const QDesignerPropertySheetExtension* self, int index) {
     auto* vqdesignerpropertysheetextension = const_cast<VirtualQDesignerPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self));
     if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_PropertyName_IsBase(true);
@@ -264,7 +264,7 @@ void QDesignerPropertySheetExtension_OnPropertyName(const QDesignerPropertySheet
 }
 
 // Base class handler implementation
-libqt_string QDesignerPropertySheetExtension_QBasePropertyGroup(const QDesignerPropertySheetExtension* self, int index) {
+libqt_string QDesignerPropertySheetExtension_SuperPropertyGroup(const QDesignerPropertySheetExtension* self, int index) {
     auto* vqdesignerpropertysheetextension = const_cast<VirtualQDesignerPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self));
     if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_PropertyGroup_IsBase(true);
@@ -299,7 +299,7 @@ void QDesignerPropertySheetExtension_OnPropertyGroup(const QDesignerPropertyShee
 }
 
 // Base class handler implementation
-void QDesignerPropertySheetExtension_QBaseSetPropertyGroup(QDesignerPropertySheetExtension* self, int index, const libqt_string group) {
+void QDesignerPropertySheetExtension_SuperSetPropertyGroup(QDesignerPropertySheetExtension* self, int index, const libqt_string group) {
     auto* vqdesignerpropertysheetextension = dynamic_cast<VirtualQDesignerPropertySheetExtension*>(self);
     QString group_QString = QString::fromUtf8(group.data, group.len);
     if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
@@ -319,7 +319,7 @@ void QDesignerPropertySheetExtension_OnSetPropertyGroup(QDesignerPropertySheetEx
 }
 
 // Base class handler implementation
-bool QDesignerPropertySheetExtension_QBaseHasReset(const QDesignerPropertySheetExtension* self, int index) {
+bool QDesignerPropertySheetExtension_SuperHasReset(const QDesignerPropertySheetExtension* self, int index) {
     auto* vqdesignerpropertysheetextension = const_cast<VirtualQDesignerPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self));
     if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_HasReset_IsBase(true);
@@ -338,7 +338,7 @@ void QDesignerPropertySheetExtension_OnHasReset(const QDesignerPropertySheetExte
 }
 
 // Base class handler implementation
-bool QDesignerPropertySheetExtension_QBaseReset(QDesignerPropertySheetExtension* self, int index) {
+bool QDesignerPropertySheetExtension_SuperReset(QDesignerPropertySheetExtension* self, int index) {
     auto* vqdesignerpropertysheetextension = dynamic_cast<VirtualQDesignerPropertySheetExtension*>(self);
     if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_Reset_IsBase(true);
@@ -357,7 +357,7 @@ void QDesignerPropertySheetExtension_OnReset(QDesignerPropertySheetExtension* se
 }
 
 // Base class handler implementation
-bool QDesignerPropertySheetExtension_QBaseIsVisible(const QDesignerPropertySheetExtension* self, int index) {
+bool QDesignerPropertySheetExtension_SuperIsVisible(const QDesignerPropertySheetExtension* self, int index) {
     auto* vqdesignerpropertysheetextension = const_cast<VirtualQDesignerPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self));
     if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_IsVisible_IsBase(true);
@@ -376,7 +376,7 @@ void QDesignerPropertySheetExtension_OnIsVisible(const QDesignerPropertySheetExt
 }
 
 // Base class handler implementation
-void QDesignerPropertySheetExtension_QBaseSetVisible(QDesignerPropertySheetExtension* self, int index, bool b) {
+void QDesignerPropertySheetExtension_SuperSetVisible(QDesignerPropertySheetExtension* self, int index, bool b) {
     auto* vqdesignerpropertysheetextension = dynamic_cast<VirtualQDesignerPropertySheetExtension*>(self);
     if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_SetVisible_IsBase(true);
@@ -395,7 +395,7 @@ void QDesignerPropertySheetExtension_OnSetVisible(QDesignerPropertySheetExtensio
 }
 
 // Base class handler implementation
-bool QDesignerPropertySheetExtension_QBaseIsAttribute(const QDesignerPropertySheetExtension* self, int index) {
+bool QDesignerPropertySheetExtension_SuperIsAttribute(const QDesignerPropertySheetExtension* self, int index) {
     auto* vqdesignerpropertysheetextension = const_cast<VirtualQDesignerPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self));
     if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_IsAttribute_IsBase(true);
@@ -414,7 +414,7 @@ void QDesignerPropertySheetExtension_OnIsAttribute(const QDesignerPropertySheetE
 }
 
 // Base class handler implementation
-void QDesignerPropertySheetExtension_QBaseSetAttribute(QDesignerPropertySheetExtension* self, int index, bool b) {
+void QDesignerPropertySheetExtension_SuperSetAttribute(QDesignerPropertySheetExtension* self, int index, bool b) {
     auto* vqdesignerpropertysheetextension = dynamic_cast<VirtualQDesignerPropertySheetExtension*>(self);
     if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_SetAttribute_IsBase(true);
@@ -433,7 +433,7 @@ void QDesignerPropertySheetExtension_OnSetAttribute(QDesignerPropertySheetExtens
 }
 
 // Base class handler implementation
-QVariant* QDesignerPropertySheetExtension_QBaseProperty(const QDesignerPropertySheetExtension* self, int index) {
+QVariant* QDesignerPropertySheetExtension_SuperProperty(const QDesignerPropertySheetExtension* self, int index) {
     auto* vqdesignerpropertysheetextension = const_cast<VirtualQDesignerPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self));
     if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_Property_IsBase(true);
@@ -452,7 +452,7 @@ void QDesignerPropertySheetExtension_OnProperty(const QDesignerPropertySheetExte
 }
 
 // Base class handler implementation
-void QDesignerPropertySheetExtension_QBaseSetProperty(QDesignerPropertySheetExtension* self, int index, const QVariant* value) {
+void QDesignerPropertySheetExtension_SuperSetProperty(QDesignerPropertySheetExtension* self, int index, const QVariant* value) {
     auto* vqdesignerpropertysheetextension = dynamic_cast<VirtualQDesignerPropertySheetExtension*>(self);
     if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_SetProperty_IsBase(true);
@@ -471,7 +471,7 @@ void QDesignerPropertySheetExtension_OnSetProperty(QDesignerPropertySheetExtensi
 }
 
 // Base class handler implementation
-bool QDesignerPropertySheetExtension_QBaseIsChanged(const QDesignerPropertySheetExtension* self, int index) {
+bool QDesignerPropertySheetExtension_SuperIsChanged(const QDesignerPropertySheetExtension* self, int index) {
     auto* vqdesignerpropertysheetextension = const_cast<VirtualQDesignerPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self));
     if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_IsChanged_IsBase(true);
@@ -490,7 +490,7 @@ void QDesignerPropertySheetExtension_OnIsChanged(const QDesignerPropertySheetExt
 }
 
 // Base class handler implementation
-void QDesignerPropertySheetExtension_QBaseSetChanged(QDesignerPropertySheetExtension* self, int index, bool changed) {
+void QDesignerPropertySheetExtension_SuperSetChanged(QDesignerPropertySheetExtension* self, int index, bool changed) {
     auto* vqdesignerpropertysheetextension = dynamic_cast<VirtualQDesignerPropertySheetExtension*>(self);
     if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_SetChanged_IsBase(true);
@@ -509,7 +509,7 @@ void QDesignerPropertySheetExtension_OnSetChanged(QDesignerPropertySheetExtensio
 }
 
 // Base class handler implementation
-bool QDesignerPropertySheetExtension_QBaseIsEnabled(const QDesignerPropertySheetExtension* self, int index) {
+bool QDesignerPropertySheetExtension_SuperIsEnabled(const QDesignerPropertySheetExtension* self, int index) {
     auto* vqdesignerpropertysheetextension = const_cast<VirtualQDesignerPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self));
     if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_IsEnabled_IsBase(true);

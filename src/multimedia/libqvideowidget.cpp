@@ -161,7 +161,7 @@ void QVideoWidget_MoveEvent(QVideoWidget* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-QMetaObject* QVideoWidget_QBaseMetaObject(const QVideoWidget* self) {
+QMetaObject* QVideoWidget_SuperMetaObject(const QVideoWidget* self) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_MetaObject_IsBase(true);
@@ -180,7 +180,7 @@ void QVideoWidget_OnMetaObject(const QVideoWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QVideoWidget_QBaseMetacast(QVideoWidget* self, const char* param1) {
+void* QVideoWidget_SuperMetacast(QVideoWidget* self, const char* param1) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_Metacast_IsBase(true);
@@ -199,7 +199,7 @@ void QVideoWidget_OnMetacast(QVideoWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QVideoWidget_QBaseMetacall(QVideoWidget* self, int param1, int param2, void** param3) {
+int QVideoWidget_SuperMetacall(QVideoWidget* self, int param1, int param2, void** param3) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_Metacall_IsBase(true);
@@ -218,7 +218,7 @@ void QVideoWidget_OnMetacall(QVideoWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QVideoWidget_QBaseSizeHint(const QVideoWidget* self) {
+QSize* QVideoWidget_SuperSizeHint(const QVideoWidget* self) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_SizeHint_IsBase(true);
@@ -237,7 +237,7 @@ void QVideoWidget_OnSizeHint(const QVideoWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QVideoWidget_QBaseEvent(QVideoWidget* self, QEvent* event) {
+bool QVideoWidget_SuperEvent(QVideoWidget* self, QEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_Event_IsBase(true);
@@ -256,7 +256,7 @@ void QVideoWidget_OnEvent(QVideoWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseShowEvent(QVideoWidget* self, QShowEvent* event) {
+void QVideoWidget_SuperShowEvent(QVideoWidget* self, QShowEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_ShowEvent_IsBase(true);
@@ -275,7 +275,7 @@ void QVideoWidget_OnShowEvent(QVideoWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseHideEvent(QVideoWidget* self, QHideEvent* event) {
+void QVideoWidget_SuperHideEvent(QVideoWidget* self, QHideEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_HideEvent_IsBase(true);
@@ -294,7 +294,7 @@ void QVideoWidget_OnHideEvent(QVideoWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseResizeEvent(QVideoWidget* self, QResizeEvent* event) {
+void QVideoWidget_SuperResizeEvent(QVideoWidget* self, QResizeEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_ResizeEvent_IsBase(true);
@@ -313,7 +313,7 @@ void QVideoWidget_OnResizeEvent(QVideoWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseMoveEvent(QVideoWidget* self, QMoveEvent* event) {
+void QVideoWidget_SuperMoveEvent(QVideoWidget* self, QMoveEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_MoveEvent_IsBase(true);
@@ -342,7 +342,7 @@ int QVideoWidget_DevType(const QVideoWidget* self) {
 }
 
 // Base class handler implementation
-int QVideoWidget_QBaseDevType(const QVideoWidget* self) {
+int QVideoWidget_SuperDevType(const QVideoWidget* self) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_DevType_IsBase(true);
@@ -371,7 +371,7 @@ void QVideoWidget_SetVisible(QVideoWidget* self, bool visible) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseSetVisible(QVideoWidget* self, bool visible) {
+void QVideoWidget_SuperSetVisible(QVideoWidget* self, bool visible) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_SetVisible_IsBase(true);
@@ -400,7 +400,7 @@ QSize* QVideoWidget_MinimumSizeHint(const QVideoWidget* self) {
 }
 
 // Base class handler implementation
-QSize* QVideoWidget_QBaseMinimumSizeHint(const QVideoWidget* self) {
+QSize* QVideoWidget_SuperMinimumSizeHint(const QVideoWidget* self) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_MinimumSizeHint_IsBase(true);
@@ -429,7 +429,7 @@ int QVideoWidget_HeightForWidth(const QVideoWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int QVideoWidget_QBaseHeightForWidth(const QVideoWidget* self, int param1) {
+int QVideoWidget_SuperHeightForWidth(const QVideoWidget* self, int param1) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_HeightForWidth_IsBase(true);
@@ -458,7 +458,7 @@ bool QVideoWidget_HasHeightForWidth(const QVideoWidget* self) {
 }
 
 // Base class handler implementation
-bool QVideoWidget_QBaseHasHeightForWidth(const QVideoWidget* self) {
+bool QVideoWidget_SuperHasHeightForWidth(const QVideoWidget* self) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_HasHeightForWidth_IsBase(true);
@@ -487,7 +487,7 @@ QPaintEngine* QVideoWidget_PaintEngine(const QVideoWidget* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QVideoWidget_QBasePaintEngine(const QVideoWidget* self) {
+QPaintEngine* QVideoWidget_SuperPaintEngine(const QVideoWidget* self) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_PaintEngine_IsBase(true);
@@ -516,7 +516,7 @@ void QVideoWidget_MousePressEvent(QVideoWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseMousePressEvent(QVideoWidget* self, QMouseEvent* event) {
+void QVideoWidget_SuperMousePressEvent(QVideoWidget* self, QMouseEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_MousePressEvent_IsBase(true);
@@ -545,7 +545,7 @@ void QVideoWidget_MouseReleaseEvent(QVideoWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseMouseReleaseEvent(QVideoWidget* self, QMouseEvent* event) {
+void QVideoWidget_SuperMouseReleaseEvent(QVideoWidget* self, QMouseEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_MouseReleaseEvent_IsBase(true);
@@ -574,7 +574,7 @@ void QVideoWidget_MouseDoubleClickEvent(QVideoWidget* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseMouseDoubleClickEvent(QVideoWidget* self, QMouseEvent* event) {
+void QVideoWidget_SuperMouseDoubleClickEvent(QVideoWidget* self, QMouseEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_MouseDoubleClickEvent_IsBase(true);
@@ -603,7 +603,7 @@ void QVideoWidget_MouseMoveEvent(QVideoWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseMouseMoveEvent(QVideoWidget* self, QMouseEvent* event) {
+void QVideoWidget_SuperMouseMoveEvent(QVideoWidget* self, QMouseEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_MouseMoveEvent_IsBase(true);
@@ -632,7 +632,7 @@ void QVideoWidget_WheelEvent(QVideoWidget* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseWheelEvent(QVideoWidget* self, QWheelEvent* event) {
+void QVideoWidget_SuperWheelEvent(QVideoWidget* self, QWheelEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_WheelEvent_IsBase(true);
@@ -661,7 +661,7 @@ void QVideoWidget_KeyPressEvent(QVideoWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseKeyPressEvent(QVideoWidget* self, QKeyEvent* event) {
+void QVideoWidget_SuperKeyPressEvent(QVideoWidget* self, QKeyEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_KeyPressEvent_IsBase(true);
@@ -690,7 +690,7 @@ void QVideoWidget_KeyReleaseEvent(QVideoWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseKeyReleaseEvent(QVideoWidget* self, QKeyEvent* event) {
+void QVideoWidget_SuperKeyReleaseEvent(QVideoWidget* self, QKeyEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_KeyReleaseEvent_IsBase(true);
@@ -719,7 +719,7 @@ void QVideoWidget_FocusInEvent(QVideoWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseFocusInEvent(QVideoWidget* self, QFocusEvent* event) {
+void QVideoWidget_SuperFocusInEvent(QVideoWidget* self, QFocusEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_FocusInEvent_IsBase(true);
@@ -748,7 +748,7 @@ void QVideoWidget_FocusOutEvent(QVideoWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseFocusOutEvent(QVideoWidget* self, QFocusEvent* event) {
+void QVideoWidget_SuperFocusOutEvent(QVideoWidget* self, QFocusEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_FocusOutEvent_IsBase(true);
@@ -777,7 +777,7 @@ void QVideoWidget_EnterEvent(QVideoWidget* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseEnterEvent(QVideoWidget* self, QEnterEvent* event) {
+void QVideoWidget_SuperEnterEvent(QVideoWidget* self, QEnterEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_EnterEvent_IsBase(true);
@@ -806,7 +806,7 @@ void QVideoWidget_LeaveEvent(QVideoWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseLeaveEvent(QVideoWidget* self, QEvent* event) {
+void QVideoWidget_SuperLeaveEvent(QVideoWidget* self, QEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_LeaveEvent_IsBase(true);
@@ -835,7 +835,7 @@ void QVideoWidget_PaintEvent(QVideoWidget* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBasePaintEvent(QVideoWidget* self, QPaintEvent* event) {
+void QVideoWidget_SuperPaintEvent(QVideoWidget* self, QPaintEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_PaintEvent_IsBase(true);
@@ -864,7 +864,7 @@ void QVideoWidget_CloseEvent(QVideoWidget* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseCloseEvent(QVideoWidget* self, QCloseEvent* event) {
+void QVideoWidget_SuperCloseEvent(QVideoWidget* self, QCloseEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_CloseEvent_IsBase(true);
@@ -893,7 +893,7 @@ void QVideoWidget_ContextMenuEvent(QVideoWidget* self, QContextMenuEvent* event)
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseContextMenuEvent(QVideoWidget* self, QContextMenuEvent* event) {
+void QVideoWidget_SuperContextMenuEvent(QVideoWidget* self, QContextMenuEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_ContextMenuEvent_IsBase(true);
@@ -922,7 +922,7 @@ void QVideoWidget_TabletEvent(QVideoWidget* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseTabletEvent(QVideoWidget* self, QTabletEvent* event) {
+void QVideoWidget_SuperTabletEvent(QVideoWidget* self, QTabletEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_TabletEvent_IsBase(true);
@@ -951,7 +951,7 @@ void QVideoWidget_ActionEvent(QVideoWidget* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseActionEvent(QVideoWidget* self, QActionEvent* event) {
+void QVideoWidget_SuperActionEvent(QVideoWidget* self, QActionEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_ActionEvent_IsBase(true);
@@ -980,7 +980,7 @@ void QVideoWidget_DragEnterEvent(QVideoWidget* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseDragEnterEvent(QVideoWidget* self, QDragEnterEvent* event) {
+void QVideoWidget_SuperDragEnterEvent(QVideoWidget* self, QDragEnterEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_DragEnterEvent_IsBase(true);
@@ -1009,7 +1009,7 @@ void QVideoWidget_DragMoveEvent(QVideoWidget* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseDragMoveEvent(QVideoWidget* self, QDragMoveEvent* event) {
+void QVideoWidget_SuperDragMoveEvent(QVideoWidget* self, QDragMoveEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_DragMoveEvent_IsBase(true);
@@ -1038,7 +1038,7 @@ void QVideoWidget_DragLeaveEvent(QVideoWidget* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseDragLeaveEvent(QVideoWidget* self, QDragLeaveEvent* event) {
+void QVideoWidget_SuperDragLeaveEvent(QVideoWidget* self, QDragLeaveEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_DragLeaveEvent_IsBase(true);
@@ -1067,7 +1067,7 @@ void QVideoWidget_DropEvent(QVideoWidget* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseDropEvent(QVideoWidget* self, QDropEvent* event) {
+void QVideoWidget_SuperDropEvent(QVideoWidget* self, QDropEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_DropEvent_IsBase(true);
@@ -1097,7 +1097,7 @@ bool QVideoWidget_NativeEvent(QVideoWidget* self, const libqt_string eventType, 
 }
 
 // Base class handler implementation
-bool QVideoWidget_QBaseNativeEvent(QVideoWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QVideoWidget_SuperNativeEvent(QVideoWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
@@ -1127,7 +1127,7 @@ void QVideoWidget_ChangeEvent(QVideoWidget* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseChangeEvent(QVideoWidget* self, QEvent* param1) {
+void QVideoWidget_SuperChangeEvent(QVideoWidget* self, QEvent* param1) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_ChangeEvent_IsBase(true);
@@ -1156,7 +1156,7 @@ int QVideoWidget_Metric(const QVideoWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int QVideoWidget_QBaseMetric(const QVideoWidget* self, int param1) {
+int QVideoWidget_SuperMetric(const QVideoWidget* self, int param1) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_Metric_IsBase(true);
@@ -1185,7 +1185,7 @@ void QVideoWidget_InitPainter(const QVideoWidget* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseInitPainter(const QVideoWidget* self, QPainter* painter) {
+void QVideoWidget_SuperInitPainter(const QVideoWidget* self, QPainter* painter) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_InitPainter_IsBase(true);
@@ -1214,7 +1214,7 @@ QPaintDevice* QVideoWidget_Redirected(const QVideoWidget* self, QPoint* offset) 
 }
 
 // Base class handler implementation
-QPaintDevice* QVideoWidget_QBaseRedirected(const QVideoWidget* self, QPoint* offset) {
+QPaintDevice* QVideoWidget_SuperRedirected(const QVideoWidget* self, QPoint* offset) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_Redirected_IsBase(true);
@@ -1243,7 +1243,7 @@ QPainter* QVideoWidget_SharedPainter(const QVideoWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* QVideoWidget_QBaseSharedPainter(const QVideoWidget* self) {
+QPainter* QVideoWidget_SuperSharedPainter(const QVideoWidget* self) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_SharedPainter_IsBase(true);
@@ -1272,7 +1272,7 @@ void QVideoWidget_InputMethodEvent(QVideoWidget* self, QInputMethodEvent* param1
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseInputMethodEvent(QVideoWidget* self, QInputMethodEvent* param1) {
+void QVideoWidget_SuperInputMethodEvent(QVideoWidget* self, QInputMethodEvent* param1) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_InputMethodEvent_IsBase(true);
@@ -1301,7 +1301,7 @@ QVariant* QVideoWidget_InputMethodQuery(const QVideoWidget* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QVideoWidget_QBaseInputMethodQuery(const QVideoWidget* self, int param1) {
+QVariant* QVideoWidget_SuperInputMethodQuery(const QVideoWidget* self, int param1) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_InputMethodQuery_IsBase(true);
@@ -1330,7 +1330,7 @@ bool QVideoWidget_FocusNextPrevChild(QVideoWidget* self, bool next) {
 }
 
 // Base class handler implementation
-bool QVideoWidget_QBaseFocusNextPrevChild(QVideoWidget* self, bool next) {
+bool QVideoWidget_SuperFocusNextPrevChild(QVideoWidget* self, bool next) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_FocusNextPrevChild_IsBase(true);
@@ -1359,7 +1359,7 @@ bool QVideoWidget_EventFilter(QVideoWidget* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool QVideoWidget_QBaseEventFilter(QVideoWidget* self, QObject* watched, QEvent* event) {
+bool QVideoWidget_SuperEventFilter(QVideoWidget* self, QObject* watched, QEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_EventFilter_IsBase(true);
@@ -1388,7 +1388,7 @@ void QVideoWidget_TimerEvent(QVideoWidget* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseTimerEvent(QVideoWidget* self, QTimerEvent* event) {
+void QVideoWidget_SuperTimerEvent(QVideoWidget* self, QTimerEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_TimerEvent_IsBase(true);
@@ -1417,7 +1417,7 @@ void QVideoWidget_ChildEvent(QVideoWidget* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseChildEvent(QVideoWidget* self, QChildEvent* event) {
+void QVideoWidget_SuperChildEvent(QVideoWidget* self, QChildEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_ChildEvent_IsBase(true);
@@ -1446,7 +1446,7 @@ void QVideoWidget_CustomEvent(QVideoWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseCustomEvent(QVideoWidget* self, QEvent* event) {
+void QVideoWidget_SuperCustomEvent(QVideoWidget* self, QEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_CustomEvent_IsBase(true);
@@ -1475,7 +1475,7 @@ void QVideoWidget_ConnectNotify(QVideoWidget* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseConnectNotify(QVideoWidget* self, const QMetaMethod* signal) {
+void QVideoWidget_SuperConnectNotify(QVideoWidget* self, const QMetaMethod* signal) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_ConnectNotify_IsBase(true);
@@ -1504,7 +1504,7 @@ void QVideoWidget_DisconnectNotify(QVideoWidget* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseDisconnectNotify(QVideoWidget* self, const QMetaMethod* signal) {
+void QVideoWidget_SuperDisconnectNotify(QVideoWidget* self, const QMetaMethod* signal) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_DisconnectNotify_IsBase(true);
@@ -1533,7 +1533,7 @@ void QVideoWidget_UpdateMicroFocus(QVideoWidget* self) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseUpdateMicroFocus(QVideoWidget* self) {
+void QVideoWidget_SuperUpdateMicroFocus(QVideoWidget* self) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_UpdateMicroFocus_IsBase(true);
@@ -1562,7 +1562,7 @@ void QVideoWidget_Create(QVideoWidget* self) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseCreate(QVideoWidget* self) {
+void QVideoWidget_SuperCreate(QVideoWidget* self) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_Create_IsBase(true);
@@ -1591,7 +1591,7 @@ void QVideoWidget_Destroy(QVideoWidget* self) {
 }
 
 // Base class handler implementation
-void QVideoWidget_QBaseDestroy(QVideoWidget* self) {
+void QVideoWidget_SuperDestroy(QVideoWidget* self) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_Destroy_IsBase(true);
@@ -1620,7 +1620,7 @@ bool QVideoWidget_FocusNextChild(QVideoWidget* self) {
 }
 
 // Base class handler implementation
-bool QVideoWidget_QBaseFocusNextChild(QVideoWidget* self) {
+bool QVideoWidget_SuperFocusNextChild(QVideoWidget* self) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_FocusNextChild_IsBase(true);
@@ -1649,7 +1649,7 @@ bool QVideoWidget_FocusPreviousChild(QVideoWidget* self) {
 }
 
 // Base class handler implementation
-bool QVideoWidget_QBaseFocusPreviousChild(QVideoWidget* self) {
+bool QVideoWidget_SuperFocusPreviousChild(QVideoWidget* self) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_FocusPreviousChild_IsBase(true);
@@ -1678,7 +1678,7 @@ QObject* QVideoWidget_Sender(const QVideoWidget* self) {
 }
 
 // Base class handler implementation
-QObject* QVideoWidget_QBaseSender(const QVideoWidget* self) {
+QObject* QVideoWidget_SuperSender(const QVideoWidget* self) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_Sender_IsBase(true);
@@ -1707,7 +1707,7 @@ int QVideoWidget_SenderSignalIndex(const QVideoWidget* self) {
 }
 
 // Base class handler implementation
-int QVideoWidget_QBaseSenderSignalIndex(const QVideoWidget* self) {
+int QVideoWidget_SuperSenderSignalIndex(const QVideoWidget* self) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_SenderSignalIndex_IsBase(true);
@@ -1736,7 +1736,7 @@ int QVideoWidget_Receivers(const QVideoWidget* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QVideoWidget_QBaseReceivers(const QVideoWidget* self, const char* signal) {
+int QVideoWidget_SuperReceivers(const QVideoWidget* self, const char* signal) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_Receivers_IsBase(true);
@@ -1765,7 +1765,7 @@ bool QVideoWidget_IsSignalConnected(const QVideoWidget* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QVideoWidget_QBaseIsSignalConnected(const QVideoWidget* self, const QMetaMethod* signal) {
+bool QVideoWidget_SuperIsSignalConnected(const QVideoWidget* self, const QMetaMethod* signal) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_IsSignalConnected_IsBase(true);
@@ -1794,7 +1794,7 @@ double QVideoWidget_GetDecodedMetricF(const QVideoWidget* self, int metricA, int
 }
 
 // Base class handler implementation
-double QVideoWidget_QBaseGetDecodedMetricF(const QVideoWidget* self, int metricA, int metricB) {
+double QVideoWidget_SuperGetDecodedMetricF(const QVideoWidget* self, int metricA, int metricB) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->setQVideoWidget_GetDecodedMetricF_IsBase(true);

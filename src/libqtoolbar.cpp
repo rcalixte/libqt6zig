@@ -318,7 +318,7 @@ void QToolBar_InitStyleOption(const QToolBar* self, QStyleOptionToolBar* option)
 }
 
 // Base class handler implementation
-QMetaObject* QToolBar_QBaseMetaObject(const QToolBar* self) {
+QMetaObject* QToolBar_SuperMetaObject(const QToolBar* self) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_MetaObject_IsBase(true);
@@ -337,7 +337,7 @@ void QToolBar_OnMetaObject(const QToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QToolBar_QBaseMetacast(QToolBar* self, const char* param1) {
+void* QToolBar_SuperMetacast(QToolBar* self, const char* param1) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_Metacast_IsBase(true);
@@ -356,7 +356,7 @@ void QToolBar_OnMetacast(QToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QToolBar_QBaseMetacall(QToolBar* self, int param1, int param2, void** param3) {
+int QToolBar_SuperMetacall(QToolBar* self, int param1, int param2, void** param3) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_Metacall_IsBase(true);
@@ -375,7 +375,7 @@ void QToolBar_OnMetacall(QToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseActionEvent(QToolBar* self, QActionEvent* event) {
+void QToolBar_SuperActionEvent(QToolBar* self, QActionEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_ActionEvent_IsBase(true);
@@ -394,7 +394,7 @@ void QToolBar_OnActionEvent(QToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseChangeEvent(QToolBar* self, QEvent* event) {
+void QToolBar_SuperChangeEvent(QToolBar* self, QEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_ChangeEvent_IsBase(true);
@@ -413,7 +413,7 @@ void QToolBar_OnChangeEvent(QToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QToolBar_QBasePaintEvent(QToolBar* self, QPaintEvent* event) {
+void QToolBar_SuperPaintEvent(QToolBar* self, QPaintEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_PaintEvent_IsBase(true);
@@ -432,7 +432,7 @@ void QToolBar_OnPaintEvent(QToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QToolBar_QBaseEvent(QToolBar* self, QEvent* event) {
+bool QToolBar_SuperEvent(QToolBar* self, QEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_Event_IsBase(true);
@@ -451,7 +451,7 @@ void QToolBar_OnEvent(QToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseInitStyleOption(const QToolBar* self, QStyleOptionToolBar* option) {
+void QToolBar_SuperInitStyleOption(const QToolBar* self, QStyleOptionToolBar* option) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_InitStyleOption_IsBase(true);
@@ -480,7 +480,7 @@ int QToolBar_DevType(const QToolBar* self) {
 }
 
 // Base class handler implementation
-int QToolBar_QBaseDevType(const QToolBar* self) {
+int QToolBar_SuperDevType(const QToolBar* self) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_DevType_IsBase(true);
@@ -509,7 +509,7 @@ void QToolBar_SetVisible(QToolBar* self, bool visible) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseSetVisible(QToolBar* self, bool visible) {
+void QToolBar_SuperSetVisible(QToolBar* self, bool visible) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_SetVisible_IsBase(true);
@@ -538,7 +538,7 @@ QSize* QToolBar_SizeHint(const QToolBar* self) {
 }
 
 // Base class handler implementation
-QSize* QToolBar_QBaseSizeHint(const QToolBar* self) {
+QSize* QToolBar_SuperSizeHint(const QToolBar* self) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_SizeHint_IsBase(true);
@@ -567,7 +567,7 @@ QSize* QToolBar_MinimumSizeHint(const QToolBar* self) {
 }
 
 // Base class handler implementation
-QSize* QToolBar_QBaseMinimumSizeHint(const QToolBar* self) {
+QSize* QToolBar_SuperMinimumSizeHint(const QToolBar* self) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_MinimumSizeHint_IsBase(true);
@@ -596,7 +596,7 @@ int QToolBar_HeightForWidth(const QToolBar* self, int param1) {
 }
 
 // Base class handler implementation
-int QToolBar_QBaseHeightForWidth(const QToolBar* self, int param1) {
+int QToolBar_SuperHeightForWidth(const QToolBar* self, int param1) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_HeightForWidth_IsBase(true);
@@ -625,7 +625,7 @@ bool QToolBar_HasHeightForWidth(const QToolBar* self) {
 }
 
 // Base class handler implementation
-bool QToolBar_QBaseHasHeightForWidth(const QToolBar* self) {
+bool QToolBar_SuperHasHeightForWidth(const QToolBar* self) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_HasHeightForWidth_IsBase(true);
@@ -654,7 +654,7 @@ QPaintEngine* QToolBar_PaintEngine(const QToolBar* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QToolBar_QBasePaintEngine(const QToolBar* self) {
+QPaintEngine* QToolBar_SuperPaintEngine(const QToolBar* self) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_PaintEngine_IsBase(true);
@@ -683,7 +683,7 @@ void QToolBar_MousePressEvent(QToolBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseMousePressEvent(QToolBar* self, QMouseEvent* event) {
+void QToolBar_SuperMousePressEvent(QToolBar* self, QMouseEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_MousePressEvent_IsBase(true);
@@ -712,7 +712,7 @@ void QToolBar_MouseReleaseEvent(QToolBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseMouseReleaseEvent(QToolBar* self, QMouseEvent* event) {
+void QToolBar_SuperMouseReleaseEvent(QToolBar* self, QMouseEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_MouseReleaseEvent_IsBase(true);
@@ -741,7 +741,7 @@ void QToolBar_MouseDoubleClickEvent(QToolBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseMouseDoubleClickEvent(QToolBar* self, QMouseEvent* event) {
+void QToolBar_SuperMouseDoubleClickEvent(QToolBar* self, QMouseEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_MouseDoubleClickEvent_IsBase(true);
@@ -770,7 +770,7 @@ void QToolBar_MouseMoveEvent(QToolBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseMouseMoveEvent(QToolBar* self, QMouseEvent* event) {
+void QToolBar_SuperMouseMoveEvent(QToolBar* self, QMouseEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_MouseMoveEvent_IsBase(true);
@@ -799,7 +799,7 @@ void QToolBar_WheelEvent(QToolBar* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseWheelEvent(QToolBar* self, QWheelEvent* event) {
+void QToolBar_SuperWheelEvent(QToolBar* self, QWheelEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_WheelEvent_IsBase(true);
@@ -828,7 +828,7 @@ void QToolBar_KeyPressEvent(QToolBar* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseKeyPressEvent(QToolBar* self, QKeyEvent* event) {
+void QToolBar_SuperKeyPressEvent(QToolBar* self, QKeyEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_KeyPressEvent_IsBase(true);
@@ -857,7 +857,7 @@ void QToolBar_KeyReleaseEvent(QToolBar* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseKeyReleaseEvent(QToolBar* self, QKeyEvent* event) {
+void QToolBar_SuperKeyReleaseEvent(QToolBar* self, QKeyEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_KeyReleaseEvent_IsBase(true);
@@ -886,7 +886,7 @@ void QToolBar_FocusInEvent(QToolBar* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseFocusInEvent(QToolBar* self, QFocusEvent* event) {
+void QToolBar_SuperFocusInEvent(QToolBar* self, QFocusEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_FocusInEvent_IsBase(true);
@@ -915,7 +915,7 @@ void QToolBar_FocusOutEvent(QToolBar* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseFocusOutEvent(QToolBar* self, QFocusEvent* event) {
+void QToolBar_SuperFocusOutEvent(QToolBar* self, QFocusEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_FocusOutEvent_IsBase(true);
@@ -944,7 +944,7 @@ void QToolBar_EnterEvent(QToolBar* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseEnterEvent(QToolBar* self, QEnterEvent* event) {
+void QToolBar_SuperEnterEvent(QToolBar* self, QEnterEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_EnterEvent_IsBase(true);
@@ -973,7 +973,7 @@ void QToolBar_LeaveEvent(QToolBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseLeaveEvent(QToolBar* self, QEvent* event) {
+void QToolBar_SuperLeaveEvent(QToolBar* self, QEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_LeaveEvent_IsBase(true);
@@ -1002,7 +1002,7 @@ void QToolBar_MoveEvent(QToolBar* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseMoveEvent(QToolBar* self, QMoveEvent* event) {
+void QToolBar_SuperMoveEvent(QToolBar* self, QMoveEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_MoveEvent_IsBase(true);
@@ -1031,7 +1031,7 @@ void QToolBar_ResizeEvent(QToolBar* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseResizeEvent(QToolBar* self, QResizeEvent* event) {
+void QToolBar_SuperResizeEvent(QToolBar* self, QResizeEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_ResizeEvent_IsBase(true);
@@ -1060,7 +1060,7 @@ void QToolBar_CloseEvent(QToolBar* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseCloseEvent(QToolBar* self, QCloseEvent* event) {
+void QToolBar_SuperCloseEvent(QToolBar* self, QCloseEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_CloseEvent_IsBase(true);
@@ -1089,7 +1089,7 @@ void QToolBar_ContextMenuEvent(QToolBar* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseContextMenuEvent(QToolBar* self, QContextMenuEvent* event) {
+void QToolBar_SuperContextMenuEvent(QToolBar* self, QContextMenuEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_ContextMenuEvent_IsBase(true);
@@ -1118,7 +1118,7 @@ void QToolBar_TabletEvent(QToolBar* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseTabletEvent(QToolBar* self, QTabletEvent* event) {
+void QToolBar_SuperTabletEvent(QToolBar* self, QTabletEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_TabletEvent_IsBase(true);
@@ -1147,7 +1147,7 @@ void QToolBar_DragEnterEvent(QToolBar* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseDragEnterEvent(QToolBar* self, QDragEnterEvent* event) {
+void QToolBar_SuperDragEnterEvent(QToolBar* self, QDragEnterEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_DragEnterEvent_IsBase(true);
@@ -1176,7 +1176,7 @@ void QToolBar_DragMoveEvent(QToolBar* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseDragMoveEvent(QToolBar* self, QDragMoveEvent* event) {
+void QToolBar_SuperDragMoveEvent(QToolBar* self, QDragMoveEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_DragMoveEvent_IsBase(true);
@@ -1205,7 +1205,7 @@ void QToolBar_DragLeaveEvent(QToolBar* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseDragLeaveEvent(QToolBar* self, QDragLeaveEvent* event) {
+void QToolBar_SuperDragLeaveEvent(QToolBar* self, QDragLeaveEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_DragLeaveEvent_IsBase(true);
@@ -1234,7 +1234,7 @@ void QToolBar_DropEvent(QToolBar* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseDropEvent(QToolBar* self, QDropEvent* event) {
+void QToolBar_SuperDropEvent(QToolBar* self, QDropEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_DropEvent_IsBase(true);
@@ -1263,7 +1263,7 @@ void QToolBar_ShowEvent(QToolBar* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseShowEvent(QToolBar* self, QShowEvent* event) {
+void QToolBar_SuperShowEvent(QToolBar* self, QShowEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_ShowEvent_IsBase(true);
@@ -1292,7 +1292,7 @@ void QToolBar_HideEvent(QToolBar* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseHideEvent(QToolBar* self, QHideEvent* event) {
+void QToolBar_SuperHideEvent(QToolBar* self, QHideEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_HideEvent_IsBase(true);
@@ -1322,7 +1322,7 @@ bool QToolBar_NativeEvent(QToolBar* self, const libqt_string eventType, void* me
 }
 
 // Base class handler implementation
-bool QToolBar_QBaseNativeEvent(QToolBar* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QToolBar_SuperNativeEvent(QToolBar* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
@@ -1352,7 +1352,7 @@ int QToolBar_Metric(const QToolBar* self, int param1) {
 }
 
 // Base class handler implementation
-int QToolBar_QBaseMetric(const QToolBar* self, int param1) {
+int QToolBar_SuperMetric(const QToolBar* self, int param1) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_Metric_IsBase(true);
@@ -1381,7 +1381,7 @@ void QToolBar_InitPainter(const QToolBar* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseInitPainter(const QToolBar* self, QPainter* painter) {
+void QToolBar_SuperInitPainter(const QToolBar* self, QPainter* painter) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_InitPainter_IsBase(true);
@@ -1410,7 +1410,7 @@ QPaintDevice* QToolBar_Redirected(const QToolBar* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QToolBar_QBaseRedirected(const QToolBar* self, QPoint* offset) {
+QPaintDevice* QToolBar_SuperRedirected(const QToolBar* self, QPoint* offset) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_Redirected_IsBase(true);
@@ -1439,7 +1439,7 @@ QPainter* QToolBar_SharedPainter(const QToolBar* self) {
 }
 
 // Base class handler implementation
-QPainter* QToolBar_QBaseSharedPainter(const QToolBar* self) {
+QPainter* QToolBar_SuperSharedPainter(const QToolBar* self) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_SharedPainter_IsBase(true);
@@ -1468,7 +1468,7 @@ void QToolBar_InputMethodEvent(QToolBar* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseInputMethodEvent(QToolBar* self, QInputMethodEvent* param1) {
+void QToolBar_SuperInputMethodEvent(QToolBar* self, QInputMethodEvent* param1) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_InputMethodEvent_IsBase(true);
@@ -1497,7 +1497,7 @@ QVariant* QToolBar_InputMethodQuery(const QToolBar* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QToolBar_QBaseInputMethodQuery(const QToolBar* self, int param1) {
+QVariant* QToolBar_SuperInputMethodQuery(const QToolBar* self, int param1) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_InputMethodQuery_IsBase(true);
@@ -1526,7 +1526,7 @@ bool QToolBar_FocusNextPrevChild(QToolBar* self, bool next) {
 }
 
 // Base class handler implementation
-bool QToolBar_QBaseFocusNextPrevChild(QToolBar* self, bool next) {
+bool QToolBar_SuperFocusNextPrevChild(QToolBar* self, bool next) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_FocusNextPrevChild_IsBase(true);
@@ -1555,7 +1555,7 @@ bool QToolBar_EventFilter(QToolBar* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QToolBar_QBaseEventFilter(QToolBar* self, QObject* watched, QEvent* event) {
+bool QToolBar_SuperEventFilter(QToolBar* self, QObject* watched, QEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_EventFilter_IsBase(true);
@@ -1584,7 +1584,7 @@ void QToolBar_TimerEvent(QToolBar* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseTimerEvent(QToolBar* self, QTimerEvent* event) {
+void QToolBar_SuperTimerEvent(QToolBar* self, QTimerEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_TimerEvent_IsBase(true);
@@ -1613,7 +1613,7 @@ void QToolBar_ChildEvent(QToolBar* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseChildEvent(QToolBar* self, QChildEvent* event) {
+void QToolBar_SuperChildEvent(QToolBar* self, QChildEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_ChildEvent_IsBase(true);
@@ -1642,7 +1642,7 @@ void QToolBar_CustomEvent(QToolBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseCustomEvent(QToolBar* self, QEvent* event) {
+void QToolBar_SuperCustomEvent(QToolBar* self, QEvent* event) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_CustomEvent_IsBase(true);
@@ -1671,7 +1671,7 @@ void QToolBar_ConnectNotify(QToolBar* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseConnectNotify(QToolBar* self, const QMetaMethod* signal) {
+void QToolBar_SuperConnectNotify(QToolBar* self, const QMetaMethod* signal) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_ConnectNotify_IsBase(true);
@@ -1700,7 +1700,7 @@ void QToolBar_DisconnectNotify(QToolBar* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseDisconnectNotify(QToolBar* self, const QMetaMethod* signal) {
+void QToolBar_SuperDisconnectNotify(QToolBar* self, const QMetaMethod* signal) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_DisconnectNotify_IsBase(true);
@@ -1729,7 +1729,7 @@ void QToolBar_UpdateMicroFocus(QToolBar* self) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseUpdateMicroFocus(QToolBar* self) {
+void QToolBar_SuperUpdateMicroFocus(QToolBar* self) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_UpdateMicroFocus_IsBase(true);
@@ -1758,7 +1758,7 @@ void QToolBar_Create(QToolBar* self) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseCreate(QToolBar* self) {
+void QToolBar_SuperCreate(QToolBar* self) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_Create_IsBase(true);
@@ -1787,7 +1787,7 @@ void QToolBar_Destroy(QToolBar* self) {
 }
 
 // Base class handler implementation
-void QToolBar_QBaseDestroy(QToolBar* self) {
+void QToolBar_SuperDestroy(QToolBar* self) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_Destroy_IsBase(true);
@@ -1816,7 +1816,7 @@ bool QToolBar_FocusNextChild(QToolBar* self) {
 }
 
 // Base class handler implementation
-bool QToolBar_QBaseFocusNextChild(QToolBar* self) {
+bool QToolBar_SuperFocusNextChild(QToolBar* self) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_FocusNextChild_IsBase(true);
@@ -1845,7 +1845,7 @@ bool QToolBar_FocusPreviousChild(QToolBar* self) {
 }
 
 // Base class handler implementation
-bool QToolBar_QBaseFocusPreviousChild(QToolBar* self) {
+bool QToolBar_SuperFocusPreviousChild(QToolBar* self) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_FocusPreviousChild_IsBase(true);
@@ -1874,7 +1874,7 @@ QObject* QToolBar_Sender(const QToolBar* self) {
 }
 
 // Base class handler implementation
-QObject* QToolBar_QBaseSender(const QToolBar* self) {
+QObject* QToolBar_SuperSender(const QToolBar* self) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_Sender_IsBase(true);
@@ -1903,7 +1903,7 @@ int QToolBar_SenderSignalIndex(const QToolBar* self) {
 }
 
 // Base class handler implementation
-int QToolBar_QBaseSenderSignalIndex(const QToolBar* self) {
+int QToolBar_SuperSenderSignalIndex(const QToolBar* self) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_SenderSignalIndex_IsBase(true);
@@ -1932,7 +1932,7 @@ int QToolBar_Receivers(const QToolBar* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QToolBar_QBaseReceivers(const QToolBar* self, const char* signal) {
+int QToolBar_SuperReceivers(const QToolBar* self, const char* signal) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_Receivers_IsBase(true);
@@ -1961,7 +1961,7 @@ bool QToolBar_IsSignalConnected(const QToolBar* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-bool QToolBar_QBaseIsSignalConnected(const QToolBar* self, const QMetaMethod* signal) {
+bool QToolBar_SuperIsSignalConnected(const QToolBar* self, const QMetaMethod* signal) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_IsSignalConnected_IsBase(true);
@@ -1990,7 +1990,7 @@ double QToolBar_GetDecodedMetricF(const QToolBar* self, int metricA, int metricB
 }
 
 // Base class handler implementation
-double QToolBar_QBaseGetDecodedMetricF(const QToolBar* self, int metricA, int metricB) {
+double QToolBar_SuperGetDecodedMetricF(const QToolBar* self, int metricA, int metricB) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->setQToolBar_GetDecodedMetricF_IsBase(true);

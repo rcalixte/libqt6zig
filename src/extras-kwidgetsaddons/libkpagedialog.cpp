@@ -165,7 +165,7 @@ void KPageDialog_Connect_PageRemoved(KPageDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* KPageDialog_QBaseMetaObject(const KPageDialog* self) {
+QMetaObject* KPageDialog_SuperMetaObject(const KPageDialog* self) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_MetaObject_IsBase(true);
@@ -184,7 +184,7 @@ void KPageDialog_OnMetaObject(const KPageDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KPageDialog_QBaseMetacast(KPageDialog* self, const char* param1) {
+void* KPageDialog_SuperMetacast(KPageDialog* self, const char* param1) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_Metacast_IsBase(true);
@@ -203,7 +203,7 @@ void KPageDialog_OnMetacast(KPageDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KPageDialog_QBaseMetacall(KPageDialog* self, int param1, int param2, void** param3) {
+int KPageDialog_SuperMetacall(KPageDialog* self, int param1, int param2, void** param3) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_Metacall_IsBase(true);
@@ -232,7 +232,7 @@ void KPageDialog_SetVisible(KPageDialog* self, bool visible) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseSetVisible(KPageDialog* self, bool visible) {
+void KPageDialog_SuperSetVisible(KPageDialog* self, bool visible) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_SetVisible_IsBase(true);
@@ -261,7 +261,7 @@ QSize* KPageDialog_SizeHint(const KPageDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KPageDialog_QBaseSizeHint(const KPageDialog* self) {
+QSize* KPageDialog_SuperSizeHint(const KPageDialog* self) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_SizeHint_IsBase(true);
@@ -290,7 +290,7 @@ QSize* KPageDialog_MinimumSizeHint(const KPageDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KPageDialog_QBaseMinimumSizeHint(const KPageDialog* self) {
+QSize* KPageDialog_SuperMinimumSizeHint(const KPageDialog* self) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_MinimumSizeHint_IsBase(true);
@@ -319,7 +319,7 @@ void KPageDialog_Open(KPageDialog* self) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseOpen(KPageDialog* self) {
+void KPageDialog_SuperOpen(KPageDialog* self) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_Open_IsBase(true);
@@ -348,7 +348,7 @@ int KPageDialog_Exec(KPageDialog* self) {
 }
 
 // Base class handler implementation
-int KPageDialog_QBaseExec(KPageDialog* self) {
+int KPageDialog_SuperExec(KPageDialog* self) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_Exec_IsBase(true);
@@ -377,7 +377,7 @@ void KPageDialog_Done(KPageDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseDone(KPageDialog* self, int param1) {
+void KPageDialog_SuperDone(KPageDialog* self, int param1) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_Done_IsBase(true);
@@ -406,7 +406,7 @@ void KPageDialog_Accept(KPageDialog* self) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseAccept(KPageDialog* self) {
+void KPageDialog_SuperAccept(KPageDialog* self) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_Accept_IsBase(true);
@@ -435,7 +435,7 @@ void KPageDialog_Reject(KPageDialog* self) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseReject(KPageDialog* self) {
+void KPageDialog_SuperReject(KPageDialog* self) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_Reject_IsBase(true);
@@ -464,7 +464,7 @@ void KPageDialog_KeyPressEvent(KPageDialog* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseKeyPressEvent(KPageDialog* self, QKeyEvent* param1) {
+void KPageDialog_SuperKeyPressEvent(KPageDialog* self, QKeyEvent* param1) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_KeyPressEvent_IsBase(true);
@@ -493,7 +493,7 @@ void KPageDialog_CloseEvent(KPageDialog* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseCloseEvent(KPageDialog* self, QCloseEvent* param1) {
+void KPageDialog_SuperCloseEvent(KPageDialog* self, QCloseEvent* param1) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_CloseEvent_IsBase(true);
@@ -522,7 +522,7 @@ void KPageDialog_ShowEvent(KPageDialog* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseShowEvent(KPageDialog* self, QShowEvent* param1) {
+void KPageDialog_SuperShowEvent(KPageDialog* self, QShowEvent* param1) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_ShowEvent_IsBase(true);
@@ -551,7 +551,7 @@ void KPageDialog_ResizeEvent(KPageDialog* self, QResizeEvent* param1) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseResizeEvent(KPageDialog* self, QResizeEvent* param1) {
+void KPageDialog_SuperResizeEvent(KPageDialog* self, QResizeEvent* param1) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_ResizeEvent_IsBase(true);
@@ -580,7 +580,7 @@ void KPageDialog_ContextMenuEvent(KPageDialog* self, QContextMenuEvent* param1) 
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseContextMenuEvent(KPageDialog* self, QContextMenuEvent* param1) {
+void KPageDialog_SuperContextMenuEvent(KPageDialog* self, QContextMenuEvent* param1) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_ContextMenuEvent_IsBase(true);
@@ -609,7 +609,7 @@ bool KPageDialog_EventFilter(KPageDialog* self, QObject* param1, QEvent* param2)
 }
 
 // Base class handler implementation
-bool KPageDialog_QBaseEventFilter(KPageDialog* self, QObject* param1, QEvent* param2) {
+bool KPageDialog_SuperEventFilter(KPageDialog* self, QObject* param1, QEvent* param2) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_EventFilter_IsBase(true);
@@ -638,7 +638,7 @@ int KPageDialog_DevType(const KPageDialog* self) {
 }
 
 // Base class handler implementation
-int KPageDialog_QBaseDevType(const KPageDialog* self) {
+int KPageDialog_SuperDevType(const KPageDialog* self) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_DevType_IsBase(true);
@@ -667,7 +667,7 @@ int KPageDialog_HeightForWidth(const KPageDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KPageDialog_QBaseHeightForWidth(const KPageDialog* self, int param1) {
+int KPageDialog_SuperHeightForWidth(const KPageDialog* self, int param1) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_HeightForWidth_IsBase(true);
@@ -696,7 +696,7 @@ bool KPageDialog_HasHeightForWidth(const KPageDialog* self) {
 }
 
 // Base class handler implementation
-bool KPageDialog_QBaseHasHeightForWidth(const KPageDialog* self) {
+bool KPageDialog_SuperHasHeightForWidth(const KPageDialog* self) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_HasHeightForWidth_IsBase(true);
@@ -725,7 +725,7 @@ QPaintEngine* KPageDialog_PaintEngine(const KPageDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KPageDialog_QBasePaintEngine(const KPageDialog* self) {
+QPaintEngine* KPageDialog_SuperPaintEngine(const KPageDialog* self) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_PaintEngine_IsBase(true);
@@ -754,7 +754,7 @@ bool KPageDialog_Event(KPageDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KPageDialog_QBaseEvent(KPageDialog* self, QEvent* event) {
+bool KPageDialog_SuperEvent(KPageDialog* self, QEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_Event_IsBase(true);
@@ -783,7 +783,7 @@ void KPageDialog_MousePressEvent(KPageDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseMousePressEvent(KPageDialog* self, QMouseEvent* event) {
+void KPageDialog_SuperMousePressEvent(KPageDialog* self, QMouseEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_MousePressEvent_IsBase(true);
@@ -812,7 +812,7 @@ void KPageDialog_MouseReleaseEvent(KPageDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseMouseReleaseEvent(KPageDialog* self, QMouseEvent* event) {
+void KPageDialog_SuperMouseReleaseEvent(KPageDialog* self, QMouseEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_MouseReleaseEvent_IsBase(true);
@@ -841,7 +841,7 @@ void KPageDialog_MouseDoubleClickEvent(KPageDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseMouseDoubleClickEvent(KPageDialog* self, QMouseEvent* event) {
+void KPageDialog_SuperMouseDoubleClickEvent(KPageDialog* self, QMouseEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_MouseDoubleClickEvent_IsBase(true);
@@ -870,7 +870,7 @@ void KPageDialog_MouseMoveEvent(KPageDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseMouseMoveEvent(KPageDialog* self, QMouseEvent* event) {
+void KPageDialog_SuperMouseMoveEvent(KPageDialog* self, QMouseEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_MouseMoveEvent_IsBase(true);
@@ -899,7 +899,7 @@ void KPageDialog_WheelEvent(KPageDialog* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseWheelEvent(KPageDialog* self, QWheelEvent* event) {
+void KPageDialog_SuperWheelEvent(KPageDialog* self, QWheelEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_WheelEvent_IsBase(true);
@@ -928,7 +928,7 @@ void KPageDialog_KeyReleaseEvent(KPageDialog* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseKeyReleaseEvent(KPageDialog* self, QKeyEvent* event) {
+void KPageDialog_SuperKeyReleaseEvent(KPageDialog* self, QKeyEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_KeyReleaseEvent_IsBase(true);
@@ -957,7 +957,7 @@ void KPageDialog_FocusInEvent(KPageDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseFocusInEvent(KPageDialog* self, QFocusEvent* event) {
+void KPageDialog_SuperFocusInEvent(KPageDialog* self, QFocusEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_FocusInEvent_IsBase(true);
@@ -986,7 +986,7 @@ void KPageDialog_FocusOutEvent(KPageDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseFocusOutEvent(KPageDialog* self, QFocusEvent* event) {
+void KPageDialog_SuperFocusOutEvent(KPageDialog* self, QFocusEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_FocusOutEvent_IsBase(true);
@@ -1015,7 +1015,7 @@ void KPageDialog_EnterEvent(KPageDialog* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseEnterEvent(KPageDialog* self, QEnterEvent* event) {
+void KPageDialog_SuperEnterEvent(KPageDialog* self, QEnterEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_EnterEvent_IsBase(true);
@@ -1044,7 +1044,7 @@ void KPageDialog_LeaveEvent(KPageDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseLeaveEvent(KPageDialog* self, QEvent* event) {
+void KPageDialog_SuperLeaveEvent(KPageDialog* self, QEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_LeaveEvent_IsBase(true);
@@ -1073,7 +1073,7 @@ void KPageDialog_PaintEvent(KPageDialog* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBasePaintEvent(KPageDialog* self, QPaintEvent* event) {
+void KPageDialog_SuperPaintEvent(KPageDialog* self, QPaintEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_PaintEvent_IsBase(true);
@@ -1102,7 +1102,7 @@ void KPageDialog_MoveEvent(KPageDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseMoveEvent(KPageDialog* self, QMoveEvent* event) {
+void KPageDialog_SuperMoveEvent(KPageDialog* self, QMoveEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_MoveEvent_IsBase(true);
@@ -1131,7 +1131,7 @@ void KPageDialog_TabletEvent(KPageDialog* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseTabletEvent(KPageDialog* self, QTabletEvent* event) {
+void KPageDialog_SuperTabletEvent(KPageDialog* self, QTabletEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_TabletEvent_IsBase(true);
@@ -1160,7 +1160,7 @@ void KPageDialog_ActionEvent(KPageDialog* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseActionEvent(KPageDialog* self, QActionEvent* event) {
+void KPageDialog_SuperActionEvent(KPageDialog* self, QActionEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_ActionEvent_IsBase(true);
@@ -1189,7 +1189,7 @@ void KPageDialog_DragEnterEvent(KPageDialog* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseDragEnterEvent(KPageDialog* self, QDragEnterEvent* event) {
+void KPageDialog_SuperDragEnterEvent(KPageDialog* self, QDragEnterEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_DragEnterEvent_IsBase(true);
@@ -1218,7 +1218,7 @@ void KPageDialog_DragMoveEvent(KPageDialog* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseDragMoveEvent(KPageDialog* self, QDragMoveEvent* event) {
+void KPageDialog_SuperDragMoveEvent(KPageDialog* self, QDragMoveEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_DragMoveEvent_IsBase(true);
@@ -1247,7 +1247,7 @@ void KPageDialog_DragLeaveEvent(KPageDialog* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseDragLeaveEvent(KPageDialog* self, QDragLeaveEvent* event) {
+void KPageDialog_SuperDragLeaveEvent(KPageDialog* self, QDragLeaveEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_DragLeaveEvent_IsBase(true);
@@ -1276,7 +1276,7 @@ void KPageDialog_DropEvent(KPageDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseDropEvent(KPageDialog* self, QDropEvent* event) {
+void KPageDialog_SuperDropEvent(KPageDialog* self, QDropEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_DropEvent_IsBase(true);
@@ -1305,7 +1305,7 @@ void KPageDialog_HideEvent(KPageDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseHideEvent(KPageDialog* self, QHideEvent* event) {
+void KPageDialog_SuperHideEvent(KPageDialog* self, QHideEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_HideEvent_IsBase(true);
@@ -1335,7 +1335,7 @@ bool KPageDialog_NativeEvent(KPageDialog* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool KPageDialog_QBaseNativeEvent(KPageDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KPageDialog_SuperNativeEvent(KPageDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
@@ -1365,7 +1365,7 @@ void KPageDialog_ChangeEvent(KPageDialog* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseChangeEvent(KPageDialog* self, QEvent* param1) {
+void KPageDialog_SuperChangeEvent(KPageDialog* self, QEvent* param1) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_ChangeEvent_IsBase(true);
@@ -1394,7 +1394,7 @@ int KPageDialog_Metric(const KPageDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KPageDialog_QBaseMetric(const KPageDialog* self, int param1) {
+int KPageDialog_SuperMetric(const KPageDialog* self, int param1) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_Metric_IsBase(true);
@@ -1423,7 +1423,7 @@ void KPageDialog_InitPainter(const KPageDialog* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseInitPainter(const KPageDialog* self, QPainter* painter) {
+void KPageDialog_SuperInitPainter(const KPageDialog* self, QPainter* painter) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_InitPainter_IsBase(true);
@@ -1452,7 +1452,7 @@ QPaintDevice* KPageDialog_Redirected(const KPageDialog* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KPageDialog_QBaseRedirected(const KPageDialog* self, QPoint* offset) {
+QPaintDevice* KPageDialog_SuperRedirected(const KPageDialog* self, QPoint* offset) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_Redirected_IsBase(true);
@@ -1481,7 +1481,7 @@ QPainter* KPageDialog_SharedPainter(const KPageDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* KPageDialog_QBaseSharedPainter(const KPageDialog* self) {
+QPainter* KPageDialog_SuperSharedPainter(const KPageDialog* self) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_SharedPainter_IsBase(true);
@@ -1510,7 +1510,7 @@ void KPageDialog_InputMethodEvent(KPageDialog* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseInputMethodEvent(KPageDialog* self, QInputMethodEvent* param1) {
+void KPageDialog_SuperInputMethodEvent(KPageDialog* self, QInputMethodEvent* param1) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_InputMethodEvent_IsBase(true);
@@ -1539,7 +1539,7 @@ QVariant* KPageDialog_InputMethodQuery(const KPageDialog* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KPageDialog_QBaseInputMethodQuery(const KPageDialog* self, int param1) {
+QVariant* KPageDialog_SuperInputMethodQuery(const KPageDialog* self, int param1) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_InputMethodQuery_IsBase(true);
@@ -1568,7 +1568,7 @@ bool KPageDialog_FocusNextPrevChild(KPageDialog* self, bool next) {
 }
 
 // Base class handler implementation
-bool KPageDialog_QBaseFocusNextPrevChild(KPageDialog* self, bool next) {
+bool KPageDialog_SuperFocusNextPrevChild(KPageDialog* self, bool next) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_FocusNextPrevChild_IsBase(true);
@@ -1597,7 +1597,7 @@ void KPageDialog_TimerEvent(KPageDialog* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseTimerEvent(KPageDialog* self, QTimerEvent* event) {
+void KPageDialog_SuperTimerEvent(KPageDialog* self, QTimerEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_TimerEvent_IsBase(true);
@@ -1626,7 +1626,7 @@ void KPageDialog_ChildEvent(KPageDialog* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseChildEvent(KPageDialog* self, QChildEvent* event) {
+void KPageDialog_SuperChildEvent(KPageDialog* self, QChildEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_ChildEvent_IsBase(true);
@@ -1655,7 +1655,7 @@ void KPageDialog_CustomEvent(KPageDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseCustomEvent(KPageDialog* self, QEvent* event) {
+void KPageDialog_SuperCustomEvent(KPageDialog* self, QEvent* event) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_CustomEvent_IsBase(true);
@@ -1684,7 +1684,7 @@ void KPageDialog_ConnectNotify(KPageDialog* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseConnectNotify(KPageDialog* self, const QMetaMethod* signal) {
+void KPageDialog_SuperConnectNotify(KPageDialog* self, const QMetaMethod* signal) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_ConnectNotify_IsBase(true);
@@ -1713,7 +1713,7 @@ void KPageDialog_DisconnectNotify(KPageDialog* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseDisconnectNotify(KPageDialog* self, const QMetaMethod* signal) {
+void KPageDialog_SuperDisconnectNotify(KPageDialog* self, const QMetaMethod* signal) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_DisconnectNotify_IsBase(true);
@@ -1742,7 +1742,7 @@ KPageWidget* KPageDialog_PageWidget(KPageDialog* self) {
 }
 
 // Base class handler implementation
-KPageWidget* KPageDialog_QBasePageWidget(KPageDialog* self) {
+KPageWidget* KPageDialog_SuperPageWidget(KPageDialog* self) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_PageWidget_IsBase(true);
@@ -1771,7 +1771,7 @@ KPageWidget* KPageDialog_PageWidget2(const KPageDialog* self) {
 }
 
 // Base class handler implementation
-KPageWidget* KPageDialog_QBasePageWidget2(const KPageDialog* self) {
+KPageWidget* KPageDialog_SuperPageWidget2(const KPageDialog* self) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_PageWidget2_IsBase(true);
@@ -1800,7 +1800,7 @@ void KPageDialog_SetPageWidget(KPageDialog* self, KPageWidget* widget) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseSetPageWidget(KPageDialog* self, KPageWidget* widget) {
+void KPageDialog_SuperSetPageWidget(KPageDialog* self, KPageWidget* widget) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_SetPageWidget_IsBase(true);
@@ -1829,7 +1829,7 @@ QDialogButtonBox* KPageDialog_ButtonBox(KPageDialog* self) {
 }
 
 // Base class handler implementation
-QDialogButtonBox* KPageDialog_QBaseButtonBox(KPageDialog* self) {
+QDialogButtonBox* KPageDialog_SuperButtonBox(KPageDialog* self) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_ButtonBox_IsBase(true);
@@ -1858,7 +1858,7 @@ QDialogButtonBox* KPageDialog_ButtonBox2(const KPageDialog* self) {
 }
 
 // Base class handler implementation
-QDialogButtonBox* KPageDialog_QBaseButtonBox2(const KPageDialog* self) {
+QDialogButtonBox* KPageDialog_SuperButtonBox2(const KPageDialog* self) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_ButtonBox2_IsBase(true);
@@ -1887,7 +1887,7 @@ void KPageDialog_SetButtonBox(KPageDialog* self, QDialogButtonBox* box) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseSetButtonBox(KPageDialog* self, QDialogButtonBox* box) {
+void KPageDialog_SuperSetButtonBox(KPageDialog* self, QDialogButtonBox* box) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_SetButtonBox_IsBase(true);
@@ -1916,7 +1916,7 @@ void KPageDialog_AdjustPosition(KPageDialog* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseAdjustPosition(KPageDialog* self, QWidget* param1) {
+void KPageDialog_SuperAdjustPosition(KPageDialog* self, QWidget* param1) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_AdjustPosition_IsBase(true);
@@ -1945,7 +1945,7 @@ void KPageDialog_UpdateMicroFocus(KPageDialog* self) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseUpdateMicroFocus(KPageDialog* self) {
+void KPageDialog_SuperUpdateMicroFocus(KPageDialog* self) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_UpdateMicroFocus_IsBase(true);
@@ -1974,7 +1974,7 @@ void KPageDialog_Create(KPageDialog* self) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseCreate(KPageDialog* self) {
+void KPageDialog_SuperCreate(KPageDialog* self) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_Create_IsBase(true);
@@ -2003,7 +2003,7 @@ void KPageDialog_Destroy(KPageDialog* self) {
 }
 
 // Base class handler implementation
-void KPageDialog_QBaseDestroy(KPageDialog* self) {
+void KPageDialog_SuperDestroy(KPageDialog* self) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_Destroy_IsBase(true);
@@ -2032,7 +2032,7 @@ bool KPageDialog_FocusNextChild(KPageDialog* self) {
 }
 
 // Base class handler implementation
-bool KPageDialog_QBaseFocusNextChild(KPageDialog* self) {
+bool KPageDialog_SuperFocusNextChild(KPageDialog* self) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_FocusNextChild_IsBase(true);
@@ -2061,7 +2061,7 @@ bool KPageDialog_FocusPreviousChild(KPageDialog* self) {
 }
 
 // Base class handler implementation
-bool KPageDialog_QBaseFocusPreviousChild(KPageDialog* self) {
+bool KPageDialog_SuperFocusPreviousChild(KPageDialog* self) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_FocusPreviousChild_IsBase(true);
@@ -2090,7 +2090,7 @@ QObject* KPageDialog_Sender(const KPageDialog* self) {
 }
 
 // Base class handler implementation
-QObject* KPageDialog_QBaseSender(const KPageDialog* self) {
+QObject* KPageDialog_SuperSender(const KPageDialog* self) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_Sender_IsBase(true);
@@ -2119,7 +2119,7 @@ int KPageDialog_SenderSignalIndex(const KPageDialog* self) {
 }
 
 // Base class handler implementation
-int KPageDialog_QBaseSenderSignalIndex(const KPageDialog* self) {
+int KPageDialog_SuperSenderSignalIndex(const KPageDialog* self) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_SenderSignalIndex_IsBase(true);
@@ -2148,7 +2148,7 @@ int KPageDialog_Receivers(const KPageDialog* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KPageDialog_QBaseReceivers(const KPageDialog* self, const char* signal) {
+int KPageDialog_SuperReceivers(const KPageDialog* self, const char* signal) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_Receivers_IsBase(true);
@@ -2177,7 +2177,7 @@ bool KPageDialog_IsSignalConnected(const KPageDialog* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool KPageDialog_QBaseIsSignalConnected(const KPageDialog* self, const QMetaMethod* signal) {
+bool KPageDialog_SuperIsSignalConnected(const KPageDialog* self, const QMetaMethod* signal) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_IsSignalConnected_IsBase(true);
@@ -2206,7 +2206,7 @@ double KPageDialog_GetDecodedMetricF(const KPageDialog* self, int metricA, int m
 }
 
 // Base class handler implementation
-double KPageDialog_QBaseGetDecodedMetricF(const KPageDialog* self, int metricA, int metricB) {
+double KPageDialog_SuperGetDecodedMetricF(const KPageDialog* self, int metricA, int metricB) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
     if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
         vkpagedialog->setKPageDialog_GetDecodedMetricF_IsBase(true);

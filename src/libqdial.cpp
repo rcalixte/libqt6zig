@@ -180,7 +180,7 @@ void QDial_InitStyleOption(const QDial* self, QStyleOptionSlider* option) {
 }
 
 // Base class handler implementation
-QMetaObject* QDial_QBaseMetaObject(const QDial* self) {
+QMetaObject* QDial_SuperMetaObject(const QDial* self) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_MetaObject_IsBase(true);
@@ -199,7 +199,7 @@ void QDial_OnMetaObject(const QDial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QDial_QBaseMetacast(QDial* self, const char* param1) {
+void* QDial_SuperMetacast(QDial* self, const char* param1) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_Metacast_IsBase(true);
@@ -218,7 +218,7 @@ void QDial_OnMetacast(QDial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QDial_QBaseMetacall(QDial* self, int param1, int param2, void** param3) {
+int QDial_SuperMetacall(QDial* self, int param1, int param2, void** param3) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_Metacall_IsBase(true);
@@ -237,7 +237,7 @@ void QDial_OnMetacall(QDial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QDial_QBaseSizeHint(const QDial* self) {
+QSize* QDial_SuperSizeHint(const QDial* self) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_SizeHint_IsBase(true);
@@ -256,7 +256,7 @@ void QDial_OnSizeHint(const QDial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QDial_QBaseMinimumSizeHint(const QDial* self) {
+QSize* QDial_SuperMinimumSizeHint(const QDial* self) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_MinimumSizeHint_IsBase(true);
@@ -275,7 +275,7 @@ void QDial_OnMinimumSizeHint(const QDial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QDial_QBaseEvent(QDial* self, QEvent* e) {
+bool QDial_SuperEvent(QDial* self, QEvent* e) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_Event_IsBase(true);
@@ -294,7 +294,7 @@ void QDial_OnEvent(QDial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDial_QBaseResizeEvent(QDial* self, QResizeEvent* re) {
+void QDial_SuperResizeEvent(QDial* self, QResizeEvent* re) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_ResizeEvent_IsBase(true);
@@ -313,7 +313,7 @@ void QDial_OnResizeEvent(QDial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDial_QBasePaintEvent(QDial* self, QPaintEvent* pe) {
+void QDial_SuperPaintEvent(QDial* self, QPaintEvent* pe) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_PaintEvent_IsBase(true);
@@ -332,7 +332,7 @@ void QDial_OnPaintEvent(QDial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDial_QBaseMousePressEvent(QDial* self, QMouseEvent* me) {
+void QDial_SuperMousePressEvent(QDial* self, QMouseEvent* me) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_MousePressEvent_IsBase(true);
@@ -351,7 +351,7 @@ void QDial_OnMousePressEvent(QDial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDial_QBaseMouseReleaseEvent(QDial* self, QMouseEvent* me) {
+void QDial_SuperMouseReleaseEvent(QDial* self, QMouseEvent* me) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_MouseReleaseEvent_IsBase(true);
@@ -370,7 +370,7 @@ void QDial_OnMouseReleaseEvent(QDial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDial_QBaseMouseMoveEvent(QDial* self, QMouseEvent* me) {
+void QDial_SuperMouseMoveEvent(QDial* self, QMouseEvent* me) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_MouseMoveEvent_IsBase(true);
@@ -389,7 +389,7 @@ void QDial_OnMouseMoveEvent(QDial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDial_QBaseSliderChange(QDial* self, int change) {
+void QDial_SuperSliderChange(QDial* self, int change) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_SliderChange_IsBase(true);
@@ -408,7 +408,7 @@ void QDial_OnSliderChange(QDial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDial_QBaseInitStyleOption(const QDial* self, QStyleOptionSlider* option) {
+void QDial_SuperInitStyleOption(const QDial* self, QStyleOptionSlider* option) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_InitStyleOption_IsBase(true);
@@ -437,7 +437,7 @@ void QDial_KeyPressEvent(QDial* self, QKeyEvent* ev) {
 }
 
 // Base class handler implementation
-void QDial_QBaseKeyPressEvent(QDial* self, QKeyEvent* ev) {
+void QDial_SuperKeyPressEvent(QDial* self, QKeyEvent* ev) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_KeyPressEvent_IsBase(true);
@@ -466,7 +466,7 @@ void QDial_TimerEvent(QDial* self, QTimerEvent* param1) {
 }
 
 // Base class handler implementation
-void QDial_QBaseTimerEvent(QDial* self, QTimerEvent* param1) {
+void QDial_SuperTimerEvent(QDial* self, QTimerEvent* param1) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_TimerEvent_IsBase(true);
@@ -495,7 +495,7 @@ void QDial_WheelEvent(QDial* self, QWheelEvent* e) {
 }
 
 // Base class handler implementation
-void QDial_QBaseWheelEvent(QDial* self, QWheelEvent* e) {
+void QDial_SuperWheelEvent(QDial* self, QWheelEvent* e) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_WheelEvent_IsBase(true);
@@ -524,7 +524,7 @@ void QDial_ChangeEvent(QDial* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void QDial_QBaseChangeEvent(QDial* self, QEvent* e) {
+void QDial_SuperChangeEvent(QDial* self, QEvent* e) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_ChangeEvent_IsBase(true);
@@ -553,7 +553,7 @@ int QDial_DevType(const QDial* self) {
 }
 
 // Base class handler implementation
-int QDial_QBaseDevType(const QDial* self) {
+int QDial_SuperDevType(const QDial* self) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_DevType_IsBase(true);
@@ -582,7 +582,7 @@ void QDial_SetVisible(QDial* self, bool visible) {
 }
 
 // Base class handler implementation
-void QDial_QBaseSetVisible(QDial* self, bool visible) {
+void QDial_SuperSetVisible(QDial* self, bool visible) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_SetVisible_IsBase(true);
@@ -611,7 +611,7 @@ int QDial_HeightForWidth(const QDial* self, int param1) {
 }
 
 // Base class handler implementation
-int QDial_QBaseHeightForWidth(const QDial* self, int param1) {
+int QDial_SuperHeightForWidth(const QDial* self, int param1) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_HeightForWidth_IsBase(true);
@@ -640,7 +640,7 @@ bool QDial_HasHeightForWidth(const QDial* self) {
 }
 
 // Base class handler implementation
-bool QDial_QBaseHasHeightForWidth(const QDial* self) {
+bool QDial_SuperHasHeightForWidth(const QDial* self) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_HasHeightForWidth_IsBase(true);
@@ -669,7 +669,7 @@ QPaintEngine* QDial_PaintEngine(const QDial* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QDial_QBasePaintEngine(const QDial* self) {
+QPaintEngine* QDial_SuperPaintEngine(const QDial* self) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_PaintEngine_IsBase(true);
@@ -698,7 +698,7 @@ void QDial_MouseDoubleClickEvent(QDial* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QDial_QBaseMouseDoubleClickEvent(QDial* self, QMouseEvent* event) {
+void QDial_SuperMouseDoubleClickEvent(QDial* self, QMouseEvent* event) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_MouseDoubleClickEvent_IsBase(true);
@@ -727,7 +727,7 @@ void QDial_KeyReleaseEvent(QDial* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QDial_QBaseKeyReleaseEvent(QDial* self, QKeyEvent* event) {
+void QDial_SuperKeyReleaseEvent(QDial* self, QKeyEvent* event) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_KeyReleaseEvent_IsBase(true);
@@ -756,7 +756,7 @@ void QDial_FocusInEvent(QDial* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QDial_QBaseFocusInEvent(QDial* self, QFocusEvent* event) {
+void QDial_SuperFocusInEvent(QDial* self, QFocusEvent* event) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_FocusInEvent_IsBase(true);
@@ -785,7 +785,7 @@ void QDial_FocusOutEvent(QDial* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QDial_QBaseFocusOutEvent(QDial* self, QFocusEvent* event) {
+void QDial_SuperFocusOutEvent(QDial* self, QFocusEvent* event) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_FocusOutEvent_IsBase(true);
@@ -814,7 +814,7 @@ void QDial_EnterEvent(QDial* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QDial_QBaseEnterEvent(QDial* self, QEnterEvent* event) {
+void QDial_SuperEnterEvent(QDial* self, QEnterEvent* event) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_EnterEvent_IsBase(true);
@@ -843,7 +843,7 @@ void QDial_LeaveEvent(QDial* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QDial_QBaseLeaveEvent(QDial* self, QEvent* event) {
+void QDial_SuperLeaveEvent(QDial* self, QEvent* event) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_LeaveEvent_IsBase(true);
@@ -872,7 +872,7 @@ void QDial_MoveEvent(QDial* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QDial_QBaseMoveEvent(QDial* self, QMoveEvent* event) {
+void QDial_SuperMoveEvent(QDial* self, QMoveEvent* event) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_MoveEvent_IsBase(true);
@@ -901,7 +901,7 @@ void QDial_CloseEvent(QDial* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QDial_QBaseCloseEvent(QDial* self, QCloseEvent* event) {
+void QDial_SuperCloseEvent(QDial* self, QCloseEvent* event) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_CloseEvent_IsBase(true);
@@ -930,7 +930,7 @@ void QDial_ContextMenuEvent(QDial* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void QDial_QBaseContextMenuEvent(QDial* self, QContextMenuEvent* event) {
+void QDial_SuperContextMenuEvent(QDial* self, QContextMenuEvent* event) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_ContextMenuEvent_IsBase(true);
@@ -959,7 +959,7 @@ void QDial_TabletEvent(QDial* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QDial_QBaseTabletEvent(QDial* self, QTabletEvent* event) {
+void QDial_SuperTabletEvent(QDial* self, QTabletEvent* event) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_TabletEvent_IsBase(true);
@@ -988,7 +988,7 @@ void QDial_ActionEvent(QDial* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QDial_QBaseActionEvent(QDial* self, QActionEvent* event) {
+void QDial_SuperActionEvent(QDial* self, QActionEvent* event) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_ActionEvent_IsBase(true);
@@ -1017,7 +1017,7 @@ void QDial_DragEnterEvent(QDial* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QDial_QBaseDragEnterEvent(QDial* self, QDragEnterEvent* event) {
+void QDial_SuperDragEnterEvent(QDial* self, QDragEnterEvent* event) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_DragEnterEvent_IsBase(true);
@@ -1046,7 +1046,7 @@ void QDial_DragMoveEvent(QDial* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QDial_QBaseDragMoveEvent(QDial* self, QDragMoveEvent* event) {
+void QDial_SuperDragMoveEvent(QDial* self, QDragMoveEvent* event) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_DragMoveEvent_IsBase(true);
@@ -1075,7 +1075,7 @@ void QDial_DragLeaveEvent(QDial* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QDial_QBaseDragLeaveEvent(QDial* self, QDragLeaveEvent* event) {
+void QDial_SuperDragLeaveEvent(QDial* self, QDragLeaveEvent* event) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_DragLeaveEvent_IsBase(true);
@@ -1104,7 +1104,7 @@ void QDial_DropEvent(QDial* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QDial_QBaseDropEvent(QDial* self, QDropEvent* event) {
+void QDial_SuperDropEvent(QDial* self, QDropEvent* event) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_DropEvent_IsBase(true);
@@ -1133,7 +1133,7 @@ void QDial_ShowEvent(QDial* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QDial_QBaseShowEvent(QDial* self, QShowEvent* event) {
+void QDial_SuperShowEvent(QDial* self, QShowEvent* event) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_ShowEvent_IsBase(true);
@@ -1162,7 +1162,7 @@ void QDial_HideEvent(QDial* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QDial_QBaseHideEvent(QDial* self, QHideEvent* event) {
+void QDial_SuperHideEvent(QDial* self, QHideEvent* event) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_HideEvent_IsBase(true);
@@ -1192,7 +1192,7 @@ bool QDial_NativeEvent(QDial* self, const libqt_string eventType, void* message,
 }
 
 // Base class handler implementation
-bool QDial_QBaseNativeEvent(QDial* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QDial_SuperNativeEvent(QDial* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqdial && vqdial->isVirtualQDial) {
@@ -1222,7 +1222,7 @@ int QDial_Metric(const QDial* self, int param1) {
 }
 
 // Base class handler implementation
-int QDial_QBaseMetric(const QDial* self, int param1) {
+int QDial_SuperMetric(const QDial* self, int param1) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_Metric_IsBase(true);
@@ -1251,7 +1251,7 @@ void QDial_InitPainter(const QDial* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QDial_QBaseInitPainter(const QDial* self, QPainter* painter) {
+void QDial_SuperInitPainter(const QDial* self, QPainter* painter) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_InitPainter_IsBase(true);
@@ -1280,7 +1280,7 @@ QPaintDevice* QDial_Redirected(const QDial* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QDial_QBaseRedirected(const QDial* self, QPoint* offset) {
+QPaintDevice* QDial_SuperRedirected(const QDial* self, QPoint* offset) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_Redirected_IsBase(true);
@@ -1309,7 +1309,7 @@ QPainter* QDial_SharedPainter(const QDial* self) {
 }
 
 // Base class handler implementation
-QPainter* QDial_QBaseSharedPainter(const QDial* self) {
+QPainter* QDial_SuperSharedPainter(const QDial* self) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_SharedPainter_IsBase(true);
@@ -1338,7 +1338,7 @@ void QDial_InputMethodEvent(QDial* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void QDial_QBaseInputMethodEvent(QDial* self, QInputMethodEvent* param1) {
+void QDial_SuperInputMethodEvent(QDial* self, QInputMethodEvent* param1) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_InputMethodEvent_IsBase(true);
@@ -1367,7 +1367,7 @@ QVariant* QDial_InputMethodQuery(const QDial* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QDial_QBaseInputMethodQuery(const QDial* self, int param1) {
+QVariant* QDial_SuperInputMethodQuery(const QDial* self, int param1) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_InputMethodQuery_IsBase(true);
@@ -1396,7 +1396,7 @@ bool QDial_FocusNextPrevChild(QDial* self, bool next) {
 }
 
 // Base class handler implementation
-bool QDial_QBaseFocusNextPrevChild(QDial* self, bool next) {
+bool QDial_SuperFocusNextPrevChild(QDial* self, bool next) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_FocusNextPrevChild_IsBase(true);
@@ -1425,7 +1425,7 @@ bool QDial_EventFilter(QDial* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QDial_QBaseEventFilter(QDial* self, QObject* watched, QEvent* event) {
+bool QDial_SuperEventFilter(QDial* self, QObject* watched, QEvent* event) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_EventFilter_IsBase(true);
@@ -1454,7 +1454,7 @@ void QDial_ChildEvent(QDial* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QDial_QBaseChildEvent(QDial* self, QChildEvent* event) {
+void QDial_SuperChildEvent(QDial* self, QChildEvent* event) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_ChildEvent_IsBase(true);
@@ -1483,7 +1483,7 @@ void QDial_CustomEvent(QDial* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QDial_QBaseCustomEvent(QDial* self, QEvent* event) {
+void QDial_SuperCustomEvent(QDial* self, QEvent* event) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_CustomEvent_IsBase(true);
@@ -1512,7 +1512,7 @@ void QDial_ConnectNotify(QDial* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QDial_QBaseConnectNotify(QDial* self, const QMetaMethod* signal) {
+void QDial_SuperConnectNotify(QDial* self, const QMetaMethod* signal) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_ConnectNotify_IsBase(true);
@@ -1541,7 +1541,7 @@ void QDial_DisconnectNotify(QDial* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QDial_QBaseDisconnectNotify(QDial* self, const QMetaMethod* signal) {
+void QDial_SuperDisconnectNotify(QDial* self, const QMetaMethod* signal) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_DisconnectNotify_IsBase(true);
@@ -1570,7 +1570,7 @@ void QDial_SetRepeatAction(QDial* self, int action) {
 }
 
 // Base class handler implementation
-void QDial_QBaseSetRepeatAction(QDial* self, int action) {
+void QDial_SuperSetRepeatAction(QDial* self, int action) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_SetRepeatAction_IsBase(true);
@@ -1599,7 +1599,7 @@ int QDial_RepeatAction(const QDial* self) {
 }
 
 // Base class handler implementation
-int QDial_QBaseRepeatAction(const QDial* self) {
+int QDial_SuperRepeatAction(const QDial* self) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_RepeatAction_IsBase(true);
@@ -1628,7 +1628,7 @@ void QDial_UpdateMicroFocus(QDial* self) {
 }
 
 // Base class handler implementation
-void QDial_QBaseUpdateMicroFocus(QDial* self) {
+void QDial_SuperUpdateMicroFocus(QDial* self) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_UpdateMicroFocus_IsBase(true);
@@ -1657,7 +1657,7 @@ void QDial_Create(QDial* self) {
 }
 
 // Base class handler implementation
-void QDial_QBaseCreate(QDial* self) {
+void QDial_SuperCreate(QDial* self) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_Create_IsBase(true);
@@ -1686,7 +1686,7 @@ void QDial_Destroy(QDial* self) {
 }
 
 // Base class handler implementation
-void QDial_QBaseDestroy(QDial* self) {
+void QDial_SuperDestroy(QDial* self) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_Destroy_IsBase(true);
@@ -1715,7 +1715,7 @@ bool QDial_FocusNextChild(QDial* self) {
 }
 
 // Base class handler implementation
-bool QDial_QBaseFocusNextChild(QDial* self) {
+bool QDial_SuperFocusNextChild(QDial* self) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_FocusNextChild_IsBase(true);
@@ -1744,7 +1744,7 @@ bool QDial_FocusPreviousChild(QDial* self) {
 }
 
 // Base class handler implementation
-bool QDial_QBaseFocusPreviousChild(QDial* self) {
+bool QDial_SuperFocusPreviousChild(QDial* self) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_FocusPreviousChild_IsBase(true);
@@ -1773,7 +1773,7 @@ QObject* QDial_Sender(const QDial* self) {
 }
 
 // Base class handler implementation
-QObject* QDial_QBaseSender(const QDial* self) {
+QObject* QDial_SuperSender(const QDial* self) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_Sender_IsBase(true);
@@ -1802,7 +1802,7 @@ int QDial_SenderSignalIndex(const QDial* self) {
 }
 
 // Base class handler implementation
-int QDial_QBaseSenderSignalIndex(const QDial* self) {
+int QDial_SuperSenderSignalIndex(const QDial* self) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_SenderSignalIndex_IsBase(true);
@@ -1831,7 +1831,7 @@ int QDial_Receivers(const QDial* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QDial_QBaseReceivers(const QDial* self, const char* signal) {
+int QDial_SuperReceivers(const QDial* self, const char* signal) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_Receivers_IsBase(true);
@@ -1860,7 +1860,7 @@ bool QDial_IsSignalConnected(const QDial* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QDial_QBaseIsSignalConnected(const QDial* self, const QMetaMethod* signal) {
+bool QDial_SuperIsSignalConnected(const QDial* self, const QMetaMethod* signal) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_IsSignalConnected_IsBase(true);
@@ -1889,7 +1889,7 @@ double QDial_GetDecodedMetricF(const QDial* self, int metricA, int metricB) {
 }
 
 // Base class handler implementation
-double QDial_QBaseGetDecodedMetricF(const QDial* self, int metricA, int metricB) {
+double QDial_SuperGetDecodedMetricF(const QDial* self, int metricA, int metricB) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->setQDial_GetDecodedMetricF_IsBase(true);

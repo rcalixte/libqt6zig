@@ -82,6 +82,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -90,8 +94,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` self: QtC.KRecentFilesMenu `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KRecentFilesMenu_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KRecentFilesMenu_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -117,6 +121,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -125,9 +133,9 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KRecentFilesMenu_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KRecentFilesMenu_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -156,6 +164,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -168,8 +180,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KRecentFilesMenu_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KRecentFilesMenu_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -5883,6 +5895,10 @@ pub const krecentfilesmenu = struct {
         return qtc.KRecentFilesMenu_SizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#sizeHint)
@@ -5893,8 +5909,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` self: QtC.KRecentFilesMenu `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KRecentFilesMenu_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.KRecentFilesMenu_SuperSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QMenu
@@ -5929,6 +5945,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_ChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    ///
+    pub const QBaseChangeEvent = SuperChangeEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#changeEvent)
@@ -5941,8 +5961,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -5977,6 +5997,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#keyPressEvent)
@@ -5989,8 +6013,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` param1: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperKeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6025,6 +6049,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_MouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#mouseReleaseEvent)
@@ -6037,8 +6065,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6073,6 +6101,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_MousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#mousePressEvent)
@@ -6085,8 +6117,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseMousePressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperMousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6121,6 +6153,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_MouseMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#mouseMoveEvent)
@@ -6133,8 +6169,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6169,6 +6205,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_WheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#wheelEvent)
@@ -6181,8 +6221,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` param1: QtC.QWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseWheelEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperWheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperWheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6217,6 +6257,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_EnterEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    ///
+    pub const QBaseEnterEvent = SuperEnterEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#enterEvent)
@@ -6229,8 +6273,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` param1: QtC.QEnterEvent `
     ///
-    pub fn QBaseEnterEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseEnterEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperEnterEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperEnterEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6265,6 +6309,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_LeaveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    ///
+    pub const QBaseLeaveEvent = SuperLeaveEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#leaveEvent)
@@ -6277,8 +6325,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseLeaveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseLeaveEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperLeaveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperLeaveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6313,6 +6361,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_HideEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#hideEvent)
@@ -6325,8 +6377,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` param1: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseHideEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperHideEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperHideEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6361,6 +6413,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_PaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    ///
+    pub const QBasePaintEvent = SuperPaintEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#paintEvent)
@@ -6373,8 +6429,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` param1: QtC.QPaintEvent `
     ///
-    pub fn QBasePaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBasePaintEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperPaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperPaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6409,6 +6465,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_ActionEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    ///
+    pub const QBaseActionEvent = SuperActionEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#actionEvent)
@@ -6421,8 +6481,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` param1: QtC.QActionEvent `
     ///
-    pub fn QBaseActionEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseActionEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperActionEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperActionEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6457,6 +6517,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_TimerEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#timerEvent)
@@ -6469,8 +6533,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` param1: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseTimerEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperTimerEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperTimerEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6505,6 +6569,10 @@ pub const krecentfilesmenu = struct {
         return qtc.KRecentFilesMenu_Event(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#event)
@@ -6517,8 +6585,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.KRecentFilesMenu_QBaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
+        return qtc.KRecentFilesMenu_SuperEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6553,6 +6621,10 @@ pub const krecentfilesmenu = struct {
         return qtc.KRecentFilesMenu_FocusNextPrevChild(@ptrCast(self), next);
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    ///
+    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#focusNextPrevChild)
@@ -6565,8 +6637,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` next: bool `
     ///
-    pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.KRecentFilesMenu_QBaseFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
+        return qtc.KRecentFilesMenu_SuperFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QMenu
@@ -6603,6 +6675,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_InitStyleOption(@ptrCast(self), @ptrCast(option), @ptrCast(action));
     }
 
+    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    ///
+    pub const QBaseInitStyleOption = SuperInitStyleOption;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#initStyleOption)
@@ -6617,8 +6693,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` action: QtC.QAction `
     ///
-    pub fn QBaseInitStyleOption(self: ?*anyopaque, option: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option), @ptrCast(action));
+    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque, action: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperInitStyleOption(@ptrCast(self), @ptrCast(option), @ptrCast(action));
     }
 
     /// Inherited from QMenu
@@ -6651,6 +6727,10 @@ pub const krecentfilesmenu = struct {
         return qtc.KRecentFilesMenu_DevType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
@@ -6661,8 +6741,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` self: QtC.KRecentFilesMenu `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.KRecentFilesMenu_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.KRecentFilesMenu_SuperDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -6697,6 +6777,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_SetVisible(@ptrCast(self), visible);
     }
 
+    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    ///
+    pub const QBaseSetVisible = SuperSetVisible;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
@@ -6709,8 +6793,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.KRecentFilesMenu_QBaseSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
+        qtc.KRecentFilesMenu_SuperSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
@@ -6743,6 +6827,10 @@ pub const krecentfilesmenu = struct {
         return qtc.KRecentFilesMenu_MinimumSizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    ///
+    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSizeHint)
@@ -6753,8 +6841,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` self: QtC.KRecentFilesMenu `
     ///
-    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KRecentFilesMenu_QBaseMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.KRecentFilesMenu_SuperMinimumSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -6789,6 +6877,10 @@ pub const krecentfilesmenu = struct {
         return qtc.KRecentFilesMenu_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
@@ -6801,8 +6893,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KRecentFilesMenu_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.KRecentFilesMenu_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6835,6 +6927,10 @@ pub const krecentfilesmenu = struct {
         return qtc.KRecentFilesMenu_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
@@ -6845,8 +6941,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` self: QtC.KRecentFilesMenu `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.KRecentFilesMenu_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.KRecentFilesMenu_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -6879,6 +6975,10 @@ pub const krecentfilesmenu = struct {
         return qtc.KRecentFilesMenu_PaintEngine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    ///
+    pub const QBasePaintEngine = SuperPaintEngine;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
@@ -6889,8 +6989,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` self: QtC.KRecentFilesMenu `
     ///
-    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.KRecentFilesMenu_QBasePaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.KRecentFilesMenu_SuperPaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -6925,6 +7025,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6937,8 +7041,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6973,6 +7077,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -6985,8 +7093,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7021,6 +7129,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_FocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -7033,8 +7145,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7069,6 +7181,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_FocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -7081,8 +7197,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7117,6 +7233,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
@@ -7129,8 +7249,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` event: QtC.QMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7165,6 +7285,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_ResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resizeEvent)
@@ -7177,8 +7301,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` event: QtC.QResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7213,6 +7337,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
@@ -7225,8 +7353,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` event: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7261,6 +7389,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_ContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    ///
+    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuEvent)
@@ -7273,8 +7405,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` event: QtC.QContextMenuEvent `
     ///
-    pub fn QBaseContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7309,6 +7441,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    ///
+    pub const QBaseTabletEvent = SuperTabletEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
@@ -7321,8 +7457,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` event: QtC.QTabletEvent `
     ///
-    pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7357,6 +7493,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_DragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    ///
+    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
@@ -7369,8 +7509,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` event: QtC.QDragEnterEvent `
     ///
-    pub fn QBaseDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7405,6 +7545,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_DragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    ///
+    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
@@ -7417,8 +7561,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` event: QtC.QDragMoveEvent `
     ///
-    pub fn QBaseDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7453,6 +7597,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    ///
+    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
@@ -7465,8 +7613,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` event: QtC.QDragLeaveEvent `
     ///
-    pub fn QBaseDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7501,6 +7649,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_DropEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    ///
+    pub const QBaseDropEvent = SuperDropEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
@@ -7513,8 +7665,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` event: QtC.QDropEvent `
     ///
-    pub fn QBaseDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7549,6 +7701,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
@@ -7561,8 +7717,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` event: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7605,6 +7761,10 @@ pub const krecentfilesmenu = struct {
         return qtc.KRecentFilesMenu_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
+    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    ///
+    pub const QBaseNativeEvent = SuperNativeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
@@ -7621,12 +7781,12 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KRecentFilesMenu_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KRecentFilesMenu_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -7661,6 +7821,10 @@ pub const krecentfilesmenu = struct {
         return qtc.KRecentFilesMenu_Metric(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
@@ -7673,8 +7837,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KRecentFilesMenu_QBaseMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.KRecentFilesMenu_SuperMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7709,6 +7873,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
@@ -7721,8 +7889,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
@@ -7757,6 +7925,10 @@ pub const krecentfilesmenu = struct {
         return qtc.KRecentFilesMenu_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
@@ -7769,8 +7941,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.KRecentFilesMenu_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.KRecentFilesMenu_SuperRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
@@ -7803,6 +7975,10 @@ pub const krecentfilesmenu = struct {
         return qtc.KRecentFilesMenu_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
@@ -7813,8 +7989,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` self: QtC.KRecentFilesMenu `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.KRecentFilesMenu_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.KRecentFilesMenu_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7849,6 +8025,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    ///
+    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
@@ -7861,8 +8041,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` param1: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7897,6 +8077,10 @@ pub const krecentfilesmenu = struct {
         return qtc.KRecentFilesMenu_InputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    ///
+    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
@@ -7909,8 +8093,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.KRecentFilesMenu_QBaseInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
+        return qtc.KRecentFilesMenu_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7947,6 +8131,10 @@ pub const krecentfilesmenu = struct {
         return qtc.KRecentFilesMenu_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -7961,8 +8149,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KRecentFilesMenu_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KRecentFilesMenu_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7997,6 +8185,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -8009,8 +8201,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -8045,6 +8237,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -8057,8 +8253,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -8093,6 +8289,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8105,8 +8305,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -8141,6 +8341,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -8153,8 +8357,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -8187,6 +8391,10 @@ pub const krecentfilesmenu = struct {
         return qtc.KRecentFilesMenu_ColumnCount(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperColumnCount` instead
+    ///
+    pub const QBaseColumnCount = SuperColumnCount;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#columnCount)
@@ -8197,8 +8405,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` self: QtC.KRecentFilesMenu `
     ///
-    pub fn QBaseColumnCount(self: ?*anyopaque) i32 {
-        return qtc.KRecentFilesMenu_QBaseColumnCount(@ptrCast(self));
+    pub fn SuperColumnCount(self: ?*anyopaque) i32 {
+        return qtc.KRecentFilesMenu_SuperColumnCount(@ptrCast(self));
     }
 
     /// Inherited from QMenu
@@ -8231,6 +8439,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_UpdateMicroFocus(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    ///
+    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8241,8 +8453,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` self: QtC.KRecentFilesMenu `
     ///
-    pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8275,6 +8487,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_Create(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCreate` instead
+    ///
+    pub const QBaseCreate = SuperCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8285,8 +8501,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` self: QtC.KRecentFilesMenu `
     ///
-    pub fn QBaseCreate(self: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseCreate(@ptrCast(self));
+    pub fn SuperCreate(self: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8319,6 +8535,10 @@ pub const krecentfilesmenu = struct {
         qtc.KRecentFilesMenu_Destroy(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDestroy` instead
+    ///
+    pub const QBaseDestroy = SuperDestroy;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
@@ -8329,8 +8549,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` self: QtC.KRecentFilesMenu `
     ///
-    pub fn QBaseDestroy(self: ?*anyopaque) void {
-        qtc.KRecentFilesMenu_QBaseDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: ?*anyopaque) void {
+        qtc.KRecentFilesMenu_SuperDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8363,6 +8583,10 @@ pub const krecentfilesmenu = struct {
         return qtc.KRecentFilesMenu_FocusNextChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    ///
+    pub const QBaseFocusNextChild = SuperFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8373,8 +8597,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` self: QtC.KRecentFilesMenu `
     ///
-    pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.KRecentFilesMenu_QBaseFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
+        return qtc.KRecentFilesMenu_SuperFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8407,6 +8631,10 @@ pub const krecentfilesmenu = struct {
         return qtc.KRecentFilesMenu_FocusPreviousChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    ///
+    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
@@ -8417,8 +8645,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` self: QtC.KRecentFilesMenu `
     ///
-    pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.KRecentFilesMenu_QBaseFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
+        return qtc.KRecentFilesMenu_SuperFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8451,6 +8679,10 @@ pub const krecentfilesmenu = struct {
         return qtc.KRecentFilesMenu_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -8461,8 +8693,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` self: QtC.KRecentFilesMenu `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KRecentFilesMenu_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KRecentFilesMenu_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -8495,6 +8727,10 @@ pub const krecentfilesmenu = struct {
         return qtc.KRecentFilesMenu_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -8505,8 +8741,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` self: QtC.KRecentFilesMenu `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KRecentFilesMenu_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KRecentFilesMenu_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -8542,6 +8778,10 @@ pub const krecentfilesmenu = struct {
         return qtc.KRecentFilesMenu_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -8554,9 +8794,9 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KRecentFilesMenu_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KRecentFilesMenu_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -8591,6 +8831,10 @@ pub const krecentfilesmenu = struct {
         return qtc.KRecentFilesMenu_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -8603,8 +8847,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KRecentFilesMenu_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KRecentFilesMenu_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -8641,6 +8885,10 @@ pub const krecentfilesmenu = struct {
         return qtc.KRecentFilesMenu_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -8655,8 +8903,8 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KRecentFilesMenu_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.KRecentFilesMenu_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -8690,6 +8938,9 @@ pub const krecentfilesmenu = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/krecentfilesmenu.html#dtor.KRecentFilesMenu)
     ///
@@ -8699,7 +8950,7 @@ pub const krecentfilesmenu = struct {
     ///
     /// ` self: QtC.KRecentFilesMenu `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KRecentFilesMenu_Delete(@ptrCast(self));
     }
 };

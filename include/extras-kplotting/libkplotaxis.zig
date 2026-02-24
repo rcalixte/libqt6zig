@@ -249,6 +249,10 @@ pub const kplotaxis = struct {
         qtc.KPlotAxis_SetTickLabelFormat3(@ptrCast(self), @bitCast(format), @bitCast(fieldWidth), @bitCast(precision));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kplotaxis.html#dtor.KPlotAxis)
     ///
     /// Delete this object from C++ memory.
@@ -257,7 +261,7 @@ pub const kplotaxis = struct {
     ///
     /// ` self: QtC.KPlotAxis `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KPlotAxis_Delete(@ptrCast(self));
     }
 };

@@ -165,7 +165,7 @@ void KNSCore__Question_SetQuestionType1(KNSCore__Question* self, int newType) {
 }
 
 // Base class handler implementation
-QMetaObject* KNSCore__Question_QBaseMetaObject(const KNSCore__Question* self) {
+QMetaObject* KNSCore__Question_SuperMetaObject(const KNSCore__Question* self) {
     auto* vknscorequestion = const_cast<VirtualKNSCoreQuestion*>(dynamic_cast<const VirtualKNSCoreQuestion*>(self));
     if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
         vknscorequestion->setKNSCore__Question_MetaObject_IsBase(true);
@@ -184,7 +184,7 @@ void KNSCore__Question_OnMetaObject(const KNSCore__Question* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* KNSCore__Question_QBaseMetacast(KNSCore__Question* self, const char* param1) {
+void* KNSCore__Question_SuperMetacast(KNSCore__Question* self, const char* param1) {
     auto* vknscorequestion = dynamic_cast<VirtualKNSCoreQuestion*>(self);
     if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
         vknscorequestion->setKNSCore__Question_Metacast_IsBase(true);
@@ -203,7 +203,7 @@ void KNSCore__Question_OnMetacast(KNSCore__Question* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KNSCore__Question_QBaseMetacall(KNSCore__Question* self, int param1, int param2, void** param3) {
+int KNSCore__Question_SuperMetacall(KNSCore__Question* self, int param1, int param2, void** param3) {
     auto* vknscorequestion = dynamic_cast<VirtualKNSCoreQuestion*>(self);
     if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
         vknscorequestion->setKNSCore__Question_Metacall_IsBase(true);
@@ -232,7 +232,7 @@ bool KNSCore__Question_Event(KNSCore__Question* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KNSCore__Question_QBaseEvent(KNSCore__Question* self, QEvent* event) {
+bool KNSCore__Question_SuperEvent(KNSCore__Question* self, QEvent* event) {
     auto* vknscorequestion = dynamic_cast<VirtualKNSCoreQuestion*>(self);
     if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
         vknscorequestion->setKNSCore__Question_Event_IsBase(true);
@@ -261,7 +261,7 @@ bool KNSCore__Question_EventFilter(KNSCore__Question* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool KNSCore__Question_QBaseEventFilter(KNSCore__Question* self, QObject* watched, QEvent* event) {
+bool KNSCore__Question_SuperEventFilter(KNSCore__Question* self, QObject* watched, QEvent* event) {
     auto* vknscorequestion = dynamic_cast<VirtualKNSCoreQuestion*>(self);
     if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
         vknscorequestion->setKNSCore__Question_EventFilter_IsBase(true);
@@ -290,7 +290,7 @@ void KNSCore__Question_TimerEvent(KNSCore__Question* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KNSCore__Question_QBaseTimerEvent(KNSCore__Question* self, QTimerEvent* event) {
+void KNSCore__Question_SuperTimerEvent(KNSCore__Question* self, QTimerEvent* event) {
     auto* vknscorequestion = dynamic_cast<VirtualKNSCoreQuestion*>(self);
     if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
         vknscorequestion->setKNSCore__Question_TimerEvent_IsBase(true);
@@ -319,7 +319,7 @@ void KNSCore__Question_ChildEvent(KNSCore__Question* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KNSCore__Question_QBaseChildEvent(KNSCore__Question* self, QChildEvent* event) {
+void KNSCore__Question_SuperChildEvent(KNSCore__Question* self, QChildEvent* event) {
     auto* vknscorequestion = dynamic_cast<VirtualKNSCoreQuestion*>(self);
     if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
         vknscorequestion->setKNSCore__Question_ChildEvent_IsBase(true);
@@ -348,7 +348,7 @@ void KNSCore__Question_CustomEvent(KNSCore__Question* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KNSCore__Question_QBaseCustomEvent(KNSCore__Question* self, QEvent* event) {
+void KNSCore__Question_SuperCustomEvent(KNSCore__Question* self, QEvent* event) {
     auto* vknscorequestion = dynamic_cast<VirtualKNSCoreQuestion*>(self);
     if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
         vknscorequestion->setKNSCore__Question_CustomEvent_IsBase(true);
@@ -377,7 +377,7 @@ void KNSCore__Question_ConnectNotify(KNSCore__Question* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void KNSCore__Question_QBaseConnectNotify(KNSCore__Question* self, const QMetaMethod* signal) {
+void KNSCore__Question_SuperConnectNotify(KNSCore__Question* self, const QMetaMethod* signal) {
     auto* vknscorequestion = dynamic_cast<VirtualKNSCoreQuestion*>(self);
     if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
         vknscorequestion->setKNSCore__Question_ConnectNotify_IsBase(true);
@@ -406,7 +406,7 @@ void KNSCore__Question_DisconnectNotify(KNSCore__Question* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void KNSCore__Question_QBaseDisconnectNotify(KNSCore__Question* self, const QMetaMethod* signal) {
+void KNSCore__Question_SuperDisconnectNotify(KNSCore__Question* self, const QMetaMethod* signal) {
     auto* vknscorequestion = dynamic_cast<VirtualKNSCoreQuestion*>(self);
     if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
         vknscorequestion->setKNSCore__Question_DisconnectNotify_IsBase(true);
@@ -435,7 +435,7 @@ QObject* KNSCore__Question_Sender(const KNSCore__Question* self) {
 }
 
 // Base class handler implementation
-QObject* KNSCore__Question_QBaseSender(const KNSCore__Question* self) {
+QObject* KNSCore__Question_SuperSender(const KNSCore__Question* self) {
     auto* vknscorequestion = const_cast<VirtualKNSCoreQuestion*>(dynamic_cast<const VirtualKNSCoreQuestion*>(self));
     if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
         vknscorequestion->setKNSCore__Question_Sender_IsBase(true);
@@ -464,7 +464,7 @@ int KNSCore__Question_SenderSignalIndex(const KNSCore__Question* self) {
 }
 
 // Base class handler implementation
-int KNSCore__Question_QBaseSenderSignalIndex(const KNSCore__Question* self) {
+int KNSCore__Question_SuperSenderSignalIndex(const KNSCore__Question* self) {
     auto* vknscorequestion = const_cast<VirtualKNSCoreQuestion*>(dynamic_cast<const VirtualKNSCoreQuestion*>(self));
     if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
         vknscorequestion->setKNSCore__Question_SenderSignalIndex_IsBase(true);
@@ -493,7 +493,7 @@ int KNSCore__Question_Receivers(const KNSCore__Question* self, const char* signa
 }
 
 // Base class handler implementation
-int KNSCore__Question_QBaseReceivers(const KNSCore__Question* self, const char* signal) {
+int KNSCore__Question_SuperReceivers(const KNSCore__Question* self, const char* signal) {
     auto* vknscorequestion = const_cast<VirtualKNSCoreQuestion*>(dynamic_cast<const VirtualKNSCoreQuestion*>(self));
     if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
         vknscorequestion->setKNSCore__Question_Receivers_IsBase(true);
@@ -522,7 +522,7 @@ bool KNSCore__Question_IsSignalConnected(const KNSCore__Question* self, const QM
 }
 
 // Base class handler implementation
-bool KNSCore__Question_QBaseIsSignalConnected(const KNSCore__Question* self, const QMetaMethod* signal) {
+bool KNSCore__Question_SuperIsSignalConnected(const KNSCore__Question* self, const QMetaMethod* signal) {
     auto* vknscorequestion = const_cast<VirtualKNSCoreQuestion*>(dynamic_cast<const VirtualKNSCoreQuestion*>(self));
     if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
         vknscorequestion->setKNSCore__Question_IsSignalConnected_IsBase(true);

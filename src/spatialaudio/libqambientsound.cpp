@@ -138,7 +138,7 @@ void QAmbientSound_Stop(QAmbientSound* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QAmbientSound_QBaseMetaObject(const QAmbientSound* self) {
+QMetaObject* QAmbientSound_SuperMetaObject(const QAmbientSound* self) {
     auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self));
     if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
         vqambientsound->setQAmbientSound_MetaObject_IsBase(true);
@@ -157,7 +157,7 @@ void QAmbientSound_OnMetaObject(const QAmbientSound* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QAmbientSound_QBaseMetacast(QAmbientSound* self, const char* param1) {
+void* QAmbientSound_SuperMetacast(QAmbientSound* self, const char* param1) {
     auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
     if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
         vqambientsound->setQAmbientSound_Metacast_IsBase(true);
@@ -176,7 +176,7 @@ void QAmbientSound_OnMetacast(QAmbientSound* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAmbientSound_QBaseMetacall(QAmbientSound* self, int param1, int param2, void** param3) {
+int QAmbientSound_SuperMetacall(QAmbientSound* self, int param1, int param2, void** param3) {
     auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
     if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
         vqambientsound->setQAmbientSound_Metacall_IsBase(true);
@@ -205,7 +205,7 @@ bool QAmbientSound_Event(QAmbientSound* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QAmbientSound_QBaseEvent(QAmbientSound* self, QEvent* event) {
+bool QAmbientSound_SuperEvent(QAmbientSound* self, QEvent* event) {
     auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
     if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
         vqambientsound->setQAmbientSound_Event_IsBase(true);
@@ -234,7 +234,7 @@ bool QAmbientSound_EventFilter(QAmbientSound* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QAmbientSound_QBaseEventFilter(QAmbientSound* self, QObject* watched, QEvent* event) {
+bool QAmbientSound_SuperEventFilter(QAmbientSound* self, QObject* watched, QEvent* event) {
     auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
     if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
         vqambientsound->setQAmbientSound_EventFilter_IsBase(true);
@@ -263,7 +263,7 @@ void QAmbientSound_TimerEvent(QAmbientSound* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QAmbientSound_QBaseTimerEvent(QAmbientSound* self, QTimerEvent* event) {
+void QAmbientSound_SuperTimerEvent(QAmbientSound* self, QTimerEvent* event) {
     auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
     if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
         vqambientsound->setQAmbientSound_TimerEvent_IsBase(true);
@@ -292,7 +292,7 @@ void QAmbientSound_ChildEvent(QAmbientSound* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QAmbientSound_QBaseChildEvent(QAmbientSound* self, QChildEvent* event) {
+void QAmbientSound_SuperChildEvent(QAmbientSound* self, QChildEvent* event) {
     auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
     if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
         vqambientsound->setQAmbientSound_ChildEvent_IsBase(true);
@@ -321,7 +321,7 @@ void QAmbientSound_CustomEvent(QAmbientSound* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QAmbientSound_QBaseCustomEvent(QAmbientSound* self, QEvent* event) {
+void QAmbientSound_SuperCustomEvent(QAmbientSound* self, QEvent* event) {
     auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
     if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
         vqambientsound->setQAmbientSound_CustomEvent_IsBase(true);
@@ -350,7 +350,7 @@ void QAmbientSound_ConnectNotify(QAmbientSound* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QAmbientSound_QBaseConnectNotify(QAmbientSound* self, const QMetaMethod* signal) {
+void QAmbientSound_SuperConnectNotify(QAmbientSound* self, const QMetaMethod* signal) {
     auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
     if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
         vqambientsound->setQAmbientSound_ConnectNotify_IsBase(true);
@@ -379,7 +379,7 @@ void QAmbientSound_DisconnectNotify(QAmbientSound* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QAmbientSound_QBaseDisconnectNotify(QAmbientSound* self, const QMetaMethod* signal) {
+void QAmbientSound_SuperDisconnectNotify(QAmbientSound* self, const QMetaMethod* signal) {
     auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
     if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
         vqambientsound->setQAmbientSound_DisconnectNotify_IsBase(true);
@@ -408,7 +408,7 @@ QObject* QAmbientSound_Sender(const QAmbientSound* self) {
 }
 
 // Base class handler implementation
-QObject* QAmbientSound_QBaseSender(const QAmbientSound* self) {
+QObject* QAmbientSound_SuperSender(const QAmbientSound* self) {
     auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self));
     if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
         vqambientsound->setQAmbientSound_Sender_IsBase(true);
@@ -437,7 +437,7 @@ int QAmbientSound_SenderSignalIndex(const QAmbientSound* self) {
 }
 
 // Base class handler implementation
-int QAmbientSound_QBaseSenderSignalIndex(const QAmbientSound* self) {
+int QAmbientSound_SuperSenderSignalIndex(const QAmbientSound* self) {
     auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self));
     if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
         vqambientsound->setQAmbientSound_SenderSignalIndex_IsBase(true);
@@ -466,7 +466,7 @@ int QAmbientSound_Receivers(const QAmbientSound* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QAmbientSound_QBaseReceivers(const QAmbientSound* self, const char* signal) {
+int QAmbientSound_SuperReceivers(const QAmbientSound* self, const char* signal) {
     auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self));
     if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
         vqambientsound->setQAmbientSound_Receivers_IsBase(true);
@@ -495,7 +495,7 @@ bool QAmbientSound_IsSignalConnected(const QAmbientSound* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QAmbientSound_QBaseIsSignalConnected(const QAmbientSound* self, const QMetaMethod* signal) {
+bool QAmbientSound_SuperIsSignalConnected(const QAmbientSound* self, const QMetaMethod* signal) {
     auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self));
     if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
         vqambientsound->setQAmbientSound_IsSignalConnected_IsBase(true);

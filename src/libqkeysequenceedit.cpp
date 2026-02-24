@@ -198,7 +198,7 @@ void QKeySequenceEdit_FocusOutEvent(QKeySequenceEdit* self, QFocusEvent* param1)
 }
 
 // Base class handler implementation
-QMetaObject* QKeySequenceEdit_QBaseMetaObject(const QKeySequenceEdit* self) {
+QMetaObject* QKeySequenceEdit_SuperMetaObject(const QKeySequenceEdit* self) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_MetaObject_IsBase(true);
@@ -217,7 +217,7 @@ void QKeySequenceEdit_OnMetaObject(const QKeySequenceEdit* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* QKeySequenceEdit_QBaseMetacast(QKeySequenceEdit* self, const char* param1) {
+void* QKeySequenceEdit_SuperMetacast(QKeySequenceEdit* self, const char* param1) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_Metacast_IsBase(true);
@@ -236,7 +236,7 @@ void QKeySequenceEdit_OnMetacast(QKeySequenceEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QKeySequenceEdit_QBaseMetacall(QKeySequenceEdit* self, int param1, int param2, void** param3) {
+int QKeySequenceEdit_SuperMetacall(QKeySequenceEdit* self, int param1, int param2, void** param3) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_Metacall_IsBase(true);
@@ -255,7 +255,7 @@ void QKeySequenceEdit_OnMetacall(QKeySequenceEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QKeySequenceEdit_QBaseEvent(QKeySequenceEdit* self, QEvent* param1) {
+bool QKeySequenceEdit_SuperEvent(QKeySequenceEdit* self, QEvent* param1) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_Event_IsBase(true);
@@ -274,7 +274,7 @@ void QKeySequenceEdit_OnEvent(QKeySequenceEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseKeyPressEvent(QKeySequenceEdit* self, QKeyEvent* param1) {
+void QKeySequenceEdit_SuperKeyPressEvent(QKeySequenceEdit* self, QKeyEvent* param1) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_KeyPressEvent_IsBase(true);
@@ -293,7 +293,7 @@ void QKeySequenceEdit_OnKeyPressEvent(QKeySequenceEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseKeyReleaseEvent(QKeySequenceEdit* self, QKeyEvent* param1) {
+void QKeySequenceEdit_SuperKeyReleaseEvent(QKeySequenceEdit* self, QKeyEvent* param1) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_KeyReleaseEvent_IsBase(true);
@@ -312,7 +312,7 @@ void QKeySequenceEdit_OnKeyReleaseEvent(QKeySequenceEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseTimerEvent(QKeySequenceEdit* self, QTimerEvent* param1) {
+void QKeySequenceEdit_SuperTimerEvent(QKeySequenceEdit* self, QTimerEvent* param1) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_TimerEvent_IsBase(true);
@@ -331,7 +331,7 @@ void QKeySequenceEdit_OnTimerEvent(QKeySequenceEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseFocusOutEvent(QKeySequenceEdit* self, QFocusEvent* param1) {
+void QKeySequenceEdit_SuperFocusOutEvent(QKeySequenceEdit* self, QFocusEvent* param1) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_FocusOutEvent_IsBase(true);
@@ -360,7 +360,7 @@ int QKeySequenceEdit_DevType(const QKeySequenceEdit* self) {
 }
 
 // Base class handler implementation
-int QKeySequenceEdit_QBaseDevType(const QKeySequenceEdit* self) {
+int QKeySequenceEdit_SuperDevType(const QKeySequenceEdit* self) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_DevType_IsBase(true);
@@ -389,7 +389,7 @@ void QKeySequenceEdit_SetVisible(QKeySequenceEdit* self, bool visible) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseSetVisible(QKeySequenceEdit* self, bool visible) {
+void QKeySequenceEdit_SuperSetVisible(QKeySequenceEdit* self, bool visible) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_SetVisible_IsBase(true);
@@ -418,7 +418,7 @@ QSize* QKeySequenceEdit_SizeHint(const QKeySequenceEdit* self) {
 }
 
 // Base class handler implementation
-QSize* QKeySequenceEdit_QBaseSizeHint(const QKeySequenceEdit* self) {
+QSize* QKeySequenceEdit_SuperSizeHint(const QKeySequenceEdit* self) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_SizeHint_IsBase(true);
@@ -447,7 +447,7 @@ QSize* QKeySequenceEdit_MinimumSizeHint(const QKeySequenceEdit* self) {
 }
 
 // Base class handler implementation
-QSize* QKeySequenceEdit_QBaseMinimumSizeHint(const QKeySequenceEdit* self) {
+QSize* QKeySequenceEdit_SuperMinimumSizeHint(const QKeySequenceEdit* self) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_MinimumSizeHint_IsBase(true);
@@ -476,7 +476,7 @@ int QKeySequenceEdit_HeightForWidth(const QKeySequenceEdit* self, int param1) {
 }
 
 // Base class handler implementation
-int QKeySequenceEdit_QBaseHeightForWidth(const QKeySequenceEdit* self, int param1) {
+int QKeySequenceEdit_SuperHeightForWidth(const QKeySequenceEdit* self, int param1) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_HeightForWidth_IsBase(true);
@@ -505,7 +505,7 @@ bool QKeySequenceEdit_HasHeightForWidth(const QKeySequenceEdit* self) {
 }
 
 // Base class handler implementation
-bool QKeySequenceEdit_QBaseHasHeightForWidth(const QKeySequenceEdit* self) {
+bool QKeySequenceEdit_SuperHasHeightForWidth(const QKeySequenceEdit* self) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_HasHeightForWidth_IsBase(true);
@@ -534,7 +534,7 @@ QPaintEngine* QKeySequenceEdit_PaintEngine(const QKeySequenceEdit* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QKeySequenceEdit_QBasePaintEngine(const QKeySequenceEdit* self) {
+QPaintEngine* QKeySequenceEdit_SuperPaintEngine(const QKeySequenceEdit* self) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_PaintEngine_IsBase(true);
@@ -563,7 +563,7 @@ void QKeySequenceEdit_MousePressEvent(QKeySequenceEdit* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseMousePressEvent(QKeySequenceEdit* self, QMouseEvent* event) {
+void QKeySequenceEdit_SuperMousePressEvent(QKeySequenceEdit* self, QMouseEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_MousePressEvent_IsBase(true);
@@ -592,7 +592,7 @@ void QKeySequenceEdit_MouseReleaseEvent(QKeySequenceEdit* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseMouseReleaseEvent(QKeySequenceEdit* self, QMouseEvent* event) {
+void QKeySequenceEdit_SuperMouseReleaseEvent(QKeySequenceEdit* self, QMouseEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_MouseReleaseEvent_IsBase(true);
@@ -621,7 +621,7 @@ void QKeySequenceEdit_MouseDoubleClickEvent(QKeySequenceEdit* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseMouseDoubleClickEvent(QKeySequenceEdit* self, QMouseEvent* event) {
+void QKeySequenceEdit_SuperMouseDoubleClickEvent(QKeySequenceEdit* self, QMouseEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_MouseDoubleClickEvent_IsBase(true);
@@ -650,7 +650,7 @@ void QKeySequenceEdit_MouseMoveEvent(QKeySequenceEdit* self, QMouseEvent* event)
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseMouseMoveEvent(QKeySequenceEdit* self, QMouseEvent* event) {
+void QKeySequenceEdit_SuperMouseMoveEvent(QKeySequenceEdit* self, QMouseEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_MouseMoveEvent_IsBase(true);
@@ -679,7 +679,7 @@ void QKeySequenceEdit_WheelEvent(QKeySequenceEdit* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseWheelEvent(QKeySequenceEdit* self, QWheelEvent* event) {
+void QKeySequenceEdit_SuperWheelEvent(QKeySequenceEdit* self, QWheelEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_WheelEvent_IsBase(true);
@@ -708,7 +708,7 @@ void QKeySequenceEdit_FocusInEvent(QKeySequenceEdit* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseFocusInEvent(QKeySequenceEdit* self, QFocusEvent* event) {
+void QKeySequenceEdit_SuperFocusInEvent(QKeySequenceEdit* self, QFocusEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_FocusInEvent_IsBase(true);
@@ -737,7 +737,7 @@ void QKeySequenceEdit_EnterEvent(QKeySequenceEdit* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseEnterEvent(QKeySequenceEdit* self, QEnterEvent* event) {
+void QKeySequenceEdit_SuperEnterEvent(QKeySequenceEdit* self, QEnterEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_EnterEvent_IsBase(true);
@@ -766,7 +766,7 @@ void QKeySequenceEdit_LeaveEvent(QKeySequenceEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseLeaveEvent(QKeySequenceEdit* self, QEvent* event) {
+void QKeySequenceEdit_SuperLeaveEvent(QKeySequenceEdit* self, QEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_LeaveEvent_IsBase(true);
@@ -795,7 +795,7 @@ void QKeySequenceEdit_PaintEvent(QKeySequenceEdit* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBasePaintEvent(QKeySequenceEdit* self, QPaintEvent* event) {
+void QKeySequenceEdit_SuperPaintEvent(QKeySequenceEdit* self, QPaintEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_PaintEvent_IsBase(true);
@@ -824,7 +824,7 @@ void QKeySequenceEdit_MoveEvent(QKeySequenceEdit* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseMoveEvent(QKeySequenceEdit* self, QMoveEvent* event) {
+void QKeySequenceEdit_SuperMoveEvent(QKeySequenceEdit* self, QMoveEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_MoveEvent_IsBase(true);
@@ -853,7 +853,7 @@ void QKeySequenceEdit_ResizeEvent(QKeySequenceEdit* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseResizeEvent(QKeySequenceEdit* self, QResizeEvent* event) {
+void QKeySequenceEdit_SuperResizeEvent(QKeySequenceEdit* self, QResizeEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_ResizeEvent_IsBase(true);
@@ -882,7 +882,7 @@ void QKeySequenceEdit_CloseEvent(QKeySequenceEdit* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseCloseEvent(QKeySequenceEdit* self, QCloseEvent* event) {
+void QKeySequenceEdit_SuperCloseEvent(QKeySequenceEdit* self, QCloseEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_CloseEvent_IsBase(true);
@@ -911,7 +911,7 @@ void QKeySequenceEdit_ContextMenuEvent(QKeySequenceEdit* self, QContextMenuEvent
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseContextMenuEvent(QKeySequenceEdit* self, QContextMenuEvent* event) {
+void QKeySequenceEdit_SuperContextMenuEvent(QKeySequenceEdit* self, QContextMenuEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_ContextMenuEvent_IsBase(true);
@@ -940,7 +940,7 @@ void QKeySequenceEdit_TabletEvent(QKeySequenceEdit* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseTabletEvent(QKeySequenceEdit* self, QTabletEvent* event) {
+void QKeySequenceEdit_SuperTabletEvent(QKeySequenceEdit* self, QTabletEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_TabletEvent_IsBase(true);
@@ -969,7 +969,7 @@ void QKeySequenceEdit_ActionEvent(QKeySequenceEdit* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseActionEvent(QKeySequenceEdit* self, QActionEvent* event) {
+void QKeySequenceEdit_SuperActionEvent(QKeySequenceEdit* self, QActionEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_ActionEvent_IsBase(true);
@@ -998,7 +998,7 @@ void QKeySequenceEdit_DragEnterEvent(QKeySequenceEdit* self, QDragEnterEvent* ev
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseDragEnterEvent(QKeySequenceEdit* self, QDragEnterEvent* event) {
+void QKeySequenceEdit_SuperDragEnterEvent(QKeySequenceEdit* self, QDragEnterEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_DragEnterEvent_IsBase(true);
@@ -1027,7 +1027,7 @@ void QKeySequenceEdit_DragMoveEvent(QKeySequenceEdit* self, QDragMoveEvent* even
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseDragMoveEvent(QKeySequenceEdit* self, QDragMoveEvent* event) {
+void QKeySequenceEdit_SuperDragMoveEvent(QKeySequenceEdit* self, QDragMoveEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_DragMoveEvent_IsBase(true);
@@ -1056,7 +1056,7 @@ void QKeySequenceEdit_DragLeaveEvent(QKeySequenceEdit* self, QDragLeaveEvent* ev
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseDragLeaveEvent(QKeySequenceEdit* self, QDragLeaveEvent* event) {
+void QKeySequenceEdit_SuperDragLeaveEvent(QKeySequenceEdit* self, QDragLeaveEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_DragLeaveEvent_IsBase(true);
@@ -1085,7 +1085,7 @@ void QKeySequenceEdit_DropEvent(QKeySequenceEdit* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseDropEvent(QKeySequenceEdit* self, QDropEvent* event) {
+void QKeySequenceEdit_SuperDropEvent(QKeySequenceEdit* self, QDropEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_DropEvent_IsBase(true);
@@ -1114,7 +1114,7 @@ void QKeySequenceEdit_ShowEvent(QKeySequenceEdit* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseShowEvent(QKeySequenceEdit* self, QShowEvent* event) {
+void QKeySequenceEdit_SuperShowEvent(QKeySequenceEdit* self, QShowEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_ShowEvent_IsBase(true);
@@ -1143,7 +1143,7 @@ void QKeySequenceEdit_HideEvent(QKeySequenceEdit* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseHideEvent(QKeySequenceEdit* self, QHideEvent* event) {
+void QKeySequenceEdit_SuperHideEvent(QKeySequenceEdit* self, QHideEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_HideEvent_IsBase(true);
@@ -1173,7 +1173,7 @@ bool QKeySequenceEdit_NativeEvent(QKeySequenceEdit* self, const libqt_string eve
 }
 
 // Base class handler implementation
-bool QKeySequenceEdit_QBaseNativeEvent(QKeySequenceEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QKeySequenceEdit_SuperNativeEvent(QKeySequenceEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
@@ -1203,7 +1203,7 @@ void QKeySequenceEdit_ChangeEvent(QKeySequenceEdit* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseChangeEvent(QKeySequenceEdit* self, QEvent* param1) {
+void QKeySequenceEdit_SuperChangeEvent(QKeySequenceEdit* self, QEvent* param1) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_ChangeEvent_IsBase(true);
@@ -1232,7 +1232,7 @@ int QKeySequenceEdit_Metric(const QKeySequenceEdit* self, int param1) {
 }
 
 // Base class handler implementation
-int QKeySequenceEdit_QBaseMetric(const QKeySequenceEdit* self, int param1) {
+int QKeySequenceEdit_SuperMetric(const QKeySequenceEdit* self, int param1) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_Metric_IsBase(true);
@@ -1261,7 +1261,7 @@ void QKeySequenceEdit_InitPainter(const QKeySequenceEdit* self, QPainter* painte
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseInitPainter(const QKeySequenceEdit* self, QPainter* painter) {
+void QKeySequenceEdit_SuperInitPainter(const QKeySequenceEdit* self, QPainter* painter) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_InitPainter_IsBase(true);
@@ -1290,7 +1290,7 @@ QPaintDevice* QKeySequenceEdit_Redirected(const QKeySequenceEdit* self, QPoint* 
 }
 
 // Base class handler implementation
-QPaintDevice* QKeySequenceEdit_QBaseRedirected(const QKeySequenceEdit* self, QPoint* offset) {
+QPaintDevice* QKeySequenceEdit_SuperRedirected(const QKeySequenceEdit* self, QPoint* offset) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_Redirected_IsBase(true);
@@ -1319,7 +1319,7 @@ QPainter* QKeySequenceEdit_SharedPainter(const QKeySequenceEdit* self) {
 }
 
 // Base class handler implementation
-QPainter* QKeySequenceEdit_QBaseSharedPainter(const QKeySequenceEdit* self) {
+QPainter* QKeySequenceEdit_SuperSharedPainter(const QKeySequenceEdit* self) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_SharedPainter_IsBase(true);
@@ -1348,7 +1348,7 @@ void QKeySequenceEdit_InputMethodEvent(QKeySequenceEdit* self, QInputMethodEvent
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseInputMethodEvent(QKeySequenceEdit* self, QInputMethodEvent* param1) {
+void QKeySequenceEdit_SuperInputMethodEvent(QKeySequenceEdit* self, QInputMethodEvent* param1) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_InputMethodEvent_IsBase(true);
@@ -1377,7 +1377,7 @@ QVariant* QKeySequenceEdit_InputMethodQuery(const QKeySequenceEdit* self, int pa
 }
 
 // Base class handler implementation
-QVariant* QKeySequenceEdit_QBaseInputMethodQuery(const QKeySequenceEdit* self, int param1) {
+QVariant* QKeySequenceEdit_SuperInputMethodQuery(const QKeySequenceEdit* self, int param1) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_InputMethodQuery_IsBase(true);
@@ -1406,7 +1406,7 @@ bool QKeySequenceEdit_FocusNextPrevChild(QKeySequenceEdit* self, bool next) {
 }
 
 // Base class handler implementation
-bool QKeySequenceEdit_QBaseFocusNextPrevChild(QKeySequenceEdit* self, bool next) {
+bool QKeySequenceEdit_SuperFocusNextPrevChild(QKeySequenceEdit* self, bool next) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_FocusNextPrevChild_IsBase(true);
@@ -1435,7 +1435,7 @@ bool QKeySequenceEdit_EventFilter(QKeySequenceEdit* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool QKeySequenceEdit_QBaseEventFilter(QKeySequenceEdit* self, QObject* watched, QEvent* event) {
+bool QKeySequenceEdit_SuperEventFilter(QKeySequenceEdit* self, QObject* watched, QEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_EventFilter_IsBase(true);
@@ -1464,7 +1464,7 @@ void QKeySequenceEdit_ChildEvent(QKeySequenceEdit* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseChildEvent(QKeySequenceEdit* self, QChildEvent* event) {
+void QKeySequenceEdit_SuperChildEvent(QKeySequenceEdit* self, QChildEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_ChildEvent_IsBase(true);
@@ -1493,7 +1493,7 @@ void QKeySequenceEdit_CustomEvent(QKeySequenceEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseCustomEvent(QKeySequenceEdit* self, QEvent* event) {
+void QKeySequenceEdit_SuperCustomEvent(QKeySequenceEdit* self, QEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_CustomEvent_IsBase(true);
@@ -1522,7 +1522,7 @@ void QKeySequenceEdit_ConnectNotify(QKeySequenceEdit* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseConnectNotify(QKeySequenceEdit* self, const QMetaMethod* signal) {
+void QKeySequenceEdit_SuperConnectNotify(QKeySequenceEdit* self, const QMetaMethod* signal) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_ConnectNotify_IsBase(true);
@@ -1551,7 +1551,7 @@ void QKeySequenceEdit_DisconnectNotify(QKeySequenceEdit* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseDisconnectNotify(QKeySequenceEdit* self, const QMetaMethod* signal) {
+void QKeySequenceEdit_SuperDisconnectNotify(QKeySequenceEdit* self, const QMetaMethod* signal) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_DisconnectNotify_IsBase(true);
@@ -1580,7 +1580,7 @@ void QKeySequenceEdit_UpdateMicroFocus(QKeySequenceEdit* self) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseUpdateMicroFocus(QKeySequenceEdit* self) {
+void QKeySequenceEdit_SuperUpdateMicroFocus(QKeySequenceEdit* self) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_UpdateMicroFocus_IsBase(true);
@@ -1609,7 +1609,7 @@ void QKeySequenceEdit_Create(QKeySequenceEdit* self) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseCreate(QKeySequenceEdit* self) {
+void QKeySequenceEdit_SuperCreate(QKeySequenceEdit* self) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_Create_IsBase(true);
@@ -1638,7 +1638,7 @@ void QKeySequenceEdit_Destroy(QKeySequenceEdit* self) {
 }
 
 // Base class handler implementation
-void QKeySequenceEdit_QBaseDestroy(QKeySequenceEdit* self) {
+void QKeySequenceEdit_SuperDestroy(QKeySequenceEdit* self) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_Destroy_IsBase(true);
@@ -1667,7 +1667,7 @@ bool QKeySequenceEdit_FocusNextChild(QKeySequenceEdit* self) {
 }
 
 // Base class handler implementation
-bool QKeySequenceEdit_QBaseFocusNextChild(QKeySequenceEdit* self) {
+bool QKeySequenceEdit_SuperFocusNextChild(QKeySequenceEdit* self) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_FocusNextChild_IsBase(true);
@@ -1696,7 +1696,7 @@ bool QKeySequenceEdit_FocusPreviousChild(QKeySequenceEdit* self) {
 }
 
 // Base class handler implementation
-bool QKeySequenceEdit_QBaseFocusPreviousChild(QKeySequenceEdit* self) {
+bool QKeySequenceEdit_SuperFocusPreviousChild(QKeySequenceEdit* self) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_FocusPreviousChild_IsBase(true);
@@ -1725,7 +1725,7 @@ QObject* QKeySequenceEdit_Sender(const QKeySequenceEdit* self) {
 }
 
 // Base class handler implementation
-QObject* QKeySequenceEdit_QBaseSender(const QKeySequenceEdit* self) {
+QObject* QKeySequenceEdit_SuperSender(const QKeySequenceEdit* self) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_Sender_IsBase(true);
@@ -1754,7 +1754,7 @@ int QKeySequenceEdit_SenderSignalIndex(const QKeySequenceEdit* self) {
 }
 
 // Base class handler implementation
-int QKeySequenceEdit_QBaseSenderSignalIndex(const QKeySequenceEdit* self) {
+int QKeySequenceEdit_SuperSenderSignalIndex(const QKeySequenceEdit* self) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_SenderSignalIndex_IsBase(true);
@@ -1783,7 +1783,7 @@ int QKeySequenceEdit_Receivers(const QKeySequenceEdit* self, const char* signal)
 }
 
 // Base class handler implementation
-int QKeySequenceEdit_QBaseReceivers(const QKeySequenceEdit* self, const char* signal) {
+int QKeySequenceEdit_SuperReceivers(const QKeySequenceEdit* self, const char* signal) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_Receivers_IsBase(true);
@@ -1812,7 +1812,7 @@ bool QKeySequenceEdit_IsSignalConnected(const QKeySequenceEdit* self, const QMet
 }
 
 // Base class handler implementation
-bool QKeySequenceEdit_QBaseIsSignalConnected(const QKeySequenceEdit* self, const QMetaMethod* signal) {
+bool QKeySequenceEdit_SuperIsSignalConnected(const QKeySequenceEdit* self, const QMetaMethod* signal) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_IsSignalConnected_IsBase(true);
@@ -1841,7 +1841,7 @@ double QKeySequenceEdit_GetDecodedMetricF(const QKeySequenceEdit* self, int metr
 }
 
 // Base class handler implementation
-double QKeySequenceEdit_QBaseGetDecodedMetricF(const QKeySequenceEdit* self, int metricA, int metricB) {
+double QKeySequenceEdit_SuperGetDecodedMetricF(const QKeySequenceEdit* self, int metricA, int metricB) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->setQKeySequenceEdit_GetDecodedMetricF_IsBase(true);

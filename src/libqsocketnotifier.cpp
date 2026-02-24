@@ -90,7 +90,7 @@ bool QSocketNotifier_Event(QSocketNotifier* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-QMetaObject* QSocketNotifier_QBaseMetaObject(const QSocketNotifier* self) {
+QMetaObject* QSocketNotifier_SuperMetaObject(const QSocketNotifier* self) {
     auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self));
     if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_MetaObject_IsBase(true);
@@ -109,7 +109,7 @@ void QSocketNotifier_OnMetaObject(const QSocketNotifier* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QSocketNotifier_QBaseMetacast(QSocketNotifier* self, const char* param1) {
+void* QSocketNotifier_SuperMetacast(QSocketNotifier* self, const char* param1) {
     auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
     if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_Metacast_IsBase(true);
@@ -128,7 +128,7 @@ void QSocketNotifier_OnMetacast(QSocketNotifier* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSocketNotifier_QBaseMetacall(QSocketNotifier* self, int param1, int param2, void** param3) {
+int QSocketNotifier_SuperMetacall(QSocketNotifier* self, int param1, int param2, void** param3) {
     auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
     if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_Metacall_IsBase(true);
@@ -147,7 +147,7 @@ void QSocketNotifier_OnMetacall(QSocketNotifier* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSocketNotifier_QBaseEvent(QSocketNotifier* self, QEvent* param1) {
+bool QSocketNotifier_SuperEvent(QSocketNotifier* self, QEvent* param1) {
     auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
     if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_Event_IsBase(true);
@@ -176,7 +176,7 @@ bool QSocketNotifier_EventFilter(QSocketNotifier* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool QSocketNotifier_QBaseEventFilter(QSocketNotifier* self, QObject* watched, QEvent* event) {
+bool QSocketNotifier_SuperEventFilter(QSocketNotifier* self, QObject* watched, QEvent* event) {
     auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
     if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_EventFilter_IsBase(true);
@@ -205,7 +205,7 @@ void QSocketNotifier_TimerEvent(QSocketNotifier* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QSocketNotifier_QBaseTimerEvent(QSocketNotifier* self, QTimerEvent* event) {
+void QSocketNotifier_SuperTimerEvent(QSocketNotifier* self, QTimerEvent* event) {
     auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
     if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_TimerEvent_IsBase(true);
@@ -234,7 +234,7 @@ void QSocketNotifier_ChildEvent(QSocketNotifier* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QSocketNotifier_QBaseChildEvent(QSocketNotifier* self, QChildEvent* event) {
+void QSocketNotifier_SuperChildEvent(QSocketNotifier* self, QChildEvent* event) {
     auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
     if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_ChildEvent_IsBase(true);
@@ -263,7 +263,7 @@ void QSocketNotifier_CustomEvent(QSocketNotifier* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSocketNotifier_QBaseCustomEvent(QSocketNotifier* self, QEvent* event) {
+void QSocketNotifier_SuperCustomEvent(QSocketNotifier* self, QEvent* event) {
     auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
     if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_CustomEvent_IsBase(true);
@@ -292,7 +292,7 @@ void QSocketNotifier_ConnectNotify(QSocketNotifier* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void QSocketNotifier_QBaseConnectNotify(QSocketNotifier* self, const QMetaMethod* signal) {
+void QSocketNotifier_SuperConnectNotify(QSocketNotifier* self, const QMetaMethod* signal) {
     auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
     if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_ConnectNotify_IsBase(true);
@@ -321,7 +321,7 @@ void QSocketNotifier_DisconnectNotify(QSocketNotifier* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void QSocketNotifier_QBaseDisconnectNotify(QSocketNotifier* self, const QMetaMethod* signal) {
+void QSocketNotifier_SuperDisconnectNotify(QSocketNotifier* self, const QMetaMethod* signal) {
     auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
     if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_DisconnectNotify_IsBase(true);
@@ -350,7 +350,7 @@ QObject* QSocketNotifier_Sender(const QSocketNotifier* self) {
 }
 
 // Base class handler implementation
-QObject* QSocketNotifier_QBaseSender(const QSocketNotifier* self) {
+QObject* QSocketNotifier_SuperSender(const QSocketNotifier* self) {
     auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self));
     if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_Sender_IsBase(true);
@@ -379,7 +379,7 @@ int QSocketNotifier_SenderSignalIndex(const QSocketNotifier* self) {
 }
 
 // Base class handler implementation
-int QSocketNotifier_QBaseSenderSignalIndex(const QSocketNotifier* self) {
+int QSocketNotifier_SuperSenderSignalIndex(const QSocketNotifier* self) {
     auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self));
     if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_SenderSignalIndex_IsBase(true);
@@ -408,7 +408,7 @@ int QSocketNotifier_Receivers(const QSocketNotifier* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QSocketNotifier_QBaseReceivers(const QSocketNotifier* self, const char* signal) {
+int QSocketNotifier_SuperReceivers(const QSocketNotifier* self, const char* signal) {
     auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self));
     if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_Receivers_IsBase(true);
@@ -437,7 +437,7 @@ bool QSocketNotifier_IsSignalConnected(const QSocketNotifier* self, const QMetaM
 }
 
 // Base class handler implementation
-bool QSocketNotifier_QBaseIsSignalConnected(const QSocketNotifier* self, const QMetaMethod* signal) {
+bool QSocketNotifier_SuperIsSignalConnected(const QSocketNotifier* self, const QMetaMethod* signal) {
     auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self));
     if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
         vqsocketnotifier->setQSocketNotifier_IsSignalConnected_IsBase(true);

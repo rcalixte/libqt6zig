@@ -57,6 +57,10 @@ pub const qdesignerpromotioninterface = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpromotioninterface.html#dtor.QDesignerPromotionInterface)
     ///
     /// Delete this object from C++ memory.
@@ -65,7 +69,7 @@ pub const qdesignerpromotioninterface = struct {
     ///
     /// ` self: QtC.QDesignerPromotionInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDesignerPromotionInterface_Delete(@ptrCast(self));
     }
 };
@@ -116,13 +120,17 @@ pub const qdesignerpromotioninterface__promotedclass = struct {
         qtc.QDesignerPromotionInterface__PromotedClass_SetPromotedItem(@ptrCast(self), @ptrCast(promotedItem));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QDesignerPromotionInterface__PromotedClass `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDesignerPromotionInterface__PromotedClass_Delete(@ptrCast(self));
     }
 };

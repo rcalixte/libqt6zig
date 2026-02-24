@@ -584,6 +584,10 @@ pub const qsqlindex = struct {
         return qtc.QSqlRecord_KeyValues(@ptrCast(self), @ptrCast(keyFields));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlindex.html#dtor.QSqlIndex)
     ///
     /// Delete this object from C++ memory.
@@ -592,7 +596,7 @@ pub const qsqlindex = struct {
     ///
     /// ` self: QtC.QSqlIndex `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSqlIndex_Delete(@ptrCast(self));
     }
 };

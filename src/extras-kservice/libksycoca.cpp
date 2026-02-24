@@ -135,7 +135,7 @@ void KSycoca_ConnectNotify(KSycoca* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-QMetaObject* KSycoca_QBaseMetaObject(const KSycoca* self) {
+QMetaObject* KSycoca_SuperMetaObject(const KSycoca* self) {
     auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
     if (vksycoca && vksycoca->isVirtualKSycoca) {
         vksycoca->setKSycoca_MetaObject_IsBase(true);
@@ -154,7 +154,7 @@ void KSycoca_OnMetaObject(const KSycoca* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KSycoca_QBaseMetacast(KSycoca* self, const char* param1) {
+void* KSycoca_SuperMetacast(KSycoca* self, const char* param1) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
     if (vksycoca && vksycoca->isVirtualKSycoca) {
         vksycoca->setKSycoca_Metacast_IsBase(true);
@@ -173,7 +173,7 @@ void KSycoca_OnMetacast(KSycoca* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KSycoca_QBaseMetacall(KSycoca* self, int param1, int param2, void** param3) {
+int KSycoca_SuperMetacall(KSycoca* self, int param1, int param2, void** param3) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
     if (vksycoca && vksycoca->isVirtualKSycoca) {
         vksycoca->setKSycoca_Metacall_IsBase(true);
@@ -192,7 +192,7 @@ void KSycoca_OnMetacall(KSycoca* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KSycoca_QBaseIsBuilding(KSycoca* self) {
+bool KSycoca_SuperIsBuilding(KSycoca* self) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
     if (vksycoca && vksycoca->isVirtualKSycoca) {
         vksycoca->setKSycoca_IsBuilding_IsBase(true);
@@ -211,7 +211,7 @@ void KSycoca_OnIsBuilding(KSycoca* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KSycoca_QBaseConnectNotify(KSycoca* self, const QMetaMethod* signal) {
+void KSycoca_SuperConnectNotify(KSycoca* self, const QMetaMethod* signal) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
     if (vksycoca && vksycoca->isVirtualKSycoca) {
         vksycoca->setKSycoca_ConnectNotify_IsBase(true);
@@ -240,7 +240,7 @@ bool KSycoca_Event(KSycoca* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KSycoca_QBaseEvent(KSycoca* self, QEvent* event) {
+bool KSycoca_SuperEvent(KSycoca* self, QEvent* event) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
     if (vksycoca && vksycoca->isVirtualKSycoca) {
         vksycoca->setKSycoca_Event_IsBase(true);
@@ -269,7 +269,7 @@ bool KSycoca_EventFilter(KSycoca* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KSycoca_QBaseEventFilter(KSycoca* self, QObject* watched, QEvent* event) {
+bool KSycoca_SuperEventFilter(KSycoca* self, QObject* watched, QEvent* event) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
     if (vksycoca && vksycoca->isVirtualKSycoca) {
         vksycoca->setKSycoca_EventFilter_IsBase(true);
@@ -298,7 +298,7 @@ void KSycoca_TimerEvent(KSycoca* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KSycoca_QBaseTimerEvent(KSycoca* self, QTimerEvent* event) {
+void KSycoca_SuperTimerEvent(KSycoca* self, QTimerEvent* event) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
     if (vksycoca && vksycoca->isVirtualKSycoca) {
         vksycoca->setKSycoca_TimerEvent_IsBase(true);
@@ -327,7 +327,7 @@ void KSycoca_ChildEvent(KSycoca* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KSycoca_QBaseChildEvent(KSycoca* self, QChildEvent* event) {
+void KSycoca_SuperChildEvent(KSycoca* self, QChildEvent* event) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
     if (vksycoca && vksycoca->isVirtualKSycoca) {
         vksycoca->setKSycoca_ChildEvent_IsBase(true);
@@ -356,7 +356,7 @@ void KSycoca_CustomEvent(KSycoca* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KSycoca_QBaseCustomEvent(KSycoca* self, QEvent* event) {
+void KSycoca_SuperCustomEvent(KSycoca* self, QEvent* event) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
     if (vksycoca && vksycoca->isVirtualKSycoca) {
         vksycoca->setKSycoca_CustomEvent_IsBase(true);
@@ -385,7 +385,7 @@ void KSycoca_DisconnectNotify(KSycoca* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KSycoca_QBaseDisconnectNotify(KSycoca* self, const QMetaMethod* signal) {
+void KSycoca_SuperDisconnectNotify(KSycoca* self, const QMetaMethod* signal) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
     if (vksycoca && vksycoca->isVirtualKSycoca) {
         vksycoca->setKSycoca_DisconnectNotify_IsBase(true);
@@ -414,7 +414,7 @@ QObject* KSycoca_Sender(const KSycoca* self) {
 }
 
 // Base class handler implementation
-QObject* KSycoca_QBaseSender(const KSycoca* self) {
+QObject* KSycoca_SuperSender(const KSycoca* self) {
     auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
     if (vksycoca && vksycoca->isVirtualKSycoca) {
         vksycoca->setKSycoca_Sender_IsBase(true);
@@ -443,7 +443,7 @@ int KSycoca_SenderSignalIndex(const KSycoca* self) {
 }
 
 // Base class handler implementation
-int KSycoca_QBaseSenderSignalIndex(const KSycoca* self) {
+int KSycoca_SuperSenderSignalIndex(const KSycoca* self) {
     auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
     if (vksycoca && vksycoca->isVirtualKSycoca) {
         vksycoca->setKSycoca_SenderSignalIndex_IsBase(true);
@@ -472,7 +472,7 @@ int KSycoca_Receivers(const KSycoca* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KSycoca_QBaseReceivers(const KSycoca* self, const char* signal) {
+int KSycoca_SuperReceivers(const KSycoca* self, const char* signal) {
     auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
     if (vksycoca && vksycoca->isVirtualKSycoca) {
         vksycoca->setKSycoca_Receivers_IsBase(true);
@@ -501,7 +501,7 @@ bool KSycoca_IsSignalConnected(const KSycoca* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool KSycoca_QBaseIsSignalConnected(const KSycoca* self, const QMetaMethod* signal) {
+bool KSycoca_SuperIsSignalConnected(const KSycoca* self, const QMetaMethod* signal) {
     auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
     if (vksycoca && vksycoca->isVirtualKSycoca) {
         vksycoca->setKSycoca_IsSignalConnected_IsBase(true);

@@ -717,35 +717,35 @@ class VirtualQLocalSocket final : public QLocalSocket {
 
     // Friend functions
     friend long long QLocalSocket_ReadData(QLocalSocket* self, char* param1, long long param2);
-    friend long long QLocalSocket_QBaseReadData(QLocalSocket* self, char* param1, long long param2);
+    friend long long QLocalSocket_SuperReadData(QLocalSocket* self, char* param1, long long param2);
     friend long long QLocalSocket_ReadLineData(QLocalSocket* self, char* data, long long maxSize);
-    friend long long QLocalSocket_QBaseReadLineData(QLocalSocket* self, char* data, long long maxSize);
+    friend long long QLocalSocket_SuperReadLineData(QLocalSocket* self, char* data, long long maxSize);
     friend long long QLocalSocket_SkipData(QLocalSocket* self, long long maxSize);
-    friend long long QLocalSocket_QBaseSkipData(QLocalSocket* self, long long maxSize);
+    friend long long QLocalSocket_SuperSkipData(QLocalSocket* self, long long maxSize);
     friend long long QLocalSocket_WriteData(QLocalSocket* self, const char* param1, long long param2);
-    friend long long QLocalSocket_QBaseWriteData(QLocalSocket* self, const char* param1, long long param2);
+    friend long long QLocalSocket_SuperWriteData(QLocalSocket* self, const char* param1, long long param2);
     friend void QLocalSocket_TimerEvent(QLocalSocket* self, QTimerEvent* event);
-    friend void QLocalSocket_QBaseTimerEvent(QLocalSocket* self, QTimerEvent* event);
+    friend void QLocalSocket_SuperTimerEvent(QLocalSocket* self, QTimerEvent* event);
     friend void QLocalSocket_ChildEvent(QLocalSocket* self, QChildEvent* event);
-    friend void QLocalSocket_QBaseChildEvent(QLocalSocket* self, QChildEvent* event);
+    friend void QLocalSocket_SuperChildEvent(QLocalSocket* self, QChildEvent* event);
     friend void QLocalSocket_CustomEvent(QLocalSocket* self, QEvent* event);
-    friend void QLocalSocket_QBaseCustomEvent(QLocalSocket* self, QEvent* event);
+    friend void QLocalSocket_SuperCustomEvent(QLocalSocket* self, QEvent* event);
     friend void QLocalSocket_ConnectNotify(QLocalSocket* self, const QMetaMethod* signal);
-    friend void QLocalSocket_QBaseConnectNotify(QLocalSocket* self, const QMetaMethod* signal);
+    friend void QLocalSocket_SuperConnectNotify(QLocalSocket* self, const QMetaMethod* signal);
     friend void QLocalSocket_DisconnectNotify(QLocalSocket* self, const QMetaMethod* signal);
-    friend void QLocalSocket_QBaseDisconnectNotify(QLocalSocket* self, const QMetaMethod* signal);
+    friend void QLocalSocket_SuperDisconnectNotify(QLocalSocket* self, const QMetaMethod* signal);
     friend void QLocalSocket_SetOpenMode(QLocalSocket* self, int openMode);
-    friend void QLocalSocket_QBaseSetOpenMode(QLocalSocket* self, int openMode);
+    friend void QLocalSocket_SuperSetOpenMode(QLocalSocket* self, int openMode);
     friend void QLocalSocket_SetErrorString(QLocalSocket* self, const libqt_string errorString);
-    friend void QLocalSocket_QBaseSetErrorString(QLocalSocket* self, const libqt_string errorString);
+    friend void QLocalSocket_SuperSetErrorString(QLocalSocket* self, const libqt_string errorString);
     friend QObject* QLocalSocket_Sender(const QLocalSocket* self);
-    friend QObject* QLocalSocket_QBaseSender(const QLocalSocket* self);
+    friend QObject* QLocalSocket_SuperSender(const QLocalSocket* self);
     friend int QLocalSocket_SenderSignalIndex(const QLocalSocket* self);
-    friend int QLocalSocket_QBaseSenderSignalIndex(const QLocalSocket* self);
+    friend int QLocalSocket_SuperSenderSignalIndex(const QLocalSocket* self);
     friend int QLocalSocket_Receivers(const QLocalSocket* self, const char* signal);
-    friend int QLocalSocket_QBaseReceivers(const QLocalSocket* self, const char* signal);
+    friend int QLocalSocket_SuperReceivers(const QLocalSocket* self, const char* signal);
     friend bool QLocalSocket_IsSignalConnected(const QLocalSocket* self, const QMetaMethod* signal);
-    friend bool QLocalSocket_QBaseIsSignalConnected(const QLocalSocket* self, const QMetaMethod* signal);
+    friend bool QLocalSocket_SuperIsSignalConnected(const QLocalSocket* self, const QMetaMethod* signal);
 };
 
 #endif

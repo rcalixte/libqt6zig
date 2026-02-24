@@ -37,7 +37,7 @@ void KParts__PartActivateEvent_SetAccepted(KParts__PartActivateEvent* self, bool
 }
 
 // Base class handler implementation
-void KParts__PartActivateEvent_QBaseSetAccepted(KParts__PartActivateEvent* self, bool accepted) {
+void KParts__PartActivateEvent_SuperSetAccepted(KParts__PartActivateEvent* self, bool accepted) {
     auto* vkpartspartactivateevent = dynamic_cast<VirtualKPartsPartActivateEvent*>(self);
     if (vkpartspartactivateevent && vkpartspartactivateevent->isVirtualKPartsPartActivateEvent) {
         vkpartspartactivateevent->setKParts__PartActivateEvent_SetAccepted_IsBase(true);
@@ -66,7 +66,7 @@ QEvent* KParts__PartActivateEvent_Clone(const KParts__PartActivateEvent* self) {
 }
 
 // Base class handler implementation
-QEvent* KParts__PartActivateEvent_QBaseClone(const KParts__PartActivateEvent* self) {
+QEvent* KParts__PartActivateEvent_SuperClone(const KParts__PartActivateEvent* self) {
     auto* vkpartspartactivateevent = const_cast<VirtualKPartsPartActivateEvent*>(dynamic_cast<const VirtualKPartsPartActivateEvent*>(self));
     if (vkpartspartactivateevent && vkpartspartactivateevent->isVirtualKPartsPartActivateEvent) {
         vkpartspartactivateevent->setKParts__PartActivateEvent_Clone_IsBase(true);

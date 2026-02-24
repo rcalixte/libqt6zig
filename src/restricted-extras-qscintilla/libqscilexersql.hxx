@@ -1158,31 +1158,31 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
 
     // Friend functions
     friend bool QsciLexerSQL_ReadProperties(QsciLexerSQL* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerSQL_QBaseReadProperties(QsciLexerSQL* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerSQL_SuperReadProperties(QsciLexerSQL* self, QSettings* qs, const libqt_string prefix);
     friend bool QsciLexerSQL_WriteProperties(const QsciLexerSQL* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerSQL_QBaseWriteProperties(const QsciLexerSQL* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerSQL_SuperWriteProperties(const QsciLexerSQL* self, QSettings* qs, const libqt_string prefix);
     friend void QsciLexerSQL_TimerEvent(QsciLexerSQL* self, QTimerEvent* event);
-    friend void QsciLexerSQL_QBaseTimerEvent(QsciLexerSQL* self, QTimerEvent* event);
+    friend void QsciLexerSQL_SuperTimerEvent(QsciLexerSQL* self, QTimerEvent* event);
     friend void QsciLexerSQL_ChildEvent(QsciLexerSQL* self, QChildEvent* event);
-    friend void QsciLexerSQL_QBaseChildEvent(QsciLexerSQL* self, QChildEvent* event);
+    friend void QsciLexerSQL_SuperChildEvent(QsciLexerSQL* self, QChildEvent* event);
     friend void QsciLexerSQL_CustomEvent(QsciLexerSQL* self, QEvent* event);
-    friend void QsciLexerSQL_QBaseCustomEvent(QsciLexerSQL* self, QEvent* event);
+    friend void QsciLexerSQL_SuperCustomEvent(QsciLexerSQL* self, QEvent* event);
     friend void QsciLexerSQL_ConnectNotify(QsciLexerSQL* self, const QMetaMethod* signal);
-    friend void QsciLexerSQL_QBaseConnectNotify(QsciLexerSQL* self, const QMetaMethod* signal);
+    friend void QsciLexerSQL_SuperConnectNotify(QsciLexerSQL* self, const QMetaMethod* signal);
     friend void QsciLexerSQL_DisconnectNotify(QsciLexerSQL* self, const QMetaMethod* signal);
-    friend void QsciLexerSQL_QBaseDisconnectNotify(QsciLexerSQL* self, const QMetaMethod* signal);
+    friend void QsciLexerSQL_SuperDisconnectNotify(QsciLexerSQL* self, const QMetaMethod* signal);
     friend libqt_string QsciLexerSQL_TextAsBytes(const QsciLexerSQL* self, const libqt_string text);
-    friend libqt_string QsciLexerSQL_QBaseTextAsBytes(const QsciLexerSQL* self, const libqt_string text);
+    friend libqt_string QsciLexerSQL_SuperTextAsBytes(const QsciLexerSQL* self, const libqt_string text);
     friend libqt_string QsciLexerSQL_BytesAsText(const QsciLexerSQL* self, const char* bytes, int size);
-    friend libqt_string QsciLexerSQL_QBaseBytesAsText(const QsciLexerSQL* self, const char* bytes, int size);
+    friend libqt_string QsciLexerSQL_SuperBytesAsText(const QsciLexerSQL* self, const char* bytes, int size);
     friend QObject* QsciLexerSQL_Sender(const QsciLexerSQL* self);
-    friend QObject* QsciLexerSQL_QBaseSender(const QsciLexerSQL* self);
+    friend QObject* QsciLexerSQL_SuperSender(const QsciLexerSQL* self);
     friend int QsciLexerSQL_SenderSignalIndex(const QsciLexerSQL* self);
-    friend int QsciLexerSQL_QBaseSenderSignalIndex(const QsciLexerSQL* self);
+    friend int QsciLexerSQL_SuperSenderSignalIndex(const QsciLexerSQL* self);
     friend int QsciLexerSQL_Receivers(const QsciLexerSQL* self, const char* signal);
-    friend int QsciLexerSQL_QBaseReceivers(const QsciLexerSQL* self, const char* signal);
+    friend int QsciLexerSQL_SuperReceivers(const QsciLexerSQL* self, const char* signal);
     friend bool QsciLexerSQL_IsSignalConnected(const QsciLexerSQL* self, const QMetaMethod* signal);
-    friend bool QsciLexerSQL_QBaseIsSignalConnected(const QsciLexerSQL* self, const QMetaMethod* signal);
+    friend bool QsciLexerSQL_SuperIsSignalConnected(const QsciLexerSQL* self, const QMetaMethod* signal);
 };
 
 #endif

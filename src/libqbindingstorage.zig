@@ -47,6 +47,10 @@ pub const qbindingstatus = struct {
         qtc.QBindingStatus_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbindingstatus.html#dtor.QBindingStatus)
     ///
     /// Delete this object from C++ memory.
@@ -55,7 +59,7 @@ pub const qbindingstatus = struct {
     ///
     /// ` self: QtC.QBindingStatus `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QBindingStatus_Delete(@ptrCast(self));
     }
 };
@@ -100,6 +104,10 @@ pub const qbindingstorage = struct {
         qtc.QBindingStorage_RegisterDependency(@ptrCast(self), @ptrCast(data));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbindingstorage.html#dtor.QBindingStorage)
     ///
     /// Delete this object from C++ memory.
@@ -108,7 +116,7 @@ pub const qbindingstorage = struct {
     ///
     /// ` self: QtC.QBindingStorage `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QBindingStorage_Delete(@ptrCast(self));
     }
 };

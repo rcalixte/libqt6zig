@@ -93,7 +93,7 @@ void KBreadcrumbSelectionModel_Select2(KBreadcrumbSelectionModel* self, const QI
 }
 
 // Base class handler implementation
-QMetaObject* KBreadcrumbSelectionModel_QBaseMetaObject(const KBreadcrumbSelectionModel* self) {
+QMetaObject* KBreadcrumbSelectionModel_SuperMetaObject(const KBreadcrumbSelectionModel* self) {
     auto* vkbreadcrumbselectionmodel = const_cast<VirtualKBreadcrumbSelectionModel*>(dynamic_cast<const VirtualKBreadcrumbSelectionModel*>(self));
     if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_MetaObject_IsBase(true);
@@ -112,7 +112,7 @@ void KBreadcrumbSelectionModel_OnMetaObject(const KBreadcrumbSelectionModel* sel
 }
 
 // Base class handler implementation
-void* KBreadcrumbSelectionModel_QBaseMetacast(KBreadcrumbSelectionModel* self, const char* param1) {
+void* KBreadcrumbSelectionModel_SuperMetacast(KBreadcrumbSelectionModel* self, const char* param1) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
     if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_Metacast_IsBase(true);
@@ -131,7 +131,7 @@ void KBreadcrumbSelectionModel_OnMetacast(KBreadcrumbSelectionModel* self, intpt
 }
 
 // Base class handler implementation
-int KBreadcrumbSelectionModel_QBaseMetacall(KBreadcrumbSelectionModel* self, int param1, int param2, void** param3) {
+int KBreadcrumbSelectionModel_SuperMetacall(KBreadcrumbSelectionModel* self, int param1, int param2, void** param3) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
     if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_Metacall_IsBase(true);
@@ -150,7 +150,7 @@ void KBreadcrumbSelectionModel_OnMetacall(KBreadcrumbSelectionModel* self, intpt
 }
 
 // Base class handler implementation
-void KBreadcrumbSelectionModel_QBaseSelect(KBreadcrumbSelectionModel* self, const QModelIndex* index, int command) {
+void KBreadcrumbSelectionModel_SuperSelect(KBreadcrumbSelectionModel* self, const QModelIndex* index, int command) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
     if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_Select_IsBase(true);
@@ -169,7 +169,7 @@ void KBreadcrumbSelectionModel_OnSelect(KBreadcrumbSelectionModel* self, intptr_
 }
 
 // Base class handler implementation
-void KBreadcrumbSelectionModel_QBaseSelect2(KBreadcrumbSelectionModel* self, const QItemSelection* selection, int command) {
+void KBreadcrumbSelectionModel_SuperSelect2(KBreadcrumbSelectionModel* self, const QItemSelection* selection, int command) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
     if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_Select2_IsBase(true);
@@ -198,7 +198,7 @@ void KBreadcrumbSelectionModel_SetCurrentIndex(KBreadcrumbSelectionModel* self, 
 }
 
 // Base class handler implementation
-void KBreadcrumbSelectionModel_QBaseSetCurrentIndex(KBreadcrumbSelectionModel* self, const QModelIndex* index, int command) {
+void KBreadcrumbSelectionModel_SuperSetCurrentIndex(KBreadcrumbSelectionModel* self, const QModelIndex* index, int command) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
     if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_SetCurrentIndex_IsBase(true);
@@ -227,7 +227,7 @@ void KBreadcrumbSelectionModel_Clear(KBreadcrumbSelectionModel* self) {
 }
 
 // Base class handler implementation
-void KBreadcrumbSelectionModel_QBaseClear(KBreadcrumbSelectionModel* self) {
+void KBreadcrumbSelectionModel_SuperClear(KBreadcrumbSelectionModel* self) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
     if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_Clear_IsBase(true);
@@ -256,7 +256,7 @@ void KBreadcrumbSelectionModel_Reset(KBreadcrumbSelectionModel* self) {
 }
 
 // Base class handler implementation
-void KBreadcrumbSelectionModel_QBaseReset(KBreadcrumbSelectionModel* self) {
+void KBreadcrumbSelectionModel_SuperReset(KBreadcrumbSelectionModel* self) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
     if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_Reset_IsBase(true);
@@ -285,7 +285,7 @@ void KBreadcrumbSelectionModel_ClearCurrentIndex(KBreadcrumbSelectionModel* self
 }
 
 // Base class handler implementation
-void KBreadcrumbSelectionModel_QBaseClearCurrentIndex(KBreadcrumbSelectionModel* self) {
+void KBreadcrumbSelectionModel_SuperClearCurrentIndex(KBreadcrumbSelectionModel* self) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
     if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_ClearCurrentIndex_IsBase(true);
@@ -314,7 +314,7 @@ bool KBreadcrumbSelectionModel_Event(KBreadcrumbSelectionModel* self, QEvent* ev
 }
 
 // Base class handler implementation
-bool KBreadcrumbSelectionModel_QBaseEvent(KBreadcrumbSelectionModel* self, QEvent* event) {
+bool KBreadcrumbSelectionModel_SuperEvent(KBreadcrumbSelectionModel* self, QEvent* event) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
     if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_Event_IsBase(true);
@@ -343,7 +343,7 @@ bool KBreadcrumbSelectionModel_EventFilter(KBreadcrumbSelectionModel* self, QObj
 }
 
 // Base class handler implementation
-bool KBreadcrumbSelectionModel_QBaseEventFilter(KBreadcrumbSelectionModel* self, QObject* watched, QEvent* event) {
+bool KBreadcrumbSelectionModel_SuperEventFilter(KBreadcrumbSelectionModel* self, QObject* watched, QEvent* event) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
     if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_EventFilter_IsBase(true);
@@ -372,7 +372,7 @@ void KBreadcrumbSelectionModel_TimerEvent(KBreadcrumbSelectionModel* self, QTime
 }
 
 // Base class handler implementation
-void KBreadcrumbSelectionModel_QBaseTimerEvent(KBreadcrumbSelectionModel* self, QTimerEvent* event) {
+void KBreadcrumbSelectionModel_SuperTimerEvent(KBreadcrumbSelectionModel* self, QTimerEvent* event) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
     if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_TimerEvent_IsBase(true);
@@ -401,7 +401,7 @@ void KBreadcrumbSelectionModel_ChildEvent(KBreadcrumbSelectionModel* self, QChil
 }
 
 // Base class handler implementation
-void KBreadcrumbSelectionModel_QBaseChildEvent(KBreadcrumbSelectionModel* self, QChildEvent* event) {
+void KBreadcrumbSelectionModel_SuperChildEvent(KBreadcrumbSelectionModel* self, QChildEvent* event) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
     if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_ChildEvent_IsBase(true);
@@ -430,7 +430,7 @@ void KBreadcrumbSelectionModel_CustomEvent(KBreadcrumbSelectionModel* self, QEve
 }
 
 // Base class handler implementation
-void KBreadcrumbSelectionModel_QBaseCustomEvent(KBreadcrumbSelectionModel* self, QEvent* event) {
+void KBreadcrumbSelectionModel_SuperCustomEvent(KBreadcrumbSelectionModel* self, QEvent* event) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
     if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_CustomEvent_IsBase(true);
@@ -459,7 +459,7 @@ void KBreadcrumbSelectionModel_ConnectNotify(KBreadcrumbSelectionModel* self, co
 }
 
 // Base class handler implementation
-void KBreadcrumbSelectionModel_QBaseConnectNotify(KBreadcrumbSelectionModel* self, const QMetaMethod* signal) {
+void KBreadcrumbSelectionModel_SuperConnectNotify(KBreadcrumbSelectionModel* self, const QMetaMethod* signal) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
     if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_ConnectNotify_IsBase(true);
@@ -488,7 +488,7 @@ void KBreadcrumbSelectionModel_DisconnectNotify(KBreadcrumbSelectionModel* self,
 }
 
 // Base class handler implementation
-void KBreadcrumbSelectionModel_QBaseDisconnectNotify(KBreadcrumbSelectionModel* self, const QMetaMethod* signal) {
+void KBreadcrumbSelectionModel_SuperDisconnectNotify(KBreadcrumbSelectionModel* self, const QMetaMethod* signal) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
     if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_DisconnectNotify_IsBase(true);
@@ -517,7 +517,7 @@ void KBreadcrumbSelectionModel_EmitSelectionChanged(KBreadcrumbSelectionModel* s
 }
 
 // Base class handler implementation
-void KBreadcrumbSelectionModel_QBaseEmitSelectionChanged(KBreadcrumbSelectionModel* self, const QItemSelection* newSelection, const QItemSelection* oldSelection) {
+void KBreadcrumbSelectionModel_SuperEmitSelectionChanged(KBreadcrumbSelectionModel* self, const QItemSelection* newSelection, const QItemSelection* oldSelection) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
     if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_EmitSelectionChanged_IsBase(true);
@@ -546,7 +546,7 @@ QObject* KBreadcrumbSelectionModel_Sender(const KBreadcrumbSelectionModel* self)
 }
 
 // Base class handler implementation
-QObject* KBreadcrumbSelectionModel_QBaseSender(const KBreadcrumbSelectionModel* self) {
+QObject* KBreadcrumbSelectionModel_SuperSender(const KBreadcrumbSelectionModel* self) {
     auto* vkbreadcrumbselectionmodel = const_cast<VirtualKBreadcrumbSelectionModel*>(dynamic_cast<const VirtualKBreadcrumbSelectionModel*>(self));
     if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_Sender_IsBase(true);
@@ -575,7 +575,7 @@ int KBreadcrumbSelectionModel_SenderSignalIndex(const KBreadcrumbSelectionModel*
 }
 
 // Base class handler implementation
-int KBreadcrumbSelectionModel_QBaseSenderSignalIndex(const KBreadcrumbSelectionModel* self) {
+int KBreadcrumbSelectionModel_SuperSenderSignalIndex(const KBreadcrumbSelectionModel* self) {
     auto* vkbreadcrumbselectionmodel = const_cast<VirtualKBreadcrumbSelectionModel*>(dynamic_cast<const VirtualKBreadcrumbSelectionModel*>(self));
     if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_SenderSignalIndex_IsBase(true);
@@ -604,7 +604,7 @@ int KBreadcrumbSelectionModel_Receivers(const KBreadcrumbSelectionModel* self, c
 }
 
 // Base class handler implementation
-int KBreadcrumbSelectionModel_QBaseReceivers(const KBreadcrumbSelectionModel* self, const char* signal) {
+int KBreadcrumbSelectionModel_SuperReceivers(const KBreadcrumbSelectionModel* self, const char* signal) {
     auto* vkbreadcrumbselectionmodel = const_cast<VirtualKBreadcrumbSelectionModel*>(dynamic_cast<const VirtualKBreadcrumbSelectionModel*>(self));
     if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_Receivers_IsBase(true);
@@ -633,7 +633,7 @@ bool KBreadcrumbSelectionModel_IsSignalConnected(const KBreadcrumbSelectionModel
 }
 
 // Base class handler implementation
-bool KBreadcrumbSelectionModel_QBaseIsSignalConnected(const KBreadcrumbSelectionModel* self, const QMetaMethod* signal) {
+bool KBreadcrumbSelectionModel_SuperIsSignalConnected(const KBreadcrumbSelectionModel* self, const QMetaMethod* signal) {
     auto* vkbreadcrumbselectionmodel = const_cast<VirtualKBreadcrumbSelectionModel*>(dynamic_cast<const VirtualKBreadcrumbSelectionModel*>(self));
     if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_IsSignalConnected_IsBase(true);

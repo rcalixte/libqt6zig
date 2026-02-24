@@ -330,23 +330,23 @@ class VirtualQPluginLoader final : public QPluginLoader {
 
     // Friend functions
     friend void QPluginLoader_TimerEvent(QPluginLoader* self, QTimerEvent* event);
-    friend void QPluginLoader_QBaseTimerEvent(QPluginLoader* self, QTimerEvent* event);
+    friend void QPluginLoader_SuperTimerEvent(QPluginLoader* self, QTimerEvent* event);
     friend void QPluginLoader_ChildEvent(QPluginLoader* self, QChildEvent* event);
-    friend void QPluginLoader_QBaseChildEvent(QPluginLoader* self, QChildEvent* event);
+    friend void QPluginLoader_SuperChildEvent(QPluginLoader* self, QChildEvent* event);
     friend void QPluginLoader_CustomEvent(QPluginLoader* self, QEvent* event);
-    friend void QPluginLoader_QBaseCustomEvent(QPluginLoader* self, QEvent* event);
+    friend void QPluginLoader_SuperCustomEvent(QPluginLoader* self, QEvent* event);
     friend void QPluginLoader_ConnectNotify(QPluginLoader* self, const QMetaMethod* signal);
-    friend void QPluginLoader_QBaseConnectNotify(QPluginLoader* self, const QMetaMethod* signal);
+    friend void QPluginLoader_SuperConnectNotify(QPluginLoader* self, const QMetaMethod* signal);
     friend void QPluginLoader_DisconnectNotify(QPluginLoader* self, const QMetaMethod* signal);
-    friend void QPluginLoader_QBaseDisconnectNotify(QPluginLoader* self, const QMetaMethod* signal);
+    friend void QPluginLoader_SuperDisconnectNotify(QPluginLoader* self, const QMetaMethod* signal);
     friend QObject* QPluginLoader_Sender(const QPluginLoader* self);
-    friend QObject* QPluginLoader_QBaseSender(const QPluginLoader* self);
+    friend QObject* QPluginLoader_SuperSender(const QPluginLoader* self);
     friend int QPluginLoader_SenderSignalIndex(const QPluginLoader* self);
-    friend int QPluginLoader_QBaseSenderSignalIndex(const QPluginLoader* self);
+    friend int QPluginLoader_SuperSenderSignalIndex(const QPluginLoader* self);
     friend int QPluginLoader_Receivers(const QPluginLoader* self, const char* signal);
-    friend int QPluginLoader_QBaseReceivers(const QPluginLoader* self, const char* signal);
+    friend int QPluginLoader_SuperReceivers(const QPluginLoader* self, const char* signal);
     friend bool QPluginLoader_IsSignalConnected(const QPluginLoader* self, const QMetaMethod* signal);
-    friend bool QPluginLoader_QBaseIsSignalConnected(const QPluginLoader* self, const QMetaMethod* signal);
+    friend bool QPluginLoader_SuperIsSignalConnected(const QPluginLoader* self, const QMetaMethod* signal);
 };
 
 #endif

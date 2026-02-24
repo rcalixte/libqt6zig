@@ -118,7 +118,7 @@ unsigned long long QPdfPageRenderer_RequestPage3(QPdfPageRenderer* self, int pag
 }
 
 // Base class handler implementation
-QMetaObject* QPdfPageRenderer_QBaseMetaObject(const QPdfPageRenderer* self) {
+QMetaObject* QPdfPageRenderer_SuperMetaObject(const QPdfPageRenderer* self) {
     auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self));
     if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_MetaObject_IsBase(true);
@@ -137,7 +137,7 @@ void QPdfPageRenderer_OnMetaObject(const QPdfPageRenderer* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* QPdfPageRenderer_QBaseMetacast(QPdfPageRenderer* self, const char* param1) {
+void* QPdfPageRenderer_SuperMetacast(QPdfPageRenderer* self, const char* param1) {
     auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
     if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_Metacast_IsBase(true);
@@ -156,7 +156,7 @@ void QPdfPageRenderer_OnMetacast(QPdfPageRenderer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPdfPageRenderer_QBaseMetacall(QPdfPageRenderer* self, int param1, int param2, void** param3) {
+int QPdfPageRenderer_SuperMetacall(QPdfPageRenderer* self, int param1, int param2, void** param3) {
     auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
     if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_Metacall_IsBase(true);
@@ -185,7 +185,7 @@ bool QPdfPageRenderer_Event(QPdfPageRenderer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QPdfPageRenderer_QBaseEvent(QPdfPageRenderer* self, QEvent* event) {
+bool QPdfPageRenderer_SuperEvent(QPdfPageRenderer* self, QEvent* event) {
     auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
     if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_Event_IsBase(true);
@@ -214,7 +214,7 @@ bool QPdfPageRenderer_EventFilter(QPdfPageRenderer* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool QPdfPageRenderer_QBaseEventFilter(QPdfPageRenderer* self, QObject* watched, QEvent* event) {
+bool QPdfPageRenderer_SuperEventFilter(QPdfPageRenderer* self, QObject* watched, QEvent* event) {
     auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
     if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_EventFilter_IsBase(true);
@@ -243,7 +243,7 @@ void QPdfPageRenderer_TimerEvent(QPdfPageRenderer* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfPageRenderer_QBaseTimerEvent(QPdfPageRenderer* self, QTimerEvent* event) {
+void QPdfPageRenderer_SuperTimerEvent(QPdfPageRenderer* self, QTimerEvent* event) {
     auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
     if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_TimerEvent_IsBase(true);
@@ -272,7 +272,7 @@ void QPdfPageRenderer_ChildEvent(QPdfPageRenderer* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfPageRenderer_QBaseChildEvent(QPdfPageRenderer* self, QChildEvent* event) {
+void QPdfPageRenderer_SuperChildEvent(QPdfPageRenderer* self, QChildEvent* event) {
     auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
     if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_ChildEvent_IsBase(true);
@@ -301,7 +301,7 @@ void QPdfPageRenderer_CustomEvent(QPdfPageRenderer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfPageRenderer_QBaseCustomEvent(QPdfPageRenderer* self, QEvent* event) {
+void QPdfPageRenderer_SuperCustomEvent(QPdfPageRenderer* self, QEvent* event) {
     auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
     if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_CustomEvent_IsBase(true);
@@ -330,7 +330,7 @@ void QPdfPageRenderer_ConnectNotify(QPdfPageRenderer* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void QPdfPageRenderer_QBaseConnectNotify(QPdfPageRenderer* self, const QMetaMethod* signal) {
+void QPdfPageRenderer_SuperConnectNotify(QPdfPageRenderer* self, const QMetaMethod* signal) {
     auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
     if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_ConnectNotify_IsBase(true);
@@ -359,7 +359,7 @@ void QPdfPageRenderer_DisconnectNotify(QPdfPageRenderer* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void QPdfPageRenderer_QBaseDisconnectNotify(QPdfPageRenderer* self, const QMetaMethod* signal) {
+void QPdfPageRenderer_SuperDisconnectNotify(QPdfPageRenderer* self, const QMetaMethod* signal) {
     auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
     if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_DisconnectNotify_IsBase(true);
@@ -388,7 +388,7 @@ QObject* QPdfPageRenderer_Sender(const QPdfPageRenderer* self) {
 }
 
 // Base class handler implementation
-QObject* QPdfPageRenderer_QBaseSender(const QPdfPageRenderer* self) {
+QObject* QPdfPageRenderer_SuperSender(const QPdfPageRenderer* self) {
     auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self));
     if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_Sender_IsBase(true);
@@ -417,7 +417,7 @@ int QPdfPageRenderer_SenderSignalIndex(const QPdfPageRenderer* self) {
 }
 
 // Base class handler implementation
-int QPdfPageRenderer_QBaseSenderSignalIndex(const QPdfPageRenderer* self) {
+int QPdfPageRenderer_SuperSenderSignalIndex(const QPdfPageRenderer* self) {
     auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self));
     if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_SenderSignalIndex_IsBase(true);
@@ -446,7 +446,7 @@ int QPdfPageRenderer_Receivers(const QPdfPageRenderer* self, const char* signal)
 }
 
 // Base class handler implementation
-int QPdfPageRenderer_QBaseReceivers(const QPdfPageRenderer* self, const char* signal) {
+int QPdfPageRenderer_SuperReceivers(const QPdfPageRenderer* self, const char* signal) {
     auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self));
     if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_Receivers_IsBase(true);
@@ -475,7 +475,7 @@ bool QPdfPageRenderer_IsSignalConnected(const QPdfPageRenderer* self, const QMet
 }
 
 // Base class handler implementation
-bool QPdfPageRenderer_QBaseIsSignalConnected(const QPdfPageRenderer* self, const QMetaMethod* signal) {
+bool QPdfPageRenderer_SuperIsSignalConnected(const QPdfPageRenderer* self, const QMetaMethod* signal) {
     auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self));
     if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
         vqpdfpagerenderer->setQPdfPageRenderer_IsSignalConnected_IsBase(true);

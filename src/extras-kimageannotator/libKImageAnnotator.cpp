@@ -288,7 +288,7 @@ void kImageAnnotator__KImageAnnotator_Connect_TabContextMenuOpened(const kImageA
 }
 
 // Base class handler implementation
-QMetaObject* kImageAnnotator__KImageAnnotator_QBaseMetaObject(const kImageAnnotator__KImageAnnotator* self) {
+QMetaObject* kImageAnnotator__KImageAnnotator_SuperMetaObject(const kImageAnnotator__KImageAnnotator* self) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_MetaObject_IsBase(true);
@@ -307,7 +307,7 @@ void kImageAnnotator__KImageAnnotator_OnMetaObject(const kImageAnnotator__KImage
 }
 
 // Base class handler implementation
-void* kImageAnnotator__KImageAnnotator_QBaseMetacast(kImageAnnotator__KImageAnnotator* self, const char* param1) {
+void* kImageAnnotator__KImageAnnotator_SuperMetacast(kImageAnnotator__KImageAnnotator* self, const char* param1) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_Metacast_IsBase(true);
@@ -326,7 +326,7 @@ void kImageAnnotator__KImageAnnotator_OnMetacast(kImageAnnotator__KImageAnnotato
 }
 
 // Base class handler implementation
-int kImageAnnotator__KImageAnnotator_QBaseMetacall(kImageAnnotator__KImageAnnotator* self, int param1, int param2, void** param3) {
+int kImageAnnotator__KImageAnnotator_SuperMetacall(kImageAnnotator__KImageAnnotator* self, int param1, int param2, void** param3) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_Metacall_IsBase(true);
@@ -345,7 +345,7 @@ void kImageAnnotator__KImageAnnotator_OnMetacall(kImageAnnotator__KImageAnnotato
 }
 
 // Base class handler implementation
-QSize* kImageAnnotator__KImageAnnotator_QBaseSizeHint(const kImageAnnotator__KImageAnnotator* self) {
+QSize* kImageAnnotator__KImageAnnotator_SuperSizeHint(const kImageAnnotator__KImageAnnotator* self) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_SizeHint_IsBase(true);
@@ -374,7 +374,7 @@ int kImageAnnotator__KImageAnnotator_DevType(const kImageAnnotator__KImageAnnota
 }
 
 // Base class handler implementation
-int kImageAnnotator__KImageAnnotator_QBaseDevType(const kImageAnnotator__KImageAnnotator* self) {
+int kImageAnnotator__KImageAnnotator_SuperDevType(const kImageAnnotator__KImageAnnotator* self) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_DevType_IsBase(true);
@@ -403,7 +403,7 @@ void kImageAnnotator__KImageAnnotator_SetVisible(kImageAnnotator__KImageAnnotato
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseSetVisible(kImageAnnotator__KImageAnnotator* self, bool visible) {
+void kImageAnnotator__KImageAnnotator_SuperSetVisible(kImageAnnotator__KImageAnnotator* self, bool visible) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_SetVisible_IsBase(true);
@@ -432,7 +432,7 @@ QSize* kImageAnnotator__KImageAnnotator_MinimumSizeHint(const kImageAnnotator__K
 }
 
 // Base class handler implementation
-QSize* kImageAnnotator__KImageAnnotator_QBaseMinimumSizeHint(const kImageAnnotator__KImageAnnotator* self) {
+QSize* kImageAnnotator__KImageAnnotator_SuperMinimumSizeHint(const kImageAnnotator__KImageAnnotator* self) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_MinimumSizeHint_IsBase(true);
@@ -461,7 +461,7 @@ int kImageAnnotator__KImageAnnotator_HeightForWidth(const kImageAnnotator__KImag
 }
 
 // Base class handler implementation
-int kImageAnnotator__KImageAnnotator_QBaseHeightForWidth(const kImageAnnotator__KImageAnnotator* self, int param1) {
+int kImageAnnotator__KImageAnnotator_SuperHeightForWidth(const kImageAnnotator__KImageAnnotator* self, int param1) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_HeightForWidth_IsBase(true);
@@ -490,7 +490,7 @@ bool kImageAnnotator__KImageAnnotator_HasHeightForWidth(const kImageAnnotator__K
 }
 
 // Base class handler implementation
-bool kImageAnnotator__KImageAnnotator_QBaseHasHeightForWidth(const kImageAnnotator__KImageAnnotator* self) {
+bool kImageAnnotator__KImageAnnotator_SuperHasHeightForWidth(const kImageAnnotator__KImageAnnotator* self) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_HasHeightForWidth_IsBase(true);
@@ -519,7 +519,7 @@ QPaintEngine* kImageAnnotator__KImageAnnotator_PaintEngine(const kImageAnnotator
 }
 
 // Base class handler implementation
-QPaintEngine* kImageAnnotator__KImageAnnotator_QBasePaintEngine(const kImageAnnotator__KImageAnnotator* self) {
+QPaintEngine* kImageAnnotator__KImageAnnotator_SuperPaintEngine(const kImageAnnotator__KImageAnnotator* self) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_PaintEngine_IsBase(true);
@@ -548,7 +548,7 @@ bool kImageAnnotator__KImageAnnotator_Event(kImageAnnotator__KImageAnnotator* se
 }
 
 // Base class handler implementation
-bool kImageAnnotator__KImageAnnotator_QBaseEvent(kImageAnnotator__KImageAnnotator* self, QEvent* event) {
+bool kImageAnnotator__KImageAnnotator_SuperEvent(kImageAnnotator__KImageAnnotator* self, QEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_Event_IsBase(true);
@@ -577,7 +577,7 @@ void kImageAnnotator__KImageAnnotator_MousePressEvent(kImageAnnotator__KImageAnn
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseMousePressEvent(kImageAnnotator__KImageAnnotator* self, QMouseEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperMousePressEvent(kImageAnnotator__KImageAnnotator* self, QMouseEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_MousePressEvent_IsBase(true);
@@ -606,7 +606,7 @@ void kImageAnnotator__KImageAnnotator_MouseReleaseEvent(kImageAnnotator__KImageA
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseMouseReleaseEvent(kImageAnnotator__KImageAnnotator* self, QMouseEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperMouseReleaseEvent(kImageAnnotator__KImageAnnotator* self, QMouseEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_MouseReleaseEvent_IsBase(true);
@@ -635,7 +635,7 @@ void kImageAnnotator__KImageAnnotator_MouseDoubleClickEvent(kImageAnnotator__KIm
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseMouseDoubleClickEvent(kImageAnnotator__KImageAnnotator* self, QMouseEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperMouseDoubleClickEvent(kImageAnnotator__KImageAnnotator* self, QMouseEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_MouseDoubleClickEvent_IsBase(true);
@@ -664,7 +664,7 @@ void kImageAnnotator__KImageAnnotator_MouseMoveEvent(kImageAnnotator__KImageAnno
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseMouseMoveEvent(kImageAnnotator__KImageAnnotator* self, QMouseEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperMouseMoveEvent(kImageAnnotator__KImageAnnotator* self, QMouseEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_MouseMoveEvent_IsBase(true);
@@ -693,7 +693,7 @@ void kImageAnnotator__KImageAnnotator_WheelEvent(kImageAnnotator__KImageAnnotato
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseWheelEvent(kImageAnnotator__KImageAnnotator* self, QWheelEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperWheelEvent(kImageAnnotator__KImageAnnotator* self, QWheelEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_WheelEvent_IsBase(true);
@@ -722,7 +722,7 @@ void kImageAnnotator__KImageAnnotator_KeyPressEvent(kImageAnnotator__KImageAnnot
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseKeyPressEvent(kImageAnnotator__KImageAnnotator* self, QKeyEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperKeyPressEvent(kImageAnnotator__KImageAnnotator* self, QKeyEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_KeyPressEvent_IsBase(true);
@@ -751,7 +751,7 @@ void kImageAnnotator__KImageAnnotator_KeyReleaseEvent(kImageAnnotator__KImageAnn
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseKeyReleaseEvent(kImageAnnotator__KImageAnnotator* self, QKeyEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperKeyReleaseEvent(kImageAnnotator__KImageAnnotator* self, QKeyEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_KeyReleaseEvent_IsBase(true);
@@ -780,7 +780,7 @@ void kImageAnnotator__KImageAnnotator_FocusInEvent(kImageAnnotator__KImageAnnota
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseFocusInEvent(kImageAnnotator__KImageAnnotator* self, QFocusEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperFocusInEvent(kImageAnnotator__KImageAnnotator* self, QFocusEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_FocusInEvent_IsBase(true);
@@ -809,7 +809,7 @@ void kImageAnnotator__KImageAnnotator_FocusOutEvent(kImageAnnotator__KImageAnnot
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseFocusOutEvent(kImageAnnotator__KImageAnnotator* self, QFocusEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperFocusOutEvent(kImageAnnotator__KImageAnnotator* self, QFocusEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_FocusOutEvent_IsBase(true);
@@ -838,7 +838,7 @@ void kImageAnnotator__KImageAnnotator_EnterEvent(kImageAnnotator__KImageAnnotato
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseEnterEvent(kImageAnnotator__KImageAnnotator* self, QEnterEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperEnterEvent(kImageAnnotator__KImageAnnotator* self, QEnterEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_EnterEvent_IsBase(true);
@@ -867,7 +867,7 @@ void kImageAnnotator__KImageAnnotator_LeaveEvent(kImageAnnotator__KImageAnnotato
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseLeaveEvent(kImageAnnotator__KImageAnnotator* self, QEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperLeaveEvent(kImageAnnotator__KImageAnnotator* self, QEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_LeaveEvent_IsBase(true);
@@ -896,7 +896,7 @@ void kImageAnnotator__KImageAnnotator_PaintEvent(kImageAnnotator__KImageAnnotato
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBasePaintEvent(kImageAnnotator__KImageAnnotator* self, QPaintEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperPaintEvent(kImageAnnotator__KImageAnnotator* self, QPaintEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_PaintEvent_IsBase(true);
@@ -925,7 +925,7 @@ void kImageAnnotator__KImageAnnotator_MoveEvent(kImageAnnotator__KImageAnnotator
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseMoveEvent(kImageAnnotator__KImageAnnotator* self, QMoveEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperMoveEvent(kImageAnnotator__KImageAnnotator* self, QMoveEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_MoveEvent_IsBase(true);
@@ -954,7 +954,7 @@ void kImageAnnotator__KImageAnnotator_ResizeEvent(kImageAnnotator__KImageAnnotat
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseResizeEvent(kImageAnnotator__KImageAnnotator* self, QResizeEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperResizeEvent(kImageAnnotator__KImageAnnotator* self, QResizeEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_ResizeEvent_IsBase(true);
@@ -983,7 +983,7 @@ void kImageAnnotator__KImageAnnotator_CloseEvent(kImageAnnotator__KImageAnnotato
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseCloseEvent(kImageAnnotator__KImageAnnotator* self, QCloseEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperCloseEvent(kImageAnnotator__KImageAnnotator* self, QCloseEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_CloseEvent_IsBase(true);
@@ -1012,7 +1012,7 @@ void kImageAnnotator__KImageAnnotator_ContextMenuEvent(kImageAnnotator__KImageAn
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseContextMenuEvent(kImageAnnotator__KImageAnnotator* self, QContextMenuEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperContextMenuEvent(kImageAnnotator__KImageAnnotator* self, QContextMenuEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_ContextMenuEvent_IsBase(true);
@@ -1041,7 +1041,7 @@ void kImageAnnotator__KImageAnnotator_TabletEvent(kImageAnnotator__KImageAnnotat
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseTabletEvent(kImageAnnotator__KImageAnnotator* self, QTabletEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperTabletEvent(kImageAnnotator__KImageAnnotator* self, QTabletEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_TabletEvent_IsBase(true);
@@ -1070,7 +1070,7 @@ void kImageAnnotator__KImageAnnotator_ActionEvent(kImageAnnotator__KImageAnnotat
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseActionEvent(kImageAnnotator__KImageAnnotator* self, QActionEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperActionEvent(kImageAnnotator__KImageAnnotator* self, QActionEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_ActionEvent_IsBase(true);
@@ -1099,7 +1099,7 @@ void kImageAnnotator__KImageAnnotator_DragEnterEvent(kImageAnnotator__KImageAnno
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseDragEnterEvent(kImageAnnotator__KImageAnnotator* self, QDragEnterEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperDragEnterEvent(kImageAnnotator__KImageAnnotator* self, QDragEnterEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_DragEnterEvent_IsBase(true);
@@ -1128,7 +1128,7 @@ void kImageAnnotator__KImageAnnotator_DragMoveEvent(kImageAnnotator__KImageAnnot
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseDragMoveEvent(kImageAnnotator__KImageAnnotator* self, QDragMoveEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperDragMoveEvent(kImageAnnotator__KImageAnnotator* self, QDragMoveEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_DragMoveEvent_IsBase(true);
@@ -1157,7 +1157,7 @@ void kImageAnnotator__KImageAnnotator_DragLeaveEvent(kImageAnnotator__KImageAnno
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseDragLeaveEvent(kImageAnnotator__KImageAnnotator* self, QDragLeaveEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperDragLeaveEvent(kImageAnnotator__KImageAnnotator* self, QDragLeaveEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_DragLeaveEvent_IsBase(true);
@@ -1186,7 +1186,7 @@ void kImageAnnotator__KImageAnnotator_DropEvent(kImageAnnotator__KImageAnnotator
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseDropEvent(kImageAnnotator__KImageAnnotator* self, QDropEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperDropEvent(kImageAnnotator__KImageAnnotator* self, QDropEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_DropEvent_IsBase(true);
@@ -1215,7 +1215,7 @@ void kImageAnnotator__KImageAnnotator_ShowEvent(kImageAnnotator__KImageAnnotator
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseShowEvent(kImageAnnotator__KImageAnnotator* self, QShowEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperShowEvent(kImageAnnotator__KImageAnnotator* self, QShowEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_ShowEvent_IsBase(true);
@@ -1244,7 +1244,7 @@ void kImageAnnotator__KImageAnnotator_HideEvent(kImageAnnotator__KImageAnnotator
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseHideEvent(kImageAnnotator__KImageAnnotator* self, QHideEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperHideEvent(kImageAnnotator__KImageAnnotator* self, QHideEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_HideEvent_IsBase(true);
@@ -1274,7 +1274,7 @@ bool kImageAnnotator__KImageAnnotator_NativeEvent(kImageAnnotator__KImageAnnotat
 }
 
 // Base class handler implementation
-bool kImageAnnotator__KImageAnnotator_QBaseNativeEvent(kImageAnnotator__KImageAnnotator* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool kImageAnnotator__KImageAnnotator_SuperNativeEvent(kImageAnnotator__KImageAnnotator* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
@@ -1304,7 +1304,7 @@ void kImageAnnotator__KImageAnnotator_ChangeEvent(kImageAnnotator__KImageAnnotat
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseChangeEvent(kImageAnnotator__KImageAnnotator* self, QEvent* param1) {
+void kImageAnnotator__KImageAnnotator_SuperChangeEvent(kImageAnnotator__KImageAnnotator* self, QEvent* param1) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_ChangeEvent_IsBase(true);
@@ -1333,7 +1333,7 @@ int kImageAnnotator__KImageAnnotator_Metric(const kImageAnnotator__KImageAnnotat
 }
 
 // Base class handler implementation
-int kImageAnnotator__KImageAnnotator_QBaseMetric(const kImageAnnotator__KImageAnnotator* self, int param1) {
+int kImageAnnotator__KImageAnnotator_SuperMetric(const kImageAnnotator__KImageAnnotator* self, int param1) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_Metric_IsBase(true);
@@ -1362,7 +1362,7 @@ void kImageAnnotator__KImageAnnotator_InitPainter(const kImageAnnotator__KImageA
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseInitPainter(const kImageAnnotator__KImageAnnotator* self, QPainter* painter) {
+void kImageAnnotator__KImageAnnotator_SuperInitPainter(const kImageAnnotator__KImageAnnotator* self, QPainter* painter) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_InitPainter_IsBase(true);
@@ -1391,7 +1391,7 @@ QPaintDevice* kImageAnnotator__KImageAnnotator_Redirected(const kImageAnnotator_
 }
 
 // Base class handler implementation
-QPaintDevice* kImageAnnotator__KImageAnnotator_QBaseRedirected(const kImageAnnotator__KImageAnnotator* self, QPoint* offset) {
+QPaintDevice* kImageAnnotator__KImageAnnotator_SuperRedirected(const kImageAnnotator__KImageAnnotator* self, QPoint* offset) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_Redirected_IsBase(true);
@@ -1420,7 +1420,7 @@ QPainter* kImageAnnotator__KImageAnnotator_SharedPainter(const kImageAnnotator__
 }
 
 // Base class handler implementation
-QPainter* kImageAnnotator__KImageAnnotator_QBaseSharedPainter(const kImageAnnotator__KImageAnnotator* self) {
+QPainter* kImageAnnotator__KImageAnnotator_SuperSharedPainter(const kImageAnnotator__KImageAnnotator* self) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_SharedPainter_IsBase(true);
@@ -1449,7 +1449,7 @@ void kImageAnnotator__KImageAnnotator_InputMethodEvent(kImageAnnotator__KImageAn
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseInputMethodEvent(kImageAnnotator__KImageAnnotator* self, QInputMethodEvent* param1) {
+void kImageAnnotator__KImageAnnotator_SuperInputMethodEvent(kImageAnnotator__KImageAnnotator* self, QInputMethodEvent* param1) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_InputMethodEvent_IsBase(true);
@@ -1478,7 +1478,7 @@ QVariant* kImageAnnotator__KImageAnnotator_InputMethodQuery(const kImageAnnotato
 }
 
 // Base class handler implementation
-QVariant* kImageAnnotator__KImageAnnotator_QBaseInputMethodQuery(const kImageAnnotator__KImageAnnotator* self, int param1) {
+QVariant* kImageAnnotator__KImageAnnotator_SuperInputMethodQuery(const kImageAnnotator__KImageAnnotator* self, int param1) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_InputMethodQuery_IsBase(true);
@@ -1507,7 +1507,7 @@ bool kImageAnnotator__KImageAnnotator_FocusNextPrevChild(kImageAnnotator__KImage
 }
 
 // Base class handler implementation
-bool kImageAnnotator__KImageAnnotator_QBaseFocusNextPrevChild(kImageAnnotator__KImageAnnotator* self, bool next) {
+bool kImageAnnotator__KImageAnnotator_SuperFocusNextPrevChild(kImageAnnotator__KImageAnnotator* self, bool next) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_FocusNextPrevChild_IsBase(true);
@@ -1536,7 +1536,7 @@ bool kImageAnnotator__KImageAnnotator_EventFilter(kImageAnnotator__KImageAnnotat
 }
 
 // Base class handler implementation
-bool kImageAnnotator__KImageAnnotator_QBaseEventFilter(kImageAnnotator__KImageAnnotator* self, QObject* watched, QEvent* event) {
+bool kImageAnnotator__KImageAnnotator_SuperEventFilter(kImageAnnotator__KImageAnnotator* self, QObject* watched, QEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_EventFilter_IsBase(true);
@@ -1565,7 +1565,7 @@ void kImageAnnotator__KImageAnnotator_TimerEvent(kImageAnnotator__KImageAnnotato
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseTimerEvent(kImageAnnotator__KImageAnnotator* self, QTimerEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperTimerEvent(kImageAnnotator__KImageAnnotator* self, QTimerEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_TimerEvent_IsBase(true);
@@ -1594,7 +1594,7 @@ void kImageAnnotator__KImageAnnotator_ChildEvent(kImageAnnotator__KImageAnnotato
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseChildEvent(kImageAnnotator__KImageAnnotator* self, QChildEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperChildEvent(kImageAnnotator__KImageAnnotator* self, QChildEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_ChildEvent_IsBase(true);
@@ -1623,7 +1623,7 @@ void kImageAnnotator__KImageAnnotator_CustomEvent(kImageAnnotator__KImageAnnotat
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseCustomEvent(kImageAnnotator__KImageAnnotator* self, QEvent* event) {
+void kImageAnnotator__KImageAnnotator_SuperCustomEvent(kImageAnnotator__KImageAnnotator* self, QEvent* event) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_CustomEvent_IsBase(true);
@@ -1652,7 +1652,7 @@ void kImageAnnotator__KImageAnnotator_ConnectNotify(kImageAnnotator__KImageAnnot
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseConnectNotify(kImageAnnotator__KImageAnnotator* self, const QMetaMethod* signal) {
+void kImageAnnotator__KImageAnnotator_SuperConnectNotify(kImageAnnotator__KImageAnnotator* self, const QMetaMethod* signal) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_ConnectNotify_IsBase(true);
@@ -1681,7 +1681,7 @@ void kImageAnnotator__KImageAnnotator_DisconnectNotify(kImageAnnotator__KImageAn
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseDisconnectNotify(kImageAnnotator__KImageAnnotator* self, const QMetaMethod* signal) {
+void kImageAnnotator__KImageAnnotator_SuperDisconnectNotify(kImageAnnotator__KImageAnnotator* self, const QMetaMethod* signal) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_DisconnectNotify_IsBase(true);
@@ -1710,7 +1710,7 @@ void kImageAnnotator__KImageAnnotator_UpdateMicroFocus(kImageAnnotator__KImageAn
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseUpdateMicroFocus(kImageAnnotator__KImageAnnotator* self) {
+void kImageAnnotator__KImageAnnotator_SuperUpdateMicroFocus(kImageAnnotator__KImageAnnotator* self) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_UpdateMicroFocus_IsBase(true);
@@ -1739,7 +1739,7 @@ void kImageAnnotator__KImageAnnotator_Create(kImageAnnotator__KImageAnnotator* s
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseCreate(kImageAnnotator__KImageAnnotator* self) {
+void kImageAnnotator__KImageAnnotator_SuperCreate(kImageAnnotator__KImageAnnotator* self) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_Create_IsBase(true);
@@ -1768,7 +1768,7 @@ void kImageAnnotator__KImageAnnotator_Destroy(kImageAnnotator__KImageAnnotator* 
 }
 
 // Base class handler implementation
-void kImageAnnotator__KImageAnnotator_QBaseDestroy(kImageAnnotator__KImageAnnotator* self) {
+void kImageAnnotator__KImageAnnotator_SuperDestroy(kImageAnnotator__KImageAnnotator* self) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_Destroy_IsBase(true);
@@ -1797,7 +1797,7 @@ bool kImageAnnotator__KImageAnnotator_FocusNextChild(kImageAnnotator__KImageAnno
 }
 
 // Base class handler implementation
-bool kImageAnnotator__KImageAnnotator_QBaseFocusNextChild(kImageAnnotator__KImageAnnotator* self) {
+bool kImageAnnotator__KImageAnnotator_SuperFocusNextChild(kImageAnnotator__KImageAnnotator* self) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_FocusNextChild_IsBase(true);
@@ -1826,7 +1826,7 @@ bool kImageAnnotator__KImageAnnotator_FocusPreviousChild(kImageAnnotator__KImage
 }
 
 // Base class handler implementation
-bool kImageAnnotator__KImageAnnotator_QBaseFocusPreviousChild(kImageAnnotator__KImageAnnotator* self) {
+bool kImageAnnotator__KImageAnnotator_SuperFocusPreviousChild(kImageAnnotator__KImageAnnotator* self) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_FocusPreviousChild_IsBase(true);
@@ -1855,7 +1855,7 @@ QObject* kImageAnnotator__KImageAnnotator_Sender(const kImageAnnotator__KImageAn
 }
 
 // Base class handler implementation
-QObject* kImageAnnotator__KImageAnnotator_QBaseSender(const kImageAnnotator__KImageAnnotator* self) {
+QObject* kImageAnnotator__KImageAnnotator_SuperSender(const kImageAnnotator__KImageAnnotator* self) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_Sender_IsBase(true);
@@ -1884,7 +1884,7 @@ int kImageAnnotator__KImageAnnotator_SenderSignalIndex(const kImageAnnotator__KI
 }
 
 // Base class handler implementation
-int kImageAnnotator__KImageAnnotator_QBaseSenderSignalIndex(const kImageAnnotator__KImageAnnotator* self) {
+int kImageAnnotator__KImageAnnotator_SuperSenderSignalIndex(const kImageAnnotator__KImageAnnotator* self) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_SenderSignalIndex_IsBase(true);
@@ -1913,7 +1913,7 @@ int kImageAnnotator__KImageAnnotator_Receivers(const kImageAnnotator__KImageAnno
 }
 
 // Base class handler implementation
-int kImageAnnotator__KImageAnnotator_QBaseReceivers(const kImageAnnotator__KImageAnnotator* self, const char* signal) {
+int kImageAnnotator__KImageAnnotator_SuperReceivers(const kImageAnnotator__KImageAnnotator* self, const char* signal) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_Receivers_IsBase(true);
@@ -1942,7 +1942,7 @@ bool kImageAnnotator__KImageAnnotator_IsSignalConnected(const kImageAnnotator__K
 }
 
 // Base class handler implementation
-bool kImageAnnotator__KImageAnnotator_QBaseIsSignalConnected(const kImageAnnotator__KImageAnnotator* self, const QMetaMethod* signal) {
+bool kImageAnnotator__KImageAnnotator_SuperIsSignalConnected(const kImageAnnotator__KImageAnnotator* self, const QMetaMethod* signal) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_IsSignalConnected_IsBase(true);
@@ -1971,7 +1971,7 @@ double kImageAnnotator__KImageAnnotator_GetDecodedMetricF(const kImageAnnotator_
 }
 
 // Base class handler implementation
-double kImageAnnotator__KImageAnnotator_QBaseGetDecodedMetricF(const kImageAnnotator__KImageAnnotator* self, int metricA, int metricB) {
+double kImageAnnotator__KImageAnnotator_SuperGetDecodedMetricF(const kImageAnnotator__KImageAnnotator* self, int metricA, int metricB) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
     if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_GetDecodedMetricF_IsBase(true);

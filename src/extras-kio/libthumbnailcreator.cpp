@@ -147,7 +147,7 @@ KIO__ThumbnailResult* KIO__ThumbnailCreator_Create(KIO__ThumbnailCreator* self, 
 }
 
 // Base class handler implementation
-QMetaObject* KIO__ThumbnailCreator_QBaseMetaObject(const KIO__ThumbnailCreator* self) {
+QMetaObject* KIO__ThumbnailCreator_SuperMetaObject(const KIO__ThumbnailCreator* self) {
     auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
     if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
         vkiothumbnailcreator->setKIO__ThumbnailCreator_MetaObject_IsBase(true);
@@ -166,7 +166,7 @@ void KIO__ThumbnailCreator_OnMetaObject(const KIO__ThumbnailCreator* self, intpt
 }
 
 // Base class handler implementation
-void* KIO__ThumbnailCreator_QBaseMetacast(KIO__ThumbnailCreator* self, const char* param1) {
+void* KIO__ThumbnailCreator_SuperMetacast(KIO__ThumbnailCreator* self, const char* param1) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
     if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
         vkiothumbnailcreator->setKIO__ThumbnailCreator_Metacast_IsBase(true);
@@ -185,7 +185,7 @@ void KIO__ThumbnailCreator_OnMetacast(KIO__ThumbnailCreator* self, intptr_t slot
 }
 
 // Base class handler implementation
-int KIO__ThumbnailCreator_QBaseMetacall(KIO__ThumbnailCreator* self, int param1, int param2, void** param3) {
+int KIO__ThumbnailCreator_SuperMetacall(KIO__ThumbnailCreator* self, int param1, int param2, void** param3) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
     if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
         vkiothumbnailcreator->setKIO__ThumbnailCreator_Metacall_IsBase(true);
@@ -204,7 +204,7 @@ void KIO__ThumbnailCreator_OnMetacall(KIO__ThumbnailCreator* self, intptr_t slot
 }
 
 // Base class handler implementation
-KIO__ThumbnailResult* KIO__ThumbnailCreator_QBaseCreate(KIO__ThumbnailCreator* self, const KIO__ThumbnailRequest* request) {
+KIO__ThumbnailResult* KIO__ThumbnailCreator_SuperCreate(KIO__ThumbnailCreator* self, const KIO__ThumbnailRequest* request) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
     if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
         vkiothumbnailcreator->setKIO__ThumbnailCreator_Create_IsBase(true);
@@ -233,7 +233,7 @@ bool KIO__ThumbnailCreator_Event(KIO__ThumbnailCreator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KIO__ThumbnailCreator_QBaseEvent(KIO__ThumbnailCreator* self, QEvent* event) {
+bool KIO__ThumbnailCreator_SuperEvent(KIO__ThumbnailCreator* self, QEvent* event) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
     if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
         vkiothumbnailcreator->setKIO__ThumbnailCreator_Event_IsBase(true);
@@ -262,7 +262,7 @@ bool KIO__ThumbnailCreator_EventFilter(KIO__ThumbnailCreator* self, QObject* wat
 }
 
 // Base class handler implementation
-bool KIO__ThumbnailCreator_QBaseEventFilter(KIO__ThumbnailCreator* self, QObject* watched, QEvent* event) {
+bool KIO__ThumbnailCreator_SuperEventFilter(KIO__ThumbnailCreator* self, QObject* watched, QEvent* event) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
     if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
         vkiothumbnailcreator->setKIO__ThumbnailCreator_EventFilter_IsBase(true);
@@ -291,7 +291,7 @@ void KIO__ThumbnailCreator_TimerEvent(KIO__ThumbnailCreator* self, QTimerEvent* 
 }
 
 // Base class handler implementation
-void KIO__ThumbnailCreator_QBaseTimerEvent(KIO__ThumbnailCreator* self, QTimerEvent* event) {
+void KIO__ThumbnailCreator_SuperTimerEvent(KIO__ThumbnailCreator* self, QTimerEvent* event) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
     if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
         vkiothumbnailcreator->setKIO__ThumbnailCreator_TimerEvent_IsBase(true);
@@ -320,7 +320,7 @@ void KIO__ThumbnailCreator_ChildEvent(KIO__ThumbnailCreator* self, QChildEvent* 
 }
 
 // Base class handler implementation
-void KIO__ThumbnailCreator_QBaseChildEvent(KIO__ThumbnailCreator* self, QChildEvent* event) {
+void KIO__ThumbnailCreator_SuperChildEvent(KIO__ThumbnailCreator* self, QChildEvent* event) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
     if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
         vkiothumbnailcreator->setKIO__ThumbnailCreator_ChildEvent_IsBase(true);
@@ -349,7 +349,7 @@ void KIO__ThumbnailCreator_CustomEvent(KIO__ThumbnailCreator* self, QEvent* even
 }
 
 // Base class handler implementation
-void KIO__ThumbnailCreator_QBaseCustomEvent(KIO__ThumbnailCreator* self, QEvent* event) {
+void KIO__ThumbnailCreator_SuperCustomEvent(KIO__ThumbnailCreator* self, QEvent* event) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
     if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
         vkiothumbnailcreator->setKIO__ThumbnailCreator_CustomEvent_IsBase(true);
@@ -378,7 +378,7 @@ void KIO__ThumbnailCreator_ConnectNotify(KIO__ThumbnailCreator* self, const QMet
 }
 
 // Base class handler implementation
-void KIO__ThumbnailCreator_QBaseConnectNotify(KIO__ThumbnailCreator* self, const QMetaMethod* signal) {
+void KIO__ThumbnailCreator_SuperConnectNotify(KIO__ThumbnailCreator* self, const QMetaMethod* signal) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
     if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
         vkiothumbnailcreator->setKIO__ThumbnailCreator_ConnectNotify_IsBase(true);
@@ -407,7 +407,7 @@ void KIO__ThumbnailCreator_DisconnectNotify(KIO__ThumbnailCreator* self, const Q
 }
 
 // Base class handler implementation
-void KIO__ThumbnailCreator_QBaseDisconnectNotify(KIO__ThumbnailCreator* self, const QMetaMethod* signal) {
+void KIO__ThumbnailCreator_SuperDisconnectNotify(KIO__ThumbnailCreator* self, const QMetaMethod* signal) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
     if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
         vkiothumbnailcreator->setKIO__ThumbnailCreator_DisconnectNotify_IsBase(true);
@@ -436,7 +436,7 @@ QObject* KIO__ThumbnailCreator_Sender(const KIO__ThumbnailCreator* self) {
 }
 
 // Base class handler implementation
-QObject* KIO__ThumbnailCreator_QBaseSender(const KIO__ThumbnailCreator* self) {
+QObject* KIO__ThumbnailCreator_SuperSender(const KIO__ThumbnailCreator* self) {
     auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
     if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
         vkiothumbnailcreator->setKIO__ThumbnailCreator_Sender_IsBase(true);
@@ -465,7 +465,7 @@ int KIO__ThumbnailCreator_SenderSignalIndex(const KIO__ThumbnailCreator* self) {
 }
 
 // Base class handler implementation
-int KIO__ThumbnailCreator_QBaseSenderSignalIndex(const KIO__ThumbnailCreator* self) {
+int KIO__ThumbnailCreator_SuperSenderSignalIndex(const KIO__ThumbnailCreator* self) {
     auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
     if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
         vkiothumbnailcreator->setKIO__ThumbnailCreator_SenderSignalIndex_IsBase(true);
@@ -494,7 +494,7 @@ int KIO__ThumbnailCreator_Receivers(const KIO__ThumbnailCreator* self, const cha
 }
 
 // Base class handler implementation
-int KIO__ThumbnailCreator_QBaseReceivers(const KIO__ThumbnailCreator* self, const char* signal) {
+int KIO__ThumbnailCreator_SuperReceivers(const KIO__ThumbnailCreator* self, const char* signal) {
     auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
     if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
         vkiothumbnailcreator->setKIO__ThumbnailCreator_Receivers_IsBase(true);
@@ -523,7 +523,7 @@ bool KIO__ThumbnailCreator_IsSignalConnected(const KIO__ThumbnailCreator* self, 
 }
 
 // Base class handler implementation
-bool KIO__ThumbnailCreator_QBaseIsSignalConnected(const KIO__ThumbnailCreator* self, const QMetaMethod* signal) {
+bool KIO__ThumbnailCreator_SuperIsSignalConnected(const KIO__ThumbnailCreator* self, const QMetaMethod* signal) {
     auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
     if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
         vkiothumbnailcreator->setKIO__ThumbnailCreator_IsSignalConnected_IsBase(true);

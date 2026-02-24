@@ -800,35 +800,35 @@ class VirtualQFile final : public QFile {
 
     // Friend functions
     friend long long QFile_ReadData(QFile* self, char* data, long long maxlen);
-    friend long long QFile_QBaseReadData(QFile* self, char* data, long long maxlen);
+    friend long long QFile_SuperReadData(QFile* self, char* data, long long maxlen);
     friend long long QFile_WriteData(QFile* self, const char* data, long long lenVal);
-    friend long long QFile_QBaseWriteData(QFile* self, const char* data, long long lenVal);
+    friend long long QFile_SuperWriteData(QFile* self, const char* data, long long lenVal);
     friend long long QFile_ReadLineData(QFile* self, char* data, long long maxlen);
-    friend long long QFile_QBaseReadLineData(QFile* self, char* data, long long maxlen);
+    friend long long QFile_SuperReadLineData(QFile* self, char* data, long long maxlen);
     friend long long QFile_SkipData(QFile* self, long long maxSize);
-    friend long long QFile_QBaseSkipData(QFile* self, long long maxSize);
+    friend long long QFile_SuperSkipData(QFile* self, long long maxSize);
     friend void QFile_TimerEvent(QFile* self, QTimerEvent* event);
-    friend void QFile_QBaseTimerEvent(QFile* self, QTimerEvent* event);
+    friend void QFile_SuperTimerEvent(QFile* self, QTimerEvent* event);
     friend void QFile_ChildEvent(QFile* self, QChildEvent* event);
-    friend void QFile_QBaseChildEvent(QFile* self, QChildEvent* event);
+    friend void QFile_SuperChildEvent(QFile* self, QChildEvent* event);
     friend void QFile_CustomEvent(QFile* self, QEvent* event);
-    friend void QFile_QBaseCustomEvent(QFile* self, QEvent* event);
+    friend void QFile_SuperCustomEvent(QFile* self, QEvent* event);
     friend void QFile_ConnectNotify(QFile* self, const QMetaMethod* signal);
-    friend void QFile_QBaseConnectNotify(QFile* self, const QMetaMethod* signal);
+    friend void QFile_SuperConnectNotify(QFile* self, const QMetaMethod* signal);
     friend void QFile_DisconnectNotify(QFile* self, const QMetaMethod* signal);
-    friend void QFile_QBaseDisconnectNotify(QFile* self, const QMetaMethod* signal);
+    friend void QFile_SuperDisconnectNotify(QFile* self, const QMetaMethod* signal);
     friend void QFile_SetOpenMode(QFile* self, int openMode);
-    friend void QFile_QBaseSetOpenMode(QFile* self, int openMode);
+    friend void QFile_SuperSetOpenMode(QFile* self, int openMode);
     friend void QFile_SetErrorString(QFile* self, const libqt_string errorString);
-    friend void QFile_QBaseSetErrorString(QFile* self, const libqt_string errorString);
+    friend void QFile_SuperSetErrorString(QFile* self, const libqt_string errorString);
     friend QObject* QFile_Sender(const QFile* self);
-    friend QObject* QFile_QBaseSender(const QFile* self);
+    friend QObject* QFile_SuperSender(const QFile* self);
     friend int QFile_SenderSignalIndex(const QFile* self);
-    friend int QFile_QBaseSenderSignalIndex(const QFile* self);
+    friend int QFile_SuperSenderSignalIndex(const QFile* self);
     friend int QFile_Receivers(const QFile* self, const char* signal);
-    friend int QFile_QBaseReceivers(const QFile* self, const char* signal);
+    friend int QFile_SuperReceivers(const QFile* self, const char* signal);
     friend bool QFile_IsSignalConnected(const QFile* self, const QMetaMethod* signal);
-    friend bool QFile_QBaseIsSignalConnected(const QFile* self, const QMetaMethod* signal);
+    friend bool QFile_SuperIsSignalConnected(const QFile* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -90,7 +90,7 @@ uint64_t QOpenGLTimerQuery_WaitForResult(const QOpenGLTimerQuery* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QOpenGLTimerQuery_QBaseMetaObject(const QOpenGLTimerQuery* self) {
+QMetaObject* QOpenGLTimerQuery_SuperMetaObject(const QOpenGLTimerQuery* self) {
     auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
     if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
         vqopengltimerquery->setQOpenGLTimerQuery_MetaObject_IsBase(true);
@@ -109,7 +109,7 @@ void QOpenGLTimerQuery_OnMetaObject(const QOpenGLTimerQuery* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* QOpenGLTimerQuery_QBaseMetacast(QOpenGLTimerQuery* self, const char* param1) {
+void* QOpenGLTimerQuery_SuperMetacast(QOpenGLTimerQuery* self, const char* param1) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
     if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
         vqopengltimerquery->setQOpenGLTimerQuery_Metacast_IsBase(true);
@@ -128,7 +128,7 @@ void QOpenGLTimerQuery_OnMetacast(QOpenGLTimerQuery* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QOpenGLTimerQuery_QBaseMetacall(QOpenGLTimerQuery* self, int param1, int param2, void** param3) {
+int QOpenGLTimerQuery_SuperMetacall(QOpenGLTimerQuery* self, int param1, int param2, void** param3) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
     if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
         vqopengltimerquery->setQOpenGLTimerQuery_Metacall_IsBase(true);
@@ -157,7 +157,7 @@ bool QOpenGLTimerQuery_Event(QOpenGLTimerQuery* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QOpenGLTimerQuery_QBaseEvent(QOpenGLTimerQuery* self, QEvent* event) {
+bool QOpenGLTimerQuery_SuperEvent(QOpenGLTimerQuery* self, QEvent* event) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
     if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
         vqopengltimerquery->setQOpenGLTimerQuery_Event_IsBase(true);
@@ -186,7 +186,7 @@ bool QOpenGLTimerQuery_EventFilter(QOpenGLTimerQuery* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool QOpenGLTimerQuery_QBaseEventFilter(QOpenGLTimerQuery* self, QObject* watched, QEvent* event) {
+bool QOpenGLTimerQuery_SuperEventFilter(QOpenGLTimerQuery* self, QObject* watched, QEvent* event) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
     if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
         vqopengltimerquery->setQOpenGLTimerQuery_EventFilter_IsBase(true);
@@ -215,7 +215,7 @@ void QOpenGLTimerQuery_TimerEvent(QOpenGLTimerQuery* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLTimerQuery_QBaseTimerEvent(QOpenGLTimerQuery* self, QTimerEvent* event) {
+void QOpenGLTimerQuery_SuperTimerEvent(QOpenGLTimerQuery* self, QTimerEvent* event) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
     if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
         vqopengltimerquery->setQOpenGLTimerQuery_TimerEvent_IsBase(true);
@@ -244,7 +244,7 @@ void QOpenGLTimerQuery_ChildEvent(QOpenGLTimerQuery* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLTimerQuery_QBaseChildEvent(QOpenGLTimerQuery* self, QChildEvent* event) {
+void QOpenGLTimerQuery_SuperChildEvent(QOpenGLTimerQuery* self, QChildEvent* event) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
     if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
         vqopengltimerquery->setQOpenGLTimerQuery_ChildEvent_IsBase(true);
@@ -273,7 +273,7 @@ void QOpenGLTimerQuery_CustomEvent(QOpenGLTimerQuery* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLTimerQuery_QBaseCustomEvent(QOpenGLTimerQuery* self, QEvent* event) {
+void QOpenGLTimerQuery_SuperCustomEvent(QOpenGLTimerQuery* self, QEvent* event) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
     if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
         vqopengltimerquery->setQOpenGLTimerQuery_CustomEvent_IsBase(true);
@@ -302,7 +302,7 @@ void QOpenGLTimerQuery_ConnectNotify(QOpenGLTimerQuery* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void QOpenGLTimerQuery_QBaseConnectNotify(QOpenGLTimerQuery* self, const QMetaMethod* signal) {
+void QOpenGLTimerQuery_SuperConnectNotify(QOpenGLTimerQuery* self, const QMetaMethod* signal) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
     if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
         vqopengltimerquery->setQOpenGLTimerQuery_ConnectNotify_IsBase(true);
@@ -331,7 +331,7 @@ void QOpenGLTimerQuery_DisconnectNotify(QOpenGLTimerQuery* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void QOpenGLTimerQuery_QBaseDisconnectNotify(QOpenGLTimerQuery* self, const QMetaMethod* signal) {
+void QOpenGLTimerQuery_SuperDisconnectNotify(QOpenGLTimerQuery* self, const QMetaMethod* signal) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
     if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
         vqopengltimerquery->setQOpenGLTimerQuery_DisconnectNotify_IsBase(true);
@@ -360,7 +360,7 @@ QObject* QOpenGLTimerQuery_Sender(const QOpenGLTimerQuery* self) {
 }
 
 // Base class handler implementation
-QObject* QOpenGLTimerQuery_QBaseSender(const QOpenGLTimerQuery* self) {
+QObject* QOpenGLTimerQuery_SuperSender(const QOpenGLTimerQuery* self) {
     auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
     if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
         vqopengltimerquery->setQOpenGLTimerQuery_Sender_IsBase(true);
@@ -389,7 +389,7 @@ int QOpenGLTimerQuery_SenderSignalIndex(const QOpenGLTimerQuery* self) {
 }
 
 // Base class handler implementation
-int QOpenGLTimerQuery_QBaseSenderSignalIndex(const QOpenGLTimerQuery* self) {
+int QOpenGLTimerQuery_SuperSenderSignalIndex(const QOpenGLTimerQuery* self) {
     auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
     if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
         vqopengltimerquery->setQOpenGLTimerQuery_SenderSignalIndex_IsBase(true);
@@ -418,7 +418,7 @@ int QOpenGLTimerQuery_Receivers(const QOpenGLTimerQuery* self, const char* signa
 }
 
 // Base class handler implementation
-int QOpenGLTimerQuery_QBaseReceivers(const QOpenGLTimerQuery* self, const char* signal) {
+int QOpenGLTimerQuery_SuperReceivers(const QOpenGLTimerQuery* self, const char* signal) {
     auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
     if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
         vqopengltimerquery->setQOpenGLTimerQuery_Receivers_IsBase(true);
@@ -447,7 +447,7 @@ bool QOpenGLTimerQuery_IsSignalConnected(const QOpenGLTimerQuery* self, const QM
 }
 
 // Base class handler implementation
-bool QOpenGLTimerQuery_QBaseIsSignalConnected(const QOpenGLTimerQuery* self, const QMetaMethod* signal) {
+bool QOpenGLTimerQuery_SuperIsSignalConnected(const QOpenGLTimerQuery* self, const QMetaMethod* signal) {
     auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
     if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
         vqopengltimerquery->setQOpenGLTimerQuery_IsSignalConnected_IsBase(true);
@@ -576,7 +576,7 @@ void QOpenGLTimeMonitor_Reset(QOpenGLTimeMonitor* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QOpenGLTimeMonitor_QBaseMetaObject(const QOpenGLTimeMonitor* self) {
+QMetaObject* QOpenGLTimeMonitor_SuperMetaObject(const QOpenGLTimeMonitor* self) {
     auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
     if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
         vqopengltimemonitor->setQOpenGLTimeMonitor_MetaObject_IsBase(true);
@@ -595,7 +595,7 @@ void QOpenGLTimeMonitor_OnMetaObject(const QOpenGLTimeMonitor* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* QOpenGLTimeMonitor_QBaseMetacast(QOpenGLTimeMonitor* self, const char* param1) {
+void* QOpenGLTimeMonitor_SuperMetacast(QOpenGLTimeMonitor* self, const char* param1) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
     if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
         vqopengltimemonitor->setQOpenGLTimeMonitor_Metacast_IsBase(true);
@@ -614,7 +614,7 @@ void QOpenGLTimeMonitor_OnMetacast(QOpenGLTimeMonitor* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QOpenGLTimeMonitor_QBaseMetacall(QOpenGLTimeMonitor* self, int param1, int param2, void** param3) {
+int QOpenGLTimeMonitor_SuperMetacall(QOpenGLTimeMonitor* self, int param1, int param2, void** param3) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
     if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
         vqopengltimemonitor->setQOpenGLTimeMonitor_Metacall_IsBase(true);
@@ -643,7 +643,7 @@ bool QOpenGLTimeMonitor_Event(QOpenGLTimeMonitor* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QOpenGLTimeMonitor_QBaseEvent(QOpenGLTimeMonitor* self, QEvent* event) {
+bool QOpenGLTimeMonitor_SuperEvent(QOpenGLTimeMonitor* self, QEvent* event) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
     if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
         vqopengltimemonitor->setQOpenGLTimeMonitor_Event_IsBase(true);
@@ -672,7 +672,7 @@ bool QOpenGLTimeMonitor_EventFilter(QOpenGLTimeMonitor* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool QOpenGLTimeMonitor_QBaseEventFilter(QOpenGLTimeMonitor* self, QObject* watched, QEvent* event) {
+bool QOpenGLTimeMonitor_SuperEventFilter(QOpenGLTimeMonitor* self, QObject* watched, QEvent* event) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
     if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
         vqopengltimemonitor->setQOpenGLTimeMonitor_EventFilter_IsBase(true);
@@ -701,7 +701,7 @@ void QOpenGLTimeMonitor_TimerEvent(QOpenGLTimeMonitor* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void QOpenGLTimeMonitor_QBaseTimerEvent(QOpenGLTimeMonitor* self, QTimerEvent* event) {
+void QOpenGLTimeMonitor_SuperTimerEvent(QOpenGLTimeMonitor* self, QTimerEvent* event) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
     if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
         vqopengltimemonitor->setQOpenGLTimeMonitor_TimerEvent_IsBase(true);
@@ -730,7 +730,7 @@ void QOpenGLTimeMonitor_ChildEvent(QOpenGLTimeMonitor* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void QOpenGLTimeMonitor_QBaseChildEvent(QOpenGLTimeMonitor* self, QChildEvent* event) {
+void QOpenGLTimeMonitor_SuperChildEvent(QOpenGLTimeMonitor* self, QChildEvent* event) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
     if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
         vqopengltimemonitor->setQOpenGLTimeMonitor_ChildEvent_IsBase(true);
@@ -759,7 +759,7 @@ void QOpenGLTimeMonitor_CustomEvent(QOpenGLTimeMonitor* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLTimeMonitor_QBaseCustomEvent(QOpenGLTimeMonitor* self, QEvent* event) {
+void QOpenGLTimeMonitor_SuperCustomEvent(QOpenGLTimeMonitor* self, QEvent* event) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
     if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
         vqopengltimemonitor->setQOpenGLTimeMonitor_CustomEvent_IsBase(true);
@@ -788,7 +788,7 @@ void QOpenGLTimeMonitor_ConnectNotify(QOpenGLTimeMonitor* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void QOpenGLTimeMonitor_QBaseConnectNotify(QOpenGLTimeMonitor* self, const QMetaMethod* signal) {
+void QOpenGLTimeMonitor_SuperConnectNotify(QOpenGLTimeMonitor* self, const QMetaMethod* signal) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
     if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
         vqopengltimemonitor->setQOpenGLTimeMonitor_ConnectNotify_IsBase(true);
@@ -817,7 +817,7 @@ void QOpenGLTimeMonitor_DisconnectNotify(QOpenGLTimeMonitor* self, const QMetaMe
 }
 
 // Base class handler implementation
-void QOpenGLTimeMonitor_QBaseDisconnectNotify(QOpenGLTimeMonitor* self, const QMetaMethod* signal) {
+void QOpenGLTimeMonitor_SuperDisconnectNotify(QOpenGLTimeMonitor* self, const QMetaMethod* signal) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
     if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
         vqopengltimemonitor->setQOpenGLTimeMonitor_DisconnectNotify_IsBase(true);
@@ -846,7 +846,7 @@ QObject* QOpenGLTimeMonitor_Sender(const QOpenGLTimeMonitor* self) {
 }
 
 // Base class handler implementation
-QObject* QOpenGLTimeMonitor_QBaseSender(const QOpenGLTimeMonitor* self) {
+QObject* QOpenGLTimeMonitor_SuperSender(const QOpenGLTimeMonitor* self) {
     auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
     if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
         vqopengltimemonitor->setQOpenGLTimeMonitor_Sender_IsBase(true);
@@ -875,7 +875,7 @@ int QOpenGLTimeMonitor_SenderSignalIndex(const QOpenGLTimeMonitor* self) {
 }
 
 // Base class handler implementation
-int QOpenGLTimeMonitor_QBaseSenderSignalIndex(const QOpenGLTimeMonitor* self) {
+int QOpenGLTimeMonitor_SuperSenderSignalIndex(const QOpenGLTimeMonitor* self) {
     auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
     if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
         vqopengltimemonitor->setQOpenGLTimeMonitor_SenderSignalIndex_IsBase(true);
@@ -904,7 +904,7 @@ int QOpenGLTimeMonitor_Receivers(const QOpenGLTimeMonitor* self, const char* sig
 }
 
 // Base class handler implementation
-int QOpenGLTimeMonitor_QBaseReceivers(const QOpenGLTimeMonitor* self, const char* signal) {
+int QOpenGLTimeMonitor_SuperReceivers(const QOpenGLTimeMonitor* self, const char* signal) {
     auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
     if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
         vqopengltimemonitor->setQOpenGLTimeMonitor_Receivers_IsBase(true);
@@ -933,7 +933,7 @@ bool QOpenGLTimeMonitor_IsSignalConnected(const QOpenGLTimeMonitor* self, const 
 }
 
 // Base class handler implementation
-bool QOpenGLTimeMonitor_QBaseIsSignalConnected(const QOpenGLTimeMonitor* self, const QMetaMethod* signal) {
+bool QOpenGLTimeMonitor_SuperIsSignalConnected(const QOpenGLTimeMonitor* self, const QMetaMethod* signal) {
     auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
     if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
         vqopengltimemonitor->setQOpenGLTimeMonitor_IsSignalConnected_IsBase(true);

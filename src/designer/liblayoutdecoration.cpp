@@ -181,7 +181,7 @@ void QDesignerLayoutDecorationExtension_AdjustIndicator(QDesignerLayoutDecoratio
 }
 
 // Base class handler implementation
-libqt_list /* of QWidget* */ QDesignerLayoutDecorationExtension_QBaseWidgets(const QDesignerLayoutDecorationExtension* self, QLayout* layout) {
+libqt_list /* of QWidget* */ QDesignerLayoutDecorationExtension_SuperWidgets(const QDesignerLayoutDecorationExtension* self, QLayout* layout) {
     auto* vqdesignerlayoutdecorationextension = const_cast<VirtualQDesignerLayoutDecorationExtension*>(dynamic_cast<const VirtualQDesignerLayoutDecorationExtension*>(self));
     if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
         vqdesignerlayoutdecorationextension->setQDesignerLayoutDecorationExtension_Widgets_IsBase(true);
@@ -218,7 +218,7 @@ void QDesignerLayoutDecorationExtension_OnWidgets(const QDesignerLayoutDecoratio
 }
 
 // Base class handler implementation
-QRect* QDesignerLayoutDecorationExtension_QBaseItemInfo(const QDesignerLayoutDecorationExtension* self, int index) {
+QRect* QDesignerLayoutDecorationExtension_SuperItemInfo(const QDesignerLayoutDecorationExtension* self, int index) {
     auto* vqdesignerlayoutdecorationextension = const_cast<VirtualQDesignerLayoutDecorationExtension*>(dynamic_cast<const VirtualQDesignerLayoutDecorationExtension*>(self));
     if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
         vqdesignerlayoutdecorationextension->setQDesignerLayoutDecorationExtension_ItemInfo_IsBase(true);
@@ -237,7 +237,7 @@ void QDesignerLayoutDecorationExtension_OnItemInfo(const QDesignerLayoutDecorati
 }
 
 // Base class handler implementation
-int QDesignerLayoutDecorationExtension_QBaseIndexOf(const QDesignerLayoutDecorationExtension* self, QWidget* widget) {
+int QDesignerLayoutDecorationExtension_SuperIndexOf(const QDesignerLayoutDecorationExtension* self, QWidget* widget) {
     auto* vqdesignerlayoutdecorationextension = const_cast<VirtualQDesignerLayoutDecorationExtension*>(dynamic_cast<const VirtualQDesignerLayoutDecorationExtension*>(self));
     if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
         vqdesignerlayoutdecorationextension->setQDesignerLayoutDecorationExtension_IndexOf_IsBase(true);
@@ -256,7 +256,7 @@ void QDesignerLayoutDecorationExtension_OnIndexOf(const QDesignerLayoutDecoratio
 }
 
 // Base class handler implementation
-int QDesignerLayoutDecorationExtension_QBaseIndexOf2(const QDesignerLayoutDecorationExtension* self, QLayoutItem* item) {
+int QDesignerLayoutDecorationExtension_SuperIndexOf2(const QDesignerLayoutDecorationExtension* self, QLayoutItem* item) {
     auto* vqdesignerlayoutdecorationextension = const_cast<VirtualQDesignerLayoutDecorationExtension*>(dynamic_cast<const VirtualQDesignerLayoutDecorationExtension*>(self));
     if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
         vqdesignerlayoutdecorationextension->setQDesignerLayoutDecorationExtension_IndexOf2_IsBase(true);
@@ -275,7 +275,7 @@ void QDesignerLayoutDecorationExtension_OnIndexOf2(const QDesignerLayoutDecorati
 }
 
 // Base class handler implementation
-int QDesignerLayoutDecorationExtension_QBaseCurrentInsertMode(const QDesignerLayoutDecorationExtension* self) {
+int QDesignerLayoutDecorationExtension_SuperCurrentInsertMode(const QDesignerLayoutDecorationExtension* self) {
     auto* vqdesignerlayoutdecorationextension = const_cast<VirtualQDesignerLayoutDecorationExtension*>(dynamic_cast<const VirtualQDesignerLayoutDecorationExtension*>(self));
     if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
         vqdesignerlayoutdecorationextension->setQDesignerLayoutDecorationExtension_CurrentInsertMode_IsBase(true);
@@ -294,7 +294,7 @@ void QDesignerLayoutDecorationExtension_OnCurrentInsertMode(const QDesignerLayou
 }
 
 // Base class handler implementation
-int QDesignerLayoutDecorationExtension_QBaseCurrentIndex(const QDesignerLayoutDecorationExtension* self) {
+int QDesignerLayoutDecorationExtension_SuperCurrentIndex(const QDesignerLayoutDecorationExtension* self) {
     auto* vqdesignerlayoutdecorationextension = const_cast<VirtualQDesignerLayoutDecorationExtension*>(dynamic_cast<const VirtualQDesignerLayoutDecorationExtension*>(self));
     if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
         vqdesignerlayoutdecorationextension->setQDesignerLayoutDecorationExtension_CurrentIndex_IsBase(true);
@@ -313,7 +313,7 @@ void QDesignerLayoutDecorationExtension_OnCurrentIndex(const QDesignerLayoutDeco
 }
 
 // Base class handler implementation
-pair_int_int /* tuple of int and int */ QDesignerLayoutDecorationExtension_QBaseCurrentCell(const QDesignerLayoutDecorationExtension* self) {
+pair_int_int /* tuple of int and int */ QDesignerLayoutDecorationExtension_SuperCurrentCell(const QDesignerLayoutDecorationExtension* self) {
     auto* vqdesignerlayoutdecorationextension = const_cast<VirtualQDesignerLayoutDecorationExtension*>(dynamic_cast<const VirtualQDesignerLayoutDecorationExtension*>(self));
     if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
         vqdesignerlayoutdecorationextension->setQDesignerLayoutDecorationExtension_CurrentCell_IsBase(true);
@@ -342,7 +342,7 @@ void QDesignerLayoutDecorationExtension_OnCurrentCell(const QDesignerLayoutDecor
 }
 
 // Base class handler implementation
-void QDesignerLayoutDecorationExtension_QBaseInsertWidget(QDesignerLayoutDecorationExtension* self, QWidget* widget, const pair_int_int /* tuple of int and int */ cell) {
+void QDesignerLayoutDecorationExtension_SuperInsertWidget(QDesignerLayoutDecorationExtension* self, QWidget* widget, const pair_int_int /* tuple of int and int */ cell) {
     auto* vqdesignerlayoutdecorationextension = dynamic_cast<VirtualQDesignerLayoutDecorationExtension*>(self);
     QPair<int, int> cell_QPair;
     cell_QPair.first = cell.first;
@@ -364,7 +364,7 @@ void QDesignerLayoutDecorationExtension_OnInsertWidget(QDesignerLayoutDecoration
 }
 
 // Base class handler implementation
-void QDesignerLayoutDecorationExtension_QBaseRemoveWidget(QDesignerLayoutDecorationExtension* self, QWidget* widget) {
+void QDesignerLayoutDecorationExtension_SuperRemoveWidget(QDesignerLayoutDecorationExtension* self, QWidget* widget) {
     auto* vqdesignerlayoutdecorationextension = dynamic_cast<VirtualQDesignerLayoutDecorationExtension*>(self);
     if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
         vqdesignerlayoutdecorationextension->setQDesignerLayoutDecorationExtension_RemoveWidget_IsBase(true);
@@ -383,7 +383,7 @@ void QDesignerLayoutDecorationExtension_OnRemoveWidget(QDesignerLayoutDecoration
 }
 
 // Base class handler implementation
-void QDesignerLayoutDecorationExtension_QBaseInsertRow(QDesignerLayoutDecorationExtension* self, int row) {
+void QDesignerLayoutDecorationExtension_SuperInsertRow(QDesignerLayoutDecorationExtension* self, int row) {
     auto* vqdesignerlayoutdecorationextension = dynamic_cast<VirtualQDesignerLayoutDecorationExtension*>(self);
     if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
         vqdesignerlayoutdecorationextension->setQDesignerLayoutDecorationExtension_InsertRow_IsBase(true);
@@ -402,7 +402,7 @@ void QDesignerLayoutDecorationExtension_OnInsertRow(QDesignerLayoutDecorationExt
 }
 
 // Base class handler implementation
-void QDesignerLayoutDecorationExtension_QBaseInsertColumn(QDesignerLayoutDecorationExtension* self, int column) {
+void QDesignerLayoutDecorationExtension_SuperInsertColumn(QDesignerLayoutDecorationExtension* self, int column) {
     auto* vqdesignerlayoutdecorationextension = dynamic_cast<VirtualQDesignerLayoutDecorationExtension*>(self);
     if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
         vqdesignerlayoutdecorationextension->setQDesignerLayoutDecorationExtension_InsertColumn_IsBase(true);
@@ -421,7 +421,7 @@ void QDesignerLayoutDecorationExtension_OnInsertColumn(QDesignerLayoutDecoration
 }
 
 // Base class handler implementation
-void QDesignerLayoutDecorationExtension_QBaseSimplify(QDesignerLayoutDecorationExtension* self) {
+void QDesignerLayoutDecorationExtension_SuperSimplify(QDesignerLayoutDecorationExtension* self) {
     auto* vqdesignerlayoutdecorationextension = dynamic_cast<VirtualQDesignerLayoutDecorationExtension*>(self);
     if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
         vqdesignerlayoutdecorationextension->setQDesignerLayoutDecorationExtension_Simplify_IsBase(true);
@@ -440,7 +440,7 @@ void QDesignerLayoutDecorationExtension_OnSimplify(QDesignerLayoutDecorationExte
 }
 
 // Base class handler implementation
-int QDesignerLayoutDecorationExtension_QBaseFindItemAt(const QDesignerLayoutDecorationExtension* self, const QPoint* pos) {
+int QDesignerLayoutDecorationExtension_SuperFindItemAt(const QDesignerLayoutDecorationExtension* self, const QPoint* pos) {
     auto* vqdesignerlayoutdecorationextension = const_cast<VirtualQDesignerLayoutDecorationExtension*>(dynamic_cast<const VirtualQDesignerLayoutDecorationExtension*>(self));
     if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
         vqdesignerlayoutdecorationextension->setQDesignerLayoutDecorationExtension_FindItemAt_IsBase(true);
@@ -459,7 +459,7 @@ void QDesignerLayoutDecorationExtension_OnFindItemAt(const QDesignerLayoutDecora
 }
 
 // Base class handler implementation
-int QDesignerLayoutDecorationExtension_QBaseFindItemAt2(const QDesignerLayoutDecorationExtension* self, int row, int column) {
+int QDesignerLayoutDecorationExtension_SuperFindItemAt2(const QDesignerLayoutDecorationExtension* self, int row, int column) {
     auto* vqdesignerlayoutdecorationextension = const_cast<VirtualQDesignerLayoutDecorationExtension*>(dynamic_cast<const VirtualQDesignerLayoutDecorationExtension*>(self));
     if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
         vqdesignerlayoutdecorationextension->setQDesignerLayoutDecorationExtension_FindItemAt2_IsBase(true);
@@ -478,7 +478,7 @@ void QDesignerLayoutDecorationExtension_OnFindItemAt2(const QDesignerLayoutDecor
 }
 
 // Base class handler implementation
-void QDesignerLayoutDecorationExtension_QBaseAdjustIndicator(QDesignerLayoutDecorationExtension* self, const QPoint* pos, int index) {
+void QDesignerLayoutDecorationExtension_SuperAdjustIndicator(QDesignerLayoutDecorationExtension* self, const QPoint* pos, int index) {
     auto* vqdesignerlayoutdecorationextension = dynamic_cast<VirtualQDesignerLayoutDecorationExtension*>(self);
     if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
         vqdesignerlayoutdecorationextension->setQDesignerLayoutDecorationExtension_AdjustIndicator_IsBase(true);

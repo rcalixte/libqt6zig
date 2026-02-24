@@ -138,7 +138,7 @@ void KContextualHelpButton_Connect_ContextualHelpTextChanged(KContextualHelpButt
 }
 
 // Base class handler implementation
-QMetaObject* KContextualHelpButton_QBaseMetaObject(const KContextualHelpButton* self) {
+QMetaObject* KContextualHelpButton_SuperMetaObject(const KContextualHelpButton* self) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_MetaObject_IsBase(true);
@@ -157,7 +157,7 @@ void KContextualHelpButton_OnMetaObject(const KContextualHelpButton* self, intpt
 }
 
 // Base class handler implementation
-void* KContextualHelpButton_QBaseMetacast(KContextualHelpButton* self, const char* param1) {
+void* KContextualHelpButton_SuperMetacast(KContextualHelpButton* self, const char* param1) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_Metacast_IsBase(true);
@@ -176,7 +176,7 @@ void KContextualHelpButton_OnMetacast(KContextualHelpButton* self, intptr_t slot
 }
 
 // Base class handler implementation
-int KContextualHelpButton_QBaseMetacall(KContextualHelpButton* self, int param1, int param2, void** param3) {
+int KContextualHelpButton_SuperMetacall(KContextualHelpButton* self, int param1, int param2, void** param3) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_Metacall_IsBase(true);
@@ -195,7 +195,7 @@ void KContextualHelpButton_OnMetacall(KContextualHelpButton* self, intptr_t slot
 }
 
 // Base class handler implementation
-QSize* KContextualHelpButton_QBaseSizeHint(const KContextualHelpButton* self) {
+QSize* KContextualHelpButton_SuperSizeHint(const KContextualHelpButton* self) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_SizeHint_IsBase(true);
@@ -224,7 +224,7 @@ QSize* KContextualHelpButton_MinimumSizeHint(const KContextualHelpButton* self) 
 }
 
 // Base class handler implementation
-QSize* KContextualHelpButton_QBaseMinimumSizeHint(const KContextualHelpButton* self) {
+QSize* KContextualHelpButton_SuperMinimumSizeHint(const KContextualHelpButton* self) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_MinimumSizeHint_IsBase(true);
@@ -253,7 +253,7 @@ bool KContextualHelpButton_Event(KContextualHelpButton* self, QEvent* e) {
 }
 
 // Base class handler implementation
-bool KContextualHelpButton_QBaseEvent(KContextualHelpButton* self, QEvent* e) {
+bool KContextualHelpButton_SuperEvent(KContextualHelpButton* self, QEvent* e) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_Event_IsBase(true);
@@ -282,7 +282,7 @@ void KContextualHelpButton_MousePressEvent(KContextualHelpButton* self, QMouseEv
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseMousePressEvent(KContextualHelpButton* self, QMouseEvent* param1) {
+void KContextualHelpButton_SuperMousePressEvent(KContextualHelpButton* self, QMouseEvent* param1) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_MousePressEvent_IsBase(true);
@@ -311,7 +311,7 @@ void KContextualHelpButton_MouseReleaseEvent(KContextualHelpButton* self, QMouse
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseMouseReleaseEvent(KContextualHelpButton* self, QMouseEvent* param1) {
+void KContextualHelpButton_SuperMouseReleaseEvent(KContextualHelpButton* self, QMouseEvent* param1) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_MouseReleaseEvent_IsBase(true);
@@ -340,7 +340,7 @@ void KContextualHelpButton_PaintEvent(KContextualHelpButton* self, QPaintEvent* 
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBasePaintEvent(KContextualHelpButton* self, QPaintEvent* param1) {
+void KContextualHelpButton_SuperPaintEvent(KContextualHelpButton* self, QPaintEvent* param1) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_PaintEvent_IsBase(true);
@@ -369,7 +369,7 @@ void KContextualHelpButton_ActionEvent(KContextualHelpButton* self, QActionEvent
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseActionEvent(KContextualHelpButton* self, QActionEvent* param1) {
+void KContextualHelpButton_SuperActionEvent(KContextualHelpButton* self, QActionEvent* param1) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_ActionEvent_IsBase(true);
@@ -398,7 +398,7 @@ void KContextualHelpButton_EnterEvent(KContextualHelpButton* self, QEnterEvent* 
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseEnterEvent(KContextualHelpButton* self, QEnterEvent* param1) {
+void KContextualHelpButton_SuperEnterEvent(KContextualHelpButton* self, QEnterEvent* param1) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_EnterEvent_IsBase(true);
@@ -427,7 +427,7 @@ void KContextualHelpButton_LeaveEvent(KContextualHelpButton* self, QEvent* param
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseLeaveEvent(KContextualHelpButton* self, QEvent* param1) {
+void KContextualHelpButton_SuperLeaveEvent(KContextualHelpButton* self, QEvent* param1) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_LeaveEvent_IsBase(true);
@@ -456,7 +456,7 @@ void KContextualHelpButton_TimerEvent(KContextualHelpButton* self, QTimerEvent* 
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseTimerEvent(KContextualHelpButton* self, QTimerEvent* param1) {
+void KContextualHelpButton_SuperTimerEvent(KContextualHelpButton* self, QTimerEvent* param1) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_TimerEvent_IsBase(true);
@@ -485,7 +485,7 @@ void KContextualHelpButton_ChangeEvent(KContextualHelpButton* self, QEvent* para
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseChangeEvent(KContextualHelpButton* self, QEvent* param1) {
+void KContextualHelpButton_SuperChangeEvent(KContextualHelpButton* self, QEvent* param1) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_ChangeEvent_IsBase(true);
@@ -514,7 +514,7 @@ bool KContextualHelpButton_HitButton(const KContextualHelpButton* self, const QP
 }
 
 // Base class handler implementation
-bool KContextualHelpButton_QBaseHitButton(const KContextualHelpButton* self, const QPoint* pos) {
+bool KContextualHelpButton_SuperHitButton(const KContextualHelpButton* self, const QPoint* pos) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_HitButton_IsBase(true);
@@ -543,7 +543,7 @@ void KContextualHelpButton_CheckStateSet(KContextualHelpButton* self) {
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseCheckStateSet(KContextualHelpButton* self) {
+void KContextualHelpButton_SuperCheckStateSet(KContextualHelpButton* self) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_CheckStateSet_IsBase(true);
@@ -572,7 +572,7 @@ void KContextualHelpButton_NextCheckState(KContextualHelpButton* self) {
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseNextCheckState(KContextualHelpButton* self) {
+void KContextualHelpButton_SuperNextCheckState(KContextualHelpButton* self) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_NextCheckState_IsBase(true);
@@ -601,7 +601,7 @@ void KContextualHelpButton_InitStyleOption(const KContextualHelpButton* self, QS
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseInitStyleOption(const KContextualHelpButton* self, QStyleOptionToolButton* option) {
+void KContextualHelpButton_SuperInitStyleOption(const KContextualHelpButton* self, QStyleOptionToolButton* option) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_InitStyleOption_IsBase(true);
@@ -630,7 +630,7 @@ void KContextualHelpButton_KeyPressEvent(KContextualHelpButton* self, QKeyEvent*
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseKeyPressEvent(KContextualHelpButton* self, QKeyEvent* e) {
+void KContextualHelpButton_SuperKeyPressEvent(KContextualHelpButton* self, QKeyEvent* e) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_KeyPressEvent_IsBase(true);
@@ -659,7 +659,7 @@ void KContextualHelpButton_KeyReleaseEvent(KContextualHelpButton* self, QKeyEven
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseKeyReleaseEvent(KContextualHelpButton* self, QKeyEvent* e) {
+void KContextualHelpButton_SuperKeyReleaseEvent(KContextualHelpButton* self, QKeyEvent* e) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_KeyReleaseEvent_IsBase(true);
@@ -688,7 +688,7 @@ void KContextualHelpButton_MouseMoveEvent(KContextualHelpButton* self, QMouseEve
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseMouseMoveEvent(KContextualHelpButton* self, QMouseEvent* e) {
+void KContextualHelpButton_SuperMouseMoveEvent(KContextualHelpButton* self, QMouseEvent* e) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_MouseMoveEvent_IsBase(true);
@@ -717,7 +717,7 @@ void KContextualHelpButton_FocusInEvent(KContextualHelpButton* self, QFocusEvent
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseFocusInEvent(KContextualHelpButton* self, QFocusEvent* e) {
+void KContextualHelpButton_SuperFocusInEvent(KContextualHelpButton* self, QFocusEvent* e) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_FocusInEvent_IsBase(true);
@@ -746,7 +746,7 @@ void KContextualHelpButton_FocusOutEvent(KContextualHelpButton* self, QFocusEven
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseFocusOutEvent(KContextualHelpButton* self, QFocusEvent* e) {
+void KContextualHelpButton_SuperFocusOutEvent(KContextualHelpButton* self, QFocusEvent* e) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_FocusOutEvent_IsBase(true);
@@ -775,7 +775,7 @@ int KContextualHelpButton_DevType(const KContextualHelpButton* self) {
 }
 
 // Base class handler implementation
-int KContextualHelpButton_QBaseDevType(const KContextualHelpButton* self) {
+int KContextualHelpButton_SuperDevType(const KContextualHelpButton* self) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_DevType_IsBase(true);
@@ -804,7 +804,7 @@ void KContextualHelpButton_SetVisible(KContextualHelpButton* self, bool visible)
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseSetVisible(KContextualHelpButton* self, bool visible) {
+void KContextualHelpButton_SuperSetVisible(KContextualHelpButton* self, bool visible) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_SetVisible_IsBase(true);
@@ -833,7 +833,7 @@ int KContextualHelpButton_HeightForWidth(const KContextualHelpButton* self, int 
 }
 
 // Base class handler implementation
-int KContextualHelpButton_QBaseHeightForWidth(const KContextualHelpButton* self, int param1) {
+int KContextualHelpButton_SuperHeightForWidth(const KContextualHelpButton* self, int param1) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_HeightForWidth_IsBase(true);
@@ -862,7 +862,7 @@ bool KContextualHelpButton_HasHeightForWidth(const KContextualHelpButton* self) 
 }
 
 // Base class handler implementation
-bool KContextualHelpButton_QBaseHasHeightForWidth(const KContextualHelpButton* self) {
+bool KContextualHelpButton_SuperHasHeightForWidth(const KContextualHelpButton* self) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_HasHeightForWidth_IsBase(true);
@@ -891,7 +891,7 @@ QPaintEngine* KContextualHelpButton_PaintEngine(const KContextualHelpButton* sel
 }
 
 // Base class handler implementation
-QPaintEngine* KContextualHelpButton_QBasePaintEngine(const KContextualHelpButton* self) {
+QPaintEngine* KContextualHelpButton_SuperPaintEngine(const KContextualHelpButton* self) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_PaintEngine_IsBase(true);
@@ -920,7 +920,7 @@ void KContextualHelpButton_MouseDoubleClickEvent(KContextualHelpButton* self, QM
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseMouseDoubleClickEvent(KContextualHelpButton* self, QMouseEvent* event) {
+void KContextualHelpButton_SuperMouseDoubleClickEvent(KContextualHelpButton* self, QMouseEvent* event) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_MouseDoubleClickEvent_IsBase(true);
@@ -949,7 +949,7 @@ void KContextualHelpButton_WheelEvent(KContextualHelpButton* self, QWheelEvent* 
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseWheelEvent(KContextualHelpButton* self, QWheelEvent* event) {
+void KContextualHelpButton_SuperWheelEvent(KContextualHelpButton* self, QWheelEvent* event) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_WheelEvent_IsBase(true);
@@ -978,7 +978,7 @@ void KContextualHelpButton_MoveEvent(KContextualHelpButton* self, QMoveEvent* ev
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseMoveEvent(KContextualHelpButton* self, QMoveEvent* event) {
+void KContextualHelpButton_SuperMoveEvent(KContextualHelpButton* self, QMoveEvent* event) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_MoveEvent_IsBase(true);
@@ -1007,7 +1007,7 @@ void KContextualHelpButton_ResizeEvent(KContextualHelpButton* self, QResizeEvent
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseResizeEvent(KContextualHelpButton* self, QResizeEvent* event) {
+void KContextualHelpButton_SuperResizeEvent(KContextualHelpButton* self, QResizeEvent* event) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_ResizeEvent_IsBase(true);
@@ -1036,7 +1036,7 @@ void KContextualHelpButton_CloseEvent(KContextualHelpButton* self, QCloseEvent* 
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseCloseEvent(KContextualHelpButton* self, QCloseEvent* event) {
+void KContextualHelpButton_SuperCloseEvent(KContextualHelpButton* self, QCloseEvent* event) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_CloseEvent_IsBase(true);
@@ -1065,7 +1065,7 @@ void KContextualHelpButton_ContextMenuEvent(KContextualHelpButton* self, QContex
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseContextMenuEvent(KContextualHelpButton* self, QContextMenuEvent* event) {
+void KContextualHelpButton_SuperContextMenuEvent(KContextualHelpButton* self, QContextMenuEvent* event) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_ContextMenuEvent_IsBase(true);
@@ -1094,7 +1094,7 @@ void KContextualHelpButton_TabletEvent(KContextualHelpButton* self, QTabletEvent
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseTabletEvent(KContextualHelpButton* self, QTabletEvent* event) {
+void KContextualHelpButton_SuperTabletEvent(KContextualHelpButton* self, QTabletEvent* event) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_TabletEvent_IsBase(true);
@@ -1123,7 +1123,7 @@ void KContextualHelpButton_DragEnterEvent(KContextualHelpButton* self, QDragEnte
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseDragEnterEvent(KContextualHelpButton* self, QDragEnterEvent* event) {
+void KContextualHelpButton_SuperDragEnterEvent(KContextualHelpButton* self, QDragEnterEvent* event) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_DragEnterEvent_IsBase(true);
@@ -1152,7 +1152,7 @@ void KContextualHelpButton_DragMoveEvent(KContextualHelpButton* self, QDragMoveE
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseDragMoveEvent(KContextualHelpButton* self, QDragMoveEvent* event) {
+void KContextualHelpButton_SuperDragMoveEvent(KContextualHelpButton* self, QDragMoveEvent* event) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_DragMoveEvent_IsBase(true);
@@ -1181,7 +1181,7 @@ void KContextualHelpButton_DragLeaveEvent(KContextualHelpButton* self, QDragLeav
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseDragLeaveEvent(KContextualHelpButton* self, QDragLeaveEvent* event) {
+void KContextualHelpButton_SuperDragLeaveEvent(KContextualHelpButton* self, QDragLeaveEvent* event) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_DragLeaveEvent_IsBase(true);
@@ -1210,7 +1210,7 @@ void KContextualHelpButton_DropEvent(KContextualHelpButton* self, QDropEvent* ev
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseDropEvent(KContextualHelpButton* self, QDropEvent* event) {
+void KContextualHelpButton_SuperDropEvent(KContextualHelpButton* self, QDropEvent* event) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_DropEvent_IsBase(true);
@@ -1239,7 +1239,7 @@ void KContextualHelpButton_ShowEvent(KContextualHelpButton* self, QShowEvent* ev
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseShowEvent(KContextualHelpButton* self, QShowEvent* event) {
+void KContextualHelpButton_SuperShowEvent(KContextualHelpButton* self, QShowEvent* event) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_ShowEvent_IsBase(true);
@@ -1268,7 +1268,7 @@ void KContextualHelpButton_HideEvent(KContextualHelpButton* self, QHideEvent* ev
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseHideEvent(KContextualHelpButton* self, QHideEvent* event) {
+void KContextualHelpButton_SuperHideEvent(KContextualHelpButton* self, QHideEvent* event) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_HideEvent_IsBase(true);
@@ -1298,7 +1298,7 @@ bool KContextualHelpButton_NativeEvent(KContextualHelpButton* self, const libqt_
 }
 
 // Base class handler implementation
-bool KContextualHelpButton_QBaseNativeEvent(KContextualHelpButton* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KContextualHelpButton_SuperNativeEvent(KContextualHelpButton* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
@@ -1328,7 +1328,7 @@ int KContextualHelpButton_Metric(const KContextualHelpButton* self, int param1) 
 }
 
 // Base class handler implementation
-int KContextualHelpButton_QBaseMetric(const KContextualHelpButton* self, int param1) {
+int KContextualHelpButton_SuperMetric(const KContextualHelpButton* self, int param1) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_Metric_IsBase(true);
@@ -1357,7 +1357,7 @@ void KContextualHelpButton_InitPainter(const KContextualHelpButton* self, QPaint
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseInitPainter(const KContextualHelpButton* self, QPainter* painter) {
+void KContextualHelpButton_SuperInitPainter(const KContextualHelpButton* self, QPainter* painter) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_InitPainter_IsBase(true);
@@ -1386,7 +1386,7 @@ QPaintDevice* KContextualHelpButton_Redirected(const KContextualHelpButton* self
 }
 
 // Base class handler implementation
-QPaintDevice* KContextualHelpButton_QBaseRedirected(const KContextualHelpButton* self, QPoint* offset) {
+QPaintDevice* KContextualHelpButton_SuperRedirected(const KContextualHelpButton* self, QPoint* offset) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_Redirected_IsBase(true);
@@ -1415,7 +1415,7 @@ QPainter* KContextualHelpButton_SharedPainter(const KContextualHelpButton* self)
 }
 
 // Base class handler implementation
-QPainter* KContextualHelpButton_QBaseSharedPainter(const KContextualHelpButton* self) {
+QPainter* KContextualHelpButton_SuperSharedPainter(const KContextualHelpButton* self) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_SharedPainter_IsBase(true);
@@ -1444,7 +1444,7 @@ void KContextualHelpButton_InputMethodEvent(KContextualHelpButton* self, QInputM
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseInputMethodEvent(KContextualHelpButton* self, QInputMethodEvent* param1) {
+void KContextualHelpButton_SuperInputMethodEvent(KContextualHelpButton* self, QInputMethodEvent* param1) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_InputMethodEvent_IsBase(true);
@@ -1473,7 +1473,7 @@ QVariant* KContextualHelpButton_InputMethodQuery(const KContextualHelpButton* se
 }
 
 // Base class handler implementation
-QVariant* KContextualHelpButton_QBaseInputMethodQuery(const KContextualHelpButton* self, int param1) {
+QVariant* KContextualHelpButton_SuperInputMethodQuery(const KContextualHelpButton* self, int param1) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_InputMethodQuery_IsBase(true);
@@ -1502,7 +1502,7 @@ bool KContextualHelpButton_FocusNextPrevChild(KContextualHelpButton* self, bool 
 }
 
 // Base class handler implementation
-bool KContextualHelpButton_QBaseFocusNextPrevChild(KContextualHelpButton* self, bool next) {
+bool KContextualHelpButton_SuperFocusNextPrevChild(KContextualHelpButton* self, bool next) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_FocusNextPrevChild_IsBase(true);
@@ -1531,7 +1531,7 @@ bool KContextualHelpButton_EventFilter(KContextualHelpButton* self, QObject* wat
 }
 
 // Base class handler implementation
-bool KContextualHelpButton_QBaseEventFilter(KContextualHelpButton* self, QObject* watched, QEvent* event) {
+bool KContextualHelpButton_SuperEventFilter(KContextualHelpButton* self, QObject* watched, QEvent* event) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_EventFilter_IsBase(true);
@@ -1560,7 +1560,7 @@ void KContextualHelpButton_ChildEvent(KContextualHelpButton* self, QChildEvent* 
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseChildEvent(KContextualHelpButton* self, QChildEvent* event) {
+void KContextualHelpButton_SuperChildEvent(KContextualHelpButton* self, QChildEvent* event) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_ChildEvent_IsBase(true);
@@ -1589,7 +1589,7 @@ void KContextualHelpButton_CustomEvent(KContextualHelpButton* self, QEvent* even
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseCustomEvent(KContextualHelpButton* self, QEvent* event) {
+void KContextualHelpButton_SuperCustomEvent(KContextualHelpButton* self, QEvent* event) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_CustomEvent_IsBase(true);
@@ -1618,7 +1618,7 @@ void KContextualHelpButton_ConnectNotify(KContextualHelpButton* self, const QMet
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseConnectNotify(KContextualHelpButton* self, const QMetaMethod* signal) {
+void KContextualHelpButton_SuperConnectNotify(KContextualHelpButton* self, const QMetaMethod* signal) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_ConnectNotify_IsBase(true);
@@ -1647,7 +1647,7 @@ void KContextualHelpButton_DisconnectNotify(KContextualHelpButton* self, const Q
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseDisconnectNotify(KContextualHelpButton* self, const QMetaMethod* signal) {
+void KContextualHelpButton_SuperDisconnectNotify(KContextualHelpButton* self, const QMetaMethod* signal) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_DisconnectNotify_IsBase(true);
@@ -1676,7 +1676,7 @@ void KContextualHelpButton_UpdateMicroFocus(KContextualHelpButton* self) {
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseUpdateMicroFocus(KContextualHelpButton* self) {
+void KContextualHelpButton_SuperUpdateMicroFocus(KContextualHelpButton* self) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_UpdateMicroFocus_IsBase(true);
@@ -1705,7 +1705,7 @@ void KContextualHelpButton_Create(KContextualHelpButton* self) {
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseCreate(KContextualHelpButton* self) {
+void KContextualHelpButton_SuperCreate(KContextualHelpButton* self) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_Create_IsBase(true);
@@ -1734,7 +1734,7 @@ void KContextualHelpButton_Destroy(KContextualHelpButton* self) {
 }
 
 // Base class handler implementation
-void KContextualHelpButton_QBaseDestroy(KContextualHelpButton* self) {
+void KContextualHelpButton_SuperDestroy(KContextualHelpButton* self) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_Destroy_IsBase(true);
@@ -1763,7 +1763,7 @@ bool KContextualHelpButton_FocusNextChild(KContextualHelpButton* self) {
 }
 
 // Base class handler implementation
-bool KContextualHelpButton_QBaseFocusNextChild(KContextualHelpButton* self) {
+bool KContextualHelpButton_SuperFocusNextChild(KContextualHelpButton* self) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_FocusNextChild_IsBase(true);
@@ -1792,7 +1792,7 @@ bool KContextualHelpButton_FocusPreviousChild(KContextualHelpButton* self) {
 }
 
 // Base class handler implementation
-bool KContextualHelpButton_QBaseFocusPreviousChild(KContextualHelpButton* self) {
+bool KContextualHelpButton_SuperFocusPreviousChild(KContextualHelpButton* self) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_FocusPreviousChild_IsBase(true);
@@ -1821,7 +1821,7 @@ QObject* KContextualHelpButton_Sender(const KContextualHelpButton* self) {
 }
 
 // Base class handler implementation
-QObject* KContextualHelpButton_QBaseSender(const KContextualHelpButton* self) {
+QObject* KContextualHelpButton_SuperSender(const KContextualHelpButton* self) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_Sender_IsBase(true);
@@ -1850,7 +1850,7 @@ int KContextualHelpButton_SenderSignalIndex(const KContextualHelpButton* self) {
 }
 
 // Base class handler implementation
-int KContextualHelpButton_QBaseSenderSignalIndex(const KContextualHelpButton* self) {
+int KContextualHelpButton_SuperSenderSignalIndex(const KContextualHelpButton* self) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_SenderSignalIndex_IsBase(true);
@@ -1879,7 +1879,7 @@ int KContextualHelpButton_Receivers(const KContextualHelpButton* self, const cha
 }
 
 // Base class handler implementation
-int KContextualHelpButton_QBaseReceivers(const KContextualHelpButton* self, const char* signal) {
+int KContextualHelpButton_SuperReceivers(const KContextualHelpButton* self, const char* signal) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_Receivers_IsBase(true);
@@ -1908,7 +1908,7 @@ bool KContextualHelpButton_IsSignalConnected(const KContextualHelpButton* self, 
 }
 
 // Base class handler implementation
-bool KContextualHelpButton_QBaseIsSignalConnected(const KContextualHelpButton* self, const QMetaMethod* signal) {
+bool KContextualHelpButton_SuperIsSignalConnected(const KContextualHelpButton* self, const QMetaMethod* signal) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_IsSignalConnected_IsBase(true);
@@ -1937,7 +1937,7 @@ double KContextualHelpButton_GetDecodedMetricF(const KContextualHelpButton* self
 }
 
 // Base class handler implementation
-double KContextualHelpButton_QBaseGetDecodedMetricF(const KContextualHelpButton* self, int metricA, int metricB) {
+double KContextualHelpButton_SuperGetDecodedMetricF(const KContextualHelpButton* self, int metricA, int metricB) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
     if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
         vkcontextualhelpbutton->setKContextualHelpButton_GetDecodedMetricF_IsBase(true);

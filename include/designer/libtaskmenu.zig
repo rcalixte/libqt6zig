@@ -34,6 +34,10 @@ pub const qdesignertaskmenuextension = struct {
         qtc.QDesignerTaskMenuExtension_OnPreferredEditAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPreferredEditAction` instead
+    ///
+    pub const QBasePreferredEditAction = SuperPreferredEditAction;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignertaskmenuextension.html#preferredEditAction)
     ///
     /// Base class method implementation
@@ -42,8 +46,8 @@ pub const qdesignertaskmenuextension = struct {
     ///
     /// ` self: QtC.QDesignerTaskMenuExtension `
     ///
-    pub fn QBasePreferredEditAction(self: ?*anyopaque) QtC.QAction {
-        return qtc.QDesignerTaskMenuExtension_QBasePreferredEditAction(@ptrCast(self));
+    pub fn SuperPreferredEditAction(self: ?*anyopaque) QtC.QAction {
+        return qtc.QDesignerTaskMenuExtension_SuperPreferredEditAction(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignertaskmenuextension.html#taskActions)
@@ -83,6 +87,10 @@ pub const qdesignertaskmenuextension = struct {
         qtc.QDesignerTaskMenuExtension_OnTaskActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperTaskActions` instead
+    ///
+    pub const QBaseTaskActions = SuperTaskActions;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignertaskmenuextension.html#taskActions)
     ///
     /// Base class method implementation
@@ -93,14 +101,17 @@ pub const qdesignertaskmenuextension = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseTaskActions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QDesignerTaskMenuExtension_QBaseTaskActions(@ptrCast(self));
+    pub fn SuperTaskActions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
+        const _arr: qtc.libqt_list = qtc.QDesignerTaskMenuExtension_SuperTaskActions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qdesignertaskmenuextension.TaskActions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignertaskmenuextension.html#dtor.QDesignerTaskMenuExtension)
     ///
@@ -110,7 +121,7 @@ pub const qdesignertaskmenuextension = struct {
     ///
     /// ` self: QtC.QDesignerTaskMenuExtension `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDesignerTaskMenuExtension_Delete(@ptrCast(self));
     }
 };

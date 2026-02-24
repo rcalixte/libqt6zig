@@ -328,23 +328,23 @@ class VirtualQDtlsClientVerifier final : public QDtlsClientVerifier {
 
     // Friend functions
     friend void QDtlsClientVerifier_TimerEvent(QDtlsClientVerifier* self, QTimerEvent* event);
-    friend void QDtlsClientVerifier_QBaseTimerEvent(QDtlsClientVerifier* self, QTimerEvent* event);
+    friend void QDtlsClientVerifier_SuperTimerEvent(QDtlsClientVerifier* self, QTimerEvent* event);
     friend void QDtlsClientVerifier_ChildEvent(QDtlsClientVerifier* self, QChildEvent* event);
-    friend void QDtlsClientVerifier_QBaseChildEvent(QDtlsClientVerifier* self, QChildEvent* event);
+    friend void QDtlsClientVerifier_SuperChildEvent(QDtlsClientVerifier* self, QChildEvent* event);
     friend void QDtlsClientVerifier_CustomEvent(QDtlsClientVerifier* self, QEvent* event);
-    friend void QDtlsClientVerifier_QBaseCustomEvent(QDtlsClientVerifier* self, QEvent* event);
+    friend void QDtlsClientVerifier_SuperCustomEvent(QDtlsClientVerifier* self, QEvent* event);
     friend void QDtlsClientVerifier_ConnectNotify(QDtlsClientVerifier* self, const QMetaMethod* signal);
-    friend void QDtlsClientVerifier_QBaseConnectNotify(QDtlsClientVerifier* self, const QMetaMethod* signal);
+    friend void QDtlsClientVerifier_SuperConnectNotify(QDtlsClientVerifier* self, const QMetaMethod* signal);
     friend void QDtlsClientVerifier_DisconnectNotify(QDtlsClientVerifier* self, const QMetaMethod* signal);
-    friend void QDtlsClientVerifier_QBaseDisconnectNotify(QDtlsClientVerifier* self, const QMetaMethod* signal);
+    friend void QDtlsClientVerifier_SuperDisconnectNotify(QDtlsClientVerifier* self, const QMetaMethod* signal);
     friend QObject* QDtlsClientVerifier_Sender(const QDtlsClientVerifier* self);
-    friend QObject* QDtlsClientVerifier_QBaseSender(const QDtlsClientVerifier* self);
+    friend QObject* QDtlsClientVerifier_SuperSender(const QDtlsClientVerifier* self);
     friend int QDtlsClientVerifier_SenderSignalIndex(const QDtlsClientVerifier* self);
-    friend int QDtlsClientVerifier_QBaseSenderSignalIndex(const QDtlsClientVerifier* self);
+    friend int QDtlsClientVerifier_SuperSenderSignalIndex(const QDtlsClientVerifier* self);
     friend int QDtlsClientVerifier_Receivers(const QDtlsClientVerifier* self, const char* signal);
-    friend int QDtlsClientVerifier_QBaseReceivers(const QDtlsClientVerifier* self, const char* signal);
+    friend int QDtlsClientVerifier_SuperReceivers(const QDtlsClientVerifier* self, const char* signal);
     friend bool QDtlsClientVerifier_IsSignalConnected(const QDtlsClientVerifier* self, const QMetaMethod* signal);
-    friend bool QDtlsClientVerifier_QBaseIsSignalConnected(const QDtlsClientVerifier* self, const QMetaMethod* signal);
+    friend bool QDtlsClientVerifier_SuperIsSignalConnected(const QDtlsClientVerifier* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QDtls so that we can call protected methods
@@ -666,23 +666,23 @@ class VirtualQDtls final : public QDtls {
 
     // Friend functions
     friend void QDtls_TimerEvent(QDtls* self, QTimerEvent* event);
-    friend void QDtls_QBaseTimerEvent(QDtls* self, QTimerEvent* event);
+    friend void QDtls_SuperTimerEvent(QDtls* self, QTimerEvent* event);
     friend void QDtls_ChildEvent(QDtls* self, QChildEvent* event);
-    friend void QDtls_QBaseChildEvent(QDtls* self, QChildEvent* event);
+    friend void QDtls_SuperChildEvent(QDtls* self, QChildEvent* event);
     friend void QDtls_CustomEvent(QDtls* self, QEvent* event);
-    friend void QDtls_QBaseCustomEvent(QDtls* self, QEvent* event);
+    friend void QDtls_SuperCustomEvent(QDtls* self, QEvent* event);
     friend void QDtls_ConnectNotify(QDtls* self, const QMetaMethod* signal);
-    friend void QDtls_QBaseConnectNotify(QDtls* self, const QMetaMethod* signal);
+    friend void QDtls_SuperConnectNotify(QDtls* self, const QMetaMethod* signal);
     friend void QDtls_DisconnectNotify(QDtls* self, const QMetaMethod* signal);
-    friend void QDtls_QBaseDisconnectNotify(QDtls* self, const QMetaMethod* signal);
+    friend void QDtls_SuperDisconnectNotify(QDtls* self, const QMetaMethod* signal);
     friend QObject* QDtls_Sender(const QDtls* self);
-    friend QObject* QDtls_QBaseSender(const QDtls* self);
+    friend QObject* QDtls_SuperSender(const QDtls* self);
     friend int QDtls_SenderSignalIndex(const QDtls* self);
-    friend int QDtls_QBaseSenderSignalIndex(const QDtls* self);
+    friend int QDtls_SuperSenderSignalIndex(const QDtls* self);
     friend int QDtls_Receivers(const QDtls* self, const char* signal);
-    friend int QDtls_QBaseReceivers(const QDtls* self, const char* signal);
+    friend int QDtls_SuperReceivers(const QDtls* self, const char* signal);
     friend bool QDtls_IsSignalConnected(const QDtls* self, const QMetaMethod* signal);
-    friend bool QDtls_QBaseIsSignalConnected(const QDtls* self, const QMetaMethod* signal);
+    friend bool QDtls_SuperIsSignalConnected(const QDtls* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -394,33 +394,33 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
 
     // Friend functions
     friend QWidget* KHamburgerMenu_CreateWidget(KHamburgerMenu* self, QWidget* parent);
-    friend QWidget* KHamburgerMenu_QBaseCreateWidget(KHamburgerMenu* self, QWidget* parent);
+    friend QWidget* KHamburgerMenu_SuperCreateWidget(KHamburgerMenu* self, QWidget* parent);
     friend bool KHamburgerMenu_Event(KHamburgerMenu* self, QEvent* param1);
-    friend bool KHamburgerMenu_QBaseEvent(KHamburgerMenu* self, QEvent* param1);
+    friend bool KHamburgerMenu_SuperEvent(KHamburgerMenu* self, QEvent* param1);
     friend bool KHamburgerMenu_EventFilter(KHamburgerMenu* self, QObject* param1, QEvent* param2);
-    friend bool KHamburgerMenu_QBaseEventFilter(KHamburgerMenu* self, QObject* param1, QEvent* param2);
+    friend bool KHamburgerMenu_SuperEventFilter(KHamburgerMenu* self, QObject* param1, QEvent* param2);
     friend void KHamburgerMenu_DeleteWidget(KHamburgerMenu* self, QWidget* widget);
-    friend void KHamburgerMenu_QBaseDeleteWidget(KHamburgerMenu* self, QWidget* widget);
+    friend void KHamburgerMenu_SuperDeleteWidget(KHamburgerMenu* self, QWidget* widget);
     friend void KHamburgerMenu_TimerEvent(KHamburgerMenu* self, QTimerEvent* event);
-    friend void KHamburgerMenu_QBaseTimerEvent(KHamburgerMenu* self, QTimerEvent* event);
+    friend void KHamburgerMenu_SuperTimerEvent(KHamburgerMenu* self, QTimerEvent* event);
     friend void KHamburgerMenu_ChildEvent(KHamburgerMenu* self, QChildEvent* event);
-    friend void KHamburgerMenu_QBaseChildEvent(KHamburgerMenu* self, QChildEvent* event);
+    friend void KHamburgerMenu_SuperChildEvent(KHamburgerMenu* self, QChildEvent* event);
     friend void KHamburgerMenu_CustomEvent(KHamburgerMenu* self, QEvent* event);
-    friend void KHamburgerMenu_QBaseCustomEvent(KHamburgerMenu* self, QEvent* event);
+    friend void KHamburgerMenu_SuperCustomEvent(KHamburgerMenu* self, QEvent* event);
     friend void KHamburgerMenu_ConnectNotify(KHamburgerMenu* self, const QMetaMethod* signal);
-    friend void KHamburgerMenu_QBaseConnectNotify(KHamburgerMenu* self, const QMetaMethod* signal);
+    friend void KHamburgerMenu_SuperConnectNotify(KHamburgerMenu* self, const QMetaMethod* signal);
     friend void KHamburgerMenu_DisconnectNotify(KHamburgerMenu* self, const QMetaMethod* signal);
-    friend void KHamburgerMenu_QBaseDisconnectNotify(KHamburgerMenu* self, const QMetaMethod* signal);
+    friend void KHamburgerMenu_SuperDisconnectNotify(KHamburgerMenu* self, const QMetaMethod* signal);
     friend libqt_list /* of QWidget* */ KHamburgerMenu_CreatedWidgets(const KHamburgerMenu* self);
-    friend libqt_list /* of QWidget* */ KHamburgerMenu_QBaseCreatedWidgets(const KHamburgerMenu* self);
+    friend libqt_list /* of QWidget* */ KHamburgerMenu_SuperCreatedWidgets(const KHamburgerMenu* self);
     friend QObject* KHamburgerMenu_Sender(const KHamburgerMenu* self);
-    friend QObject* KHamburgerMenu_QBaseSender(const KHamburgerMenu* self);
+    friend QObject* KHamburgerMenu_SuperSender(const KHamburgerMenu* self);
     friend int KHamburgerMenu_SenderSignalIndex(const KHamburgerMenu* self);
-    friend int KHamburgerMenu_QBaseSenderSignalIndex(const KHamburgerMenu* self);
+    friend int KHamburgerMenu_SuperSenderSignalIndex(const KHamburgerMenu* self);
     friend int KHamburgerMenu_Receivers(const KHamburgerMenu* self, const char* signal);
-    friend int KHamburgerMenu_QBaseReceivers(const KHamburgerMenu* self, const char* signal);
+    friend int KHamburgerMenu_SuperReceivers(const KHamburgerMenu* self, const char* signal);
     friend bool KHamburgerMenu_IsSignalConnected(const KHamburgerMenu* self, const QMetaMethod* signal);
-    friend bool KHamburgerMenu_QBaseIsSignalConnected(const KHamburgerMenu* self, const QMetaMethod* signal);
+    friend bool KHamburgerMenu_SuperIsSignalConnected(const KHamburgerMenu* self, const QMetaMethod* signal);
 };
 
 #endif

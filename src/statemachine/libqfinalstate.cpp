@@ -72,7 +72,7 @@ bool QFinalState_Event(QFinalState* self, QEvent* e) {
 }
 
 // Base class handler implementation
-QMetaObject* QFinalState_QBaseMetaObject(const QFinalState* self) {
+QMetaObject* QFinalState_SuperMetaObject(const QFinalState* self) {
     auto* vqfinalstate = const_cast<VirtualQFinalState*>(dynamic_cast<const VirtualQFinalState*>(self));
     if (vqfinalstate && vqfinalstate->isVirtualQFinalState) {
         vqfinalstate->setQFinalState_MetaObject_IsBase(true);
@@ -91,7 +91,7 @@ void QFinalState_OnMetaObject(const QFinalState* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QFinalState_QBaseMetacast(QFinalState* self, const char* param1) {
+void* QFinalState_SuperMetacast(QFinalState* self, const char* param1) {
     auto* vqfinalstate = dynamic_cast<VirtualQFinalState*>(self);
     if (vqfinalstate && vqfinalstate->isVirtualQFinalState) {
         vqfinalstate->setQFinalState_Metacast_IsBase(true);
@@ -110,7 +110,7 @@ void QFinalState_OnMetacast(QFinalState* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QFinalState_QBaseMetacall(QFinalState* self, int param1, int param2, void** param3) {
+int QFinalState_SuperMetacall(QFinalState* self, int param1, int param2, void** param3) {
     auto* vqfinalstate = dynamic_cast<VirtualQFinalState*>(self);
     if (vqfinalstate && vqfinalstate->isVirtualQFinalState) {
         vqfinalstate->setQFinalState_Metacall_IsBase(true);
@@ -129,7 +129,7 @@ void QFinalState_OnMetacall(QFinalState* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QFinalState_QBaseOnEntry(QFinalState* self, QEvent* event) {
+void QFinalState_SuperOnEntry(QFinalState* self, QEvent* event) {
     auto* vqfinalstate = dynamic_cast<VirtualQFinalState*>(self);
     if (vqfinalstate && vqfinalstate->isVirtualQFinalState) {
         vqfinalstate->setQFinalState_OnEntry_IsBase(true);
@@ -148,7 +148,7 @@ void QFinalState_OnOnEntry(QFinalState* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QFinalState_QBaseOnExit(QFinalState* self, QEvent* event) {
+void QFinalState_SuperOnExit(QFinalState* self, QEvent* event) {
     auto* vqfinalstate = dynamic_cast<VirtualQFinalState*>(self);
     if (vqfinalstate && vqfinalstate->isVirtualQFinalState) {
         vqfinalstate->setQFinalState_OnExit_IsBase(true);
@@ -167,7 +167,7 @@ void QFinalState_OnOnExit(QFinalState* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QFinalState_QBaseEvent(QFinalState* self, QEvent* e) {
+bool QFinalState_SuperEvent(QFinalState* self, QEvent* e) {
     auto* vqfinalstate = dynamic_cast<VirtualQFinalState*>(self);
     if (vqfinalstate && vqfinalstate->isVirtualQFinalState) {
         vqfinalstate->setQFinalState_Event_IsBase(true);
@@ -196,7 +196,7 @@ bool QFinalState_EventFilter(QFinalState* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QFinalState_QBaseEventFilter(QFinalState* self, QObject* watched, QEvent* event) {
+bool QFinalState_SuperEventFilter(QFinalState* self, QObject* watched, QEvent* event) {
     auto* vqfinalstate = dynamic_cast<VirtualQFinalState*>(self);
     if (vqfinalstate && vqfinalstate->isVirtualQFinalState) {
         vqfinalstate->setQFinalState_EventFilter_IsBase(true);
@@ -225,7 +225,7 @@ void QFinalState_TimerEvent(QFinalState* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QFinalState_QBaseTimerEvent(QFinalState* self, QTimerEvent* event) {
+void QFinalState_SuperTimerEvent(QFinalState* self, QTimerEvent* event) {
     auto* vqfinalstate = dynamic_cast<VirtualQFinalState*>(self);
     if (vqfinalstate && vqfinalstate->isVirtualQFinalState) {
         vqfinalstate->setQFinalState_TimerEvent_IsBase(true);
@@ -254,7 +254,7 @@ void QFinalState_ChildEvent(QFinalState* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QFinalState_QBaseChildEvent(QFinalState* self, QChildEvent* event) {
+void QFinalState_SuperChildEvent(QFinalState* self, QChildEvent* event) {
     auto* vqfinalstate = dynamic_cast<VirtualQFinalState*>(self);
     if (vqfinalstate && vqfinalstate->isVirtualQFinalState) {
         vqfinalstate->setQFinalState_ChildEvent_IsBase(true);
@@ -283,7 +283,7 @@ void QFinalState_CustomEvent(QFinalState* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QFinalState_QBaseCustomEvent(QFinalState* self, QEvent* event) {
+void QFinalState_SuperCustomEvent(QFinalState* self, QEvent* event) {
     auto* vqfinalstate = dynamic_cast<VirtualQFinalState*>(self);
     if (vqfinalstate && vqfinalstate->isVirtualQFinalState) {
         vqfinalstate->setQFinalState_CustomEvent_IsBase(true);
@@ -312,7 +312,7 @@ void QFinalState_ConnectNotify(QFinalState* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QFinalState_QBaseConnectNotify(QFinalState* self, const QMetaMethod* signal) {
+void QFinalState_SuperConnectNotify(QFinalState* self, const QMetaMethod* signal) {
     auto* vqfinalstate = dynamic_cast<VirtualQFinalState*>(self);
     if (vqfinalstate && vqfinalstate->isVirtualQFinalState) {
         vqfinalstate->setQFinalState_ConnectNotify_IsBase(true);
@@ -341,7 +341,7 @@ void QFinalState_DisconnectNotify(QFinalState* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QFinalState_QBaseDisconnectNotify(QFinalState* self, const QMetaMethod* signal) {
+void QFinalState_SuperDisconnectNotify(QFinalState* self, const QMetaMethod* signal) {
     auto* vqfinalstate = dynamic_cast<VirtualQFinalState*>(self);
     if (vqfinalstate && vqfinalstate->isVirtualQFinalState) {
         vqfinalstate->setQFinalState_DisconnectNotify_IsBase(true);
@@ -370,7 +370,7 @@ QObject* QFinalState_Sender(const QFinalState* self) {
 }
 
 // Base class handler implementation
-QObject* QFinalState_QBaseSender(const QFinalState* self) {
+QObject* QFinalState_SuperSender(const QFinalState* self) {
     auto* vqfinalstate = const_cast<VirtualQFinalState*>(dynamic_cast<const VirtualQFinalState*>(self));
     if (vqfinalstate && vqfinalstate->isVirtualQFinalState) {
         vqfinalstate->setQFinalState_Sender_IsBase(true);
@@ -399,7 +399,7 @@ int QFinalState_SenderSignalIndex(const QFinalState* self) {
 }
 
 // Base class handler implementation
-int QFinalState_QBaseSenderSignalIndex(const QFinalState* self) {
+int QFinalState_SuperSenderSignalIndex(const QFinalState* self) {
     auto* vqfinalstate = const_cast<VirtualQFinalState*>(dynamic_cast<const VirtualQFinalState*>(self));
     if (vqfinalstate && vqfinalstate->isVirtualQFinalState) {
         vqfinalstate->setQFinalState_SenderSignalIndex_IsBase(true);
@@ -428,7 +428,7 @@ int QFinalState_Receivers(const QFinalState* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QFinalState_QBaseReceivers(const QFinalState* self, const char* signal) {
+int QFinalState_SuperReceivers(const QFinalState* self, const char* signal) {
     auto* vqfinalstate = const_cast<VirtualQFinalState*>(dynamic_cast<const VirtualQFinalState*>(self));
     if (vqfinalstate && vqfinalstate->isVirtualQFinalState) {
         vqfinalstate->setQFinalState_Receivers_IsBase(true);
@@ -457,7 +457,7 @@ bool QFinalState_IsSignalConnected(const QFinalState* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QFinalState_QBaseIsSignalConnected(const QFinalState* self, const QMetaMethod* signal) {
+bool QFinalState_SuperIsSignalConnected(const QFinalState* self, const QMetaMethod* signal) {
     auto* vqfinalstate = const_cast<VirtualQFinalState*>(dynamic_cast<const VirtualQFinalState*>(self));
     if (vqfinalstate && vqfinalstate->isVirtualQFinalState) {
         vqfinalstate->setQFinalState_IsSignalConnected_IsBase(true);

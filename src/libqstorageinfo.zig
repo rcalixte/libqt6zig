@@ -292,6 +292,10 @@ pub const qstorageinfo = struct {
         return qtc.QStorageInfo_Root();
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstorageinfo.html#dtor.QStorageInfo)
     ///
     /// Delete this object from C++ memory.
@@ -300,7 +304,7 @@ pub const qstorageinfo = struct {
     ///
     /// ` self: QtC.QStorageInfo `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStorageInfo_Delete(@ptrCast(self));
     }
 };

@@ -459,7 +459,7 @@ void KLineEdit_SetCompletionModeDisabled2(KLineEdit* self, int mode, bool disabl
 }
 
 // Base class handler implementation
-QMetaObject* KLineEdit_QBaseMetaObject(const KLineEdit* self) {
+QMetaObject* KLineEdit_SuperMetaObject(const KLineEdit* self) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_MetaObject_IsBase(true);
@@ -478,7 +478,7 @@ void KLineEdit_OnMetaObject(const KLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KLineEdit_QBaseMetacast(KLineEdit* self, const char* param1) {
+void* KLineEdit_SuperMetacast(KLineEdit* self, const char* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_Metacast_IsBase(true);
@@ -497,7 +497,7 @@ void KLineEdit_OnMetacast(KLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KLineEdit_QBaseMetacall(KLineEdit* self, int param1, int param2, void** param3) {
+int KLineEdit_SuperMetacall(KLineEdit* self, int param1, int param2, void** param3) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_Metacall_IsBase(true);
@@ -516,7 +516,7 @@ void KLineEdit_OnMetacall(KLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseSetCompletionMode(KLineEdit* self, int mode) {
+void KLineEdit_SuperSetCompletionMode(KLineEdit* self, int mode) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_SetCompletionMode_IsBase(true);
@@ -535,7 +535,7 @@ void KLineEdit_OnSetCompletionMode(KLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KCompletionBox* KLineEdit_QBaseCompletionBox(KLineEdit* self, bool create) {
+KCompletionBox* KLineEdit_SuperCompletionBox(KLineEdit* self, bool create) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_CompletionBox_IsBase(true);
@@ -554,7 +554,7 @@ void KLineEdit_OnCompletionBox(KLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseSetCompletionObject(KLineEdit* self, KCompletion* param1, bool handle) {
+void KLineEdit_SuperSetCompletionObject(KLineEdit* self, KCompletion* param1, bool handle) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_SetCompletionObject_IsBase(true);
@@ -573,7 +573,7 @@ void KLineEdit_OnSetCompletionObject(KLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseCopy(const KLineEdit* self) {
+void KLineEdit_SuperCopy(const KLineEdit* self) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_Copy_IsBase(true);
@@ -592,7 +592,7 @@ void KLineEdit_OnCopy(const KLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseSetReadOnly(KLineEdit* self, bool readOnly) {
+void KLineEdit_SuperSetReadOnly(KLineEdit* self, bool readOnly) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_SetReadOnly_IsBase(true);
@@ -611,7 +611,7 @@ void KLineEdit_OnSetReadOnly(KLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseSetCompletedText(KLineEdit* self, const libqt_string completedText) {
+void KLineEdit_SuperSetCompletedText(KLineEdit* self, const libqt_string completedText) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     QString completedText_QString = QString::fromUtf8(completedText.data, completedText.len);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
@@ -631,7 +631,7 @@ void KLineEdit_OnSetCompletedText(KLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseSetCompletedItems(KLineEdit* self, const libqt_list /* of libqt_string */ items, bool autoSuggest) {
+void KLineEdit_SuperSetCompletedItems(KLineEdit* self, const libqt_list /* of libqt_string */ items, bool autoSuggest) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     QList<QString> items_QList;
     items_QList.reserve(items.len);
@@ -657,7 +657,7 @@ void KLineEdit_OnSetCompletedItems(KLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseSetText(KLineEdit* self, const libqt_string text) {
+void KLineEdit_SuperSetText(KLineEdit* self, const libqt_string text) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
@@ -677,7 +677,7 @@ void KLineEdit_OnSetText(KLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseMakeCompletion(KLineEdit* self, const libqt_string param1) {
+void KLineEdit_SuperMakeCompletion(KLineEdit* self, const libqt_string param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
@@ -697,7 +697,7 @@ void KLineEdit_OnMakeCompletion(KLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KLineEdit_QBaseEvent(KLineEdit* self, QEvent* param1) {
+bool KLineEdit_SuperEvent(KLineEdit* self, QEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_Event_IsBase(true);
@@ -716,7 +716,7 @@ void KLineEdit_OnEvent(KLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseResizeEvent(KLineEdit* self, QResizeEvent* param1) {
+void KLineEdit_SuperResizeEvent(KLineEdit* self, QResizeEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_ResizeEvent_IsBase(true);
@@ -735,7 +735,7 @@ void KLineEdit_OnResizeEvent(KLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseKeyPressEvent(KLineEdit* self, QKeyEvent* param1) {
+void KLineEdit_SuperKeyPressEvent(KLineEdit* self, QKeyEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_KeyPressEvent_IsBase(true);
@@ -754,7 +754,7 @@ void KLineEdit_OnKeyPressEvent(KLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseMousePressEvent(KLineEdit* self, QMouseEvent* param1) {
+void KLineEdit_SuperMousePressEvent(KLineEdit* self, QMouseEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_MousePressEvent_IsBase(true);
@@ -773,7 +773,7 @@ void KLineEdit_OnMousePressEvent(KLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseMouseReleaseEvent(KLineEdit* self, QMouseEvent* param1) {
+void KLineEdit_SuperMouseReleaseEvent(KLineEdit* self, QMouseEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_MouseReleaseEvent_IsBase(true);
@@ -792,7 +792,7 @@ void KLineEdit_OnMouseReleaseEvent(KLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseMouseDoubleClickEvent(KLineEdit* self, QMouseEvent* param1) {
+void KLineEdit_SuperMouseDoubleClickEvent(KLineEdit* self, QMouseEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_MouseDoubleClickEvent_IsBase(true);
@@ -811,7 +811,7 @@ void KLineEdit_OnMouseDoubleClickEvent(KLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseContextMenuEvent(KLineEdit* self, QContextMenuEvent* param1) {
+void KLineEdit_SuperContextMenuEvent(KLineEdit* self, QContextMenuEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_ContextMenuEvent_IsBase(true);
@@ -830,7 +830,7 @@ void KLineEdit_OnContextMenuEvent(KLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseSetCompletedText2(KLineEdit* self, const libqt_string param1, bool param2) {
+void KLineEdit_SuperSetCompletedText2(KLineEdit* self, const libqt_string param1, bool param2) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
@@ -850,7 +850,7 @@ void KLineEdit_OnSetCompletedText2(KLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBasePaintEvent(KLineEdit* self, QPaintEvent* ev) {
+void KLineEdit_SuperPaintEvent(KLineEdit* self, QPaintEvent* ev) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_PaintEvent_IsBase(true);
@@ -879,7 +879,7 @@ QSize* KLineEdit_SizeHint(const KLineEdit* self) {
 }
 
 // Base class handler implementation
-QSize* KLineEdit_QBaseSizeHint(const KLineEdit* self) {
+QSize* KLineEdit_SuperSizeHint(const KLineEdit* self) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_SizeHint_IsBase(true);
@@ -908,7 +908,7 @@ QSize* KLineEdit_MinimumSizeHint(const KLineEdit* self) {
 }
 
 // Base class handler implementation
-QSize* KLineEdit_QBaseMinimumSizeHint(const KLineEdit* self) {
+QSize* KLineEdit_SuperMinimumSizeHint(const KLineEdit* self) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_MinimumSizeHint_IsBase(true);
@@ -937,7 +937,7 @@ void KLineEdit_MouseMoveEvent(KLineEdit* self, QMouseEvent* param1) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseMouseMoveEvent(KLineEdit* self, QMouseEvent* param1) {
+void KLineEdit_SuperMouseMoveEvent(KLineEdit* self, QMouseEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_MouseMoveEvent_IsBase(true);
@@ -966,7 +966,7 @@ void KLineEdit_KeyReleaseEvent(KLineEdit* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseKeyReleaseEvent(KLineEdit* self, QKeyEvent* param1) {
+void KLineEdit_SuperKeyReleaseEvent(KLineEdit* self, QKeyEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_KeyReleaseEvent_IsBase(true);
@@ -995,7 +995,7 @@ void KLineEdit_FocusInEvent(KLineEdit* self, QFocusEvent* param1) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseFocusInEvent(KLineEdit* self, QFocusEvent* param1) {
+void KLineEdit_SuperFocusInEvent(KLineEdit* self, QFocusEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_FocusInEvent_IsBase(true);
@@ -1024,7 +1024,7 @@ void KLineEdit_FocusOutEvent(KLineEdit* self, QFocusEvent* param1) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseFocusOutEvent(KLineEdit* self, QFocusEvent* param1) {
+void KLineEdit_SuperFocusOutEvent(KLineEdit* self, QFocusEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_FocusOutEvent_IsBase(true);
@@ -1053,7 +1053,7 @@ void KLineEdit_DragEnterEvent(KLineEdit* self, QDragEnterEvent* param1) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseDragEnterEvent(KLineEdit* self, QDragEnterEvent* param1) {
+void KLineEdit_SuperDragEnterEvent(KLineEdit* self, QDragEnterEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_DragEnterEvent_IsBase(true);
@@ -1082,7 +1082,7 @@ void KLineEdit_DragMoveEvent(KLineEdit* self, QDragMoveEvent* e) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseDragMoveEvent(KLineEdit* self, QDragMoveEvent* e) {
+void KLineEdit_SuperDragMoveEvent(KLineEdit* self, QDragMoveEvent* e) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_DragMoveEvent_IsBase(true);
@@ -1111,7 +1111,7 @@ void KLineEdit_DragLeaveEvent(KLineEdit* self, QDragLeaveEvent* e) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseDragLeaveEvent(KLineEdit* self, QDragLeaveEvent* e) {
+void KLineEdit_SuperDragLeaveEvent(KLineEdit* self, QDragLeaveEvent* e) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_DragLeaveEvent_IsBase(true);
@@ -1140,7 +1140,7 @@ void KLineEdit_DropEvent(KLineEdit* self, QDropEvent* param1) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseDropEvent(KLineEdit* self, QDropEvent* param1) {
+void KLineEdit_SuperDropEvent(KLineEdit* self, QDropEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_DropEvent_IsBase(true);
@@ -1169,7 +1169,7 @@ void KLineEdit_ChangeEvent(KLineEdit* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseChangeEvent(KLineEdit* self, QEvent* param1) {
+void KLineEdit_SuperChangeEvent(KLineEdit* self, QEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_ChangeEvent_IsBase(true);
@@ -1198,7 +1198,7 @@ void KLineEdit_InputMethodEvent(KLineEdit* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseInputMethodEvent(KLineEdit* self, QInputMethodEvent* param1) {
+void KLineEdit_SuperInputMethodEvent(KLineEdit* self, QInputMethodEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_InputMethodEvent_IsBase(true);
@@ -1227,7 +1227,7 @@ void KLineEdit_InitStyleOption(const KLineEdit* self, QStyleOptionFrame* option)
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseInitStyleOption(const KLineEdit* self, QStyleOptionFrame* option) {
+void KLineEdit_SuperInitStyleOption(const KLineEdit* self, QStyleOptionFrame* option) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_InitStyleOption_IsBase(true);
@@ -1256,7 +1256,7 @@ QVariant* KLineEdit_InputMethodQuery(const KLineEdit* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KLineEdit_QBaseInputMethodQuery(const KLineEdit* self, int param1) {
+QVariant* KLineEdit_SuperInputMethodQuery(const KLineEdit* self, int param1) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_InputMethodQuery_IsBase(true);
@@ -1285,7 +1285,7 @@ void KLineEdit_TimerEvent(KLineEdit* self, QTimerEvent* param1) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseTimerEvent(KLineEdit* self, QTimerEvent* param1) {
+void KLineEdit_SuperTimerEvent(KLineEdit* self, QTimerEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_TimerEvent_IsBase(true);
@@ -1314,7 +1314,7 @@ int KLineEdit_DevType(const KLineEdit* self) {
 }
 
 // Base class handler implementation
-int KLineEdit_QBaseDevType(const KLineEdit* self) {
+int KLineEdit_SuperDevType(const KLineEdit* self) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_DevType_IsBase(true);
@@ -1343,7 +1343,7 @@ void KLineEdit_SetVisible(KLineEdit* self, bool visible) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseSetVisible(KLineEdit* self, bool visible) {
+void KLineEdit_SuperSetVisible(KLineEdit* self, bool visible) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_SetVisible_IsBase(true);
@@ -1372,7 +1372,7 @@ int KLineEdit_HeightForWidth(const KLineEdit* self, int param1) {
 }
 
 // Base class handler implementation
-int KLineEdit_QBaseHeightForWidth(const KLineEdit* self, int param1) {
+int KLineEdit_SuperHeightForWidth(const KLineEdit* self, int param1) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_HeightForWidth_IsBase(true);
@@ -1401,7 +1401,7 @@ bool KLineEdit_HasHeightForWidth(const KLineEdit* self) {
 }
 
 // Base class handler implementation
-bool KLineEdit_QBaseHasHeightForWidth(const KLineEdit* self) {
+bool KLineEdit_SuperHasHeightForWidth(const KLineEdit* self) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_HasHeightForWidth_IsBase(true);
@@ -1430,7 +1430,7 @@ QPaintEngine* KLineEdit_PaintEngine(const KLineEdit* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KLineEdit_QBasePaintEngine(const KLineEdit* self) {
+QPaintEngine* KLineEdit_SuperPaintEngine(const KLineEdit* self) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_PaintEngine_IsBase(true);
@@ -1459,7 +1459,7 @@ void KLineEdit_WheelEvent(KLineEdit* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseWheelEvent(KLineEdit* self, QWheelEvent* event) {
+void KLineEdit_SuperWheelEvent(KLineEdit* self, QWheelEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_WheelEvent_IsBase(true);
@@ -1488,7 +1488,7 @@ void KLineEdit_EnterEvent(KLineEdit* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseEnterEvent(KLineEdit* self, QEnterEvent* event) {
+void KLineEdit_SuperEnterEvent(KLineEdit* self, QEnterEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_EnterEvent_IsBase(true);
@@ -1517,7 +1517,7 @@ void KLineEdit_LeaveEvent(KLineEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseLeaveEvent(KLineEdit* self, QEvent* event) {
+void KLineEdit_SuperLeaveEvent(KLineEdit* self, QEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_LeaveEvent_IsBase(true);
@@ -1546,7 +1546,7 @@ void KLineEdit_MoveEvent(KLineEdit* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseMoveEvent(KLineEdit* self, QMoveEvent* event) {
+void KLineEdit_SuperMoveEvent(KLineEdit* self, QMoveEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_MoveEvent_IsBase(true);
@@ -1575,7 +1575,7 @@ void KLineEdit_CloseEvent(KLineEdit* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseCloseEvent(KLineEdit* self, QCloseEvent* event) {
+void KLineEdit_SuperCloseEvent(KLineEdit* self, QCloseEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_CloseEvent_IsBase(true);
@@ -1604,7 +1604,7 @@ void KLineEdit_TabletEvent(KLineEdit* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseTabletEvent(KLineEdit* self, QTabletEvent* event) {
+void KLineEdit_SuperTabletEvent(KLineEdit* self, QTabletEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_TabletEvent_IsBase(true);
@@ -1633,7 +1633,7 @@ void KLineEdit_ActionEvent(KLineEdit* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseActionEvent(KLineEdit* self, QActionEvent* event) {
+void KLineEdit_SuperActionEvent(KLineEdit* self, QActionEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_ActionEvent_IsBase(true);
@@ -1662,7 +1662,7 @@ void KLineEdit_ShowEvent(KLineEdit* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseShowEvent(KLineEdit* self, QShowEvent* event) {
+void KLineEdit_SuperShowEvent(KLineEdit* self, QShowEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_ShowEvent_IsBase(true);
@@ -1691,7 +1691,7 @@ void KLineEdit_HideEvent(KLineEdit* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseHideEvent(KLineEdit* self, QHideEvent* event) {
+void KLineEdit_SuperHideEvent(KLineEdit* self, QHideEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_HideEvent_IsBase(true);
@@ -1721,7 +1721,7 @@ bool KLineEdit_NativeEvent(KLineEdit* self, const libqt_string eventType, void* 
 }
 
 // Base class handler implementation
-bool KLineEdit_QBaseNativeEvent(KLineEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KLineEdit_SuperNativeEvent(KLineEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
@@ -1751,7 +1751,7 @@ int KLineEdit_Metric(const KLineEdit* self, int param1) {
 }
 
 // Base class handler implementation
-int KLineEdit_QBaseMetric(const KLineEdit* self, int param1) {
+int KLineEdit_SuperMetric(const KLineEdit* self, int param1) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_Metric_IsBase(true);
@@ -1780,7 +1780,7 @@ void KLineEdit_InitPainter(const KLineEdit* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseInitPainter(const KLineEdit* self, QPainter* painter) {
+void KLineEdit_SuperInitPainter(const KLineEdit* self, QPainter* painter) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_InitPainter_IsBase(true);
@@ -1809,7 +1809,7 @@ QPaintDevice* KLineEdit_Redirected(const KLineEdit* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KLineEdit_QBaseRedirected(const KLineEdit* self, QPoint* offset) {
+QPaintDevice* KLineEdit_SuperRedirected(const KLineEdit* self, QPoint* offset) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_Redirected_IsBase(true);
@@ -1838,7 +1838,7 @@ QPainter* KLineEdit_SharedPainter(const KLineEdit* self) {
 }
 
 // Base class handler implementation
-QPainter* KLineEdit_QBaseSharedPainter(const KLineEdit* self) {
+QPainter* KLineEdit_SuperSharedPainter(const KLineEdit* self) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_SharedPainter_IsBase(true);
@@ -1867,7 +1867,7 @@ bool KLineEdit_FocusNextPrevChild(KLineEdit* self, bool next) {
 }
 
 // Base class handler implementation
-bool KLineEdit_QBaseFocusNextPrevChild(KLineEdit* self, bool next) {
+bool KLineEdit_SuperFocusNextPrevChild(KLineEdit* self, bool next) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_FocusNextPrevChild_IsBase(true);
@@ -1896,7 +1896,7 @@ bool KLineEdit_EventFilter(KLineEdit* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KLineEdit_QBaseEventFilter(KLineEdit* self, QObject* watched, QEvent* event) {
+bool KLineEdit_SuperEventFilter(KLineEdit* self, QObject* watched, QEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_EventFilter_IsBase(true);
@@ -1925,7 +1925,7 @@ void KLineEdit_ChildEvent(KLineEdit* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseChildEvent(KLineEdit* self, QChildEvent* event) {
+void KLineEdit_SuperChildEvent(KLineEdit* self, QChildEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_ChildEvent_IsBase(true);
@@ -1954,7 +1954,7 @@ void KLineEdit_CustomEvent(KLineEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseCustomEvent(KLineEdit* self, QEvent* event) {
+void KLineEdit_SuperCustomEvent(KLineEdit* self, QEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_CustomEvent_IsBase(true);
@@ -1983,7 +1983,7 @@ void KLineEdit_ConnectNotify(KLineEdit* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseConnectNotify(KLineEdit* self, const QMetaMethod* signal) {
+void KLineEdit_SuperConnectNotify(KLineEdit* self, const QMetaMethod* signal) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_ConnectNotify_IsBase(true);
@@ -2012,7 +2012,7 @@ void KLineEdit_DisconnectNotify(KLineEdit* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseDisconnectNotify(KLineEdit* self, const QMetaMethod* signal) {
+void KLineEdit_SuperDisconnectNotify(KLineEdit* self, const QMetaMethod* signal) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_DisconnectNotify_IsBase(true);
@@ -2041,7 +2041,7 @@ void KLineEdit_SetHandleSignals(KLineEdit* self, bool handle) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseSetHandleSignals(KLineEdit* self, bool handle) {
+void KLineEdit_SuperSetHandleSignals(KLineEdit* self, bool handle) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_SetHandleSignals_IsBase(true);
@@ -2070,7 +2070,7 @@ void KLineEdit_VirtualHook(KLineEdit* self, int id, void* data) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseVirtualHook(KLineEdit* self, int id, void* data) {
+void KLineEdit_SuperVirtualHook(KLineEdit* self, int id, void* data) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_VirtualHook_IsBase(true);
@@ -2100,7 +2100,7 @@ void KLineEdit_UserCancelled(KLineEdit* self, const libqt_string cancelText) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseUserCancelled(KLineEdit* self, const libqt_string cancelText) {
+void KLineEdit_SuperUserCancelled(KLineEdit* self, const libqt_string cancelText) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     QString cancelText_QString = QString::fromUtf8(cancelText.data, cancelText.len);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
@@ -2130,7 +2130,7 @@ QMenu* KLineEdit_CreateStandardContextMenu(KLineEdit* self) {
 }
 
 // Base class handler implementation
-QMenu* KLineEdit_QBaseCreateStandardContextMenu(KLineEdit* self) {
+QMenu* KLineEdit_SuperCreateStandardContextMenu(KLineEdit* self) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_CreateStandardContextMenu_IsBase(true);
@@ -2159,7 +2159,7 @@ void KLineEdit_SetUserSelection(KLineEdit* self, bool userSelection) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseSetUserSelection(KLineEdit* self, bool userSelection) {
+void KLineEdit_SuperSetUserSelection(KLineEdit* self, bool userSelection) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_SetUserSelection_IsBase(true);
@@ -2188,7 +2188,7 @@ bool KLineEdit_AutoSuggest(const KLineEdit* self) {
 }
 
 // Base class handler implementation
-bool KLineEdit_QBaseAutoSuggest(const KLineEdit* self) {
+bool KLineEdit_SuperAutoSuggest(const KLineEdit* self) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_AutoSuggest_IsBase(true);
@@ -2216,7 +2216,7 @@ QRect* KLineEdit_CursorRect(const KLineEdit* self) {
 }
 
 // Base class handler implementation
-QRect* KLineEdit_QBaseCursorRect(const KLineEdit* self) {
+QRect* KLineEdit_SuperCursorRect(const KLineEdit* self) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_CursorRect_IsBase(true);
@@ -2244,7 +2244,7 @@ void KLineEdit_UpdateMicroFocus(KLineEdit* self) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseUpdateMicroFocus(KLineEdit* self) {
+void KLineEdit_SuperUpdateMicroFocus(KLineEdit* self) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_UpdateMicroFocus_IsBase(true);
@@ -2273,7 +2273,7 @@ void KLineEdit_Create(KLineEdit* self) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseCreate(KLineEdit* self) {
+void KLineEdit_SuperCreate(KLineEdit* self) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_Create_IsBase(true);
@@ -2302,7 +2302,7 @@ void KLineEdit_Destroy(KLineEdit* self) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseDestroy(KLineEdit* self) {
+void KLineEdit_SuperDestroy(KLineEdit* self) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_Destroy_IsBase(true);
@@ -2331,7 +2331,7 @@ bool KLineEdit_FocusNextChild(KLineEdit* self) {
 }
 
 // Base class handler implementation
-bool KLineEdit_QBaseFocusNextChild(KLineEdit* self) {
+bool KLineEdit_SuperFocusNextChild(KLineEdit* self) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_FocusNextChild_IsBase(true);
@@ -2360,7 +2360,7 @@ bool KLineEdit_FocusPreviousChild(KLineEdit* self) {
 }
 
 // Base class handler implementation
-bool KLineEdit_QBaseFocusPreviousChild(KLineEdit* self) {
+bool KLineEdit_SuperFocusPreviousChild(KLineEdit* self) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_FocusPreviousChild_IsBase(true);
@@ -2389,7 +2389,7 @@ QObject* KLineEdit_Sender(const KLineEdit* self) {
 }
 
 // Base class handler implementation
-QObject* KLineEdit_QBaseSender(const KLineEdit* self) {
+QObject* KLineEdit_SuperSender(const KLineEdit* self) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_Sender_IsBase(true);
@@ -2418,7 +2418,7 @@ int KLineEdit_SenderSignalIndex(const KLineEdit* self) {
 }
 
 // Base class handler implementation
-int KLineEdit_QBaseSenderSignalIndex(const KLineEdit* self) {
+int KLineEdit_SuperSenderSignalIndex(const KLineEdit* self) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_SenderSignalIndex_IsBase(true);
@@ -2447,7 +2447,7 @@ int KLineEdit_Receivers(const KLineEdit* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KLineEdit_QBaseReceivers(const KLineEdit* self, const char* signal) {
+int KLineEdit_SuperReceivers(const KLineEdit* self, const char* signal) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_Receivers_IsBase(true);
@@ -2476,7 +2476,7 @@ bool KLineEdit_IsSignalConnected(const KLineEdit* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool KLineEdit_QBaseIsSignalConnected(const KLineEdit* self, const QMetaMethod* signal) {
+bool KLineEdit_SuperIsSignalConnected(const KLineEdit* self, const QMetaMethod* signal) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_IsSignalConnected_IsBase(true);
@@ -2505,7 +2505,7 @@ double KLineEdit_GetDecodedMetricF(const KLineEdit* self, int metricA, int metri
 }
 
 // Base class handler implementation
-double KLineEdit_QBaseGetDecodedMetricF(const KLineEdit* self, int metricA, int metricB) {
+double KLineEdit_SuperGetDecodedMetricF(const KLineEdit* self, int metricA, int metricB) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_GetDecodedMetricF_IsBase(true);
@@ -2580,7 +2580,7 @@ libqt_map /* of int to libqt_list of QKeySequence* */ KLineEdit_KeyBindingMap(co
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_list of QKeySequence* */ KLineEdit_QBaseKeyBindingMap(const KLineEdit* self) {
+libqt_map /* of int to libqt_list of QKeySequence* */ KLineEdit_SuperKeyBindingMap(const KLineEdit* self) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_KeyBindingMap_IsBase(true);
@@ -2667,7 +2667,7 @@ void KLineEdit_SetKeyBindingMap(KLineEdit* self, libqt_map /* of int to libqt_li
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseSetKeyBindingMap(KLineEdit* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
+void KLineEdit_SuperSetKeyBindingMap(KLineEdit* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_QMap;
     int* keyBindingMap_karr = static_cast<int*>(keyBindingMap.keys);
@@ -2708,7 +2708,7 @@ void KLineEdit_SetDelegate(KLineEdit* self, KCompletionBase* delegate) {
 }
 
 // Base class handler implementation
-void KLineEdit_QBaseSetDelegate(KLineEdit* self, KCompletionBase* delegate) {
+void KLineEdit_SuperSetDelegate(KLineEdit* self, KCompletionBase* delegate) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_SetDelegate_IsBase(true);
@@ -2737,7 +2737,7 @@ KCompletionBase* KLineEdit_Delegate(const KLineEdit* self) {
 }
 
 // Base class handler implementation
-KCompletionBase* KLineEdit_QBaseDelegate(const KLineEdit* self) {
+KCompletionBase* KLineEdit_SuperDelegate(const KLineEdit* self) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->setKLineEdit_Delegate_IsBase(true);

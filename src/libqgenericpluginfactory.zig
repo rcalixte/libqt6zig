@@ -93,6 +93,10 @@ pub const qgenericpluginfactory = struct {
         return qtc.QGenericPluginFactory_Create(param1_str, param2_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgenericpluginfactory.html#dtor.QGenericPluginFactory)
     ///
     /// Delete this object from C++ memory.
@@ -101,7 +105,7 @@ pub const qgenericpluginfactory = struct {
     ///
     /// ` self: QtC.QGenericPluginFactory `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGenericPluginFactory_Delete(@ptrCast(self));
     }
 };

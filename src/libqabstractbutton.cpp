@@ -348,7 +348,7 @@ void QAbstractButton_Connect_Clicked1(QAbstractButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QAbstractButton_QBaseMetaObject(const QAbstractButton* self) {
+QMetaObject* QAbstractButton_SuperMetaObject(const QAbstractButton* self) {
     auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_MetaObject_IsBase(true);
@@ -367,7 +367,7 @@ void QAbstractButton_OnMetaObject(const QAbstractButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QAbstractButton_QBaseMetacast(QAbstractButton* self, const char* param1) {
+void* QAbstractButton_SuperMetacast(QAbstractButton* self, const char* param1) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_Metacast_IsBase(true);
@@ -386,7 +386,7 @@ void QAbstractButton_OnMetacast(QAbstractButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAbstractButton_QBaseMetacall(QAbstractButton* self, int param1, int param2, void** param3) {
+int QAbstractButton_SuperMetacall(QAbstractButton* self, int param1, int param2, void** param3) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_Metacall_IsBase(true);
@@ -405,7 +405,7 @@ void QAbstractButton_OnMetacall(QAbstractButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBasePaintEvent(QAbstractButton* self, QPaintEvent* e) {
+void QAbstractButton_SuperPaintEvent(QAbstractButton* self, QPaintEvent* e) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_PaintEvent_IsBase(true);
@@ -424,7 +424,7 @@ void QAbstractButton_OnPaintEvent(QAbstractButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QAbstractButton_QBaseHitButton(const QAbstractButton* self, const QPoint* pos) {
+bool QAbstractButton_SuperHitButton(const QAbstractButton* self, const QPoint* pos) {
     auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_HitButton_IsBase(true);
@@ -443,7 +443,7 @@ void QAbstractButton_OnHitButton(const QAbstractButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseCheckStateSet(QAbstractButton* self) {
+void QAbstractButton_SuperCheckStateSet(QAbstractButton* self) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_CheckStateSet_IsBase(true);
@@ -462,7 +462,7 @@ void QAbstractButton_OnCheckStateSet(QAbstractButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseNextCheckState(QAbstractButton* self) {
+void QAbstractButton_SuperNextCheckState(QAbstractButton* self) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_NextCheckState_IsBase(true);
@@ -481,7 +481,7 @@ void QAbstractButton_OnNextCheckState(QAbstractButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QAbstractButton_QBaseEvent(QAbstractButton* self, QEvent* e) {
+bool QAbstractButton_SuperEvent(QAbstractButton* self, QEvent* e) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_Event_IsBase(true);
@@ -500,7 +500,7 @@ void QAbstractButton_OnEvent(QAbstractButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseKeyPressEvent(QAbstractButton* self, QKeyEvent* e) {
+void QAbstractButton_SuperKeyPressEvent(QAbstractButton* self, QKeyEvent* e) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_KeyPressEvent_IsBase(true);
@@ -519,7 +519,7 @@ void QAbstractButton_OnKeyPressEvent(QAbstractButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseKeyReleaseEvent(QAbstractButton* self, QKeyEvent* e) {
+void QAbstractButton_SuperKeyReleaseEvent(QAbstractButton* self, QKeyEvent* e) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_KeyReleaseEvent_IsBase(true);
@@ -538,7 +538,7 @@ void QAbstractButton_OnKeyReleaseEvent(QAbstractButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseMousePressEvent(QAbstractButton* self, QMouseEvent* e) {
+void QAbstractButton_SuperMousePressEvent(QAbstractButton* self, QMouseEvent* e) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_MousePressEvent_IsBase(true);
@@ -557,7 +557,7 @@ void QAbstractButton_OnMousePressEvent(QAbstractButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseMouseReleaseEvent(QAbstractButton* self, QMouseEvent* e) {
+void QAbstractButton_SuperMouseReleaseEvent(QAbstractButton* self, QMouseEvent* e) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_MouseReleaseEvent_IsBase(true);
@@ -576,7 +576,7 @@ void QAbstractButton_OnMouseReleaseEvent(QAbstractButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseMouseMoveEvent(QAbstractButton* self, QMouseEvent* e) {
+void QAbstractButton_SuperMouseMoveEvent(QAbstractButton* self, QMouseEvent* e) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_MouseMoveEvent_IsBase(true);
@@ -595,7 +595,7 @@ void QAbstractButton_OnMouseMoveEvent(QAbstractButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseFocusInEvent(QAbstractButton* self, QFocusEvent* e) {
+void QAbstractButton_SuperFocusInEvent(QAbstractButton* self, QFocusEvent* e) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_FocusInEvent_IsBase(true);
@@ -614,7 +614,7 @@ void QAbstractButton_OnFocusInEvent(QAbstractButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseFocusOutEvent(QAbstractButton* self, QFocusEvent* e) {
+void QAbstractButton_SuperFocusOutEvent(QAbstractButton* self, QFocusEvent* e) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_FocusOutEvent_IsBase(true);
@@ -633,7 +633,7 @@ void QAbstractButton_OnFocusOutEvent(QAbstractButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseChangeEvent(QAbstractButton* self, QEvent* e) {
+void QAbstractButton_SuperChangeEvent(QAbstractButton* self, QEvent* e) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_ChangeEvent_IsBase(true);
@@ -652,7 +652,7 @@ void QAbstractButton_OnChangeEvent(QAbstractButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseTimerEvent(QAbstractButton* self, QTimerEvent* e) {
+void QAbstractButton_SuperTimerEvent(QAbstractButton* self, QTimerEvent* e) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_TimerEvent_IsBase(true);
@@ -681,7 +681,7 @@ int QAbstractButton_DevType(const QAbstractButton* self) {
 }
 
 // Base class handler implementation
-int QAbstractButton_QBaseDevType(const QAbstractButton* self) {
+int QAbstractButton_SuperDevType(const QAbstractButton* self) {
     auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_DevType_IsBase(true);
@@ -710,7 +710,7 @@ void QAbstractButton_SetVisible(QAbstractButton* self, bool visible) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseSetVisible(QAbstractButton* self, bool visible) {
+void QAbstractButton_SuperSetVisible(QAbstractButton* self, bool visible) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_SetVisible_IsBase(true);
@@ -739,7 +739,7 @@ QSize* QAbstractButton_SizeHint(const QAbstractButton* self) {
 }
 
 // Base class handler implementation
-QSize* QAbstractButton_QBaseSizeHint(const QAbstractButton* self) {
+QSize* QAbstractButton_SuperSizeHint(const QAbstractButton* self) {
     auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_SizeHint_IsBase(true);
@@ -768,7 +768,7 @@ QSize* QAbstractButton_MinimumSizeHint(const QAbstractButton* self) {
 }
 
 // Base class handler implementation
-QSize* QAbstractButton_QBaseMinimumSizeHint(const QAbstractButton* self) {
+QSize* QAbstractButton_SuperMinimumSizeHint(const QAbstractButton* self) {
     auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_MinimumSizeHint_IsBase(true);
@@ -797,7 +797,7 @@ int QAbstractButton_HeightForWidth(const QAbstractButton* self, int param1) {
 }
 
 // Base class handler implementation
-int QAbstractButton_QBaseHeightForWidth(const QAbstractButton* self, int param1) {
+int QAbstractButton_SuperHeightForWidth(const QAbstractButton* self, int param1) {
     auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_HeightForWidth_IsBase(true);
@@ -826,7 +826,7 @@ bool QAbstractButton_HasHeightForWidth(const QAbstractButton* self) {
 }
 
 // Base class handler implementation
-bool QAbstractButton_QBaseHasHeightForWidth(const QAbstractButton* self) {
+bool QAbstractButton_SuperHasHeightForWidth(const QAbstractButton* self) {
     auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_HasHeightForWidth_IsBase(true);
@@ -855,7 +855,7 @@ QPaintEngine* QAbstractButton_PaintEngine(const QAbstractButton* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QAbstractButton_QBasePaintEngine(const QAbstractButton* self) {
+QPaintEngine* QAbstractButton_SuperPaintEngine(const QAbstractButton* self) {
     auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_PaintEngine_IsBase(true);
@@ -884,7 +884,7 @@ void QAbstractButton_MouseDoubleClickEvent(QAbstractButton* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseMouseDoubleClickEvent(QAbstractButton* self, QMouseEvent* event) {
+void QAbstractButton_SuperMouseDoubleClickEvent(QAbstractButton* self, QMouseEvent* event) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_MouseDoubleClickEvent_IsBase(true);
@@ -913,7 +913,7 @@ void QAbstractButton_WheelEvent(QAbstractButton* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseWheelEvent(QAbstractButton* self, QWheelEvent* event) {
+void QAbstractButton_SuperWheelEvent(QAbstractButton* self, QWheelEvent* event) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_WheelEvent_IsBase(true);
@@ -942,7 +942,7 @@ void QAbstractButton_EnterEvent(QAbstractButton* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseEnterEvent(QAbstractButton* self, QEnterEvent* event) {
+void QAbstractButton_SuperEnterEvent(QAbstractButton* self, QEnterEvent* event) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_EnterEvent_IsBase(true);
@@ -971,7 +971,7 @@ void QAbstractButton_LeaveEvent(QAbstractButton* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseLeaveEvent(QAbstractButton* self, QEvent* event) {
+void QAbstractButton_SuperLeaveEvent(QAbstractButton* self, QEvent* event) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_LeaveEvent_IsBase(true);
@@ -1000,7 +1000,7 @@ void QAbstractButton_MoveEvent(QAbstractButton* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseMoveEvent(QAbstractButton* self, QMoveEvent* event) {
+void QAbstractButton_SuperMoveEvent(QAbstractButton* self, QMoveEvent* event) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_MoveEvent_IsBase(true);
@@ -1029,7 +1029,7 @@ void QAbstractButton_ResizeEvent(QAbstractButton* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseResizeEvent(QAbstractButton* self, QResizeEvent* event) {
+void QAbstractButton_SuperResizeEvent(QAbstractButton* self, QResizeEvent* event) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_ResizeEvent_IsBase(true);
@@ -1058,7 +1058,7 @@ void QAbstractButton_CloseEvent(QAbstractButton* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseCloseEvent(QAbstractButton* self, QCloseEvent* event) {
+void QAbstractButton_SuperCloseEvent(QAbstractButton* self, QCloseEvent* event) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_CloseEvent_IsBase(true);
@@ -1087,7 +1087,7 @@ void QAbstractButton_ContextMenuEvent(QAbstractButton* self, QContextMenuEvent* 
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseContextMenuEvent(QAbstractButton* self, QContextMenuEvent* event) {
+void QAbstractButton_SuperContextMenuEvent(QAbstractButton* self, QContextMenuEvent* event) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_ContextMenuEvent_IsBase(true);
@@ -1116,7 +1116,7 @@ void QAbstractButton_TabletEvent(QAbstractButton* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseTabletEvent(QAbstractButton* self, QTabletEvent* event) {
+void QAbstractButton_SuperTabletEvent(QAbstractButton* self, QTabletEvent* event) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_TabletEvent_IsBase(true);
@@ -1145,7 +1145,7 @@ void QAbstractButton_ActionEvent(QAbstractButton* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseActionEvent(QAbstractButton* self, QActionEvent* event) {
+void QAbstractButton_SuperActionEvent(QAbstractButton* self, QActionEvent* event) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_ActionEvent_IsBase(true);
@@ -1174,7 +1174,7 @@ void QAbstractButton_DragEnterEvent(QAbstractButton* self, QDragEnterEvent* even
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseDragEnterEvent(QAbstractButton* self, QDragEnterEvent* event) {
+void QAbstractButton_SuperDragEnterEvent(QAbstractButton* self, QDragEnterEvent* event) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_DragEnterEvent_IsBase(true);
@@ -1203,7 +1203,7 @@ void QAbstractButton_DragMoveEvent(QAbstractButton* self, QDragMoveEvent* event)
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseDragMoveEvent(QAbstractButton* self, QDragMoveEvent* event) {
+void QAbstractButton_SuperDragMoveEvent(QAbstractButton* self, QDragMoveEvent* event) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_DragMoveEvent_IsBase(true);
@@ -1232,7 +1232,7 @@ void QAbstractButton_DragLeaveEvent(QAbstractButton* self, QDragLeaveEvent* even
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseDragLeaveEvent(QAbstractButton* self, QDragLeaveEvent* event) {
+void QAbstractButton_SuperDragLeaveEvent(QAbstractButton* self, QDragLeaveEvent* event) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_DragLeaveEvent_IsBase(true);
@@ -1261,7 +1261,7 @@ void QAbstractButton_DropEvent(QAbstractButton* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseDropEvent(QAbstractButton* self, QDropEvent* event) {
+void QAbstractButton_SuperDropEvent(QAbstractButton* self, QDropEvent* event) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_DropEvent_IsBase(true);
@@ -1290,7 +1290,7 @@ void QAbstractButton_ShowEvent(QAbstractButton* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseShowEvent(QAbstractButton* self, QShowEvent* event) {
+void QAbstractButton_SuperShowEvent(QAbstractButton* self, QShowEvent* event) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_ShowEvent_IsBase(true);
@@ -1319,7 +1319,7 @@ void QAbstractButton_HideEvent(QAbstractButton* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseHideEvent(QAbstractButton* self, QHideEvent* event) {
+void QAbstractButton_SuperHideEvent(QAbstractButton* self, QHideEvent* event) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_HideEvent_IsBase(true);
@@ -1349,7 +1349,7 @@ bool QAbstractButton_NativeEvent(QAbstractButton* self, const libqt_string event
 }
 
 // Base class handler implementation
-bool QAbstractButton_QBaseNativeEvent(QAbstractButton* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QAbstractButton_SuperNativeEvent(QAbstractButton* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
@@ -1379,7 +1379,7 @@ int QAbstractButton_Metric(const QAbstractButton* self, int param1) {
 }
 
 // Base class handler implementation
-int QAbstractButton_QBaseMetric(const QAbstractButton* self, int param1) {
+int QAbstractButton_SuperMetric(const QAbstractButton* self, int param1) {
     auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_Metric_IsBase(true);
@@ -1408,7 +1408,7 @@ void QAbstractButton_InitPainter(const QAbstractButton* self, QPainter* painter)
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseInitPainter(const QAbstractButton* self, QPainter* painter) {
+void QAbstractButton_SuperInitPainter(const QAbstractButton* self, QPainter* painter) {
     auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_InitPainter_IsBase(true);
@@ -1437,7 +1437,7 @@ QPaintDevice* QAbstractButton_Redirected(const QAbstractButton* self, QPoint* of
 }
 
 // Base class handler implementation
-QPaintDevice* QAbstractButton_QBaseRedirected(const QAbstractButton* self, QPoint* offset) {
+QPaintDevice* QAbstractButton_SuperRedirected(const QAbstractButton* self, QPoint* offset) {
     auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_Redirected_IsBase(true);
@@ -1466,7 +1466,7 @@ QPainter* QAbstractButton_SharedPainter(const QAbstractButton* self) {
 }
 
 // Base class handler implementation
-QPainter* QAbstractButton_QBaseSharedPainter(const QAbstractButton* self) {
+QPainter* QAbstractButton_SuperSharedPainter(const QAbstractButton* self) {
     auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_SharedPainter_IsBase(true);
@@ -1495,7 +1495,7 @@ void QAbstractButton_InputMethodEvent(QAbstractButton* self, QInputMethodEvent* 
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseInputMethodEvent(QAbstractButton* self, QInputMethodEvent* param1) {
+void QAbstractButton_SuperInputMethodEvent(QAbstractButton* self, QInputMethodEvent* param1) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_InputMethodEvent_IsBase(true);
@@ -1524,7 +1524,7 @@ QVariant* QAbstractButton_InputMethodQuery(const QAbstractButton* self, int para
 }
 
 // Base class handler implementation
-QVariant* QAbstractButton_QBaseInputMethodQuery(const QAbstractButton* self, int param1) {
+QVariant* QAbstractButton_SuperInputMethodQuery(const QAbstractButton* self, int param1) {
     auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_InputMethodQuery_IsBase(true);
@@ -1553,7 +1553,7 @@ bool QAbstractButton_FocusNextPrevChild(QAbstractButton* self, bool next) {
 }
 
 // Base class handler implementation
-bool QAbstractButton_QBaseFocusNextPrevChild(QAbstractButton* self, bool next) {
+bool QAbstractButton_SuperFocusNextPrevChild(QAbstractButton* self, bool next) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_FocusNextPrevChild_IsBase(true);
@@ -1582,7 +1582,7 @@ bool QAbstractButton_EventFilter(QAbstractButton* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool QAbstractButton_QBaseEventFilter(QAbstractButton* self, QObject* watched, QEvent* event) {
+bool QAbstractButton_SuperEventFilter(QAbstractButton* self, QObject* watched, QEvent* event) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_EventFilter_IsBase(true);
@@ -1611,7 +1611,7 @@ void QAbstractButton_ChildEvent(QAbstractButton* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseChildEvent(QAbstractButton* self, QChildEvent* event) {
+void QAbstractButton_SuperChildEvent(QAbstractButton* self, QChildEvent* event) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_ChildEvent_IsBase(true);
@@ -1640,7 +1640,7 @@ void QAbstractButton_CustomEvent(QAbstractButton* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseCustomEvent(QAbstractButton* self, QEvent* event) {
+void QAbstractButton_SuperCustomEvent(QAbstractButton* self, QEvent* event) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_CustomEvent_IsBase(true);
@@ -1669,7 +1669,7 @@ void QAbstractButton_ConnectNotify(QAbstractButton* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseConnectNotify(QAbstractButton* self, const QMetaMethod* signal) {
+void QAbstractButton_SuperConnectNotify(QAbstractButton* self, const QMetaMethod* signal) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_ConnectNotify_IsBase(true);
@@ -1698,7 +1698,7 @@ void QAbstractButton_DisconnectNotify(QAbstractButton* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseDisconnectNotify(QAbstractButton* self, const QMetaMethod* signal) {
+void QAbstractButton_SuperDisconnectNotify(QAbstractButton* self, const QMetaMethod* signal) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_DisconnectNotify_IsBase(true);
@@ -1727,7 +1727,7 @@ void QAbstractButton_UpdateMicroFocus(QAbstractButton* self) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseUpdateMicroFocus(QAbstractButton* self) {
+void QAbstractButton_SuperUpdateMicroFocus(QAbstractButton* self) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_UpdateMicroFocus_IsBase(true);
@@ -1756,7 +1756,7 @@ void QAbstractButton_Create(QAbstractButton* self) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseCreate(QAbstractButton* self) {
+void QAbstractButton_SuperCreate(QAbstractButton* self) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_Create_IsBase(true);
@@ -1785,7 +1785,7 @@ void QAbstractButton_Destroy(QAbstractButton* self) {
 }
 
 // Base class handler implementation
-void QAbstractButton_QBaseDestroy(QAbstractButton* self) {
+void QAbstractButton_SuperDestroy(QAbstractButton* self) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_Destroy_IsBase(true);
@@ -1814,7 +1814,7 @@ bool QAbstractButton_FocusNextChild(QAbstractButton* self) {
 }
 
 // Base class handler implementation
-bool QAbstractButton_QBaseFocusNextChild(QAbstractButton* self) {
+bool QAbstractButton_SuperFocusNextChild(QAbstractButton* self) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_FocusNextChild_IsBase(true);
@@ -1843,7 +1843,7 @@ bool QAbstractButton_FocusPreviousChild(QAbstractButton* self) {
 }
 
 // Base class handler implementation
-bool QAbstractButton_QBaseFocusPreviousChild(QAbstractButton* self) {
+bool QAbstractButton_SuperFocusPreviousChild(QAbstractButton* self) {
     auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_FocusPreviousChild_IsBase(true);
@@ -1872,7 +1872,7 @@ QObject* QAbstractButton_Sender(const QAbstractButton* self) {
 }
 
 // Base class handler implementation
-QObject* QAbstractButton_QBaseSender(const QAbstractButton* self) {
+QObject* QAbstractButton_SuperSender(const QAbstractButton* self) {
     auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_Sender_IsBase(true);
@@ -1901,7 +1901,7 @@ int QAbstractButton_SenderSignalIndex(const QAbstractButton* self) {
 }
 
 // Base class handler implementation
-int QAbstractButton_QBaseSenderSignalIndex(const QAbstractButton* self) {
+int QAbstractButton_SuperSenderSignalIndex(const QAbstractButton* self) {
     auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_SenderSignalIndex_IsBase(true);
@@ -1930,7 +1930,7 @@ int QAbstractButton_Receivers(const QAbstractButton* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QAbstractButton_QBaseReceivers(const QAbstractButton* self, const char* signal) {
+int QAbstractButton_SuperReceivers(const QAbstractButton* self, const char* signal) {
     auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_Receivers_IsBase(true);
@@ -1959,7 +1959,7 @@ bool QAbstractButton_IsSignalConnected(const QAbstractButton* self, const QMetaM
 }
 
 // Base class handler implementation
-bool QAbstractButton_QBaseIsSignalConnected(const QAbstractButton* self, const QMetaMethod* signal) {
+bool QAbstractButton_SuperIsSignalConnected(const QAbstractButton* self, const QMetaMethod* signal) {
     auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_IsSignalConnected_IsBase(true);
@@ -1988,7 +1988,7 @@ double QAbstractButton_GetDecodedMetricF(const QAbstractButton* self, int metric
 }
 
 // Base class handler implementation
-double QAbstractButton_QBaseGetDecodedMetricF(const QAbstractButton* self, int metricA, int metricB) {
+double QAbstractButton_SuperGetDecodedMetricF(const QAbstractButton* self, int metricA, int metricB) {
     auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->setQAbstractButton_GetDecodedMetricF_IsBase(true);

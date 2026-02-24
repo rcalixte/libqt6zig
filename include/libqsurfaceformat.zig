@@ -512,6 +512,10 @@ pub const qsurfaceformat = struct {
         qtc.QSurfaceFormat_SetOption2(@ptrCast(self), @bitCast(option), on);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#dtor.QSurfaceFormat)
     ///
     /// Delete this object from C++ memory.
@@ -520,7 +524,7 @@ pub const qsurfaceformat = struct {
     ///
     /// ` self: QtC.QSurfaceFormat `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSurfaceFormat_Delete(@ptrCast(self));
     }
 };

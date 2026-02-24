@@ -40,6 +40,10 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -48,8 +52,8 @@ pub const kcategorydrawer = struct {
     ///
     /// ` self: QtC.KCategoryDrawer `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KCategoryDrawer_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KCategoryDrawer_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -75,6 +79,10 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -83,9 +91,9 @@ pub const kcategorydrawer = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KCategoryDrawer_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KCategoryDrawer_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -114,6 +122,10 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -126,8 +138,8 @@ pub const kcategorydrawer = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KCategoryDrawer_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KCategoryDrawer_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -189,6 +201,10 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_OnDrawCategory(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDrawCategory` instead
+    ///
+    pub const QBaseDrawCategory = SuperDrawCategory;
+
     /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#drawCategory)
     ///
     /// Base class method implementation
@@ -205,8 +221,8 @@ pub const kcategorydrawer = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseDrawCategory(self: ?*anyopaque, index: ?*anyopaque, sortRole: i32, option: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.KCategoryDrawer_QBaseDrawCategory(@ptrCast(self), @ptrCast(index), @bitCast(sortRole), @ptrCast(option), @ptrCast(painter));
+    pub fn SuperDrawCategory(self: ?*anyopaque, index: ?*anyopaque, sortRole: i32, option: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.KCategoryDrawer_SuperDrawCategory(@ptrCast(self), @ptrCast(index), @bitCast(sortRole), @ptrCast(option), @ptrCast(painter));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#categoryHeight)
@@ -237,6 +253,10 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_OnCategoryHeight(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCategoryHeight` instead
+    ///
+    pub const QBaseCategoryHeight = SuperCategoryHeight;
+
     /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#categoryHeight)
     ///
     /// Base class method implementation
@@ -249,8 +269,8 @@ pub const kcategorydrawer = struct {
     ///
     /// ` option: QtC.QStyleOption `
     ///
-    pub fn QBaseCategoryHeight(self: ?*anyopaque, index: ?*anyopaque, option: ?*anyopaque) i32 {
-        return qtc.KCategoryDrawer_QBaseCategoryHeight(@ptrCast(self), @ptrCast(index), @ptrCast(option));
+    pub fn SuperCategoryHeight(self: ?*anyopaque, index: ?*anyopaque, option: ?*anyopaque) i32 {
+        return qtc.KCategoryDrawer_SuperCategoryHeight(@ptrCast(self), @ptrCast(index), @ptrCast(option));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#leftMargin)
@@ -277,6 +297,10 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_OnLeftMargin(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperLeftMargin` instead
+    ///
+    pub const QBaseLeftMargin = SuperLeftMargin;
+
     /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#leftMargin)
     ///
     /// Base class method implementation
@@ -285,8 +309,8 @@ pub const kcategorydrawer = struct {
     ///
     /// ` self: QtC.KCategoryDrawer `
     ///
-    pub fn QBaseLeftMargin(self: ?*anyopaque) i32 {
-        return qtc.KCategoryDrawer_QBaseLeftMargin(@ptrCast(self));
+    pub fn SuperLeftMargin(self: ?*anyopaque) i32 {
+        return qtc.KCategoryDrawer_SuperLeftMargin(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#rightMargin)
@@ -313,6 +337,10 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_OnRightMargin(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRightMargin` instead
+    ///
+    pub const QBaseRightMargin = SuperRightMargin;
+
     /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#rightMargin)
     ///
     /// Base class method implementation
@@ -321,8 +349,8 @@ pub const kcategorydrawer = struct {
     ///
     /// ` self: QtC.KCategoryDrawer `
     ///
-    pub fn QBaseRightMargin(self: ?*anyopaque) i32 {
-        return qtc.KCategoryDrawer_QBaseRightMargin(@ptrCast(self));
+    pub fn SuperRightMargin(self: ?*anyopaque) i32 {
+        return qtc.KCategoryDrawer_SuperRightMargin(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#collapseOrExpandClicked)
@@ -405,6 +433,10 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_OnMouseButtonPressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseButtonPressed` instead
+    ///
+    pub const QBaseMouseButtonPressed = SuperMouseButtonPressed;
+
     /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonPressed)
     ///
     /// Base class method implementation
@@ -419,8 +451,8 @@ pub const kcategorydrawer = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseButtonPressed(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KCategoryDrawer_QBaseMouseButtonPressed(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
+    pub fn SuperMouseButtonPressed(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KCategoryDrawer_SuperMouseButtonPressed(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonReleased)
@@ -453,6 +485,10 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_OnMouseButtonReleased(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseButtonReleased` instead
+    ///
+    pub const QBaseMouseButtonReleased = SuperMouseButtonReleased;
+
     /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonReleased)
     ///
     /// Base class method implementation
@@ -467,8 +503,8 @@ pub const kcategorydrawer = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseButtonReleased(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KCategoryDrawer_QBaseMouseButtonReleased(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
+    pub fn SuperMouseButtonReleased(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KCategoryDrawer_SuperMouseButtonReleased(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseMoved)
@@ -501,6 +537,10 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_OnMouseMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoved` instead
+    ///
+    pub const QBaseMouseMoved = SuperMouseMoved;
+
     /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseMoved)
     ///
     /// Base class method implementation
@@ -515,8 +555,8 @@ pub const kcategorydrawer = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseMoved(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KCategoryDrawer_QBaseMouseMoved(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
+    pub fn SuperMouseMoved(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KCategoryDrawer_SuperMouseMoved(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonDoubleClicked)
@@ -549,6 +589,10 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_OnMouseButtonDoubleClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseButtonDoubleClicked` instead
+    ///
+    pub const QBaseMouseButtonDoubleClicked = SuperMouseButtonDoubleClicked;
+
     /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseButtonDoubleClicked)
     ///
     /// Base class method implementation
@@ -563,8 +607,8 @@ pub const kcategorydrawer = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseButtonDoubleClicked(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KCategoryDrawer_QBaseMouseButtonDoubleClicked(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
+    pub fn SuperMouseButtonDoubleClicked(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KCategoryDrawer_SuperMouseButtonDoubleClicked(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseLeft)
@@ -595,6 +639,10 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_OnMouseLeft(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseLeft` instead
+    ///
+    pub const QBaseMouseLeft = SuperMouseLeft;
+
     /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#mouseLeft)
     ///
     /// Base class method implementation
@@ -607,8 +655,8 @@ pub const kcategorydrawer = struct {
     ///
     /// ` blockRect: QtC.QRect `
     ///
-    pub fn QBaseMouseLeft(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque) void {
-        qtc.KCategoryDrawer_QBaseMouseLeft(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect));
+    pub fn SuperMouseLeft(self: ?*anyopaque, index: ?*anyopaque, blockRect: ?*anyopaque) void {
+        qtc.KCategoryDrawer_SuperMouseLeft(@ptrCast(self), @ptrCast(index), @ptrCast(blockRect));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1407,6 +1455,10 @@ pub const kcategorydrawer = struct {
         return qtc.KCategoryDrawer_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1419,8 +1471,8 @@ pub const kcategorydrawer = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KCategoryDrawer_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KCategoryDrawer_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1457,6 +1509,10 @@ pub const kcategorydrawer = struct {
         return qtc.KCategoryDrawer_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1471,8 +1527,8 @@ pub const kcategorydrawer = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KCategoryDrawer_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KCategoryDrawer_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1507,6 +1563,10 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1519,8 +1579,8 @@ pub const kcategorydrawer = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KCategoryDrawer_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KCategoryDrawer_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1555,6 +1615,10 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1567,8 +1631,8 @@ pub const kcategorydrawer = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KCategoryDrawer_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KCategoryDrawer_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1603,6 +1667,10 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1615,8 +1683,8 @@ pub const kcategorydrawer = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KCategoryDrawer_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KCategoryDrawer_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1651,6 +1719,10 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1663,8 +1735,8 @@ pub const kcategorydrawer = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KCategoryDrawer_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KCategoryDrawer_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1699,6 +1771,10 @@ pub const kcategorydrawer = struct {
         qtc.KCategoryDrawer_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1711,8 +1787,8 @@ pub const kcategorydrawer = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KCategoryDrawer_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KCategoryDrawer_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1745,6 +1821,10 @@ pub const kcategorydrawer = struct {
         return qtc.KCategoryDrawer_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1755,8 +1835,8 @@ pub const kcategorydrawer = struct {
     ///
     /// ` self: QtC.KCategoryDrawer `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KCategoryDrawer_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KCategoryDrawer_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1789,6 +1869,10 @@ pub const kcategorydrawer = struct {
         return qtc.KCategoryDrawer_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1799,8 +1883,8 @@ pub const kcategorydrawer = struct {
     ///
     /// ` self: QtC.KCategoryDrawer `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KCategoryDrawer_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KCategoryDrawer_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1836,6 +1920,10 @@ pub const kcategorydrawer = struct {
         return qtc.KCategoryDrawer_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1848,9 +1936,9 @@ pub const kcategorydrawer = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KCategoryDrawer_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KCategoryDrawer_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1885,6 +1973,10 @@ pub const kcategorydrawer = struct {
         return qtc.KCategoryDrawer_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -1897,8 +1989,8 @@ pub const kcategorydrawer = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KCategoryDrawer_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KCategoryDrawer_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1932,6 +2024,9 @@ pub const kcategorydrawer = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kcategorydrawer.html#dtor.KCategoryDrawer)
     ///
@@ -1941,7 +2036,7 @@ pub const kcategorydrawer = struct {
     ///
     /// ` self: QtC.KCategoryDrawer `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KCategoryDrawer_Delete(@ptrCast(self));
     }
 };

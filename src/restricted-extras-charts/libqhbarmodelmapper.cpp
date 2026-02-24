@@ -165,7 +165,7 @@ void QHBarModelMapper_Connect_ColumnCountChanged(QHBarModelMapper* self, intptr_
 }
 
 // Base class handler implementation
-QMetaObject* QHBarModelMapper_QBaseMetaObject(const QHBarModelMapper* self) {
+QMetaObject* QHBarModelMapper_SuperMetaObject(const QHBarModelMapper* self) {
     auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_MetaObject_IsBase(true);
@@ -184,7 +184,7 @@ void QHBarModelMapper_OnMetaObject(const QHBarModelMapper* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* QHBarModelMapper_QBaseMetacast(QHBarModelMapper* self, const char* param1) {
+void* QHBarModelMapper_SuperMetacast(QHBarModelMapper* self, const char* param1) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_Metacast_IsBase(true);
@@ -203,7 +203,7 @@ void QHBarModelMapper_OnMetacast(QHBarModelMapper* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QHBarModelMapper_QBaseMetacall(QHBarModelMapper* self, int param1, int param2, void** param3) {
+int QHBarModelMapper_SuperMetacall(QHBarModelMapper* self, int param1, int param2, void** param3) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_Metacall_IsBase(true);
@@ -232,7 +232,7 @@ bool QHBarModelMapper_Event(QHBarModelMapper* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QHBarModelMapper_QBaseEvent(QHBarModelMapper* self, QEvent* event) {
+bool QHBarModelMapper_SuperEvent(QHBarModelMapper* self, QEvent* event) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_Event_IsBase(true);
@@ -261,7 +261,7 @@ bool QHBarModelMapper_EventFilter(QHBarModelMapper* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool QHBarModelMapper_QBaseEventFilter(QHBarModelMapper* self, QObject* watched, QEvent* event) {
+bool QHBarModelMapper_SuperEventFilter(QHBarModelMapper* self, QObject* watched, QEvent* event) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_EventFilter_IsBase(true);
@@ -290,7 +290,7 @@ void QHBarModelMapper_TimerEvent(QHBarModelMapper* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QHBarModelMapper_QBaseTimerEvent(QHBarModelMapper* self, QTimerEvent* event) {
+void QHBarModelMapper_SuperTimerEvent(QHBarModelMapper* self, QTimerEvent* event) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_TimerEvent_IsBase(true);
@@ -319,7 +319,7 @@ void QHBarModelMapper_ChildEvent(QHBarModelMapper* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QHBarModelMapper_QBaseChildEvent(QHBarModelMapper* self, QChildEvent* event) {
+void QHBarModelMapper_SuperChildEvent(QHBarModelMapper* self, QChildEvent* event) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_ChildEvent_IsBase(true);
@@ -348,7 +348,7 @@ void QHBarModelMapper_CustomEvent(QHBarModelMapper* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QHBarModelMapper_QBaseCustomEvent(QHBarModelMapper* self, QEvent* event) {
+void QHBarModelMapper_SuperCustomEvent(QHBarModelMapper* self, QEvent* event) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_CustomEvent_IsBase(true);
@@ -377,7 +377,7 @@ void QHBarModelMapper_ConnectNotify(QHBarModelMapper* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void QHBarModelMapper_QBaseConnectNotify(QHBarModelMapper* self, const QMetaMethod* signal) {
+void QHBarModelMapper_SuperConnectNotify(QHBarModelMapper* self, const QMetaMethod* signal) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_ConnectNotify_IsBase(true);
@@ -406,7 +406,7 @@ void QHBarModelMapper_DisconnectNotify(QHBarModelMapper* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void QHBarModelMapper_QBaseDisconnectNotify(QHBarModelMapper* self, const QMetaMethod* signal) {
+void QHBarModelMapper_SuperDisconnectNotify(QHBarModelMapper* self, const QMetaMethod* signal) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_DisconnectNotify_IsBase(true);
@@ -435,7 +435,7 @@ int QHBarModelMapper_First(const QHBarModelMapper* self) {
 }
 
 // Base class handler implementation
-int QHBarModelMapper_QBaseFirst(const QHBarModelMapper* self) {
+int QHBarModelMapper_SuperFirst(const QHBarModelMapper* self) {
     auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_First_IsBase(true);
@@ -464,7 +464,7 @@ void QHBarModelMapper_SetFirst(QHBarModelMapper* self, int first) {
 }
 
 // Base class handler implementation
-void QHBarModelMapper_QBaseSetFirst(QHBarModelMapper* self, int first) {
+void QHBarModelMapper_SuperSetFirst(QHBarModelMapper* self, int first) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_SetFirst_IsBase(true);
@@ -493,7 +493,7 @@ int QHBarModelMapper_Count(const QHBarModelMapper* self) {
 }
 
 // Base class handler implementation
-int QHBarModelMapper_QBaseCount(const QHBarModelMapper* self) {
+int QHBarModelMapper_SuperCount(const QHBarModelMapper* self) {
     auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_Count_IsBase(true);
@@ -522,7 +522,7 @@ void QHBarModelMapper_SetCount(QHBarModelMapper* self, int count) {
 }
 
 // Base class handler implementation
-void QHBarModelMapper_QBaseSetCount(QHBarModelMapper* self, int count) {
+void QHBarModelMapper_SuperSetCount(QHBarModelMapper* self, int count) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_SetCount_IsBase(true);
@@ -551,7 +551,7 @@ int QHBarModelMapper_FirstBarSetSection(const QHBarModelMapper* self) {
 }
 
 // Base class handler implementation
-int QHBarModelMapper_QBaseFirstBarSetSection(const QHBarModelMapper* self) {
+int QHBarModelMapper_SuperFirstBarSetSection(const QHBarModelMapper* self) {
     auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_FirstBarSetSection_IsBase(true);
@@ -580,7 +580,7 @@ void QHBarModelMapper_SetFirstBarSetSection(QHBarModelMapper* self, int firstBar
 }
 
 // Base class handler implementation
-void QHBarModelMapper_QBaseSetFirstBarSetSection(QHBarModelMapper* self, int firstBarSetSection) {
+void QHBarModelMapper_SuperSetFirstBarSetSection(QHBarModelMapper* self, int firstBarSetSection) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_SetFirstBarSetSection_IsBase(true);
@@ -609,7 +609,7 @@ int QHBarModelMapper_LastBarSetSection(const QHBarModelMapper* self) {
 }
 
 // Base class handler implementation
-int QHBarModelMapper_QBaseLastBarSetSection(const QHBarModelMapper* self) {
+int QHBarModelMapper_SuperLastBarSetSection(const QHBarModelMapper* self) {
     auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_LastBarSetSection_IsBase(true);
@@ -638,7 +638,7 @@ void QHBarModelMapper_SetLastBarSetSection(QHBarModelMapper* self, int lastBarSe
 }
 
 // Base class handler implementation
-void QHBarModelMapper_QBaseSetLastBarSetSection(QHBarModelMapper* self, int lastBarSetSection) {
+void QHBarModelMapper_SuperSetLastBarSetSection(QHBarModelMapper* self, int lastBarSetSection) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_SetLastBarSetSection_IsBase(true);
@@ -667,7 +667,7 @@ int QHBarModelMapper_Orientation(const QHBarModelMapper* self) {
 }
 
 // Base class handler implementation
-int QHBarModelMapper_QBaseOrientation(const QHBarModelMapper* self) {
+int QHBarModelMapper_SuperOrientation(const QHBarModelMapper* self) {
     auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_Orientation_IsBase(true);
@@ -696,7 +696,7 @@ void QHBarModelMapper_SetOrientation(QHBarModelMapper* self, int orientation) {
 }
 
 // Base class handler implementation
-void QHBarModelMapper_QBaseSetOrientation(QHBarModelMapper* self, int orientation) {
+void QHBarModelMapper_SuperSetOrientation(QHBarModelMapper* self, int orientation) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_SetOrientation_IsBase(true);
@@ -725,7 +725,7 @@ QObject* QHBarModelMapper_Sender(const QHBarModelMapper* self) {
 }
 
 // Base class handler implementation
-QObject* QHBarModelMapper_QBaseSender(const QHBarModelMapper* self) {
+QObject* QHBarModelMapper_SuperSender(const QHBarModelMapper* self) {
     auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_Sender_IsBase(true);
@@ -754,7 +754,7 @@ int QHBarModelMapper_SenderSignalIndex(const QHBarModelMapper* self) {
 }
 
 // Base class handler implementation
-int QHBarModelMapper_QBaseSenderSignalIndex(const QHBarModelMapper* self) {
+int QHBarModelMapper_SuperSenderSignalIndex(const QHBarModelMapper* self) {
     auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_SenderSignalIndex_IsBase(true);
@@ -783,7 +783,7 @@ int QHBarModelMapper_Receivers(const QHBarModelMapper* self, const char* signal)
 }
 
 // Base class handler implementation
-int QHBarModelMapper_QBaseReceivers(const QHBarModelMapper* self, const char* signal) {
+int QHBarModelMapper_SuperReceivers(const QHBarModelMapper* self, const char* signal) {
     auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_Receivers_IsBase(true);
@@ -812,7 +812,7 @@ bool QHBarModelMapper_IsSignalConnected(const QHBarModelMapper* self, const QMet
 }
 
 // Base class handler implementation
-bool QHBarModelMapper_QBaseIsSignalConnected(const QHBarModelMapper* self, const QMetaMethod* signal) {
+bool QHBarModelMapper_SuperIsSignalConnected(const QHBarModelMapper* self, const QMetaMethod* signal) {
     auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
     if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
         vqhbarmodelmapper->setQHBarModelMapper_IsSignalConnected_IsBase(true);

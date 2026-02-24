@@ -65,6 +65,10 @@ pub const qwebenginefullscreenrequest = struct {
         return qtc.QWebEngineFullScreenRequest_Origin(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefullscreenrequest.html#dtor.QWebEngineFullScreenRequest)
     ///
     /// Delete this object from C++ memory.
@@ -73,7 +77,7 @@ pub const qwebenginefullscreenrequest = struct {
     ///
     /// ` self: QtC.QWebEngineFullScreenRequest `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebEngineFullScreenRequest_Delete(@ptrCast(self));
     }
 };

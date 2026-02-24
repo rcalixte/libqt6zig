@@ -260,6 +260,10 @@ pub const qgeoareamonitorinfo = struct {
         qtc.QGeoAreaMonitorInfo_Detach(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorinfo.html#dtor.QGeoAreaMonitorInfo)
     ///
     /// Delete this object from C++ memory.
@@ -268,7 +272,7 @@ pub const qgeoareamonitorinfo = struct {
     ///
     /// ` self: QtC.QGeoAreaMonitorInfo `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGeoAreaMonitorInfo_Delete(@ptrCast(self));
     }
 };

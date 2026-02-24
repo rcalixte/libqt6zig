@@ -143,7 +143,7 @@ void KFileItemActions_AddActionsTo4(KFileItemActions* self, QMenu* menu, int sou
 }
 
 // Base class handler implementation
-QMetaObject* KFileItemActions_QBaseMetaObject(const KFileItemActions* self) {
+QMetaObject* KFileItemActions_SuperMetaObject(const KFileItemActions* self) {
     auto* vkfileitemactions = const_cast<VirtualKFileItemActions*>(dynamic_cast<const VirtualKFileItemActions*>(self));
     if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
         vkfileitemactions->setKFileItemActions_MetaObject_IsBase(true);
@@ -162,7 +162,7 @@ void KFileItemActions_OnMetaObject(const KFileItemActions* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* KFileItemActions_QBaseMetacast(KFileItemActions* self, const char* param1) {
+void* KFileItemActions_SuperMetacast(KFileItemActions* self, const char* param1) {
     auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
     if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
         vkfileitemactions->setKFileItemActions_Metacast_IsBase(true);
@@ -181,7 +181,7 @@ void KFileItemActions_OnMetacast(KFileItemActions* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KFileItemActions_QBaseMetacall(KFileItemActions* self, int param1, int param2, void** param3) {
+int KFileItemActions_SuperMetacall(KFileItemActions* self, int param1, int param2, void** param3) {
     auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
     if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
         vkfileitemactions->setKFileItemActions_Metacall_IsBase(true);
@@ -210,7 +210,7 @@ bool KFileItemActions_Event(KFileItemActions* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KFileItemActions_QBaseEvent(KFileItemActions* self, QEvent* event) {
+bool KFileItemActions_SuperEvent(KFileItemActions* self, QEvent* event) {
     auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
     if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
         vkfileitemactions->setKFileItemActions_Event_IsBase(true);
@@ -239,7 +239,7 @@ bool KFileItemActions_EventFilter(KFileItemActions* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool KFileItemActions_QBaseEventFilter(KFileItemActions* self, QObject* watched, QEvent* event) {
+bool KFileItemActions_SuperEventFilter(KFileItemActions* self, QObject* watched, QEvent* event) {
     auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
     if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
         vkfileitemactions->setKFileItemActions_EventFilter_IsBase(true);
@@ -268,7 +268,7 @@ void KFileItemActions_TimerEvent(KFileItemActions* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KFileItemActions_QBaseTimerEvent(KFileItemActions* self, QTimerEvent* event) {
+void KFileItemActions_SuperTimerEvent(KFileItemActions* self, QTimerEvent* event) {
     auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
     if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
         vkfileitemactions->setKFileItemActions_TimerEvent_IsBase(true);
@@ -297,7 +297,7 @@ void KFileItemActions_ChildEvent(KFileItemActions* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KFileItemActions_QBaseChildEvent(KFileItemActions* self, QChildEvent* event) {
+void KFileItemActions_SuperChildEvent(KFileItemActions* self, QChildEvent* event) {
     auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
     if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
         vkfileitemactions->setKFileItemActions_ChildEvent_IsBase(true);
@@ -326,7 +326,7 @@ void KFileItemActions_CustomEvent(KFileItemActions* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFileItemActions_QBaseCustomEvent(KFileItemActions* self, QEvent* event) {
+void KFileItemActions_SuperCustomEvent(KFileItemActions* self, QEvent* event) {
     auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
     if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
         vkfileitemactions->setKFileItemActions_CustomEvent_IsBase(true);
@@ -355,7 +355,7 @@ void KFileItemActions_ConnectNotify(KFileItemActions* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void KFileItemActions_QBaseConnectNotify(KFileItemActions* self, const QMetaMethod* signal) {
+void KFileItemActions_SuperConnectNotify(KFileItemActions* self, const QMetaMethod* signal) {
     auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
     if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
         vkfileitemactions->setKFileItemActions_ConnectNotify_IsBase(true);
@@ -384,7 +384,7 @@ void KFileItemActions_DisconnectNotify(KFileItemActions* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void KFileItemActions_QBaseDisconnectNotify(KFileItemActions* self, const QMetaMethod* signal) {
+void KFileItemActions_SuperDisconnectNotify(KFileItemActions* self, const QMetaMethod* signal) {
     auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
     if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
         vkfileitemactions->setKFileItemActions_DisconnectNotify_IsBase(true);
@@ -413,7 +413,7 @@ QObject* KFileItemActions_Sender(const KFileItemActions* self) {
 }
 
 // Base class handler implementation
-QObject* KFileItemActions_QBaseSender(const KFileItemActions* self) {
+QObject* KFileItemActions_SuperSender(const KFileItemActions* self) {
     auto* vkfileitemactions = const_cast<VirtualKFileItemActions*>(dynamic_cast<const VirtualKFileItemActions*>(self));
     if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
         vkfileitemactions->setKFileItemActions_Sender_IsBase(true);
@@ -442,7 +442,7 @@ int KFileItemActions_SenderSignalIndex(const KFileItemActions* self) {
 }
 
 // Base class handler implementation
-int KFileItemActions_QBaseSenderSignalIndex(const KFileItemActions* self) {
+int KFileItemActions_SuperSenderSignalIndex(const KFileItemActions* self) {
     auto* vkfileitemactions = const_cast<VirtualKFileItemActions*>(dynamic_cast<const VirtualKFileItemActions*>(self));
     if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
         vkfileitemactions->setKFileItemActions_SenderSignalIndex_IsBase(true);
@@ -471,7 +471,7 @@ int KFileItemActions_Receivers(const KFileItemActions* self, const char* signal)
 }
 
 // Base class handler implementation
-int KFileItemActions_QBaseReceivers(const KFileItemActions* self, const char* signal) {
+int KFileItemActions_SuperReceivers(const KFileItemActions* self, const char* signal) {
     auto* vkfileitemactions = const_cast<VirtualKFileItemActions*>(dynamic_cast<const VirtualKFileItemActions*>(self));
     if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
         vkfileitemactions->setKFileItemActions_Receivers_IsBase(true);
@@ -500,7 +500,7 @@ bool KFileItemActions_IsSignalConnected(const KFileItemActions* self, const QMet
 }
 
 // Base class handler implementation
-bool KFileItemActions_QBaseIsSignalConnected(const KFileItemActions* self, const QMetaMethod* signal) {
+bool KFileItemActions_SuperIsSignalConnected(const KFileItemActions* self, const QMetaMethod* signal) {
     auto* vkfileitemactions = const_cast<VirtualKFileItemActions*>(dynamic_cast<const VirtualKFileItemActions*>(self));
     if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
         vkfileitemactions->setKFileItemActions_IsSignalConnected_IsBase(true);

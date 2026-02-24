@@ -370,33 +370,33 @@ class VirtualQImage final : public QImage {
 
     // Friend functions
     friend int QImage_Metric(const QImage* self, int metric);
-    friend int QImage_QBaseMetric(const QImage* self, int metric);
+    friend int QImage_SuperMetric(const QImage* self, int metric);
     friend void QImage_InitPainter(const QImage* self, QPainter* painter);
-    friend void QImage_QBaseInitPainter(const QImage* self, QPainter* painter);
+    friend void QImage_SuperInitPainter(const QImage* self, QPainter* painter);
     friend QPaintDevice* QImage_Redirected(const QImage* self, QPoint* offset);
-    friend QPaintDevice* QImage_QBaseRedirected(const QImage* self, QPoint* offset);
+    friend QPaintDevice* QImage_SuperRedirected(const QImage* self, QPoint* offset);
     friend QPainter* QImage_SharedPainter(const QImage* self);
-    friend QPainter* QImage_QBaseSharedPainter(const QImage* self);
+    friend QPainter* QImage_SuperSharedPainter(const QImage* self);
     friend QImage* QImage_MirroredHelper(const QImage* self, bool horizontal, bool vertical);
-    friend QImage* QImage_QBaseMirroredHelper(const QImage* self, bool horizontal, bool vertical);
+    friend QImage* QImage_SuperMirroredHelper(const QImage* self, bool horizontal, bool vertical);
     friend QImage* QImage_RgbSwappedHelper(const QImage* self);
-    friend QImage* QImage_QBaseRgbSwappedHelper(const QImage* self);
+    friend QImage* QImage_SuperRgbSwappedHelper(const QImage* self);
     friend void QImage_MirroredInplace(QImage* self, bool horizontal, bool vertical);
-    friend void QImage_QBaseMirroredInplace(QImage* self, bool horizontal, bool vertical);
+    friend void QImage_SuperMirroredInplace(QImage* self, bool horizontal, bool vertical);
     friend void QImage_RgbSwappedInplace(QImage* self);
-    friend void QImage_QBaseRgbSwappedInplace(QImage* self);
+    friend void QImage_SuperRgbSwappedInplace(QImage* self);
     friend QImage* QImage_ConvertToFormatHelper(const QImage* self, int format, int flags);
-    friend QImage* QImage_QBaseConvertToFormatHelper(const QImage* self, int format, int flags);
+    friend QImage* QImage_SuperConvertToFormatHelper(const QImage* self, int format, int flags);
     friend bool QImage_ConvertToFormatInplace(QImage* self, int format, int flags);
-    friend bool QImage_QBaseConvertToFormatInplace(QImage* self, int format, int flags);
+    friend bool QImage_SuperConvertToFormatInplace(QImage* self, int format, int flags);
     friend QImage* QImage_SmoothScaled(const QImage* self, int w, int h);
-    friend QImage* QImage_QBaseSmoothScaled(const QImage* self, int w, int h);
+    friend QImage* QImage_SuperSmoothScaled(const QImage* self, int w, int h);
     friend void QImage_DetachMetadata(QImage* self);
-    friend void QImage_QBaseDetachMetadata(QImage* self);
+    friend void QImage_SuperDetachMetadata(QImage* self);
     friend void QImage_DetachMetadata1(QImage* self, bool invalidateCache);
-    friend void QImage_QBaseDetachMetadata1(QImage* self, bool invalidateCache);
+    friend void QImage_SuperDetachMetadata1(QImage* self, bool invalidateCache);
     friend double QImage_GetDecodedMetricF(const QImage* self, int metricA, int metricB);
-    friend double QImage_QBaseGetDecodedMetricF(const QImage* self, int metricA, int metricB);
+    friend double QImage_SuperGetDecodedMetricF(const QImage* self, int metricA, int metricB);
 };
 
 #endif

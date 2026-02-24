@@ -67,6 +67,10 @@ pub const qgeocodereply = struct {
         qtc.QGeoCodeReply_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -75,8 +79,8 @@ pub const qgeocodereply = struct {
     ///
     /// ` self: QtC.QGeoCodeReply `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QGeoCodeReply_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QGeoCodeReply_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -102,6 +106,10 @@ pub const qgeocodereply = struct {
         qtc.QGeoCodeReply_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -110,9 +118,9 @@ pub const qgeocodereply = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QGeoCodeReply_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QGeoCodeReply_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -141,6 +149,10 @@ pub const qgeocodereply = struct {
         qtc.QGeoCodeReply_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -153,8 +165,8 @@ pub const qgeocodereply = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGeoCodeReply_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QGeoCodeReply_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -285,6 +297,10 @@ pub const qgeocodereply = struct {
         qtc.QGeoCodeReply_OnAbort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAbort` instead
+    ///
+    pub const QBaseAbort = SuperAbort;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#abort)
     ///
     /// Base class method implementation
@@ -293,8 +309,8 @@ pub const qgeocodereply = struct {
     ///
     /// ` self: QtC.QGeoCodeReply `
     ///
-    pub fn QBaseAbort(self: ?*anyopaque) void {
-        qtc.QGeoCodeReply_QBaseAbort(@ptrCast(self));
+    pub fn SuperAbort(self: ?*anyopaque) void {
+        qtc.QGeoCodeReply_SuperAbort(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#finished)
@@ -397,6 +413,10 @@ pub const qgeocodereply = struct {
         qtc.QGeoCodeReply_OnSetError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetError` instead
+    ///
+    pub const QBaseSetError = SuperSetError;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setError)
     ///
     /// Base class method implementation
@@ -409,12 +429,12 @@ pub const qgeocodereply = struct {
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn QBaseSetError(self: ?*anyopaque, errorVal: i32, errorString: []const u8) void {
+    pub fn SuperSetError(self: ?*anyopaque, errorVal: i32, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QGeoCodeReply_QBaseSetError(@ptrCast(self), @bitCast(errorVal), errorString_str);
+        qtc.QGeoCodeReply_SuperSetError(@ptrCast(self), @bitCast(errorVal), errorString_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setFinished)
@@ -443,6 +463,10 @@ pub const qgeocodereply = struct {
         qtc.QGeoCodeReply_OnSetFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFinished` instead
+    ///
+    pub const QBaseSetFinished = SuperSetFinished;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setFinished)
     ///
     /// Base class method implementation
@@ -453,8 +477,8 @@ pub const qgeocodereply = struct {
     ///
     /// ` finished: bool `
     ///
-    pub fn QBaseSetFinished(self: ?*anyopaque, finished: bool) void {
-        qtc.QGeoCodeReply_QBaseSetFinished(@ptrCast(self), finished);
+    pub fn SuperSetFinished(self: ?*anyopaque, finished: bool) void {
+        qtc.QGeoCodeReply_SuperSetFinished(@ptrCast(self), finished);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setViewport)
@@ -483,6 +507,10 @@ pub const qgeocodereply = struct {
         qtc.QGeoCodeReply_OnSetViewport(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetViewport` instead
+    ///
+    pub const QBaseSetViewport = SuperSetViewport;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setViewport)
     ///
     /// Base class method implementation
@@ -493,8 +521,8 @@ pub const qgeocodereply = struct {
     ///
     /// ` viewport: QtC.QGeoShape `
     ///
-    pub fn QBaseSetViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
-        qtc.QGeoCodeReply_QBaseSetViewport(@ptrCast(self), @ptrCast(viewport));
+    pub fn SuperSetViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
+        qtc.QGeoCodeReply_SuperSetViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#addLocation)
@@ -523,6 +551,10 @@ pub const qgeocodereply = struct {
         qtc.QGeoCodeReply_OnAddLocation(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAddLocation` instead
+    ///
+    pub const QBaseAddLocation = SuperAddLocation;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#addLocation)
     ///
     /// Base class method implementation
@@ -533,8 +565,8 @@ pub const qgeocodereply = struct {
     ///
     /// ` location: QtC.QGeoLocation `
     ///
-    pub fn QBaseAddLocation(self: ?*anyopaque, location: ?*anyopaque) void {
-        qtc.QGeoCodeReply_QBaseAddLocation(@ptrCast(self), @ptrCast(location));
+    pub fn SuperAddLocation(self: ?*anyopaque, location: ?*anyopaque) void {
+        qtc.QGeoCodeReply_SuperAddLocation(@ptrCast(self), @ptrCast(location));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setLocations)
@@ -567,6 +599,10 @@ pub const qgeocodereply = struct {
         qtc.QGeoCodeReply_OnSetLocations(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetLocations` instead
+    ///
+    pub const QBaseSetLocations = SuperSetLocations;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setLocations)
     ///
     /// Base class method implementation
@@ -577,12 +613,12 @@ pub const qgeocodereply = struct {
     ///
     /// ` locations: []QtC.QGeoLocation `
     ///
-    pub fn QBaseSetLocations(self: ?*anyopaque, locations: []QtC.QGeoLocation) void {
+    pub fn SuperSetLocations(self: ?*anyopaque, locations: []QtC.QGeoLocation) void {
         const locations_list = qtc.libqt_list{
             .len = locations.len,
             .data = @ptrCast(locations.ptr),
         };
-        qtc.QGeoCodeReply_QBaseSetLocations(@ptrCast(self), locations_list);
+        qtc.QGeoCodeReply_SuperSetLocations(@ptrCast(self), locations_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setLimit)
@@ -611,6 +647,10 @@ pub const qgeocodereply = struct {
         qtc.QGeoCodeReply_OnSetLimit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetLimit` instead
+    ///
+    pub const QBaseSetLimit = SuperSetLimit;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setLimit)
     ///
     /// Base class method implementation
@@ -621,8 +661,8 @@ pub const qgeocodereply = struct {
     ///
     /// ` limit: i64 `
     ///
-    pub fn QBaseSetLimit(self: ?*anyopaque, limit: i64) void {
-        qtc.QGeoCodeReply_QBaseSetLimit(@ptrCast(self), @bitCast(limit));
+    pub fn SuperSetLimit(self: ?*anyopaque, limit: i64) void {
+        qtc.QGeoCodeReply_SuperSetLimit(@ptrCast(self), @bitCast(limit));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setOffset)
@@ -651,6 +691,10 @@ pub const qgeocodereply = struct {
         qtc.QGeoCodeReply_OnSetOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetOffset` instead
+    ///
+    pub const QBaseSetOffset = SuperSetOffset;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#setOffset)
     ///
     /// Base class method implementation
@@ -661,8 +705,8 @@ pub const qgeocodereply = struct {
     ///
     /// ` offset: i64 `
     ///
-    pub fn QBaseSetOffset(self: ?*anyopaque, offset: i64) void {
-        qtc.QGeoCodeReply_QBaseSetOffset(@ptrCast(self), @bitCast(offset));
+    pub fn SuperSetOffset(self: ?*anyopaque, offset: i64) void {
+        qtc.QGeoCodeReply_SuperSetOffset(@ptrCast(self), @bitCast(offset));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1491,6 +1535,10 @@ pub const qgeocodereply = struct {
         return qtc.QGeoCodeReply_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1503,8 +1551,8 @@ pub const qgeocodereply = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGeoCodeReply_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGeoCodeReply_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1541,6 +1589,10 @@ pub const qgeocodereply = struct {
         return qtc.QGeoCodeReply_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1555,8 +1607,8 @@ pub const qgeocodereply = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGeoCodeReply_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGeoCodeReply_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1591,6 +1643,10 @@ pub const qgeocodereply = struct {
         qtc.QGeoCodeReply_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1603,8 +1659,8 @@ pub const qgeocodereply = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGeoCodeReply_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGeoCodeReply_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1639,6 +1695,10 @@ pub const qgeocodereply = struct {
         qtc.QGeoCodeReply_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1651,8 +1711,8 @@ pub const qgeocodereply = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGeoCodeReply_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGeoCodeReply_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1687,6 +1747,10 @@ pub const qgeocodereply = struct {
         qtc.QGeoCodeReply_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1699,8 +1763,8 @@ pub const qgeocodereply = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGeoCodeReply_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGeoCodeReply_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1735,6 +1799,10 @@ pub const qgeocodereply = struct {
         qtc.QGeoCodeReply_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1747,8 +1815,8 @@ pub const qgeocodereply = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGeoCodeReply_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QGeoCodeReply_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1783,6 +1851,10 @@ pub const qgeocodereply = struct {
         qtc.QGeoCodeReply_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1795,8 +1867,8 @@ pub const qgeocodereply = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGeoCodeReply_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QGeoCodeReply_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1829,6 +1901,10 @@ pub const qgeocodereply = struct {
         return qtc.QGeoCodeReply_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1839,8 +1915,8 @@ pub const qgeocodereply = struct {
     ///
     /// ` self: QtC.QGeoCodeReply `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QGeoCodeReply_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QGeoCodeReply_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1873,6 +1949,10 @@ pub const qgeocodereply = struct {
         return qtc.QGeoCodeReply_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1883,8 +1963,8 @@ pub const qgeocodereply = struct {
     ///
     /// ` self: QtC.QGeoCodeReply `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QGeoCodeReply_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QGeoCodeReply_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1920,6 +2000,10 @@ pub const qgeocodereply = struct {
         return qtc.QGeoCodeReply_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1932,9 +2016,9 @@ pub const qgeocodereply = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QGeoCodeReply_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QGeoCodeReply_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1969,6 +2053,10 @@ pub const qgeocodereply = struct {
         return qtc.QGeoCodeReply_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -1981,8 +2069,8 @@ pub const qgeocodereply = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QGeoCodeReply_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QGeoCodeReply_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2016,6 +2104,9 @@ pub const qgeocodereply = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#dtor.QGeoCodeReply)
     ///
@@ -2025,7 +2116,7 @@ pub const qgeocodereply = struct {
     ///
     /// ` self: QtC.QGeoCodeReply `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGeoCodeReply_Delete(@ptrCast(self));
     }
 };

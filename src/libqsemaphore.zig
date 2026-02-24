@@ -133,6 +133,10 @@ pub const qsemaphore = struct {
         qtc.QSemaphore_Release1(@ptrCast(self), @bitCast(n));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsemaphore.html#dtor.QSemaphore)
     ///
     /// Delete this object from C++ memory.
@@ -141,7 +145,7 @@ pub const qsemaphore = struct {
     ///
     /// ` self: QtC.QSemaphore `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSemaphore_Delete(@ptrCast(self));
     }
 };
@@ -230,6 +234,10 @@ pub const qsemaphorereleaser = struct {
         return qtc.QSemaphoreReleaser_Cancel(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsemaphorereleaser.html#dtor.QSemaphoreReleaser)
     ///
     /// Delete this object from C++ memory.
@@ -238,7 +246,7 @@ pub const qsemaphorereleaser = struct {
     ///
     /// ` self: QtC.QSemaphoreReleaser `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSemaphoreReleaser_Delete(@ptrCast(self));
     }
 };

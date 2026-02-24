@@ -56,6 +56,10 @@ pub const qdesignerextrainfoextension = struct {
         qtc.QDesignerExtraInfoExtension_SetWorkingDirectory(@ptrCast(self), workingDirectory_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerextrainfoextension.html#dtor.QDesignerExtraInfoExtension)
     ///
     /// Delete this object from C++ memory.
@@ -64,7 +68,7 @@ pub const qdesignerextrainfoextension = struct {
     ///
     /// ` self: QtC.QDesignerExtraInfoExtension `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDesignerExtraInfoExtension_Delete(@ptrCast(self));
     }
 };

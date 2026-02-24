@@ -314,7 +314,7 @@ QSize* QAbstractScrollArea_ViewportSizeHint(const QAbstractScrollArea* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QAbstractScrollArea_QBaseMetaObject(const QAbstractScrollArea* self) {
+QMetaObject* QAbstractScrollArea_SuperMetaObject(const QAbstractScrollArea* self) {
     auto* vqabstractscrollarea = const_cast<VirtualQAbstractScrollArea*>(dynamic_cast<const VirtualQAbstractScrollArea*>(self));
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_MetaObject_IsBase(true);
@@ -333,7 +333,7 @@ void QAbstractScrollArea_OnMetaObject(const QAbstractScrollArea* self, intptr_t 
 }
 
 // Base class handler implementation
-void* QAbstractScrollArea_QBaseMetacast(QAbstractScrollArea* self, const char* param1) {
+void* QAbstractScrollArea_SuperMetacast(QAbstractScrollArea* self, const char* param1) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_Metacast_IsBase(true);
@@ -352,7 +352,7 @@ void QAbstractScrollArea_OnMetacast(QAbstractScrollArea* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAbstractScrollArea_QBaseMetacall(QAbstractScrollArea* self, int param1, int param2, void** param3) {
+int QAbstractScrollArea_SuperMetacall(QAbstractScrollArea* self, int param1, int param2, void** param3) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_Metacall_IsBase(true);
@@ -371,7 +371,7 @@ void QAbstractScrollArea_OnMetacall(QAbstractScrollArea* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QAbstractScrollArea_QBaseMinimumSizeHint(const QAbstractScrollArea* self) {
+QSize* QAbstractScrollArea_SuperMinimumSizeHint(const QAbstractScrollArea* self) {
     auto* vqabstractscrollarea = const_cast<VirtualQAbstractScrollArea*>(dynamic_cast<const VirtualQAbstractScrollArea*>(self));
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_MinimumSizeHint_IsBase(true);
@@ -390,7 +390,7 @@ void QAbstractScrollArea_OnMinimumSizeHint(const QAbstractScrollArea* self, intp
 }
 
 // Base class handler implementation
-QSize* QAbstractScrollArea_QBaseSizeHint(const QAbstractScrollArea* self) {
+QSize* QAbstractScrollArea_SuperSizeHint(const QAbstractScrollArea* self) {
     auto* vqabstractscrollarea = const_cast<VirtualQAbstractScrollArea*>(dynamic_cast<const VirtualQAbstractScrollArea*>(self));
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_SizeHint_IsBase(true);
@@ -409,7 +409,7 @@ void QAbstractScrollArea_OnSizeHint(const QAbstractScrollArea* self, intptr_t sl
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseSetupViewport(QAbstractScrollArea* self, QWidget* viewport) {
+void QAbstractScrollArea_SuperSetupViewport(QAbstractScrollArea* self, QWidget* viewport) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_SetupViewport_IsBase(true);
@@ -428,7 +428,7 @@ void QAbstractScrollArea_OnSetupViewport(QAbstractScrollArea* self, intptr_t slo
 }
 
 // Base class handler implementation
-bool QAbstractScrollArea_QBaseEventFilter(QAbstractScrollArea* self, QObject* param1, QEvent* param2) {
+bool QAbstractScrollArea_SuperEventFilter(QAbstractScrollArea* self, QObject* param1, QEvent* param2) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_EventFilter_IsBase(true);
@@ -447,7 +447,7 @@ void QAbstractScrollArea_OnEventFilter(QAbstractScrollArea* self, intptr_t slot)
 }
 
 // Base class handler implementation
-bool QAbstractScrollArea_QBaseEvent(QAbstractScrollArea* self, QEvent* param1) {
+bool QAbstractScrollArea_SuperEvent(QAbstractScrollArea* self, QEvent* param1) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_Event_IsBase(true);
@@ -466,7 +466,7 @@ void QAbstractScrollArea_OnEvent(QAbstractScrollArea* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QAbstractScrollArea_QBaseViewportEvent(QAbstractScrollArea* self, QEvent* param1) {
+bool QAbstractScrollArea_SuperViewportEvent(QAbstractScrollArea* self, QEvent* param1) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_ViewportEvent_IsBase(true);
@@ -485,7 +485,7 @@ void QAbstractScrollArea_OnViewportEvent(QAbstractScrollArea* self, intptr_t slo
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseResizeEvent(QAbstractScrollArea* self, QResizeEvent* param1) {
+void QAbstractScrollArea_SuperResizeEvent(QAbstractScrollArea* self, QResizeEvent* param1) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_ResizeEvent_IsBase(true);
@@ -504,7 +504,7 @@ void QAbstractScrollArea_OnResizeEvent(QAbstractScrollArea* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBasePaintEvent(QAbstractScrollArea* self, QPaintEvent* param1) {
+void QAbstractScrollArea_SuperPaintEvent(QAbstractScrollArea* self, QPaintEvent* param1) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_PaintEvent_IsBase(true);
@@ -523,7 +523,7 @@ void QAbstractScrollArea_OnPaintEvent(QAbstractScrollArea* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseMousePressEvent(QAbstractScrollArea* self, QMouseEvent* param1) {
+void QAbstractScrollArea_SuperMousePressEvent(QAbstractScrollArea* self, QMouseEvent* param1) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_MousePressEvent_IsBase(true);
@@ -542,7 +542,7 @@ void QAbstractScrollArea_OnMousePressEvent(QAbstractScrollArea* self, intptr_t s
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseMouseReleaseEvent(QAbstractScrollArea* self, QMouseEvent* param1) {
+void QAbstractScrollArea_SuperMouseReleaseEvent(QAbstractScrollArea* self, QMouseEvent* param1) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_MouseReleaseEvent_IsBase(true);
@@ -561,7 +561,7 @@ void QAbstractScrollArea_OnMouseReleaseEvent(QAbstractScrollArea* self, intptr_t
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseMouseDoubleClickEvent(QAbstractScrollArea* self, QMouseEvent* param1) {
+void QAbstractScrollArea_SuperMouseDoubleClickEvent(QAbstractScrollArea* self, QMouseEvent* param1) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_MouseDoubleClickEvent_IsBase(true);
@@ -580,7 +580,7 @@ void QAbstractScrollArea_OnMouseDoubleClickEvent(QAbstractScrollArea* self, intp
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseMouseMoveEvent(QAbstractScrollArea* self, QMouseEvent* param1) {
+void QAbstractScrollArea_SuperMouseMoveEvent(QAbstractScrollArea* self, QMouseEvent* param1) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_MouseMoveEvent_IsBase(true);
@@ -599,7 +599,7 @@ void QAbstractScrollArea_OnMouseMoveEvent(QAbstractScrollArea* self, intptr_t sl
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseWheelEvent(QAbstractScrollArea* self, QWheelEvent* param1) {
+void QAbstractScrollArea_SuperWheelEvent(QAbstractScrollArea* self, QWheelEvent* param1) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_WheelEvent_IsBase(true);
@@ -618,7 +618,7 @@ void QAbstractScrollArea_OnWheelEvent(QAbstractScrollArea* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseContextMenuEvent(QAbstractScrollArea* self, QContextMenuEvent* param1) {
+void QAbstractScrollArea_SuperContextMenuEvent(QAbstractScrollArea* self, QContextMenuEvent* param1) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_ContextMenuEvent_IsBase(true);
@@ -637,7 +637,7 @@ void QAbstractScrollArea_OnContextMenuEvent(QAbstractScrollArea* self, intptr_t 
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseDragEnterEvent(QAbstractScrollArea* self, QDragEnterEvent* param1) {
+void QAbstractScrollArea_SuperDragEnterEvent(QAbstractScrollArea* self, QDragEnterEvent* param1) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_DragEnterEvent_IsBase(true);
@@ -656,7 +656,7 @@ void QAbstractScrollArea_OnDragEnterEvent(QAbstractScrollArea* self, intptr_t sl
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseDragMoveEvent(QAbstractScrollArea* self, QDragMoveEvent* param1) {
+void QAbstractScrollArea_SuperDragMoveEvent(QAbstractScrollArea* self, QDragMoveEvent* param1) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_DragMoveEvent_IsBase(true);
@@ -675,7 +675,7 @@ void QAbstractScrollArea_OnDragMoveEvent(QAbstractScrollArea* self, intptr_t slo
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseDragLeaveEvent(QAbstractScrollArea* self, QDragLeaveEvent* param1) {
+void QAbstractScrollArea_SuperDragLeaveEvent(QAbstractScrollArea* self, QDragLeaveEvent* param1) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_DragLeaveEvent_IsBase(true);
@@ -694,7 +694,7 @@ void QAbstractScrollArea_OnDragLeaveEvent(QAbstractScrollArea* self, intptr_t sl
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseDropEvent(QAbstractScrollArea* self, QDropEvent* param1) {
+void QAbstractScrollArea_SuperDropEvent(QAbstractScrollArea* self, QDropEvent* param1) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_DropEvent_IsBase(true);
@@ -713,7 +713,7 @@ void QAbstractScrollArea_OnDropEvent(QAbstractScrollArea* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseKeyPressEvent(QAbstractScrollArea* self, QKeyEvent* param1) {
+void QAbstractScrollArea_SuperKeyPressEvent(QAbstractScrollArea* self, QKeyEvent* param1) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_KeyPressEvent_IsBase(true);
@@ -732,7 +732,7 @@ void QAbstractScrollArea_OnKeyPressEvent(QAbstractScrollArea* self, intptr_t slo
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseScrollContentsBy(QAbstractScrollArea* self, int dx, int dy) {
+void QAbstractScrollArea_SuperScrollContentsBy(QAbstractScrollArea* self, int dx, int dy) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_ScrollContentsBy_IsBase(true);
@@ -751,7 +751,7 @@ void QAbstractScrollArea_OnScrollContentsBy(QAbstractScrollArea* self, intptr_t 
 }
 
 // Base class handler implementation
-QSize* QAbstractScrollArea_QBaseViewportSizeHint(const QAbstractScrollArea* self) {
+QSize* QAbstractScrollArea_SuperViewportSizeHint(const QAbstractScrollArea* self) {
     auto* vqabstractscrollarea = const_cast<VirtualQAbstractScrollArea*>(dynamic_cast<const VirtualQAbstractScrollArea*>(self));
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_ViewportSizeHint_IsBase(true);
@@ -779,7 +779,7 @@ void QAbstractScrollArea_ChangeEvent(QAbstractScrollArea* self, QEvent* param1) 
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseChangeEvent(QAbstractScrollArea* self, QEvent* param1) {
+void QAbstractScrollArea_SuperChangeEvent(QAbstractScrollArea* self, QEvent* param1) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_ChangeEvent_IsBase(true);
@@ -808,7 +808,7 @@ void QAbstractScrollArea_InitStyleOption(const QAbstractScrollArea* self, QStyle
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseInitStyleOption(const QAbstractScrollArea* self, QStyleOptionFrame* option) {
+void QAbstractScrollArea_SuperInitStyleOption(const QAbstractScrollArea* self, QStyleOptionFrame* option) {
     auto* vqabstractscrollarea = const_cast<VirtualQAbstractScrollArea*>(dynamic_cast<const VirtualQAbstractScrollArea*>(self));
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_InitStyleOption_IsBase(true);
@@ -837,7 +837,7 @@ int QAbstractScrollArea_DevType(const QAbstractScrollArea* self) {
 }
 
 // Base class handler implementation
-int QAbstractScrollArea_QBaseDevType(const QAbstractScrollArea* self) {
+int QAbstractScrollArea_SuperDevType(const QAbstractScrollArea* self) {
     auto* vqabstractscrollarea = const_cast<VirtualQAbstractScrollArea*>(dynamic_cast<const VirtualQAbstractScrollArea*>(self));
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_DevType_IsBase(true);
@@ -866,7 +866,7 @@ void QAbstractScrollArea_SetVisible(QAbstractScrollArea* self, bool visible) {
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseSetVisible(QAbstractScrollArea* self, bool visible) {
+void QAbstractScrollArea_SuperSetVisible(QAbstractScrollArea* self, bool visible) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_SetVisible_IsBase(true);
@@ -895,7 +895,7 @@ int QAbstractScrollArea_HeightForWidth(const QAbstractScrollArea* self, int para
 }
 
 // Base class handler implementation
-int QAbstractScrollArea_QBaseHeightForWidth(const QAbstractScrollArea* self, int param1) {
+int QAbstractScrollArea_SuperHeightForWidth(const QAbstractScrollArea* self, int param1) {
     auto* vqabstractscrollarea = const_cast<VirtualQAbstractScrollArea*>(dynamic_cast<const VirtualQAbstractScrollArea*>(self));
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_HeightForWidth_IsBase(true);
@@ -924,7 +924,7 @@ bool QAbstractScrollArea_HasHeightForWidth(const QAbstractScrollArea* self) {
 }
 
 // Base class handler implementation
-bool QAbstractScrollArea_QBaseHasHeightForWidth(const QAbstractScrollArea* self) {
+bool QAbstractScrollArea_SuperHasHeightForWidth(const QAbstractScrollArea* self) {
     auto* vqabstractscrollarea = const_cast<VirtualQAbstractScrollArea*>(dynamic_cast<const VirtualQAbstractScrollArea*>(self));
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_HasHeightForWidth_IsBase(true);
@@ -953,7 +953,7 @@ QPaintEngine* QAbstractScrollArea_PaintEngine(const QAbstractScrollArea* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QAbstractScrollArea_QBasePaintEngine(const QAbstractScrollArea* self) {
+QPaintEngine* QAbstractScrollArea_SuperPaintEngine(const QAbstractScrollArea* self) {
     auto* vqabstractscrollarea = const_cast<VirtualQAbstractScrollArea*>(dynamic_cast<const VirtualQAbstractScrollArea*>(self));
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_PaintEngine_IsBase(true);
@@ -982,7 +982,7 @@ void QAbstractScrollArea_KeyReleaseEvent(QAbstractScrollArea* self, QKeyEvent* e
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseKeyReleaseEvent(QAbstractScrollArea* self, QKeyEvent* event) {
+void QAbstractScrollArea_SuperKeyReleaseEvent(QAbstractScrollArea* self, QKeyEvent* event) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_KeyReleaseEvent_IsBase(true);
@@ -1011,7 +1011,7 @@ void QAbstractScrollArea_FocusInEvent(QAbstractScrollArea* self, QFocusEvent* ev
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseFocusInEvent(QAbstractScrollArea* self, QFocusEvent* event) {
+void QAbstractScrollArea_SuperFocusInEvent(QAbstractScrollArea* self, QFocusEvent* event) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_FocusInEvent_IsBase(true);
@@ -1040,7 +1040,7 @@ void QAbstractScrollArea_FocusOutEvent(QAbstractScrollArea* self, QFocusEvent* e
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseFocusOutEvent(QAbstractScrollArea* self, QFocusEvent* event) {
+void QAbstractScrollArea_SuperFocusOutEvent(QAbstractScrollArea* self, QFocusEvent* event) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_FocusOutEvent_IsBase(true);
@@ -1069,7 +1069,7 @@ void QAbstractScrollArea_EnterEvent(QAbstractScrollArea* self, QEnterEvent* even
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseEnterEvent(QAbstractScrollArea* self, QEnterEvent* event) {
+void QAbstractScrollArea_SuperEnterEvent(QAbstractScrollArea* self, QEnterEvent* event) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_EnterEvent_IsBase(true);
@@ -1098,7 +1098,7 @@ void QAbstractScrollArea_LeaveEvent(QAbstractScrollArea* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseLeaveEvent(QAbstractScrollArea* self, QEvent* event) {
+void QAbstractScrollArea_SuperLeaveEvent(QAbstractScrollArea* self, QEvent* event) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_LeaveEvent_IsBase(true);
@@ -1127,7 +1127,7 @@ void QAbstractScrollArea_MoveEvent(QAbstractScrollArea* self, QMoveEvent* event)
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseMoveEvent(QAbstractScrollArea* self, QMoveEvent* event) {
+void QAbstractScrollArea_SuperMoveEvent(QAbstractScrollArea* self, QMoveEvent* event) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_MoveEvent_IsBase(true);
@@ -1156,7 +1156,7 @@ void QAbstractScrollArea_CloseEvent(QAbstractScrollArea* self, QCloseEvent* even
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseCloseEvent(QAbstractScrollArea* self, QCloseEvent* event) {
+void QAbstractScrollArea_SuperCloseEvent(QAbstractScrollArea* self, QCloseEvent* event) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_CloseEvent_IsBase(true);
@@ -1185,7 +1185,7 @@ void QAbstractScrollArea_TabletEvent(QAbstractScrollArea* self, QTabletEvent* ev
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseTabletEvent(QAbstractScrollArea* self, QTabletEvent* event) {
+void QAbstractScrollArea_SuperTabletEvent(QAbstractScrollArea* self, QTabletEvent* event) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_TabletEvent_IsBase(true);
@@ -1214,7 +1214,7 @@ void QAbstractScrollArea_ActionEvent(QAbstractScrollArea* self, QActionEvent* ev
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseActionEvent(QAbstractScrollArea* self, QActionEvent* event) {
+void QAbstractScrollArea_SuperActionEvent(QAbstractScrollArea* self, QActionEvent* event) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_ActionEvent_IsBase(true);
@@ -1243,7 +1243,7 @@ void QAbstractScrollArea_ShowEvent(QAbstractScrollArea* self, QShowEvent* event)
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseShowEvent(QAbstractScrollArea* self, QShowEvent* event) {
+void QAbstractScrollArea_SuperShowEvent(QAbstractScrollArea* self, QShowEvent* event) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_ShowEvent_IsBase(true);
@@ -1272,7 +1272,7 @@ void QAbstractScrollArea_HideEvent(QAbstractScrollArea* self, QHideEvent* event)
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseHideEvent(QAbstractScrollArea* self, QHideEvent* event) {
+void QAbstractScrollArea_SuperHideEvent(QAbstractScrollArea* self, QHideEvent* event) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_HideEvent_IsBase(true);
@@ -1302,7 +1302,7 @@ bool QAbstractScrollArea_NativeEvent(QAbstractScrollArea* self, const libqt_stri
 }
 
 // Base class handler implementation
-bool QAbstractScrollArea_QBaseNativeEvent(QAbstractScrollArea* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QAbstractScrollArea_SuperNativeEvent(QAbstractScrollArea* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
@@ -1332,7 +1332,7 @@ int QAbstractScrollArea_Metric(const QAbstractScrollArea* self, int param1) {
 }
 
 // Base class handler implementation
-int QAbstractScrollArea_QBaseMetric(const QAbstractScrollArea* self, int param1) {
+int QAbstractScrollArea_SuperMetric(const QAbstractScrollArea* self, int param1) {
     auto* vqabstractscrollarea = const_cast<VirtualQAbstractScrollArea*>(dynamic_cast<const VirtualQAbstractScrollArea*>(self));
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_Metric_IsBase(true);
@@ -1361,7 +1361,7 @@ void QAbstractScrollArea_InitPainter(const QAbstractScrollArea* self, QPainter* 
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseInitPainter(const QAbstractScrollArea* self, QPainter* painter) {
+void QAbstractScrollArea_SuperInitPainter(const QAbstractScrollArea* self, QPainter* painter) {
     auto* vqabstractscrollarea = const_cast<VirtualQAbstractScrollArea*>(dynamic_cast<const VirtualQAbstractScrollArea*>(self));
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_InitPainter_IsBase(true);
@@ -1390,7 +1390,7 @@ QPaintDevice* QAbstractScrollArea_Redirected(const QAbstractScrollArea* self, QP
 }
 
 // Base class handler implementation
-QPaintDevice* QAbstractScrollArea_QBaseRedirected(const QAbstractScrollArea* self, QPoint* offset) {
+QPaintDevice* QAbstractScrollArea_SuperRedirected(const QAbstractScrollArea* self, QPoint* offset) {
     auto* vqabstractscrollarea = const_cast<VirtualQAbstractScrollArea*>(dynamic_cast<const VirtualQAbstractScrollArea*>(self));
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_Redirected_IsBase(true);
@@ -1419,7 +1419,7 @@ QPainter* QAbstractScrollArea_SharedPainter(const QAbstractScrollArea* self) {
 }
 
 // Base class handler implementation
-QPainter* QAbstractScrollArea_QBaseSharedPainter(const QAbstractScrollArea* self) {
+QPainter* QAbstractScrollArea_SuperSharedPainter(const QAbstractScrollArea* self) {
     auto* vqabstractscrollarea = const_cast<VirtualQAbstractScrollArea*>(dynamic_cast<const VirtualQAbstractScrollArea*>(self));
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_SharedPainter_IsBase(true);
@@ -1448,7 +1448,7 @@ void QAbstractScrollArea_InputMethodEvent(QAbstractScrollArea* self, QInputMetho
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseInputMethodEvent(QAbstractScrollArea* self, QInputMethodEvent* param1) {
+void QAbstractScrollArea_SuperInputMethodEvent(QAbstractScrollArea* self, QInputMethodEvent* param1) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_InputMethodEvent_IsBase(true);
@@ -1477,7 +1477,7 @@ QVariant* QAbstractScrollArea_InputMethodQuery(const QAbstractScrollArea* self, 
 }
 
 // Base class handler implementation
-QVariant* QAbstractScrollArea_QBaseInputMethodQuery(const QAbstractScrollArea* self, int param1) {
+QVariant* QAbstractScrollArea_SuperInputMethodQuery(const QAbstractScrollArea* self, int param1) {
     auto* vqabstractscrollarea = const_cast<VirtualQAbstractScrollArea*>(dynamic_cast<const VirtualQAbstractScrollArea*>(self));
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_InputMethodQuery_IsBase(true);
@@ -1506,7 +1506,7 @@ bool QAbstractScrollArea_FocusNextPrevChild(QAbstractScrollArea* self, bool next
 }
 
 // Base class handler implementation
-bool QAbstractScrollArea_QBaseFocusNextPrevChild(QAbstractScrollArea* self, bool next) {
+bool QAbstractScrollArea_SuperFocusNextPrevChild(QAbstractScrollArea* self, bool next) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_FocusNextPrevChild_IsBase(true);
@@ -1535,7 +1535,7 @@ void QAbstractScrollArea_TimerEvent(QAbstractScrollArea* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseTimerEvent(QAbstractScrollArea* self, QTimerEvent* event) {
+void QAbstractScrollArea_SuperTimerEvent(QAbstractScrollArea* self, QTimerEvent* event) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_TimerEvent_IsBase(true);
@@ -1564,7 +1564,7 @@ void QAbstractScrollArea_ChildEvent(QAbstractScrollArea* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseChildEvent(QAbstractScrollArea* self, QChildEvent* event) {
+void QAbstractScrollArea_SuperChildEvent(QAbstractScrollArea* self, QChildEvent* event) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_ChildEvent_IsBase(true);
@@ -1593,7 +1593,7 @@ void QAbstractScrollArea_CustomEvent(QAbstractScrollArea* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseCustomEvent(QAbstractScrollArea* self, QEvent* event) {
+void QAbstractScrollArea_SuperCustomEvent(QAbstractScrollArea* self, QEvent* event) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_CustomEvent_IsBase(true);
@@ -1622,7 +1622,7 @@ void QAbstractScrollArea_ConnectNotify(QAbstractScrollArea* self, const QMetaMet
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseConnectNotify(QAbstractScrollArea* self, const QMetaMethod* signal) {
+void QAbstractScrollArea_SuperConnectNotify(QAbstractScrollArea* self, const QMetaMethod* signal) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_ConnectNotify_IsBase(true);
@@ -1651,7 +1651,7 @@ void QAbstractScrollArea_DisconnectNotify(QAbstractScrollArea* self, const QMeta
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseDisconnectNotify(QAbstractScrollArea* self, const QMetaMethod* signal) {
+void QAbstractScrollArea_SuperDisconnectNotify(QAbstractScrollArea* self, const QMetaMethod* signal) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_DisconnectNotify_IsBase(true);
@@ -1680,7 +1680,7 @@ void QAbstractScrollArea_SetViewportMargins(QAbstractScrollArea* self, int left,
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseSetViewportMargins(QAbstractScrollArea* self, int left, int top, int right, int bottom) {
+void QAbstractScrollArea_SuperSetViewportMargins(QAbstractScrollArea* self, int left, int top, int right, int bottom) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_SetViewportMargins_IsBase(true);
@@ -1709,7 +1709,7 @@ void QAbstractScrollArea_SetViewportMargins2(QAbstractScrollArea* self, const QM
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseSetViewportMargins2(QAbstractScrollArea* self, const QMargins* margins) {
+void QAbstractScrollArea_SuperSetViewportMargins2(QAbstractScrollArea* self, const QMargins* margins) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_SetViewportMargins2_IsBase(true);
@@ -1737,7 +1737,7 @@ QMargins* QAbstractScrollArea_ViewportMargins(const QAbstractScrollArea* self) {
 }
 
 // Base class handler implementation
-QMargins* QAbstractScrollArea_QBaseViewportMargins(const QAbstractScrollArea* self) {
+QMargins* QAbstractScrollArea_SuperViewportMargins(const QAbstractScrollArea* self) {
     auto* vqabstractscrollarea = const_cast<VirtualQAbstractScrollArea*>(dynamic_cast<const VirtualQAbstractScrollArea*>(self));
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_ViewportMargins_IsBase(true);
@@ -1765,7 +1765,7 @@ void QAbstractScrollArea_DrawFrame(QAbstractScrollArea* self, QPainter* param1) 
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseDrawFrame(QAbstractScrollArea* self, QPainter* param1) {
+void QAbstractScrollArea_SuperDrawFrame(QAbstractScrollArea* self, QPainter* param1) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_DrawFrame_IsBase(true);
@@ -1794,7 +1794,7 @@ void QAbstractScrollArea_UpdateMicroFocus(QAbstractScrollArea* self) {
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseUpdateMicroFocus(QAbstractScrollArea* self) {
+void QAbstractScrollArea_SuperUpdateMicroFocus(QAbstractScrollArea* self) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_UpdateMicroFocus_IsBase(true);
@@ -1823,7 +1823,7 @@ void QAbstractScrollArea_Create(QAbstractScrollArea* self) {
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseCreate(QAbstractScrollArea* self) {
+void QAbstractScrollArea_SuperCreate(QAbstractScrollArea* self) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_Create_IsBase(true);
@@ -1852,7 +1852,7 @@ void QAbstractScrollArea_Destroy(QAbstractScrollArea* self) {
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseDestroy(QAbstractScrollArea* self) {
+void QAbstractScrollArea_SuperDestroy(QAbstractScrollArea* self) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_Destroy_IsBase(true);
@@ -1881,7 +1881,7 @@ bool QAbstractScrollArea_FocusNextChild(QAbstractScrollArea* self) {
 }
 
 // Base class handler implementation
-bool QAbstractScrollArea_QBaseFocusNextChild(QAbstractScrollArea* self) {
+bool QAbstractScrollArea_SuperFocusNextChild(QAbstractScrollArea* self) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_FocusNextChild_IsBase(true);
@@ -1910,7 +1910,7 @@ bool QAbstractScrollArea_FocusPreviousChild(QAbstractScrollArea* self) {
 }
 
 // Base class handler implementation
-bool QAbstractScrollArea_QBaseFocusPreviousChild(QAbstractScrollArea* self) {
+bool QAbstractScrollArea_SuperFocusPreviousChild(QAbstractScrollArea* self) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_FocusPreviousChild_IsBase(true);
@@ -1939,7 +1939,7 @@ QObject* QAbstractScrollArea_Sender(const QAbstractScrollArea* self) {
 }
 
 // Base class handler implementation
-QObject* QAbstractScrollArea_QBaseSender(const QAbstractScrollArea* self) {
+QObject* QAbstractScrollArea_SuperSender(const QAbstractScrollArea* self) {
     auto* vqabstractscrollarea = const_cast<VirtualQAbstractScrollArea*>(dynamic_cast<const VirtualQAbstractScrollArea*>(self));
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_Sender_IsBase(true);
@@ -1968,7 +1968,7 @@ int QAbstractScrollArea_SenderSignalIndex(const QAbstractScrollArea* self) {
 }
 
 // Base class handler implementation
-int QAbstractScrollArea_QBaseSenderSignalIndex(const QAbstractScrollArea* self) {
+int QAbstractScrollArea_SuperSenderSignalIndex(const QAbstractScrollArea* self) {
     auto* vqabstractscrollarea = const_cast<VirtualQAbstractScrollArea*>(dynamic_cast<const VirtualQAbstractScrollArea*>(self));
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_SenderSignalIndex_IsBase(true);
@@ -1997,7 +1997,7 @@ int QAbstractScrollArea_Receivers(const QAbstractScrollArea* self, const char* s
 }
 
 // Base class handler implementation
-int QAbstractScrollArea_QBaseReceivers(const QAbstractScrollArea* self, const char* signal) {
+int QAbstractScrollArea_SuperReceivers(const QAbstractScrollArea* self, const char* signal) {
     auto* vqabstractscrollarea = const_cast<VirtualQAbstractScrollArea*>(dynamic_cast<const VirtualQAbstractScrollArea*>(self));
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_Receivers_IsBase(true);
@@ -2026,7 +2026,7 @@ bool QAbstractScrollArea_IsSignalConnected(const QAbstractScrollArea* self, cons
 }
 
 // Base class handler implementation
-bool QAbstractScrollArea_QBaseIsSignalConnected(const QAbstractScrollArea* self, const QMetaMethod* signal) {
+bool QAbstractScrollArea_SuperIsSignalConnected(const QAbstractScrollArea* self, const QMetaMethod* signal) {
     auto* vqabstractscrollarea = const_cast<VirtualQAbstractScrollArea*>(dynamic_cast<const VirtualQAbstractScrollArea*>(self));
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_IsSignalConnected_IsBase(true);
@@ -2055,7 +2055,7 @@ double QAbstractScrollArea_GetDecodedMetricF(const QAbstractScrollArea* self, in
 }
 
 // Base class handler implementation
-double QAbstractScrollArea_QBaseGetDecodedMetricF(const QAbstractScrollArea* self, int metricA, int metricB) {
+double QAbstractScrollArea_SuperGetDecodedMetricF(const QAbstractScrollArea* self, int metricA, int metricB) {
     auto* vqabstractscrollarea = const_cast<VirtualQAbstractScrollArea*>(dynamic_cast<const VirtualQAbstractScrollArea*>(self));
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setQAbstractScrollArea_GetDecodedMetricF_IsBase(true);

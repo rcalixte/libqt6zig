@@ -197,7 +197,7 @@ QIcon* QDesignerFormEditorInterface_CreateIcon(const libqt_string name) {
 }
 
 // Base class handler implementation
-QMetaObject* QDesignerFormEditorInterface_QBaseMetaObject(const QDesignerFormEditorInterface* self) {
+QMetaObject* QDesignerFormEditorInterface_SuperMetaObject(const QDesignerFormEditorInterface* self) {
     auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self));
     if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
         vqdesignerformeditorinterface->setQDesignerFormEditorInterface_MetaObject_IsBase(true);
@@ -216,7 +216,7 @@ void QDesignerFormEditorInterface_OnMetaObject(const QDesignerFormEditorInterfac
 }
 
 // Base class handler implementation
-void* QDesignerFormEditorInterface_QBaseMetacast(QDesignerFormEditorInterface* self, const char* param1) {
+void* QDesignerFormEditorInterface_SuperMetacast(QDesignerFormEditorInterface* self, const char* param1) {
     auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
     if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
         vqdesignerformeditorinterface->setQDesignerFormEditorInterface_Metacast_IsBase(true);
@@ -235,7 +235,7 @@ void QDesignerFormEditorInterface_OnMetacast(QDesignerFormEditorInterface* self,
 }
 
 // Base class handler implementation
-int QDesignerFormEditorInterface_QBaseMetacall(QDesignerFormEditorInterface* self, int param1, int param2, void** param3) {
+int QDesignerFormEditorInterface_SuperMetacall(QDesignerFormEditorInterface* self, int param1, int param2, void** param3) {
     auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
     if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
         vqdesignerformeditorinterface->setQDesignerFormEditorInterface_Metacall_IsBase(true);
@@ -264,7 +264,7 @@ bool QDesignerFormEditorInterface_Event(QDesignerFormEditorInterface* self, QEve
 }
 
 // Base class handler implementation
-bool QDesignerFormEditorInterface_QBaseEvent(QDesignerFormEditorInterface* self, QEvent* event) {
+bool QDesignerFormEditorInterface_SuperEvent(QDesignerFormEditorInterface* self, QEvent* event) {
     auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
     if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
         vqdesignerformeditorinterface->setQDesignerFormEditorInterface_Event_IsBase(true);
@@ -293,7 +293,7 @@ bool QDesignerFormEditorInterface_EventFilter(QDesignerFormEditorInterface* self
 }
 
 // Base class handler implementation
-bool QDesignerFormEditorInterface_QBaseEventFilter(QDesignerFormEditorInterface* self, QObject* watched, QEvent* event) {
+bool QDesignerFormEditorInterface_SuperEventFilter(QDesignerFormEditorInterface* self, QObject* watched, QEvent* event) {
     auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
     if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
         vqdesignerformeditorinterface->setQDesignerFormEditorInterface_EventFilter_IsBase(true);
@@ -322,7 +322,7 @@ void QDesignerFormEditorInterface_TimerEvent(QDesignerFormEditorInterface* self,
 }
 
 // Base class handler implementation
-void QDesignerFormEditorInterface_QBaseTimerEvent(QDesignerFormEditorInterface* self, QTimerEvent* event) {
+void QDesignerFormEditorInterface_SuperTimerEvent(QDesignerFormEditorInterface* self, QTimerEvent* event) {
     auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
     if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
         vqdesignerformeditorinterface->setQDesignerFormEditorInterface_TimerEvent_IsBase(true);
@@ -351,7 +351,7 @@ void QDesignerFormEditorInterface_ChildEvent(QDesignerFormEditorInterface* self,
 }
 
 // Base class handler implementation
-void QDesignerFormEditorInterface_QBaseChildEvent(QDesignerFormEditorInterface* self, QChildEvent* event) {
+void QDesignerFormEditorInterface_SuperChildEvent(QDesignerFormEditorInterface* self, QChildEvent* event) {
     auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
     if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
         vqdesignerformeditorinterface->setQDesignerFormEditorInterface_ChildEvent_IsBase(true);
@@ -380,7 +380,7 @@ void QDesignerFormEditorInterface_CustomEvent(QDesignerFormEditorInterface* self
 }
 
 // Base class handler implementation
-void QDesignerFormEditorInterface_QBaseCustomEvent(QDesignerFormEditorInterface* self, QEvent* event) {
+void QDesignerFormEditorInterface_SuperCustomEvent(QDesignerFormEditorInterface* self, QEvent* event) {
     auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
     if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
         vqdesignerformeditorinterface->setQDesignerFormEditorInterface_CustomEvent_IsBase(true);
@@ -409,7 +409,7 @@ void QDesignerFormEditorInterface_ConnectNotify(QDesignerFormEditorInterface* se
 }
 
 // Base class handler implementation
-void QDesignerFormEditorInterface_QBaseConnectNotify(QDesignerFormEditorInterface* self, const QMetaMethod* signal) {
+void QDesignerFormEditorInterface_SuperConnectNotify(QDesignerFormEditorInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
     if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
         vqdesignerformeditorinterface->setQDesignerFormEditorInterface_ConnectNotify_IsBase(true);
@@ -438,7 +438,7 @@ void QDesignerFormEditorInterface_DisconnectNotify(QDesignerFormEditorInterface*
 }
 
 // Base class handler implementation
-void QDesignerFormEditorInterface_QBaseDisconnectNotify(QDesignerFormEditorInterface* self, const QMetaMethod* signal) {
+void QDesignerFormEditorInterface_SuperDisconnectNotify(QDesignerFormEditorInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
     if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
         vqdesignerformeditorinterface->setQDesignerFormEditorInterface_DisconnectNotify_IsBase(true);
@@ -467,7 +467,7 @@ void QDesignerFormEditorInterface_SetFormManager(QDesignerFormEditorInterface* s
 }
 
 // Base class handler implementation
-void QDesignerFormEditorInterface_QBaseSetFormManager(QDesignerFormEditorInterface* self, QDesignerFormWindowManagerInterface* formWindowManager) {
+void QDesignerFormEditorInterface_SuperSetFormManager(QDesignerFormEditorInterface* self, QDesignerFormWindowManagerInterface* formWindowManager) {
     auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
     if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
         vqdesignerformeditorinterface->setQDesignerFormEditorInterface_SetFormManager_IsBase(true);
@@ -496,7 +496,7 @@ void QDesignerFormEditorInterface_SetMetaDataBase(QDesignerFormEditorInterface* 
 }
 
 // Base class handler implementation
-void QDesignerFormEditorInterface_QBaseSetMetaDataBase(QDesignerFormEditorInterface* self, QDesignerMetaDataBaseInterface* metaDataBase) {
+void QDesignerFormEditorInterface_SuperSetMetaDataBase(QDesignerFormEditorInterface* self, QDesignerMetaDataBaseInterface* metaDataBase) {
     auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
     if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
         vqdesignerformeditorinterface->setQDesignerFormEditorInterface_SetMetaDataBase_IsBase(true);
@@ -525,7 +525,7 @@ void QDesignerFormEditorInterface_SetWidgetDataBase(QDesignerFormEditorInterface
 }
 
 // Base class handler implementation
-void QDesignerFormEditorInterface_QBaseSetWidgetDataBase(QDesignerFormEditorInterface* self, QDesignerWidgetDataBaseInterface* widgetDataBase) {
+void QDesignerFormEditorInterface_SuperSetWidgetDataBase(QDesignerFormEditorInterface* self, QDesignerWidgetDataBaseInterface* widgetDataBase) {
     auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
     if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
         vqdesignerformeditorinterface->setQDesignerFormEditorInterface_SetWidgetDataBase_IsBase(true);
@@ -554,7 +554,7 @@ void QDesignerFormEditorInterface_SetPromotion(QDesignerFormEditorInterface* sel
 }
 
 // Base class handler implementation
-void QDesignerFormEditorInterface_QBaseSetPromotion(QDesignerFormEditorInterface* self, QDesignerPromotionInterface* promotion) {
+void QDesignerFormEditorInterface_SuperSetPromotion(QDesignerFormEditorInterface* self, QDesignerPromotionInterface* promotion) {
     auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
     if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
         vqdesignerformeditorinterface->setQDesignerFormEditorInterface_SetPromotion_IsBase(true);
@@ -583,7 +583,7 @@ void QDesignerFormEditorInterface_SetWidgetFactory(QDesignerFormEditorInterface*
 }
 
 // Base class handler implementation
-void QDesignerFormEditorInterface_QBaseSetWidgetFactory(QDesignerFormEditorInterface* self, QDesignerWidgetFactoryInterface* widgetFactory) {
+void QDesignerFormEditorInterface_SuperSetWidgetFactory(QDesignerFormEditorInterface* self, QDesignerWidgetFactoryInterface* widgetFactory) {
     auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
     if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
         vqdesignerformeditorinterface->setQDesignerFormEditorInterface_SetWidgetFactory_IsBase(true);
@@ -612,7 +612,7 @@ void QDesignerFormEditorInterface_SetExtensionManager(QDesignerFormEditorInterfa
 }
 
 // Base class handler implementation
-void QDesignerFormEditorInterface_QBaseSetExtensionManager(QDesignerFormEditorInterface* self, QExtensionManager* extensionManager) {
+void QDesignerFormEditorInterface_SuperSetExtensionManager(QDesignerFormEditorInterface* self, QExtensionManager* extensionManager) {
     auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
     if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
         vqdesignerformeditorinterface->setQDesignerFormEditorInterface_SetExtensionManager_IsBase(true);
@@ -641,7 +641,7 @@ QObject* QDesignerFormEditorInterface_Sender(const QDesignerFormEditorInterface*
 }
 
 // Base class handler implementation
-QObject* QDesignerFormEditorInterface_QBaseSender(const QDesignerFormEditorInterface* self) {
+QObject* QDesignerFormEditorInterface_SuperSender(const QDesignerFormEditorInterface* self) {
     auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self));
     if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
         vqdesignerformeditorinterface->setQDesignerFormEditorInterface_Sender_IsBase(true);
@@ -670,7 +670,7 @@ int QDesignerFormEditorInterface_SenderSignalIndex(const QDesignerFormEditorInte
 }
 
 // Base class handler implementation
-int QDesignerFormEditorInterface_QBaseSenderSignalIndex(const QDesignerFormEditorInterface* self) {
+int QDesignerFormEditorInterface_SuperSenderSignalIndex(const QDesignerFormEditorInterface* self) {
     auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self));
     if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
         vqdesignerformeditorinterface->setQDesignerFormEditorInterface_SenderSignalIndex_IsBase(true);
@@ -699,7 +699,7 @@ int QDesignerFormEditorInterface_Receivers(const QDesignerFormEditorInterface* s
 }
 
 // Base class handler implementation
-int QDesignerFormEditorInterface_QBaseReceivers(const QDesignerFormEditorInterface* self, const char* signal) {
+int QDesignerFormEditorInterface_SuperReceivers(const QDesignerFormEditorInterface* self, const char* signal) {
     auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self));
     if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
         vqdesignerformeditorinterface->setQDesignerFormEditorInterface_Receivers_IsBase(true);
@@ -728,7 +728,7 @@ bool QDesignerFormEditorInterface_IsSignalConnected(const QDesignerFormEditorInt
 }
 
 // Base class handler implementation
-bool QDesignerFormEditorInterface_QBaseIsSignalConnected(const QDesignerFormEditorInterface* self, const QMetaMethod* signal) {
+bool QDesignerFormEditorInterface_SuperIsSignalConnected(const QDesignerFormEditorInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self));
     if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
         vqdesignerformeditorinterface->setQDesignerFormEditorInterface_IsSignalConnected_IsBase(true);

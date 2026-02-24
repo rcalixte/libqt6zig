@@ -179,6 +179,10 @@ pub const qpageranges = struct {
         qtc.QPageRanges_Detach(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpageranges.html#dtor.QPageRanges)
     ///
     /// Delete this object from C++ memory.
@@ -187,7 +191,7 @@ pub const qpageranges = struct {
     ///
     /// ` self: QtC.QPageRanges `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPageRanges_Delete(@ptrCast(self));
     }
 };
@@ -310,13 +314,17 @@ pub const qpageranges__range = struct {
         return qtc.QPageRanges__Range_Contains(@ptrCast(self), @bitCast(pageNumber));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QPageRanges__Range `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPageRanges__Range_Delete(@ptrCast(self));
     }
 };

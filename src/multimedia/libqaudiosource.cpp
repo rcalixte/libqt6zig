@@ -147,7 +147,7 @@ void QAudioSource_Connect_StateChanged(QAudioSource* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QAudioSource_QBaseMetaObject(const QAudioSource* self) {
+QMetaObject* QAudioSource_SuperMetaObject(const QAudioSource* self) {
     auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self));
     if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_MetaObject_IsBase(true);
@@ -166,7 +166,7 @@ void QAudioSource_OnMetaObject(const QAudioSource* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QAudioSource_QBaseMetacast(QAudioSource* self, const char* param1) {
+void* QAudioSource_SuperMetacast(QAudioSource* self, const char* param1) {
     auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
     if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_Metacast_IsBase(true);
@@ -185,7 +185,7 @@ void QAudioSource_OnMetacast(QAudioSource* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAudioSource_QBaseMetacall(QAudioSource* self, int param1, int param2, void** param3) {
+int QAudioSource_SuperMetacall(QAudioSource* self, int param1, int param2, void** param3) {
     auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
     if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_Metacall_IsBase(true);
@@ -214,7 +214,7 @@ bool QAudioSource_Event(QAudioSource* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QAudioSource_QBaseEvent(QAudioSource* self, QEvent* event) {
+bool QAudioSource_SuperEvent(QAudioSource* self, QEvent* event) {
     auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
     if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_Event_IsBase(true);
@@ -243,7 +243,7 @@ bool QAudioSource_EventFilter(QAudioSource* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool QAudioSource_QBaseEventFilter(QAudioSource* self, QObject* watched, QEvent* event) {
+bool QAudioSource_SuperEventFilter(QAudioSource* self, QObject* watched, QEvent* event) {
     auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
     if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_EventFilter_IsBase(true);
@@ -272,7 +272,7 @@ void QAudioSource_TimerEvent(QAudioSource* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QAudioSource_QBaseTimerEvent(QAudioSource* self, QTimerEvent* event) {
+void QAudioSource_SuperTimerEvent(QAudioSource* self, QTimerEvent* event) {
     auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
     if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_TimerEvent_IsBase(true);
@@ -301,7 +301,7 @@ void QAudioSource_ChildEvent(QAudioSource* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QAudioSource_QBaseChildEvent(QAudioSource* self, QChildEvent* event) {
+void QAudioSource_SuperChildEvent(QAudioSource* self, QChildEvent* event) {
     auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
     if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_ChildEvent_IsBase(true);
@@ -330,7 +330,7 @@ void QAudioSource_CustomEvent(QAudioSource* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QAudioSource_QBaseCustomEvent(QAudioSource* self, QEvent* event) {
+void QAudioSource_SuperCustomEvent(QAudioSource* self, QEvent* event) {
     auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
     if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_CustomEvent_IsBase(true);
@@ -359,7 +359,7 @@ void QAudioSource_ConnectNotify(QAudioSource* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QAudioSource_QBaseConnectNotify(QAudioSource* self, const QMetaMethod* signal) {
+void QAudioSource_SuperConnectNotify(QAudioSource* self, const QMetaMethod* signal) {
     auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
     if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_ConnectNotify_IsBase(true);
@@ -388,7 +388,7 @@ void QAudioSource_DisconnectNotify(QAudioSource* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QAudioSource_QBaseDisconnectNotify(QAudioSource* self, const QMetaMethod* signal) {
+void QAudioSource_SuperDisconnectNotify(QAudioSource* self, const QMetaMethod* signal) {
     auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
     if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_DisconnectNotify_IsBase(true);
@@ -417,7 +417,7 @@ QObject* QAudioSource_Sender(const QAudioSource* self) {
 }
 
 // Base class handler implementation
-QObject* QAudioSource_QBaseSender(const QAudioSource* self) {
+QObject* QAudioSource_SuperSender(const QAudioSource* self) {
     auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self));
     if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_Sender_IsBase(true);
@@ -446,7 +446,7 @@ int QAudioSource_SenderSignalIndex(const QAudioSource* self) {
 }
 
 // Base class handler implementation
-int QAudioSource_QBaseSenderSignalIndex(const QAudioSource* self) {
+int QAudioSource_SuperSenderSignalIndex(const QAudioSource* self) {
     auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self));
     if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_SenderSignalIndex_IsBase(true);
@@ -475,7 +475,7 @@ int QAudioSource_Receivers(const QAudioSource* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QAudioSource_QBaseReceivers(const QAudioSource* self, const char* signal) {
+int QAudioSource_SuperReceivers(const QAudioSource* self, const char* signal) {
     auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self));
     if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_Receivers_IsBase(true);
@@ -504,7 +504,7 @@ bool QAudioSource_IsSignalConnected(const QAudioSource* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QAudioSource_QBaseIsSignalConnected(const QAudioSource* self, const QMetaMethod* signal) {
+bool QAudioSource_SuperIsSignalConnected(const QAudioSource* self, const QMetaMethod* signal) {
     auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self));
     if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
         vqaudiosource->setQAudioSource_IsSignalConnected_IsBase(true);

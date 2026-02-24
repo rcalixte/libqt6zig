@@ -213,13 +213,17 @@ pub const qstringconverterbase__state = struct {
         qtc.QStringConverterBase__State_SetInvalidChars(@ptrCast(self), @bitCast(invalidChars));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QStringConverterBase__State `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStringConverterBase__State_Delete(@ptrCast(self));
     }
 };

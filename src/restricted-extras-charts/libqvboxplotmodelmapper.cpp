@@ -165,7 +165,7 @@ void QVBoxPlotModelMapper_Connect_RowCountChanged(QVBoxPlotModelMapper* self, in
 }
 
 // Base class handler implementation
-QMetaObject* QVBoxPlotModelMapper_QBaseMetaObject(const QVBoxPlotModelMapper* self) {
+QMetaObject* QVBoxPlotModelMapper_SuperMetaObject(const QVBoxPlotModelMapper* self) {
     auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_MetaObject_IsBase(true);
@@ -184,7 +184,7 @@ void QVBoxPlotModelMapper_OnMetaObject(const QVBoxPlotModelMapper* self, intptr_
 }
 
 // Base class handler implementation
-void* QVBoxPlotModelMapper_QBaseMetacast(QVBoxPlotModelMapper* self, const char* param1) {
+void* QVBoxPlotModelMapper_SuperMetacast(QVBoxPlotModelMapper* self, const char* param1) {
     auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Metacast_IsBase(true);
@@ -203,7 +203,7 @@ void QVBoxPlotModelMapper_OnMetacast(QVBoxPlotModelMapper* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int QVBoxPlotModelMapper_QBaseMetacall(QVBoxPlotModelMapper* self, int param1, int param2, void** param3) {
+int QVBoxPlotModelMapper_SuperMetacall(QVBoxPlotModelMapper* self, int param1, int param2, void** param3) {
     auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Metacall_IsBase(true);
@@ -232,7 +232,7 @@ bool QVBoxPlotModelMapper_Event(QVBoxPlotModelMapper* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QVBoxPlotModelMapper_QBaseEvent(QVBoxPlotModelMapper* self, QEvent* event) {
+bool QVBoxPlotModelMapper_SuperEvent(QVBoxPlotModelMapper* self, QEvent* event) {
     auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Event_IsBase(true);
@@ -261,7 +261,7 @@ bool QVBoxPlotModelMapper_EventFilter(QVBoxPlotModelMapper* self, QObject* watch
 }
 
 // Base class handler implementation
-bool QVBoxPlotModelMapper_QBaseEventFilter(QVBoxPlotModelMapper* self, QObject* watched, QEvent* event) {
+bool QVBoxPlotModelMapper_SuperEventFilter(QVBoxPlotModelMapper* self, QObject* watched, QEvent* event) {
     auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_EventFilter_IsBase(true);
@@ -290,7 +290,7 @@ void QVBoxPlotModelMapper_TimerEvent(QVBoxPlotModelMapper* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void QVBoxPlotModelMapper_QBaseTimerEvent(QVBoxPlotModelMapper* self, QTimerEvent* event) {
+void QVBoxPlotModelMapper_SuperTimerEvent(QVBoxPlotModelMapper* self, QTimerEvent* event) {
     auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_TimerEvent_IsBase(true);
@@ -319,7 +319,7 @@ void QVBoxPlotModelMapper_ChildEvent(QVBoxPlotModelMapper* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void QVBoxPlotModelMapper_QBaseChildEvent(QVBoxPlotModelMapper* self, QChildEvent* event) {
+void QVBoxPlotModelMapper_SuperChildEvent(QVBoxPlotModelMapper* self, QChildEvent* event) {
     auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_ChildEvent_IsBase(true);
@@ -348,7 +348,7 @@ void QVBoxPlotModelMapper_CustomEvent(QVBoxPlotModelMapper* self, QEvent* event)
 }
 
 // Base class handler implementation
-void QVBoxPlotModelMapper_QBaseCustomEvent(QVBoxPlotModelMapper* self, QEvent* event) {
+void QVBoxPlotModelMapper_SuperCustomEvent(QVBoxPlotModelMapper* self, QEvent* event) {
     auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_CustomEvent_IsBase(true);
@@ -377,7 +377,7 @@ void QVBoxPlotModelMapper_ConnectNotify(QVBoxPlotModelMapper* self, const QMetaM
 }
 
 // Base class handler implementation
-void QVBoxPlotModelMapper_QBaseConnectNotify(QVBoxPlotModelMapper* self, const QMetaMethod* signal) {
+void QVBoxPlotModelMapper_SuperConnectNotify(QVBoxPlotModelMapper* self, const QMetaMethod* signal) {
     auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_ConnectNotify_IsBase(true);
@@ -406,7 +406,7 @@ void QVBoxPlotModelMapper_DisconnectNotify(QVBoxPlotModelMapper* self, const QMe
 }
 
 // Base class handler implementation
-void QVBoxPlotModelMapper_QBaseDisconnectNotify(QVBoxPlotModelMapper* self, const QMetaMethod* signal) {
+void QVBoxPlotModelMapper_SuperDisconnectNotify(QVBoxPlotModelMapper* self, const QMetaMethod* signal) {
     auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_DisconnectNotify_IsBase(true);
@@ -435,7 +435,7 @@ int QVBoxPlotModelMapper_First(const QVBoxPlotModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVBoxPlotModelMapper_QBaseFirst(const QVBoxPlotModelMapper* self) {
+int QVBoxPlotModelMapper_SuperFirst(const QVBoxPlotModelMapper* self) {
     auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_First_IsBase(true);
@@ -464,7 +464,7 @@ void QVBoxPlotModelMapper_SetFirst(QVBoxPlotModelMapper* self, int first) {
 }
 
 // Base class handler implementation
-void QVBoxPlotModelMapper_QBaseSetFirst(QVBoxPlotModelMapper* self, int first) {
+void QVBoxPlotModelMapper_SuperSetFirst(QVBoxPlotModelMapper* self, int first) {
     auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_SetFirst_IsBase(true);
@@ -493,7 +493,7 @@ int QVBoxPlotModelMapper_Count(const QVBoxPlotModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVBoxPlotModelMapper_QBaseCount(const QVBoxPlotModelMapper* self) {
+int QVBoxPlotModelMapper_SuperCount(const QVBoxPlotModelMapper* self) {
     auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Count_IsBase(true);
@@ -522,7 +522,7 @@ void QVBoxPlotModelMapper_SetCount(QVBoxPlotModelMapper* self, int count) {
 }
 
 // Base class handler implementation
-void QVBoxPlotModelMapper_QBaseSetCount(QVBoxPlotModelMapper* self, int count) {
+void QVBoxPlotModelMapper_SuperSetCount(QVBoxPlotModelMapper* self, int count) {
     auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_SetCount_IsBase(true);
@@ -551,7 +551,7 @@ int QVBoxPlotModelMapper_FirstBoxSetSection(const QVBoxPlotModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVBoxPlotModelMapper_QBaseFirstBoxSetSection(const QVBoxPlotModelMapper* self) {
+int QVBoxPlotModelMapper_SuperFirstBoxSetSection(const QVBoxPlotModelMapper* self) {
     auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_FirstBoxSetSection_IsBase(true);
@@ -580,7 +580,7 @@ void QVBoxPlotModelMapper_SetFirstBoxSetSection(QVBoxPlotModelMapper* self, int 
 }
 
 // Base class handler implementation
-void QVBoxPlotModelMapper_QBaseSetFirstBoxSetSection(QVBoxPlotModelMapper* self, int firstBoxSetSection) {
+void QVBoxPlotModelMapper_SuperSetFirstBoxSetSection(QVBoxPlotModelMapper* self, int firstBoxSetSection) {
     auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_SetFirstBoxSetSection_IsBase(true);
@@ -609,7 +609,7 @@ int QVBoxPlotModelMapper_LastBoxSetSection(const QVBoxPlotModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVBoxPlotModelMapper_QBaseLastBoxSetSection(const QVBoxPlotModelMapper* self) {
+int QVBoxPlotModelMapper_SuperLastBoxSetSection(const QVBoxPlotModelMapper* self) {
     auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_LastBoxSetSection_IsBase(true);
@@ -638,7 +638,7 @@ void QVBoxPlotModelMapper_SetLastBoxSetSection(QVBoxPlotModelMapper* self, int l
 }
 
 // Base class handler implementation
-void QVBoxPlotModelMapper_QBaseSetLastBoxSetSection(QVBoxPlotModelMapper* self, int lastBoxSetSection) {
+void QVBoxPlotModelMapper_SuperSetLastBoxSetSection(QVBoxPlotModelMapper* self, int lastBoxSetSection) {
     auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_SetLastBoxSetSection_IsBase(true);
@@ -667,7 +667,7 @@ int QVBoxPlotModelMapper_Orientation(const QVBoxPlotModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVBoxPlotModelMapper_QBaseOrientation(const QVBoxPlotModelMapper* self) {
+int QVBoxPlotModelMapper_SuperOrientation(const QVBoxPlotModelMapper* self) {
     auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Orientation_IsBase(true);
@@ -696,7 +696,7 @@ void QVBoxPlotModelMapper_SetOrientation(QVBoxPlotModelMapper* self, int orienta
 }
 
 // Base class handler implementation
-void QVBoxPlotModelMapper_QBaseSetOrientation(QVBoxPlotModelMapper* self, int orientation) {
+void QVBoxPlotModelMapper_SuperSetOrientation(QVBoxPlotModelMapper* self, int orientation) {
     auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_SetOrientation_IsBase(true);
@@ -725,7 +725,7 @@ QObject* QVBoxPlotModelMapper_Sender(const QVBoxPlotModelMapper* self) {
 }
 
 // Base class handler implementation
-QObject* QVBoxPlotModelMapper_QBaseSender(const QVBoxPlotModelMapper* self) {
+QObject* QVBoxPlotModelMapper_SuperSender(const QVBoxPlotModelMapper* self) {
     auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Sender_IsBase(true);
@@ -754,7 +754,7 @@ int QVBoxPlotModelMapper_SenderSignalIndex(const QVBoxPlotModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVBoxPlotModelMapper_QBaseSenderSignalIndex(const QVBoxPlotModelMapper* self) {
+int QVBoxPlotModelMapper_SuperSenderSignalIndex(const QVBoxPlotModelMapper* self) {
     auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_SenderSignalIndex_IsBase(true);
@@ -783,7 +783,7 @@ int QVBoxPlotModelMapper_Receivers(const QVBoxPlotModelMapper* self, const char*
 }
 
 // Base class handler implementation
-int QVBoxPlotModelMapper_QBaseReceivers(const QVBoxPlotModelMapper* self, const char* signal) {
+int QVBoxPlotModelMapper_SuperReceivers(const QVBoxPlotModelMapper* self, const char* signal) {
     auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Receivers_IsBase(true);
@@ -812,7 +812,7 @@ bool QVBoxPlotModelMapper_IsSignalConnected(const QVBoxPlotModelMapper* self, co
 }
 
 // Base class handler implementation
-bool QVBoxPlotModelMapper_QBaseIsSignalConnected(const QVBoxPlotModelMapper* self, const QMetaMethod* signal) {
+bool QVBoxPlotModelMapper_SuperIsSignalConnected(const QVBoxPlotModelMapper* self, const QMetaMethod* signal) {
     auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
     if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
         vqvboxplotmodelmapper->setQVBoxPlotModelMapper_IsSignalConnected_IsBase(true);

@@ -170,6 +170,10 @@ pub const kshareddatacache = struct {
         qtc.KSharedDataCache_SetTimestamp(@ptrCast(self), @bitCast(newTimestamp));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kshareddatacache.html#dtor.KSharedDataCache)
     ///
     /// Delete this object from C++ memory.
@@ -178,7 +182,7 @@ pub const kshareddatacache = struct {
     ///
     /// ` self: QtC.KSharedDataCache `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KSharedDataCache_Delete(@ptrCast(self));
     }
 };

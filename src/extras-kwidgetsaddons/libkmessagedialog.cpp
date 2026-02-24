@@ -173,7 +173,7 @@ void KMessageDialog_Beep3(int typeVal, const libqt_string text, QWidget* dialog)
 }
 
 // Base class handler implementation
-QMetaObject* KMessageDialog_QBaseMetaObject(const KMessageDialog* self) {
+QMetaObject* KMessageDialog_SuperMetaObject(const KMessageDialog* self) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_MetaObject_IsBase(true);
@@ -192,7 +192,7 @@ void KMessageDialog_OnMetaObject(const KMessageDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KMessageDialog_QBaseMetacast(KMessageDialog* self, const char* param1) {
+void* KMessageDialog_SuperMetacast(KMessageDialog* self, const char* param1) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_Metacast_IsBase(true);
@@ -211,7 +211,7 @@ void KMessageDialog_OnMetacast(KMessageDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KMessageDialog_QBaseMetacall(KMessageDialog* self, int param1, int param2, void** param3) {
+int KMessageDialog_SuperMetacall(KMessageDialog* self, int param1, int param2, void** param3) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_Metacall_IsBase(true);
@@ -230,7 +230,7 @@ void KMessageDialog_OnMetacall(KMessageDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseShowEvent(KMessageDialog* self, QShowEvent* event) {
+void KMessageDialog_SuperShowEvent(KMessageDialog* self, QShowEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_ShowEvent_IsBase(true);
@@ -259,7 +259,7 @@ void KMessageDialog_SetVisible(KMessageDialog* self, bool visible) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseSetVisible(KMessageDialog* self, bool visible) {
+void KMessageDialog_SuperSetVisible(KMessageDialog* self, bool visible) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_SetVisible_IsBase(true);
@@ -288,7 +288,7 @@ QSize* KMessageDialog_SizeHint(const KMessageDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KMessageDialog_QBaseSizeHint(const KMessageDialog* self) {
+QSize* KMessageDialog_SuperSizeHint(const KMessageDialog* self) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_SizeHint_IsBase(true);
@@ -317,7 +317,7 @@ QSize* KMessageDialog_MinimumSizeHint(const KMessageDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KMessageDialog_QBaseMinimumSizeHint(const KMessageDialog* self) {
+QSize* KMessageDialog_SuperMinimumSizeHint(const KMessageDialog* self) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_MinimumSizeHint_IsBase(true);
@@ -346,7 +346,7 @@ void KMessageDialog_Open(KMessageDialog* self) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseOpen(KMessageDialog* self) {
+void KMessageDialog_SuperOpen(KMessageDialog* self) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_Open_IsBase(true);
@@ -375,7 +375,7 @@ int KMessageDialog_Exec(KMessageDialog* self) {
 }
 
 // Base class handler implementation
-int KMessageDialog_QBaseExec(KMessageDialog* self) {
+int KMessageDialog_SuperExec(KMessageDialog* self) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_Exec_IsBase(true);
@@ -404,7 +404,7 @@ void KMessageDialog_Done(KMessageDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseDone(KMessageDialog* self, int param1) {
+void KMessageDialog_SuperDone(KMessageDialog* self, int param1) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_Done_IsBase(true);
@@ -433,7 +433,7 @@ void KMessageDialog_Accept(KMessageDialog* self) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseAccept(KMessageDialog* self) {
+void KMessageDialog_SuperAccept(KMessageDialog* self) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_Accept_IsBase(true);
@@ -462,7 +462,7 @@ void KMessageDialog_Reject(KMessageDialog* self) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseReject(KMessageDialog* self) {
+void KMessageDialog_SuperReject(KMessageDialog* self) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_Reject_IsBase(true);
@@ -491,7 +491,7 @@ void KMessageDialog_KeyPressEvent(KMessageDialog* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseKeyPressEvent(KMessageDialog* self, QKeyEvent* param1) {
+void KMessageDialog_SuperKeyPressEvent(KMessageDialog* self, QKeyEvent* param1) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_KeyPressEvent_IsBase(true);
@@ -520,7 +520,7 @@ void KMessageDialog_CloseEvent(KMessageDialog* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseCloseEvent(KMessageDialog* self, QCloseEvent* param1) {
+void KMessageDialog_SuperCloseEvent(KMessageDialog* self, QCloseEvent* param1) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_CloseEvent_IsBase(true);
@@ -549,7 +549,7 @@ void KMessageDialog_ResizeEvent(KMessageDialog* self, QResizeEvent* param1) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseResizeEvent(KMessageDialog* self, QResizeEvent* param1) {
+void KMessageDialog_SuperResizeEvent(KMessageDialog* self, QResizeEvent* param1) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_ResizeEvent_IsBase(true);
@@ -578,7 +578,7 @@ void KMessageDialog_ContextMenuEvent(KMessageDialog* self, QContextMenuEvent* pa
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseContextMenuEvent(KMessageDialog* self, QContextMenuEvent* param1) {
+void KMessageDialog_SuperContextMenuEvent(KMessageDialog* self, QContextMenuEvent* param1) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_ContextMenuEvent_IsBase(true);
@@ -607,7 +607,7 @@ bool KMessageDialog_EventFilter(KMessageDialog* self, QObject* param1, QEvent* p
 }
 
 // Base class handler implementation
-bool KMessageDialog_QBaseEventFilter(KMessageDialog* self, QObject* param1, QEvent* param2) {
+bool KMessageDialog_SuperEventFilter(KMessageDialog* self, QObject* param1, QEvent* param2) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_EventFilter_IsBase(true);
@@ -636,7 +636,7 @@ int KMessageDialog_DevType(const KMessageDialog* self) {
 }
 
 // Base class handler implementation
-int KMessageDialog_QBaseDevType(const KMessageDialog* self) {
+int KMessageDialog_SuperDevType(const KMessageDialog* self) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_DevType_IsBase(true);
@@ -665,7 +665,7 @@ int KMessageDialog_HeightForWidth(const KMessageDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KMessageDialog_QBaseHeightForWidth(const KMessageDialog* self, int param1) {
+int KMessageDialog_SuperHeightForWidth(const KMessageDialog* self, int param1) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_HeightForWidth_IsBase(true);
@@ -694,7 +694,7 @@ bool KMessageDialog_HasHeightForWidth(const KMessageDialog* self) {
 }
 
 // Base class handler implementation
-bool KMessageDialog_QBaseHasHeightForWidth(const KMessageDialog* self) {
+bool KMessageDialog_SuperHasHeightForWidth(const KMessageDialog* self) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_HasHeightForWidth_IsBase(true);
@@ -723,7 +723,7 @@ QPaintEngine* KMessageDialog_PaintEngine(const KMessageDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KMessageDialog_QBasePaintEngine(const KMessageDialog* self) {
+QPaintEngine* KMessageDialog_SuperPaintEngine(const KMessageDialog* self) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_PaintEngine_IsBase(true);
@@ -752,7 +752,7 @@ bool KMessageDialog_Event(KMessageDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KMessageDialog_QBaseEvent(KMessageDialog* self, QEvent* event) {
+bool KMessageDialog_SuperEvent(KMessageDialog* self, QEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_Event_IsBase(true);
@@ -781,7 +781,7 @@ void KMessageDialog_MousePressEvent(KMessageDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseMousePressEvent(KMessageDialog* self, QMouseEvent* event) {
+void KMessageDialog_SuperMousePressEvent(KMessageDialog* self, QMouseEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_MousePressEvent_IsBase(true);
@@ -810,7 +810,7 @@ void KMessageDialog_MouseReleaseEvent(KMessageDialog* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseMouseReleaseEvent(KMessageDialog* self, QMouseEvent* event) {
+void KMessageDialog_SuperMouseReleaseEvent(KMessageDialog* self, QMouseEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_MouseReleaseEvent_IsBase(true);
@@ -839,7 +839,7 @@ void KMessageDialog_MouseDoubleClickEvent(KMessageDialog* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseMouseDoubleClickEvent(KMessageDialog* self, QMouseEvent* event) {
+void KMessageDialog_SuperMouseDoubleClickEvent(KMessageDialog* self, QMouseEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_MouseDoubleClickEvent_IsBase(true);
@@ -868,7 +868,7 @@ void KMessageDialog_MouseMoveEvent(KMessageDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseMouseMoveEvent(KMessageDialog* self, QMouseEvent* event) {
+void KMessageDialog_SuperMouseMoveEvent(KMessageDialog* self, QMouseEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_MouseMoveEvent_IsBase(true);
@@ -897,7 +897,7 @@ void KMessageDialog_WheelEvent(KMessageDialog* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseWheelEvent(KMessageDialog* self, QWheelEvent* event) {
+void KMessageDialog_SuperWheelEvent(KMessageDialog* self, QWheelEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_WheelEvent_IsBase(true);
@@ -926,7 +926,7 @@ void KMessageDialog_KeyReleaseEvent(KMessageDialog* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseKeyReleaseEvent(KMessageDialog* self, QKeyEvent* event) {
+void KMessageDialog_SuperKeyReleaseEvent(KMessageDialog* self, QKeyEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_KeyReleaseEvent_IsBase(true);
@@ -955,7 +955,7 @@ void KMessageDialog_FocusInEvent(KMessageDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseFocusInEvent(KMessageDialog* self, QFocusEvent* event) {
+void KMessageDialog_SuperFocusInEvent(KMessageDialog* self, QFocusEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_FocusInEvent_IsBase(true);
@@ -984,7 +984,7 @@ void KMessageDialog_FocusOutEvent(KMessageDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseFocusOutEvent(KMessageDialog* self, QFocusEvent* event) {
+void KMessageDialog_SuperFocusOutEvent(KMessageDialog* self, QFocusEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_FocusOutEvent_IsBase(true);
@@ -1013,7 +1013,7 @@ void KMessageDialog_EnterEvent(KMessageDialog* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseEnterEvent(KMessageDialog* self, QEnterEvent* event) {
+void KMessageDialog_SuperEnterEvent(KMessageDialog* self, QEnterEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_EnterEvent_IsBase(true);
@@ -1042,7 +1042,7 @@ void KMessageDialog_LeaveEvent(KMessageDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseLeaveEvent(KMessageDialog* self, QEvent* event) {
+void KMessageDialog_SuperLeaveEvent(KMessageDialog* self, QEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_LeaveEvent_IsBase(true);
@@ -1071,7 +1071,7 @@ void KMessageDialog_PaintEvent(KMessageDialog* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBasePaintEvent(KMessageDialog* self, QPaintEvent* event) {
+void KMessageDialog_SuperPaintEvent(KMessageDialog* self, QPaintEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_PaintEvent_IsBase(true);
@@ -1100,7 +1100,7 @@ void KMessageDialog_MoveEvent(KMessageDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseMoveEvent(KMessageDialog* self, QMoveEvent* event) {
+void KMessageDialog_SuperMoveEvent(KMessageDialog* self, QMoveEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_MoveEvent_IsBase(true);
@@ -1129,7 +1129,7 @@ void KMessageDialog_TabletEvent(KMessageDialog* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseTabletEvent(KMessageDialog* self, QTabletEvent* event) {
+void KMessageDialog_SuperTabletEvent(KMessageDialog* self, QTabletEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_TabletEvent_IsBase(true);
@@ -1158,7 +1158,7 @@ void KMessageDialog_ActionEvent(KMessageDialog* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseActionEvent(KMessageDialog* self, QActionEvent* event) {
+void KMessageDialog_SuperActionEvent(KMessageDialog* self, QActionEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_ActionEvent_IsBase(true);
@@ -1187,7 +1187,7 @@ void KMessageDialog_DragEnterEvent(KMessageDialog* self, QDragEnterEvent* event)
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseDragEnterEvent(KMessageDialog* self, QDragEnterEvent* event) {
+void KMessageDialog_SuperDragEnterEvent(KMessageDialog* self, QDragEnterEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_DragEnterEvent_IsBase(true);
@@ -1216,7 +1216,7 @@ void KMessageDialog_DragMoveEvent(KMessageDialog* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseDragMoveEvent(KMessageDialog* self, QDragMoveEvent* event) {
+void KMessageDialog_SuperDragMoveEvent(KMessageDialog* self, QDragMoveEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_DragMoveEvent_IsBase(true);
@@ -1245,7 +1245,7 @@ void KMessageDialog_DragLeaveEvent(KMessageDialog* self, QDragLeaveEvent* event)
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseDragLeaveEvent(KMessageDialog* self, QDragLeaveEvent* event) {
+void KMessageDialog_SuperDragLeaveEvent(KMessageDialog* self, QDragLeaveEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_DragLeaveEvent_IsBase(true);
@@ -1274,7 +1274,7 @@ void KMessageDialog_DropEvent(KMessageDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseDropEvent(KMessageDialog* self, QDropEvent* event) {
+void KMessageDialog_SuperDropEvent(KMessageDialog* self, QDropEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_DropEvent_IsBase(true);
@@ -1303,7 +1303,7 @@ void KMessageDialog_HideEvent(KMessageDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseHideEvent(KMessageDialog* self, QHideEvent* event) {
+void KMessageDialog_SuperHideEvent(KMessageDialog* self, QHideEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_HideEvent_IsBase(true);
@@ -1333,7 +1333,7 @@ bool KMessageDialog_NativeEvent(KMessageDialog* self, const libqt_string eventTy
 }
 
 // Base class handler implementation
-bool KMessageDialog_QBaseNativeEvent(KMessageDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KMessageDialog_SuperNativeEvent(KMessageDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
@@ -1363,7 +1363,7 @@ void KMessageDialog_ChangeEvent(KMessageDialog* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseChangeEvent(KMessageDialog* self, QEvent* param1) {
+void KMessageDialog_SuperChangeEvent(KMessageDialog* self, QEvent* param1) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_ChangeEvent_IsBase(true);
@@ -1392,7 +1392,7 @@ int KMessageDialog_Metric(const KMessageDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KMessageDialog_QBaseMetric(const KMessageDialog* self, int param1) {
+int KMessageDialog_SuperMetric(const KMessageDialog* self, int param1) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_Metric_IsBase(true);
@@ -1421,7 +1421,7 @@ void KMessageDialog_InitPainter(const KMessageDialog* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseInitPainter(const KMessageDialog* self, QPainter* painter) {
+void KMessageDialog_SuperInitPainter(const KMessageDialog* self, QPainter* painter) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_InitPainter_IsBase(true);
@@ -1450,7 +1450,7 @@ QPaintDevice* KMessageDialog_Redirected(const KMessageDialog* self, QPoint* offs
 }
 
 // Base class handler implementation
-QPaintDevice* KMessageDialog_QBaseRedirected(const KMessageDialog* self, QPoint* offset) {
+QPaintDevice* KMessageDialog_SuperRedirected(const KMessageDialog* self, QPoint* offset) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_Redirected_IsBase(true);
@@ -1479,7 +1479,7 @@ QPainter* KMessageDialog_SharedPainter(const KMessageDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* KMessageDialog_QBaseSharedPainter(const KMessageDialog* self) {
+QPainter* KMessageDialog_SuperSharedPainter(const KMessageDialog* self) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_SharedPainter_IsBase(true);
@@ -1508,7 +1508,7 @@ void KMessageDialog_InputMethodEvent(KMessageDialog* self, QInputMethodEvent* pa
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseInputMethodEvent(KMessageDialog* self, QInputMethodEvent* param1) {
+void KMessageDialog_SuperInputMethodEvent(KMessageDialog* self, QInputMethodEvent* param1) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_InputMethodEvent_IsBase(true);
@@ -1537,7 +1537,7 @@ QVariant* KMessageDialog_InputMethodQuery(const KMessageDialog* self, int param1
 }
 
 // Base class handler implementation
-QVariant* KMessageDialog_QBaseInputMethodQuery(const KMessageDialog* self, int param1) {
+QVariant* KMessageDialog_SuperInputMethodQuery(const KMessageDialog* self, int param1) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_InputMethodQuery_IsBase(true);
@@ -1566,7 +1566,7 @@ bool KMessageDialog_FocusNextPrevChild(KMessageDialog* self, bool next) {
 }
 
 // Base class handler implementation
-bool KMessageDialog_QBaseFocusNextPrevChild(KMessageDialog* self, bool next) {
+bool KMessageDialog_SuperFocusNextPrevChild(KMessageDialog* self, bool next) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_FocusNextPrevChild_IsBase(true);
@@ -1595,7 +1595,7 @@ void KMessageDialog_TimerEvent(KMessageDialog* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseTimerEvent(KMessageDialog* self, QTimerEvent* event) {
+void KMessageDialog_SuperTimerEvent(KMessageDialog* self, QTimerEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_TimerEvent_IsBase(true);
@@ -1624,7 +1624,7 @@ void KMessageDialog_ChildEvent(KMessageDialog* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseChildEvent(KMessageDialog* self, QChildEvent* event) {
+void KMessageDialog_SuperChildEvent(KMessageDialog* self, QChildEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_ChildEvent_IsBase(true);
@@ -1653,7 +1653,7 @@ void KMessageDialog_CustomEvent(KMessageDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseCustomEvent(KMessageDialog* self, QEvent* event) {
+void KMessageDialog_SuperCustomEvent(KMessageDialog* self, QEvent* event) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_CustomEvent_IsBase(true);
@@ -1682,7 +1682,7 @@ void KMessageDialog_ConnectNotify(KMessageDialog* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseConnectNotify(KMessageDialog* self, const QMetaMethod* signal) {
+void KMessageDialog_SuperConnectNotify(KMessageDialog* self, const QMetaMethod* signal) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_ConnectNotify_IsBase(true);
@@ -1711,7 +1711,7 @@ void KMessageDialog_DisconnectNotify(KMessageDialog* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseDisconnectNotify(KMessageDialog* self, const QMetaMethod* signal) {
+void KMessageDialog_SuperDisconnectNotify(KMessageDialog* self, const QMetaMethod* signal) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_DisconnectNotify_IsBase(true);
@@ -1740,7 +1740,7 @@ void KMessageDialog_AdjustPosition(KMessageDialog* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseAdjustPosition(KMessageDialog* self, QWidget* param1) {
+void KMessageDialog_SuperAdjustPosition(KMessageDialog* self, QWidget* param1) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_AdjustPosition_IsBase(true);
@@ -1769,7 +1769,7 @@ void KMessageDialog_UpdateMicroFocus(KMessageDialog* self) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseUpdateMicroFocus(KMessageDialog* self) {
+void KMessageDialog_SuperUpdateMicroFocus(KMessageDialog* self) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_UpdateMicroFocus_IsBase(true);
@@ -1798,7 +1798,7 @@ void KMessageDialog_Create(KMessageDialog* self) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseCreate(KMessageDialog* self) {
+void KMessageDialog_SuperCreate(KMessageDialog* self) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_Create_IsBase(true);
@@ -1827,7 +1827,7 @@ void KMessageDialog_Destroy(KMessageDialog* self) {
 }
 
 // Base class handler implementation
-void KMessageDialog_QBaseDestroy(KMessageDialog* self) {
+void KMessageDialog_SuperDestroy(KMessageDialog* self) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_Destroy_IsBase(true);
@@ -1856,7 +1856,7 @@ bool KMessageDialog_FocusNextChild(KMessageDialog* self) {
 }
 
 // Base class handler implementation
-bool KMessageDialog_QBaseFocusNextChild(KMessageDialog* self) {
+bool KMessageDialog_SuperFocusNextChild(KMessageDialog* self) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_FocusNextChild_IsBase(true);
@@ -1885,7 +1885,7 @@ bool KMessageDialog_FocusPreviousChild(KMessageDialog* self) {
 }
 
 // Base class handler implementation
-bool KMessageDialog_QBaseFocusPreviousChild(KMessageDialog* self) {
+bool KMessageDialog_SuperFocusPreviousChild(KMessageDialog* self) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_FocusPreviousChild_IsBase(true);
@@ -1914,7 +1914,7 @@ QObject* KMessageDialog_Sender(const KMessageDialog* self) {
 }
 
 // Base class handler implementation
-QObject* KMessageDialog_QBaseSender(const KMessageDialog* self) {
+QObject* KMessageDialog_SuperSender(const KMessageDialog* self) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_Sender_IsBase(true);
@@ -1943,7 +1943,7 @@ int KMessageDialog_SenderSignalIndex(const KMessageDialog* self) {
 }
 
 // Base class handler implementation
-int KMessageDialog_QBaseSenderSignalIndex(const KMessageDialog* self) {
+int KMessageDialog_SuperSenderSignalIndex(const KMessageDialog* self) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_SenderSignalIndex_IsBase(true);
@@ -1972,7 +1972,7 @@ int KMessageDialog_Receivers(const KMessageDialog* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KMessageDialog_QBaseReceivers(const KMessageDialog* self, const char* signal) {
+int KMessageDialog_SuperReceivers(const KMessageDialog* self, const char* signal) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_Receivers_IsBase(true);
@@ -2001,7 +2001,7 @@ bool KMessageDialog_IsSignalConnected(const KMessageDialog* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool KMessageDialog_QBaseIsSignalConnected(const KMessageDialog* self, const QMetaMethod* signal) {
+bool KMessageDialog_SuperIsSignalConnected(const KMessageDialog* self, const QMetaMethod* signal) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_IsSignalConnected_IsBase(true);
@@ -2030,7 +2030,7 @@ double KMessageDialog_GetDecodedMetricF(const KMessageDialog* self, int metricA,
 }
 
 // Base class handler implementation
-double KMessageDialog_QBaseGetDecodedMetricF(const KMessageDialog* self, int metricA, int metricB) {
+double KMessageDialog_SuperGetDecodedMetricF(const KMessageDialog* self, int metricA, int metricB) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
     if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
         vkmessagedialog->setKMessageDialog_GetDecodedMetricF_IsBase(true);

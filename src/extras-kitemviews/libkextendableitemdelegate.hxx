@@ -769,39 +769,39 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
 
     // Friend functions
     friend void KExtendableItemDelegate_InitStyleOption(const KExtendableItemDelegate* self, QStyleOptionViewItem* option, const QModelIndex* index);
-    friend void KExtendableItemDelegate_QBaseInitStyleOption(const KExtendableItemDelegate* self, QStyleOptionViewItem* option, const QModelIndex* index);
+    friend void KExtendableItemDelegate_SuperInitStyleOption(const KExtendableItemDelegate* self, QStyleOptionViewItem* option, const QModelIndex* index);
     friend bool KExtendableItemDelegate_EventFilter(KExtendableItemDelegate* self, QObject* object, QEvent* event);
-    friend bool KExtendableItemDelegate_QBaseEventFilter(KExtendableItemDelegate* self, QObject* object, QEvent* event);
+    friend bool KExtendableItemDelegate_SuperEventFilter(KExtendableItemDelegate* self, QObject* object, QEvent* event);
     friend bool KExtendableItemDelegate_EditorEvent(KExtendableItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index);
-    friend bool KExtendableItemDelegate_QBaseEditorEvent(KExtendableItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index);
+    friend bool KExtendableItemDelegate_SuperEditorEvent(KExtendableItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index);
     friend void KExtendableItemDelegate_TimerEvent(KExtendableItemDelegate* self, QTimerEvent* event);
-    friend void KExtendableItemDelegate_QBaseTimerEvent(KExtendableItemDelegate* self, QTimerEvent* event);
+    friend void KExtendableItemDelegate_SuperTimerEvent(KExtendableItemDelegate* self, QTimerEvent* event);
     friend void KExtendableItemDelegate_ChildEvent(KExtendableItemDelegate* self, QChildEvent* event);
-    friend void KExtendableItemDelegate_QBaseChildEvent(KExtendableItemDelegate* self, QChildEvent* event);
+    friend void KExtendableItemDelegate_SuperChildEvent(KExtendableItemDelegate* self, QChildEvent* event);
     friend void KExtendableItemDelegate_CustomEvent(KExtendableItemDelegate* self, QEvent* event);
-    friend void KExtendableItemDelegate_QBaseCustomEvent(KExtendableItemDelegate* self, QEvent* event);
+    friend void KExtendableItemDelegate_SuperCustomEvent(KExtendableItemDelegate* self, QEvent* event);
     friend void KExtendableItemDelegate_ConnectNotify(KExtendableItemDelegate* self, const QMetaMethod* signal);
-    friend void KExtendableItemDelegate_QBaseConnectNotify(KExtendableItemDelegate* self, const QMetaMethod* signal);
+    friend void KExtendableItemDelegate_SuperConnectNotify(KExtendableItemDelegate* self, const QMetaMethod* signal);
     friend void KExtendableItemDelegate_DisconnectNotify(KExtendableItemDelegate* self, const QMetaMethod* signal);
-    friend void KExtendableItemDelegate_QBaseDisconnectNotify(KExtendableItemDelegate* self, const QMetaMethod* signal);
+    friend void KExtendableItemDelegate_SuperDisconnectNotify(KExtendableItemDelegate* self, const QMetaMethod* signal);
     friend QRect* KExtendableItemDelegate_ExtenderRect(const KExtendableItemDelegate* self, QWidget* extender, const QStyleOptionViewItem* option, const QModelIndex* index);
-    friend QRect* KExtendableItemDelegate_QBaseExtenderRect(const KExtendableItemDelegate* self, QWidget* extender, const QStyleOptionViewItem* option, const QModelIndex* index);
+    friend QRect* KExtendableItemDelegate_SuperExtenderRect(const KExtendableItemDelegate* self, QWidget* extender, const QStyleOptionViewItem* option, const QModelIndex* index);
     friend void KExtendableItemDelegate_SetExtendPixmap(KExtendableItemDelegate* self, const QPixmap* pixmap);
-    friend void KExtendableItemDelegate_QBaseSetExtendPixmap(KExtendableItemDelegate* self, const QPixmap* pixmap);
+    friend void KExtendableItemDelegate_SuperSetExtendPixmap(KExtendableItemDelegate* self, const QPixmap* pixmap);
     friend void KExtendableItemDelegate_SetContractPixmap(KExtendableItemDelegate* self, const QPixmap* pixmap);
-    friend void KExtendableItemDelegate_QBaseSetContractPixmap(KExtendableItemDelegate* self, const QPixmap* pixmap);
+    friend void KExtendableItemDelegate_SuperSetContractPixmap(KExtendableItemDelegate* self, const QPixmap* pixmap);
     friend QPixmap* KExtendableItemDelegate_ExtendPixmap(KExtendableItemDelegate* self);
-    friend QPixmap* KExtendableItemDelegate_QBaseExtendPixmap(KExtendableItemDelegate* self);
+    friend QPixmap* KExtendableItemDelegate_SuperExtendPixmap(KExtendableItemDelegate* self);
     friend QPixmap* KExtendableItemDelegate_ContractPixmap(KExtendableItemDelegate* self);
-    friend QPixmap* KExtendableItemDelegate_QBaseContractPixmap(KExtendableItemDelegate* self);
+    friend QPixmap* KExtendableItemDelegate_SuperContractPixmap(KExtendableItemDelegate* self);
     friend QObject* KExtendableItemDelegate_Sender(const KExtendableItemDelegate* self);
-    friend QObject* KExtendableItemDelegate_QBaseSender(const KExtendableItemDelegate* self);
+    friend QObject* KExtendableItemDelegate_SuperSender(const KExtendableItemDelegate* self);
     friend int KExtendableItemDelegate_SenderSignalIndex(const KExtendableItemDelegate* self);
-    friend int KExtendableItemDelegate_QBaseSenderSignalIndex(const KExtendableItemDelegate* self);
+    friend int KExtendableItemDelegate_SuperSenderSignalIndex(const KExtendableItemDelegate* self);
     friend int KExtendableItemDelegate_Receivers(const KExtendableItemDelegate* self, const char* signal);
-    friend int KExtendableItemDelegate_QBaseReceivers(const KExtendableItemDelegate* self, const char* signal);
+    friend int KExtendableItemDelegate_SuperReceivers(const KExtendableItemDelegate* self, const char* signal);
     friend bool KExtendableItemDelegate_IsSignalConnected(const KExtendableItemDelegate* self, const QMetaMethod* signal);
-    friend bool KExtendableItemDelegate_QBaseIsSignalConnected(const KExtendableItemDelegate* self, const QMetaMethod* signal);
+    friend bool KExtendableItemDelegate_SuperIsSignalConnected(const KExtendableItemDelegate* self, const QMetaMethod* signal);
 };
 
 #endif

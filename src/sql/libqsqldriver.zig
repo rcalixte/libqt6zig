@@ -48,6 +48,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -56,8 +60,8 @@ pub const qsqldriver = struct {
     ///
     /// ` self: QtC.QSqlDriver `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QSqlDriver_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QSqlDriver_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -83,6 +87,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -91,9 +99,9 @@ pub const qsqldriver = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QSqlDriver_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QSqlDriver_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -122,6 +130,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -134,8 +146,8 @@ pub const qsqldriver = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QSqlDriver_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QSqlDriver_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -179,6 +191,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnIsOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsOpen` instead
+    ///
+    pub const QBaseIsOpen = SuperIsOpen;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#isOpen)
     ///
     /// Base class method implementation
@@ -187,8 +203,8 @@ pub const qsqldriver = struct {
     ///
     /// ` self: QtC.QSqlDriver `
     ///
-    pub fn QBaseIsOpen(self: ?*anyopaque) bool {
-        return qtc.QSqlDriver_QBaseIsOpen(@ptrCast(self));
+    pub fn SuperIsOpen(self: ?*anyopaque) bool {
+        return qtc.QSqlDriver_SuperIsOpen(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#isOpenError)
@@ -225,6 +241,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnBeginTransaction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginTransaction` instead
+    ///
+    pub const QBaseBeginTransaction = SuperBeginTransaction;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#beginTransaction)
     ///
     /// Base class method implementation
@@ -233,8 +253,8 @@ pub const qsqldriver = struct {
     ///
     /// ` self: QtC.QSqlDriver `
     ///
-    pub fn QBaseBeginTransaction(self: ?*anyopaque) bool {
-        return qtc.QSqlDriver_QBaseBeginTransaction(@ptrCast(self));
+    pub fn SuperBeginTransaction(self: ?*anyopaque) bool {
+        return qtc.QSqlDriver_SuperBeginTransaction(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#commitTransaction)
@@ -261,6 +281,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnCommitTransaction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCommitTransaction` instead
+    ///
+    pub const QBaseCommitTransaction = SuperCommitTransaction;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#commitTransaction)
     ///
     /// Base class method implementation
@@ -269,8 +293,8 @@ pub const qsqldriver = struct {
     ///
     /// ` self: QtC.QSqlDriver `
     ///
-    pub fn QBaseCommitTransaction(self: ?*anyopaque) bool {
-        return qtc.QSqlDriver_QBaseCommitTransaction(@ptrCast(self));
+    pub fn SuperCommitTransaction(self: ?*anyopaque) bool {
+        return qtc.QSqlDriver_SuperCommitTransaction(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#rollbackTransaction)
@@ -297,6 +321,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnRollbackTransaction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRollbackTransaction` instead
+    ///
+    pub const QBaseRollbackTransaction = SuperRollbackTransaction;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#rollbackTransaction)
     ///
     /// Base class method implementation
@@ -305,8 +333,8 @@ pub const qsqldriver = struct {
     ///
     /// ` self: QtC.QSqlDriver `
     ///
-    pub fn QBaseRollbackTransaction(self: ?*anyopaque) bool {
-        return qtc.QSqlDriver_QBaseRollbackTransaction(@ptrCast(self));
+    pub fn SuperRollbackTransaction(self: ?*anyopaque) bool {
+        return qtc.QSqlDriver_SuperRollbackTransaction(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#tables)
@@ -354,6 +382,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnTables(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperTables` instead
+    ///
+    pub const QBaseTables = SuperTables;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#tables)
     ///
     /// Base class method implementation
@@ -366,8 +398,8 @@ pub const qsqldriver = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseTables(self: ?*anyopaque, tableType: i32, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QSqlDriver_QBaseTables(@ptrCast(self), @bitCast(tableType));
+    pub fn SuperTables(self: ?*anyopaque, tableType: i32, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QSqlDriver_SuperTables(@ptrCast(self), @bitCast(tableType));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -415,6 +447,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnPrimaryIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPrimaryIndex` instead
+    ///
+    pub const QBasePrimaryIndex = SuperPrimaryIndex;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#primaryIndex)
     ///
     /// Base class method implementation
@@ -425,12 +461,12 @@ pub const qsqldriver = struct {
     ///
     /// ` tableName: []const u8 `
     ///
-    pub fn QBasePrimaryIndex(self: ?*anyopaque, tableName: []const u8) QtC.QSqlIndex {
+    pub fn SuperPrimaryIndex(self: ?*anyopaque, tableName: []const u8) QtC.QSqlIndex {
         const tableName_str = qtc.libqt_string{
             .len = tableName.len,
             .data = tableName.ptr,
         };
-        return qtc.QSqlDriver_QBasePrimaryIndex(@ptrCast(self), tableName_str);
+        return qtc.QSqlDriver_SuperPrimaryIndex(@ptrCast(self), tableName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#record)
@@ -463,6 +499,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnRecord(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRecord` instead
+    ///
+    pub const QBaseRecord = SuperRecord;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#record)
     ///
     /// Base class method implementation
@@ -473,12 +513,12 @@ pub const qsqldriver = struct {
     ///
     /// ` tableName: []const u8 `
     ///
-    pub fn QBaseRecord(self: ?*anyopaque, tableName: []const u8) QtC.QSqlRecord {
+    pub fn SuperRecord(self: ?*anyopaque, tableName: []const u8) QtC.QSqlRecord {
         const tableName_str = qtc.libqt_string{
             .len = tableName.len,
             .data = tableName.ptr,
         };
-        return qtc.QSqlDriver_QBaseRecord(@ptrCast(self), tableName_str);
+        return qtc.QSqlDriver_SuperRecord(@ptrCast(self), tableName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#formatValue)
@@ -517,6 +557,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnFormatValue(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFormatValue` instead
+    ///
+    pub const QBaseFormatValue = SuperFormatValue;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#formatValue)
     ///
     /// Base class method implementation
@@ -531,8 +575,8 @@ pub const qsqldriver = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseFormatValue(self: ?*anyopaque, field: ?*anyopaque, trimStrings: bool, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QSqlDriver_QBaseFormatValue(@ptrCast(self), @ptrCast(field), trimStrings);
+    pub fn SuperFormatValue(self: ?*anyopaque, field: ?*anyopaque, trimStrings: bool, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QSqlDriver_SuperFormatValue(@ptrCast(self), @ptrCast(field), trimStrings);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqldriver.FormatValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -579,6 +623,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnEscapeIdentifier(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEscapeIdentifier` instead
+    ///
+    pub const QBaseEscapeIdentifier = SuperEscapeIdentifier;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#escapeIdentifier)
     ///
     /// Base class method implementation
@@ -593,12 +641,12 @@ pub const qsqldriver = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseEscapeIdentifier(self: ?*anyopaque, identifier: []const u8, typeVal: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn SuperEscapeIdentifier(self: ?*anyopaque, identifier: []const u8, typeVal: i32, allocator: std.mem.Allocator) []const u8 {
         const identifier_str = qtc.libqt_string{
             .len = identifier.len,
             .data = identifier.ptr,
         };
-        var _str = qtc.QSqlDriver_QBaseEscapeIdentifier(@ptrCast(self), identifier_str, @bitCast(typeVal));
+        var _str = qtc.QSqlDriver_SuperEscapeIdentifier(@ptrCast(self), identifier_str, @bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqldriver.EscapeIdentifier: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -649,6 +697,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnSqlStatement(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSqlStatement` instead
+    ///
+    pub const QBaseSqlStatement = SuperSqlStatement;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#sqlStatement)
     ///
     /// Base class method implementation
@@ -667,12 +719,12 @@ pub const qsqldriver = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSqlStatement(self: ?*anyopaque, typeVal: i32, tableName: []const u8, rec: ?*anyopaque, preparedStatement: bool, allocator: std.mem.Allocator) []const u8 {
+    pub fn SuperSqlStatement(self: ?*anyopaque, typeVal: i32, tableName: []const u8, rec: ?*anyopaque, preparedStatement: bool, allocator: std.mem.Allocator) []const u8 {
         const tableName_str = qtc.libqt_string{
             .len = tableName.len,
             .data = tableName.ptr,
         };
-        var _str = qtc.QSqlDriver_QBaseSqlStatement(@ptrCast(self), @bitCast(typeVal), tableName_str, @ptrCast(rec), preparedStatement);
+        var _str = qtc.QSqlDriver_SuperSqlStatement(@ptrCast(self), @bitCast(typeVal), tableName_str, @ptrCast(rec), preparedStatement);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqldriver.SqlStatement: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -713,6 +765,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnHandle(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHandle` instead
+    ///
+    pub const QBaseHandle = SuperHandle;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#handle)
     ///
     /// Base class method implementation
@@ -721,8 +777,8 @@ pub const qsqldriver = struct {
     ///
     /// ` self: QtC.QSqlDriver `
     ///
-    pub fn QBaseHandle(self: ?*anyopaque) QtC.QVariant {
-        return qtc.QSqlDriver_QBaseHandle(@ptrCast(self));
+    pub fn SuperHandle(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QSqlDriver_SuperHandle(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#hasFeature)
@@ -751,6 +807,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnHasFeature(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHasFeature` instead
+    ///
+    pub const QBaseHasFeature = SuperHasFeature;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#hasFeature)
     ///
     /// Base class method implementation
@@ -761,8 +821,8 @@ pub const qsqldriver = struct {
     ///
     /// ` f: qsqldriver_enums.DriverFeature `
     ///
-    pub fn QBaseHasFeature(self: ?*anyopaque, f: i32) bool {
-        return qtc.QSqlDriver_QBaseHasFeature(@ptrCast(self), @bitCast(f));
+    pub fn SuperHasFeature(self: ?*anyopaque, f: i32) bool {
+        return qtc.QSqlDriver_SuperHasFeature(@ptrCast(self), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#close)
@@ -789,6 +849,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClose` instead
+    ///
+    pub const QBaseClose = SuperClose;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#close)
     ///
     /// Base class method implementation
@@ -797,8 +861,8 @@ pub const qsqldriver = struct {
     ///
     /// ` self: QtC.QSqlDriver `
     ///
-    pub fn QBaseClose(self: ?*anyopaque) void {
-        qtc.QSqlDriver_QBaseClose(@ptrCast(self));
+    pub fn SuperClose(self: ?*anyopaque) void {
+        qtc.QSqlDriver_SuperClose(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#createResult)
@@ -825,6 +889,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnCreateResult(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateResult` instead
+    ///
+    pub const QBaseCreateResult = SuperCreateResult;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#createResult)
     ///
     /// Base class method implementation
@@ -833,8 +901,8 @@ pub const qsqldriver = struct {
     ///
     /// ` self: QtC.QSqlDriver `
     ///
-    pub fn QBaseCreateResult(self: ?*anyopaque) QtC.QSqlResult {
-        return qtc.QSqlDriver_QBaseCreateResult(@ptrCast(self));
+    pub fn SuperCreateResult(self: ?*anyopaque) QtC.QSqlResult {
+        return qtc.QSqlDriver_SuperCreateResult(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#open)
@@ -893,6 +961,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperOpen` instead
+    ///
+    pub const QBaseOpen = SuperOpen;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#open)
     ///
     /// Base class method implementation
@@ -913,7 +985,7 @@ pub const qsqldriver = struct {
     ///
     /// ` connOpts: []const u8 `
     ///
-    pub fn QBaseOpen(self: ?*anyopaque, db: []const u8, user: []const u8, password: []const u8, host: []const u8, port: i32, connOpts: []const u8) bool {
+    pub fn SuperOpen(self: ?*anyopaque, db: []const u8, user: []const u8, password: []const u8, host: []const u8, port: i32, connOpts: []const u8) bool {
         const db_str = qtc.libqt_string{
             .len = db.len,
             .data = db.ptr,
@@ -934,7 +1006,7 @@ pub const qsqldriver = struct {
             .len = connOpts.len,
             .data = connOpts.ptr,
         };
-        return qtc.QSqlDriver_QBaseOpen(@ptrCast(self), db_str, user_str, password_str, host_str, @bitCast(port), connOpts_str);
+        return qtc.QSqlDriver_SuperOpen(@ptrCast(self), db_str, user_str, password_str, host_str, @bitCast(port), connOpts_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#subscribeToNotification)
@@ -967,6 +1039,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnSubscribeToNotification(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSubscribeToNotification` instead
+    ///
+    pub const QBaseSubscribeToNotification = SuperSubscribeToNotification;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#subscribeToNotification)
     ///
     /// Base class method implementation
@@ -977,12 +1053,12 @@ pub const qsqldriver = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn QBaseSubscribeToNotification(self: ?*anyopaque, name: []const u8) bool {
+    pub fn SuperSubscribeToNotification(self: ?*anyopaque, name: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QSqlDriver_QBaseSubscribeToNotification(@ptrCast(self), name_str);
+        return qtc.QSqlDriver_SuperSubscribeToNotification(@ptrCast(self), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#unsubscribeFromNotification)
@@ -1015,6 +1091,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnUnsubscribeFromNotification(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUnsubscribeFromNotification` instead
+    ///
+    pub const QBaseUnsubscribeFromNotification = SuperUnsubscribeFromNotification;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#unsubscribeFromNotification)
     ///
     /// Base class method implementation
@@ -1025,12 +1105,12 @@ pub const qsqldriver = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn QBaseUnsubscribeFromNotification(self: ?*anyopaque, name: []const u8) bool {
+    pub fn SuperUnsubscribeFromNotification(self: ?*anyopaque, name: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QSqlDriver_QBaseUnsubscribeFromNotification(@ptrCast(self), name_str);
+        return qtc.QSqlDriver_SuperUnsubscribeFromNotification(@ptrCast(self), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#subscribedToNotifications)
@@ -1076,6 +1156,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnSubscribedToNotifications(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSubscribedToNotifications` instead
+    ///
+    pub const QBaseSubscribedToNotifications = SuperSubscribedToNotifications;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#subscribedToNotifications)
     ///
     /// Base class method implementation
@@ -1086,8 +1170,8 @@ pub const qsqldriver = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSubscribedToNotifications(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QSqlDriver_QBaseSubscribedToNotifications(@ptrCast(self));
+    pub fn SuperSubscribedToNotifications(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QSqlDriver_SuperSubscribedToNotifications(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -1137,6 +1221,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnIsIdentifierEscaped(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsIdentifierEscaped` instead
+    ///
+    pub const QBaseIsIdentifierEscaped = SuperIsIdentifierEscaped;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#isIdentifierEscaped)
     ///
     /// Base class method implementation
@@ -1149,12 +1237,12 @@ pub const qsqldriver = struct {
     ///
     /// ` typeVal: qsqldriver_enums.IdentifierType `
     ///
-    pub fn QBaseIsIdentifierEscaped(self: ?*anyopaque, identifier: []const u8, typeVal: i32) bool {
+    pub fn SuperIsIdentifierEscaped(self: ?*anyopaque, identifier: []const u8, typeVal: i32) bool {
         const identifier_str = qtc.libqt_string{
             .len = identifier.len,
             .data = identifier.ptr,
         };
-        return qtc.QSqlDriver_QBaseIsIdentifierEscaped(@ptrCast(self), identifier_str, @bitCast(typeVal));
+        return qtc.QSqlDriver_SuperIsIdentifierEscaped(@ptrCast(self), identifier_str, @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#stripDelimiters)
@@ -1197,6 +1285,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnStripDelimiters(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperStripDelimiters` instead
+    ///
+    pub const QBaseStripDelimiters = SuperStripDelimiters;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#stripDelimiters)
     ///
     /// Base class method implementation
@@ -1211,12 +1303,12 @@ pub const qsqldriver = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseStripDelimiters(self: ?*anyopaque, identifier: []const u8, typeVal: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn SuperStripDelimiters(self: ?*anyopaque, identifier: []const u8, typeVal: i32, allocator: std.mem.Allocator) []const u8 {
         const identifier_str = qtc.libqt_string{
             .len = identifier.len,
             .data = identifier.ptr,
         };
-        var _str = qtc.QSqlDriver_QBaseStripDelimiters(@ptrCast(self), identifier_str, @bitCast(typeVal));
+        var _str = qtc.QSqlDriver_SuperStripDelimiters(@ptrCast(self), identifier_str, @bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqldriver.StripDelimiters: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1289,6 +1381,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnMaximumIdentifierLength(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMaximumIdentifierLength` instead
+    ///
+    pub const QBaseMaximumIdentifierLength = SuperMaximumIdentifierLength;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#maximumIdentifierLength)
     ///
     /// Base class method implementation
@@ -1299,8 +1395,8 @@ pub const qsqldriver = struct {
     ///
     /// ` typeVal: qsqldriver_enums.IdentifierType `
     ///
-    pub fn QBaseMaximumIdentifierLength(self: ?*anyopaque, typeVal: i32) i32 {
-        return qtc.QSqlDriver_QBaseMaximumIdentifierLength(@ptrCast(self), @bitCast(typeVal));
+    pub fn SuperMaximumIdentifierLength(self: ?*anyopaque, typeVal: i32) i32 {
+        return qtc.QSqlDriver_SuperMaximumIdentifierLength(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#cancelQuery)
@@ -1327,6 +1423,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnCancelQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCancelQuery` instead
+    ///
+    pub const QBaseCancelQuery = SuperCancelQuery;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#cancelQuery)
     ///
     /// Base class method implementation
@@ -1335,8 +1435,8 @@ pub const qsqldriver = struct {
     ///
     /// ` self: QtC.QSqlDriver `
     ///
-    pub fn QBaseCancelQuery(self: ?*anyopaque) bool {
-        return qtc.QSqlDriver_QBaseCancelQuery(@ptrCast(self));
+    pub fn SuperCancelQuery(self: ?*anyopaque) bool {
+        return qtc.QSqlDriver_SuperCancelQuery(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#notification)
@@ -1397,6 +1497,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnSetOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetOpen` instead
+    ///
+    pub const QBaseSetOpen = SuperSetOpen;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#setOpen)
     ///
     /// Base class method implementation
@@ -1407,8 +1511,8 @@ pub const qsqldriver = struct {
     ///
     /// ` o: bool `
     ///
-    pub fn QBaseSetOpen(self: ?*anyopaque, o: bool) void {
-        qtc.QSqlDriver_QBaseSetOpen(@ptrCast(self), o);
+    pub fn SuperSetOpen(self: ?*anyopaque, o: bool) void {
+        qtc.QSqlDriver_SuperSetOpen(@ptrCast(self), o);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#setOpenError)
@@ -1437,6 +1541,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnSetOpenError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetOpenError` instead
+    ///
+    pub const QBaseSetOpenError = SuperSetOpenError;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#setOpenError)
     ///
     /// Base class method implementation
@@ -1447,8 +1555,8 @@ pub const qsqldriver = struct {
     ///
     /// ` e: bool `
     ///
-    pub fn QBaseSetOpenError(self: ?*anyopaque, e: bool) void {
-        qtc.QSqlDriver_QBaseSetOpenError(@ptrCast(self), e);
+    pub fn SuperSetOpenError(self: ?*anyopaque, e: bool) void {
+        qtc.QSqlDriver_SuperSetOpenError(@ptrCast(self), e);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#setLastError)
@@ -1477,6 +1585,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnSetLastError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetLastError` instead
+    ///
+    pub const QBaseSetLastError = SuperSetLastError;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#setLastError)
     ///
     /// Base class method implementation
@@ -1487,8 +1599,8 @@ pub const qsqldriver = struct {
     ///
     /// ` e: QtC.QSqlError `
     ///
-    pub fn QBaseSetLastError(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QSqlDriver_QBaseSetLastError(@ptrCast(self), @ptrCast(e));
+    pub fn SuperSetLastError(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QSqlDriver_SuperSetLastError(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2287,6 +2399,10 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -2299,8 +2415,8 @@ pub const qsqldriver = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSqlDriver_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QSqlDriver_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2337,6 +2453,10 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -2351,8 +2471,8 @@ pub const qsqldriver = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSqlDriver_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QSqlDriver_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2387,6 +2507,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -2399,8 +2523,8 @@ pub const qsqldriver = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSqlDriver_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QSqlDriver_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2435,6 +2559,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -2447,8 +2575,8 @@ pub const qsqldriver = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSqlDriver_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QSqlDriver_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2483,6 +2611,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -2495,8 +2627,8 @@ pub const qsqldriver = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSqlDriver_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QSqlDriver_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2531,6 +2663,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2543,8 +2679,8 @@ pub const qsqldriver = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSqlDriver_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QSqlDriver_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2579,6 +2715,10 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -2591,8 +2731,8 @@ pub const qsqldriver = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSqlDriver_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QSqlDriver_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2625,6 +2765,10 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2635,8 +2779,8 @@ pub const qsqldriver = struct {
     ///
     /// ` self: QtC.QSqlDriver `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QSqlDriver_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QSqlDriver_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2669,6 +2813,10 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2679,8 +2827,8 @@ pub const qsqldriver = struct {
     ///
     /// ` self: QtC.QSqlDriver `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QSqlDriver_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QSqlDriver_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2716,6 +2864,10 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2728,9 +2880,9 @@ pub const qsqldriver = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QSqlDriver_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QSqlDriver_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2765,6 +2917,10 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2777,8 +2933,8 @@ pub const qsqldriver = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QSqlDriver_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QSqlDriver_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2812,6 +2968,9 @@ pub const qsqldriver = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#dtor.QSqlDriver)
     ///
@@ -2821,7 +2980,7 @@ pub const qsqldriver = struct {
     ///
     /// ` self: QtC.QSqlDriver `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSqlDriver_Delete(@ptrCast(self));
     }
 };

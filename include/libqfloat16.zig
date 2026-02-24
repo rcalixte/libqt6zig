@@ -114,6 +114,10 @@ pub const qfloat16 = struct {
         return qtc.qfloat16_IsNormal(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfloat16.html#dtor.qfloat16)
     ///
     /// Delete this object from C++ memory.
@@ -122,7 +126,7 @@ pub const qfloat16 = struct {
     ///
     /// ` self: QtC.qfloat16 `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.qfloat16_Delete(@ptrCast(self));
     }
 };

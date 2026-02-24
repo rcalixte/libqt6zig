@@ -264,6 +264,10 @@ pub const qprocessenvironment = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocessenvironment.html#dtor.QProcessEnvironment)
     ///
     /// Delete this object from C++ memory.
@@ -272,7 +276,7 @@ pub const qprocessenvironment = struct {
     ///
     /// ` self: QtC.QProcessEnvironment `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QProcessEnvironment_Delete(@ptrCast(self));
     }
 };
@@ -319,6 +323,10 @@ pub const qprocess = struct {
         qtc.QProcess_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -327,8 +335,8 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QProcess_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QProcess_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -354,6 +362,10 @@ pub const qprocess = struct {
         qtc.QProcess_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -362,9 +374,9 @@ pub const qprocess = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QProcess_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QProcess_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -393,6 +405,10 @@ pub const qprocess = struct {
         qtc.QProcess_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -405,8 +421,8 @@ pub const qprocess = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QProcess_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QProcess_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -504,6 +520,10 @@ pub const qprocess = struct {
         qtc.QProcess_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperOpen` instead
+    ///
+    pub const QBaseOpen = SuperOpen;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#open)
     ///
     /// Base class method implementation
@@ -514,8 +534,8 @@ pub const qprocess = struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn QBaseOpen(self: ?*anyopaque, mode: i32) bool {
-        return qtc.QProcess_QBaseOpen(@ptrCast(self), @bitCast(mode));
+    pub fn SuperOpen(self: ?*anyopaque, mode: i32) bool {
+        return qtc.QProcess_SuperOpen(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#program)
@@ -991,6 +1011,10 @@ pub const qprocess = struct {
         qtc.QProcess_OnWaitForReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWaitForReadyRead` instead
+    ///
+    pub const QBaseWaitForReadyRead = SuperWaitForReadyRead;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForReadyRead)
     ///
     /// Base class method implementation
@@ -1001,8 +1025,8 @@ pub const qprocess = struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn QBaseWaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QProcess_QBaseWaitForReadyRead(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
+        return qtc.QProcess_SuperWaitForReadyRead(@ptrCast(self), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForBytesWritten)
@@ -1031,6 +1055,10 @@ pub const qprocess = struct {
         qtc.QProcess_OnWaitForBytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWaitForBytesWritten` instead
+    ///
+    pub const QBaseWaitForBytesWritten = SuperWaitForBytesWritten;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForBytesWritten)
     ///
     /// Base class method implementation
@@ -1041,8 +1069,8 @@ pub const qprocess = struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn QBaseWaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QProcess_QBaseWaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
+        return qtc.QProcess_SuperWaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForFinished)
@@ -1135,6 +1163,10 @@ pub const qprocess = struct {
         qtc.QProcess_OnBytesToWrite(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBytesToWrite` instead
+    ///
+    pub const QBaseBytesToWrite = SuperBytesToWrite;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#bytesToWrite)
     ///
     /// Base class method implementation
@@ -1143,8 +1175,8 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    pub fn QBaseBytesToWrite(self: ?*anyopaque) i64 {
-        return qtc.QProcess_QBaseBytesToWrite(@ptrCast(self));
+    pub fn SuperBytesToWrite(self: ?*anyopaque) i64 {
+        return qtc.QProcess_SuperBytesToWrite(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#isSequential)
@@ -1171,6 +1203,10 @@ pub const qprocess = struct {
         qtc.QProcess_OnIsSequential(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSequential` instead
+    ///
+    pub const QBaseIsSequential = SuperIsSequential;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#isSequential)
     ///
     /// Base class method implementation
@@ -1179,8 +1215,8 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    pub fn QBaseIsSequential(self: ?*anyopaque) bool {
-        return qtc.QProcess_QBaseIsSequential(@ptrCast(self));
+    pub fn SuperIsSequential(self: ?*anyopaque) bool {
+        return qtc.QProcess_SuperIsSequential(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#close)
@@ -1207,6 +1243,10 @@ pub const qprocess = struct {
         qtc.QProcess_OnClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClose` instead
+    ///
+    pub const QBaseClose = SuperClose;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#close)
     ///
     /// Base class method implementation
@@ -1215,8 +1255,8 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    pub fn QBaseClose(self: ?*anyopaque) void {
-        qtc.QProcess_QBaseClose(@ptrCast(self));
+    pub fn SuperClose(self: ?*anyopaque) void {
+        qtc.QProcess_SuperClose(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#execute)
@@ -1380,6 +1420,10 @@ pub const qprocess = struct {
         qtc.QProcess_OnSetProcessState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetProcessState` instead
+    ///
+    pub const QBaseSetProcessState = SuperSetProcessState;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#setProcessState)
     ///
     /// Base class method implementation
@@ -1390,8 +1434,8 @@ pub const qprocess = struct {
     ///
     /// ` state: qprocess_enums.ProcessState `
     ///
-    pub fn QBaseSetProcessState(self: ?*anyopaque, state: i32) void {
-        qtc.QProcess_QBaseSetProcessState(@ptrCast(self), @bitCast(state));
+    pub fn SuperSetProcessState(self: ?*anyopaque, state: i32) void {
+        qtc.QProcess_SuperSetProcessState(@ptrCast(self), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#readData)
@@ -1423,6 +1467,10 @@ pub const qprocess = struct {
         qtc.QProcess_OnReadData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperReadData` instead
+    ///
+    pub const QBaseReadData = SuperReadData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#readData)
     ///
     /// Base class method implementation
@@ -1435,9 +1483,9 @@ pub const qprocess = struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn QBaseReadData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn SuperReadData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QProcess_QBaseReadData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QProcess_SuperReadData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#writeData)
@@ -1469,6 +1517,10 @@ pub const qprocess = struct {
         qtc.QProcess_OnWriteData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWriteData` instead
+    ///
+    pub const QBaseWriteData = SuperWriteData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#writeData)
     ///
     /// Base class method implementation
@@ -1481,9 +1533,9 @@ pub const qprocess = struct {
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn QBaseWriteData(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn SuperWriteData(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QProcess_QBaseWriteData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
+        return qtc.QProcess_SuperWriteData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -3261,6 +3313,10 @@ pub const qprocess = struct {
         return qtc.QProcess_Pos(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPos` instead
+    ///
+    pub const QBasePos = SuperPos;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#pos)
@@ -3271,8 +3327,8 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    pub fn QBasePos(self: ?*anyopaque) i64 {
-        return qtc.QProcess_QBasePos(@ptrCast(self));
+    pub fn SuperPos(self: ?*anyopaque) i64 {
+        return qtc.QProcess_SuperPos(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -3305,6 +3361,10 @@ pub const qprocess = struct {
         return qtc.QProcess_Size(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSize` instead
+    ///
+    pub const QBaseSize = SuperSize;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#size)
@@ -3315,8 +3375,8 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    pub fn QBaseSize(self: ?*anyopaque) i64 {
-        return qtc.QProcess_QBaseSize(@ptrCast(self));
+    pub fn SuperSize(self: ?*anyopaque) i64 {
+        return qtc.QProcess_SuperSize(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -3351,6 +3411,10 @@ pub const qprocess = struct {
         return qtc.QProcess_Seek(@ptrCast(self), @bitCast(pos));
     }
 
+    /// ### DEPRECATED: Use `SuperSeek` instead
+    ///
+    pub const QBaseSeek = SuperSeek;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#seek)
@@ -3363,8 +3427,8 @@ pub const qprocess = struct {
     ///
     /// ` pos: i64 `
     ///
-    pub fn QBaseSeek(self: ?*anyopaque, pos: i64) bool {
-        return qtc.QProcess_QBaseSeek(@ptrCast(self), @bitCast(pos));
+    pub fn SuperSeek(self: ?*anyopaque, pos: i64) bool {
+        return qtc.QProcess_SuperSeek(@ptrCast(self), @bitCast(pos));
     }
 
     /// Inherited from QIODevice
@@ -3397,6 +3461,10 @@ pub const qprocess = struct {
         return qtc.QProcess_AtEnd(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperAtEnd` instead
+    ///
+    pub const QBaseAtEnd = SuperAtEnd;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
@@ -3407,8 +3475,8 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    pub fn QBaseAtEnd(self: ?*anyopaque) bool {
-        return qtc.QProcess_QBaseAtEnd(@ptrCast(self));
+    pub fn SuperAtEnd(self: ?*anyopaque) bool {
+        return qtc.QProcess_SuperAtEnd(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -3441,6 +3509,10 @@ pub const qprocess = struct {
         return qtc.QProcess_Reset(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperReset` instead
+    ///
+    pub const QBaseReset = SuperReset;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
@@ -3451,8 +3523,8 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    pub fn QBaseReset(self: ?*anyopaque) bool {
-        return qtc.QProcess_QBaseReset(@ptrCast(self));
+    pub fn SuperReset(self: ?*anyopaque) bool {
+        return qtc.QProcess_SuperReset(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -3485,6 +3557,10 @@ pub const qprocess = struct {
         return qtc.QProcess_BytesAvailable(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperBytesAvailable` instead
+    ///
+    pub const QBaseBytesAvailable = SuperBytesAvailable;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
@@ -3495,8 +3571,8 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    pub fn QBaseBytesAvailable(self: ?*anyopaque) i64 {
-        return qtc.QProcess_QBaseBytesAvailable(@ptrCast(self));
+    pub fn SuperBytesAvailable(self: ?*anyopaque) i64 {
+        return qtc.QProcess_SuperBytesAvailable(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -3529,6 +3605,10 @@ pub const qprocess = struct {
         return qtc.QProcess_CanReadLine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCanReadLine` instead
+    ///
+    pub const QBaseCanReadLine = SuperCanReadLine;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
@@ -3539,8 +3619,8 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    pub fn QBaseCanReadLine(self: ?*anyopaque) bool {
-        return qtc.QProcess_QBaseCanReadLine(@ptrCast(self));
+    pub fn SuperCanReadLine(self: ?*anyopaque) bool {
+        return qtc.QProcess_SuperCanReadLine(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -3578,6 +3658,10 @@ pub const qprocess = struct {
         return qtc.QProcess_ReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
+    /// ### DEPRECATED: Use `SuperReadLineData` instead
+    ///
+    pub const QBaseReadLineData = SuperReadLineData;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLineData)
@@ -3592,9 +3676,9 @@ pub const qprocess = struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn QBaseReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn SuperReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QProcess_QBaseReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QProcess_SuperReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -3629,6 +3713,10 @@ pub const qprocess = struct {
         return qtc.QProcess_SkipData(@ptrCast(self), @bitCast(maxSize));
     }
 
+    /// ### DEPRECATED: Use `SuperSkipData` instead
+    ///
+    pub const QBaseSkipData = SuperSkipData;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skipData)
@@ -3641,8 +3729,8 @@ pub const qprocess = struct {
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn QBaseSkipData(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QProcess_QBaseSkipData(@ptrCast(self), @bitCast(maxSize));
+    pub fn SuperSkipData(self: ?*anyopaque, maxSize: i64) i64 {
+        return qtc.QProcess_SuperSkipData(@ptrCast(self), @bitCast(maxSize));
     }
 
     /// Inherited from QIODevice
@@ -3677,6 +3765,10 @@ pub const qprocess = struct {
         return qtc.QProcess_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -3689,8 +3781,8 @@ pub const qprocess = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QProcess_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QProcess_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3727,6 +3819,10 @@ pub const qprocess = struct {
         return qtc.QProcess_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -3741,8 +3837,8 @@ pub const qprocess = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QProcess_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QProcess_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3777,6 +3873,10 @@ pub const qprocess = struct {
         qtc.QProcess_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -3789,8 +3889,8 @@ pub const qprocess = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProcess_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QProcess_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3825,6 +3925,10 @@ pub const qprocess = struct {
         qtc.QProcess_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -3837,8 +3941,8 @@ pub const qprocess = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProcess_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QProcess_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3873,6 +3977,10 @@ pub const qprocess = struct {
         qtc.QProcess_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -3885,8 +3993,8 @@ pub const qprocess = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProcess_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QProcess_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3921,6 +4029,10 @@ pub const qprocess = struct {
         qtc.QProcess_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3933,8 +4045,8 @@ pub const qprocess = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QProcess_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QProcess_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3969,6 +4081,10 @@ pub const qprocess = struct {
         qtc.QProcess_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -3981,8 +4097,8 @@ pub const qprocess = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QProcess_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QProcess_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -4017,6 +4133,10 @@ pub const qprocess = struct {
         qtc.QProcess_SetOpenMode(@ptrCast(self), @bitCast(openMode));
     }
 
+    /// ### DEPRECATED: Use `SuperSetOpenMode` instead
+    ///
+    pub const QBaseSetOpenMode = SuperSetOpenMode;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
@@ -4029,8 +4149,8 @@ pub const qprocess = struct {
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i32) void {
-        qtc.QProcess_QBaseSetOpenMode(@ptrCast(self), @bitCast(openMode));
+    pub fn SuperSetOpenMode(self: ?*anyopaque, openMode: i32) void {
+        qtc.QProcess_SuperSetOpenMode(@ptrCast(self), @bitCast(openMode));
     }
 
     /// Inherited from QIODevice
@@ -4069,6 +4189,10 @@ pub const qprocess = struct {
         qtc.QProcess_SetErrorString(@ptrCast(self), errorString_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSetErrorString` instead
+    ///
+    pub const QBaseSetErrorString = SuperSetErrorString;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
@@ -4081,12 +4205,12 @@ pub const qprocess = struct {
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn QBaseSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
+    pub fn SuperSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QProcess_QBaseSetErrorString(@ptrCast(self), errorString_str);
+        qtc.QProcess_SuperSetErrorString(@ptrCast(self), errorString_str);
     }
 
     /// Inherited from QIODevice
@@ -4119,6 +4243,10 @@ pub const qprocess = struct {
         return qtc.QProcess_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -4129,8 +4257,8 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QProcess_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QProcess_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -4163,6 +4291,10 @@ pub const qprocess = struct {
         return qtc.QProcess_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -4173,8 +4305,8 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QProcess_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QProcess_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -4210,6 +4342,10 @@ pub const qprocess = struct {
         return qtc.QProcess_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -4222,9 +4358,9 @@ pub const qprocess = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QProcess_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QProcess_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -4259,6 +4395,10 @@ pub const qprocess = struct {
         return qtc.QProcess_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -4271,8 +4411,8 @@ pub const qprocess = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QProcess_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QProcess_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -4362,6 +4502,9 @@ pub const qprocess = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#dtor.QProcess)
     ///
@@ -4371,7 +4514,7 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QProcess_Delete(@ptrCast(self));
     }
 };
@@ -4470,13 +4613,17 @@ pub const qprocess__unixprocessparameters = struct {
         qtc.QProcess__UnixProcessParameters_SetLowestFileDescriptorToClose(@ptrCast(self), @bitCast(lowestFileDescriptorToClose));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QProcess__UnixProcessParameters `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QProcess__UnixProcessParameters_Delete(@ptrCast(self));
     }
 };

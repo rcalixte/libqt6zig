@@ -328,23 +328,23 @@ class VirtualQDBusPendingCallWatcher final : public QDBusPendingCallWatcher {
 
     // Friend functions
     friend void QDBusPendingCallWatcher_TimerEvent(QDBusPendingCallWatcher* self, QTimerEvent* event);
-    friend void QDBusPendingCallWatcher_QBaseTimerEvent(QDBusPendingCallWatcher* self, QTimerEvent* event);
+    friend void QDBusPendingCallWatcher_SuperTimerEvent(QDBusPendingCallWatcher* self, QTimerEvent* event);
     friend void QDBusPendingCallWatcher_ChildEvent(QDBusPendingCallWatcher* self, QChildEvent* event);
-    friend void QDBusPendingCallWatcher_QBaseChildEvent(QDBusPendingCallWatcher* self, QChildEvent* event);
+    friend void QDBusPendingCallWatcher_SuperChildEvent(QDBusPendingCallWatcher* self, QChildEvent* event);
     friend void QDBusPendingCallWatcher_CustomEvent(QDBusPendingCallWatcher* self, QEvent* event);
-    friend void QDBusPendingCallWatcher_QBaseCustomEvent(QDBusPendingCallWatcher* self, QEvent* event);
+    friend void QDBusPendingCallWatcher_SuperCustomEvent(QDBusPendingCallWatcher* self, QEvent* event);
     friend void QDBusPendingCallWatcher_ConnectNotify(QDBusPendingCallWatcher* self, const QMetaMethod* signal);
-    friend void QDBusPendingCallWatcher_QBaseConnectNotify(QDBusPendingCallWatcher* self, const QMetaMethod* signal);
+    friend void QDBusPendingCallWatcher_SuperConnectNotify(QDBusPendingCallWatcher* self, const QMetaMethod* signal);
     friend void QDBusPendingCallWatcher_DisconnectNotify(QDBusPendingCallWatcher* self, const QMetaMethod* signal);
-    friend void QDBusPendingCallWatcher_QBaseDisconnectNotify(QDBusPendingCallWatcher* self, const QMetaMethod* signal);
+    friend void QDBusPendingCallWatcher_SuperDisconnectNotify(QDBusPendingCallWatcher* self, const QMetaMethod* signal);
     friend QObject* QDBusPendingCallWatcher_Sender(const QDBusPendingCallWatcher* self);
-    friend QObject* QDBusPendingCallWatcher_QBaseSender(const QDBusPendingCallWatcher* self);
+    friend QObject* QDBusPendingCallWatcher_SuperSender(const QDBusPendingCallWatcher* self);
     friend int QDBusPendingCallWatcher_SenderSignalIndex(const QDBusPendingCallWatcher* self);
-    friend int QDBusPendingCallWatcher_QBaseSenderSignalIndex(const QDBusPendingCallWatcher* self);
+    friend int QDBusPendingCallWatcher_SuperSenderSignalIndex(const QDBusPendingCallWatcher* self);
     friend int QDBusPendingCallWatcher_Receivers(const QDBusPendingCallWatcher* self, const char* signal);
-    friend int QDBusPendingCallWatcher_QBaseReceivers(const QDBusPendingCallWatcher* self, const char* signal);
+    friend int QDBusPendingCallWatcher_SuperReceivers(const QDBusPendingCallWatcher* self, const char* signal);
     friend bool QDBusPendingCallWatcher_IsSignalConnected(const QDBusPendingCallWatcher* self, const QMetaMethod* signal);
-    friend bool QDBusPendingCallWatcher_QBaseIsSignalConnected(const QDBusPendingCallWatcher* self, const QMetaMethod* signal);
+    friend bool QDBusPendingCallWatcher_SuperIsSignalConnected(const QDBusPendingCallWatcher* self, const QMetaMethod* signal);
 };
 
 #endif

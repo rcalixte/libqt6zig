@@ -174,6 +174,10 @@ pub const qgeosatelliteinfo = struct {
         qtc.QGeoSatelliteInfo_Detach(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#dtor.QGeoSatelliteInfo)
     ///
     /// Delete this object from C++ memory.
@@ -182,7 +186,7 @@ pub const qgeosatelliteinfo = struct {
     ///
     /// ` self: QtC.QGeoSatelliteInfo `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGeoSatelliteInfo_Delete(@ptrCast(self));
     }
 };

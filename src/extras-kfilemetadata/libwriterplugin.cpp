@@ -98,7 +98,7 @@ void KFileMetaData__WriterPlugin_Write(KFileMetaData__WriterPlugin* self, const 
 }
 
 // Base class handler implementation
-QMetaObject* KFileMetaData__WriterPlugin_QBaseMetaObject(const KFileMetaData__WriterPlugin* self) {
+QMetaObject* KFileMetaData__WriterPlugin_SuperMetaObject(const KFileMetaData__WriterPlugin* self) {
     auto* vkfilemetadatawriterplugin = const_cast<VirtualKFileMetaDataWriterPlugin*>(dynamic_cast<const VirtualKFileMetaDataWriterPlugin*>(self));
     if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_MetaObject_IsBase(true);
@@ -117,7 +117,7 @@ void KFileMetaData__WriterPlugin_OnMetaObject(const KFileMetaData__WriterPlugin*
 }
 
 // Base class handler implementation
-void* KFileMetaData__WriterPlugin_QBaseMetacast(KFileMetaData__WriterPlugin* self, const char* param1) {
+void* KFileMetaData__WriterPlugin_SuperMetacast(KFileMetaData__WriterPlugin* self, const char* param1) {
     auto* vkfilemetadatawriterplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
     if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_Metacast_IsBase(true);
@@ -136,7 +136,7 @@ void KFileMetaData__WriterPlugin_OnMetacast(KFileMetaData__WriterPlugin* self, i
 }
 
 // Base class handler implementation
-int KFileMetaData__WriterPlugin_QBaseMetacall(KFileMetaData__WriterPlugin* self, int param1, int param2, void** param3) {
+int KFileMetaData__WriterPlugin_SuperMetacall(KFileMetaData__WriterPlugin* self, int param1, int param2, void** param3) {
     auto* vkfilemetadatawriterplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
     if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_Metacall_IsBase(true);
@@ -155,7 +155,7 @@ void KFileMetaData__WriterPlugin_OnMetacall(KFileMetaData__WriterPlugin* self, i
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KFileMetaData__WriterPlugin_QBaseWriteMimetypes(const KFileMetaData__WriterPlugin* self) {
+libqt_list /* of libqt_string */ KFileMetaData__WriterPlugin_SuperWriteMimetypes(const KFileMetaData__WriterPlugin* self) {
     auto* vkfilemetadatawriterplugin = const_cast<VirtualKFileMetaDataWriterPlugin*>(dynamic_cast<const VirtualKFileMetaDataWriterPlugin*>(self));
     if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_WriteMimetypes_IsBase(true);
@@ -208,7 +208,7 @@ void KFileMetaData__WriterPlugin_OnWriteMimetypes(const KFileMetaData__WriterPlu
 }
 
 // Base class handler implementation
-void KFileMetaData__WriterPlugin_QBaseWrite(KFileMetaData__WriterPlugin* self, const KFileMetaData__WriteData* data) {
+void KFileMetaData__WriterPlugin_SuperWrite(KFileMetaData__WriterPlugin* self, const KFileMetaData__WriteData* data) {
     auto* vkfilemetadatawriterplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
     if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_Write_IsBase(true);
@@ -237,7 +237,7 @@ bool KFileMetaData__WriterPlugin_Event(KFileMetaData__WriterPlugin* self, QEvent
 }
 
 // Base class handler implementation
-bool KFileMetaData__WriterPlugin_QBaseEvent(KFileMetaData__WriterPlugin* self, QEvent* event) {
+bool KFileMetaData__WriterPlugin_SuperEvent(KFileMetaData__WriterPlugin* self, QEvent* event) {
     auto* vkfilemetadatawriterplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
     if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_Event_IsBase(true);
@@ -266,7 +266,7 @@ bool KFileMetaData__WriterPlugin_EventFilter(KFileMetaData__WriterPlugin* self, 
 }
 
 // Base class handler implementation
-bool KFileMetaData__WriterPlugin_QBaseEventFilter(KFileMetaData__WriterPlugin* self, QObject* watched, QEvent* event) {
+bool KFileMetaData__WriterPlugin_SuperEventFilter(KFileMetaData__WriterPlugin* self, QObject* watched, QEvent* event) {
     auto* vkfilemetadatawriterplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
     if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_EventFilter_IsBase(true);
@@ -295,7 +295,7 @@ void KFileMetaData__WriterPlugin_TimerEvent(KFileMetaData__WriterPlugin* self, Q
 }
 
 // Base class handler implementation
-void KFileMetaData__WriterPlugin_QBaseTimerEvent(KFileMetaData__WriterPlugin* self, QTimerEvent* event) {
+void KFileMetaData__WriterPlugin_SuperTimerEvent(KFileMetaData__WriterPlugin* self, QTimerEvent* event) {
     auto* vkfilemetadatawriterplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
     if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_TimerEvent_IsBase(true);
@@ -324,7 +324,7 @@ void KFileMetaData__WriterPlugin_ChildEvent(KFileMetaData__WriterPlugin* self, Q
 }
 
 // Base class handler implementation
-void KFileMetaData__WriterPlugin_QBaseChildEvent(KFileMetaData__WriterPlugin* self, QChildEvent* event) {
+void KFileMetaData__WriterPlugin_SuperChildEvent(KFileMetaData__WriterPlugin* self, QChildEvent* event) {
     auto* vkfilemetadatawriterplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
     if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_ChildEvent_IsBase(true);
@@ -353,7 +353,7 @@ void KFileMetaData__WriterPlugin_CustomEvent(KFileMetaData__WriterPlugin* self, 
 }
 
 // Base class handler implementation
-void KFileMetaData__WriterPlugin_QBaseCustomEvent(KFileMetaData__WriterPlugin* self, QEvent* event) {
+void KFileMetaData__WriterPlugin_SuperCustomEvent(KFileMetaData__WriterPlugin* self, QEvent* event) {
     auto* vkfilemetadatawriterplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
     if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_CustomEvent_IsBase(true);
@@ -382,7 +382,7 @@ void KFileMetaData__WriterPlugin_ConnectNotify(KFileMetaData__WriterPlugin* self
 }
 
 // Base class handler implementation
-void KFileMetaData__WriterPlugin_QBaseConnectNotify(KFileMetaData__WriterPlugin* self, const QMetaMethod* signal) {
+void KFileMetaData__WriterPlugin_SuperConnectNotify(KFileMetaData__WriterPlugin* self, const QMetaMethod* signal) {
     auto* vkfilemetadatawriterplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
     if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_ConnectNotify_IsBase(true);
@@ -411,7 +411,7 @@ void KFileMetaData__WriterPlugin_DisconnectNotify(KFileMetaData__WriterPlugin* s
 }
 
 // Base class handler implementation
-void KFileMetaData__WriterPlugin_QBaseDisconnectNotify(KFileMetaData__WriterPlugin* self, const QMetaMethod* signal) {
+void KFileMetaData__WriterPlugin_SuperDisconnectNotify(KFileMetaData__WriterPlugin* self, const QMetaMethod* signal) {
     auto* vkfilemetadatawriterplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
     if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_DisconnectNotify_IsBase(true);
@@ -440,7 +440,7 @@ QObject* KFileMetaData__WriterPlugin_Sender(const KFileMetaData__WriterPlugin* s
 }
 
 // Base class handler implementation
-QObject* KFileMetaData__WriterPlugin_QBaseSender(const KFileMetaData__WriterPlugin* self) {
+QObject* KFileMetaData__WriterPlugin_SuperSender(const KFileMetaData__WriterPlugin* self) {
     auto* vkfilemetadatawriterplugin = const_cast<VirtualKFileMetaDataWriterPlugin*>(dynamic_cast<const VirtualKFileMetaDataWriterPlugin*>(self));
     if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_Sender_IsBase(true);
@@ -469,7 +469,7 @@ int KFileMetaData__WriterPlugin_SenderSignalIndex(const KFileMetaData__WriterPlu
 }
 
 // Base class handler implementation
-int KFileMetaData__WriterPlugin_QBaseSenderSignalIndex(const KFileMetaData__WriterPlugin* self) {
+int KFileMetaData__WriterPlugin_SuperSenderSignalIndex(const KFileMetaData__WriterPlugin* self) {
     auto* vkfilemetadatawriterplugin = const_cast<VirtualKFileMetaDataWriterPlugin*>(dynamic_cast<const VirtualKFileMetaDataWriterPlugin*>(self));
     if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_SenderSignalIndex_IsBase(true);
@@ -498,7 +498,7 @@ int KFileMetaData__WriterPlugin_Receivers(const KFileMetaData__WriterPlugin* sel
 }
 
 // Base class handler implementation
-int KFileMetaData__WriterPlugin_QBaseReceivers(const KFileMetaData__WriterPlugin* self, const char* signal) {
+int KFileMetaData__WriterPlugin_SuperReceivers(const KFileMetaData__WriterPlugin* self, const char* signal) {
     auto* vkfilemetadatawriterplugin = const_cast<VirtualKFileMetaDataWriterPlugin*>(dynamic_cast<const VirtualKFileMetaDataWriterPlugin*>(self));
     if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_Receivers_IsBase(true);
@@ -527,7 +527,7 @@ bool KFileMetaData__WriterPlugin_IsSignalConnected(const KFileMetaData__WriterPl
 }
 
 // Base class handler implementation
-bool KFileMetaData__WriterPlugin_QBaseIsSignalConnected(const KFileMetaData__WriterPlugin* self, const QMetaMethod* signal) {
+bool KFileMetaData__WriterPlugin_SuperIsSignalConnected(const KFileMetaData__WriterPlugin* self, const QMetaMethod* signal) {
     auto* vkfilemetadatawriterplugin = const_cast<VirtualKFileMetaDataWriterPlugin*>(dynamic_cast<const VirtualKFileMetaDataWriterPlugin*>(self));
     if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_IsSignalConnected_IsBase(true);

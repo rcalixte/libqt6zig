@@ -258,7 +258,7 @@ bool QIdentityProxyModel_HandleSourceDataChanges(const QIdentityProxyModel* self
 }
 
 // Base class handler implementation
-QMetaObject* QIdentityProxyModel_QBaseMetaObject(const QIdentityProxyModel* self) {
+QMetaObject* QIdentityProxyModel_SuperMetaObject(const QIdentityProxyModel* self) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_MetaObject_IsBase(true);
@@ -277,7 +277,7 @@ void QIdentityProxyModel_OnMetaObject(const QIdentityProxyModel* self, intptr_t 
 }
 
 // Base class handler implementation
-void* QIdentityProxyModel_QBaseMetacast(QIdentityProxyModel* self, const char* param1) {
+void* QIdentityProxyModel_SuperMetacast(QIdentityProxyModel* self, const char* param1) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_Metacast_IsBase(true);
@@ -296,7 +296,7 @@ void QIdentityProxyModel_OnMetacast(QIdentityProxyModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QIdentityProxyModel_QBaseMetacall(QIdentityProxyModel* self, int param1, int param2, void** param3) {
+int QIdentityProxyModel_SuperMetacall(QIdentityProxyModel* self, int param1, int param2, void** param3) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_Metacall_IsBase(true);
@@ -315,7 +315,7 @@ void QIdentityProxyModel_OnMetacall(QIdentityProxyModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QIdentityProxyModel_QBaseColumnCount(const QIdentityProxyModel* self, const QModelIndex* parent) {
+int QIdentityProxyModel_SuperColumnCount(const QIdentityProxyModel* self, const QModelIndex* parent) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_ColumnCount_IsBase(true);
@@ -334,7 +334,7 @@ void QIdentityProxyModel_OnColumnCount(const QIdentityProxyModel* self, intptr_t
 }
 
 // Base class handler implementation
-QModelIndex* QIdentityProxyModel_QBaseIndex(const QIdentityProxyModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* QIdentityProxyModel_SuperIndex(const QIdentityProxyModel* self, int row, int column, const QModelIndex* parent) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_Index_IsBase(true);
@@ -353,7 +353,7 @@ void QIdentityProxyModel_OnIndex(const QIdentityProxyModel* self, intptr_t slot)
 }
 
 // Base class handler implementation
-QModelIndex* QIdentityProxyModel_QBaseMapFromSource(const QIdentityProxyModel* self, const QModelIndex* sourceIndex) {
+QModelIndex* QIdentityProxyModel_SuperMapFromSource(const QIdentityProxyModel* self, const QModelIndex* sourceIndex) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_MapFromSource_IsBase(true);
@@ -372,7 +372,7 @@ void QIdentityProxyModel_OnMapFromSource(const QIdentityProxyModel* self, intptr
 }
 
 // Base class handler implementation
-QModelIndex* QIdentityProxyModel_QBaseMapToSource(const QIdentityProxyModel* self, const QModelIndex* proxyIndex) {
+QModelIndex* QIdentityProxyModel_SuperMapToSource(const QIdentityProxyModel* self, const QModelIndex* proxyIndex) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_MapToSource_IsBase(true);
@@ -391,7 +391,7 @@ void QIdentityProxyModel_OnMapToSource(const QIdentityProxyModel* self, intptr_t
 }
 
 // Base class handler implementation
-QModelIndex* QIdentityProxyModel_QBaseParent(const QIdentityProxyModel* self, const QModelIndex* child) {
+QModelIndex* QIdentityProxyModel_SuperParent(const QIdentityProxyModel* self, const QModelIndex* child) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_Parent_IsBase(true);
@@ -410,7 +410,7 @@ void QIdentityProxyModel_OnParent(const QIdentityProxyModel* self, intptr_t slot
 }
 
 // Base class handler implementation
-int QIdentityProxyModel_QBaseRowCount(const QIdentityProxyModel* self, const QModelIndex* parent) {
+int QIdentityProxyModel_SuperRowCount(const QIdentityProxyModel* self, const QModelIndex* parent) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_RowCount_IsBase(true);
@@ -429,7 +429,7 @@ void QIdentityProxyModel_OnRowCount(const QIdentityProxyModel* self, intptr_t sl
 }
 
 // Base class handler implementation
-QVariant* QIdentityProxyModel_QBaseHeaderData(const QIdentityProxyModel* self, int section, int orientation, int role) {
+QVariant* QIdentityProxyModel_SuperHeaderData(const QIdentityProxyModel* self, int section, int orientation, int role) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_HeaderData_IsBase(true);
@@ -448,7 +448,7 @@ void QIdentityProxyModel_OnHeaderData(const QIdentityProxyModel* self, intptr_t 
 }
 
 // Base class handler implementation
-bool QIdentityProxyModel_QBaseDropMimeData(QIdentityProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QIdentityProxyModel_SuperDropMimeData(QIdentityProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_DropMimeData_IsBase(true);
@@ -467,7 +467,7 @@ void QIdentityProxyModel_OnDropMimeData(QIdentityProxyModel* self, intptr_t slot
 }
 
 // Base class handler implementation
-QModelIndex* QIdentityProxyModel_QBaseSibling(const QIdentityProxyModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* QIdentityProxyModel_SuperSibling(const QIdentityProxyModel* self, int row, int column, const QModelIndex* idx) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_Sibling_IsBase(true);
@@ -486,7 +486,7 @@ void QIdentityProxyModel_OnSibling(const QIdentityProxyModel* self, intptr_t slo
 }
 
 // Base class handler implementation
-QItemSelection* QIdentityProxyModel_QBaseMapSelectionFromSource(const QIdentityProxyModel* self, const QItemSelection* selection) {
+QItemSelection* QIdentityProxyModel_SuperMapSelectionFromSource(const QIdentityProxyModel* self, const QItemSelection* selection) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_MapSelectionFromSource_IsBase(true);
@@ -505,7 +505,7 @@ void QIdentityProxyModel_OnMapSelectionFromSource(const QIdentityProxyModel* sel
 }
 
 // Base class handler implementation
-QItemSelection* QIdentityProxyModel_QBaseMapSelectionToSource(const QIdentityProxyModel* self, const QItemSelection* selection) {
+QItemSelection* QIdentityProxyModel_SuperMapSelectionToSource(const QIdentityProxyModel* self, const QItemSelection* selection) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_MapSelectionToSource_IsBase(true);
@@ -524,7 +524,7 @@ void QIdentityProxyModel_OnMapSelectionToSource(const QIdentityProxyModel* self,
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QIdentityProxyModel_QBaseMatch(const QIdentityProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ QIdentityProxyModel_SuperMatch(const QIdentityProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_Match_IsBase(true);
@@ -561,7 +561,7 @@ void QIdentityProxyModel_OnMatch(const QIdentityProxyModel* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseSetSourceModel(QIdentityProxyModel* self, QAbstractItemModel* sourceModel) {
+void QIdentityProxyModel_SuperSetSourceModel(QIdentityProxyModel* self, QAbstractItemModel* sourceModel) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_SetSourceModel_IsBase(true);
@@ -580,7 +580,7 @@ void QIdentityProxyModel_OnSetSourceModel(QIdentityProxyModel* self, intptr_t sl
 }
 
 // Base class handler implementation
-bool QIdentityProxyModel_QBaseInsertColumns(QIdentityProxyModel* self, int column, int count, const QModelIndex* parent) {
+bool QIdentityProxyModel_SuperInsertColumns(QIdentityProxyModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_InsertColumns_IsBase(true);
@@ -599,7 +599,7 @@ void QIdentityProxyModel_OnInsertColumns(QIdentityProxyModel* self, intptr_t slo
 }
 
 // Base class handler implementation
-bool QIdentityProxyModel_QBaseInsertRows(QIdentityProxyModel* self, int row, int count, const QModelIndex* parent) {
+bool QIdentityProxyModel_SuperInsertRows(QIdentityProxyModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_InsertRows_IsBase(true);
@@ -618,7 +618,7 @@ void QIdentityProxyModel_OnInsertRows(QIdentityProxyModel* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-bool QIdentityProxyModel_QBaseRemoveColumns(QIdentityProxyModel* self, int column, int count, const QModelIndex* parent) {
+bool QIdentityProxyModel_SuperRemoveColumns(QIdentityProxyModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_RemoveColumns_IsBase(true);
@@ -637,7 +637,7 @@ void QIdentityProxyModel_OnRemoveColumns(QIdentityProxyModel* self, intptr_t slo
 }
 
 // Base class handler implementation
-bool QIdentityProxyModel_QBaseRemoveRows(QIdentityProxyModel* self, int row, int count, const QModelIndex* parent) {
+bool QIdentityProxyModel_SuperRemoveRows(QIdentityProxyModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_RemoveRows_IsBase(true);
@@ -656,7 +656,7 @@ void QIdentityProxyModel_OnRemoveRows(QIdentityProxyModel* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-bool QIdentityProxyModel_QBaseMoveRows(QIdentityProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QIdentityProxyModel_SuperMoveRows(QIdentityProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_MoveRows_IsBase(true);
@@ -675,7 +675,7 @@ void QIdentityProxyModel_OnMoveRows(QIdentityProxyModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QIdentityProxyModel_QBaseMoveColumns(QIdentityProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QIdentityProxyModel_SuperMoveColumns(QIdentityProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_MoveColumns_IsBase(true);
@@ -704,7 +704,7 @@ bool QIdentityProxyModel_Submit(QIdentityProxyModel* self) {
 }
 
 // Base class handler implementation
-bool QIdentityProxyModel_QBaseSubmit(QIdentityProxyModel* self) {
+bool QIdentityProxyModel_SuperSubmit(QIdentityProxyModel* self) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_Submit_IsBase(true);
@@ -733,7 +733,7 @@ void QIdentityProxyModel_Revert(QIdentityProxyModel* self) {
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseRevert(QIdentityProxyModel* self) {
+void QIdentityProxyModel_SuperRevert(QIdentityProxyModel* self) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_Revert_IsBase(true);
@@ -762,7 +762,7 @@ QVariant* QIdentityProxyModel_Data(const QIdentityProxyModel* self, const QModel
 }
 
 // Base class handler implementation
-QVariant* QIdentityProxyModel_QBaseData(const QIdentityProxyModel* self, const QModelIndex* proxyIndex, int role) {
+QVariant* QIdentityProxyModel_SuperData(const QIdentityProxyModel* self, const QModelIndex* proxyIndex, int role) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_Data_IsBase(true);
@@ -819,7 +819,7 @@ libqt_map /* of int to QVariant* */ QIdentityProxyModel_ItemData(const QIdentity
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ QIdentityProxyModel_QBaseItemData(const QIdentityProxyModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ QIdentityProxyModel_SuperItemData(const QIdentityProxyModel* self, const QModelIndex* index) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_ItemData_IsBase(true);
@@ -876,7 +876,7 @@ int QIdentityProxyModel_Flags(const QIdentityProxyModel* self, const QModelIndex
 }
 
 // Base class handler implementation
-int QIdentityProxyModel_QBaseFlags(const QIdentityProxyModel* self, const QModelIndex* index) {
+int QIdentityProxyModel_SuperFlags(const QIdentityProxyModel* self, const QModelIndex* index) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_Flags_IsBase(true);
@@ -905,7 +905,7 @@ bool QIdentityProxyModel_SetData(QIdentityProxyModel* self, const QModelIndex* i
 }
 
 // Base class handler implementation
-bool QIdentityProxyModel_QBaseSetData(QIdentityProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool QIdentityProxyModel_SuperSetData(QIdentityProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_SetData_IsBase(true);
@@ -940,7 +940,7 @@ bool QIdentityProxyModel_SetItemData(QIdentityProxyModel* self, const QModelInde
 }
 
 // Base class handler implementation
-bool QIdentityProxyModel_QBaseSetItemData(QIdentityProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool QIdentityProxyModel_SuperSetItemData(QIdentityProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -975,7 +975,7 @@ bool QIdentityProxyModel_SetHeaderData(QIdentityProxyModel* self, int section, i
 }
 
 // Base class handler implementation
-bool QIdentityProxyModel_QBaseSetHeaderData(QIdentityProxyModel* self, int section, int orientation, const QVariant* value, int role) {
+bool QIdentityProxyModel_SuperSetHeaderData(QIdentityProxyModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_SetHeaderData_IsBase(true);
@@ -1004,7 +1004,7 @@ bool QIdentityProxyModel_ClearItemData(QIdentityProxyModel* self, const QModelIn
 }
 
 // Base class handler implementation
-bool QIdentityProxyModel_QBaseClearItemData(QIdentityProxyModel* self, const QModelIndex* index) {
+bool QIdentityProxyModel_SuperClearItemData(QIdentityProxyModel* self, const QModelIndex* index) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_ClearItemData_IsBase(true);
@@ -1033,7 +1033,7 @@ QModelIndex* QIdentityProxyModel_Buddy(const QIdentityProxyModel* self, const QM
 }
 
 // Base class handler implementation
-QModelIndex* QIdentityProxyModel_QBaseBuddy(const QIdentityProxyModel* self, const QModelIndex* index) {
+QModelIndex* QIdentityProxyModel_SuperBuddy(const QIdentityProxyModel* self, const QModelIndex* index) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_Buddy_IsBase(true);
@@ -1062,7 +1062,7 @@ bool QIdentityProxyModel_CanFetchMore(const QIdentityProxyModel* self, const QMo
 }
 
 // Base class handler implementation
-bool QIdentityProxyModel_QBaseCanFetchMore(const QIdentityProxyModel* self, const QModelIndex* parent) {
+bool QIdentityProxyModel_SuperCanFetchMore(const QIdentityProxyModel* self, const QModelIndex* parent) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_CanFetchMore_IsBase(true);
@@ -1091,7 +1091,7 @@ void QIdentityProxyModel_FetchMore(QIdentityProxyModel* self, const QModelIndex*
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseFetchMore(QIdentityProxyModel* self, const QModelIndex* parent) {
+void QIdentityProxyModel_SuperFetchMore(QIdentityProxyModel* self, const QModelIndex* parent) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_FetchMore_IsBase(true);
@@ -1120,7 +1120,7 @@ void QIdentityProxyModel_Sort(QIdentityProxyModel* self, int column, int order) 
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseSort(QIdentityProxyModel* self, int column, int order) {
+void QIdentityProxyModel_SuperSort(QIdentityProxyModel* self, int column, int order) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_Sort_IsBase(true);
@@ -1149,7 +1149,7 @@ QSize* QIdentityProxyModel_Span(const QIdentityProxyModel* self, const QModelInd
 }
 
 // Base class handler implementation
-QSize* QIdentityProxyModel_QBaseSpan(const QIdentityProxyModel* self, const QModelIndex* index) {
+QSize* QIdentityProxyModel_SuperSpan(const QIdentityProxyModel* self, const QModelIndex* index) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_Span_IsBase(true);
@@ -1178,7 +1178,7 @@ bool QIdentityProxyModel_HasChildren(const QIdentityProxyModel* self, const QMod
 }
 
 // Base class handler implementation
-bool QIdentityProxyModel_QBaseHasChildren(const QIdentityProxyModel* self, const QModelIndex* parent) {
+bool QIdentityProxyModel_SuperHasChildren(const QIdentityProxyModel* self, const QModelIndex* parent) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_HasChildren_IsBase(true);
@@ -1213,7 +1213,7 @@ QMimeData* QIdentityProxyModel_MimeData(const QIdentityProxyModel* self, const l
 }
 
 // Base class handler implementation
-QMimeData* QIdentityProxyModel_QBaseMimeData(const QIdentityProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* QIdentityProxyModel_SuperMimeData(const QIdentityProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -1248,7 +1248,7 @@ bool QIdentityProxyModel_CanDropMimeData(const QIdentityProxyModel* self, const 
 }
 
 // Base class handler implementation
-bool QIdentityProxyModel_QBaseCanDropMimeData(const QIdentityProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QIdentityProxyModel_SuperCanDropMimeData(const QIdentityProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_CanDropMimeData_IsBase(true);
@@ -1311,7 +1311,7 @@ libqt_list /* of libqt_string */ QIdentityProxyModel_MimeTypes(const QIdentityPr
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QIdentityProxyModel_QBaseMimeTypes(const QIdentityProxyModel* self) {
+libqt_list /* of libqt_string */ QIdentityProxyModel_SuperMimeTypes(const QIdentityProxyModel* self) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_MimeTypes_IsBase(true);
@@ -1374,7 +1374,7 @@ int QIdentityProxyModel_SupportedDragActions(const QIdentityProxyModel* self) {
 }
 
 // Base class handler implementation
-int QIdentityProxyModel_QBaseSupportedDragActions(const QIdentityProxyModel* self) {
+int QIdentityProxyModel_SuperSupportedDragActions(const QIdentityProxyModel* self) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_SupportedDragActions_IsBase(true);
@@ -1403,7 +1403,7 @@ int QIdentityProxyModel_SupportedDropActions(const QIdentityProxyModel* self) {
 }
 
 // Base class handler implementation
-int QIdentityProxyModel_QBaseSupportedDropActions(const QIdentityProxyModel* self) {
+int QIdentityProxyModel_SuperSupportedDropActions(const QIdentityProxyModel* self) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_SupportedDropActions_IsBase(true);
@@ -1470,7 +1470,7 @@ libqt_map /* of int to libqt_string */ QIdentityProxyModel_RoleNames(const QIden
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ QIdentityProxyModel_QBaseRoleNames(const QIdentityProxyModel* self) {
+libqt_map /* of int to libqt_string */ QIdentityProxyModel_SuperRoleNames(const QIdentityProxyModel* self) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_RoleNames_IsBase(true);
@@ -1537,7 +1537,7 @@ void QIdentityProxyModel_MultiData(const QIdentityProxyModel* self, const QModel
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseMultiData(const QIdentityProxyModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void QIdentityProxyModel_SuperMultiData(const QIdentityProxyModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_MultiData_IsBase(true);
@@ -1566,7 +1566,7 @@ void QIdentityProxyModel_ResetInternalData(QIdentityProxyModel* self) {
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseResetInternalData(QIdentityProxyModel* self) {
+void QIdentityProxyModel_SuperResetInternalData(QIdentityProxyModel* self) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_ResetInternalData_IsBase(true);
@@ -1595,7 +1595,7 @@ bool QIdentityProxyModel_Event(QIdentityProxyModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QIdentityProxyModel_QBaseEvent(QIdentityProxyModel* self, QEvent* event) {
+bool QIdentityProxyModel_SuperEvent(QIdentityProxyModel* self, QEvent* event) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_Event_IsBase(true);
@@ -1624,7 +1624,7 @@ bool QIdentityProxyModel_EventFilter(QIdentityProxyModel* self, QObject* watched
 }
 
 // Base class handler implementation
-bool QIdentityProxyModel_QBaseEventFilter(QIdentityProxyModel* self, QObject* watched, QEvent* event) {
+bool QIdentityProxyModel_SuperEventFilter(QIdentityProxyModel* self, QObject* watched, QEvent* event) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_EventFilter_IsBase(true);
@@ -1653,7 +1653,7 @@ void QIdentityProxyModel_TimerEvent(QIdentityProxyModel* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseTimerEvent(QIdentityProxyModel* self, QTimerEvent* event) {
+void QIdentityProxyModel_SuperTimerEvent(QIdentityProxyModel* self, QTimerEvent* event) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_TimerEvent_IsBase(true);
@@ -1682,7 +1682,7 @@ void QIdentityProxyModel_ChildEvent(QIdentityProxyModel* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseChildEvent(QIdentityProxyModel* self, QChildEvent* event) {
+void QIdentityProxyModel_SuperChildEvent(QIdentityProxyModel* self, QChildEvent* event) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_ChildEvent_IsBase(true);
@@ -1711,7 +1711,7 @@ void QIdentityProxyModel_CustomEvent(QIdentityProxyModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseCustomEvent(QIdentityProxyModel* self, QEvent* event) {
+void QIdentityProxyModel_SuperCustomEvent(QIdentityProxyModel* self, QEvent* event) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_CustomEvent_IsBase(true);
@@ -1740,7 +1740,7 @@ void QIdentityProxyModel_ConnectNotify(QIdentityProxyModel* self, const QMetaMet
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseConnectNotify(QIdentityProxyModel* self, const QMetaMethod* signal) {
+void QIdentityProxyModel_SuperConnectNotify(QIdentityProxyModel* self, const QMetaMethod* signal) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_ConnectNotify_IsBase(true);
@@ -1769,7 +1769,7 @@ void QIdentityProxyModel_DisconnectNotify(QIdentityProxyModel* self, const QMeta
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseDisconnectNotify(QIdentityProxyModel* self, const QMetaMethod* signal) {
+void QIdentityProxyModel_SuperDisconnectNotify(QIdentityProxyModel* self, const QMetaMethod* signal) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_DisconnectNotify_IsBase(true);
@@ -1798,7 +1798,7 @@ void QIdentityProxyModel_SetHandleSourceLayoutChanges(QIdentityProxyModel* self,
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseSetHandleSourceLayoutChanges(QIdentityProxyModel* self, bool handleSourceLayoutChanges) {
+void QIdentityProxyModel_SuperSetHandleSourceLayoutChanges(QIdentityProxyModel* self, bool handleSourceLayoutChanges) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_SetHandleSourceLayoutChanges_IsBase(true);
@@ -1827,7 +1827,7 @@ void QIdentityProxyModel_SetHandleSourceDataChanges(QIdentityProxyModel* self, b
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseSetHandleSourceDataChanges(QIdentityProxyModel* self, bool handleSourceDataChanges) {
+void QIdentityProxyModel_SuperSetHandleSourceDataChanges(QIdentityProxyModel* self, bool handleSourceDataChanges) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_SetHandleSourceDataChanges_IsBase(true);
@@ -1855,7 +1855,7 @@ QModelIndex* QIdentityProxyModel_CreateSourceIndex(const QIdentityProxyModel* se
 }
 
 // Base class handler implementation
-QModelIndex* QIdentityProxyModel_QBaseCreateSourceIndex(const QIdentityProxyModel* self, int row, int col, void* internalPtr) {
+QModelIndex* QIdentityProxyModel_SuperCreateSourceIndex(const QIdentityProxyModel* self, int row, int col, void* internalPtr) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_CreateSourceIndex_IsBase(true);
@@ -1882,7 +1882,7 @@ QModelIndex* QIdentityProxyModel_CreateIndex(const QIdentityProxyModel* self, in
 }
 
 // Base class handler implementation
-QModelIndex* QIdentityProxyModel_QBaseCreateIndex(const QIdentityProxyModel* self, int row, int column) {
+QModelIndex* QIdentityProxyModel_SuperCreateIndex(const QIdentityProxyModel* self, int row, int column) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_CreateIndex_IsBase(true);
@@ -1916,7 +1916,7 @@ void QIdentityProxyModel_EncodeData(const QIdentityProxyModel* self, const libqt
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseEncodeData(const QIdentityProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void QIdentityProxyModel_SuperEncodeData(const QIdentityProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -1951,7 +1951,7 @@ bool QIdentityProxyModel_DecodeData(QIdentityProxyModel* self, int row, int colu
 }
 
 // Base class handler implementation
-bool QIdentityProxyModel_QBaseDecodeData(QIdentityProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool QIdentityProxyModel_SuperDecodeData(QIdentityProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_DecodeData_IsBase(true);
@@ -1980,7 +1980,7 @@ void QIdentityProxyModel_BeginInsertRows(QIdentityProxyModel* self, const QModel
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseBeginInsertRows(QIdentityProxyModel* self, const QModelIndex* parent, int first, int last) {
+void QIdentityProxyModel_SuperBeginInsertRows(QIdentityProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_BeginInsertRows_IsBase(true);
@@ -2009,7 +2009,7 @@ void QIdentityProxyModel_EndInsertRows(QIdentityProxyModel* self) {
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseEndInsertRows(QIdentityProxyModel* self) {
+void QIdentityProxyModel_SuperEndInsertRows(QIdentityProxyModel* self) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_EndInsertRows_IsBase(true);
@@ -2038,7 +2038,7 @@ void QIdentityProxyModel_BeginRemoveRows(QIdentityProxyModel* self, const QModel
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseBeginRemoveRows(QIdentityProxyModel* self, const QModelIndex* parent, int first, int last) {
+void QIdentityProxyModel_SuperBeginRemoveRows(QIdentityProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_BeginRemoveRows_IsBase(true);
@@ -2067,7 +2067,7 @@ void QIdentityProxyModel_EndRemoveRows(QIdentityProxyModel* self) {
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseEndRemoveRows(QIdentityProxyModel* self) {
+void QIdentityProxyModel_SuperEndRemoveRows(QIdentityProxyModel* self) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_EndRemoveRows_IsBase(true);
@@ -2096,7 +2096,7 @@ bool QIdentityProxyModel_BeginMoveRows(QIdentityProxyModel* self, const QModelIn
 }
 
 // Base class handler implementation
-bool QIdentityProxyModel_QBaseBeginMoveRows(QIdentityProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool QIdentityProxyModel_SuperBeginMoveRows(QIdentityProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_BeginMoveRows_IsBase(true);
@@ -2125,7 +2125,7 @@ void QIdentityProxyModel_EndMoveRows(QIdentityProxyModel* self) {
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseEndMoveRows(QIdentityProxyModel* self) {
+void QIdentityProxyModel_SuperEndMoveRows(QIdentityProxyModel* self) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_EndMoveRows_IsBase(true);
@@ -2154,7 +2154,7 @@ void QIdentityProxyModel_BeginInsertColumns(QIdentityProxyModel* self, const QMo
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseBeginInsertColumns(QIdentityProxyModel* self, const QModelIndex* parent, int first, int last) {
+void QIdentityProxyModel_SuperBeginInsertColumns(QIdentityProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_BeginInsertColumns_IsBase(true);
@@ -2183,7 +2183,7 @@ void QIdentityProxyModel_EndInsertColumns(QIdentityProxyModel* self) {
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseEndInsertColumns(QIdentityProxyModel* self) {
+void QIdentityProxyModel_SuperEndInsertColumns(QIdentityProxyModel* self) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_EndInsertColumns_IsBase(true);
@@ -2212,7 +2212,7 @@ void QIdentityProxyModel_BeginRemoveColumns(QIdentityProxyModel* self, const QMo
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseBeginRemoveColumns(QIdentityProxyModel* self, const QModelIndex* parent, int first, int last) {
+void QIdentityProxyModel_SuperBeginRemoveColumns(QIdentityProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_BeginRemoveColumns_IsBase(true);
@@ -2241,7 +2241,7 @@ void QIdentityProxyModel_EndRemoveColumns(QIdentityProxyModel* self) {
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseEndRemoveColumns(QIdentityProxyModel* self) {
+void QIdentityProxyModel_SuperEndRemoveColumns(QIdentityProxyModel* self) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_EndRemoveColumns_IsBase(true);
@@ -2270,7 +2270,7 @@ bool QIdentityProxyModel_BeginMoveColumns(QIdentityProxyModel* self, const QMode
 }
 
 // Base class handler implementation
-bool QIdentityProxyModel_QBaseBeginMoveColumns(QIdentityProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool QIdentityProxyModel_SuperBeginMoveColumns(QIdentityProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_BeginMoveColumns_IsBase(true);
@@ -2299,7 +2299,7 @@ void QIdentityProxyModel_EndMoveColumns(QIdentityProxyModel* self) {
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseEndMoveColumns(QIdentityProxyModel* self) {
+void QIdentityProxyModel_SuperEndMoveColumns(QIdentityProxyModel* self) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_EndMoveColumns_IsBase(true);
@@ -2328,7 +2328,7 @@ void QIdentityProxyModel_BeginResetModel(QIdentityProxyModel* self) {
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseBeginResetModel(QIdentityProxyModel* self) {
+void QIdentityProxyModel_SuperBeginResetModel(QIdentityProxyModel* self) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_BeginResetModel_IsBase(true);
@@ -2357,7 +2357,7 @@ void QIdentityProxyModel_EndResetModel(QIdentityProxyModel* self) {
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseEndResetModel(QIdentityProxyModel* self) {
+void QIdentityProxyModel_SuperEndResetModel(QIdentityProxyModel* self) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_EndResetModel_IsBase(true);
@@ -2386,7 +2386,7 @@ void QIdentityProxyModel_ChangePersistentIndex(QIdentityProxyModel* self, const 
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseChangePersistentIndex(QIdentityProxyModel* self, const QModelIndex* from, const QModelIndex* to) {
+void QIdentityProxyModel_SuperChangePersistentIndex(QIdentityProxyModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_ChangePersistentIndex_IsBase(true);
@@ -2427,7 +2427,7 @@ void QIdentityProxyModel_ChangePersistentIndexList(QIdentityProxyModel* self, co
 }
 
 // Base class handler implementation
-void QIdentityProxyModel_QBaseChangePersistentIndexList(QIdentityProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void QIdentityProxyModel_SuperChangePersistentIndexList(QIdentityProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -2486,7 +2486,7 @@ libqt_list /* of QModelIndex* */ QIdentityProxyModel_PersistentIndexList(const Q
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QIdentityProxyModel_QBasePersistentIndexList(const QIdentityProxyModel* self) {
+libqt_list /* of QModelIndex* */ QIdentityProxyModel_SuperPersistentIndexList(const QIdentityProxyModel* self) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_PersistentIndexList_IsBase(true);
@@ -2533,7 +2533,7 @@ QObject* QIdentityProxyModel_Sender(const QIdentityProxyModel* self) {
 }
 
 // Base class handler implementation
-QObject* QIdentityProxyModel_QBaseSender(const QIdentityProxyModel* self) {
+QObject* QIdentityProxyModel_SuperSender(const QIdentityProxyModel* self) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_Sender_IsBase(true);
@@ -2562,7 +2562,7 @@ int QIdentityProxyModel_SenderSignalIndex(const QIdentityProxyModel* self) {
 }
 
 // Base class handler implementation
-int QIdentityProxyModel_QBaseSenderSignalIndex(const QIdentityProxyModel* self) {
+int QIdentityProxyModel_SuperSenderSignalIndex(const QIdentityProxyModel* self) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_SenderSignalIndex_IsBase(true);
@@ -2591,7 +2591,7 @@ int QIdentityProxyModel_Receivers(const QIdentityProxyModel* self, const char* s
 }
 
 // Base class handler implementation
-int QIdentityProxyModel_QBaseReceivers(const QIdentityProxyModel* self, const char* signal) {
+int QIdentityProxyModel_SuperReceivers(const QIdentityProxyModel* self, const char* signal) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_Receivers_IsBase(true);
@@ -2620,7 +2620,7 @@ bool QIdentityProxyModel_IsSignalConnected(const QIdentityProxyModel* self, cons
 }
 
 // Base class handler implementation
-bool QIdentityProxyModel_QBaseIsSignalConnected(const QIdentityProxyModel* self, const QMetaMethod* signal) {
+bool QIdentityProxyModel_SuperIsSignalConnected(const QIdentityProxyModel* self, const QMetaMethod* signal) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_IsSignalConnected_IsBase(true);

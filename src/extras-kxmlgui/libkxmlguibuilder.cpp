@@ -150,7 +150,7 @@ void KXMLGUIBuilder_FinalizeGUI(KXMLGUIBuilder* self, KXMLGUIClient* client) {
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KXMLGUIBuilder_QBaseContainerTags(const KXMLGUIBuilder* self) {
+libqt_list /* of libqt_string */ KXMLGUIBuilder_SuperContainerTags(const KXMLGUIBuilder* self) {
     auto* vkxmlguibuilder = const_cast<VirtualKXMLGUIBuilder*>(dynamic_cast<const VirtualKXMLGUIBuilder*>(self));
     if (vkxmlguibuilder && vkxmlguibuilder->isVirtualKXMLGUIBuilder) {
         vkxmlguibuilder->setKXMLGUIBuilder_ContainerTags_IsBase(true);
@@ -203,7 +203,7 @@ void KXMLGUIBuilder_OnContainerTags(const KXMLGUIBuilder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QWidget* KXMLGUIBuilder_QBaseCreateContainer(KXMLGUIBuilder* self, QWidget* parent, int index, const QDomElement* element, QAction** containerAction) {
+QWidget* KXMLGUIBuilder_SuperCreateContainer(KXMLGUIBuilder* self, QWidget* parent, int index, const QDomElement* element, QAction** containerAction) {
     auto* vkxmlguibuilder = dynamic_cast<VirtualKXMLGUIBuilder*>(self);
     if (vkxmlguibuilder && vkxmlguibuilder->isVirtualKXMLGUIBuilder) {
         vkxmlguibuilder->setKXMLGUIBuilder_CreateContainer_IsBase(true);
@@ -222,7 +222,7 @@ void KXMLGUIBuilder_OnCreateContainer(KXMLGUIBuilder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KXMLGUIBuilder_QBaseRemoveContainer(KXMLGUIBuilder* self, QWidget* container, QWidget* parent, QDomElement* element, QAction* containerAction) {
+void KXMLGUIBuilder_SuperRemoveContainer(KXMLGUIBuilder* self, QWidget* container, QWidget* parent, QDomElement* element, QAction* containerAction) {
     auto* vkxmlguibuilder = dynamic_cast<VirtualKXMLGUIBuilder*>(self);
     if (vkxmlguibuilder && vkxmlguibuilder->isVirtualKXMLGUIBuilder) {
         vkxmlguibuilder->setKXMLGUIBuilder_RemoveContainer_IsBase(true);
@@ -241,7 +241,7 @@ void KXMLGUIBuilder_OnRemoveContainer(KXMLGUIBuilder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KXMLGUIBuilder_QBaseCustomTags(const KXMLGUIBuilder* self) {
+libqt_list /* of libqt_string */ KXMLGUIBuilder_SuperCustomTags(const KXMLGUIBuilder* self) {
     auto* vkxmlguibuilder = const_cast<VirtualKXMLGUIBuilder*>(dynamic_cast<const VirtualKXMLGUIBuilder*>(self));
     if (vkxmlguibuilder && vkxmlguibuilder->isVirtualKXMLGUIBuilder) {
         vkxmlguibuilder->setKXMLGUIBuilder_CustomTags_IsBase(true);
@@ -294,7 +294,7 @@ void KXMLGUIBuilder_OnCustomTags(const KXMLGUIBuilder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QAction* KXMLGUIBuilder_QBaseCreateCustomElement(KXMLGUIBuilder* self, QWidget* parent, int index, const QDomElement* element) {
+QAction* KXMLGUIBuilder_SuperCreateCustomElement(KXMLGUIBuilder* self, QWidget* parent, int index, const QDomElement* element) {
     auto* vkxmlguibuilder = dynamic_cast<VirtualKXMLGUIBuilder*>(self);
     if (vkxmlguibuilder && vkxmlguibuilder->isVirtualKXMLGUIBuilder) {
         vkxmlguibuilder->setKXMLGUIBuilder_CreateCustomElement_IsBase(true);
@@ -313,7 +313,7 @@ void KXMLGUIBuilder_OnCreateCustomElement(KXMLGUIBuilder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KXMLGUIBuilder_QBaseFinalizeGUI(KXMLGUIBuilder* self, KXMLGUIClient* client) {
+void KXMLGUIBuilder_SuperFinalizeGUI(KXMLGUIBuilder* self, KXMLGUIClient* client) {
     auto* vkxmlguibuilder = dynamic_cast<VirtualKXMLGUIBuilder*>(self);
     if (vkxmlguibuilder && vkxmlguibuilder->isVirtualKXMLGUIBuilder) {
         vkxmlguibuilder->setKXMLGUIBuilder_FinalizeGUI_IsBase(true);

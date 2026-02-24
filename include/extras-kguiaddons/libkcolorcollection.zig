@@ -341,6 +341,10 @@ pub const kcolorcollection = struct {
         return qtc.KColorCollection_ChangeColor32(@ptrCast(self), @ptrCast(oldColor), @ptrCast(newColor), newColorName_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#dtor.KColorCollection)
     ///
     /// Delete this object from C++ memory.
@@ -349,7 +353,7 @@ pub const kcolorcollection = struct {
     ///
     /// ` self: QtC.KColorCollection `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KColorCollection_Delete(@ptrCast(self));
     }
 };

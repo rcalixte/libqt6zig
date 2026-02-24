@@ -407,27 +407,27 @@ class VirtualQSslServer final : public QSslServer {
 
     // Friend functions
     friend void QSslServer_IncomingConnection(QSslServer* self, intptr_t socket);
-    friend void QSslServer_QBaseIncomingConnection(QSslServer* self, intptr_t socket);
+    friend void QSslServer_SuperIncomingConnection(QSslServer* self, intptr_t socket);
     friend void QSslServer_TimerEvent(QSslServer* self, QTimerEvent* event);
-    friend void QSslServer_QBaseTimerEvent(QSslServer* self, QTimerEvent* event);
+    friend void QSslServer_SuperTimerEvent(QSslServer* self, QTimerEvent* event);
     friend void QSslServer_ChildEvent(QSslServer* self, QChildEvent* event);
-    friend void QSslServer_QBaseChildEvent(QSslServer* self, QChildEvent* event);
+    friend void QSslServer_SuperChildEvent(QSslServer* self, QChildEvent* event);
     friend void QSslServer_CustomEvent(QSslServer* self, QEvent* event);
-    friend void QSslServer_QBaseCustomEvent(QSslServer* self, QEvent* event);
+    friend void QSslServer_SuperCustomEvent(QSslServer* self, QEvent* event);
     friend void QSslServer_ConnectNotify(QSslServer* self, const QMetaMethod* signal);
-    friend void QSslServer_QBaseConnectNotify(QSslServer* self, const QMetaMethod* signal);
+    friend void QSslServer_SuperConnectNotify(QSslServer* self, const QMetaMethod* signal);
     friend void QSslServer_DisconnectNotify(QSslServer* self, const QMetaMethod* signal);
-    friend void QSslServer_QBaseDisconnectNotify(QSslServer* self, const QMetaMethod* signal);
+    friend void QSslServer_SuperDisconnectNotify(QSslServer* self, const QMetaMethod* signal);
     friend void QSslServer_AddPendingConnection(QSslServer* self, QTcpSocket* socket);
-    friend void QSslServer_QBaseAddPendingConnection(QSslServer* self, QTcpSocket* socket);
+    friend void QSslServer_SuperAddPendingConnection(QSslServer* self, QTcpSocket* socket);
     friend QObject* QSslServer_Sender(const QSslServer* self);
-    friend QObject* QSslServer_QBaseSender(const QSslServer* self);
+    friend QObject* QSslServer_SuperSender(const QSslServer* self);
     friend int QSslServer_SenderSignalIndex(const QSslServer* self);
-    friend int QSslServer_QBaseSenderSignalIndex(const QSslServer* self);
+    friend int QSslServer_SuperSenderSignalIndex(const QSslServer* self);
     friend int QSslServer_Receivers(const QSslServer* self, const char* signal);
-    friend int QSslServer_QBaseReceivers(const QSslServer* self, const char* signal);
+    friend int QSslServer_SuperReceivers(const QSslServer* self, const char* signal);
     friend bool QSslServer_IsSignalConnected(const QSslServer* self, const QMetaMethod* signal);
-    friend bool QSslServer_QBaseIsSignalConnected(const QSslServer* self, const QMetaMethod* signal);
+    friend bool QSslServer_SuperIsSignalConnected(const QSslServer* self, const QMetaMethod* signal);
 };
 
 #endif

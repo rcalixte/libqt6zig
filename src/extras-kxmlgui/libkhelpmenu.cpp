@@ -121,7 +121,7 @@ void KHelpMenu_Connect_ShowAboutApplication(KHelpMenu* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* KHelpMenu_QBaseMetaObject(const KHelpMenu* self) {
+QMetaObject* KHelpMenu_SuperMetaObject(const KHelpMenu* self) {
     auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
     if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
         vkhelpmenu->setKHelpMenu_MetaObject_IsBase(true);
@@ -140,7 +140,7 @@ void KHelpMenu_OnMetaObject(const KHelpMenu* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KHelpMenu_QBaseMetacast(KHelpMenu* self, const char* param1) {
+void* KHelpMenu_SuperMetacast(KHelpMenu* self, const char* param1) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
     if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
         vkhelpmenu->setKHelpMenu_Metacast_IsBase(true);
@@ -159,7 +159,7 @@ void KHelpMenu_OnMetacast(KHelpMenu* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KHelpMenu_QBaseMetacall(KHelpMenu* self, int param1, int param2, void** param3) {
+int KHelpMenu_SuperMetacall(KHelpMenu* self, int param1, int param2, void** param3) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
     if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
         vkhelpmenu->setKHelpMenu_Metacall_IsBase(true);
@@ -188,7 +188,7 @@ bool KHelpMenu_Event(KHelpMenu* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KHelpMenu_QBaseEvent(KHelpMenu* self, QEvent* event) {
+bool KHelpMenu_SuperEvent(KHelpMenu* self, QEvent* event) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
     if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
         vkhelpmenu->setKHelpMenu_Event_IsBase(true);
@@ -217,7 +217,7 @@ bool KHelpMenu_EventFilter(KHelpMenu* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KHelpMenu_QBaseEventFilter(KHelpMenu* self, QObject* watched, QEvent* event) {
+bool KHelpMenu_SuperEventFilter(KHelpMenu* self, QObject* watched, QEvent* event) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
     if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
         vkhelpmenu->setKHelpMenu_EventFilter_IsBase(true);
@@ -246,7 +246,7 @@ void KHelpMenu_TimerEvent(KHelpMenu* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KHelpMenu_QBaseTimerEvent(KHelpMenu* self, QTimerEvent* event) {
+void KHelpMenu_SuperTimerEvent(KHelpMenu* self, QTimerEvent* event) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
     if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
         vkhelpmenu->setKHelpMenu_TimerEvent_IsBase(true);
@@ -275,7 +275,7 @@ void KHelpMenu_ChildEvent(KHelpMenu* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KHelpMenu_QBaseChildEvent(KHelpMenu* self, QChildEvent* event) {
+void KHelpMenu_SuperChildEvent(KHelpMenu* self, QChildEvent* event) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
     if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
         vkhelpmenu->setKHelpMenu_ChildEvent_IsBase(true);
@@ -304,7 +304,7 @@ void KHelpMenu_CustomEvent(KHelpMenu* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KHelpMenu_QBaseCustomEvent(KHelpMenu* self, QEvent* event) {
+void KHelpMenu_SuperCustomEvent(KHelpMenu* self, QEvent* event) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
     if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
         vkhelpmenu->setKHelpMenu_CustomEvent_IsBase(true);
@@ -333,7 +333,7 @@ void KHelpMenu_ConnectNotify(KHelpMenu* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KHelpMenu_QBaseConnectNotify(KHelpMenu* self, const QMetaMethod* signal) {
+void KHelpMenu_SuperConnectNotify(KHelpMenu* self, const QMetaMethod* signal) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
     if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
         vkhelpmenu->setKHelpMenu_ConnectNotify_IsBase(true);
@@ -362,7 +362,7 @@ void KHelpMenu_DisconnectNotify(KHelpMenu* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KHelpMenu_QBaseDisconnectNotify(KHelpMenu* self, const QMetaMethod* signal) {
+void KHelpMenu_SuperDisconnectNotify(KHelpMenu* self, const QMetaMethod* signal) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
     if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
         vkhelpmenu->setKHelpMenu_DisconnectNotify_IsBase(true);
@@ -391,7 +391,7 @@ QObject* KHelpMenu_Sender(const KHelpMenu* self) {
 }
 
 // Base class handler implementation
-QObject* KHelpMenu_QBaseSender(const KHelpMenu* self) {
+QObject* KHelpMenu_SuperSender(const KHelpMenu* self) {
     auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
     if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
         vkhelpmenu->setKHelpMenu_Sender_IsBase(true);
@@ -420,7 +420,7 @@ int KHelpMenu_SenderSignalIndex(const KHelpMenu* self) {
 }
 
 // Base class handler implementation
-int KHelpMenu_QBaseSenderSignalIndex(const KHelpMenu* self) {
+int KHelpMenu_SuperSenderSignalIndex(const KHelpMenu* self) {
     auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
     if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
         vkhelpmenu->setKHelpMenu_SenderSignalIndex_IsBase(true);
@@ -449,7 +449,7 @@ int KHelpMenu_Receivers(const KHelpMenu* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KHelpMenu_QBaseReceivers(const KHelpMenu* self, const char* signal) {
+int KHelpMenu_SuperReceivers(const KHelpMenu* self, const char* signal) {
     auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
     if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
         vkhelpmenu->setKHelpMenu_Receivers_IsBase(true);
@@ -478,7 +478,7 @@ bool KHelpMenu_IsSignalConnected(const KHelpMenu* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool KHelpMenu_QBaseIsSignalConnected(const KHelpMenu* self, const QMetaMethod* signal) {
+bool KHelpMenu_SuperIsSignalConnected(const KHelpMenu* self, const QMetaMethod* signal) {
     auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
     if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
         vkhelpmenu->setKHelpMenu_IsSignalConnected_IsBase(true);

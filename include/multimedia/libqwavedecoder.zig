@@ -79,6 +79,10 @@ pub const qwavedecoder = struct {
         qtc.QWaveDecoder_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -87,8 +91,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` self: QtC.QWaveDecoder `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QWaveDecoder_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QWaveDecoder_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -114,6 +118,10 @@ pub const qwavedecoder = struct {
         qtc.QWaveDecoder_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -122,9 +130,9 @@ pub const qwavedecoder = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QWaveDecoder_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QWaveDecoder_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -153,6 +161,10 @@ pub const qwavedecoder = struct {
         qtc.QWaveDecoder_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -165,8 +177,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QWaveDecoder_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QWaveDecoder_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -248,6 +260,10 @@ pub const qwavedecoder = struct {
         qtc.QWaveDecoder_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperOpen` instead
+    ///
+    pub const QBaseOpen = SuperOpen;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#open)
     ///
     /// Base class method implementation
@@ -258,8 +274,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn QBaseOpen(self: ?*anyopaque, mode: i32) bool {
-        return qtc.QWaveDecoder_QBaseOpen(@ptrCast(self), @bitCast(mode));
+    pub fn SuperOpen(self: ?*anyopaque, mode: i32) bool {
+        return qtc.QWaveDecoder_SuperOpen(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#close)
@@ -286,6 +302,10 @@ pub const qwavedecoder = struct {
         qtc.QWaveDecoder_OnClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClose` instead
+    ///
+    pub const QBaseClose = SuperClose;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#close)
     ///
     /// Base class method implementation
@@ -294,8 +314,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` self: QtC.QWaveDecoder `
     ///
-    pub fn QBaseClose(self: ?*anyopaque) void {
-        qtc.QWaveDecoder_QBaseClose(@ptrCast(self));
+    pub fn SuperClose(self: ?*anyopaque) void {
+        qtc.QWaveDecoder_SuperClose(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#seek)
@@ -324,6 +344,10 @@ pub const qwavedecoder = struct {
         qtc.QWaveDecoder_OnSeek(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSeek` instead
+    ///
+    pub const QBaseSeek = SuperSeek;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#seek)
     ///
     /// Base class method implementation
@@ -334,8 +358,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` pos: i64 `
     ///
-    pub fn QBaseSeek(self: ?*anyopaque, pos: i64) bool {
-        return qtc.QWaveDecoder_QBaseSeek(@ptrCast(self), @bitCast(pos));
+    pub fn SuperSeek(self: ?*anyopaque, pos: i64) bool {
+        return qtc.QWaveDecoder_SuperSeek(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#pos)
@@ -362,6 +386,10 @@ pub const qwavedecoder = struct {
         qtc.QWaveDecoder_OnPos(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPos` instead
+    ///
+    pub const QBasePos = SuperPos;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#pos)
     ///
     /// Base class method implementation
@@ -370,8 +398,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` self: QtC.QWaveDecoder `
     ///
-    pub fn QBasePos(self: ?*anyopaque) i64 {
-        return qtc.QWaveDecoder_QBasePos(@ptrCast(self));
+    pub fn SuperPos(self: ?*anyopaque) i64 {
+        return qtc.QWaveDecoder_SuperPos(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#setIODevice)
@@ -410,6 +438,10 @@ pub const qwavedecoder = struct {
         qtc.QWaveDecoder_OnSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSize` instead
+    ///
+    pub const QBaseSize = SuperSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#size)
     ///
     /// Base class method implementation
@@ -418,8 +450,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` self: QtC.QWaveDecoder `
     ///
-    pub fn QBaseSize(self: ?*anyopaque) i64 {
-        return qtc.QWaveDecoder_QBaseSize(@ptrCast(self));
+    pub fn SuperSize(self: ?*anyopaque) i64 {
+        return qtc.QWaveDecoder_SuperSize(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#isSequential)
@@ -446,6 +478,10 @@ pub const qwavedecoder = struct {
         qtc.QWaveDecoder_OnIsSequential(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSequential` instead
+    ///
+    pub const QBaseIsSequential = SuperIsSequential;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#isSequential)
     ///
     /// Base class method implementation
@@ -454,8 +490,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` self: QtC.QWaveDecoder `
     ///
-    pub fn QBaseIsSequential(self: ?*anyopaque) bool {
-        return qtc.QWaveDecoder_QBaseIsSequential(@ptrCast(self));
+    pub fn SuperIsSequential(self: ?*anyopaque) bool {
+        return qtc.QWaveDecoder_SuperIsSequential(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#bytesAvailable)
@@ -482,6 +518,10 @@ pub const qwavedecoder = struct {
         qtc.QWaveDecoder_OnBytesAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBytesAvailable` instead
+    ///
+    pub const QBaseBytesAvailable = SuperBytesAvailable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#bytesAvailable)
     ///
     /// Base class method implementation
@@ -490,8 +530,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` self: QtC.QWaveDecoder `
     ///
-    pub fn QBaseBytesAvailable(self: ?*anyopaque) i64 {
-        return qtc.QWaveDecoder_QBaseBytesAvailable(@ptrCast(self));
+    pub fn SuperBytesAvailable(self: ?*anyopaque) i64 {
+        return qtc.QWaveDecoder_SuperBytesAvailable(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#formatKnown)
@@ -1970,6 +2010,10 @@ pub const qwavedecoder = struct {
         return qtc.QWaveDecoder_AtEnd(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperAtEnd` instead
+    ///
+    pub const QBaseAtEnd = SuperAtEnd;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
@@ -1980,8 +2024,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` self: QtC.QWaveDecoder `
     ///
-    pub fn QBaseAtEnd(self: ?*anyopaque) bool {
-        return qtc.QWaveDecoder_QBaseAtEnd(@ptrCast(self));
+    pub fn SuperAtEnd(self: ?*anyopaque) bool {
+        return qtc.QWaveDecoder_SuperAtEnd(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -2014,6 +2058,10 @@ pub const qwavedecoder = struct {
         return qtc.QWaveDecoder_Reset(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperReset` instead
+    ///
+    pub const QBaseReset = SuperReset;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
@@ -2024,8 +2072,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` self: QtC.QWaveDecoder `
     ///
-    pub fn QBaseReset(self: ?*anyopaque) bool {
-        return qtc.QWaveDecoder_QBaseReset(@ptrCast(self));
+    pub fn SuperReset(self: ?*anyopaque) bool {
+        return qtc.QWaveDecoder_SuperReset(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -2058,6 +2106,10 @@ pub const qwavedecoder = struct {
         return qtc.QWaveDecoder_BytesToWrite(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperBytesToWrite` instead
+    ///
+    pub const QBaseBytesToWrite = SuperBytesToWrite;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
@@ -2068,8 +2120,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` self: QtC.QWaveDecoder `
     ///
-    pub fn QBaseBytesToWrite(self: ?*anyopaque) i64 {
-        return qtc.QWaveDecoder_QBaseBytesToWrite(@ptrCast(self));
+    pub fn SuperBytesToWrite(self: ?*anyopaque) i64 {
+        return qtc.QWaveDecoder_SuperBytesToWrite(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -2102,6 +2154,10 @@ pub const qwavedecoder = struct {
         return qtc.QWaveDecoder_CanReadLine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCanReadLine` instead
+    ///
+    pub const QBaseCanReadLine = SuperCanReadLine;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
@@ -2112,8 +2168,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` self: QtC.QWaveDecoder `
     ///
-    pub fn QBaseCanReadLine(self: ?*anyopaque) bool {
-        return qtc.QWaveDecoder_QBaseCanReadLine(@ptrCast(self));
+    pub fn SuperCanReadLine(self: ?*anyopaque) bool {
+        return qtc.QWaveDecoder_SuperCanReadLine(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -2148,6 +2204,10 @@ pub const qwavedecoder = struct {
         return qtc.QWaveDecoder_WaitForReadyRead(@ptrCast(self), @bitCast(msecs));
     }
 
+    /// ### DEPRECATED: Use `SuperWaitForReadyRead` instead
+    ///
+    pub const QBaseWaitForReadyRead = SuperWaitForReadyRead;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
@@ -2160,8 +2220,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn QBaseWaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QWaveDecoder_QBaseWaitForReadyRead(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
+        return qtc.QWaveDecoder_SuperWaitForReadyRead(@ptrCast(self), @bitCast(msecs));
     }
 
     /// Inherited from QIODevice
@@ -2196,6 +2256,10 @@ pub const qwavedecoder = struct {
         return qtc.QWaveDecoder_WaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
     }
 
+    /// ### DEPRECATED: Use `SuperWaitForBytesWritten` instead
+    ///
+    pub const QBaseWaitForBytesWritten = SuperWaitForBytesWritten;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
@@ -2208,8 +2272,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn QBaseWaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QWaveDecoder_QBaseWaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
+        return qtc.QWaveDecoder_SuperWaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
     }
 
     /// Inherited from QIODevice
@@ -2247,6 +2311,10 @@ pub const qwavedecoder = struct {
         return qtc.QWaveDecoder_ReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
+    /// ### DEPRECATED: Use `SuperReadLineData` instead
+    ///
+    pub const QBaseReadLineData = SuperReadLineData;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLineData)
@@ -2261,9 +2329,9 @@ pub const qwavedecoder = struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn QBaseReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn SuperReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QWaveDecoder_QBaseReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QWaveDecoder_SuperReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -2298,6 +2366,10 @@ pub const qwavedecoder = struct {
         return qtc.QWaveDecoder_SkipData(@ptrCast(self), @bitCast(maxSize));
     }
 
+    /// ### DEPRECATED: Use `SuperSkipData` instead
+    ///
+    pub const QBaseSkipData = SuperSkipData;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skipData)
@@ -2310,8 +2382,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn QBaseSkipData(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QWaveDecoder_QBaseSkipData(@ptrCast(self), @bitCast(maxSize));
+    pub fn SuperSkipData(self: ?*anyopaque, maxSize: i64) i64 {
+        return qtc.QWaveDecoder_SuperSkipData(@ptrCast(self), @bitCast(maxSize));
     }
 
     /// Inherited from QIODevice
@@ -2346,6 +2418,10 @@ pub const qwavedecoder = struct {
         return qtc.QWaveDecoder_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -2358,8 +2434,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QWaveDecoder_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QWaveDecoder_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2396,6 +2472,10 @@ pub const qwavedecoder = struct {
         return qtc.QWaveDecoder_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -2410,8 +2490,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QWaveDecoder_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QWaveDecoder_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2446,6 +2526,10 @@ pub const qwavedecoder = struct {
         qtc.QWaveDecoder_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -2458,8 +2542,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWaveDecoder_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QWaveDecoder_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2494,6 +2578,10 @@ pub const qwavedecoder = struct {
         qtc.QWaveDecoder_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -2506,8 +2594,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWaveDecoder_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QWaveDecoder_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2542,6 +2630,10 @@ pub const qwavedecoder = struct {
         qtc.QWaveDecoder_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -2554,8 +2646,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWaveDecoder_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QWaveDecoder_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2590,6 +2682,10 @@ pub const qwavedecoder = struct {
         qtc.QWaveDecoder_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2602,8 +2698,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWaveDecoder_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QWaveDecoder_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2638,6 +2734,10 @@ pub const qwavedecoder = struct {
         qtc.QWaveDecoder_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -2650,8 +2750,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWaveDecoder_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QWaveDecoder_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2686,6 +2786,10 @@ pub const qwavedecoder = struct {
         qtc.QWaveDecoder_SetOpenMode(@ptrCast(self), @bitCast(openMode));
     }
 
+    /// ### DEPRECATED: Use `SuperSetOpenMode` instead
+    ///
+    pub const QBaseSetOpenMode = SuperSetOpenMode;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
@@ -2698,8 +2802,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i32) void {
-        qtc.QWaveDecoder_QBaseSetOpenMode(@ptrCast(self), @bitCast(openMode));
+    pub fn SuperSetOpenMode(self: ?*anyopaque, openMode: i32) void {
+        qtc.QWaveDecoder_SuperSetOpenMode(@ptrCast(self), @bitCast(openMode));
     }
 
     /// Inherited from QIODevice
@@ -2738,6 +2842,10 @@ pub const qwavedecoder = struct {
         qtc.QWaveDecoder_SetErrorString(@ptrCast(self), errorString_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSetErrorString` instead
+    ///
+    pub const QBaseSetErrorString = SuperSetErrorString;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
@@ -2750,12 +2858,12 @@ pub const qwavedecoder = struct {
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn QBaseSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
+    pub fn SuperSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QWaveDecoder_QBaseSetErrorString(@ptrCast(self), errorString_str);
+        qtc.QWaveDecoder_SuperSetErrorString(@ptrCast(self), errorString_str);
     }
 
     /// Inherited from QIODevice
@@ -2788,6 +2896,10 @@ pub const qwavedecoder = struct {
         return qtc.QWaveDecoder_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2798,8 +2910,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` self: QtC.QWaveDecoder `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QWaveDecoder_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QWaveDecoder_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2832,6 +2944,10 @@ pub const qwavedecoder = struct {
         return qtc.QWaveDecoder_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2842,8 +2958,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` self: QtC.QWaveDecoder `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QWaveDecoder_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QWaveDecoder_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2879,6 +2995,10 @@ pub const qwavedecoder = struct {
         return qtc.QWaveDecoder_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2891,9 +3011,9 @@ pub const qwavedecoder = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QWaveDecoder_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QWaveDecoder_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2928,6 +3048,10 @@ pub const qwavedecoder = struct {
         return qtc.QWaveDecoder_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2940,8 +3064,8 @@ pub const qwavedecoder = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QWaveDecoder_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QWaveDecoder_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2975,6 +3099,9 @@ pub const qwavedecoder = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwavedecoder.html#dtor.QWaveDecoder)
     ///
@@ -2984,7 +3111,7 @@ pub const qwavedecoder = struct {
     ///
     /// ` self: QtC.QWaveDecoder `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWaveDecoder_Delete(@ptrCast(self));
     }
 };

@@ -248,9 +248,9 @@ class VirtualQStandardItem final : public QStandardItem {
 
     // Friend functions
     friend void QStandardItem_OperatorAssign(QStandardItem* self, const QStandardItem* other);
-    friend void QStandardItem_QBaseOperatorAssign(QStandardItem* self, const QStandardItem* other);
+    friend void QStandardItem_SuperOperatorAssign(QStandardItem* self, const QStandardItem* other);
     friend void QStandardItem_EmitDataChanged(QStandardItem* self);
-    friend void QStandardItem_QBaseEmitDataChanged(QStandardItem* self);
+    friend void QStandardItem_SuperEmitDataChanged(QStandardItem* self);
 };
 
 // This class is a subclass of QStandardItemModel so that we can call protected methods
@@ -1964,65 +1964,65 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
 
     // Friend functions
     friend void QStandardItemModel_ResetInternalData(QStandardItemModel* self);
-    friend void QStandardItemModel_QBaseResetInternalData(QStandardItemModel* self);
+    friend void QStandardItemModel_SuperResetInternalData(QStandardItemModel* self);
     friend void QStandardItemModel_TimerEvent(QStandardItemModel* self, QTimerEvent* event);
-    friend void QStandardItemModel_QBaseTimerEvent(QStandardItemModel* self, QTimerEvent* event);
+    friend void QStandardItemModel_SuperTimerEvent(QStandardItemModel* self, QTimerEvent* event);
     friend void QStandardItemModel_ChildEvent(QStandardItemModel* self, QChildEvent* event);
-    friend void QStandardItemModel_QBaseChildEvent(QStandardItemModel* self, QChildEvent* event);
+    friend void QStandardItemModel_SuperChildEvent(QStandardItemModel* self, QChildEvent* event);
     friend void QStandardItemModel_CustomEvent(QStandardItemModel* self, QEvent* event);
-    friend void QStandardItemModel_QBaseCustomEvent(QStandardItemModel* self, QEvent* event);
+    friend void QStandardItemModel_SuperCustomEvent(QStandardItemModel* self, QEvent* event);
     friend void QStandardItemModel_ConnectNotify(QStandardItemModel* self, const QMetaMethod* signal);
-    friend void QStandardItemModel_QBaseConnectNotify(QStandardItemModel* self, const QMetaMethod* signal);
+    friend void QStandardItemModel_SuperConnectNotify(QStandardItemModel* self, const QMetaMethod* signal);
     friend void QStandardItemModel_DisconnectNotify(QStandardItemModel* self, const QMetaMethod* signal);
-    friend void QStandardItemModel_QBaseDisconnectNotify(QStandardItemModel* self, const QMetaMethod* signal);
+    friend void QStandardItemModel_SuperDisconnectNotify(QStandardItemModel* self, const QMetaMethod* signal);
     friend QModelIndex* QStandardItemModel_CreateIndex(const QStandardItemModel* self, int row, int column);
-    friend QModelIndex* QStandardItemModel_QBaseCreateIndex(const QStandardItemModel* self, int row, int column);
+    friend QModelIndex* QStandardItemModel_SuperCreateIndex(const QStandardItemModel* self, int row, int column);
     friend void QStandardItemModel_EncodeData(const QStandardItemModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream);
-    friend void QStandardItemModel_QBaseEncodeData(const QStandardItemModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream);
+    friend void QStandardItemModel_SuperEncodeData(const QStandardItemModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream);
     friend bool QStandardItemModel_DecodeData(QStandardItemModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream);
-    friend bool QStandardItemModel_QBaseDecodeData(QStandardItemModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream);
+    friend bool QStandardItemModel_SuperDecodeData(QStandardItemModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream);
     friend void QStandardItemModel_BeginInsertRows(QStandardItemModel* self, const QModelIndex* parent, int first, int last);
-    friend void QStandardItemModel_QBaseBeginInsertRows(QStandardItemModel* self, const QModelIndex* parent, int first, int last);
+    friend void QStandardItemModel_SuperBeginInsertRows(QStandardItemModel* self, const QModelIndex* parent, int first, int last);
     friend void QStandardItemModel_EndInsertRows(QStandardItemModel* self);
-    friend void QStandardItemModel_QBaseEndInsertRows(QStandardItemModel* self);
+    friend void QStandardItemModel_SuperEndInsertRows(QStandardItemModel* self);
     friend void QStandardItemModel_BeginRemoveRows(QStandardItemModel* self, const QModelIndex* parent, int first, int last);
-    friend void QStandardItemModel_QBaseBeginRemoveRows(QStandardItemModel* self, const QModelIndex* parent, int first, int last);
+    friend void QStandardItemModel_SuperBeginRemoveRows(QStandardItemModel* self, const QModelIndex* parent, int first, int last);
     friend void QStandardItemModel_EndRemoveRows(QStandardItemModel* self);
-    friend void QStandardItemModel_QBaseEndRemoveRows(QStandardItemModel* self);
+    friend void QStandardItemModel_SuperEndRemoveRows(QStandardItemModel* self);
     friend bool QStandardItemModel_BeginMoveRows(QStandardItemModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow);
-    friend bool QStandardItemModel_QBaseBeginMoveRows(QStandardItemModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow);
+    friend bool QStandardItemModel_SuperBeginMoveRows(QStandardItemModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow);
     friend void QStandardItemModel_EndMoveRows(QStandardItemModel* self);
-    friend void QStandardItemModel_QBaseEndMoveRows(QStandardItemModel* self);
+    friend void QStandardItemModel_SuperEndMoveRows(QStandardItemModel* self);
     friend void QStandardItemModel_BeginInsertColumns(QStandardItemModel* self, const QModelIndex* parent, int first, int last);
-    friend void QStandardItemModel_QBaseBeginInsertColumns(QStandardItemModel* self, const QModelIndex* parent, int first, int last);
+    friend void QStandardItemModel_SuperBeginInsertColumns(QStandardItemModel* self, const QModelIndex* parent, int first, int last);
     friend void QStandardItemModel_EndInsertColumns(QStandardItemModel* self);
-    friend void QStandardItemModel_QBaseEndInsertColumns(QStandardItemModel* self);
+    friend void QStandardItemModel_SuperEndInsertColumns(QStandardItemModel* self);
     friend void QStandardItemModel_BeginRemoveColumns(QStandardItemModel* self, const QModelIndex* parent, int first, int last);
-    friend void QStandardItemModel_QBaseBeginRemoveColumns(QStandardItemModel* self, const QModelIndex* parent, int first, int last);
+    friend void QStandardItemModel_SuperBeginRemoveColumns(QStandardItemModel* self, const QModelIndex* parent, int first, int last);
     friend void QStandardItemModel_EndRemoveColumns(QStandardItemModel* self);
-    friend void QStandardItemModel_QBaseEndRemoveColumns(QStandardItemModel* self);
+    friend void QStandardItemModel_SuperEndRemoveColumns(QStandardItemModel* self);
     friend bool QStandardItemModel_BeginMoveColumns(QStandardItemModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn);
-    friend bool QStandardItemModel_QBaseBeginMoveColumns(QStandardItemModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn);
+    friend bool QStandardItemModel_SuperBeginMoveColumns(QStandardItemModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn);
     friend void QStandardItemModel_EndMoveColumns(QStandardItemModel* self);
-    friend void QStandardItemModel_QBaseEndMoveColumns(QStandardItemModel* self);
+    friend void QStandardItemModel_SuperEndMoveColumns(QStandardItemModel* self);
     friend void QStandardItemModel_BeginResetModel(QStandardItemModel* self);
-    friend void QStandardItemModel_QBaseBeginResetModel(QStandardItemModel* self);
+    friend void QStandardItemModel_SuperBeginResetModel(QStandardItemModel* self);
     friend void QStandardItemModel_EndResetModel(QStandardItemModel* self);
-    friend void QStandardItemModel_QBaseEndResetModel(QStandardItemModel* self);
+    friend void QStandardItemModel_SuperEndResetModel(QStandardItemModel* self);
     friend void QStandardItemModel_ChangePersistentIndex(QStandardItemModel* self, const QModelIndex* from, const QModelIndex* to);
-    friend void QStandardItemModel_QBaseChangePersistentIndex(QStandardItemModel* self, const QModelIndex* from, const QModelIndex* to);
+    friend void QStandardItemModel_SuperChangePersistentIndex(QStandardItemModel* self, const QModelIndex* from, const QModelIndex* to);
     friend void QStandardItemModel_ChangePersistentIndexList(QStandardItemModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to);
-    friend void QStandardItemModel_QBaseChangePersistentIndexList(QStandardItemModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to);
+    friend void QStandardItemModel_SuperChangePersistentIndexList(QStandardItemModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to);
     friend libqt_list /* of QModelIndex* */ QStandardItemModel_PersistentIndexList(const QStandardItemModel* self);
-    friend libqt_list /* of QModelIndex* */ QStandardItemModel_QBasePersistentIndexList(const QStandardItemModel* self);
+    friend libqt_list /* of QModelIndex* */ QStandardItemModel_SuperPersistentIndexList(const QStandardItemModel* self);
     friend QObject* QStandardItemModel_Sender(const QStandardItemModel* self);
-    friend QObject* QStandardItemModel_QBaseSender(const QStandardItemModel* self);
+    friend QObject* QStandardItemModel_SuperSender(const QStandardItemModel* self);
     friend int QStandardItemModel_SenderSignalIndex(const QStandardItemModel* self);
-    friend int QStandardItemModel_QBaseSenderSignalIndex(const QStandardItemModel* self);
+    friend int QStandardItemModel_SuperSenderSignalIndex(const QStandardItemModel* self);
     friend int QStandardItemModel_Receivers(const QStandardItemModel* self, const char* signal);
-    friend int QStandardItemModel_QBaseReceivers(const QStandardItemModel* self, const char* signal);
+    friend int QStandardItemModel_SuperReceivers(const QStandardItemModel* self, const char* signal);
     friend bool QStandardItemModel_IsSignalConnected(const QStandardItemModel* self, const QMetaMethod* signal);
-    friend bool QStandardItemModel_QBaseIsSignalConnected(const QStandardItemModel* self, const QMetaMethod* signal);
+    friend bool QStandardItemModel_SuperIsSignalConnected(const QStandardItemModel* self, const QMetaMethod* signal);
 };
 
 #endif

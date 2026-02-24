@@ -327,23 +327,23 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
 
     // Friend functions
     friend void KFileCopyToMenu_TimerEvent(KFileCopyToMenu* self, QTimerEvent* event);
-    friend void KFileCopyToMenu_QBaseTimerEvent(KFileCopyToMenu* self, QTimerEvent* event);
+    friend void KFileCopyToMenu_SuperTimerEvent(KFileCopyToMenu* self, QTimerEvent* event);
     friend void KFileCopyToMenu_ChildEvent(KFileCopyToMenu* self, QChildEvent* event);
-    friend void KFileCopyToMenu_QBaseChildEvent(KFileCopyToMenu* self, QChildEvent* event);
+    friend void KFileCopyToMenu_SuperChildEvent(KFileCopyToMenu* self, QChildEvent* event);
     friend void KFileCopyToMenu_CustomEvent(KFileCopyToMenu* self, QEvent* event);
-    friend void KFileCopyToMenu_QBaseCustomEvent(KFileCopyToMenu* self, QEvent* event);
+    friend void KFileCopyToMenu_SuperCustomEvent(KFileCopyToMenu* self, QEvent* event);
     friend void KFileCopyToMenu_ConnectNotify(KFileCopyToMenu* self, const QMetaMethod* signal);
-    friend void KFileCopyToMenu_QBaseConnectNotify(KFileCopyToMenu* self, const QMetaMethod* signal);
+    friend void KFileCopyToMenu_SuperConnectNotify(KFileCopyToMenu* self, const QMetaMethod* signal);
     friend void KFileCopyToMenu_DisconnectNotify(KFileCopyToMenu* self, const QMetaMethod* signal);
-    friend void KFileCopyToMenu_QBaseDisconnectNotify(KFileCopyToMenu* self, const QMetaMethod* signal);
+    friend void KFileCopyToMenu_SuperDisconnectNotify(KFileCopyToMenu* self, const QMetaMethod* signal);
     friend QObject* KFileCopyToMenu_Sender(const KFileCopyToMenu* self);
-    friend QObject* KFileCopyToMenu_QBaseSender(const KFileCopyToMenu* self);
+    friend QObject* KFileCopyToMenu_SuperSender(const KFileCopyToMenu* self);
     friend int KFileCopyToMenu_SenderSignalIndex(const KFileCopyToMenu* self);
-    friend int KFileCopyToMenu_QBaseSenderSignalIndex(const KFileCopyToMenu* self);
+    friend int KFileCopyToMenu_SuperSenderSignalIndex(const KFileCopyToMenu* self);
     friend int KFileCopyToMenu_Receivers(const KFileCopyToMenu* self, const char* signal);
-    friend int KFileCopyToMenu_QBaseReceivers(const KFileCopyToMenu* self, const char* signal);
+    friend int KFileCopyToMenu_SuperReceivers(const KFileCopyToMenu* self, const char* signal);
     friend bool KFileCopyToMenu_IsSignalConnected(const KFileCopyToMenu* self, const QMetaMethod* signal);
-    friend bool KFileCopyToMenu_QBaseIsSignalConnected(const KFileCopyToMenu* self, const QMetaMethod* signal);
+    friend bool KFileCopyToMenu_SuperIsSignalConnected(const KFileCopyToMenu* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -66,7 +66,7 @@ QAccessibleInterface* QAccessibleObject_ChildAt(const QAccessibleObject* self, i
 }
 
 // Base class handler implementation
-bool QAccessibleObject_QBaseIsValid(const QAccessibleObject* self) {
+bool QAccessibleObject_SuperIsValid(const QAccessibleObject* self) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         vqaccessibleobject->setQAccessibleObject_IsValid_IsBase(true);
@@ -85,7 +85,7 @@ void QAccessibleObject_OnIsValid(const QAccessibleObject* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QObject* QAccessibleObject_QBaseObject(const QAccessibleObject* self) {
+QObject* QAccessibleObject_SuperObject(const QAccessibleObject* self) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         vqaccessibleobject->setQAccessibleObject_Object_IsBase(true);
@@ -104,7 +104,7 @@ void QAccessibleObject_OnObject(const QAccessibleObject* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QRect* QAccessibleObject_QBaseRect(const QAccessibleObject* self) {
+QRect* QAccessibleObject_SuperRect(const QAccessibleObject* self) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         vqaccessibleobject->setQAccessibleObject_Rect_IsBase(true);
@@ -123,7 +123,7 @@ void QAccessibleObject_OnRect(const QAccessibleObject* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAccessibleObject_QBaseSetText(QAccessibleObject* self, int t, const libqt_string text) {
+void QAccessibleObject_SuperSetText(QAccessibleObject* self, int t, const libqt_string text) {
     auto* vqaccessibleobject = dynamic_cast<VirtualQAccessibleObject*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
@@ -143,7 +143,7 @@ void QAccessibleObject_OnSetText(QAccessibleObject* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QAccessibleInterface* QAccessibleObject_QBaseChildAt(const QAccessibleObject* self, int x, int y) {
+QAccessibleInterface* QAccessibleObject_SuperChildAt(const QAccessibleObject* self, int x, int y) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         vqaccessibleobject->setQAccessibleObject_ChildAt_IsBase(true);
@@ -172,7 +172,7 @@ QWindow* QAccessibleObject_Window(const QAccessibleObject* self) {
 }
 
 // Base class handler implementation
-QWindow* QAccessibleObject_QBaseWindow(const QAccessibleObject* self) {
+QWindow* QAccessibleObject_SuperWindow(const QAccessibleObject* self) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         vqaccessibleobject->setQAccessibleObject_Window_IsBase(true);
@@ -229,7 +229,7 @@ libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* an
 }
 
 // Base class handler implementation
-libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* and int */ QAccessibleObject_QBaseRelations(const QAccessibleObject* self, int match) {
+libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* and int */ QAccessibleObject_SuperRelations(const QAccessibleObject* self, int match) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         vqaccessibleobject->setQAccessibleObject_Relations_IsBase(true);
@@ -286,7 +286,7 @@ QAccessibleInterface* QAccessibleObject_FocusChild(const QAccessibleObject* self
 }
 
 // Base class handler implementation
-QAccessibleInterface* QAccessibleObject_QBaseFocusChild(const QAccessibleObject* self) {
+QAccessibleInterface* QAccessibleObject_SuperFocusChild(const QAccessibleObject* self) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         vqaccessibleobject->setQAccessibleObject_FocusChild_IsBase(true);
@@ -315,7 +315,7 @@ QAccessibleInterface* QAccessibleObject_Parent(const QAccessibleObject* self) {
 }
 
 // Base class handler implementation
-QAccessibleInterface* QAccessibleObject_QBaseParent(const QAccessibleObject* self) {
+QAccessibleInterface* QAccessibleObject_SuperParent(const QAccessibleObject* self) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         vqaccessibleobject->setQAccessibleObject_Parent_IsBase(true);
@@ -344,7 +344,7 @@ QAccessibleInterface* QAccessibleObject_Child(const QAccessibleObject* self, int
 }
 
 // Base class handler implementation
-QAccessibleInterface* QAccessibleObject_QBaseChild(const QAccessibleObject* self, int index) {
+QAccessibleInterface* QAccessibleObject_SuperChild(const QAccessibleObject* self, int index) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         vqaccessibleobject->setQAccessibleObject_Child_IsBase(true);
@@ -373,7 +373,7 @@ int QAccessibleObject_ChildCount(const QAccessibleObject* self) {
 }
 
 // Base class handler implementation
-int QAccessibleObject_QBaseChildCount(const QAccessibleObject* self) {
+int QAccessibleObject_SuperChildCount(const QAccessibleObject* self) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         vqaccessibleobject->setQAccessibleObject_ChildCount_IsBase(true);
@@ -402,7 +402,7 @@ int QAccessibleObject_IndexOfChild(const QAccessibleObject* self, const QAccessi
 }
 
 // Base class handler implementation
-int QAccessibleObject_QBaseIndexOfChild(const QAccessibleObject* self, const QAccessibleInterface* param1) {
+int QAccessibleObject_SuperIndexOfChild(const QAccessibleObject* self, const QAccessibleInterface* param1) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         vqaccessibleobject->setQAccessibleObject_IndexOfChild_IsBase(true);
@@ -447,7 +447,7 @@ libqt_string QAccessibleObject_Text(const QAccessibleObject* self, int t) {
 }
 
 // Base class handler implementation
-libqt_string QAccessibleObject_QBaseText(const QAccessibleObject* self, int t) {
+libqt_string QAccessibleObject_SuperText(const QAccessibleObject* self, int t) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         vqaccessibleobject->setQAccessibleObject_Text_IsBase(true);
@@ -492,7 +492,7 @@ int QAccessibleObject_Role(const QAccessibleObject* self) {
 }
 
 // Base class handler implementation
-int QAccessibleObject_QBaseRole(const QAccessibleObject* self) {
+int QAccessibleObject_SuperRole(const QAccessibleObject* self) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         vqaccessibleobject->setQAccessibleObject_Role_IsBase(true);
@@ -521,7 +521,7 @@ QAccessible__State* QAccessibleObject_State(const QAccessibleObject* self) {
 }
 
 // Base class handler implementation
-QAccessible__State* QAccessibleObject_QBaseState(const QAccessibleObject* self) {
+QAccessible__State* QAccessibleObject_SuperState(const QAccessibleObject* self) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         vqaccessibleobject->setQAccessibleObject_State_IsBase(true);
@@ -550,7 +550,7 @@ QColor* QAccessibleObject_ForegroundColor(const QAccessibleObject* self) {
 }
 
 // Base class handler implementation
-QColor* QAccessibleObject_QBaseForegroundColor(const QAccessibleObject* self) {
+QColor* QAccessibleObject_SuperForegroundColor(const QAccessibleObject* self) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         vqaccessibleobject->setQAccessibleObject_ForegroundColor_IsBase(true);
@@ -579,7 +579,7 @@ QColor* QAccessibleObject_BackgroundColor(const QAccessibleObject* self) {
 }
 
 // Base class handler implementation
-QColor* QAccessibleObject_QBaseBackgroundColor(const QAccessibleObject* self) {
+QColor* QAccessibleObject_SuperBackgroundColor(const QAccessibleObject* self) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         vqaccessibleobject->setQAccessibleObject_BackgroundColor_IsBase(true);
@@ -608,7 +608,7 @@ void QAccessibleObject_VirtualHook(QAccessibleObject* self, int id, void* data) 
 }
 
 // Base class handler implementation
-void QAccessibleObject_QBaseVirtualHook(QAccessibleObject* self, int id, void* data) {
+void QAccessibleObject_SuperVirtualHook(QAccessibleObject* self, int id, void* data) {
     auto* vqaccessibleobject = dynamic_cast<VirtualQAccessibleObject*>(self);
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         vqaccessibleobject->setQAccessibleObject_VirtualHook_IsBase(true);
@@ -637,7 +637,7 @@ void* QAccessibleObject_InterfaceCast(QAccessibleObject* self, int param1) {
 }
 
 // Base class handler implementation
-void* QAccessibleObject_QBaseInterfaceCast(QAccessibleObject* self, int param1) {
+void* QAccessibleObject_SuperInterfaceCast(QAccessibleObject* self, int param1) {
     auto* vqaccessibleobject = dynamic_cast<VirtualQAccessibleObject*>(self);
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         vqaccessibleobject->setQAccessibleObject_InterfaceCast_IsBase(true);
@@ -757,7 +757,7 @@ QAccessible__State* QAccessibleApplication_State(const QAccessibleApplication* s
 }
 
 // Base class handler implementation
-QWindow* QAccessibleApplication_QBaseWindow(const QAccessibleApplication* self) {
+QWindow* QAccessibleApplication_SuperWindow(const QAccessibleApplication* self) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         vqaccessibleapplication->setQAccessibleApplication_Window_IsBase(true);
@@ -776,7 +776,7 @@ void QAccessibleApplication_OnWindow(const QAccessibleApplication* self, intptr_
 }
 
 // Base class handler implementation
-int QAccessibleApplication_QBaseChildCount(const QAccessibleApplication* self) {
+int QAccessibleApplication_SuperChildCount(const QAccessibleApplication* self) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         vqaccessibleapplication->setQAccessibleApplication_ChildCount_IsBase(true);
@@ -795,7 +795,7 @@ void QAccessibleApplication_OnChildCount(const QAccessibleApplication* self, int
 }
 
 // Base class handler implementation
-int QAccessibleApplication_QBaseIndexOfChild(const QAccessibleApplication* self, const QAccessibleInterface* param1) {
+int QAccessibleApplication_SuperIndexOfChild(const QAccessibleApplication* self, const QAccessibleInterface* param1) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         vqaccessibleapplication->setQAccessibleApplication_IndexOfChild_IsBase(true);
@@ -814,7 +814,7 @@ void QAccessibleApplication_OnIndexOfChild(const QAccessibleApplication* self, i
 }
 
 // Base class handler implementation
-QAccessibleInterface* QAccessibleApplication_QBaseFocusChild(const QAccessibleApplication* self) {
+QAccessibleInterface* QAccessibleApplication_SuperFocusChild(const QAccessibleApplication* self) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         vqaccessibleapplication->setQAccessibleApplication_FocusChild_IsBase(true);
@@ -833,7 +833,7 @@ void QAccessibleApplication_OnFocusChild(const QAccessibleApplication* self, int
 }
 
 // Base class handler implementation
-QAccessibleInterface* QAccessibleApplication_QBaseParent(const QAccessibleApplication* self) {
+QAccessibleInterface* QAccessibleApplication_SuperParent(const QAccessibleApplication* self) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         vqaccessibleapplication->setQAccessibleApplication_Parent_IsBase(true);
@@ -852,7 +852,7 @@ void QAccessibleApplication_OnParent(const QAccessibleApplication* self, intptr_
 }
 
 // Base class handler implementation
-QAccessibleInterface* QAccessibleApplication_QBaseChild(const QAccessibleApplication* self, int index) {
+QAccessibleInterface* QAccessibleApplication_SuperChild(const QAccessibleApplication* self, int index) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         vqaccessibleapplication->setQAccessibleApplication_Child_IsBase(true);
@@ -871,7 +871,7 @@ void QAccessibleApplication_OnChild(const QAccessibleApplication* self, intptr_t
 }
 
 // Base class handler implementation
-libqt_string QAccessibleApplication_QBaseText(const QAccessibleApplication* self, int t) {
+libqt_string QAccessibleApplication_SuperText(const QAccessibleApplication* self, int t) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         vqaccessibleapplication->setQAccessibleApplication_Text_IsBase(true);
@@ -906,7 +906,7 @@ void QAccessibleApplication_OnText(const QAccessibleApplication* self, intptr_t 
 }
 
 // Base class handler implementation
-int QAccessibleApplication_QBaseRole(const QAccessibleApplication* self) {
+int QAccessibleApplication_SuperRole(const QAccessibleApplication* self) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         vqaccessibleapplication->setQAccessibleApplication_Role_IsBase(true);
@@ -925,7 +925,7 @@ void QAccessibleApplication_OnRole(const QAccessibleApplication* self, intptr_t 
 }
 
 // Base class handler implementation
-QAccessible__State* QAccessibleApplication_QBaseState(const QAccessibleApplication* self) {
+QAccessible__State* QAccessibleApplication_SuperState(const QAccessibleApplication* self) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         vqaccessibleapplication->setQAccessibleApplication_State_IsBase(true);
@@ -954,7 +954,7 @@ bool QAccessibleApplication_IsValid(const QAccessibleApplication* self) {
 }
 
 // Base class handler implementation
-bool QAccessibleApplication_QBaseIsValid(const QAccessibleApplication* self) {
+bool QAccessibleApplication_SuperIsValid(const QAccessibleApplication* self) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         vqaccessibleapplication->setQAccessibleApplication_IsValid_IsBase(true);
@@ -983,7 +983,7 @@ QObject* QAccessibleApplication_Object(const QAccessibleApplication* self) {
 }
 
 // Base class handler implementation
-QObject* QAccessibleApplication_QBaseObject(const QAccessibleApplication* self) {
+QObject* QAccessibleApplication_SuperObject(const QAccessibleApplication* self) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         vqaccessibleapplication->setQAccessibleApplication_Object_IsBase(true);
@@ -1012,7 +1012,7 @@ QRect* QAccessibleApplication_Rect(const QAccessibleApplication* self) {
 }
 
 // Base class handler implementation
-QRect* QAccessibleApplication_QBaseRect(const QAccessibleApplication* self) {
+QRect* QAccessibleApplication_SuperRect(const QAccessibleApplication* self) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         vqaccessibleapplication->setQAccessibleApplication_Rect_IsBase(true);
@@ -1042,7 +1042,7 @@ void QAccessibleApplication_SetText(QAccessibleApplication* self, int t, const l
 }
 
 // Base class handler implementation
-void QAccessibleApplication_QBaseSetText(QAccessibleApplication* self, int t, const libqt_string text) {
+void QAccessibleApplication_SuperSetText(QAccessibleApplication* self, int t, const libqt_string text) {
     auto* vqaccessibleapplication = dynamic_cast<VirtualQAccessibleApplication*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
@@ -1072,7 +1072,7 @@ QAccessibleInterface* QAccessibleApplication_ChildAt(const QAccessibleApplicatio
 }
 
 // Base class handler implementation
-QAccessibleInterface* QAccessibleApplication_QBaseChildAt(const QAccessibleApplication* self, int x, int y) {
+QAccessibleInterface* QAccessibleApplication_SuperChildAt(const QAccessibleApplication* self, int x, int y) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         vqaccessibleapplication->setQAccessibleApplication_ChildAt_IsBase(true);
@@ -1129,7 +1129,7 @@ libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* an
 }
 
 // Base class handler implementation
-libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* and int */ QAccessibleApplication_QBaseRelations(const QAccessibleApplication* self, int match) {
+libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* and int */ QAccessibleApplication_SuperRelations(const QAccessibleApplication* self, int match) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         vqaccessibleapplication->setQAccessibleApplication_Relations_IsBase(true);
@@ -1186,7 +1186,7 @@ QColor* QAccessibleApplication_ForegroundColor(const QAccessibleApplication* sel
 }
 
 // Base class handler implementation
-QColor* QAccessibleApplication_QBaseForegroundColor(const QAccessibleApplication* self) {
+QColor* QAccessibleApplication_SuperForegroundColor(const QAccessibleApplication* self) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         vqaccessibleapplication->setQAccessibleApplication_ForegroundColor_IsBase(true);
@@ -1215,7 +1215,7 @@ QColor* QAccessibleApplication_BackgroundColor(const QAccessibleApplication* sel
 }
 
 // Base class handler implementation
-QColor* QAccessibleApplication_QBaseBackgroundColor(const QAccessibleApplication* self) {
+QColor* QAccessibleApplication_SuperBackgroundColor(const QAccessibleApplication* self) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         vqaccessibleapplication->setQAccessibleApplication_BackgroundColor_IsBase(true);
@@ -1244,7 +1244,7 @@ void QAccessibleApplication_VirtualHook(QAccessibleApplication* self, int id, vo
 }
 
 // Base class handler implementation
-void QAccessibleApplication_QBaseVirtualHook(QAccessibleApplication* self, int id, void* data) {
+void QAccessibleApplication_SuperVirtualHook(QAccessibleApplication* self, int id, void* data) {
     auto* vqaccessibleapplication = dynamic_cast<VirtualQAccessibleApplication*>(self);
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         vqaccessibleapplication->setQAccessibleApplication_VirtualHook_IsBase(true);
@@ -1273,7 +1273,7 @@ void* QAccessibleApplication_InterfaceCast(QAccessibleApplication* self, int par
 }
 
 // Base class handler implementation
-void* QAccessibleApplication_QBaseInterfaceCast(QAccessibleApplication* self, int param1) {
+void* QAccessibleApplication_SuperInterfaceCast(QAccessibleApplication* self, int param1) {
     auto* vqaccessibleapplication = dynamic_cast<VirtualQAccessibleApplication*>(self);
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         vqaccessibleapplication->setQAccessibleApplication_InterfaceCast_IsBase(true);

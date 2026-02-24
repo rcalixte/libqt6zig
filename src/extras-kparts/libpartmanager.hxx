@@ -524,31 +524,31 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
 
     // Friend functions
     friend void KParts__PartManager_TimerEvent(KParts::PartManager* self, QTimerEvent* event);
-    friend void KParts__PartManager_QBaseTimerEvent(KParts::PartManager* self, QTimerEvent* event);
+    friend void KParts__PartManager_SuperTimerEvent(KParts::PartManager* self, QTimerEvent* event);
     friend void KParts__PartManager_ChildEvent(KParts::PartManager* self, QChildEvent* event);
-    friend void KParts__PartManager_QBaseChildEvent(KParts::PartManager* self, QChildEvent* event);
+    friend void KParts__PartManager_SuperChildEvent(KParts::PartManager* self, QChildEvent* event);
     friend void KParts__PartManager_CustomEvent(KParts::PartManager* self, QEvent* event);
-    friend void KParts__PartManager_QBaseCustomEvent(KParts::PartManager* self, QEvent* event);
+    friend void KParts__PartManager_SuperCustomEvent(KParts::PartManager* self, QEvent* event);
     friend void KParts__PartManager_ConnectNotify(KParts::PartManager* self, const QMetaMethod* signal);
-    friend void KParts__PartManager_QBaseConnectNotify(KParts::PartManager* self, const QMetaMethod* signal);
+    friend void KParts__PartManager_SuperConnectNotify(KParts::PartManager* self, const QMetaMethod* signal);
     friend void KParts__PartManager_DisconnectNotify(KParts::PartManager* self, const QMetaMethod* signal);
-    friend void KParts__PartManager_QBaseDisconnectNotify(KParts::PartManager* self, const QMetaMethod* signal);
+    friend void KParts__PartManager_SuperDisconnectNotify(KParts::PartManager* self, const QMetaMethod* signal);
     friend void KParts__PartManager_SetIgnoreExplictFocusRequests(KParts::PartManager* self, bool ignoreExplictFocusRequests);
-    friend void KParts__PartManager_QBaseSetIgnoreExplictFocusRequests(KParts::PartManager* self, bool ignoreExplictFocusRequests);
+    friend void KParts__PartManager_SuperSetIgnoreExplictFocusRequests(KParts::PartManager* self, bool ignoreExplictFocusRequests);
     friend void KParts__PartManager_SlotObjectDestroyed(KParts::PartManager* self);
-    friend void KParts__PartManager_QBaseSlotObjectDestroyed(KParts::PartManager* self);
+    friend void KParts__PartManager_SuperSlotObjectDestroyed(KParts::PartManager* self);
     friend void KParts__PartManager_SlotWidgetDestroyed(KParts::PartManager* self);
-    friend void KParts__PartManager_QBaseSlotWidgetDestroyed(KParts::PartManager* self);
+    friend void KParts__PartManager_SuperSlotWidgetDestroyed(KParts::PartManager* self);
     friend void KParts__PartManager_SlotManagedTopLevelWidgetDestroyed(KParts::PartManager* self);
-    friend void KParts__PartManager_QBaseSlotManagedTopLevelWidgetDestroyed(KParts::PartManager* self);
+    friend void KParts__PartManager_SuperSlotManagedTopLevelWidgetDestroyed(KParts::PartManager* self);
     friend QObject* KParts__PartManager_Sender(const KParts::PartManager* self);
-    friend QObject* KParts__PartManager_QBaseSender(const KParts::PartManager* self);
+    friend QObject* KParts__PartManager_SuperSender(const KParts::PartManager* self);
     friend int KParts__PartManager_SenderSignalIndex(const KParts::PartManager* self);
-    friend int KParts__PartManager_QBaseSenderSignalIndex(const KParts::PartManager* self);
+    friend int KParts__PartManager_SuperSenderSignalIndex(const KParts::PartManager* self);
     friend int KParts__PartManager_Receivers(const KParts::PartManager* self, const char* signal);
-    friend int KParts__PartManager_QBaseReceivers(const KParts::PartManager* self, const char* signal);
+    friend int KParts__PartManager_SuperReceivers(const KParts::PartManager* self, const char* signal);
     friend bool KParts__PartManager_IsSignalConnected(const KParts::PartManager* self, const QMetaMethod* signal);
-    friend bool KParts__PartManager_QBaseIsSignalConnected(const KParts::PartManager* self, const QMetaMethod* signal);
+    friend bool KParts__PartManager_SuperIsSignalConnected(const KParts::PartManager* self, const QMetaMethod* signal);
 };
 
 #endif

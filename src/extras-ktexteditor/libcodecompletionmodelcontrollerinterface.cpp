@@ -119,7 +119,7 @@ void KTextEditor__CodeCompletionModelControllerInterface_OperatorAssign(KTextEdi
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModelControllerInterface_QBaseShouldStartCompletion(KTextEditor__CodeCompletionModelControllerInterface* self, KTextEditor__View* view, const libqt_string insertedText, bool userInsertion, const KTextEditor__Cursor* position) {
+bool KTextEditor__CodeCompletionModelControllerInterface_SuperShouldStartCompletion(KTextEditor__CodeCompletionModelControllerInterface* self, KTextEditor__View* view, const libqt_string insertedText, bool userInsertion, const KTextEditor__Cursor* position) {
     auto* vktexteditorcodecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
     QString insertedText_QString = QString::fromUtf8(insertedText.data, insertedText.len);
     if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
@@ -139,7 +139,7 @@ void KTextEditor__CodeCompletionModelControllerInterface_OnShouldStartCompletion
 }
 
 // Base class handler implementation
-KTextEditor__Range* KTextEditor__CodeCompletionModelControllerInterface_QBaseCompletionRange(KTextEditor__CodeCompletionModelControllerInterface* self, KTextEditor__View* view, const KTextEditor__Cursor* position) {
+KTextEditor__Range* KTextEditor__CodeCompletionModelControllerInterface_SuperCompletionRange(KTextEditor__CodeCompletionModelControllerInterface* self, KTextEditor__View* view, const KTextEditor__Cursor* position) {
     auto* vktexteditorcodecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
     if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
         vktexteditorcodecompletionmodelcontrollerinterface->setKTextEditor__CodeCompletionModelControllerInterface_CompletionRange_IsBase(true);
@@ -158,7 +158,7 @@ void KTextEditor__CodeCompletionModelControllerInterface_OnCompletionRange(KText
 }
 
 // Base class handler implementation
-KTextEditor__Range* KTextEditor__CodeCompletionModelControllerInterface_QBaseUpdateCompletionRange(KTextEditor__CodeCompletionModelControllerInterface* self, KTextEditor__View* view, const KTextEditor__Range* range) {
+KTextEditor__Range* KTextEditor__CodeCompletionModelControllerInterface_SuperUpdateCompletionRange(KTextEditor__CodeCompletionModelControllerInterface* self, KTextEditor__View* view, const KTextEditor__Range* range) {
     auto* vktexteditorcodecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
     if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
         vktexteditorcodecompletionmodelcontrollerinterface->setKTextEditor__CodeCompletionModelControllerInterface_UpdateCompletionRange_IsBase(true);
@@ -177,7 +177,7 @@ void KTextEditor__CodeCompletionModelControllerInterface_OnUpdateCompletionRange
 }
 
 // Base class handler implementation
-libqt_string KTextEditor__CodeCompletionModelControllerInterface_QBaseFilterString(KTextEditor__CodeCompletionModelControllerInterface* self, KTextEditor__View* view, const KTextEditor__Range* range, const KTextEditor__Cursor* position) {
+libqt_string KTextEditor__CodeCompletionModelControllerInterface_SuperFilterString(KTextEditor__CodeCompletionModelControllerInterface* self, KTextEditor__View* view, const KTextEditor__Range* range, const KTextEditor__Cursor* position) {
     auto* vktexteditorcodecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
     if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
         vktexteditorcodecompletionmodelcontrollerinterface->setKTextEditor__CodeCompletionModelControllerInterface_FilterString_IsBase(true);
@@ -212,7 +212,7 @@ void KTextEditor__CodeCompletionModelControllerInterface_OnFilterString(KTextEdi
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModelControllerInterface_QBaseShouldAbortCompletion(KTextEditor__CodeCompletionModelControllerInterface* self, KTextEditor__View* view, const KTextEditor__Range* range, const libqt_string currentCompletion) {
+bool KTextEditor__CodeCompletionModelControllerInterface_SuperShouldAbortCompletion(KTextEditor__CodeCompletionModelControllerInterface* self, KTextEditor__View* view, const KTextEditor__Range* range, const libqt_string currentCompletion) {
     auto* vktexteditorcodecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
     QString currentCompletion_QString = QString::fromUtf8(currentCompletion.data, currentCompletion.len);
     if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
@@ -232,7 +232,7 @@ void KTextEditor__CodeCompletionModelControllerInterface_OnShouldAbortCompletion
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModelControllerInterface_QBaseShouldExecute(KTextEditor__CodeCompletionModelControllerInterface* self, const QModelIndex* selected, QChar* inserted) {
+bool KTextEditor__CodeCompletionModelControllerInterface_SuperShouldExecute(KTextEditor__CodeCompletionModelControllerInterface* self, const QModelIndex* selected, QChar* inserted) {
     auto* vktexteditorcodecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
     if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
         vktexteditorcodecompletionmodelcontrollerinterface->setKTextEditor__CodeCompletionModelControllerInterface_ShouldExecute_IsBase(true);
@@ -251,7 +251,7 @@ void KTextEditor__CodeCompletionModelControllerInterface_OnShouldExecute(KTextEd
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModelControllerInterface_QBaseAborted(KTextEditor__CodeCompletionModelControllerInterface* self, KTextEditor__View* view) {
+void KTextEditor__CodeCompletionModelControllerInterface_SuperAborted(KTextEditor__CodeCompletionModelControllerInterface* self, KTextEditor__View* view) {
     auto* vktexteditorcodecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
     if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
         vktexteditorcodecompletionmodelcontrollerinterface->setKTextEditor__CodeCompletionModelControllerInterface_Aborted_IsBase(true);
@@ -270,7 +270,7 @@ void KTextEditor__CodeCompletionModelControllerInterface_OnAborted(KTextEditor__
 }
 
 // Base class handler implementation
-int KTextEditor__CodeCompletionModelControllerInterface_QBaseMatchingItem(KTextEditor__CodeCompletionModelControllerInterface* self, const QModelIndex* matched) {
+int KTextEditor__CodeCompletionModelControllerInterface_SuperMatchingItem(KTextEditor__CodeCompletionModelControllerInterface* self, const QModelIndex* matched) {
     auto* vktexteditorcodecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
     if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
         vktexteditorcodecompletionmodelcontrollerinterface->setKTextEditor__CodeCompletionModelControllerInterface_MatchingItem_IsBase(true);
@@ -289,7 +289,7 @@ void KTextEditor__CodeCompletionModelControllerInterface_OnMatchingItem(KTextEdi
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModelControllerInterface_QBaseShouldHideItemsWithEqualNames(const KTextEditor__CodeCompletionModelControllerInterface* self) {
+bool KTextEditor__CodeCompletionModelControllerInterface_SuperShouldHideItemsWithEqualNames(const KTextEditor__CodeCompletionModelControllerInterface* self) {
     auto* vktexteditorcodecompletionmodelcontrollerinterface = const_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModelControllerInterface*>(self));
     if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
         vktexteditorcodecompletionmodelcontrollerinterface->setKTextEditor__CodeCompletionModelControllerInterface_ShouldHideItemsWithEqualNames_IsBase(true);

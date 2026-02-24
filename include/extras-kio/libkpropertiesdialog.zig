@@ -206,6 +206,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -214,8 +218,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KPropertiesDialog_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KPropertiesDialog_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -241,6 +245,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -249,9 +257,9 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KPropertiesDialog_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KPropertiesDialog_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -280,6 +288,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -292,8 +304,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KPropertiesDialog_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KPropertiesDialog_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -519,6 +531,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_OnAccept(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAccept` instead
+    ///
+    pub const QBaseAccept = SuperAccept;
+
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#accept)
     ///
     /// Base class method implementation
@@ -527,8 +543,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    pub fn QBaseAccept(self: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseAccept(@ptrCast(self));
+    pub fn SuperAccept(self: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperAccept(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#reject)
@@ -555,6 +571,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_OnReject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperReject` instead
+    ///
+    pub const QBaseReject = SuperReject;
+
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#reject)
     ///
     /// Base class method implementation
@@ -563,8 +583,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    pub fn QBaseReject(self: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseReject(@ptrCast(self));
+    pub fn SuperReject(self: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperReject(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#propertiesClosed)
@@ -5962,6 +5982,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_SetVisible(@ptrCast(self), visible);
     }
 
+    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    ///
+    pub const QBaseSetVisible = SuperSetVisible;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#setVisible)
@@ -5974,8 +5998,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.KPropertiesDialog_QBaseSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
+        qtc.KPropertiesDialog_SuperSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QDialog
@@ -6008,6 +6032,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_SizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#sizeHint)
@@ -6018,8 +6046,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KPropertiesDialog_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.KPropertiesDialog_SuperSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QDialog
@@ -6052,6 +6080,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_MinimumSizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    ///
+    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#minimumSizeHint)
@@ -6062,8 +6094,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KPropertiesDialog_QBaseMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.KPropertiesDialog_SuperMinimumSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QDialog
@@ -6096,6 +6128,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_Open(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperOpen` instead
+    ///
+    pub const QBaseOpen = SuperOpen;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#open)
@@ -6106,8 +6142,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    pub fn QBaseOpen(self: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseOpen(@ptrCast(self));
+    pub fn SuperOpen(self: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperOpen(@ptrCast(self));
     }
 
     /// Inherited from QDialog
@@ -6140,6 +6176,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_Exec(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperExec` instead
+    ///
+    pub const QBaseExec = SuperExec;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#exec)
@@ -6150,8 +6190,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    pub fn QBaseExec(self: ?*anyopaque) i32 {
-        return qtc.KPropertiesDialog_QBaseExec(@ptrCast(self));
+    pub fn SuperExec(self: ?*anyopaque) i32 {
+        return qtc.KPropertiesDialog_SuperExec(@ptrCast(self));
     }
 
     /// Inherited from QDialog
@@ -6186,6 +6226,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_Done(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperDone` instead
+    ///
+    pub const QBaseDone = SuperDone;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#done)
@@ -6198,8 +6242,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseDone(self: ?*anyopaque, param1: i32) void {
-        qtc.KPropertiesDialog_QBaseDone(@ptrCast(self), @bitCast(param1));
+    pub fn SuperDone(self: ?*anyopaque, param1: i32) void {
+        qtc.KPropertiesDialog_SuperDone(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QDialog
@@ -6234,6 +6278,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#keyPressEvent)
@@ -6246,8 +6294,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` param1: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperKeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QDialog
@@ -6282,6 +6330,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_CloseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#closeEvent)
@@ -6294,8 +6346,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` param1: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseCloseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperCloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperCloseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QDialog
@@ -6330,6 +6382,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_ShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#showEvent)
@@ -6342,8 +6398,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` param1: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseShowEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QDialog
@@ -6378,6 +6434,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_ResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#resizeEvent)
@@ -6390,8 +6450,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` param1: QtC.QResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseResizeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QDialog
@@ -6426,6 +6486,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    ///
+    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#contextMenuEvent)
@@ -6438,8 +6502,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` param1: QtC.QContextMenuEvent `
     ///
-    pub fn QBaseContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QDialog
@@ -6476,6 +6540,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_EventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#eventFilter)
@@ -6490,8 +6558,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` param2: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.KPropertiesDialog_QBaseEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn SuperEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
+        return qtc.KPropertiesDialog_SuperEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QDialog
@@ -6524,6 +6592,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_DevType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
@@ -6534,8 +6606,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.KPropertiesDialog_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.KPropertiesDialog_SuperDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -6570,6 +6642,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
@@ -6582,8 +6658,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KPropertiesDialog_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.KPropertiesDialog_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6616,6 +6692,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
@@ -6626,8 +6706,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.KPropertiesDialog_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.KPropertiesDialog_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -6660,6 +6740,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_PaintEngine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    ///
+    pub const QBasePaintEngine = SuperPaintEngine;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
@@ -6670,8 +6754,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.KPropertiesDialog_QBasePaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.KPropertiesDialog_SuperPaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -6706,6 +6790,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#event)
@@ -6718,8 +6806,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KPropertiesDialog_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KPropertiesDialog_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6754,6 +6842,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_MousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -6766,8 +6858,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6802,6 +6894,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -6814,8 +6910,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6850,6 +6946,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6862,8 +6962,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6898,6 +6998,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -6910,8 +7014,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6946,6 +7050,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_WheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
@@ -6958,8 +7066,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6994,6 +7102,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -7006,8 +7118,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7042,6 +7154,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_FocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -7054,8 +7170,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7090,6 +7206,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_FocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -7102,8 +7222,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7138,6 +7258,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    ///
+    pub const QBaseEnterEvent = SuperEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
@@ -7150,8 +7274,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QEnterEvent `
     ///
-    pub fn QBaseEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7186,6 +7310,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    ///
+    pub const QBaseLeaveEvent = SuperLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
@@ -7198,8 +7326,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7234,6 +7362,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_PaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    ///
+    pub const QBasePaintEvent = SuperPaintEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEvent)
@@ -7246,8 +7378,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QPaintEvent `
     ///
-    pub fn QBasePaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBasePaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperPaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperPaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7282,6 +7414,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
@@ -7294,8 +7430,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7330,6 +7466,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    ///
+    pub const QBaseTabletEvent = SuperTabletEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
@@ -7342,8 +7482,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QTabletEvent `
     ///
-    pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7378,6 +7518,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_ActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    ///
+    pub const QBaseActionEvent = SuperActionEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
@@ -7390,8 +7534,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QActionEvent `
     ///
-    pub fn QBaseActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7426,6 +7570,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_DragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    ///
+    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
@@ -7438,8 +7586,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QDragEnterEvent `
     ///
-    pub fn QBaseDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7474,6 +7622,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_DragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    ///
+    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
@@ -7486,8 +7638,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QDragMoveEvent `
     ///
-    pub fn QBaseDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7522,6 +7674,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    ///
+    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
@@ -7534,8 +7690,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QDragLeaveEvent `
     ///
-    pub fn QBaseDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7570,6 +7726,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_DropEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    ///
+    pub const QBaseDropEvent = SuperDropEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
@@ -7582,8 +7742,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QDropEvent `
     ///
-    pub fn QBaseDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7618,6 +7778,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
@@ -7630,8 +7794,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7674,6 +7838,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
+    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    ///
+    pub const QBaseNativeEvent = SuperNativeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
@@ -7690,12 +7858,12 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KPropertiesDialog_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KPropertiesDialog_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -7730,6 +7898,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_ChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    ///
+    pub const QBaseChangeEvent = SuperChangeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#changeEvent)
@@ -7742,8 +7914,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7778,6 +7950,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_Metric(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
@@ -7790,8 +7966,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KPropertiesDialog_QBaseMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.KPropertiesDialog_SuperMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7826,6 +8002,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
@@ -7838,8 +8018,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
@@ -7874,6 +8054,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
@@ -7886,8 +8070,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.KPropertiesDialog_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.KPropertiesDialog_SuperRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
@@ -7920,6 +8104,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
@@ -7930,8 +8118,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.KPropertiesDialog_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.KPropertiesDialog_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7966,6 +8154,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    ///
+    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
@@ -7978,8 +8170,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` param1: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -8014,6 +8206,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_InputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    ///
+    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
@@ -8026,8 +8222,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.KPropertiesDialog_QBaseInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
+        return qtc.KPropertiesDialog_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -8062,6 +8258,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_FocusNextPrevChild(@ptrCast(self), next);
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    ///
+    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
@@ -8074,8 +8274,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` next: bool `
     ///
-    pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.KPropertiesDialog_QBaseFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
+        return qtc.KPropertiesDialog_SuperFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QWidget
@@ -8110,6 +8310,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -8122,8 +8326,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -8158,6 +8362,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -8170,8 +8378,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -8206,6 +8414,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -8218,8 +8430,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -8254,6 +8466,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8266,8 +8482,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -8302,6 +8518,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -8314,8 +8534,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -8348,6 +8568,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_PageWidget(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPageWidget` instead
+    ///
+    pub const QBasePageWidget = SuperPageWidget;
+
     /// Inherited from KPageDialog
     ///
     /// ### [Upstream resources](https://api.kde.org/kpagedialog.html#pageWidget)
@@ -8358,8 +8582,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    pub fn QBasePageWidget(self: ?*anyopaque) QtC.KPageWidget {
-        return qtc.KPropertiesDialog_QBasePageWidget(@ptrCast(self));
+    pub fn SuperPageWidget(self: ?*anyopaque) QtC.KPageWidget {
+        return qtc.KPropertiesDialog_SuperPageWidget(@ptrCast(self));
     }
 
     /// Inherited from KPageDialog
@@ -8394,6 +8618,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_SetPageWidget(@ptrCast(self), @ptrCast(widget));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPageWidget` instead
+    ///
+    pub const QBaseSetPageWidget = SuperSetPageWidget;
+
     /// Inherited from KPageDialog
     ///
     /// ### [Upstream resources](https://api.kde.org/kpagedialog.html#setPageWidget)
@@ -8406,8 +8634,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` widget: QtC.KPageWidget `
     ///
-    pub fn QBaseSetPageWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseSetPageWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn SuperSetPageWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperSetPageWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from KPageDialog
@@ -8440,6 +8668,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_ButtonBox(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperButtonBox` instead
+    ///
+    pub const QBaseButtonBox = SuperButtonBox;
+
     /// Inherited from KPageDialog
     ///
     /// ### [Upstream resources](https://api.kde.org/kpagedialog.html#buttonBox)
@@ -8450,8 +8682,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    pub fn QBaseButtonBox(self: ?*anyopaque) QtC.QDialogButtonBox {
-        return qtc.KPropertiesDialog_QBaseButtonBox(@ptrCast(self));
+    pub fn SuperButtonBox(self: ?*anyopaque) QtC.QDialogButtonBox {
+        return qtc.KPropertiesDialog_SuperButtonBox(@ptrCast(self));
     }
 
     /// Inherited from KPageDialog
@@ -8486,6 +8718,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_SetButtonBox(@ptrCast(self), @ptrCast(box));
     }
 
+    /// ### DEPRECATED: Use `SuperSetButtonBox` instead
+    ///
+    pub const QBaseSetButtonBox = SuperSetButtonBox;
+
     /// Inherited from KPageDialog
     ///
     /// ### [Upstream resources](https://api.kde.org/kpagedialog.html#setButtonBox)
@@ -8498,8 +8734,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` box: QtC.QDialogButtonBox `
     ///
-    pub fn QBaseSetButtonBox(self: ?*anyopaque, box: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseSetButtonBox(@ptrCast(self), @ptrCast(box));
+    pub fn SuperSetButtonBox(self: ?*anyopaque, box: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperSetButtonBox(@ptrCast(self), @ptrCast(box));
     }
 
     /// Inherited from KPageDialog
@@ -8534,6 +8770,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_AdjustPosition(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperAdjustPosition` instead
+    ///
+    pub const QBaseAdjustPosition = SuperAdjustPosition;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
@@ -8546,8 +8786,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` param1: QtC.QWidget `
     ///
-    pub fn QBaseAdjustPosition(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseAdjustPosition(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperAdjustPosition(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperAdjustPosition(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QDialog
@@ -8580,6 +8820,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_UpdateMicroFocus(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    ///
+    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8590,8 +8834,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8624,6 +8868,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_Create(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCreate` instead
+    ///
+    pub const QBaseCreate = SuperCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8634,8 +8882,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    pub fn QBaseCreate(self: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseCreate(@ptrCast(self));
+    pub fn SuperCreate(self: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8668,6 +8916,10 @@ pub const kpropertiesdialog = struct {
         qtc.KPropertiesDialog_Destroy(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDestroy` instead
+    ///
+    pub const QBaseDestroy = SuperDestroy;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
@@ -8678,8 +8930,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    pub fn QBaseDestroy(self: ?*anyopaque) void {
-        qtc.KPropertiesDialog_QBaseDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: ?*anyopaque) void {
+        qtc.KPropertiesDialog_SuperDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8712,6 +8964,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_FocusNextChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    ///
+    pub const QBaseFocusNextChild = SuperFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8722,8 +8978,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.KPropertiesDialog_QBaseFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
+        return qtc.KPropertiesDialog_SuperFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8756,6 +9012,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_FocusPreviousChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    ///
+    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
@@ -8766,8 +9026,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.KPropertiesDialog_QBaseFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
+        return qtc.KPropertiesDialog_SuperFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8800,6 +9060,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -8810,8 +9074,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KPropertiesDialog_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KPropertiesDialog_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -8844,6 +9108,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -8854,8 +9122,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KPropertiesDialog_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KPropertiesDialog_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -8891,6 +9159,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -8903,9 +9175,9 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KPropertiesDialog_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KPropertiesDialog_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -8940,6 +9212,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -8952,8 +9228,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KPropertiesDialog_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KPropertiesDialog_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -8990,6 +9266,10 @@ pub const kpropertiesdialog = struct {
         return qtc.KPropertiesDialog_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -9004,8 +9284,8 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KPropertiesDialog_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.KPropertiesDialog_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -9039,6 +9319,9 @@ pub const kpropertiesdialog = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kpropertiesdialog.html#dtor.KPropertiesDialog)
     ///
@@ -9048,7 +9331,7 @@ pub const kpropertiesdialog = struct {
     ///
     /// ` self: QtC.KPropertiesDialog `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KPropertiesDialog_Delete(@ptrCast(self));
     }
 };

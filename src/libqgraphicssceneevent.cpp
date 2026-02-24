@@ -48,7 +48,7 @@ void QGraphicsSceneEvent_SetAccepted(QGraphicsSceneEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QGraphicsSceneEvent_QBaseSetAccepted(QGraphicsSceneEvent* self, bool accepted) {
+void QGraphicsSceneEvent_SuperSetAccepted(QGraphicsSceneEvent* self, bool accepted) {
     auto* vqgraphicssceneevent = dynamic_cast<VirtualQGraphicsSceneEvent*>(self);
     if (vqgraphicssceneevent && vqgraphicssceneevent->isVirtualQGraphicsSceneEvent) {
         vqgraphicssceneevent->setQGraphicsSceneEvent_SetAccepted_IsBase(true);
@@ -77,7 +77,7 @@ QEvent* QGraphicsSceneEvent_Clone(const QGraphicsSceneEvent* self) {
 }
 
 // Base class handler implementation
-QEvent* QGraphicsSceneEvent_QBaseClone(const QGraphicsSceneEvent* self) {
+QEvent* QGraphicsSceneEvent_SuperClone(const QGraphicsSceneEvent* self) {
     auto* vqgraphicssceneevent = const_cast<VirtualQGraphicsSceneEvent*>(dynamic_cast<const VirtualQGraphicsSceneEvent*>(self));
     if (vqgraphicssceneevent && vqgraphicssceneevent->isVirtualQGraphicsSceneEvent) {
         vqgraphicssceneevent->setQGraphicsSceneEvent_Clone_IsBase(true);
@@ -230,7 +230,7 @@ void QGraphicsSceneMouseEvent_SetAccepted(QGraphicsSceneMouseEvent* self, bool a
 }
 
 // Base class handler implementation
-void QGraphicsSceneMouseEvent_QBaseSetAccepted(QGraphicsSceneMouseEvent* self, bool accepted) {
+void QGraphicsSceneMouseEvent_SuperSetAccepted(QGraphicsSceneMouseEvent* self, bool accepted) {
     auto* vqgraphicsscenemouseevent = dynamic_cast<VirtualQGraphicsSceneMouseEvent*>(self);
     if (vqgraphicsscenemouseevent && vqgraphicsscenemouseevent->isVirtualQGraphicsSceneMouseEvent) {
         vqgraphicsscenemouseevent->setQGraphicsSceneMouseEvent_SetAccepted_IsBase(true);
@@ -259,7 +259,7 @@ QEvent* QGraphicsSceneMouseEvent_Clone(const QGraphicsSceneMouseEvent* self) {
 }
 
 // Base class handler implementation
-QEvent* QGraphicsSceneMouseEvent_QBaseClone(const QGraphicsSceneMouseEvent* self) {
+QEvent* QGraphicsSceneMouseEvent_SuperClone(const QGraphicsSceneMouseEvent* self) {
     auto* vqgraphicsscenemouseevent = const_cast<VirtualQGraphicsSceneMouseEvent*>(dynamic_cast<const VirtualQGraphicsSceneMouseEvent*>(self));
     if (vqgraphicsscenemouseevent && vqgraphicsscenemouseevent->isVirtualQGraphicsSceneMouseEvent) {
         vqgraphicsscenemouseevent->setQGraphicsSceneMouseEvent_Clone_IsBase(true);
@@ -380,7 +380,7 @@ void QGraphicsSceneWheelEvent_SetAccepted(QGraphicsSceneWheelEvent* self, bool a
 }
 
 // Base class handler implementation
-void QGraphicsSceneWheelEvent_QBaseSetAccepted(QGraphicsSceneWheelEvent* self, bool accepted) {
+void QGraphicsSceneWheelEvent_SuperSetAccepted(QGraphicsSceneWheelEvent* self, bool accepted) {
     auto* vqgraphicsscenewheelevent = dynamic_cast<VirtualQGraphicsSceneWheelEvent*>(self);
     if (vqgraphicsscenewheelevent && vqgraphicsscenewheelevent->isVirtualQGraphicsSceneWheelEvent) {
         vqgraphicsscenewheelevent->setQGraphicsSceneWheelEvent_SetAccepted_IsBase(true);
@@ -409,7 +409,7 @@ QEvent* QGraphicsSceneWheelEvent_Clone(const QGraphicsSceneWheelEvent* self) {
 }
 
 // Base class handler implementation
-QEvent* QGraphicsSceneWheelEvent_QBaseClone(const QGraphicsSceneWheelEvent* self) {
+QEvent* QGraphicsSceneWheelEvent_SuperClone(const QGraphicsSceneWheelEvent* self) {
     auto* vqgraphicsscenewheelevent = const_cast<VirtualQGraphicsSceneWheelEvent*>(dynamic_cast<const VirtualQGraphicsSceneWheelEvent*>(self));
     if (vqgraphicsscenewheelevent && vqgraphicsscenewheelevent->isVirtualQGraphicsSceneWheelEvent) {
         vqgraphicsscenewheelevent->setQGraphicsSceneWheelEvent_Clone_IsBase(true);
@@ -490,7 +490,7 @@ void QGraphicsSceneContextMenuEvent_SetAccepted(QGraphicsSceneContextMenuEvent* 
 }
 
 // Base class handler implementation
-void QGraphicsSceneContextMenuEvent_QBaseSetAccepted(QGraphicsSceneContextMenuEvent* self, bool accepted) {
+void QGraphicsSceneContextMenuEvent_SuperSetAccepted(QGraphicsSceneContextMenuEvent* self, bool accepted) {
     auto* vqgraphicsscenecontextmenuevent = dynamic_cast<VirtualQGraphicsSceneContextMenuEvent*>(self);
     if (vqgraphicsscenecontextmenuevent && vqgraphicsscenecontextmenuevent->isVirtualQGraphicsSceneContextMenuEvent) {
         vqgraphicsscenecontextmenuevent->setQGraphicsSceneContextMenuEvent_SetAccepted_IsBase(true);
@@ -519,7 +519,7 @@ QEvent* QGraphicsSceneContextMenuEvent_Clone(const QGraphicsSceneContextMenuEven
 }
 
 // Base class handler implementation
-QEvent* QGraphicsSceneContextMenuEvent_QBaseClone(const QGraphicsSceneContextMenuEvent* self) {
+QEvent* QGraphicsSceneContextMenuEvent_SuperClone(const QGraphicsSceneContextMenuEvent* self) {
     auto* vqgraphicsscenecontextmenuevent = const_cast<VirtualQGraphicsSceneContextMenuEvent*>(dynamic_cast<const VirtualQGraphicsSceneContextMenuEvent*>(self));
     if (vqgraphicsscenecontextmenuevent && vqgraphicsscenecontextmenuevent->isVirtualQGraphicsSceneContextMenuEvent) {
         vqgraphicsscenecontextmenuevent->setQGraphicsSceneContextMenuEvent_Clone_IsBase(true);
@@ -616,7 +616,7 @@ void QGraphicsSceneHoverEvent_SetAccepted(QGraphicsSceneHoverEvent* self, bool a
 }
 
 // Base class handler implementation
-void QGraphicsSceneHoverEvent_QBaseSetAccepted(QGraphicsSceneHoverEvent* self, bool accepted) {
+void QGraphicsSceneHoverEvent_SuperSetAccepted(QGraphicsSceneHoverEvent* self, bool accepted) {
     auto* vqgraphicsscenehoverevent = dynamic_cast<VirtualQGraphicsSceneHoverEvent*>(self);
     if (vqgraphicsscenehoverevent && vqgraphicsscenehoverevent->isVirtualQGraphicsSceneHoverEvent) {
         vqgraphicsscenehoverevent->setQGraphicsSceneHoverEvent_SetAccepted_IsBase(true);
@@ -645,7 +645,7 @@ QEvent* QGraphicsSceneHoverEvent_Clone(const QGraphicsSceneHoverEvent* self) {
 }
 
 // Base class handler implementation
-QEvent* QGraphicsSceneHoverEvent_QBaseClone(const QGraphicsSceneHoverEvent* self) {
+QEvent* QGraphicsSceneHoverEvent_SuperClone(const QGraphicsSceneHoverEvent* self) {
     auto* vqgraphicsscenehoverevent = const_cast<VirtualQGraphicsSceneHoverEvent*>(dynamic_cast<const VirtualQGraphicsSceneHoverEvent*>(self));
     if (vqgraphicsscenehoverevent && vqgraphicsscenehoverevent->isVirtualQGraphicsSceneHoverEvent) {
         vqgraphicsscenehoverevent->setQGraphicsSceneHoverEvent_Clone_IsBase(true);
@@ -702,7 +702,7 @@ void QGraphicsSceneHelpEvent_SetAccepted(QGraphicsSceneHelpEvent* self, bool acc
 }
 
 // Base class handler implementation
-void QGraphicsSceneHelpEvent_QBaseSetAccepted(QGraphicsSceneHelpEvent* self, bool accepted) {
+void QGraphicsSceneHelpEvent_SuperSetAccepted(QGraphicsSceneHelpEvent* self, bool accepted) {
     auto* vqgraphicsscenehelpevent = dynamic_cast<VirtualQGraphicsSceneHelpEvent*>(self);
     if (vqgraphicsscenehelpevent && vqgraphicsscenehelpevent->isVirtualQGraphicsSceneHelpEvent) {
         vqgraphicsscenehelpevent->setQGraphicsSceneHelpEvent_SetAccepted_IsBase(true);
@@ -731,7 +731,7 @@ QEvent* QGraphicsSceneHelpEvent_Clone(const QGraphicsSceneHelpEvent* self) {
 }
 
 // Base class handler implementation
-QEvent* QGraphicsSceneHelpEvent_QBaseClone(const QGraphicsSceneHelpEvent* self) {
+QEvent* QGraphicsSceneHelpEvent_SuperClone(const QGraphicsSceneHelpEvent* self) {
     auto* vqgraphicsscenehelpevent = const_cast<VirtualQGraphicsSceneHelpEvent*>(dynamic_cast<const VirtualQGraphicsSceneHelpEvent*>(self));
     if (vqgraphicsscenehelpevent && vqgraphicsscenehelpevent->isVirtualQGraphicsSceneHelpEvent) {
         vqgraphicsscenehelpevent->setQGraphicsSceneHelpEvent_Clone_IsBase(true);
@@ -856,7 +856,7 @@ void QGraphicsSceneDragDropEvent_SetAccepted(QGraphicsSceneDragDropEvent* self, 
 }
 
 // Base class handler implementation
-void QGraphicsSceneDragDropEvent_QBaseSetAccepted(QGraphicsSceneDragDropEvent* self, bool accepted) {
+void QGraphicsSceneDragDropEvent_SuperSetAccepted(QGraphicsSceneDragDropEvent* self, bool accepted) {
     auto* vqgraphicsscenedragdropevent = dynamic_cast<VirtualQGraphicsSceneDragDropEvent*>(self);
     if (vqgraphicsscenedragdropevent && vqgraphicsscenedragdropevent->isVirtualQGraphicsSceneDragDropEvent) {
         vqgraphicsscenedragdropevent->setQGraphicsSceneDragDropEvent_SetAccepted_IsBase(true);
@@ -885,7 +885,7 @@ QEvent* QGraphicsSceneDragDropEvent_Clone(const QGraphicsSceneDragDropEvent* sel
 }
 
 // Base class handler implementation
-QEvent* QGraphicsSceneDragDropEvent_QBaseClone(const QGraphicsSceneDragDropEvent* self) {
+QEvent* QGraphicsSceneDragDropEvent_SuperClone(const QGraphicsSceneDragDropEvent* self) {
     auto* vqgraphicsscenedragdropevent = const_cast<VirtualQGraphicsSceneDragDropEvent*>(dynamic_cast<const VirtualQGraphicsSceneDragDropEvent*>(self));
     if (vqgraphicsscenedragdropevent && vqgraphicsscenedragdropevent->isVirtualQGraphicsSceneDragDropEvent) {
         vqgraphicsscenedragdropevent->setQGraphicsSceneDragDropEvent_Clone_IsBase(true);
@@ -938,7 +938,7 @@ void QGraphicsSceneResizeEvent_SetAccepted(QGraphicsSceneResizeEvent* self, bool
 }
 
 // Base class handler implementation
-void QGraphicsSceneResizeEvent_QBaseSetAccepted(QGraphicsSceneResizeEvent* self, bool accepted) {
+void QGraphicsSceneResizeEvent_SuperSetAccepted(QGraphicsSceneResizeEvent* self, bool accepted) {
     auto* vqgraphicssceneresizeevent = dynamic_cast<VirtualQGraphicsSceneResizeEvent*>(self);
     if (vqgraphicssceneresizeevent && vqgraphicssceneresizeevent->isVirtualQGraphicsSceneResizeEvent) {
         vqgraphicssceneresizeevent->setQGraphicsSceneResizeEvent_SetAccepted_IsBase(true);
@@ -967,7 +967,7 @@ QEvent* QGraphicsSceneResizeEvent_Clone(const QGraphicsSceneResizeEvent* self) {
 }
 
 // Base class handler implementation
-QEvent* QGraphicsSceneResizeEvent_QBaseClone(const QGraphicsSceneResizeEvent* self) {
+QEvent* QGraphicsSceneResizeEvent_SuperClone(const QGraphicsSceneResizeEvent* self) {
     auto* vqgraphicssceneresizeevent = const_cast<VirtualQGraphicsSceneResizeEvent*>(dynamic_cast<const VirtualQGraphicsSceneResizeEvent*>(self));
     if (vqgraphicssceneresizeevent && vqgraphicssceneresizeevent->isVirtualQGraphicsSceneResizeEvent) {
         vqgraphicssceneresizeevent->setQGraphicsSceneResizeEvent_Clone_IsBase(true);
@@ -1020,7 +1020,7 @@ void QGraphicsSceneMoveEvent_SetAccepted(QGraphicsSceneMoveEvent* self, bool acc
 }
 
 // Base class handler implementation
-void QGraphicsSceneMoveEvent_QBaseSetAccepted(QGraphicsSceneMoveEvent* self, bool accepted) {
+void QGraphicsSceneMoveEvent_SuperSetAccepted(QGraphicsSceneMoveEvent* self, bool accepted) {
     auto* vqgraphicsscenemoveevent = dynamic_cast<VirtualQGraphicsSceneMoveEvent*>(self);
     if (vqgraphicsscenemoveevent && vqgraphicsscenemoveevent->isVirtualQGraphicsSceneMoveEvent) {
         vqgraphicsscenemoveevent->setQGraphicsSceneMoveEvent_SetAccepted_IsBase(true);
@@ -1049,7 +1049,7 @@ QEvent* QGraphicsSceneMoveEvent_Clone(const QGraphicsSceneMoveEvent* self) {
 }
 
 // Base class handler implementation
-QEvent* QGraphicsSceneMoveEvent_QBaseClone(const QGraphicsSceneMoveEvent* self) {
+QEvent* QGraphicsSceneMoveEvent_SuperClone(const QGraphicsSceneMoveEvent* self) {
     auto* vqgraphicsscenemoveevent = const_cast<VirtualQGraphicsSceneMoveEvent*>(dynamic_cast<const VirtualQGraphicsSceneMoveEvent*>(self));
     if (vqgraphicsscenemoveevent && vqgraphicsscenemoveevent->isVirtualQGraphicsSceneMoveEvent) {
         vqgraphicsscenemoveevent->setQGraphicsSceneMoveEvent_Clone_IsBase(true);

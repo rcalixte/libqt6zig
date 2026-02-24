@@ -570,23 +570,23 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
 
     // Friend functions
     friend void QGeoAreaMonitorSource_TimerEvent(QGeoAreaMonitorSource* self, QTimerEvent* event);
-    friend void QGeoAreaMonitorSource_QBaseTimerEvent(QGeoAreaMonitorSource* self, QTimerEvent* event);
+    friend void QGeoAreaMonitorSource_SuperTimerEvent(QGeoAreaMonitorSource* self, QTimerEvent* event);
     friend void QGeoAreaMonitorSource_ChildEvent(QGeoAreaMonitorSource* self, QChildEvent* event);
-    friend void QGeoAreaMonitorSource_QBaseChildEvent(QGeoAreaMonitorSource* self, QChildEvent* event);
+    friend void QGeoAreaMonitorSource_SuperChildEvent(QGeoAreaMonitorSource* self, QChildEvent* event);
     friend void QGeoAreaMonitorSource_CustomEvent(QGeoAreaMonitorSource* self, QEvent* event);
-    friend void QGeoAreaMonitorSource_QBaseCustomEvent(QGeoAreaMonitorSource* self, QEvent* event);
+    friend void QGeoAreaMonitorSource_SuperCustomEvent(QGeoAreaMonitorSource* self, QEvent* event);
     friend void QGeoAreaMonitorSource_ConnectNotify(QGeoAreaMonitorSource* self, const QMetaMethod* signal);
-    friend void QGeoAreaMonitorSource_QBaseConnectNotify(QGeoAreaMonitorSource* self, const QMetaMethod* signal);
+    friend void QGeoAreaMonitorSource_SuperConnectNotify(QGeoAreaMonitorSource* self, const QMetaMethod* signal);
     friend void QGeoAreaMonitorSource_DisconnectNotify(QGeoAreaMonitorSource* self, const QMetaMethod* signal);
-    friend void QGeoAreaMonitorSource_QBaseDisconnectNotify(QGeoAreaMonitorSource* self, const QMetaMethod* signal);
+    friend void QGeoAreaMonitorSource_SuperDisconnectNotify(QGeoAreaMonitorSource* self, const QMetaMethod* signal);
     friend QObject* QGeoAreaMonitorSource_Sender(const QGeoAreaMonitorSource* self);
-    friend QObject* QGeoAreaMonitorSource_QBaseSender(const QGeoAreaMonitorSource* self);
+    friend QObject* QGeoAreaMonitorSource_SuperSender(const QGeoAreaMonitorSource* self);
     friend int QGeoAreaMonitorSource_SenderSignalIndex(const QGeoAreaMonitorSource* self);
-    friend int QGeoAreaMonitorSource_QBaseSenderSignalIndex(const QGeoAreaMonitorSource* self);
+    friend int QGeoAreaMonitorSource_SuperSenderSignalIndex(const QGeoAreaMonitorSource* self);
     friend int QGeoAreaMonitorSource_Receivers(const QGeoAreaMonitorSource* self, const char* signal);
-    friend int QGeoAreaMonitorSource_QBaseReceivers(const QGeoAreaMonitorSource* self, const char* signal);
+    friend int QGeoAreaMonitorSource_SuperReceivers(const QGeoAreaMonitorSource* self, const char* signal);
     friend bool QGeoAreaMonitorSource_IsSignalConnected(const QGeoAreaMonitorSource* self, const QMetaMethod* signal);
-    friend bool QGeoAreaMonitorSource_QBaseIsSignalConnected(const QGeoAreaMonitorSource* self, const QMetaMethod* signal);
+    friend bool QGeoAreaMonitorSource_SuperIsSignalConnected(const QGeoAreaMonitorSource* self, const QMetaMethod* signal);
 };
 
 #endif

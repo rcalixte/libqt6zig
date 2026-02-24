@@ -105,7 +105,7 @@ void KColorSchemeManager_ActivateScheme(KColorSchemeManager* self, const QModelI
 }
 
 // Base class handler implementation
-QMetaObject* KColorSchemeManager_QBaseMetaObject(const KColorSchemeManager* self) {
+QMetaObject* KColorSchemeManager_SuperMetaObject(const KColorSchemeManager* self) {
     auto* vkcolorschememanager = const_cast<VirtualKColorSchemeManager*>(dynamic_cast<const VirtualKColorSchemeManager*>(self));
     if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
         vkcolorschememanager->setKColorSchemeManager_MetaObject_IsBase(true);
@@ -124,7 +124,7 @@ void KColorSchemeManager_OnMetaObject(const KColorSchemeManager* self, intptr_t 
 }
 
 // Base class handler implementation
-void* KColorSchemeManager_QBaseMetacast(KColorSchemeManager* self, const char* param1) {
+void* KColorSchemeManager_SuperMetacast(KColorSchemeManager* self, const char* param1) {
     auto* vkcolorschememanager = dynamic_cast<VirtualKColorSchemeManager*>(self);
     if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
         vkcolorschememanager->setKColorSchemeManager_Metacast_IsBase(true);
@@ -143,7 +143,7 @@ void KColorSchemeManager_OnMetacast(KColorSchemeManager* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KColorSchemeManager_QBaseMetacall(KColorSchemeManager* self, int param1, int param2, void** param3) {
+int KColorSchemeManager_SuperMetacall(KColorSchemeManager* self, int param1, int param2, void** param3) {
     auto* vkcolorschememanager = dynamic_cast<VirtualKColorSchemeManager*>(self);
     if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
         vkcolorschememanager->setKColorSchemeManager_Metacall_IsBase(true);
@@ -172,7 +172,7 @@ bool KColorSchemeManager_Event(KColorSchemeManager* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KColorSchemeManager_QBaseEvent(KColorSchemeManager* self, QEvent* event) {
+bool KColorSchemeManager_SuperEvent(KColorSchemeManager* self, QEvent* event) {
     auto* vkcolorschememanager = dynamic_cast<VirtualKColorSchemeManager*>(self);
     if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
         vkcolorschememanager->setKColorSchemeManager_Event_IsBase(true);
@@ -201,7 +201,7 @@ bool KColorSchemeManager_EventFilter(KColorSchemeManager* self, QObject* watched
 }
 
 // Base class handler implementation
-bool KColorSchemeManager_QBaseEventFilter(KColorSchemeManager* self, QObject* watched, QEvent* event) {
+bool KColorSchemeManager_SuperEventFilter(KColorSchemeManager* self, QObject* watched, QEvent* event) {
     auto* vkcolorschememanager = dynamic_cast<VirtualKColorSchemeManager*>(self);
     if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
         vkcolorschememanager->setKColorSchemeManager_EventFilter_IsBase(true);
@@ -230,7 +230,7 @@ void KColorSchemeManager_TimerEvent(KColorSchemeManager* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void KColorSchemeManager_QBaseTimerEvent(KColorSchemeManager* self, QTimerEvent* event) {
+void KColorSchemeManager_SuperTimerEvent(KColorSchemeManager* self, QTimerEvent* event) {
     auto* vkcolorschememanager = dynamic_cast<VirtualKColorSchemeManager*>(self);
     if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
         vkcolorschememanager->setKColorSchemeManager_TimerEvent_IsBase(true);
@@ -259,7 +259,7 @@ void KColorSchemeManager_ChildEvent(KColorSchemeManager* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void KColorSchemeManager_QBaseChildEvent(KColorSchemeManager* self, QChildEvent* event) {
+void KColorSchemeManager_SuperChildEvent(KColorSchemeManager* self, QChildEvent* event) {
     auto* vkcolorschememanager = dynamic_cast<VirtualKColorSchemeManager*>(self);
     if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
         vkcolorschememanager->setKColorSchemeManager_ChildEvent_IsBase(true);
@@ -288,7 +288,7 @@ void KColorSchemeManager_CustomEvent(KColorSchemeManager* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KColorSchemeManager_QBaseCustomEvent(KColorSchemeManager* self, QEvent* event) {
+void KColorSchemeManager_SuperCustomEvent(KColorSchemeManager* self, QEvent* event) {
     auto* vkcolorschememanager = dynamic_cast<VirtualKColorSchemeManager*>(self);
     if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
         vkcolorschememanager->setKColorSchemeManager_CustomEvent_IsBase(true);
@@ -317,7 +317,7 @@ void KColorSchemeManager_ConnectNotify(KColorSchemeManager* self, const QMetaMet
 }
 
 // Base class handler implementation
-void KColorSchemeManager_QBaseConnectNotify(KColorSchemeManager* self, const QMetaMethod* signal) {
+void KColorSchemeManager_SuperConnectNotify(KColorSchemeManager* self, const QMetaMethod* signal) {
     auto* vkcolorschememanager = dynamic_cast<VirtualKColorSchemeManager*>(self);
     if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
         vkcolorschememanager->setKColorSchemeManager_ConnectNotify_IsBase(true);
@@ -346,7 +346,7 @@ void KColorSchemeManager_DisconnectNotify(KColorSchemeManager* self, const QMeta
 }
 
 // Base class handler implementation
-void KColorSchemeManager_QBaseDisconnectNotify(KColorSchemeManager* self, const QMetaMethod* signal) {
+void KColorSchemeManager_SuperDisconnectNotify(KColorSchemeManager* self, const QMetaMethod* signal) {
     auto* vkcolorschememanager = dynamic_cast<VirtualKColorSchemeManager*>(self);
     if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
         vkcolorschememanager->setKColorSchemeManager_DisconnectNotify_IsBase(true);
@@ -375,7 +375,7 @@ QObject* KColorSchemeManager_Sender(const KColorSchemeManager* self) {
 }
 
 // Base class handler implementation
-QObject* KColorSchemeManager_QBaseSender(const KColorSchemeManager* self) {
+QObject* KColorSchemeManager_SuperSender(const KColorSchemeManager* self) {
     auto* vkcolorschememanager = const_cast<VirtualKColorSchemeManager*>(dynamic_cast<const VirtualKColorSchemeManager*>(self));
     if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
         vkcolorschememanager->setKColorSchemeManager_Sender_IsBase(true);
@@ -404,7 +404,7 @@ int KColorSchemeManager_SenderSignalIndex(const KColorSchemeManager* self) {
 }
 
 // Base class handler implementation
-int KColorSchemeManager_QBaseSenderSignalIndex(const KColorSchemeManager* self) {
+int KColorSchemeManager_SuperSenderSignalIndex(const KColorSchemeManager* self) {
     auto* vkcolorschememanager = const_cast<VirtualKColorSchemeManager*>(dynamic_cast<const VirtualKColorSchemeManager*>(self));
     if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
         vkcolorschememanager->setKColorSchemeManager_SenderSignalIndex_IsBase(true);
@@ -433,7 +433,7 @@ int KColorSchemeManager_Receivers(const KColorSchemeManager* self, const char* s
 }
 
 // Base class handler implementation
-int KColorSchemeManager_QBaseReceivers(const KColorSchemeManager* self, const char* signal) {
+int KColorSchemeManager_SuperReceivers(const KColorSchemeManager* self, const char* signal) {
     auto* vkcolorschememanager = const_cast<VirtualKColorSchemeManager*>(dynamic_cast<const VirtualKColorSchemeManager*>(self));
     if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
         vkcolorschememanager->setKColorSchemeManager_Receivers_IsBase(true);
@@ -462,7 +462,7 @@ bool KColorSchemeManager_IsSignalConnected(const KColorSchemeManager* self, cons
 }
 
 // Base class handler implementation
-bool KColorSchemeManager_QBaseIsSignalConnected(const KColorSchemeManager* self, const QMetaMethod* signal) {
+bool KColorSchemeManager_SuperIsSignalConnected(const KColorSchemeManager* self, const QMetaMethod* signal) {
     auto* vkcolorschememanager = const_cast<VirtualKColorSchemeManager*>(dynamic_cast<const VirtualKColorSchemeManager*>(self));
     if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
         vkcolorschememanager->setKColorSchemeManager_IsSignalConnected_IsBase(true);

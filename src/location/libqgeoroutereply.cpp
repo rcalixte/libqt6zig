@@ -155,7 +155,7 @@ void QGeoRouteReply_Connect_ErrorOccurred2(QGeoRouteReply* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-QMetaObject* QGeoRouteReply_QBaseMetaObject(const QGeoRouteReply* self) {
+QMetaObject* QGeoRouteReply_SuperMetaObject(const QGeoRouteReply* self) {
     auto* vqgeoroutereply = const_cast<VirtualQGeoRouteReply*>(dynamic_cast<const VirtualQGeoRouteReply*>(self));
     if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
         vqgeoroutereply->setQGeoRouteReply_MetaObject_IsBase(true);
@@ -174,7 +174,7 @@ void QGeoRouteReply_OnMetaObject(const QGeoRouteReply* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QGeoRouteReply_QBaseMetacast(QGeoRouteReply* self, const char* param1) {
+void* QGeoRouteReply_SuperMetacast(QGeoRouteReply* self, const char* param1) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
     if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
         vqgeoroutereply->setQGeoRouteReply_Metacast_IsBase(true);
@@ -193,7 +193,7 @@ void QGeoRouteReply_OnMetacast(QGeoRouteReply* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QGeoRouteReply_QBaseMetacall(QGeoRouteReply* self, int param1, int param2, void** param3) {
+int QGeoRouteReply_SuperMetacall(QGeoRouteReply* self, int param1, int param2, void** param3) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
     if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
         vqgeoroutereply->setQGeoRouteReply_Metacall_IsBase(true);
@@ -212,7 +212,7 @@ void QGeoRouteReply_OnMetacall(QGeoRouteReply* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGeoRouteReply_QBaseAbort(QGeoRouteReply* self) {
+void QGeoRouteReply_SuperAbort(QGeoRouteReply* self) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
     if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
         vqgeoroutereply->setQGeoRouteReply_Abort_IsBase(true);
@@ -241,7 +241,7 @@ bool QGeoRouteReply_Event(QGeoRouteReply* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QGeoRouteReply_QBaseEvent(QGeoRouteReply* self, QEvent* event) {
+bool QGeoRouteReply_SuperEvent(QGeoRouteReply* self, QEvent* event) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
     if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
         vqgeoroutereply->setQGeoRouteReply_Event_IsBase(true);
@@ -270,7 +270,7 @@ bool QGeoRouteReply_EventFilter(QGeoRouteReply* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QGeoRouteReply_QBaseEventFilter(QGeoRouteReply* self, QObject* watched, QEvent* event) {
+bool QGeoRouteReply_SuperEventFilter(QGeoRouteReply* self, QObject* watched, QEvent* event) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
     if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
         vqgeoroutereply->setQGeoRouteReply_EventFilter_IsBase(true);
@@ -299,7 +299,7 @@ void QGeoRouteReply_TimerEvent(QGeoRouteReply* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QGeoRouteReply_QBaseTimerEvent(QGeoRouteReply* self, QTimerEvent* event) {
+void QGeoRouteReply_SuperTimerEvent(QGeoRouteReply* self, QTimerEvent* event) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
     if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
         vqgeoroutereply->setQGeoRouteReply_TimerEvent_IsBase(true);
@@ -328,7 +328,7 @@ void QGeoRouteReply_ChildEvent(QGeoRouteReply* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QGeoRouteReply_QBaseChildEvent(QGeoRouteReply* self, QChildEvent* event) {
+void QGeoRouteReply_SuperChildEvent(QGeoRouteReply* self, QChildEvent* event) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
     if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
         vqgeoroutereply->setQGeoRouteReply_ChildEvent_IsBase(true);
@@ -357,7 +357,7 @@ void QGeoRouteReply_CustomEvent(QGeoRouteReply* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QGeoRouteReply_QBaseCustomEvent(QGeoRouteReply* self, QEvent* event) {
+void QGeoRouteReply_SuperCustomEvent(QGeoRouteReply* self, QEvent* event) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
     if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
         vqgeoroutereply->setQGeoRouteReply_CustomEvent_IsBase(true);
@@ -386,7 +386,7 @@ void QGeoRouteReply_ConnectNotify(QGeoRouteReply* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QGeoRouteReply_QBaseConnectNotify(QGeoRouteReply* self, const QMetaMethod* signal) {
+void QGeoRouteReply_SuperConnectNotify(QGeoRouteReply* self, const QMetaMethod* signal) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
     if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
         vqgeoroutereply->setQGeoRouteReply_ConnectNotify_IsBase(true);
@@ -415,7 +415,7 @@ void QGeoRouteReply_DisconnectNotify(QGeoRouteReply* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QGeoRouteReply_QBaseDisconnectNotify(QGeoRouteReply* self, const QMetaMethod* signal) {
+void QGeoRouteReply_SuperDisconnectNotify(QGeoRouteReply* self, const QMetaMethod* signal) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
     if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
         vqgeoroutereply->setQGeoRouteReply_DisconnectNotify_IsBase(true);
@@ -445,7 +445,7 @@ void QGeoRouteReply_SetError(QGeoRouteReply* self, int errorVal, const libqt_str
 }
 
 // Base class handler implementation
-void QGeoRouteReply_QBaseSetError(QGeoRouteReply* self, int errorVal, const libqt_string errorString) {
+void QGeoRouteReply_SuperSetError(QGeoRouteReply* self, int errorVal, const libqt_string errorString) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
     if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
@@ -475,7 +475,7 @@ void QGeoRouteReply_SetFinished(QGeoRouteReply* self, bool finished) {
 }
 
 // Base class handler implementation
-void QGeoRouteReply_QBaseSetFinished(QGeoRouteReply* self, bool finished) {
+void QGeoRouteReply_SuperSetFinished(QGeoRouteReply* self, bool finished) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
     if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
         vqgeoroutereply->setQGeoRouteReply_SetFinished_IsBase(true);
@@ -510,7 +510,7 @@ void QGeoRouteReply_SetRoutes(QGeoRouteReply* self, const libqt_list /* of QGeoR
 }
 
 // Base class handler implementation
-void QGeoRouteReply_QBaseSetRoutes(QGeoRouteReply* self, const libqt_list /* of QGeoRoute* */ routes) {
+void QGeoRouteReply_SuperSetRoutes(QGeoRouteReply* self, const libqt_list /* of QGeoRoute* */ routes) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
     QList<QGeoRoute> routes_QList;
     routes_QList.reserve(routes.len);
@@ -551,7 +551,7 @@ void QGeoRouteReply_AddRoutes(QGeoRouteReply* self, const libqt_list /* of QGeoR
 }
 
 // Base class handler implementation
-void QGeoRouteReply_QBaseAddRoutes(QGeoRouteReply* self, const libqt_list /* of QGeoRoute* */ routes) {
+void QGeoRouteReply_SuperAddRoutes(QGeoRouteReply* self, const libqt_list /* of QGeoRoute* */ routes) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
     QList<QGeoRoute> routes_QList;
     routes_QList.reserve(routes.len);
@@ -586,7 +586,7 @@ QObject* QGeoRouteReply_Sender(const QGeoRouteReply* self) {
 }
 
 // Base class handler implementation
-QObject* QGeoRouteReply_QBaseSender(const QGeoRouteReply* self) {
+QObject* QGeoRouteReply_SuperSender(const QGeoRouteReply* self) {
     auto* vqgeoroutereply = const_cast<VirtualQGeoRouteReply*>(dynamic_cast<const VirtualQGeoRouteReply*>(self));
     if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
         vqgeoroutereply->setQGeoRouteReply_Sender_IsBase(true);
@@ -615,7 +615,7 @@ int QGeoRouteReply_SenderSignalIndex(const QGeoRouteReply* self) {
 }
 
 // Base class handler implementation
-int QGeoRouteReply_QBaseSenderSignalIndex(const QGeoRouteReply* self) {
+int QGeoRouteReply_SuperSenderSignalIndex(const QGeoRouteReply* self) {
     auto* vqgeoroutereply = const_cast<VirtualQGeoRouteReply*>(dynamic_cast<const VirtualQGeoRouteReply*>(self));
     if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
         vqgeoroutereply->setQGeoRouteReply_SenderSignalIndex_IsBase(true);
@@ -644,7 +644,7 @@ int QGeoRouteReply_Receivers(const QGeoRouteReply* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QGeoRouteReply_QBaseReceivers(const QGeoRouteReply* self, const char* signal) {
+int QGeoRouteReply_SuperReceivers(const QGeoRouteReply* self, const char* signal) {
     auto* vqgeoroutereply = const_cast<VirtualQGeoRouteReply*>(dynamic_cast<const VirtualQGeoRouteReply*>(self));
     if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
         vqgeoroutereply->setQGeoRouteReply_Receivers_IsBase(true);
@@ -673,7 +673,7 @@ bool QGeoRouteReply_IsSignalConnected(const QGeoRouteReply* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QGeoRouteReply_QBaseIsSignalConnected(const QGeoRouteReply* self, const QMetaMethod* signal) {
+bool QGeoRouteReply_SuperIsSignalConnected(const QGeoRouteReply* self, const QMetaMethod* signal) {
     auto* vqgeoroutereply = const_cast<VirtualQGeoRouteReply*>(dynamic_cast<const VirtualQGeoRouteReply*>(self));
     if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
         vqgeoroutereply->setQGeoRouteReply_IsSignalConnected_IsBase(true);

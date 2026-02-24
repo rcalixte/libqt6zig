@@ -89,7 +89,7 @@ int QGesture_GestureCancelPolicy(const QGesture* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QGesture_QBaseMetaObject(const QGesture* self) {
+QMetaObject* QGesture_SuperMetaObject(const QGesture* self) {
     auto* vqgesture = const_cast<VirtualQGesture*>(dynamic_cast<const VirtualQGesture*>(self));
     if (vqgesture && vqgesture->isVirtualQGesture) {
         vqgesture->setQGesture_MetaObject_IsBase(true);
@@ -108,7 +108,7 @@ void QGesture_OnMetaObject(const QGesture* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QGesture_QBaseMetacast(QGesture* self, const char* param1) {
+void* QGesture_SuperMetacast(QGesture* self, const char* param1) {
     auto* vqgesture = dynamic_cast<VirtualQGesture*>(self);
     if (vqgesture && vqgesture->isVirtualQGesture) {
         vqgesture->setQGesture_Metacast_IsBase(true);
@@ -127,7 +127,7 @@ void QGesture_OnMetacast(QGesture* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QGesture_QBaseMetacall(QGesture* self, int param1, int param2, void** param3) {
+int QGesture_SuperMetacall(QGesture* self, int param1, int param2, void** param3) {
     auto* vqgesture = dynamic_cast<VirtualQGesture*>(self);
     if (vqgesture && vqgesture->isVirtualQGesture) {
         vqgesture->setQGesture_Metacall_IsBase(true);
@@ -156,7 +156,7 @@ bool QGesture_Event(QGesture* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QGesture_QBaseEvent(QGesture* self, QEvent* event) {
+bool QGesture_SuperEvent(QGesture* self, QEvent* event) {
     auto* vqgesture = dynamic_cast<VirtualQGesture*>(self);
     if (vqgesture && vqgesture->isVirtualQGesture) {
         vqgesture->setQGesture_Event_IsBase(true);
@@ -185,7 +185,7 @@ bool QGesture_EventFilter(QGesture* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QGesture_QBaseEventFilter(QGesture* self, QObject* watched, QEvent* event) {
+bool QGesture_SuperEventFilter(QGesture* self, QObject* watched, QEvent* event) {
     auto* vqgesture = dynamic_cast<VirtualQGesture*>(self);
     if (vqgesture && vqgesture->isVirtualQGesture) {
         vqgesture->setQGesture_EventFilter_IsBase(true);
@@ -214,7 +214,7 @@ void QGesture_TimerEvent(QGesture* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QGesture_QBaseTimerEvent(QGesture* self, QTimerEvent* event) {
+void QGesture_SuperTimerEvent(QGesture* self, QTimerEvent* event) {
     auto* vqgesture = dynamic_cast<VirtualQGesture*>(self);
     if (vqgesture && vqgesture->isVirtualQGesture) {
         vqgesture->setQGesture_TimerEvent_IsBase(true);
@@ -243,7 +243,7 @@ void QGesture_ChildEvent(QGesture* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QGesture_QBaseChildEvent(QGesture* self, QChildEvent* event) {
+void QGesture_SuperChildEvent(QGesture* self, QChildEvent* event) {
     auto* vqgesture = dynamic_cast<VirtualQGesture*>(self);
     if (vqgesture && vqgesture->isVirtualQGesture) {
         vqgesture->setQGesture_ChildEvent_IsBase(true);
@@ -272,7 +272,7 @@ void QGesture_CustomEvent(QGesture* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QGesture_QBaseCustomEvent(QGesture* self, QEvent* event) {
+void QGesture_SuperCustomEvent(QGesture* self, QEvent* event) {
     auto* vqgesture = dynamic_cast<VirtualQGesture*>(self);
     if (vqgesture && vqgesture->isVirtualQGesture) {
         vqgesture->setQGesture_CustomEvent_IsBase(true);
@@ -301,7 +301,7 @@ void QGesture_ConnectNotify(QGesture* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QGesture_QBaseConnectNotify(QGesture* self, const QMetaMethod* signal) {
+void QGesture_SuperConnectNotify(QGesture* self, const QMetaMethod* signal) {
     auto* vqgesture = dynamic_cast<VirtualQGesture*>(self);
     if (vqgesture && vqgesture->isVirtualQGesture) {
         vqgesture->setQGesture_ConnectNotify_IsBase(true);
@@ -330,7 +330,7 @@ void QGesture_DisconnectNotify(QGesture* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QGesture_QBaseDisconnectNotify(QGesture* self, const QMetaMethod* signal) {
+void QGesture_SuperDisconnectNotify(QGesture* self, const QMetaMethod* signal) {
     auto* vqgesture = dynamic_cast<VirtualQGesture*>(self);
     if (vqgesture && vqgesture->isVirtualQGesture) {
         vqgesture->setQGesture_DisconnectNotify_IsBase(true);
@@ -359,7 +359,7 @@ QObject* QGesture_Sender(const QGesture* self) {
 }
 
 // Base class handler implementation
-QObject* QGesture_QBaseSender(const QGesture* self) {
+QObject* QGesture_SuperSender(const QGesture* self) {
     auto* vqgesture = const_cast<VirtualQGesture*>(dynamic_cast<const VirtualQGesture*>(self));
     if (vqgesture && vqgesture->isVirtualQGesture) {
         vqgesture->setQGesture_Sender_IsBase(true);
@@ -388,7 +388,7 @@ int QGesture_SenderSignalIndex(const QGesture* self) {
 }
 
 // Base class handler implementation
-int QGesture_QBaseSenderSignalIndex(const QGesture* self) {
+int QGesture_SuperSenderSignalIndex(const QGesture* self) {
     auto* vqgesture = const_cast<VirtualQGesture*>(dynamic_cast<const VirtualQGesture*>(self));
     if (vqgesture && vqgesture->isVirtualQGesture) {
         vqgesture->setQGesture_SenderSignalIndex_IsBase(true);
@@ -417,7 +417,7 @@ int QGesture_Receivers(const QGesture* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QGesture_QBaseReceivers(const QGesture* self, const char* signal) {
+int QGesture_SuperReceivers(const QGesture* self, const char* signal) {
     auto* vqgesture = const_cast<VirtualQGesture*>(dynamic_cast<const VirtualQGesture*>(self));
     if (vqgesture && vqgesture->isVirtualQGesture) {
         vqgesture->setQGesture_Receivers_IsBase(true);
@@ -446,7 +446,7 @@ bool QGesture_IsSignalConnected(const QGesture* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-bool QGesture_QBaseIsSignalConnected(const QGesture* self, const QMetaMethod* signal) {
+bool QGesture_SuperIsSignalConnected(const QGesture* self, const QMetaMethod* signal) {
     auto* vqgesture = const_cast<VirtualQGesture*>(dynamic_cast<const VirtualQGesture*>(self));
     if (vqgesture && vqgesture->isVirtualQGesture) {
         vqgesture->setQGesture_IsSignalConnected_IsBase(true);
@@ -532,7 +532,7 @@ void QPanGesture_SetAcceleration(QPanGesture* self, double value) {
 }
 
 // Base class handler implementation
-QMetaObject* QPanGesture_QBaseMetaObject(const QPanGesture* self) {
+QMetaObject* QPanGesture_SuperMetaObject(const QPanGesture* self) {
     auto* vqpangesture = const_cast<VirtualQPanGesture*>(dynamic_cast<const VirtualQPanGesture*>(self));
     if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
         vqpangesture->setQPanGesture_MetaObject_IsBase(true);
@@ -551,7 +551,7 @@ void QPanGesture_OnMetaObject(const QPanGesture* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QPanGesture_QBaseMetacast(QPanGesture* self, const char* param1) {
+void* QPanGesture_SuperMetacast(QPanGesture* self, const char* param1) {
     auto* vqpangesture = dynamic_cast<VirtualQPanGesture*>(self);
     if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
         vqpangesture->setQPanGesture_Metacast_IsBase(true);
@@ -570,7 +570,7 @@ void QPanGesture_OnMetacast(QPanGesture* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPanGesture_QBaseMetacall(QPanGesture* self, int param1, int param2, void** param3) {
+int QPanGesture_SuperMetacall(QPanGesture* self, int param1, int param2, void** param3) {
     auto* vqpangesture = dynamic_cast<VirtualQPanGesture*>(self);
     if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
         vqpangesture->setQPanGesture_Metacall_IsBase(true);
@@ -599,7 +599,7 @@ bool QPanGesture_Event(QPanGesture* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QPanGesture_QBaseEvent(QPanGesture* self, QEvent* event) {
+bool QPanGesture_SuperEvent(QPanGesture* self, QEvent* event) {
     auto* vqpangesture = dynamic_cast<VirtualQPanGesture*>(self);
     if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
         vqpangesture->setQPanGesture_Event_IsBase(true);
@@ -628,7 +628,7 @@ bool QPanGesture_EventFilter(QPanGesture* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QPanGesture_QBaseEventFilter(QPanGesture* self, QObject* watched, QEvent* event) {
+bool QPanGesture_SuperEventFilter(QPanGesture* self, QObject* watched, QEvent* event) {
     auto* vqpangesture = dynamic_cast<VirtualQPanGesture*>(self);
     if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
         vqpangesture->setQPanGesture_EventFilter_IsBase(true);
@@ -657,7 +657,7 @@ void QPanGesture_TimerEvent(QPanGesture* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QPanGesture_QBaseTimerEvent(QPanGesture* self, QTimerEvent* event) {
+void QPanGesture_SuperTimerEvent(QPanGesture* self, QTimerEvent* event) {
     auto* vqpangesture = dynamic_cast<VirtualQPanGesture*>(self);
     if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
         vqpangesture->setQPanGesture_TimerEvent_IsBase(true);
@@ -686,7 +686,7 @@ void QPanGesture_ChildEvent(QPanGesture* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QPanGesture_QBaseChildEvent(QPanGesture* self, QChildEvent* event) {
+void QPanGesture_SuperChildEvent(QPanGesture* self, QChildEvent* event) {
     auto* vqpangesture = dynamic_cast<VirtualQPanGesture*>(self);
     if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
         vqpangesture->setQPanGesture_ChildEvent_IsBase(true);
@@ -715,7 +715,7 @@ void QPanGesture_CustomEvent(QPanGesture* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPanGesture_QBaseCustomEvent(QPanGesture* self, QEvent* event) {
+void QPanGesture_SuperCustomEvent(QPanGesture* self, QEvent* event) {
     auto* vqpangesture = dynamic_cast<VirtualQPanGesture*>(self);
     if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
         vqpangesture->setQPanGesture_CustomEvent_IsBase(true);
@@ -744,7 +744,7 @@ void QPanGesture_ConnectNotify(QPanGesture* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QPanGesture_QBaseConnectNotify(QPanGesture* self, const QMetaMethod* signal) {
+void QPanGesture_SuperConnectNotify(QPanGesture* self, const QMetaMethod* signal) {
     auto* vqpangesture = dynamic_cast<VirtualQPanGesture*>(self);
     if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
         vqpangesture->setQPanGesture_ConnectNotify_IsBase(true);
@@ -773,7 +773,7 @@ void QPanGesture_DisconnectNotify(QPanGesture* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QPanGesture_QBaseDisconnectNotify(QPanGesture* self, const QMetaMethod* signal) {
+void QPanGesture_SuperDisconnectNotify(QPanGesture* self, const QMetaMethod* signal) {
     auto* vqpangesture = dynamic_cast<VirtualQPanGesture*>(self);
     if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
         vqpangesture->setQPanGesture_DisconnectNotify_IsBase(true);
@@ -802,7 +802,7 @@ QObject* QPanGesture_Sender(const QPanGesture* self) {
 }
 
 // Base class handler implementation
-QObject* QPanGesture_QBaseSender(const QPanGesture* self) {
+QObject* QPanGesture_SuperSender(const QPanGesture* self) {
     auto* vqpangesture = const_cast<VirtualQPanGesture*>(dynamic_cast<const VirtualQPanGesture*>(self));
     if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
         vqpangesture->setQPanGesture_Sender_IsBase(true);
@@ -831,7 +831,7 @@ int QPanGesture_SenderSignalIndex(const QPanGesture* self) {
 }
 
 // Base class handler implementation
-int QPanGesture_QBaseSenderSignalIndex(const QPanGesture* self) {
+int QPanGesture_SuperSenderSignalIndex(const QPanGesture* self) {
     auto* vqpangesture = const_cast<VirtualQPanGesture*>(dynamic_cast<const VirtualQPanGesture*>(self));
     if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
         vqpangesture->setQPanGesture_SenderSignalIndex_IsBase(true);
@@ -860,7 +860,7 @@ int QPanGesture_Receivers(const QPanGesture* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QPanGesture_QBaseReceivers(const QPanGesture* self, const char* signal) {
+int QPanGesture_SuperReceivers(const QPanGesture* self, const char* signal) {
     auto* vqpangesture = const_cast<VirtualQPanGesture*>(dynamic_cast<const VirtualQPanGesture*>(self));
     if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
         vqpangesture->setQPanGesture_Receivers_IsBase(true);
@@ -889,7 +889,7 @@ bool QPanGesture_IsSignalConnected(const QPanGesture* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QPanGesture_QBaseIsSignalConnected(const QPanGesture* self, const QMetaMethod* signal) {
+bool QPanGesture_SuperIsSignalConnected(const QPanGesture* self, const QMetaMethod* signal) {
     auto* vqpangesture = const_cast<VirtualQPanGesture*>(dynamic_cast<const VirtualQPanGesture*>(self));
     if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
         vqpangesture->setQPanGesture_IsSignalConnected_IsBase(true);
@@ -1035,7 +1035,7 @@ void QPinchGesture_SetRotationAngle(QPinchGesture* self, double value) {
 }
 
 // Base class handler implementation
-QMetaObject* QPinchGesture_QBaseMetaObject(const QPinchGesture* self) {
+QMetaObject* QPinchGesture_SuperMetaObject(const QPinchGesture* self) {
     auto* vqpinchgesture = const_cast<VirtualQPinchGesture*>(dynamic_cast<const VirtualQPinchGesture*>(self));
     if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
         vqpinchgesture->setQPinchGesture_MetaObject_IsBase(true);
@@ -1054,7 +1054,7 @@ void QPinchGesture_OnMetaObject(const QPinchGesture* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QPinchGesture_QBaseMetacast(QPinchGesture* self, const char* param1) {
+void* QPinchGesture_SuperMetacast(QPinchGesture* self, const char* param1) {
     auto* vqpinchgesture = dynamic_cast<VirtualQPinchGesture*>(self);
     if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
         vqpinchgesture->setQPinchGesture_Metacast_IsBase(true);
@@ -1073,7 +1073,7 @@ void QPinchGesture_OnMetacast(QPinchGesture* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPinchGesture_QBaseMetacall(QPinchGesture* self, int param1, int param2, void** param3) {
+int QPinchGesture_SuperMetacall(QPinchGesture* self, int param1, int param2, void** param3) {
     auto* vqpinchgesture = dynamic_cast<VirtualQPinchGesture*>(self);
     if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
         vqpinchgesture->setQPinchGesture_Metacall_IsBase(true);
@@ -1102,7 +1102,7 @@ bool QPinchGesture_Event(QPinchGesture* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QPinchGesture_QBaseEvent(QPinchGesture* self, QEvent* event) {
+bool QPinchGesture_SuperEvent(QPinchGesture* self, QEvent* event) {
     auto* vqpinchgesture = dynamic_cast<VirtualQPinchGesture*>(self);
     if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
         vqpinchgesture->setQPinchGesture_Event_IsBase(true);
@@ -1131,7 +1131,7 @@ bool QPinchGesture_EventFilter(QPinchGesture* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QPinchGesture_QBaseEventFilter(QPinchGesture* self, QObject* watched, QEvent* event) {
+bool QPinchGesture_SuperEventFilter(QPinchGesture* self, QObject* watched, QEvent* event) {
     auto* vqpinchgesture = dynamic_cast<VirtualQPinchGesture*>(self);
     if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
         vqpinchgesture->setQPinchGesture_EventFilter_IsBase(true);
@@ -1160,7 +1160,7 @@ void QPinchGesture_TimerEvent(QPinchGesture* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QPinchGesture_QBaseTimerEvent(QPinchGesture* self, QTimerEvent* event) {
+void QPinchGesture_SuperTimerEvent(QPinchGesture* self, QTimerEvent* event) {
     auto* vqpinchgesture = dynamic_cast<VirtualQPinchGesture*>(self);
     if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
         vqpinchgesture->setQPinchGesture_TimerEvent_IsBase(true);
@@ -1189,7 +1189,7 @@ void QPinchGesture_ChildEvent(QPinchGesture* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QPinchGesture_QBaseChildEvent(QPinchGesture* self, QChildEvent* event) {
+void QPinchGesture_SuperChildEvent(QPinchGesture* self, QChildEvent* event) {
     auto* vqpinchgesture = dynamic_cast<VirtualQPinchGesture*>(self);
     if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
         vqpinchgesture->setQPinchGesture_ChildEvent_IsBase(true);
@@ -1218,7 +1218,7 @@ void QPinchGesture_CustomEvent(QPinchGesture* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPinchGesture_QBaseCustomEvent(QPinchGesture* self, QEvent* event) {
+void QPinchGesture_SuperCustomEvent(QPinchGesture* self, QEvent* event) {
     auto* vqpinchgesture = dynamic_cast<VirtualQPinchGesture*>(self);
     if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
         vqpinchgesture->setQPinchGesture_CustomEvent_IsBase(true);
@@ -1247,7 +1247,7 @@ void QPinchGesture_ConnectNotify(QPinchGesture* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QPinchGesture_QBaseConnectNotify(QPinchGesture* self, const QMetaMethod* signal) {
+void QPinchGesture_SuperConnectNotify(QPinchGesture* self, const QMetaMethod* signal) {
     auto* vqpinchgesture = dynamic_cast<VirtualQPinchGesture*>(self);
     if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
         vqpinchgesture->setQPinchGesture_ConnectNotify_IsBase(true);
@@ -1276,7 +1276,7 @@ void QPinchGesture_DisconnectNotify(QPinchGesture* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QPinchGesture_QBaseDisconnectNotify(QPinchGesture* self, const QMetaMethod* signal) {
+void QPinchGesture_SuperDisconnectNotify(QPinchGesture* self, const QMetaMethod* signal) {
     auto* vqpinchgesture = dynamic_cast<VirtualQPinchGesture*>(self);
     if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
         vqpinchgesture->setQPinchGesture_DisconnectNotify_IsBase(true);
@@ -1305,7 +1305,7 @@ QObject* QPinchGesture_Sender(const QPinchGesture* self) {
 }
 
 // Base class handler implementation
-QObject* QPinchGesture_QBaseSender(const QPinchGesture* self) {
+QObject* QPinchGesture_SuperSender(const QPinchGesture* self) {
     auto* vqpinchgesture = const_cast<VirtualQPinchGesture*>(dynamic_cast<const VirtualQPinchGesture*>(self));
     if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
         vqpinchgesture->setQPinchGesture_Sender_IsBase(true);
@@ -1334,7 +1334,7 @@ int QPinchGesture_SenderSignalIndex(const QPinchGesture* self) {
 }
 
 // Base class handler implementation
-int QPinchGesture_QBaseSenderSignalIndex(const QPinchGesture* self) {
+int QPinchGesture_SuperSenderSignalIndex(const QPinchGesture* self) {
     auto* vqpinchgesture = const_cast<VirtualQPinchGesture*>(dynamic_cast<const VirtualQPinchGesture*>(self));
     if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
         vqpinchgesture->setQPinchGesture_SenderSignalIndex_IsBase(true);
@@ -1363,7 +1363,7 @@ int QPinchGesture_Receivers(const QPinchGesture* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QPinchGesture_QBaseReceivers(const QPinchGesture* self, const char* signal) {
+int QPinchGesture_SuperReceivers(const QPinchGesture* self, const char* signal) {
     auto* vqpinchgesture = const_cast<VirtualQPinchGesture*>(dynamic_cast<const VirtualQPinchGesture*>(self));
     if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
         vqpinchgesture->setQPinchGesture_Receivers_IsBase(true);
@@ -1392,7 +1392,7 @@ bool QPinchGesture_IsSignalConnected(const QPinchGesture* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QPinchGesture_QBaseIsSignalConnected(const QPinchGesture* self, const QMetaMethod* signal) {
+bool QPinchGesture_SuperIsSignalConnected(const QPinchGesture* self, const QMetaMethod* signal) {
     auto* vqpinchgesture = const_cast<VirtualQPinchGesture*>(dynamic_cast<const VirtualQPinchGesture*>(self));
     if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
         vqpinchgesture->setQPinchGesture_IsSignalConnected_IsBase(true);
@@ -1466,7 +1466,7 @@ void QSwipeGesture_SetSwipeAngle(QSwipeGesture* self, double value) {
 }
 
 // Base class handler implementation
-QMetaObject* QSwipeGesture_QBaseMetaObject(const QSwipeGesture* self) {
+QMetaObject* QSwipeGesture_SuperMetaObject(const QSwipeGesture* self) {
     auto* vqswipegesture = const_cast<VirtualQSwipeGesture*>(dynamic_cast<const VirtualQSwipeGesture*>(self));
     if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
         vqswipegesture->setQSwipeGesture_MetaObject_IsBase(true);
@@ -1485,7 +1485,7 @@ void QSwipeGesture_OnMetaObject(const QSwipeGesture* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QSwipeGesture_QBaseMetacast(QSwipeGesture* self, const char* param1) {
+void* QSwipeGesture_SuperMetacast(QSwipeGesture* self, const char* param1) {
     auto* vqswipegesture = dynamic_cast<VirtualQSwipeGesture*>(self);
     if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
         vqswipegesture->setQSwipeGesture_Metacast_IsBase(true);
@@ -1504,7 +1504,7 @@ void QSwipeGesture_OnMetacast(QSwipeGesture* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSwipeGesture_QBaseMetacall(QSwipeGesture* self, int param1, int param2, void** param3) {
+int QSwipeGesture_SuperMetacall(QSwipeGesture* self, int param1, int param2, void** param3) {
     auto* vqswipegesture = dynamic_cast<VirtualQSwipeGesture*>(self);
     if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
         vqswipegesture->setQSwipeGesture_Metacall_IsBase(true);
@@ -1533,7 +1533,7 @@ bool QSwipeGesture_Event(QSwipeGesture* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QSwipeGesture_QBaseEvent(QSwipeGesture* self, QEvent* event) {
+bool QSwipeGesture_SuperEvent(QSwipeGesture* self, QEvent* event) {
     auto* vqswipegesture = dynamic_cast<VirtualQSwipeGesture*>(self);
     if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
         vqswipegesture->setQSwipeGesture_Event_IsBase(true);
@@ -1562,7 +1562,7 @@ bool QSwipeGesture_EventFilter(QSwipeGesture* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QSwipeGesture_QBaseEventFilter(QSwipeGesture* self, QObject* watched, QEvent* event) {
+bool QSwipeGesture_SuperEventFilter(QSwipeGesture* self, QObject* watched, QEvent* event) {
     auto* vqswipegesture = dynamic_cast<VirtualQSwipeGesture*>(self);
     if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
         vqswipegesture->setQSwipeGesture_EventFilter_IsBase(true);
@@ -1591,7 +1591,7 @@ void QSwipeGesture_TimerEvent(QSwipeGesture* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QSwipeGesture_QBaseTimerEvent(QSwipeGesture* self, QTimerEvent* event) {
+void QSwipeGesture_SuperTimerEvent(QSwipeGesture* self, QTimerEvent* event) {
     auto* vqswipegesture = dynamic_cast<VirtualQSwipeGesture*>(self);
     if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
         vqswipegesture->setQSwipeGesture_TimerEvent_IsBase(true);
@@ -1620,7 +1620,7 @@ void QSwipeGesture_ChildEvent(QSwipeGesture* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QSwipeGesture_QBaseChildEvent(QSwipeGesture* self, QChildEvent* event) {
+void QSwipeGesture_SuperChildEvent(QSwipeGesture* self, QChildEvent* event) {
     auto* vqswipegesture = dynamic_cast<VirtualQSwipeGesture*>(self);
     if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
         vqswipegesture->setQSwipeGesture_ChildEvent_IsBase(true);
@@ -1649,7 +1649,7 @@ void QSwipeGesture_CustomEvent(QSwipeGesture* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSwipeGesture_QBaseCustomEvent(QSwipeGesture* self, QEvent* event) {
+void QSwipeGesture_SuperCustomEvent(QSwipeGesture* self, QEvent* event) {
     auto* vqswipegesture = dynamic_cast<VirtualQSwipeGesture*>(self);
     if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
         vqswipegesture->setQSwipeGesture_CustomEvent_IsBase(true);
@@ -1678,7 +1678,7 @@ void QSwipeGesture_ConnectNotify(QSwipeGesture* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QSwipeGesture_QBaseConnectNotify(QSwipeGesture* self, const QMetaMethod* signal) {
+void QSwipeGesture_SuperConnectNotify(QSwipeGesture* self, const QMetaMethod* signal) {
     auto* vqswipegesture = dynamic_cast<VirtualQSwipeGesture*>(self);
     if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
         vqswipegesture->setQSwipeGesture_ConnectNotify_IsBase(true);
@@ -1707,7 +1707,7 @@ void QSwipeGesture_DisconnectNotify(QSwipeGesture* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QSwipeGesture_QBaseDisconnectNotify(QSwipeGesture* self, const QMetaMethod* signal) {
+void QSwipeGesture_SuperDisconnectNotify(QSwipeGesture* self, const QMetaMethod* signal) {
     auto* vqswipegesture = dynamic_cast<VirtualQSwipeGesture*>(self);
     if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
         vqswipegesture->setQSwipeGesture_DisconnectNotify_IsBase(true);
@@ -1736,7 +1736,7 @@ QObject* QSwipeGesture_Sender(const QSwipeGesture* self) {
 }
 
 // Base class handler implementation
-QObject* QSwipeGesture_QBaseSender(const QSwipeGesture* self) {
+QObject* QSwipeGesture_SuperSender(const QSwipeGesture* self) {
     auto* vqswipegesture = const_cast<VirtualQSwipeGesture*>(dynamic_cast<const VirtualQSwipeGesture*>(self));
     if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
         vqswipegesture->setQSwipeGesture_Sender_IsBase(true);
@@ -1765,7 +1765,7 @@ int QSwipeGesture_SenderSignalIndex(const QSwipeGesture* self) {
 }
 
 // Base class handler implementation
-int QSwipeGesture_QBaseSenderSignalIndex(const QSwipeGesture* self) {
+int QSwipeGesture_SuperSenderSignalIndex(const QSwipeGesture* self) {
     auto* vqswipegesture = const_cast<VirtualQSwipeGesture*>(dynamic_cast<const VirtualQSwipeGesture*>(self));
     if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
         vqswipegesture->setQSwipeGesture_SenderSignalIndex_IsBase(true);
@@ -1794,7 +1794,7 @@ int QSwipeGesture_Receivers(const QSwipeGesture* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QSwipeGesture_QBaseReceivers(const QSwipeGesture* self, const char* signal) {
+int QSwipeGesture_SuperReceivers(const QSwipeGesture* self, const char* signal) {
     auto* vqswipegesture = const_cast<VirtualQSwipeGesture*>(dynamic_cast<const VirtualQSwipeGesture*>(self));
     if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
         vqswipegesture->setQSwipeGesture_Receivers_IsBase(true);
@@ -1823,7 +1823,7 @@ bool QSwipeGesture_IsSignalConnected(const QSwipeGesture* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QSwipeGesture_QBaseIsSignalConnected(const QSwipeGesture* self, const QMetaMethod* signal) {
+bool QSwipeGesture_SuperIsSignalConnected(const QSwipeGesture* self, const QMetaMethod* signal) {
     auto* vqswipegesture = const_cast<VirtualQSwipeGesture*>(dynamic_cast<const VirtualQSwipeGesture*>(self));
     if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
         vqswipegesture->setQSwipeGesture_IsSignalConnected_IsBase(true);
@@ -1889,7 +1889,7 @@ void QTapGesture_SetPosition(QTapGesture* self, const QPointF* pos) {
 }
 
 // Base class handler implementation
-QMetaObject* QTapGesture_QBaseMetaObject(const QTapGesture* self) {
+QMetaObject* QTapGesture_SuperMetaObject(const QTapGesture* self) {
     auto* vqtapgesture = const_cast<VirtualQTapGesture*>(dynamic_cast<const VirtualQTapGesture*>(self));
     if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
         vqtapgesture->setQTapGesture_MetaObject_IsBase(true);
@@ -1908,7 +1908,7 @@ void QTapGesture_OnMetaObject(const QTapGesture* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QTapGesture_QBaseMetacast(QTapGesture* self, const char* param1) {
+void* QTapGesture_SuperMetacast(QTapGesture* self, const char* param1) {
     auto* vqtapgesture = dynamic_cast<VirtualQTapGesture*>(self);
     if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
         vqtapgesture->setQTapGesture_Metacast_IsBase(true);
@@ -1927,7 +1927,7 @@ void QTapGesture_OnMetacast(QTapGesture* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTapGesture_QBaseMetacall(QTapGesture* self, int param1, int param2, void** param3) {
+int QTapGesture_SuperMetacall(QTapGesture* self, int param1, int param2, void** param3) {
     auto* vqtapgesture = dynamic_cast<VirtualQTapGesture*>(self);
     if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
         vqtapgesture->setQTapGesture_Metacall_IsBase(true);
@@ -1956,7 +1956,7 @@ bool QTapGesture_Event(QTapGesture* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTapGesture_QBaseEvent(QTapGesture* self, QEvent* event) {
+bool QTapGesture_SuperEvent(QTapGesture* self, QEvent* event) {
     auto* vqtapgesture = dynamic_cast<VirtualQTapGesture*>(self);
     if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
         vqtapgesture->setQTapGesture_Event_IsBase(true);
@@ -1985,7 +1985,7 @@ bool QTapGesture_EventFilter(QTapGesture* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QTapGesture_QBaseEventFilter(QTapGesture* self, QObject* watched, QEvent* event) {
+bool QTapGesture_SuperEventFilter(QTapGesture* self, QObject* watched, QEvent* event) {
     auto* vqtapgesture = dynamic_cast<VirtualQTapGesture*>(self);
     if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
         vqtapgesture->setQTapGesture_EventFilter_IsBase(true);
@@ -2014,7 +2014,7 @@ void QTapGesture_TimerEvent(QTapGesture* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QTapGesture_QBaseTimerEvent(QTapGesture* self, QTimerEvent* event) {
+void QTapGesture_SuperTimerEvent(QTapGesture* self, QTimerEvent* event) {
     auto* vqtapgesture = dynamic_cast<VirtualQTapGesture*>(self);
     if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
         vqtapgesture->setQTapGesture_TimerEvent_IsBase(true);
@@ -2043,7 +2043,7 @@ void QTapGesture_ChildEvent(QTapGesture* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QTapGesture_QBaseChildEvent(QTapGesture* self, QChildEvent* event) {
+void QTapGesture_SuperChildEvent(QTapGesture* self, QChildEvent* event) {
     auto* vqtapgesture = dynamic_cast<VirtualQTapGesture*>(self);
     if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
         vqtapgesture->setQTapGesture_ChildEvent_IsBase(true);
@@ -2072,7 +2072,7 @@ void QTapGesture_CustomEvent(QTapGesture* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTapGesture_QBaseCustomEvent(QTapGesture* self, QEvent* event) {
+void QTapGesture_SuperCustomEvent(QTapGesture* self, QEvent* event) {
     auto* vqtapgesture = dynamic_cast<VirtualQTapGesture*>(self);
     if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
         vqtapgesture->setQTapGesture_CustomEvent_IsBase(true);
@@ -2101,7 +2101,7 @@ void QTapGesture_ConnectNotify(QTapGesture* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTapGesture_QBaseConnectNotify(QTapGesture* self, const QMetaMethod* signal) {
+void QTapGesture_SuperConnectNotify(QTapGesture* self, const QMetaMethod* signal) {
     auto* vqtapgesture = dynamic_cast<VirtualQTapGesture*>(self);
     if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
         vqtapgesture->setQTapGesture_ConnectNotify_IsBase(true);
@@ -2130,7 +2130,7 @@ void QTapGesture_DisconnectNotify(QTapGesture* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QTapGesture_QBaseDisconnectNotify(QTapGesture* self, const QMetaMethod* signal) {
+void QTapGesture_SuperDisconnectNotify(QTapGesture* self, const QMetaMethod* signal) {
     auto* vqtapgesture = dynamic_cast<VirtualQTapGesture*>(self);
     if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
         vqtapgesture->setQTapGesture_DisconnectNotify_IsBase(true);
@@ -2159,7 +2159,7 @@ QObject* QTapGesture_Sender(const QTapGesture* self) {
 }
 
 // Base class handler implementation
-QObject* QTapGesture_QBaseSender(const QTapGesture* self) {
+QObject* QTapGesture_SuperSender(const QTapGesture* self) {
     auto* vqtapgesture = const_cast<VirtualQTapGesture*>(dynamic_cast<const VirtualQTapGesture*>(self));
     if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
         vqtapgesture->setQTapGesture_Sender_IsBase(true);
@@ -2188,7 +2188,7 @@ int QTapGesture_SenderSignalIndex(const QTapGesture* self) {
 }
 
 // Base class handler implementation
-int QTapGesture_QBaseSenderSignalIndex(const QTapGesture* self) {
+int QTapGesture_SuperSenderSignalIndex(const QTapGesture* self) {
     auto* vqtapgesture = const_cast<VirtualQTapGesture*>(dynamic_cast<const VirtualQTapGesture*>(self));
     if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
         vqtapgesture->setQTapGesture_SenderSignalIndex_IsBase(true);
@@ -2217,7 +2217,7 @@ int QTapGesture_Receivers(const QTapGesture* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QTapGesture_QBaseReceivers(const QTapGesture* self, const char* signal) {
+int QTapGesture_SuperReceivers(const QTapGesture* self, const char* signal) {
     auto* vqtapgesture = const_cast<VirtualQTapGesture*>(dynamic_cast<const VirtualQTapGesture*>(self));
     if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
         vqtapgesture->setQTapGesture_Receivers_IsBase(true);
@@ -2246,7 +2246,7 @@ bool QTapGesture_IsSignalConnected(const QTapGesture* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QTapGesture_QBaseIsSignalConnected(const QTapGesture* self, const QMetaMethod* signal) {
+bool QTapGesture_SuperIsSignalConnected(const QTapGesture* self, const QMetaMethod* signal) {
     auto* vqtapgesture = const_cast<VirtualQTapGesture*>(dynamic_cast<const VirtualQTapGesture*>(self));
     if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
         vqtapgesture->setQTapGesture_IsSignalConnected_IsBase(true);
@@ -2320,7 +2320,7 @@ int QTapAndHoldGesture_Timeout() {
 }
 
 // Base class handler implementation
-QMetaObject* QTapAndHoldGesture_QBaseMetaObject(const QTapAndHoldGesture* self) {
+QMetaObject* QTapAndHoldGesture_SuperMetaObject(const QTapAndHoldGesture* self) {
     auto* vqtapandholdgesture = const_cast<VirtualQTapAndHoldGesture*>(dynamic_cast<const VirtualQTapAndHoldGesture*>(self));
     if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
         vqtapandholdgesture->setQTapAndHoldGesture_MetaObject_IsBase(true);
@@ -2339,7 +2339,7 @@ void QTapAndHoldGesture_OnMetaObject(const QTapAndHoldGesture* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* QTapAndHoldGesture_QBaseMetacast(QTapAndHoldGesture* self, const char* param1) {
+void* QTapAndHoldGesture_SuperMetacast(QTapAndHoldGesture* self, const char* param1) {
     auto* vqtapandholdgesture = dynamic_cast<VirtualQTapAndHoldGesture*>(self);
     if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
         vqtapandholdgesture->setQTapAndHoldGesture_Metacast_IsBase(true);
@@ -2358,7 +2358,7 @@ void QTapAndHoldGesture_OnMetacast(QTapAndHoldGesture* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTapAndHoldGesture_QBaseMetacall(QTapAndHoldGesture* self, int param1, int param2, void** param3) {
+int QTapAndHoldGesture_SuperMetacall(QTapAndHoldGesture* self, int param1, int param2, void** param3) {
     auto* vqtapandholdgesture = dynamic_cast<VirtualQTapAndHoldGesture*>(self);
     if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
         vqtapandholdgesture->setQTapAndHoldGesture_Metacall_IsBase(true);
@@ -2387,7 +2387,7 @@ bool QTapAndHoldGesture_Event(QTapAndHoldGesture* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTapAndHoldGesture_QBaseEvent(QTapAndHoldGesture* self, QEvent* event) {
+bool QTapAndHoldGesture_SuperEvent(QTapAndHoldGesture* self, QEvent* event) {
     auto* vqtapandholdgesture = dynamic_cast<VirtualQTapAndHoldGesture*>(self);
     if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
         vqtapandholdgesture->setQTapAndHoldGesture_Event_IsBase(true);
@@ -2416,7 +2416,7 @@ bool QTapAndHoldGesture_EventFilter(QTapAndHoldGesture* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool QTapAndHoldGesture_QBaseEventFilter(QTapAndHoldGesture* self, QObject* watched, QEvent* event) {
+bool QTapAndHoldGesture_SuperEventFilter(QTapAndHoldGesture* self, QObject* watched, QEvent* event) {
     auto* vqtapandholdgesture = dynamic_cast<VirtualQTapAndHoldGesture*>(self);
     if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
         vqtapandholdgesture->setQTapAndHoldGesture_EventFilter_IsBase(true);
@@ -2445,7 +2445,7 @@ void QTapAndHoldGesture_TimerEvent(QTapAndHoldGesture* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void QTapAndHoldGesture_QBaseTimerEvent(QTapAndHoldGesture* self, QTimerEvent* event) {
+void QTapAndHoldGesture_SuperTimerEvent(QTapAndHoldGesture* self, QTimerEvent* event) {
     auto* vqtapandholdgesture = dynamic_cast<VirtualQTapAndHoldGesture*>(self);
     if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
         vqtapandholdgesture->setQTapAndHoldGesture_TimerEvent_IsBase(true);
@@ -2474,7 +2474,7 @@ void QTapAndHoldGesture_ChildEvent(QTapAndHoldGesture* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void QTapAndHoldGesture_QBaseChildEvent(QTapAndHoldGesture* self, QChildEvent* event) {
+void QTapAndHoldGesture_SuperChildEvent(QTapAndHoldGesture* self, QChildEvent* event) {
     auto* vqtapandholdgesture = dynamic_cast<VirtualQTapAndHoldGesture*>(self);
     if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
         vqtapandholdgesture->setQTapAndHoldGesture_ChildEvent_IsBase(true);
@@ -2503,7 +2503,7 @@ void QTapAndHoldGesture_CustomEvent(QTapAndHoldGesture* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTapAndHoldGesture_QBaseCustomEvent(QTapAndHoldGesture* self, QEvent* event) {
+void QTapAndHoldGesture_SuperCustomEvent(QTapAndHoldGesture* self, QEvent* event) {
     auto* vqtapandholdgesture = dynamic_cast<VirtualQTapAndHoldGesture*>(self);
     if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
         vqtapandholdgesture->setQTapAndHoldGesture_CustomEvent_IsBase(true);
@@ -2532,7 +2532,7 @@ void QTapAndHoldGesture_ConnectNotify(QTapAndHoldGesture* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void QTapAndHoldGesture_QBaseConnectNotify(QTapAndHoldGesture* self, const QMetaMethod* signal) {
+void QTapAndHoldGesture_SuperConnectNotify(QTapAndHoldGesture* self, const QMetaMethod* signal) {
     auto* vqtapandholdgesture = dynamic_cast<VirtualQTapAndHoldGesture*>(self);
     if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
         vqtapandholdgesture->setQTapAndHoldGesture_ConnectNotify_IsBase(true);
@@ -2561,7 +2561,7 @@ void QTapAndHoldGesture_DisconnectNotify(QTapAndHoldGesture* self, const QMetaMe
 }
 
 // Base class handler implementation
-void QTapAndHoldGesture_QBaseDisconnectNotify(QTapAndHoldGesture* self, const QMetaMethod* signal) {
+void QTapAndHoldGesture_SuperDisconnectNotify(QTapAndHoldGesture* self, const QMetaMethod* signal) {
     auto* vqtapandholdgesture = dynamic_cast<VirtualQTapAndHoldGesture*>(self);
     if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
         vqtapandholdgesture->setQTapAndHoldGesture_DisconnectNotify_IsBase(true);
@@ -2590,7 +2590,7 @@ QObject* QTapAndHoldGesture_Sender(const QTapAndHoldGesture* self) {
 }
 
 // Base class handler implementation
-QObject* QTapAndHoldGesture_QBaseSender(const QTapAndHoldGesture* self) {
+QObject* QTapAndHoldGesture_SuperSender(const QTapAndHoldGesture* self) {
     auto* vqtapandholdgesture = const_cast<VirtualQTapAndHoldGesture*>(dynamic_cast<const VirtualQTapAndHoldGesture*>(self));
     if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
         vqtapandholdgesture->setQTapAndHoldGesture_Sender_IsBase(true);
@@ -2619,7 +2619,7 @@ int QTapAndHoldGesture_SenderSignalIndex(const QTapAndHoldGesture* self) {
 }
 
 // Base class handler implementation
-int QTapAndHoldGesture_QBaseSenderSignalIndex(const QTapAndHoldGesture* self) {
+int QTapAndHoldGesture_SuperSenderSignalIndex(const QTapAndHoldGesture* self) {
     auto* vqtapandholdgesture = const_cast<VirtualQTapAndHoldGesture*>(dynamic_cast<const VirtualQTapAndHoldGesture*>(self));
     if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
         vqtapandholdgesture->setQTapAndHoldGesture_SenderSignalIndex_IsBase(true);
@@ -2648,7 +2648,7 @@ int QTapAndHoldGesture_Receivers(const QTapAndHoldGesture* self, const char* sig
 }
 
 // Base class handler implementation
-int QTapAndHoldGesture_QBaseReceivers(const QTapAndHoldGesture* self, const char* signal) {
+int QTapAndHoldGesture_SuperReceivers(const QTapAndHoldGesture* self, const char* signal) {
     auto* vqtapandholdgesture = const_cast<VirtualQTapAndHoldGesture*>(dynamic_cast<const VirtualQTapAndHoldGesture*>(self));
     if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
         vqtapandholdgesture->setQTapAndHoldGesture_Receivers_IsBase(true);
@@ -2677,7 +2677,7 @@ bool QTapAndHoldGesture_IsSignalConnected(const QTapAndHoldGesture* self, const 
 }
 
 // Base class handler implementation
-bool QTapAndHoldGesture_QBaseIsSignalConnected(const QTapAndHoldGesture* self, const QMetaMethod* signal) {
+bool QTapAndHoldGesture_SuperIsSignalConnected(const QTapAndHoldGesture* self, const QMetaMethod* signal) {
     auto* vqtapandholdgesture = const_cast<VirtualQTapAndHoldGesture*>(dynamic_cast<const VirtualQTapAndHoldGesture*>(self));
     if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
         vqtapandholdgesture->setQTapAndHoldGesture_IsSignalConnected_IsBase(true);
@@ -2811,7 +2811,7 @@ QEvent* QGestureEvent_Clone(const QGestureEvent* self) {
 }
 
 // Base class handler implementation
-QEvent* QGestureEvent_QBaseClone(const QGestureEvent* self) {
+QEvent* QGestureEvent_SuperClone(const QGestureEvent* self) {
     auto* vqgestureevent = const_cast<VirtualQGestureEvent*>(dynamic_cast<const VirtualQGestureEvent*>(self));
     if (vqgestureevent && vqgestureevent->isVirtualQGestureEvent) {
         vqgestureevent->setQGestureEvent_Clone_IsBase(true);

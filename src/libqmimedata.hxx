@@ -414,25 +414,25 @@ class VirtualQMimeData final : public QMimeData {
 
     // Friend functions
     friend QVariant* QMimeData_RetrieveData(const QMimeData* self, const libqt_string mimetype, QMetaType* preferredType);
-    friend QVariant* QMimeData_QBaseRetrieveData(const QMimeData* self, const libqt_string mimetype, QMetaType* preferredType);
+    friend QVariant* QMimeData_SuperRetrieveData(const QMimeData* self, const libqt_string mimetype, QMetaType* preferredType);
     friend void QMimeData_TimerEvent(QMimeData* self, QTimerEvent* event);
-    friend void QMimeData_QBaseTimerEvent(QMimeData* self, QTimerEvent* event);
+    friend void QMimeData_SuperTimerEvent(QMimeData* self, QTimerEvent* event);
     friend void QMimeData_ChildEvent(QMimeData* self, QChildEvent* event);
-    friend void QMimeData_QBaseChildEvent(QMimeData* self, QChildEvent* event);
+    friend void QMimeData_SuperChildEvent(QMimeData* self, QChildEvent* event);
     friend void QMimeData_CustomEvent(QMimeData* self, QEvent* event);
-    friend void QMimeData_QBaseCustomEvent(QMimeData* self, QEvent* event);
+    friend void QMimeData_SuperCustomEvent(QMimeData* self, QEvent* event);
     friend void QMimeData_ConnectNotify(QMimeData* self, const QMetaMethod* signal);
-    friend void QMimeData_QBaseConnectNotify(QMimeData* self, const QMetaMethod* signal);
+    friend void QMimeData_SuperConnectNotify(QMimeData* self, const QMetaMethod* signal);
     friend void QMimeData_DisconnectNotify(QMimeData* self, const QMetaMethod* signal);
-    friend void QMimeData_QBaseDisconnectNotify(QMimeData* self, const QMetaMethod* signal);
+    friend void QMimeData_SuperDisconnectNotify(QMimeData* self, const QMetaMethod* signal);
     friend QObject* QMimeData_Sender(const QMimeData* self);
-    friend QObject* QMimeData_QBaseSender(const QMimeData* self);
+    friend QObject* QMimeData_SuperSender(const QMimeData* self);
     friend int QMimeData_SenderSignalIndex(const QMimeData* self);
-    friend int QMimeData_QBaseSenderSignalIndex(const QMimeData* self);
+    friend int QMimeData_SuperSenderSignalIndex(const QMimeData* self);
     friend int QMimeData_Receivers(const QMimeData* self, const char* signal);
-    friend int QMimeData_QBaseReceivers(const QMimeData* self, const char* signal);
+    friend int QMimeData_SuperReceivers(const QMimeData* self, const char* signal);
     friend bool QMimeData_IsSignalConnected(const QMimeData* self, const QMetaMethod* signal);
-    friend bool QMimeData_QBaseIsSignalConnected(const QMimeData* self, const QMetaMethod* signal);
+    friend bool QMimeData_SuperIsSignalConnected(const QMimeData* self, const QMetaMethod* signal);
 };
 
 #endif

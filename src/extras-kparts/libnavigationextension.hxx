@@ -409,23 +409,23 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
 
     // Friend functions
     friend void KParts__NavigationExtension_TimerEvent(KParts::NavigationExtension* self, QTimerEvent* event);
-    friend void KParts__NavigationExtension_QBaseTimerEvent(KParts::NavigationExtension* self, QTimerEvent* event);
+    friend void KParts__NavigationExtension_SuperTimerEvent(KParts::NavigationExtension* self, QTimerEvent* event);
     friend void KParts__NavigationExtension_ChildEvent(KParts::NavigationExtension* self, QChildEvent* event);
-    friend void KParts__NavigationExtension_QBaseChildEvent(KParts::NavigationExtension* self, QChildEvent* event);
+    friend void KParts__NavigationExtension_SuperChildEvent(KParts::NavigationExtension* self, QChildEvent* event);
     friend void KParts__NavigationExtension_CustomEvent(KParts::NavigationExtension* self, QEvent* event);
-    friend void KParts__NavigationExtension_QBaseCustomEvent(KParts::NavigationExtension* self, QEvent* event);
+    friend void KParts__NavigationExtension_SuperCustomEvent(KParts::NavigationExtension* self, QEvent* event);
     friend void KParts__NavigationExtension_ConnectNotify(KParts::NavigationExtension* self, const QMetaMethod* signal);
-    friend void KParts__NavigationExtension_QBaseConnectNotify(KParts::NavigationExtension* self, const QMetaMethod* signal);
+    friend void KParts__NavigationExtension_SuperConnectNotify(KParts::NavigationExtension* self, const QMetaMethod* signal);
     friend void KParts__NavigationExtension_DisconnectNotify(KParts::NavigationExtension* self, const QMetaMethod* signal);
-    friend void KParts__NavigationExtension_QBaseDisconnectNotify(KParts::NavigationExtension* self, const QMetaMethod* signal);
+    friend void KParts__NavigationExtension_SuperDisconnectNotify(KParts::NavigationExtension* self, const QMetaMethod* signal);
     friend QObject* KParts__NavigationExtension_Sender(const KParts::NavigationExtension* self);
-    friend QObject* KParts__NavigationExtension_QBaseSender(const KParts::NavigationExtension* self);
+    friend QObject* KParts__NavigationExtension_SuperSender(const KParts::NavigationExtension* self);
     friend int KParts__NavigationExtension_SenderSignalIndex(const KParts::NavigationExtension* self);
-    friend int KParts__NavigationExtension_QBaseSenderSignalIndex(const KParts::NavigationExtension* self);
+    friend int KParts__NavigationExtension_SuperSenderSignalIndex(const KParts::NavigationExtension* self);
     friend int KParts__NavigationExtension_Receivers(const KParts::NavigationExtension* self, const char* signal);
-    friend int KParts__NavigationExtension_QBaseReceivers(const KParts::NavigationExtension* self, const char* signal);
+    friend int KParts__NavigationExtension_SuperReceivers(const KParts::NavigationExtension* self, const char* signal);
     friend bool KParts__NavigationExtension_IsSignalConnected(const KParts::NavigationExtension* self, const QMetaMethod* signal);
-    friend bool KParts__NavigationExtension_QBaseIsSignalConnected(const KParts::NavigationExtension* self, const QMetaMethod* signal);
+    friend bool KParts__NavigationExtension_SuperIsSignalConnected(const KParts::NavigationExtension* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -694,31 +694,31 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
 
     // Friend functions
     friend libqt_list /* of QWidget* */ KWidgetItemDelegate_CreateItemWidgets(const KWidgetItemDelegate* self, const QModelIndex* index);
-    friend libqt_list /* of QWidget* */ KWidgetItemDelegate_QBaseCreateItemWidgets(const KWidgetItemDelegate* self, const QModelIndex* index);
+    friend libqt_list /* of QWidget* */ KWidgetItemDelegate_SuperCreateItemWidgets(const KWidgetItemDelegate* self, const QModelIndex* index);
     friend void KWidgetItemDelegate_UpdateItemWidgets(const KWidgetItemDelegate* self, const libqt_list /* of QWidget* */ widgets, const QStyleOptionViewItem* option, const QPersistentModelIndex* index);
-    friend void KWidgetItemDelegate_QBaseUpdateItemWidgets(const KWidgetItemDelegate* self, const libqt_list /* of QWidget* */ widgets, const QStyleOptionViewItem* option, const QPersistentModelIndex* index);
+    friend void KWidgetItemDelegate_SuperUpdateItemWidgets(const KWidgetItemDelegate* self, const libqt_list /* of QWidget* */ widgets, const QStyleOptionViewItem* option, const QPersistentModelIndex* index);
     friend void KWidgetItemDelegate_TimerEvent(KWidgetItemDelegate* self, QTimerEvent* event);
-    friend void KWidgetItemDelegate_QBaseTimerEvent(KWidgetItemDelegate* self, QTimerEvent* event);
+    friend void KWidgetItemDelegate_SuperTimerEvent(KWidgetItemDelegate* self, QTimerEvent* event);
     friend void KWidgetItemDelegate_ChildEvent(KWidgetItemDelegate* self, QChildEvent* event);
-    friend void KWidgetItemDelegate_QBaseChildEvent(KWidgetItemDelegate* self, QChildEvent* event);
+    friend void KWidgetItemDelegate_SuperChildEvent(KWidgetItemDelegate* self, QChildEvent* event);
     friend void KWidgetItemDelegate_CustomEvent(KWidgetItemDelegate* self, QEvent* event);
-    friend void KWidgetItemDelegate_QBaseCustomEvent(KWidgetItemDelegate* self, QEvent* event);
+    friend void KWidgetItemDelegate_SuperCustomEvent(KWidgetItemDelegate* self, QEvent* event);
     friend void KWidgetItemDelegate_ConnectNotify(KWidgetItemDelegate* self, const QMetaMethod* signal);
-    friend void KWidgetItemDelegate_QBaseConnectNotify(KWidgetItemDelegate* self, const QMetaMethod* signal);
+    friend void KWidgetItemDelegate_SuperConnectNotify(KWidgetItemDelegate* self, const QMetaMethod* signal);
     friend void KWidgetItemDelegate_DisconnectNotify(KWidgetItemDelegate* self, const QMetaMethod* signal);
-    friend void KWidgetItemDelegate_QBaseDisconnectNotify(KWidgetItemDelegate* self, const QMetaMethod* signal);
+    friend void KWidgetItemDelegate_SuperDisconnectNotify(KWidgetItemDelegate* self, const QMetaMethod* signal);
     friend void KWidgetItemDelegate_SetBlockedEventTypes(const KWidgetItemDelegate* self, QWidget* widget, const libqt_list /* of int */ types);
-    friend void KWidgetItemDelegate_QBaseSetBlockedEventTypes(const KWidgetItemDelegate* self, QWidget* widget, const libqt_list /* of int */ types);
+    friend void KWidgetItemDelegate_SuperSetBlockedEventTypes(const KWidgetItemDelegate* self, QWidget* widget, const libqt_list /* of int */ types);
     friend libqt_list /* of int */ KWidgetItemDelegate_BlockedEventTypes(const KWidgetItemDelegate* self, QWidget* widget);
-    friend libqt_list /* of int */ KWidgetItemDelegate_QBaseBlockedEventTypes(const KWidgetItemDelegate* self, QWidget* widget);
+    friend libqt_list /* of int */ KWidgetItemDelegate_SuperBlockedEventTypes(const KWidgetItemDelegate* self, QWidget* widget);
     friend QObject* KWidgetItemDelegate_Sender(const KWidgetItemDelegate* self);
-    friend QObject* KWidgetItemDelegate_QBaseSender(const KWidgetItemDelegate* self);
+    friend QObject* KWidgetItemDelegate_SuperSender(const KWidgetItemDelegate* self);
     friend int KWidgetItemDelegate_SenderSignalIndex(const KWidgetItemDelegate* self);
-    friend int KWidgetItemDelegate_QBaseSenderSignalIndex(const KWidgetItemDelegate* self);
+    friend int KWidgetItemDelegate_SuperSenderSignalIndex(const KWidgetItemDelegate* self);
     friend int KWidgetItemDelegate_Receivers(const KWidgetItemDelegate* self, const char* signal);
-    friend int KWidgetItemDelegate_QBaseReceivers(const KWidgetItemDelegate* self, const char* signal);
+    friend int KWidgetItemDelegate_SuperReceivers(const KWidgetItemDelegate* self, const char* signal);
     friend bool KWidgetItemDelegate_IsSignalConnected(const KWidgetItemDelegate* self, const QMetaMethod* signal);
-    friend bool KWidgetItemDelegate_QBaseIsSignalConnected(const KWidgetItemDelegate* self, const QMetaMethod* signal);
+    friend bool KWidgetItemDelegate_SuperIsSignalConnected(const KWidgetItemDelegate* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -40,6 +40,10 @@ pub const kfilemetadata__extractorplugin = struct {
         qtc.KFileMetaData__ExtractorPlugin_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -48,8 +52,8 @@ pub const kfilemetadata__extractorplugin = struct {
     ///
     /// ` self: QtC.KFileMetaData__ExtractorPlugin `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KFileMetaData__ExtractorPlugin_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KFileMetaData__ExtractorPlugin_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -75,6 +79,10 @@ pub const kfilemetadata__extractorplugin = struct {
         qtc.KFileMetaData__ExtractorPlugin_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -83,9 +91,9 @@ pub const kfilemetadata__extractorplugin = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KFileMetaData__ExtractorPlugin_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KFileMetaData__ExtractorPlugin_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -114,6 +122,10 @@ pub const kfilemetadata__extractorplugin = struct {
         qtc.KFileMetaData__ExtractorPlugin_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -126,8 +138,8 @@ pub const kfilemetadata__extractorplugin = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KFileMetaData__ExtractorPlugin_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KFileMetaData__ExtractorPlugin_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -190,6 +202,10 @@ pub const kfilemetadata__extractorplugin = struct {
         qtc.KFileMetaData__ExtractorPlugin_OnMimetypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMimetypes` instead
+    ///
+    pub const QBaseMimetypes = SuperMimetypes;
+
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractorplugin.html#mimetypes)
     ///
     /// Base class method implementation
@@ -200,8 +216,8 @@ pub const kfilemetadata__extractorplugin = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseMimetypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KFileMetaData__ExtractorPlugin_QBaseMimetypes(@ptrCast(self));
+    pub fn SuperMimetypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KFileMetaData__ExtractorPlugin_SuperMimetypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -245,6 +261,10 @@ pub const kfilemetadata__extractorplugin = struct {
         qtc.KFileMetaData__ExtractorPlugin_OnExtract(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperExtract` instead
+    ///
+    pub const QBaseExtract = SuperExtract;
+
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractorplugin.html#extract)
     ///
     /// Base class method implementation
@@ -255,8 +275,8 @@ pub const kfilemetadata__extractorplugin = struct {
     ///
     /// ` result: QtC.KFileMetaData__ExtractionResult `
     ///
-    pub fn QBaseExtract(self: ?*anyopaque, result: ?*anyopaque) void {
-        qtc.KFileMetaData__ExtractorPlugin_QBaseExtract(@ptrCast(self), @ptrCast(result));
+    pub fn SuperExtract(self: ?*anyopaque, result: ?*anyopaque) void {
+        qtc.KFileMetaData__ExtractorPlugin_SuperExtract(@ptrCast(self), @ptrCast(result));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractorplugin.html#dateTimeFromString)
@@ -342,6 +362,10 @@ pub const kfilemetadata__extractorplugin = struct {
         qtc.KFileMetaData__ExtractorPlugin_OnGetSupportedMimeType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGetSupportedMimeType` instead
+    ///
+    pub const QBaseGetSupportedMimeType = SuperGetSupportedMimeType;
+
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractorplugin.html#getSupportedMimeType)
     ///
     /// Base class method implementation
@@ -354,12 +378,12 @@ pub const kfilemetadata__extractorplugin = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseGetSupportedMimeType(self: ?*anyopaque, mimetype: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn SuperGetSupportedMimeType(self: ?*anyopaque, mimetype: []const u8, allocator: std.mem.Allocator) []const u8 {
         const mimetype_str = qtc.libqt_string{
             .len = mimetype.len,
             .data = mimetype.ptr,
         };
-        var _str = qtc.KFileMetaData__ExtractorPlugin_QBaseGetSupportedMimeType(@ptrCast(self), mimetype_str);
+        var _str = qtc.KFileMetaData__ExtractorPlugin_SuperGetSupportedMimeType(@ptrCast(self), mimetype_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__extractorplugin.GetSupportedMimeType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1162,6 +1186,10 @@ pub const kfilemetadata__extractorplugin = struct {
         return qtc.KFileMetaData__ExtractorPlugin_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1174,8 +1202,8 @@ pub const kfilemetadata__extractorplugin = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KFileMetaData__ExtractorPlugin_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KFileMetaData__ExtractorPlugin_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1212,6 +1240,10 @@ pub const kfilemetadata__extractorplugin = struct {
         return qtc.KFileMetaData__ExtractorPlugin_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1226,8 +1258,8 @@ pub const kfilemetadata__extractorplugin = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KFileMetaData__ExtractorPlugin_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KFileMetaData__ExtractorPlugin_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1262,6 +1294,10 @@ pub const kfilemetadata__extractorplugin = struct {
         qtc.KFileMetaData__ExtractorPlugin_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1274,8 +1310,8 @@ pub const kfilemetadata__extractorplugin = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KFileMetaData__ExtractorPlugin_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KFileMetaData__ExtractorPlugin_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1310,6 +1346,10 @@ pub const kfilemetadata__extractorplugin = struct {
         qtc.KFileMetaData__ExtractorPlugin_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1322,8 +1362,8 @@ pub const kfilemetadata__extractorplugin = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KFileMetaData__ExtractorPlugin_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KFileMetaData__ExtractorPlugin_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1358,6 +1398,10 @@ pub const kfilemetadata__extractorplugin = struct {
         qtc.KFileMetaData__ExtractorPlugin_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1370,8 +1414,8 @@ pub const kfilemetadata__extractorplugin = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KFileMetaData__ExtractorPlugin_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KFileMetaData__ExtractorPlugin_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1406,6 +1450,10 @@ pub const kfilemetadata__extractorplugin = struct {
         qtc.KFileMetaData__ExtractorPlugin_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1418,8 +1466,8 @@ pub const kfilemetadata__extractorplugin = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KFileMetaData__ExtractorPlugin_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KFileMetaData__ExtractorPlugin_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1454,6 +1502,10 @@ pub const kfilemetadata__extractorplugin = struct {
         qtc.KFileMetaData__ExtractorPlugin_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1466,8 +1518,8 @@ pub const kfilemetadata__extractorplugin = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KFileMetaData__ExtractorPlugin_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KFileMetaData__ExtractorPlugin_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1500,6 +1552,10 @@ pub const kfilemetadata__extractorplugin = struct {
         return qtc.KFileMetaData__ExtractorPlugin_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1510,8 +1566,8 @@ pub const kfilemetadata__extractorplugin = struct {
     ///
     /// ` self: QtC.KFileMetaData__ExtractorPlugin `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KFileMetaData__ExtractorPlugin_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KFileMetaData__ExtractorPlugin_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1544,6 +1600,10 @@ pub const kfilemetadata__extractorplugin = struct {
         return qtc.KFileMetaData__ExtractorPlugin_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1554,8 +1614,8 @@ pub const kfilemetadata__extractorplugin = struct {
     ///
     /// ` self: QtC.KFileMetaData__ExtractorPlugin `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KFileMetaData__ExtractorPlugin_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KFileMetaData__ExtractorPlugin_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1591,6 +1651,10 @@ pub const kfilemetadata__extractorplugin = struct {
         return qtc.KFileMetaData__ExtractorPlugin_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1603,9 +1667,9 @@ pub const kfilemetadata__extractorplugin = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KFileMetaData__ExtractorPlugin_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KFileMetaData__ExtractorPlugin_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1640,6 +1704,10 @@ pub const kfilemetadata__extractorplugin = struct {
         return qtc.KFileMetaData__ExtractorPlugin_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -1652,8 +1720,8 @@ pub const kfilemetadata__extractorplugin = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KFileMetaData__ExtractorPlugin_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KFileMetaData__ExtractorPlugin_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1687,6 +1755,9 @@ pub const kfilemetadata__extractorplugin = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -1694,7 +1765,7 @@ pub const kfilemetadata__extractorplugin = struct {
     ///
     /// ` self: QtC.KFileMetaData__ExtractorPlugin `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KFileMetaData__ExtractorPlugin_Delete(@ptrCast(self));
     }
 };

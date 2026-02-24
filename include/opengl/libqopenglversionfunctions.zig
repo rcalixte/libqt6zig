@@ -116,6 +116,10 @@ pub const qopenglversionstatus = struct {
         qtc.QOpenGLVersionStatus_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionstatus.html#dtor.QOpenGLVersionStatus)
     ///
     /// Delete this object from C++ memory.
@@ -124,7 +128,7 @@ pub const qopenglversionstatus = struct {
     ///
     /// ` self: QtC.QOpenGLVersionStatus `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QOpenGLVersionStatus_Delete(@ptrCast(self));
     }
 };
@@ -153,6 +157,10 @@ pub const qopenglversionfunctionsbackend = struct {
         qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self), @ptrCast(context));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#dtor.QOpenGLVersionFunctionsBackend)
     ///
     /// Delete this object from C++ memory.
@@ -161,7 +169,7 @@ pub const qopenglversionfunctionsbackend = struct {
     ///
     /// ` self: QtC.QOpenGLVersionFunctionsBackend `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QOpenGLVersionFunctionsBackend_Delete(@ptrCast(self));
     }
 };
@@ -190,6 +198,10 @@ pub const qopenglversionfunctionsstorage = struct {
         qtc.QOpenGLVersionFunctionsStorage_SetBackends(@ptrCast(self), @ptrCast(backends));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsstorage.html#dtor.QOpenGLVersionFunctionsStorage)
     ///
     /// Delete this object from C++ memory.
@@ -198,7 +210,7 @@ pub const qopenglversionfunctionsstorage = struct {
     ///
     /// ` self: QtC.QOpenGLVersionFunctionsStorage `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QOpenGLVersionFunctionsStorage_Delete(@ptrCast(self));
     }
 };
@@ -215,6 +227,10 @@ pub const qabstractopenglfunctions = struct {
         return qtc.QAbstractOpenGLFunctions_InitializeOpenGLFunctions(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractopenglfunctions.html#dtor.QAbstractOpenGLFunctions)
     ///
     /// Delete this object from C++ memory.
@@ -223,7 +239,7 @@ pub const qabstractopenglfunctions = struct {
     ///
     /// ` self: QtC.QAbstractOpenGLFunctions `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAbstractOpenGLFunctions_Delete(@ptrCast(self));
     }
 };

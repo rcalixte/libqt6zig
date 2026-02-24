@@ -328,25 +328,25 @@ class VirtualKDualAction final : public KDualAction {
 
     // Friend functions
     friend bool KDualAction_Event(KDualAction* self, QEvent* param1);
-    friend bool KDualAction_QBaseEvent(KDualAction* self, QEvent* param1);
+    friend bool KDualAction_SuperEvent(KDualAction* self, QEvent* param1);
     friend void KDualAction_TimerEvent(KDualAction* self, QTimerEvent* event);
-    friend void KDualAction_QBaseTimerEvent(KDualAction* self, QTimerEvent* event);
+    friend void KDualAction_SuperTimerEvent(KDualAction* self, QTimerEvent* event);
     friend void KDualAction_ChildEvent(KDualAction* self, QChildEvent* event);
-    friend void KDualAction_QBaseChildEvent(KDualAction* self, QChildEvent* event);
+    friend void KDualAction_SuperChildEvent(KDualAction* self, QChildEvent* event);
     friend void KDualAction_CustomEvent(KDualAction* self, QEvent* event);
-    friend void KDualAction_QBaseCustomEvent(KDualAction* self, QEvent* event);
+    friend void KDualAction_SuperCustomEvent(KDualAction* self, QEvent* event);
     friend void KDualAction_ConnectNotify(KDualAction* self, const QMetaMethod* signal);
-    friend void KDualAction_QBaseConnectNotify(KDualAction* self, const QMetaMethod* signal);
+    friend void KDualAction_SuperConnectNotify(KDualAction* self, const QMetaMethod* signal);
     friend void KDualAction_DisconnectNotify(KDualAction* self, const QMetaMethod* signal);
-    friend void KDualAction_QBaseDisconnectNotify(KDualAction* self, const QMetaMethod* signal);
+    friend void KDualAction_SuperDisconnectNotify(KDualAction* self, const QMetaMethod* signal);
     friend QObject* KDualAction_Sender(const KDualAction* self);
-    friend QObject* KDualAction_QBaseSender(const KDualAction* self);
+    friend QObject* KDualAction_SuperSender(const KDualAction* self);
     friend int KDualAction_SenderSignalIndex(const KDualAction* self);
-    friend int KDualAction_QBaseSenderSignalIndex(const KDualAction* self);
+    friend int KDualAction_SuperSenderSignalIndex(const KDualAction* self);
     friend int KDualAction_Receivers(const KDualAction* self, const char* signal);
-    friend int KDualAction_QBaseReceivers(const KDualAction* self, const char* signal);
+    friend int KDualAction_SuperReceivers(const KDualAction* self, const char* signal);
     friend bool KDualAction_IsSignalConnected(const KDualAction* self, const QMetaMethod* signal);
-    friend bool KDualAction_QBaseIsSignalConnected(const KDualAction* self, const QMetaMethod* signal);
+    friend bool KDualAction_SuperIsSignalConnected(const KDualAction* self, const QMetaMethod* signal);
 };
 
 #endif

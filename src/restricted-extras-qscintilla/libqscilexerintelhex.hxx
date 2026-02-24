@@ -1098,31 +1098,31 @@ class VirtualQsciLexerIntelHex final : public QsciLexerIntelHex {
 
     // Friend functions
     friend bool QsciLexerIntelHex_ReadProperties(QsciLexerIntelHex* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerIntelHex_QBaseReadProperties(QsciLexerIntelHex* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerIntelHex_SuperReadProperties(QsciLexerIntelHex* self, QSettings* qs, const libqt_string prefix);
     friend bool QsciLexerIntelHex_WriteProperties(const QsciLexerIntelHex* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerIntelHex_QBaseWriteProperties(const QsciLexerIntelHex* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerIntelHex_SuperWriteProperties(const QsciLexerIntelHex* self, QSettings* qs, const libqt_string prefix);
     friend void QsciLexerIntelHex_TimerEvent(QsciLexerIntelHex* self, QTimerEvent* event);
-    friend void QsciLexerIntelHex_QBaseTimerEvent(QsciLexerIntelHex* self, QTimerEvent* event);
+    friend void QsciLexerIntelHex_SuperTimerEvent(QsciLexerIntelHex* self, QTimerEvent* event);
     friend void QsciLexerIntelHex_ChildEvent(QsciLexerIntelHex* self, QChildEvent* event);
-    friend void QsciLexerIntelHex_QBaseChildEvent(QsciLexerIntelHex* self, QChildEvent* event);
+    friend void QsciLexerIntelHex_SuperChildEvent(QsciLexerIntelHex* self, QChildEvent* event);
     friend void QsciLexerIntelHex_CustomEvent(QsciLexerIntelHex* self, QEvent* event);
-    friend void QsciLexerIntelHex_QBaseCustomEvent(QsciLexerIntelHex* self, QEvent* event);
+    friend void QsciLexerIntelHex_SuperCustomEvent(QsciLexerIntelHex* self, QEvent* event);
     friend void QsciLexerIntelHex_ConnectNotify(QsciLexerIntelHex* self, const QMetaMethod* signal);
-    friend void QsciLexerIntelHex_QBaseConnectNotify(QsciLexerIntelHex* self, const QMetaMethod* signal);
+    friend void QsciLexerIntelHex_SuperConnectNotify(QsciLexerIntelHex* self, const QMetaMethod* signal);
     friend void QsciLexerIntelHex_DisconnectNotify(QsciLexerIntelHex* self, const QMetaMethod* signal);
-    friend void QsciLexerIntelHex_QBaseDisconnectNotify(QsciLexerIntelHex* self, const QMetaMethod* signal);
+    friend void QsciLexerIntelHex_SuperDisconnectNotify(QsciLexerIntelHex* self, const QMetaMethod* signal);
     friend libqt_string QsciLexerIntelHex_TextAsBytes(const QsciLexerIntelHex* self, const libqt_string text);
-    friend libqt_string QsciLexerIntelHex_QBaseTextAsBytes(const QsciLexerIntelHex* self, const libqt_string text);
+    friend libqt_string QsciLexerIntelHex_SuperTextAsBytes(const QsciLexerIntelHex* self, const libqt_string text);
     friend libqt_string QsciLexerIntelHex_BytesAsText(const QsciLexerIntelHex* self, const char* bytes, int size);
-    friend libqt_string QsciLexerIntelHex_QBaseBytesAsText(const QsciLexerIntelHex* self, const char* bytes, int size);
+    friend libqt_string QsciLexerIntelHex_SuperBytesAsText(const QsciLexerIntelHex* self, const char* bytes, int size);
     friend QObject* QsciLexerIntelHex_Sender(const QsciLexerIntelHex* self);
-    friend QObject* QsciLexerIntelHex_QBaseSender(const QsciLexerIntelHex* self);
+    friend QObject* QsciLexerIntelHex_SuperSender(const QsciLexerIntelHex* self);
     friend int QsciLexerIntelHex_SenderSignalIndex(const QsciLexerIntelHex* self);
-    friend int QsciLexerIntelHex_QBaseSenderSignalIndex(const QsciLexerIntelHex* self);
+    friend int QsciLexerIntelHex_SuperSenderSignalIndex(const QsciLexerIntelHex* self);
     friend int QsciLexerIntelHex_Receivers(const QsciLexerIntelHex* self, const char* signal);
-    friend int QsciLexerIntelHex_QBaseReceivers(const QsciLexerIntelHex* self, const char* signal);
+    friend int QsciLexerIntelHex_SuperReceivers(const QsciLexerIntelHex* self, const char* signal);
     friend bool QsciLexerIntelHex_IsSignalConnected(const QsciLexerIntelHex* self, const QMetaMethod* signal);
-    friend bool QsciLexerIntelHex_QBaseIsSignalConnected(const QsciLexerIntelHex* self, const QMetaMethod* signal);
+    friend bool QsciLexerIntelHex_SuperIsSignalConnected(const QsciLexerIntelHex* self, const QMetaMethod* signal);
 };
 
 #endif

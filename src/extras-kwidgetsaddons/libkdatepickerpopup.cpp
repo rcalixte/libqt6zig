@@ -160,7 +160,7 @@ void KDatePickerPopup_Connect_DateChanged(KDatePickerPopup* self, intptr_t slot)
 }
 
 // Base class handler implementation
-QMetaObject* KDatePickerPopup_QBaseMetaObject(const KDatePickerPopup* self) {
+QMetaObject* KDatePickerPopup_SuperMetaObject(const KDatePickerPopup* self) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_MetaObject_IsBase(true);
@@ -179,7 +179,7 @@ void KDatePickerPopup_OnMetaObject(const KDatePickerPopup* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* KDatePickerPopup_QBaseMetacast(KDatePickerPopup* self, const char* param1) {
+void* KDatePickerPopup_SuperMetacast(KDatePickerPopup* self, const char* param1) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_Metacast_IsBase(true);
@@ -198,7 +198,7 @@ void KDatePickerPopup_OnMetacast(KDatePickerPopup* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KDatePickerPopup_QBaseMetacall(KDatePickerPopup* self, int param1, int param2, void** param3) {
+int KDatePickerPopup_SuperMetacall(KDatePickerPopup* self, int param1, int param2, void** param3) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_Metacall_IsBase(true);
@@ -227,7 +227,7 @@ QSize* KDatePickerPopup_SizeHint(const KDatePickerPopup* self) {
 }
 
 // Base class handler implementation
-QSize* KDatePickerPopup_QBaseSizeHint(const KDatePickerPopup* self) {
+QSize* KDatePickerPopup_SuperSizeHint(const KDatePickerPopup* self) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_SizeHint_IsBase(true);
@@ -256,7 +256,7 @@ void KDatePickerPopup_ChangeEvent(KDatePickerPopup* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseChangeEvent(KDatePickerPopup* self, QEvent* param1) {
+void KDatePickerPopup_SuperChangeEvent(KDatePickerPopup* self, QEvent* param1) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_ChangeEvent_IsBase(true);
@@ -285,7 +285,7 @@ void KDatePickerPopup_KeyPressEvent(KDatePickerPopup* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseKeyPressEvent(KDatePickerPopup* self, QKeyEvent* param1) {
+void KDatePickerPopup_SuperKeyPressEvent(KDatePickerPopup* self, QKeyEvent* param1) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_KeyPressEvent_IsBase(true);
@@ -314,7 +314,7 @@ void KDatePickerPopup_MouseReleaseEvent(KDatePickerPopup* self, QMouseEvent* par
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseMouseReleaseEvent(KDatePickerPopup* self, QMouseEvent* param1) {
+void KDatePickerPopup_SuperMouseReleaseEvent(KDatePickerPopup* self, QMouseEvent* param1) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_MouseReleaseEvent_IsBase(true);
@@ -343,7 +343,7 @@ void KDatePickerPopup_MousePressEvent(KDatePickerPopup* self, QMouseEvent* param
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseMousePressEvent(KDatePickerPopup* self, QMouseEvent* param1) {
+void KDatePickerPopup_SuperMousePressEvent(KDatePickerPopup* self, QMouseEvent* param1) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_MousePressEvent_IsBase(true);
@@ -372,7 +372,7 @@ void KDatePickerPopup_MouseMoveEvent(KDatePickerPopup* self, QMouseEvent* param1
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseMouseMoveEvent(KDatePickerPopup* self, QMouseEvent* param1) {
+void KDatePickerPopup_SuperMouseMoveEvent(KDatePickerPopup* self, QMouseEvent* param1) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_MouseMoveEvent_IsBase(true);
@@ -401,7 +401,7 @@ void KDatePickerPopup_WheelEvent(KDatePickerPopup* self, QWheelEvent* param1) {
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseWheelEvent(KDatePickerPopup* self, QWheelEvent* param1) {
+void KDatePickerPopup_SuperWheelEvent(KDatePickerPopup* self, QWheelEvent* param1) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_WheelEvent_IsBase(true);
@@ -430,7 +430,7 @@ void KDatePickerPopup_EnterEvent(KDatePickerPopup* self, QEnterEvent* param1) {
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseEnterEvent(KDatePickerPopup* self, QEnterEvent* param1) {
+void KDatePickerPopup_SuperEnterEvent(KDatePickerPopup* self, QEnterEvent* param1) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_EnterEvent_IsBase(true);
@@ -459,7 +459,7 @@ void KDatePickerPopup_LeaveEvent(KDatePickerPopup* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseLeaveEvent(KDatePickerPopup* self, QEvent* param1) {
+void KDatePickerPopup_SuperLeaveEvent(KDatePickerPopup* self, QEvent* param1) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_LeaveEvent_IsBase(true);
@@ -488,7 +488,7 @@ void KDatePickerPopup_HideEvent(KDatePickerPopup* self, QHideEvent* param1) {
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseHideEvent(KDatePickerPopup* self, QHideEvent* param1) {
+void KDatePickerPopup_SuperHideEvent(KDatePickerPopup* self, QHideEvent* param1) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_HideEvent_IsBase(true);
@@ -517,7 +517,7 @@ void KDatePickerPopup_PaintEvent(KDatePickerPopup* self, QPaintEvent* param1) {
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBasePaintEvent(KDatePickerPopup* self, QPaintEvent* param1) {
+void KDatePickerPopup_SuperPaintEvent(KDatePickerPopup* self, QPaintEvent* param1) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_PaintEvent_IsBase(true);
@@ -546,7 +546,7 @@ void KDatePickerPopup_ActionEvent(KDatePickerPopup* self, QActionEvent* param1) 
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseActionEvent(KDatePickerPopup* self, QActionEvent* param1) {
+void KDatePickerPopup_SuperActionEvent(KDatePickerPopup* self, QActionEvent* param1) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_ActionEvent_IsBase(true);
@@ -575,7 +575,7 @@ void KDatePickerPopup_TimerEvent(KDatePickerPopup* self, QTimerEvent* param1) {
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseTimerEvent(KDatePickerPopup* self, QTimerEvent* param1) {
+void KDatePickerPopup_SuperTimerEvent(KDatePickerPopup* self, QTimerEvent* param1) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_TimerEvent_IsBase(true);
@@ -604,7 +604,7 @@ bool KDatePickerPopup_Event(KDatePickerPopup* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-bool KDatePickerPopup_QBaseEvent(KDatePickerPopup* self, QEvent* param1) {
+bool KDatePickerPopup_SuperEvent(KDatePickerPopup* self, QEvent* param1) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_Event_IsBase(true);
@@ -633,7 +633,7 @@ bool KDatePickerPopup_FocusNextPrevChild(KDatePickerPopup* self, bool next) {
 }
 
 // Base class handler implementation
-bool KDatePickerPopup_QBaseFocusNextPrevChild(KDatePickerPopup* self, bool next) {
+bool KDatePickerPopup_SuperFocusNextPrevChild(KDatePickerPopup* self, bool next) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_FocusNextPrevChild_IsBase(true);
@@ -662,7 +662,7 @@ void KDatePickerPopup_InitStyleOption(const KDatePickerPopup* self, QStyleOption
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseInitStyleOption(const KDatePickerPopup* self, QStyleOptionMenuItem* option, const QAction* action) {
+void KDatePickerPopup_SuperInitStyleOption(const KDatePickerPopup* self, QStyleOptionMenuItem* option, const QAction* action) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_InitStyleOption_IsBase(true);
@@ -691,7 +691,7 @@ int KDatePickerPopup_DevType(const KDatePickerPopup* self) {
 }
 
 // Base class handler implementation
-int KDatePickerPopup_QBaseDevType(const KDatePickerPopup* self) {
+int KDatePickerPopup_SuperDevType(const KDatePickerPopup* self) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_DevType_IsBase(true);
@@ -720,7 +720,7 @@ void KDatePickerPopup_SetVisible(KDatePickerPopup* self, bool visible) {
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseSetVisible(KDatePickerPopup* self, bool visible) {
+void KDatePickerPopup_SuperSetVisible(KDatePickerPopup* self, bool visible) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_SetVisible_IsBase(true);
@@ -749,7 +749,7 @@ QSize* KDatePickerPopup_MinimumSizeHint(const KDatePickerPopup* self) {
 }
 
 // Base class handler implementation
-QSize* KDatePickerPopup_QBaseMinimumSizeHint(const KDatePickerPopup* self) {
+QSize* KDatePickerPopup_SuperMinimumSizeHint(const KDatePickerPopup* self) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_MinimumSizeHint_IsBase(true);
@@ -778,7 +778,7 @@ int KDatePickerPopup_HeightForWidth(const KDatePickerPopup* self, int param1) {
 }
 
 // Base class handler implementation
-int KDatePickerPopup_QBaseHeightForWidth(const KDatePickerPopup* self, int param1) {
+int KDatePickerPopup_SuperHeightForWidth(const KDatePickerPopup* self, int param1) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_HeightForWidth_IsBase(true);
@@ -807,7 +807,7 @@ bool KDatePickerPopup_HasHeightForWidth(const KDatePickerPopup* self) {
 }
 
 // Base class handler implementation
-bool KDatePickerPopup_QBaseHasHeightForWidth(const KDatePickerPopup* self) {
+bool KDatePickerPopup_SuperHasHeightForWidth(const KDatePickerPopup* self) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_HasHeightForWidth_IsBase(true);
@@ -836,7 +836,7 @@ QPaintEngine* KDatePickerPopup_PaintEngine(const KDatePickerPopup* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KDatePickerPopup_QBasePaintEngine(const KDatePickerPopup* self) {
+QPaintEngine* KDatePickerPopup_SuperPaintEngine(const KDatePickerPopup* self) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_PaintEngine_IsBase(true);
@@ -865,7 +865,7 @@ void KDatePickerPopup_MouseDoubleClickEvent(KDatePickerPopup* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseMouseDoubleClickEvent(KDatePickerPopup* self, QMouseEvent* event) {
+void KDatePickerPopup_SuperMouseDoubleClickEvent(KDatePickerPopup* self, QMouseEvent* event) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_MouseDoubleClickEvent_IsBase(true);
@@ -894,7 +894,7 @@ void KDatePickerPopup_KeyReleaseEvent(KDatePickerPopup* self, QKeyEvent* event) 
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseKeyReleaseEvent(KDatePickerPopup* self, QKeyEvent* event) {
+void KDatePickerPopup_SuperKeyReleaseEvent(KDatePickerPopup* self, QKeyEvent* event) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_KeyReleaseEvent_IsBase(true);
@@ -923,7 +923,7 @@ void KDatePickerPopup_FocusInEvent(KDatePickerPopup* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseFocusInEvent(KDatePickerPopup* self, QFocusEvent* event) {
+void KDatePickerPopup_SuperFocusInEvent(KDatePickerPopup* self, QFocusEvent* event) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_FocusInEvent_IsBase(true);
@@ -952,7 +952,7 @@ void KDatePickerPopup_FocusOutEvent(KDatePickerPopup* self, QFocusEvent* event) 
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseFocusOutEvent(KDatePickerPopup* self, QFocusEvent* event) {
+void KDatePickerPopup_SuperFocusOutEvent(KDatePickerPopup* self, QFocusEvent* event) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_FocusOutEvent_IsBase(true);
@@ -981,7 +981,7 @@ void KDatePickerPopup_MoveEvent(KDatePickerPopup* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseMoveEvent(KDatePickerPopup* self, QMoveEvent* event) {
+void KDatePickerPopup_SuperMoveEvent(KDatePickerPopup* self, QMoveEvent* event) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_MoveEvent_IsBase(true);
@@ -1010,7 +1010,7 @@ void KDatePickerPopup_ResizeEvent(KDatePickerPopup* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseResizeEvent(KDatePickerPopup* self, QResizeEvent* event) {
+void KDatePickerPopup_SuperResizeEvent(KDatePickerPopup* self, QResizeEvent* event) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_ResizeEvent_IsBase(true);
@@ -1039,7 +1039,7 @@ void KDatePickerPopup_CloseEvent(KDatePickerPopup* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseCloseEvent(KDatePickerPopup* self, QCloseEvent* event) {
+void KDatePickerPopup_SuperCloseEvent(KDatePickerPopup* self, QCloseEvent* event) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_CloseEvent_IsBase(true);
@@ -1068,7 +1068,7 @@ void KDatePickerPopup_ContextMenuEvent(KDatePickerPopup* self, QContextMenuEvent
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseContextMenuEvent(KDatePickerPopup* self, QContextMenuEvent* event) {
+void KDatePickerPopup_SuperContextMenuEvent(KDatePickerPopup* self, QContextMenuEvent* event) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_ContextMenuEvent_IsBase(true);
@@ -1097,7 +1097,7 @@ void KDatePickerPopup_TabletEvent(KDatePickerPopup* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseTabletEvent(KDatePickerPopup* self, QTabletEvent* event) {
+void KDatePickerPopup_SuperTabletEvent(KDatePickerPopup* self, QTabletEvent* event) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_TabletEvent_IsBase(true);
@@ -1126,7 +1126,7 @@ void KDatePickerPopup_DragEnterEvent(KDatePickerPopup* self, QDragEnterEvent* ev
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseDragEnterEvent(KDatePickerPopup* self, QDragEnterEvent* event) {
+void KDatePickerPopup_SuperDragEnterEvent(KDatePickerPopup* self, QDragEnterEvent* event) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_DragEnterEvent_IsBase(true);
@@ -1155,7 +1155,7 @@ void KDatePickerPopup_DragMoveEvent(KDatePickerPopup* self, QDragMoveEvent* even
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseDragMoveEvent(KDatePickerPopup* self, QDragMoveEvent* event) {
+void KDatePickerPopup_SuperDragMoveEvent(KDatePickerPopup* self, QDragMoveEvent* event) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_DragMoveEvent_IsBase(true);
@@ -1184,7 +1184,7 @@ void KDatePickerPopup_DragLeaveEvent(KDatePickerPopup* self, QDragLeaveEvent* ev
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseDragLeaveEvent(KDatePickerPopup* self, QDragLeaveEvent* event) {
+void KDatePickerPopup_SuperDragLeaveEvent(KDatePickerPopup* self, QDragLeaveEvent* event) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_DragLeaveEvent_IsBase(true);
@@ -1213,7 +1213,7 @@ void KDatePickerPopup_DropEvent(KDatePickerPopup* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseDropEvent(KDatePickerPopup* self, QDropEvent* event) {
+void KDatePickerPopup_SuperDropEvent(KDatePickerPopup* self, QDropEvent* event) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_DropEvent_IsBase(true);
@@ -1242,7 +1242,7 @@ void KDatePickerPopup_ShowEvent(KDatePickerPopup* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseShowEvent(KDatePickerPopup* self, QShowEvent* event) {
+void KDatePickerPopup_SuperShowEvent(KDatePickerPopup* self, QShowEvent* event) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_ShowEvent_IsBase(true);
@@ -1272,7 +1272,7 @@ bool KDatePickerPopup_NativeEvent(KDatePickerPopup* self, const libqt_string eve
 }
 
 // Base class handler implementation
-bool KDatePickerPopup_QBaseNativeEvent(KDatePickerPopup* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KDatePickerPopup_SuperNativeEvent(KDatePickerPopup* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
@@ -1302,7 +1302,7 @@ int KDatePickerPopup_Metric(const KDatePickerPopup* self, int param1) {
 }
 
 // Base class handler implementation
-int KDatePickerPopup_QBaseMetric(const KDatePickerPopup* self, int param1) {
+int KDatePickerPopup_SuperMetric(const KDatePickerPopup* self, int param1) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_Metric_IsBase(true);
@@ -1331,7 +1331,7 @@ void KDatePickerPopup_InitPainter(const KDatePickerPopup* self, QPainter* painte
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseInitPainter(const KDatePickerPopup* self, QPainter* painter) {
+void KDatePickerPopup_SuperInitPainter(const KDatePickerPopup* self, QPainter* painter) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_InitPainter_IsBase(true);
@@ -1360,7 +1360,7 @@ QPaintDevice* KDatePickerPopup_Redirected(const KDatePickerPopup* self, QPoint* 
 }
 
 // Base class handler implementation
-QPaintDevice* KDatePickerPopup_QBaseRedirected(const KDatePickerPopup* self, QPoint* offset) {
+QPaintDevice* KDatePickerPopup_SuperRedirected(const KDatePickerPopup* self, QPoint* offset) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_Redirected_IsBase(true);
@@ -1389,7 +1389,7 @@ QPainter* KDatePickerPopup_SharedPainter(const KDatePickerPopup* self) {
 }
 
 // Base class handler implementation
-QPainter* KDatePickerPopup_QBaseSharedPainter(const KDatePickerPopup* self) {
+QPainter* KDatePickerPopup_SuperSharedPainter(const KDatePickerPopup* self) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_SharedPainter_IsBase(true);
@@ -1418,7 +1418,7 @@ void KDatePickerPopup_InputMethodEvent(KDatePickerPopup* self, QInputMethodEvent
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseInputMethodEvent(KDatePickerPopup* self, QInputMethodEvent* param1) {
+void KDatePickerPopup_SuperInputMethodEvent(KDatePickerPopup* self, QInputMethodEvent* param1) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_InputMethodEvent_IsBase(true);
@@ -1447,7 +1447,7 @@ QVariant* KDatePickerPopup_InputMethodQuery(const KDatePickerPopup* self, int pa
 }
 
 // Base class handler implementation
-QVariant* KDatePickerPopup_QBaseInputMethodQuery(const KDatePickerPopup* self, int param1) {
+QVariant* KDatePickerPopup_SuperInputMethodQuery(const KDatePickerPopup* self, int param1) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_InputMethodQuery_IsBase(true);
@@ -1476,7 +1476,7 @@ bool KDatePickerPopup_EventFilter(KDatePickerPopup* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool KDatePickerPopup_QBaseEventFilter(KDatePickerPopup* self, QObject* watched, QEvent* event) {
+bool KDatePickerPopup_SuperEventFilter(KDatePickerPopup* self, QObject* watched, QEvent* event) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_EventFilter_IsBase(true);
@@ -1505,7 +1505,7 @@ void KDatePickerPopup_ChildEvent(KDatePickerPopup* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseChildEvent(KDatePickerPopup* self, QChildEvent* event) {
+void KDatePickerPopup_SuperChildEvent(KDatePickerPopup* self, QChildEvent* event) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_ChildEvent_IsBase(true);
@@ -1534,7 +1534,7 @@ void KDatePickerPopup_CustomEvent(KDatePickerPopup* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseCustomEvent(KDatePickerPopup* self, QEvent* event) {
+void KDatePickerPopup_SuperCustomEvent(KDatePickerPopup* self, QEvent* event) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_CustomEvent_IsBase(true);
@@ -1563,7 +1563,7 @@ void KDatePickerPopup_ConnectNotify(KDatePickerPopup* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseConnectNotify(KDatePickerPopup* self, const QMetaMethod* signal) {
+void KDatePickerPopup_SuperConnectNotify(KDatePickerPopup* self, const QMetaMethod* signal) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_ConnectNotify_IsBase(true);
@@ -1592,7 +1592,7 @@ void KDatePickerPopup_DisconnectNotify(KDatePickerPopup* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseDisconnectNotify(KDatePickerPopup* self, const QMetaMethod* signal) {
+void KDatePickerPopup_SuperDisconnectNotify(KDatePickerPopup* self, const QMetaMethod* signal) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_DisconnectNotify_IsBase(true);
@@ -1621,7 +1621,7 @@ int KDatePickerPopup_ColumnCount(const KDatePickerPopup* self) {
 }
 
 // Base class handler implementation
-int KDatePickerPopup_QBaseColumnCount(const KDatePickerPopup* self) {
+int KDatePickerPopup_SuperColumnCount(const KDatePickerPopup* self) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_ColumnCount_IsBase(true);
@@ -1650,7 +1650,7 @@ void KDatePickerPopup_UpdateMicroFocus(KDatePickerPopup* self) {
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseUpdateMicroFocus(KDatePickerPopup* self) {
+void KDatePickerPopup_SuperUpdateMicroFocus(KDatePickerPopup* self) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_UpdateMicroFocus_IsBase(true);
@@ -1679,7 +1679,7 @@ void KDatePickerPopup_Create(KDatePickerPopup* self) {
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseCreate(KDatePickerPopup* self) {
+void KDatePickerPopup_SuperCreate(KDatePickerPopup* self) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_Create_IsBase(true);
@@ -1708,7 +1708,7 @@ void KDatePickerPopup_Destroy(KDatePickerPopup* self) {
 }
 
 // Base class handler implementation
-void KDatePickerPopup_QBaseDestroy(KDatePickerPopup* self) {
+void KDatePickerPopup_SuperDestroy(KDatePickerPopup* self) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_Destroy_IsBase(true);
@@ -1737,7 +1737,7 @@ bool KDatePickerPopup_FocusNextChild(KDatePickerPopup* self) {
 }
 
 // Base class handler implementation
-bool KDatePickerPopup_QBaseFocusNextChild(KDatePickerPopup* self) {
+bool KDatePickerPopup_SuperFocusNextChild(KDatePickerPopup* self) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_FocusNextChild_IsBase(true);
@@ -1766,7 +1766,7 @@ bool KDatePickerPopup_FocusPreviousChild(KDatePickerPopup* self) {
 }
 
 // Base class handler implementation
-bool KDatePickerPopup_QBaseFocusPreviousChild(KDatePickerPopup* self) {
+bool KDatePickerPopup_SuperFocusPreviousChild(KDatePickerPopup* self) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_FocusPreviousChild_IsBase(true);
@@ -1795,7 +1795,7 @@ QObject* KDatePickerPopup_Sender(const KDatePickerPopup* self) {
 }
 
 // Base class handler implementation
-QObject* KDatePickerPopup_QBaseSender(const KDatePickerPopup* self) {
+QObject* KDatePickerPopup_SuperSender(const KDatePickerPopup* self) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_Sender_IsBase(true);
@@ -1824,7 +1824,7 @@ int KDatePickerPopup_SenderSignalIndex(const KDatePickerPopup* self) {
 }
 
 // Base class handler implementation
-int KDatePickerPopup_QBaseSenderSignalIndex(const KDatePickerPopup* self) {
+int KDatePickerPopup_SuperSenderSignalIndex(const KDatePickerPopup* self) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_SenderSignalIndex_IsBase(true);
@@ -1853,7 +1853,7 @@ int KDatePickerPopup_Receivers(const KDatePickerPopup* self, const char* signal)
 }
 
 // Base class handler implementation
-int KDatePickerPopup_QBaseReceivers(const KDatePickerPopup* self, const char* signal) {
+int KDatePickerPopup_SuperReceivers(const KDatePickerPopup* self, const char* signal) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_Receivers_IsBase(true);
@@ -1882,7 +1882,7 @@ bool KDatePickerPopup_IsSignalConnected(const KDatePickerPopup* self, const QMet
 }
 
 // Base class handler implementation
-bool KDatePickerPopup_QBaseIsSignalConnected(const KDatePickerPopup* self, const QMetaMethod* signal) {
+bool KDatePickerPopup_SuperIsSignalConnected(const KDatePickerPopup* self, const QMetaMethod* signal) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_IsSignalConnected_IsBase(true);
@@ -1911,7 +1911,7 @@ double KDatePickerPopup_GetDecodedMetricF(const KDatePickerPopup* self, int metr
 }
 
 // Base class handler implementation
-double KDatePickerPopup_QBaseGetDecodedMetricF(const KDatePickerPopup* self, int metricA, int metricB) {
+double KDatePickerPopup_SuperGetDecodedMetricF(const KDatePickerPopup* self, int metricA, int metricB) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
     if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
         vkdatepickerpopup->setKDatePickerPopup_GetDecodedMetricF_IsBase(true);

@@ -392,25 +392,25 @@ class VirtualKModifierKeyInfoProvider final : public KModifierKeyInfoProvider {
 
     // Friend functions
     friend void KModifierKeyInfoProvider_TimerEvent(KModifierKeyInfoProvider* self, QTimerEvent* event);
-    friend void KModifierKeyInfoProvider_QBaseTimerEvent(KModifierKeyInfoProvider* self, QTimerEvent* event);
+    friend void KModifierKeyInfoProvider_SuperTimerEvent(KModifierKeyInfoProvider* self, QTimerEvent* event);
     friend void KModifierKeyInfoProvider_ChildEvent(KModifierKeyInfoProvider* self, QChildEvent* event);
-    friend void KModifierKeyInfoProvider_QBaseChildEvent(KModifierKeyInfoProvider* self, QChildEvent* event);
+    friend void KModifierKeyInfoProvider_SuperChildEvent(KModifierKeyInfoProvider* self, QChildEvent* event);
     friend void KModifierKeyInfoProvider_CustomEvent(KModifierKeyInfoProvider* self, QEvent* event);
-    friend void KModifierKeyInfoProvider_QBaseCustomEvent(KModifierKeyInfoProvider* self, QEvent* event);
+    friend void KModifierKeyInfoProvider_SuperCustomEvent(KModifierKeyInfoProvider* self, QEvent* event);
     friend void KModifierKeyInfoProvider_ConnectNotify(KModifierKeyInfoProvider* self, const QMetaMethod* signal);
-    friend void KModifierKeyInfoProvider_QBaseConnectNotify(KModifierKeyInfoProvider* self, const QMetaMethod* signal);
+    friend void KModifierKeyInfoProvider_SuperConnectNotify(KModifierKeyInfoProvider* self, const QMetaMethod* signal);
     friend void KModifierKeyInfoProvider_DisconnectNotify(KModifierKeyInfoProvider* self, const QMetaMethod* signal);
-    friend void KModifierKeyInfoProvider_QBaseDisconnectNotify(KModifierKeyInfoProvider* self, const QMetaMethod* signal);
+    friend void KModifierKeyInfoProvider_SuperDisconnectNotify(KModifierKeyInfoProvider* self, const QMetaMethod* signal);
     friend void KModifierKeyInfoProvider_StateUpdated(KModifierKeyInfoProvider* self, int key, int state);
-    friend void KModifierKeyInfoProvider_QBaseStateUpdated(KModifierKeyInfoProvider* self, int key, int state);
+    friend void KModifierKeyInfoProvider_SuperStateUpdated(KModifierKeyInfoProvider* self, int key, int state);
     friend QObject* KModifierKeyInfoProvider_Sender(const KModifierKeyInfoProvider* self);
-    friend QObject* KModifierKeyInfoProvider_QBaseSender(const KModifierKeyInfoProvider* self);
+    friend QObject* KModifierKeyInfoProvider_SuperSender(const KModifierKeyInfoProvider* self);
     friend int KModifierKeyInfoProvider_SenderSignalIndex(const KModifierKeyInfoProvider* self);
-    friend int KModifierKeyInfoProvider_QBaseSenderSignalIndex(const KModifierKeyInfoProvider* self);
+    friend int KModifierKeyInfoProvider_SuperSenderSignalIndex(const KModifierKeyInfoProvider* self);
     friend int KModifierKeyInfoProvider_Receivers(const KModifierKeyInfoProvider* self, const char* signal);
-    friend int KModifierKeyInfoProvider_QBaseReceivers(const KModifierKeyInfoProvider* self, const char* signal);
+    friend int KModifierKeyInfoProvider_SuperReceivers(const KModifierKeyInfoProvider* self, const char* signal);
     friend bool KModifierKeyInfoProvider_IsSignalConnected(const KModifierKeyInfoProvider* self, const QMetaMethod* signal);
-    friend bool KModifierKeyInfoProvider_QBaseIsSignalConnected(const KModifierKeyInfoProvider* self, const QMetaMethod* signal);
+    friend bool KModifierKeyInfoProvider_SuperIsSignalConnected(const KModifierKeyInfoProvider* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -115,7 +115,7 @@ bool QDesignerFormWindowToolInterface_HandleEvent(QDesignerFormWindowToolInterfa
 }
 
 // Base class handler implementation
-QMetaObject* QDesignerFormWindowToolInterface_QBaseMetaObject(const QDesignerFormWindowToolInterface* self) {
+QMetaObject* QDesignerFormWindowToolInterface_SuperMetaObject(const QDesignerFormWindowToolInterface* self) {
     auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
     if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
         vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_MetaObject_IsBase(true);
@@ -134,7 +134,7 @@ void QDesignerFormWindowToolInterface_OnMetaObject(const QDesignerFormWindowTool
 }
 
 // Base class handler implementation
-void* QDesignerFormWindowToolInterface_QBaseMetacast(QDesignerFormWindowToolInterface* self, const char* param1) {
+void* QDesignerFormWindowToolInterface_SuperMetacast(QDesignerFormWindowToolInterface* self, const char* param1) {
     auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
     if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
         vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Metacast_IsBase(true);
@@ -153,7 +153,7 @@ void QDesignerFormWindowToolInterface_OnMetacast(QDesignerFormWindowToolInterfac
 }
 
 // Base class handler implementation
-int QDesignerFormWindowToolInterface_QBaseMetacall(QDesignerFormWindowToolInterface* self, int param1, int param2, void** param3) {
+int QDesignerFormWindowToolInterface_SuperMetacall(QDesignerFormWindowToolInterface* self, int param1, int param2, void** param3) {
     auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
     if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
         vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Metacall_IsBase(true);
@@ -172,7 +172,7 @@ void QDesignerFormWindowToolInterface_OnMetacall(QDesignerFormWindowToolInterfac
 }
 
 // Base class handler implementation
-QDesignerFormEditorInterface* QDesignerFormWindowToolInterface_QBaseCore(const QDesignerFormWindowToolInterface* self) {
+QDesignerFormEditorInterface* QDesignerFormWindowToolInterface_SuperCore(const QDesignerFormWindowToolInterface* self) {
     auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
     if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
         vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Core_IsBase(true);
@@ -191,7 +191,7 @@ void QDesignerFormWindowToolInterface_OnCore(const QDesignerFormWindowToolInterf
 }
 
 // Base class handler implementation
-QDesignerFormWindowInterface* QDesignerFormWindowToolInterface_QBaseFormWindow(const QDesignerFormWindowToolInterface* self) {
+QDesignerFormWindowInterface* QDesignerFormWindowToolInterface_SuperFormWindow(const QDesignerFormWindowToolInterface* self) {
     auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
     if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
         vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_FormWindow_IsBase(true);
@@ -210,7 +210,7 @@ void QDesignerFormWindowToolInterface_OnFormWindow(const QDesignerFormWindowTool
 }
 
 // Base class handler implementation
-QWidget* QDesignerFormWindowToolInterface_QBaseEditor(const QDesignerFormWindowToolInterface* self) {
+QWidget* QDesignerFormWindowToolInterface_SuperEditor(const QDesignerFormWindowToolInterface* self) {
     auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
     if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
         vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Editor_IsBase(true);
@@ -229,7 +229,7 @@ void QDesignerFormWindowToolInterface_OnEditor(const QDesignerFormWindowToolInte
 }
 
 // Base class handler implementation
-QAction* QDesignerFormWindowToolInterface_QBaseAction(const QDesignerFormWindowToolInterface* self) {
+QAction* QDesignerFormWindowToolInterface_SuperAction(const QDesignerFormWindowToolInterface* self) {
     auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
     if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
         vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Action_IsBase(true);
@@ -248,7 +248,7 @@ void QDesignerFormWindowToolInterface_OnAction(const QDesignerFormWindowToolInte
 }
 
 // Base class handler implementation
-void QDesignerFormWindowToolInterface_QBaseActivated(QDesignerFormWindowToolInterface* self) {
+void QDesignerFormWindowToolInterface_SuperActivated(QDesignerFormWindowToolInterface* self) {
     auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
     if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
         vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Activated_IsBase(true);
@@ -267,7 +267,7 @@ void QDesignerFormWindowToolInterface_OnActivated(QDesignerFormWindowToolInterfa
 }
 
 // Base class handler implementation
-void QDesignerFormWindowToolInterface_QBaseDeactivated(QDesignerFormWindowToolInterface* self) {
+void QDesignerFormWindowToolInterface_SuperDeactivated(QDesignerFormWindowToolInterface* self) {
     auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
     if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
         vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Deactivated_IsBase(true);
@@ -286,7 +286,7 @@ void QDesignerFormWindowToolInterface_OnDeactivated(QDesignerFormWindowToolInter
 }
 
 // Base class handler implementation
-bool QDesignerFormWindowToolInterface_QBaseHandleEvent(QDesignerFormWindowToolInterface* self, QWidget* widget, QWidget* managedWidget, QEvent* event) {
+bool QDesignerFormWindowToolInterface_SuperHandleEvent(QDesignerFormWindowToolInterface* self, QWidget* widget, QWidget* managedWidget, QEvent* event) {
     auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
     if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
         vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_HandleEvent_IsBase(true);
@@ -315,7 +315,7 @@ bool QDesignerFormWindowToolInterface_Event(QDesignerFormWindowToolInterface* se
 }
 
 // Base class handler implementation
-bool QDesignerFormWindowToolInterface_QBaseEvent(QDesignerFormWindowToolInterface* self, QEvent* event) {
+bool QDesignerFormWindowToolInterface_SuperEvent(QDesignerFormWindowToolInterface* self, QEvent* event) {
     auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
     if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
         vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Event_IsBase(true);
@@ -344,7 +344,7 @@ bool QDesignerFormWindowToolInterface_EventFilter(QDesignerFormWindowToolInterfa
 }
 
 // Base class handler implementation
-bool QDesignerFormWindowToolInterface_QBaseEventFilter(QDesignerFormWindowToolInterface* self, QObject* watched, QEvent* event) {
+bool QDesignerFormWindowToolInterface_SuperEventFilter(QDesignerFormWindowToolInterface* self, QObject* watched, QEvent* event) {
     auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
     if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
         vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_EventFilter_IsBase(true);
@@ -373,7 +373,7 @@ void QDesignerFormWindowToolInterface_TimerEvent(QDesignerFormWindowToolInterfac
 }
 
 // Base class handler implementation
-void QDesignerFormWindowToolInterface_QBaseTimerEvent(QDesignerFormWindowToolInterface* self, QTimerEvent* event) {
+void QDesignerFormWindowToolInterface_SuperTimerEvent(QDesignerFormWindowToolInterface* self, QTimerEvent* event) {
     auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
     if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
         vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_TimerEvent_IsBase(true);
@@ -402,7 +402,7 @@ void QDesignerFormWindowToolInterface_ChildEvent(QDesignerFormWindowToolInterfac
 }
 
 // Base class handler implementation
-void QDesignerFormWindowToolInterface_QBaseChildEvent(QDesignerFormWindowToolInterface* self, QChildEvent* event) {
+void QDesignerFormWindowToolInterface_SuperChildEvent(QDesignerFormWindowToolInterface* self, QChildEvent* event) {
     auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
     if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
         vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_ChildEvent_IsBase(true);
@@ -431,7 +431,7 @@ void QDesignerFormWindowToolInterface_CustomEvent(QDesignerFormWindowToolInterfa
 }
 
 // Base class handler implementation
-void QDesignerFormWindowToolInterface_QBaseCustomEvent(QDesignerFormWindowToolInterface* self, QEvent* event) {
+void QDesignerFormWindowToolInterface_SuperCustomEvent(QDesignerFormWindowToolInterface* self, QEvent* event) {
     auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
     if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
         vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_CustomEvent_IsBase(true);
@@ -460,7 +460,7 @@ void QDesignerFormWindowToolInterface_ConnectNotify(QDesignerFormWindowToolInter
 }
 
 // Base class handler implementation
-void QDesignerFormWindowToolInterface_QBaseConnectNotify(QDesignerFormWindowToolInterface* self, const QMetaMethod* signal) {
+void QDesignerFormWindowToolInterface_SuperConnectNotify(QDesignerFormWindowToolInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
     if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
         vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_ConnectNotify_IsBase(true);
@@ -489,7 +489,7 @@ void QDesignerFormWindowToolInterface_DisconnectNotify(QDesignerFormWindowToolIn
 }
 
 // Base class handler implementation
-void QDesignerFormWindowToolInterface_QBaseDisconnectNotify(QDesignerFormWindowToolInterface* self, const QMetaMethod* signal) {
+void QDesignerFormWindowToolInterface_SuperDisconnectNotify(QDesignerFormWindowToolInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
     if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
         vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_DisconnectNotify_IsBase(true);
@@ -518,7 +518,7 @@ QObject* QDesignerFormWindowToolInterface_Sender(const QDesignerFormWindowToolIn
 }
 
 // Base class handler implementation
-QObject* QDesignerFormWindowToolInterface_QBaseSender(const QDesignerFormWindowToolInterface* self) {
+QObject* QDesignerFormWindowToolInterface_SuperSender(const QDesignerFormWindowToolInterface* self) {
     auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
     if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
         vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Sender_IsBase(true);
@@ -547,7 +547,7 @@ int QDesignerFormWindowToolInterface_SenderSignalIndex(const QDesignerFormWindow
 }
 
 // Base class handler implementation
-int QDesignerFormWindowToolInterface_QBaseSenderSignalIndex(const QDesignerFormWindowToolInterface* self) {
+int QDesignerFormWindowToolInterface_SuperSenderSignalIndex(const QDesignerFormWindowToolInterface* self) {
     auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
     if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
         vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_SenderSignalIndex_IsBase(true);
@@ -576,7 +576,7 @@ int QDesignerFormWindowToolInterface_Receivers(const QDesignerFormWindowToolInte
 }
 
 // Base class handler implementation
-int QDesignerFormWindowToolInterface_QBaseReceivers(const QDesignerFormWindowToolInterface* self, const char* signal) {
+int QDesignerFormWindowToolInterface_SuperReceivers(const QDesignerFormWindowToolInterface* self, const char* signal) {
     auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
     if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
         vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Receivers_IsBase(true);
@@ -605,7 +605,7 @@ bool QDesignerFormWindowToolInterface_IsSignalConnected(const QDesignerFormWindo
 }
 
 // Base class handler implementation
-bool QDesignerFormWindowToolInterface_QBaseIsSignalConnected(const QDesignerFormWindowToolInterface* self, const QMetaMethod* signal) {
+bool QDesignerFormWindowToolInterface_SuperIsSignalConnected(const QDesignerFormWindowToolInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
     if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
         vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_IsSignalConnected_IsBase(true);

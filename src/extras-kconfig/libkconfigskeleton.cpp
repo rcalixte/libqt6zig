@@ -93,7 +93,7 @@ KConfigSkeleton__ItemFont* KConfigSkeleton_AddItemFont4(KConfigSkeleton* self, c
 }
 
 // Base class handler implementation
-QMetaObject* KConfigSkeleton_QBaseMetaObject(const KConfigSkeleton* self) {
+QMetaObject* KConfigSkeleton_SuperMetaObject(const KConfigSkeleton* self) {
     auto* vkconfigskeleton = const_cast<VirtualKConfigSkeleton*>(dynamic_cast<const VirtualKConfigSkeleton*>(self));
     if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
         vkconfigskeleton->setKConfigSkeleton_MetaObject_IsBase(true);
@@ -112,7 +112,7 @@ void KConfigSkeleton_OnMetaObject(const KConfigSkeleton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KConfigSkeleton_QBaseMetacast(KConfigSkeleton* self, const char* param1) {
+void* KConfigSkeleton_SuperMetacast(KConfigSkeleton* self, const char* param1) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
     if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
         vkconfigskeleton->setKConfigSkeleton_Metacast_IsBase(true);
@@ -131,7 +131,7 @@ void KConfigSkeleton_OnMetacast(KConfigSkeleton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KConfigSkeleton_QBaseMetacall(KConfigSkeleton* self, int param1, int param2, void** param3) {
+int KConfigSkeleton_SuperMetacall(KConfigSkeleton* self, int param1, int param2, void** param3) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
     if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
         vkconfigskeleton->setKConfigSkeleton_Metacall_IsBase(true);
@@ -160,7 +160,7 @@ void KConfigSkeleton_SetDefaults(KConfigSkeleton* self) {
 }
 
 // Base class handler implementation
-void KConfigSkeleton_QBaseSetDefaults(KConfigSkeleton* self) {
+void KConfigSkeleton_SuperSetDefaults(KConfigSkeleton* self) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
     if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
         vkconfigskeleton->setKConfigSkeleton_SetDefaults_IsBase(true);
@@ -189,7 +189,7 @@ bool KConfigSkeleton_UseDefaults(KConfigSkeleton* self, bool b) {
 }
 
 // Base class handler implementation
-bool KConfigSkeleton_QBaseUseDefaults(KConfigSkeleton* self, bool b) {
+bool KConfigSkeleton_SuperUseDefaults(KConfigSkeleton* self, bool b) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
     if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
         vkconfigskeleton->setKConfigSkeleton_UseDefaults_IsBase(true);
@@ -218,7 +218,7 @@ bool KConfigSkeleton_UsrUseDefaults(KConfigSkeleton* self, bool b) {
 }
 
 // Base class handler implementation
-bool KConfigSkeleton_QBaseUsrUseDefaults(KConfigSkeleton* self, bool b) {
+bool KConfigSkeleton_SuperUsrUseDefaults(KConfigSkeleton* self, bool b) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
     if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
         vkconfigskeleton->setKConfigSkeleton_UsrUseDefaults_IsBase(true);
@@ -247,7 +247,7 @@ void KConfigSkeleton_UsrSetDefaults(KConfigSkeleton* self) {
 }
 
 // Base class handler implementation
-void KConfigSkeleton_QBaseUsrSetDefaults(KConfigSkeleton* self) {
+void KConfigSkeleton_SuperUsrSetDefaults(KConfigSkeleton* self) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
     if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
         vkconfigskeleton->setKConfigSkeleton_UsrSetDefaults_IsBase(true);
@@ -276,7 +276,7 @@ void KConfigSkeleton_UsrRead(KConfigSkeleton* self) {
 }
 
 // Base class handler implementation
-void KConfigSkeleton_QBaseUsrRead(KConfigSkeleton* self) {
+void KConfigSkeleton_SuperUsrRead(KConfigSkeleton* self) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
     if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
         vkconfigskeleton->setKConfigSkeleton_UsrRead_IsBase(true);
@@ -305,7 +305,7 @@ bool KConfigSkeleton_UsrSave(KConfigSkeleton* self) {
 }
 
 // Base class handler implementation
-bool KConfigSkeleton_QBaseUsrSave(KConfigSkeleton* self) {
+bool KConfigSkeleton_SuperUsrSave(KConfigSkeleton* self) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
     if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
         vkconfigskeleton->setKConfigSkeleton_UsrSave_IsBase(true);
@@ -334,7 +334,7 @@ bool KConfigSkeleton_Event(KConfigSkeleton* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KConfigSkeleton_QBaseEvent(KConfigSkeleton* self, QEvent* event) {
+bool KConfigSkeleton_SuperEvent(KConfigSkeleton* self, QEvent* event) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
     if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
         vkconfigskeleton->setKConfigSkeleton_Event_IsBase(true);
@@ -363,7 +363,7 @@ bool KConfigSkeleton_EventFilter(KConfigSkeleton* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool KConfigSkeleton_QBaseEventFilter(KConfigSkeleton* self, QObject* watched, QEvent* event) {
+bool KConfigSkeleton_SuperEventFilter(KConfigSkeleton* self, QObject* watched, QEvent* event) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
     if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
         vkconfigskeleton->setKConfigSkeleton_EventFilter_IsBase(true);
@@ -392,7 +392,7 @@ void KConfigSkeleton_TimerEvent(KConfigSkeleton* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KConfigSkeleton_QBaseTimerEvent(KConfigSkeleton* self, QTimerEvent* event) {
+void KConfigSkeleton_SuperTimerEvent(KConfigSkeleton* self, QTimerEvent* event) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
     if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
         vkconfigskeleton->setKConfigSkeleton_TimerEvent_IsBase(true);
@@ -421,7 +421,7 @@ void KConfigSkeleton_ChildEvent(KConfigSkeleton* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KConfigSkeleton_QBaseChildEvent(KConfigSkeleton* self, QChildEvent* event) {
+void KConfigSkeleton_SuperChildEvent(KConfigSkeleton* self, QChildEvent* event) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
     if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
         vkconfigskeleton->setKConfigSkeleton_ChildEvent_IsBase(true);
@@ -450,7 +450,7 @@ void KConfigSkeleton_CustomEvent(KConfigSkeleton* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KConfigSkeleton_QBaseCustomEvent(KConfigSkeleton* self, QEvent* event) {
+void KConfigSkeleton_SuperCustomEvent(KConfigSkeleton* self, QEvent* event) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
     if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
         vkconfigskeleton->setKConfigSkeleton_CustomEvent_IsBase(true);
@@ -479,7 +479,7 @@ void KConfigSkeleton_ConnectNotify(KConfigSkeleton* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void KConfigSkeleton_QBaseConnectNotify(KConfigSkeleton* self, const QMetaMethod* signal) {
+void KConfigSkeleton_SuperConnectNotify(KConfigSkeleton* self, const QMetaMethod* signal) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
     if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
         vkconfigskeleton->setKConfigSkeleton_ConnectNotify_IsBase(true);
@@ -508,7 +508,7 @@ void KConfigSkeleton_DisconnectNotify(KConfigSkeleton* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void KConfigSkeleton_QBaseDisconnectNotify(KConfigSkeleton* self, const QMetaMethod* signal) {
+void KConfigSkeleton_SuperDisconnectNotify(KConfigSkeleton* self, const QMetaMethod* signal) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
     if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
         vkconfigskeleton->setKConfigSkeleton_DisconnectNotify_IsBase(true);
@@ -537,7 +537,7 @@ QObject* KConfigSkeleton_Sender(const KConfigSkeleton* self) {
 }
 
 // Base class handler implementation
-QObject* KConfigSkeleton_QBaseSender(const KConfigSkeleton* self) {
+QObject* KConfigSkeleton_SuperSender(const KConfigSkeleton* self) {
     auto* vkconfigskeleton = const_cast<VirtualKConfigSkeleton*>(dynamic_cast<const VirtualKConfigSkeleton*>(self));
     if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
         vkconfigskeleton->setKConfigSkeleton_Sender_IsBase(true);
@@ -566,7 +566,7 @@ int KConfigSkeleton_SenderSignalIndex(const KConfigSkeleton* self) {
 }
 
 // Base class handler implementation
-int KConfigSkeleton_QBaseSenderSignalIndex(const KConfigSkeleton* self) {
+int KConfigSkeleton_SuperSenderSignalIndex(const KConfigSkeleton* self) {
     auto* vkconfigskeleton = const_cast<VirtualKConfigSkeleton*>(dynamic_cast<const VirtualKConfigSkeleton*>(self));
     if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
         vkconfigskeleton->setKConfigSkeleton_SenderSignalIndex_IsBase(true);
@@ -595,7 +595,7 @@ int KConfigSkeleton_Receivers(const KConfigSkeleton* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KConfigSkeleton_QBaseReceivers(const KConfigSkeleton* self, const char* signal) {
+int KConfigSkeleton_SuperReceivers(const KConfigSkeleton* self, const char* signal) {
     auto* vkconfigskeleton = const_cast<VirtualKConfigSkeleton*>(dynamic_cast<const VirtualKConfigSkeleton*>(self));
     if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
         vkconfigskeleton->setKConfigSkeleton_Receivers_IsBase(true);
@@ -624,7 +624,7 @@ bool KConfigSkeleton_IsSignalConnected(const KConfigSkeleton* self, const QMetaM
 }
 
 // Base class handler implementation
-bool KConfigSkeleton_QBaseIsSignalConnected(const KConfigSkeleton* self, const QMetaMethod* signal) {
+bool KConfigSkeleton_SuperIsSignalConnected(const KConfigSkeleton* self, const QMetaMethod* signal) {
     auto* vkconfigskeleton = const_cast<VirtualKConfigSkeleton*>(dynamic_cast<const VirtualKConfigSkeleton*>(self));
     if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
         vkconfigskeleton->setKConfigSkeleton_IsSignalConnected_IsBase(true);
@@ -695,7 +695,7 @@ QVariant* KConfigSkeleton__ItemColor_Property(const KConfigSkeleton__ItemColor* 
 }
 
 // Base class handler implementation
-void KConfigSkeleton__ItemColor_QBaseReadConfig(KConfigSkeleton__ItemColor* self, KConfig* config) {
+void KConfigSkeleton__ItemColor_SuperReadConfig(KConfigSkeleton__ItemColor* self, KConfig* config) {
     auto* vkconfigskeletonitemcolor = dynamic_cast<VirtualKConfigSkeletonItemColor*>(self);
     if (vkconfigskeletonitemcolor && vkconfigskeletonitemcolor->isVirtualKConfigSkeletonItemColor) {
         vkconfigskeletonitemcolor->setKConfigSkeleton__ItemColor_ReadConfig_IsBase(true);
@@ -714,7 +714,7 @@ void KConfigSkeleton__ItemColor_OnReadConfig(KConfigSkeleton__ItemColor* self, i
 }
 
 // Base class handler implementation
-void KConfigSkeleton__ItemColor_QBaseSetProperty(KConfigSkeleton__ItemColor* self, const QVariant* p) {
+void KConfigSkeleton__ItemColor_SuperSetProperty(KConfigSkeleton__ItemColor* self, const QVariant* p) {
     auto* vkconfigskeletonitemcolor = dynamic_cast<VirtualKConfigSkeletonItemColor*>(self);
     if (vkconfigskeletonitemcolor && vkconfigskeletonitemcolor->isVirtualKConfigSkeletonItemColor) {
         vkconfigskeletonitemcolor->setKConfigSkeleton__ItemColor_SetProperty_IsBase(true);
@@ -733,7 +733,7 @@ void KConfigSkeleton__ItemColor_OnSetProperty(KConfigSkeleton__ItemColor* self, 
 }
 
 // Base class handler implementation
-bool KConfigSkeleton__ItemColor_QBaseIsEqual(const KConfigSkeleton__ItemColor* self, const QVariant* p) {
+bool KConfigSkeleton__ItemColor_SuperIsEqual(const KConfigSkeleton__ItemColor* self, const QVariant* p) {
     auto* vkconfigskeletonitemcolor = const_cast<VirtualKConfigSkeletonItemColor*>(dynamic_cast<const VirtualKConfigSkeletonItemColor*>(self));
     if (vkconfigskeletonitemcolor && vkconfigskeletonitemcolor->isVirtualKConfigSkeletonItemColor) {
         vkconfigskeletonitemcolor->setKConfigSkeleton__ItemColor_IsEqual_IsBase(true);
@@ -752,7 +752,7 @@ void KConfigSkeleton__ItemColor_OnIsEqual(const KConfigSkeleton__ItemColor* self
 }
 
 // Base class handler implementation
-QVariant* KConfigSkeleton__ItemColor_QBaseProperty(const KConfigSkeleton__ItemColor* self) {
+QVariant* KConfigSkeleton__ItemColor_SuperProperty(const KConfigSkeleton__ItemColor* self) {
     auto* vkconfigskeletonitemcolor = const_cast<VirtualKConfigSkeletonItemColor*>(dynamic_cast<const VirtualKConfigSkeletonItemColor*>(self));
     if (vkconfigskeletonitemcolor && vkconfigskeletonitemcolor->isVirtualKConfigSkeletonItemColor) {
         vkconfigskeletonitemcolor->setKConfigSkeleton__ItemColor_Property_IsBase(true);
@@ -823,7 +823,7 @@ QVariant* KConfigSkeleton__ItemFont_Property(const KConfigSkeleton__ItemFont* se
 }
 
 // Base class handler implementation
-void KConfigSkeleton__ItemFont_QBaseReadConfig(KConfigSkeleton__ItemFont* self, KConfig* config) {
+void KConfigSkeleton__ItemFont_SuperReadConfig(KConfigSkeleton__ItemFont* self, KConfig* config) {
     auto* vkconfigskeletonitemfont = dynamic_cast<VirtualKConfigSkeletonItemFont*>(self);
     if (vkconfigskeletonitemfont && vkconfigskeletonitemfont->isVirtualKConfigSkeletonItemFont) {
         vkconfigskeletonitemfont->setKConfigSkeleton__ItemFont_ReadConfig_IsBase(true);
@@ -842,7 +842,7 @@ void KConfigSkeleton__ItemFont_OnReadConfig(KConfigSkeleton__ItemFont* self, int
 }
 
 // Base class handler implementation
-void KConfigSkeleton__ItemFont_QBaseSetProperty(KConfigSkeleton__ItemFont* self, const QVariant* p) {
+void KConfigSkeleton__ItemFont_SuperSetProperty(KConfigSkeleton__ItemFont* self, const QVariant* p) {
     auto* vkconfigskeletonitemfont = dynamic_cast<VirtualKConfigSkeletonItemFont*>(self);
     if (vkconfigskeletonitemfont && vkconfigskeletonitemfont->isVirtualKConfigSkeletonItemFont) {
         vkconfigskeletonitemfont->setKConfigSkeleton__ItemFont_SetProperty_IsBase(true);
@@ -861,7 +861,7 @@ void KConfigSkeleton__ItemFont_OnSetProperty(KConfigSkeleton__ItemFont* self, in
 }
 
 // Base class handler implementation
-bool KConfigSkeleton__ItemFont_QBaseIsEqual(const KConfigSkeleton__ItemFont* self, const QVariant* p) {
+bool KConfigSkeleton__ItemFont_SuperIsEqual(const KConfigSkeleton__ItemFont* self, const QVariant* p) {
     auto* vkconfigskeletonitemfont = const_cast<VirtualKConfigSkeletonItemFont*>(dynamic_cast<const VirtualKConfigSkeletonItemFont*>(self));
     if (vkconfigskeletonitemfont && vkconfigskeletonitemfont->isVirtualKConfigSkeletonItemFont) {
         vkconfigskeletonitemfont->setKConfigSkeleton__ItemFont_IsEqual_IsBase(true);
@@ -880,7 +880,7 @@ void KConfigSkeleton__ItemFont_OnIsEqual(const KConfigSkeleton__ItemFont* self, 
 }
 
 // Base class handler implementation
-QVariant* KConfigSkeleton__ItemFont_QBaseProperty(const KConfigSkeleton__ItemFont* self) {
+QVariant* KConfigSkeleton__ItemFont_SuperProperty(const KConfigSkeleton__ItemFont* self) {
     auto* vkconfigskeletonitemfont = const_cast<VirtualKConfigSkeletonItemFont*>(dynamic_cast<const VirtualKConfigSkeletonItemFont*>(self));
     if (vkconfigskeletonitemfont && vkconfigskeletonitemfont->isVirtualKConfigSkeletonItemFont) {
         vkconfigskeletonitemfont->setKConfigSkeleton__ItemFont_Property_IsBase(true);

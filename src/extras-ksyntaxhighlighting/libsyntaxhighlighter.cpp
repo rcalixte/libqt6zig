@@ -110,7 +110,7 @@ void KSyntaxHighlighting__SyntaxHighlighter_ApplyFolding(KSyntaxHighlighting__Sy
 }
 
 // Base class handler implementation
-QMetaObject* KSyntaxHighlighting__SyntaxHighlighter_QBaseMetaObject(const KSyntaxHighlighting__SyntaxHighlighter* self) {
+QMetaObject* KSyntaxHighlighting__SyntaxHighlighter_SuperMetaObject(const KSyntaxHighlighting__SyntaxHighlighter* self) {
     auto* vksyntaxhighlightingsyntaxhighlighter = const_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(dynamic_cast<const VirtualKSyntaxHighlightingSyntaxHighlighter*>(self));
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_MetaObject_IsBase(true);
@@ -129,7 +129,7 @@ void KSyntaxHighlighting__SyntaxHighlighter_OnMetaObject(const KSyntaxHighlighti
 }
 
 // Base class handler implementation
-void* KSyntaxHighlighting__SyntaxHighlighter_QBaseMetacast(KSyntaxHighlighting__SyntaxHighlighter* self, const char* param1) {
+void* KSyntaxHighlighting__SyntaxHighlighter_SuperMetacast(KSyntaxHighlighting__SyntaxHighlighter* self, const char* param1) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_Metacast_IsBase(true);
@@ -148,7 +148,7 @@ void KSyntaxHighlighting__SyntaxHighlighter_OnMetacast(KSyntaxHighlighting__Synt
 }
 
 // Base class handler implementation
-int KSyntaxHighlighting__SyntaxHighlighter_QBaseMetacall(KSyntaxHighlighting__SyntaxHighlighter* self, int param1, int param2, void** param3) {
+int KSyntaxHighlighting__SyntaxHighlighter_SuperMetacall(KSyntaxHighlighting__SyntaxHighlighter* self, int param1, int param2, void** param3) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_Metacall_IsBase(true);
@@ -167,7 +167,7 @@ void KSyntaxHighlighting__SyntaxHighlighter_OnMetacall(KSyntaxHighlighting__Synt
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__SyntaxHighlighter_QBaseSetDefinition(KSyntaxHighlighting__SyntaxHighlighter* self, const KSyntaxHighlighting__Definition* def) {
+void KSyntaxHighlighting__SyntaxHighlighter_SuperSetDefinition(KSyntaxHighlighting__SyntaxHighlighter* self, const KSyntaxHighlighting__Definition* def) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_SetDefinition_IsBase(true);
@@ -186,7 +186,7 @@ void KSyntaxHighlighting__SyntaxHighlighter_OnSetDefinition(KSyntaxHighlighting_
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__SyntaxHighlighter_QBaseSetTheme(KSyntaxHighlighting__SyntaxHighlighter* self, const KSyntaxHighlighting__Theme* theme) {
+void KSyntaxHighlighting__SyntaxHighlighter_SuperSetTheme(KSyntaxHighlighting__SyntaxHighlighter* self, const KSyntaxHighlighting__Theme* theme) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_SetTheme_IsBase(true);
@@ -205,7 +205,7 @@ void KSyntaxHighlighting__SyntaxHighlighter_OnSetTheme(KSyntaxHighlighting__Synt
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__SyntaxHighlighter_QBaseHighlightBlock(KSyntaxHighlighting__SyntaxHighlighter* self, const libqt_string text) {
+void KSyntaxHighlighting__SyntaxHighlighter_SuperHighlightBlock(KSyntaxHighlighting__SyntaxHighlighter* self, const libqt_string text) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
@@ -225,7 +225,7 @@ void KSyntaxHighlighting__SyntaxHighlighter_OnHighlightBlock(KSyntaxHighlighting
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__SyntaxHighlighter_QBaseApplyFormat(KSyntaxHighlighting__SyntaxHighlighter* self, int offset, int length, const KSyntaxHighlighting__Format* format) {
+void KSyntaxHighlighting__SyntaxHighlighter_SuperApplyFormat(KSyntaxHighlighting__SyntaxHighlighter* self, int offset, int length, const KSyntaxHighlighting__Format* format) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_ApplyFormat_IsBase(true);
@@ -244,7 +244,7 @@ void KSyntaxHighlighting__SyntaxHighlighter_OnApplyFormat(KSyntaxHighlighting__S
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__SyntaxHighlighter_QBaseApplyFolding(KSyntaxHighlighting__SyntaxHighlighter* self, int offset, int length, KSyntaxHighlighting__FoldingRegion* region) {
+void KSyntaxHighlighting__SyntaxHighlighter_SuperApplyFolding(KSyntaxHighlighting__SyntaxHighlighter* self, int offset, int length, KSyntaxHighlighting__FoldingRegion* region) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_ApplyFolding_IsBase(true);
@@ -273,7 +273,7 @@ bool KSyntaxHighlighting__SyntaxHighlighter_Event(KSyntaxHighlighting__SyntaxHig
 }
 
 // Base class handler implementation
-bool KSyntaxHighlighting__SyntaxHighlighter_QBaseEvent(KSyntaxHighlighting__SyntaxHighlighter* self, QEvent* event) {
+bool KSyntaxHighlighting__SyntaxHighlighter_SuperEvent(KSyntaxHighlighting__SyntaxHighlighter* self, QEvent* event) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_Event_IsBase(true);
@@ -302,7 +302,7 @@ bool KSyntaxHighlighting__SyntaxHighlighter_EventFilter(KSyntaxHighlighting__Syn
 }
 
 // Base class handler implementation
-bool KSyntaxHighlighting__SyntaxHighlighter_QBaseEventFilter(KSyntaxHighlighting__SyntaxHighlighter* self, QObject* watched, QEvent* event) {
+bool KSyntaxHighlighting__SyntaxHighlighter_SuperEventFilter(KSyntaxHighlighting__SyntaxHighlighter* self, QObject* watched, QEvent* event) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_EventFilter_IsBase(true);
@@ -331,7 +331,7 @@ void KSyntaxHighlighting__SyntaxHighlighter_TimerEvent(KSyntaxHighlighting__Synt
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__SyntaxHighlighter_QBaseTimerEvent(KSyntaxHighlighting__SyntaxHighlighter* self, QTimerEvent* event) {
+void KSyntaxHighlighting__SyntaxHighlighter_SuperTimerEvent(KSyntaxHighlighting__SyntaxHighlighter* self, QTimerEvent* event) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_TimerEvent_IsBase(true);
@@ -360,7 +360,7 @@ void KSyntaxHighlighting__SyntaxHighlighter_ChildEvent(KSyntaxHighlighting__Synt
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__SyntaxHighlighter_QBaseChildEvent(KSyntaxHighlighting__SyntaxHighlighter* self, QChildEvent* event) {
+void KSyntaxHighlighting__SyntaxHighlighter_SuperChildEvent(KSyntaxHighlighting__SyntaxHighlighter* self, QChildEvent* event) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_ChildEvent_IsBase(true);
@@ -389,7 +389,7 @@ void KSyntaxHighlighting__SyntaxHighlighter_CustomEvent(KSyntaxHighlighting__Syn
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__SyntaxHighlighter_QBaseCustomEvent(KSyntaxHighlighting__SyntaxHighlighter* self, QEvent* event) {
+void KSyntaxHighlighting__SyntaxHighlighter_SuperCustomEvent(KSyntaxHighlighting__SyntaxHighlighter* self, QEvent* event) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_CustomEvent_IsBase(true);
@@ -418,7 +418,7 @@ void KSyntaxHighlighting__SyntaxHighlighter_ConnectNotify(KSyntaxHighlighting__S
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__SyntaxHighlighter_QBaseConnectNotify(KSyntaxHighlighting__SyntaxHighlighter* self, const QMetaMethod* signal) {
+void KSyntaxHighlighting__SyntaxHighlighter_SuperConnectNotify(KSyntaxHighlighting__SyntaxHighlighter* self, const QMetaMethod* signal) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_ConnectNotify_IsBase(true);
@@ -447,7 +447,7 @@ void KSyntaxHighlighting__SyntaxHighlighter_DisconnectNotify(KSyntaxHighlighting
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__SyntaxHighlighter_QBaseDisconnectNotify(KSyntaxHighlighting__SyntaxHighlighter* self, const QMetaMethod* signal) {
+void KSyntaxHighlighting__SyntaxHighlighter_SuperDisconnectNotify(KSyntaxHighlighting__SyntaxHighlighter* self, const QMetaMethod* signal) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_DisconnectNotify_IsBase(true);
@@ -476,7 +476,7 @@ void KSyntaxHighlighting__SyntaxHighlighter_SetFormat(KSyntaxHighlighting__Synta
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__SyntaxHighlighter_QBaseSetFormat(KSyntaxHighlighting__SyntaxHighlighter* self, int start, int count, const QTextCharFormat* format) {
+void KSyntaxHighlighting__SyntaxHighlighter_SuperSetFormat(KSyntaxHighlighting__SyntaxHighlighter* self, int start, int count, const QTextCharFormat* format) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_SetFormat_IsBase(true);
@@ -504,7 +504,7 @@ QTextCharFormat* KSyntaxHighlighting__SyntaxHighlighter_Format(const KSyntaxHigh
 }
 
 // Base class handler implementation
-QTextCharFormat* KSyntaxHighlighting__SyntaxHighlighter_QBaseFormat(const KSyntaxHighlighting__SyntaxHighlighter* self, int pos) {
+QTextCharFormat* KSyntaxHighlighting__SyntaxHighlighter_SuperFormat(const KSyntaxHighlighting__SyntaxHighlighter* self, int pos) {
     auto* vksyntaxhighlightingsyntaxhighlighter = const_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(dynamic_cast<const VirtualKSyntaxHighlightingSyntaxHighlighter*>(self));
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_Format_IsBase(true);
@@ -532,7 +532,7 @@ int KSyntaxHighlighting__SyntaxHighlighter_PreviousBlockState(const KSyntaxHighl
 }
 
 // Base class handler implementation
-int KSyntaxHighlighting__SyntaxHighlighter_QBasePreviousBlockState(const KSyntaxHighlighting__SyntaxHighlighter* self) {
+int KSyntaxHighlighting__SyntaxHighlighter_SuperPreviousBlockState(const KSyntaxHighlighting__SyntaxHighlighter* self) {
     auto* vksyntaxhighlightingsyntaxhighlighter = const_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(dynamic_cast<const VirtualKSyntaxHighlightingSyntaxHighlighter*>(self));
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_PreviousBlockState_IsBase(true);
@@ -561,7 +561,7 @@ int KSyntaxHighlighting__SyntaxHighlighter_CurrentBlockState(const KSyntaxHighli
 }
 
 // Base class handler implementation
-int KSyntaxHighlighting__SyntaxHighlighter_QBaseCurrentBlockState(const KSyntaxHighlighting__SyntaxHighlighter* self) {
+int KSyntaxHighlighting__SyntaxHighlighter_SuperCurrentBlockState(const KSyntaxHighlighting__SyntaxHighlighter* self) {
     auto* vksyntaxhighlightingsyntaxhighlighter = const_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(dynamic_cast<const VirtualKSyntaxHighlightingSyntaxHighlighter*>(self));
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_CurrentBlockState_IsBase(true);
@@ -590,7 +590,7 @@ void KSyntaxHighlighting__SyntaxHighlighter_SetCurrentBlockState(KSyntaxHighligh
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__SyntaxHighlighter_QBaseSetCurrentBlockState(KSyntaxHighlighting__SyntaxHighlighter* self, int newState) {
+void KSyntaxHighlighting__SyntaxHighlighter_SuperSetCurrentBlockState(KSyntaxHighlighting__SyntaxHighlighter* self, int newState) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_SetCurrentBlockState_IsBase(true);
@@ -619,7 +619,7 @@ void KSyntaxHighlighting__SyntaxHighlighter_SetCurrentBlockUserData(KSyntaxHighl
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__SyntaxHighlighter_QBaseSetCurrentBlockUserData(KSyntaxHighlighting__SyntaxHighlighter* self, QTextBlockUserData* data) {
+void KSyntaxHighlighting__SyntaxHighlighter_SuperSetCurrentBlockUserData(KSyntaxHighlighting__SyntaxHighlighter* self, QTextBlockUserData* data) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_SetCurrentBlockUserData_IsBase(true);
@@ -648,7 +648,7 @@ QTextBlockUserData* KSyntaxHighlighting__SyntaxHighlighter_CurrentBlockUserData(
 }
 
 // Base class handler implementation
-QTextBlockUserData* KSyntaxHighlighting__SyntaxHighlighter_QBaseCurrentBlockUserData(const KSyntaxHighlighting__SyntaxHighlighter* self) {
+QTextBlockUserData* KSyntaxHighlighting__SyntaxHighlighter_SuperCurrentBlockUserData(const KSyntaxHighlighting__SyntaxHighlighter* self) {
     auto* vksyntaxhighlightingsyntaxhighlighter = const_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(dynamic_cast<const VirtualKSyntaxHighlightingSyntaxHighlighter*>(self));
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_CurrentBlockUserData_IsBase(true);
@@ -676,7 +676,7 @@ QTextBlock* KSyntaxHighlighting__SyntaxHighlighter_CurrentBlock(const KSyntaxHig
 }
 
 // Base class handler implementation
-QTextBlock* KSyntaxHighlighting__SyntaxHighlighter_QBaseCurrentBlock(const KSyntaxHighlighting__SyntaxHighlighter* self) {
+QTextBlock* KSyntaxHighlighting__SyntaxHighlighter_SuperCurrentBlock(const KSyntaxHighlighting__SyntaxHighlighter* self) {
     auto* vksyntaxhighlightingsyntaxhighlighter = const_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(dynamic_cast<const VirtualKSyntaxHighlightingSyntaxHighlighter*>(self));
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_CurrentBlock_IsBase(true);
@@ -704,7 +704,7 @@ QObject* KSyntaxHighlighting__SyntaxHighlighter_Sender(const KSyntaxHighlighting
 }
 
 // Base class handler implementation
-QObject* KSyntaxHighlighting__SyntaxHighlighter_QBaseSender(const KSyntaxHighlighting__SyntaxHighlighter* self) {
+QObject* KSyntaxHighlighting__SyntaxHighlighter_SuperSender(const KSyntaxHighlighting__SyntaxHighlighter* self) {
     auto* vksyntaxhighlightingsyntaxhighlighter = const_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(dynamic_cast<const VirtualKSyntaxHighlightingSyntaxHighlighter*>(self));
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_Sender_IsBase(true);
@@ -733,7 +733,7 @@ int KSyntaxHighlighting__SyntaxHighlighter_SenderSignalIndex(const KSyntaxHighli
 }
 
 // Base class handler implementation
-int KSyntaxHighlighting__SyntaxHighlighter_QBaseSenderSignalIndex(const KSyntaxHighlighting__SyntaxHighlighter* self) {
+int KSyntaxHighlighting__SyntaxHighlighter_SuperSenderSignalIndex(const KSyntaxHighlighting__SyntaxHighlighter* self) {
     auto* vksyntaxhighlightingsyntaxhighlighter = const_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(dynamic_cast<const VirtualKSyntaxHighlightingSyntaxHighlighter*>(self));
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_SenderSignalIndex_IsBase(true);
@@ -762,7 +762,7 @@ int KSyntaxHighlighting__SyntaxHighlighter_Receivers(const KSyntaxHighlighting__
 }
 
 // Base class handler implementation
-int KSyntaxHighlighting__SyntaxHighlighter_QBaseReceivers(const KSyntaxHighlighting__SyntaxHighlighter* self, const char* signal) {
+int KSyntaxHighlighting__SyntaxHighlighter_SuperReceivers(const KSyntaxHighlighting__SyntaxHighlighter* self, const char* signal) {
     auto* vksyntaxhighlightingsyntaxhighlighter = const_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(dynamic_cast<const VirtualKSyntaxHighlightingSyntaxHighlighter*>(self));
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_Receivers_IsBase(true);
@@ -791,7 +791,7 @@ bool KSyntaxHighlighting__SyntaxHighlighter_IsSignalConnected(const KSyntaxHighl
 }
 
 // Base class handler implementation
-bool KSyntaxHighlighting__SyntaxHighlighter_QBaseIsSignalConnected(const KSyntaxHighlighting__SyntaxHighlighter* self, const QMetaMethod* signal) {
+bool KSyntaxHighlighting__SyntaxHighlighter_SuperIsSignalConnected(const KSyntaxHighlighting__SyntaxHighlighter* self, const QMetaMethod* signal) {
     auto* vksyntaxhighlightingsyntaxhighlighter = const_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(dynamic_cast<const VirtualKSyntaxHighlightingSyntaxHighlighter*>(self));
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_IsSignalConnected_IsBase(true);

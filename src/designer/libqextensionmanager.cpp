@@ -80,7 +80,7 @@ QObject* QExtensionManager_Extension(const QExtensionManager* self, QObject* obj
 }
 
 // Base class handler implementation
-QMetaObject* QExtensionManager_QBaseMetaObject(const QExtensionManager* self) {
+QMetaObject* QExtensionManager_SuperMetaObject(const QExtensionManager* self) {
     auto* vqextensionmanager = const_cast<VirtualQExtensionManager*>(dynamic_cast<const VirtualQExtensionManager*>(self));
     if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
         vqextensionmanager->setQExtensionManager_MetaObject_IsBase(true);
@@ -99,7 +99,7 @@ void QExtensionManager_OnMetaObject(const QExtensionManager* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* QExtensionManager_QBaseMetacast(QExtensionManager* self, const char* param1) {
+void* QExtensionManager_SuperMetacast(QExtensionManager* self, const char* param1) {
     auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
     if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
         vqextensionmanager->setQExtensionManager_Metacast_IsBase(true);
@@ -118,7 +118,7 @@ void QExtensionManager_OnMetacast(QExtensionManager* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QExtensionManager_QBaseMetacall(QExtensionManager* self, int param1, int param2, void** param3) {
+int QExtensionManager_SuperMetacall(QExtensionManager* self, int param1, int param2, void** param3) {
     auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
     if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
         vqextensionmanager->setQExtensionManager_Metacall_IsBase(true);
@@ -137,7 +137,7 @@ void QExtensionManager_OnMetacall(QExtensionManager* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QExtensionManager_QBaseRegisterExtensions(QExtensionManager* self, QAbstractExtensionFactory* factory, const libqt_string iid) {
+void QExtensionManager_SuperRegisterExtensions(QExtensionManager* self, QAbstractExtensionFactory* factory, const libqt_string iid) {
     auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
     QString iid_QString = QString::fromUtf8(iid.data, iid.len);
     if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
@@ -157,7 +157,7 @@ void QExtensionManager_OnRegisterExtensions(QExtensionManager* self, intptr_t sl
 }
 
 // Base class handler implementation
-void QExtensionManager_QBaseUnregisterExtensions(QExtensionManager* self, QAbstractExtensionFactory* factory, const libqt_string iid) {
+void QExtensionManager_SuperUnregisterExtensions(QExtensionManager* self, QAbstractExtensionFactory* factory, const libqt_string iid) {
     auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
     QString iid_QString = QString::fromUtf8(iid.data, iid.len);
     if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
@@ -177,7 +177,7 @@ void QExtensionManager_OnUnregisterExtensions(QExtensionManager* self, intptr_t 
 }
 
 // Base class handler implementation
-QObject* QExtensionManager_QBaseExtension(const QExtensionManager* self, QObject* object, const libqt_string iid) {
+QObject* QExtensionManager_SuperExtension(const QExtensionManager* self, QObject* object, const libqt_string iid) {
     auto* vqextensionmanager = const_cast<VirtualQExtensionManager*>(dynamic_cast<const VirtualQExtensionManager*>(self));
     QString iid_QString = QString::fromUtf8(iid.data, iid.len);
     if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
@@ -207,7 +207,7 @@ bool QExtensionManager_Event(QExtensionManager* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QExtensionManager_QBaseEvent(QExtensionManager* self, QEvent* event) {
+bool QExtensionManager_SuperEvent(QExtensionManager* self, QEvent* event) {
     auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
     if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
         vqextensionmanager->setQExtensionManager_Event_IsBase(true);
@@ -236,7 +236,7 @@ bool QExtensionManager_EventFilter(QExtensionManager* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool QExtensionManager_QBaseEventFilter(QExtensionManager* self, QObject* watched, QEvent* event) {
+bool QExtensionManager_SuperEventFilter(QExtensionManager* self, QObject* watched, QEvent* event) {
     auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
     if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
         vqextensionmanager->setQExtensionManager_EventFilter_IsBase(true);
@@ -265,7 +265,7 @@ void QExtensionManager_TimerEvent(QExtensionManager* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QExtensionManager_QBaseTimerEvent(QExtensionManager* self, QTimerEvent* event) {
+void QExtensionManager_SuperTimerEvent(QExtensionManager* self, QTimerEvent* event) {
     auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
     if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
         vqextensionmanager->setQExtensionManager_TimerEvent_IsBase(true);
@@ -294,7 +294,7 @@ void QExtensionManager_ChildEvent(QExtensionManager* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QExtensionManager_QBaseChildEvent(QExtensionManager* self, QChildEvent* event) {
+void QExtensionManager_SuperChildEvent(QExtensionManager* self, QChildEvent* event) {
     auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
     if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
         vqextensionmanager->setQExtensionManager_ChildEvent_IsBase(true);
@@ -323,7 +323,7 @@ void QExtensionManager_CustomEvent(QExtensionManager* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QExtensionManager_QBaseCustomEvent(QExtensionManager* self, QEvent* event) {
+void QExtensionManager_SuperCustomEvent(QExtensionManager* self, QEvent* event) {
     auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
     if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
         vqextensionmanager->setQExtensionManager_CustomEvent_IsBase(true);
@@ -352,7 +352,7 @@ void QExtensionManager_ConnectNotify(QExtensionManager* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void QExtensionManager_QBaseConnectNotify(QExtensionManager* self, const QMetaMethod* signal) {
+void QExtensionManager_SuperConnectNotify(QExtensionManager* self, const QMetaMethod* signal) {
     auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
     if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
         vqextensionmanager->setQExtensionManager_ConnectNotify_IsBase(true);
@@ -381,7 +381,7 @@ void QExtensionManager_DisconnectNotify(QExtensionManager* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void QExtensionManager_QBaseDisconnectNotify(QExtensionManager* self, const QMetaMethod* signal) {
+void QExtensionManager_SuperDisconnectNotify(QExtensionManager* self, const QMetaMethod* signal) {
     auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
     if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
         vqextensionmanager->setQExtensionManager_DisconnectNotify_IsBase(true);
@@ -410,7 +410,7 @@ QObject* QExtensionManager_Sender(const QExtensionManager* self) {
 }
 
 // Base class handler implementation
-QObject* QExtensionManager_QBaseSender(const QExtensionManager* self) {
+QObject* QExtensionManager_SuperSender(const QExtensionManager* self) {
     auto* vqextensionmanager = const_cast<VirtualQExtensionManager*>(dynamic_cast<const VirtualQExtensionManager*>(self));
     if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
         vqextensionmanager->setQExtensionManager_Sender_IsBase(true);
@@ -439,7 +439,7 @@ int QExtensionManager_SenderSignalIndex(const QExtensionManager* self) {
 }
 
 // Base class handler implementation
-int QExtensionManager_QBaseSenderSignalIndex(const QExtensionManager* self) {
+int QExtensionManager_SuperSenderSignalIndex(const QExtensionManager* self) {
     auto* vqextensionmanager = const_cast<VirtualQExtensionManager*>(dynamic_cast<const VirtualQExtensionManager*>(self));
     if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
         vqextensionmanager->setQExtensionManager_SenderSignalIndex_IsBase(true);
@@ -468,7 +468,7 @@ int QExtensionManager_Receivers(const QExtensionManager* self, const char* signa
 }
 
 // Base class handler implementation
-int QExtensionManager_QBaseReceivers(const QExtensionManager* self, const char* signal) {
+int QExtensionManager_SuperReceivers(const QExtensionManager* self, const char* signal) {
     auto* vqextensionmanager = const_cast<VirtualQExtensionManager*>(dynamic_cast<const VirtualQExtensionManager*>(self));
     if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
         vqextensionmanager->setQExtensionManager_Receivers_IsBase(true);
@@ -497,7 +497,7 @@ bool QExtensionManager_IsSignalConnected(const QExtensionManager* self, const QM
 }
 
 // Base class handler implementation
-bool QExtensionManager_QBaseIsSignalConnected(const QExtensionManager* self, const QMetaMethod* signal) {
+bool QExtensionManager_SuperIsSignalConnected(const QExtensionManager* self, const QMetaMethod* signal) {
     auto* vqextensionmanager = const_cast<VirtualQExtensionManager*>(dynamic_cast<const VirtualQExtensionManager*>(self));
     if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
         vqextensionmanager->setQExtensionManager_IsSignalConnected_IsBase(true);

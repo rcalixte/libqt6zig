@@ -75,6 +75,10 @@ pub const qwebengineclientcertificateselection = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificateselection.html#dtor.QWebEngineClientCertificateSelection)
     ///
     /// Delete this object from C++ memory.
@@ -83,7 +87,7 @@ pub const qwebengineclientcertificateselection = struct {
     ///
     /// ` self: QtC.QWebEngineClientCertificateSelection `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebEngineClientCertificateSelection_Delete(@ptrCast(self));
     }
 };

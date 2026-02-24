@@ -202,7 +202,7 @@ QFont* QFontDialog_GetFont5(bool* ok, const QFont* initial, QWidget* parent, con
 }
 
 // Base class handler implementation
-QMetaObject* QFontDialog_QBaseMetaObject(const QFontDialog* self) {
+QMetaObject* QFontDialog_SuperMetaObject(const QFontDialog* self) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_MetaObject_IsBase(true);
@@ -221,7 +221,7 @@ void QFontDialog_OnMetaObject(const QFontDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QFontDialog_QBaseMetacast(QFontDialog* self, const char* param1) {
+void* QFontDialog_SuperMetacast(QFontDialog* self, const char* param1) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_Metacast_IsBase(true);
@@ -240,7 +240,7 @@ void QFontDialog_OnMetacast(QFontDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QFontDialog_QBaseMetacall(QFontDialog* self, int param1, int param2, void** param3) {
+int QFontDialog_SuperMetacall(QFontDialog* self, int param1, int param2, void** param3) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_Metacall_IsBase(true);
@@ -259,7 +259,7 @@ void QFontDialog_OnMetacall(QFontDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseSetVisible(QFontDialog* self, bool visible) {
+void QFontDialog_SuperSetVisible(QFontDialog* self, bool visible) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_SetVisible_IsBase(true);
@@ -278,7 +278,7 @@ void QFontDialog_OnSetVisible(QFontDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseChangeEvent(QFontDialog* self, QEvent* event) {
+void QFontDialog_SuperChangeEvent(QFontDialog* self, QEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_ChangeEvent_IsBase(true);
@@ -297,7 +297,7 @@ void QFontDialog_OnChangeEvent(QFontDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseDone(QFontDialog* self, int result) {
+void QFontDialog_SuperDone(QFontDialog* self, int result) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_Done_IsBase(true);
@@ -316,7 +316,7 @@ void QFontDialog_OnDone(QFontDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QFontDialog_QBaseEventFilter(QFontDialog* self, QObject* object, QEvent* event) {
+bool QFontDialog_SuperEventFilter(QFontDialog* self, QObject* object, QEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_EventFilter_IsBase(true);
@@ -345,7 +345,7 @@ QSize* QFontDialog_SizeHint(const QFontDialog* self) {
 }
 
 // Base class handler implementation
-QSize* QFontDialog_QBaseSizeHint(const QFontDialog* self) {
+QSize* QFontDialog_SuperSizeHint(const QFontDialog* self) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_SizeHint_IsBase(true);
@@ -374,7 +374,7 @@ QSize* QFontDialog_MinimumSizeHint(const QFontDialog* self) {
 }
 
 // Base class handler implementation
-QSize* QFontDialog_QBaseMinimumSizeHint(const QFontDialog* self) {
+QSize* QFontDialog_SuperMinimumSizeHint(const QFontDialog* self) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_MinimumSizeHint_IsBase(true);
@@ -403,7 +403,7 @@ void QFontDialog_Open(QFontDialog* self) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseOpen(QFontDialog* self) {
+void QFontDialog_SuperOpen(QFontDialog* self) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_Open_IsBase(true);
@@ -432,7 +432,7 @@ int QFontDialog_Exec(QFontDialog* self) {
 }
 
 // Base class handler implementation
-int QFontDialog_QBaseExec(QFontDialog* self) {
+int QFontDialog_SuperExec(QFontDialog* self) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_Exec_IsBase(true);
@@ -461,7 +461,7 @@ void QFontDialog_Accept(QFontDialog* self) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseAccept(QFontDialog* self) {
+void QFontDialog_SuperAccept(QFontDialog* self) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_Accept_IsBase(true);
@@ -490,7 +490,7 @@ void QFontDialog_Reject(QFontDialog* self) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseReject(QFontDialog* self) {
+void QFontDialog_SuperReject(QFontDialog* self) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_Reject_IsBase(true);
@@ -519,7 +519,7 @@ void QFontDialog_KeyPressEvent(QFontDialog* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseKeyPressEvent(QFontDialog* self, QKeyEvent* param1) {
+void QFontDialog_SuperKeyPressEvent(QFontDialog* self, QKeyEvent* param1) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_KeyPressEvent_IsBase(true);
@@ -548,7 +548,7 @@ void QFontDialog_CloseEvent(QFontDialog* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseCloseEvent(QFontDialog* self, QCloseEvent* param1) {
+void QFontDialog_SuperCloseEvent(QFontDialog* self, QCloseEvent* param1) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_CloseEvent_IsBase(true);
@@ -577,7 +577,7 @@ void QFontDialog_ShowEvent(QFontDialog* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseShowEvent(QFontDialog* self, QShowEvent* param1) {
+void QFontDialog_SuperShowEvent(QFontDialog* self, QShowEvent* param1) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_ShowEvent_IsBase(true);
@@ -606,7 +606,7 @@ void QFontDialog_ResizeEvent(QFontDialog* self, QResizeEvent* param1) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseResizeEvent(QFontDialog* self, QResizeEvent* param1) {
+void QFontDialog_SuperResizeEvent(QFontDialog* self, QResizeEvent* param1) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_ResizeEvent_IsBase(true);
@@ -635,7 +635,7 @@ void QFontDialog_ContextMenuEvent(QFontDialog* self, QContextMenuEvent* param1) 
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseContextMenuEvent(QFontDialog* self, QContextMenuEvent* param1) {
+void QFontDialog_SuperContextMenuEvent(QFontDialog* self, QContextMenuEvent* param1) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_ContextMenuEvent_IsBase(true);
@@ -664,7 +664,7 @@ int QFontDialog_DevType(const QFontDialog* self) {
 }
 
 // Base class handler implementation
-int QFontDialog_QBaseDevType(const QFontDialog* self) {
+int QFontDialog_SuperDevType(const QFontDialog* self) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_DevType_IsBase(true);
@@ -693,7 +693,7 @@ int QFontDialog_HeightForWidth(const QFontDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int QFontDialog_QBaseHeightForWidth(const QFontDialog* self, int param1) {
+int QFontDialog_SuperHeightForWidth(const QFontDialog* self, int param1) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_HeightForWidth_IsBase(true);
@@ -722,7 +722,7 @@ bool QFontDialog_HasHeightForWidth(const QFontDialog* self) {
 }
 
 // Base class handler implementation
-bool QFontDialog_QBaseHasHeightForWidth(const QFontDialog* self) {
+bool QFontDialog_SuperHasHeightForWidth(const QFontDialog* self) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_HasHeightForWidth_IsBase(true);
@@ -751,7 +751,7 @@ QPaintEngine* QFontDialog_PaintEngine(const QFontDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QFontDialog_QBasePaintEngine(const QFontDialog* self) {
+QPaintEngine* QFontDialog_SuperPaintEngine(const QFontDialog* self) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_PaintEngine_IsBase(true);
@@ -780,7 +780,7 @@ bool QFontDialog_Event(QFontDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QFontDialog_QBaseEvent(QFontDialog* self, QEvent* event) {
+bool QFontDialog_SuperEvent(QFontDialog* self, QEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_Event_IsBase(true);
@@ -809,7 +809,7 @@ void QFontDialog_MousePressEvent(QFontDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseMousePressEvent(QFontDialog* self, QMouseEvent* event) {
+void QFontDialog_SuperMousePressEvent(QFontDialog* self, QMouseEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_MousePressEvent_IsBase(true);
@@ -838,7 +838,7 @@ void QFontDialog_MouseReleaseEvent(QFontDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseMouseReleaseEvent(QFontDialog* self, QMouseEvent* event) {
+void QFontDialog_SuperMouseReleaseEvent(QFontDialog* self, QMouseEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_MouseReleaseEvent_IsBase(true);
@@ -867,7 +867,7 @@ void QFontDialog_MouseDoubleClickEvent(QFontDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseMouseDoubleClickEvent(QFontDialog* self, QMouseEvent* event) {
+void QFontDialog_SuperMouseDoubleClickEvent(QFontDialog* self, QMouseEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_MouseDoubleClickEvent_IsBase(true);
@@ -896,7 +896,7 @@ void QFontDialog_MouseMoveEvent(QFontDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseMouseMoveEvent(QFontDialog* self, QMouseEvent* event) {
+void QFontDialog_SuperMouseMoveEvent(QFontDialog* self, QMouseEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_MouseMoveEvent_IsBase(true);
@@ -925,7 +925,7 @@ void QFontDialog_WheelEvent(QFontDialog* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseWheelEvent(QFontDialog* self, QWheelEvent* event) {
+void QFontDialog_SuperWheelEvent(QFontDialog* self, QWheelEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_WheelEvent_IsBase(true);
@@ -954,7 +954,7 @@ void QFontDialog_KeyReleaseEvent(QFontDialog* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseKeyReleaseEvent(QFontDialog* self, QKeyEvent* event) {
+void QFontDialog_SuperKeyReleaseEvent(QFontDialog* self, QKeyEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_KeyReleaseEvent_IsBase(true);
@@ -983,7 +983,7 @@ void QFontDialog_FocusInEvent(QFontDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseFocusInEvent(QFontDialog* self, QFocusEvent* event) {
+void QFontDialog_SuperFocusInEvent(QFontDialog* self, QFocusEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_FocusInEvent_IsBase(true);
@@ -1012,7 +1012,7 @@ void QFontDialog_FocusOutEvent(QFontDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseFocusOutEvent(QFontDialog* self, QFocusEvent* event) {
+void QFontDialog_SuperFocusOutEvent(QFontDialog* self, QFocusEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_FocusOutEvent_IsBase(true);
@@ -1041,7 +1041,7 @@ void QFontDialog_EnterEvent(QFontDialog* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseEnterEvent(QFontDialog* self, QEnterEvent* event) {
+void QFontDialog_SuperEnterEvent(QFontDialog* self, QEnterEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_EnterEvent_IsBase(true);
@@ -1070,7 +1070,7 @@ void QFontDialog_LeaveEvent(QFontDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseLeaveEvent(QFontDialog* self, QEvent* event) {
+void QFontDialog_SuperLeaveEvent(QFontDialog* self, QEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_LeaveEvent_IsBase(true);
@@ -1099,7 +1099,7 @@ void QFontDialog_PaintEvent(QFontDialog* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBasePaintEvent(QFontDialog* self, QPaintEvent* event) {
+void QFontDialog_SuperPaintEvent(QFontDialog* self, QPaintEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_PaintEvent_IsBase(true);
@@ -1128,7 +1128,7 @@ void QFontDialog_MoveEvent(QFontDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseMoveEvent(QFontDialog* self, QMoveEvent* event) {
+void QFontDialog_SuperMoveEvent(QFontDialog* self, QMoveEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_MoveEvent_IsBase(true);
@@ -1157,7 +1157,7 @@ void QFontDialog_TabletEvent(QFontDialog* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseTabletEvent(QFontDialog* self, QTabletEvent* event) {
+void QFontDialog_SuperTabletEvent(QFontDialog* self, QTabletEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_TabletEvent_IsBase(true);
@@ -1186,7 +1186,7 @@ void QFontDialog_ActionEvent(QFontDialog* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseActionEvent(QFontDialog* self, QActionEvent* event) {
+void QFontDialog_SuperActionEvent(QFontDialog* self, QActionEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_ActionEvent_IsBase(true);
@@ -1215,7 +1215,7 @@ void QFontDialog_DragEnterEvent(QFontDialog* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseDragEnterEvent(QFontDialog* self, QDragEnterEvent* event) {
+void QFontDialog_SuperDragEnterEvent(QFontDialog* self, QDragEnterEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_DragEnterEvent_IsBase(true);
@@ -1244,7 +1244,7 @@ void QFontDialog_DragMoveEvent(QFontDialog* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseDragMoveEvent(QFontDialog* self, QDragMoveEvent* event) {
+void QFontDialog_SuperDragMoveEvent(QFontDialog* self, QDragMoveEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_DragMoveEvent_IsBase(true);
@@ -1273,7 +1273,7 @@ void QFontDialog_DragLeaveEvent(QFontDialog* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseDragLeaveEvent(QFontDialog* self, QDragLeaveEvent* event) {
+void QFontDialog_SuperDragLeaveEvent(QFontDialog* self, QDragLeaveEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_DragLeaveEvent_IsBase(true);
@@ -1302,7 +1302,7 @@ void QFontDialog_DropEvent(QFontDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseDropEvent(QFontDialog* self, QDropEvent* event) {
+void QFontDialog_SuperDropEvent(QFontDialog* self, QDropEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_DropEvent_IsBase(true);
@@ -1331,7 +1331,7 @@ void QFontDialog_HideEvent(QFontDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseHideEvent(QFontDialog* self, QHideEvent* event) {
+void QFontDialog_SuperHideEvent(QFontDialog* self, QHideEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_HideEvent_IsBase(true);
@@ -1361,7 +1361,7 @@ bool QFontDialog_NativeEvent(QFontDialog* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool QFontDialog_QBaseNativeEvent(QFontDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QFontDialog_SuperNativeEvent(QFontDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
@@ -1391,7 +1391,7 @@ int QFontDialog_Metric(const QFontDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int QFontDialog_QBaseMetric(const QFontDialog* self, int param1) {
+int QFontDialog_SuperMetric(const QFontDialog* self, int param1) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_Metric_IsBase(true);
@@ -1420,7 +1420,7 @@ void QFontDialog_InitPainter(const QFontDialog* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseInitPainter(const QFontDialog* self, QPainter* painter) {
+void QFontDialog_SuperInitPainter(const QFontDialog* self, QPainter* painter) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_InitPainter_IsBase(true);
@@ -1449,7 +1449,7 @@ QPaintDevice* QFontDialog_Redirected(const QFontDialog* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QFontDialog_QBaseRedirected(const QFontDialog* self, QPoint* offset) {
+QPaintDevice* QFontDialog_SuperRedirected(const QFontDialog* self, QPoint* offset) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_Redirected_IsBase(true);
@@ -1478,7 +1478,7 @@ QPainter* QFontDialog_SharedPainter(const QFontDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* QFontDialog_QBaseSharedPainter(const QFontDialog* self) {
+QPainter* QFontDialog_SuperSharedPainter(const QFontDialog* self) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_SharedPainter_IsBase(true);
@@ -1507,7 +1507,7 @@ void QFontDialog_InputMethodEvent(QFontDialog* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseInputMethodEvent(QFontDialog* self, QInputMethodEvent* param1) {
+void QFontDialog_SuperInputMethodEvent(QFontDialog* self, QInputMethodEvent* param1) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_InputMethodEvent_IsBase(true);
@@ -1536,7 +1536,7 @@ QVariant* QFontDialog_InputMethodQuery(const QFontDialog* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QFontDialog_QBaseInputMethodQuery(const QFontDialog* self, int param1) {
+QVariant* QFontDialog_SuperInputMethodQuery(const QFontDialog* self, int param1) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_InputMethodQuery_IsBase(true);
@@ -1565,7 +1565,7 @@ bool QFontDialog_FocusNextPrevChild(QFontDialog* self, bool next) {
 }
 
 // Base class handler implementation
-bool QFontDialog_QBaseFocusNextPrevChild(QFontDialog* self, bool next) {
+bool QFontDialog_SuperFocusNextPrevChild(QFontDialog* self, bool next) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_FocusNextPrevChild_IsBase(true);
@@ -1594,7 +1594,7 @@ void QFontDialog_TimerEvent(QFontDialog* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseTimerEvent(QFontDialog* self, QTimerEvent* event) {
+void QFontDialog_SuperTimerEvent(QFontDialog* self, QTimerEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_TimerEvent_IsBase(true);
@@ -1623,7 +1623,7 @@ void QFontDialog_ChildEvent(QFontDialog* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseChildEvent(QFontDialog* self, QChildEvent* event) {
+void QFontDialog_SuperChildEvent(QFontDialog* self, QChildEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_ChildEvent_IsBase(true);
@@ -1652,7 +1652,7 @@ void QFontDialog_CustomEvent(QFontDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseCustomEvent(QFontDialog* self, QEvent* event) {
+void QFontDialog_SuperCustomEvent(QFontDialog* self, QEvent* event) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_CustomEvent_IsBase(true);
@@ -1681,7 +1681,7 @@ void QFontDialog_ConnectNotify(QFontDialog* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseConnectNotify(QFontDialog* self, const QMetaMethod* signal) {
+void QFontDialog_SuperConnectNotify(QFontDialog* self, const QMetaMethod* signal) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_ConnectNotify_IsBase(true);
@@ -1710,7 +1710,7 @@ void QFontDialog_DisconnectNotify(QFontDialog* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseDisconnectNotify(QFontDialog* self, const QMetaMethod* signal) {
+void QFontDialog_SuperDisconnectNotify(QFontDialog* self, const QMetaMethod* signal) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_DisconnectNotify_IsBase(true);
@@ -1739,7 +1739,7 @@ void QFontDialog_AdjustPosition(QFontDialog* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseAdjustPosition(QFontDialog* self, QWidget* param1) {
+void QFontDialog_SuperAdjustPosition(QFontDialog* self, QWidget* param1) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_AdjustPosition_IsBase(true);
@@ -1768,7 +1768,7 @@ void QFontDialog_UpdateMicroFocus(QFontDialog* self) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseUpdateMicroFocus(QFontDialog* self) {
+void QFontDialog_SuperUpdateMicroFocus(QFontDialog* self) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_UpdateMicroFocus_IsBase(true);
@@ -1797,7 +1797,7 @@ void QFontDialog_Create(QFontDialog* self) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseCreate(QFontDialog* self) {
+void QFontDialog_SuperCreate(QFontDialog* self) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_Create_IsBase(true);
@@ -1826,7 +1826,7 @@ void QFontDialog_Destroy(QFontDialog* self) {
 }
 
 // Base class handler implementation
-void QFontDialog_QBaseDestroy(QFontDialog* self) {
+void QFontDialog_SuperDestroy(QFontDialog* self) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_Destroy_IsBase(true);
@@ -1855,7 +1855,7 @@ bool QFontDialog_FocusNextChild(QFontDialog* self) {
 }
 
 // Base class handler implementation
-bool QFontDialog_QBaseFocusNextChild(QFontDialog* self) {
+bool QFontDialog_SuperFocusNextChild(QFontDialog* self) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_FocusNextChild_IsBase(true);
@@ -1884,7 +1884,7 @@ bool QFontDialog_FocusPreviousChild(QFontDialog* self) {
 }
 
 // Base class handler implementation
-bool QFontDialog_QBaseFocusPreviousChild(QFontDialog* self) {
+bool QFontDialog_SuperFocusPreviousChild(QFontDialog* self) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_FocusPreviousChild_IsBase(true);
@@ -1913,7 +1913,7 @@ QObject* QFontDialog_Sender(const QFontDialog* self) {
 }
 
 // Base class handler implementation
-QObject* QFontDialog_QBaseSender(const QFontDialog* self) {
+QObject* QFontDialog_SuperSender(const QFontDialog* self) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_Sender_IsBase(true);
@@ -1942,7 +1942,7 @@ int QFontDialog_SenderSignalIndex(const QFontDialog* self) {
 }
 
 // Base class handler implementation
-int QFontDialog_QBaseSenderSignalIndex(const QFontDialog* self) {
+int QFontDialog_SuperSenderSignalIndex(const QFontDialog* self) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_SenderSignalIndex_IsBase(true);
@@ -1971,7 +1971,7 @@ int QFontDialog_Receivers(const QFontDialog* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QFontDialog_QBaseReceivers(const QFontDialog* self, const char* signal) {
+int QFontDialog_SuperReceivers(const QFontDialog* self, const char* signal) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_Receivers_IsBase(true);
@@ -2000,7 +2000,7 @@ bool QFontDialog_IsSignalConnected(const QFontDialog* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QFontDialog_QBaseIsSignalConnected(const QFontDialog* self, const QMetaMethod* signal) {
+bool QFontDialog_SuperIsSignalConnected(const QFontDialog* self, const QMetaMethod* signal) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_IsSignalConnected_IsBase(true);
@@ -2029,7 +2029,7 @@ double QFontDialog_GetDecodedMetricF(const QFontDialog* self, int metricA, int m
 }
 
 // Base class handler implementation
-double QFontDialog_QBaseGetDecodedMetricF(const QFontDialog* self, int metricA, int metricB) {
+double QFontDialog_SuperGetDecodedMetricF(const QFontDialog* self, int metricA, int metricB) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
     if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
         vqfontdialog->setQFontDialog_GetDecodedMetricF_IsBase(true);

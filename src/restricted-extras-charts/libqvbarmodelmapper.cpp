@@ -165,7 +165,7 @@ void QVBarModelMapper_Connect_RowCountChanged(QVBarModelMapper* self, intptr_t s
 }
 
 // Base class handler implementation
-QMetaObject* QVBarModelMapper_QBaseMetaObject(const QVBarModelMapper* self) {
+QMetaObject* QVBarModelMapper_SuperMetaObject(const QVBarModelMapper* self) {
     auto* vqvbarmodelmapper = const_cast<VirtualQVBarModelMapper*>(dynamic_cast<const VirtualQVBarModelMapper*>(self));
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_MetaObject_IsBase(true);
@@ -184,7 +184,7 @@ void QVBarModelMapper_OnMetaObject(const QVBarModelMapper* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* QVBarModelMapper_QBaseMetacast(QVBarModelMapper* self, const char* param1) {
+void* QVBarModelMapper_SuperMetacast(QVBarModelMapper* self, const char* param1) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_Metacast_IsBase(true);
@@ -203,7 +203,7 @@ void QVBarModelMapper_OnMetacast(QVBarModelMapper* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QVBarModelMapper_QBaseMetacall(QVBarModelMapper* self, int param1, int param2, void** param3) {
+int QVBarModelMapper_SuperMetacall(QVBarModelMapper* self, int param1, int param2, void** param3) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_Metacall_IsBase(true);
@@ -232,7 +232,7 @@ bool QVBarModelMapper_Event(QVBarModelMapper* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QVBarModelMapper_QBaseEvent(QVBarModelMapper* self, QEvent* event) {
+bool QVBarModelMapper_SuperEvent(QVBarModelMapper* self, QEvent* event) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_Event_IsBase(true);
@@ -261,7 +261,7 @@ bool QVBarModelMapper_EventFilter(QVBarModelMapper* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool QVBarModelMapper_QBaseEventFilter(QVBarModelMapper* self, QObject* watched, QEvent* event) {
+bool QVBarModelMapper_SuperEventFilter(QVBarModelMapper* self, QObject* watched, QEvent* event) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_EventFilter_IsBase(true);
@@ -290,7 +290,7 @@ void QVBarModelMapper_TimerEvent(QVBarModelMapper* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QVBarModelMapper_QBaseTimerEvent(QVBarModelMapper* self, QTimerEvent* event) {
+void QVBarModelMapper_SuperTimerEvent(QVBarModelMapper* self, QTimerEvent* event) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_TimerEvent_IsBase(true);
@@ -319,7 +319,7 @@ void QVBarModelMapper_ChildEvent(QVBarModelMapper* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QVBarModelMapper_QBaseChildEvent(QVBarModelMapper* self, QChildEvent* event) {
+void QVBarModelMapper_SuperChildEvent(QVBarModelMapper* self, QChildEvent* event) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_ChildEvent_IsBase(true);
@@ -348,7 +348,7 @@ void QVBarModelMapper_CustomEvent(QVBarModelMapper* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QVBarModelMapper_QBaseCustomEvent(QVBarModelMapper* self, QEvent* event) {
+void QVBarModelMapper_SuperCustomEvent(QVBarModelMapper* self, QEvent* event) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_CustomEvent_IsBase(true);
@@ -377,7 +377,7 @@ void QVBarModelMapper_ConnectNotify(QVBarModelMapper* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void QVBarModelMapper_QBaseConnectNotify(QVBarModelMapper* self, const QMetaMethod* signal) {
+void QVBarModelMapper_SuperConnectNotify(QVBarModelMapper* self, const QMetaMethod* signal) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_ConnectNotify_IsBase(true);
@@ -406,7 +406,7 @@ void QVBarModelMapper_DisconnectNotify(QVBarModelMapper* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void QVBarModelMapper_QBaseDisconnectNotify(QVBarModelMapper* self, const QMetaMethod* signal) {
+void QVBarModelMapper_SuperDisconnectNotify(QVBarModelMapper* self, const QMetaMethod* signal) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_DisconnectNotify_IsBase(true);
@@ -435,7 +435,7 @@ int QVBarModelMapper_First(const QVBarModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVBarModelMapper_QBaseFirst(const QVBarModelMapper* self) {
+int QVBarModelMapper_SuperFirst(const QVBarModelMapper* self) {
     auto* vqvbarmodelmapper = const_cast<VirtualQVBarModelMapper*>(dynamic_cast<const VirtualQVBarModelMapper*>(self));
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_First_IsBase(true);
@@ -464,7 +464,7 @@ void QVBarModelMapper_SetFirst(QVBarModelMapper* self, int first) {
 }
 
 // Base class handler implementation
-void QVBarModelMapper_QBaseSetFirst(QVBarModelMapper* self, int first) {
+void QVBarModelMapper_SuperSetFirst(QVBarModelMapper* self, int first) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_SetFirst_IsBase(true);
@@ -493,7 +493,7 @@ int QVBarModelMapper_Count(const QVBarModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVBarModelMapper_QBaseCount(const QVBarModelMapper* self) {
+int QVBarModelMapper_SuperCount(const QVBarModelMapper* self) {
     auto* vqvbarmodelmapper = const_cast<VirtualQVBarModelMapper*>(dynamic_cast<const VirtualQVBarModelMapper*>(self));
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_Count_IsBase(true);
@@ -522,7 +522,7 @@ void QVBarModelMapper_SetCount(QVBarModelMapper* self, int count) {
 }
 
 // Base class handler implementation
-void QVBarModelMapper_QBaseSetCount(QVBarModelMapper* self, int count) {
+void QVBarModelMapper_SuperSetCount(QVBarModelMapper* self, int count) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_SetCount_IsBase(true);
@@ -551,7 +551,7 @@ int QVBarModelMapper_FirstBarSetSection(const QVBarModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVBarModelMapper_QBaseFirstBarSetSection(const QVBarModelMapper* self) {
+int QVBarModelMapper_SuperFirstBarSetSection(const QVBarModelMapper* self) {
     auto* vqvbarmodelmapper = const_cast<VirtualQVBarModelMapper*>(dynamic_cast<const VirtualQVBarModelMapper*>(self));
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_FirstBarSetSection_IsBase(true);
@@ -580,7 +580,7 @@ void QVBarModelMapper_SetFirstBarSetSection(QVBarModelMapper* self, int firstBar
 }
 
 // Base class handler implementation
-void QVBarModelMapper_QBaseSetFirstBarSetSection(QVBarModelMapper* self, int firstBarSetSection) {
+void QVBarModelMapper_SuperSetFirstBarSetSection(QVBarModelMapper* self, int firstBarSetSection) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_SetFirstBarSetSection_IsBase(true);
@@ -609,7 +609,7 @@ int QVBarModelMapper_LastBarSetSection(const QVBarModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVBarModelMapper_QBaseLastBarSetSection(const QVBarModelMapper* self) {
+int QVBarModelMapper_SuperLastBarSetSection(const QVBarModelMapper* self) {
     auto* vqvbarmodelmapper = const_cast<VirtualQVBarModelMapper*>(dynamic_cast<const VirtualQVBarModelMapper*>(self));
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_LastBarSetSection_IsBase(true);
@@ -638,7 +638,7 @@ void QVBarModelMapper_SetLastBarSetSection(QVBarModelMapper* self, int lastBarSe
 }
 
 // Base class handler implementation
-void QVBarModelMapper_QBaseSetLastBarSetSection(QVBarModelMapper* self, int lastBarSetSection) {
+void QVBarModelMapper_SuperSetLastBarSetSection(QVBarModelMapper* self, int lastBarSetSection) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_SetLastBarSetSection_IsBase(true);
@@ -667,7 +667,7 @@ int QVBarModelMapper_Orientation(const QVBarModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVBarModelMapper_QBaseOrientation(const QVBarModelMapper* self) {
+int QVBarModelMapper_SuperOrientation(const QVBarModelMapper* self) {
     auto* vqvbarmodelmapper = const_cast<VirtualQVBarModelMapper*>(dynamic_cast<const VirtualQVBarModelMapper*>(self));
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_Orientation_IsBase(true);
@@ -696,7 +696,7 @@ void QVBarModelMapper_SetOrientation(QVBarModelMapper* self, int orientation) {
 }
 
 // Base class handler implementation
-void QVBarModelMapper_QBaseSetOrientation(QVBarModelMapper* self, int orientation) {
+void QVBarModelMapper_SuperSetOrientation(QVBarModelMapper* self, int orientation) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_SetOrientation_IsBase(true);
@@ -725,7 +725,7 @@ QObject* QVBarModelMapper_Sender(const QVBarModelMapper* self) {
 }
 
 // Base class handler implementation
-QObject* QVBarModelMapper_QBaseSender(const QVBarModelMapper* self) {
+QObject* QVBarModelMapper_SuperSender(const QVBarModelMapper* self) {
     auto* vqvbarmodelmapper = const_cast<VirtualQVBarModelMapper*>(dynamic_cast<const VirtualQVBarModelMapper*>(self));
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_Sender_IsBase(true);
@@ -754,7 +754,7 @@ int QVBarModelMapper_SenderSignalIndex(const QVBarModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVBarModelMapper_QBaseSenderSignalIndex(const QVBarModelMapper* self) {
+int QVBarModelMapper_SuperSenderSignalIndex(const QVBarModelMapper* self) {
     auto* vqvbarmodelmapper = const_cast<VirtualQVBarModelMapper*>(dynamic_cast<const VirtualQVBarModelMapper*>(self));
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_SenderSignalIndex_IsBase(true);
@@ -783,7 +783,7 @@ int QVBarModelMapper_Receivers(const QVBarModelMapper* self, const char* signal)
 }
 
 // Base class handler implementation
-int QVBarModelMapper_QBaseReceivers(const QVBarModelMapper* self, const char* signal) {
+int QVBarModelMapper_SuperReceivers(const QVBarModelMapper* self, const char* signal) {
     auto* vqvbarmodelmapper = const_cast<VirtualQVBarModelMapper*>(dynamic_cast<const VirtualQVBarModelMapper*>(self));
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_Receivers_IsBase(true);
@@ -812,7 +812,7 @@ bool QVBarModelMapper_IsSignalConnected(const QVBarModelMapper* self, const QMet
 }
 
 // Base class handler implementation
-bool QVBarModelMapper_QBaseIsSignalConnected(const QVBarModelMapper* self, const QMetaMethod* signal) {
+bool QVBarModelMapper_SuperIsSignalConnected(const QVBarModelMapper* self, const QMetaMethod* signal) {
     auto* vqvbarmodelmapper = const_cast<VirtualQVBarModelMapper*>(dynamic_cast<const VirtualQVBarModelMapper*>(self));
     if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
         vqvbarmodelmapper->setQVBarModelMapper_IsSignalConnected_IsBase(true);

@@ -108,6 +108,10 @@ pub const qplaceuser = struct {
         qtc.QPlaceUser_SetName(@ptrCast(self), name_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceuser.html#dtor.QPlaceUser)
     ///
     /// Delete this object from C++ memory.
@@ -116,7 +120,7 @@ pub const qplaceuser = struct {
     ///
     /// ` self: QtC.QPlaceUser `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPlaceUser_Delete(@ptrCast(self));
     }
 };

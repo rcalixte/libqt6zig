@@ -355,23 +355,23 @@ class VirtualKAbstractFileItemActionPlugin : public KAbstractFileItemActionPlugi
 
     // Friend functions
     friend void KAbstractFileItemActionPlugin_TimerEvent(KAbstractFileItemActionPlugin* self, QTimerEvent* event);
-    friend void KAbstractFileItemActionPlugin_QBaseTimerEvent(KAbstractFileItemActionPlugin* self, QTimerEvent* event);
+    friend void KAbstractFileItemActionPlugin_SuperTimerEvent(KAbstractFileItemActionPlugin* self, QTimerEvent* event);
     friend void KAbstractFileItemActionPlugin_ChildEvent(KAbstractFileItemActionPlugin* self, QChildEvent* event);
-    friend void KAbstractFileItemActionPlugin_QBaseChildEvent(KAbstractFileItemActionPlugin* self, QChildEvent* event);
+    friend void KAbstractFileItemActionPlugin_SuperChildEvent(KAbstractFileItemActionPlugin* self, QChildEvent* event);
     friend void KAbstractFileItemActionPlugin_CustomEvent(KAbstractFileItemActionPlugin* self, QEvent* event);
-    friend void KAbstractFileItemActionPlugin_QBaseCustomEvent(KAbstractFileItemActionPlugin* self, QEvent* event);
+    friend void KAbstractFileItemActionPlugin_SuperCustomEvent(KAbstractFileItemActionPlugin* self, QEvent* event);
     friend void KAbstractFileItemActionPlugin_ConnectNotify(KAbstractFileItemActionPlugin* self, const QMetaMethod* signal);
-    friend void KAbstractFileItemActionPlugin_QBaseConnectNotify(KAbstractFileItemActionPlugin* self, const QMetaMethod* signal);
+    friend void KAbstractFileItemActionPlugin_SuperConnectNotify(KAbstractFileItemActionPlugin* self, const QMetaMethod* signal);
     friend void KAbstractFileItemActionPlugin_DisconnectNotify(KAbstractFileItemActionPlugin* self, const QMetaMethod* signal);
-    friend void KAbstractFileItemActionPlugin_QBaseDisconnectNotify(KAbstractFileItemActionPlugin* self, const QMetaMethod* signal);
+    friend void KAbstractFileItemActionPlugin_SuperDisconnectNotify(KAbstractFileItemActionPlugin* self, const QMetaMethod* signal);
     friend QObject* KAbstractFileItemActionPlugin_Sender(const KAbstractFileItemActionPlugin* self);
-    friend QObject* KAbstractFileItemActionPlugin_QBaseSender(const KAbstractFileItemActionPlugin* self);
+    friend QObject* KAbstractFileItemActionPlugin_SuperSender(const KAbstractFileItemActionPlugin* self);
     friend int KAbstractFileItemActionPlugin_SenderSignalIndex(const KAbstractFileItemActionPlugin* self);
-    friend int KAbstractFileItemActionPlugin_QBaseSenderSignalIndex(const KAbstractFileItemActionPlugin* self);
+    friend int KAbstractFileItemActionPlugin_SuperSenderSignalIndex(const KAbstractFileItemActionPlugin* self);
     friend int KAbstractFileItemActionPlugin_Receivers(const KAbstractFileItemActionPlugin* self, const char* signal);
-    friend int KAbstractFileItemActionPlugin_QBaseReceivers(const KAbstractFileItemActionPlugin* self, const char* signal);
+    friend int KAbstractFileItemActionPlugin_SuperReceivers(const KAbstractFileItemActionPlugin* self, const char* signal);
     friend bool KAbstractFileItemActionPlugin_IsSignalConnected(const KAbstractFileItemActionPlugin* self, const QMetaMethod* signal);
-    friend bool KAbstractFileItemActionPlugin_QBaseIsSignalConnected(const KAbstractFileItemActionPlugin* self, const QMetaMethod* signal);
+    friend bool KAbstractFileItemActionPlugin_SuperIsSignalConnected(const KAbstractFileItemActionPlugin* self, const QMetaMethod* signal);
 };
 
 #endif

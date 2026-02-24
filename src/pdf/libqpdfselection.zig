@@ -117,6 +117,10 @@ pub const qpdfselection = struct {
         qtc.QPdfSelection_CopyToClipboard1(@ptrCast(self), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfselection.html#dtor.QPdfSelection)
     ///
     /// Delete this object from C++ memory.
@@ -125,7 +129,7 @@ pub const qpdfselection = struct {
     ///
     /// ` self: QtC.QPdfSelection `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPdfSelection_Delete(@ptrCast(self));
     }
 };

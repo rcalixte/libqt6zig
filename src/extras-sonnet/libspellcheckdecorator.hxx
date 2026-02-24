@@ -357,27 +357,27 @@ class VirtualSonnetSpellCheckDecorator final : public Sonnet::SpellCheckDecorato
 
     // Friend functions
     friend bool Sonnet__SpellCheckDecorator_EventFilter(Sonnet::SpellCheckDecorator* self, QObject* obj, QEvent* event);
-    friend bool Sonnet__SpellCheckDecorator_QBaseEventFilter(Sonnet::SpellCheckDecorator* self, QObject* obj, QEvent* event);
+    friend bool Sonnet__SpellCheckDecorator_SuperEventFilter(Sonnet::SpellCheckDecorator* self, QObject* obj, QEvent* event);
     friend bool Sonnet__SpellCheckDecorator_IsSpellCheckingEnabledForBlock(const Sonnet::SpellCheckDecorator* self, const libqt_string textBlock);
-    friend bool Sonnet__SpellCheckDecorator_QBaseIsSpellCheckingEnabledForBlock(const Sonnet::SpellCheckDecorator* self, const libqt_string textBlock);
+    friend bool Sonnet__SpellCheckDecorator_SuperIsSpellCheckingEnabledForBlock(const Sonnet::SpellCheckDecorator* self, const libqt_string textBlock);
     friend void Sonnet__SpellCheckDecorator_TimerEvent(Sonnet::SpellCheckDecorator* self, QTimerEvent* event);
-    friend void Sonnet__SpellCheckDecorator_QBaseTimerEvent(Sonnet::SpellCheckDecorator* self, QTimerEvent* event);
+    friend void Sonnet__SpellCheckDecorator_SuperTimerEvent(Sonnet::SpellCheckDecorator* self, QTimerEvent* event);
     friend void Sonnet__SpellCheckDecorator_ChildEvent(Sonnet::SpellCheckDecorator* self, QChildEvent* event);
-    friend void Sonnet__SpellCheckDecorator_QBaseChildEvent(Sonnet::SpellCheckDecorator* self, QChildEvent* event);
+    friend void Sonnet__SpellCheckDecorator_SuperChildEvent(Sonnet::SpellCheckDecorator* self, QChildEvent* event);
     friend void Sonnet__SpellCheckDecorator_CustomEvent(Sonnet::SpellCheckDecorator* self, QEvent* event);
-    friend void Sonnet__SpellCheckDecorator_QBaseCustomEvent(Sonnet::SpellCheckDecorator* self, QEvent* event);
+    friend void Sonnet__SpellCheckDecorator_SuperCustomEvent(Sonnet::SpellCheckDecorator* self, QEvent* event);
     friend void Sonnet__SpellCheckDecorator_ConnectNotify(Sonnet::SpellCheckDecorator* self, const QMetaMethod* signal);
-    friend void Sonnet__SpellCheckDecorator_QBaseConnectNotify(Sonnet::SpellCheckDecorator* self, const QMetaMethod* signal);
+    friend void Sonnet__SpellCheckDecorator_SuperConnectNotify(Sonnet::SpellCheckDecorator* self, const QMetaMethod* signal);
     friend void Sonnet__SpellCheckDecorator_DisconnectNotify(Sonnet::SpellCheckDecorator* self, const QMetaMethod* signal);
-    friend void Sonnet__SpellCheckDecorator_QBaseDisconnectNotify(Sonnet::SpellCheckDecorator* self, const QMetaMethod* signal);
+    friend void Sonnet__SpellCheckDecorator_SuperDisconnectNotify(Sonnet::SpellCheckDecorator* self, const QMetaMethod* signal);
     friend QObject* Sonnet__SpellCheckDecorator_Sender(const Sonnet::SpellCheckDecorator* self);
-    friend QObject* Sonnet__SpellCheckDecorator_QBaseSender(const Sonnet::SpellCheckDecorator* self);
+    friend QObject* Sonnet__SpellCheckDecorator_SuperSender(const Sonnet::SpellCheckDecorator* self);
     friend int Sonnet__SpellCheckDecorator_SenderSignalIndex(const Sonnet::SpellCheckDecorator* self);
-    friend int Sonnet__SpellCheckDecorator_QBaseSenderSignalIndex(const Sonnet::SpellCheckDecorator* self);
+    friend int Sonnet__SpellCheckDecorator_SuperSenderSignalIndex(const Sonnet::SpellCheckDecorator* self);
     friend int Sonnet__SpellCheckDecorator_Receivers(const Sonnet::SpellCheckDecorator* self, const char* signal);
-    friend int Sonnet__SpellCheckDecorator_QBaseReceivers(const Sonnet::SpellCheckDecorator* self, const char* signal);
+    friend int Sonnet__SpellCheckDecorator_SuperReceivers(const Sonnet::SpellCheckDecorator* self, const char* signal);
     friend bool Sonnet__SpellCheckDecorator_IsSignalConnected(const Sonnet::SpellCheckDecorator* self, const QMetaMethod* signal);
-    friend bool Sonnet__SpellCheckDecorator_QBaseIsSignalConnected(const Sonnet::SpellCheckDecorator* self, const QMetaMethod* signal);
+    friend bool Sonnet__SpellCheckDecorator_SuperIsSignalConnected(const Sonnet::SpellCheckDecorator* self, const QMetaMethod* signal);
 };
 
 #endif

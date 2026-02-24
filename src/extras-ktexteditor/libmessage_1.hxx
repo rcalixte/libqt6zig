@@ -328,23 +328,23 @@ class VirtualKTextEditorMessage final : public KTextEditor::Message {
 
     // Friend functions
     friend void KTextEditor__Message_TimerEvent(KTextEditor::Message* self, QTimerEvent* event);
-    friend void KTextEditor__Message_QBaseTimerEvent(KTextEditor::Message* self, QTimerEvent* event);
+    friend void KTextEditor__Message_SuperTimerEvent(KTextEditor::Message* self, QTimerEvent* event);
     friend void KTextEditor__Message_ChildEvent(KTextEditor::Message* self, QChildEvent* event);
-    friend void KTextEditor__Message_QBaseChildEvent(KTextEditor::Message* self, QChildEvent* event);
+    friend void KTextEditor__Message_SuperChildEvent(KTextEditor::Message* self, QChildEvent* event);
     friend void KTextEditor__Message_CustomEvent(KTextEditor::Message* self, QEvent* event);
-    friend void KTextEditor__Message_QBaseCustomEvent(KTextEditor::Message* self, QEvent* event);
+    friend void KTextEditor__Message_SuperCustomEvent(KTextEditor::Message* self, QEvent* event);
     friend void KTextEditor__Message_ConnectNotify(KTextEditor::Message* self, const QMetaMethod* signal);
-    friend void KTextEditor__Message_QBaseConnectNotify(KTextEditor::Message* self, const QMetaMethod* signal);
+    friend void KTextEditor__Message_SuperConnectNotify(KTextEditor::Message* self, const QMetaMethod* signal);
     friend void KTextEditor__Message_DisconnectNotify(KTextEditor::Message* self, const QMetaMethod* signal);
-    friend void KTextEditor__Message_QBaseDisconnectNotify(KTextEditor::Message* self, const QMetaMethod* signal);
+    friend void KTextEditor__Message_SuperDisconnectNotify(KTextEditor::Message* self, const QMetaMethod* signal);
     friend QObject* KTextEditor__Message_Sender(const KTextEditor::Message* self);
-    friend QObject* KTextEditor__Message_QBaseSender(const KTextEditor::Message* self);
+    friend QObject* KTextEditor__Message_SuperSender(const KTextEditor::Message* self);
     friend int KTextEditor__Message_SenderSignalIndex(const KTextEditor::Message* self);
-    friend int KTextEditor__Message_QBaseSenderSignalIndex(const KTextEditor::Message* self);
+    friend int KTextEditor__Message_SuperSenderSignalIndex(const KTextEditor::Message* self);
     friend int KTextEditor__Message_Receivers(const KTextEditor::Message* self, const char* signal);
-    friend int KTextEditor__Message_QBaseReceivers(const KTextEditor::Message* self, const char* signal);
+    friend int KTextEditor__Message_SuperReceivers(const KTextEditor::Message* self, const char* signal);
     friend bool KTextEditor__Message_IsSignalConnected(const KTextEditor::Message* self, const QMetaMethod* signal);
-    friend bool KTextEditor__Message_QBaseIsSignalConnected(const KTextEditor::Message* self, const QMetaMethod* signal);
+    friend bool KTextEditor__Message_SuperIsSignalConnected(const KTextEditor::Message* self, const QMetaMethod* signal);
 };
 
 #endif

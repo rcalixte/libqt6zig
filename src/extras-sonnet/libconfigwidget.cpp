@@ -115,7 +115,7 @@ void Sonnet__ConfigWidget_Connect_ConfigChanged(Sonnet__ConfigWidget* self, intp
 }
 
 // Base class handler implementation
-QMetaObject* Sonnet__ConfigWidget_QBaseMetaObject(const Sonnet__ConfigWidget* self) {
+QMetaObject* Sonnet__ConfigWidget_SuperMetaObject(const Sonnet__ConfigWidget* self) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_MetaObject_IsBase(true);
@@ -134,7 +134,7 @@ void Sonnet__ConfigWidget_OnMetaObject(const Sonnet__ConfigWidget* self, intptr_
 }
 
 // Base class handler implementation
-void* Sonnet__ConfigWidget_QBaseMetacast(Sonnet__ConfigWidget* self, const char* param1) {
+void* Sonnet__ConfigWidget_SuperMetacast(Sonnet__ConfigWidget* self, const char* param1) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_Metacast_IsBase(true);
@@ -153,7 +153,7 @@ void Sonnet__ConfigWidget_OnMetacast(Sonnet__ConfigWidget* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int Sonnet__ConfigWidget_QBaseMetacall(Sonnet__ConfigWidget* self, int param1, int param2, void** param3) {
+int Sonnet__ConfigWidget_SuperMetacall(Sonnet__ConfigWidget* self, int param1, int param2, void** param3) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_Metacall_IsBase(true);
@@ -182,7 +182,7 @@ int Sonnet__ConfigWidget_DevType(const Sonnet__ConfigWidget* self) {
 }
 
 // Base class handler implementation
-int Sonnet__ConfigWidget_QBaseDevType(const Sonnet__ConfigWidget* self) {
+int Sonnet__ConfigWidget_SuperDevType(const Sonnet__ConfigWidget* self) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_DevType_IsBase(true);
@@ -211,7 +211,7 @@ void Sonnet__ConfigWidget_SetVisible(Sonnet__ConfigWidget* self, bool visible) {
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseSetVisible(Sonnet__ConfigWidget* self, bool visible) {
+void Sonnet__ConfigWidget_SuperSetVisible(Sonnet__ConfigWidget* self, bool visible) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_SetVisible_IsBase(true);
@@ -240,7 +240,7 @@ QSize* Sonnet__ConfigWidget_SizeHint(const Sonnet__ConfigWidget* self) {
 }
 
 // Base class handler implementation
-QSize* Sonnet__ConfigWidget_QBaseSizeHint(const Sonnet__ConfigWidget* self) {
+QSize* Sonnet__ConfigWidget_SuperSizeHint(const Sonnet__ConfigWidget* self) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_SizeHint_IsBase(true);
@@ -269,7 +269,7 @@ QSize* Sonnet__ConfigWidget_MinimumSizeHint(const Sonnet__ConfigWidget* self) {
 }
 
 // Base class handler implementation
-QSize* Sonnet__ConfigWidget_QBaseMinimumSizeHint(const Sonnet__ConfigWidget* self) {
+QSize* Sonnet__ConfigWidget_SuperMinimumSizeHint(const Sonnet__ConfigWidget* self) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_MinimumSizeHint_IsBase(true);
@@ -298,7 +298,7 @@ int Sonnet__ConfigWidget_HeightForWidth(const Sonnet__ConfigWidget* self, int pa
 }
 
 // Base class handler implementation
-int Sonnet__ConfigWidget_QBaseHeightForWidth(const Sonnet__ConfigWidget* self, int param1) {
+int Sonnet__ConfigWidget_SuperHeightForWidth(const Sonnet__ConfigWidget* self, int param1) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_HeightForWidth_IsBase(true);
@@ -327,7 +327,7 @@ bool Sonnet__ConfigWidget_HasHeightForWidth(const Sonnet__ConfigWidget* self) {
 }
 
 // Base class handler implementation
-bool Sonnet__ConfigWidget_QBaseHasHeightForWidth(const Sonnet__ConfigWidget* self) {
+bool Sonnet__ConfigWidget_SuperHasHeightForWidth(const Sonnet__ConfigWidget* self) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_HasHeightForWidth_IsBase(true);
@@ -356,7 +356,7 @@ QPaintEngine* Sonnet__ConfigWidget_PaintEngine(const Sonnet__ConfigWidget* self)
 }
 
 // Base class handler implementation
-QPaintEngine* Sonnet__ConfigWidget_QBasePaintEngine(const Sonnet__ConfigWidget* self) {
+QPaintEngine* Sonnet__ConfigWidget_SuperPaintEngine(const Sonnet__ConfigWidget* self) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_PaintEngine_IsBase(true);
@@ -385,7 +385,7 @@ bool Sonnet__ConfigWidget_Event(Sonnet__ConfigWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool Sonnet__ConfigWidget_QBaseEvent(Sonnet__ConfigWidget* self, QEvent* event) {
+bool Sonnet__ConfigWidget_SuperEvent(Sonnet__ConfigWidget* self, QEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_Event_IsBase(true);
@@ -414,7 +414,7 @@ void Sonnet__ConfigWidget_MousePressEvent(Sonnet__ConfigWidget* self, QMouseEven
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseMousePressEvent(Sonnet__ConfigWidget* self, QMouseEvent* event) {
+void Sonnet__ConfigWidget_SuperMousePressEvent(Sonnet__ConfigWidget* self, QMouseEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_MousePressEvent_IsBase(true);
@@ -443,7 +443,7 @@ void Sonnet__ConfigWidget_MouseReleaseEvent(Sonnet__ConfigWidget* self, QMouseEv
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseMouseReleaseEvent(Sonnet__ConfigWidget* self, QMouseEvent* event) {
+void Sonnet__ConfigWidget_SuperMouseReleaseEvent(Sonnet__ConfigWidget* self, QMouseEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_MouseReleaseEvent_IsBase(true);
@@ -472,7 +472,7 @@ void Sonnet__ConfigWidget_MouseDoubleClickEvent(Sonnet__ConfigWidget* self, QMou
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseMouseDoubleClickEvent(Sonnet__ConfigWidget* self, QMouseEvent* event) {
+void Sonnet__ConfigWidget_SuperMouseDoubleClickEvent(Sonnet__ConfigWidget* self, QMouseEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_MouseDoubleClickEvent_IsBase(true);
@@ -501,7 +501,7 @@ void Sonnet__ConfigWidget_MouseMoveEvent(Sonnet__ConfigWidget* self, QMouseEvent
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseMouseMoveEvent(Sonnet__ConfigWidget* self, QMouseEvent* event) {
+void Sonnet__ConfigWidget_SuperMouseMoveEvent(Sonnet__ConfigWidget* self, QMouseEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_MouseMoveEvent_IsBase(true);
@@ -530,7 +530,7 @@ void Sonnet__ConfigWidget_WheelEvent(Sonnet__ConfigWidget* self, QWheelEvent* ev
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseWheelEvent(Sonnet__ConfigWidget* self, QWheelEvent* event) {
+void Sonnet__ConfigWidget_SuperWheelEvent(Sonnet__ConfigWidget* self, QWheelEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_WheelEvent_IsBase(true);
@@ -559,7 +559,7 @@ void Sonnet__ConfigWidget_KeyPressEvent(Sonnet__ConfigWidget* self, QKeyEvent* e
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseKeyPressEvent(Sonnet__ConfigWidget* self, QKeyEvent* event) {
+void Sonnet__ConfigWidget_SuperKeyPressEvent(Sonnet__ConfigWidget* self, QKeyEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_KeyPressEvent_IsBase(true);
@@ -588,7 +588,7 @@ void Sonnet__ConfigWidget_KeyReleaseEvent(Sonnet__ConfigWidget* self, QKeyEvent*
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseKeyReleaseEvent(Sonnet__ConfigWidget* self, QKeyEvent* event) {
+void Sonnet__ConfigWidget_SuperKeyReleaseEvent(Sonnet__ConfigWidget* self, QKeyEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_KeyReleaseEvent_IsBase(true);
@@ -617,7 +617,7 @@ void Sonnet__ConfigWidget_FocusInEvent(Sonnet__ConfigWidget* self, QFocusEvent* 
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseFocusInEvent(Sonnet__ConfigWidget* self, QFocusEvent* event) {
+void Sonnet__ConfigWidget_SuperFocusInEvent(Sonnet__ConfigWidget* self, QFocusEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_FocusInEvent_IsBase(true);
@@ -646,7 +646,7 @@ void Sonnet__ConfigWidget_FocusOutEvent(Sonnet__ConfigWidget* self, QFocusEvent*
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseFocusOutEvent(Sonnet__ConfigWidget* self, QFocusEvent* event) {
+void Sonnet__ConfigWidget_SuperFocusOutEvent(Sonnet__ConfigWidget* self, QFocusEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_FocusOutEvent_IsBase(true);
@@ -675,7 +675,7 @@ void Sonnet__ConfigWidget_EnterEvent(Sonnet__ConfigWidget* self, QEnterEvent* ev
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseEnterEvent(Sonnet__ConfigWidget* self, QEnterEvent* event) {
+void Sonnet__ConfigWidget_SuperEnterEvent(Sonnet__ConfigWidget* self, QEnterEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_EnterEvent_IsBase(true);
@@ -704,7 +704,7 @@ void Sonnet__ConfigWidget_LeaveEvent(Sonnet__ConfigWidget* self, QEvent* event) 
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseLeaveEvent(Sonnet__ConfigWidget* self, QEvent* event) {
+void Sonnet__ConfigWidget_SuperLeaveEvent(Sonnet__ConfigWidget* self, QEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_LeaveEvent_IsBase(true);
@@ -733,7 +733,7 @@ void Sonnet__ConfigWidget_PaintEvent(Sonnet__ConfigWidget* self, QPaintEvent* ev
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBasePaintEvent(Sonnet__ConfigWidget* self, QPaintEvent* event) {
+void Sonnet__ConfigWidget_SuperPaintEvent(Sonnet__ConfigWidget* self, QPaintEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_PaintEvent_IsBase(true);
@@ -762,7 +762,7 @@ void Sonnet__ConfigWidget_MoveEvent(Sonnet__ConfigWidget* self, QMoveEvent* even
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseMoveEvent(Sonnet__ConfigWidget* self, QMoveEvent* event) {
+void Sonnet__ConfigWidget_SuperMoveEvent(Sonnet__ConfigWidget* self, QMoveEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_MoveEvent_IsBase(true);
@@ -791,7 +791,7 @@ void Sonnet__ConfigWidget_ResizeEvent(Sonnet__ConfigWidget* self, QResizeEvent* 
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseResizeEvent(Sonnet__ConfigWidget* self, QResizeEvent* event) {
+void Sonnet__ConfigWidget_SuperResizeEvent(Sonnet__ConfigWidget* self, QResizeEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_ResizeEvent_IsBase(true);
@@ -820,7 +820,7 @@ void Sonnet__ConfigWidget_CloseEvent(Sonnet__ConfigWidget* self, QCloseEvent* ev
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseCloseEvent(Sonnet__ConfigWidget* self, QCloseEvent* event) {
+void Sonnet__ConfigWidget_SuperCloseEvent(Sonnet__ConfigWidget* self, QCloseEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_CloseEvent_IsBase(true);
@@ -849,7 +849,7 @@ void Sonnet__ConfigWidget_ContextMenuEvent(Sonnet__ConfigWidget* self, QContextM
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseContextMenuEvent(Sonnet__ConfigWidget* self, QContextMenuEvent* event) {
+void Sonnet__ConfigWidget_SuperContextMenuEvent(Sonnet__ConfigWidget* self, QContextMenuEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_ContextMenuEvent_IsBase(true);
@@ -878,7 +878,7 @@ void Sonnet__ConfigWidget_TabletEvent(Sonnet__ConfigWidget* self, QTabletEvent* 
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseTabletEvent(Sonnet__ConfigWidget* self, QTabletEvent* event) {
+void Sonnet__ConfigWidget_SuperTabletEvent(Sonnet__ConfigWidget* self, QTabletEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_TabletEvent_IsBase(true);
@@ -907,7 +907,7 @@ void Sonnet__ConfigWidget_ActionEvent(Sonnet__ConfigWidget* self, QActionEvent* 
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseActionEvent(Sonnet__ConfigWidget* self, QActionEvent* event) {
+void Sonnet__ConfigWidget_SuperActionEvent(Sonnet__ConfigWidget* self, QActionEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_ActionEvent_IsBase(true);
@@ -936,7 +936,7 @@ void Sonnet__ConfigWidget_DragEnterEvent(Sonnet__ConfigWidget* self, QDragEnterE
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseDragEnterEvent(Sonnet__ConfigWidget* self, QDragEnterEvent* event) {
+void Sonnet__ConfigWidget_SuperDragEnterEvent(Sonnet__ConfigWidget* self, QDragEnterEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_DragEnterEvent_IsBase(true);
@@ -965,7 +965,7 @@ void Sonnet__ConfigWidget_DragMoveEvent(Sonnet__ConfigWidget* self, QDragMoveEve
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseDragMoveEvent(Sonnet__ConfigWidget* self, QDragMoveEvent* event) {
+void Sonnet__ConfigWidget_SuperDragMoveEvent(Sonnet__ConfigWidget* self, QDragMoveEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_DragMoveEvent_IsBase(true);
@@ -994,7 +994,7 @@ void Sonnet__ConfigWidget_DragLeaveEvent(Sonnet__ConfigWidget* self, QDragLeaveE
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseDragLeaveEvent(Sonnet__ConfigWidget* self, QDragLeaveEvent* event) {
+void Sonnet__ConfigWidget_SuperDragLeaveEvent(Sonnet__ConfigWidget* self, QDragLeaveEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_DragLeaveEvent_IsBase(true);
@@ -1023,7 +1023,7 @@ void Sonnet__ConfigWidget_DropEvent(Sonnet__ConfigWidget* self, QDropEvent* even
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseDropEvent(Sonnet__ConfigWidget* self, QDropEvent* event) {
+void Sonnet__ConfigWidget_SuperDropEvent(Sonnet__ConfigWidget* self, QDropEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_DropEvent_IsBase(true);
@@ -1052,7 +1052,7 @@ void Sonnet__ConfigWidget_ShowEvent(Sonnet__ConfigWidget* self, QShowEvent* even
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseShowEvent(Sonnet__ConfigWidget* self, QShowEvent* event) {
+void Sonnet__ConfigWidget_SuperShowEvent(Sonnet__ConfigWidget* self, QShowEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_ShowEvent_IsBase(true);
@@ -1081,7 +1081,7 @@ void Sonnet__ConfigWidget_HideEvent(Sonnet__ConfigWidget* self, QHideEvent* even
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseHideEvent(Sonnet__ConfigWidget* self, QHideEvent* event) {
+void Sonnet__ConfigWidget_SuperHideEvent(Sonnet__ConfigWidget* self, QHideEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_HideEvent_IsBase(true);
@@ -1111,7 +1111,7 @@ bool Sonnet__ConfigWidget_NativeEvent(Sonnet__ConfigWidget* self, const libqt_st
 }
 
 // Base class handler implementation
-bool Sonnet__ConfigWidget_QBaseNativeEvent(Sonnet__ConfigWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool Sonnet__ConfigWidget_SuperNativeEvent(Sonnet__ConfigWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
@@ -1141,7 +1141,7 @@ void Sonnet__ConfigWidget_ChangeEvent(Sonnet__ConfigWidget* self, QEvent* param1
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseChangeEvent(Sonnet__ConfigWidget* self, QEvent* param1) {
+void Sonnet__ConfigWidget_SuperChangeEvent(Sonnet__ConfigWidget* self, QEvent* param1) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_ChangeEvent_IsBase(true);
@@ -1170,7 +1170,7 @@ int Sonnet__ConfigWidget_Metric(const Sonnet__ConfigWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int Sonnet__ConfigWidget_QBaseMetric(const Sonnet__ConfigWidget* self, int param1) {
+int Sonnet__ConfigWidget_SuperMetric(const Sonnet__ConfigWidget* self, int param1) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_Metric_IsBase(true);
@@ -1199,7 +1199,7 @@ void Sonnet__ConfigWidget_InitPainter(const Sonnet__ConfigWidget* self, QPainter
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseInitPainter(const Sonnet__ConfigWidget* self, QPainter* painter) {
+void Sonnet__ConfigWidget_SuperInitPainter(const Sonnet__ConfigWidget* self, QPainter* painter) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_InitPainter_IsBase(true);
@@ -1228,7 +1228,7 @@ QPaintDevice* Sonnet__ConfigWidget_Redirected(const Sonnet__ConfigWidget* self, 
 }
 
 // Base class handler implementation
-QPaintDevice* Sonnet__ConfigWidget_QBaseRedirected(const Sonnet__ConfigWidget* self, QPoint* offset) {
+QPaintDevice* Sonnet__ConfigWidget_SuperRedirected(const Sonnet__ConfigWidget* self, QPoint* offset) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_Redirected_IsBase(true);
@@ -1257,7 +1257,7 @@ QPainter* Sonnet__ConfigWidget_SharedPainter(const Sonnet__ConfigWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* Sonnet__ConfigWidget_QBaseSharedPainter(const Sonnet__ConfigWidget* self) {
+QPainter* Sonnet__ConfigWidget_SuperSharedPainter(const Sonnet__ConfigWidget* self) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_SharedPainter_IsBase(true);
@@ -1286,7 +1286,7 @@ void Sonnet__ConfigWidget_InputMethodEvent(Sonnet__ConfigWidget* self, QInputMet
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseInputMethodEvent(Sonnet__ConfigWidget* self, QInputMethodEvent* param1) {
+void Sonnet__ConfigWidget_SuperInputMethodEvent(Sonnet__ConfigWidget* self, QInputMethodEvent* param1) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_InputMethodEvent_IsBase(true);
@@ -1315,7 +1315,7 @@ QVariant* Sonnet__ConfigWidget_InputMethodQuery(const Sonnet__ConfigWidget* self
 }
 
 // Base class handler implementation
-QVariant* Sonnet__ConfigWidget_QBaseInputMethodQuery(const Sonnet__ConfigWidget* self, int param1) {
+QVariant* Sonnet__ConfigWidget_SuperInputMethodQuery(const Sonnet__ConfigWidget* self, int param1) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_InputMethodQuery_IsBase(true);
@@ -1344,7 +1344,7 @@ bool Sonnet__ConfigWidget_FocusNextPrevChild(Sonnet__ConfigWidget* self, bool ne
 }
 
 // Base class handler implementation
-bool Sonnet__ConfigWidget_QBaseFocusNextPrevChild(Sonnet__ConfigWidget* self, bool next) {
+bool Sonnet__ConfigWidget_SuperFocusNextPrevChild(Sonnet__ConfigWidget* self, bool next) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_FocusNextPrevChild_IsBase(true);
@@ -1373,7 +1373,7 @@ bool Sonnet__ConfigWidget_EventFilter(Sonnet__ConfigWidget* self, QObject* watch
 }
 
 // Base class handler implementation
-bool Sonnet__ConfigWidget_QBaseEventFilter(Sonnet__ConfigWidget* self, QObject* watched, QEvent* event) {
+bool Sonnet__ConfigWidget_SuperEventFilter(Sonnet__ConfigWidget* self, QObject* watched, QEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_EventFilter_IsBase(true);
@@ -1402,7 +1402,7 @@ void Sonnet__ConfigWidget_TimerEvent(Sonnet__ConfigWidget* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseTimerEvent(Sonnet__ConfigWidget* self, QTimerEvent* event) {
+void Sonnet__ConfigWidget_SuperTimerEvent(Sonnet__ConfigWidget* self, QTimerEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_TimerEvent_IsBase(true);
@@ -1431,7 +1431,7 @@ void Sonnet__ConfigWidget_ChildEvent(Sonnet__ConfigWidget* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseChildEvent(Sonnet__ConfigWidget* self, QChildEvent* event) {
+void Sonnet__ConfigWidget_SuperChildEvent(Sonnet__ConfigWidget* self, QChildEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_ChildEvent_IsBase(true);
@@ -1460,7 +1460,7 @@ void Sonnet__ConfigWidget_CustomEvent(Sonnet__ConfigWidget* self, QEvent* event)
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseCustomEvent(Sonnet__ConfigWidget* self, QEvent* event) {
+void Sonnet__ConfigWidget_SuperCustomEvent(Sonnet__ConfigWidget* self, QEvent* event) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_CustomEvent_IsBase(true);
@@ -1489,7 +1489,7 @@ void Sonnet__ConfigWidget_ConnectNotify(Sonnet__ConfigWidget* self, const QMetaM
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseConnectNotify(Sonnet__ConfigWidget* self, const QMetaMethod* signal) {
+void Sonnet__ConfigWidget_SuperConnectNotify(Sonnet__ConfigWidget* self, const QMetaMethod* signal) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_ConnectNotify_IsBase(true);
@@ -1518,7 +1518,7 @@ void Sonnet__ConfigWidget_DisconnectNotify(Sonnet__ConfigWidget* self, const QMe
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseDisconnectNotify(Sonnet__ConfigWidget* self, const QMetaMethod* signal) {
+void Sonnet__ConfigWidget_SuperDisconnectNotify(Sonnet__ConfigWidget* self, const QMetaMethod* signal) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_DisconnectNotify_IsBase(true);
@@ -1547,7 +1547,7 @@ void Sonnet__ConfigWidget_SlotIgnoreWordRemoved(Sonnet__ConfigWidget* self) {
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseSlotIgnoreWordRemoved(Sonnet__ConfigWidget* self) {
+void Sonnet__ConfigWidget_SuperSlotIgnoreWordRemoved(Sonnet__ConfigWidget* self) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_SlotIgnoreWordRemoved_IsBase(true);
@@ -1576,7 +1576,7 @@ void Sonnet__ConfigWidget_SlotIgnoreWordAdded(Sonnet__ConfigWidget* self) {
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseSlotIgnoreWordAdded(Sonnet__ConfigWidget* self) {
+void Sonnet__ConfigWidget_SuperSlotIgnoreWordAdded(Sonnet__ConfigWidget* self) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_SlotIgnoreWordAdded_IsBase(true);
@@ -1605,7 +1605,7 @@ void Sonnet__ConfigWidget_UpdateMicroFocus(Sonnet__ConfigWidget* self) {
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseUpdateMicroFocus(Sonnet__ConfigWidget* self) {
+void Sonnet__ConfigWidget_SuperUpdateMicroFocus(Sonnet__ConfigWidget* self) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_UpdateMicroFocus_IsBase(true);
@@ -1634,7 +1634,7 @@ void Sonnet__ConfigWidget_Create(Sonnet__ConfigWidget* self) {
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseCreate(Sonnet__ConfigWidget* self) {
+void Sonnet__ConfigWidget_SuperCreate(Sonnet__ConfigWidget* self) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_Create_IsBase(true);
@@ -1663,7 +1663,7 @@ void Sonnet__ConfigWidget_Destroy(Sonnet__ConfigWidget* self) {
 }
 
 // Base class handler implementation
-void Sonnet__ConfigWidget_QBaseDestroy(Sonnet__ConfigWidget* self) {
+void Sonnet__ConfigWidget_SuperDestroy(Sonnet__ConfigWidget* self) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_Destroy_IsBase(true);
@@ -1692,7 +1692,7 @@ bool Sonnet__ConfigWidget_FocusNextChild(Sonnet__ConfigWidget* self) {
 }
 
 // Base class handler implementation
-bool Sonnet__ConfigWidget_QBaseFocusNextChild(Sonnet__ConfigWidget* self) {
+bool Sonnet__ConfigWidget_SuperFocusNextChild(Sonnet__ConfigWidget* self) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_FocusNextChild_IsBase(true);
@@ -1721,7 +1721,7 @@ bool Sonnet__ConfigWidget_FocusPreviousChild(Sonnet__ConfigWidget* self) {
 }
 
 // Base class handler implementation
-bool Sonnet__ConfigWidget_QBaseFocusPreviousChild(Sonnet__ConfigWidget* self) {
+bool Sonnet__ConfigWidget_SuperFocusPreviousChild(Sonnet__ConfigWidget* self) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_FocusPreviousChild_IsBase(true);
@@ -1750,7 +1750,7 @@ QObject* Sonnet__ConfigWidget_Sender(const Sonnet__ConfigWidget* self) {
 }
 
 // Base class handler implementation
-QObject* Sonnet__ConfigWidget_QBaseSender(const Sonnet__ConfigWidget* self) {
+QObject* Sonnet__ConfigWidget_SuperSender(const Sonnet__ConfigWidget* self) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_Sender_IsBase(true);
@@ -1779,7 +1779,7 @@ int Sonnet__ConfigWidget_SenderSignalIndex(const Sonnet__ConfigWidget* self) {
 }
 
 // Base class handler implementation
-int Sonnet__ConfigWidget_QBaseSenderSignalIndex(const Sonnet__ConfigWidget* self) {
+int Sonnet__ConfigWidget_SuperSenderSignalIndex(const Sonnet__ConfigWidget* self) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_SenderSignalIndex_IsBase(true);
@@ -1808,7 +1808,7 @@ int Sonnet__ConfigWidget_Receivers(const Sonnet__ConfigWidget* self, const char*
 }
 
 // Base class handler implementation
-int Sonnet__ConfigWidget_QBaseReceivers(const Sonnet__ConfigWidget* self, const char* signal) {
+int Sonnet__ConfigWidget_SuperReceivers(const Sonnet__ConfigWidget* self, const char* signal) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_Receivers_IsBase(true);
@@ -1837,7 +1837,7 @@ bool Sonnet__ConfigWidget_IsSignalConnected(const Sonnet__ConfigWidget* self, co
 }
 
 // Base class handler implementation
-bool Sonnet__ConfigWidget_QBaseIsSignalConnected(const Sonnet__ConfigWidget* self, const QMetaMethod* signal) {
+bool Sonnet__ConfigWidget_SuperIsSignalConnected(const Sonnet__ConfigWidget* self, const QMetaMethod* signal) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_IsSignalConnected_IsBase(true);
@@ -1866,7 +1866,7 @@ double Sonnet__ConfigWidget_GetDecodedMetricF(const Sonnet__ConfigWidget* self, 
 }
 
 // Base class handler implementation
-double Sonnet__ConfigWidget_QBaseGetDecodedMetricF(const Sonnet__ConfigWidget* self, int metricA, int metricB) {
+double Sonnet__ConfigWidget_SuperGetDecodedMetricF(const Sonnet__ConfigWidget* self, int metricA, int metricB) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
     if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
         vsonnetconfigwidget->setSonnet__ConfigWidget_GetDecodedMetricF_IsBase(true);

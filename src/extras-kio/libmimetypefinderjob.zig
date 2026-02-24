@@ -53,6 +53,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -61,8 +65,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` self: QtC.KIO__MimeTypeFinderJob `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KIO__MimeTypeFinderJob_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KIO__MimeTypeFinderJob_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -88,6 +92,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -96,9 +104,9 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KIO__MimeTypeFinderJob_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KIO__MimeTypeFinderJob_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -127,6 +135,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -139,8 +151,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KIO__MimeTypeFinderJob_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KIO__MimeTypeFinderJob_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -250,6 +262,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_OnStart(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperStart` instead
+    ///
+    pub const QBaseStart = SuperStart;
+
     /// ### [Upstream resources](https://api.kde.org/kio-mimetypefinderjob.html#start)
     ///
     /// Base class method implementation
@@ -258,8 +274,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` self: QtC.KIO__MimeTypeFinderJob `
     ///
-    pub fn QBaseStart(self: ?*anyopaque) void {
-        qtc.KIO__MimeTypeFinderJob_QBaseStart(@ptrCast(self));
+    pub fn SuperStart(self: ?*anyopaque) void {
+        qtc.KIO__MimeTypeFinderJob_SuperStart(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-mimetypefinderjob.html#mimeType)
@@ -302,6 +318,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_OnDoKill(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDoKill` instead
+    ///
+    pub const QBaseDoKill = SuperDoKill;
+
     /// ### [Upstream resources](https://api.kde.org/kio-mimetypefinderjob.html#doKill)
     ///
     /// Base class method implementation
@@ -310,8 +330,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` self: QtC.KIO__MimeTypeFinderJob `
     ///
-    pub fn QBaseDoKill(self: ?*anyopaque) bool {
-        return qtc.KIO__MimeTypeFinderJob_QBaseDoKill(@ptrCast(self));
+    pub fn SuperDoKill(self: ?*anyopaque) bool {
+        return qtc.KIO__MimeTypeFinderJob_SuperDoKill(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-mimetypefinderjob.html#slotResult)
@@ -340,6 +360,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_OnSlotResult(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotResult` instead
+    ///
+    pub const QBaseSlotResult = SuperSlotResult;
+
     /// ### [Upstream resources](https://api.kde.org/kio-mimetypefinderjob.html#slotResult)
     ///
     /// Base class method implementation
@@ -350,8 +374,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` job: QtC.KJob `
     ///
-    pub fn QBaseSlotResult(self: ?*anyopaque, job: ?*anyopaque) void {
-        qtc.KIO__MimeTypeFinderJob_QBaseSlotResult(@ptrCast(self), @ptrCast(job));
+    pub fn SuperSlotResult(self: ?*anyopaque, job: ?*anyopaque) void {
+        qtc.KIO__MimeTypeFinderJob_SuperSlotResult(@ptrCast(self), @ptrCast(job));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1582,6 +1606,10 @@ pub const kio__mimetypefinderjob = struct {
         return qtc.KIO__MimeTypeFinderJob_AddSubjob(@ptrCast(self), @ptrCast(job));
     }
 
+    /// ### DEPRECATED: Use `SuperAddSubjob` instead
+    ///
+    pub const QBaseAddSubjob = SuperAddSubjob;
+
     /// Inherited from KCompositeJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompositejob.html#addSubjob)
@@ -1594,8 +1622,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` job: QtC.KJob `
     ///
-    pub fn QBaseAddSubjob(self: ?*anyopaque, job: ?*anyopaque) bool {
-        return qtc.KIO__MimeTypeFinderJob_QBaseAddSubjob(@ptrCast(self), @ptrCast(job));
+    pub fn SuperAddSubjob(self: ?*anyopaque, job: ?*anyopaque) bool {
+        return qtc.KIO__MimeTypeFinderJob_SuperAddSubjob(@ptrCast(self), @ptrCast(job));
     }
 
     /// Inherited from KCompositeJob
@@ -1630,6 +1658,10 @@ pub const kio__mimetypefinderjob = struct {
         return qtc.KIO__MimeTypeFinderJob_RemoveSubjob(@ptrCast(self), @ptrCast(job));
     }
 
+    /// ### DEPRECATED: Use `SuperRemoveSubjob` instead
+    ///
+    pub const QBaseRemoveSubjob = SuperRemoveSubjob;
+
     /// Inherited from KCompositeJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompositejob.html#removeSubjob)
@@ -1642,8 +1674,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` job: QtC.KJob `
     ///
-    pub fn QBaseRemoveSubjob(self: ?*anyopaque, job: ?*anyopaque) bool {
-        return qtc.KIO__MimeTypeFinderJob_QBaseRemoveSubjob(@ptrCast(self), @ptrCast(job));
+    pub fn SuperRemoveSubjob(self: ?*anyopaque, job: ?*anyopaque) bool {
+        return qtc.KIO__MimeTypeFinderJob_SuperRemoveSubjob(@ptrCast(self), @ptrCast(job));
     }
 
     /// Inherited from KCompositeJob
@@ -1684,6 +1716,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_SlotInfoMessage(@ptrCast(self), @ptrCast(job), message_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSlotInfoMessage` instead
+    ///
+    pub const QBaseSlotInfoMessage = SuperSlotInfoMessage;
+
     /// Inherited from KCompositeJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompositejob.html#slotInfoMessage)
@@ -1698,12 +1734,12 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` message: []const u8 `
     ///
-    pub fn QBaseSlotInfoMessage(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
+    pub fn SuperSlotInfoMessage(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-        qtc.KIO__MimeTypeFinderJob_QBaseSlotInfoMessage(@ptrCast(self), @ptrCast(job), message_str);
+        qtc.KIO__MimeTypeFinderJob_SuperSlotInfoMessage(@ptrCast(self), @ptrCast(job), message_str);
     }
 
     /// Inherited from KCompositeJob
@@ -1736,6 +1772,10 @@ pub const kio__mimetypefinderjob = struct {
         return qtc.KIO__MimeTypeFinderJob_DoSuspend(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDoSuspend` instead
+    ///
+    pub const QBaseDoSuspend = SuperDoSuspend;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#doSuspend)
@@ -1746,8 +1786,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` self: QtC.KIO__MimeTypeFinderJob `
     ///
-    pub fn QBaseDoSuspend(self: ?*anyopaque) bool {
-        return qtc.KIO__MimeTypeFinderJob_QBaseDoSuspend(@ptrCast(self));
+    pub fn SuperDoSuspend(self: ?*anyopaque) bool {
+        return qtc.KIO__MimeTypeFinderJob_SuperDoSuspend(@ptrCast(self));
     }
 
     /// Inherited from KJob
@@ -1780,6 +1820,10 @@ pub const kio__mimetypefinderjob = struct {
         return qtc.KIO__MimeTypeFinderJob_DoResume(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDoResume` instead
+    ///
+    pub const QBaseDoResume = SuperDoResume;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#doResume)
@@ -1790,8 +1834,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` self: QtC.KIO__MimeTypeFinderJob `
     ///
-    pub fn QBaseDoResume(self: ?*anyopaque) bool {
-        return qtc.KIO__MimeTypeFinderJob_QBaseDoResume(@ptrCast(self));
+    pub fn SuperDoResume(self: ?*anyopaque) bool {
+        return qtc.KIO__MimeTypeFinderJob_SuperDoResume(@ptrCast(self));
     }
 
     /// Inherited from KJob
@@ -1830,6 +1874,10 @@ pub const kio__mimetypefinderjob = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperErrorString` instead
+    ///
+    pub const QBaseErrorString = SuperErrorString;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#errorString)
@@ -1842,8 +1890,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KIO__MimeTypeFinderJob_QBaseErrorString(@ptrCast(self));
+    pub fn SuperErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KIO__MimeTypeFinderJob_SuperErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__mimetypefinderjob.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1884,6 +1932,10 @@ pub const kio__mimetypefinderjob = struct {
         return qtc.KIO__MimeTypeFinderJob_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1896,8 +1948,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KIO__MimeTypeFinderJob_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KIO__MimeTypeFinderJob_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1934,6 +1986,10 @@ pub const kio__mimetypefinderjob = struct {
         return qtc.KIO__MimeTypeFinderJob_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1948,8 +2004,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KIO__MimeTypeFinderJob_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KIO__MimeTypeFinderJob_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1984,6 +2040,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1996,8 +2056,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIO__MimeTypeFinderJob_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KIO__MimeTypeFinderJob_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2032,6 +2092,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -2044,8 +2108,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIO__MimeTypeFinderJob_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KIO__MimeTypeFinderJob_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2080,6 +2144,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -2092,8 +2160,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIO__MimeTypeFinderJob_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KIO__MimeTypeFinderJob_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2128,6 +2196,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2140,8 +2212,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KIO__MimeTypeFinderJob_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KIO__MimeTypeFinderJob_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2176,6 +2248,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -2188,8 +2264,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KIO__MimeTypeFinderJob_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KIO__MimeTypeFinderJob_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2222,6 +2298,10 @@ pub const kio__mimetypefinderjob = struct {
         return qtc.KIO__MimeTypeFinderJob_HasSubjobs(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasSubjobs` instead
+    ///
+    pub const QBaseHasSubjobs = SuperHasSubjobs;
+
     /// Inherited from KCompositeJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompositejob.html#hasSubjobs)
@@ -2232,8 +2312,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` self: QtC.KIO__MimeTypeFinderJob `
     ///
-    pub fn QBaseHasSubjobs(self: ?*anyopaque) bool {
-        return qtc.KIO__MimeTypeFinderJob_QBaseHasSubjobs(@ptrCast(self));
+    pub fn SuperHasSubjobs(self: ?*anyopaque) bool {
+        return qtc.KIO__MimeTypeFinderJob_SuperHasSubjobs(@ptrCast(self));
     }
 
     /// Inherited from KCompositeJob
@@ -2273,6 +2353,10 @@ pub const kio__mimetypefinderjob = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperSubjobs` instead
+    ///
+    pub const QBaseSubjobs = SuperSubjobs;
+
     /// Inherited from KCompositeJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompositejob.html#subjobs)
@@ -2285,8 +2369,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSubjobs(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KJob {
-        const _arr: qtc.libqt_list = qtc.KIO__MimeTypeFinderJob_QBaseSubjobs(@ptrCast(self));
+    pub fn SuperSubjobs(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KJob {
+        const _arr: qtc.libqt_list = qtc.KIO__MimeTypeFinderJob_SuperSubjobs(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.KJob, _arr.len) catch @panic("kio__mimetypefinderjob.Subjobs: Memory allocation failed");
         const _data: [*]QtC.KJob = @ptrCast(@alignCast(_arr.data));
@@ -2330,6 +2414,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_ClearSubjobs(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperClearSubjobs` instead
+    ///
+    pub const QBaseClearSubjobs = SuperClearSubjobs;
+
     /// Inherited from KCompositeJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompositejob.html#clearSubjobs)
@@ -2340,8 +2428,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` self: QtC.KIO__MimeTypeFinderJob `
     ///
-    pub fn QBaseClearSubjobs(self: ?*anyopaque) void {
-        qtc.KIO__MimeTypeFinderJob_QBaseClearSubjobs(@ptrCast(self));
+    pub fn SuperClearSubjobs(self: ?*anyopaque) void {
+        qtc.KIO__MimeTypeFinderJob_SuperClearSubjobs(@ptrCast(self));
     }
 
     /// Inherited from KCompositeJob
@@ -2376,6 +2464,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_SetCapabilities(@ptrCast(self), @bitCast(capabilities));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCapabilities` instead
+    ///
+    pub const QBaseSetCapabilities = SuperSetCapabilities;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setCapabilities)
@@ -2388,8 +2480,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` capabilities: flag of kjob_enums.Capability `
     ///
-    pub fn QBaseSetCapabilities(self: ?*anyopaque, capabilities: i32) void {
-        qtc.KIO__MimeTypeFinderJob_QBaseSetCapabilities(@ptrCast(self), @bitCast(capabilities));
+    pub fn SuperSetCapabilities(self: ?*anyopaque, capabilities: i32) void {
+        qtc.KIO__MimeTypeFinderJob_SuperSetCapabilities(@ptrCast(self), @bitCast(capabilities));
     }
 
     /// Inherited from KJob
@@ -2422,6 +2514,10 @@ pub const kio__mimetypefinderjob = struct {
         return qtc.KIO__MimeTypeFinderJob_IsFinished(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsFinished` instead
+    ///
+    pub const QBaseIsFinished = SuperIsFinished;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#isFinished)
@@ -2432,8 +2528,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` self: QtC.KIO__MimeTypeFinderJob `
     ///
-    pub fn QBaseIsFinished(self: ?*anyopaque) bool {
-        return qtc.KIO__MimeTypeFinderJob_QBaseIsFinished(@ptrCast(self));
+    pub fn SuperIsFinished(self: ?*anyopaque) bool {
+        return qtc.KIO__MimeTypeFinderJob_SuperIsFinished(@ptrCast(self));
     }
 
     /// Inherited from KJob
@@ -2468,6 +2564,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_SetError(@ptrCast(self), @bitCast(errorCode));
     }
 
+    /// ### DEPRECATED: Use `SuperSetError` instead
+    ///
+    pub const QBaseSetError = SuperSetError;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setError)
@@ -2480,8 +2580,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` errorCode: i32 `
     ///
-    pub fn QBaseSetError(self: ?*anyopaque, errorCode: i32) void {
-        qtc.KIO__MimeTypeFinderJob_QBaseSetError(@ptrCast(self), @bitCast(errorCode));
+    pub fn SuperSetError(self: ?*anyopaque, errorCode: i32) void {
+        qtc.KIO__MimeTypeFinderJob_SuperSetError(@ptrCast(self), @bitCast(errorCode));
     }
 
     /// Inherited from KJob
@@ -2520,6 +2620,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_SetErrorText(@ptrCast(self), errorText_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSetErrorText` instead
+    ///
+    pub const QBaseSetErrorText = SuperSetErrorText;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setErrorText)
@@ -2532,12 +2636,12 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` errorText: []const u8 `
     ///
-    pub fn QBaseSetErrorText(self: ?*anyopaque, errorText: []const u8) void {
+    pub fn SuperSetErrorText(self: ?*anyopaque, errorText: []const u8) void {
         const errorText_str = qtc.libqt_string{
             .len = errorText.len,
             .data = errorText.ptr,
         };
-        qtc.KIO__MimeTypeFinderJob_QBaseSetErrorText(@ptrCast(self), errorText_str);
+        qtc.KIO__MimeTypeFinderJob_SuperSetErrorText(@ptrCast(self), errorText_str);
     }
 
     /// Inherited from KJob
@@ -2574,6 +2678,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_SetProcessedAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
+    /// ### DEPRECATED: Use `SuperSetProcessedAmount` instead
+    ///
+    pub const QBaseSetProcessedAmount = SuperSetProcessedAmount;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
@@ -2588,8 +2696,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` amount: u64 `
     ///
-    pub fn QBaseSetProcessedAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
-        qtc.KIO__MimeTypeFinderJob_QBaseSetProcessedAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
+    pub fn SuperSetProcessedAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
+        qtc.KIO__MimeTypeFinderJob_SuperSetProcessedAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
     /// Inherited from KJob
@@ -2626,6 +2734,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_SetTotalAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTotalAmount` instead
+    ///
+    pub const QBaseSetTotalAmount = SuperSetTotalAmount;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setTotalAmount)
@@ -2640,8 +2752,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` amount: u64 `
     ///
-    pub fn QBaseSetTotalAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
-        qtc.KIO__MimeTypeFinderJob_QBaseSetTotalAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
+    pub fn SuperSetTotalAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
+        qtc.KIO__MimeTypeFinderJob_SuperSetTotalAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
     /// Inherited from KJob
@@ -2676,6 +2788,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_SetProgressUnit(@ptrCast(self), @bitCast(unit));
     }
 
+    /// ### DEPRECATED: Use `SuperSetProgressUnit` instead
+    ///
+    pub const QBaseSetProgressUnit = SuperSetProgressUnit;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setProgressUnit)
@@ -2688,8 +2804,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn QBaseSetProgressUnit(self: ?*anyopaque, unit: i32) void {
-        qtc.KIO__MimeTypeFinderJob_QBaseSetProgressUnit(@ptrCast(self), @bitCast(unit));
+    pub fn SuperSetProgressUnit(self: ?*anyopaque, unit: i32) void {
+        qtc.KIO__MimeTypeFinderJob_SuperSetProgressUnit(@ptrCast(self), @bitCast(unit));
     }
 
     /// Inherited from KJob
@@ -2724,6 +2840,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_SetPercent(@ptrCast(self), @bitCast(percentage));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPercent` instead
+    ///
+    pub const QBaseSetPercent = SuperSetPercent;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setPercent)
@@ -2736,8 +2856,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` percentage: u64 `
     ///
-    pub fn QBaseSetPercent(self: ?*anyopaque, percentage: u64) void {
-        qtc.KIO__MimeTypeFinderJob_QBaseSetPercent(@ptrCast(self), @bitCast(percentage));
+    pub fn SuperSetPercent(self: ?*anyopaque, percentage: u64) void {
+        qtc.KIO__MimeTypeFinderJob_SuperSetPercent(@ptrCast(self), @bitCast(percentage));
     }
 
     /// Inherited from KJob
@@ -2770,6 +2890,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_EmitResult(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEmitResult` instead
+    ///
+    pub const QBaseEmitResult = SuperEmitResult;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#emitResult)
@@ -2780,8 +2904,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` self: QtC.KIO__MimeTypeFinderJob `
     ///
-    pub fn QBaseEmitResult(self: ?*anyopaque) void {
-        qtc.KIO__MimeTypeFinderJob_QBaseEmitResult(@ptrCast(self));
+    pub fn SuperEmitResult(self: ?*anyopaque) void {
+        qtc.KIO__MimeTypeFinderJob_SuperEmitResult(@ptrCast(self));
     }
 
     /// Inherited from KJob
@@ -2818,6 +2942,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_EmitPercent(@ptrCast(self), @bitCast(processedAmount), @bitCast(totalAmount));
     }
 
+    /// ### DEPRECATED: Use `SuperEmitPercent` instead
+    ///
+    pub const QBaseEmitPercent = SuperEmitPercent;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#emitPercent)
@@ -2832,8 +2960,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` totalAmount: u64 `
     ///
-    pub fn QBaseEmitPercent(self: ?*anyopaque, processedAmount: u64, totalAmount: u64) void {
-        qtc.KIO__MimeTypeFinderJob_QBaseEmitPercent(@ptrCast(self), @bitCast(processedAmount), @bitCast(totalAmount));
+    pub fn SuperEmitPercent(self: ?*anyopaque, processedAmount: u64, totalAmount: u64) void {
+        qtc.KIO__MimeTypeFinderJob_SuperEmitPercent(@ptrCast(self), @bitCast(processedAmount), @bitCast(totalAmount));
     }
 
     /// Inherited from KJob
@@ -2868,6 +2996,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_EmitSpeed(@ptrCast(self), @bitCast(speed));
     }
 
+    /// ### DEPRECATED: Use `SuperEmitSpeed` instead
+    ///
+    pub const QBaseEmitSpeed = SuperEmitSpeed;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#emitSpeed)
@@ -2880,8 +3012,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` speed: u64 `
     ///
-    pub fn QBaseEmitSpeed(self: ?*anyopaque, speed: u64) void {
-        qtc.KIO__MimeTypeFinderJob_QBaseEmitSpeed(@ptrCast(self), @bitCast(speed));
+    pub fn SuperEmitSpeed(self: ?*anyopaque, speed: u64) void {
+        qtc.KIO__MimeTypeFinderJob_SuperEmitSpeed(@ptrCast(self), @bitCast(speed));
     }
 
     /// Inherited from KJob
@@ -2914,6 +3046,10 @@ pub const kio__mimetypefinderjob = struct {
         qtc.KIO__MimeTypeFinderJob_StartElapsedTimer(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperStartElapsedTimer` instead
+    ///
+    pub const QBaseStartElapsedTimer = SuperStartElapsedTimer;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#startElapsedTimer)
@@ -2924,8 +3060,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` self: QtC.KIO__MimeTypeFinderJob `
     ///
-    pub fn QBaseStartElapsedTimer(self: ?*anyopaque) void {
-        qtc.KIO__MimeTypeFinderJob_QBaseStartElapsedTimer(@ptrCast(self));
+    pub fn SuperStartElapsedTimer(self: ?*anyopaque) void {
+        qtc.KIO__MimeTypeFinderJob_SuperStartElapsedTimer(@ptrCast(self));
     }
 
     /// Inherited from KJob
@@ -2958,6 +3094,10 @@ pub const kio__mimetypefinderjob = struct {
         return qtc.KIO__MimeTypeFinderJob_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2968,8 +3108,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` self: QtC.KIO__MimeTypeFinderJob `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KIO__MimeTypeFinderJob_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KIO__MimeTypeFinderJob_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3002,6 +3142,10 @@ pub const kio__mimetypefinderjob = struct {
         return qtc.KIO__MimeTypeFinderJob_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -3012,8 +3156,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` self: QtC.KIO__MimeTypeFinderJob `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KIO__MimeTypeFinderJob_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KIO__MimeTypeFinderJob_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3049,6 +3193,10 @@ pub const kio__mimetypefinderjob = struct {
         return qtc.KIO__MimeTypeFinderJob_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -3061,9 +3209,9 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KIO__MimeTypeFinderJob_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KIO__MimeTypeFinderJob_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3098,6 +3246,10 @@ pub const kio__mimetypefinderjob = struct {
         return qtc.KIO__MimeTypeFinderJob_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -3110,8 +3262,8 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KIO__MimeTypeFinderJob_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KIO__MimeTypeFinderJob_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3257,6 +3409,9 @@ pub const kio__mimetypefinderjob = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -3264,7 +3419,7 @@ pub const kio__mimetypefinderjob = struct {
     ///
     /// ` self: QtC.KIO__MimeTypeFinderJob `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KIO__MimeTypeFinderJob_Delete(@ptrCast(self));
     }
 };

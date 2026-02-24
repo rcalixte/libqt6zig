@@ -58,6 +58,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -66,8 +70,8 @@ pub const qwindow = struct {
     ///
     /// ` self: QtC.QWindow `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QWindow_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QWindow_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -93,6 +97,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -101,9 +109,9 @@ pub const qwindow = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QWindow_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QWindow_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -132,6 +140,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -144,8 +156,8 @@ pub const qwindow = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QWindow_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QWindow_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -205,6 +217,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnSurfaceType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSurfaceType` instead
+    ///
+    pub const QBaseSurfaceType = SuperSurfaceType;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#surfaceType)
     ///
     /// Base class method implementation
@@ -217,8 +233,8 @@ pub const qwindow = struct {
     ///
     /// ` qsurface_enums.SurfaceType `
     ///
-    pub fn QBaseSurfaceType(self: ?*anyopaque) i32 {
-        return qtc.QWindow_QBaseSurfaceType(@ptrCast(self));
+    pub fn SuperSurfaceType(self: ?*anyopaque) i32 {
+        return qtc.QWindow_SuperSurfaceType(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#isVisible)
@@ -381,6 +397,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnFormat(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFormat` instead
+    ///
+    pub const QBaseFormat = SuperFormat;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#format)
     ///
     /// Base class method implementation
@@ -389,8 +409,8 @@ pub const qwindow = struct {
     ///
     /// ` self: QtC.QWindow `
     ///
-    pub fn QBaseFormat(self: ?*anyopaque) QtC.QSurfaceFormat {
-        return qtc.QWindow_QBaseFormat(@ptrCast(self));
+    pub fn SuperFormat(self: ?*anyopaque) QtC.QSurfaceFormat {
+        return qtc.QWindow_SuperFormat(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#requestedFormat)
@@ -901,6 +921,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSize` instead
+    ///
+    pub const QBaseSize = SuperSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#size)
     ///
     /// Base class method implementation
@@ -909,8 +933,8 @@ pub const qwindow = struct {
     ///
     /// ` self: QtC.QWindow `
     ///
-    pub fn QBaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWindow_QBaseSize(@ptrCast(self));
+    pub fn SuperSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWindow_SuperSize(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#position)
@@ -1109,6 +1133,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnAccessibleRoot(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAccessibleRoot` instead
+    ///
+    pub const QBaseAccessibleRoot = SuperAccessibleRoot;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#accessibleRoot)
     ///
     /// Base class method implementation
@@ -1117,8 +1145,8 @@ pub const qwindow = struct {
     ///
     /// ` self: QtC.QWindow `
     ///
-    pub fn QBaseAccessibleRoot(self: ?*anyopaque) QtC.QAccessibleInterface {
-        return qtc.QWindow_QBaseAccessibleRoot(@ptrCast(self));
+    pub fn SuperAccessibleRoot(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QWindow_SuperAccessibleRoot(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusObject)
@@ -1145,6 +1173,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnFocusObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusObject` instead
+    ///
+    pub const QBaseFocusObject = SuperFocusObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusObject)
     ///
     /// Base class method implementation
@@ -1153,8 +1185,8 @@ pub const qwindow = struct {
     ///
     /// ` self: QtC.QWindow `
     ///
-    pub fn QBaseFocusObject(self: ?*anyopaque) QtC.QObject {
-        return qtc.QWindow_QBaseFocusObject(@ptrCast(self));
+    pub fn SuperFocusObject(self: ?*anyopaque) QtC.QObject {
+        return qtc.QWindow_SuperFocusObject(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mapToGlobal)
@@ -1276,6 +1308,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnResolveInterface(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperResolveInterface` instead
+    ///
+    pub const QBaseResolveInterface = SuperResolveInterface;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#resolveInterface)
     ///
     /// Base class method implementation
@@ -1288,9 +1324,9 @@ pub const qwindow = struct {
     ///
     /// ` revision: i32 `
     ///
-    pub fn QBaseResolveInterface(self: ?*anyopaque, name: [:0]const u8, revision: i32) ?*anyopaque {
+    pub fn SuperResolveInterface(self: ?*anyopaque, name: [:0]const u8, revision: i32) ?*anyopaque {
         const name_Cstring = name.ptr;
-        return qtc.QWindow_QBaseResolveInterface(@ptrCast(self), name_Cstring, @bitCast(revision));
+        return qtc.QWindow_SuperResolveInterface(@ptrCast(self), name_Cstring, @bitCast(revision));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#requestActivate)
@@ -2075,6 +2111,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnExposeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperExposeEvent` instead
+    ///
+    pub const QBaseExposeEvent = SuperExposeEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#exposeEvent)
     ///
     /// Base class method implementation
@@ -2085,8 +2125,8 @@ pub const qwindow = struct {
     ///
     /// ` param1: QtC.QExposeEvent `
     ///
-    pub fn QBaseExposeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWindow_QBaseExposeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperExposeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWindow_SuperExposeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#resizeEvent)
@@ -2115,6 +2155,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#resizeEvent)
     ///
     /// Base class method implementation
@@ -2125,8 +2169,8 @@ pub const qwindow = struct {
     ///
     /// ` param1: QtC.QResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWindow_QBaseResizeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWindow_SuperResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#paintEvent)
@@ -2155,6 +2199,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    ///
+    pub const QBasePaintEvent = SuperPaintEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#paintEvent)
     ///
     /// Base class method implementation
@@ -2165,8 +2213,8 @@ pub const qwindow = struct {
     ///
     /// ` param1: QtC.QPaintEvent `
     ///
-    pub fn QBasePaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWindow_QBasePaintEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperPaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWindow_SuperPaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#moveEvent)
@@ -2195,6 +2243,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#moveEvent)
     ///
     /// Base class method implementation
@@ -2205,8 +2257,8 @@ pub const qwindow = struct {
     ///
     /// ` param1: QtC.QMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWindow_QBaseMoveEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWindow_SuperMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusInEvent)
@@ -2235,6 +2287,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusInEvent)
     ///
     /// Base class method implementation
@@ -2245,8 +2301,8 @@ pub const qwindow = struct {
     ///
     /// ` param1: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWindow_QBaseFocusInEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWindow_SuperFocusInEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusOutEvent)
@@ -2275,6 +2331,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusOutEvent)
     ///
     /// Base class method implementation
@@ -2285,8 +2345,8 @@ pub const qwindow = struct {
     ///
     /// ` param1: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWindow_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWindow_SuperFocusOutEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#showEvent)
@@ -2315,6 +2375,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#showEvent)
     ///
     /// Base class method implementation
@@ -2325,8 +2389,8 @@ pub const qwindow = struct {
     ///
     /// ` param1: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWindow_QBaseShowEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWindow_SuperShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#hideEvent)
@@ -2355,6 +2419,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#hideEvent)
     ///
     /// Base class method implementation
@@ -2365,8 +2433,8 @@ pub const qwindow = struct {
     ///
     /// ` param1: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWindow_QBaseHideEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperHideEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWindow_SuperHideEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#closeEvent)
@@ -2395,6 +2463,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#closeEvent)
     ///
     /// Base class method implementation
@@ -2405,8 +2477,8 @@ pub const qwindow = struct {
     ///
     /// ` param1: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWindow_QBaseCloseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperCloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWindow_SuperCloseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#event)
@@ -2435,6 +2507,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#event)
     ///
     /// Base class method implementation
@@ -2445,8 +2521,8 @@ pub const qwindow = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWindow_QBaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
+        return qtc.QWindow_SuperEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#keyPressEvent)
@@ -2475,6 +2551,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#keyPressEvent)
     ///
     /// Base class method implementation
@@ -2485,8 +2565,8 @@ pub const qwindow = struct {
     ///
     /// ` param1: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWindow_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWindow_SuperKeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#keyReleaseEvent)
@@ -2515,6 +2595,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#keyReleaseEvent)
     ///
     /// Base class method implementation
@@ -2525,8 +2609,8 @@ pub const qwindow = struct {
     ///
     /// ` param1: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWindow_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWindow_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mousePressEvent)
@@ -2555,6 +2639,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mousePressEvent)
     ///
     /// Base class method implementation
@@ -2565,8 +2653,8 @@ pub const qwindow = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWindow_QBaseMousePressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWindow_SuperMousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseReleaseEvent)
@@ -2595,6 +2683,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
@@ -2605,8 +2697,8 @@ pub const qwindow = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWindow_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWindow_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseDoubleClickEvent)
@@ -2635,6 +2727,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseDoubleClickEvent)
     ///
     /// Base class method implementation
@@ -2645,8 +2741,8 @@ pub const qwindow = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWindow_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWindow_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseMoveEvent)
@@ -2675,6 +2771,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseMoveEvent)
     ///
     /// Base class method implementation
@@ -2685,8 +2785,8 @@ pub const qwindow = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWindow_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWindow_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#wheelEvent)
@@ -2715,6 +2815,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#wheelEvent)
     ///
     /// Base class method implementation
@@ -2725,8 +2829,8 @@ pub const qwindow = struct {
     ///
     /// ` param1: QtC.QWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWindow_QBaseWheelEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperWheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWindow_SuperWheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#touchEvent)
@@ -2755,6 +2859,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnTouchEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperTouchEvent` instead
+    ///
+    pub const QBaseTouchEvent = SuperTouchEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#touchEvent)
     ///
     /// Base class method implementation
@@ -2765,8 +2873,8 @@ pub const qwindow = struct {
     ///
     /// ` param1: QtC.QTouchEvent `
     ///
-    pub fn QBaseTouchEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWindow_QBaseTouchEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperTouchEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWindow_SuperTouchEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#tabletEvent)
@@ -2795,6 +2903,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    ///
+    pub const QBaseTabletEvent = SuperTabletEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#tabletEvent)
     ///
     /// Base class method implementation
@@ -2805,8 +2917,8 @@ pub const qwindow = struct {
     ///
     /// ` param1: QtC.QTabletEvent `
     ///
-    pub fn QBaseTabletEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWindow_QBaseTabletEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperTabletEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWindow_SuperTabletEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#nativeEvent)
@@ -2843,6 +2955,10 @@ pub const qwindow = struct {
         qtc.QWindow_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    ///
+    pub const QBaseNativeEvent = SuperNativeEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#nativeEvent)
     ///
     /// Base class method implementation
@@ -2857,12 +2973,12 @@ pub const qwindow = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QWindow_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QWindow_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -3705,6 +3821,10 @@ pub const qwindow = struct {
         return qtc.QWindow_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -3719,8 +3839,8 @@ pub const qwindow = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QWindow_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QWindow_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3755,6 +3875,10 @@ pub const qwindow = struct {
         qtc.QWindow_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -3767,8 +3891,8 @@ pub const qwindow = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWindow_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QWindow_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3803,6 +3927,10 @@ pub const qwindow = struct {
         qtc.QWindow_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -3815,8 +3943,8 @@ pub const qwindow = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWindow_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QWindow_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3851,6 +3979,10 @@ pub const qwindow = struct {
         qtc.QWindow_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -3863,8 +3995,8 @@ pub const qwindow = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWindow_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QWindow_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3899,6 +4031,10 @@ pub const qwindow = struct {
         qtc.QWindow_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3911,8 +4047,8 @@ pub const qwindow = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWindow_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QWindow_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3947,6 +4083,10 @@ pub const qwindow = struct {
         qtc.QWindow_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -3959,8 +4099,8 @@ pub const qwindow = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWindow_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QWindow_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3993,6 +4133,10 @@ pub const qwindow = struct {
         return qtc.QWindow_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -4003,8 +4147,8 @@ pub const qwindow = struct {
     ///
     /// ` self: QtC.QWindow `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QWindow_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QWindow_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -4037,6 +4181,10 @@ pub const qwindow = struct {
         return qtc.QWindow_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -4047,8 +4195,8 @@ pub const qwindow = struct {
     ///
     /// ` self: QtC.QWindow `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QWindow_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QWindow_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -4084,6 +4232,10 @@ pub const qwindow = struct {
         return qtc.QWindow_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -4096,9 +4248,9 @@ pub const qwindow = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QWindow_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QWindow_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -4133,6 +4285,10 @@ pub const qwindow = struct {
         return qtc.QWindow_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -4145,8 +4301,8 @@ pub const qwindow = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QWindow_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QWindow_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -4180,6 +4336,9 @@ pub const qwindow = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#dtor.QWindow)
     ///
@@ -4189,7 +4348,7 @@ pub const qwindow = struct {
     ///
     /// ` self: QtC.QWindow `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWindow_Delete(@ptrCast(self));
     }
 };

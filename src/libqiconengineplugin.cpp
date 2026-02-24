@@ -59,7 +59,7 @@ QIconEngine* QIconEnginePlugin_Create(QIconEnginePlugin* self, const libqt_strin
 }
 
 // Base class handler implementation
-QMetaObject* QIconEnginePlugin_QBaseMetaObject(const QIconEnginePlugin* self) {
+QMetaObject* QIconEnginePlugin_SuperMetaObject(const QIconEnginePlugin* self) {
     auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
     if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_MetaObject_IsBase(true);
@@ -78,7 +78,7 @@ void QIconEnginePlugin_OnMetaObject(const QIconEnginePlugin* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* QIconEnginePlugin_QBaseMetacast(QIconEnginePlugin* self, const char* param1) {
+void* QIconEnginePlugin_SuperMetacast(QIconEnginePlugin* self, const char* param1) {
     auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
     if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_Metacast_IsBase(true);
@@ -97,7 +97,7 @@ void QIconEnginePlugin_OnMetacast(QIconEnginePlugin* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QIconEnginePlugin_QBaseMetacall(QIconEnginePlugin* self, int param1, int param2, void** param3) {
+int QIconEnginePlugin_SuperMetacall(QIconEnginePlugin* self, int param1, int param2, void** param3) {
     auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
     if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_Metacall_IsBase(true);
@@ -116,7 +116,7 @@ void QIconEnginePlugin_OnMetacall(QIconEnginePlugin* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QIconEngine* QIconEnginePlugin_QBaseCreate(QIconEnginePlugin* self, const libqt_string filename) {
+QIconEngine* QIconEnginePlugin_SuperCreate(QIconEnginePlugin* self, const libqt_string filename) {
     auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
     QString filename_QString = QString::fromUtf8(filename.data, filename.len);
     if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
@@ -146,7 +146,7 @@ bool QIconEnginePlugin_Event(QIconEnginePlugin* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QIconEnginePlugin_QBaseEvent(QIconEnginePlugin* self, QEvent* event) {
+bool QIconEnginePlugin_SuperEvent(QIconEnginePlugin* self, QEvent* event) {
     auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
     if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_Event_IsBase(true);
@@ -175,7 +175,7 @@ bool QIconEnginePlugin_EventFilter(QIconEnginePlugin* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool QIconEnginePlugin_QBaseEventFilter(QIconEnginePlugin* self, QObject* watched, QEvent* event) {
+bool QIconEnginePlugin_SuperEventFilter(QIconEnginePlugin* self, QObject* watched, QEvent* event) {
     auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
     if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_EventFilter_IsBase(true);
@@ -204,7 +204,7 @@ void QIconEnginePlugin_TimerEvent(QIconEnginePlugin* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QIconEnginePlugin_QBaseTimerEvent(QIconEnginePlugin* self, QTimerEvent* event) {
+void QIconEnginePlugin_SuperTimerEvent(QIconEnginePlugin* self, QTimerEvent* event) {
     auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
     if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_TimerEvent_IsBase(true);
@@ -233,7 +233,7 @@ void QIconEnginePlugin_ChildEvent(QIconEnginePlugin* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QIconEnginePlugin_QBaseChildEvent(QIconEnginePlugin* self, QChildEvent* event) {
+void QIconEnginePlugin_SuperChildEvent(QIconEnginePlugin* self, QChildEvent* event) {
     auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
     if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_ChildEvent_IsBase(true);
@@ -262,7 +262,7 @@ void QIconEnginePlugin_CustomEvent(QIconEnginePlugin* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QIconEnginePlugin_QBaseCustomEvent(QIconEnginePlugin* self, QEvent* event) {
+void QIconEnginePlugin_SuperCustomEvent(QIconEnginePlugin* self, QEvent* event) {
     auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
     if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_CustomEvent_IsBase(true);
@@ -291,7 +291,7 @@ void QIconEnginePlugin_ConnectNotify(QIconEnginePlugin* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void QIconEnginePlugin_QBaseConnectNotify(QIconEnginePlugin* self, const QMetaMethod* signal) {
+void QIconEnginePlugin_SuperConnectNotify(QIconEnginePlugin* self, const QMetaMethod* signal) {
     auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
     if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_ConnectNotify_IsBase(true);
@@ -320,7 +320,7 @@ void QIconEnginePlugin_DisconnectNotify(QIconEnginePlugin* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void QIconEnginePlugin_QBaseDisconnectNotify(QIconEnginePlugin* self, const QMetaMethod* signal) {
+void QIconEnginePlugin_SuperDisconnectNotify(QIconEnginePlugin* self, const QMetaMethod* signal) {
     auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
     if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_DisconnectNotify_IsBase(true);
@@ -349,7 +349,7 @@ QObject* QIconEnginePlugin_Sender(const QIconEnginePlugin* self) {
 }
 
 // Base class handler implementation
-QObject* QIconEnginePlugin_QBaseSender(const QIconEnginePlugin* self) {
+QObject* QIconEnginePlugin_SuperSender(const QIconEnginePlugin* self) {
     auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
     if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_Sender_IsBase(true);
@@ -378,7 +378,7 @@ int QIconEnginePlugin_SenderSignalIndex(const QIconEnginePlugin* self) {
 }
 
 // Base class handler implementation
-int QIconEnginePlugin_QBaseSenderSignalIndex(const QIconEnginePlugin* self) {
+int QIconEnginePlugin_SuperSenderSignalIndex(const QIconEnginePlugin* self) {
     auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
     if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_SenderSignalIndex_IsBase(true);
@@ -407,7 +407,7 @@ int QIconEnginePlugin_Receivers(const QIconEnginePlugin* self, const char* signa
 }
 
 // Base class handler implementation
-int QIconEnginePlugin_QBaseReceivers(const QIconEnginePlugin* self, const char* signal) {
+int QIconEnginePlugin_SuperReceivers(const QIconEnginePlugin* self, const char* signal) {
     auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
     if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_Receivers_IsBase(true);
@@ -436,7 +436,7 @@ bool QIconEnginePlugin_IsSignalConnected(const QIconEnginePlugin* self, const QM
 }
 
 // Base class handler implementation
-bool QIconEnginePlugin_QBaseIsSignalConnected(const QIconEnginePlugin* self, const QMetaMethod* signal) {
+bool QIconEnginePlugin_SuperIsSignalConnected(const QIconEnginePlugin* self, const QMetaMethod* signal) {
     auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
     if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
         vqiconengineplugin->setQIconEnginePlugin_IsSignalConnected_IsBase(true);

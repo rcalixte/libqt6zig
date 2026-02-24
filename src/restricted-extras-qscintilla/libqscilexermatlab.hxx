@@ -1098,31 +1098,31 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
 
     // Friend functions
     friend bool QsciLexerMatlab_ReadProperties(QsciLexerMatlab* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerMatlab_QBaseReadProperties(QsciLexerMatlab* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerMatlab_SuperReadProperties(QsciLexerMatlab* self, QSettings* qs, const libqt_string prefix);
     friend bool QsciLexerMatlab_WriteProperties(const QsciLexerMatlab* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerMatlab_QBaseWriteProperties(const QsciLexerMatlab* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerMatlab_SuperWriteProperties(const QsciLexerMatlab* self, QSettings* qs, const libqt_string prefix);
     friend void QsciLexerMatlab_TimerEvent(QsciLexerMatlab* self, QTimerEvent* event);
-    friend void QsciLexerMatlab_QBaseTimerEvent(QsciLexerMatlab* self, QTimerEvent* event);
+    friend void QsciLexerMatlab_SuperTimerEvent(QsciLexerMatlab* self, QTimerEvent* event);
     friend void QsciLexerMatlab_ChildEvent(QsciLexerMatlab* self, QChildEvent* event);
-    friend void QsciLexerMatlab_QBaseChildEvent(QsciLexerMatlab* self, QChildEvent* event);
+    friend void QsciLexerMatlab_SuperChildEvent(QsciLexerMatlab* self, QChildEvent* event);
     friend void QsciLexerMatlab_CustomEvent(QsciLexerMatlab* self, QEvent* event);
-    friend void QsciLexerMatlab_QBaseCustomEvent(QsciLexerMatlab* self, QEvent* event);
+    friend void QsciLexerMatlab_SuperCustomEvent(QsciLexerMatlab* self, QEvent* event);
     friend void QsciLexerMatlab_ConnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal);
-    friend void QsciLexerMatlab_QBaseConnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal);
+    friend void QsciLexerMatlab_SuperConnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal);
     friend void QsciLexerMatlab_DisconnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal);
-    friend void QsciLexerMatlab_QBaseDisconnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal);
+    friend void QsciLexerMatlab_SuperDisconnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal);
     friend libqt_string QsciLexerMatlab_TextAsBytes(const QsciLexerMatlab* self, const libqt_string text);
-    friend libqt_string QsciLexerMatlab_QBaseTextAsBytes(const QsciLexerMatlab* self, const libqt_string text);
+    friend libqt_string QsciLexerMatlab_SuperTextAsBytes(const QsciLexerMatlab* self, const libqt_string text);
     friend libqt_string QsciLexerMatlab_BytesAsText(const QsciLexerMatlab* self, const char* bytes, int size);
-    friend libqt_string QsciLexerMatlab_QBaseBytesAsText(const QsciLexerMatlab* self, const char* bytes, int size);
+    friend libqt_string QsciLexerMatlab_SuperBytesAsText(const QsciLexerMatlab* self, const char* bytes, int size);
     friend QObject* QsciLexerMatlab_Sender(const QsciLexerMatlab* self);
-    friend QObject* QsciLexerMatlab_QBaseSender(const QsciLexerMatlab* self);
+    friend QObject* QsciLexerMatlab_SuperSender(const QsciLexerMatlab* self);
     friend int QsciLexerMatlab_SenderSignalIndex(const QsciLexerMatlab* self);
-    friend int QsciLexerMatlab_QBaseSenderSignalIndex(const QsciLexerMatlab* self);
+    friend int QsciLexerMatlab_SuperSenderSignalIndex(const QsciLexerMatlab* self);
     friend int QsciLexerMatlab_Receivers(const QsciLexerMatlab* self, const char* signal);
-    friend int QsciLexerMatlab_QBaseReceivers(const QsciLexerMatlab* self, const char* signal);
+    friend int QsciLexerMatlab_SuperReceivers(const QsciLexerMatlab* self, const char* signal);
     friend bool QsciLexerMatlab_IsSignalConnected(const QsciLexerMatlab* self, const QMetaMethod* signal);
-    friend bool QsciLexerMatlab_QBaseIsSignalConnected(const QsciLexerMatlab* self, const QMetaMethod* signal);
+    friend bool QsciLexerMatlab_SuperIsSignalConnected(const QsciLexerMatlab* self, const QMetaMethod* signal);
 };
 
 #endif

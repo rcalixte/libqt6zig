@@ -394,31 +394,31 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
 
     // Friend functions
     friend bool KToolBarPopupAction_Event(KToolBarPopupAction* self, QEvent* param1);
-    friend bool KToolBarPopupAction_QBaseEvent(KToolBarPopupAction* self, QEvent* param1);
+    friend bool KToolBarPopupAction_SuperEvent(KToolBarPopupAction* self, QEvent* param1);
     friend bool KToolBarPopupAction_EventFilter(KToolBarPopupAction* self, QObject* param1, QEvent* param2);
-    friend bool KToolBarPopupAction_QBaseEventFilter(KToolBarPopupAction* self, QObject* param1, QEvent* param2);
+    friend bool KToolBarPopupAction_SuperEventFilter(KToolBarPopupAction* self, QObject* param1, QEvent* param2);
     friend void KToolBarPopupAction_DeleteWidget(KToolBarPopupAction* self, QWidget* widget);
-    friend void KToolBarPopupAction_QBaseDeleteWidget(KToolBarPopupAction* self, QWidget* widget);
+    friend void KToolBarPopupAction_SuperDeleteWidget(KToolBarPopupAction* self, QWidget* widget);
     friend void KToolBarPopupAction_TimerEvent(KToolBarPopupAction* self, QTimerEvent* event);
-    friend void KToolBarPopupAction_QBaseTimerEvent(KToolBarPopupAction* self, QTimerEvent* event);
+    friend void KToolBarPopupAction_SuperTimerEvent(KToolBarPopupAction* self, QTimerEvent* event);
     friend void KToolBarPopupAction_ChildEvent(KToolBarPopupAction* self, QChildEvent* event);
-    friend void KToolBarPopupAction_QBaseChildEvent(KToolBarPopupAction* self, QChildEvent* event);
+    friend void KToolBarPopupAction_SuperChildEvent(KToolBarPopupAction* self, QChildEvent* event);
     friend void KToolBarPopupAction_CustomEvent(KToolBarPopupAction* self, QEvent* event);
-    friend void KToolBarPopupAction_QBaseCustomEvent(KToolBarPopupAction* self, QEvent* event);
+    friend void KToolBarPopupAction_SuperCustomEvent(KToolBarPopupAction* self, QEvent* event);
     friend void KToolBarPopupAction_ConnectNotify(KToolBarPopupAction* self, const QMetaMethod* signal);
-    friend void KToolBarPopupAction_QBaseConnectNotify(KToolBarPopupAction* self, const QMetaMethod* signal);
+    friend void KToolBarPopupAction_SuperConnectNotify(KToolBarPopupAction* self, const QMetaMethod* signal);
     friend void KToolBarPopupAction_DisconnectNotify(KToolBarPopupAction* self, const QMetaMethod* signal);
-    friend void KToolBarPopupAction_QBaseDisconnectNotify(KToolBarPopupAction* self, const QMetaMethod* signal);
+    friend void KToolBarPopupAction_SuperDisconnectNotify(KToolBarPopupAction* self, const QMetaMethod* signal);
     friend libqt_list /* of QWidget* */ KToolBarPopupAction_CreatedWidgets(const KToolBarPopupAction* self);
-    friend libqt_list /* of QWidget* */ KToolBarPopupAction_QBaseCreatedWidgets(const KToolBarPopupAction* self);
+    friend libqt_list /* of QWidget* */ KToolBarPopupAction_SuperCreatedWidgets(const KToolBarPopupAction* self);
     friend QObject* KToolBarPopupAction_Sender(const KToolBarPopupAction* self);
-    friend QObject* KToolBarPopupAction_QBaseSender(const KToolBarPopupAction* self);
+    friend QObject* KToolBarPopupAction_SuperSender(const KToolBarPopupAction* self);
     friend int KToolBarPopupAction_SenderSignalIndex(const KToolBarPopupAction* self);
-    friend int KToolBarPopupAction_QBaseSenderSignalIndex(const KToolBarPopupAction* self);
+    friend int KToolBarPopupAction_SuperSenderSignalIndex(const KToolBarPopupAction* self);
     friend int KToolBarPopupAction_Receivers(const KToolBarPopupAction* self, const char* signal);
-    friend int KToolBarPopupAction_QBaseReceivers(const KToolBarPopupAction* self, const char* signal);
+    friend int KToolBarPopupAction_SuperReceivers(const KToolBarPopupAction* self, const char* signal);
     friend bool KToolBarPopupAction_IsSignalConnected(const KToolBarPopupAction* self, const QMetaMethod* signal);
-    friend bool KToolBarPopupAction_QBaseIsSignalConnected(const KToolBarPopupAction* self, const QMetaMethod* signal);
+    friend bool KToolBarPopupAction_SuperIsSignalConnected(const KToolBarPopupAction* self, const QMetaMethod* signal);
 };
 
 #endif

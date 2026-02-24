@@ -65,21 +65,21 @@ QSizeF* QGraphicsLayoutItem_SizeHint(const QGraphicsLayoutItem* self, int which,
 void QGraphicsLayoutItem_SetSizePolicy3(QGraphicsLayoutItem* self, int hPolicy, int vPolicy, int controlType);
 QSizeF* QGraphicsLayoutItem_EffectiveSizeHint2(const QGraphicsLayoutItem* self, int which, const QSizeF* constraint);
 void QGraphicsLayoutItem_OnSetGeometry(QGraphicsLayoutItem* self, intptr_t slot);
-void QGraphicsLayoutItem_QBaseSetGeometry(QGraphicsLayoutItem* self, const QRectF* rect);
+void QGraphicsLayoutItem_SuperSetGeometry(QGraphicsLayoutItem* self, const QRectF* rect);
 void QGraphicsLayoutItem_OnGetContentsMargins(const QGraphicsLayoutItem* self, intptr_t slot);
-void QGraphicsLayoutItem_QBaseGetContentsMargins(const QGraphicsLayoutItem* self, double* left, double* top, double* right, double* bottom);
+void QGraphicsLayoutItem_SuperGetContentsMargins(const QGraphicsLayoutItem* self, double* left, double* top, double* right, double* bottom);
 void QGraphicsLayoutItem_OnUpdateGeometry(QGraphicsLayoutItem* self, intptr_t slot);
-void QGraphicsLayoutItem_QBaseUpdateGeometry(QGraphicsLayoutItem* self);
+void QGraphicsLayoutItem_SuperUpdateGeometry(QGraphicsLayoutItem* self);
 void QGraphicsLayoutItem_OnIsEmpty(const QGraphicsLayoutItem* self, intptr_t slot);
-bool QGraphicsLayoutItem_QBaseIsEmpty(const QGraphicsLayoutItem* self);
+bool QGraphicsLayoutItem_SuperIsEmpty(const QGraphicsLayoutItem* self);
 void QGraphicsLayoutItem_OnSizeHint(const QGraphicsLayoutItem* self, intptr_t slot);
-QSizeF* QGraphicsLayoutItem_QBaseSizeHint(const QGraphicsLayoutItem* self, int which, const QSizeF* constraint);
+QSizeF* QGraphicsLayoutItem_SuperSizeHint(const QGraphicsLayoutItem* self, int which, const QSizeF* constraint);
 void QGraphicsLayoutItem_SetGraphicsItem(QGraphicsLayoutItem* self, QGraphicsItem* item);
 void QGraphicsLayoutItem_OnSetGraphicsItem(QGraphicsLayoutItem* self, intptr_t slot);
-void QGraphicsLayoutItem_QBaseSetGraphicsItem(QGraphicsLayoutItem* self, QGraphicsItem* item);
+void QGraphicsLayoutItem_SuperSetGraphicsItem(QGraphicsLayoutItem* self, QGraphicsItem* item);
 void QGraphicsLayoutItem_SetOwnedByLayout(QGraphicsLayoutItem* self, bool ownedByLayout);
 void QGraphicsLayoutItem_OnSetOwnedByLayout(QGraphicsLayoutItem* self, intptr_t slot);
-void QGraphicsLayoutItem_QBaseSetOwnedByLayout(QGraphicsLayoutItem* self, bool ownedByLayout);
+void QGraphicsLayoutItem_SuperSetOwnedByLayout(QGraphicsLayoutItem* self, bool ownedByLayout);
 void QGraphicsLayoutItem_Delete(QGraphicsLayoutItem* self);
 
 #ifdef __cplusplus

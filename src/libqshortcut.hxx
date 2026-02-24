@@ -335,25 +335,25 @@ class VirtualQShortcut final : public QShortcut {
 
     // Friend functions
     friend bool QShortcut_Event(QShortcut* self, QEvent* e);
-    friend bool QShortcut_QBaseEvent(QShortcut* self, QEvent* e);
+    friend bool QShortcut_SuperEvent(QShortcut* self, QEvent* e);
     friend void QShortcut_TimerEvent(QShortcut* self, QTimerEvent* event);
-    friend void QShortcut_QBaseTimerEvent(QShortcut* self, QTimerEvent* event);
+    friend void QShortcut_SuperTimerEvent(QShortcut* self, QTimerEvent* event);
     friend void QShortcut_ChildEvent(QShortcut* self, QChildEvent* event);
-    friend void QShortcut_QBaseChildEvent(QShortcut* self, QChildEvent* event);
+    friend void QShortcut_SuperChildEvent(QShortcut* self, QChildEvent* event);
     friend void QShortcut_CustomEvent(QShortcut* self, QEvent* event);
-    friend void QShortcut_QBaseCustomEvent(QShortcut* self, QEvent* event);
+    friend void QShortcut_SuperCustomEvent(QShortcut* self, QEvent* event);
     friend void QShortcut_ConnectNotify(QShortcut* self, const QMetaMethod* signal);
-    friend void QShortcut_QBaseConnectNotify(QShortcut* self, const QMetaMethod* signal);
+    friend void QShortcut_SuperConnectNotify(QShortcut* self, const QMetaMethod* signal);
     friend void QShortcut_DisconnectNotify(QShortcut* self, const QMetaMethod* signal);
-    friend void QShortcut_QBaseDisconnectNotify(QShortcut* self, const QMetaMethod* signal);
+    friend void QShortcut_SuperDisconnectNotify(QShortcut* self, const QMetaMethod* signal);
     friend QObject* QShortcut_Sender(const QShortcut* self);
-    friend QObject* QShortcut_QBaseSender(const QShortcut* self);
+    friend QObject* QShortcut_SuperSender(const QShortcut* self);
     friend int QShortcut_SenderSignalIndex(const QShortcut* self);
-    friend int QShortcut_QBaseSenderSignalIndex(const QShortcut* self);
+    friend int QShortcut_SuperSenderSignalIndex(const QShortcut* self);
     friend int QShortcut_Receivers(const QShortcut* self, const char* signal);
-    friend int QShortcut_QBaseReceivers(const QShortcut* self, const char* signal);
+    friend int QShortcut_SuperReceivers(const QShortcut* self, const char* signal);
     friend bool QShortcut_IsSignalConnected(const QShortcut* self, const QMetaMethod* signal);
-    friend bool QShortcut_QBaseIsSignalConnected(const QShortcut* self, const QMetaMethod* signal);
+    friend bool QShortcut_SuperIsSignalConnected(const QShortcut* self, const QMetaMethod* signal);
 };
 
 #endif

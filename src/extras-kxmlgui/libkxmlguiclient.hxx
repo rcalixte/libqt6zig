@@ -371,21 +371,21 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
 
     // Friend functions
     friend void KXMLGUIClient_SetComponentName(KXMLGUIClient* self, const libqt_string componentName, const libqt_string componentDisplayName);
-    friend void KXMLGUIClient_QBaseSetComponentName(KXMLGUIClient* self, const libqt_string componentName, const libqt_string componentDisplayName);
+    friend void KXMLGUIClient_SuperSetComponentName(KXMLGUIClient* self, const libqt_string componentName, const libqt_string componentDisplayName);
     friend void KXMLGUIClient_SetXMLFile(KXMLGUIClient* self, const libqt_string file, bool merge, bool setXMLDoc);
-    friend void KXMLGUIClient_QBaseSetXMLFile(KXMLGUIClient* self, const libqt_string file, bool merge, bool setXMLDoc);
+    friend void KXMLGUIClient_SuperSetXMLFile(KXMLGUIClient* self, const libqt_string file, bool merge, bool setXMLDoc);
     friend void KXMLGUIClient_SetLocalXMLFile(KXMLGUIClient* self, const libqt_string file);
-    friend void KXMLGUIClient_QBaseSetLocalXMLFile(KXMLGUIClient* self, const libqt_string file);
+    friend void KXMLGUIClient_SuperSetLocalXMLFile(KXMLGUIClient* self, const libqt_string file);
     friend void KXMLGUIClient_SetXML(KXMLGUIClient* self, const libqt_string document, bool merge);
-    friend void KXMLGUIClient_QBaseSetXML(KXMLGUIClient* self, const libqt_string document, bool merge);
+    friend void KXMLGUIClient_SuperSetXML(KXMLGUIClient* self, const libqt_string document, bool merge);
     friend void KXMLGUIClient_SetDOMDocument(KXMLGUIClient* self, const QDomDocument* document, bool merge);
-    friend void KXMLGUIClient_QBaseSetDOMDocument(KXMLGUIClient* self, const QDomDocument* document, bool merge);
+    friend void KXMLGUIClient_SuperSetDOMDocument(KXMLGUIClient* self, const QDomDocument* document, bool merge);
     friend void KXMLGUIClient_StateChanged(KXMLGUIClient* self, const libqt_string newstate, int reverse);
-    friend void KXMLGUIClient_QBaseStateChanged(KXMLGUIClient* self, const libqt_string newstate, int reverse);
+    friend void KXMLGUIClient_SuperStateChanged(KXMLGUIClient* self, const libqt_string newstate, int reverse);
     friend libqt_string KXMLGUIClient_StandardsXmlFileLocation(KXMLGUIClient* self);
-    friend libqt_string KXMLGUIClient_QBaseStandardsXmlFileLocation(KXMLGUIClient* self);
+    friend libqt_string KXMLGUIClient_SuperStandardsXmlFileLocation(KXMLGUIClient* self);
     friend void KXMLGUIClient_LoadStandardsXmlFile(KXMLGUIClient* self);
-    friend void KXMLGUIClient_QBaseLoadStandardsXmlFile(KXMLGUIClient* self);
+    friend void KXMLGUIClient_SuperLoadStandardsXmlFile(KXMLGUIClient* self);
 };
 
 #endif

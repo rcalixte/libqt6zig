@@ -976,6 +976,10 @@ pub const qpainterpath = struct {
         qtc.QPainterPath_AddRoundedRect7(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xRadius), @bitCast(yRadius), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#dtor.QPainterPath)
     ///
     /// Delete this object from C++ memory.
@@ -984,7 +988,7 @@ pub const qpainterpath = struct {
     ///
     /// ` self: QtC.QPainterPath `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPainterPath_Delete(@ptrCast(self));
     }
 };
@@ -1204,6 +1208,10 @@ pub const qpainterpathstroker = struct {
         return qtc.QPainterPathStroker_CreateStroke(@ptrCast(self), @ptrCast(path));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpathstroker.html#dtor.QPainterPathStroker)
     ///
     /// Delete this object from C++ memory.
@@ -1212,7 +1220,7 @@ pub const qpainterpathstroker = struct {
     ///
     /// ` self: QtC.QPainterPathStroker `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPainterPathStroker_Delete(@ptrCast(self));
     }
 };
@@ -1369,13 +1377,17 @@ pub const qpainterpath__element = struct {
         return qtc.QPainterPath__Element_OperatorNotEqual(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QPainterPath__Element `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPainterPath__Element_Delete(@ptrCast(self));
     }
 };

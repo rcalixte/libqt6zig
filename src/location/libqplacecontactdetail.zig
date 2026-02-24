@@ -118,6 +118,10 @@ pub const qplacecontactdetail = struct {
         qtc.QPlaceContactDetail_Clear(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontactdetail.html#dtor.QPlaceContactDetail)
     ///
     /// Delete this object from C++ memory.
@@ -126,7 +130,7 @@ pub const qplacecontactdetail = struct {
     ///
     /// ` self: QtC.QPlaceContactDetail `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPlaceContactDetail_Delete(@ptrCast(self));
     }
 };

@@ -375,25 +375,25 @@ class VirtualKNSCoreEngineBase final : public KNSCore::EngineBase {
 
     // Friend functions
     friend void KNSCore__EngineBase_UpdateStatus(KNSCore::EngineBase* self);
-    friend void KNSCore__EngineBase_QBaseUpdateStatus(KNSCore::EngineBase* self);
+    friend void KNSCore__EngineBase_SuperUpdateStatus(KNSCore::EngineBase* self);
     friend void KNSCore__EngineBase_TimerEvent(KNSCore::EngineBase* self, QTimerEvent* event);
-    friend void KNSCore__EngineBase_QBaseTimerEvent(KNSCore::EngineBase* self, QTimerEvent* event);
+    friend void KNSCore__EngineBase_SuperTimerEvent(KNSCore::EngineBase* self, QTimerEvent* event);
     friend void KNSCore__EngineBase_ChildEvent(KNSCore::EngineBase* self, QChildEvent* event);
-    friend void KNSCore__EngineBase_QBaseChildEvent(KNSCore::EngineBase* self, QChildEvent* event);
+    friend void KNSCore__EngineBase_SuperChildEvent(KNSCore::EngineBase* self, QChildEvent* event);
     friend void KNSCore__EngineBase_CustomEvent(KNSCore::EngineBase* self, QEvent* event);
-    friend void KNSCore__EngineBase_QBaseCustomEvent(KNSCore::EngineBase* self, QEvent* event);
+    friend void KNSCore__EngineBase_SuperCustomEvent(KNSCore::EngineBase* self, QEvent* event);
     friend void KNSCore__EngineBase_ConnectNotify(KNSCore::EngineBase* self, const QMetaMethod* signal);
-    friend void KNSCore__EngineBase_QBaseConnectNotify(KNSCore::EngineBase* self, const QMetaMethod* signal);
+    friend void KNSCore__EngineBase_SuperConnectNotify(KNSCore::EngineBase* self, const QMetaMethod* signal);
     friend void KNSCore__EngineBase_DisconnectNotify(KNSCore::EngineBase* self, const QMetaMethod* signal);
-    friend void KNSCore__EngineBase_QBaseDisconnectNotify(KNSCore::EngineBase* self, const QMetaMethod* signal);
+    friend void KNSCore__EngineBase_SuperDisconnectNotify(KNSCore::EngineBase* self, const QMetaMethod* signal);
     friend QObject* KNSCore__EngineBase_Sender(const KNSCore::EngineBase* self);
-    friend QObject* KNSCore__EngineBase_QBaseSender(const KNSCore::EngineBase* self);
+    friend QObject* KNSCore__EngineBase_SuperSender(const KNSCore::EngineBase* self);
     friend int KNSCore__EngineBase_SenderSignalIndex(const KNSCore::EngineBase* self);
-    friend int KNSCore__EngineBase_QBaseSenderSignalIndex(const KNSCore::EngineBase* self);
+    friend int KNSCore__EngineBase_SuperSenderSignalIndex(const KNSCore::EngineBase* self);
     friend int KNSCore__EngineBase_Receivers(const KNSCore::EngineBase* self, const char* signal);
-    friend int KNSCore__EngineBase_QBaseReceivers(const KNSCore::EngineBase* self, const char* signal);
+    friend int KNSCore__EngineBase_SuperReceivers(const KNSCore::EngineBase* self, const char* signal);
     friend bool KNSCore__EngineBase_IsSignalConnected(const KNSCore::EngineBase* self, const QMetaMethod* signal);
-    friend bool KNSCore__EngineBase_QBaseIsSignalConnected(const KNSCore::EngineBase* self, const QMetaMethod* signal);
+    friend bool KNSCore__EngineBase_SuperIsSignalConnected(const KNSCore::EngineBase* self, const QMetaMethod* signal);
 };
 
 #endif

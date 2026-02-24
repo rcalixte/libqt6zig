@@ -98,7 +98,7 @@ bool KCommandBar_EventFilter(KCommandBar* self, QObject* obj, QEvent* event) {
 }
 
 // Base class handler implementation
-QMetaObject* KCommandBar_QBaseMetaObject(const KCommandBar* self) {
+QMetaObject* KCommandBar_SuperMetaObject(const KCommandBar* self) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_MetaObject_IsBase(true);
@@ -117,7 +117,7 @@ void KCommandBar_OnMetaObject(const KCommandBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KCommandBar_QBaseMetacast(KCommandBar* self, const char* param1) {
+void* KCommandBar_SuperMetacast(KCommandBar* self, const char* param1) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_Metacast_IsBase(true);
@@ -136,7 +136,7 @@ void KCommandBar_OnMetacast(KCommandBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KCommandBar_QBaseMetacall(KCommandBar* self, int param1, int param2, void** param3) {
+int KCommandBar_SuperMetacall(KCommandBar* self, int param1, int param2, void** param3) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_Metacall_IsBase(true);
@@ -155,7 +155,7 @@ void KCommandBar_OnMetacall(KCommandBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KCommandBar_QBaseEventFilter(KCommandBar* self, QObject* obj, QEvent* event) {
+bool KCommandBar_SuperEventFilter(KCommandBar* self, QObject* obj, QEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_EventFilter_IsBase(true);
@@ -184,7 +184,7 @@ QSize* KCommandBar_SizeHint(const KCommandBar* self) {
 }
 
 // Base class handler implementation
-QSize* KCommandBar_QBaseSizeHint(const KCommandBar* self) {
+QSize* KCommandBar_SuperSizeHint(const KCommandBar* self) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_SizeHint_IsBase(true);
@@ -213,7 +213,7 @@ bool KCommandBar_Event(KCommandBar* self, QEvent* e) {
 }
 
 // Base class handler implementation
-bool KCommandBar_QBaseEvent(KCommandBar* self, QEvent* e) {
+bool KCommandBar_SuperEvent(KCommandBar* self, QEvent* e) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_Event_IsBase(true);
@@ -242,7 +242,7 @@ void KCommandBar_PaintEvent(KCommandBar* self, QPaintEvent* param1) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBasePaintEvent(KCommandBar* self, QPaintEvent* param1) {
+void KCommandBar_SuperPaintEvent(KCommandBar* self, QPaintEvent* param1) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_PaintEvent_IsBase(true);
@@ -271,7 +271,7 @@ void KCommandBar_ChangeEvent(KCommandBar* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseChangeEvent(KCommandBar* self, QEvent* param1) {
+void KCommandBar_SuperChangeEvent(KCommandBar* self, QEvent* param1) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_ChangeEvent_IsBase(true);
@@ -300,7 +300,7 @@ void KCommandBar_InitStyleOption(const KCommandBar* self, QStyleOptionFrame* opt
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseInitStyleOption(const KCommandBar* self, QStyleOptionFrame* option) {
+void KCommandBar_SuperInitStyleOption(const KCommandBar* self, QStyleOptionFrame* option) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_InitStyleOption_IsBase(true);
@@ -329,7 +329,7 @@ int KCommandBar_DevType(const KCommandBar* self) {
 }
 
 // Base class handler implementation
-int KCommandBar_QBaseDevType(const KCommandBar* self) {
+int KCommandBar_SuperDevType(const KCommandBar* self) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_DevType_IsBase(true);
@@ -358,7 +358,7 @@ void KCommandBar_SetVisible(KCommandBar* self, bool visible) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseSetVisible(KCommandBar* self, bool visible) {
+void KCommandBar_SuperSetVisible(KCommandBar* self, bool visible) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_SetVisible_IsBase(true);
@@ -387,7 +387,7 @@ QSize* KCommandBar_MinimumSizeHint(const KCommandBar* self) {
 }
 
 // Base class handler implementation
-QSize* KCommandBar_QBaseMinimumSizeHint(const KCommandBar* self) {
+QSize* KCommandBar_SuperMinimumSizeHint(const KCommandBar* self) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_MinimumSizeHint_IsBase(true);
@@ -416,7 +416,7 @@ int KCommandBar_HeightForWidth(const KCommandBar* self, int param1) {
 }
 
 // Base class handler implementation
-int KCommandBar_QBaseHeightForWidth(const KCommandBar* self, int param1) {
+int KCommandBar_SuperHeightForWidth(const KCommandBar* self, int param1) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_HeightForWidth_IsBase(true);
@@ -445,7 +445,7 @@ bool KCommandBar_HasHeightForWidth(const KCommandBar* self) {
 }
 
 // Base class handler implementation
-bool KCommandBar_QBaseHasHeightForWidth(const KCommandBar* self) {
+bool KCommandBar_SuperHasHeightForWidth(const KCommandBar* self) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_HasHeightForWidth_IsBase(true);
@@ -474,7 +474,7 @@ QPaintEngine* KCommandBar_PaintEngine(const KCommandBar* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KCommandBar_QBasePaintEngine(const KCommandBar* self) {
+QPaintEngine* KCommandBar_SuperPaintEngine(const KCommandBar* self) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_PaintEngine_IsBase(true);
@@ -503,7 +503,7 @@ void KCommandBar_MousePressEvent(KCommandBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseMousePressEvent(KCommandBar* self, QMouseEvent* event) {
+void KCommandBar_SuperMousePressEvent(KCommandBar* self, QMouseEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_MousePressEvent_IsBase(true);
@@ -532,7 +532,7 @@ void KCommandBar_MouseReleaseEvent(KCommandBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseMouseReleaseEvent(KCommandBar* self, QMouseEvent* event) {
+void KCommandBar_SuperMouseReleaseEvent(KCommandBar* self, QMouseEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_MouseReleaseEvent_IsBase(true);
@@ -561,7 +561,7 @@ void KCommandBar_MouseDoubleClickEvent(KCommandBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseMouseDoubleClickEvent(KCommandBar* self, QMouseEvent* event) {
+void KCommandBar_SuperMouseDoubleClickEvent(KCommandBar* self, QMouseEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_MouseDoubleClickEvent_IsBase(true);
@@ -590,7 +590,7 @@ void KCommandBar_MouseMoveEvent(KCommandBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseMouseMoveEvent(KCommandBar* self, QMouseEvent* event) {
+void KCommandBar_SuperMouseMoveEvent(KCommandBar* self, QMouseEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_MouseMoveEvent_IsBase(true);
@@ -619,7 +619,7 @@ void KCommandBar_WheelEvent(KCommandBar* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseWheelEvent(KCommandBar* self, QWheelEvent* event) {
+void KCommandBar_SuperWheelEvent(KCommandBar* self, QWheelEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_WheelEvent_IsBase(true);
@@ -648,7 +648,7 @@ void KCommandBar_KeyPressEvent(KCommandBar* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseKeyPressEvent(KCommandBar* self, QKeyEvent* event) {
+void KCommandBar_SuperKeyPressEvent(KCommandBar* self, QKeyEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_KeyPressEvent_IsBase(true);
@@ -677,7 +677,7 @@ void KCommandBar_KeyReleaseEvent(KCommandBar* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseKeyReleaseEvent(KCommandBar* self, QKeyEvent* event) {
+void KCommandBar_SuperKeyReleaseEvent(KCommandBar* self, QKeyEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_KeyReleaseEvent_IsBase(true);
@@ -706,7 +706,7 @@ void KCommandBar_FocusInEvent(KCommandBar* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseFocusInEvent(KCommandBar* self, QFocusEvent* event) {
+void KCommandBar_SuperFocusInEvent(KCommandBar* self, QFocusEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_FocusInEvent_IsBase(true);
@@ -735,7 +735,7 @@ void KCommandBar_FocusOutEvent(KCommandBar* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseFocusOutEvent(KCommandBar* self, QFocusEvent* event) {
+void KCommandBar_SuperFocusOutEvent(KCommandBar* self, QFocusEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_FocusOutEvent_IsBase(true);
@@ -764,7 +764,7 @@ void KCommandBar_EnterEvent(KCommandBar* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseEnterEvent(KCommandBar* self, QEnterEvent* event) {
+void KCommandBar_SuperEnterEvent(KCommandBar* self, QEnterEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_EnterEvent_IsBase(true);
@@ -793,7 +793,7 @@ void KCommandBar_LeaveEvent(KCommandBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseLeaveEvent(KCommandBar* self, QEvent* event) {
+void KCommandBar_SuperLeaveEvent(KCommandBar* self, QEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_LeaveEvent_IsBase(true);
@@ -822,7 +822,7 @@ void KCommandBar_MoveEvent(KCommandBar* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseMoveEvent(KCommandBar* self, QMoveEvent* event) {
+void KCommandBar_SuperMoveEvent(KCommandBar* self, QMoveEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_MoveEvent_IsBase(true);
@@ -851,7 +851,7 @@ void KCommandBar_ResizeEvent(KCommandBar* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseResizeEvent(KCommandBar* self, QResizeEvent* event) {
+void KCommandBar_SuperResizeEvent(KCommandBar* self, QResizeEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_ResizeEvent_IsBase(true);
@@ -880,7 +880,7 @@ void KCommandBar_CloseEvent(KCommandBar* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseCloseEvent(KCommandBar* self, QCloseEvent* event) {
+void KCommandBar_SuperCloseEvent(KCommandBar* self, QCloseEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_CloseEvent_IsBase(true);
@@ -909,7 +909,7 @@ void KCommandBar_ContextMenuEvent(KCommandBar* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseContextMenuEvent(KCommandBar* self, QContextMenuEvent* event) {
+void KCommandBar_SuperContextMenuEvent(KCommandBar* self, QContextMenuEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_ContextMenuEvent_IsBase(true);
@@ -938,7 +938,7 @@ void KCommandBar_TabletEvent(KCommandBar* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseTabletEvent(KCommandBar* self, QTabletEvent* event) {
+void KCommandBar_SuperTabletEvent(KCommandBar* self, QTabletEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_TabletEvent_IsBase(true);
@@ -967,7 +967,7 @@ void KCommandBar_ActionEvent(KCommandBar* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseActionEvent(KCommandBar* self, QActionEvent* event) {
+void KCommandBar_SuperActionEvent(KCommandBar* self, QActionEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_ActionEvent_IsBase(true);
@@ -996,7 +996,7 @@ void KCommandBar_DragEnterEvent(KCommandBar* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseDragEnterEvent(KCommandBar* self, QDragEnterEvent* event) {
+void KCommandBar_SuperDragEnterEvent(KCommandBar* self, QDragEnterEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_DragEnterEvent_IsBase(true);
@@ -1025,7 +1025,7 @@ void KCommandBar_DragMoveEvent(KCommandBar* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseDragMoveEvent(KCommandBar* self, QDragMoveEvent* event) {
+void KCommandBar_SuperDragMoveEvent(KCommandBar* self, QDragMoveEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_DragMoveEvent_IsBase(true);
@@ -1054,7 +1054,7 @@ void KCommandBar_DragLeaveEvent(KCommandBar* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseDragLeaveEvent(KCommandBar* self, QDragLeaveEvent* event) {
+void KCommandBar_SuperDragLeaveEvent(KCommandBar* self, QDragLeaveEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_DragLeaveEvent_IsBase(true);
@@ -1083,7 +1083,7 @@ void KCommandBar_DropEvent(KCommandBar* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseDropEvent(KCommandBar* self, QDropEvent* event) {
+void KCommandBar_SuperDropEvent(KCommandBar* self, QDropEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_DropEvent_IsBase(true);
@@ -1112,7 +1112,7 @@ void KCommandBar_ShowEvent(KCommandBar* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseShowEvent(KCommandBar* self, QShowEvent* event) {
+void KCommandBar_SuperShowEvent(KCommandBar* self, QShowEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_ShowEvent_IsBase(true);
@@ -1141,7 +1141,7 @@ void KCommandBar_HideEvent(KCommandBar* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseHideEvent(KCommandBar* self, QHideEvent* event) {
+void KCommandBar_SuperHideEvent(KCommandBar* self, QHideEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_HideEvent_IsBase(true);
@@ -1171,7 +1171,7 @@ bool KCommandBar_NativeEvent(KCommandBar* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool KCommandBar_QBaseNativeEvent(KCommandBar* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KCommandBar_SuperNativeEvent(KCommandBar* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
@@ -1201,7 +1201,7 @@ int KCommandBar_Metric(const KCommandBar* self, int param1) {
 }
 
 // Base class handler implementation
-int KCommandBar_QBaseMetric(const KCommandBar* self, int param1) {
+int KCommandBar_SuperMetric(const KCommandBar* self, int param1) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_Metric_IsBase(true);
@@ -1230,7 +1230,7 @@ void KCommandBar_InitPainter(const KCommandBar* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseInitPainter(const KCommandBar* self, QPainter* painter) {
+void KCommandBar_SuperInitPainter(const KCommandBar* self, QPainter* painter) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_InitPainter_IsBase(true);
@@ -1259,7 +1259,7 @@ QPaintDevice* KCommandBar_Redirected(const KCommandBar* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KCommandBar_QBaseRedirected(const KCommandBar* self, QPoint* offset) {
+QPaintDevice* KCommandBar_SuperRedirected(const KCommandBar* self, QPoint* offset) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_Redirected_IsBase(true);
@@ -1288,7 +1288,7 @@ QPainter* KCommandBar_SharedPainter(const KCommandBar* self) {
 }
 
 // Base class handler implementation
-QPainter* KCommandBar_QBaseSharedPainter(const KCommandBar* self) {
+QPainter* KCommandBar_SuperSharedPainter(const KCommandBar* self) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_SharedPainter_IsBase(true);
@@ -1317,7 +1317,7 @@ void KCommandBar_InputMethodEvent(KCommandBar* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseInputMethodEvent(KCommandBar* self, QInputMethodEvent* param1) {
+void KCommandBar_SuperInputMethodEvent(KCommandBar* self, QInputMethodEvent* param1) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_InputMethodEvent_IsBase(true);
@@ -1346,7 +1346,7 @@ QVariant* KCommandBar_InputMethodQuery(const KCommandBar* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KCommandBar_QBaseInputMethodQuery(const KCommandBar* self, int param1) {
+QVariant* KCommandBar_SuperInputMethodQuery(const KCommandBar* self, int param1) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_InputMethodQuery_IsBase(true);
@@ -1375,7 +1375,7 @@ bool KCommandBar_FocusNextPrevChild(KCommandBar* self, bool next) {
 }
 
 // Base class handler implementation
-bool KCommandBar_QBaseFocusNextPrevChild(KCommandBar* self, bool next) {
+bool KCommandBar_SuperFocusNextPrevChild(KCommandBar* self, bool next) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_FocusNextPrevChild_IsBase(true);
@@ -1404,7 +1404,7 @@ void KCommandBar_TimerEvent(KCommandBar* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseTimerEvent(KCommandBar* self, QTimerEvent* event) {
+void KCommandBar_SuperTimerEvent(KCommandBar* self, QTimerEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_TimerEvent_IsBase(true);
@@ -1433,7 +1433,7 @@ void KCommandBar_ChildEvent(KCommandBar* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseChildEvent(KCommandBar* self, QChildEvent* event) {
+void KCommandBar_SuperChildEvent(KCommandBar* self, QChildEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_ChildEvent_IsBase(true);
@@ -1462,7 +1462,7 @@ void KCommandBar_CustomEvent(KCommandBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseCustomEvent(KCommandBar* self, QEvent* event) {
+void KCommandBar_SuperCustomEvent(KCommandBar* self, QEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_CustomEvent_IsBase(true);
@@ -1491,7 +1491,7 @@ void KCommandBar_ConnectNotify(KCommandBar* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseConnectNotify(KCommandBar* self, const QMetaMethod* signal) {
+void KCommandBar_SuperConnectNotify(KCommandBar* self, const QMetaMethod* signal) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_ConnectNotify_IsBase(true);
@@ -1520,7 +1520,7 @@ void KCommandBar_DisconnectNotify(KCommandBar* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseDisconnectNotify(KCommandBar* self, const QMetaMethod* signal) {
+void KCommandBar_SuperDisconnectNotify(KCommandBar* self, const QMetaMethod* signal) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_DisconnectNotify_IsBase(true);
@@ -1549,7 +1549,7 @@ void KCommandBar_DrawFrame(KCommandBar* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseDrawFrame(KCommandBar* self, QPainter* param1) {
+void KCommandBar_SuperDrawFrame(KCommandBar* self, QPainter* param1) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_DrawFrame_IsBase(true);
@@ -1578,7 +1578,7 @@ void KCommandBar_UpdateMicroFocus(KCommandBar* self) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseUpdateMicroFocus(KCommandBar* self) {
+void KCommandBar_SuperUpdateMicroFocus(KCommandBar* self) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_UpdateMicroFocus_IsBase(true);
@@ -1607,7 +1607,7 @@ void KCommandBar_Create(KCommandBar* self) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseCreate(KCommandBar* self) {
+void KCommandBar_SuperCreate(KCommandBar* self) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_Create_IsBase(true);
@@ -1636,7 +1636,7 @@ void KCommandBar_Destroy(KCommandBar* self) {
 }
 
 // Base class handler implementation
-void KCommandBar_QBaseDestroy(KCommandBar* self) {
+void KCommandBar_SuperDestroy(KCommandBar* self) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_Destroy_IsBase(true);
@@ -1665,7 +1665,7 @@ bool KCommandBar_FocusNextChild(KCommandBar* self) {
 }
 
 // Base class handler implementation
-bool KCommandBar_QBaseFocusNextChild(KCommandBar* self) {
+bool KCommandBar_SuperFocusNextChild(KCommandBar* self) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_FocusNextChild_IsBase(true);
@@ -1694,7 +1694,7 @@ bool KCommandBar_FocusPreviousChild(KCommandBar* self) {
 }
 
 // Base class handler implementation
-bool KCommandBar_QBaseFocusPreviousChild(KCommandBar* self) {
+bool KCommandBar_SuperFocusPreviousChild(KCommandBar* self) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_FocusPreviousChild_IsBase(true);
@@ -1723,7 +1723,7 @@ QObject* KCommandBar_Sender(const KCommandBar* self) {
 }
 
 // Base class handler implementation
-QObject* KCommandBar_QBaseSender(const KCommandBar* self) {
+QObject* KCommandBar_SuperSender(const KCommandBar* self) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_Sender_IsBase(true);
@@ -1752,7 +1752,7 @@ int KCommandBar_SenderSignalIndex(const KCommandBar* self) {
 }
 
 // Base class handler implementation
-int KCommandBar_QBaseSenderSignalIndex(const KCommandBar* self) {
+int KCommandBar_SuperSenderSignalIndex(const KCommandBar* self) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_SenderSignalIndex_IsBase(true);
@@ -1781,7 +1781,7 @@ int KCommandBar_Receivers(const KCommandBar* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KCommandBar_QBaseReceivers(const KCommandBar* self, const char* signal) {
+int KCommandBar_SuperReceivers(const KCommandBar* self, const char* signal) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_Receivers_IsBase(true);
@@ -1810,7 +1810,7 @@ bool KCommandBar_IsSignalConnected(const KCommandBar* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool KCommandBar_QBaseIsSignalConnected(const KCommandBar* self, const QMetaMethod* signal) {
+bool KCommandBar_SuperIsSignalConnected(const KCommandBar* self, const QMetaMethod* signal) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_IsSignalConnected_IsBase(true);
@@ -1839,7 +1839,7 @@ double KCommandBar_GetDecodedMetricF(const KCommandBar* self, int metricA, int m
 }
 
 // Base class handler implementation
-double KCommandBar_QBaseGetDecodedMetricF(const KCommandBar* self, int metricA, int metricB) {
+double KCommandBar_SuperGetDecodedMetricF(const KCommandBar* self, int metricA, int metricB) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
     if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
         vkcommandbar->setKCommandBar_GetDecodedMetricF_IsBase(true);

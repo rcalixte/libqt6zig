@@ -414,33 +414,33 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
 
     // Friend functions
     friend void KNewFileMenu_SlotResult(KNewFileMenu* self, KJob* job);
-    friend void KNewFileMenu_QBaseSlotResult(KNewFileMenu* self, KJob* job);
+    friend void KNewFileMenu_SuperSlotResult(KNewFileMenu* self, KJob* job);
     friend bool KNewFileMenu_Event(KNewFileMenu* self, QEvent* param1);
-    friend bool KNewFileMenu_QBaseEvent(KNewFileMenu* self, QEvent* param1);
+    friend bool KNewFileMenu_SuperEvent(KNewFileMenu* self, QEvent* param1);
     friend bool KNewFileMenu_EventFilter(KNewFileMenu* self, QObject* param1, QEvent* param2);
-    friend bool KNewFileMenu_QBaseEventFilter(KNewFileMenu* self, QObject* param1, QEvent* param2);
+    friend bool KNewFileMenu_SuperEventFilter(KNewFileMenu* self, QObject* param1, QEvent* param2);
     friend void KNewFileMenu_DeleteWidget(KNewFileMenu* self, QWidget* widget);
-    friend void KNewFileMenu_QBaseDeleteWidget(KNewFileMenu* self, QWidget* widget);
+    friend void KNewFileMenu_SuperDeleteWidget(KNewFileMenu* self, QWidget* widget);
     friend void KNewFileMenu_TimerEvent(KNewFileMenu* self, QTimerEvent* event);
-    friend void KNewFileMenu_QBaseTimerEvent(KNewFileMenu* self, QTimerEvent* event);
+    friend void KNewFileMenu_SuperTimerEvent(KNewFileMenu* self, QTimerEvent* event);
     friend void KNewFileMenu_ChildEvent(KNewFileMenu* self, QChildEvent* event);
-    friend void KNewFileMenu_QBaseChildEvent(KNewFileMenu* self, QChildEvent* event);
+    friend void KNewFileMenu_SuperChildEvent(KNewFileMenu* self, QChildEvent* event);
     friend void KNewFileMenu_CustomEvent(KNewFileMenu* self, QEvent* event);
-    friend void KNewFileMenu_QBaseCustomEvent(KNewFileMenu* self, QEvent* event);
+    friend void KNewFileMenu_SuperCustomEvent(KNewFileMenu* self, QEvent* event);
     friend void KNewFileMenu_ConnectNotify(KNewFileMenu* self, const QMetaMethod* signal);
-    friend void KNewFileMenu_QBaseConnectNotify(KNewFileMenu* self, const QMetaMethod* signal);
+    friend void KNewFileMenu_SuperConnectNotify(KNewFileMenu* self, const QMetaMethod* signal);
     friend void KNewFileMenu_DisconnectNotify(KNewFileMenu* self, const QMetaMethod* signal);
-    friend void KNewFileMenu_QBaseDisconnectNotify(KNewFileMenu* self, const QMetaMethod* signal);
+    friend void KNewFileMenu_SuperDisconnectNotify(KNewFileMenu* self, const QMetaMethod* signal);
     friend libqt_list /* of QWidget* */ KNewFileMenu_CreatedWidgets(const KNewFileMenu* self);
-    friend libqt_list /* of QWidget* */ KNewFileMenu_QBaseCreatedWidgets(const KNewFileMenu* self);
+    friend libqt_list /* of QWidget* */ KNewFileMenu_SuperCreatedWidgets(const KNewFileMenu* self);
     friend QObject* KNewFileMenu_Sender(const KNewFileMenu* self);
-    friend QObject* KNewFileMenu_QBaseSender(const KNewFileMenu* self);
+    friend QObject* KNewFileMenu_SuperSender(const KNewFileMenu* self);
     friend int KNewFileMenu_SenderSignalIndex(const KNewFileMenu* self);
-    friend int KNewFileMenu_QBaseSenderSignalIndex(const KNewFileMenu* self);
+    friend int KNewFileMenu_SuperSenderSignalIndex(const KNewFileMenu* self);
     friend int KNewFileMenu_Receivers(const KNewFileMenu* self, const char* signal);
-    friend int KNewFileMenu_QBaseReceivers(const KNewFileMenu* self, const char* signal);
+    friend int KNewFileMenu_SuperReceivers(const KNewFileMenu* self, const char* signal);
     friend bool KNewFileMenu_IsSignalConnected(const KNewFileMenu* self, const QMetaMethod* signal);
-    friend bool KNewFileMenu_QBaseIsSignalConnected(const KNewFileMenu* self, const QMetaMethod* signal);
+    friend bool KNewFileMenu_SuperIsSignalConnected(const KNewFileMenu* self, const QMetaMethod* signal);
 };
 
 #endif

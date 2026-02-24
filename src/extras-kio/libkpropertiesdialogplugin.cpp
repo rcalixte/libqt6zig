@@ -76,7 +76,7 @@ void KPropertiesDialogPlugin_SetDirty1(KPropertiesDialogPlugin* self, bool b) {
 }
 
 // Base class handler implementation
-QMetaObject* KPropertiesDialogPlugin_QBaseMetaObject(const KPropertiesDialogPlugin* self) {
+QMetaObject* KPropertiesDialogPlugin_SuperMetaObject(const KPropertiesDialogPlugin* self) {
     auto* vkpropertiesdialogplugin = const_cast<VirtualKPropertiesDialogPlugin*>(dynamic_cast<const VirtualKPropertiesDialogPlugin*>(self));
     if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_MetaObject_IsBase(true);
@@ -95,7 +95,7 @@ void KPropertiesDialogPlugin_OnMetaObject(const KPropertiesDialogPlugin* self, i
 }
 
 // Base class handler implementation
-void* KPropertiesDialogPlugin_QBaseMetacast(KPropertiesDialogPlugin* self, const char* param1) {
+void* KPropertiesDialogPlugin_SuperMetacast(KPropertiesDialogPlugin* self, const char* param1) {
     auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
     if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_Metacast_IsBase(true);
@@ -114,7 +114,7 @@ void KPropertiesDialogPlugin_OnMetacast(KPropertiesDialogPlugin* self, intptr_t 
 }
 
 // Base class handler implementation
-int KPropertiesDialogPlugin_QBaseMetacall(KPropertiesDialogPlugin* self, int param1, int param2, void** param3) {
+int KPropertiesDialogPlugin_SuperMetacall(KPropertiesDialogPlugin* self, int param1, int param2, void** param3) {
     auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
     if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_Metacall_IsBase(true);
@@ -133,7 +133,7 @@ void KPropertiesDialogPlugin_OnMetacall(KPropertiesDialogPlugin* self, intptr_t 
 }
 
 // Base class handler implementation
-void KPropertiesDialogPlugin_QBaseApplyChanges(KPropertiesDialogPlugin* self) {
+void KPropertiesDialogPlugin_SuperApplyChanges(KPropertiesDialogPlugin* self) {
     auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
     if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_ApplyChanges_IsBase(true);
@@ -162,7 +162,7 @@ bool KPropertiesDialogPlugin_Event(KPropertiesDialogPlugin* self, QEvent* event)
 }
 
 // Base class handler implementation
-bool KPropertiesDialogPlugin_QBaseEvent(KPropertiesDialogPlugin* self, QEvent* event) {
+bool KPropertiesDialogPlugin_SuperEvent(KPropertiesDialogPlugin* self, QEvent* event) {
     auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
     if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_Event_IsBase(true);
@@ -191,7 +191,7 @@ bool KPropertiesDialogPlugin_EventFilter(KPropertiesDialogPlugin* self, QObject*
 }
 
 // Base class handler implementation
-bool KPropertiesDialogPlugin_QBaseEventFilter(KPropertiesDialogPlugin* self, QObject* watched, QEvent* event) {
+bool KPropertiesDialogPlugin_SuperEventFilter(KPropertiesDialogPlugin* self, QObject* watched, QEvent* event) {
     auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
     if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_EventFilter_IsBase(true);
@@ -220,7 +220,7 @@ void KPropertiesDialogPlugin_TimerEvent(KPropertiesDialogPlugin* self, QTimerEve
 }
 
 // Base class handler implementation
-void KPropertiesDialogPlugin_QBaseTimerEvent(KPropertiesDialogPlugin* self, QTimerEvent* event) {
+void KPropertiesDialogPlugin_SuperTimerEvent(KPropertiesDialogPlugin* self, QTimerEvent* event) {
     auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
     if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_TimerEvent_IsBase(true);
@@ -249,7 +249,7 @@ void KPropertiesDialogPlugin_ChildEvent(KPropertiesDialogPlugin* self, QChildEve
 }
 
 // Base class handler implementation
-void KPropertiesDialogPlugin_QBaseChildEvent(KPropertiesDialogPlugin* self, QChildEvent* event) {
+void KPropertiesDialogPlugin_SuperChildEvent(KPropertiesDialogPlugin* self, QChildEvent* event) {
     auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
     if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_ChildEvent_IsBase(true);
@@ -278,7 +278,7 @@ void KPropertiesDialogPlugin_CustomEvent(KPropertiesDialogPlugin* self, QEvent* 
 }
 
 // Base class handler implementation
-void KPropertiesDialogPlugin_QBaseCustomEvent(KPropertiesDialogPlugin* self, QEvent* event) {
+void KPropertiesDialogPlugin_SuperCustomEvent(KPropertiesDialogPlugin* self, QEvent* event) {
     auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
     if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_CustomEvent_IsBase(true);
@@ -307,7 +307,7 @@ void KPropertiesDialogPlugin_ConnectNotify(KPropertiesDialogPlugin* self, const 
 }
 
 // Base class handler implementation
-void KPropertiesDialogPlugin_QBaseConnectNotify(KPropertiesDialogPlugin* self, const QMetaMethod* signal) {
+void KPropertiesDialogPlugin_SuperConnectNotify(KPropertiesDialogPlugin* self, const QMetaMethod* signal) {
     auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
     if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_ConnectNotify_IsBase(true);
@@ -336,7 +336,7 @@ void KPropertiesDialogPlugin_DisconnectNotify(KPropertiesDialogPlugin* self, con
 }
 
 // Base class handler implementation
-void KPropertiesDialogPlugin_QBaseDisconnectNotify(KPropertiesDialogPlugin* self, const QMetaMethod* signal) {
+void KPropertiesDialogPlugin_SuperDisconnectNotify(KPropertiesDialogPlugin* self, const QMetaMethod* signal) {
     auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
     if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_DisconnectNotify_IsBase(true);
@@ -365,7 +365,7 @@ int KPropertiesDialogPlugin_FontHeight(const KPropertiesDialogPlugin* self) {
 }
 
 // Base class handler implementation
-int KPropertiesDialogPlugin_QBaseFontHeight(const KPropertiesDialogPlugin* self) {
+int KPropertiesDialogPlugin_SuperFontHeight(const KPropertiesDialogPlugin* self) {
     auto* vkpropertiesdialogplugin = const_cast<VirtualKPropertiesDialogPlugin*>(dynamic_cast<const VirtualKPropertiesDialogPlugin*>(self));
     if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_FontHeight_IsBase(true);
@@ -394,7 +394,7 @@ QObject* KPropertiesDialogPlugin_Sender(const KPropertiesDialogPlugin* self) {
 }
 
 // Base class handler implementation
-QObject* KPropertiesDialogPlugin_QBaseSender(const KPropertiesDialogPlugin* self) {
+QObject* KPropertiesDialogPlugin_SuperSender(const KPropertiesDialogPlugin* self) {
     auto* vkpropertiesdialogplugin = const_cast<VirtualKPropertiesDialogPlugin*>(dynamic_cast<const VirtualKPropertiesDialogPlugin*>(self));
     if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_Sender_IsBase(true);
@@ -423,7 +423,7 @@ int KPropertiesDialogPlugin_SenderSignalIndex(const KPropertiesDialogPlugin* sel
 }
 
 // Base class handler implementation
-int KPropertiesDialogPlugin_QBaseSenderSignalIndex(const KPropertiesDialogPlugin* self) {
+int KPropertiesDialogPlugin_SuperSenderSignalIndex(const KPropertiesDialogPlugin* self) {
     auto* vkpropertiesdialogplugin = const_cast<VirtualKPropertiesDialogPlugin*>(dynamic_cast<const VirtualKPropertiesDialogPlugin*>(self));
     if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_SenderSignalIndex_IsBase(true);
@@ -452,7 +452,7 @@ int KPropertiesDialogPlugin_Receivers(const KPropertiesDialogPlugin* self, const
 }
 
 // Base class handler implementation
-int KPropertiesDialogPlugin_QBaseReceivers(const KPropertiesDialogPlugin* self, const char* signal) {
+int KPropertiesDialogPlugin_SuperReceivers(const KPropertiesDialogPlugin* self, const char* signal) {
     auto* vkpropertiesdialogplugin = const_cast<VirtualKPropertiesDialogPlugin*>(dynamic_cast<const VirtualKPropertiesDialogPlugin*>(self));
     if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_Receivers_IsBase(true);
@@ -481,7 +481,7 @@ bool KPropertiesDialogPlugin_IsSignalConnected(const KPropertiesDialogPlugin* se
 }
 
 // Base class handler implementation
-bool KPropertiesDialogPlugin_QBaseIsSignalConnected(const KPropertiesDialogPlugin* self, const QMetaMethod* signal) {
+bool KPropertiesDialogPlugin_SuperIsSignalConnected(const KPropertiesDialogPlugin* self, const QMetaMethod* signal) {
     auto* vkpropertiesdialogplugin = const_cast<VirtualKPropertiesDialogPlugin*>(dynamic_cast<const VirtualKPropertiesDialogPlugin*>(self));
     if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_IsSignalConnected_IsBase(true);

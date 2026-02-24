@@ -122,7 +122,7 @@ void KBookmarkContextMenu_SlotOpenFolderInTabs(KBookmarkContextMenu* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KBookmarkContextMenu_QBaseMetaObject(const KBookmarkContextMenu* self) {
+QMetaObject* KBookmarkContextMenu_SuperMetaObject(const KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = const_cast<VirtualKBookmarkContextMenu*>(dynamic_cast<const VirtualKBookmarkContextMenu*>(self));
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_MetaObject_IsBase(true);
@@ -141,7 +141,7 @@ void KBookmarkContextMenu_OnMetaObject(const KBookmarkContextMenu* self, intptr_
 }
 
 // Base class handler implementation
-void* KBookmarkContextMenu_QBaseMetacast(KBookmarkContextMenu* self, const char* param1) {
+void* KBookmarkContextMenu_SuperMetacast(KBookmarkContextMenu* self, const char* param1) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_Metacast_IsBase(true);
@@ -160,7 +160,7 @@ void KBookmarkContextMenu_OnMetacast(KBookmarkContextMenu* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int KBookmarkContextMenu_QBaseMetacall(KBookmarkContextMenu* self, int param1, int param2, void** param3) {
+int KBookmarkContextMenu_SuperMetacall(KBookmarkContextMenu* self, int param1, int param2, void** param3) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_Metacall_IsBase(true);
@@ -179,7 +179,7 @@ void KBookmarkContextMenu_OnMetacall(KBookmarkContextMenu* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseAddActions(KBookmarkContextMenu* self) {
+void KBookmarkContextMenu_SuperAddActions(KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_AddActions_IsBase(true);
@@ -208,7 +208,7 @@ QSize* KBookmarkContextMenu_SizeHint(const KBookmarkContextMenu* self) {
 }
 
 // Base class handler implementation
-QSize* KBookmarkContextMenu_QBaseSizeHint(const KBookmarkContextMenu* self) {
+QSize* KBookmarkContextMenu_SuperSizeHint(const KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = const_cast<VirtualKBookmarkContextMenu*>(dynamic_cast<const VirtualKBookmarkContextMenu*>(self));
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_SizeHint_IsBase(true);
@@ -237,7 +237,7 @@ void KBookmarkContextMenu_ChangeEvent(KBookmarkContextMenu* self, QEvent* param1
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseChangeEvent(KBookmarkContextMenu* self, QEvent* param1) {
+void KBookmarkContextMenu_SuperChangeEvent(KBookmarkContextMenu* self, QEvent* param1) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_ChangeEvent_IsBase(true);
@@ -266,7 +266,7 @@ void KBookmarkContextMenu_KeyPressEvent(KBookmarkContextMenu* self, QKeyEvent* p
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseKeyPressEvent(KBookmarkContextMenu* self, QKeyEvent* param1) {
+void KBookmarkContextMenu_SuperKeyPressEvent(KBookmarkContextMenu* self, QKeyEvent* param1) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_KeyPressEvent_IsBase(true);
@@ -295,7 +295,7 @@ void KBookmarkContextMenu_MouseReleaseEvent(KBookmarkContextMenu* self, QMouseEv
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseMouseReleaseEvent(KBookmarkContextMenu* self, QMouseEvent* param1) {
+void KBookmarkContextMenu_SuperMouseReleaseEvent(KBookmarkContextMenu* self, QMouseEvent* param1) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_MouseReleaseEvent_IsBase(true);
@@ -324,7 +324,7 @@ void KBookmarkContextMenu_MousePressEvent(KBookmarkContextMenu* self, QMouseEven
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseMousePressEvent(KBookmarkContextMenu* self, QMouseEvent* param1) {
+void KBookmarkContextMenu_SuperMousePressEvent(KBookmarkContextMenu* self, QMouseEvent* param1) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_MousePressEvent_IsBase(true);
@@ -353,7 +353,7 @@ void KBookmarkContextMenu_MouseMoveEvent(KBookmarkContextMenu* self, QMouseEvent
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseMouseMoveEvent(KBookmarkContextMenu* self, QMouseEvent* param1) {
+void KBookmarkContextMenu_SuperMouseMoveEvent(KBookmarkContextMenu* self, QMouseEvent* param1) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_MouseMoveEvent_IsBase(true);
@@ -382,7 +382,7 @@ void KBookmarkContextMenu_WheelEvent(KBookmarkContextMenu* self, QWheelEvent* pa
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseWheelEvent(KBookmarkContextMenu* self, QWheelEvent* param1) {
+void KBookmarkContextMenu_SuperWheelEvent(KBookmarkContextMenu* self, QWheelEvent* param1) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_WheelEvent_IsBase(true);
@@ -411,7 +411,7 @@ void KBookmarkContextMenu_EnterEvent(KBookmarkContextMenu* self, QEnterEvent* pa
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseEnterEvent(KBookmarkContextMenu* self, QEnterEvent* param1) {
+void KBookmarkContextMenu_SuperEnterEvent(KBookmarkContextMenu* self, QEnterEvent* param1) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_EnterEvent_IsBase(true);
@@ -440,7 +440,7 @@ void KBookmarkContextMenu_LeaveEvent(KBookmarkContextMenu* self, QEvent* param1)
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseLeaveEvent(KBookmarkContextMenu* self, QEvent* param1) {
+void KBookmarkContextMenu_SuperLeaveEvent(KBookmarkContextMenu* self, QEvent* param1) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_LeaveEvent_IsBase(true);
@@ -469,7 +469,7 @@ void KBookmarkContextMenu_HideEvent(KBookmarkContextMenu* self, QHideEvent* para
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseHideEvent(KBookmarkContextMenu* self, QHideEvent* param1) {
+void KBookmarkContextMenu_SuperHideEvent(KBookmarkContextMenu* self, QHideEvent* param1) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_HideEvent_IsBase(true);
@@ -498,7 +498,7 @@ void KBookmarkContextMenu_PaintEvent(KBookmarkContextMenu* self, QPaintEvent* pa
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBasePaintEvent(KBookmarkContextMenu* self, QPaintEvent* param1) {
+void KBookmarkContextMenu_SuperPaintEvent(KBookmarkContextMenu* self, QPaintEvent* param1) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_PaintEvent_IsBase(true);
@@ -527,7 +527,7 @@ void KBookmarkContextMenu_ActionEvent(KBookmarkContextMenu* self, QActionEvent* 
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseActionEvent(KBookmarkContextMenu* self, QActionEvent* param1) {
+void KBookmarkContextMenu_SuperActionEvent(KBookmarkContextMenu* self, QActionEvent* param1) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_ActionEvent_IsBase(true);
@@ -556,7 +556,7 @@ void KBookmarkContextMenu_TimerEvent(KBookmarkContextMenu* self, QTimerEvent* pa
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseTimerEvent(KBookmarkContextMenu* self, QTimerEvent* param1) {
+void KBookmarkContextMenu_SuperTimerEvent(KBookmarkContextMenu* self, QTimerEvent* param1) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_TimerEvent_IsBase(true);
@@ -585,7 +585,7 @@ bool KBookmarkContextMenu_Event(KBookmarkContextMenu* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-bool KBookmarkContextMenu_QBaseEvent(KBookmarkContextMenu* self, QEvent* param1) {
+bool KBookmarkContextMenu_SuperEvent(KBookmarkContextMenu* self, QEvent* param1) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_Event_IsBase(true);
@@ -614,7 +614,7 @@ bool KBookmarkContextMenu_FocusNextPrevChild(KBookmarkContextMenu* self, bool ne
 }
 
 // Base class handler implementation
-bool KBookmarkContextMenu_QBaseFocusNextPrevChild(KBookmarkContextMenu* self, bool next) {
+bool KBookmarkContextMenu_SuperFocusNextPrevChild(KBookmarkContextMenu* self, bool next) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_FocusNextPrevChild_IsBase(true);
@@ -643,7 +643,7 @@ void KBookmarkContextMenu_InitStyleOption(const KBookmarkContextMenu* self, QSty
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseInitStyleOption(const KBookmarkContextMenu* self, QStyleOptionMenuItem* option, const QAction* action) {
+void KBookmarkContextMenu_SuperInitStyleOption(const KBookmarkContextMenu* self, QStyleOptionMenuItem* option, const QAction* action) {
     auto* vkbookmarkcontextmenu = const_cast<VirtualKBookmarkContextMenu*>(dynamic_cast<const VirtualKBookmarkContextMenu*>(self));
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_InitStyleOption_IsBase(true);
@@ -672,7 +672,7 @@ int KBookmarkContextMenu_DevType(const KBookmarkContextMenu* self) {
 }
 
 // Base class handler implementation
-int KBookmarkContextMenu_QBaseDevType(const KBookmarkContextMenu* self) {
+int KBookmarkContextMenu_SuperDevType(const KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = const_cast<VirtualKBookmarkContextMenu*>(dynamic_cast<const VirtualKBookmarkContextMenu*>(self));
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_DevType_IsBase(true);
@@ -701,7 +701,7 @@ void KBookmarkContextMenu_SetVisible(KBookmarkContextMenu* self, bool visible) {
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseSetVisible(KBookmarkContextMenu* self, bool visible) {
+void KBookmarkContextMenu_SuperSetVisible(KBookmarkContextMenu* self, bool visible) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_SetVisible_IsBase(true);
@@ -730,7 +730,7 @@ QSize* KBookmarkContextMenu_MinimumSizeHint(const KBookmarkContextMenu* self) {
 }
 
 // Base class handler implementation
-QSize* KBookmarkContextMenu_QBaseMinimumSizeHint(const KBookmarkContextMenu* self) {
+QSize* KBookmarkContextMenu_SuperMinimumSizeHint(const KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = const_cast<VirtualKBookmarkContextMenu*>(dynamic_cast<const VirtualKBookmarkContextMenu*>(self));
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_MinimumSizeHint_IsBase(true);
@@ -759,7 +759,7 @@ int KBookmarkContextMenu_HeightForWidth(const KBookmarkContextMenu* self, int pa
 }
 
 // Base class handler implementation
-int KBookmarkContextMenu_QBaseHeightForWidth(const KBookmarkContextMenu* self, int param1) {
+int KBookmarkContextMenu_SuperHeightForWidth(const KBookmarkContextMenu* self, int param1) {
     auto* vkbookmarkcontextmenu = const_cast<VirtualKBookmarkContextMenu*>(dynamic_cast<const VirtualKBookmarkContextMenu*>(self));
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_HeightForWidth_IsBase(true);
@@ -788,7 +788,7 @@ bool KBookmarkContextMenu_HasHeightForWidth(const KBookmarkContextMenu* self) {
 }
 
 // Base class handler implementation
-bool KBookmarkContextMenu_QBaseHasHeightForWidth(const KBookmarkContextMenu* self) {
+bool KBookmarkContextMenu_SuperHasHeightForWidth(const KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = const_cast<VirtualKBookmarkContextMenu*>(dynamic_cast<const VirtualKBookmarkContextMenu*>(self));
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_HasHeightForWidth_IsBase(true);
@@ -817,7 +817,7 @@ QPaintEngine* KBookmarkContextMenu_PaintEngine(const KBookmarkContextMenu* self)
 }
 
 // Base class handler implementation
-QPaintEngine* KBookmarkContextMenu_QBasePaintEngine(const KBookmarkContextMenu* self) {
+QPaintEngine* KBookmarkContextMenu_SuperPaintEngine(const KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = const_cast<VirtualKBookmarkContextMenu*>(dynamic_cast<const VirtualKBookmarkContextMenu*>(self));
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_PaintEngine_IsBase(true);
@@ -846,7 +846,7 @@ void KBookmarkContextMenu_MouseDoubleClickEvent(KBookmarkContextMenu* self, QMou
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseMouseDoubleClickEvent(KBookmarkContextMenu* self, QMouseEvent* event) {
+void KBookmarkContextMenu_SuperMouseDoubleClickEvent(KBookmarkContextMenu* self, QMouseEvent* event) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_MouseDoubleClickEvent_IsBase(true);
@@ -875,7 +875,7 @@ void KBookmarkContextMenu_KeyReleaseEvent(KBookmarkContextMenu* self, QKeyEvent*
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseKeyReleaseEvent(KBookmarkContextMenu* self, QKeyEvent* event) {
+void KBookmarkContextMenu_SuperKeyReleaseEvent(KBookmarkContextMenu* self, QKeyEvent* event) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_KeyReleaseEvent_IsBase(true);
@@ -904,7 +904,7 @@ void KBookmarkContextMenu_FocusInEvent(KBookmarkContextMenu* self, QFocusEvent* 
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseFocusInEvent(KBookmarkContextMenu* self, QFocusEvent* event) {
+void KBookmarkContextMenu_SuperFocusInEvent(KBookmarkContextMenu* self, QFocusEvent* event) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_FocusInEvent_IsBase(true);
@@ -933,7 +933,7 @@ void KBookmarkContextMenu_FocusOutEvent(KBookmarkContextMenu* self, QFocusEvent*
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseFocusOutEvent(KBookmarkContextMenu* self, QFocusEvent* event) {
+void KBookmarkContextMenu_SuperFocusOutEvent(KBookmarkContextMenu* self, QFocusEvent* event) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_FocusOutEvent_IsBase(true);
@@ -962,7 +962,7 @@ void KBookmarkContextMenu_MoveEvent(KBookmarkContextMenu* self, QMoveEvent* even
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseMoveEvent(KBookmarkContextMenu* self, QMoveEvent* event) {
+void KBookmarkContextMenu_SuperMoveEvent(KBookmarkContextMenu* self, QMoveEvent* event) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_MoveEvent_IsBase(true);
@@ -991,7 +991,7 @@ void KBookmarkContextMenu_ResizeEvent(KBookmarkContextMenu* self, QResizeEvent* 
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseResizeEvent(KBookmarkContextMenu* self, QResizeEvent* event) {
+void KBookmarkContextMenu_SuperResizeEvent(KBookmarkContextMenu* self, QResizeEvent* event) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_ResizeEvent_IsBase(true);
@@ -1020,7 +1020,7 @@ void KBookmarkContextMenu_CloseEvent(KBookmarkContextMenu* self, QCloseEvent* ev
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseCloseEvent(KBookmarkContextMenu* self, QCloseEvent* event) {
+void KBookmarkContextMenu_SuperCloseEvent(KBookmarkContextMenu* self, QCloseEvent* event) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_CloseEvent_IsBase(true);
@@ -1049,7 +1049,7 @@ void KBookmarkContextMenu_ContextMenuEvent(KBookmarkContextMenu* self, QContextM
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseContextMenuEvent(KBookmarkContextMenu* self, QContextMenuEvent* event) {
+void KBookmarkContextMenu_SuperContextMenuEvent(KBookmarkContextMenu* self, QContextMenuEvent* event) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_ContextMenuEvent_IsBase(true);
@@ -1078,7 +1078,7 @@ void KBookmarkContextMenu_TabletEvent(KBookmarkContextMenu* self, QTabletEvent* 
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseTabletEvent(KBookmarkContextMenu* self, QTabletEvent* event) {
+void KBookmarkContextMenu_SuperTabletEvent(KBookmarkContextMenu* self, QTabletEvent* event) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_TabletEvent_IsBase(true);
@@ -1107,7 +1107,7 @@ void KBookmarkContextMenu_DragEnterEvent(KBookmarkContextMenu* self, QDragEnterE
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseDragEnterEvent(KBookmarkContextMenu* self, QDragEnterEvent* event) {
+void KBookmarkContextMenu_SuperDragEnterEvent(KBookmarkContextMenu* self, QDragEnterEvent* event) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_DragEnterEvent_IsBase(true);
@@ -1136,7 +1136,7 @@ void KBookmarkContextMenu_DragMoveEvent(KBookmarkContextMenu* self, QDragMoveEve
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseDragMoveEvent(KBookmarkContextMenu* self, QDragMoveEvent* event) {
+void KBookmarkContextMenu_SuperDragMoveEvent(KBookmarkContextMenu* self, QDragMoveEvent* event) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_DragMoveEvent_IsBase(true);
@@ -1165,7 +1165,7 @@ void KBookmarkContextMenu_DragLeaveEvent(KBookmarkContextMenu* self, QDragLeaveE
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseDragLeaveEvent(KBookmarkContextMenu* self, QDragLeaveEvent* event) {
+void KBookmarkContextMenu_SuperDragLeaveEvent(KBookmarkContextMenu* self, QDragLeaveEvent* event) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_DragLeaveEvent_IsBase(true);
@@ -1194,7 +1194,7 @@ void KBookmarkContextMenu_DropEvent(KBookmarkContextMenu* self, QDropEvent* even
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseDropEvent(KBookmarkContextMenu* self, QDropEvent* event) {
+void KBookmarkContextMenu_SuperDropEvent(KBookmarkContextMenu* self, QDropEvent* event) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_DropEvent_IsBase(true);
@@ -1223,7 +1223,7 @@ void KBookmarkContextMenu_ShowEvent(KBookmarkContextMenu* self, QShowEvent* even
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseShowEvent(KBookmarkContextMenu* self, QShowEvent* event) {
+void KBookmarkContextMenu_SuperShowEvent(KBookmarkContextMenu* self, QShowEvent* event) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_ShowEvent_IsBase(true);
@@ -1253,7 +1253,7 @@ bool KBookmarkContextMenu_NativeEvent(KBookmarkContextMenu* self, const libqt_st
 }
 
 // Base class handler implementation
-bool KBookmarkContextMenu_QBaseNativeEvent(KBookmarkContextMenu* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KBookmarkContextMenu_SuperNativeEvent(KBookmarkContextMenu* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
@@ -1283,7 +1283,7 @@ int KBookmarkContextMenu_Metric(const KBookmarkContextMenu* self, int param1) {
 }
 
 // Base class handler implementation
-int KBookmarkContextMenu_QBaseMetric(const KBookmarkContextMenu* self, int param1) {
+int KBookmarkContextMenu_SuperMetric(const KBookmarkContextMenu* self, int param1) {
     auto* vkbookmarkcontextmenu = const_cast<VirtualKBookmarkContextMenu*>(dynamic_cast<const VirtualKBookmarkContextMenu*>(self));
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_Metric_IsBase(true);
@@ -1312,7 +1312,7 @@ void KBookmarkContextMenu_InitPainter(const KBookmarkContextMenu* self, QPainter
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseInitPainter(const KBookmarkContextMenu* self, QPainter* painter) {
+void KBookmarkContextMenu_SuperInitPainter(const KBookmarkContextMenu* self, QPainter* painter) {
     auto* vkbookmarkcontextmenu = const_cast<VirtualKBookmarkContextMenu*>(dynamic_cast<const VirtualKBookmarkContextMenu*>(self));
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_InitPainter_IsBase(true);
@@ -1341,7 +1341,7 @@ QPaintDevice* KBookmarkContextMenu_Redirected(const KBookmarkContextMenu* self, 
 }
 
 // Base class handler implementation
-QPaintDevice* KBookmarkContextMenu_QBaseRedirected(const KBookmarkContextMenu* self, QPoint* offset) {
+QPaintDevice* KBookmarkContextMenu_SuperRedirected(const KBookmarkContextMenu* self, QPoint* offset) {
     auto* vkbookmarkcontextmenu = const_cast<VirtualKBookmarkContextMenu*>(dynamic_cast<const VirtualKBookmarkContextMenu*>(self));
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_Redirected_IsBase(true);
@@ -1370,7 +1370,7 @@ QPainter* KBookmarkContextMenu_SharedPainter(const KBookmarkContextMenu* self) {
 }
 
 // Base class handler implementation
-QPainter* KBookmarkContextMenu_QBaseSharedPainter(const KBookmarkContextMenu* self) {
+QPainter* KBookmarkContextMenu_SuperSharedPainter(const KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = const_cast<VirtualKBookmarkContextMenu*>(dynamic_cast<const VirtualKBookmarkContextMenu*>(self));
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_SharedPainter_IsBase(true);
@@ -1399,7 +1399,7 @@ void KBookmarkContextMenu_InputMethodEvent(KBookmarkContextMenu* self, QInputMet
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseInputMethodEvent(KBookmarkContextMenu* self, QInputMethodEvent* param1) {
+void KBookmarkContextMenu_SuperInputMethodEvent(KBookmarkContextMenu* self, QInputMethodEvent* param1) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_InputMethodEvent_IsBase(true);
@@ -1428,7 +1428,7 @@ QVariant* KBookmarkContextMenu_InputMethodQuery(const KBookmarkContextMenu* self
 }
 
 // Base class handler implementation
-QVariant* KBookmarkContextMenu_QBaseInputMethodQuery(const KBookmarkContextMenu* self, int param1) {
+QVariant* KBookmarkContextMenu_SuperInputMethodQuery(const KBookmarkContextMenu* self, int param1) {
     auto* vkbookmarkcontextmenu = const_cast<VirtualKBookmarkContextMenu*>(dynamic_cast<const VirtualKBookmarkContextMenu*>(self));
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_InputMethodQuery_IsBase(true);
@@ -1457,7 +1457,7 @@ bool KBookmarkContextMenu_EventFilter(KBookmarkContextMenu* self, QObject* watch
 }
 
 // Base class handler implementation
-bool KBookmarkContextMenu_QBaseEventFilter(KBookmarkContextMenu* self, QObject* watched, QEvent* event) {
+bool KBookmarkContextMenu_SuperEventFilter(KBookmarkContextMenu* self, QObject* watched, QEvent* event) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_EventFilter_IsBase(true);
@@ -1486,7 +1486,7 @@ void KBookmarkContextMenu_ChildEvent(KBookmarkContextMenu* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseChildEvent(KBookmarkContextMenu* self, QChildEvent* event) {
+void KBookmarkContextMenu_SuperChildEvent(KBookmarkContextMenu* self, QChildEvent* event) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_ChildEvent_IsBase(true);
@@ -1515,7 +1515,7 @@ void KBookmarkContextMenu_CustomEvent(KBookmarkContextMenu* self, QEvent* event)
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseCustomEvent(KBookmarkContextMenu* self, QEvent* event) {
+void KBookmarkContextMenu_SuperCustomEvent(KBookmarkContextMenu* self, QEvent* event) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_CustomEvent_IsBase(true);
@@ -1544,7 +1544,7 @@ void KBookmarkContextMenu_ConnectNotify(KBookmarkContextMenu* self, const QMetaM
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseConnectNotify(KBookmarkContextMenu* self, const QMetaMethod* signal) {
+void KBookmarkContextMenu_SuperConnectNotify(KBookmarkContextMenu* self, const QMetaMethod* signal) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_ConnectNotify_IsBase(true);
@@ -1573,7 +1573,7 @@ void KBookmarkContextMenu_DisconnectNotify(KBookmarkContextMenu* self, const QMe
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseDisconnectNotify(KBookmarkContextMenu* self, const QMetaMethod* signal) {
+void KBookmarkContextMenu_SuperDisconnectNotify(KBookmarkContextMenu* self, const QMetaMethod* signal) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_DisconnectNotify_IsBase(true);
@@ -1602,7 +1602,7 @@ void KBookmarkContextMenu_AddBookmark(KBookmarkContextMenu* self) {
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseAddBookmark(KBookmarkContextMenu* self) {
+void KBookmarkContextMenu_SuperAddBookmark(KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_AddBookmark_IsBase(true);
@@ -1631,7 +1631,7 @@ void KBookmarkContextMenu_AddFolderActions(KBookmarkContextMenu* self) {
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseAddFolderActions(KBookmarkContextMenu* self) {
+void KBookmarkContextMenu_SuperAddFolderActions(KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_AddFolderActions_IsBase(true);
@@ -1660,7 +1660,7 @@ void KBookmarkContextMenu_AddProperties(KBookmarkContextMenu* self) {
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseAddProperties(KBookmarkContextMenu* self) {
+void KBookmarkContextMenu_SuperAddProperties(KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_AddProperties_IsBase(true);
@@ -1689,7 +1689,7 @@ void KBookmarkContextMenu_AddBookmarkActions(KBookmarkContextMenu* self) {
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseAddBookmarkActions(KBookmarkContextMenu* self) {
+void KBookmarkContextMenu_SuperAddBookmarkActions(KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_AddBookmarkActions_IsBase(true);
@@ -1718,7 +1718,7 @@ void KBookmarkContextMenu_AddOpenFolderInTabs(KBookmarkContextMenu* self) {
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseAddOpenFolderInTabs(KBookmarkContextMenu* self) {
+void KBookmarkContextMenu_SuperAddOpenFolderInTabs(KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_AddOpenFolderInTabs_IsBase(true);
@@ -1747,7 +1747,7 @@ KBookmarkManager* KBookmarkContextMenu_Manager(const KBookmarkContextMenu* self)
 }
 
 // Base class handler implementation
-KBookmarkManager* KBookmarkContextMenu_QBaseManager(const KBookmarkContextMenu* self) {
+KBookmarkManager* KBookmarkContextMenu_SuperManager(const KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = const_cast<VirtualKBookmarkContextMenu*>(dynamic_cast<const VirtualKBookmarkContextMenu*>(self));
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_Manager_IsBase(true);
@@ -1776,7 +1776,7 @@ KBookmarkOwner* KBookmarkContextMenu_Owner(const KBookmarkContextMenu* self) {
 }
 
 // Base class handler implementation
-KBookmarkOwner* KBookmarkContextMenu_QBaseOwner(const KBookmarkContextMenu* self) {
+KBookmarkOwner* KBookmarkContextMenu_SuperOwner(const KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = const_cast<VirtualKBookmarkContextMenu*>(dynamic_cast<const VirtualKBookmarkContextMenu*>(self));
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_Owner_IsBase(true);
@@ -1804,7 +1804,7 @@ KBookmark* KBookmarkContextMenu_Bookmark(const KBookmarkContextMenu* self) {
 }
 
 // Base class handler implementation
-KBookmark* KBookmarkContextMenu_QBaseBookmark(const KBookmarkContextMenu* self) {
+KBookmark* KBookmarkContextMenu_SuperBookmark(const KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = const_cast<VirtualKBookmarkContextMenu*>(dynamic_cast<const VirtualKBookmarkContextMenu*>(self));
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_Bookmark_IsBase(true);
@@ -1832,7 +1832,7 @@ int KBookmarkContextMenu_ColumnCount(const KBookmarkContextMenu* self) {
 }
 
 // Base class handler implementation
-int KBookmarkContextMenu_QBaseColumnCount(const KBookmarkContextMenu* self) {
+int KBookmarkContextMenu_SuperColumnCount(const KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = const_cast<VirtualKBookmarkContextMenu*>(dynamic_cast<const VirtualKBookmarkContextMenu*>(self));
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_ColumnCount_IsBase(true);
@@ -1861,7 +1861,7 @@ void KBookmarkContextMenu_UpdateMicroFocus(KBookmarkContextMenu* self) {
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseUpdateMicroFocus(KBookmarkContextMenu* self) {
+void KBookmarkContextMenu_SuperUpdateMicroFocus(KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_UpdateMicroFocus_IsBase(true);
@@ -1890,7 +1890,7 @@ void KBookmarkContextMenu_Create(KBookmarkContextMenu* self) {
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseCreate(KBookmarkContextMenu* self) {
+void KBookmarkContextMenu_SuperCreate(KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_Create_IsBase(true);
@@ -1919,7 +1919,7 @@ void KBookmarkContextMenu_Destroy(KBookmarkContextMenu* self) {
 }
 
 // Base class handler implementation
-void KBookmarkContextMenu_QBaseDestroy(KBookmarkContextMenu* self) {
+void KBookmarkContextMenu_SuperDestroy(KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_Destroy_IsBase(true);
@@ -1948,7 +1948,7 @@ bool KBookmarkContextMenu_FocusNextChild(KBookmarkContextMenu* self) {
 }
 
 // Base class handler implementation
-bool KBookmarkContextMenu_QBaseFocusNextChild(KBookmarkContextMenu* self) {
+bool KBookmarkContextMenu_SuperFocusNextChild(KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_FocusNextChild_IsBase(true);
@@ -1977,7 +1977,7 @@ bool KBookmarkContextMenu_FocusPreviousChild(KBookmarkContextMenu* self) {
 }
 
 // Base class handler implementation
-bool KBookmarkContextMenu_QBaseFocusPreviousChild(KBookmarkContextMenu* self) {
+bool KBookmarkContextMenu_SuperFocusPreviousChild(KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_FocusPreviousChild_IsBase(true);
@@ -2006,7 +2006,7 @@ QObject* KBookmarkContextMenu_Sender(const KBookmarkContextMenu* self) {
 }
 
 // Base class handler implementation
-QObject* KBookmarkContextMenu_QBaseSender(const KBookmarkContextMenu* self) {
+QObject* KBookmarkContextMenu_SuperSender(const KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = const_cast<VirtualKBookmarkContextMenu*>(dynamic_cast<const VirtualKBookmarkContextMenu*>(self));
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_Sender_IsBase(true);
@@ -2035,7 +2035,7 @@ int KBookmarkContextMenu_SenderSignalIndex(const KBookmarkContextMenu* self) {
 }
 
 // Base class handler implementation
-int KBookmarkContextMenu_QBaseSenderSignalIndex(const KBookmarkContextMenu* self) {
+int KBookmarkContextMenu_SuperSenderSignalIndex(const KBookmarkContextMenu* self) {
     auto* vkbookmarkcontextmenu = const_cast<VirtualKBookmarkContextMenu*>(dynamic_cast<const VirtualKBookmarkContextMenu*>(self));
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_SenderSignalIndex_IsBase(true);
@@ -2064,7 +2064,7 @@ int KBookmarkContextMenu_Receivers(const KBookmarkContextMenu* self, const char*
 }
 
 // Base class handler implementation
-int KBookmarkContextMenu_QBaseReceivers(const KBookmarkContextMenu* self, const char* signal) {
+int KBookmarkContextMenu_SuperReceivers(const KBookmarkContextMenu* self, const char* signal) {
     auto* vkbookmarkcontextmenu = const_cast<VirtualKBookmarkContextMenu*>(dynamic_cast<const VirtualKBookmarkContextMenu*>(self));
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_Receivers_IsBase(true);
@@ -2093,7 +2093,7 @@ bool KBookmarkContextMenu_IsSignalConnected(const KBookmarkContextMenu* self, co
 }
 
 // Base class handler implementation
-bool KBookmarkContextMenu_QBaseIsSignalConnected(const KBookmarkContextMenu* self, const QMetaMethod* signal) {
+bool KBookmarkContextMenu_SuperIsSignalConnected(const KBookmarkContextMenu* self, const QMetaMethod* signal) {
     auto* vkbookmarkcontextmenu = const_cast<VirtualKBookmarkContextMenu*>(dynamic_cast<const VirtualKBookmarkContextMenu*>(self));
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_IsSignalConnected_IsBase(true);
@@ -2122,7 +2122,7 @@ double KBookmarkContextMenu_GetDecodedMetricF(const KBookmarkContextMenu* self, 
 }
 
 // Base class handler implementation
-double KBookmarkContextMenu_QBaseGetDecodedMetricF(const KBookmarkContextMenu* self, int metricA, int metricB) {
+double KBookmarkContextMenu_SuperGetDecodedMetricF(const KBookmarkContextMenu* self, int metricA, int metricB) {
     auto* vkbookmarkcontextmenu = const_cast<VirtualKBookmarkContextMenu*>(dynamic_cast<const VirtualKBookmarkContextMenu*>(self));
     if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
         vkbookmarkcontextmenu->setKBookmarkContextMenu_GetDecodedMetricF_IsBase(true);

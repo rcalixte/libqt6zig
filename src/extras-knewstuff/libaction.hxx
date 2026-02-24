@@ -327,25 +327,25 @@ class VirtualKNSWidgetsAction final : public KNSWidgets::Action {
 
     // Friend functions
     friend bool KNSWidgets__Action_Event(KNSWidgets::Action* self, QEvent* param1);
-    friend bool KNSWidgets__Action_QBaseEvent(KNSWidgets::Action* self, QEvent* param1);
+    friend bool KNSWidgets__Action_SuperEvent(KNSWidgets::Action* self, QEvent* param1);
     friend void KNSWidgets__Action_TimerEvent(KNSWidgets::Action* self, QTimerEvent* event);
-    friend void KNSWidgets__Action_QBaseTimerEvent(KNSWidgets::Action* self, QTimerEvent* event);
+    friend void KNSWidgets__Action_SuperTimerEvent(KNSWidgets::Action* self, QTimerEvent* event);
     friend void KNSWidgets__Action_ChildEvent(KNSWidgets::Action* self, QChildEvent* event);
-    friend void KNSWidgets__Action_QBaseChildEvent(KNSWidgets::Action* self, QChildEvent* event);
+    friend void KNSWidgets__Action_SuperChildEvent(KNSWidgets::Action* self, QChildEvent* event);
     friend void KNSWidgets__Action_CustomEvent(KNSWidgets::Action* self, QEvent* event);
-    friend void KNSWidgets__Action_QBaseCustomEvent(KNSWidgets::Action* self, QEvent* event);
+    friend void KNSWidgets__Action_SuperCustomEvent(KNSWidgets::Action* self, QEvent* event);
     friend void KNSWidgets__Action_ConnectNotify(KNSWidgets::Action* self, const QMetaMethod* signal);
-    friend void KNSWidgets__Action_QBaseConnectNotify(KNSWidgets::Action* self, const QMetaMethod* signal);
+    friend void KNSWidgets__Action_SuperConnectNotify(KNSWidgets::Action* self, const QMetaMethod* signal);
     friend void KNSWidgets__Action_DisconnectNotify(KNSWidgets::Action* self, const QMetaMethod* signal);
-    friend void KNSWidgets__Action_QBaseDisconnectNotify(KNSWidgets::Action* self, const QMetaMethod* signal);
+    friend void KNSWidgets__Action_SuperDisconnectNotify(KNSWidgets::Action* self, const QMetaMethod* signal);
     friend QObject* KNSWidgets__Action_Sender(const KNSWidgets::Action* self);
-    friend QObject* KNSWidgets__Action_QBaseSender(const KNSWidgets::Action* self);
+    friend QObject* KNSWidgets__Action_SuperSender(const KNSWidgets::Action* self);
     friend int KNSWidgets__Action_SenderSignalIndex(const KNSWidgets::Action* self);
-    friend int KNSWidgets__Action_QBaseSenderSignalIndex(const KNSWidgets::Action* self);
+    friend int KNSWidgets__Action_SuperSenderSignalIndex(const KNSWidgets::Action* self);
     friend int KNSWidgets__Action_Receivers(const KNSWidgets::Action* self, const char* signal);
-    friend int KNSWidgets__Action_QBaseReceivers(const KNSWidgets::Action* self, const char* signal);
+    friend int KNSWidgets__Action_SuperReceivers(const KNSWidgets::Action* self, const char* signal);
     friend bool KNSWidgets__Action_IsSignalConnected(const KNSWidgets::Action* self, const QMetaMethod* signal);
-    friend bool KNSWidgets__Action_QBaseIsSignalConnected(const KNSWidgets::Action* self, const QMetaMethod* signal);
+    friend bool KNSWidgets__Action_SuperIsSignalConnected(const KNSWidgets::Action* self, const QMetaMethod* signal);
 };
 
 #endif

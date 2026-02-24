@@ -547,33 +547,33 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
 
     // Friend functions
     friend void KCategoryDrawer_MouseButtonPressed(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event);
-    friend void KCategoryDrawer_QBaseMouseButtonPressed(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event);
+    friend void KCategoryDrawer_SuperMouseButtonPressed(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event);
     friend void KCategoryDrawer_MouseButtonReleased(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event);
-    friend void KCategoryDrawer_QBaseMouseButtonReleased(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event);
+    friend void KCategoryDrawer_SuperMouseButtonReleased(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event);
     friend void KCategoryDrawer_MouseMoved(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event);
-    friend void KCategoryDrawer_QBaseMouseMoved(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event);
+    friend void KCategoryDrawer_SuperMouseMoved(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event);
     friend void KCategoryDrawer_MouseButtonDoubleClicked(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event);
-    friend void KCategoryDrawer_QBaseMouseButtonDoubleClicked(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event);
+    friend void KCategoryDrawer_SuperMouseButtonDoubleClicked(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event);
     friend void KCategoryDrawer_MouseLeft(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect);
-    friend void KCategoryDrawer_QBaseMouseLeft(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect);
+    friend void KCategoryDrawer_SuperMouseLeft(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect);
     friend void KCategoryDrawer_TimerEvent(KCategoryDrawer* self, QTimerEvent* event);
-    friend void KCategoryDrawer_QBaseTimerEvent(KCategoryDrawer* self, QTimerEvent* event);
+    friend void KCategoryDrawer_SuperTimerEvent(KCategoryDrawer* self, QTimerEvent* event);
     friend void KCategoryDrawer_ChildEvent(KCategoryDrawer* self, QChildEvent* event);
-    friend void KCategoryDrawer_QBaseChildEvent(KCategoryDrawer* self, QChildEvent* event);
+    friend void KCategoryDrawer_SuperChildEvent(KCategoryDrawer* self, QChildEvent* event);
     friend void KCategoryDrawer_CustomEvent(KCategoryDrawer* self, QEvent* event);
-    friend void KCategoryDrawer_QBaseCustomEvent(KCategoryDrawer* self, QEvent* event);
+    friend void KCategoryDrawer_SuperCustomEvent(KCategoryDrawer* self, QEvent* event);
     friend void KCategoryDrawer_ConnectNotify(KCategoryDrawer* self, const QMetaMethod* signal);
-    friend void KCategoryDrawer_QBaseConnectNotify(KCategoryDrawer* self, const QMetaMethod* signal);
+    friend void KCategoryDrawer_SuperConnectNotify(KCategoryDrawer* self, const QMetaMethod* signal);
     friend void KCategoryDrawer_DisconnectNotify(KCategoryDrawer* self, const QMetaMethod* signal);
-    friend void KCategoryDrawer_QBaseDisconnectNotify(KCategoryDrawer* self, const QMetaMethod* signal);
+    friend void KCategoryDrawer_SuperDisconnectNotify(KCategoryDrawer* self, const QMetaMethod* signal);
     friend QObject* KCategoryDrawer_Sender(const KCategoryDrawer* self);
-    friend QObject* KCategoryDrawer_QBaseSender(const KCategoryDrawer* self);
+    friend QObject* KCategoryDrawer_SuperSender(const KCategoryDrawer* self);
     friend int KCategoryDrawer_SenderSignalIndex(const KCategoryDrawer* self);
-    friend int KCategoryDrawer_QBaseSenderSignalIndex(const KCategoryDrawer* self);
+    friend int KCategoryDrawer_SuperSenderSignalIndex(const KCategoryDrawer* self);
     friend int KCategoryDrawer_Receivers(const KCategoryDrawer* self, const char* signal);
-    friend int KCategoryDrawer_QBaseReceivers(const KCategoryDrawer* self, const char* signal);
+    friend int KCategoryDrawer_SuperReceivers(const KCategoryDrawer* self, const char* signal);
     friend bool KCategoryDrawer_IsSignalConnected(const KCategoryDrawer* self, const QMetaMethod* signal);
-    friend bool KCategoryDrawer_QBaseIsSignalConnected(const KCategoryDrawer* self, const QMetaMethod* signal);
+    friend bool KCategoryDrawer_SuperIsSignalConnected(const KCategoryDrawer* self, const QMetaMethod* signal);
 };
 
 #endif

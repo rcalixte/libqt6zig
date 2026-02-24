@@ -114,7 +114,7 @@ bool KDirSortFilterProxyModel_SubSortLessThan(const KDirSortFilterProxyModel* se
 }
 
 // Base class handler implementation
-QMetaObject* KDirSortFilterProxyModel_QBaseMetaObject(const KDirSortFilterProxyModel* self) {
+QMetaObject* KDirSortFilterProxyModel_SuperMetaObject(const KDirSortFilterProxyModel* self) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_MetaObject_IsBase(true);
@@ -133,7 +133,7 @@ void KDirSortFilterProxyModel_OnMetaObject(const KDirSortFilterProxyModel* self,
 }
 
 // Base class handler implementation
-void* KDirSortFilterProxyModel_QBaseMetacast(KDirSortFilterProxyModel* self, const char* param1) {
+void* KDirSortFilterProxyModel_SuperMetacast(KDirSortFilterProxyModel* self, const char* param1) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Metacast_IsBase(true);
@@ -152,7 +152,7 @@ void KDirSortFilterProxyModel_OnMetacast(KDirSortFilterProxyModel* self, intptr_
 }
 
 // Base class handler implementation
-int KDirSortFilterProxyModel_QBaseMetacall(KDirSortFilterProxyModel* self, int param1, int param2, void** param3) {
+int KDirSortFilterProxyModel_SuperMetacall(KDirSortFilterProxyModel* self, int param1, int param2, void** param3) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Metacall_IsBase(true);
@@ -171,7 +171,7 @@ void KDirSortFilterProxyModel_OnMetacall(KDirSortFilterProxyModel* self, intptr_
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseHasChildren(const KDirSortFilterProxyModel* self, const QModelIndex* parent) {
+bool KDirSortFilterProxyModel_SuperHasChildren(const KDirSortFilterProxyModel* self, const QModelIndex* parent) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_HasChildren_IsBase(true);
@@ -190,7 +190,7 @@ void KDirSortFilterProxyModel_OnHasChildren(const KDirSortFilterProxyModel* self
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseCanFetchMore(const KDirSortFilterProxyModel* self, const QModelIndex* parent) {
+bool KDirSortFilterProxyModel_SuperCanFetchMore(const KDirSortFilterProxyModel* self, const QModelIndex* parent) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_CanFetchMore_IsBase(true);
@@ -209,7 +209,7 @@ void KDirSortFilterProxyModel_OnCanFetchMore(const KDirSortFilterProxyModel* sel
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseSubSortLessThan(const KDirSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
+bool KDirSortFilterProxyModel_SuperSubSortLessThan(const KDirSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_SubSortLessThan_IsBase(true);
@@ -238,7 +238,7 @@ void KDirSortFilterProxyModel_Sort(KDirSortFilterProxyModel* self, int column, i
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseSort(KDirSortFilterProxyModel* self, int column, int order) {
+void KDirSortFilterProxyModel_SuperSort(KDirSortFilterProxyModel* self, int column, int order) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Sort_IsBase(true);
@@ -267,7 +267,7 @@ bool KDirSortFilterProxyModel_LessThan(const KDirSortFilterProxyModel* self, con
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseLessThan(const KDirSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
+bool KDirSortFilterProxyModel_SuperLessThan(const KDirSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_LessThan_IsBase(true);
@@ -296,7 +296,7 @@ int KDirSortFilterProxyModel_CompareCategories(const KDirSortFilterProxyModel* s
 }
 
 // Base class handler implementation
-int KDirSortFilterProxyModel_QBaseCompareCategories(const KDirSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
+int KDirSortFilterProxyModel_SuperCompareCategories(const KDirSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_CompareCategories_IsBase(true);
@@ -325,7 +325,7 @@ void KDirSortFilterProxyModel_SetSourceModel(KDirSortFilterProxyModel* self, QAb
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseSetSourceModel(KDirSortFilterProxyModel* self, QAbstractItemModel* sourceModel) {
+void KDirSortFilterProxyModel_SuperSetSourceModel(KDirSortFilterProxyModel* self, QAbstractItemModel* sourceModel) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_SetSourceModel_IsBase(true);
@@ -354,7 +354,7 @@ QModelIndex* KDirSortFilterProxyModel_MapToSource(const KDirSortFilterProxyModel
 }
 
 // Base class handler implementation
-QModelIndex* KDirSortFilterProxyModel_QBaseMapToSource(const KDirSortFilterProxyModel* self, const QModelIndex* proxyIndex) {
+QModelIndex* KDirSortFilterProxyModel_SuperMapToSource(const KDirSortFilterProxyModel* self, const QModelIndex* proxyIndex) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_MapToSource_IsBase(true);
@@ -383,7 +383,7 @@ QModelIndex* KDirSortFilterProxyModel_MapFromSource(const KDirSortFilterProxyMod
 }
 
 // Base class handler implementation
-QModelIndex* KDirSortFilterProxyModel_QBaseMapFromSource(const KDirSortFilterProxyModel* self, const QModelIndex* sourceIndex) {
+QModelIndex* KDirSortFilterProxyModel_SuperMapFromSource(const KDirSortFilterProxyModel* self, const QModelIndex* sourceIndex) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_MapFromSource_IsBase(true);
@@ -412,7 +412,7 @@ QItemSelection* KDirSortFilterProxyModel_MapSelectionToSource(const KDirSortFilt
 }
 
 // Base class handler implementation
-QItemSelection* KDirSortFilterProxyModel_QBaseMapSelectionToSource(const KDirSortFilterProxyModel* self, const QItemSelection* proxySelection) {
+QItemSelection* KDirSortFilterProxyModel_SuperMapSelectionToSource(const KDirSortFilterProxyModel* self, const QItemSelection* proxySelection) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_MapSelectionToSource_IsBase(true);
@@ -441,7 +441,7 @@ QItemSelection* KDirSortFilterProxyModel_MapSelectionFromSource(const KDirSortFi
 }
 
 // Base class handler implementation
-QItemSelection* KDirSortFilterProxyModel_QBaseMapSelectionFromSource(const KDirSortFilterProxyModel* self, const QItemSelection* sourceSelection) {
+QItemSelection* KDirSortFilterProxyModel_SuperMapSelectionFromSource(const KDirSortFilterProxyModel* self, const QItemSelection* sourceSelection) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_MapSelectionFromSource_IsBase(true);
@@ -470,7 +470,7 @@ bool KDirSortFilterProxyModel_FilterAcceptsRow(const KDirSortFilterProxyModel* s
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseFilterAcceptsRow(const KDirSortFilterProxyModel* self, int source_row, const QModelIndex* source_parent) {
+bool KDirSortFilterProxyModel_SuperFilterAcceptsRow(const KDirSortFilterProxyModel* self, int source_row, const QModelIndex* source_parent) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_FilterAcceptsRow_IsBase(true);
@@ -499,7 +499,7 @@ bool KDirSortFilterProxyModel_FilterAcceptsColumn(const KDirSortFilterProxyModel
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseFilterAcceptsColumn(const KDirSortFilterProxyModel* self, int source_column, const QModelIndex* source_parent) {
+bool KDirSortFilterProxyModel_SuperFilterAcceptsColumn(const KDirSortFilterProxyModel* self, int source_column, const QModelIndex* source_parent) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_FilterAcceptsColumn_IsBase(true);
@@ -528,7 +528,7 @@ QModelIndex* KDirSortFilterProxyModel_Index(const KDirSortFilterProxyModel* self
 }
 
 // Base class handler implementation
-QModelIndex* KDirSortFilterProxyModel_QBaseIndex(const KDirSortFilterProxyModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* KDirSortFilterProxyModel_SuperIndex(const KDirSortFilterProxyModel* self, int row, int column, const QModelIndex* parent) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Index_IsBase(true);
@@ -557,7 +557,7 @@ QModelIndex* KDirSortFilterProxyModel_Parent(const KDirSortFilterProxyModel* sel
 }
 
 // Base class handler implementation
-QModelIndex* KDirSortFilterProxyModel_QBaseParent(const KDirSortFilterProxyModel* self, const QModelIndex* child) {
+QModelIndex* KDirSortFilterProxyModel_SuperParent(const KDirSortFilterProxyModel* self, const QModelIndex* child) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Parent_IsBase(true);
@@ -586,7 +586,7 @@ QModelIndex* KDirSortFilterProxyModel_Sibling(const KDirSortFilterProxyModel* se
 }
 
 // Base class handler implementation
-QModelIndex* KDirSortFilterProxyModel_QBaseSibling(const KDirSortFilterProxyModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* KDirSortFilterProxyModel_SuperSibling(const KDirSortFilterProxyModel* self, int row, int column, const QModelIndex* idx) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Sibling_IsBase(true);
@@ -615,7 +615,7 @@ int KDirSortFilterProxyModel_RowCount(const KDirSortFilterProxyModel* self, cons
 }
 
 // Base class handler implementation
-int KDirSortFilterProxyModel_QBaseRowCount(const KDirSortFilterProxyModel* self, const QModelIndex* parent) {
+int KDirSortFilterProxyModel_SuperRowCount(const KDirSortFilterProxyModel* self, const QModelIndex* parent) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_RowCount_IsBase(true);
@@ -644,7 +644,7 @@ int KDirSortFilterProxyModel_ColumnCount(const KDirSortFilterProxyModel* self, c
 }
 
 // Base class handler implementation
-int KDirSortFilterProxyModel_QBaseColumnCount(const KDirSortFilterProxyModel* self, const QModelIndex* parent) {
+int KDirSortFilterProxyModel_SuperColumnCount(const KDirSortFilterProxyModel* self, const QModelIndex* parent) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_ColumnCount_IsBase(true);
@@ -673,7 +673,7 @@ QVariant* KDirSortFilterProxyModel_Data(const KDirSortFilterProxyModel* self, co
 }
 
 // Base class handler implementation
-QVariant* KDirSortFilterProxyModel_QBaseData(const KDirSortFilterProxyModel* self, const QModelIndex* index, int role) {
+QVariant* KDirSortFilterProxyModel_SuperData(const KDirSortFilterProxyModel* self, const QModelIndex* index, int role) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Data_IsBase(true);
@@ -702,7 +702,7 @@ bool KDirSortFilterProxyModel_SetData(KDirSortFilterProxyModel* self, const QMod
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseSetData(KDirSortFilterProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool KDirSortFilterProxyModel_SuperSetData(KDirSortFilterProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_SetData_IsBase(true);
@@ -731,7 +731,7 @@ QVariant* KDirSortFilterProxyModel_HeaderData(const KDirSortFilterProxyModel* se
 }
 
 // Base class handler implementation
-QVariant* KDirSortFilterProxyModel_QBaseHeaderData(const KDirSortFilterProxyModel* self, int section, int orientation, int role) {
+QVariant* KDirSortFilterProxyModel_SuperHeaderData(const KDirSortFilterProxyModel* self, int section, int orientation, int role) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_HeaderData_IsBase(true);
@@ -760,7 +760,7 @@ bool KDirSortFilterProxyModel_SetHeaderData(KDirSortFilterProxyModel* self, int 
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseSetHeaderData(KDirSortFilterProxyModel* self, int section, int orientation, const QVariant* value, int role) {
+bool KDirSortFilterProxyModel_SuperSetHeaderData(KDirSortFilterProxyModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_SetHeaderData_IsBase(true);
@@ -795,7 +795,7 @@ QMimeData* KDirSortFilterProxyModel_MimeData(const KDirSortFilterProxyModel* sel
 }
 
 // Base class handler implementation
-QMimeData* KDirSortFilterProxyModel_QBaseMimeData(const KDirSortFilterProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* KDirSortFilterProxyModel_SuperMimeData(const KDirSortFilterProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -830,7 +830,7 @@ bool KDirSortFilterProxyModel_DropMimeData(KDirSortFilterProxyModel* self, const
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseDropMimeData(KDirSortFilterProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KDirSortFilterProxyModel_SuperDropMimeData(KDirSortFilterProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_DropMimeData_IsBase(true);
@@ -859,7 +859,7 @@ bool KDirSortFilterProxyModel_InsertRows(KDirSortFilterProxyModel* self, int row
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseInsertRows(KDirSortFilterProxyModel* self, int row, int count, const QModelIndex* parent) {
+bool KDirSortFilterProxyModel_SuperInsertRows(KDirSortFilterProxyModel* self, int row, int count, const QModelIndex* parent) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_InsertRows_IsBase(true);
@@ -888,7 +888,7 @@ bool KDirSortFilterProxyModel_InsertColumns(KDirSortFilterProxyModel* self, int 
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseInsertColumns(KDirSortFilterProxyModel* self, int column, int count, const QModelIndex* parent) {
+bool KDirSortFilterProxyModel_SuperInsertColumns(KDirSortFilterProxyModel* self, int column, int count, const QModelIndex* parent) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_InsertColumns_IsBase(true);
@@ -917,7 +917,7 @@ bool KDirSortFilterProxyModel_RemoveRows(KDirSortFilterProxyModel* self, int row
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseRemoveRows(KDirSortFilterProxyModel* self, int row, int count, const QModelIndex* parent) {
+bool KDirSortFilterProxyModel_SuperRemoveRows(KDirSortFilterProxyModel* self, int row, int count, const QModelIndex* parent) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_RemoveRows_IsBase(true);
@@ -946,7 +946,7 @@ bool KDirSortFilterProxyModel_RemoveColumns(KDirSortFilterProxyModel* self, int 
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseRemoveColumns(KDirSortFilterProxyModel* self, int column, int count, const QModelIndex* parent) {
+bool KDirSortFilterProxyModel_SuperRemoveColumns(KDirSortFilterProxyModel* self, int column, int count, const QModelIndex* parent) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_RemoveColumns_IsBase(true);
@@ -975,7 +975,7 @@ void KDirSortFilterProxyModel_FetchMore(KDirSortFilterProxyModel* self, const QM
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseFetchMore(KDirSortFilterProxyModel* self, const QModelIndex* parent) {
+void KDirSortFilterProxyModel_SuperFetchMore(KDirSortFilterProxyModel* self, const QModelIndex* parent) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_FetchMore_IsBase(true);
@@ -1004,7 +1004,7 @@ int KDirSortFilterProxyModel_Flags(const KDirSortFilterProxyModel* self, const Q
 }
 
 // Base class handler implementation
-int KDirSortFilterProxyModel_QBaseFlags(const KDirSortFilterProxyModel* self, const QModelIndex* index) {
+int KDirSortFilterProxyModel_SuperFlags(const KDirSortFilterProxyModel* self, const QModelIndex* index) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Flags_IsBase(true);
@@ -1033,7 +1033,7 @@ QModelIndex* KDirSortFilterProxyModel_Buddy(const KDirSortFilterProxyModel* self
 }
 
 // Base class handler implementation
-QModelIndex* KDirSortFilterProxyModel_QBaseBuddy(const KDirSortFilterProxyModel* self, const QModelIndex* index) {
+QModelIndex* KDirSortFilterProxyModel_SuperBuddy(const KDirSortFilterProxyModel* self, const QModelIndex* index) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Buddy_IsBase(true);
@@ -1080,7 +1080,7 @@ libqt_list /* of QModelIndex* */ KDirSortFilterProxyModel_Match(const KDirSortFi
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KDirSortFilterProxyModel_QBaseMatch(const KDirSortFilterProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ KDirSortFilterProxyModel_SuperMatch(const KDirSortFilterProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Match_IsBase(true);
@@ -1127,7 +1127,7 @@ QSize* KDirSortFilterProxyModel_Span(const KDirSortFilterProxyModel* self, const
 }
 
 // Base class handler implementation
-QSize* KDirSortFilterProxyModel_QBaseSpan(const KDirSortFilterProxyModel* self, const QModelIndex* index) {
+QSize* KDirSortFilterProxyModel_SuperSpan(const KDirSortFilterProxyModel* self, const QModelIndex* index) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Span_IsBase(true);
@@ -1190,7 +1190,7 @@ libqt_list /* of libqt_string */ KDirSortFilterProxyModel_MimeTypes(const KDirSo
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KDirSortFilterProxyModel_QBaseMimeTypes(const KDirSortFilterProxyModel* self) {
+libqt_list /* of libqt_string */ KDirSortFilterProxyModel_SuperMimeTypes(const KDirSortFilterProxyModel* self) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_MimeTypes_IsBase(true);
@@ -1253,7 +1253,7 @@ int KDirSortFilterProxyModel_SupportedDropActions(const KDirSortFilterProxyModel
 }
 
 // Base class handler implementation
-int KDirSortFilterProxyModel_QBaseSupportedDropActions(const KDirSortFilterProxyModel* self) {
+int KDirSortFilterProxyModel_SuperSupportedDropActions(const KDirSortFilterProxyModel* self) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_SupportedDropActions_IsBase(true);
@@ -1282,7 +1282,7 @@ bool KDirSortFilterProxyModel_Submit(KDirSortFilterProxyModel* self) {
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseSubmit(KDirSortFilterProxyModel* self) {
+bool KDirSortFilterProxyModel_SuperSubmit(KDirSortFilterProxyModel* self) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Submit_IsBase(true);
@@ -1311,7 +1311,7 @@ void KDirSortFilterProxyModel_Revert(KDirSortFilterProxyModel* self) {
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseRevert(KDirSortFilterProxyModel* self) {
+void KDirSortFilterProxyModel_SuperRevert(KDirSortFilterProxyModel* self) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Revert_IsBase(true);
@@ -1368,7 +1368,7 @@ libqt_map /* of int to QVariant* */ KDirSortFilterProxyModel_ItemData(const KDir
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ KDirSortFilterProxyModel_QBaseItemData(const KDirSortFilterProxyModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ KDirSortFilterProxyModel_SuperItemData(const KDirSortFilterProxyModel* self, const QModelIndex* index) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_ItemData_IsBase(true);
@@ -1431,7 +1431,7 @@ bool KDirSortFilterProxyModel_SetItemData(KDirSortFilterProxyModel* self, const 
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseSetItemData(KDirSortFilterProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool KDirSortFilterProxyModel_SuperSetItemData(KDirSortFilterProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -1466,7 +1466,7 @@ bool KDirSortFilterProxyModel_ClearItemData(KDirSortFilterProxyModel* self, cons
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseClearItemData(KDirSortFilterProxyModel* self, const QModelIndex* index) {
+bool KDirSortFilterProxyModel_SuperClearItemData(KDirSortFilterProxyModel* self, const QModelIndex* index) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_ClearItemData_IsBase(true);
@@ -1495,7 +1495,7 @@ bool KDirSortFilterProxyModel_CanDropMimeData(const KDirSortFilterProxyModel* se
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseCanDropMimeData(const KDirSortFilterProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KDirSortFilterProxyModel_SuperCanDropMimeData(const KDirSortFilterProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_CanDropMimeData_IsBase(true);
@@ -1524,7 +1524,7 @@ int KDirSortFilterProxyModel_SupportedDragActions(const KDirSortFilterProxyModel
 }
 
 // Base class handler implementation
-int KDirSortFilterProxyModel_QBaseSupportedDragActions(const KDirSortFilterProxyModel* self) {
+int KDirSortFilterProxyModel_SuperSupportedDragActions(const KDirSortFilterProxyModel* self) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_SupportedDragActions_IsBase(true);
@@ -1591,7 +1591,7 @@ libqt_map /* of int to libqt_string */ KDirSortFilterProxyModel_RoleNames(const 
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ KDirSortFilterProxyModel_QBaseRoleNames(const KDirSortFilterProxyModel* self) {
+libqt_map /* of int to libqt_string */ KDirSortFilterProxyModel_SuperRoleNames(const KDirSortFilterProxyModel* self) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_RoleNames_IsBase(true);
@@ -1658,7 +1658,7 @@ bool KDirSortFilterProxyModel_MoveRows(KDirSortFilterProxyModel* self, const QMo
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseMoveRows(KDirSortFilterProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KDirSortFilterProxyModel_SuperMoveRows(KDirSortFilterProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_MoveRows_IsBase(true);
@@ -1687,7 +1687,7 @@ bool KDirSortFilterProxyModel_MoveColumns(KDirSortFilterProxyModel* self, const 
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseMoveColumns(KDirSortFilterProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KDirSortFilterProxyModel_SuperMoveColumns(KDirSortFilterProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_MoveColumns_IsBase(true);
@@ -1716,7 +1716,7 @@ void KDirSortFilterProxyModel_MultiData(const KDirSortFilterProxyModel* self, co
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseMultiData(const KDirSortFilterProxyModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void KDirSortFilterProxyModel_SuperMultiData(const KDirSortFilterProxyModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_MultiData_IsBase(true);
@@ -1745,7 +1745,7 @@ void KDirSortFilterProxyModel_ResetInternalData(KDirSortFilterProxyModel* self) 
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseResetInternalData(KDirSortFilterProxyModel* self) {
+void KDirSortFilterProxyModel_SuperResetInternalData(KDirSortFilterProxyModel* self) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_ResetInternalData_IsBase(true);
@@ -1774,7 +1774,7 @@ bool KDirSortFilterProxyModel_Event(KDirSortFilterProxyModel* self, QEvent* even
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseEvent(KDirSortFilterProxyModel* self, QEvent* event) {
+bool KDirSortFilterProxyModel_SuperEvent(KDirSortFilterProxyModel* self, QEvent* event) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Event_IsBase(true);
@@ -1803,7 +1803,7 @@ bool KDirSortFilterProxyModel_EventFilter(KDirSortFilterProxyModel* self, QObjec
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseEventFilter(KDirSortFilterProxyModel* self, QObject* watched, QEvent* event) {
+bool KDirSortFilterProxyModel_SuperEventFilter(KDirSortFilterProxyModel* self, QObject* watched, QEvent* event) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_EventFilter_IsBase(true);
@@ -1832,7 +1832,7 @@ void KDirSortFilterProxyModel_TimerEvent(KDirSortFilterProxyModel* self, QTimerE
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseTimerEvent(KDirSortFilterProxyModel* self, QTimerEvent* event) {
+void KDirSortFilterProxyModel_SuperTimerEvent(KDirSortFilterProxyModel* self, QTimerEvent* event) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_TimerEvent_IsBase(true);
@@ -1861,7 +1861,7 @@ void KDirSortFilterProxyModel_ChildEvent(KDirSortFilterProxyModel* self, QChildE
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseChildEvent(KDirSortFilterProxyModel* self, QChildEvent* event) {
+void KDirSortFilterProxyModel_SuperChildEvent(KDirSortFilterProxyModel* self, QChildEvent* event) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_ChildEvent_IsBase(true);
@@ -1890,7 +1890,7 @@ void KDirSortFilterProxyModel_CustomEvent(KDirSortFilterProxyModel* self, QEvent
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseCustomEvent(KDirSortFilterProxyModel* self, QEvent* event) {
+void KDirSortFilterProxyModel_SuperCustomEvent(KDirSortFilterProxyModel* self, QEvent* event) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_CustomEvent_IsBase(true);
@@ -1919,7 +1919,7 @@ void KDirSortFilterProxyModel_ConnectNotify(KDirSortFilterProxyModel* self, cons
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseConnectNotify(KDirSortFilterProxyModel* self, const QMetaMethod* signal) {
+void KDirSortFilterProxyModel_SuperConnectNotify(KDirSortFilterProxyModel* self, const QMetaMethod* signal) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_ConnectNotify_IsBase(true);
@@ -1948,7 +1948,7 @@ void KDirSortFilterProxyModel_DisconnectNotify(KDirSortFilterProxyModel* self, c
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseDisconnectNotify(KDirSortFilterProxyModel* self, const QMetaMethod* signal) {
+void KDirSortFilterProxyModel_SuperDisconnectNotify(KDirSortFilterProxyModel* self, const QMetaMethod* signal) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_DisconnectNotify_IsBase(true);
@@ -1977,7 +1977,7 @@ void KDirSortFilterProxyModel_InvalidateFilter(KDirSortFilterProxyModel* self) {
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseInvalidateFilter(KDirSortFilterProxyModel* self) {
+void KDirSortFilterProxyModel_SuperInvalidateFilter(KDirSortFilterProxyModel* self) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_InvalidateFilter_IsBase(true);
@@ -2006,7 +2006,7 @@ void KDirSortFilterProxyModel_InvalidateRowsFilter(KDirSortFilterProxyModel* sel
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseInvalidateRowsFilter(KDirSortFilterProxyModel* self) {
+void KDirSortFilterProxyModel_SuperInvalidateRowsFilter(KDirSortFilterProxyModel* self) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_InvalidateRowsFilter_IsBase(true);
@@ -2035,7 +2035,7 @@ void KDirSortFilterProxyModel_InvalidateColumnsFilter(KDirSortFilterProxyModel* 
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseInvalidateColumnsFilter(KDirSortFilterProxyModel* self) {
+void KDirSortFilterProxyModel_SuperInvalidateColumnsFilter(KDirSortFilterProxyModel* self) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_InvalidateColumnsFilter_IsBase(true);
@@ -2063,7 +2063,7 @@ QModelIndex* KDirSortFilterProxyModel_CreateSourceIndex(const KDirSortFilterProx
 }
 
 // Base class handler implementation
-QModelIndex* KDirSortFilterProxyModel_QBaseCreateSourceIndex(const KDirSortFilterProxyModel* self, int row, int col, void* internalPtr) {
+QModelIndex* KDirSortFilterProxyModel_SuperCreateSourceIndex(const KDirSortFilterProxyModel* self, int row, int col, void* internalPtr) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_CreateSourceIndex_IsBase(true);
@@ -2090,7 +2090,7 @@ QModelIndex* KDirSortFilterProxyModel_CreateIndex(const KDirSortFilterProxyModel
 }
 
 // Base class handler implementation
-QModelIndex* KDirSortFilterProxyModel_QBaseCreateIndex(const KDirSortFilterProxyModel* self, int row, int column) {
+QModelIndex* KDirSortFilterProxyModel_SuperCreateIndex(const KDirSortFilterProxyModel* self, int row, int column) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_CreateIndex_IsBase(true);
@@ -2124,7 +2124,7 @@ void KDirSortFilterProxyModel_EncodeData(const KDirSortFilterProxyModel* self, c
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseEncodeData(const KDirSortFilterProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void KDirSortFilterProxyModel_SuperEncodeData(const KDirSortFilterProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -2159,7 +2159,7 @@ bool KDirSortFilterProxyModel_DecodeData(KDirSortFilterProxyModel* self, int row
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseDecodeData(KDirSortFilterProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool KDirSortFilterProxyModel_SuperDecodeData(KDirSortFilterProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_DecodeData_IsBase(true);
@@ -2188,7 +2188,7 @@ void KDirSortFilterProxyModel_BeginInsertRows(KDirSortFilterProxyModel* self, co
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseBeginInsertRows(KDirSortFilterProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KDirSortFilterProxyModel_SuperBeginInsertRows(KDirSortFilterProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_BeginInsertRows_IsBase(true);
@@ -2217,7 +2217,7 @@ void KDirSortFilterProxyModel_EndInsertRows(KDirSortFilterProxyModel* self) {
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseEndInsertRows(KDirSortFilterProxyModel* self) {
+void KDirSortFilterProxyModel_SuperEndInsertRows(KDirSortFilterProxyModel* self) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_EndInsertRows_IsBase(true);
@@ -2246,7 +2246,7 @@ void KDirSortFilterProxyModel_BeginRemoveRows(KDirSortFilterProxyModel* self, co
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseBeginRemoveRows(KDirSortFilterProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KDirSortFilterProxyModel_SuperBeginRemoveRows(KDirSortFilterProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_BeginRemoveRows_IsBase(true);
@@ -2275,7 +2275,7 @@ void KDirSortFilterProxyModel_EndRemoveRows(KDirSortFilterProxyModel* self) {
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseEndRemoveRows(KDirSortFilterProxyModel* self) {
+void KDirSortFilterProxyModel_SuperEndRemoveRows(KDirSortFilterProxyModel* self) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_EndRemoveRows_IsBase(true);
@@ -2304,7 +2304,7 @@ bool KDirSortFilterProxyModel_BeginMoveRows(KDirSortFilterProxyModel* self, cons
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseBeginMoveRows(KDirSortFilterProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool KDirSortFilterProxyModel_SuperBeginMoveRows(KDirSortFilterProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_BeginMoveRows_IsBase(true);
@@ -2333,7 +2333,7 @@ void KDirSortFilterProxyModel_EndMoveRows(KDirSortFilterProxyModel* self) {
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseEndMoveRows(KDirSortFilterProxyModel* self) {
+void KDirSortFilterProxyModel_SuperEndMoveRows(KDirSortFilterProxyModel* self) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_EndMoveRows_IsBase(true);
@@ -2362,7 +2362,7 @@ void KDirSortFilterProxyModel_BeginInsertColumns(KDirSortFilterProxyModel* self,
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseBeginInsertColumns(KDirSortFilterProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KDirSortFilterProxyModel_SuperBeginInsertColumns(KDirSortFilterProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_BeginInsertColumns_IsBase(true);
@@ -2391,7 +2391,7 @@ void KDirSortFilterProxyModel_EndInsertColumns(KDirSortFilterProxyModel* self) {
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseEndInsertColumns(KDirSortFilterProxyModel* self) {
+void KDirSortFilterProxyModel_SuperEndInsertColumns(KDirSortFilterProxyModel* self) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_EndInsertColumns_IsBase(true);
@@ -2420,7 +2420,7 @@ void KDirSortFilterProxyModel_BeginRemoveColumns(KDirSortFilterProxyModel* self,
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseBeginRemoveColumns(KDirSortFilterProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KDirSortFilterProxyModel_SuperBeginRemoveColumns(KDirSortFilterProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_BeginRemoveColumns_IsBase(true);
@@ -2449,7 +2449,7 @@ void KDirSortFilterProxyModel_EndRemoveColumns(KDirSortFilterProxyModel* self) {
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseEndRemoveColumns(KDirSortFilterProxyModel* self) {
+void KDirSortFilterProxyModel_SuperEndRemoveColumns(KDirSortFilterProxyModel* self) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_EndRemoveColumns_IsBase(true);
@@ -2478,7 +2478,7 @@ bool KDirSortFilterProxyModel_BeginMoveColumns(KDirSortFilterProxyModel* self, c
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseBeginMoveColumns(KDirSortFilterProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool KDirSortFilterProxyModel_SuperBeginMoveColumns(KDirSortFilterProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_BeginMoveColumns_IsBase(true);
@@ -2507,7 +2507,7 @@ void KDirSortFilterProxyModel_EndMoveColumns(KDirSortFilterProxyModel* self) {
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseEndMoveColumns(KDirSortFilterProxyModel* self) {
+void KDirSortFilterProxyModel_SuperEndMoveColumns(KDirSortFilterProxyModel* self) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_EndMoveColumns_IsBase(true);
@@ -2536,7 +2536,7 @@ void KDirSortFilterProxyModel_BeginResetModel(KDirSortFilterProxyModel* self) {
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseBeginResetModel(KDirSortFilterProxyModel* self) {
+void KDirSortFilterProxyModel_SuperBeginResetModel(KDirSortFilterProxyModel* self) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_BeginResetModel_IsBase(true);
@@ -2565,7 +2565,7 @@ void KDirSortFilterProxyModel_EndResetModel(KDirSortFilterProxyModel* self) {
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseEndResetModel(KDirSortFilterProxyModel* self) {
+void KDirSortFilterProxyModel_SuperEndResetModel(KDirSortFilterProxyModel* self) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_EndResetModel_IsBase(true);
@@ -2594,7 +2594,7 @@ void KDirSortFilterProxyModel_ChangePersistentIndex(KDirSortFilterProxyModel* se
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseChangePersistentIndex(KDirSortFilterProxyModel* self, const QModelIndex* from, const QModelIndex* to) {
+void KDirSortFilterProxyModel_SuperChangePersistentIndex(KDirSortFilterProxyModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_ChangePersistentIndex_IsBase(true);
@@ -2635,7 +2635,7 @@ void KDirSortFilterProxyModel_ChangePersistentIndexList(KDirSortFilterProxyModel
 }
 
 // Base class handler implementation
-void KDirSortFilterProxyModel_QBaseChangePersistentIndexList(KDirSortFilterProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void KDirSortFilterProxyModel_SuperChangePersistentIndexList(KDirSortFilterProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -2694,7 +2694,7 @@ libqt_list /* of QModelIndex* */ KDirSortFilterProxyModel_PersistentIndexList(co
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KDirSortFilterProxyModel_QBasePersistentIndexList(const KDirSortFilterProxyModel* self) {
+libqt_list /* of QModelIndex* */ KDirSortFilterProxyModel_SuperPersistentIndexList(const KDirSortFilterProxyModel* self) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_PersistentIndexList_IsBase(true);
@@ -2741,7 +2741,7 @@ QObject* KDirSortFilterProxyModel_Sender(const KDirSortFilterProxyModel* self) {
 }
 
 // Base class handler implementation
-QObject* KDirSortFilterProxyModel_QBaseSender(const KDirSortFilterProxyModel* self) {
+QObject* KDirSortFilterProxyModel_SuperSender(const KDirSortFilterProxyModel* self) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Sender_IsBase(true);
@@ -2770,7 +2770,7 @@ int KDirSortFilterProxyModel_SenderSignalIndex(const KDirSortFilterProxyModel* s
 }
 
 // Base class handler implementation
-int KDirSortFilterProxyModel_QBaseSenderSignalIndex(const KDirSortFilterProxyModel* self) {
+int KDirSortFilterProxyModel_SuperSenderSignalIndex(const KDirSortFilterProxyModel* self) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_SenderSignalIndex_IsBase(true);
@@ -2799,7 +2799,7 @@ int KDirSortFilterProxyModel_Receivers(const KDirSortFilterProxyModel* self, con
 }
 
 // Base class handler implementation
-int KDirSortFilterProxyModel_QBaseReceivers(const KDirSortFilterProxyModel* self, const char* signal) {
+int KDirSortFilterProxyModel_SuperReceivers(const KDirSortFilterProxyModel* self, const char* signal) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Receivers_IsBase(true);
@@ -2828,7 +2828,7 @@ bool KDirSortFilterProxyModel_IsSignalConnected(const KDirSortFilterProxyModel* 
 }
 
 // Base class handler implementation
-bool KDirSortFilterProxyModel_QBaseIsSignalConnected(const KDirSortFilterProxyModel* self, const QMetaMethod* signal) {
+bool KDirSortFilterProxyModel_SuperIsSignalConnected(const KDirSortFilterProxyModel* self, const QMetaMethod* signal) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
     if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_IsSignalConnected_IsBase(true);

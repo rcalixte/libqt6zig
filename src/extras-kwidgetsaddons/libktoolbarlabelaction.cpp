@@ -108,7 +108,7 @@ bool KToolBarLabelAction_EventFilter(KToolBarLabelAction* self, QObject* watched
 }
 
 // Base class handler implementation
-QMetaObject* KToolBarLabelAction_QBaseMetaObject(const KToolBarLabelAction* self) {
+QMetaObject* KToolBarLabelAction_SuperMetaObject(const KToolBarLabelAction* self) {
     auto* vktoolbarlabelaction = const_cast<VirtualKToolBarLabelAction*>(dynamic_cast<const VirtualKToolBarLabelAction*>(self));
     if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
         vktoolbarlabelaction->setKToolBarLabelAction_MetaObject_IsBase(true);
@@ -127,7 +127,7 @@ void KToolBarLabelAction_OnMetaObject(const KToolBarLabelAction* self, intptr_t 
 }
 
 // Base class handler implementation
-void* KToolBarLabelAction_QBaseMetacast(KToolBarLabelAction* self, const char* param1) {
+void* KToolBarLabelAction_SuperMetacast(KToolBarLabelAction* self, const char* param1) {
     auto* vktoolbarlabelaction = dynamic_cast<VirtualKToolBarLabelAction*>(self);
     if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
         vktoolbarlabelaction->setKToolBarLabelAction_Metacast_IsBase(true);
@@ -146,7 +146,7 @@ void KToolBarLabelAction_OnMetacast(KToolBarLabelAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KToolBarLabelAction_QBaseMetacall(KToolBarLabelAction* self, int param1, int param2, void** param3) {
+int KToolBarLabelAction_SuperMetacall(KToolBarLabelAction* self, int param1, int param2, void** param3) {
     auto* vktoolbarlabelaction = dynamic_cast<VirtualKToolBarLabelAction*>(self);
     if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
         vktoolbarlabelaction->setKToolBarLabelAction_Metacall_IsBase(true);
@@ -165,7 +165,7 @@ void KToolBarLabelAction_OnMetacall(KToolBarLabelAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QWidget* KToolBarLabelAction_QBaseCreateWidget(KToolBarLabelAction* self, QWidget* parent) {
+QWidget* KToolBarLabelAction_SuperCreateWidget(KToolBarLabelAction* self, QWidget* parent) {
     auto* vktoolbarlabelaction = dynamic_cast<VirtualKToolBarLabelAction*>(self);
     if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
         vktoolbarlabelaction->setKToolBarLabelAction_CreateWidget_IsBase(true);
@@ -184,7 +184,7 @@ void KToolBarLabelAction_OnCreateWidget(KToolBarLabelAction* self, intptr_t slot
 }
 
 // Base class handler implementation
-bool KToolBarLabelAction_QBaseEvent(KToolBarLabelAction* self, QEvent* param1) {
+bool KToolBarLabelAction_SuperEvent(KToolBarLabelAction* self, QEvent* param1) {
     auto* vktoolbarlabelaction = dynamic_cast<VirtualKToolBarLabelAction*>(self);
     if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
         vktoolbarlabelaction->setKToolBarLabelAction_Event_IsBase(true);
@@ -203,7 +203,7 @@ void KToolBarLabelAction_OnEvent(KToolBarLabelAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KToolBarLabelAction_QBaseEventFilter(KToolBarLabelAction* self, QObject* watched, QEvent* event) {
+bool KToolBarLabelAction_SuperEventFilter(KToolBarLabelAction* self, QObject* watched, QEvent* event) {
     auto* vktoolbarlabelaction = dynamic_cast<VirtualKToolBarLabelAction*>(self);
     if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
         vktoolbarlabelaction->setKToolBarLabelAction_EventFilter_IsBase(true);
@@ -232,7 +232,7 @@ void KToolBarLabelAction_DeleteWidget(KToolBarLabelAction* self, QWidget* widget
 }
 
 // Base class handler implementation
-void KToolBarLabelAction_QBaseDeleteWidget(KToolBarLabelAction* self, QWidget* widget) {
+void KToolBarLabelAction_SuperDeleteWidget(KToolBarLabelAction* self, QWidget* widget) {
     auto* vktoolbarlabelaction = dynamic_cast<VirtualKToolBarLabelAction*>(self);
     if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
         vktoolbarlabelaction->setKToolBarLabelAction_DeleteWidget_IsBase(true);
@@ -261,7 +261,7 @@ void KToolBarLabelAction_TimerEvent(KToolBarLabelAction* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void KToolBarLabelAction_QBaseTimerEvent(KToolBarLabelAction* self, QTimerEvent* event) {
+void KToolBarLabelAction_SuperTimerEvent(KToolBarLabelAction* self, QTimerEvent* event) {
     auto* vktoolbarlabelaction = dynamic_cast<VirtualKToolBarLabelAction*>(self);
     if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
         vktoolbarlabelaction->setKToolBarLabelAction_TimerEvent_IsBase(true);
@@ -290,7 +290,7 @@ void KToolBarLabelAction_ChildEvent(KToolBarLabelAction* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void KToolBarLabelAction_QBaseChildEvent(KToolBarLabelAction* self, QChildEvent* event) {
+void KToolBarLabelAction_SuperChildEvent(KToolBarLabelAction* self, QChildEvent* event) {
     auto* vktoolbarlabelaction = dynamic_cast<VirtualKToolBarLabelAction*>(self);
     if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
         vktoolbarlabelaction->setKToolBarLabelAction_ChildEvent_IsBase(true);
@@ -319,7 +319,7 @@ void KToolBarLabelAction_CustomEvent(KToolBarLabelAction* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KToolBarLabelAction_QBaseCustomEvent(KToolBarLabelAction* self, QEvent* event) {
+void KToolBarLabelAction_SuperCustomEvent(KToolBarLabelAction* self, QEvent* event) {
     auto* vktoolbarlabelaction = dynamic_cast<VirtualKToolBarLabelAction*>(self);
     if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
         vktoolbarlabelaction->setKToolBarLabelAction_CustomEvent_IsBase(true);
@@ -348,7 +348,7 @@ void KToolBarLabelAction_ConnectNotify(KToolBarLabelAction* self, const QMetaMet
 }
 
 // Base class handler implementation
-void KToolBarLabelAction_QBaseConnectNotify(KToolBarLabelAction* self, const QMetaMethod* signal) {
+void KToolBarLabelAction_SuperConnectNotify(KToolBarLabelAction* self, const QMetaMethod* signal) {
     auto* vktoolbarlabelaction = dynamic_cast<VirtualKToolBarLabelAction*>(self);
     if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
         vktoolbarlabelaction->setKToolBarLabelAction_ConnectNotify_IsBase(true);
@@ -377,7 +377,7 @@ void KToolBarLabelAction_DisconnectNotify(KToolBarLabelAction* self, const QMeta
 }
 
 // Base class handler implementation
-void KToolBarLabelAction_QBaseDisconnectNotify(KToolBarLabelAction* self, const QMetaMethod* signal) {
+void KToolBarLabelAction_SuperDisconnectNotify(KToolBarLabelAction* self, const QMetaMethod* signal) {
     auto* vktoolbarlabelaction = dynamic_cast<VirtualKToolBarLabelAction*>(self);
     if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
         vktoolbarlabelaction->setKToolBarLabelAction_DisconnectNotify_IsBase(true);
@@ -424,7 +424,7 @@ libqt_list /* of QWidget* */ KToolBarLabelAction_CreatedWidgets(const KToolBarLa
 }
 
 // Base class handler implementation
-libqt_list /* of QWidget* */ KToolBarLabelAction_QBaseCreatedWidgets(const KToolBarLabelAction* self) {
+libqt_list /* of QWidget* */ KToolBarLabelAction_SuperCreatedWidgets(const KToolBarLabelAction* self) {
     auto* vktoolbarlabelaction = const_cast<VirtualKToolBarLabelAction*>(dynamic_cast<const VirtualKToolBarLabelAction*>(self));
     if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
         vktoolbarlabelaction->setKToolBarLabelAction_CreatedWidgets_IsBase(true);
@@ -471,7 +471,7 @@ QObject* KToolBarLabelAction_Sender(const KToolBarLabelAction* self) {
 }
 
 // Base class handler implementation
-QObject* KToolBarLabelAction_QBaseSender(const KToolBarLabelAction* self) {
+QObject* KToolBarLabelAction_SuperSender(const KToolBarLabelAction* self) {
     auto* vktoolbarlabelaction = const_cast<VirtualKToolBarLabelAction*>(dynamic_cast<const VirtualKToolBarLabelAction*>(self));
     if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
         vktoolbarlabelaction->setKToolBarLabelAction_Sender_IsBase(true);
@@ -500,7 +500,7 @@ int KToolBarLabelAction_SenderSignalIndex(const KToolBarLabelAction* self) {
 }
 
 // Base class handler implementation
-int KToolBarLabelAction_QBaseSenderSignalIndex(const KToolBarLabelAction* self) {
+int KToolBarLabelAction_SuperSenderSignalIndex(const KToolBarLabelAction* self) {
     auto* vktoolbarlabelaction = const_cast<VirtualKToolBarLabelAction*>(dynamic_cast<const VirtualKToolBarLabelAction*>(self));
     if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
         vktoolbarlabelaction->setKToolBarLabelAction_SenderSignalIndex_IsBase(true);
@@ -529,7 +529,7 @@ int KToolBarLabelAction_Receivers(const KToolBarLabelAction* self, const char* s
 }
 
 // Base class handler implementation
-int KToolBarLabelAction_QBaseReceivers(const KToolBarLabelAction* self, const char* signal) {
+int KToolBarLabelAction_SuperReceivers(const KToolBarLabelAction* self, const char* signal) {
     auto* vktoolbarlabelaction = const_cast<VirtualKToolBarLabelAction*>(dynamic_cast<const VirtualKToolBarLabelAction*>(self));
     if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
         vktoolbarlabelaction->setKToolBarLabelAction_Receivers_IsBase(true);
@@ -558,7 +558,7 @@ bool KToolBarLabelAction_IsSignalConnected(const KToolBarLabelAction* self, cons
 }
 
 // Base class handler implementation
-bool KToolBarLabelAction_QBaseIsSignalConnected(const KToolBarLabelAction* self, const QMetaMethod* signal) {
+bool KToolBarLabelAction_SuperIsSignalConnected(const KToolBarLabelAction* self, const QMetaMethod* signal) {
     auto* vktoolbarlabelaction = const_cast<VirtualKToolBarLabelAction*>(dynamic_cast<const VirtualKToolBarLabelAction*>(self));
     if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
         vktoolbarlabelaction->setKToolBarLabelAction_IsSignalConnected_IsBase(true);

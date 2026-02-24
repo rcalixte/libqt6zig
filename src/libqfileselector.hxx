@@ -328,23 +328,23 @@ class VirtualQFileSelector final : public QFileSelector {
 
     // Friend functions
     friend void QFileSelector_TimerEvent(QFileSelector* self, QTimerEvent* event);
-    friend void QFileSelector_QBaseTimerEvent(QFileSelector* self, QTimerEvent* event);
+    friend void QFileSelector_SuperTimerEvent(QFileSelector* self, QTimerEvent* event);
     friend void QFileSelector_ChildEvent(QFileSelector* self, QChildEvent* event);
-    friend void QFileSelector_QBaseChildEvent(QFileSelector* self, QChildEvent* event);
+    friend void QFileSelector_SuperChildEvent(QFileSelector* self, QChildEvent* event);
     friend void QFileSelector_CustomEvent(QFileSelector* self, QEvent* event);
-    friend void QFileSelector_QBaseCustomEvent(QFileSelector* self, QEvent* event);
+    friend void QFileSelector_SuperCustomEvent(QFileSelector* self, QEvent* event);
     friend void QFileSelector_ConnectNotify(QFileSelector* self, const QMetaMethod* signal);
-    friend void QFileSelector_QBaseConnectNotify(QFileSelector* self, const QMetaMethod* signal);
+    friend void QFileSelector_SuperConnectNotify(QFileSelector* self, const QMetaMethod* signal);
     friend void QFileSelector_DisconnectNotify(QFileSelector* self, const QMetaMethod* signal);
-    friend void QFileSelector_QBaseDisconnectNotify(QFileSelector* self, const QMetaMethod* signal);
+    friend void QFileSelector_SuperDisconnectNotify(QFileSelector* self, const QMetaMethod* signal);
     friend QObject* QFileSelector_Sender(const QFileSelector* self);
-    friend QObject* QFileSelector_QBaseSender(const QFileSelector* self);
+    friend QObject* QFileSelector_SuperSender(const QFileSelector* self);
     friend int QFileSelector_SenderSignalIndex(const QFileSelector* self);
-    friend int QFileSelector_QBaseSenderSignalIndex(const QFileSelector* self);
+    friend int QFileSelector_SuperSenderSignalIndex(const QFileSelector* self);
     friend int QFileSelector_Receivers(const QFileSelector* self, const char* signal);
-    friend int QFileSelector_QBaseReceivers(const QFileSelector* self, const char* signal);
+    friend int QFileSelector_SuperReceivers(const QFileSelector* self, const char* signal);
     friend bool QFileSelector_IsSignalConnected(const QFileSelector* self, const QMetaMethod* signal);
-    friend bool QFileSelector_QBaseIsSignalConnected(const QFileSelector* self, const QMetaMethod* signal);
+    friend bool QFileSelector_SuperIsSignalConnected(const QFileSelector* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -44,6 +44,10 @@ pub const kmessageboxnotifyinterface = struct {
         qtc.KMessageBoxNotifyInterface_OnSendNotification(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSendNotification` instead
+    ///
+    pub const QBaseSendNotification = SuperSendNotification;
+
     /// ### [Upstream resources](https://api.kde.org/kmessageboxnotifyinterface.html#sendNotification)
     ///
     /// Base class method implementation
@@ -58,12 +62,12 @@ pub const kmessageboxnotifyinterface = struct {
     ///
     /// ` parent: QtC.QWidget `
     ///
-    pub fn QBaseSendNotification(self: ?*anyopaque, notificationType: i32, message: []const u8, parent: ?*anyopaque) void {
+    pub fn SuperSendNotification(self: ?*anyopaque, notificationType: i32, message: []const u8, parent: ?*anyopaque) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-        qtc.KMessageBoxNotifyInterface_QBaseSendNotification(@ptrCast(self), @bitCast(notificationType), message_str, @ptrCast(parent));
+        qtc.KMessageBoxNotifyInterface_SuperSendNotification(@ptrCast(self), @bitCast(notificationType), message_str, @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxnotifyinterface.html#operator-eq)
@@ -78,6 +82,10 @@ pub const kmessageboxnotifyinterface = struct {
         qtc.KMessageBoxNotifyInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kmessageboxnotifyinterface.html#dtor.KMessageBoxNotifyInterface)
     ///
     /// Delete this object from C++ memory.
@@ -86,7 +94,7 @@ pub const kmessageboxnotifyinterface = struct {
     ///
     /// ` self: QtC.KMessageBoxNotifyInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KMessageBoxNotifyInterface_Delete(@ptrCast(self));
     }
 };

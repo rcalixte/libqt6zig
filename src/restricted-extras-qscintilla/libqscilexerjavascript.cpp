@@ -88,7 +88,7 @@ libqt_string QsciLexerJavaScript_Description(const QsciLexerJavaScript* self, in
 }
 
 // Base class handler implementation
-QMetaObject* QsciLexerJavaScript_QBaseMetaObject(const QsciLexerJavaScript* self) {
+QMetaObject* QsciLexerJavaScript_SuperMetaObject(const QsciLexerJavaScript* self) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_MetaObject_IsBase(true);
@@ -107,7 +107,7 @@ void QsciLexerJavaScript_OnMetaObject(const QsciLexerJavaScript* self, intptr_t 
 }
 
 // Base class handler implementation
-void* QsciLexerJavaScript_QBaseMetacast(QsciLexerJavaScript* self, const char* param1) {
+void* QsciLexerJavaScript_SuperMetacast(QsciLexerJavaScript* self, const char* param1) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_Metacast_IsBase(true);
@@ -126,7 +126,7 @@ void QsciLexerJavaScript_OnMetacast(QsciLexerJavaScript* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QsciLexerJavaScript_QBaseMetacall(QsciLexerJavaScript* self, int param1, int param2, void** param3) {
+int QsciLexerJavaScript_SuperMetacall(QsciLexerJavaScript* self, int param1, int param2, void** param3) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_Metacall_IsBase(true);
@@ -155,7 +155,7 @@ void QsciLexerJavaScript_SetFoldAtElse(QsciLexerJavaScript* self, bool fold) {
 }
 
 // Base class handler implementation
-void QsciLexerJavaScript_QBaseSetFoldAtElse(QsciLexerJavaScript* self, bool fold) {
+void QsciLexerJavaScript_SuperSetFoldAtElse(QsciLexerJavaScript* self, bool fold) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_SetFoldAtElse_IsBase(true);
@@ -184,7 +184,7 @@ void QsciLexerJavaScript_SetFoldComments(QsciLexerJavaScript* self, bool fold) {
 }
 
 // Base class handler implementation
-void QsciLexerJavaScript_QBaseSetFoldComments(QsciLexerJavaScript* self, bool fold) {
+void QsciLexerJavaScript_SuperSetFoldComments(QsciLexerJavaScript* self, bool fold) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_SetFoldComments_IsBase(true);
@@ -213,7 +213,7 @@ void QsciLexerJavaScript_SetFoldCompact(QsciLexerJavaScript* self, bool fold) {
 }
 
 // Base class handler implementation
-void QsciLexerJavaScript_QBaseSetFoldCompact(QsciLexerJavaScript* self, bool fold) {
+void QsciLexerJavaScript_SuperSetFoldCompact(QsciLexerJavaScript* self, bool fold) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_SetFoldCompact_IsBase(true);
@@ -242,7 +242,7 @@ void QsciLexerJavaScript_SetFoldPreprocessor(QsciLexerJavaScript* self, bool fol
 }
 
 // Base class handler implementation
-void QsciLexerJavaScript_QBaseSetFoldPreprocessor(QsciLexerJavaScript* self, bool fold) {
+void QsciLexerJavaScript_SuperSetFoldPreprocessor(QsciLexerJavaScript* self, bool fold) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_SetFoldPreprocessor_IsBase(true);
@@ -271,7 +271,7 @@ void QsciLexerJavaScript_SetStylePreprocessor(QsciLexerJavaScript* self, bool st
 }
 
 // Base class handler implementation
-void QsciLexerJavaScript_QBaseSetStylePreprocessor(QsciLexerJavaScript* self, bool style) {
+void QsciLexerJavaScript_SuperSetStylePreprocessor(QsciLexerJavaScript* self, bool style) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_SetStylePreprocessor_IsBase(true);
@@ -300,7 +300,7 @@ const char* QsciLexerJavaScript_Lexer(const QsciLexerJavaScript* self) {
 }
 
 // Base class handler implementation
-const char* QsciLexerJavaScript_QBaseLexer(const QsciLexerJavaScript* self) {
+const char* QsciLexerJavaScript_SuperLexer(const QsciLexerJavaScript* self) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_Lexer_IsBase(true);
@@ -329,7 +329,7 @@ int QsciLexerJavaScript_LexerId(const QsciLexerJavaScript* self) {
 }
 
 // Base class handler implementation
-int QsciLexerJavaScript_QBaseLexerId(const QsciLexerJavaScript* self) {
+int QsciLexerJavaScript_SuperLexerId(const QsciLexerJavaScript* self) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_LexerId_IsBase(true);
@@ -358,7 +358,7 @@ const char* QsciLexerJavaScript_AutoCompletionFillups(const QsciLexerJavaScript*
 }
 
 // Base class handler implementation
-const char* QsciLexerJavaScript_QBaseAutoCompletionFillups(const QsciLexerJavaScript* self) {
+const char* QsciLexerJavaScript_SuperAutoCompletionFillups(const QsciLexerJavaScript* self) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_AutoCompletionFillups_IsBase(true);
@@ -421,7 +421,7 @@ libqt_list /* of libqt_string */ QsciLexerJavaScript_AutoCompletionWordSeparator
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QsciLexerJavaScript_QBaseAutoCompletionWordSeparators(const QsciLexerJavaScript* self) {
+libqt_list /* of libqt_string */ QsciLexerJavaScript_SuperAutoCompletionWordSeparators(const QsciLexerJavaScript* self) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_AutoCompletionWordSeparators_IsBase(true);
@@ -484,7 +484,7 @@ const char* QsciLexerJavaScript_BlockEnd(const QsciLexerJavaScript* self, int* s
 }
 
 // Base class handler implementation
-const char* QsciLexerJavaScript_QBaseBlockEnd(const QsciLexerJavaScript* self, int* style) {
+const char* QsciLexerJavaScript_SuperBlockEnd(const QsciLexerJavaScript* self, int* style) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_BlockEnd_IsBase(true);
@@ -513,7 +513,7 @@ int QsciLexerJavaScript_BlockLookback(const QsciLexerJavaScript* self) {
 }
 
 // Base class handler implementation
-int QsciLexerJavaScript_QBaseBlockLookback(const QsciLexerJavaScript* self) {
+int QsciLexerJavaScript_SuperBlockLookback(const QsciLexerJavaScript* self) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_BlockLookback_IsBase(true);
@@ -542,7 +542,7 @@ const char* QsciLexerJavaScript_BlockStart(const QsciLexerJavaScript* self, int*
 }
 
 // Base class handler implementation
-const char* QsciLexerJavaScript_QBaseBlockStart(const QsciLexerJavaScript* self, int* style) {
+const char* QsciLexerJavaScript_SuperBlockStart(const QsciLexerJavaScript* self, int* style) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_BlockStart_IsBase(true);
@@ -571,7 +571,7 @@ const char* QsciLexerJavaScript_BlockStartKeyword(const QsciLexerJavaScript* sel
 }
 
 // Base class handler implementation
-const char* QsciLexerJavaScript_QBaseBlockStartKeyword(const QsciLexerJavaScript* self, int* style) {
+const char* QsciLexerJavaScript_SuperBlockStartKeyword(const QsciLexerJavaScript* self, int* style) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_BlockStartKeyword_IsBase(true);
@@ -600,7 +600,7 @@ int QsciLexerJavaScript_BraceStyle(const QsciLexerJavaScript* self) {
 }
 
 // Base class handler implementation
-int QsciLexerJavaScript_QBaseBraceStyle(const QsciLexerJavaScript* self) {
+int QsciLexerJavaScript_SuperBraceStyle(const QsciLexerJavaScript* self) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_BraceStyle_IsBase(true);
@@ -629,7 +629,7 @@ bool QsciLexerJavaScript_CaseSensitive(const QsciLexerJavaScript* self) {
 }
 
 // Base class handler implementation
-bool QsciLexerJavaScript_QBaseCaseSensitive(const QsciLexerJavaScript* self) {
+bool QsciLexerJavaScript_SuperCaseSensitive(const QsciLexerJavaScript* self) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_CaseSensitive_IsBase(true);
@@ -658,7 +658,7 @@ QColor* QsciLexerJavaScript_Color(const QsciLexerJavaScript* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerJavaScript_QBaseColor(const QsciLexerJavaScript* self, int style) {
+QColor* QsciLexerJavaScript_SuperColor(const QsciLexerJavaScript* self, int style) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_Color_IsBase(true);
@@ -687,7 +687,7 @@ bool QsciLexerJavaScript_EolFill(const QsciLexerJavaScript* self, int style) {
 }
 
 // Base class handler implementation
-bool QsciLexerJavaScript_QBaseEolFill(const QsciLexerJavaScript* self, int style) {
+bool QsciLexerJavaScript_SuperEolFill(const QsciLexerJavaScript* self, int style) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_EolFill_IsBase(true);
@@ -716,7 +716,7 @@ QFont* QsciLexerJavaScript_Font(const QsciLexerJavaScript* self, int style) {
 }
 
 // Base class handler implementation
-QFont* QsciLexerJavaScript_QBaseFont(const QsciLexerJavaScript* self, int style) {
+QFont* QsciLexerJavaScript_SuperFont(const QsciLexerJavaScript* self, int style) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_Font_IsBase(true);
@@ -745,7 +745,7 @@ int QsciLexerJavaScript_IndentationGuideView(const QsciLexerJavaScript* self) {
 }
 
 // Base class handler implementation
-int QsciLexerJavaScript_QBaseIndentationGuideView(const QsciLexerJavaScript* self) {
+int QsciLexerJavaScript_SuperIndentationGuideView(const QsciLexerJavaScript* self) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_IndentationGuideView_IsBase(true);
@@ -774,7 +774,7 @@ int QsciLexerJavaScript_DefaultStyle(const QsciLexerJavaScript* self) {
 }
 
 // Base class handler implementation
-int QsciLexerJavaScript_QBaseDefaultStyle(const QsciLexerJavaScript* self) {
+int QsciLexerJavaScript_SuperDefaultStyle(const QsciLexerJavaScript* self) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_DefaultStyle_IsBase(true);
@@ -803,7 +803,7 @@ QColor* QsciLexerJavaScript_Paper(const QsciLexerJavaScript* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerJavaScript_QBasePaper(const QsciLexerJavaScript* self, int style) {
+QColor* QsciLexerJavaScript_SuperPaper(const QsciLexerJavaScript* self, int style) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_Paper_IsBase(true);
@@ -832,7 +832,7 @@ QColor* QsciLexerJavaScript_DefaultColor2(const QsciLexerJavaScript* self, int s
 }
 
 // Base class handler implementation
-QColor* QsciLexerJavaScript_QBaseDefaultColor2(const QsciLexerJavaScript* self, int style) {
+QColor* QsciLexerJavaScript_SuperDefaultColor2(const QsciLexerJavaScript* self, int style) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_DefaultColor2_IsBase(true);
@@ -861,7 +861,7 @@ QFont* QsciLexerJavaScript_DefaultFont2(const QsciLexerJavaScript* self, int sty
 }
 
 // Base class handler implementation
-QFont* QsciLexerJavaScript_QBaseDefaultFont2(const QsciLexerJavaScript* self, int style) {
+QFont* QsciLexerJavaScript_SuperDefaultFont2(const QsciLexerJavaScript* self, int style) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_DefaultFont2_IsBase(true);
@@ -890,7 +890,7 @@ QColor* QsciLexerJavaScript_DefaultPaper2(const QsciLexerJavaScript* self, int s
 }
 
 // Base class handler implementation
-QColor* QsciLexerJavaScript_QBaseDefaultPaper2(const QsciLexerJavaScript* self, int style) {
+QColor* QsciLexerJavaScript_SuperDefaultPaper2(const QsciLexerJavaScript* self, int style) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_DefaultPaper2_IsBase(true);
@@ -919,7 +919,7 @@ void QsciLexerJavaScript_SetEditor(QsciLexerJavaScript* self, QsciScintilla* edi
 }
 
 // Base class handler implementation
-void QsciLexerJavaScript_QBaseSetEditor(QsciLexerJavaScript* self, QsciScintilla* editor) {
+void QsciLexerJavaScript_SuperSetEditor(QsciLexerJavaScript* self, QsciScintilla* editor) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_SetEditor_IsBase(true);
@@ -948,7 +948,7 @@ void QsciLexerJavaScript_RefreshProperties(QsciLexerJavaScript* self) {
 }
 
 // Base class handler implementation
-void QsciLexerJavaScript_QBaseRefreshProperties(QsciLexerJavaScript* self) {
+void QsciLexerJavaScript_SuperRefreshProperties(QsciLexerJavaScript* self) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_RefreshProperties_IsBase(true);
@@ -977,7 +977,7 @@ int QsciLexerJavaScript_StyleBitsNeeded(const QsciLexerJavaScript* self) {
 }
 
 // Base class handler implementation
-int QsciLexerJavaScript_QBaseStyleBitsNeeded(const QsciLexerJavaScript* self) {
+int QsciLexerJavaScript_SuperStyleBitsNeeded(const QsciLexerJavaScript* self) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_StyleBitsNeeded_IsBase(true);
@@ -1006,7 +1006,7 @@ const char* QsciLexerJavaScript_WordCharacters(const QsciLexerJavaScript* self) 
 }
 
 // Base class handler implementation
-const char* QsciLexerJavaScript_QBaseWordCharacters(const QsciLexerJavaScript* self) {
+const char* QsciLexerJavaScript_SuperWordCharacters(const QsciLexerJavaScript* self) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_WordCharacters_IsBase(true);
@@ -1035,7 +1035,7 @@ void QsciLexerJavaScript_SetAutoIndentStyle(QsciLexerJavaScript* self, int autoi
 }
 
 // Base class handler implementation
-void QsciLexerJavaScript_QBaseSetAutoIndentStyle(QsciLexerJavaScript* self, int autoindentstyle) {
+void QsciLexerJavaScript_SuperSetAutoIndentStyle(QsciLexerJavaScript* self, int autoindentstyle) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_SetAutoIndentStyle_IsBase(true);
@@ -1064,7 +1064,7 @@ void QsciLexerJavaScript_SetColor(QsciLexerJavaScript* self, const QColor* c, in
 }
 
 // Base class handler implementation
-void QsciLexerJavaScript_QBaseSetColor(QsciLexerJavaScript* self, const QColor* c, int style) {
+void QsciLexerJavaScript_SuperSetColor(QsciLexerJavaScript* self, const QColor* c, int style) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_SetColor_IsBase(true);
@@ -1093,7 +1093,7 @@ void QsciLexerJavaScript_SetEolFill(QsciLexerJavaScript* self, bool eoffill, int
 }
 
 // Base class handler implementation
-void QsciLexerJavaScript_QBaseSetEolFill(QsciLexerJavaScript* self, bool eoffill, int style) {
+void QsciLexerJavaScript_SuperSetEolFill(QsciLexerJavaScript* self, bool eoffill, int style) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_SetEolFill_IsBase(true);
@@ -1122,7 +1122,7 @@ void QsciLexerJavaScript_SetFont(QsciLexerJavaScript* self, const QFont* f, int 
 }
 
 // Base class handler implementation
-void QsciLexerJavaScript_QBaseSetFont(QsciLexerJavaScript* self, const QFont* f, int style) {
+void QsciLexerJavaScript_SuperSetFont(QsciLexerJavaScript* self, const QFont* f, int style) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_SetFont_IsBase(true);
@@ -1151,7 +1151,7 @@ void QsciLexerJavaScript_SetPaper(QsciLexerJavaScript* self, const QColor* c, in
 }
 
 // Base class handler implementation
-void QsciLexerJavaScript_QBaseSetPaper(QsciLexerJavaScript* self, const QColor* c, int style) {
+void QsciLexerJavaScript_SuperSetPaper(QsciLexerJavaScript* self, const QColor* c, int style) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_SetPaper_IsBase(true);
@@ -1181,7 +1181,7 @@ bool QsciLexerJavaScript_ReadProperties(QsciLexerJavaScript* self, QSettings* qs
 }
 
 // Base class handler implementation
-bool QsciLexerJavaScript_QBaseReadProperties(QsciLexerJavaScript* self, QSettings* qs, const libqt_string prefix) {
+bool QsciLexerJavaScript_SuperReadProperties(QsciLexerJavaScript* self, QSettings* qs, const libqt_string prefix) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
@@ -1212,7 +1212,7 @@ bool QsciLexerJavaScript_WriteProperties(const QsciLexerJavaScript* self, QSetti
 }
 
 // Base class handler implementation
-bool QsciLexerJavaScript_QBaseWriteProperties(const QsciLexerJavaScript* self, QSettings* qs, const libqt_string prefix) {
+bool QsciLexerJavaScript_SuperWriteProperties(const QsciLexerJavaScript* self, QSettings* qs, const libqt_string prefix) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
@@ -1242,7 +1242,7 @@ bool QsciLexerJavaScript_Event(QsciLexerJavaScript* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QsciLexerJavaScript_QBaseEvent(QsciLexerJavaScript* self, QEvent* event) {
+bool QsciLexerJavaScript_SuperEvent(QsciLexerJavaScript* self, QEvent* event) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_Event_IsBase(true);
@@ -1271,7 +1271,7 @@ bool QsciLexerJavaScript_EventFilter(QsciLexerJavaScript* self, QObject* watched
 }
 
 // Base class handler implementation
-bool QsciLexerJavaScript_QBaseEventFilter(QsciLexerJavaScript* self, QObject* watched, QEvent* event) {
+bool QsciLexerJavaScript_SuperEventFilter(QsciLexerJavaScript* self, QObject* watched, QEvent* event) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_EventFilter_IsBase(true);
@@ -1300,7 +1300,7 @@ void QsciLexerJavaScript_TimerEvent(QsciLexerJavaScript* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void QsciLexerJavaScript_QBaseTimerEvent(QsciLexerJavaScript* self, QTimerEvent* event) {
+void QsciLexerJavaScript_SuperTimerEvent(QsciLexerJavaScript* self, QTimerEvent* event) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_TimerEvent_IsBase(true);
@@ -1329,7 +1329,7 @@ void QsciLexerJavaScript_ChildEvent(QsciLexerJavaScript* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void QsciLexerJavaScript_QBaseChildEvent(QsciLexerJavaScript* self, QChildEvent* event) {
+void QsciLexerJavaScript_SuperChildEvent(QsciLexerJavaScript* self, QChildEvent* event) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_ChildEvent_IsBase(true);
@@ -1358,7 +1358,7 @@ void QsciLexerJavaScript_CustomEvent(QsciLexerJavaScript* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerJavaScript_QBaseCustomEvent(QsciLexerJavaScript* self, QEvent* event) {
+void QsciLexerJavaScript_SuperCustomEvent(QsciLexerJavaScript* self, QEvent* event) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_CustomEvent_IsBase(true);
@@ -1387,7 +1387,7 @@ void QsciLexerJavaScript_ConnectNotify(QsciLexerJavaScript* self, const QMetaMet
 }
 
 // Base class handler implementation
-void QsciLexerJavaScript_QBaseConnectNotify(QsciLexerJavaScript* self, const QMetaMethod* signal) {
+void QsciLexerJavaScript_SuperConnectNotify(QsciLexerJavaScript* self, const QMetaMethod* signal) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_ConnectNotify_IsBase(true);
@@ -1416,7 +1416,7 @@ void QsciLexerJavaScript_DisconnectNotify(QsciLexerJavaScript* self, const QMeta
 }
 
 // Base class handler implementation
-void QsciLexerJavaScript_QBaseDisconnectNotify(QsciLexerJavaScript* self, const QMetaMethod* signal) {
+void QsciLexerJavaScript_SuperDisconnectNotify(QsciLexerJavaScript* self, const QMetaMethod* signal) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_DisconnectNotify_IsBase(true);
@@ -1456,7 +1456,7 @@ libqt_string QsciLexerJavaScript_TextAsBytes(const QsciLexerJavaScript* self, co
 }
 
 // Base class handler implementation
-libqt_string QsciLexerJavaScript_QBaseTextAsBytes(const QsciLexerJavaScript* self, const libqt_string text) {
+libqt_string QsciLexerJavaScript_SuperTextAsBytes(const QsciLexerJavaScript* self, const libqt_string text) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
@@ -1512,7 +1512,7 @@ libqt_string QsciLexerJavaScript_BytesAsText(const QsciLexerJavaScript* self, co
 }
 
 // Base class handler implementation
-libqt_string QsciLexerJavaScript_QBaseBytesAsText(const QsciLexerJavaScript* self, const char* bytes, int size) {
+libqt_string QsciLexerJavaScript_SuperBytesAsText(const QsciLexerJavaScript* self, const char* bytes, int size) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_BytesAsText_IsBase(true);
@@ -1557,7 +1557,7 @@ QObject* QsciLexerJavaScript_Sender(const QsciLexerJavaScript* self) {
 }
 
 // Base class handler implementation
-QObject* QsciLexerJavaScript_QBaseSender(const QsciLexerJavaScript* self) {
+QObject* QsciLexerJavaScript_SuperSender(const QsciLexerJavaScript* self) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_Sender_IsBase(true);
@@ -1586,7 +1586,7 @@ int QsciLexerJavaScript_SenderSignalIndex(const QsciLexerJavaScript* self) {
 }
 
 // Base class handler implementation
-int QsciLexerJavaScript_QBaseSenderSignalIndex(const QsciLexerJavaScript* self) {
+int QsciLexerJavaScript_SuperSenderSignalIndex(const QsciLexerJavaScript* self) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_SenderSignalIndex_IsBase(true);
@@ -1615,7 +1615,7 @@ int QsciLexerJavaScript_Receivers(const QsciLexerJavaScript* self, const char* s
 }
 
 // Base class handler implementation
-int QsciLexerJavaScript_QBaseReceivers(const QsciLexerJavaScript* self, const char* signal) {
+int QsciLexerJavaScript_SuperReceivers(const QsciLexerJavaScript* self, const char* signal) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_Receivers_IsBase(true);
@@ -1644,7 +1644,7 @@ bool QsciLexerJavaScript_IsSignalConnected(const QsciLexerJavaScript* self, cons
 }
 
 // Base class handler implementation
-bool QsciLexerJavaScript_QBaseIsSignalConnected(const QsciLexerJavaScript* self, const QMetaMethod* signal) {
+bool QsciLexerJavaScript_SuperIsSignalConnected(const QsciLexerJavaScript* self, const QMetaMethod* signal) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_IsSignalConnected_IsBase(true);

@@ -678,6 +678,10 @@ pub const qrawfont = struct {
         return qtc.QRawFont_FromFont2(@ptrCast(font), @bitCast(writingSystem));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#dtor.QRawFont)
     ///
     /// Delete this object from C++ memory.
@@ -686,7 +690,7 @@ pub const qrawfont = struct {
     ///
     /// ` self: QtC.QRawFont `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QRawFont_Delete(@ptrCast(self));
     }
 };

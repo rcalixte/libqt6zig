@@ -89,7 +89,7 @@ bool QAnimationGroup_Event(QAnimationGroup* self, QEvent* event) {
 }
 
 // Base class handler implementation
-QMetaObject* QAnimationGroup_QBaseMetaObject(const QAnimationGroup* self) {
+QMetaObject* QAnimationGroup_SuperMetaObject(const QAnimationGroup* self) {
     auto* vqanimationgroup = const_cast<VirtualQAnimationGroup*>(dynamic_cast<const VirtualQAnimationGroup*>(self));
     if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
         vqanimationgroup->setQAnimationGroup_MetaObject_IsBase(true);
@@ -108,7 +108,7 @@ void QAnimationGroup_OnMetaObject(const QAnimationGroup* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QAnimationGroup_QBaseMetacast(QAnimationGroup* self, const char* param1) {
+void* QAnimationGroup_SuperMetacast(QAnimationGroup* self, const char* param1) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
     if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
         vqanimationgroup->setQAnimationGroup_Metacast_IsBase(true);
@@ -127,7 +127,7 @@ void QAnimationGroup_OnMetacast(QAnimationGroup* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAnimationGroup_QBaseMetacall(QAnimationGroup* self, int param1, int param2, void** param3) {
+int QAnimationGroup_SuperMetacall(QAnimationGroup* self, int param1, int param2, void** param3) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
     if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
         vqanimationgroup->setQAnimationGroup_Metacall_IsBase(true);
@@ -146,7 +146,7 @@ void QAnimationGroup_OnMetacall(QAnimationGroup* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QAnimationGroup_QBaseEvent(QAnimationGroup* self, QEvent* event) {
+bool QAnimationGroup_SuperEvent(QAnimationGroup* self, QEvent* event) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
     if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
         vqanimationgroup->setQAnimationGroup_Event_IsBase(true);
@@ -175,7 +175,7 @@ int QAnimationGroup_Duration(const QAnimationGroup* self) {
 }
 
 // Base class handler implementation
-int QAnimationGroup_QBaseDuration(const QAnimationGroup* self) {
+int QAnimationGroup_SuperDuration(const QAnimationGroup* self) {
     auto* vqanimationgroup = const_cast<VirtualQAnimationGroup*>(dynamic_cast<const VirtualQAnimationGroup*>(self));
     if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
         vqanimationgroup->setQAnimationGroup_Duration_IsBase(true);
@@ -204,7 +204,7 @@ void QAnimationGroup_UpdateCurrentTime(QAnimationGroup* self, int currentTime) {
 }
 
 // Base class handler implementation
-void QAnimationGroup_QBaseUpdateCurrentTime(QAnimationGroup* self, int currentTime) {
+void QAnimationGroup_SuperUpdateCurrentTime(QAnimationGroup* self, int currentTime) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
     if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
         vqanimationgroup->setQAnimationGroup_UpdateCurrentTime_IsBase(true);
@@ -233,7 +233,7 @@ void QAnimationGroup_UpdateState(QAnimationGroup* self, int newState, int oldSta
 }
 
 // Base class handler implementation
-void QAnimationGroup_QBaseUpdateState(QAnimationGroup* self, int newState, int oldState) {
+void QAnimationGroup_SuperUpdateState(QAnimationGroup* self, int newState, int oldState) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
     if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
         vqanimationgroup->setQAnimationGroup_UpdateState_IsBase(true);
@@ -262,7 +262,7 @@ void QAnimationGroup_UpdateDirection(QAnimationGroup* self, int direction) {
 }
 
 // Base class handler implementation
-void QAnimationGroup_QBaseUpdateDirection(QAnimationGroup* self, int direction) {
+void QAnimationGroup_SuperUpdateDirection(QAnimationGroup* self, int direction) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
     if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
         vqanimationgroup->setQAnimationGroup_UpdateDirection_IsBase(true);
@@ -291,7 +291,7 @@ bool QAnimationGroup_EventFilter(QAnimationGroup* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool QAnimationGroup_QBaseEventFilter(QAnimationGroup* self, QObject* watched, QEvent* event) {
+bool QAnimationGroup_SuperEventFilter(QAnimationGroup* self, QObject* watched, QEvent* event) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
     if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
         vqanimationgroup->setQAnimationGroup_EventFilter_IsBase(true);
@@ -320,7 +320,7 @@ void QAnimationGroup_TimerEvent(QAnimationGroup* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QAnimationGroup_QBaseTimerEvent(QAnimationGroup* self, QTimerEvent* event) {
+void QAnimationGroup_SuperTimerEvent(QAnimationGroup* self, QTimerEvent* event) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
     if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
         vqanimationgroup->setQAnimationGroup_TimerEvent_IsBase(true);
@@ -349,7 +349,7 @@ void QAnimationGroup_ChildEvent(QAnimationGroup* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QAnimationGroup_QBaseChildEvent(QAnimationGroup* self, QChildEvent* event) {
+void QAnimationGroup_SuperChildEvent(QAnimationGroup* self, QChildEvent* event) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
     if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
         vqanimationgroup->setQAnimationGroup_ChildEvent_IsBase(true);
@@ -378,7 +378,7 @@ void QAnimationGroup_CustomEvent(QAnimationGroup* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QAnimationGroup_QBaseCustomEvent(QAnimationGroup* self, QEvent* event) {
+void QAnimationGroup_SuperCustomEvent(QAnimationGroup* self, QEvent* event) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
     if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
         vqanimationgroup->setQAnimationGroup_CustomEvent_IsBase(true);
@@ -407,7 +407,7 @@ void QAnimationGroup_ConnectNotify(QAnimationGroup* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void QAnimationGroup_QBaseConnectNotify(QAnimationGroup* self, const QMetaMethod* signal) {
+void QAnimationGroup_SuperConnectNotify(QAnimationGroup* self, const QMetaMethod* signal) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
     if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
         vqanimationgroup->setQAnimationGroup_ConnectNotify_IsBase(true);
@@ -436,7 +436,7 @@ void QAnimationGroup_DisconnectNotify(QAnimationGroup* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void QAnimationGroup_QBaseDisconnectNotify(QAnimationGroup* self, const QMetaMethod* signal) {
+void QAnimationGroup_SuperDisconnectNotify(QAnimationGroup* self, const QMetaMethod* signal) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
     if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
         vqanimationgroup->setQAnimationGroup_DisconnectNotify_IsBase(true);
@@ -465,7 +465,7 @@ QObject* QAnimationGroup_Sender(const QAnimationGroup* self) {
 }
 
 // Base class handler implementation
-QObject* QAnimationGroup_QBaseSender(const QAnimationGroup* self) {
+QObject* QAnimationGroup_SuperSender(const QAnimationGroup* self) {
     auto* vqanimationgroup = const_cast<VirtualQAnimationGroup*>(dynamic_cast<const VirtualQAnimationGroup*>(self));
     if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
         vqanimationgroup->setQAnimationGroup_Sender_IsBase(true);
@@ -494,7 +494,7 @@ int QAnimationGroup_SenderSignalIndex(const QAnimationGroup* self) {
 }
 
 // Base class handler implementation
-int QAnimationGroup_QBaseSenderSignalIndex(const QAnimationGroup* self) {
+int QAnimationGroup_SuperSenderSignalIndex(const QAnimationGroup* self) {
     auto* vqanimationgroup = const_cast<VirtualQAnimationGroup*>(dynamic_cast<const VirtualQAnimationGroup*>(self));
     if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
         vqanimationgroup->setQAnimationGroup_SenderSignalIndex_IsBase(true);
@@ -523,7 +523,7 @@ int QAnimationGroup_Receivers(const QAnimationGroup* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QAnimationGroup_QBaseReceivers(const QAnimationGroup* self, const char* signal) {
+int QAnimationGroup_SuperReceivers(const QAnimationGroup* self, const char* signal) {
     auto* vqanimationgroup = const_cast<VirtualQAnimationGroup*>(dynamic_cast<const VirtualQAnimationGroup*>(self));
     if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
         vqanimationgroup->setQAnimationGroup_Receivers_IsBase(true);
@@ -552,7 +552,7 @@ bool QAnimationGroup_IsSignalConnected(const QAnimationGroup* self, const QMetaM
 }
 
 // Base class handler implementation
-bool QAnimationGroup_QBaseIsSignalConnected(const QAnimationGroup* self, const QMetaMethod* signal) {
+bool QAnimationGroup_SuperIsSignalConnected(const QAnimationGroup* self, const QMetaMethod* signal) {
     auto* vqanimationgroup = const_cast<VirtualQAnimationGroup*>(dynamic_cast<const VirtualQAnimationGroup*>(self));
     if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
         vqanimationgroup->setQAnimationGroup_IsSignalConnected_IsBase(true);

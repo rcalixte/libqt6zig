@@ -205,7 +205,7 @@ QImage* QPdfDocument_Render3(QPdfDocument* self, int page, QSize* imageSize, QPd
 }
 
 // Base class handler implementation
-QMetaObject* QPdfDocument_QBaseMetaObject(const QPdfDocument* self) {
+QMetaObject* QPdfDocument_SuperMetaObject(const QPdfDocument* self) {
     auto* vqpdfdocument = const_cast<VirtualQPdfDocument*>(dynamic_cast<const VirtualQPdfDocument*>(self));
     if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
         vqpdfdocument->setQPdfDocument_MetaObject_IsBase(true);
@@ -224,7 +224,7 @@ void QPdfDocument_OnMetaObject(const QPdfDocument* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QPdfDocument_QBaseMetacast(QPdfDocument* self, const char* param1) {
+void* QPdfDocument_SuperMetacast(QPdfDocument* self, const char* param1) {
     auto* vqpdfdocument = dynamic_cast<VirtualQPdfDocument*>(self);
     if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
         vqpdfdocument->setQPdfDocument_Metacast_IsBase(true);
@@ -243,7 +243,7 @@ void QPdfDocument_OnMetacast(QPdfDocument* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPdfDocument_QBaseMetacall(QPdfDocument* self, int param1, int param2, void** param3) {
+int QPdfDocument_SuperMetacall(QPdfDocument* self, int param1, int param2, void** param3) {
     auto* vqpdfdocument = dynamic_cast<VirtualQPdfDocument*>(self);
     if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
         vqpdfdocument->setQPdfDocument_Metacall_IsBase(true);
@@ -272,7 +272,7 @@ bool QPdfDocument_Event(QPdfDocument* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QPdfDocument_QBaseEvent(QPdfDocument* self, QEvent* event) {
+bool QPdfDocument_SuperEvent(QPdfDocument* self, QEvent* event) {
     auto* vqpdfdocument = dynamic_cast<VirtualQPdfDocument*>(self);
     if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
         vqpdfdocument->setQPdfDocument_Event_IsBase(true);
@@ -301,7 +301,7 @@ bool QPdfDocument_EventFilter(QPdfDocument* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool QPdfDocument_QBaseEventFilter(QPdfDocument* self, QObject* watched, QEvent* event) {
+bool QPdfDocument_SuperEventFilter(QPdfDocument* self, QObject* watched, QEvent* event) {
     auto* vqpdfdocument = dynamic_cast<VirtualQPdfDocument*>(self);
     if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
         vqpdfdocument->setQPdfDocument_EventFilter_IsBase(true);
@@ -330,7 +330,7 @@ void QPdfDocument_TimerEvent(QPdfDocument* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfDocument_QBaseTimerEvent(QPdfDocument* self, QTimerEvent* event) {
+void QPdfDocument_SuperTimerEvent(QPdfDocument* self, QTimerEvent* event) {
     auto* vqpdfdocument = dynamic_cast<VirtualQPdfDocument*>(self);
     if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
         vqpdfdocument->setQPdfDocument_TimerEvent_IsBase(true);
@@ -359,7 +359,7 @@ void QPdfDocument_ChildEvent(QPdfDocument* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfDocument_QBaseChildEvent(QPdfDocument* self, QChildEvent* event) {
+void QPdfDocument_SuperChildEvent(QPdfDocument* self, QChildEvent* event) {
     auto* vqpdfdocument = dynamic_cast<VirtualQPdfDocument*>(self);
     if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
         vqpdfdocument->setQPdfDocument_ChildEvent_IsBase(true);
@@ -388,7 +388,7 @@ void QPdfDocument_CustomEvent(QPdfDocument* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfDocument_QBaseCustomEvent(QPdfDocument* self, QEvent* event) {
+void QPdfDocument_SuperCustomEvent(QPdfDocument* self, QEvent* event) {
     auto* vqpdfdocument = dynamic_cast<VirtualQPdfDocument*>(self);
     if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
         vqpdfdocument->setQPdfDocument_CustomEvent_IsBase(true);
@@ -417,7 +417,7 @@ void QPdfDocument_ConnectNotify(QPdfDocument* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QPdfDocument_QBaseConnectNotify(QPdfDocument* self, const QMetaMethod* signal) {
+void QPdfDocument_SuperConnectNotify(QPdfDocument* self, const QMetaMethod* signal) {
     auto* vqpdfdocument = dynamic_cast<VirtualQPdfDocument*>(self);
     if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
         vqpdfdocument->setQPdfDocument_ConnectNotify_IsBase(true);
@@ -446,7 +446,7 @@ void QPdfDocument_DisconnectNotify(QPdfDocument* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QPdfDocument_QBaseDisconnectNotify(QPdfDocument* self, const QMetaMethod* signal) {
+void QPdfDocument_SuperDisconnectNotify(QPdfDocument* self, const QMetaMethod* signal) {
     auto* vqpdfdocument = dynamic_cast<VirtualQPdfDocument*>(self);
     if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
         vqpdfdocument->setQPdfDocument_DisconnectNotify_IsBase(true);
@@ -475,7 +475,7 @@ QObject* QPdfDocument_Sender(const QPdfDocument* self) {
 }
 
 // Base class handler implementation
-QObject* QPdfDocument_QBaseSender(const QPdfDocument* self) {
+QObject* QPdfDocument_SuperSender(const QPdfDocument* self) {
     auto* vqpdfdocument = const_cast<VirtualQPdfDocument*>(dynamic_cast<const VirtualQPdfDocument*>(self));
     if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
         vqpdfdocument->setQPdfDocument_Sender_IsBase(true);
@@ -504,7 +504,7 @@ int QPdfDocument_SenderSignalIndex(const QPdfDocument* self) {
 }
 
 // Base class handler implementation
-int QPdfDocument_QBaseSenderSignalIndex(const QPdfDocument* self) {
+int QPdfDocument_SuperSenderSignalIndex(const QPdfDocument* self) {
     auto* vqpdfdocument = const_cast<VirtualQPdfDocument*>(dynamic_cast<const VirtualQPdfDocument*>(self));
     if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
         vqpdfdocument->setQPdfDocument_SenderSignalIndex_IsBase(true);
@@ -533,7 +533,7 @@ int QPdfDocument_Receivers(const QPdfDocument* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QPdfDocument_QBaseReceivers(const QPdfDocument* self, const char* signal) {
+int QPdfDocument_SuperReceivers(const QPdfDocument* self, const char* signal) {
     auto* vqpdfdocument = const_cast<VirtualQPdfDocument*>(dynamic_cast<const VirtualQPdfDocument*>(self));
     if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
         vqpdfdocument->setQPdfDocument_Receivers_IsBase(true);
@@ -562,7 +562,7 @@ bool QPdfDocument_IsSignalConnected(const QPdfDocument* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QPdfDocument_QBaseIsSignalConnected(const QPdfDocument* self, const QMetaMethod* signal) {
+bool QPdfDocument_SuperIsSignalConnected(const QPdfDocument* self, const QMetaMethod* signal) {
     auto* vqpdfdocument = const_cast<VirtualQPdfDocument*>(dynamic_cast<const VirtualQPdfDocument*>(self));
     if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
         vqpdfdocument->setQPdfDocument_IsSignalConnected_IsBase(true);

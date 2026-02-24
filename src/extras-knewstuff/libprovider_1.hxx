@@ -704,27 +704,27 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
 
     // Friend functions
     friend void KNSCore__Provider_TimerEvent(KNSCore::Provider* self, QTimerEvent* event);
-    friend void KNSCore__Provider_QBaseTimerEvent(KNSCore::Provider* self, QTimerEvent* event);
+    friend void KNSCore__Provider_SuperTimerEvent(KNSCore::Provider* self, QTimerEvent* event);
     friend void KNSCore__Provider_ChildEvent(KNSCore::Provider* self, QChildEvent* event);
-    friend void KNSCore__Provider_QBaseChildEvent(KNSCore::Provider* self, QChildEvent* event);
+    friend void KNSCore__Provider_SuperChildEvent(KNSCore::Provider* self, QChildEvent* event);
     friend void KNSCore__Provider_CustomEvent(KNSCore::Provider* self, QEvent* event);
-    friend void KNSCore__Provider_QBaseCustomEvent(KNSCore::Provider* self, QEvent* event);
+    friend void KNSCore__Provider_SuperCustomEvent(KNSCore::Provider* self, QEvent* event);
     friend void KNSCore__Provider_ConnectNotify(KNSCore::Provider* self, const QMetaMethod* signal);
-    friend void KNSCore__Provider_QBaseConnectNotify(KNSCore::Provider* self, const QMetaMethod* signal);
+    friend void KNSCore__Provider_SuperConnectNotify(KNSCore::Provider* self, const QMetaMethod* signal);
     friend void KNSCore__Provider_DisconnectNotify(KNSCore::Provider* self, const QMetaMethod* signal);
-    friend void KNSCore__Provider_QBaseDisconnectNotify(KNSCore::Provider* self, const QMetaMethod* signal);
+    friend void KNSCore__Provider_SuperDisconnectNotify(KNSCore::Provider* self, const QMetaMethod* signal);
     friend void KNSCore__Provider_SetName(KNSCore::Provider* self, const libqt_string name);
-    friend void KNSCore__Provider_QBaseSetName(KNSCore::Provider* self, const libqt_string name);
+    friend void KNSCore__Provider_SuperSetName(KNSCore::Provider* self, const libqt_string name);
     friend void KNSCore__Provider_SetIcon(KNSCore::Provider* self, const QUrl* icon);
-    friend void KNSCore__Provider_QBaseSetIcon(KNSCore::Provider* self, const QUrl* icon);
+    friend void KNSCore__Provider_SuperSetIcon(KNSCore::Provider* self, const QUrl* icon);
     friend QObject* KNSCore__Provider_Sender(const KNSCore::Provider* self);
-    friend QObject* KNSCore__Provider_QBaseSender(const KNSCore::Provider* self);
+    friend QObject* KNSCore__Provider_SuperSender(const KNSCore::Provider* self);
     friend int KNSCore__Provider_SenderSignalIndex(const KNSCore::Provider* self);
-    friend int KNSCore__Provider_QBaseSenderSignalIndex(const KNSCore::Provider* self);
+    friend int KNSCore__Provider_SuperSenderSignalIndex(const KNSCore::Provider* self);
     friend int KNSCore__Provider_Receivers(const KNSCore::Provider* self, const char* signal);
-    friend int KNSCore__Provider_QBaseReceivers(const KNSCore::Provider* self, const char* signal);
+    friend int KNSCore__Provider_SuperReceivers(const KNSCore::Provider* self, const char* signal);
     friend bool KNSCore__Provider_IsSignalConnected(const KNSCore::Provider* self, const QMetaMethod* signal);
-    friend bool KNSCore__Provider_QBaseIsSignalConnected(const KNSCore::Provider* self, const QMetaMethod* signal);
+    friend bool KNSCore__Provider_SuperIsSignalConnected(const KNSCore::Provider* self, const QMetaMethod* signal);
 };
 
 #endif

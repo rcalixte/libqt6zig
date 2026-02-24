@@ -173,7 +173,7 @@ QPointingDevice* QPointingDevice_PrimaryPointingDevice1(const libqt_string seatN
 }
 
 // Base class handler implementation
-QMetaObject* QPointingDevice_QBaseMetaObject(const QPointingDevice* self) {
+QMetaObject* QPointingDevice_SuperMetaObject(const QPointingDevice* self) {
     auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self));
     if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
         vqpointingdevice->setQPointingDevice_MetaObject_IsBase(true);
@@ -192,7 +192,7 @@ void QPointingDevice_OnMetaObject(const QPointingDevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QPointingDevice_QBaseMetacast(QPointingDevice* self, const char* param1) {
+void* QPointingDevice_SuperMetacast(QPointingDevice* self, const char* param1) {
     auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
     if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
         vqpointingdevice->setQPointingDevice_Metacast_IsBase(true);
@@ -211,7 +211,7 @@ void QPointingDevice_OnMetacast(QPointingDevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPointingDevice_QBaseMetacall(QPointingDevice* self, int param1, int param2, void** param3) {
+int QPointingDevice_SuperMetacall(QPointingDevice* self, int param1, int param2, void** param3) {
     auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
     if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
         vqpointingdevice->setQPointingDevice_Metacall_IsBase(true);
@@ -240,7 +240,7 @@ bool QPointingDevice_Event(QPointingDevice* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QPointingDevice_QBaseEvent(QPointingDevice* self, QEvent* event) {
+bool QPointingDevice_SuperEvent(QPointingDevice* self, QEvent* event) {
     auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
     if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
         vqpointingdevice->setQPointingDevice_Event_IsBase(true);
@@ -269,7 +269,7 @@ bool QPointingDevice_EventFilter(QPointingDevice* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool QPointingDevice_QBaseEventFilter(QPointingDevice* self, QObject* watched, QEvent* event) {
+bool QPointingDevice_SuperEventFilter(QPointingDevice* self, QObject* watched, QEvent* event) {
     auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
     if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
         vqpointingdevice->setQPointingDevice_EventFilter_IsBase(true);
@@ -298,7 +298,7 @@ void QPointingDevice_TimerEvent(QPointingDevice* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QPointingDevice_QBaseTimerEvent(QPointingDevice* self, QTimerEvent* event) {
+void QPointingDevice_SuperTimerEvent(QPointingDevice* self, QTimerEvent* event) {
     auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
     if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
         vqpointingdevice->setQPointingDevice_TimerEvent_IsBase(true);
@@ -327,7 +327,7 @@ void QPointingDevice_ChildEvent(QPointingDevice* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QPointingDevice_QBaseChildEvent(QPointingDevice* self, QChildEvent* event) {
+void QPointingDevice_SuperChildEvent(QPointingDevice* self, QChildEvent* event) {
     auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
     if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
         vqpointingdevice->setQPointingDevice_ChildEvent_IsBase(true);
@@ -356,7 +356,7 @@ void QPointingDevice_CustomEvent(QPointingDevice* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPointingDevice_QBaseCustomEvent(QPointingDevice* self, QEvent* event) {
+void QPointingDevice_SuperCustomEvent(QPointingDevice* self, QEvent* event) {
     auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
     if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
         vqpointingdevice->setQPointingDevice_CustomEvent_IsBase(true);
@@ -385,7 +385,7 @@ void QPointingDevice_ConnectNotify(QPointingDevice* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void QPointingDevice_QBaseConnectNotify(QPointingDevice* self, const QMetaMethod* signal) {
+void QPointingDevice_SuperConnectNotify(QPointingDevice* self, const QMetaMethod* signal) {
     auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
     if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
         vqpointingdevice->setQPointingDevice_ConnectNotify_IsBase(true);
@@ -414,7 +414,7 @@ void QPointingDevice_DisconnectNotify(QPointingDevice* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void QPointingDevice_QBaseDisconnectNotify(QPointingDevice* self, const QMetaMethod* signal) {
+void QPointingDevice_SuperDisconnectNotify(QPointingDevice* self, const QMetaMethod* signal) {
     auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
     if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
         vqpointingdevice->setQPointingDevice_DisconnectNotify_IsBase(true);
@@ -443,7 +443,7 @@ QObject* QPointingDevice_Sender(const QPointingDevice* self) {
 }
 
 // Base class handler implementation
-QObject* QPointingDevice_QBaseSender(const QPointingDevice* self) {
+QObject* QPointingDevice_SuperSender(const QPointingDevice* self) {
     auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self));
     if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
         vqpointingdevice->setQPointingDevice_Sender_IsBase(true);
@@ -472,7 +472,7 @@ int QPointingDevice_SenderSignalIndex(const QPointingDevice* self) {
 }
 
 // Base class handler implementation
-int QPointingDevice_QBaseSenderSignalIndex(const QPointingDevice* self) {
+int QPointingDevice_SuperSenderSignalIndex(const QPointingDevice* self) {
     auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self));
     if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
         vqpointingdevice->setQPointingDevice_SenderSignalIndex_IsBase(true);
@@ -501,7 +501,7 @@ int QPointingDevice_Receivers(const QPointingDevice* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QPointingDevice_QBaseReceivers(const QPointingDevice* self, const char* signal) {
+int QPointingDevice_SuperReceivers(const QPointingDevice* self, const char* signal) {
     auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self));
     if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
         vqpointingdevice->setQPointingDevice_Receivers_IsBase(true);
@@ -530,7 +530,7 @@ bool QPointingDevice_IsSignalConnected(const QPointingDevice* self, const QMetaM
 }
 
 // Base class handler implementation
-bool QPointingDevice_QBaseIsSignalConnected(const QPointingDevice* self, const QMetaMethod* signal) {
+bool QPointingDevice_SuperIsSignalConnected(const QPointingDevice* self, const QMetaMethod* signal) {
     auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self));
     if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
         vqpointingdevice->setQPointingDevice_IsSignalConnected_IsBase(true);

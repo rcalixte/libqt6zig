@@ -196,6 +196,10 @@ pub const qgraphicssceneevent = struct {
         qtc.QGraphicsSceneEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -208,8 +212,8 @@ pub const qgraphicssceneevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QGraphicsSceneEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QGraphicsSceneEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -242,6 +246,10 @@ pub const qgraphicssceneevent = struct {
         return qtc.QGraphicsSceneEvent_Clone(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
@@ -252,8 +260,8 @@ pub const qgraphicssceneevent = struct {
     ///
     /// ` self: QtC.QGraphicsSceneEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QEvent {
-        return qtc.QGraphicsSceneEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneEvent_SuperClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -271,6 +279,9 @@ pub const qgraphicssceneevent = struct {
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
         qtc.QGraphicsSceneEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#dtor.QGraphicsSceneEvent)
     ///
@@ -280,7 +291,7 @@ pub const qgraphicssceneevent = struct {
     ///
     /// ` self: QtC.QGraphicsSceneEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGraphicsSceneEvent_Delete(@ptrCast(self));
     }
 };
@@ -831,6 +842,10 @@ pub const qgraphicsscenemouseevent = struct {
         qtc.QGraphicsSceneMouseEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -843,8 +858,8 @@ pub const qgraphicsscenemouseevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QGraphicsSceneMouseEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QGraphicsSceneMouseEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -877,6 +892,10 @@ pub const qgraphicsscenemouseevent = struct {
         return qtc.QGraphicsSceneMouseEvent_Clone(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
@@ -887,8 +906,8 @@ pub const qgraphicsscenemouseevent = struct {
     ///
     /// ` self: QtC.QGraphicsSceneMouseEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QEvent {
-        return qtc.QGraphicsSceneMouseEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneMouseEvent_SuperClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -906,6 +925,9 @@ pub const qgraphicsscenemouseevent = struct {
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
         qtc.QGraphicsSceneMouseEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#dtor.QGraphicsSceneMouseEvent)
     ///
@@ -915,7 +937,7 @@ pub const qgraphicsscenemouseevent = struct {
     ///
     /// ` self: QtC.QGraphicsSceneMouseEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGraphicsSceneMouseEvent_Delete(@ptrCast(self));
     }
 };
@@ -1362,6 +1384,10 @@ pub const qgraphicsscenewheelevent = struct {
         qtc.QGraphicsSceneWheelEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -1374,8 +1400,8 @@ pub const qgraphicsscenewheelevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QGraphicsSceneWheelEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QGraphicsSceneWheelEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -1408,6 +1434,10 @@ pub const qgraphicsscenewheelevent = struct {
         return qtc.QGraphicsSceneWheelEvent_Clone(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
@@ -1418,8 +1448,8 @@ pub const qgraphicsscenewheelevent = struct {
     ///
     /// ` self: QtC.QGraphicsSceneWheelEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QEvent {
-        return qtc.QGraphicsSceneWheelEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneWheelEvent_SuperClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -1437,6 +1467,9 @@ pub const qgraphicsscenewheelevent = struct {
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
         qtc.QGraphicsSceneWheelEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#dtor.QGraphicsSceneWheelEvent)
     ///
@@ -1446,7 +1479,7 @@ pub const qgraphicsscenewheelevent = struct {
     ///
     /// ` self: QtC.QGraphicsSceneWheelEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGraphicsSceneWheelEvent_Delete(@ptrCast(self));
     }
 };
@@ -1775,6 +1808,10 @@ pub const qgraphicsscenecontextmenuevent = struct {
         qtc.QGraphicsSceneContextMenuEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -1787,8 +1824,8 @@ pub const qgraphicsscenecontextmenuevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QGraphicsSceneContextMenuEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QGraphicsSceneContextMenuEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -1821,6 +1858,10 @@ pub const qgraphicsscenecontextmenuevent = struct {
         return qtc.QGraphicsSceneContextMenuEvent_Clone(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
@@ -1831,8 +1872,8 @@ pub const qgraphicsscenecontextmenuevent = struct {
     ///
     /// ` self: QtC.QGraphicsSceneContextMenuEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QEvent {
-        return qtc.QGraphicsSceneContextMenuEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneContextMenuEvent_SuperClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -1850,6 +1891,9 @@ pub const qgraphicsscenecontextmenuevent = struct {
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
         qtc.QGraphicsSceneContextMenuEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#dtor.QGraphicsSceneContextMenuEvent)
     ///
@@ -1859,7 +1903,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
     ///
     /// ` self: QtC.QGraphicsSceneContextMenuEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGraphicsSceneContextMenuEvent_Delete(@ptrCast(self));
     }
 };
@@ -2228,6 +2272,10 @@ pub const qgraphicsscenehoverevent = struct {
         qtc.QGraphicsSceneHoverEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -2240,8 +2288,8 @@ pub const qgraphicsscenehoverevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QGraphicsSceneHoverEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QGraphicsSceneHoverEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -2274,6 +2322,10 @@ pub const qgraphicsscenehoverevent = struct {
         return qtc.QGraphicsSceneHoverEvent_Clone(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
@@ -2284,8 +2336,8 @@ pub const qgraphicsscenehoverevent = struct {
     ///
     /// ` self: QtC.QGraphicsSceneHoverEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QEvent {
-        return qtc.QGraphicsSceneHoverEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneHoverEvent_SuperClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -2303,6 +2355,9 @@ pub const qgraphicsscenehoverevent = struct {
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
         qtc.QGraphicsSceneHoverEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#dtor.QGraphicsSceneHoverEvent)
     ///
@@ -2312,7 +2367,7 @@ pub const qgraphicsscenehoverevent = struct {
     ///
     /// ` self: QtC.QGraphicsSceneHoverEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGraphicsSceneHoverEvent_Delete(@ptrCast(self));
     }
 };
@@ -2567,6 +2622,10 @@ pub const qgraphicsscenehelpevent = struct {
         qtc.QGraphicsSceneHelpEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -2579,8 +2638,8 @@ pub const qgraphicsscenehelpevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QGraphicsSceneHelpEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QGraphicsSceneHelpEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -2613,6 +2672,10 @@ pub const qgraphicsscenehelpevent = struct {
         return qtc.QGraphicsSceneHelpEvent_Clone(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
@@ -2623,8 +2686,8 @@ pub const qgraphicsscenehelpevent = struct {
     ///
     /// ` self: QtC.QGraphicsSceneHelpEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QEvent {
-        return qtc.QGraphicsSceneHelpEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneHelpEvent_SuperClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -2642,6 +2705,9 @@ pub const qgraphicsscenehelpevent = struct {
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
         qtc.QGraphicsSceneHelpEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehelpevent.html#dtor.QGraphicsSceneHelpEvent)
     ///
@@ -2651,7 +2717,7 @@ pub const qgraphicsscenehelpevent = struct {
     ///
     /// ` self: QtC.QGraphicsSceneHelpEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGraphicsSceneHelpEvent_Delete(@ptrCast(self));
     }
 };
@@ -3112,6 +3178,10 @@ pub const qgraphicsscenedragdropevent = struct {
         qtc.QGraphicsSceneDragDropEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -3124,8 +3194,8 @@ pub const qgraphicsscenedragdropevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QGraphicsSceneDragDropEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QGraphicsSceneDragDropEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -3158,6 +3228,10 @@ pub const qgraphicsscenedragdropevent = struct {
         return qtc.QGraphicsSceneDragDropEvent_Clone(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
@@ -3168,8 +3242,8 @@ pub const qgraphicsscenedragdropevent = struct {
     ///
     /// ` self: QtC.QGraphicsSceneDragDropEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QEvent {
-        return qtc.QGraphicsSceneDragDropEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneDragDropEvent_SuperClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -3187,6 +3261,9 @@ pub const qgraphicsscenedragdropevent = struct {
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
         qtc.QGraphicsSceneDragDropEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#dtor.QGraphicsSceneDragDropEvent)
     ///
@@ -3196,7 +3273,7 @@ pub const qgraphicsscenedragdropevent = struct {
     ///
     /// ` self: QtC.QGraphicsSceneDragDropEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGraphicsSceneDragDropEvent_Delete(@ptrCast(self));
     }
 };
@@ -3441,6 +3518,10 @@ pub const qgraphicssceneresizeevent = struct {
         qtc.QGraphicsSceneResizeEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -3453,8 +3534,8 @@ pub const qgraphicssceneresizeevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QGraphicsSceneResizeEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QGraphicsSceneResizeEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -3487,6 +3568,10 @@ pub const qgraphicssceneresizeevent = struct {
         return qtc.QGraphicsSceneResizeEvent_Clone(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
@@ -3497,8 +3582,8 @@ pub const qgraphicssceneresizeevent = struct {
     ///
     /// ` self: QtC.QGraphicsSceneResizeEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QEvent {
-        return qtc.QGraphicsSceneResizeEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneResizeEvent_SuperClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -3516,6 +3601,9 @@ pub const qgraphicssceneresizeevent = struct {
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
         qtc.QGraphicsSceneResizeEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneresizeevent.html#dtor.QGraphicsSceneResizeEvent)
     ///
@@ -3525,7 +3613,7 @@ pub const qgraphicssceneresizeevent = struct {
     ///
     /// ` self: QtC.QGraphicsSceneResizeEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGraphicsSceneResizeEvent_Delete(@ptrCast(self));
     }
 };
@@ -3770,6 +3858,10 @@ pub const qgraphicsscenemoveevent = struct {
         qtc.QGraphicsSceneMoveEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -3782,8 +3874,8 @@ pub const qgraphicsscenemoveevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QGraphicsSceneMoveEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QGraphicsSceneMoveEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -3816,6 +3908,10 @@ pub const qgraphicsscenemoveevent = struct {
         return qtc.QGraphicsSceneMoveEvent_Clone(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
@@ -3826,8 +3922,8 @@ pub const qgraphicsscenemoveevent = struct {
     ///
     /// ` self: QtC.QGraphicsSceneMoveEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QEvent {
-        return qtc.QGraphicsSceneMoveEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.QGraphicsSceneMoveEvent_SuperClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -3845,6 +3941,9 @@ pub const qgraphicsscenemoveevent = struct {
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
         qtc.QGraphicsSceneMoveEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemoveevent.html#dtor.QGraphicsSceneMoveEvent)
     ///
@@ -3854,7 +3953,7 @@ pub const qgraphicsscenemoveevent = struct {
     ///
     /// ` self: QtC.QGraphicsSceneMoveEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGraphicsSceneMoveEvent_Delete(@ptrCast(self));
     }
 };

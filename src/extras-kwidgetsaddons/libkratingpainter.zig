@@ -292,6 +292,10 @@ pub const kratingpainter = struct {
         qtc.KRatingPainter_PaintRating5(@ptrCast(p), @ptrCast(rect), @bitCast(alignVal), @bitCast(rating), @bitCast(hoverRating));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#dtor.KRatingPainter)
     ///
     /// Delete this object from C++ memory.
@@ -300,7 +304,7 @@ pub const kratingpainter = struct {
     ///
     /// ` self: QtC.KRatingPainter `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KRatingPainter_Delete(@ptrCast(self));
     }
 };

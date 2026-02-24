@@ -1098,31 +1098,31 @@ class VirtualQsciLexerJSON final : public QsciLexerJSON {
 
     // Friend functions
     friend bool QsciLexerJSON_ReadProperties(QsciLexerJSON* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerJSON_QBaseReadProperties(QsciLexerJSON* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerJSON_SuperReadProperties(QsciLexerJSON* self, QSettings* qs, const libqt_string prefix);
     friend bool QsciLexerJSON_WriteProperties(const QsciLexerJSON* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerJSON_QBaseWriteProperties(const QsciLexerJSON* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerJSON_SuperWriteProperties(const QsciLexerJSON* self, QSettings* qs, const libqt_string prefix);
     friend void QsciLexerJSON_TimerEvent(QsciLexerJSON* self, QTimerEvent* event);
-    friend void QsciLexerJSON_QBaseTimerEvent(QsciLexerJSON* self, QTimerEvent* event);
+    friend void QsciLexerJSON_SuperTimerEvent(QsciLexerJSON* self, QTimerEvent* event);
     friend void QsciLexerJSON_ChildEvent(QsciLexerJSON* self, QChildEvent* event);
-    friend void QsciLexerJSON_QBaseChildEvent(QsciLexerJSON* self, QChildEvent* event);
+    friend void QsciLexerJSON_SuperChildEvent(QsciLexerJSON* self, QChildEvent* event);
     friend void QsciLexerJSON_CustomEvent(QsciLexerJSON* self, QEvent* event);
-    friend void QsciLexerJSON_QBaseCustomEvent(QsciLexerJSON* self, QEvent* event);
+    friend void QsciLexerJSON_SuperCustomEvent(QsciLexerJSON* self, QEvent* event);
     friend void QsciLexerJSON_ConnectNotify(QsciLexerJSON* self, const QMetaMethod* signal);
-    friend void QsciLexerJSON_QBaseConnectNotify(QsciLexerJSON* self, const QMetaMethod* signal);
+    friend void QsciLexerJSON_SuperConnectNotify(QsciLexerJSON* self, const QMetaMethod* signal);
     friend void QsciLexerJSON_DisconnectNotify(QsciLexerJSON* self, const QMetaMethod* signal);
-    friend void QsciLexerJSON_QBaseDisconnectNotify(QsciLexerJSON* self, const QMetaMethod* signal);
+    friend void QsciLexerJSON_SuperDisconnectNotify(QsciLexerJSON* self, const QMetaMethod* signal);
     friend libqt_string QsciLexerJSON_TextAsBytes(const QsciLexerJSON* self, const libqt_string text);
-    friend libqt_string QsciLexerJSON_QBaseTextAsBytes(const QsciLexerJSON* self, const libqt_string text);
+    friend libqt_string QsciLexerJSON_SuperTextAsBytes(const QsciLexerJSON* self, const libqt_string text);
     friend libqt_string QsciLexerJSON_BytesAsText(const QsciLexerJSON* self, const char* bytes, int size);
-    friend libqt_string QsciLexerJSON_QBaseBytesAsText(const QsciLexerJSON* self, const char* bytes, int size);
+    friend libqt_string QsciLexerJSON_SuperBytesAsText(const QsciLexerJSON* self, const char* bytes, int size);
     friend QObject* QsciLexerJSON_Sender(const QsciLexerJSON* self);
-    friend QObject* QsciLexerJSON_QBaseSender(const QsciLexerJSON* self);
+    friend QObject* QsciLexerJSON_SuperSender(const QsciLexerJSON* self);
     friend int QsciLexerJSON_SenderSignalIndex(const QsciLexerJSON* self);
-    friend int QsciLexerJSON_QBaseSenderSignalIndex(const QsciLexerJSON* self);
+    friend int QsciLexerJSON_SuperSenderSignalIndex(const QsciLexerJSON* self);
     friend int QsciLexerJSON_Receivers(const QsciLexerJSON* self, const char* signal);
-    friend int QsciLexerJSON_QBaseReceivers(const QsciLexerJSON* self, const char* signal);
+    friend int QsciLexerJSON_SuperReceivers(const QsciLexerJSON* self, const char* signal);
     friend bool QsciLexerJSON_IsSignalConnected(const QsciLexerJSON* self, const QMetaMethod* signal);
-    friend bool QsciLexerJSON_QBaseIsSignalConnected(const QsciLexerJSON* self, const QMetaMethod* signal);
+    friend bool QsciLexerJSON_SuperIsSignalConnected(const QsciLexerJSON* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -280,7 +280,7 @@ void KRuler_SlideDown1(KRuler* self, int count) {
 }
 
 // Base class handler implementation
-QMetaObject* KRuler_QBaseMetaObject(const KRuler* self) {
+QMetaObject* KRuler_SuperMetaObject(const KRuler* self) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_MetaObject_IsBase(true);
@@ -299,7 +299,7 @@ void KRuler_OnMetaObject(const KRuler* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KRuler_QBaseMetacast(KRuler* self, const char* param1) {
+void* KRuler_SuperMetacast(KRuler* self, const char* param1) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_Metacast_IsBase(true);
@@ -318,7 +318,7 @@ void KRuler_OnMetacast(KRuler* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KRuler_QBaseMetacall(KRuler* self, int param1, int param2, void** param3) {
+int KRuler_SuperMetacall(KRuler* self, int param1, int param2, void** param3) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_Metacall_IsBase(true);
@@ -337,7 +337,7 @@ void KRuler_OnMetacall(KRuler* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KRuler_QBasePaintEvent(KRuler* self, QPaintEvent* param1) {
+void KRuler_SuperPaintEvent(KRuler* self, QPaintEvent* param1) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_PaintEvent_IsBase(true);
@@ -366,7 +366,7 @@ bool KRuler_Event(KRuler* self, QEvent* e) {
 }
 
 // Base class handler implementation
-bool KRuler_QBaseEvent(KRuler* self, QEvent* e) {
+bool KRuler_SuperEvent(KRuler* self, QEvent* e) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_Event_IsBase(true);
@@ -395,7 +395,7 @@ void KRuler_SliderChange(KRuler* self, int change) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseSliderChange(KRuler* self, int change) {
+void KRuler_SuperSliderChange(KRuler* self, int change) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_SliderChange_IsBase(true);
@@ -424,7 +424,7 @@ void KRuler_KeyPressEvent(KRuler* self, QKeyEvent* ev) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseKeyPressEvent(KRuler* self, QKeyEvent* ev) {
+void KRuler_SuperKeyPressEvent(KRuler* self, QKeyEvent* ev) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_KeyPressEvent_IsBase(true);
@@ -453,7 +453,7 @@ void KRuler_TimerEvent(KRuler* self, QTimerEvent* param1) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseTimerEvent(KRuler* self, QTimerEvent* param1) {
+void KRuler_SuperTimerEvent(KRuler* self, QTimerEvent* param1) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_TimerEvent_IsBase(true);
@@ -482,7 +482,7 @@ void KRuler_WheelEvent(KRuler* self, QWheelEvent* e) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseWheelEvent(KRuler* self, QWheelEvent* e) {
+void KRuler_SuperWheelEvent(KRuler* self, QWheelEvent* e) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_WheelEvent_IsBase(true);
@@ -511,7 +511,7 @@ void KRuler_ChangeEvent(KRuler* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseChangeEvent(KRuler* self, QEvent* e) {
+void KRuler_SuperChangeEvent(KRuler* self, QEvent* e) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_ChangeEvent_IsBase(true);
@@ -540,7 +540,7 @@ int KRuler_DevType(const KRuler* self) {
 }
 
 // Base class handler implementation
-int KRuler_QBaseDevType(const KRuler* self) {
+int KRuler_SuperDevType(const KRuler* self) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_DevType_IsBase(true);
@@ -569,7 +569,7 @@ void KRuler_SetVisible(KRuler* self, bool visible) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseSetVisible(KRuler* self, bool visible) {
+void KRuler_SuperSetVisible(KRuler* self, bool visible) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_SetVisible_IsBase(true);
@@ -598,7 +598,7 @@ QSize* KRuler_SizeHint(const KRuler* self) {
 }
 
 // Base class handler implementation
-QSize* KRuler_QBaseSizeHint(const KRuler* self) {
+QSize* KRuler_SuperSizeHint(const KRuler* self) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_SizeHint_IsBase(true);
@@ -627,7 +627,7 @@ QSize* KRuler_MinimumSizeHint(const KRuler* self) {
 }
 
 // Base class handler implementation
-QSize* KRuler_QBaseMinimumSizeHint(const KRuler* self) {
+QSize* KRuler_SuperMinimumSizeHint(const KRuler* self) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_MinimumSizeHint_IsBase(true);
@@ -656,7 +656,7 @@ int KRuler_HeightForWidth(const KRuler* self, int param1) {
 }
 
 // Base class handler implementation
-int KRuler_QBaseHeightForWidth(const KRuler* self, int param1) {
+int KRuler_SuperHeightForWidth(const KRuler* self, int param1) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_HeightForWidth_IsBase(true);
@@ -685,7 +685,7 @@ bool KRuler_HasHeightForWidth(const KRuler* self) {
 }
 
 // Base class handler implementation
-bool KRuler_QBaseHasHeightForWidth(const KRuler* self) {
+bool KRuler_SuperHasHeightForWidth(const KRuler* self) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_HasHeightForWidth_IsBase(true);
@@ -714,7 +714,7 @@ QPaintEngine* KRuler_PaintEngine(const KRuler* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KRuler_QBasePaintEngine(const KRuler* self) {
+QPaintEngine* KRuler_SuperPaintEngine(const KRuler* self) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_PaintEngine_IsBase(true);
@@ -743,7 +743,7 @@ void KRuler_MousePressEvent(KRuler* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseMousePressEvent(KRuler* self, QMouseEvent* event) {
+void KRuler_SuperMousePressEvent(KRuler* self, QMouseEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_MousePressEvent_IsBase(true);
@@ -772,7 +772,7 @@ void KRuler_MouseReleaseEvent(KRuler* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseMouseReleaseEvent(KRuler* self, QMouseEvent* event) {
+void KRuler_SuperMouseReleaseEvent(KRuler* self, QMouseEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_MouseReleaseEvent_IsBase(true);
@@ -801,7 +801,7 @@ void KRuler_MouseDoubleClickEvent(KRuler* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseMouseDoubleClickEvent(KRuler* self, QMouseEvent* event) {
+void KRuler_SuperMouseDoubleClickEvent(KRuler* self, QMouseEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_MouseDoubleClickEvent_IsBase(true);
@@ -830,7 +830,7 @@ void KRuler_MouseMoveEvent(KRuler* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseMouseMoveEvent(KRuler* self, QMouseEvent* event) {
+void KRuler_SuperMouseMoveEvent(KRuler* self, QMouseEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_MouseMoveEvent_IsBase(true);
@@ -859,7 +859,7 @@ void KRuler_KeyReleaseEvent(KRuler* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseKeyReleaseEvent(KRuler* self, QKeyEvent* event) {
+void KRuler_SuperKeyReleaseEvent(KRuler* self, QKeyEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_KeyReleaseEvent_IsBase(true);
@@ -888,7 +888,7 @@ void KRuler_FocusInEvent(KRuler* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseFocusInEvent(KRuler* self, QFocusEvent* event) {
+void KRuler_SuperFocusInEvent(KRuler* self, QFocusEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_FocusInEvent_IsBase(true);
@@ -917,7 +917,7 @@ void KRuler_FocusOutEvent(KRuler* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseFocusOutEvent(KRuler* self, QFocusEvent* event) {
+void KRuler_SuperFocusOutEvent(KRuler* self, QFocusEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_FocusOutEvent_IsBase(true);
@@ -946,7 +946,7 @@ void KRuler_EnterEvent(KRuler* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseEnterEvent(KRuler* self, QEnterEvent* event) {
+void KRuler_SuperEnterEvent(KRuler* self, QEnterEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_EnterEvent_IsBase(true);
@@ -975,7 +975,7 @@ void KRuler_LeaveEvent(KRuler* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseLeaveEvent(KRuler* self, QEvent* event) {
+void KRuler_SuperLeaveEvent(KRuler* self, QEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_LeaveEvent_IsBase(true);
@@ -1004,7 +1004,7 @@ void KRuler_MoveEvent(KRuler* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseMoveEvent(KRuler* self, QMoveEvent* event) {
+void KRuler_SuperMoveEvent(KRuler* self, QMoveEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_MoveEvent_IsBase(true);
@@ -1033,7 +1033,7 @@ void KRuler_ResizeEvent(KRuler* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseResizeEvent(KRuler* self, QResizeEvent* event) {
+void KRuler_SuperResizeEvent(KRuler* self, QResizeEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_ResizeEvent_IsBase(true);
@@ -1062,7 +1062,7 @@ void KRuler_CloseEvent(KRuler* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseCloseEvent(KRuler* self, QCloseEvent* event) {
+void KRuler_SuperCloseEvent(KRuler* self, QCloseEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_CloseEvent_IsBase(true);
@@ -1091,7 +1091,7 @@ void KRuler_ContextMenuEvent(KRuler* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseContextMenuEvent(KRuler* self, QContextMenuEvent* event) {
+void KRuler_SuperContextMenuEvent(KRuler* self, QContextMenuEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_ContextMenuEvent_IsBase(true);
@@ -1120,7 +1120,7 @@ void KRuler_TabletEvent(KRuler* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseTabletEvent(KRuler* self, QTabletEvent* event) {
+void KRuler_SuperTabletEvent(KRuler* self, QTabletEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_TabletEvent_IsBase(true);
@@ -1149,7 +1149,7 @@ void KRuler_ActionEvent(KRuler* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseActionEvent(KRuler* self, QActionEvent* event) {
+void KRuler_SuperActionEvent(KRuler* self, QActionEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_ActionEvent_IsBase(true);
@@ -1178,7 +1178,7 @@ void KRuler_DragEnterEvent(KRuler* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseDragEnterEvent(KRuler* self, QDragEnterEvent* event) {
+void KRuler_SuperDragEnterEvent(KRuler* self, QDragEnterEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_DragEnterEvent_IsBase(true);
@@ -1207,7 +1207,7 @@ void KRuler_DragMoveEvent(KRuler* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseDragMoveEvent(KRuler* self, QDragMoveEvent* event) {
+void KRuler_SuperDragMoveEvent(KRuler* self, QDragMoveEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_DragMoveEvent_IsBase(true);
@@ -1236,7 +1236,7 @@ void KRuler_DragLeaveEvent(KRuler* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseDragLeaveEvent(KRuler* self, QDragLeaveEvent* event) {
+void KRuler_SuperDragLeaveEvent(KRuler* self, QDragLeaveEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_DragLeaveEvent_IsBase(true);
@@ -1265,7 +1265,7 @@ void KRuler_DropEvent(KRuler* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseDropEvent(KRuler* self, QDropEvent* event) {
+void KRuler_SuperDropEvent(KRuler* self, QDropEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_DropEvent_IsBase(true);
@@ -1294,7 +1294,7 @@ void KRuler_ShowEvent(KRuler* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseShowEvent(KRuler* self, QShowEvent* event) {
+void KRuler_SuperShowEvent(KRuler* self, QShowEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_ShowEvent_IsBase(true);
@@ -1323,7 +1323,7 @@ void KRuler_HideEvent(KRuler* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseHideEvent(KRuler* self, QHideEvent* event) {
+void KRuler_SuperHideEvent(KRuler* self, QHideEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_HideEvent_IsBase(true);
@@ -1353,7 +1353,7 @@ bool KRuler_NativeEvent(KRuler* self, const libqt_string eventType, void* messag
 }
 
 // Base class handler implementation
-bool KRuler_QBaseNativeEvent(KRuler* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KRuler_SuperNativeEvent(KRuler* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkruler && vkruler->isVirtualKRuler) {
@@ -1383,7 +1383,7 @@ int KRuler_Metric(const KRuler* self, int param1) {
 }
 
 // Base class handler implementation
-int KRuler_QBaseMetric(const KRuler* self, int param1) {
+int KRuler_SuperMetric(const KRuler* self, int param1) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_Metric_IsBase(true);
@@ -1412,7 +1412,7 @@ void KRuler_InitPainter(const KRuler* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseInitPainter(const KRuler* self, QPainter* painter) {
+void KRuler_SuperInitPainter(const KRuler* self, QPainter* painter) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_InitPainter_IsBase(true);
@@ -1441,7 +1441,7 @@ QPaintDevice* KRuler_Redirected(const KRuler* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KRuler_QBaseRedirected(const KRuler* self, QPoint* offset) {
+QPaintDevice* KRuler_SuperRedirected(const KRuler* self, QPoint* offset) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_Redirected_IsBase(true);
@@ -1470,7 +1470,7 @@ QPainter* KRuler_SharedPainter(const KRuler* self) {
 }
 
 // Base class handler implementation
-QPainter* KRuler_QBaseSharedPainter(const KRuler* self) {
+QPainter* KRuler_SuperSharedPainter(const KRuler* self) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_SharedPainter_IsBase(true);
@@ -1499,7 +1499,7 @@ void KRuler_InputMethodEvent(KRuler* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseInputMethodEvent(KRuler* self, QInputMethodEvent* param1) {
+void KRuler_SuperInputMethodEvent(KRuler* self, QInputMethodEvent* param1) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_InputMethodEvent_IsBase(true);
@@ -1528,7 +1528,7 @@ QVariant* KRuler_InputMethodQuery(const KRuler* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KRuler_QBaseInputMethodQuery(const KRuler* self, int param1) {
+QVariant* KRuler_SuperInputMethodQuery(const KRuler* self, int param1) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_InputMethodQuery_IsBase(true);
@@ -1557,7 +1557,7 @@ bool KRuler_FocusNextPrevChild(KRuler* self, bool next) {
 }
 
 // Base class handler implementation
-bool KRuler_QBaseFocusNextPrevChild(KRuler* self, bool next) {
+bool KRuler_SuperFocusNextPrevChild(KRuler* self, bool next) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_FocusNextPrevChild_IsBase(true);
@@ -1586,7 +1586,7 @@ bool KRuler_EventFilter(KRuler* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KRuler_QBaseEventFilter(KRuler* self, QObject* watched, QEvent* event) {
+bool KRuler_SuperEventFilter(KRuler* self, QObject* watched, QEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_EventFilter_IsBase(true);
@@ -1615,7 +1615,7 @@ void KRuler_ChildEvent(KRuler* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseChildEvent(KRuler* self, QChildEvent* event) {
+void KRuler_SuperChildEvent(KRuler* self, QChildEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_ChildEvent_IsBase(true);
@@ -1644,7 +1644,7 @@ void KRuler_CustomEvent(KRuler* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseCustomEvent(KRuler* self, QEvent* event) {
+void KRuler_SuperCustomEvent(KRuler* self, QEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_CustomEvent_IsBase(true);
@@ -1673,7 +1673,7 @@ void KRuler_ConnectNotify(KRuler* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseConnectNotify(KRuler* self, const QMetaMethod* signal) {
+void KRuler_SuperConnectNotify(KRuler* self, const QMetaMethod* signal) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_ConnectNotify_IsBase(true);
@@ -1702,7 +1702,7 @@ void KRuler_DisconnectNotify(KRuler* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseDisconnectNotify(KRuler* self, const QMetaMethod* signal) {
+void KRuler_SuperDisconnectNotify(KRuler* self, const QMetaMethod* signal) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_DisconnectNotify_IsBase(true);
@@ -1731,7 +1731,7 @@ void KRuler_SetRepeatAction(KRuler* self, int action) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseSetRepeatAction(KRuler* self, int action) {
+void KRuler_SuperSetRepeatAction(KRuler* self, int action) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_SetRepeatAction_IsBase(true);
@@ -1760,7 +1760,7 @@ int KRuler_RepeatAction(const KRuler* self) {
 }
 
 // Base class handler implementation
-int KRuler_QBaseRepeatAction(const KRuler* self) {
+int KRuler_SuperRepeatAction(const KRuler* self) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_RepeatAction_IsBase(true);
@@ -1789,7 +1789,7 @@ void KRuler_UpdateMicroFocus(KRuler* self) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseUpdateMicroFocus(KRuler* self) {
+void KRuler_SuperUpdateMicroFocus(KRuler* self) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_UpdateMicroFocus_IsBase(true);
@@ -1818,7 +1818,7 @@ void KRuler_Create(KRuler* self) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseCreate(KRuler* self) {
+void KRuler_SuperCreate(KRuler* self) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_Create_IsBase(true);
@@ -1847,7 +1847,7 @@ void KRuler_Destroy(KRuler* self) {
 }
 
 // Base class handler implementation
-void KRuler_QBaseDestroy(KRuler* self) {
+void KRuler_SuperDestroy(KRuler* self) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_Destroy_IsBase(true);
@@ -1876,7 +1876,7 @@ bool KRuler_FocusNextChild(KRuler* self) {
 }
 
 // Base class handler implementation
-bool KRuler_QBaseFocusNextChild(KRuler* self) {
+bool KRuler_SuperFocusNextChild(KRuler* self) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_FocusNextChild_IsBase(true);
@@ -1905,7 +1905,7 @@ bool KRuler_FocusPreviousChild(KRuler* self) {
 }
 
 // Base class handler implementation
-bool KRuler_QBaseFocusPreviousChild(KRuler* self) {
+bool KRuler_SuperFocusPreviousChild(KRuler* self) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_FocusPreviousChild_IsBase(true);
@@ -1934,7 +1934,7 @@ QObject* KRuler_Sender(const KRuler* self) {
 }
 
 // Base class handler implementation
-QObject* KRuler_QBaseSender(const KRuler* self) {
+QObject* KRuler_SuperSender(const KRuler* self) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_Sender_IsBase(true);
@@ -1963,7 +1963,7 @@ int KRuler_SenderSignalIndex(const KRuler* self) {
 }
 
 // Base class handler implementation
-int KRuler_QBaseSenderSignalIndex(const KRuler* self) {
+int KRuler_SuperSenderSignalIndex(const KRuler* self) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_SenderSignalIndex_IsBase(true);
@@ -1992,7 +1992,7 @@ int KRuler_Receivers(const KRuler* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KRuler_QBaseReceivers(const KRuler* self, const char* signal) {
+int KRuler_SuperReceivers(const KRuler* self, const char* signal) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_Receivers_IsBase(true);
@@ -2021,7 +2021,7 @@ bool KRuler_IsSignalConnected(const KRuler* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool KRuler_QBaseIsSignalConnected(const KRuler* self, const QMetaMethod* signal) {
+bool KRuler_SuperIsSignalConnected(const KRuler* self, const QMetaMethod* signal) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_IsSignalConnected_IsBase(true);
@@ -2050,7 +2050,7 @@ double KRuler_GetDecodedMetricF(const KRuler* self, int metricA, int metricB) {
 }
 
 // Base class handler implementation
-double KRuler_QBaseGetDecodedMetricF(const KRuler* self, int metricA, int metricB) {
+double KRuler_SuperGetDecodedMetricF(const KRuler* self, int metricA, int metricB) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
     if (vkruler && vkruler->isVirtualKRuler) {
         vkruler->setKRuler_GetDecodedMetricF_IsBase(true);

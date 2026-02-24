@@ -133,7 +133,7 @@ void QWebChannel_DisconnectFrom(QWebChannel* self, QWebChannelAbstractTransport*
 }
 
 // Base class handler implementation
-QMetaObject* QWebChannel_QBaseMetaObject(const QWebChannel* self) {
+QMetaObject* QWebChannel_SuperMetaObject(const QWebChannel* self) {
     auto* vqwebchannel = const_cast<VirtualQWebChannel*>(dynamic_cast<const VirtualQWebChannel*>(self));
     if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
         vqwebchannel->setQWebChannel_MetaObject_IsBase(true);
@@ -152,7 +152,7 @@ void QWebChannel_OnMetaObject(const QWebChannel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QWebChannel_QBaseMetacast(QWebChannel* self, const char* param1) {
+void* QWebChannel_SuperMetacast(QWebChannel* self, const char* param1) {
     auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
     if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
         vqwebchannel->setQWebChannel_Metacast_IsBase(true);
@@ -171,7 +171,7 @@ void QWebChannel_OnMetacast(QWebChannel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QWebChannel_QBaseMetacall(QWebChannel* self, int param1, int param2, void** param3) {
+int QWebChannel_SuperMetacall(QWebChannel* self, int param1, int param2, void** param3) {
     auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
     if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
         vqwebchannel->setQWebChannel_Metacall_IsBase(true);
@@ -200,7 +200,7 @@ bool QWebChannel_Event(QWebChannel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QWebChannel_QBaseEvent(QWebChannel* self, QEvent* event) {
+bool QWebChannel_SuperEvent(QWebChannel* self, QEvent* event) {
     auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
     if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
         vqwebchannel->setQWebChannel_Event_IsBase(true);
@@ -229,7 +229,7 @@ bool QWebChannel_EventFilter(QWebChannel* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QWebChannel_QBaseEventFilter(QWebChannel* self, QObject* watched, QEvent* event) {
+bool QWebChannel_SuperEventFilter(QWebChannel* self, QObject* watched, QEvent* event) {
     auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
     if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
         vqwebchannel->setQWebChannel_EventFilter_IsBase(true);
@@ -258,7 +258,7 @@ void QWebChannel_TimerEvent(QWebChannel* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QWebChannel_QBaseTimerEvent(QWebChannel* self, QTimerEvent* event) {
+void QWebChannel_SuperTimerEvent(QWebChannel* self, QTimerEvent* event) {
     auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
     if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
         vqwebchannel->setQWebChannel_TimerEvent_IsBase(true);
@@ -287,7 +287,7 @@ void QWebChannel_ChildEvent(QWebChannel* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QWebChannel_QBaseChildEvent(QWebChannel* self, QChildEvent* event) {
+void QWebChannel_SuperChildEvent(QWebChannel* self, QChildEvent* event) {
     auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
     if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
         vqwebchannel->setQWebChannel_ChildEvent_IsBase(true);
@@ -316,7 +316,7 @@ void QWebChannel_CustomEvent(QWebChannel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QWebChannel_QBaseCustomEvent(QWebChannel* self, QEvent* event) {
+void QWebChannel_SuperCustomEvent(QWebChannel* self, QEvent* event) {
     auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
     if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
         vqwebchannel->setQWebChannel_CustomEvent_IsBase(true);
@@ -345,7 +345,7 @@ void QWebChannel_ConnectNotify(QWebChannel* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QWebChannel_QBaseConnectNotify(QWebChannel* self, const QMetaMethod* signal) {
+void QWebChannel_SuperConnectNotify(QWebChannel* self, const QMetaMethod* signal) {
     auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
     if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
         vqwebchannel->setQWebChannel_ConnectNotify_IsBase(true);
@@ -374,7 +374,7 @@ void QWebChannel_DisconnectNotify(QWebChannel* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QWebChannel_QBaseDisconnectNotify(QWebChannel* self, const QMetaMethod* signal) {
+void QWebChannel_SuperDisconnectNotify(QWebChannel* self, const QMetaMethod* signal) {
     auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
     if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
         vqwebchannel->setQWebChannel_DisconnectNotify_IsBase(true);
@@ -403,7 +403,7 @@ QObject* QWebChannel_Sender(const QWebChannel* self) {
 }
 
 // Base class handler implementation
-QObject* QWebChannel_QBaseSender(const QWebChannel* self) {
+QObject* QWebChannel_SuperSender(const QWebChannel* self) {
     auto* vqwebchannel = const_cast<VirtualQWebChannel*>(dynamic_cast<const VirtualQWebChannel*>(self));
     if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
         vqwebchannel->setQWebChannel_Sender_IsBase(true);
@@ -432,7 +432,7 @@ int QWebChannel_SenderSignalIndex(const QWebChannel* self) {
 }
 
 // Base class handler implementation
-int QWebChannel_QBaseSenderSignalIndex(const QWebChannel* self) {
+int QWebChannel_SuperSenderSignalIndex(const QWebChannel* self) {
     auto* vqwebchannel = const_cast<VirtualQWebChannel*>(dynamic_cast<const VirtualQWebChannel*>(self));
     if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
         vqwebchannel->setQWebChannel_SenderSignalIndex_IsBase(true);
@@ -461,7 +461,7 @@ int QWebChannel_Receivers(const QWebChannel* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QWebChannel_QBaseReceivers(const QWebChannel* self, const char* signal) {
+int QWebChannel_SuperReceivers(const QWebChannel* self, const char* signal) {
     auto* vqwebchannel = const_cast<VirtualQWebChannel*>(dynamic_cast<const VirtualQWebChannel*>(self));
     if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
         vqwebchannel->setQWebChannel_Receivers_IsBase(true);
@@ -490,7 +490,7 @@ bool QWebChannel_IsSignalConnected(const QWebChannel* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QWebChannel_QBaseIsSignalConnected(const QWebChannel* self, const QMetaMethod* signal) {
+bool QWebChannel_SuperIsSignalConnected(const QWebChannel* self, const QMetaMethod* signal) {
     auto* vqwebchannel = const_cast<VirtualQWebChannel*>(dynamic_cast<const VirtualQWebChannel*>(self));
     if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
         vqwebchannel->setQWebChannel_IsSignalConnected_IsBase(true);

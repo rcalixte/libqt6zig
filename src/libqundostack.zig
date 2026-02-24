@@ -78,6 +78,10 @@ pub const qundocommand = struct {
         qtc.QUndoCommand_OnUndo(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUndo` instead
+    ///
+    pub const QBaseUndo = SuperUndo;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#undo)
     ///
     /// Base class method implementation
@@ -86,8 +90,8 @@ pub const qundocommand = struct {
     ///
     /// ` self: QtC.QUndoCommand `
     ///
-    pub fn QBaseUndo(self: ?*anyopaque) void {
-        qtc.QUndoCommand_QBaseUndo(@ptrCast(self));
+    pub fn SuperUndo(self: ?*anyopaque) void {
+        qtc.QUndoCommand_SuperUndo(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#redo)
@@ -114,6 +118,10 @@ pub const qundocommand = struct {
         qtc.QUndoCommand_OnRedo(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRedo` instead
+    ///
+    pub const QBaseRedo = SuperRedo;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#redo)
     ///
     /// Base class method implementation
@@ -122,8 +130,8 @@ pub const qundocommand = struct {
     ///
     /// ` self: QtC.QUndoCommand `
     ///
-    pub fn QBaseRedo(self: ?*anyopaque) void {
-        qtc.QUndoCommand_QBaseRedo(@ptrCast(self));
+    pub fn SuperRedo(self: ?*anyopaque) void {
+        qtc.QUndoCommand_SuperRedo(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#text)
@@ -220,6 +228,10 @@ pub const qundocommand = struct {
         qtc.QUndoCommand_OnId(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperId` instead
+    ///
+    pub const QBaseId = SuperId;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#id)
     ///
     /// Base class method implementation
@@ -228,8 +240,8 @@ pub const qundocommand = struct {
     ///
     /// ` self: QtC.QUndoCommand `
     ///
-    pub fn QBaseId(self: ?*anyopaque) i32 {
-        return qtc.QUndoCommand_QBaseId(@ptrCast(self));
+    pub fn SuperId(self: ?*anyopaque) i32 {
+        return qtc.QUndoCommand_SuperId(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#mergeWith)
@@ -258,6 +270,10 @@ pub const qundocommand = struct {
         qtc.QUndoCommand_OnMergeWith(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMergeWith` instead
+    ///
+    pub const QBaseMergeWith = SuperMergeWith;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#mergeWith)
     ///
     /// Base class method implementation
@@ -268,8 +284,8 @@ pub const qundocommand = struct {
     ///
     /// ` other: QtC.QUndoCommand `
     ///
-    pub fn QBaseMergeWith(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QUndoCommand_QBaseMergeWith(@ptrCast(self), @ptrCast(other));
+    pub fn SuperMergeWith(self: ?*anyopaque, other: ?*anyopaque) bool {
+        return qtc.QUndoCommand_SuperMergeWith(@ptrCast(self), @ptrCast(other));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#childCount)
@@ -294,6 +310,10 @@ pub const qundocommand = struct {
         return qtc.QUndoCommand_Child(@ptrCast(self), @bitCast(index));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundocommand.html#dtor.QUndoCommand)
     ///
     /// Delete this object from C++ memory.
@@ -302,7 +322,7 @@ pub const qundocommand = struct {
     ///
     /// ` self: QtC.QUndoCommand `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QUndoCommand_Delete(@ptrCast(self));
     }
 };
@@ -349,6 +369,10 @@ pub const qundostack = struct {
         qtc.QUndoStack_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -357,8 +381,8 @@ pub const qundostack = struct {
     ///
     /// ` self: QtC.QUndoStack `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QUndoStack_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QUndoStack_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -384,6 +408,10 @@ pub const qundostack = struct {
         qtc.QUndoStack_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -392,9 +420,9 @@ pub const qundostack = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QUndoStack_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QUndoStack_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -423,6 +451,10 @@ pub const qundostack = struct {
         qtc.QUndoStack_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -435,8 +467,8 @@ pub const qundostack = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QUndoStack_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QUndoStack_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1740,6 +1772,10 @@ pub const qundostack = struct {
         return qtc.QUndoStack_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1752,8 +1788,8 @@ pub const qundostack = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QUndoStack_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QUndoStack_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1790,6 +1826,10 @@ pub const qundostack = struct {
         return qtc.QUndoStack_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1804,8 +1844,8 @@ pub const qundostack = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QUndoStack_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QUndoStack_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1840,6 +1880,10 @@ pub const qundostack = struct {
         qtc.QUndoStack_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1852,8 +1896,8 @@ pub const qundostack = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QUndoStack_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QUndoStack_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1888,6 +1932,10 @@ pub const qundostack = struct {
         qtc.QUndoStack_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1900,8 +1948,8 @@ pub const qundostack = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QUndoStack_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QUndoStack_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1936,6 +1984,10 @@ pub const qundostack = struct {
         qtc.QUndoStack_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1948,8 +2000,8 @@ pub const qundostack = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QUndoStack_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QUndoStack_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1984,6 +2036,10 @@ pub const qundostack = struct {
         qtc.QUndoStack_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1996,8 +2052,8 @@ pub const qundostack = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QUndoStack_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QUndoStack_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2032,6 +2088,10 @@ pub const qundostack = struct {
         qtc.QUndoStack_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -2044,8 +2104,8 @@ pub const qundostack = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QUndoStack_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QUndoStack_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2078,6 +2138,10 @@ pub const qundostack = struct {
         return qtc.QUndoStack_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2088,8 +2152,8 @@ pub const qundostack = struct {
     ///
     /// ` self: QtC.QUndoStack `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QUndoStack_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QUndoStack_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2122,6 +2186,10 @@ pub const qundostack = struct {
         return qtc.QUndoStack_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2132,8 +2200,8 @@ pub const qundostack = struct {
     ///
     /// ` self: QtC.QUndoStack `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QUndoStack_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QUndoStack_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2169,6 +2237,10 @@ pub const qundostack = struct {
         return qtc.QUndoStack_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2181,9 +2253,9 @@ pub const qundostack = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QUndoStack_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QUndoStack_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2218,6 +2290,10 @@ pub const qundostack = struct {
         return qtc.QUndoStack_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2230,8 +2306,8 @@ pub const qundostack = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QUndoStack_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QUndoStack_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2265,6 +2341,9 @@ pub const qundostack = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qundostack.html#dtor.QUndoStack)
     ///
@@ -2274,7 +2353,7 @@ pub const qundostack = struct {
     ///
     /// ` self: QtC.QUndoStack `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QUndoStack_Delete(@ptrCast(self));
     }
 };

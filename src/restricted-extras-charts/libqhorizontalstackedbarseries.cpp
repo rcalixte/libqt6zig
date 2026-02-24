@@ -59,7 +59,7 @@ int QHorizontalStackedBarSeries_Type(const QHorizontalStackedBarSeries* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QHorizontalStackedBarSeries_QBaseMetaObject(const QHorizontalStackedBarSeries* self) {
+QMetaObject* QHorizontalStackedBarSeries_SuperMetaObject(const QHorizontalStackedBarSeries* self) {
     auto* vqhorizontalstackedbarseries = const_cast<VirtualQHorizontalStackedBarSeries*>(dynamic_cast<const VirtualQHorizontalStackedBarSeries*>(self));
     if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_MetaObject_IsBase(true);
@@ -78,7 +78,7 @@ void QHorizontalStackedBarSeries_OnMetaObject(const QHorizontalStackedBarSeries*
 }
 
 // Base class handler implementation
-void* QHorizontalStackedBarSeries_QBaseMetacast(QHorizontalStackedBarSeries* self, const char* param1) {
+void* QHorizontalStackedBarSeries_SuperMetacast(QHorizontalStackedBarSeries* self, const char* param1) {
     auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
     if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_Metacast_IsBase(true);
@@ -97,7 +97,7 @@ void QHorizontalStackedBarSeries_OnMetacast(QHorizontalStackedBarSeries* self, i
 }
 
 // Base class handler implementation
-int QHorizontalStackedBarSeries_QBaseMetacall(QHorizontalStackedBarSeries* self, int param1, int param2, void** param3) {
+int QHorizontalStackedBarSeries_SuperMetacall(QHorizontalStackedBarSeries* self, int param1, int param2, void** param3) {
     auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
     if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_Metacall_IsBase(true);
@@ -116,7 +116,7 @@ void QHorizontalStackedBarSeries_OnMetacall(QHorizontalStackedBarSeries* self, i
 }
 
 // Base class handler implementation
-int QHorizontalStackedBarSeries_QBaseType(const QHorizontalStackedBarSeries* self) {
+int QHorizontalStackedBarSeries_SuperType(const QHorizontalStackedBarSeries* self) {
     auto* vqhorizontalstackedbarseries = const_cast<VirtualQHorizontalStackedBarSeries*>(dynamic_cast<const VirtualQHorizontalStackedBarSeries*>(self));
     if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_Type_IsBase(true);
@@ -145,7 +145,7 @@ bool QHorizontalStackedBarSeries_Event(QHorizontalStackedBarSeries* self, QEvent
 }
 
 // Base class handler implementation
-bool QHorizontalStackedBarSeries_QBaseEvent(QHorizontalStackedBarSeries* self, QEvent* event) {
+bool QHorizontalStackedBarSeries_SuperEvent(QHorizontalStackedBarSeries* self, QEvent* event) {
     auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
     if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_Event_IsBase(true);
@@ -174,7 +174,7 @@ bool QHorizontalStackedBarSeries_EventFilter(QHorizontalStackedBarSeries* self, 
 }
 
 // Base class handler implementation
-bool QHorizontalStackedBarSeries_QBaseEventFilter(QHorizontalStackedBarSeries* self, QObject* watched, QEvent* event) {
+bool QHorizontalStackedBarSeries_SuperEventFilter(QHorizontalStackedBarSeries* self, QObject* watched, QEvent* event) {
     auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
     if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_EventFilter_IsBase(true);
@@ -203,7 +203,7 @@ void QHorizontalStackedBarSeries_TimerEvent(QHorizontalStackedBarSeries* self, Q
 }
 
 // Base class handler implementation
-void QHorizontalStackedBarSeries_QBaseTimerEvent(QHorizontalStackedBarSeries* self, QTimerEvent* event) {
+void QHorizontalStackedBarSeries_SuperTimerEvent(QHorizontalStackedBarSeries* self, QTimerEvent* event) {
     auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
     if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_TimerEvent_IsBase(true);
@@ -232,7 +232,7 @@ void QHorizontalStackedBarSeries_ChildEvent(QHorizontalStackedBarSeries* self, Q
 }
 
 // Base class handler implementation
-void QHorizontalStackedBarSeries_QBaseChildEvent(QHorizontalStackedBarSeries* self, QChildEvent* event) {
+void QHorizontalStackedBarSeries_SuperChildEvent(QHorizontalStackedBarSeries* self, QChildEvent* event) {
     auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
     if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_ChildEvent_IsBase(true);
@@ -261,7 +261,7 @@ void QHorizontalStackedBarSeries_CustomEvent(QHorizontalStackedBarSeries* self, 
 }
 
 // Base class handler implementation
-void QHorizontalStackedBarSeries_QBaseCustomEvent(QHorizontalStackedBarSeries* self, QEvent* event) {
+void QHorizontalStackedBarSeries_SuperCustomEvent(QHorizontalStackedBarSeries* self, QEvent* event) {
     auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
     if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_CustomEvent_IsBase(true);
@@ -290,7 +290,7 @@ void QHorizontalStackedBarSeries_ConnectNotify(QHorizontalStackedBarSeries* self
 }
 
 // Base class handler implementation
-void QHorizontalStackedBarSeries_QBaseConnectNotify(QHorizontalStackedBarSeries* self, const QMetaMethod* signal) {
+void QHorizontalStackedBarSeries_SuperConnectNotify(QHorizontalStackedBarSeries* self, const QMetaMethod* signal) {
     auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
     if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_ConnectNotify_IsBase(true);
@@ -319,7 +319,7 @@ void QHorizontalStackedBarSeries_DisconnectNotify(QHorizontalStackedBarSeries* s
 }
 
 // Base class handler implementation
-void QHorizontalStackedBarSeries_QBaseDisconnectNotify(QHorizontalStackedBarSeries* self, const QMetaMethod* signal) {
+void QHorizontalStackedBarSeries_SuperDisconnectNotify(QHorizontalStackedBarSeries* self, const QMetaMethod* signal) {
     auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
     if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_DisconnectNotify_IsBase(true);
@@ -348,7 +348,7 @@ QObject* QHorizontalStackedBarSeries_Sender(const QHorizontalStackedBarSeries* s
 }
 
 // Base class handler implementation
-QObject* QHorizontalStackedBarSeries_QBaseSender(const QHorizontalStackedBarSeries* self) {
+QObject* QHorizontalStackedBarSeries_SuperSender(const QHorizontalStackedBarSeries* self) {
     auto* vqhorizontalstackedbarseries = const_cast<VirtualQHorizontalStackedBarSeries*>(dynamic_cast<const VirtualQHorizontalStackedBarSeries*>(self));
     if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_Sender_IsBase(true);
@@ -377,7 +377,7 @@ int QHorizontalStackedBarSeries_SenderSignalIndex(const QHorizontalStackedBarSer
 }
 
 // Base class handler implementation
-int QHorizontalStackedBarSeries_QBaseSenderSignalIndex(const QHorizontalStackedBarSeries* self) {
+int QHorizontalStackedBarSeries_SuperSenderSignalIndex(const QHorizontalStackedBarSeries* self) {
     auto* vqhorizontalstackedbarseries = const_cast<VirtualQHorizontalStackedBarSeries*>(dynamic_cast<const VirtualQHorizontalStackedBarSeries*>(self));
     if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_SenderSignalIndex_IsBase(true);
@@ -406,7 +406,7 @@ int QHorizontalStackedBarSeries_Receivers(const QHorizontalStackedBarSeries* sel
 }
 
 // Base class handler implementation
-int QHorizontalStackedBarSeries_QBaseReceivers(const QHorizontalStackedBarSeries* self, const char* signal) {
+int QHorizontalStackedBarSeries_SuperReceivers(const QHorizontalStackedBarSeries* self, const char* signal) {
     auto* vqhorizontalstackedbarseries = const_cast<VirtualQHorizontalStackedBarSeries*>(dynamic_cast<const VirtualQHorizontalStackedBarSeries*>(self));
     if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_Receivers_IsBase(true);
@@ -435,7 +435,7 @@ bool QHorizontalStackedBarSeries_IsSignalConnected(const QHorizontalStackedBarSe
 }
 
 // Base class handler implementation
-bool QHorizontalStackedBarSeries_QBaseIsSignalConnected(const QHorizontalStackedBarSeries* self, const QMetaMethod* signal) {
+bool QHorizontalStackedBarSeries_SuperIsSignalConnected(const QHorizontalStackedBarSeries* self, const QMetaMethod* signal) {
     auto* vqhorizontalstackedbarseries = const_cast<VirtualQHorizontalStackedBarSeries*>(dynamic_cast<const VirtualQHorizontalStackedBarSeries*>(self));
     if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_IsSignalConnected_IsBase(true);

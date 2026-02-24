@@ -59,7 +59,7 @@ QSqlDriver* QSqlDriverPlugin_Create(QSqlDriverPlugin* self, const libqt_string k
 }
 
 // Base class handler implementation
-QMetaObject* QSqlDriverPlugin_QBaseMetaObject(const QSqlDriverPlugin* self) {
+QMetaObject* QSqlDriverPlugin_SuperMetaObject(const QSqlDriverPlugin* self) {
     auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self));
     if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
         vqsqldriverplugin->setQSqlDriverPlugin_MetaObject_IsBase(true);
@@ -78,7 +78,7 @@ void QSqlDriverPlugin_OnMetaObject(const QSqlDriverPlugin* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* QSqlDriverPlugin_QBaseMetacast(QSqlDriverPlugin* self, const char* param1) {
+void* QSqlDriverPlugin_SuperMetacast(QSqlDriverPlugin* self, const char* param1) {
     auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
     if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
         vqsqldriverplugin->setQSqlDriverPlugin_Metacast_IsBase(true);
@@ -97,7 +97,7 @@ void QSqlDriverPlugin_OnMetacast(QSqlDriverPlugin* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSqlDriverPlugin_QBaseMetacall(QSqlDriverPlugin* self, int param1, int param2, void** param3) {
+int QSqlDriverPlugin_SuperMetacall(QSqlDriverPlugin* self, int param1, int param2, void** param3) {
     auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
     if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
         vqsqldriverplugin->setQSqlDriverPlugin_Metacall_IsBase(true);
@@ -116,7 +116,7 @@ void QSqlDriverPlugin_OnMetacall(QSqlDriverPlugin* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSqlDriver* QSqlDriverPlugin_QBaseCreate(QSqlDriverPlugin* self, const libqt_string key) {
+QSqlDriver* QSqlDriverPlugin_SuperCreate(QSqlDriverPlugin* self, const libqt_string key) {
     auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
     QString key_QString = QString::fromUtf8(key.data, key.len);
     if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
@@ -146,7 +146,7 @@ bool QSqlDriverPlugin_Event(QSqlDriverPlugin* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QSqlDriverPlugin_QBaseEvent(QSqlDriverPlugin* self, QEvent* event) {
+bool QSqlDriverPlugin_SuperEvent(QSqlDriverPlugin* self, QEvent* event) {
     auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
     if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
         vqsqldriverplugin->setQSqlDriverPlugin_Event_IsBase(true);
@@ -175,7 +175,7 @@ bool QSqlDriverPlugin_EventFilter(QSqlDriverPlugin* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool QSqlDriverPlugin_QBaseEventFilter(QSqlDriverPlugin* self, QObject* watched, QEvent* event) {
+bool QSqlDriverPlugin_SuperEventFilter(QSqlDriverPlugin* self, QObject* watched, QEvent* event) {
     auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
     if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
         vqsqldriverplugin->setQSqlDriverPlugin_EventFilter_IsBase(true);
@@ -204,7 +204,7 @@ void QSqlDriverPlugin_TimerEvent(QSqlDriverPlugin* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QSqlDriverPlugin_QBaseTimerEvent(QSqlDriverPlugin* self, QTimerEvent* event) {
+void QSqlDriverPlugin_SuperTimerEvent(QSqlDriverPlugin* self, QTimerEvent* event) {
     auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
     if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
         vqsqldriverplugin->setQSqlDriverPlugin_TimerEvent_IsBase(true);
@@ -233,7 +233,7 @@ void QSqlDriverPlugin_ChildEvent(QSqlDriverPlugin* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QSqlDriverPlugin_QBaseChildEvent(QSqlDriverPlugin* self, QChildEvent* event) {
+void QSqlDriverPlugin_SuperChildEvent(QSqlDriverPlugin* self, QChildEvent* event) {
     auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
     if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
         vqsqldriverplugin->setQSqlDriverPlugin_ChildEvent_IsBase(true);
@@ -262,7 +262,7 @@ void QSqlDriverPlugin_CustomEvent(QSqlDriverPlugin* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSqlDriverPlugin_QBaseCustomEvent(QSqlDriverPlugin* self, QEvent* event) {
+void QSqlDriverPlugin_SuperCustomEvent(QSqlDriverPlugin* self, QEvent* event) {
     auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
     if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
         vqsqldriverplugin->setQSqlDriverPlugin_CustomEvent_IsBase(true);
@@ -291,7 +291,7 @@ void QSqlDriverPlugin_ConnectNotify(QSqlDriverPlugin* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void QSqlDriverPlugin_QBaseConnectNotify(QSqlDriverPlugin* self, const QMetaMethod* signal) {
+void QSqlDriverPlugin_SuperConnectNotify(QSqlDriverPlugin* self, const QMetaMethod* signal) {
     auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
     if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
         vqsqldriverplugin->setQSqlDriverPlugin_ConnectNotify_IsBase(true);
@@ -320,7 +320,7 @@ void QSqlDriverPlugin_DisconnectNotify(QSqlDriverPlugin* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void QSqlDriverPlugin_QBaseDisconnectNotify(QSqlDriverPlugin* self, const QMetaMethod* signal) {
+void QSqlDriverPlugin_SuperDisconnectNotify(QSqlDriverPlugin* self, const QMetaMethod* signal) {
     auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
     if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
         vqsqldriverplugin->setQSqlDriverPlugin_DisconnectNotify_IsBase(true);
@@ -349,7 +349,7 @@ QObject* QSqlDriverPlugin_Sender(const QSqlDriverPlugin* self) {
 }
 
 // Base class handler implementation
-QObject* QSqlDriverPlugin_QBaseSender(const QSqlDriverPlugin* self) {
+QObject* QSqlDriverPlugin_SuperSender(const QSqlDriverPlugin* self) {
     auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self));
     if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
         vqsqldriverplugin->setQSqlDriverPlugin_Sender_IsBase(true);
@@ -378,7 +378,7 @@ int QSqlDriverPlugin_SenderSignalIndex(const QSqlDriverPlugin* self) {
 }
 
 // Base class handler implementation
-int QSqlDriverPlugin_QBaseSenderSignalIndex(const QSqlDriverPlugin* self) {
+int QSqlDriverPlugin_SuperSenderSignalIndex(const QSqlDriverPlugin* self) {
     auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self));
     if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
         vqsqldriverplugin->setQSqlDriverPlugin_SenderSignalIndex_IsBase(true);
@@ -407,7 +407,7 @@ int QSqlDriverPlugin_Receivers(const QSqlDriverPlugin* self, const char* signal)
 }
 
 // Base class handler implementation
-int QSqlDriverPlugin_QBaseReceivers(const QSqlDriverPlugin* self, const char* signal) {
+int QSqlDriverPlugin_SuperReceivers(const QSqlDriverPlugin* self, const char* signal) {
     auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self));
     if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
         vqsqldriverplugin->setQSqlDriverPlugin_Receivers_IsBase(true);
@@ -436,7 +436,7 @@ bool QSqlDriverPlugin_IsSignalConnected(const QSqlDriverPlugin* self, const QMet
 }
 
 // Base class handler implementation
-bool QSqlDriverPlugin_QBaseIsSignalConnected(const QSqlDriverPlugin* self, const QMetaMethod* signal) {
+bool QSqlDriverPlugin_SuperIsSignalConnected(const QSqlDriverPlugin* self, const QMetaMethod* signal) {
     auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self));
     if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
         vqsqldriverplugin->setQSqlDriverPlugin_IsSignalConnected_IsBase(true);

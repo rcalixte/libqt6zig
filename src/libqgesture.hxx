@@ -328,23 +328,23 @@ class VirtualQGesture final : public QGesture {
 
     // Friend functions
     friend void QGesture_TimerEvent(QGesture* self, QTimerEvent* event);
-    friend void QGesture_QBaseTimerEvent(QGesture* self, QTimerEvent* event);
+    friend void QGesture_SuperTimerEvent(QGesture* self, QTimerEvent* event);
     friend void QGesture_ChildEvent(QGesture* self, QChildEvent* event);
-    friend void QGesture_QBaseChildEvent(QGesture* self, QChildEvent* event);
+    friend void QGesture_SuperChildEvent(QGesture* self, QChildEvent* event);
     friend void QGesture_CustomEvent(QGesture* self, QEvent* event);
-    friend void QGesture_QBaseCustomEvent(QGesture* self, QEvent* event);
+    friend void QGesture_SuperCustomEvent(QGesture* self, QEvent* event);
     friend void QGesture_ConnectNotify(QGesture* self, const QMetaMethod* signal);
-    friend void QGesture_QBaseConnectNotify(QGesture* self, const QMetaMethod* signal);
+    friend void QGesture_SuperConnectNotify(QGesture* self, const QMetaMethod* signal);
     friend void QGesture_DisconnectNotify(QGesture* self, const QMetaMethod* signal);
-    friend void QGesture_QBaseDisconnectNotify(QGesture* self, const QMetaMethod* signal);
+    friend void QGesture_SuperDisconnectNotify(QGesture* self, const QMetaMethod* signal);
     friend QObject* QGesture_Sender(const QGesture* self);
-    friend QObject* QGesture_QBaseSender(const QGesture* self);
+    friend QObject* QGesture_SuperSender(const QGesture* self);
     friend int QGesture_SenderSignalIndex(const QGesture* self);
-    friend int QGesture_QBaseSenderSignalIndex(const QGesture* self);
+    friend int QGesture_SuperSenderSignalIndex(const QGesture* self);
     friend int QGesture_Receivers(const QGesture* self, const char* signal);
-    friend int QGesture_QBaseReceivers(const QGesture* self, const char* signal);
+    friend int QGesture_SuperReceivers(const QGesture* self, const char* signal);
     friend bool QGesture_IsSignalConnected(const QGesture* self, const QMetaMethod* signal);
-    friend bool QGesture_QBaseIsSignalConnected(const QGesture* self, const QMetaMethod* signal);
+    friend bool QGesture_SuperIsSignalConnected(const QGesture* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QPanGesture so that we can call protected methods
@@ -666,23 +666,23 @@ class VirtualQPanGesture final : public QPanGesture {
 
     // Friend functions
     friend void QPanGesture_TimerEvent(QPanGesture* self, QTimerEvent* event);
-    friend void QPanGesture_QBaseTimerEvent(QPanGesture* self, QTimerEvent* event);
+    friend void QPanGesture_SuperTimerEvent(QPanGesture* self, QTimerEvent* event);
     friend void QPanGesture_ChildEvent(QPanGesture* self, QChildEvent* event);
-    friend void QPanGesture_QBaseChildEvent(QPanGesture* self, QChildEvent* event);
+    friend void QPanGesture_SuperChildEvent(QPanGesture* self, QChildEvent* event);
     friend void QPanGesture_CustomEvent(QPanGesture* self, QEvent* event);
-    friend void QPanGesture_QBaseCustomEvent(QPanGesture* self, QEvent* event);
+    friend void QPanGesture_SuperCustomEvent(QPanGesture* self, QEvent* event);
     friend void QPanGesture_ConnectNotify(QPanGesture* self, const QMetaMethod* signal);
-    friend void QPanGesture_QBaseConnectNotify(QPanGesture* self, const QMetaMethod* signal);
+    friend void QPanGesture_SuperConnectNotify(QPanGesture* self, const QMetaMethod* signal);
     friend void QPanGesture_DisconnectNotify(QPanGesture* self, const QMetaMethod* signal);
-    friend void QPanGesture_QBaseDisconnectNotify(QPanGesture* self, const QMetaMethod* signal);
+    friend void QPanGesture_SuperDisconnectNotify(QPanGesture* self, const QMetaMethod* signal);
     friend QObject* QPanGesture_Sender(const QPanGesture* self);
-    friend QObject* QPanGesture_QBaseSender(const QPanGesture* self);
+    friend QObject* QPanGesture_SuperSender(const QPanGesture* self);
     friend int QPanGesture_SenderSignalIndex(const QPanGesture* self);
-    friend int QPanGesture_QBaseSenderSignalIndex(const QPanGesture* self);
+    friend int QPanGesture_SuperSenderSignalIndex(const QPanGesture* self);
     friend int QPanGesture_Receivers(const QPanGesture* self, const char* signal);
-    friend int QPanGesture_QBaseReceivers(const QPanGesture* self, const char* signal);
+    friend int QPanGesture_SuperReceivers(const QPanGesture* self, const char* signal);
     friend bool QPanGesture_IsSignalConnected(const QPanGesture* self, const QMetaMethod* signal);
-    friend bool QPanGesture_QBaseIsSignalConnected(const QPanGesture* self, const QMetaMethod* signal);
+    friend bool QPanGesture_SuperIsSignalConnected(const QPanGesture* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QPinchGesture so that we can call protected methods
@@ -1004,23 +1004,23 @@ class VirtualQPinchGesture final : public QPinchGesture {
 
     // Friend functions
     friend void QPinchGesture_TimerEvent(QPinchGesture* self, QTimerEvent* event);
-    friend void QPinchGesture_QBaseTimerEvent(QPinchGesture* self, QTimerEvent* event);
+    friend void QPinchGesture_SuperTimerEvent(QPinchGesture* self, QTimerEvent* event);
     friend void QPinchGesture_ChildEvent(QPinchGesture* self, QChildEvent* event);
-    friend void QPinchGesture_QBaseChildEvent(QPinchGesture* self, QChildEvent* event);
+    friend void QPinchGesture_SuperChildEvent(QPinchGesture* self, QChildEvent* event);
     friend void QPinchGesture_CustomEvent(QPinchGesture* self, QEvent* event);
-    friend void QPinchGesture_QBaseCustomEvent(QPinchGesture* self, QEvent* event);
+    friend void QPinchGesture_SuperCustomEvent(QPinchGesture* self, QEvent* event);
     friend void QPinchGesture_ConnectNotify(QPinchGesture* self, const QMetaMethod* signal);
-    friend void QPinchGesture_QBaseConnectNotify(QPinchGesture* self, const QMetaMethod* signal);
+    friend void QPinchGesture_SuperConnectNotify(QPinchGesture* self, const QMetaMethod* signal);
     friend void QPinchGesture_DisconnectNotify(QPinchGesture* self, const QMetaMethod* signal);
-    friend void QPinchGesture_QBaseDisconnectNotify(QPinchGesture* self, const QMetaMethod* signal);
+    friend void QPinchGesture_SuperDisconnectNotify(QPinchGesture* self, const QMetaMethod* signal);
     friend QObject* QPinchGesture_Sender(const QPinchGesture* self);
-    friend QObject* QPinchGesture_QBaseSender(const QPinchGesture* self);
+    friend QObject* QPinchGesture_SuperSender(const QPinchGesture* self);
     friend int QPinchGesture_SenderSignalIndex(const QPinchGesture* self);
-    friend int QPinchGesture_QBaseSenderSignalIndex(const QPinchGesture* self);
+    friend int QPinchGesture_SuperSenderSignalIndex(const QPinchGesture* self);
     friend int QPinchGesture_Receivers(const QPinchGesture* self, const char* signal);
-    friend int QPinchGesture_QBaseReceivers(const QPinchGesture* self, const char* signal);
+    friend int QPinchGesture_SuperReceivers(const QPinchGesture* self, const char* signal);
     friend bool QPinchGesture_IsSignalConnected(const QPinchGesture* self, const QMetaMethod* signal);
-    friend bool QPinchGesture_QBaseIsSignalConnected(const QPinchGesture* self, const QMetaMethod* signal);
+    friend bool QPinchGesture_SuperIsSignalConnected(const QPinchGesture* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QSwipeGesture so that we can call protected methods
@@ -1342,23 +1342,23 @@ class VirtualQSwipeGesture final : public QSwipeGesture {
 
     // Friend functions
     friend void QSwipeGesture_TimerEvent(QSwipeGesture* self, QTimerEvent* event);
-    friend void QSwipeGesture_QBaseTimerEvent(QSwipeGesture* self, QTimerEvent* event);
+    friend void QSwipeGesture_SuperTimerEvent(QSwipeGesture* self, QTimerEvent* event);
     friend void QSwipeGesture_ChildEvent(QSwipeGesture* self, QChildEvent* event);
-    friend void QSwipeGesture_QBaseChildEvent(QSwipeGesture* self, QChildEvent* event);
+    friend void QSwipeGesture_SuperChildEvent(QSwipeGesture* self, QChildEvent* event);
     friend void QSwipeGesture_CustomEvent(QSwipeGesture* self, QEvent* event);
-    friend void QSwipeGesture_QBaseCustomEvent(QSwipeGesture* self, QEvent* event);
+    friend void QSwipeGesture_SuperCustomEvent(QSwipeGesture* self, QEvent* event);
     friend void QSwipeGesture_ConnectNotify(QSwipeGesture* self, const QMetaMethod* signal);
-    friend void QSwipeGesture_QBaseConnectNotify(QSwipeGesture* self, const QMetaMethod* signal);
+    friend void QSwipeGesture_SuperConnectNotify(QSwipeGesture* self, const QMetaMethod* signal);
     friend void QSwipeGesture_DisconnectNotify(QSwipeGesture* self, const QMetaMethod* signal);
-    friend void QSwipeGesture_QBaseDisconnectNotify(QSwipeGesture* self, const QMetaMethod* signal);
+    friend void QSwipeGesture_SuperDisconnectNotify(QSwipeGesture* self, const QMetaMethod* signal);
     friend QObject* QSwipeGesture_Sender(const QSwipeGesture* self);
-    friend QObject* QSwipeGesture_QBaseSender(const QSwipeGesture* self);
+    friend QObject* QSwipeGesture_SuperSender(const QSwipeGesture* self);
     friend int QSwipeGesture_SenderSignalIndex(const QSwipeGesture* self);
-    friend int QSwipeGesture_QBaseSenderSignalIndex(const QSwipeGesture* self);
+    friend int QSwipeGesture_SuperSenderSignalIndex(const QSwipeGesture* self);
     friend int QSwipeGesture_Receivers(const QSwipeGesture* self, const char* signal);
-    friend int QSwipeGesture_QBaseReceivers(const QSwipeGesture* self, const char* signal);
+    friend int QSwipeGesture_SuperReceivers(const QSwipeGesture* self, const char* signal);
     friend bool QSwipeGesture_IsSignalConnected(const QSwipeGesture* self, const QMetaMethod* signal);
-    friend bool QSwipeGesture_QBaseIsSignalConnected(const QSwipeGesture* self, const QMetaMethod* signal);
+    friend bool QSwipeGesture_SuperIsSignalConnected(const QSwipeGesture* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QTapGesture so that we can call protected methods
@@ -1680,23 +1680,23 @@ class VirtualQTapGesture final : public QTapGesture {
 
     // Friend functions
     friend void QTapGesture_TimerEvent(QTapGesture* self, QTimerEvent* event);
-    friend void QTapGesture_QBaseTimerEvent(QTapGesture* self, QTimerEvent* event);
+    friend void QTapGesture_SuperTimerEvent(QTapGesture* self, QTimerEvent* event);
     friend void QTapGesture_ChildEvent(QTapGesture* self, QChildEvent* event);
-    friend void QTapGesture_QBaseChildEvent(QTapGesture* self, QChildEvent* event);
+    friend void QTapGesture_SuperChildEvent(QTapGesture* self, QChildEvent* event);
     friend void QTapGesture_CustomEvent(QTapGesture* self, QEvent* event);
-    friend void QTapGesture_QBaseCustomEvent(QTapGesture* self, QEvent* event);
+    friend void QTapGesture_SuperCustomEvent(QTapGesture* self, QEvent* event);
     friend void QTapGesture_ConnectNotify(QTapGesture* self, const QMetaMethod* signal);
-    friend void QTapGesture_QBaseConnectNotify(QTapGesture* self, const QMetaMethod* signal);
+    friend void QTapGesture_SuperConnectNotify(QTapGesture* self, const QMetaMethod* signal);
     friend void QTapGesture_DisconnectNotify(QTapGesture* self, const QMetaMethod* signal);
-    friend void QTapGesture_QBaseDisconnectNotify(QTapGesture* self, const QMetaMethod* signal);
+    friend void QTapGesture_SuperDisconnectNotify(QTapGesture* self, const QMetaMethod* signal);
     friend QObject* QTapGesture_Sender(const QTapGesture* self);
-    friend QObject* QTapGesture_QBaseSender(const QTapGesture* self);
+    friend QObject* QTapGesture_SuperSender(const QTapGesture* self);
     friend int QTapGesture_SenderSignalIndex(const QTapGesture* self);
-    friend int QTapGesture_QBaseSenderSignalIndex(const QTapGesture* self);
+    friend int QTapGesture_SuperSenderSignalIndex(const QTapGesture* self);
     friend int QTapGesture_Receivers(const QTapGesture* self, const char* signal);
-    friend int QTapGesture_QBaseReceivers(const QTapGesture* self, const char* signal);
+    friend int QTapGesture_SuperReceivers(const QTapGesture* self, const char* signal);
     friend bool QTapGesture_IsSignalConnected(const QTapGesture* self, const QMetaMethod* signal);
-    friend bool QTapGesture_QBaseIsSignalConnected(const QTapGesture* self, const QMetaMethod* signal);
+    friend bool QTapGesture_SuperIsSignalConnected(const QTapGesture* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QTapAndHoldGesture so that we can call protected methods
@@ -2018,23 +2018,23 @@ class VirtualQTapAndHoldGesture final : public QTapAndHoldGesture {
 
     // Friend functions
     friend void QTapAndHoldGesture_TimerEvent(QTapAndHoldGesture* self, QTimerEvent* event);
-    friend void QTapAndHoldGesture_QBaseTimerEvent(QTapAndHoldGesture* self, QTimerEvent* event);
+    friend void QTapAndHoldGesture_SuperTimerEvent(QTapAndHoldGesture* self, QTimerEvent* event);
     friend void QTapAndHoldGesture_ChildEvent(QTapAndHoldGesture* self, QChildEvent* event);
-    friend void QTapAndHoldGesture_QBaseChildEvent(QTapAndHoldGesture* self, QChildEvent* event);
+    friend void QTapAndHoldGesture_SuperChildEvent(QTapAndHoldGesture* self, QChildEvent* event);
     friend void QTapAndHoldGesture_CustomEvent(QTapAndHoldGesture* self, QEvent* event);
-    friend void QTapAndHoldGesture_QBaseCustomEvent(QTapAndHoldGesture* self, QEvent* event);
+    friend void QTapAndHoldGesture_SuperCustomEvent(QTapAndHoldGesture* self, QEvent* event);
     friend void QTapAndHoldGesture_ConnectNotify(QTapAndHoldGesture* self, const QMetaMethod* signal);
-    friend void QTapAndHoldGesture_QBaseConnectNotify(QTapAndHoldGesture* self, const QMetaMethod* signal);
+    friend void QTapAndHoldGesture_SuperConnectNotify(QTapAndHoldGesture* self, const QMetaMethod* signal);
     friend void QTapAndHoldGesture_DisconnectNotify(QTapAndHoldGesture* self, const QMetaMethod* signal);
-    friend void QTapAndHoldGesture_QBaseDisconnectNotify(QTapAndHoldGesture* self, const QMetaMethod* signal);
+    friend void QTapAndHoldGesture_SuperDisconnectNotify(QTapAndHoldGesture* self, const QMetaMethod* signal);
     friend QObject* QTapAndHoldGesture_Sender(const QTapAndHoldGesture* self);
-    friend QObject* QTapAndHoldGesture_QBaseSender(const QTapAndHoldGesture* self);
+    friend QObject* QTapAndHoldGesture_SuperSender(const QTapAndHoldGesture* self);
     friend int QTapAndHoldGesture_SenderSignalIndex(const QTapAndHoldGesture* self);
-    friend int QTapAndHoldGesture_QBaseSenderSignalIndex(const QTapAndHoldGesture* self);
+    friend int QTapAndHoldGesture_SuperSenderSignalIndex(const QTapAndHoldGesture* self);
     friend int QTapAndHoldGesture_Receivers(const QTapAndHoldGesture* self, const char* signal);
-    friend int QTapAndHoldGesture_QBaseReceivers(const QTapAndHoldGesture* self, const char* signal);
+    friend int QTapAndHoldGesture_SuperReceivers(const QTapAndHoldGesture* self, const char* signal);
     friend bool QTapAndHoldGesture_IsSignalConnected(const QTapAndHoldGesture* self, const QMetaMethod* signal);
-    friend bool QTapAndHoldGesture_QBaseIsSignalConnected(const QTapAndHoldGesture* self, const QMetaMethod* signal);
+    friend bool QTapAndHoldGesture_SuperIsSignalConnected(const QTapAndHoldGesture* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QGestureEvent so that we can call protected methods

@@ -73,7 +73,7 @@ void KAbstractViewAdapter_Connect(KAbstractViewAdapter* self, int signal, QObjec
 }
 
 // Base class handler implementation
-QAbstractItemModel* KAbstractViewAdapter_QBaseModel(const KAbstractViewAdapter* self) {
+QAbstractItemModel* KAbstractViewAdapter_SuperModel(const KAbstractViewAdapter* self) {
     auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
     if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
         vkabstractviewadapter->setKAbstractViewAdapter_Model_IsBase(true);
@@ -92,7 +92,7 @@ void KAbstractViewAdapter_OnModel(const KAbstractViewAdapter* self, intptr_t slo
 }
 
 // Base class handler implementation
-QSize* KAbstractViewAdapter_QBaseIconSize(const KAbstractViewAdapter* self) {
+QSize* KAbstractViewAdapter_SuperIconSize(const KAbstractViewAdapter* self) {
     auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
     if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
         vkabstractviewadapter->setKAbstractViewAdapter_IconSize_IsBase(true);
@@ -111,7 +111,7 @@ void KAbstractViewAdapter_OnIconSize(const KAbstractViewAdapter* self, intptr_t 
 }
 
 // Base class handler implementation
-QPalette* KAbstractViewAdapter_QBasePalette(const KAbstractViewAdapter* self) {
+QPalette* KAbstractViewAdapter_SuperPalette(const KAbstractViewAdapter* self) {
     auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
     if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
         vkabstractviewadapter->setKAbstractViewAdapter_Palette_IsBase(true);
@@ -130,7 +130,7 @@ void KAbstractViewAdapter_OnPalette(const KAbstractViewAdapter* self, intptr_t s
 }
 
 // Base class handler implementation
-QRect* KAbstractViewAdapter_QBaseVisibleArea(const KAbstractViewAdapter* self) {
+QRect* KAbstractViewAdapter_SuperVisibleArea(const KAbstractViewAdapter* self) {
     auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
     if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
         vkabstractviewadapter->setKAbstractViewAdapter_VisibleArea_IsBase(true);
@@ -149,7 +149,7 @@ void KAbstractViewAdapter_OnVisibleArea(const KAbstractViewAdapter* self, intptr
 }
 
 // Base class handler implementation
-QRect* KAbstractViewAdapter_QBaseVisualRect(const KAbstractViewAdapter* self, const QModelIndex* index) {
+QRect* KAbstractViewAdapter_SuperVisualRect(const KAbstractViewAdapter* self, const QModelIndex* index) {
     auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
     if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
         vkabstractviewadapter->setKAbstractViewAdapter_VisualRect_IsBase(true);
@@ -168,7 +168,7 @@ void KAbstractViewAdapter_OnVisualRect(const KAbstractViewAdapter* self, intptr_
 }
 
 // Base class handler implementation
-void KAbstractViewAdapter_QBaseConnect(KAbstractViewAdapter* self, int signal, QObject* receiver, const char* slot) {
+void KAbstractViewAdapter_SuperConnect(KAbstractViewAdapter* self, int signal, QObject* receiver, const char* slot) {
     auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
     if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
         vkabstractviewadapter->setKAbstractViewAdapter_Connect_IsBase(true);
@@ -197,7 +197,7 @@ QMetaObject* KAbstractViewAdapter_MetaObject(const KAbstractViewAdapter* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KAbstractViewAdapter_QBaseMetaObject(const KAbstractViewAdapter* self) {
+QMetaObject* KAbstractViewAdapter_SuperMetaObject(const KAbstractViewAdapter* self) {
     auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
     if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
         vkabstractviewadapter->setKAbstractViewAdapter_MetaObject_IsBase(true);
@@ -226,7 +226,7 @@ void* KAbstractViewAdapter_Metacast(KAbstractViewAdapter* self, const char* para
 }
 
 // Base class handler implementation
-void* KAbstractViewAdapter_QBaseMetacast(KAbstractViewAdapter* self, const char* param1) {
+void* KAbstractViewAdapter_SuperMetacast(KAbstractViewAdapter* self, const char* param1) {
     auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
     if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
         vkabstractviewadapter->setKAbstractViewAdapter_Metacast_IsBase(true);
@@ -255,7 +255,7 @@ int KAbstractViewAdapter_Metacall(KAbstractViewAdapter* self, int param1, int pa
 }
 
 // Base class handler implementation
-int KAbstractViewAdapter_QBaseMetacall(KAbstractViewAdapter* self, int param1, int param2, void** param3) {
+int KAbstractViewAdapter_SuperMetacall(KAbstractViewAdapter* self, int param1, int param2, void** param3) {
     auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
     if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
         vkabstractviewadapter->setKAbstractViewAdapter_Metacall_IsBase(true);
@@ -284,7 +284,7 @@ bool KAbstractViewAdapter_Event(KAbstractViewAdapter* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KAbstractViewAdapter_QBaseEvent(KAbstractViewAdapter* self, QEvent* event) {
+bool KAbstractViewAdapter_SuperEvent(KAbstractViewAdapter* self, QEvent* event) {
     auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
     if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
         vkabstractviewadapter->setKAbstractViewAdapter_Event_IsBase(true);
@@ -313,7 +313,7 @@ bool KAbstractViewAdapter_EventFilter(KAbstractViewAdapter* self, QObject* watch
 }
 
 // Base class handler implementation
-bool KAbstractViewAdapter_QBaseEventFilter(KAbstractViewAdapter* self, QObject* watched, QEvent* event) {
+bool KAbstractViewAdapter_SuperEventFilter(KAbstractViewAdapter* self, QObject* watched, QEvent* event) {
     auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
     if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
         vkabstractviewadapter->setKAbstractViewAdapter_EventFilter_IsBase(true);
@@ -342,7 +342,7 @@ void KAbstractViewAdapter_TimerEvent(KAbstractViewAdapter* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void KAbstractViewAdapter_QBaseTimerEvent(KAbstractViewAdapter* self, QTimerEvent* event) {
+void KAbstractViewAdapter_SuperTimerEvent(KAbstractViewAdapter* self, QTimerEvent* event) {
     auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
     if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
         vkabstractviewadapter->setKAbstractViewAdapter_TimerEvent_IsBase(true);
@@ -371,7 +371,7 @@ void KAbstractViewAdapter_ChildEvent(KAbstractViewAdapter* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void KAbstractViewAdapter_QBaseChildEvent(KAbstractViewAdapter* self, QChildEvent* event) {
+void KAbstractViewAdapter_SuperChildEvent(KAbstractViewAdapter* self, QChildEvent* event) {
     auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
     if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
         vkabstractviewadapter->setKAbstractViewAdapter_ChildEvent_IsBase(true);
@@ -400,7 +400,7 @@ void KAbstractViewAdapter_CustomEvent(KAbstractViewAdapter* self, QEvent* event)
 }
 
 // Base class handler implementation
-void KAbstractViewAdapter_QBaseCustomEvent(KAbstractViewAdapter* self, QEvent* event) {
+void KAbstractViewAdapter_SuperCustomEvent(KAbstractViewAdapter* self, QEvent* event) {
     auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
     if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
         vkabstractviewadapter->setKAbstractViewAdapter_CustomEvent_IsBase(true);
@@ -429,7 +429,7 @@ void KAbstractViewAdapter_ConnectNotify(KAbstractViewAdapter* self, const QMetaM
 }
 
 // Base class handler implementation
-void KAbstractViewAdapter_QBaseConnectNotify(KAbstractViewAdapter* self, const QMetaMethod* signal) {
+void KAbstractViewAdapter_SuperConnectNotify(KAbstractViewAdapter* self, const QMetaMethod* signal) {
     auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
     if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
         vkabstractviewadapter->setKAbstractViewAdapter_ConnectNotify_IsBase(true);
@@ -458,7 +458,7 @@ void KAbstractViewAdapter_DisconnectNotify(KAbstractViewAdapter* self, const QMe
 }
 
 // Base class handler implementation
-void KAbstractViewAdapter_QBaseDisconnectNotify(KAbstractViewAdapter* self, const QMetaMethod* signal) {
+void KAbstractViewAdapter_SuperDisconnectNotify(KAbstractViewAdapter* self, const QMetaMethod* signal) {
     auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
     if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
         vkabstractviewadapter->setKAbstractViewAdapter_DisconnectNotify_IsBase(true);
@@ -487,7 +487,7 @@ QObject* KAbstractViewAdapter_Sender(const KAbstractViewAdapter* self) {
 }
 
 // Base class handler implementation
-QObject* KAbstractViewAdapter_QBaseSender(const KAbstractViewAdapter* self) {
+QObject* KAbstractViewAdapter_SuperSender(const KAbstractViewAdapter* self) {
     auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
     if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
         vkabstractviewadapter->setKAbstractViewAdapter_Sender_IsBase(true);
@@ -516,7 +516,7 @@ int KAbstractViewAdapter_SenderSignalIndex(const KAbstractViewAdapter* self) {
 }
 
 // Base class handler implementation
-int KAbstractViewAdapter_QBaseSenderSignalIndex(const KAbstractViewAdapter* self) {
+int KAbstractViewAdapter_SuperSenderSignalIndex(const KAbstractViewAdapter* self) {
     auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
     if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
         vkabstractviewadapter->setKAbstractViewAdapter_SenderSignalIndex_IsBase(true);
@@ -545,7 +545,7 @@ int KAbstractViewAdapter_Receivers(const KAbstractViewAdapter* self, const char*
 }
 
 // Base class handler implementation
-int KAbstractViewAdapter_QBaseReceivers(const KAbstractViewAdapter* self, const char* signal) {
+int KAbstractViewAdapter_SuperReceivers(const KAbstractViewAdapter* self, const char* signal) {
     auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
     if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
         vkabstractviewadapter->setKAbstractViewAdapter_Receivers_IsBase(true);
@@ -574,7 +574,7 @@ bool KAbstractViewAdapter_IsSignalConnected(const KAbstractViewAdapter* self, co
 }
 
 // Base class handler implementation
-bool KAbstractViewAdapter_QBaseIsSignalConnected(const KAbstractViewAdapter* self, const QMetaMethod* signal) {
+bool KAbstractViewAdapter_SuperIsSignalConnected(const KAbstractViewAdapter* self, const QMetaMethod* signal) {
     auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
     if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
         vkabstractviewadapter->setKAbstractViewAdapter_IsSignalConnected_IsBase(true);

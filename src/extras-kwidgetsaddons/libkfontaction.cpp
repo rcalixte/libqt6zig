@@ -90,7 +90,7 @@ QWidget* KFontAction_CreateWidget(KFontAction* self, QWidget* parent) {
 }
 
 // Base class handler implementation
-QMetaObject* KFontAction_QBaseMetaObject(const KFontAction* self) {
+QMetaObject* KFontAction_SuperMetaObject(const KFontAction* self) {
     auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
     if (vkfontaction && vkfontaction->isVirtualKFontAction) {
         vkfontaction->setKFontAction_MetaObject_IsBase(true);
@@ -109,7 +109,7 @@ void KFontAction_OnMetaObject(const KFontAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KFontAction_QBaseMetacast(KFontAction* self, const char* param1) {
+void* KFontAction_SuperMetacast(KFontAction* self, const char* param1) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
     if (vkfontaction && vkfontaction->isVirtualKFontAction) {
         vkfontaction->setKFontAction_Metacast_IsBase(true);
@@ -128,7 +128,7 @@ void KFontAction_OnMetacast(KFontAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KFontAction_QBaseMetacall(KFontAction* self, int param1, int param2, void** param3) {
+int KFontAction_SuperMetacall(KFontAction* self, int param1, int param2, void** param3) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
     if (vkfontaction && vkfontaction->isVirtualKFontAction) {
         vkfontaction->setKFontAction_Metacall_IsBase(true);
@@ -147,7 +147,7 @@ void KFontAction_OnMetacall(KFontAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QWidget* KFontAction_QBaseCreateWidget(KFontAction* self, QWidget* parent) {
+QWidget* KFontAction_SuperCreateWidget(KFontAction* self, QWidget* parent) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
     if (vkfontaction && vkfontaction->isVirtualKFontAction) {
         vkfontaction->setKFontAction_CreateWidget_IsBase(true);
@@ -176,7 +176,7 @@ QAction* KFontAction_RemoveAction(KFontAction* self, QAction* action) {
 }
 
 // Base class handler implementation
-QAction* KFontAction_QBaseRemoveAction(KFontAction* self, QAction* action) {
+QAction* KFontAction_SuperRemoveAction(KFontAction* self, QAction* action) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
     if (vkfontaction && vkfontaction->isVirtualKFontAction) {
         vkfontaction->setKFontAction_RemoveAction_IsBase(true);
@@ -205,7 +205,7 @@ void KFontAction_InsertAction(KFontAction* self, QAction* before, QAction* actio
 }
 
 // Base class handler implementation
-void KFontAction_QBaseInsertAction(KFontAction* self, QAction* before, QAction* action) {
+void KFontAction_SuperInsertAction(KFontAction* self, QAction* before, QAction* action) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
     if (vkfontaction && vkfontaction->isVirtualKFontAction) {
         vkfontaction->setKFontAction_InsertAction_IsBase(true);
@@ -234,7 +234,7 @@ void KFontAction_SlotActionTriggered(KFontAction* self, QAction* action) {
 }
 
 // Base class handler implementation
-void KFontAction_QBaseSlotActionTriggered(KFontAction* self, QAction* action) {
+void KFontAction_SuperSlotActionTriggered(KFontAction* self, QAction* action) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
     if (vkfontaction && vkfontaction->isVirtualKFontAction) {
         vkfontaction->setKFontAction_SlotActionTriggered_IsBase(true);
@@ -263,7 +263,7 @@ void KFontAction_DeleteWidget(KFontAction* self, QWidget* widget) {
 }
 
 // Base class handler implementation
-void KFontAction_QBaseDeleteWidget(KFontAction* self, QWidget* widget) {
+void KFontAction_SuperDeleteWidget(KFontAction* self, QWidget* widget) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
     if (vkfontaction && vkfontaction->isVirtualKFontAction) {
         vkfontaction->setKFontAction_DeleteWidget_IsBase(true);
@@ -292,7 +292,7 @@ bool KFontAction_Event(KFontAction* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KFontAction_QBaseEvent(KFontAction* self, QEvent* event) {
+bool KFontAction_SuperEvent(KFontAction* self, QEvent* event) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
     if (vkfontaction && vkfontaction->isVirtualKFontAction) {
         vkfontaction->setKFontAction_Event_IsBase(true);
@@ -321,7 +321,7 @@ bool KFontAction_EventFilter(KFontAction* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool KFontAction_QBaseEventFilter(KFontAction* self, QObject* watched, QEvent* event) {
+bool KFontAction_SuperEventFilter(KFontAction* self, QObject* watched, QEvent* event) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
     if (vkfontaction && vkfontaction->isVirtualKFontAction) {
         vkfontaction->setKFontAction_EventFilter_IsBase(true);
@@ -350,7 +350,7 @@ void KFontAction_TimerEvent(KFontAction* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KFontAction_QBaseTimerEvent(KFontAction* self, QTimerEvent* event) {
+void KFontAction_SuperTimerEvent(KFontAction* self, QTimerEvent* event) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
     if (vkfontaction && vkfontaction->isVirtualKFontAction) {
         vkfontaction->setKFontAction_TimerEvent_IsBase(true);
@@ -379,7 +379,7 @@ void KFontAction_ChildEvent(KFontAction* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KFontAction_QBaseChildEvent(KFontAction* self, QChildEvent* event) {
+void KFontAction_SuperChildEvent(KFontAction* self, QChildEvent* event) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
     if (vkfontaction && vkfontaction->isVirtualKFontAction) {
         vkfontaction->setKFontAction_ChildEvent_IsBase(true);
@@ -408,7 +408,7 @@ void KFontAction_CustomEvent(KFontAction* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFontAction_QBaseCustomEvent(KFontAction* self, QEvent* event) {
+void KFontAction_SuperCustomEvent(KFontAction* self, QEvent* event) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
     if (vkfontaction && vkfontaction->isVirtualKFontAction) {
         vkfontaction->setKFontAction_CustomEvent_IsBase(true);
@@ -437,7 +437,7 @@ void KFontAction_ConnectNotify(KFontAction* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KFontAction_QBaseConnectNotify(KFontAction* self, const QMetaMethod* signal) {
+void KFontAction_SuperConnectNotify(KFontAction* self, const QMetaMethod* signal) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
     if (vkfontaction && vkfontaction->isVirtualKFontAction) {
         vkfontaction->setKFontAction_ConnectNotify_IsBase(true);
@@ -466,7 +466,7 @@ void KFontAction_DisconnectNotify(KFontAction* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void KFontAction_QBaseDisconnectNotify(KFontAction* self, const QMetaMethod* signal) {
+void KFontAction_SuperDisconnectNotify(KFontAction* self, const QMetaMethod* signal) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
     if (vkfontaction && vkfontaction->isVirtualKFontAction) {
         vkfontaction->setKFontAction_DisconnectNotify_IsBase(true);
@@ -495,7 +495,7 @@ void KFontAction_SlotToggled(KFontAction* self, bool param1) {
 }
 
 // Base class handler implementation
-void KFontAction_QBaseSlotToggled(KFontAction* self, bool param1) {
+void KFontAction_SuperSlotToggled(KFontAction* self, bool param1) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
     if (vkfontaction && vkfontaction->isVirtualKFontAction) {
         vkfontaction->setKFontAction_SlotToggled_IsBase(true);
@@ -542,7 +542,7 @@ libqt_list /* of QWidget* */ KFontAction_CreatedWidgets(const KFontAction* self)
 }
 
 // Base class handler implementation
-libqt_list /* of QWidget* */ KFontAction_QBaseCreatedWidgets(const KFontAction* self) {
+libqt_list /* of QWidget* */ KFontAction_SuperCreatedWidgets(const KFontAction* self) {
     auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
     if (vkfontaction && vkfontaction->isVirtualKFontAction) {
         vkfontaction->setKFontAction_CreatedWidgets_IsBase(true);
@@ -589,7 +589,7 @@ QObject* KFontAction_Sender(const KFontAction* self) {
 }
 
 // Base class handler implementation
-QObject* KFontAction_QBaseSender(const KFontAction* self) {
+QObject* KFontAction_SuperSender(const KFontAction* self) {
     auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
     if (vkfontaction && vkfontaction->isVirtualKFontAction) {
         vkfontaction->setKFontAction_Sender_IsBase(true);
@@ -618,7 +618,7 @@ int KFontAction_SenderSignalIndex(const KFontAction* self) {
 }
 
 // Base class handler implementation
-int KFontAction_QBaseSenderSignalIndex(const KFontAction* self) {
+int KFontAction_SuperSenderSignalIndex(const KFontAction* self) {
     auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
     if (vkfontaction && vkfontaction->isVirtualKFontAction) {
         vkfontaction->setKFontAction_SenderSignalIndex_IsBase(true);
@@ -647,7 +647,7 @@ int KFontAction_Receivers(const KFontAction* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KFontAction_QBaseReceivers(const KFontAction* self, const char* signal) {
+int KFontAction_SuperReceivers(const KFontAction* self, const char* signal) {
     auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
     if (vkfontaction && vkfontaction->isVirtualKFontAction) {
         vkfontaction->setKFontAction_Receivers_IsBase(true);
@@ -676,7 +676,7 @@ bool KFontAction_IsSignalConnected(const KFontAction* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool KFontAction_QBaseIsSignalConnected(const KFontAction* self, const QMetaMethod* signal) {
+bool KFontAction_SuperIsSignalConnected(const KFontAction* self, const QMetaMethod* signal) {
     auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
     if (vkfontaction && vkfontaction->isVirtualKFontAction) {
         vkfontaction->setKFontAction_IsSignalConnected_IsBase(true);

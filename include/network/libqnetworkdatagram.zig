@@ -297,6 +297,10 @@ pub const qnetworkdatagram = struct {
         qtc.QNetworkDatagram_SetSender2(@ptrCast(self), @ptrCast(address), @bitCast(port));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#dtor.QNetworkDatagram)
     ///
     /// Delete this object from C++ memory.
@@ -305,7 +309,7 @@ pub const qnetworkdatagram = struct {
     ///
     /// ` self: QtC.QNetworkDatagram `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QNetworkDatagram_Delete(@ptrCast(self));
     }
 };

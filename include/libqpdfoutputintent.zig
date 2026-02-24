@@ -152,6 +152,10 @@ pub const qpdfoutputintent = struct {
         qtc.QPdfOutputIntent_SetOutputProfile(@ptrCast(self), @ptrCast(profile));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfoutputintent.html#dtor.QPdfOutputIntent)
     ///
     /// Delete this object from C++ memory.
@@ -160,7 +164,7 @@ pub const qpdfoutputintent = struct {
     ///
     /// ` self: QtC.QPdfOutputIntent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPdfOutputIntent_Delete(@ptrCast(self));
     }
 };

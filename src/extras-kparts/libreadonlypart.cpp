@@ -210,7 +210,7 @@ void KParts__ReadOnlyPart_GuiActivateEvent(KParts__ReadOnlyPart* self, KParts__G
 }
 
 // Base class handler implementation
-QMetaObject* KParts__ReadOnlyPart_QBaseMetaObject(const KParts__ReadOnlyPart* self) {
+QMetaObject* KParts__ReadOnlyPart_SuperMetaObject(const KParts__ReadOnlyPart* self) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_MetaObject_IsBase(true);
@@ -229,7 +229,7 @@ void KParts__ReadOnlyPart_OnMetaObject(const KParts__ReadOnlyPart* self, intptr_
 }
 
 // Base class handler implementation
-void* KParts__ReadOnlyPart_QBaseMetacast(KParts__ReadOnlyPart* self, const char* param1) {
+void* KParts__ReadOnlyPart_SuperMetacast(KParts__ReadOnlyPart* self, const char* param1) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_Metacast_IsBase(true);
@@ -248,7 +248,7 @@ void KParts__ReadOnlyPart_OnMetacast(KParts__ReadOnlyPart* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int KParts__ReadOnlyPart_QBaseMetacall(KParts__ReadOnlyPart* self, int param1, int param2, void** param3) {
+int KParts__ReadOnlyPart_SuperMetacall(KParts__ReadOnlyPart* self, int param1, int param2, void** param3) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_Metacall_IsBase(true);
@@ -267,7 +267,7 @@ void KParts__ReadOnlyPart_OnMetacall(KParts__ReadOnlyPart* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-bool KParts__ReadOnlyPart_QBaseOpenUrl(KParts__ReadOnlyPart* self, const QUrl* url) {
+bool KParts__ReadOnlyPart_SuperOpenUrl(KParts__ReadOnlyPart* self, const QUrl* url) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_OpenUrl_IsBase(true);
@@ -286,7 +286,7 @@ void KParts__ReadOnlyPart_OnOpenUrl(KParts__ReadOnlyPart* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KParts__ReadOnlyPart_QBaseCloseUrl(KParts__ReadOnlyPart* self) {
+bool KParts__ReadOnlyPart_SuperCloseUrl(KParts__ReadOnlyPart* self) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_CloseUrl_IsBase(true);
@@ -305,7 +305,7 @@ void KParts__ReadOnlyPart_OnCloseUrl(KParts__ReadOnlyPart* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-bool KParts__ReadOnlyPart_QBaseOpenFile(KParts__ReadOnlyPart* self) {
+bool KParts__ReadOnlyPart_SuperOpenFile(KParts__ReadOnlyPart* self) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_OpenFile_IsBase(true);
@@ -324,7 +324,7 @@ void KParts__ReadOnlyPart_OnOpenFile(KParts__ReadOnlyPart* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void KParts__ReadOnlyPart_QBaseGuiActivateEvent(KParts__ReadOnlyPart* self, KParts__GUIActivateEvent* event) {
+void KParts__ReadOnlyPart_SuperGuiActivateEvent(KParts__ReadOnlyPart* self, KParts__GUIActivateEvent* event) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_GuiActivateEvent_IsBase(true);
@@ -353,7 +353,7 @@ QWidget* KParts__ReadOnlyPart_Widget(KParts__ReadOnlyPart* self) {
 }
 
 // Base class handler implementation
-QWidget* KParts__ReadOnlyPart_QBaseWidget(KParts__ReadOnlyPart* self) {
+QWidget* KParts__ReadOnlyPart_SuperWidget(KParts__ReadOnlyPart* self) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_Widget_IsBase(true);
@@ -382,7 +382,7 @@ void KParts__ReadOnlyPart_SetManager(KParts__ReadOnlyPart* self, KParts__PartMan
 }
 
 // Base class handler implementation
-void KParts__ReadOnlyPart_QBaseSetManager(KParts__ReadOnlyPart* self, KParts__PartManager* manager) {
+void KParts__ReadOnlyPart_SuperSetManager(KParts__ReadOnlyPart* self, KParts__PartManager* manager) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_SetManager_IsBase(true);
@@ -411,7 +411,7 @@ KParts__Part* KParts__ReadOnlyPart_HitTest(KParts__ReadOnlyPart* self, QWidget* 
 }
 
 // Base class handler implementation
-KParts__Part* KParts__ReadOnlyPart_QBaseHitTest(KParts__ReadOnlyPart* self, QWidget* widget, const QPoint* globalPos) {
+KParts__Part* KParts__ReadOnlyPart_SuperHitTest(KParts__ReadOnlyPart* self, QWidget* widget, const QPoint* globalPos) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_HitTest_IsBase(true);
@@ -440,7 +440,7 @@ void KParts__ReadOnlyPart_SetWidget(KParts__ReadOnlyPart* self, QWidget* widget)
 }
 
 // Base class handler implementation
-void KParts__ReadOnlyPart_QBaseSetWidget(KParts__ReadOnlyPart* self, QWidget* widget) {
+void KParts__ReadOnlyPart_SuperSetWidget(KParts__ReadOnlyPart* self, QWidget* widget) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_SetWidget_IsBase(true);
@@ -469,7 +469,7 @@ void KParts__ReadOnlyPart_CustomEvent(KParts__ReadOnlyPart* self, QEvent* event)
 }
 
 // Base class handler implementation
-void KParts__ReadOnlyPart_QBaseCustomEvent(KParts__ReadOnlyPart* self, QEvent* event) {
+void KParts__ReadOnlyPart_SuperCustomEvent(KParts__ReadOnlyPart* self, QEvent* event) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_CustomEvent_IsBase(true);
@@ -498,7 +498,7 @@ void KParts__ReadOnlyPart_PartActivateEvent(KParts__ReadOnlyPart* self, KParts__
 }
 
 // Base class handler implementation
-void KParts__ReadOnlyPart_QBasePartActivateEvent(KParts__ReadOnlyPart* self, KParts__PartActivateEvent* event) {
+void KParts__ReadOnlyPart_SuperPartActivateEvent(KParts__ReadOnlyPart* self, KParts__PartActivateEvent* event) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_PartActivateEvent_IsBase(true);
@@ -527,7 +527,7 @@ bool KParts__ReadOnlyPart_Event(KParts__ReadOnlyPart* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KParts__ReadOnlyPart_QBaseEvent(KParts__ReadOnlyPart* self, QEvent* event) {
+bool KParts__ReadOnlyPart_SuperEvent(KParts__ReadOnlyPart* self, QEvent* event) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_Event_IsBase(true);
@@ -556,7 +556,7 @@ bool KParts__ReadOnlyPart_EventFilter(KParts__ReadOnlyPart* self, QObject* watch
 }
 
 // Base class handler implementation
-bool KParts__ReadOnlyPart_QBaseEventFilter(KParts__ReadOnlyPart* self, QObject* watched, QEvent* event) {
+bool KParts__ReadOnlyPart_SuperEventFilter(KParts__ReadOnlyPart* self, QObject* watched, QEvent* event) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_EventFilter_IsBase(true);
@@ -585,7 +585,7 @@ void KParts__ReadOnlyPart_TimerEvent(KParts__ReadOnlyPart* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void KParts__ReadOnlyPart_QBaseTimerEvent(KParts__ReadOnlyPart* self, QTimerEvent* event) {
+void KParts__ReadOnlyPart_SuperTimerEvent(KParts__ReadOnlyPart* self, QTimerEvent* event) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_TimerEvent_IsBase(true);
@@ -614,7 +614,7 @@ void KParts__ReadOnlyPart_ChildEvent(KParts__ReadOnlyPart* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void KParts__ReadOnlyPart_QBaseChildEvent(KParts__ReadOnlyPart* self, QChildEvent* event) {
+void KParts__ReadOnlyPart_SuperChildEvent(KParts__ReadOnlyPart* self, QChildEvent* event) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_ChildEvent_IsBase(true);
@@ -643,7 +643,7 @@ void KParts__ReadOnlyPart_ConnectNotify(KParts__ReadOnlyPart* self, const QMetaM
 }
 
 // Base class handler implementation
-void KParts__ReadOnlyPart_QBaseConnectNotify(KParts__ReadOnlyPart* self, const QMetaMethod* signal) {
+void KParts__ReadOnlyPart_SuperConnectNotify(KParts__ReadOnlyPart* self, const QMetaMethod* signal) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_ConnectNotify_IsBase(true);
@@ -672,7 +672,7 @@ void KParts__ReadOnlyPart_DisconnectNotify(KParts__ReadOnlyPart* self, const QMe
 }
 
 // Base class handler implementation
-void KParts__ReadOnlyPart_QBaseDisconnectNotify(KParts__ReadOnlyPart* self, const QMetaMethod* signal) {
+void KParts__ReadOnlyPart_SuperDisconnectNotify(KParts__ReadOnlyPart* self, const QMetaMethod* signal) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_DisconnectNotify_IsBase(true);
@@ -701,7 +701,7 @@ QAction* KParts__ReadOnlyPart_Action2(const KParts__ReadOnlyPart* self, const QD
 }
 
 // Base class handler implementation
-QAction* KParts__ReadOnlyPart_QBaseAction2(const KParts__ReadOnlyPart* self, const QDomElement* element) {
+QAction* KParts__ReadOnlyPart_SuperAction2(const KParts__ReadOnlyPart* self, const QDomElement* element) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_Action2_IsBase(true);
@@ -730,7 +730,7 @@ KActionCollection* KParts__ReadOnlyPart_ActionCollection(const KParts__ReadOnlyP
 }
 
 // Base class handler implementation
-KActionCollection* KParts__ReadOnlyPart_QBaseActionCollection(const KParts__ReadOnlyPart* self) {
+KActionCollection* KParts__ReadOnlyPart_SuperActionCollection(const KParts__ReadOnlyPart* self) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_ActionCollection_IsBase(true);
@@ -775,7 +775,7 @@ libqt_string KParts__ReadOnlyPart_ComponentName(const KParts__ReadOnlyPart* self
 }
 
 // Base class handler implementation
-libqt_string KParts__ReadOnlyPart_QBaseComponentName(const KParts__ReadOnlyPart* self) {
+libqt_string KParts__ReadOnlyPart_SuperComponentName(const KParts__ReadOnlyPart* self) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_ComponentName_IsBase(true);
@@ -820,7 +820,7 @@ QDomDocument* KParts__ReadOnlyPart_DomDocument(const KParts__ReadOnlyPart* self)
 }
 
 // Base class handler implementation
-QDomDocument* KParts__ReadOnlyPart_QBaseDomDocument(const KParts__ReadOnlyPart* self) {
+QDomDocument* KParts__ReadOnlyPart_SuperDomDocument(const KParts__ReadOnlyPart* self) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_DomDocument_IsBase(true);
@@ -865,7 +865,7 @@ libqt_string KParts__ReadOnlyPart_XmlFile(const KParts__ReadOnlyPart* self) {
 }
 
 // Base class handler implementation
-libqt_string KParts__ReadOnlyPart_QBaseXmlFile(const KParts__ReadOnlyPart* self) {
+libqt_string KParts__ReadOnlyPart_SuperXmlFile(const KParts__ReadOnlyPart* self) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_XmlFile_IsBase(true);
@@ -926,7 +926,7 @@ libqt_string KParts__ReadOnlyPart_LocalXMLFile(const KParts__ReadOnlyPart* self)
 }
 
 // Base class handler implementation
-libqt_string KParts__ReadOnlyPart_QBaseLocalXMLFile(const KParts__ReadOnlyPart* self) {
+libqt_string KParts__ReadOnlyPart_SuperLocalXMLFile(const KParts__ReadOnlyPart* self) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_LocalXMLFile_IsBase(true);
@@ -973,7 +973,7 @@ void KParts__ReadOnlyPart_SetComponentName(KParts__ReadOnlyPart* self, const lib
 }
 
 // Base class handler implementation
-void KParts__ReadOnlyPart_QBaseSetComponentName(KParts__ReadOnlyPart* self, const libqt_string componentName, const libqt_string componentDisplayName) {
+void KParts__ReadOnlyPart_SuperSetComponentName(KParts__ReadOnlyPart* self, const libqt_string componentName, const libqt_string componentDisplayName) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     QString componentName_QString = QString::fromUtf8(componentName.data, componentName.len);
     QString componentDisplayName_QString = QString::fromUtf8(componentDisplayName.data, componentDisplayName.len);
@@ -1005,7 +1005,7 @@ void KParts__ReadOnlyPart_SetXMLFile(KParts__ReadOnlyPart* self, const libqt_str
 }
 
 // Base class handler implementation
-void KParts__ReadOnlyPart_QBaseSetXMLFile(KParts__ReadOnlyPart* self, const libqt_string file, bool merge, bool setXMLDoc) {
+void KParts__ReadOnlyPart_SuperSetXMLFile(KParts__ReadOnlyPart* self, const libqt_string file, bool merge, bool setXMLDoc) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
@@ -1036,7 +1036,7 @@ void KParts__ReadOnlyPart_SetLocalXMLFile(KParts__ReadOnlyPart* self, const libq
 }
 
 // Base class handler implementation
-void KParts__ReadOnlyPart_QBaseSetLocalXMLFile(KParts__ReadOnlyPart* self, const libqt_string file) {
+void KParts__ReadOnlyPart_SuperSetLocalXMLFile(KParts__ReadOnlyPart* self, const libqt_string file) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
@@ -1067,7 +1067,7 @@ void KParts__ReadOnlyPart_SetXML(KParts__ReadOnlyPart* self, const libqt_string 
 }
 
 // Base class handler implementation
-void KParts__ReadOnlyPart_QBaseSetXML(KParts__ReadOnlyPart* self, const libqt_string document, bool merge) {
+void KParts__ReadOnlyPart_SuperSetXML(KParts__ReadOnlyPart* self, const libqt_string document, bool merge) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     QString document_QString = QString::fromUtf8(document.data, document.len);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
@@ -1097,7 +1097,7 @@ void KParts__ReadOnlyPart_SetDOMDocument(KParts__ReadOnlyPart* self, const QDomD
 }
 
 // Base class handler implementation
-void KParts__ReadOnlyPart_QBaseSetDOMDocument(KParts__ReadOnlyPart* self, const QDomDocument* document, bool merge) {
+void KParts__ReadOnlyPart_SuperSetDOMDocument(KParts__ReadOnlyPart* self, const QDomDocument* document, bool merge) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_SetDOMDocument_IsBase(true);
@@ -1127,7 +1127,7 @@ void KParts__ReadOnlyPart_StateChanged(KParts__ReadOnlyPart* self, const libqt_s
 }
 
 // Base class handler implementation
-void KParts__ReadOnlyPart_QBaseStateChanged(KParts__ReadOnlyPart* self, const libqt_string newstate, int reverse) {
+void KParts__ReadOnlyPart_SuperStateChanged(KParts__ReadOnlyPart* self, const libqt_string newstate, int reverse) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     QString newstate_QString = QString::fromUtf8(newstate.data, newstate.len);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
@@ -1157,7 +1157,7 @@ void KParts__ReadOnlyPart_AbortLoad(KParts__ReadOnlyPart* self) {
 }
 
 // Base class handler implementation
-void KParts__ReadOnlyPart_QBaseAbortLoad(KParts__ReadOnlyPart* self) {
+void KParts__ReadOnlyPart_SuperAbortLoad(KParts__ReadOnlyPart* self) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_AbortLoad_IsBase(true);
@@ -1186,7 +1186,7 @@ void KParts__ReadOnlyPart_SetUrl(KParts__ReadOnlyPart* self, const QUrl* url) {
 }
 
 // Base class handler implementation
-void KParts__ReadOnlyPart_QBaseSetUrl(KParts__ReadOnlyPart* self, const QUrl* url) {
+void KParts__ReadOnlyPart_SuperSetUrl(KParts__ReadOnlyPart* self, const QUrl* url) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_SetUrl_IsBase(true);
@@ -1231,7 +1231,7 @@ libqt_string KParts__ReadOnlyPart_LocalFilePath(const KParts__ReadOnlyPart* self
 }
 
 // Base class handler implementation
-libqt_string KParts__ReadOnlyPart_QBaseLocalFilePath(const KParts__ReadOnlyPart* self) {
+libqt_string KParts__ReadOnlyPart_SuperLocalFilePath(const KParts__ReadOnlyPart* self) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_LocalFilePath_IsBase(true);
@@ -1277,7 +1277,7 @@ void KParts__ReadOnlyPart_SetLocalFilePath(KParts__ReadOnlyPart* self, const lib
 }
 
 // Base class handler implementation
-void KParts__ReadOnlyPart_QBaseSetLocalFilePath(KParts__ReadOnlyPart* self, const libqt_string localFilePath) {
+void KParts__ReadOnlyPart_SuperSetLocalFilePath(KParts__ReadOnlyPart* self, const libqt_string localFilePath) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     QString localFilePath_QString = QString::fromUtf8(localFilePath.data, localFilePath.len);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
@@ -1308,7 +1308,7 @@ QWidget* KParts__ReadOnlyPart_HostContainer(KParts__ReadOnlyPart* self, const li
 }
 
 // Base class handler implementation
-QWidget* KParts__ReadOnlyPart_QBaseHostContainer(KParts__ReadOnlyPart* self, const libqt_string containerName) {
+QWidget* KParts__ReadOnlyPart_SuperHostContainer(KParts__ReadOnlyPart* self, const libqt_string containerName) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     QString containerName_QString = QString::fromUtf8(containerName.data, containerName.len);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
@@ -1338,7 +1338,7 @@ void KParts__ReadOnlyPart_SlotWidgetDestroyed(KParts__ReadOnlyPart* self) {
 }
 
 // Base class handler implementation
-void KParts__ReadOnlyPart_QBaseSlotWidgetDestroyed(KParts__ReadOnlyPart* self) {
+void KParts__ReadOnlyPart_SuperSlotWidgetDestroyed(KParts__ReadOnlyPart* self) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_SlotWidgetDestroyed_IsBase(true);
@@ -1367,7 +1367,7 @@ QObject* KParts__ReadOnlyPart_Sender(const KParts__ReadOnlyPart* self) {
 }
 
 // Base class handler implementation
-QObject* KParts__ReadOnlyPart_QBaseSender(const KParts__ReadOnlyPart* self) {
+QObject* KParts__ReadOnlyPart_SuperSender(const KParts__ReadOnlyPart* self) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_Sender_IsBase(true);
@@ -1396,7 +1396,7 @@ int KParts__ReadOnlyPart_SenderSignalIndex(const KParts__ReadOnlyPart* self) {
 }
 
 // Base class handler implementation
-int KParts__ReadOnlyPart_QBaseSenderSignalIndex(const KParts__ReadOnlyPart* self) {
+int KParts__ReadOnlyPart_SuperSenderSignalIndex(const KParts__ReadOnlyPart* self) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_SenderSignalIndex_IsBase(true);
@@ -1425,7 +1425,7 @@ int KParts__ReadOnlyPart_Receivers(const KParts__ReadOnlyPart* self, const char*
 }
 
 // Base class handler implementation
-int KParts__ReadOnlyPart_QBaseReceivers(const KParts__ReadOnlyPart* self, const char* signal) {
+int KParts__ReadOnlyPart_SuperReceivers(const KParts__ReadOnlyPart* self, const char* signal) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_Receivers_IsBase(true);
@@ -1454,7 +1454,7 @@ bool KParts__ReadOnlyPart_IsSignalConnected(const KParts__ReadOnlyPart* self, co
 }
 
 // Base class handler implementation
-bool KParts__ReadOnlyPart_QBaseIsSignalConnected(const KParts__ReadOnlyPart* self, const QMetaMethod* signal) {
+bool KParts__ReadOnlyPart_SuperIsSignalConnected(const KParts__ReadOnlyPart* self, const QMetaMethod* signal) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_IsSignalConnected_IsBase(true);
@@ -1499,7 +1499,7 @@ libqt_string KParts__ReadOnlyPart_StandardsXmlFileLocation(KParts__ReadOnlyPart*
 }
 
 // Base class handler implementation
-libqt_string KParts__ReadOnlyPart_QBaseStandardsXmlFileLocation(KParts__ReadOnlyPart* self) {
+libqt_string KParts__ReadOnlyPart_SuperStandardsXmlFileLocation(KParts__ReadOnlyPart* self) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_StandardsXmlFileLocation_IsBase(true);
@@ -1544,7 +1544,7 @@ void KParts__ReadOnlyPart_LoadStandardsXmlFile(KParts__ReadOnlyPart* self) {
 }
 
 // Base class handler implementation
-void KParts__ReadOnlyPart_QBaseLoadStandardsXmlFile(KParts__ReadOnlyPart* self) {
+void KParts__ReadOnlyPart_SuperLoadStandardsXmlFile(KParts__ReadOnlyPart* self) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_LoadStandardsXmlFile_IsBase(true);

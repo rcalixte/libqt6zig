@@ -259,6 +259,10 @@ pub const qstatictext = struct {
         qtc.QStaticText_Prepare2(@ptrCast(self), @ptrCast(matrix), @ptrCast(font));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#dtor.QStaticText)
     ///
     /// Delete this object from C++ memory.
@@ -267,7 +271,7 @@ pub const qstatictext = struct {
     ///
     /// ` self: QtC.QStaticText `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStaticText_Delete(@ptrCast(self));
     }
 };

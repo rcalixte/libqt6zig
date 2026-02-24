@@ -219,6 +219,10 @@ pub const qtextdocumentfragment = struct {
         return qtc.QTextDocumentFragment_FromMarkdown2(markdown_str, @bitCast(features));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentfragment.html#dtor.QTextDocumentFragment)
     ///
     /// Delete this object from C++ memory.
@@ -227,7 +231,7 @@ pub const qtextdocumentfragment = struct {
     ///
     /// ` self: QtC.QTextDocumentFragment `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTextDocumentFragment_Delete(@ptrCast(self));
     }
 };

@@ -404,6 +404,10 @@ pub const qvector2d = struct {
         return qtc.QVector2D_ToQVariant(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#dtor.QVector2D)
     ///
     /// Delete this object from C++ memory.
@@ -412,7 +416,7 @@ pub const qvector2d = struct {
     ///
     /// ` self: QtC.QVector2D `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QVector2D_Delete(@ptrCast(self));
     }
 };
@@ -955,6 +959,10 @@ pub const qvector3d = struct {
         return qtc.QVector3D_ToQVariant(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#dtor.QVector3D)
     ///
     /// Delete this object from C++ memory.
@@ -963,7 +971,7 @@ pub const qvector3d = struct {
     ///
     /// ` self: QtC.QVector3D `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QVector3D_Delete(@ptrCast(self));
     }
 };
@@ -1438,6 +1446,10 @@ pub const qvector4d = struct {
         return qtc.QVector4D_ToQVariant(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#dtor.QVector4D)
     ///
     /// Delete this object from C++ memory.
@@ -1446,7 +1458,7 @@ pub const qvector4d = struct {
     ///
     /// ` self: QtC.QVector4D `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QVector4D_Delete(@ptrCast(self));
     }
 };

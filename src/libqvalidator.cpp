@@ -92,7 +92,7 @@ void QValidator_Connect_Changed(QValidator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QValidator_QBaseMetaObject(const QValidator* self) {
+QMetaObject* QValidator_SuperMetaObject(const QValidator* self) {
     auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
     if (vqvalidator && vqvalidator->isVirtualQValidator) {
         vqvalidator->setQValidator_MetaObject_IsBase(true);
@@ -111,7 +111,7 @@ void QValidator_OnMetaObject(const QValidator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QValidator_QBaseMetacast(QValidator* self, const char* param1) {
+void* QValidator_SuperMetacast(QValidator* self, const char* param1) {
     auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
     if (vqvalidator && vqvalidator->isVirtualQValidator) {
         vqvalidator->setQValidator_Metacast_IsBase(true);
@@ -130,7 +130,7 @@ void QValidator_OnMetacast(QValidator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QValidator_QBaseMetacall(QValidator* self, int param1, int param2, void** param3) {
+int QValidator_SuperMetacall(QValidator* self, int param1, int param2, void** param3) {
     auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
     if (vqvalidator && vqvalidator->isVirtualQValidator) {
         vqvalidator->setQValidator_Metacall_IsBase(true);
@@ -149,7 +149,7 @@ void QValidator_OnMetacall(QValidator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QValidator_QBaseValidate(const QValidator* self, libqt_string param1, int* param2) {
+int QValidator_SuperValidate(const QValidator* self, libqt_string param1, int* param2) {
     auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     if (vqvalidator && vqvalidator->isVirtualQValidator) {
@@ -169,7 +169,7 @@ void QValidator_OnValidate(const QValidator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QValidator_QBaseFixup(const QValidator* self, libqt_string param1) {
+void QValidator_SuperFixup(const QValidator* self, libqt_string param1) {
     auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     if (vqvalidator && vqvalidator->isVirtualQValidator) {
@@ -199,7 +199,7 @@ bool QValidator_Event(QValidator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QValidator_QBaseEvent(QValidator* self, QEvent* event) {
+bool QValidator_SuperEvent(QValidator* self, QEvent* event) {
     auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
     if (vqvalidator && vqvalidator->isVirtualQValidator) {
         vqvalidator->setQValidator_Event_IsBase(true);
@@ -228,7 +228,7 @@ bool QValidator_EventFilter(QValidator* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QValidator_QBaseEventFilter(QValidator* self, QObject* watched, QEvent* event) {
+bool QValidator_SuperEventFilter(QValidator* self, QObject* watched, QEvent* event) {
     auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
     if (vqvalidator && vqvalidator->isVirtualQValidator) {
         vqvalidator->setQValidator_EventFilter_IsBase(true);
@@ -257,7 +257,7 @@ void QValidator_TimerEvent(QValidator* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QValidator_QBaseTimerEvent(QValidator* self, QTimerEvent* event) {
+void QValidator_SuperTimerEvent(QValidator* self, QTimerEvent* event) {
     auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
     if (vqvalidator && vqvalidator->isVirtualQValidator) {
         vqvalidator->setQValidator_TimerEvent_IsBase(true);
@@ -286,7 +286,7 @@ void QValidator_ChildEvent(QValidator* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QValidator_QBaseChildEvent(QValidator* self, QChildEvent* event) {
+void QValidator_SuperChildEvent(QValidator* self, QChildEvent* event) {
     auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
     if (vqvalidator && vqvalidator->isVirtualQValidator) {
         vqvalidator->setQValidator_ChildEvent_IsBase(true);
@@ -315,7 +315,7 @@ void QValidator_CustomEvent(QValidator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QValidator_QBaseCustomEvent(QValidator* self, QEvent* event) {
+void QValidator_SuperCustomEvent(QValidator* self, QEvent* event) {
     auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
     if (vqvalidator && vqvalidator->isVirtualQValidator) {
         vqvalidator->setQValidator_CustomEvent_IsBase(true);
@@ -344,7 +344,7 @@ void QValidator_ConnectNotify(QValidator* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QValidator_QBaseConnectNotify(QValidator* self, const QMetaMethod* signal) {
+void QValidator_SuperConnectNotify(QValidator* self, const QMetaMethod* signal) {
     auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
     if (vqvalidator && vqvalidator->isVirtualQValidator) {
         vqvalidator->setQValidator_ConnectNotify_IsBase(true);
@@ -373,7 +373,7 @@ void QValidator_DisconnectNotify(QValidator* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QValidator_QBaseDisconnectNotify(QValidator* self, const QMetaMethod* signal) {
+void QValidator_SuperDisconnectNotify(QValidator* self, const QMetaMethod* signal) {
     auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
     if (vqvalidator && vqvalidator->isVirtualQValidator) {
         vqvalidator->setQValidator_DisconnectNotify_IsBase(true);
@@ -402,7 +402,7 @@ QObject* QValidator_Sender(const QValidator* self) {
 }
 
 // Base class handler implementation
-QObject* QValidator_QBaseSender(const QValidator* self) {
+QObject* QValidator_SuperSender(const QValidator* self) {
     auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
     if (vqvalidator && vqvalidator->isVirtualQValidator) {
         vqvalidator->setQValidator_Sender_IsBase(true);
@@ -431,7 +431,7 @@ int QValidator_SenderSignalIndex(const QValidator* self) {
 }
 
 // Base class handler implementation
-int QValidator_QBaseSenderSignalIndex(const QValidator* self) {
+int QValidator_SuperSenderSignalIndex(const QValidator* self) {
     auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
     if (vqvalidator && vqvalidator->isVirtualQValidator) {
         vqvalidator->setQValidator_SenderSignalIndex_IsBase(true);
@@ -460,7 +460,7 @@ int QValidator_Receivers(const QValidator* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QValidator_QBaseReceivers(const QValidator* self, const char* signal) {
+int QValidator_SuperReceivers(const QValidator* self, const char* signal) {
     auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
     if (vqvalidator && vqvalidator->isVirtualQValidator) {
         vqvalidator->setQValidator_Receivers_IsBase(true);
@@ -489,7 +489,7 @@ bool QValidator_IsSignalConnected(const QValidator* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QValidator_QBaseIsSignalConnected(const QValidator* self, const QMetaMethod* signal) {
+bool QValidator_SuperIsSignalConnected(const QValidator* self, const QMetaMethod* signal) {
     auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
     if (vqvalidator && vqvalidator->isVirtualQValidator) {
         vqvalidator->setQValidator_IsSignalConnected_IsBase(true);
@@ -619,7 +619,7 @@ void QIntValidator_Connect_TopChanged(QIntValidator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QIntValidator_QBaseMetaObject(const QIntValidator* self) {
+QMetaObject* QIntValidator_SuperMetaObject(const QIntValidator* self) {
     auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
     if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
         vqintvalidator->setQIntValidator_MetaObject_IsBase(true);
@@ -638,7 +638,7 @@ void QIntValidator_OnMetaObject(const QIntValidator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QIntValidator_QBaseMetacast(QIntValidator* self, const char* param1) {
+void* QIntValidator_SuperMetacast(QIntValidator* self, const char* param1) {
     auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
     if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
         vqintvalidator->setQIntValidator_Metacast_IsBase(true);
@@ -657,7 +657,7 @@ void QIntValidator_OnMetacast(QIntValidator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QIntValidator_QBaseMetacall(QIntValidator* self, int param1, int param2, void** param3) {
+int QIntValidator_SuperMetacall(QIntValidator* self, int param1, int param2, void** param3) {
     auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
     if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
         vqintvalidator->setQIntValidator_Metacall_IsBase(true);
@@ -676,7 +676,7 @@ void QIntValidator_OnMetacall(QIntValidator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QIntValidator_QBaseValidate(const QIntValidator* self, libqt_string param1, int* param2) {
+int QIntValidator_SuperValidate(const QIntValidator* self, libqt_string param1, int* param2) {
     auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
@@ -696,7 +696,7 @@ void QIntValidator_OnValidate(const QIntValidator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QIntValidator_QBaseFixup(const QIntValidator* self, libqt_string input) {
+void QIntValidator_SuperFixup(const QIntValidator* self, libqt_string input) {
     auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
     if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
@@ -726,7 +726,7 @@ bool QIntValidator_Event(QIntValidator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QIntValidator_QBaseEvent(QIntValidator* self, QEvent* event) {
+bool QIntValidator_SuperEvent(QIntValidator* self, QEvent* event) {
     auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
     if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
         vqintvalidator->setQIntValidator_Event_IsBase(true);
@@ -755,7 +755,7 @@ bool QIntValidator_EventFilter(QIntValidator* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QIntValidator_QBaseEventFilter(QIntValidator* self, QObject* watched, QEvent* event) {
+bool QIntValidator_SuperEventFilter(QIntValidator* self, QObject* watched, QEvent* event) {
     auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
     if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
         vqintvalidator->setQIntValidator_EventFilter_IsBase(true);
@@ -784,7 +784,7 @@ void QIntValidator_TimerEvent(QIntValidator* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QIntValidator_QBaseTimerEvent(QIntValidator* self, QTimerEvent* event) {
+void QIntValidator_SuperTimerEvent(QIntValidator* self, QTimerEvent* event) {
     auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
     if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
         vqintvalidator->setQIntValidator_TimerEvent_IsBase(true);
@@ -813,7 +813,7 @@ void QIntValidator_ChildEvent(QIntValidator* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QIntValidator_QBaseChildEvent(QIntValidator* self, QChildEvent* event) {
+void QIntValidator_SuperChildEvent(QIntValidator* self, QChildEvent* event) {
     auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
     if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
         vqintvalidator->setQIntValidator_ChildEvent_IsBase(true);
@@ -842,7 +842,7 @@ void QIntValidator_CustomEvent(QIntValidator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QIntValidator_QBaseCustomEvent(QIntValidator* self, QEvent* event) {
+void QIntValidator_SuperCustomEvent(QIntValidator* self, QEvent* event) {
     auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
     if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
         vqintvalidator->setQIntValidator_CustomEvent_IsBase(true);
@@ -871,7 +871,7 @@ void QIntValidator_ConnectNotify(QIntValidator* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QIntValidator_QBaseConnectNotify(QIntValidator* self, const QMetaMethod* signal) {
+void QIntValidator_SuperConnectNotify(QIntValidator* self, const QMetaMethod* signal) {
     auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
     if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
         vqintvalidator->setQIntValidator_ConnectNotify_IsBase(true);
@@ -900,7 +900,7 @@ void QIntValidator_DisconnectNotify(QIntValidator* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QIntValidator_QBaseDisconnectNotify(QIntValidator* self, const QMetaMethod* signal) {
+void QIntValidator_SuperDisconnectNotify(QIntValidator* self, const QMetaMethod* signal) {
     auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
     if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
         vqintvalidator->setQIntValidator_DisconnectNotify_IsBase(true);
@@ -929,7 +929,7 @@ QObject* QIntValidator_Sender(const QIntValidator* self) {
 }
 
 // Base class handler implementation
-QObject* QIntValidator_QBaseSender(const QIntValidator* self) {
+QObject* QIntValidator_SuperSender(const QIntValidator* self) {
     auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
     if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
         vqintvalidator->setQIntValidator_Sender_IsBase(true);
@@ -958,7 +958,7 @@ int QIntValidator_SenderSignalIndex(const QIntValidator* self) {
 }
 
 // Base class handler implementation
-int QIntValidator_QBaseSenderSignalIndex(const QIntValidator* self) {
+int QIntValidator_SuperSenderSignalIndex(const QIntValidator* self) {
     auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
     if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
         vqintvalidator->setQIntValidator_SenderSignalIndex_IsBase(true);
@@ -987,7 +987,7 @@ int QIntValidator_Receivers(const QIntValidator* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QIntValidator_QBaseReceivers(const QIntValidator* self, const char* signal) {
+int QIntValidator_SuperReceivers(const QIntValidator* self, const char* signal) {
     auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
     if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
         vqintvalidator->setQIntValidator_Receivers_IsBase(true);
@@ -1016,7 +1016,7 @@ bool QIntValidator_IsSignalConnected(const QIntValidator* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QIntValidator_QBaseIsSignalConnected(const QIntValidator* self, const QMetaMethod* signal) {
+bool QIntValidator_SuperIsSignalConnected(const QIntValidator* self, const QMetaMethod* signal) {
     auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
     if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
         vqintvalidator->setQIntValidator_IsSignalConnected_IsBase(true);
@@ -1190,7 +1190,7 @@ void QDoubleValidator_Connect_NotationChanged(QDoubleValidator* self, intptr_t s
 }
 
 // Base class handler implementation
-QMetaObject* QDoubleValidator_QBaseMetaObject(const QDoubleValidator* self) {
+QMetaObject* QDoubleValidator_SuperMetaObject(const QDoubleValidator* self) {
     auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
     if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
         vqdoublevalidator->setQDoubleValidator_MetaObject_IsBase(true);
@@ -1209,7 +1209,7 @@ void QDoubleValidator_OnMetaObject(const QDoubleValidator* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* QDoubleValidator_QBaseMetacast(QDoubleValidator* self, const char* param1) {
+void* QDoubleValidator_SuperMetacast(QDoubleValidator* self, const char* param1) {
     auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
     if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
         vqdoublevalidator->setQDoubleValidator_Metacast_IsBase(true);
@@ -1228,7 +1228,7 @@ void QDoubleValidator_OnMetacast(QDoubleValidator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QDoubleValidator_QBaseMetacall(QDoubleValidator* self, int param1, int param2, void** param3) {
+int QDoubleValidator_SuperMetacall(QDoubleValidator* self, int param1, int param2, void** param3) {
     auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
     if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
         vqdoublevalidator->setQDoubleValidator_Metacall_IsBase(true);
@@ -1247,7 +1247,7 @@ void QDoubleValidator_OnMetacall(QDoubleValidator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QDoubleValidator_QBaseValidate(const QDoubleValidator* self, libqt_string param1, int* param2) {
+int QDoubleValidator_SuperValidate(const QDoubleValidator* self, libqt_string param1, int* param2) {
     auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
@@ -1267,7 +1267,7 @@ void QDoubleValidator_OnValidate(const QDoubleValidator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDoubleValidator_QBaseFixup(const QDoubleValidator* self, libqt_string input) {
+void QDoubleValidator_SuperFixup(const QDoubleValidator* self, libqt_string input) {
     auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
     if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
@@ -1297,7 +1297,7 @@ bool QDoubleValidator_Event(QDoubleValidator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QDoubleValidator_QBaseEvent(QDoubleValidator* self, QEvent* event) {
+bool QDoubleValidator_SuperEvent(QDoubleValidator* self, QEvent* event) {
     auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
     if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
         vqdoublevalidator->setQDoubleValidator_Event_IsBase(true);
@@ -1326,7 +1326,7 @@ bool QDoubleValidator_EventFilter(QDoubleValidator* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool QDoubleValidator_QBaseEventFilter(QDoubleValidator* self, QObject* watched, QEvent* event) {
+bool QDoubleValidator_SuperEventFilter(QDoubleValidator* self, QObject* watched, QEvent* event) {
     auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
     if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
         vqdoublevalidator->setQDoubleValidator_EventFilter_IsBase(true);
@@ -1355,7 +1355,7 @@ void QDoubleValidator_TimerEvent(QDoubleValidator* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleValidator_QBaseTimerEvent(QDoubleValidator* self, QTimerEvent* event) {
+void QDoubleValidator_SuperTimerEvent(QDoubleValidator* self, QTimerEvent* event) {
     auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
     if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
         vqdoublevalidator->setQDoubleValidator_TimerEvent_IsBase(true);
@@ -1384,7 +1384,7 @@ void QDoubleValidator_ChildEvent(QDoubleValidator* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleValidator_QBaseChildEvent(QDoubleValidator* self, QChildEvent* event) {
+void QDoubleValidator_SuperChildEvent(QDoubleValidator* self, QChildEvent* event) {
     auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
     if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
         vqdoublevalidator->setQDoubleValidator_ChildEvent_IsBase(true);
@@ -1413,7 +1413,7 @@ void QDoubleValidator_CustomEvent(QDoubleValidator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleValidator_QBaseCustomEvent(QDoubleValidator* self, QEvent* event) {
+void QDoubleValidator_SuperCustomEvent(QDoubleValidator* self, QEvent* event) {
     auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
     if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
         vqdoublevalidator->setQDoubleValidator_CustomEvent_IsBase(true);
@@ -1442,7 +1442,7 @@ void QDoubleValidator_ConnectNotify(QDoubleValidator* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void QDoubleValidator_QBaseConnectNotify(QDoubleValidator* self, const QMetaMethod* signal) {
+void QDoubleValidator_SuperConnectNotify(QDoubleValidator* self, const QMetaMethod* signal) {
     auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
     if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
         vqdoublevalidator->setQDoubleValidator_ConnectNotify_IsBase(true);
@@ -1471,7 +1471,7 @@ void QDoubleValidator_DisconnectNotify(QDoubleValidator* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void QDoubleValidator_QBaseDisconnectNotify(QDoubleValidator* self, const QMetaMethod* signal) {
+void QDoubleValidator_SuperDisconnectNotify(QDoubleValidator* self, const QMetaMethod* signal) {
     auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
     if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
         vqdoublevalidator->setQDoubleValidator_DisconnectNotify_IsBase(true);
@@ -1500,7 +1500,7 @@ QObject* QDoubleValidator_Sender(const QDoubleValidator* self) {
 }
 
 // Base class handler implementation
-QObject* QDoubleValidator_QBaseSender(const QDoubleValidator* self) {
+QObject* QDoubleValidator_SuperSender(const QDoubleValidator* self) {
     auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
     if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
         vqdoublevalidator->setQDoubleValidator_Sender_IsBase(true);
@@ -1529,7 +1529,7 @@ int QDoubleValidator_SenderSignalIndex(const QDoubleValidator* self) {
 }
 
 // Base class handler implementation
-int QDoubleValidator_QBaseSenderSignalIndex(const QDoubleValidator* self) {
+int QDoubleValidator_SuperSenderSignalIndex(const QDoubleValidator* self) {
     auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
     if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
         vqdoublevalidator->setQDoubleValidator_SenderSignalIndex_IsBase(true);
@@ -1558,7 +1558,7 @@ int QDoubleValidator_Receivers(const QDoubleValidator* self, const char* signal)
 }
 
 // Base class handler implementation
-int QDoubleValidator_QBaseReceivers(const QDoubleValidator* self, const char* signal) {
+int QDoubleValidator_SuperReceivers(const QDoubleValidator* self, const char* signal) {
     auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
     if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
         vqdoublevalidator->setQDoubleValidator_Receivers_IsBase(true);
@@ -1587,7 +1587,7 @@ bool QDoubleValidator_IsSignalConnected(const QDoubleValidator* self, const QMet
 }
 
 // Base class handler implementation
-bool QDoubleValidator_QBaseIsSignalConnected(const QDoubleValidator* self, const QMetaMethod* signal) {
+bool QDoubleValidator_SuperIsSignalConnected(const QDoubleValidator* self, const QMetaMethod* signal) {
     auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
     if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
         vqdoublevalidator->setQDoubleValidator_IsSignalConnected_IsBase(true);
@@ -1685,7 +1685,7 @@ void QRegularExpressionValidator_Connect_RegularExpressionChanged(QRegularExpres
 }
 
 // Base class handler implementation
-QMetaObject* QRegularExpressionValidator_QBaseMetaObject(const QRegularExpressionValidator* self) {
+QMetaObject* QRegularExpressionValidator_SuperMetaObject(const QRegularExpressionValidator* self) {
     auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
     if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
         vqregularexpressionvalidator->setQRegularExpressionValidator_MetaObject_IsBase(true);
@@ -1704,7 +1704,7 @@ void QRegularExpressionValidator_OnMetaObject(const QRegularExpressionValidator*
 }
 
 // Base class handler implementation
-void* QRegularExpressionValidator_QBaseMetacast(QRegularExpressionValidator* self, const char* param1) {
+void* QRegularExpressionValidator_SuperMetacast(QRegularExpressionValidator* self, const char* param1) {
     auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
     if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
         vqregularexpressionvalidator->setQRegularExpressionValidator_Metacast_IsBase(true);
@@ -1723,7 +1723,7 @@ void QRegularExpressionValidator_OnMetacast(QRegularExpressionValidator* self, i
 }
 
 // Base class handler implementation
-int QRegularExpressionValidator_QBaseMetacall(QRegularExpressionValidator* self, int param1, int param2, void** param3) {
+int QRegularExpressionValidator_SuperMetacall(QRegularExpressionValidator* self, int param1, int param2, void** param3) {
     auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
     if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
         vqregularexpressionvalidator->setQRegularExpressionValidator_Metacall_IsBase(true);
@@ -1742,7 +1742,7 @@ void QRegularExpressionValidator_OnMetacall(QRegularExpressionValidator* self, i
 }
 
 // Base class handler implementation
-int QRegularExpressionValidator_QBaseValidate(const QRegularExpressionValidator* self, libqt_string input, int* pos) {
+int QRegularExpressionValidator_SuperValidate(const QRegularExpressionValidator* self, libqt_string input, int* pos) {
     auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
     if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
@@ -1773,7 +1773,7 @@ void QRegularExpressionValidator_Fixup(const QRegularExpressionValidator* self, 
 }
 
 // Base class handler implementation
-void QRegularExpressionValidator_QBaseFixup(const QRegularExpressionValidator* self, libqt_string param1) {
+void QRegularExpressionValidator_SuperFixup(const QRegularExpressionValidator* self, libqt_string param1) {
     auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
@@ -1803,7 +1803,7 @@ bool QRegularExpressionValidator_Event(QRegularExpressionValidator* self, QEvent
 }
 
 // Base class handler implementation
-bool QRegularExpressionValidator_QBaseEvent(QRegularExpressionValidator* self, QEvent* event) {
+bool QRegularExpressionValidator_SuperEvent(QRegularExpressionValidator* self, QEvent* event) {
     auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
     if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
         vqregularexpressionvalidator->setQRegularExpressionValidator_Event_IsBase(true);
@@ -1832,7 +1832,7 @@ bool QRegularExpressionValidator_EventFilter(QRegularExpressionValidator* self, 
 }
 
 // Base class handler implementation
-bool QRegularExpressionValidator_QBaseEventFilter(QRegularExpressionValidator* self, QObject* watched, QEvent* event) {
+bool QRegularExpressionValidator_SuperEventFilter(QRegularExpressionValidator* self, QObject* watched, QEvent* event) {
     auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
     if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
         vqregularexpressionvalidator->setQRegularExpressionValidator_EventFilter_IsBase(true);
@@ -1861,7 +1861,7 @@ void QRegularExpressionValidator_TimerEvent(QRegularExpressionValidator* self, Q
 }
 
 // Base class handler implementation
-void QRegularExpressionValidator_QBaseTimerEvent(QRegularExpressionValidator* self, QTimerEvent* event) {
+void QRegularExpressionValidator_SuperTimerEvent(QRegularExpressionValidator* self, QTimerEvent* event) {
     auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
     if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
         vqregularexpressionvalidator->setQRegularExpressionValidator_TimerEvent_IsBase(true);
@@ -1890,7 +1890,7 @@ void QRegularExpressionValidator_ChildEvent(QRegularExpressionValidator* self, Q
 }
 
 // Base class handler implementation
-void QRegularExpressionValidator_QBaseChildEvent(QRegularExpressionValidator* self, QChildEvent* event) {
+void QRegularExpressionValidator_SuperChildEvent(QRegularExpressionValidator* self, QChildEvent* event) {
     auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
     if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
         vqregularexpressionvalidator->setQRegularExpressionValidator_ChildEvent_IsBase(true);
@@ -1919,7 +1919,7 @@ void QRegularExpressionValidator_CustomEvent(QRegularExpressionValidator* self, 
 }
 
 // Base class handler implementation
-void QRegularExpressionValidator_QBaseCustomEvent(QRegularExpressionValidator* self, QEvent* event) {
+void QRegularExpressionValidator_SuperCustomEvent(QRegularExpressionValidator* self, QEvent* event) {
     auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
     if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
         vqregularexpressionvalidator->setQRegularExpressionValidator_CustomEvent_IsBase(true);
@@ -1948,7 +1948,7 @@ void QRegularExpressionValidator_ConnectNotify(QRegularExpressionValidator* self
 }
 
 // Base class handler implementation
-void QRegularExpressionValidator_QBaseConnectNotify(QRegularExpressionValidator* self, const QMetaMethod* signal) {
+void QRegularExpressionValidator_SuperConnectNotify(QRegularExpressionValidator* self, const QMetaMethod* signal) {
     auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
     if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
         vqregularexpressionvalidator->setQRegularExpressionValidator_ConnectNotify_IsBase(true);
@@ -1977,7 +1977,7 @@ void QRegularExpressionValidator_DisconnectNotify(QRegularExpressionValidator* s
 }
 
 // Base class handler implementation
-void QRegularExpressionValidator_QBaseDisconnectNotify(QRegularExpressionValidator* self, const QMetaMethod* signal) {
+void QRegularExpressionValidator_SuperDisconnectNotify(QRegularExpressionValidator* self, const QMetaMethod* signal) {
     auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
     if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
         vqregularexpressionvalidator->setQRegularExpressionValidator_DisconnectNotify_IsBase(true);
@@ -2006,7 +2006,7 @@ QObject* QRegularExpressionValidator_Sender(const QRegularExpressionValidator* s
 }
 
 // Base class handler implementation
-QObject* QRegularExpressionValidator_QBaseSender(const QRegularExpressionValidator* self) {
+QObject* QRegularExpressionValidator_SuperSender(const QRegularExpressionValidator* self) {
     auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
     if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
         vqregularexpressionvalidator->setQRegularExpressionValidator_Sender_IsBase(true);
@@ -2035,7 +2035,7 @@ int QRegularExpressionValidator_SenderSignalIndex(const QRegularExpressionValida
 }
 
 // Base class handler implementation
-int QRegularExpressionValidator_QBaseSenderSignalIndex(const QRegularExpressionValidator* self) {
+int QRegularExpressionValidator_SuperSenderSignalIndex(const QRegularExpressionValidator* self) {
     auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
     if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
         vqregularexpressionvalidator->setQRegularExpressionValidator_SenderSignalIndex_IsBase(true);
@@ -2064,7 +2064,7 @@ int QRegularExpressionValidator_Receivers(const QRegularExpressionValidator* sel
 }
 
 // Base class handler implementation
-int QRegularExpressionValidator_QBaseReceivers(const QRegularExpressionValidator* self, const char* signal) {
+int QRegularExpressionValidator_SuperReceivers(const QRegularExpressionValidator* self, const char* signal) {
     auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
     if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
         vqregularexpressionvalidator->setQRegularExpressionValidator_Receivers_IsBase(true);
@@ -2093,7 +2093,7 @@ bool QRegularExpressionValidator_IsSignalConnected(const QRegularExpressionValid
 }
 
 // Base class handler implementation
-bool QRegularExpressionValidator_QBaseIsSignalConnected(const QRegularExpressionValidator* self, const QMetaMethod* signal) {
+bool QRegularExpressionValidator_SuperIsSignalConnected(const QRegularExpressionValidator* self, const QMetaMethod* signal) {
     auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
     if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
         vqregularexpressionvalidator->setQRegularExpressionValidator_IsSignalConnected_IsBase(true);

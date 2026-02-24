@@ -831,6 +831,10 @@ pub const qfileinfo = struct {
         qtc.QFileInfo_Stat(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfileinfo.html#dtor.QFileInfo)
     ///
     /// Delete this object from C++ memory.
@@ -839,7 +843,7 @@ pub const qfileinfo = struct {
     ///
     /// ` self: QtC.QFileInfo `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QFileInfo_Delete(@ptrCast(self));
     }
 };

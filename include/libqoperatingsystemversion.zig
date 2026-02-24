@@ -169,6 +169,10 @@ pub const qoperatingsystemversionbase = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#dtor.QOperatingSystemVersionBase)
     ///
     /// Delete this object from C++ memory.
@@ -177,7 +181,7 @@ pub const qoperatingsystemversionbase = struct {
     ///
     /// ` self: QtC.QOperatingSystemVersionBase `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QOperatingSystemVersionBase_Delete(@ptrCast(self));
     }
 };
@@ -358,6 +362,10 @@ pub const qoperatingsystemversionunexported = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionunexported.html#dtor.QOperatingSystemVersionUnexported)
     ///
     /// Delete this object from C++ memory.
@@ -366,7 +374,7 @@ pub const qoperatingsystemversionunexported = struct {
     ///
     /// ` self: QtC.QOperatingSystemVersionUnexported `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QOperatingSystemVersionUnexported_Delete(@ptrCast(self));
     }
 };
@@ -563,6 +571,10 @@ pub const qoperatingsystemversion = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversion.html#dtor.QOperatingSystemVersion)
     ///
     /// Delete this object from C++ memory.
@@ -571,7 +583,7 @@ pub const qoperatingsystemversion = struct {
     ///
     /// ` self: QtC.QOperatingSystemVersion `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QOperatingSystemVersion_Delete(@ptrCast(self));
     }
 };

@@ -46,6 +46,10 @@ pub const qscilexerd = struct {
         qtc.QsciLexerD_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -54,8 +58,8 @@ pub const qscilexerd = struct {
     ///
     /// ` self: QtC.QsciLexerD `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QsciLexerD_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QsciLexerD_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -81,6 +85,10 @@ pub const qscilexerd = struct {
         qtc.QsciLexerD_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -89,9 +97,9 @@ pub const qscilexerd = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QsciLexerD_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QsciLexerD_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -120,6 +128,10 @@ pub const qscilexerd = struct {
         qtc.QsciLexerD_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -132,8 +144,8 @@ pub const qscilexerd = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QsciLexerD_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QsciLexerD_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -401,6 +413,10 @@ pub const qscilexerd = struct {
         qtc.QsciLexerD_OnSetFoldAtElse(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFoldAtElse` instead
+    ///
+    pub const QBaseSetFoldAtElse = SuperSetFoldAtElse;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerD.html)
     ///
     /// Base class method implementation
@@ -411,8 +427,8 @@ pub const qscilexerd = struct {
     ///
     /// ` fold: bool `
     ///
-    pub fn QBaseSetFoldAtElse(self: ?*anyopaque, fold: bool) void {
-        qtc.QsciLexerD_QBaseSetFoldAtElse(@ptrCast(self), fold);
+    pub fn SuperSetFoldAtElse(self: ?*anyopaque, fold: bool) void {
+        qtc.QsciLexerD_SuperSetFoldAtElse(@ptrCast(self), fold);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerD.html)
@@ -441,6 +457,10 @@ pub const qscilexerd = struct {
         qtc.QsciLexerD_OnSetFoldComments(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFoldComments` instead
+    ///
+    pub const QBaseSetFoldComments = SuperSetFoldComments;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerD.html)
     ///
     /// Base class method implementation
@@ -451,8 +471,8 @@ pub const qscilexerd = struct {
     ///
     /// ` fold: bool `
     ///
-    pub fn QBaseSetFoldComments(self: ?*anyopaque, fold: bool) void {
-        qtc.QsciLexerD_QBaseSetFoldComments(@ptrCast(self), fold);
+    pub fn SuperSetFoldComments(self: ?*anyopaque, fold: bool) void {
+        qtc.QsciLexerD_SuperSetFoldComments(@ptrCast(self), fold);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerD.html)
@@ -481,6 +501,10 @@ pub const qscilexerd = struct {
         qtc.QsciLexerD_OnSetFoldCompact(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFoldCompact` instead
+    ///
+    pub const QBaseSetFoldCompact = SuperSetFoldCompact;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerD.html)
     ///
     /// Base class method implementation
@@ -491,8 +515,8 @@ pub const qscilexerd = struct {
     ///
     /// ` fold: bool `
     ///
-    pub fn QBaseSetFoldCompact(self: ?*anyopaque, fold: bool) void {
-        qtc.QsciLexerD_QBaseSetFoldCompact(@ptrCast(self), fold);
+    pub fn SuperSetFoldCompact(self: ?*anyopaque, fold: bool) void {
+        qtc.QsciLexerD_SuperSetFoldCompact(@ptrCast(self), fold);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerD.html)
@@ -527,6 +551,10 @@ pub const qscilexerd = struct {
         qtc.QsciLexerD_OnReadProperties(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperReadProperties` instead
+    ///
+    pub const QBaseReadProperties = SuperReadProperties;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerD.html)
     ///
     /// Base class method implementation
@@ -539,12 +567,12 @@ pub const qscilexerd = struct {
     ///
     /// ` prefix: []const u8 `
     ///
-    pub fn QBaseReadProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
+    pub fn SuperReadProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
-        return qtc.QsciLexerD_QBaseReadProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
+        return qtc.QsciLexerD_SuperReadProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerD.html)
@@ -579,6 +607,10 @@ pub const qscilexerd = struct {
         qtc.QsciLexerD_OnWriteProperties(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWriteProperties` instead
+    ///
+    pub const QBaseWriteProperties = SuperWriteProperties;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerD.html)
     ///
     /// Base class method implementation
@@ -591,12 +623,12 @@ pub const qscilexerd = struct {
     ///
     /// ` prefix: []const u8 `
     ///
-    pub fn QBaseWriteProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
+    pub fn SuperWriteProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
-        return qtc.QsciLexerD_QBaseWriteProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
+        return qtc.QsciLexerD_SuperWriteProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1738,6 +1770,10 @@ pub const qscilexerd = struct {
         return qtc.QsciLexerD_LexerId(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperLexerId` instead
+    ///
+    pub const QBaseLexerId = SuperLexerId;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -1748,8 +1784,8 @@ pub const qscilexerd = struct {
     ///
     /// ` self: QtC.QsciLexerD `
     ///
-    pub fn QBaseLexerId(self: ?*anyopaque) i32 {
-        return qtc.QsciLexerD_QBaseLexerId(@ptrCast(self));
+    pub fn SuperLexerId(self: ?*anyopaque) i32 {
+        return qtc.QsciLexerD_SuperLexerId(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
@@ -1783,6 +1819,10 @@ pub const qscilexerd = struct {
         return std.mem.span(_ret);
     }
 
+    /// ### DEPRECATED: Use `SuperAutoCompletionFillups` instead
+    ///
+    pub const QBaseAutoCompletionFillups = SuperAutoCompletionFillups;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -1793,8 +1833,8 @@ pub const qscilexerd = struct {
     ///
     /// ` self: QtC.QsciLexerD `
     ///
-    pub fn QBaseAutoCompletionFillups(self: ?*anyopaque) [:0]const u8 {
-        const _ret = qtc.QsciLexerD_QBaseAutoCompletionFillups(@ptrCast(self));
+    pub fn SuperAutoCompletionFillups(self: ?*anyopaque) [:0]const u8 {
+        const _ret = qtc.QsciLexerD_SuperAutoCompletionFillups(@ptrCast(self));
         return std.mem.span(_ret);
     }
 
@@ -1830,6 +1870,10 @@ pub const qscilexerd = struct {
         return qtc.QsciLexerD_BlockLookback(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperBlockLookback` instead
+    ///
+    pub const QBaseBlockLookback = SuperBlockLookback;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -1840,8 +1884,8 @@ pub const qscilexerd = struct {
     ///
     /// ` self: QtC.QsciLexerD `
     ///
-    pub fn QBaseBlockLookback(self: ?*anyopaque) i32 {
-        return qtc.QsciLexerD_QBaseBlockLookback(@ptrCast(self));
+    pub fn SuperBlockLookback(self: ?*anyopaque) i32 {
+        return qtc.QsciLexerD_SuperBlockLookback(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
@@ -1874,6 +1918,10 @@ pub const qscilexerd = struct {
         return qtc.QsciLexerD_CaseSensitive(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCaseSensitive` instead
+    ///
+    pub const QBaseCaseSensitive = SuperCaseSensitive;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -1884,8 +1932,8 @@ pub const qscilexerd = struct {
     ///
     /// ` self: QtC.QsciLexerD `
     ///
-    pub fn QBaseCaseSensitive(self: ?*anyopaque) bool {
-        return qtc.QsciLexerD_QBaseCaseSensitive(@ptrCast(self));
+    pub fn SuperCaseSensitive(self: ?*anyopaque) bool {
+        return qtc.QsciLexerD_SuperCaseSensitive(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
@@ -1920,6 +1968,10 @@ pub const qscilexerd = struct {
         return qtc.QsciLexerD_Color(@ptrCast(self), @bitCast(style));
     }
 
+    /// ### DEPRECATED: Use `SuperColor` instead
+    ///
+    pub const QBaseColor = SuperColor;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -1932,8 +1984,8 @@ pub const qscilexerd = struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn QBaseColor(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerD_QBaseColor(@ptrCast(self), @bitCast(style));
+    pub fn SuperColor(self: ?*anyopaque, style: i32) QtC.QColor {
+        return qtc.QsciLexerD_SuperColor(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -1968,6 +2020,10 @@ pub const qscilexerd = struct {
         return qtc.QsciLexerD_EolFill(@ptrCast(self), @bitCast(style));
     }
 
+    /// ### DEPRECATED: Use `SuperEolFill` instead
+    ///
+    pub const QBaseEolFill = SuperEolFill;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -1980,8 +2036,8 @@ pub const qscilexerd = struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn QBaseEolFill(self: ?*anyopaque, style: i32) bool {
-        return qtc.QsciLexerD_QBaseEolFill(@ptrCast(self), @bitCast(style));
+    pub fn SuperEolFill(self: ?*anyopaque, style: i32) bool {
+        return qtc.QsciLexerD_SuperEolFill(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2016,6 +2072,10 @@ pub const qscilexerd = struct {
         return qtc.QsciLexerD_Font(@ptrCast(self), @bitCast(style));
     }
 
+    /// ### DEPRECATED: Use `SuperFont` instead
+    ///
+    pub const QBaseFont = SuperFont;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2028,8 +2088,8 @@ pub const qscilexerd = struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn QBaseFont(self: ?*anyopaque, style: i32) QtC.QFont {
-        return qtc.QsciLexerD_QBaseFont(@ptrCast(self), @bitCast(style));
+    pub fn SuperFont(self: ?*anyopaque, style: i32) QtC.QFont {
+        return qtc.QsciLexerD_SuperFont(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2062,6 +2122,10 @@ pub const qscilexerd = struct {
         return qtc.QsciLexerD_IndentationGuideView(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIndentationGuideView` instead
+    ///
+    pub const QBaseIndentationGuideView = SuperIndentationGuideView;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2072,8 +2136,8 @@ pub const qscilexerd = struct {
     ///
     /// ` self: QtC.QsciLexerD `
     ///
-    pub fn QBaseIndentationGuideView(self: ?*anyopaque) i32 {
-        return qtc.QsciLexerD_QBaseIndentationGuideView(@ptrCast(self));
+    pub fn SuperIndentationGuideView(self: ?*anyopaque) i32 {
+        return qtc.QsciLexerD_SuperIndentationGuideView(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
@@ -2106,6 +2170,10 @@ pub const qscilexerd = struct {
         return qtc.QsciLexerD_DefaultStyle(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDefaultStyle` instead
+    ///
+    pub const QBaseDefaultStyle = SuperDefaultStyle;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2116,8 +2184,8 @@ pub const qscilexerd = struct {
     ///
     /// ` self: QtC.QsciLexerD `
     ///
-    pub fn QBaseDefaultStyle(self: ?*anyopaque) i32 {
-        return qtc.QsciLexerD_QBaseDefaultStyle(@ptrCast(self));
+    pub fn SuperDefaultStyle(self: ?*anyopaque) i32 {
+        return qtc.QsciLexerD_SuperDefaultStyle(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
@@ -2152,6 +2220,10 @@ pub const qscilexerd = struct {
         return qtc.QsciLexerD_Paper(@ptrCast(self), @bitCast(style));
     }
 
+    /// ### DEPRECATED: Use `SuperPaper` instead
+    ///
+    pub const QBasePaper = SuperPaper;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2164,8 +2236,8 @@ pub const qscilexerd = struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn QBasePaper(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerD_QBasePaper(@ptrCast(self), @bitCast(style));
+    pub fn SuperPaper(self: ?*anyopaque, style: i32) QtC.QColor {
+        return qtc.QsciLexerD_SuperPaper(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2200,6 +2272,10 @@ pub const qscilexerd = struct {
         return qtc.QsciLexerD_DefaultColor2(@ptrCast(self), @bitCast(style));
     }
 
+    /// ### DEPRECATED: Use `SuperDefaultColor2` instead
+    ///
+    pub const QBaseDefaultColor2 = SuperDefaultColor2;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2212,8 +2288,8 @@ pub const qscilexerd = struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn QBaseDefaultColor2(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerD_QBaseDefaultColor2(@ptrCast(self), @bitCast(style));
+    pub fn SuperDefaultColor2(self: ?*anyopaque, style: i32) QtC.QColor {
+        return qtc.QsciLexerD_SuperDefaultColor2(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2248,6 +2324,10 @@ pub const qscilexerd = struct {
         return qtc.QsciLexerD_DefaultFont2(@ptrCast(self), @bitCast(style));
     }
 
+    /// ### DEPRECATED: Use `SuperDefaultFont2` instead
+    ///
+    pub const QBaseDefaultFont2 = SuperDefaultFont2;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2260,8 +2340,8 @@ pub const qscilexerd = struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn QBaseDefaultFont2(self: ?*anyopaque, style: i32) QtC.QFont {
-        return qtc.QsciLexerD_QBaseDefaultFont2(@ptrCast(self), @bitCast(style));
+    pub fn SuperDefaultFont2(self: ?*anyopaque, style: i32) QtC.QFont {
+        return qtc.QsciLexerD_SuperDefaultFont2(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2296,6 +2376,10 @@ pub const qscilexerd = struct {
         return qtc.QsciLexerD_DefaultPaper2(@ptrCast(self), @bitCast(style));
     }
 
+    /// ### DEPRECATED: Use `SuperDefaultPaper2` instead
+    ///
+    pub const QBaseDefaultPaper2 = SuperDefaultPaper2;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2308,8 +2392,8 @@ pub const qscilexerd = struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn QBaseDefaultPaper2(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerD_QBaseDefaultPaper2(@ptrCast(self), @bitCast(style));
+    pub fn SuperDefaultPaper2(self: ?*anyopaque, style: i32) QtC.QColor {
+        return qtc.QsciLexerD_SuperDefaultPaper2(@ptrCast(self), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2344,6 +2428,10 @@ pub const qscilexerd = struct {
         qtc.QsciLexerD_SetEditor(@ptrCast(self), @ptrCast(editor));
     }
 
+    /// ### DEPRECATED: Use `SuperSetEditor` instead
+    ///
+    pub const QBaseSetEditor = SuperSetEditor;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2356,8 +2444,8 @@ pub const qscilexerd = struct {
     ///
     /// ` editor: QtC.QsciScintilla `
     ///
-    pub fn QBaseSetEditor(self: ?*anyopaque, editor: ?*anyopaque) void {
-        qtc.QsciLexerD_QBaseSetEditor(@ptrCast(self), @ptrCast(editor));
+    pub fn SuperSetEditor(self: ?*anyopaque, editor: ?*anyopaque) void {
+        qtc.QsciLexerD_SuperSetEditor(@ptrCast(self), @ptrCast(editor));
     }
 
     /// Inherited from QsciLexer
@@ -2390,6 +2478,10 @@ pub const qscilexerd = struct {
         return qtc.QsciLexerD_StyleBitsNeeded(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperStyleBitsNeeded` instead
+    ///
+    pub const QBaseStyleBitsNeeded = SuperStyleBitsNeeded;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2400,8 +2492,8 @@ pub const qscilexerd = struct {
     ///
     /// ` self: QtC.QsciLexerD `
     ///
-    pub fn QBaseStyleBitsNeeded(self: ?*anyopaque) i32 {
-        return qtc.QsciLexerD_QBaseStyleBitsNeeded(@ptrCast(self));
+    pub fn SuperStyleBitsNeeded(self: ?*anyopaque) i32 {
+        return qtc.QsciLexerD_SuperStyleBitsNeeded(@ptrCast(self));
     }
 
     /// Inherited from QsciLexer
@@ -2436,6 +2528,10 @@ pub const qscilexerd = struct {
         qtc.QsciLexerD_SetAutoIndentStyle(@ptrCast(self), @bitCast(autoindentstyle));
     }
 
+    /// ### DEPRECATED: Use `SuperSetAutoIndentStyle` instead
+    ///
+    pub const QBaseSetAutoIndentStyle = SuperSetAutoIndentStyle;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2448,8 +2544,8 @@ pub const qscilexerd = struct {
     ///
     /// ` autoindentstyle: i32 `
     ///
-    pub fn QBaseSetAutoIndentStyle(self: ?*anyopaque, autoindentstyle: i32) void {
-        qtc.QsciLexerD_QBaseSetAutoIndentStyle(@ptrCast(self), @bitCast(autoindentstyle));
+    pub fn SuperSetAutoIndentStyle(self: ?*anyopaque, autoindentstyle: i32) void {
+        qtc.QsciLexerD_SuperSetAutoIndentStyle(@ptrCast(self), @bitCast(autoindentstyle));
     }
 
     /// Inherited from QsciLexer
@@ -2486,6 +2582,10 @@ pub const qscilexerd = struct {
         qtc.QsciLexerD_SetColor(@ptrCast(self), @ptrCast(c), @bitCast(style));
     }
 
+    /// ### DEPRECATED: Use `SuperSetColor` instead
+    ///
+    pub const QBaseSetColor = SuperSetColor;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2500,8 +2600,8 @@ pub const qscilexerd = struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn QBaseSetColor(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
-        qtc.QsciLexerD_QBaseSetColor(@ptrCast(self), @ptrCast(c), @bitCast(style));
+    pub fn SuperSetColor(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
+        qtc.QsciLexerD_SuperSetColor(@ptrCast(self), @ptrCast(c), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2538,6 +2638,10 @@ pub const qscilexerd = struct {
         qtc.QsciLexerD_SetEolFill(@ptrCast(self), eoffill, @bitCast(style));
     }
 
+    /// ### DEPRECATED: Use `SuperSetEolFill` instead
+    ///
+    pub const QBaseSetEolFill = SuperSetEolFill;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2552,8 +2656,8 @@ pub const qscilexerd = struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn QBaseSetEolFill(self: ?*anyopaque, eoffill: bool, style: i32) void {
-        qtc.QsciLexerD_QBaseSetEolFill(@ptrCast(self), eoffill, @bitCast(style));
+    pub fn SuperSetEolFill(self: ?*anyopaque, eoffill: bool, style: i32) void {
+        qtc.QsciLexerD_SuperSetEolFill(@ptrCast(self), eoffill, @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2590,6 +2694,10 @@ pub const qscilexerd = struct {
         qtc.QsciLexerD_SetFont(@ptrCast(self), @ptrCast(f), @bitCast(style));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFont` instead
+    ///
+    pub const QBaseSetFont = SuperSetFont;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2604,8 +2712,8 @@ pub const qscilexerd = struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn QBaseSetFont(self: ?*anyopaque, f: ?*anyopaque, style: i32) void {
-        qtc.QsciLexerD_QBaseSetFont(@ptrCast(self), @ptrCast(f), @bitCast(style));
+    pub fn SuperSetFont(self: ?*anyopaque, f: ?*anyopaque, style: i32) void {
+        qtc.QsciLexerD_SuperSetFont(@ptrCast(self), @ptrCast(f), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2642,6 +2750,10 @@ pub const qscilexerd = struct {
         qtc.QsciLexerD_SetPaper(@ptrCast(self), @ptrCast(c), @bitCast(style));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPaper` instead
+    ///
+    pub const QBaseSetPaper = SuperSetPaper;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -2656,8 +2768,8 @@ pub const qscilexerd = struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn QBaseSetPaper(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
-        qtc.QsciLexerD_QBaseSetPaper(@ptrCast(self), @ptrCast(c), @bitCast(style));
+    pub fn SuperSetPaper(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
+        qtc.QsciLexerD_SuperSetPaper(@ptrCast(self), @ptrCast(c), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2692,6 +2804,10 @@ pub const qscilexerd = struct {
         return qtc.QsciLexerD_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -2704,8 +2820,8 @@ pub const qscilexerd = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QsciLexerD_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QsciLexerD_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2742,6 +2858,10 @@ pub const qscilexerd = struct {
         return qtc.QsciLexerD_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -2756,8 +2876,8 @@ pub const qscilexerd = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QsciLexerD_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QsciLexerD_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2792,6 +2912,10 @@ pub const qscilexerd = struct {
         qtc.QsciLexerD_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -2804,8 +2928,8 @@ pub const qscilexerd = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciLexerD_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QsciLexerD_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2840,6 +2964,10 @@ pub const qscilexerd = struct {
         qtc.QsciLexerD_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -2852,8 +2980,8 @@ pub const qscilexerd = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciLexerD_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QsciLexerD_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2888,6 +3016,10 @@ pub const qscilexerd = struct {
         qtc.QsciLexerD_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -2900,8 +3032,8 @@ pub const qscilexerd = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciLexerD_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QsciLexerD_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2936,6 +3068,10 @@ pub const qscilexerd = struct {
         qtc.QsciLexerD_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2948,8 +3084,8 @@ pub const qscilexerd = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QsciLexerD_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QsciLexerD_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2984,6 +3120,10 @@ pub const qscilexerd = struct {
         qtc.QsciLexerD_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -2996,8 +3136,8 @@ pub const qscilexerd = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QsciLexerD_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QsciLexerD_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3042,6 +3182,10 @@ pub const qscilexerd = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperTextAsBytes` instead
+    ///
+    pub const QBaseTextAsBytes = SuperTextAsBytes;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -3056,12 +3200,12 @@ pub const qscilexerd = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseTextAsBytes(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []u8 {
+    pub fn SuperTextAsBytes(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QsciLexerD_QBaseTextAsBytes(@ptrCast(self), text_str);
+        var _bytearray: qtc.libqt_string = qtc.QsciLexerD_SuperTextAsBytes(@ptrCast(self), text_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qscilexerd.TextAsBytes: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3109,6 +3253,10 @@ pub const qscilexerd = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperBytesAsText` instead
+    ///
+    pub const QBaseBytesAsText = SuperBytesAsText;
+
     /// Inherited from QsciLexer
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
@@ -3125,9 +3273,9 @@ pub const qscilexerd = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseBytesAsText(self: ?*anyopaque, bytes: [:0]const u8, size: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn SuperBytesAsText(self: ?*anyopaque, bytes: [:0]const u8, size: i32, allocator: std.mem.Allocator) []const u8 {
         const bytes_Cstring = bytes.ptr;
-        var _str = qtc.QsciLexerD_QBaseBytesAsText(@ptrCast(self), bytes_Cstring, @bitCast(size));
+        var _str = qtc.QsciLexerD_SuperBytesAsText(@ptrCast(self), bytes_Cstring, @bitCast(size));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexerd.BytesAsText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3166,6 +3314,10 @@ pub const qscilexerd = struct {
         return qtc.QsciLexerD_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -3176,8 +3328,8 @@ pub const qscilexerd = struct {
     ///
     /// ` self: QtC.QsciLexerD `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QsciLexerD_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QsciLexerD_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3210,6 +3362,10 @@ pub const qscilexerd = struct {
         return qtc.QsciLexerD_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -3220,8 +3376,8 @@ pub const qscilexerd = struct {
     ///
     /// ` self: QtC.QsciLexerD `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QsciLexerD_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QsciLexerD_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3257,6 +3413,10 @@ pub const qscilexerd = struct {
         return qtc.QsciLexerD_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -3269,9 +3429,9 @@ pub const qscilexerd = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QsciLexerD_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QsciLexerD_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3306,6 +3466,10 @@ pub const qscilexerd = struct {
         return qtc.QsciLexerD_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -3318,8 +3482,8 @@ pub const qscilexerd = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QsciLexerD_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QsciLexerD_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3353,6 +3517,9 @@ pub const qscilexerd = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerD.html)
     ///
@@ -3362,7 +3529,7 @@ pub const qscilexerd = struct {
     ///
     /// ` self: QtC.QsciLexerD `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QsciLexerD_Delete(@ptrCast(self));
     }
 };

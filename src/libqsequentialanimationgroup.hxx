@@ -408,31 +408,31 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
 
     // Friend functions
     friend bool QSequentialAnimationGroup_Event(QSequentialAnimationGroup* self, QEvent* event);
-    friend bool QSequentialAnimationGroup_QBaseEvent(QSequentialAnimationGroup* self, QEvent* event);
+    friend bool QSequentialAnimationGroup_SuperEvent(QSequentialAnimationGroup* self, QEvent* event);
     friend void QSequentialAnimationGroup_UpdateCurrentTime(QSequentialAnimationGroup* self, int param1);
-    friend void QSequentialAnimationGroup_QBaseUpdateCurrentTime(QSequentialAnimationGroup* self, int param1);
+    friend void QSequentialAnimationGroup_SuperUpdateCurrentTime(QSequentialAnimationGroup* self, int param1);
     friend void QSequentialAnimationGroup_UpdateState(QSequentialAnimationGroup* self, int newState, int oldState);
-    friend void QSequentialAnimationGroup_QBaseUpdateState(QSequentialAnimationGroup* self, int newState, int oldState);
+    friend void QSequentialAnimationGroup_SuperUpdateState(QSequentialAnimationGroup* self, int newState, int oldState);
     friend void QSequentialAnimationGroup_UpdateDirection(QSequentialAnimationGroup* self, int direction);
-    friend void QSequentialAnimationGroup_QBaseUpdateDirection(QSequentialAnimationGroup* self, int direction);
+    friend void QSequentialAnimationGroup_SuperUpdateDirection(QSequentialAnimationGroup* self, int direction);
     friend void QSequentialAnimationGroup_TimerEvent(QSequentialAnimationGroup* self, QTimerEvent* event);
-    friend void QSequentialAnimationGroup_QBaseTimerEvent(QSequentialAnimationGroup* self, QTimerEvent* event);
+    friend void QSequentialAnimationGroup_SuperTimerEvent(QSequentialAnimationGroup* self, QTimerEvent* event);
     friend void QSequentialAnimationGroup_ChildEvent(QSequentialAnimationGroup* self, QChildEvent* event);
-    friend void QSequentialAnimationGroup_QBaseChildEvent(QSequentialAnimationGroup* self, QChildEvent* event);
+    friend void QSequentialAnimationGroup_SuperChildEvent(QSequentialAnimationGroup* self, QChildEvent* event);
     friend void QSequentialAnimationGroup_CustomEvent(QSequentialAnimationGroup* self, QEvent* event);
-    friend void QSequentialAnimationGroup_QBaseCustomEvent(QSequentialAnimationGroup* self, QEvent* event);
+    friend void QSequentialAnimationGroup_SuperCustomEvent(QSequentialAnimationGroup* self, QEvent* event);
     friend void QSequentialAnimationGroup_ConnectNotify(QSequentialAnimationGroup* self, const QMetaMethod* signal);
-    friend void QSequentialAnimationGroup_QBaseConnectNotify(QSequentialAnimationGroup* self, const QMetaMethod* signal);
+    friend void QSequentialAnimationGroup_SuperConnectNotify(QSequentialAnimationGroup* self, const QMetaMethod* signal);
     friend void QSequentialAnimationGroup_DisconnectNotify(QSequentialAnimationGroup* self, const QMetaMethod* signal);
-    friend void QSequentialAnimationGroup_QBaseDisconnectNotify(QSequentialAnimationGroup* self, const QMetaMethod* signal);
+    friend void QSequentialAnimationGroup_SuperDisconnectNotify(QSequentialAnimationGroup* self, const QMetaMethod* signal);
     friend QObject* QSequentialAnimationGroup_Sender(const QSequentialAnimationGroup* self);
-    friend QObject* QSequentialAnimationGroup_QBaseSender(const QSequentialAnimationGroup* self);
+    friend QObject* QSequentialAnimationGroup_SuperSender(const QSequentialAnimationGroup* self);
     friend int QSequentialAnimationGroup_SenderSignalIndex(const QSequentialAnimationGroup* self);
-    friend int QSequentialAnimationGroup_QBaseSenderSignalIndex(const QSequentialAnimationGroup* self);
+    friend int QSequentialAnimationGroup_SuperSenderSignalIndex(const QSequentialAnimationGroup* self);
     friend int QSequentialAnimationGroup_Receivers(const QSequentialAnimationGroup* self, const char* signal);
-    friend int QSequentialAnimationGroup_QBaseReceivers(const QSequentialAnimationGroup* self, const char* signal);
+    friend int QSequentialAnimationGroup_SuperReceivers(const QSequentialAnimationGroup* self, const char* signal);
     friend bool QSequentialAnimationGroup_IsSignalConnected(const QSequentialAnimationGroup* self, const QMetaMethod* signal);
-    friend bool QSequentialAnimationGroup_QBaseIsSignalConnected(const QSequentialAnimationGroup* self, const QMetaMethod* signal);
+    friend bool QSequentialAnimationGroup_SuperIsSignalConnected(const QSequentialAnimationGroup* self, const QMetaMethod* signal);
 };
 
 #endif

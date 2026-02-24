@@ -148,7 +148,7 @@ void QsciLexerPostScript_SetFoldAtElse(QsciLexerPostScript* self, bool fold) {
 }
 
 // Base class handler implementation
-QMetaObject* QsciLexerPostScript_QBaseMetaObject(const QsciLexerPostScript* self) {
+QMetaObject* QsciLexerPostScript_SuperMetaObject(const QsciLexerPostScript* self) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_MetaObject_IsBase(true);
@@ -167,7 +167,7 @@ void QsciLexerPostScript_OnMetaObject(const QsciLexerPostScript* self, intptr_t 
 }
 
 // Base class handler implementation
-void* QsciLexerPostScript_QBaseMetacast(QsciLexerPostScript* self, const char* param1) {
+void* QsciLexerPostScript_SuperMetacast(QsciLexerPostScript* self, const char* param1) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_Metacast_IsBase(true);
@@ -186,7 +186,7 @@ void QsciLexerPostScript_OnMetacast(QsciLexerPostScript* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QsciLexerPostScript_QBaseMetacall(QsciLexerPostScript* self, int param1, int param2, void** param3) {
+int QsciLexerPostScript_SuperMetacall(QsciLexerPostScript* self, int param1, int param2, void** param3) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_Metacall_IsBase(true);
@@ -205,7 +205,7 @@ void QsciLexerPostScript_OnMetacall(QsciLexerPostScript* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciLexerPostScript_QBaseSetTokenize(QsciLexerPostScript* self, bool tokenize) {
+void QsciLexerPostScript_SuperSetTokenize(QsciLexerPostScript* self, bool tokenize) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_SetTokenize_IsBase(true);
@@ -224,7 +224,7 @@ void QsciLexerPostScript_OnSetTokenize(QsciLexerPostScript* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void QsciLexerPostScript_QBaseSetLevel(QsciLexerPostScript* self, int level) {
+void QsciLexerPostScript_SuperSetLevel(QsciLexerPostScript* self, int level) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_SetLevel_IsBase(true);
@@ -243,7 +243,7 @@ void QsciLexerPostScript_OnSetLevel(QsciLexerPostScript* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciLexerPostScript_QBaseSetFoldCompact(QsciLexerPostScript* self, bool fold) {
+void QsciLexerPostScript_SuperSetFoldCompact(QsciLexerPostScript* self, bool fold) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_SetFoldCompact_IsBase(true);
@@ -262,7 +262,7 @@ void QsciLexerPostScript_OnSetFoldCompact(QsciLexerPostScript* self, intptr_t sl
 }
 
 // Base class handler implementation
-void QsciLexerPostScript_QBaseSetFoldAtElse(QsciLexerPostScript* self, bool fold) {
+void QsciLexerPostScript_SuperSetFoldAtElse(QsciLexerPostScript* self, bool fold) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_SetFoldAtElse_IsBase(true);
@@ -291,7 +291,7 @@ int QsciLexerPostScript_LexerId(const QsciLexerPostScript* self) {
 }
 
 // Base class handler implementation
-int QsciLexerPostScript_QBaseLexerId(const QsciLexerPostScript* self) {
+int QsciLexerPostScript_SuperLexerId(const QsciLexerPostScript* self) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_LexerId_IsBase(true);
@@ -320,7 +320,7 @@ const char* QsciLexerPostScript_AutoCompletionFillups(const QsciLexerPostScript*
 }
 
 // Base class handler implementation
-const char* QsciLexerPostScript_QBaseAutoCompletionFillups(const QsciLexerPostScript* self) {
+const char* QsciLexerPostScript_SuperAutoCompletionFillups(const QsciLexerPostScript* self) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_AutoCompletionFillups_IsBase(true);
@@ -383,7 +383,7 @@ libqt_list /* of libqt_string */ QsciLexerPostScript_AutoCompletionWordSeparator
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QsciLexerPostScript_QBaseAutoCompletionWordSeparators(const QsciLexerPostScript* self) {
+libqt_list /* of libqt_string */ QsciLexerPostScript_SuperAutoCompletionWordSeparators(const QsciLexerPostScript* self) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_AutoCompletionWordSeparators_IsBase(true);
@@ -446,7 +446,7 @@ const char* QsciLexerPostScript_BlockEnd(const QsciLexerPostScript* self, int* s
 }
 
 // Base class handler implementation
-const char* QsciLexerPostScript_QBaseBlockEnd(const QsciLexerPostScript* self, int* style) {
+const char* QsciLexerPostScript_SuperBlockEnd(const QsciLexerPostScript* self, int* style) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_BlockEnd_IsBase(true);
@@ -475,7 +475,7 @@ int QsciLexerPostScript_BlockLookback(const QsciLexerPostScript* self) {
 }
 
 // Base class handler implementation
-int QsciLexerPostScript_QBaseBlockLookback(const QsciLexerPostScript* self) {
+int QsciLexerPostScript_SuperBlockLookback(const QsciLexerPostScript* self) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_BlockLookback_IsBase(true);
@@ -504,7 +504,7 @@ const char* QsciLexerPostScript_BlockStart(const QsciLexerPostScript* self, int*
 }
 
 // Base class handler implementation
-const char* QsciLexerPostScript_QBaseBlockStart(const QsciLexerPostScript* self, int* style) {
+const char* QsciLexerPostScript_SuperBlockStart(const QsciLexerPostScript* self, int* style) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_BlockStart_IsBase(true);
@@ -533,7 +533,7 @@ const char* QsciLexerPostScript_BlockStartKeyword(const QsciLexerPostScript* sel
 }
 
 // Base class handler implementation
-const char* QsciLexerPostScript_QBaseBlockStartKeyword(const QsciLexerPostScript* self, int* style) {
+const char* QsciLexerPostScript_SuperBlockStartKeyword(const QsciLexerPostScript* self, int* style) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_BlockStartKeyword_IsBase(true);
@@ -562,7 +562,7 @@ bool QsciLexerPostScript_CaseSensitive(const QsciLexerPostScript* self) {
 }
 
 // Base class handler implementation
-bool QsciLexerPostScript_QBaseCaseSensitive(const QsciLexerPostScript* self) {
+bool QsciLexerPostScript_SuperCaseSensitive(const QsciLexerPostScript* self) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_CaseSensitive_IsBase(true);
@@ -591,7 +591,7 @@ QColor* QsciLexerPostScript_Color(const QsciLexerPostScript* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerPostScript_QBaseColor(const QsciLexerPostScript* self, int style) {
+QColor* QsciLexerPostScript_SuperColor(const QsciLexerPostScript* self, int style) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_Color_IsBase(true);
@@ -620,7 +620,7 @@ bool QsciLexerPostScript_EolFill(const QsciLexerPostScript* self, int style) {
 }
 
 // Base class handler implementation
-bool QsciLexerPostScript_QBaseEolFill(const QsciLexerPostScript* self, int style) {
+bool QsciLexerPostScript_SuperEolFill(const QsciLexerPostScript* self, int style) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_EolFill_IsBase(true);
@@ -649,7 +649,7 @@ QFont* QsciLexerPostScript_Font(const QsciLexerPostScript* self, int style) {
 }
 
 // Base class handler implementation
-QFont* QsciLexerPostScript_QBaseFont(const QsciLexerPostScript* self, int style) {
+QFont* QsciLexerPostScript_SuperFont(const QsciLexerPostScript* self, int style) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_Font_IsBase(true);
@@ -678,7 +678,7 @@ int QsciLexerPostScript_IndentationGuideView(const QsciLexerPostScript* self) {
 }
 
 // Base class handler implementation
-int QsciLexerPostScript_QBaseIndentationGuideView(const QsciLexerPostScript* self) {
+int QsciLexerPostScript_SuperIndentationGuideView(const QsciLexerPostScript* self) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_IndentationGuideView_IsBase(true);
@@ -707,7 +707,7 @@ int QsciLexerPostScript_DefaultStyle(const QsciLexerPostScript* self) {
 }
 
 // Base class handler implementation
-int QsciLexerPostScript_QBaseDefaultStyle(const QsciLexerPostScript* self) {
+int QsciLexerPostScript_SuperDefaultStyle(const QsciLexerPostScript* self) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_DefaultStyle_IsBase(true);
@@ -736,7 +736,7 @@ QColor* QsciLexerPostScript_Paper(const QsciLexerPostScript* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerPostScript_QBasePaper(const QsciLexerPostScript* self, int style) {
+QColor* QsciLexerPostScript_SuperPaper(const QsciLexerPostScript* self, int style) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_Paper_IsBase(true);
@@ -765,7 +765,7 @@ QColor* QsciLexerPostScript_DefaultColor2(const QsciLexerPostScript* self, int s
 }
 
 // Base class handler implementation
-QColor* QsciLexerPostScript_QBaseDefaultColor2(const QsciLexerPostScript* self, int style) {
+QColor* QsciLexerPostScript_SuperDefaultColor2(const QsciLexerPostScript* self, int style) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_DefaultColor2_IsBase(true);
@@ -794,7 +794,7 @@ bool QsciLexerPostScript_DefaultEolFill(const QsciLexerPostScript* self, int sty
 }
 
 // Base class handler implementation
-bool QsciLexerPostScript_QBaseDefaultEolFill(const QsciLexerPostScript* self, int style) {
+bool QsciLexerPostScript_SuperDefaultEolFill(const QsciLexerPostScript* self, int style) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_DefaultEolFill_IsBase(true);
@@ -823,7 +823,7 @@ QFont* QsciLexerPostScript_DefaultFont2(const QsciLexerPostScript* self, int sty
 }
 
 // Base class handler implementation
-QFont* QsciLexerPostScript_QBaseDefaultFont2(const QsciLexerPostScript* self, int style) {
+QFont* QsciLexerPostScript_SuperDefaultFont2(const QsciLexerPostScript* self, int style) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_DefaultFont2_IsBase(true);
@@ -852,7 +852,7 @@ QColor* QsciLexerPostScript_DefaultPaper2(const QsciLexerPostScript* self, int s
 }
 
 // Base class handler implementation
-QColor* QsciLexerPostScript_QBaseDefaultPaper2(const QsciLexerPostScript* self, int style) {
+QColor* QsciLexerPostScript_SuperDefaultPaper2(const QsciLexerPostScript* self, int style) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_DefaultPaper2_IsBase(true);
@@ -881,7 +881,7 @@ void QsciLexerPostScript_SetEditor(QsciLexerPostScript* self, QsciScintilla* edi
 }
 
 // Base class handler implementation
-void QsciLexerPostScript_QBaseSetEditor(QsciLexerPostScript* self, QsciScintilla* editor) {
+void QsciLexerPostScript_SuperSetEditor(QsciLexerPostScript* self, QsciScintilla* editor) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_SetEditor_IsBase(true);
@@ -910,7 +910,7 @@ int QsciLexerPostScript_StyleBitsNeeded(const QsciLexerPostScript* self) {
 }
 
 // Base class handler implementation
-int QsciLexerPostScript_QBaseStyleBitsNeeded(const QsciLexerPostScript* self) {
+int QsciLexerPostScript_SuperStyleBitsNeeded(const QsciLexerPostScript* self) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_StyleBitsNeeded_IsBase(true);
@@ -939,7 +939,7 @@ const char* QsciLexerPostScript_WordCharacters(const QsciLexerPostScript* self) 
 }
 
 // Base class handler implementation
-const char* QsciLexerPostScript_QBaseWordCharacters(const QsciLexerPostScript* self) {
+const char* QsciLexerPostScript_SuperWordCharacters(const QsciLexerPostScript* self) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_WordCharacters_IsBase(true);
@@ -968,7 +968,7 @@ void QsciLexerPostScript_SetAutoIndentStyle(QsciLexerPostScript* self, int autoi
 }
 
 // Base class handler implementation
-void QsciLexerPostScript_QBaseSetAutoIndentStyle(QsciLexerPostScript* self, int autoindentstyle) {
+void QsciLexerPostScript_SuperSetAutoIndentStyle(QsciLexerPostScript* self, int autoindentstyle) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_SetAutoIndentStyle_IsBase(true);
@@ -997,7 +997,7 @@ void QsciLexerPostScript_SetColor(QsciLexerPostScript* self, const QColor* c, in
 }
 
 // Base class handler implementation
-void QsciLexerPostScript_QBaseSetColor(QsciLexerPostScript* self, const QColor* c, int style) {
+void QsciLexerPostScript_SuperSetColor(QsciLexerPostScript* self, const QColor* c, int style) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_SetColor_IsBase(true);
@@ -1026,7 +1026,7 @@ void QsciLexerPostScript_SetEolFill(QsciLexerPostScript* self, bool eoffill, int
 }
 
 // Base class handler implementation
-void QsciLexerPostScript_QBaseSetEolFill(QsciLexerPostScript* self, bool eoffill, int style) {
+void QsciLexerPostScript_SuperSetEolFill(QsciLexerPostScript* self, bool eoffill, int style) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_SetEolFill_IsBase(true);
@@ -1055,7 +1055,7 @@ void QsciLexerPostScript_SetFont(QsciLexerPostScript* self, const QFont* f, int 
 }
 
 // Base class handler implementation
-void QsciLexerPostScript_QBaseSetFont(QsciLexerPostScript* self, const QFont* f, int style) {
+void QsciLexerPostScript_SuperSetFont(QsciLexerPostScript* self, const QFont* f, int style) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_SetFont_IsBase(true);
@@ -1084,7 +1084,7 @@ void QsciLexerPostScript_SetPaper(QsciLexerPostScript* self, const QColor* c, in
 }
 
 // Base class handler implementation
-void QsciLexerPostScript_QBaseSetPaper(QsciLexerPostScript* self, const QColor* c, int style) {
+void QsciLexerPostScript_SuperSetPaper(QsciLexerPostScript* self, const QColor* c, int style) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_SetPaper_IsBase(true);
@@ -1114,7 +1114,7 @@ bool QsciLexerPostScript_ReadProperties(QsciLexerPostScript* self, QSettings* qs
 }
 
 // Base class handler implementation
-bool QsciLexerPostScript_QBaseReadProperties(QsciLexerPostScript* self, QSettings* qs, const libqt_string prefix) {
+bool QsciLexerPostScript_SuperReadProperties(QsciLexerPostScript* self, QSettings* qs, const libqt_string prefix) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
@@ -1145,7 +1145,7 @@ bool QsciLexerPostScript_WriteProperties(const QsciLexerPostScript* self, QSetti
 }
 
 // Base class handler implementation
-bool QsciLexerPostScript_QBaseWriteProperties(const QsciLexerPostScript* self, QSettings* qs, const libqt_string prefix) {
+bool QsciLexerPostScript_SuperWriteProperties(const QsciLexerPostScript* self, QSettings* qs, const libqt_string prefix) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
@@ -1175,7 +1175,7 @@ bool QsciLexerPostScript_Event(QsciLexerPostScript* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QsciLexerPostScript_QBaseEvent(QsciLexerPostScript* self, QEvent* event) {
+bool QsciLexerPostScript_SuperEvent(QsciLexerPostScript* self, QEvent* event) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_Event_IsBase(true);
@@ -1204,7 +1204,7 @@ bool QsciLexerPostScript_EventFilter(QsciLexerPostScript* self, QObject* watched
 }
 
 // Base class handler implementation
-bool QsciLexerPostScript_QBaseEventFilter(QsciLexerPostScript* self, QObject* watched, QEvent* event) {
+bool QsciLexerPostScript_SuperEventFilter(QsciLexerPostScript* self, QObject* watched, QEvent* event) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_EventFilter_IsBase(true);
@@ -1233,7 +1233,7 @@ void QsciLexerPostScript_TimerEvent(QsciLexerPostScript* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void QsciLexerPostScript_QBaseTimerEvent(QsciLexerPostScript* self, QTimerEvent* event) {
+void QsciLexerPostScript_SuperTimerEvent(QsciLexerPostScript* self, QTimerEvent* event) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_TimerEvent_IsBase(true);
@@ -1262,7 +1262,7 @@ void QsciLexerPostScript_ChildEvent(QsciLexerPostScript* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void QsciLexerPostScript_QBaseChildEvent(QsciLexerPostScript* self, QChildEvent* event) {
+void QsciLexerPostScript_SuperChildEvent(QsciLexerPostScript* self, QChildEvent* event) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_ChildEvent_IsBase(true);
@@ -1291,7 +1291,7 @@ void QsciLexerPostScript_CustomEvent(QsciLexerPostScript* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerPostScript_QBaseCustomEvent(QsciLexerPostScript* self, QEvent* event) {
+void QsciLexerPostScript_SuperCustomEvent(QsciLexerPostScript* self, QEvent* event) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_CustomEvent_IsBase(true);
@@ -1320,7 +1320,7 @@ void QsciLexerPostScript_ConnectNotify(QsciLexerPostScript* self, const QMetaMet
 }
 
 // Base class handler implementation
-void QsciLexerPostScript_QBaseConnectNotify(QsciLexerPostScript* self, const QMetaMethod* signal) {
+void QsciLexerPostScript_SuperConnectNotify(QsciLexerPostScript* self, const QMetaMethod* signal) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_ConnectNotify_IsBase(true);
@@ -1349,7 +1349,7 @@ void QsciLexerPostScript_DisconnectNotify(QsciLexerPostScript* self, const QMeta
 }
 
 // Base class handler implementation
-void QsciLexerPostScript_QBaseDisconnectNotify(QsciLexerPostScript* self, const QMetaMethod* signal) {
+void QsciLexerPostScript_SuperDisconnectNotify(QsciLexerPostScript* self, const QMetaMethod* signal) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_DisconnectNotify_IsBase(true);
@@ -1389,7 +1389,7 @@ libqt_string QsciLexerPostScript_TextAsBytes(const QsciLexerPostScript* self, co
 }
 
 // Base class handler implementation
-libqt_string QsciLexerPostScript_QBaseTextAsBytes(const QsciLexerPostScript* self, const libqt_string text) {
+libqt_string QsciLexerPostScript_SuperTextAsBytes(const QsciLexerPostScript* self, const libqt_string text) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
@@ -1445,7 +1445,7 @@ libqt_string QsciLexerPostScript_BytesAsText(const QsciLexerPostScript* self, co
 }
 
 // Base class handler implementation
-libqt_string QsciLexerPostScript_QBaseBytesAsText(const QsciLexerPostScript* self, const char* bytes, int size) {
+libqt_string QsciLexerPostScript_SuperBytesAsText(const QsciLexerPostScript* self, const char* bytes, int size) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_BytesAsText_IsBase(true);
@@ -1490,7 +1490,7 @@ QObject* QsciLexerPostScript_Sender(const QsciLexerPostScript* self) {
 }
 
 // Base class handler implementation
-QObject* QsciLexerPostScript_QBaseSender(const QsciLexerPostScript* self) {
+QObject* QsciLexerPostScript_SuperSender(const QsciLexerPostScript* self) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_Sender_IsBase(true);
@@ -1519,7 +1519,7 @@ int QsciLexerPostScript_SenderSignalIndex(const QsciLexerPostScript* self) {
 }
 
 // Base class handler implementation
-int QsciLexerPostScript_QBaseSenderSignalIndex(const QsciLexerPostScript* self) {
+int QsciLexerPostScript_SuperSenderSignalIndex(const QsciLexerPostScript* self) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_SenderSignalIndex_IsBase(true);
@@ -1548,7 +1548,7 @@ int QsciLexerPostScript_Receivers(const QsciLexerPostScript* self, const char* s
 }
 
 // Base class handler implementation
-int QsciLexerPostScript_QBaseReceivers(const QsciLexerPostScript* self, const char* signal) {
+int QsciLexerPostScript_SuperReceivers(const QsciLexerPostScript* self, const char* signal) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_Receivers_IsBase(true);
@@ -1577,7 +1577,7 @@ bool QsciLexerPostScript_IsSignalConnected(const QsciLexerPostScript* self, cons
 }
 
 // Base class handler implementation
-bool QsciLexerPostScript_QBaseIsSignalConnected(const QsciLexerPostScript* self, const QMetaMethod* signal) {
+bool QsciLexerPostScript_SuperIsSignalConnected(const QsciLexerPostScript* self, const QMetaMethod* signal) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         vqscilexerpostscript->setQsciLexerPostScript_IsSignalConnected_IsBase(true);

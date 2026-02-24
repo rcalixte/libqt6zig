@@ -104,13 +104,17 @@ pub const attica__buildservicejoboutput = struct {
         return qtc.Attica__BuildServiceJobOutput_IsValid(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Attica__BuildServiceJobOutput `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Attica__BuildServiceJobOutput_Delete(@ptrCast(self));
     }
 };

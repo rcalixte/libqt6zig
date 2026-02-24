@@ -346,23 +346,23 @@ class VirtualKSycoca final : public KSycoca {
 
     // Friend functions
     friend void KSycoca_ConnectNotify(KSycoca* self, const QMetaMethod* signal);
-    friend void KSycoca_QBaseConnectNotify(KSycoca* self, const QMetaMethod* signal);
+    friend void KSycoca_SuperConnectNotify(KSycoca* self, const QMetaMethod* signal);
     friend void KSycoca_TimerEvent(KSycoca* self, QTimerEvent* event);
-    friend void KSycoca_QBaseTimerEvent(KSycoca* self, QTimerEvent* event);
+    friend void KSycoca_SuperTimerEvent(KSycoca* self, QTimerEvent* event);
     friend void KSycoca_ChildEvent(KSycoca* self, QChildEvent* event);
-    friend void KSycoca_QBaseChildEvent(KSycoca* self, QChildEvent* event);
+    friend void KSycoca_SuperChildEvent(KSycoca* self, QChildEvent* event);
     friend void KSycoca_CustomEvent(KSycoca* self, QEvent* event);
-    friend void KSycoca_QBaseCustomEvent(KSycoca* self, QEvent* event);
+    friend void KSycoca_SuperCustomEvent(KSycoca* self, QEvent* event);
     friend void KSycoca_DisconnectNotify(KSycoca* self, const QMetaMethod* signal);
-    friend void KSycoca_QBaseDisconnectNotify(KSycoca* self, const QMetaMethod* signal);
+    friend void KSycoca_SuperDisconnectNotify(KSycoca* self, const QMetaMethod* signal);
     friend QObject* KSycoca_Sender(const KSycoca* self);
-    friend QObject* KSycoca_QBaseSender(const KSycoca* self);
+    friend QObject* KSycoca_SuperSender(const KSycoca* self);
     friend int KSycoca_SenderSignalIndex(const KSycoca* self);
-    friend int KSycoca_QBaseSenderSignalIndex(const KSycoca* self);
+    friend int KSycoca_SuperSenderSignalIndex(const KSycoca* self);
     friend int KSycoca_Receivers(const KSycoca* self, const char* signal);
-    friend int KSycoca_QBaseReceivers(const KSycoca* self, const char* signal);
+    friend int KSycoca_SuperReceivers(const KSycoca* self, const char* signal);
     friend bool KSycoca_IsSignalConnected(const KSycoca* self, const QMetaMethod* signal);
-    friend bool KSycoca_QBaseIsSignalConnected(const KSycoca* self, const QMetaMethod* signal);
+    friend bool KSycoca_SuperIsSignalConnected(const KSycoca* self, const QMetaMethod* signal);
 };
 
 #endif

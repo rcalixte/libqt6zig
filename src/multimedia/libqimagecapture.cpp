@@ -341,7 +341,7 @@ int QImageCapture_CaptureToFile1(QImageCapture* self, const libqt_string locatio
 }
 
 // Base class handler implementation
-QMetaObject* QImageCapture_QBaseMetaObject(const QImageCapture* self) {
+QMetaObject* QImageCapture_SuperMetaObject(const QImageCapture* self) {
     auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
     if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
         vqimagecapture->setQImageCapture_MetaObject_IsBase(true);
@@ -360,7 +360,7 @@ void QImageCapture_OnMetaObject(const QImageCapture* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QImageCapture_QBaseMetacast(QImageCapture* self, const char* param1) {
+void* QImageCapture_SuperMetacast(QImageCapture* self, const char* param1) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
     if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
         vqimagecapture->setQImageCapture_Metacast_IsBase(true);
@@ -379,7 +379,7 @@ void QImageCapture_OnMetacast(QImageCapture* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QImageCapture_QBaseMetacall(QImageCapture* self, int param1, int param2, void** param3) {
+int QImageCapture_SuperMetacall(QImageCapture* self, int param1, int param2, void** param3) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
     if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
         vqimagecapture->setQImageCapture_Metacall_IsBase(true);
@@ -408,7 +408,7 @@ bool QImageCapture_Event(QImageCapture* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QImageCapture_QBaseEvent(QImageCapture* self, QEvent* event) {
+bool QImageCapture_SuperEvent(QImageCapture* self, QEvent* event) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
     if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
         vqimagecapture->setQImageCapture_Event_IsBase(true);
@@ -437,7 +437,7 @@ bool QImageCapture_EventFilter(QImageCapture* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QImageCapture_QBaseEventFilter(QImageCapture* self, QObject* watched, QEvent* event) {
+bool QImageCapture_SuperEventFilter(QImageCapture* self, QObject* watched, QEvent* event) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
     if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
         vqimagecapture->setQImageCapture_EventFilter_IsBase(true);
@@ -466,7 +466,7 @@ void QImageCapture_TimerEvent(QImageCapture* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QImageCapture_QBaseTimerEvent(QImageCapture* self, QTimerEvent* event) {
+void QImageCapture_SuperTimerEvent(QImageCapture* self, QTimerEvent* event) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
     if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
         vqimagecapture->setQImageCapture_TimerEvent_IsBase(true);
@@ -495,7 +495,7 @@ void QImageCapture_ChildEvent(QImageCapture* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QImageCapture_QBaseChildEvent(QImageCapture* self, QChildEvent* event) {
+void QImageCapture_SuperChildEvent(QImageCapture* self, QChildEvent* event) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
     if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
         vqimagecapture->setQImageCapture_ChildEvent_IsBase(true);
@@ -524,7 +524,7 @@ void QImageCapture_CustomEvent(QImageCapture* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QImageCapture_QBaseCustomEvent(QImageCapture* self, QEvent* event) {
+void QImageCapture_SuperCustomEvent(QImageCapture* self, QEvent* event) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
     if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
         vqimagecapture->setQImageCapture_CustomEvent_IsBase(true);
@@ -553,7 +553,7 @@ void QImageCapture_ConnectNotify(QImageCapture* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QImageCapture_QBaseConnectNotify(QImageCapture* self, const QMetaMethod* signal) {
+void QImageCapture_SuperConnectNotify(QImageCapture* self, const QMetaMethod* signal) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
     if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
         vqimagecapture->setQImageCapture_ConnectNotify_IsBase(true);
@@ -582,7 +582,7 @@ void QImageCapture_DisconnectNotify(QImageCapture* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QImageCapture_QBaseDisconnectNotify(QImageCapture* self, const QMetaMethod* signal) {
+void QImageCapture_SuperDisconnectNotify(QImageCapture* self, const QMetaMethod* signal) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
     if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
         vqimagecapture->setQImageCapture_DisconnectNotify_IsBase(true);
@@ -611,7 +611,7 @@ QObject* QImageCapture_Sender(const QImageCapture* self) {
 }
 
 // Base class handler implementation
-QObject* QImageCapture_QBaseSender(const QImageCapture* self) {
+QObject* QImageCapture_SuperSender(const QImageCapture* self) {
     auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
     if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
         vqimagecapture->setQImageCapture_Sender_IsBase(true);
@@ -640,7 +640,7 @@ int QImageCapture_SenderSignalIndex(const QImageCapture* self) {
 }
 
 // Base class handler implementation
-int QImageCapture_QBaseSenderSignalIndex(const QImageCapture* self) {
+int QImageCapture_SuperSenderSignalIndex(const QImageCapture* self) {
     auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
     if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
         vqimagecapture->setQImageCapture_SenderSignalIndex_IsBase(true);
@@ -669,7 +669,7 @@ int QImageCapture_Receivers(const QImageCapture* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QImageCapture_QBaseReceivers(const QImageCapture* self, const char* signal) {
+int QImageCapture_SuperReceivers(const QImageCapture* self, const char* signal) {
     auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
     if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
         vqimagecapture->setQImageCapture_Receivers_IsBase(true);
@@ -698,7 +698,7 @@ bool QImageCapture_IsSignalConnected(const QImageCapture* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QImageCapture_QBaseIsSignalConnected(const QImageCapture* self, const QMetaMethod* signal) {
+bool QImageCapture_SuperIsSignalConnected(const QImageCapture* self, const QMetaMethod* signal) {
     auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
     if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
         vqimagecapture->setQImageCapture_IsSignalConnected_IsBase(true);

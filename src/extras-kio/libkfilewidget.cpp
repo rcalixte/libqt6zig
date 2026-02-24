@@ -424,7 +424,7 @@ void KFileWidget_SetFilters2(KFileWidget* self, const libqt_list /* of KFileFilt
 }
 
 // Base class handler implementation
-QMetaObject* KFileWidget_QBaseMetaObject(const KFileWidget* self) {
+QMetaObject* KFileWidget_SuperMetaObject(const KFileWidget* self) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_MetaObject_IsBase(true);
@@ -443,7 +443,7 @@ void KFileWidget_OnMetaObject(const KFileWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KFileWidget_QBaseMetacast(KFileWidget* self, const char* param1) {
+void* KFileWidget_SuperMetacast(KFileWidget* self, const char* param1) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_Metacast_IsBase(true);
@@ -462,7 +462,7 @@ void KFileWidget_OnMetacast(KFileWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KFileWidget_QBaseMetacall(KFileWidget* self, int param1, int param2, void** param3) {
+int KFileWidget_SuperMetacall(KFileWidget* self, int param1, int param2, void** param3) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_Metacall_IsBase(true);
@@ -481,7 +481,7 @@ void KFileWidget_OnMetacall(KFileWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* KFileWidget_QBaseSizeHint(const KFileWidget* self) {
+QSize* KFileWidget_SuperSizeHint(const KFileWidget* self) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_SizeHint_IsBase(true);
@@ -500,7 +500,7 @@ void KFileWidget_OnSizeHint(const KFileWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseResizeEvent(KFileWidget* self, QResizeEvent* event) {
+void KFileWidget_SuperResizeEvent(KFileWidget* self, QResizeEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_ResizeEvent_IsBase(true);
@@ -519,7 +519,7 @@ void KFileWidget_OnResizeEvent(KFileWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseShowEvent(KFileWidget* self, QShowEvent* event) {
+void KFileWidget_SuperShowEvent(KFileWidget* self, QShowEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_ShowEvent_IsBase(true);
@@ -538,7 +538,7 @@ void KFileWidget_OnShowEvent(KFileWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KFileWidget_QBaseEventFilter(KFileWidget* self, QObject* watched, QEvent* event) {
+bool KFileWidget_SuperEventFilter(KFileWidget* self, QObject* watched, QEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_EventFilter_IsBase(true);
@@ -567,7 +567,7 @@ int KFileWidget_DevType(const KFileWidget* self) {
 }
 
 // Base class handler implementation
-int KFileWidget_QBaseDevType(const KFileWidget* self) {
+int KFileWidget_SuperDevType(const KFileWidget* self) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_DevType_IsBase(true);
@@ -596,7 +596,7 @@ void KFileWidget_SetVisible(KFileWidget* self, bool visible) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseSetVisible(KFileWidget* self, bool visible) {
+void KFileWidget_SuperSetVisible(KFileWidget* self, bool visible) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_SetVisible_IsBase(true);
@@ -625,7 +625,7 @@ QSize* KFileWidget_MinimumSizeHint(const KFileWidget* self) {
 }
 
 // Base class handler implementation
-QSize* KFileWidget_QBaseMinimumSizeHint(const KFileWidget* self) {
+QSize* KFileWidget_SuperMinimumSizeHint(const KFileWidget* self) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_MinimumSizeHint_IsBase(true);
@@ -654,7 +654,7 @@ int KFileWidget_HeightForWidth(const KFileWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int KFileWidget_QBaseHeightForWidth(const KFileWidget* self, int param1) {
+int KFileWidget_SuperHeightForWidth(const KFileWidget* self, int param1) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_HeightForWidth_IsBase(true);
@@ -683,7 +683,7 @@ bool KFileWidget_HasHeightForWidth(const KFileWidget* self) {
 }
 
 // Base class handler implementation
-bool KFileWidget_QBaseHasHeightForWidth(const KFileWidget* self) {
+bool KFileWidget_SuperHasHeightForWidth(const KFileWidget* self) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_HasHeightForWidth_IsBase(true);
@@ -712,7 +712,7 @@ QPaintEngine* KFileWidget_PaintEngine(const KFileWidget* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KFileWidget_QBasePaintEngine(const KFileWidget* self) {
+QPaintEngine* KFileWidget_SuperPaintEngine(const KFileWidget* self) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_PaintEngine_IsBase(true);
@@ -741,7 +741,7 @@ bool KFileWidget_Event(KFileWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KFileWidget_QBaseEvent(KFileWidget* self, QEvent* event) {
+bool KFileWidget_SuperEvent(KFileWidget* self, QEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_Event_IsBase(true);
@@ -770,7 +770,7 @@ void KFileWidget_MousePressEvent(KFileWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseMousePressEvent(KFileWidget* self, QMouseEvent* event) {
+void KFileWidget_SuperMousePressEvent(KFileWidget* self, QMouseEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_MousePressEvent_IsBase(true);
@@ -799,7 +799,7 @@ void KFileWidget_MouseReleaseEvent(KFileWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseMouseReleaseEvent(KFileWidget* self, QMouseEvent* event) {
+void KFileWidget_SuperMouseReleaseEvent(KFileWidget* self, QMouseEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_MouseReleaseEvent_IsBase(true);
@@ -828,7 +828,7 @@ void KFileWidget_MouseDoubleClickEvent(KFileWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseMouseDoubleClickEvent(KFileWidget* self, QMouseEvent* event) {
+void KFileWidget_SuperMouseDoubleClickEvent(KFileWidget* self, QMouseEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_MouseDoubleClickEvent_IsBase(true);
@@ -857,7 +857,7 @@ void KFileWidget_MouseMoveEvent(KFileWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseMouseMoveEvent(KFileWidget* self, QMouseEvent* event) {
+void KFileWidget_SuperMouseMoveEvent(KFileWidget* self, QMouseEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_MouseMoveEvent_IsBase(true);
@@ -886,7 +886,7 @@ void KFileWidget_WheelEvent(KFileWidget* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseWheelEvent(KFileWidget* self, QWheelEvent* event) {
+void KFileWidget_SuperWheelEvent(KFileWidget* self, QWheelEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_WheelEvent_IsBase(true);
@@ -915,7 +915,7 @@ void KFileWidget_KeyPressEvent(KFileWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseKeyPressEvent(KFileWidget* self, QKeyEvent* event) {
+void KFileWidget_SuperKeyPressEvent(KFileWidget* self, QKeyEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_KeyPressEvent_IsBase(true);
@@ -944,7 +944,7 @@ void KFileWidget_KeyReleaseEvent(KFileWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseKeyReleaseEvent(KFileWidget* self, QKeyEvent* event) {
+void KFileWidget_SuperKeyReleaseEvent(KFileWidget* self, QKeyEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_KeyReleaseEvent_IsBase(true);
@@ -973,7 +973,7 @@ void KFileWidget_FocusInEvent(KFileWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseFocusInEvent(KFileWidget* self, QFocusEvent* event) {
+void KFileWidget_SuperFocusInEvent(KFileWidget* self, QFocusEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_FocusInEvent_IsBase(true);
@@ -1002,7 +1002,7 @@ void KFileWidget_FocusOutEvent(KFileWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseFocusOutEvent(KFileWidget* self, QFocusEvent* event) {
+void KFileWidget_SuperFocusOutEvent(KFileWidget* self, QFocusEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_FocusOutEvent_IsBase(true);
@@ -1031,7 +1031,7 @@ void KFileWidget_EnterEvent(KFileWidget* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseEnterEvent(KFileWidget* self, QEnterEvent* event) {
+void KFileWidget_SuperEnterEvent(KFileWidget* self, QEnterEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_EnterEvent_IsBase(true);
@@ -1060,7 +1060,7 @@ void KFileWidget_LeaveEvent(KFileWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseLeaveEvent(KFileWidget* self, QEvent* event) {
+void KFileWidget_SuperLeaveEvent(KFileWidget* self, QEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_LeaveEvent_IsBase(true);
@@ -1089,7 +1089,7 @@ void KFileWidget_PaintEvent(KFileWidget* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBasePaintEvent(KFileWidget* self, QPaintEvent* event) {
+void KFileWidget_SuperPaintEvent(KFileWidget* self, QPaintEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_PaintEvent_IsBase(true);
@@ -1118,7 +1118,7 @@ void KFileWidget_MoveEvent(KFileWidget* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseMoveEvent(KFileWidget* self, QMoveEvent* event) {
+void KFileWidget_SuperMoveEvent(KFileWidget* self, QMoveEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_MoveEvent_IsBase(true);
@@ -1147,7 +1147,7 @@ void KFileWidget_CloseEvent(KFileWidget* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseCloseEvent(KFileWidget* self, QCloseEvent* event) {
+void KFileWidget_SuperCloseEvent(KFileWidget* self, QCloseEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_CloseEvent_IsBase(true);
@@ -1176,7 +1176,7 @@ void KFileWidget_ContextMenuEvent(KFileWidget* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseContextMenuEvent(KFileWidget* self, QContextMenuEvent* event) {
+void KFileWidget_SuperContextMenuEvent(KFileWidget* self, QContextMenuEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_ContextMenuEvent_IsBase(true);
@@ -1205,7 +1205,7 @@ void KFileWidget_TabletEvent(KFileWidget* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseTabletEvent(KFileWidget* self, QTabletEvent* event) {
+void KFileWidget_SuperTabletEvent(KFileWidget* self, QTabletEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_TabletEvent_IsBase(true);
@@ -1234,7 +1234,7 @@ void KFileWidget_ActionEvent(KFileWidget* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseActionEvent(KFileWidget* self, QActionEvent* event) {
+void KFileWidget_SuperActionEvent(KFileWidget* self, QActionEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_ActionEvent_IsBase(true);
@@ -1263,7 +1263,7 @@ void KFileWidget_DragEnterEvent(KFileWidget* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseDragEnterEvent(KFileWidget* self, QDragEnterEvent* event) {
+void KFileWidget_SuperDragEnterEvent(KFileWidget* self, QDragEnterEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_DragEnterEvent_IsBase(true);
@@ -1292,7 +1292,7 @@ void KFileWidget_DragMoveEvent(KFileWidget* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseDragMoveEvent(KFileWidget* self, QDragMoveEvent* event) {
+void KFileWidget_SuperDragMoveEvent(KFileWidget* self, QDragMoveEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_DragMoveEvent_IsBase(true);
@@ -1321,7 +1321,7 @@ void KFileWidget_DragLeaveEvent(KFileWidget* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseDragLeaveEvent(KFileWidget* self, QDragLeaveEvent* event) {
+void KFileWidget_SuperDragLeaveEvent(KFileWidget* self, QDragLeaveEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_DragLeaveEvent_IsBase(true);
@@ -1350,7 +1350,7 @@ void KFileWidget_DropEvent(KFileWidget* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseDropEvent(KFileWidget* self, QDropEvent* event) {
+void KFileWidget_SuperDropEvent(KFileWidget* self, QDropEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_DropEvent_IsBase(true);
@@ -1379,7 +1379,7 @@ void KFileWidget_HideEvent(KFileWidget* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseHideEvent(KFileWidget* self, QHideEvent* event) {
+void KFileWidget_SuperHideEvent(KFileWidget* self, QHideEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_HideEvent_IsBase(true);
@@ -1409,7 +1409,7 @@ bool KFileWidget_NativeEvent(KFileWidget* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool KFileWidget_QBaseNativeEvent(KFileWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KFileWidget_SuperNativeEvent(KFileWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
@@ -1439,7 +1439,7 @@ void KFileWidget_ChangeEvent(KFileWidget* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseChangeEvent(KFileWidget* self, QEvent* param1) {
+void KFileWidget_SuperChangeEvent(KFileWidget* self, QEvent* param1) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_ChangeEvent_IsBase(true);
@@ -1468,7 +1468,7 @@ int KFileWidget_Metric(const KFileWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int KFileWidget_QBaseMetric(const KFileWidget* self, int param1) {
+int KFileWidget_SuperMetric(const KFileWidget* self, int param1) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_Metric_IsBase(true);
@@ -1497,7 +1497,7 @@ void KFileWidget_InitPainter(const KFileWidget* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseInitPainter(const KFileWidget* self, QPainter* painter) {
+void KFileWidget_SuperInitPainter(const KFileWidget* self, QPainter* painter) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_InitPainter_IsBase(true);
@@ -1526,7 +1526,7 @@ QPaintDevice* KFileWidget_Redirected(const KFileWidget* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KFileWidget_QBaseRedirected(const KFileWidget* self, QPoint* offset) {
+QPaintDevice* KFileWidget_SuperRedirected(const KFileWidget* self, QPoint* offset) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_Redirected_IsBase(true);
@@ -1555,7 +1555,7 @@ QPainter* KFileWidget_SharedPainter(const KFileWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* KFileWidget_QBaseSharedPainter(const KFileWidget* self) {
+QPainter* KFileWidget_SuperSharedPainter(const KFileWidget* self) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_SharedPainter_IsBase(true);
@@ -1584,7 +1584,7 @@ void KFileWidget_InputMethodEvent(KFileWidget* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseInputMethodEvent(KFileWidget* self, QInputMethodEvent* param1) {
+void KFileWidget_SuperInputMethodEvent(KFileWidget* self, QInputMethodEvent* param1) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_InputMethodEvent_IsBase(true);
@@ -1613,7 +1613,7 @@ QVariant* KFileWidget_InputMethodQuery(const KFileWidget* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KFileWidget_QBaseInputMethodQuery(const KFileWidget* self, int param1) {
+QVariant* KFileWidget_SuperInputMethodQuery(const KFileWidget* self, int param1) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_InputMethodQuery_IsBase(true);
@@ -1642,7 +1642,7 @@ bool KFileWidget_FocusNextPrevChild(KFileWidget* self, bool next) {
 }
 
 // Base class handler implementation
-bool KFileWidget_QBaseFocusNextPrevChild(KFileWidget* self, bool next) {
+bool KFileWidget_SuperFocusNextPrevChild(KFileWidget* self, bool next) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_FocusNextPrevChild_IsBase(true);
@@ -1671,7 +1671,7 @@ void KFileWidget_TimerEvent(KFileWidget* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseTimerEvent(KFileWidget* self, QTimerEvent* event) {
+void KFileWidget_SuperTimerEvent(KFileWidget* self, QTimerEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_TimerEvent_IsBase(true);
@@ -1700,7 +1700,7 @@ void KFileWidget_ChildEvent(KFileWidget* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseChildEvent(KFileWidget* self, QChildEvent* event) {
+void KFileWidget_SuperChildEvent(KFileWidget* self, QChildEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_ChildEvent_IsBase(true);
@@ -1729,7 +1729,7 @@ void KFileWidget_CustomEvent(KFileWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseCustomEvent(KFileWidget* self, QEvent* event) {
+void KFileWidget_SuperCustomEvent(KFileWidget* self, QEvent* event) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_CustomEvent_IsBase(true);
@@ -1758,7 +1758,7 @@ void KFileWidget_ConnectNotify(KFileWidget* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseConnectNotify(KFileWidget* self, const QMetaMethod* signal) {
+void KFileWidget_SuperConnectNotify(KFileWidget* self, const QMetaMethod* signal) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_ConnectNotify_IsBase(true);
@@ -1787,7 +1787,7 @@ void KFileWidget_DisconnectNotify(KFileWidget* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseDisconnectNotify(KFileWidget* self, const QMetaMethod* signal) {
+void KFileWidget_SuperDisconnectNotify(KFileWidget* self, const QMetaMethod* signal) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_DisconnectNotify_IsBase(true);
@@ -1816,7 +1816,7 @@ void KFileWidget_UpdateMicroFocus(KFileWidget* self) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseUpdateMicroFocus(KFileWidget* self) {
+void KFileWidget_SuperUpdateMicroFocus(KFileWidget* self) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_UpdateMicroFocus_IsBase(true);
@@ -1845,7 +1845,7 @@ void KFileWidget_Create(KFileWidget* self) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseCreate(KFileWidget* self) {
+void KFileWidget_SuperCreate(KFileWidget* self) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_Create_IsBase(true);
@@ -1874,7 +1874,7 @@ void KFileWidget_Destroy(KFileWidget* self) {
 }
 
 // Base class handler implementation
-void KFileWidget_QBaseDestroy(KFileWidget* self) {
+void KFileWidget_SuperDestroy(KFileWidget* self) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_Destroy_IsBase(true);
@@ -1903,7 +1903,7 @@ bool KFileWidget_FocusNextChild(KFileWidget* self) {
 }
 
 // Base class handler implementation
-bool KFileWidget_QBaseFocusNextChild(KFileWidget* self) {
+bool KFileWidget_SuperFocusNextChild(KFileWidget* self) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_FocusNextChild_IsBase(true);
@@ -1932,7 +1932,7 @@ bool KFileWidget_FocusPreviousChild(KFileWidget* self) {
 }
 
 // Base class handler implementation
-bool KFileWidget_QBaseFocusPreviousChild(KFileWidget* self) {
+bool KFileWidget_SuperFocusPreviousChild(KFileWidget* self) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_FocusPreviousChild_IsBase(true);
@@ -1961,7 +1961,7 @@ QObject* KFileWidget_Sender(const KFileWidget* self) {
 }
 
 // Base class handler implementation
-QObject* KFileWidget_QBaseSender(const KFileWidget* self) {
+QObject* KFileWidget_SuperSender(const KFileWidget* self) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_Sender_IsBase(true);
@@ -1990,7 +1990,7 @@ int KFileWidget_SenderSignalIndex(const KFileWidget* self) {
 }
 
 // Base class handler implementation
-int KFileWidget_QBaseSenderSignalIndex(const KFileWidget* self) {
+int KFileWidget_SuperSenderSignalIndex(const KFileWidget* self) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_SenderSignalIndex_IsBase(true);
@@ -2019,7 +2019,7 @@ int KFileWidget_Receivers(const KFileWidget* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KFileWidget_QBaseReceivers(const KFileWidget* self, const char* signal) {
+int KFileWidget_SuperReceivers(const KFileWidget* self, const char* signal) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_Receivers_IsBase(true);
@@ -2048,7 +2048,7 @@ bool KFileWidget_IsSignalConnected(const KFileWidget* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool KFileWidget_QBaseIsSignalConnected(const KFileWidget* self, const QMetaMethod* signal) {
+bool KFileWidget_SuperIsSignalConnected(const KFileWidget* self, const QMetaMethod* signal) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_IsSignalConnected_IsBase(true);
@@ -2077,7 +2077,7 @@ double KFileWidget_GetDecodedMetricF(const KFileWidget* self, int metricA, int m
 }
 
 // Base class handler implementation
-double KFileWidget_QBaseGetDecodedMetricF(const KFileWidget* self, int metricA, int metricB) {
+double KFileWidget_SuperGetDecodedMetricF(const KFileWidget* self, int metricA, int metricB) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
     if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
         vkfilewidget->setKFileWidget_GetDecodedMetricF_IsBase(true);

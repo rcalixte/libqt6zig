@@ -180,13 +180,17 @@ pub const konsole__keyboardtranslator = struct {
         return qtc.Konsole__KeyboardTranslator_FindEntry3(@ptrCast(self), @bitCast(keyCode), @bitCast(modifiers), @bitCast(state));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Konsole__KeyboardTranslator `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Konsole__KeyboardTranslator_Delete(@ptrCast(self));
     }
 };
@@ -269,13 +273,17 @@ pub const konsole__keyboardtranslatorreader = struct {
         return qtc.Konsole__KeyboardTranslatorReader_CreateEntry(condition_str, result_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Konsole__KeyboardTranslatorReader `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Konsole__KeyboardTranslatorReader_Delete(@ptrCast(self));
     }
 };
@@ -320,13 +328,17 @@ pub const konsole__keyboardtranslatorwriter = struct {
         qtc.Konsole__KeyboardTranslatorWriter_WriteEntry(@ptrCast(self), @ptrCast(entry));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Konsole__KeyboardTranslatorWriter `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Konsole__KeyboardTranslatorWriter_Delete(@ptrCast(self));
     }
 };
@@ -426,13 +438,17 @@ pub const konsole__keyboardtranslatormanager = struct {
         return qtc.Konsole__KeyboardTranslatorManager_Instance();
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Konsole__KeyboardTranslatorManager `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Konsole__KeyboardTranslatorManager_Delete(@ptrCast(self));
     }
 };
@@ -852,13 +868,17 @@ pub const konsole__keyboardtranslator__entry = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Konsole__KeyboardTranslator__Entry `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Konsole__KeyboardTranslator__Entry_Delete(@ptrCast(self));
     }
 };

@@ -778,29 +778,29 @@ class VirtualKShellCompletion final : public KShellCompletion {
 
     // Friend functions
     friend void KShellCompletion_PostProcessMatches(const KShellCompletion* self, libqt_list /* of libqt_string */ matches);
-    friend void KShellCompletion_QBasePostProcessMatches(const KShellCompletion* self, libqt_list /* of libqt_string */ matches);
+    friend void KShellCompletion_SuperPostProcessMatches(const KShellCompletion* self, libqt_list /* of libqt_string */ matches);
     friend void KShellCompletion_PostProcessMatches2(const KShellCompletion* self, KCompletionMatches* matches);
-    friend void KShellCompletion_QBasePostProcessMatches2(const KShellCompletion* self, KCompletionMatches* matches);
+    friend void KShellCompletion_SuperPostProcessMatches2(const KShellCompletion* self, KCompletionMatches* matches);
     friend void KShellCompletion_TimerEvent(KShellCompletion* self, QTimerEvent* event);
-    friend void KShellCompletion_QBaseTimerEvent(KShellCompletion* self, QTimerEvent* event);
+    friend void KShellCompletion_SuperTimerEvent(KShellCompletion* self, QTimerEvent* event);
     friend void KShellCompletion_ChildEvent(KShellCompletion* self, QChildEvent* event);
-    friend void KShellCompletion_QBaseChildEvent(KShellCompletion* self, QChildEvent* event);
+    friend void KShellCompletion_SuperChildEvent(KShellCompletion* self, QChildEvent* event);
     friend void KShellCompletion_CustomEvent(KShellCompletion* self, QEvent* event);
-    friend void KShellCompletion_QBaseCustomEvent(KShellCompletion* self, QEvent* event);
+    friend void KShellCompletion_SuperCustomEvent(KShellCompletion* self, QEvent* event);
     friend void KShellCompletion_ConnectNotify(KShellCompletion* self, const QMetaMethod* signal);
-    friend void KShellCompletion_QBaseConnectNotify(KShellCompletion* self, const QMetaMethod* signal);
+    friend void KShellCompletion_SuperConnectNotify(KShellCompletion* self, const QMetaMethod* signal);
     friend void KShellCompletion_DisconnectNotify(KShellCompletion* self, const QMetaMethod* signal);
-    friend void KShellCompletion_QBaseDisconnectNotify(KShellCompletion* self, const QMetaMethod* signal);
+    friend void KShellCompletion_SuperDisconnectNotify(KShellCompletion* self, const QMetaMethod* signal);
     friend void KShellCompletion_SetShouldAutoSuggest(KShellCompletion* self, bool shouldAutosuggest);
-    friend void KShellCompletion_QBaseSetShouldAutoSuggest(KShellCompletion* self, bool shouldAutosuggest);
+    friend void KShellCompletion_SuperSetShouldAutoSuggest(KShellCompletion* self, bool shouldAutosuggest);
     friend QObject* KShellCompletion_Sender(const KShellCompletion* self);
-    friend QObject* KShellCompletion_QBaseSender(const KShellCompletion* self);
+    friend QObject* KShellCompletion_SuperSender(const KShellCompletion* self);
     friend int KShellCompletion_SenderSignalIndex(const KShellCompletion* self);
-    friend int KShellCompletion_QBaseSenderSignalIndex(const KShellCompletion* self);
+    friend int KShellCompletion_SuperSenderSignalIndex(const KShellCompletion* self);
     friend int KShellCompletion_Receivers(const KShellCompletion* self, const char* signal);
-    friend int KShellCompletion_QBaseReceivers(const KShellCompletion* self, const char* signal);
+    friend int KShellCompletion_SuperReceivers(const KShellCompletion* self, const char* signal);
     friend bool KShellCompletion_IsSignalConnected(const KShellCompletion* self, const QMetaMethod* signal);
-    friend bool KShellCompletion_QBaseIsSignalConnected(const KShellCompletion* self, const QMetaMethod* signal);
+    friend bool KShellCompletion_SuperIsSignalConnected(const KShellCompletion* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -113,6 +113,10 @@ pub const qcameraformat = struct {
         return qtc.QCameraFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameraformat.html#dtor.QCameraFormat)
     ///
     /// Delete this object from C++ memory.
@@ -121,7 +125,7 @@ pub const qcameraformat = struct {
     ///
     /// ` self: QtC.QCameraFormat `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCameraFormat_Delete(@ptrCast(self));
     }
 };
@@ -294,6 +298,10 @@ pub const qcameradevice = struct {
         return qtc.QCameraDevice_CorrectionAngle(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#dtor.QCameraDevice)
     ///
     /// Delete this object from C++ memory.
@@ -302,7 +310,7 @@ pub const qcameradevice = struct {
     ///
     /// ` self: QtC.QCameraDevice `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCameraDevice_Delete(@ptrCast(self));
     }
 };

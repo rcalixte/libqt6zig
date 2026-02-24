@@ -546,7 +546,7 @@ void QStandardItem_SortChildren2(QStandardItem* self, int column, int order) {
 }
 
 // Base class handler implementation
-QVariant* QStandardItem_QBaseData(const QStandardItem* self, int role) {
+QVariant* QStandardItem_SuperData(const QStandardItem* self, int role) {
     auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
     if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
         vqstandarditem->setQStandardItem_Data_IsBase(true);
@@ -565,7 +565,7 @@ void QStandardItem_OnData(const QStandardItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStandardItem_QBaseMultiData(const QStandardItem* self, QModelRoleDataSpan* roleDataSpan) {
+void QStandardItem_SuperMultiData(const QStandardItem* self, QModelRoleDataSpan* roleDataSpan) {
     auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
     if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
         vqstandarditem->setQStandardItem_MultiData_IsBase(true);
@@ -584,7 +584,7 @@ void QStandardItem_OnMultiData(const QStandardItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStandardItem_QBaseSetData(QStandardItem* self, const QVariant* value, int role) {
+void QStandardItem_SuperSetData(QStandardItem* self, const QVariant* value, int role) {
     auto* vqstandarditem = dynamic_cast<VirtualQStandardItem*>(self);
     if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
         vqstandarditem->setQStandardItem_SetData_IsBase(true);
@@ -603,7 +603,7 @@ void QStandardItem_OnSetData(QStandardItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QStandardItem* QStandardItem_QBaseClone(const QStandardItem* self) {
+QStandardItem* QStandardItem_SuperClone(const QStandardItem* self) {
     auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
     if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
         vqstandarditem->setQStandardItem_Clone_IsBase(true);
@@ -622,7 +622,7 @@ void QStandardItem_OnClone(const QStandardItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QStandardItem_QBaseType(const QStandardItem* self) {
+int QStandardItem_SuperType(const QStandardItem* self) {
     auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
     if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
         vqstandarditem->setQStandardItem_Type_IsBase(true);
@@ -641,7 +641,7 @@ void QStandardItem_OnType(const QStandardItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStandardItem_QBaseRead(QStandardItem* self, QDataStream* in) {
+void QStandardItem_SuperRead(QStandardItem* self, QDataStream* in) {
     auto* vqstandarditem = dynamic_cast<VirtualQStandardItem*>(self);
     if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
         vqstandarditem->setQStandardItem_Read_IsBase(true);
@@ -660,7 +660,7 @@ void QStandardItem_OnRead(QStandardItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStandardItem_QBaseWrite(const QStandardItem* self, QDataStream* out) {
+void QStandardItem_SuperWrite(const QStandardItem* self, QDataStream* out) {
     auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
     if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
         vqstandarditem->setQStandardItem_Write_IsBase(true);
@@ -679,7 +679,7 @@ void QStandardItem_OnWrite(const QStandardItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QStandardItem_QBaseOperatorLesser(const QStandardItem* self, const QStandardItem* other) {
+bool QStandardItem_SuperOperatorLesser(const QStandardItem* self, const QStandardItem* other) {
     auto* vqstandarditem = const_cast<VirtualQStandardItem*>(dynamic_cast<const VirtualQStandardItem*>(self));
     if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
         vqstandarditem->setQStandardItem_OperatorLesser_IsBase(true);
@@ -708,7 +708,7 @@ void QStandardItem_OperatorAssign(QStandardItem* self, const QStandardItem* othe
 }
 
 // Base class handler implementation
-void QStandardItem_QBaseOperatorAssign(QStandardItem* self, const QStandardItem* other) {
+void QStandardItem_SuperOperatorAssign(QStandardItem* self, const QStandardItem* other) {
     auto* vqstandarditem = dynamic_cast<VirtualQStandardItem*>(self);
     if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
         vqstandarditem->setQStandardItem_OperatorAssign_IsBase(true);
@@ -737,7 +737,7 @@ void QStandardItem_EmitDataChanged(QStandardItem* self) {
 }
 
 // Base class handler implementation
-void QStandardItem_QBaseEmitDataChanged(QStandardItem* self) {
+void QStandardItem_SuperEmitDataChanged(QStandardItem* self) {
     auto* vqstandarditem = dynamic_cast<VirtualQStandardItem*>(self);
     if (vqstandarditem && vqstandarditem->isVirtualQStandardItem) {
         vqstandarditem->setQStandardItem_EmitDataChanged_IsBase(true);
@@ -1397,7 +1397,7 @@ libqt_list /* of QStandardItem* */ QStandardItemModel_FindItems3(const QStandard
 }
 
 // Base class handler implementation
-QMetaObject* QStandardItemModel_QBaseMetaObject(const QStandardItemModel* self) {
+QMetaObject* QStandardItemModel_SuperMetaObject(const QStandardItemModel* self) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_MetaObject_IsBase(true);
@@ -1416,7 +1416,7 @@ void QStandardItemModel_OnMetaObject(const QStandardItemModel* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* QStandardItemModel_QBaseMetacast(QStandardItemModel* self, const char* param1) {
+void* QStandardItemModel_SuperMetacast(QStandardItemModel* self, const char* param1) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_Metacast_IsBase(true);
@@ -1435,7 +1435,7 @@ void QStandardItemModel_OnMetacast(QStandardItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QStandardItemModel_QBaseMetacall(QStandardItemModel* self, int param1, int param2, void** param3) {
+int QStandardItemModel_SuperMetacall(QStandardItemModel* self, int param1, int param2, void** param3) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_Metacall_IsBase(true);
@@ -1454,7 +1454,7 @@ void QStandardItemModel_OnMetacall(QStandardItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ QStandardItemModel_QBaseRoleNames(const QStandardItemModel* self) {
+libqt_map /* of int to libqt_string */ QStandardItemModel_SuperRoleNames(const QStandardItemModel* self) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_RoleNames_IsBase(true);
@@ -1511,7 +1511,7 @@ void QStandardItemModel_OnRoleNames(const QStandardItemModel* self, intptr_t slo
 }
 
 // Base class handler implementation
-QModelIndex* QStandardItemModel_QBaseIndex(const QStandardItemModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* QStandardItemModel_SuperIndex(const QStandardItemModel* self, int row, int column, const QModelIndex* parent) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_Index_IsBase(true);
@@ -1530,7 +1530,7 @@ void QStandardItemModel_OnIndex(const QStandardItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QModelIndex* QStandardItemModel_QBaseParent(const QStandardItemModel* self, const QModelIndex* child) {
+QModelIndex* QStandardItemModel_SuperParent(const QStandardItemModel* self, const QModelIndex* child) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_Parent_IsBase(true);
@@ -1549,7 +1549,7 @@ void QStandardItemModel_OnParent(const QStandardItemModel* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int QStandardItemModel_QBaseRowCount(const QStandardItemModel* self, const QModelIndex* parent) {
+int QStandardItemModel_SuperRowCount(const QStandardItemModel* self, const QModelIndex* parent) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_RowCount_IsBase(true);
@@ -1568,7 +1568,7 @@ void QStandardItemModel_OnRowCount(const QStandardItemModel* self, intptr_t slot
 }
 
 // Base class handler implementation
-int QStandardItemModel_QBaseColumnCount(const QStandardItemModel* self, const QModelIndex* parent) {
+int QStandardItemModel_SuperColumnCount(const QStandardItemModel* self, const QModelIndex* parent) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_ColumnCount_IsBase(true);
@@ -1587,7 +1587,7 @@ void QStandardItemModel_OnColumnCount(const QStandardItemModel* self, intptr_t s
 }
 
 // Base class handler implementation
-bool QStandardItemModel_QBaseHasChildren(const QStandardItemModel* self, const QModelIndex* parent) {
+bool QStandardItemModel_SuperHasChildren(const QStandardItemModel* self, const QModelIndex* parent) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_HasChildren_IsBase(true);
@@ -1606,7 +1606,7 @@ void QStandardItemModel_OnHasChildren(const QStandardItemModel* self, intptr_t s
 }
 
 // Base class handler implementation
-QVariant* QStandardItemModel_QBaseData(const QStandardItemModel* self, const QModelIndex* index, int role) {
+QVariant* QStandardItemModel_SuperData(const QStandardItemModel* self, const QModelIndex* index, int role) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_Data_IsBase(true);
@@ -1625,7 +1625,7 @@ void QStandardItemModel_OnData(const QStandardItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseMultiData(const QStandardItemModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void QStandardItemModel_SuperMultiData(const QStandardItemModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_MultiData_IsBase(true);
@@ -1644,7 +1644,7 @@ void QStandardItemModel_OnMultiData(const QStandardItemModel* self, intptr_t slo
 }
 
 // Base class handler implementation
-bool QStandardItemModel_QBaseSetData(QStandardItemModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool QStandardItemModel_SuperSetData(QStandardItemModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_SetData_IsBase(true);
@@ -1663,7 +1663,7 @@ void QStandardItemModel_OnSetData(QStandardItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QStandardItemModel_QBaseClearItemData(QStandardItemModel* self, const QModelIndex* index) {
+bool QStandardItemModel_SuperClearItemData(QStandardItemModel* self, const QModelIndex* index) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_ClearItemData_IsBase(true);
@@ -1682,7 +1682,7 @@ void QStandardItemModel_OnClearItemData(QStandardItemModel* self, intptr_t slot)
 }
 
 // Base class handler implementation
-QVariant* QStandardItemModel_QBaseHeaderData(const QStandardItemModel* self, int section, int orientation, int role) {
+QVariant* QStandardItemModel_SuperHeaderData(const QStandardItemModel* self, int section, int orientation, int role) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_HeaderData_IsBase(true);
@@ -1701,7 +1701,7 @@ void QStandardItemModel_OnHeaderData(const QStandardItemModel* self, intptr_t sl
 }
 
 // Base class handler implementation
-bool QStandardItemModel_QBaseSetHeaderData(QStandardItemModel* self, int section, int orientation, const QVariant* value, int role) {
+bool QStandardItemModel_SuperSetHeaderData(QStandardItemModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_SetHeaderData_IsBase(true);
@@ -1720,7 +1720,7 @@ void QStandardItemModel_OnSetHeaderData(QStandardItemModel* self, intptr_t slot)
 }
 
 // Base class handler implementation
-bool QStandardItemModel_QBaseInsertRows(QStandardItemModel* self, int row, int count, const QModelIndex* parent) {
+bool QStandardItemModel_SuperInsertRows(QStandardItemModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_InsertRows_IsBase(true);
@@ -1739,7 +1739,7 @@ void QStandardItemModel_OnInsertRows(QStandardItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QStandardItemModel_QBaseInsertColumns(QStandardItemModel* self, int column, int count, const QModelIndex* parent) {
+bool QStandardItemModel_SuperInsertColumns(QStandardItemModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_InsertColumns_IsBase(true);
@@ -1758,7 +1758,7 @@ void QStandardItemModel_OnInsertColumns(QStandardItemModel* self, intptr_t slot)
 }
 
 // Base class handler implementation
-bool QStandardItemModel_QBaseRemoveRows(QStandardItemModel* self, int row, int count, const QModelIndex* parent) {
+bool QStandardItemModel_SuperRemoveRows(QStandardItemModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_RemoveRows_IsBase(true);
@@ -1777,7 +1777,7 @@ void QStandardItemModel_OnRemoveRows(QStandardItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QStandardItemModel_QBaseRemoveColumns(QStandardItemModel* self, int column, int count, const QModelIndex* parent) {
+bool QStandardItemModel_SuperRemoveColumns(QStandardItemModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_RemoveColumns_IsBase(true);
@@ -1796,7 +1796,7 @@ void QStandardItemModel_OnRemoveColumns(QStandardItemModel* self, intptr_t slot)
 }
 
 // Base class handler implementation
-int QStandardItemModel_QBaseFlags(const QStandardItemModel* self, const QModelIndex* index) {
+int QStandardItemModel_SuperFlags(const QStandardItemModel* self, const QModelIndex* index) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_Flags_IsBase(true);
@@ -1815,7 +1815,7 @@ void QStandardItemModel_OnFlags(const QStandardItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QStandardItemModel_QBaseSupportedDropActions(const QStandardItemModel* self) {
+int QStandardItemModel_SuperSupportedDropActions(const QStandardItemModel* self) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_SupportedDropActions_IsBase(true);
@@ -1834,7 +1834,7 @@ void QStandardItemModel_OnSupportedDropActions(const QStandardItemModel* self, i
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ QStandardItemModel_QBaseItemData(const QStandardItemModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ QStandardItemModel_SuperItemData(const QStandardItemModel* self, const QModelIndex* index) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_ItemData_IsBase(true);
@@ -1881,7 +1881,7 @@ void QStandardItemModel_OnItemData(const QStandardItemModel* self, intptr_t slot
 }
 
 // Base class handler implementation
-bool QStandardItemModel_QBaseSetItemData(QStandardItemModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool QStandardItemModel_SuperSetItemData(QStandardItemModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -1906,7 +1906,7 @@ void QStandardItemModel_OnSetItemData(QStandardItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseSort(QStandardItemModel* self, int column, int order) {
+void QStandardItemModel_SuperSort(QStandardItemModel* self, int column, int order) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_Sort_IsBase(true);
@@ -1925,7 +1925,7 @@ void QStandardItemModel_OnSort(QStandardItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QStandardItemModel_QBaseMimeTypes(const QStandardItemModel* self) {
+libqt_list /* of libqt_string */ QStandardItemModel_SuperMimeTypes(const QStandardItemModel* self) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_MimeTypes_IsBase(true);
@@ -1978,7 +1978,7 @@ void QStandardItemModel_OnMimeTypes(const QStandardItemModel* self, intptr_t slo
 }
 
 // Base class handler implementation
-QMimeData* QStandardItemModel_QBaseMimeData(const QStandardItemModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* QStandardItemModel_SuperMimeData(const QStandardItemModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -2003,7 +2003,7 @@ void QStandardItemModel_OnMimeData(const QStandardItemModel* self, intptr_t slot
 }
 
 // Base class handler implementation
-bool QStandardItemModel_QBaseDropMimeData(QStandardItemModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QStandardItemModel_SuperDropMimeData(QStandardItemModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_DropMimeData_IsBase(true);
@@ -2032,7 +2032,7 @@ QModelIndex* QStandardItemModel_Sibling(const QStandardItemModel* self, int row,
 }
 
 // Base class handler implementation
-QModelIndex* QStandardItemModel_QBaseSibling(const QStandardItemModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* QStandardItemModel_SuperSibling(const QStandardItemModel* self, int row, int column, const QModelIndex* idx) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_Sibling_IsBase(true);
@@ -2061,7 +2061,7 @@ bool QStandardItemModel_CanDropMimeData(const QStandardItemModel* self, const QM
 }
 
 // Base class handler implementation
-bool QStandardItemModel_QBaseCanDropMimeData(const QStandardItemModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QStandardItemModel_SuperCanDropMimeData(const QStandardItemModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_CanDropMimeData_IsBase(true);
@@ -2090,7 +2090,7 @@ int QStandardItemModel_SupportedDragActions(const QStandardItemModel* self) {
 }
 
 // Base class handler implementation
-int QStandardItemModel_QBaseSupportedDragActions(const QStandardItemModel* self) {
+int QStandardItemModel_SuperSupportedDragActions(const QStandardItemModel* self) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_SupportedDragActions_IsBase(true);
@@ -2119,7 +2119,7 @@ bool QStandardItemModel_MoveRows(QStandardItemModel* self, const QModelIndex* so
 }
 
 // Base class handler implementation
-bool QStandardItemModel_QBaseMoveRows(QStandardItemModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QStandardItemModel_SuperMoveRows(QStandardItemModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_MoveRows_IsBase(true);
@@ -2148,7 +2148,7 @@ bool QStandardItemModel_MoveColumns(QStandardItemModel* self, const QModelIndex*
 }
 
 // Base class handler implementation
-bool QStandardItemModel_QBaseMoveColumns(QStandardItemModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QStandardItemModel_SuperMoveColumns(QStandardItemModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_MoveColumns_IsBase(true);
@@ -2177,7 +2177,7 @@ void QStandardItemModel_FetchMore(QStandardItemModel* self, const QModelIndex* p
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseFetchMore(QStandardItemModel* self, const QModelIndex* parent) {
+void QStandardItemModel_SuperFetchMore(QStandardItemModel* self, const QModelIndex* parent) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_FetchMore_IsBase(true);
@@ -2206,7 +2206,7 @@ bool QStandardItemModel_CanFetchMore(const QStandardItemModel* self, const QMode
 }
 
 // Base class handler implementation
-bool QStandardItemModel_QBaseCanFetchMore(const QStandardItemModel* self, const QModelIndex* parent) {
+bool QStandardItemModel_SuperCanFetchMore(const QStandardItemModel* self, const QModelIndex* parent) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_CanFetchMore_IsBase(true);
@@ -2235,7 +2235,7 @@ QModelIndex* QStandardItemModel_Buddy(const QStandardItemModel* self, const QMod
 }
 
 // Base class handler implementation
-QModelIndex* QStandardItemModel_QBaseBuddy(const QStandardItemModel* self, const QModelIndex* index) {
+QModelIndex* QStandardItemModel_SuperBuddy(const QStandardItemModel* self, const QModelIndex* index) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_Buddy_IsBase(true);
@@ -2282,7 +2282,7 @@ libqt_list /* of QModelIndex* */ QStandardItemModel_Match(const QStandardItemMod
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QStandardItemModel_QBaseMatch(const QStandardItemModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ QStandardItemModel_SuperMatch(const QStandardItemModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_Match_IsBase(true);
@@ -2329,7 +2329,7 @@ QSize* QStandardItemModel_Span(const QStandardItemModel* self, const QModelIndex
 }
 
 // Base class handler implementation
-QSize* QStandardItemModel_QBaseSpan(const QStandardItemModel* self, const QModelIndex* index) {
+QSize* QStandardItemModel_SuperSpan(const QStandardItemModel* self, const QModelIndex* index) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_Span_IsBase(true);
@@ -2358,7 +2358,7 @@ bool QStandardItemModel_Submit(QStandardItemModel* self) {
 }
 
 // Base class handler implementation
-bool QStandardItemModel_QBaseSubmit(QStandardItemModel* self) {
+bool QStandardItemModel_SuperSubmit(QStandardItemModel* self) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_Submit_IsBase(true);
@@ -2387,7 +2387,7 @@ void QStandardItemModel_Revert(QStandardItemModel* self) {
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseRevert(QStandardItemModel* self) {
+void QStandardItemModel_SuperRevert(QStandardItemModel* self) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_Revert_IsBase(true);
@@ -2416,7 +2416,7 @@ void QStandardItemModel_ResetInternalData(QStandardItemModel* self) {
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseResetInternalData(QStandardItemModel* self) {
+void QStandardItemModel_SuperResetInternalData(QStandardItemModel* self) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_ResetInternalData_IsBase(true);
@@ -2445,7 +2445,7 @@ bool QStandardItemModel_Event(QStandardItemModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QStandardItemModel_QBaseEvent(QStandardItemModel* self, QEvent* event) {
+bool QStandardItemModel_SuperEvent(QStandardItemModel* self, QEvent* event) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_Event_IsBase(true);
@@ -2474,7 +2474,7 @@ bool QStandardItemModel_EventFilter(QStandardItemModel* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool QStandardItemModel_QBaseEventFilter(QStandardItemModel* self, QObject* watched, QEvent* event) {
+bool QStandardItemModel_SuperEventFilter(QStandardItemModel* self, QObject* watched, QEvent* event) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_EventFilter_IsBase(true);
@@ -2503,7 +2503,7 @@ void QStandardItemModel_TimerEvent(QStandardItemModel* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseTimerEvent(QStandardItemModel* self, QTimerEvent* event) {
+void QStandardItemModel_SuperTimerEvent(QStandardItemModel* self, QTimerEvent* event) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_TimerEvent_IsBase(true);
@@ -2532,7 +2532,7 @@ void QStandardItemModel_ChildEvent(QStandardItemModel* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseChildEvent(QStandardItemModel* self, QChildEvent* event) {
+void QStandardItemModel_SuperChildEvent(QStandardItemModel* self, QChildEvent* event) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_ChildEvent_IsBase(true);
@@ -2561,7 +2561,7 @@ void QStandardItemModel_CustomEvent(QStandardItemModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseCustomEvent(QStandardItemModel* self, QEvent* event) {
+void QStandardItemModel_SuperCustomEvent(QStandardItemModel* self, QEvent* event) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_CustomEvent_IsBase(true);
@@ -2590,7 +2590,7 @@ void QStandardItemModel_ConnectNotify(QStandardItemModel* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseConnectNotify(QStandardItemModel* self, const QMetaMethod* signal) {
+void QStandardItemModel_SuperConnectNotify(QStandardItemModel* self, const QMetaMethod* signal) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_ConnectNotify_IsBase(true);
@@ -2619,7 +2619,7 @@ void QStandardItemModel_DisconnectNotify(QStandardItemModel* self, const QMetaMe
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseDisconnectNotify(QStandardItemModel* self, const QMetaMethod* signal) {
+void QStandardItemModel_SuperDisconnectNotify(QStandardItemModel* self, const QMetaMethod* signal) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_DisconnectNotify_IsBase(true);
@@ -2647,7 +2647,7 @@ QModelIndex* QStandardItemModel_CreateIndex(const QStandardItemModel* self, int 
 }
 
 // Base class handler implementation
-QModelIndex* QStandardItemModel_QBaseCreateIndex(const QStandardItemModel* self, int row, int column) {
+QModelIndex* QStandardItemModel_SuperCreateIndex(const QStandardItemModel* self, int row, int column) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_CreateIndex_IsBase(true);
@@ -2681,7 +2681,7 @@ void QStandardItemModel_EncodeData(const QStandardItemModel* self, const libqt_l
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseEncodeData(const QStandardItemModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void QStandardItemModel_SuperEncodeData(const QStandardItemModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -2716,7 +2716,7 @@ bool QStandardItemModel_DecodeData(QStandardItemModel* self, int row, int column
 }
 
 // Base class handler implementation
-bool QStandardItemModel_QBaseDecodeData(QStandardItemModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool QStandardItemModel_SuperDecodeData(QStandardItemModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_DecodeData_IsBase(true);
@@ -2745,7 +2745,7 @@ void QStandardItemModel_BeginInsertRows(QStandardItemModel* self, const QModelIn
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseBeginInsertRows(QStandardItemModel* self, const QModelIndex* parent, int first, int last) {
+void QStandardItemModel_SuperBeginInsertRows(QStandardItemModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_BeginInsertRows_IsBase(true);
@@ -2774,7 +2774,7 @@ void QStandardItemModel_EndInsertRows(QStandardItemModel* self) {
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseEndInsertRows(QStandardItemModel* self) {
+void QStandardItemModel_SuperEndInsertRows(QStandardItemModel* self) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_EndInsertRows_IsBase(true);
@@ -2803,7 +2803,7 @@ void QStandardItemModel_BeginRemoveRows(QStandardItemModel* self, const QModelIn
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseBeginRemoveRows(QStandardItemModel* self, const QModelIndex* parent, int first, int last) {
+void QStandardItemModel_SuperBeginRemoveRows(QStandardItemModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_BeginRemoveRows_IsBase(true);
@@ -2832,7 +2832,7 @@ void QStandardItemModel_EndRemoveRows(QStandardItemModel* self) {
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseEndRemoveRows(QStandardItemModel* self) {
+void QStandardItemModel_SuperEndRemoveRows(QStandardItemModel* self) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_EndRemoveRows_IsBase(true);
@@ -2861,7 +2861,7 @@ bool QStandardItemModel_BeginMoveRows(QStandardItemModel* self, const QModelInde
 }
 
 // Base class handler implementation
-bool QStandardItemModel_QBaseBeginMoveRows(QStandardItemModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool QStandardItemModel_SuperBeginMoveRows(QStandardItemModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_BeginMoveRows_IsBase(true);
@@ -2890,7 +2890,7 @@ void QStandardItemModel_EndMoveRows(QStandardItemModel* self) {
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseEndMoveRows(QStandardItemModel* self) {
+void QStandardItemModel_SuperEndMoveRows(QStandardItemModel* self) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_EndMoveRows_IsBase(true);
@@ -2919,7 +2919,7 @@ void QStandardItemModel_BeginInsertColumns(QStandardItemModel* self, const QMode
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseBeginInsertColumns(QStandardItemModel* self, const QModelIndex* parent, int first, int last) {
+void QStandardItemModel_SuperBeginInsertColumns(QStandardItemModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_BeginInsertColumns_IsBase(true);
@@ -2948,7 +2948,7 @@ void QStandardItemModel_EndInsertColumns(QStandardItemModel* self) {
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseEndInsertColumns(QStandardItemModel* self) {
+void QStandardItemModel_SuperEndInsertColumns(QStandardItemModel* self) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_EndInsertColumns_IsBase(true);
@@ -2977,7 +2977,7 @@ void QStandardItemModel_BeginRemoveColumns(QStandardItemModel* self, const QMode
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseBeginRemoveColumns(QStandardItemModel* self, const QModelIndex* parent, int first, int last) {
+void QStandardItemModel_SuperBeginRemoveColumns(QStandardItemModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_BeginRemoveColumns_IsBase(true);
@@ -3006,7 +3006,7 @@ void QStandardItemModel_EndRemoveColumns(QStandardItemModel* self) {
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseEndRemoveColumns(QStandardItemModel* self) {
+void QStandardItemModel_SuperEndRemoveColumns(QStandardItemModel* self) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_EndRemoveColumns_IsBase(true);
@@ -3035,7 +3035,7 @@ bool QStandardItemModel_BeginMoveColumns(QStandardItemModel* self, const QModelI
 }
 
 // Base class handler implementation
-bool QStandardItemModel_QBaseBeginMoveColumns(QStandardItemModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool QStandardItemModel_SuperBeginMoveColumns(QStandardItemModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_BeginMoveColumns_IsBase(true);
@@ -3064,7 +3064,7 @@ void QStandardItemModel_EndMoveColumns(QStandardItemModel* self) {
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseEndMoveColumns(QStandardItemModel* self) {
+void QStandardItemModel_SuperEndMoveColumns(QStandardItemModel* self) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_EndMoveColumns_IsBase(true);
@@ -3093,7 +3093,7 @@ void QStandardItemModel_BeginResetModel(QStandardItemModel* self) {
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseBeginResetModel(QStandardItemModel* self) {
+void QStandardItemModel_SuperBeginResetModel(QStandardItemModel* self) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_BeginResetModel_IsBase(true);
@@ -3122,7 +3122,7 @@ void QStandardItemModel_EndResetModel(QStandardItemModel* self) {
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseEndResetModel(QStandardItemModel* self) {
+void QStandardItemModel_SuperEndResetModel(QStandardItemModel* self) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_EndResetModel_IsBase(true);
@@ -3151,7 +3151,7 @@ void QStandardItemModel_ChangePersistentIndex(QStandardItemModel* self, const QM
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseChangePersistentIndex(QStandardItemModel* self, const QModelIndex* from, const QModelIndex* to) {
+void QStandardItemModel_SuperChangePersistentIndex(QStandardItemModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_ChangePersistentIndex_IsBase(true);
@@ -3192,7 +3192,7 @@ void QStandardItemModel_ChangePersistentIndexList(QStandardItemModel* self, cons
 }
 
 // Base class handler implementation
-void QStandardItemModel_QBaseChangePersistentIndexList(QStandardItemModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void QStandardItemModel_SuperChangePersistentIndexList(QStandardItemModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -3251,7 +3251,7 @@ libqt_list /* of QModelIndex* */ QStandardItemModel_PersistentIndexList(const QS
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QStandardItemModel_QBasePersistentIndexList(const QStandardItemModel* self) {
+libqt_list /* of QModelIndex* */ QStandardItemModel_SuperPersistentIndexList(const QStandardItemModel* self) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_PersistentIndexList_IsBase(true);
@@ -3298,7 +3298,7 @@ QObject* QStandardItemModel_Sender(const QStandardItemModel* self) {
 }
 
 // Base class handler implementation
-QObject* QStandardItemModel_QBaseSender(const QStandardItemModel* self) {
+QObject* QStandardItemModel_SuperSender(const QStandardItemModel* self) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_Sender_IsBase(true);
@@ -3327,7 +3327,7 @@ int QStandardItemModel_SenderSignalIndex(const QStandardItemModel* self) {
 }
 
 // Base class handler implementation
-int QStandardItemModel_QBaseSenderSignalIndex(const QStandardItemModel* self) {
+int QStandardItemModel_SuperSenderSignalIndex(const QStandardItemModel* self) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_SenderSignalIndex_IsBase(true);
@@ -3356,7 +3356,7 @@ int QStandardItemModel_Receivers(const QStandardItemModel* self, const char* sig
 }
 
 // Base class handler implementation
-int QStandardItemModel_QBaseReceivers(const QStandardItemModel* self, const char* signal) {
+int QStandardItemModel_SuperReceivers(const QStandardItemModel* self, const char* signal) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_Receivers_IsBase(true);
@@ -3385,7 +3385,7 @@ bool QStandardItemModel_IsSignalConnected(const QStandardItemModel* self, const 
 }
 
 // Base class handler implementation
-bool QStandardItemModel_QBaseIsSignalConnected(const QStandardItemModel* self, const QMetaMethod* signal) {
+bool QStandardItemModel_SuperIsSignalConnected(const QStandardItemModel* self, const QMetaMethod* signal) {
     auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_IsSignalConnected_IsBase(true);

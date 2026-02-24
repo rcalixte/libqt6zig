@@ -91,6 +91,10 @@ pub const qwebsocketcorsauthenticator = struct {
         return qtc.QWebSocketCorsAuthenticator_Allowed(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketcorsauthenticator.html#dtor.QWebSocketCorsAuthenticator)
     ///
     /// Delete this object from C++ memory.
@@ -99,7 +103,7 @@ pub const qwebsocketcorsauthenticator = struct {
     ///
     /// ` self: QtC.QWebSocketCorsAuthenticator `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebSocketCorsAuthenticator_Delete(@ptrCast(self));
     }
 };

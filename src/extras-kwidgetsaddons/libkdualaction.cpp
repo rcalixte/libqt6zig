@@ -197,7 +197,7 @@ void KDualAction_Connect_ActiveChangedByUser(KDualAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* KDualAction_QBaseMetaObject(const KDualAction* self) {
+QMetaObject* KDualAction_SuperMetaObject(const KDualAction* self) {
     auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
     if (vkdualaction && vkdualaction->isVirtualKDualAction) {
         vkdualaction->setKDualAction_MetaObject_IsBase(true);
@@ -216,7 +216,7 @@ void KDualAction_OnMetaObject(const KDualAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KDualAction_QBaseMetacast(KDualAction* self, const char* param1) {
+void* KDualAction_SuperMetacast(KDualAction* self, const char* param1) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
     if (vkdualaction && vkdualaction->isVirtualKDualAction) {
         vkdualaction->setKDualAction_Metacast_IsBase(true);
@@ -235,7 +235,7 @@ void KDualAction_OnMetacast(KDualAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KDualAction_QBaseMetacall(KDualAction* self, int param1, int param2, void** param3) {
+int KDualAction_SuperMetacall(KDualAction* self, int param1, int param2, void** param3) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
     if (vkdualaction && vkdualaction->isVirtualKDualAction) {
         vkdualaction->setKDualAction_Metacall_IsBase(true);
@@ -264,7 +264,7 @@ bool KDualAction_Event(KDualAction* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-bool KDualAction_QBaseEvent(KDualAction* self, QEvent* param1) {
+bool KDualAction_SuperEvent(KDualAction* self, QEvent* param1) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
     if (vkdualaction && vkdualaction->isVirtualKDualAction) {
         vkdualaction->setKDualAction_Event_IsBase(true);
@@ -293,7 +293,7 @@ bool KDualAction_EventFilter(KDualAction* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool KDualAction_QBaseEventFilter(KDualAction* self, QObject* watched, QEvent* event) {
+bool KDualAction_SuperEventFilter(KDualAction* self, QObject* watched, QEvent* event) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
     if (vkdualaction && vkdualaction->isVirtualKDualAction) {
         vkdualaction->setKDualAction_EventFilter_IsBase(true);
@@ -322,7 +322,7 @@ void KDualAction_TimerEvent(KDualAction* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KDualAction_QBaseTimerEvent(KDualAction* self, QTimerEvent* event) {
+void KDualAction_SuperTimerEvent(KDualAction* self, QTimerEvent* event) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
     if (vkdualaction && vkdualaction->isVirtualKDualAction) {
         vkdualaction->setKDualAction_TimerEvent_IsBase(true);
@@ -351,7 +351,7 @@ void KDualAction_ChildEvent(KDualAction* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KDualAction_QBaseChildEvent(KDualAction* self, QChildEvent* event) {
+void KDualAction_SuperChildEvent(KDualAction* self, QChildEvent* event) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
     if (vkdualaction && vkdualaction->isVirtualKDualAction) {
         vkdualaction->setKDualAction_ChildEvent_IsBase(true);
@@ -380,7 +380,7 @@ void KDualAction_CustomEvent(KDualAction* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KDualAction_QBaseCustomEvent(KDualAction* self, QEvent* event) {
+void KDualAction_SuperCustomEvent(KDualAction* self, QEvent* event) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
     if (vkdualaction && vkdualaction->isVirtualKDualAction) {
         vkdualaction->setKDualAction_CustomEvent_IsBase(true);
@@ -409,7 +409,7 @@ void KDualAction_ConnectNotify(KDualAction* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KDualAction_QBaseConnectNotify(KDualAction* self, const QMetaMethod* signal) {
+void KDualAction_SuperConnectNotify(KDualAction* self, const QMetaMethod* signal) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
     if (vkdualaction && vkdualaction->isVirtualKDualAction) {
         vkdualaction->setKDualAction_ConnectNotify_IsBase(true);
@@ -438,7 +438,7 @@ void KDualAction_DisconnectNotify(KDualAction* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void KDualAction_QBaseDisconnectNotify(KDualAction* self, const QMetaMethod* signal) {
+void KDualAction_SuperDisconnectNotify(KDualAction* self, const QMetaMethod* signal) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
     if (vkdualaction && vkdualaction->isVirtualKDualAction) {
         vkdualaction->setKDualAction_DisconnectNotify_IsBase(true);
@@ -467,7 +467,7 @@ QObject* KDualAction_Sender(const KDualAction* self) {
 }
 
 // Base class handler implementation
-QObject* KDualAction_QBaseSender(const KDualAction* self) {
+QObject* KDualAction_SuperSender(const KDualAction* self) {
     auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
     if (vkdualaction && vkdualaction->isVirtualKDualAction) {
         vkdualaction->setKDualAction_Sender_IsBase(true);
@@ -496,7 +496,7 @@ int KDualAction_SenderSignalIndex(const KDualAction* self) {
 }
 
 // Base class handler implementation
-int KDualAction_QBaseSenderSignalIndex(const KDualAction* self) {
+int KDualAction_SuperSenderSignalIndex(const KDualAction* self) {
     auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
     if (vkdualaction && vkdualaction->isVirtualKDualAction) {
         vkdualaction->setKDualAction_SenderSignalIndex_IsBase(true);
@@ -525,7 +525,7 @@ int KDualAction_Receivers(const KDualAction* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KDualAction_QBaseReceivers(const KDualAction* self, const char* signal) {
+int KDualAction_SuperReceivers(const KDualAction* self, const char* signal) {
     auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
     if (vkdualaction && vkdualaction->isVirtualKDualAction) {
         vkdualaction->setKDualAction_Receivers_IsBase(true);
@@ -554,7 +554,7 @@ bool KDualAction_IsSignalConnected(const KDualAction* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool KDualAction_QBaseIsSignalConnected(const KDualAction* self, const QMetaMethod* signal) {
+bool KDualAction_SuperIsSignalConnected(const KDualAction* self, const QMetaMethod* signal) {
     auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
     if (vkdualaction && vkdualaction->isVirtualKDualAction) {
         vkdualaction->setKDualAction_IsSignalConnected_IsBase(true);

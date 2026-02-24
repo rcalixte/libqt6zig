@@ -479,35 +479,35 @@ class VirtualKFontAction final : public KFontAction {
 
     // Friend functions
     friend void KFontAction_SlotActionTriggered(KFontAction* self, QAction* action);
-    friend void KFontAction_QBaseSlotActionTriggered(KFontAction* self, QAction* action);
+    friend void KFontAction_SuperSlotActionTriggered(KFontAction* self, QAction* action);
     friend void KFontAction_DeleteWidget(KFontAction* self, QWidget* widget);
-    friend void KFontAction_QBaseDeleteWidget(KFontAction* self, QWidget* widget);
+    friend void KFontAction_SuperDeleteWidget(KFontAction* self, QWidget* widget);
     friend bool KFontAction_Event(KFontAction* self, QEvent* event);
-    friend bool KFontAction_QBaseEvent(KFontAction* self, QEvent* event);
+    friend bool KFontAction_SuperEvent(KFontAction* self, QEvent* event);
     friend bool KFontAction_EventFilter(KFontAction* self, QObject* watched, QEvent* event);
-    friend bool KFontAction_QBaseEventFilter(KFontAction* self, QObject* watched, QEvent* event);
+    friend bool KFontAction_SuperEventFilter(KFontAction* self, QObject* watched, QEvent* event);
     friend void KFontAction_TimerEvent(KFontAction* self, QTimerEvent* event);
-    friend void KFontAction_QBaseTimerEvent(KFontAction* self, QTimerEvent* event);
+    friend void KFontAction_SuperTimerEvent(KFontAction* self, QTimerEvent* event);
     friend void KFontAction_ChildEvent(KFontAction* self, QChildEvent* event);
-    friend void KFontAction_QBaseChildEvent(KFontAction* self, QChildEvent* event);
+    friend void KFontAction_SuperChildEvent(KFontAction* self, QChildEvent* event);
     friend void KFontAction_CustomEvent(KFontAction* self, QEvent* event);
-    friend void KFontAction_QBaseCustomEvent(KFontAction* self, QEvent* event);
+    friend void KFontAction_SuperCustomEvent(KFontAction* self, QEvent* event);
     friend void KFontAction_ConnectNotify(KFontAction* self, const QMetaMethod* signal);
-    friend void KFontAction_QBaseConnectNotify(KFontAction* self, const QMetaMethod* signal);
+    friend void KFontAction_SuperConnectNotify(KFontAction* self, const QMetaMethod* signal);
     friend void KFontAction_DisconnectNotify(KFontAction* self, const QMetaMethod* signal);
-    friend void KFontAction_QBaseDisconnectNotify(KFontAction* self, const QMetaMethod* signal);
+    friend void KFontAction_SuperDisconnectNotify(KFontAction* self, const QMetaMethod* signal);
     friend void KFontAction_SlotToggled(KFontAction* self, bool param1);
-    friend void KFontAction_QBaseSlotToggled(KFontAction* self, bool param1);
+    friend void KFontAction_SuperSlotToggled(KFontAction* self, bool param1);
     friend libqt_list /* of QWidget* */ KFontAction_CreatedWidgets(const KFontAction* self);
-    friend libqt_list /* of QWidget* */ KFontAction_QBaseCreatedWidgets(const KFontAction* self);
+    friend libqt_list /* of QWidget* */ KFontAction_SuperCreatedWidgets(const KFontAction* self);
     friend QObject* KFontAction_Sender(const KFontAction* self);
-    friend QObject* KFontAction_QBaseSender(const KFontAction* self);
+    friend QObject* KFontAction_SuperSender(const KFontAction* self);
     friend int KFontAction_SenderSignalIndex(const KFontAction* self);
-    friend int KFontAction_QBaseSenderSignalIndex(const KFontAction* self);
+    friend int KFontAction_SuperSenderSignalIndex(const KFontAction* self);
     friend int KFontAction_Receivers(const KFontAction* self, const char* signal);
-    friend int KFontAction_QBaseReceivers(const KFontAction* self, const char* signal);
+    friend int KFontAction_SuperReceivers(const KFontAction* self, const char* signal);
     friend bool KFontAction_IsSignalConnected(const KFontAction* self, const QMetaMethod* signal);
-    friend bool KFontAction_QBaseIsSignalConnected(const KFontAction* self, const QMetaMethod* signal);
+    friend bool KFontAction_SuperIsSignalConnected(const KFontAction* self, const QMetaMethod* signal);
 };
 
 #endif

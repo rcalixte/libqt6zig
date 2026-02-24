@@ -46,6 +46,10 @@ pub const qextensionmanager = struct {
         qtc.QExtensionManager_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -54,8 +58,8 @@ pub const qextensionmanager = struct {
     ///
     /// ` self: QtC.QExtensionManager `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QExtensionManager_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QExtensionManager_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -81,6 +85,10 @@ pub const qextensionmanager = struct {
         qtc.QExtensionManager_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -89,9 +97,9 @@ pub const qextensionmanager = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QExtensionManager_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QExtensionManager_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -120,6 +128,10 @@ pub const qextensionmanager = struct {
         qtc.QExtensionManager_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -132,8 +144,8 @@ pub const qextensionmanager = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QExtensionManager_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QExtensionManager_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -185,6 +197,10 @@ pub const qextensionmanager = struct {
         qtc.QExtensionManager_OnRegisterExtensions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRegisterExtensions` instead
+    ///
+    pub const QBaseRegisterExtensions = SuperRegisterExtensions;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qextensionmanager.html#registerExtensions)
     ///
     /// Base class method implementation
@@ -197,12 +213,12 @@ pub const qextensionmanager = struct {
     ///
     /// ` iid: []const u8 `
     ///
-    pub fn QBaseRegisterExtensions(self: ?*anyopaque, factory: ?*anyopaque, iid: []const u8) void {
+    pub fn SuperRegisterExtensions(self: ?*anyopaque, factory: ?*anyopaque, iid: []const u8) void {
         const iid_str = qtc.libqt_string{
             .len = iid.len,
             .data = iid.ptr,
         };
-        qtc.QExtensionManager_QBaseRegisterExtensions(@ptrCast(self), @ptrCast(factory), iid_str);
+        qtc.QExtensionManager_SuperRegisterExtensions(@ptrCast(self), @ptrCast(factory), iid_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qextensionmanager.html#unregisterExtensions)
@@ -237,6 +253,10 @@ pub const qextensionmanager = struct {
         qtc.QExtensionManager_OnUnregisterExtensions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUnregisterExtensions` instead
+    ///
+    pub const QBaseUnregisterExtensions = SuperUnregisterExtensions;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qextensionmanager.html#unregisterExtensions)
     ///
     /// Base class method implementation
@@ -249,12 +269,12 @@ pub const qextensionmanager = struct {
     ///
     /// ` iid: []const u8 `
     ///
-    pub fn QBaseUnregisterExtensions(self: ?*anyopaque, factory: ?*anyopaque, iid: []const u8) void {
+    pub fn SuperUnregisterExtensions(self: ?*anyopaque, factory: ?*anyopaque, iid: []const u8) void {
         const iid_str = qtc.libqt_string{
             .len = iid.len,
             .data = iid.ptr,
         };
-        qtc.QExtensionManager_QBaseUnregisterExtensions(@ptrCast(self), @ptrCast(factory), iid_str);
+        qtc.QExtensionManager_SuperUnregisterExtensions(@ptrCast(self), @ptrCast(factory), iid_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qextensionmanager.html#extension)
@@ -289,6 +309,10 @@ pub const qextensionmanager = struct {
         qtc.QExtensionManager_OnExtension(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperExtension` instead
+    ///
+    pub const QBaseExtension = SuperExtension;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qextensionmanager.html#extension)
     ///
     /// Base class method implementation
@@ -301,12 +325,12 @@ pub const qextensionmanager = struct {
     ///
     /// ` iid: []const u8 `
     ///
-    pub fn QBaseExtension(self: ?*anyopaque, object: ?*anyopaque, iid: []const u8) QtC.QObject {
+    pub fn SuperExtension(self: ?*anyopaque, object: ?*anyopaque, iid: []const u8) QtC.QObject {
         const iid_str = qtc.libqt_string{
             .len = iid.len,
             .data = iid.ptr,
         };
-        return qtc.QExtensionManager_QBaseExtension(@ptrCast(self), @ptrCast(object), iid_str);
+        return qtc.QExtensionManager_SuperExtension(@ptrCast(self), @ptrCast(object), iid_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1119,6 +1143,10 @@ pub const qextensionmanager = struct {
         return qtc.QExtensionManager_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1131,8 +1159,8 @@ pub const qextensionmanager = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QExtensionManager_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QExtensionManager_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1169,6 +1197,10 @@ pub const qextensionmanager = struct {
         return qtc.QExtensionManager_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1183,8 +1215,8 @@ pub const qextensionmanager = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QExtensionManager_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QExtensionManager_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1219,6 +1251,10 @@ pub const qextensionmanager = struct {
         qtc.QExtensionManager_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1231,8 +1267,8 @@ pub const qextensionmanager = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QExtensionManager_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QExtensionManager_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1267,6 +1303,10 @@ pub const qextensionmanager = struct {
         qtc.QExtensionManager_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1279,8 +1319,8 @@ pub const qextensionmanager = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QExtensionManager_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QExtensionManager_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1315,6 +1355,10 @@ pub const qextensionmanager = struct {
         qtc.QExtensionManager_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1327,8 +1371,8 @@ pub const qextensionmanager = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QExtensionManager_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QExtensionManager_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1363,6 +1407,10 @@ pub const qextensionmanager = struct {
         qtc.QExtensionManager_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1375,8 +1423,8 @@ pub const qextensionmanager = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QExtensionManager_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QExtensionManager_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1411,6 +1459,10 @@ pub const qextensionmanager = struct {
         qtc.QExtensionManager_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1423,8 +1475,8 @@ pub const qextensionmanager = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QExtensionManager_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QExtensionManager_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1457,6 +1509,10 @@ pub const qextensionmanager = struct {
         return qtc.QExtensionManager_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1467,8 +1523,8 @@ pub const qextensionmanager = struct {
     ///
     /// ` self: QtC.QExtensionManager `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QExtensionManager_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QExtensionManager_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1501,6 +1557,10 @@ pub const qextensionmanager = struct {
         return qtc.QExtensionManager_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1511,8 +1571,8 @@ pub const qextensionmanager = struct {
     ///
     /// ` self: QtC.QExtensionManager `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QExtensionManager_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QExtensionManager_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1548,6 +1608,10 @@ pub const qextensionmanager = struct {
         return qtc.QExtensionManager_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1560,9 +1624,9 @@ pub const qextensionmanager = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QExtensionManager_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QExtensionManager_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1597,6 +1661,10 @@ pub const qextensionmanager = struct {
         return qtc.QExtensionManager_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -1609,8 +1677,8 @@ pub const qextensionmanager = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QExtensionManager_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QExtensionManager_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1644,6 +1712,9 @@ pub const qextensionmanager = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qextensionmanager.html#dtor.QExtensionManager)
     ///
@@ -1653,7 +1724,7 @@ pub const qextensionmanager = struct {
     ///
     /// ` self: QtC.QExtensionManager `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QExtensionManager_Delete(@ptrCast(self));
     }
 };

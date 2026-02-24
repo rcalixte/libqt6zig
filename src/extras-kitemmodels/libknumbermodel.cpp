@@ -205,7 +205,7 @@ void KNumberModel_Connect_FormattingOptionsChanged(KNumberModel* self, intptr_t 
 }
 
 // Base class handler implementation
-QMetaObject* KNumberModel_QBaseMetaObject(const KNumberModel* self) {
+QMetaObject* KNumberModel_SuperMetaObject(const KNumberModel* self) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_MetaObject_IsBase(true);
@@ -224,7 +224,7 @@ void KNumberModel_OnMetaObject(const KNumberModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KNumberModel_QBaseMetacast(KNumberModel* self, const char* param1) {
+void* KNumberModel_SuperMetacast(KNumberModel* self, const char* param1) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_Metacast_IsBase(true);
@@ -243,7 +243,7 @@ void KNumberModel_OnMetacast(KNumberModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KNumberModel_QBaseMetacall(KNumberModel* self, int param1, int param2, void** param3) {
+int KNumberModel_SuperMetacall(KNumberModel* self, int param1, int param2, void** param3) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_Metacall_IsBase(true);
@@ -262,7 +262,7 @@ void KNumberModel_OnMetacall(KNumberModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KNumberModel_QBaseRowCount(const KNumberModel* self, const QModelIndex* index) {
+int KNumberModel_SuperRowCount(const KNumberModel* self, const QModelIndex* index) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_RowCount_IsBase(true);
@@ -281,7 +281,7 @@ void KNumberModel_OnRowCount(const KNumberModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* KNumberModel_QBaseData(const KNumberModel* self, const QModelIndex* index, int role) {
+QVariant* KNumberModel_SuperData(const KNumberModel* self, const QModelIndex* index, int role) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_Data_IsBase(true);
@@ -300,7 +300,7 @@ void KNumberModel_OnData(const KNumberModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ KNumberModel_QBaseRoleNames(const KNumberModel* self) {
+libqt_map /* of int to libqt_string */ KNumberModel_SuperRoleNames(const KNumberModel* self) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_RoleNames_IsBase(true);
@@ -367,7 +367,7 @@ QModelIndex* KNumberModel_Index(const KNumberModel* self, int row, int column, c
 }
 
 // Base class handler implementation
-QModelIndex* KNumberModel_QBaseIndex(const KNumberModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* KNumberModel_SuperIndex(const KNumberModel* self, int row, int column, const QModelIndex* parent) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_Index_IsBase(true);
@@ -396,7 +396,7 @@ QModelIndex* KNumberModel_Sibling(const KNumberModel* self, int row, int column,
 }
 
 // Base class handler implementation
-QModelIndex* KNumberModel_QBaseSibling(const KNumberModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* KNumberModel_SuperSibling(const KNumberModel* self, int row, int column, const QModelIndex* idx) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_Sibling_IsBase(true);
@@ -425,7 +425,7 @@ bool KNumberModel_DropMimeData(KNumberModel* self, const QMimeData* data, int ac
 }
 
 // Base class handler implementation
-bool KNumberModel_QBaseDropMimeData(KNumberModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KNumberModel_SuperDropMimeData(KNumberModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_DropMimeData_IsBase(true);
@@ -454,7 +454,7 @@ int KNumberModel_Flags(const KNumberModel* self, const QModelIndex* index) {
 }
 
 // Base class handler implementation
-int KNumberModel_QBaseFlags(const KNumberModel* self, const QModelIndex* index) {
+int KNumberModel_SuperFlags(const KNumberModel* self, const QModelIndex* index) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_Flags_IsBase(true);
@@ -483,7 +483,7 @@ bool KNumberModel_SetData(KNumberModel* self, const QModelIndex* index, const QV
 }
 
 // Base class handler implementation
-bool KNumberModel_QBaseSetData(KNumberModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool KNumberModel_SuperSetData(KNumberModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_SetData_IsBase(true);
@@ -512,7 +512,7 @@ QVariant* KNumberModel_HeaderData(const KNumberModel* self, int section, int ori
 }
 
 // Base class handler implementation
-QVariant* KNumberModel_QBaseHeaderData(const KNumberModel* self, int section, int orientation, int role) {
+QVariant* KNumberModel_SuperHeaderData(const KNumberModel* self, int section, int orientation, int role) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_HeaderData_IsBase(true);
@@ -541,7 +541,7 @@ bool KNumberModel_SetHeaderData(KNumberModel* self, int section, int orientation
 }
 
 // Base class handler implementation
-bool KNumberModel_QBaseSetHeaderData(KNumberModel* self, int section, int orientation, const QVariant* value, int role) {
+bool KNumberModel_SuperSetHeaderData(KNumberModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_SetHeaderData_IsBase(true);
@@ -598,7 +598,7 @@ libqt_map /* of int to QVariant* */ KNumberModel_ItemData(const KNumberModel* se
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ KNumberModel_QBaseItemData(const KNumberModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ KNumberModel_SuperItemData(const KNumberModel* self, const QModelIndex* index) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_ItemData_IsBase(true);
@@ -661,7 +661,7 @@ bool KNumberModel_SetItemData(KNumberModel* self, const QModelIndex* index, cons
 }
 
 // Base class handler implementation
-bool KNumberModel_QBaseSetItemData(KNumberModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool KNumberModel_SuperSetItemData(KNumberModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -696,7 +696,7 @@ bool KNumberModel_ClearItemData(KNumberModel* self, const QModelIndex* index) {
 }
 
 // Base class handler implementation
-bool KNumberModel_QBaseClearItemData(KNumberModel* self, const QModelIndex* index) {
+bool KNumberModel_SuperClearItemData(KNumberModel* self, const QModelIndex* index) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_ClearItemData_IsBase(true);
@@ -759,7 +759,7 @@ libqt_list /* of libqt_string */ KNumberModel_MimeTypes(const KNumberModel* self
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KNumberModel_QBaseMimeTypes(const KNumberModel* self) {
+libqt_list /* of libqt_string */ KNumberModel_SuperMimeTypes(const KNumberModel* self) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_MimeTypes_IsBase(true);
@@ -828,7 +828,7 @@ QMimeData* KNumberModel_MimeData(const KNumberModel* self, const libqt_list /* o
 }
 
 // Base class handler implementation
-QMimeData* KNumberModel_QBaseMimeData(const KNumberModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* KNumberModel_SuperMimeData(const KNumberModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -863,7 +863,7 @@ bool KNumberModel_CanDropMimeData(const KNumberModel* self, const QMimeData* dat
 }
 
 // Base class handler implementation
-bool KNumberModel_QBaseCanDropMimeData(const KNumberModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KNumberModel_SuperCanDropMimeData(const KNumberModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_CanDropMimeData_IsBase(true);
@@ -892,7 +892,7 @@ int KNumberModel_SupportedDropActions(const KNumberModel* self) {
 }
 
 // Base class handler implementation
-int KNumberModel_QBaseSupportedDropActions(const KNumberModel* self) {
+int KNumberModel_SuperSupportedDropActions(const KNumberModel* self) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_SupportedDropActions_IsBase(true);
@@ -921,7 +921,7 @@ int KNumberModel_SupportedDragActions(const KNumberModel* self) {
 }
 
 // Base class handler implementation
-int KNumberModel_QBaseSupportedDragActions(const KNumberModel* self) {
+int KNumberModel_SuperSupportedDragActions(const KNumberModel* self) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_SupportedDragActions_IsBase(true);
@@ -950,7 +950,7 @@ bool KNumberModel_InsertRows(KNumberModel* self, int row, int count, const QMode
 }
 
 // Base class handler implementation
-bool KNumberModel_QBaseInsertRows(KNumberModel* self, int row, int count, const QModelIndex* parent) {
+bool KNumberModel_SuperInsertRows(KNumberModel* self, int row, int count, const QModelIndex* parent) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_InsertRows_IsBase(true);
@@ -979,7 +979,7 @@ bool KNumberModel_InsertColumns(KNumberModel* self, int column, int count, const
 }
 
 // Base class handler implementation
-bool KNumberModel_QBaseInsertColumns(KNumberModel* self, int column, int count, const QModelIndex* parent) {
+bool KNumberModel_SuperInsertColumns(KNumberModel* self, int column, int count, const QModelIndex* parent) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_InsertColumns_IsBase(true);
@@ -1008,7 +1008,7 @@ bool KNumberModel_RemoveRows(KNumberModel* self, int row, int count, const QMode
 }
 
 // Base class handler implementation
-bool KNumberModel_QBaseRemoveRows(KNumberModel* self, int row, int count, const QModelIndex* parent) {
+bool KNumberModel_SuperRemoveRows(KNumberModel* self, int row, int count, const QModelIndex* parent) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_RemoveRows_IsBase(true);
@@ -1037,7 +1037,7 @@ bool KNumberModel_RemoveColumns(KNumberModel* self, int column, int count, const
 }
 
 // Base class handler implementation
-bool KNumberModel_QBaseRemoveColumns(KNumberModel* self, int column, int count, const QModelIndex* parent) {
+bool KNumberModel_SuperRemoveColumns(KNumberModel* self, int column, int count, const QModelIndex* parent) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_RemoveColumns_IsBase(true);
@@ -1066,7 +1066,7 @@ bool KNumberModel_MoveRows(KNumberModel* self, const QModelIndex* sourceParent, 
 }
 
 // Base class handler implementation
-bool KNumberModel_QBaseMoveRows(KNumberModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KNumberModel_SuperMoveRows(KNumberModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_MoveRows_IsBase(true);
@@ -1095,7 +1095,7 @@ bool KNumberModel_MoveColumns(KNumberModel* self, const QModelIndex* sourceParen
 }
 
 // Base class handler implementation
-bool KNumberModel_QBaseMoveColumns(KNumberModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KNumberModel_SuperMoveColumns(KNumberModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_MoveColumns_IsBase(true);
@@ -1124,7 +1124,7 @@ void KNumberModel_FetchMore(KNumberModel* self, const QModelIndex* parent) {
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseFetchMore(KNumberModel* self, const QModelIndex* parent) {
+void KNumberModel_SuperFetchMore(KNumberModel* self, const QModelIndex* parent) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_FetchMore_IsBase(true);
@@ -1153,7 +1153,7 @@ bool KNumberModel_CanFetchMore(const KNumberModel* self, const QModelIndex* pare
 }
 
 // Base class handler implementation
-bool KNumberModel_QBaseCanFetchMore(const KNumberModel* self, const QModelIndex* parent) {
+bool KNumberModel_SuperCanFetchMore(const KNumberModel* self, const QModelIndex* parent) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_CanFetchMore_IsBase(true);
@@ -1182,7 +1182,7 @@ void KNumberModel_Sort(KNumberModel* self, int column, int order) {
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseSort(KNumberModel* self, int column, int order) {
+void KNumberModel_SuperSort(KNumberModel* self, int column, int order) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_Sort_IsBase(true);
@@ -1211,7 +1211,7 @@ QModelIndex* KNumberModel_Buddy(const KNumberModel* self, const QModelIndex* ind
 }
 
 // Base class handler implementation
-QModelIndex* KNumberModel_QBaseBuddy(const KNumberModel* self, const QModelIndex* index) {
+QModelIndex* KNumberModel_SuperBuddy(const KNumberModel* self, const QModelIndex* index) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_Buddy_IsBase(true);
@@ -1258,7 +1258,7 @@ libqt_list /* of QModelIndex* */ KNumberModel_Match(const KNumberModel* self, co
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KNumberModel_QBaseMatch(const KNumberModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ KNumberModel_SuperMatch(const KNumberModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_Match_IsBase(true);
@@ -1305,7 +1305,7 @@ QSize* KNumberModel_Span(const KNumberModel* self, const QModelIndex* index) {
 }
 
 // Base class handler implementation
-QSize* KNumberModel_QBaseSpan(const KNumberModel* self, const QModelIndex* index) {
+QSize* KNumberModel_SuperSpan(const KNumberModel* self, const QModelIndex* index) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_Span_IsBase(true);
@@ -1334,7 +1334,7 @@ void KNumberModel_MultiData(const KNumberModel* self, const QModelIndex* index, 
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseMultiData(const KNumberModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void KNumberModel_SuperMultiData(const KNumberModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_MultiData_IsBase(true);
@@ -1363,7 +1363,7 @@ bool KNumberModel_Submit(KNumberModel* self) {
 }
 
 // Base class handler implementation
-bool KNumberModel_QBaseSubmit(KNumberModel* self) {
+bool KNumberModel_SuperSubmit(KNumberModel* self) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_Submit_IsBase(true);
@@ -1392,7 +1392,7 @@ void KNumberModel_Revert(KNumberModel* self) {
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseRevert(KNumberModel* self) {
+void KNumberModel_SuperRevert(KNumberModel* self) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_Revert_IsBase(true);
@@ -1421,7 +1421,7 @@ void KNumberModel_ResetInternalData(KNumberModel* self) {
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseResetInternalData(KNumberModel* self) {
+void KNumberModel_SuperResetInternalData(KNumberModel* self) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_ResetInternalData_IsBase(true);
@@ -1450,7 +1450,7 @@ bool KNumberModel_Event(KNumberModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KNumberModel_QBaseEvent(KNumberModel* self, QEvent* event) {
+bool KNumberModel_SuperEvent(KNumberModel* self, QEvent* event) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_Event_IsBase(true);
@@ -1479,7 +1479,7 @@ bool KNumberModel_EventFilter(KNumberModel* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool KNumberModel_QBaseEventFilter(KNumberModel* self, QObject* watched, QEvent* event) {
+bool KNumberModel_SuperEventFilter(KNumberModel* self, QObject* watched, QEvent* event) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_EventFilter_IsBase(true);
@@ -1508,7 +1508,7 @@ void KNumberModel_TimerEvent(KNumberModel* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseTimerEvent(KNumberModel* self, QTimerEvent* event) {
+void KNumberModel_SuperTimerEvent(KNumberModel* self, QTimerEvent* event) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_TimerEvent_IsBase(true);
@@ -1537,7 +1537,7 @@ void KNumberModel_ChildEvent(KNumberModel* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseChildEvent(KNumberModel* self, QChildEvent* event) {
+void KNumberModel_SuperChildEvent(KNumberModel* self, QChildEvent* event) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_ChildEvent_IsBase(true);
@@ -1566,7 +1566,7 @@ void KNumberModel_CustomEvent(KNumberModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseCustomEvent(KNumberModel* self, QEvent* event) {
+void KNumberModel_SuperCustomEvent(KNumberModel* self, QEvent* event) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_CustomEvent_IsBase(true);
@@ -1595,7 +1595,7 @@ void KNumberModel_ConnectNotify(KNumberModel* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseConnectNotify(KNumberModel* self, const QMetaMethod* signal) {
+void KNumberModel_SuperConnectNotify(KNumberModel* self, const QMetaMethod* signal) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_ConnectNotify_IsBase(true);
@@ -1624,7 +1624,7 @@ void KNumberModel_DisconnectNotify(KNumberModel* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseDisconnectNotify(KNumberModel* self, const QMetaMethod* signal) {
+void KNumberModel_SuperDisconnectNotify(KNumberModel* self, const QMetaMethod* signal) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_DisconnectNotify_IsBase(true);
@@ -1652,7 +1652,7 @@ QModelIndex* KNumberModel_CreateIndex(const KNumberModel* self, int row, int col
 }
 
 // Base class handler implementation
-QModelIndex* KNumberModel_QBaseCreateIndex(const KNumberModel* self, int row, int column) {
+QModelIndex* KNumberModel_SuperCreateIndex(const KNumberModel* self, int row, int column) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_CreateIndex_IsBase(true);
@@ -1686,7 +1686,7 @@ void KNumberModel_EncodeData(const KNumberModel* self, const libqt_list /* of QM
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseEncodeData(const KNumberModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void KNumberModel_SuperEncodeData(const KNumberModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -1721,7 +1721,7 @@ bool KNumberModel_DecodeData(KNumberModel* self, int row, int column, const QMod
 }
 
 // Base class handler implementation
-bool KNumberModel_QBaseDecodeData(KNumberModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool KNumberModel_SuperDecodeData(KNumberModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_DecodeData_IsBase(true);
@@ -1750,7 +1750,7 @@ void KNumberModel_BeginInsertRows(KNumberModel* self, const QModelIndex* parent,
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseBeginInsertRows(KNumberModel* self, const QModelIndex* parent, int first, int last) {
+void KNumberModel_SuperBeginInsertRows(KNumberModel* self, const QModelIndex* parent, int first, int last) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_BeginInsertRows_IsBase(true);
@@ -1779,7 +1779,7 @@ void KNumberModel_EndInsertRows(KNumberModel* self) {
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseEndInsertRows(KNumberModel* self) {
+void KNumberModel_SuperEndInsertRows(KNumberModel* self) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_EndInsertRows_IsBase(true);
@@ -1808,7 +1808,7 @@ void KNumberModel_BeginRemoveRows(KNumberModel* self, const QModelIndex* parent,
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseBeginRemoveRows(KNumberModel* self, const QModelIndex* parent, int first, int last) {
+void KNumberModel_SuperBeginRemoveRows(KNumberModel* self, const QModelIndex* parent, int first, int last) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_BeginRemoveRows_IsBase(true);
@@ -1837,7 +1837,7 @@ void KNumberModel_EndRemoveRows(KNumberModel* self) {
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseEndRemoveRows(KNumberModel* self) {
+void KNumberModel_SuperEndRemoveRows(KNumberModel* self) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_EndRemoveRows_IsBase(true);
@@ -1866,7 +1866,7 @@ bool KNumberModel_BeginMoveRows(KNumberModel* self, const QModelIndex* sourcePar
 }
 
 // Base class handler implementation
-bool KNumberModel_QBaseBeginMoveRows(KNumberModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool KNumberModel_SuperBeginMoveRows(KNumberModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_BeginMoveRows_IsBase(true);
@@ -1895,7 +1895,7 @@ void KNumberModel_EndMoveRows(KNumberModel* self) {
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseEndMoveRows(KNumberModel* self) {
+void KNumberModel_SuperEndMoveRows(KNumberModel* self) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_EndMoveRows_IsBase(true);
@@ -1924,7 +1924,7 @@ void KNumberModel_BeginInsertColumns(KNumberModel* self, const QModelIndex* pare
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseBeginInsertColumns(KNumberModel* self, const QModelIndex* parent, int first, int last) {
+void KNumberModel_SuperBeginInsertColumns(KNumberModel* self, const QModelIndex* parent, int first, int last) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_BeginInsertColumns_IsBase(true);
@@ -1953,7 +1953,7 @@ void KNumberModel_EndInsertColumns(KNumberModel* self) {
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseEndInsertColumns(KNumberModel* self) {
+void KNumberModel_SuperEndInsertColumns(KNumberModel* self) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_EndInsertColumns_IsBase(true);
@@ -1982,7 +1982,7 @@ void KNumberModel_BeginRemoveColumns(KNumberModel* self, const QModelIndex* pare
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseBeginRemoveColumns(KNumberModel* self, const QModelIndex* parent, int first, int last) {
+void KNumberModel_SuperBeginRemoveColumns(KNumberModel* self, const QModelIndex* parent, int first, int last) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_BeginRemoveColumns_IsBase(true);
@@ -2011,7 +2011,7 @@ void KNumberModel_EndRemoveColumns(KNumberModel* self) {
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseEndRemoveColumns(KNumberModel* self) {
+void KNumberModel_SuperEndRemoveColumns(KNumberModel* self) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_EndRemoveColumns_IsBase(true);
@@ -2040,7 +2040,7 @@ bool KNumberModel_BeginMoveColumns(KNumberModel* self, const QModelIndex* source
 }
 
 // Base class handler implementation
-bool KNumberModel_QBaseBeginMoveColumns(KNumberModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool KNumberModel_SuperBeginMoveColumns(KNumberModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_BeginMoveColumns_IsBase(true);
@@ -2069,7 +2069,7 @@ void KNumberModel_EndMoveColumns(KNumberModel* self) {
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseEndMoveColumns(KNumberModel* self) {
+void KNumberModel_SuperEndMoveColumns(KNumberModel* self) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_EndMoveColumns_IsBase(true);
@@ -2098,7 +2098,7 @@ void KNumberModel_BeginResetModel(KNumberModel* self) {
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseBeginResetModel(KNumberModel* self) {
+void KNumberModel_SuperBeginResetModel(KNumberModel* self) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_BeginResetModel_IsBase(true);
@@ -2127,7 +2127,7 @@ void KNumberModel_EndResetModel(KNumberModel* self) {
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseEndResetModel(KNumberModel* self) {
+void KNumberModel_SuperEndResetModel(KNumberModel* self) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_EndResetModel_IsBase(true);
@@ -2156,7 +2156,7 @@ void KNumberModel_ChangePersistentIndex(KNumberModel* self, const QModelIndex* f
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseChangePersistentIndex(KNumberModel* self, const QModelIndex* from, const QModelIndex* to) {
+void KNumberModel_SuperChangePersistentIndex(KNumberModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_ChangePersistentIndex_IsBase(true);
@@ -2197,7 +2197,7 @@ void KNumberModel_ChangePersistentIndexList(KNumberModel* self, const libqt_list
 }
 
 // Base class handler implementation
-void KNumberModel_QBaseChangePersistentIndexList(KNumberModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void KNumberModel_SuperChangePersistentIndexList(KNumberModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -2256,7 +2256,7 @@ libqt_list /* of QModelIndex* */ KNumberModel_PersistentIndexList(const KNumberM
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KNumberModel_QBasePersistentIndexList(const KNumberModel* self) {
+libqt_list /* of QModelIndex* */ KNumberModel_SuperPersistentIndexList(const KNumberModel* self) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_PersistentIndexList_IsBase(true);
@@ -2303,7 +2303,7 @@ QObject* KNumberModel_Sender(const KNumberModel* self) {
 }
 
 // Base class handler implementation
-QObject* KNumberModel_QBaseSender(const KNumberModel* self) {
+QObject* KNumberModel_SuperSender(const KNumberModel* self) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_Sender_IsBase(true);
@@ -2332,7 +2332,7 @@ int KNumberModel_SenderSignalIndex(const KNumberModel* self) {
 }
 
 // Base class handler implementation
-int KNumberModel_QBaseSenderSignalIndex(const KNumberModel* self) {
+int KNumberModel_SuperSenderSignalIndex(const KNumberModel* self) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_SenderSignalIndex_IsBase(true);
@@ -2361,7 +2361,7 @@ int KNumberModel_Receivers(const KNumberModel* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KNumberModel_QBaseReceivers(const KNumberModel* self, const char* signal) {
+int KNumberModel_SuperReceivers(const KNumberModel* self, const char* signal) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_Receivers_IsBase(true);
@@ -2390,7 +2390,7 @@ bool KNumberModel_IsSignalConnected(const KNumberModel* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool KNumberModel_QBaseIsSignalConnected(const KNumberModel* self, const QMetaMethod* signal) {
+bool KNumberModel_SuperIsSignalConnected(const KNumberModel* self, const QMetaMethod* signal) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_IsSignalConnected_IsBase(true);

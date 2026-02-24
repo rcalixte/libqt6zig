@@ -159,7 +159,7 @@ void KShortcutWidget_ApplyStealShortcut(KShortcutWidget* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KShortcutWidget_QBaseMetaObject(const KShortcutWidget* self) {
+QMetaObject* KShortcutWidget_SuperMetaObject(const KShortcutWidget* self) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_MetaObject_IsBase(true);
@@ -178,7 +178,7 @@ void KShortcutWidget_OnMetaObject(const KShortcutWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KShortcutWidget_QBaseMetacast(KShortcutWidget* self, const char* param1) {
+void* KShortcutWidget_SuperMetacast(KShortcutWidget* self, const char* param1) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_Metacast_IsBase(true);
@@ -197,7 +197,7 @@ void KShortcutWidget_OnMetacast(KShortcutWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KShortcutWidget_QBaseMetacall(KShortcutWidget* self, int param1, int param2, void** param3) {
+int KShortcutWidget_SuperMetacall(KShortcutWidget* self, int param1, int param2, void** param3) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_Metacall_IsBase(true);
@@ -226,7 +226,7 @@ int KShortcutWidget_DevType(const KShortcutWidget* self) {
 }
 
 // Base class handler implementation
-int KShortcutWidget_QBaseDevType(const KShortcutWidget* self) {
+int KShortcutWidget_SuperDevType(const KShortcutWidget* self) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_DevType_IsBase(true);
@@ -255,7 +255,7 @@ void KShortcutWidget_SetVisible(KShortcutWidget* self, bool visible) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseSetVisible(KShortcutWidget* self, bool visible) {
+void KShortcutWidget_SuperSetVisible(KShortcutWidget* self, bool visible) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_SetVisible_IsBase(true);
@@ -284,7 +284,7 @@ QSize* KShortcutWidget_SizeHint(const KShortcutWidget* self) {
 }
 
 // Base class handler implementation
-QSize* KShortcutWidget_QBaseSizeHint(const KShortcutWidget* self) {
+QSize* KShortcutWidget_SuperSizeHint(const KShortcutWidget* self) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_SizeHint_IsBase(true);
@@ -313,7 +313,7 @@ QSize* KShortcutWidget_MinimumSizeHint(const KShortcutWidget* self) {
 }
 
 // Base class handler implementation
-QSize* KShortcutWidget_QBaseMinimumSizeHint(const KShortcutWidget* self) {
+QSize* KShortcutWidget_SuperMinimumSizeHint(const KShortcutWidget* self) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_MinimumSizeHint_IsBase(true);
@@ -342,7 +342,7 @@ int KShortcutWidget_HeightForWidth(const KShortcutWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int KShortcutWidget_QBaseHeightForWidth(const KShortcutWidget* self, int param1) {
+int KShortcutWidget_SuperHeightForWidth(const KShortcutWidget* self, int param1) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_HeightForWidth_IsBase(true);
@@ -371,7 +371,7 @@ bool KShortcutWidget_HasHeightForWidth(const KShortcutWidget* self) {
 }
 
 // Base class handler implementation
-bool KShortcutWidget_QBaseHasHeightForWidth(const KShortcutWidget* self) {
+bool KShortcutWidget_SuperHasHeightForWidth(const KShortcutWidget* self) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_HasHeightForWidth_IsBase(true);
@@ -400,7 +400,7 @@ QPaintEngine* KShortcutWidget_PaintEngine(const KShortcutWidget* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KShortcutWidget_QBasePaintEngine(const KShortcutWidget* self) {
+QPaintEngine* KShortcutWidget_SuperPaintEngine(const KShortcutWidget* self) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_PaintEngine_IsBase(true);
@@ -429,7 +429,7 @@ bool KShortcutWidget_Event(KShortcutWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KShortcutWidget_QBaseEvent(KShortcutWidget* self, QEvent* event) {
+bool KShortcutWidget_SuperEvent(KShortcutWidget* self, QEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_Event_IsBase(true);
@@ -458,7 +458,7 @@ void KShortcutWidget_MousePressEvent(KShortcutWidget* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseMousePressEvent(KShortcutWidget* self, QMouseEvent* event) {
+void KShortcutWidget_SuperMousePressEvent(KShortcutWidget* self, QMouseEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_MousePressEvent_IsBase(true);
@@ -487,7 +487,7 @@ void KShortcutWidget_MouseReleaseEvent(KShortcutWidget* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseMouseReleaseEvent(KShortcutWidget* self, QMouseEvent* event) {
+void KShortcutWidget_SuperMouseReleaseEvent(KShortcutWidget* self, QMouseEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_MouseReleaseEvent_IsBase(true);
@@ -516,7 +516,7 @@ void KShortcutWidget_MouseDoubleClickEvent(KShortcutWidget* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseMouseDoubleClickEvent(KShortcutWidget* self, QMouseEvent* event) {
+void KShortcutWidget_SuperMouseDoubleClickEvent(KShortcutWidget* self, QMouseEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_MouseDoubleClickEvent_IsBase(true);
@@ -545,7 +545,7 @@ void KShortcutWidget_MouseMoveEvent(KShortcutWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseMouseMoveEvent(KShortcutWidget* self, QMouseEvent* event) {
+void KShortcutWidget_SuperMouseMoveEvent(KShortcutWidget* self, QMouseEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_MouseMoveEvent_IsBase(true);
@@ -574,7 +574,7 @@ void KShortcutWidget_WheelEvent(KShortcutWidget* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseWheelEvent(KShortcutWidget* self, QWheelEvent* event) {
+void KShortcutWidget_SuperWheelEvent(KShortcutWidget* self, QWheelEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_WheelEvent_IsBase(true);
@@ -603,7 +603,7 @@ void KShortcutWidget_KeyPressEvent(KShortcutWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseKeyPressEvent(KShortcutWidget* self, QKeyEvent* event) {
+void KShortcutWidget_SuperKeyPressEvent(KShortcutWidget* self, QKeyEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_KeyPressEvent_IsBase(true);
@@ -632,7 +632,7 @@ void KShortcutWidget_KeyReleaseEvent(KShortcutWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseKeyReleaseEvent(KShortcutWidget* self, QKeyEvent* event) {
+void KShortcutWidget_SuperKeyReleaseEvent(KShortcutWidget* self, QKeyEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_KeyReleaseEvent_IsBase(true);
@@ -661,7 +661,7 @@ void KShortcutWidget_FocusInEvent(KShortcutWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseFocusInEvent(KShortcutWidget* self, QFocusEvent* event) {
+void KShortcutWidget_SuperFocusInEvent(KShortcutWidget* self, QFocusEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_FocusInEvent_IsBase(true);
@@ -690,7 +690,7 @@ void KShortcutWidget_FocusOutEvent(KShortcutWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseFocusOutEvent(KShortcutWidget* self, QFocusEvent* event) {
+void KShortcutWidget_SuperFocusOutEvent(KShortcutWidget* self, QFocusEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_FocusOutEvent_IsBase(true);
@@ -719,7 +719,7 @@ void KShortcutWidget_EnterEvent(KShortcutWidget* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseEnterEvent(KShortcutWidget* self, QEnterEvent* event) {
+void KShortcutWidget_SuperEnterEvent(KShortcutWidget* self, QEnterEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_EnterEvent_IsBase(true);
@@ -748,7 +748,7 @@ void KShortcutWidget_LeaveEvent(KShortcutWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseLeaveEvent(KShortcutWidget* self, QEvent* event) {
+void KShortcutWidget_SuperLeaveEvent(KShortcutWidget* self, QEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_LeaveEvent_IsBase(true);
@@ -777,7 +777,7 @@ void KShortcutWidget_PaintEvent(KShortcutWidget* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBasePaintEvent(KShortcutWidget* self, QPaintEvent* event) {
+void KShortcutWidget_SuperPaintEvent(KShortcutWidget* self, QPaintEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_PaintEvent_IsBase(true);
@@ -806,7 +806,7 @@ void KShortcutWidget_MoveEvent(KShortcutWidget* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseMoveEvent(KShortcutWidget* self, QMoveEvent* event) {
+void KShortcutWidget_SuperMoveEvent(KShortcutWidget* self, QMoveEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_MoveEvent_IsBase(true);
@@ -835,7 +835,7 @@ void KShortcutWidget_ResizeEvent(KShortcutWidget* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseResizeEvent(KShortcutWidget* self, QResizeEvent* event) {
+void KShortcutWidget_SuperResizeEvent(KShortcutWidget* self, QResizeEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_ResizeEvent_IsBase(true);
@@ -864,7 +864,7 @@ void KShortcutWidget_CloseEvent(KShortcutWidget* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseCloseEvent(KShortcutWidget* self, QCloseEvent* event) {
+void KShortcutWidget_SuperCloseEvent(KShortcutWidget* self, QCloseEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_CloseEvent_IsBase(true);
@@ -893,7 +893,7 @@ void KShortcutWidget_ContextMenuEvent(KShortcutWidget* self, QContextMenuEvent* 
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseContextMenuEvent(KShortcutWidget* self, QContextMenuEvent* event) {
+void KShortcutWidget_SuperContextMenuEvent(KShortcutWidget* self, QContextMenuEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_ContextMenuEvent_IsBase(true);
@@ -922,7 +922,7 @@ void KShortcutWidget_TabletEvent(KShortcutWidget* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseTabletEvent(KShortcutWidget* self, QTabletEvent* event) {
+void KShortcutWidget_SuperTabletEvent(KShortcutWidget* self, QTabletEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_TabletEvent_IsBase(true);
@@ -951,7 +951,7 @@ void KShortcutWidget_ActionEvent(KShortcutWidget* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseActionEvent(KShortcutWidget* self, QActionEvent* event) {
+void KShortcutWidget_SuperActionEvent(KShortcutWidget* self, QActionEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_ActionEvent_IsBase(true);
@@ -980,7 +980,7 @@ void KShortcutWidget_DragEnterEvent(KShortcutWidget* self, QDragEnterEvent* even
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseDragEnterEvent(KShortcutWidget* self, QDragEnterEvent* event) {
+void KShortcutWidget_SuperDragEnterEvent(KShortcutWidget* self, QDragEnterEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_DragEnterEvent_IsBase(true);
@@ -1009,7 +1009,7 @@ void KShortcutWidget_DragMoveEvent(KShortcutWidget* self, QDragMoveEvent* event)
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseDragMoveEvent(KShortcutWidget* self, QDragMoveEvent* event) {
+void KShortcutWidget_SuperDragMoveEvent(KShortcutWidget* self, QDragMoveEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_DragMoveEvent_IsBase(true);
@@ -1038,7 +1038,7 @@ void KShortcutWidget_DragLeaveEvent(KShortcutWidget* self, QDragLeaveEvent* even
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseDragLeaveEvent(KShortcutWidget* self, QDragLeaveEvent* event) {
+void KShortcutWidget_SuperDragLeaveEvent(KShortcutWidget* self, QDragLeaveEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_DragLeaveEvent_IsBase(true);
@@ -1067,7 +1067,7 @@ void KShortcutWidget_DropEvent(KShortcutWidget* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseDropEvent(KShortcutWidget* self, QDropEvent* event) {
+void KShortcutWidget_SuperDropEvent(KShortcutWidget* self, QDropEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_DropEvent_IsBase(true);
@@ -1096,7 +1096,7 @@ void KShortcutWidget_ShowEvent(KShortcutWidget* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseShowEvent(KShortcutWidget* self, QShowEvent* event) {
+void KShortcutWidget_SuperShowEvent(KShortcutWidget* self, QShowEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_ShowEvent_IsBase(true);
@@ -1125,7 +1125,7 @@ void KShortcutWidget_HideEvent(KShortcutWidget* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseHideEvent(KShortcutWidget* self, QHideEvent* event) {
+void KShortcutWidget_SuperHideEvent(KShortcutWidget* self, QHideEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_HideEvent_IsBase(true);
@@ -1155,7 +1155,7 @@ bool KShortcutWidget_NativeEvent(KShortcutWidget* self, const libqt_string event
 }
 
 // Base class handler implementation
-bool KShortcutWidget_QBaseNativeEvent(KShortcutWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KShortcutWidget_SuperNativeEvent(KShortcutWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
@@ -1185,7 +1185,7 @@ void KShortcutWidget_ChangeEvent(KShortcutWidget* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseChangeEvent(KShortcutWidget* self, QEvent* param1) {
+void KShortcutWidget_SuperChangeEvent(KShortcutWidget* self, QEvent* param1) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_ChangeEvent_IsBase(true);
@@ -1214,7 +1214,7 @@ int KShortcutWidget_Metric(const KShortcutWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int KShortcutWidget_QBaseMetric(const KShortcutWidget* self, int param1) {
+int KShortcutWidget_SuperMetric(const KShortcutWidget* self, int param1) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_Metric_IsBase(true);
@@ -1243,7 +1243,7 @@ void KShortcutWidget_InitPainter(const KShortcutWidget* self, QPainter* painter)
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseInitPainter(const KShortcutWidget* self, QPainter* painter) {
+void KShortcutWidget_SuperInitPainter(const KShortcutWidget* self, QPainter* painter) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_InitPainter_IsBase(true);
@@ -1272,7 +1272,7 @@ QPaintDevice* KShortcutWidget_Redirected(const KShortcutWidget* self, QPoint* of
 }
 
 // Base class handler implementation
-QPaintDevice* KShortcutWidget_QBaseRedirected(const KShortcutWidget* self, QPoint* offset) {
+QPaintDevice* KShortcutWidget_SuperRedirected(const KShortcutWidget* self, QPoint* offset) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_Redirected_IsBase(true);
@@ -1301,7 +1301,7 @@ QPainter* KShortcutWidget_SharedPainter(const KShortcutWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* KShortcutWidget_QBaseSharedPainter(const KShortcutWidget* self) {
+QPainter* KShortcutWidget_SuperSharedPainter(const KShortcutWidget* self) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_SharedPainter_IsBase(true);
@@ -1330,7 +1330,7 @@ void KShortcutWidget_InputMethodEvent(KShortcutWidget* self, QInputMethodEvent* 
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseInputMethodEvent(KShortcutWidget* self, QInputMethodEvent* param1) {
+void KShortcutWidget_SuperInputMethodEvent(KShortcutWidget* self, QInputMethodEvent* param1) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_InputMethodEvent_IsBase(true);
@@ -1359,7 +1359,7 @@ QVariant* KShortcutWidget_InputMethodQuery(const KShortcutWidget* self, int para
 }
 
 // Base class handler implementation
-QVariant* KShortcutWidget_QBaseInputMethodQuery(const KShortcutWidget* self, int param1) {
+QVariant* KShortcutWidget_SuperInputMethodQuery(const KShortcutWidget* self, int param1) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_InputMethodQuery_IsBase(true);
@@ -1388,7 +1388,7 @@ bool KShortcutWidget_FocusNextPrevChild(KShortcutWidget* self, bool next) {
 }
 
 // Base class handler implementation
-bool KShortcutWidget_QBaseFocusNextPrevChild(KShortcutWidget* self, bool next) {
+bool KShortcutWidget_SuperFocusNextPrevChild(KShortcutWidget* self, bool next) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_FocusNextPrevChild_IsBase(true);
@@ -1417,7 +1417,7 @@ bool KShortcutWidget_EventFilter(KShortcutWidget* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool KShortcutWidget_QBaseEventFilter(KShortcutWidget* self, QObject* watched, QEvent* event) {
+bool KShortcutWidget_SuperEventFilter(KShortcutWidget* self, QObject* watched, QEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_EventFilter_IsBase(true);
@@ -1446,7 +1446,7 @@ void KShortcutWidget_TimerEvent(KShortcutWidget* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseTimerEvent(KShortcutWidget* self, QTimerEvent* event) {
+void KShortcutWidget_SuperTimerEvent(KShortcutWidget* self, QTimerEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_TimerEvent_IsBase(true);
@@ -1475,7 +1475,7 @@ void KShortcutWidget_ChildEvent(KShortcutWidget* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseChildEvent(KShortcutWidget* self, QChildEvent* event) {
+void KShortcutWidget_SuperChildEvent(KShortcutWidget* self, QChildEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_ChildEvent_IsBase(true);
@@ -1504,7 +1504,7 @@ void KShortcutWidget_CustomEvent(KShortcutWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseCustomEvent(KShortcutWidget* self, QEvent* event) {
+void KShortcutWidget_SuperCustomEvent(KShortcutWidget* self, QEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_CustomEvent_IsBase(true);
@@ -1533,7 +1533,7 @@ void KShortcutWidget_ConnectNotify(KShortcutWidget* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseConnectNotify(KShortcutWidget* self, const QMetaMethod* signal) {
+void KShortcutWidget_SuperConnectNotify(KShortcutWidget* self, const QMetaMethod* signal) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_ConnectNotify_IsBase(true);
@@ -1562,7 +1562,7 @@ void KShortcutWidget_DisconnectNotify(KShortcutWidget* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseDisconnectNotify(KShortcutWidget* self, const QMetaMethod* signal) {
+void KShortcutWidget_SuperDisconnectNotify(KShortcutWidget* self, const QMetaMethod* signal) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_DisconnectNotify_IsBase(true);
@@ -1591,7 +1591,7 @@ void KShortcutWidget_UpdateMicroFocus(KShortcutWidget* self) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseUpdateMicroFocus(KShortcutWidget* self) {
+void KShortcutWidget_SuperUpdateMicroFocus(KShortcutWidget* self) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_UpdateMicroFocus_IsBase(true);
@@ -1620,7 +1620,7 @@ void KShortcutWidget_Create(KShortcutWidget* self) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseCreate(KShortcutWidget* self) {
+void KShortcutWidget_SuperCreate(KShortcutWidget* self) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_Create_IsBase(true);
@@ -1649,7 +1649,7 @@ void KShortcutWidget_Destroy(KShortcutWidget* self) {
 }
 
 // Base class handler implementation
-void KShortcutWidget_QBaseDestroy(KShortcutWidget* self) {
+void KShortcutWidget_SuperDestroy(KShortcutWidget* self) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_Destroy_IsBase(true);
@@ -1678,7 +1678,7 @@ bool KShortcutWidget_FocusNextChild(KShortcutWidget* self) {
 }
 
 // Base class handler implementation
-bool KShortcutWidget_QBaseFocusNextChild(KShortcutWidget* self) {
+bool KShortcutWidget_SuperFocusNextChild(KShortcutWidget* self) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_FocusNextChild_IsBase(true);
@@ -1707,7 +1707,7 @@ bool KShortcutWidget_FocusPreviousChild(KShortcutWidget* self) {
 }
 
 // Base class handler implementation
-bool KShortcutWidget_QBaseFocusPreviousChild(KShortcutWidget* self) {
+bool KShortcutWidget_SuperFocusPreviousChild(KShortcutWidget* self) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_FocusPreviousChild_IsBase(true);
@@ -1736,7 +1736,7 @@ QObject* KShortcutWidget_Sender(const KShortcutWidget* self) {
 }
 
 // Base class handler implementation
-QObject* KShortcutWidget_QBaseSender(const KShortcutWidget* self) {
+QObject* KShortcutWidget_SuperSender(const KShortcutWidget* self) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_Sender_IsBase(true);
@@ -1765,7 +1765,7 @@ int KShortcutWidget_SenderSignalIndex(const KShortcutWidget* self) {
 }
 
 // Base class handler implementation
-int KShortcutWidget_QBaseSenderSignalIndex(const KShortcutWidget* self) {
+int KShortcutWidget_SuperSenderSignalIndex(const KShortcutWidget* self) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_SenderSignalIndex_IsBase(true);
@@ -1794,7 +1794,7 @@ int KShortcutWidget_Receivers(const KShortcutWidget* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KShortcutWidget_QBaseReceivers(const KShortcutWidget* self, const char* signal) {
+int KShortcutWidget_SuperReceivers(const KShortcutWidget* self, const char* signal) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_Receivers_IsBase(true);
@@ -1823,7 +1823,7 @@ bool KShortcutWidget_IsSignalConnected(const KShortcutWidget* self, const QMetaM
 }
 
 // Base class handler implementation
-bool KShortcutWidget_QBaseIsSignalConnected(const KShortcutWidget* self, const QMetaMethod* signal) {
+bool KShortcutWidget_SuperIsSignalConnected(const KShortcutWidget* self, const QMetaMethod* signal) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_IsSignalConnected_IsBase(true);
@@ -1852,7 +1852,7 @@ double KShortcutWidget_GetDecodedMetricF(const KShortcutWidget* self, int metric
 }
 
 // Base class handler implementation
-double KShortcutWidget_QBaseGetDecodedMetricF(const KShortcutWidget* self, int metricA, int metricB) {
+double KShortcutWidget_SuperGetDecodedMetricF(const KShortcutWidget* self, int metricA, int metricB) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
     if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
         vkshortcutwidget->setKShortcutWidget_GetDecodedMetricF_IsBase(true);

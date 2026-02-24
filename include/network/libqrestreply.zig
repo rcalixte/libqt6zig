@@ -139,6 +139,10 @@ pub const qrestreply = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#dtor.QRestReply)
     ///
     /// Delete this object from C++ memory.
@@ -147,7 +151,7 @@ pub const qrestreply = struct {
     ///
     /// ` self: QtC.QRestReply `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QRestReply_Delete(@ptrCast(self));
     }
 };

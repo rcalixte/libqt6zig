@@ -68,7 +68,7 @@ void KToggleAction_SlotToggled(KToggleAction* self, bool checked) {
 }
 
 // Base class handler implementation
-QMetaObject* KToggleAction_QBaseMetaObject(const KToggleAction* self) {
+QMetaObject* KToggleAction_SuperMetaObject(const KToggleAction* self) {
     auto* vktoggleaction = const_cast<VirtualKToggleAction*>(dynamic_cast<const VirtualKToggleAction*>(self));
     if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
         vktoggleaction->setKToggleAction_MetaObject_IsBase(true);
@@ -87,7 +87,7 @@ void KToggleAction_OnMetaObject(const KToggleAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KToggleAction_QBaseMetacast(KToggleAction* self, const char* param1) {
+void* KToggleAction_SuperMetacast(KToggleAction* self, const char* param1) {
     auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
     if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
         vktoggleaction->setKToggleAction_Metacast_IsBase(true);
@@ -106,7 +106,7 @@ void KToggleAction_OnMetacast(KToggleAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KToggleAction_QBaseMetacall(KToggleAction* self, int param1, int param2, void** param3) {
+int KToggleAction_SuperMetacall(KToggleAction* self, int param1, int param2, void** param3) {
     auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
     if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
         vktoggleaction->setKToggleAction_Metacall_IsBase(true);
@@ -125,7 +125,7 @@ void KToggleAction_OnMetacall(KToggleAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KToggleAction_QBaseSlotToggled(KToggleAction* self, bool checked) {
+void KToggleAction_SuperSlotToggled(KToggleAction* self, bool checked) {
     auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
     if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
         vktoggleaction->setKToggleAction_SlotToggled_IsBase(true);
@@ -154,7 +154,7 @@ bool KToggleAction_Event(KToggleAction* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-bool KToggleAction_QBaseEvent(KToggleAction* self, QEvent* param1) {
+bool KToggleAction_SuperEvent(KToggleAction* self, QEvent* param1) {
     auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
     if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
         vktoggleaction->setKToggleAction_Event_IsBase(true);
@@ -183,7 +183,7 @@ bool KToggleAction_EventFilter(KToggleAction* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool KToggleAction_QBaseEventFilter(KToggleAction* self, QObject* watched, QEvent* event) {
+bool KToggleAction_SuperEventFilter(KToggleAction* self, QObject* watched, QEvent* event) {
     auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
     if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
         vktoggleaction->setKToggleAction_EventFilter_IsBase(true);
@@ -212,7 +212,7 @@ void KToggleAction_TimerEvent(KToggleAction* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KToggleAction_QBaseTimerEvent(KToggleAction* self, QTimerEvent* event) {
+void KToggleAction_SuperTimerEvent(KToggleAction* self, QTimerEvent* event) {
     auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
     if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
         vktoggleaction->setKToggleAction_TimerEvent_IsBase(true);
@@ -241,7 +241,7 @@ void KToggleAction_ChildEvent(KToggleAction* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KToggleAction_QBaseChildEvent(KToggleAction* self, QChildEvent* event) {
+void KToggleAction_SuperChildEvent(KToggleAction* self, QChildEvent* event) {
     auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
     if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
         vktoggleaction->setKToggleAction_ChildEvent_IsBase(true);
@@ -270,7 +270,7 @@ void KToggleAction_CustomEvent(KToggleAction* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KToggleAction_QBaseCustomEvent(KToggleAction* self, QEvent* event) {
+void KToggleAction_SuperCustomEvent(KToggleAction* self, QEvent* event) {
     auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
     if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
         vktoggleaction->setKToggleAction_CustomEvent_IsBase(true);
@@ -299,7 +299,7 @@ void KToggleAction_ConnectNotify(KToggleAction* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void KToggleAction_QBaseConnectNotify(KToggleAction* self, const QMetaMethod* signal) {
+void KToggleAction_SuperConnectNotify(KToggleAction* self, const QMetaMethod* signal) {
     auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
     if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
         vktoggleaction->setKToggleAction_ConnectNotify_IsBase(true);
@@ -328,7 +328,7 @@ void KToggleAction_DisconnectNotify(KToggleAction* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void KToggleAction_QBaseDisconnectNotify(KToggleAction* self, const QMetaMethod* signal) {
+void KToggleAction_SuperDisconnectNotify(KToggleAction* self, const QMetaMethod* signal) {
     auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
     if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
         vktoggleaction->setKToggleAction_DisconnectNotify_IsBase(true);
@@ -357,7 +357,7 @@ QObject* KToggleAction_Sender(const KToggleAction* self) {
 }
 
 // Base class handler implementation
-QObject* KToggleAction_QBaseSender(const KToggleAction* self) {
+QObject* KToggleAction_SuperSender(const KToggleAction* self) {
     auto* vktoggleaction = const_cast<VirtualKToggleAction*>(dynamic_cast<const VirtualKToggleAction*>(self));
     if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
         vktoggleaction->setKToggleAction_Sender_IsBase(true);
@@ -386,7 +386,7 @@ int KToggleAction_SenderSignalIndex(const KToggleAction* self) {
 }
 
 // Base class handler implementation
-int KToggleAction_QBaseSenderSignalIndex(const KToggleAction* self) {
+int KToggleAction_SuperSenderSignalIndex(const KToggleAction* self) {
     auto* vktoggleaction = const_cast<VirtualKToggleAction*>(dynamic_cast<const VirtualKToggleAction*>(self));
     if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
         vktoggleaction->setKToggleAction_SenderSignalIndex_IsBase(true);
@@ -415,7 +415,7 @@ int KToggleAction_Receivers(const KToggleAction* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KToggleAction_QBaseReceivers(const KToggleAction* self, const char* signal) {
+int KToggleAction_SuperReceivers(const KToggleAction* self, const char* signal) {
     auto* vktoggleaction = const_cast<VirtualKToggleAction*>(dynamic_cast<const VirtualKToggleAction*>(self));
     if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
         vktoggleaction->setKToggleAction_Receivers_IsBase(true);
@@ -444,7 +444,7 @@ bool KToggleAction_IsSignalConnected(const KToggleAction* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool KToggleAction_QBaseIsSignalConnected(const KToggleAction* self, const QMetaMethod* signal) {
+bool KToggleAction_SuperIsSignalConnected(const KToggleAction* self, const QMetaMethod* signal) {
     auto* vktoggleaction = const_cast<VirtualKToggleAction*>(dynamic_cast<const VirtualKToggleAction*>(self));
     if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
         vktoggleaction->setKToggleAction_IsSignalConnected_IsBase(true);

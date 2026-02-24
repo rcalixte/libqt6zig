@@ -70,6 +70,10 @@ pub const qcapturablewindow = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcapturablewindow.html#dtor.QCapturableWindow)
     ///
     /// Delete this object from C++ memory.
@@ -78,7 +82,7 @@ pub const qcapturablewindow = struct {
     ///
     /// ` self: QtC.QCapturableWindow `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCapturableWindow_Delete(@ptrCast(self));
     }
 };

@@ -66,6 +66,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -74,8 +78,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KXmlGuiWindow_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KXmlGuiWindow_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -101,6 +105,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -109,9 +117,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KXmlGuiWindow_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KXmlGuiWindow_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -140,6 +148,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -152,8 +164,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KXmlGuiWindow_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KXmlGuiWindow_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -217,6 +229,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_OnGuiFactory(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGuiFactory` instead
+    ///
+    pub const QBaseGuiFactory = SuperGuiFactory;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#guiFactory)
     ///
     /// Base class method implementation
@@ -225,8 +241,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseGuiFactory(self: ?*anyopaque) QtC.KXMLGUIFactory {
-        return qtc.KXmlGuiWindow_QBaseGuiFactory(@ptrCast(self));
+    pub fn SuperGuiFactory(self: ?*anyopaque) QtC.KXMLGUIFactory {
+        return qtc.KXmlGuiWindow_SuperGuiFactory(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#createGUI)
@@ -378,6 +394,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_OnApplyMainWindowSettings(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperApplyMainWindowSettings` instead
+    ///
+    pub const QBaseApplyMainWindowSettings = SuperApplyMainWindowSettings;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#applyMainWindowSettings)
     ///
     /// Base class method implementation
@@ -388,8 +408,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` config: QtC.KConfigGroup `
     ///
-    pub fn QBaseApplyMainWindowSettings(self: ?*anyopaque, config: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseApplyMainWindowSettings(@ptrCast(self), @ptrCast(config));
+    pub fn SuperApplyMainWindowSettings(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperApplyMainWindowSettings(@ptrCast(self), @ptrCast(config));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setCommandBarEnabled)
@@ -438,6 +458,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_OnConfigureToolbars(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperConfigureToolbars` instead
+    ///
+    pub const QBaseConfigureToolbars = SuperConfigureToolbars;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#configureToolbars)
     ///
     /// Base class method implementation
@@ -446,8 +470,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseConfigureToolbars(self: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseConfigureToolbars(@ptrCast(self));
+    pub fn SuperConfigureToolbars(self: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperConfigureToolbars(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#slotStateChanged)
@@ -480,6 +504,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_OnSlotStateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotStateChanged` instead
+    ///
+    pub const QBaseSlotStateChanged = SuperSlotStateChanged;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#slotStateChanged)
     ///
     /// Base class method implementation
@@ -490,12 +518,12 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` newstate: []const u8 `
     ///
-    pub fn QBaseSlotStateChanged(self: ?*anyopaque, newstate: []const u8) void {
+    pub fn SuperSlotStateChanged(self: ?*anyopaque, newstate: []const u8) void {
         const newstate_str = qtc.libqt_string{
             .len = newstate.len,
             .data = newstate.ptr,
         };
-        qtc.KXmlGuiWindow_QBaseSlotStateChanged(@ptrCast(self), newstate_str);
+        qtc.KXmlGuiWindow_SuperSlotStateChanged(@ptrCast(self), newstate_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#slotStateChanged)
@@ -576,6 +604,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#event)
     ///
     /// Base class method implementation
@@ -586,8 +618,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KXmlGuiWindow_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KXmlGuiWindow_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#checkAmbiguousShortcuts)
@@ -614,6 +646,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_OnCheckAmbiguousShortcuts(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCheckAmbiguousShortcuts` instead
+    ///
+    pub const QBaseCheckAmbiguousShortcuts = SuperCheckAmbiguousShortcuts;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#checkAmbiguousShortcuts)
     ///
     /// Base class method implementation
@@ -622,8 +658,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseCheckAmbiguousShortcuts(self: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseCheckAmbiguousShortcuts(@ptrCast(self));
+    pub fn SuperCheckAmbiguousShortcuts(self: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperCheckAmbiguousShortcuts(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#saveNewToolbarConfig)
@@ -650,6 +686,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_OnSaveNewToolbarConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSaveNewToolbarConfig` instead
+    ///
+    pub const QBaseSaveNewToolbarConfig = SuperSaveNewToolbarConfig;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#saveNewToolbarConfig)
     ///
     /// Base class method implementation
@@ -658,8 +698,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseSaveNewToolbarConfig(self: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseSaveNewToolbarConfig(@ptrCast(self));
+    pub fn SuperSaveNewToolbarConfig(self: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperSaveNewToolbarConfig(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1078,6 +1118,10 @@ pub const kxmlguiwindow = struct {
         qtc.KMainWindow_OnSetCaption2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCaption2` instead
+    ///
+    pub const QBaseSetCaption2 = SuperSetCaption2;
+
     /// Inherited from KMainWindow
     ///
     /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#setCaption)
@@ -1092,12 +1136,12 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` modified: bool `
     ///
-    pub fn QBaseSetCaption2(self: ?*anyopaque, caption: []const u8, modified: bool) void {
+    pub fn SuperSetCaption2(self: ?*anyopaque, caption: []const u8, modified: bool) void {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        qtc.KMainWindow_QBaseSetCaption2(@ptrCast(self), caption_str, modified);
+        qtc.KMainWindow_SuperSetCaption2(@ptrCast(self), caption_str, modified);
     }
 
     /// Inherited from KMainWindow
@@ -7319,6 +7363,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_SetCaption(@ptrCast(self), caption_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSetCaption` instead
+    ///
+    pub const QBaseSetCaption = SuperSetCaption;
+
     /// Inherited from KMainWindow
     ///
     /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#setCaption)
@@ -7331,12 +7379,12 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` caption: []const u8 `
     ///
-    pub fn QBaseSetCaption(self: ?*anyopaque, caption: []const u8) void {
+    pub fn SuperSetCaption(self: ?*anyopaque, caption: []const u8) void {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        qtc.KXmlGuiWindow_QBaseSetCaption(@ptrCast(self), caption_str);
+        qtc.KXmlGuiWindow_SuperSetCaption(@ptrCast(self), caption_str);
     }
 
     /// Inherited from KMainWindow
@@ -7375,6 +7423,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_SetPlainCaption(@ptrCast(self), caption_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSetPlainCaption` instead
+    ///
+    pub const QBaseSetPlainCaption = SuperSetPlainCaption;
+
     /// Inherited from KMainWindow
     ///
     /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#setPlainCaption)
@@ -7387,12 +7439,12 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` caption: []const u8 `
     ///
-    pub fn QBaseSetPlainCaption(self: ?*anyopaque, caption: []const u8) void {
+    pub fn SuperSetPlainCaption(self: ?*anyopaque, caption: []const u8) void {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        qtc.KXmlGuiWindow_QBaseSetPlainCaption(@ptrCast(self), caption_str);
+        qtc.KXmlGuiWindow_SuperSetPlainCaption(@ptrCast(self), caption_str);
     }
 
     /// Inherited from KMainWindow
@@ -7427,6 +7479,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_KeyPressEvent(@ptrCast(self), @ptrCast(keyEvent));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// Inherited from KMainWindow
     ///
     /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#keyPressEvent)
@@ -7439,8 +7495,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` keyEvent: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, keyEvent: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(keyEvent));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, keyEvent: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperKeyPressEvent(@ptrCast(self), @ptrCast(keyEvent));
     }
 
     /// Inherited from KMainWindow
@@ -7475,6 +7531,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_CloseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// Inherited from KMainWindow
     ///
     /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#closeEvent)
@@ -7487,8 +7547,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` param1: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseCloseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperCloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperCloseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from KMainWindow
@@ -7521,6 +7581,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_QueryClose(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperQueryClose` instead
+    ///
+    pub const QBaseQueryClose = SuperQueryClose;
+
     /// Inherited from KMainWindow
     ///
     /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#queryClose)
@@ -7531,8 +7595,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseQueryClose(self: ?*anyopaque) bool {
-        return qtc.KXmlGuiWindow_QBaseQueryClose(@ptrCast(self));
+    pub fn SuperQueryClose(self: ?*anyopaque) bool {
+        return qtc.KXmlGuiWindow_SuperQueryClose(@ptrCast(self));
     }
 
     /// Inherited from KMainWindow
@@ -7567,6 +7631,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_SaveProperties(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperSaveProperties` instead
+    ///
+    pub const QBaseSaveProperties = SuperSaveProperties;
+
     /// Inherited from KMainWindow
     ///
     /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#saveProperties)
@@ -7579,8 +7647,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` param1: QtC.KConfigGroup `
     ///
-    pub fn QBaseSaveProperties(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseSaveProperties(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperSaveProperties(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperSaveProperties(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from KMainWindow
@@ -7615,6 +7683,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_ReadProperties(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperReadProperties` instead
+    ///
+    pub const QBaseReadProperties = SuperReadProperties;
+
     /// Inherited from KMainWindow
     ///
     /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#readProperties)
@@ -7627,8 +7699,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` param1: QtC.KConfigGroup `
     ///
-    pub fn QBaseReadProperties(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseReadProperties(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperReadProperties(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperReadProperties(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from KMainWindow
@@ -7663,6 +7735,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_SaveGlobalProperties(@ptrCast(self), @ptrCast(sessionConfig));
     }
 
+    /// ### DEPRECATED: Use `SuperSaveGlobalProperties` instead
+    ///
+    pub const QBaseSaveGlobalProperties = SuperSaveGlobalProperties;
+
     /// Inherited from KMainWindow
     ///
     /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#saveGlobalProperties)
@@ -7675,8 +7751,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` sessionConfig: QtC.KConfig `
     ///
-    pub fn QBaseSaveGlobalProperties(self: ?*anyopaque, sessionConfig: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseSaveGlobalProperties(@ptrCast(self), @ptrCast(sessionConfig));
+    pub fn SuperSaveGlobalProperties(self: ?*anyopaque, sessionConfig: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperSaveGlobalProperties(@ptrCast(self), @ptrCast(sessionConfig));
     }
 
     /// Inherited from KMainWindow
@@ -7711,6 +7787,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_ReadGlobalProperties(@ptrCast(self), @ptrCast(sessionConfig));
     }
 
+    /// ### DEPRECATED: Use `SuperReadGlobalProperties` instead
+    ///
+    pub const QBaseReadGlobalProperties = SuperReadGlobalProperties;
+
     /// Inherited from KMainWindow
     ///
     /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#readGlobalProperties)
@@ -7723,8 +7803,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` sessionConfig: QtC.KConfig `
     ///
-    pub fn QBaseReadGlobalProperties(self: ?*anyopaque, sessionConfig: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseReadGlobalProperties(@ptrCast(self), @ptrCast(sessionConfig));
+    pub fn SuperReadGlobalProperties(self: ?*anyopaque, sessionConfig: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperReadGlobalProperties(@ptrCast(self), @ptrCast(sessionConfig));
     }
 
     /// Inherited from KMainWindow
@@ -7757,6 +7837,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_CreatePopupMenu(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCreatePopupMenu` instead
+    ///
+    pub const QBaseCreatePopupMenu = SuperCreatePopupMenu;
+
     /// Inherited from QMainWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#createPopupMenu)
@@ -7767,8 +7851,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseCreatePopupMenu(self: ?*anyopaque) QtC.QMenu {
-        return qtc.KXmlGuiWindow_QBaseCreatePopupMenu(@ptrCast(self));
+    pub fn SuperCreatePopupMenu(self: ?*anyopaque) QtC.QMenu {
+        return qtc.KXmlGuiWindow_SuperCreatePopupMenu(@ptrCast(self));
     }
 
     /// Inherited from QMainWindow
@@ -7803,6 +7887,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_ContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    ///
+    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+
     /// Inherited from QMainWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmainwindow.html#contextMenuEvent)
@@ -7815,8 +7903,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QContextMenuEvent `
     ///
-    pub fn QBaseContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QMainWindow
@@ -7849,6 +7937,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_DevType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
@@ -7859,8 +7951,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.KXmlGuiWindow_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.KXmlGuiWindow_SuperDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7895,6 +7987,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_SetVisible(@ptrCast(self), visible);
     }
 
+    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    ///
+    pub const QBaseSetVisible = SuperSetVisible;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
@@ -7907,8 +8003,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.KXmlGuiWindow_QBaseSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
+        qtc.KXmlGuiWindow_SuperSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
@@ -7941,6 +8037,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_SizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -7951,8 +8051,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KXmlGuiWindow_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.KXmlGuiWindow_SuperSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7985,6 +8085,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_MinimumSizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    ///
+    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSizeHint)
@@ -7995,8 +8099,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KXmlGuiWindow_QBaseMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.KXmlGuiWindow_SuperMinimumSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8031,6 +8135,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
@@ -8043,8 +8151,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KXmlGuiWindow_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.KXmlGuiWindow_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -8077,6 +8185,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
@@ -8087,8 +8199,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.KXmlGuiWindow_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.KXmlGuiWindow_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8121,6 +8233,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_PaintEngine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    ///
+    pub const QBasePaintEngine = SuperPaintEngine;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
@@ -8131,8 +8247,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.KXmlGuiWindow_QBasePaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.KXmlGuiWindow_SuperPaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8167,6 +8283,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_MousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -8179,8 +8299,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8215,6 +8335,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -8227,8 +8351,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8263,6 +8387,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -8275,8 +8403,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8311,6 +8439,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -8323,8 +8455,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8359,6 +8491,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_WheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
@@ -8371,8 +8507,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8407,6 +8543,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -8419,8 +8559,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8455,6 +8595,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_FocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -8467,8 +8611,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8503,6 +8647,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_FocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -8515,8 +8663,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8551,6 +8699,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    ///
+    pub const QBaseEnterEvent = SuperEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
@@ -8563,8 +8715,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QEnterEvent `
     ///
-    pub fn QBaseEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8599,6 +8751,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    ///
+    pub const QBaseLeaveEvent = SuperLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
@@ -8611,8 +8767,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8647,6 +8803,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_PaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    ///
+    pub const QBasePaintEvent = SuperPaintEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEvent)
@@ -8659,8 +8819,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QPaintEvent `
     ///
-    pub fn QBasePaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBasePaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperPaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperPaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8695,6 +8855,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
@@ -8707,8 +8871,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8743,6 +8907,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_ResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resizeEvent)
@@ -8755,8 +8923,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8791,6 +8959,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    ///
+    pub const QBaseTabletEvent = SuperTabletEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
@@ -8803,8 +8975,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QTabletEvent `
     ///
-    pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8839,6 +9011,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_ActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    ///
+    pub const QBaseActionEvent = SuperActionEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
@@ -8851,8 +9027,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QActionEvent `
     ///
-    pub fn QBaseActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8887,6 +9063,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_DragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    ///
+    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
@@ -8899,8 +9079,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QDragEnterEvent `
     ///
-    pub fn QBaseDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8935,6 +9115,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_DragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    ///
+    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
@@ -8947,8 +9131,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QDragMoveEvent `
     ///
-    pub fn QBaseDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8983,6 +9167,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    ///
+    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
@@ -8995,8 +9183,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QDragLeaveEvent `
     ///
-    pub fn QBaseDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9031,6 +9219,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_DropEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    ///
+    pub const QBaseDropEvent = SuperDropEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
@@ -9043,8 +9235,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QDropEvent `
     ///
-    pub fn QBaseDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9079,6 +9271,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
@@ -9091,8 +9287,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9127,6 +9323,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
@@ -9139,8 +9339,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9183,6 +9383,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
+    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    ///
+    pub const QBaseNativeEvent = SuperNativeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
@@ -9199,12 +9403,12 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KXmlGuiWindow_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KXmlGuiWindow_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -9239,6 +9443,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_ChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    ///
+    pub const QBaseChangeEvent = SuperChangeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#changeEvent)
@@ -9251,8 +9459,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -9287,6 +9495,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_Metric(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
@@ -9299,8 +9511,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KXmlGuiWindow_QBaseMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.KXmlGuiWindow_SuperMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -9335,6 +9547,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
@@ -9347,8 +9563,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
@@ -9383,6 +9599,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
@@ -9395,8 +9615,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.KXmlGuiWindow_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.KXmlGuiWindow_SuperRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
@@ -9429,6 +9649,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
@@ -9439,8 +9663,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.KXmlGuiWindow_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.KXmlGuiWindow_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9475,6 +9699,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    ///
+    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
@@ -9487,8 +9715,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` param1: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -9523,6 +9751,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_InputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    ///
+    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
@@ -9535,8 +9767,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.KXmlGuiWindow_QBaseInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
+        return qtc.KXmlGuiWindow_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -9571,6 +9803,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_FocusNextPrevChild(@ptrCast(self), next);
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    ///
+    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
@@ -9583,8 +9819,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` next: bool `
     ///
-    pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.KXmlGuiWindow_QBaseFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
+        return qtc.KXmlGuiWindow_SuperFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QWidget
@@ -9621,6 +9857,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -9635,8 +9875,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KXmlGuiWindow_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KXmlGuiWindow_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -9671,6 +9911,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -9683,8 +9927,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -9719,6 +9963,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -9731,8 +9979,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -9767,6 +10015,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -9779,8 +10031,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -9815,6 +10067,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -9827,8 +10083,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -9863,6 +10119,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -9875,8 +10135,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -9926,6 +10186,10 @@ pub const kxmlguiwindow = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperContainerTags` instead
+    ///
+    pub const QBaseContainerTags = SuperContainerTags;
+
     /// Inherited from KXMLGUIBuilder
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguibuilder.html#containerTags)
@@ -9938,8 +10202,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseContainerTags(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KXmlGuiWindow_QBaseContainerTags(@ptrCast(self));
+    pub fn SuperContainerTags(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KXmlGuiWindow_SuperContainerTags(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -9997,6 +10261,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_CreateContainer(@ptrCast(self), @ptrCast(parent), @bitCast(index), @ptrCast(element), @ptrCast(containerAction));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateContainer` instead
+    ///
+    pub const QBaseCreateContainer = SuperCreateContainer;
+
     /// Inherited from KXMLGUIBuilder
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguibuilder.html#createContainer)
@@ -10015,8 +10283,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` containerAction: QtC.QAction `
     ///
-    pub fn QBaseCreateContainer(self: ?*anyopaque, parent: ?*anyopaque, index: i32, element: ?*anyopaque, containerAction: ?**anyopaque) QtC.QWidget {
-        return qtc.KXmlGuiWindow_QBaseCreateContainer(@ptrCast(self), @ptrCast(parent), @bitCast(index), @ptrCast(element), @ptrCast(containerAction));
+    pub fn SuperCreateContainer(self: ?*anyopaque, parent: ?*anyopaque, index: i32, element: ?*anyopaque, containerAction: ?**anyopaque) QtC.QWidget {
+        return qtc.KXmlGuiWindow_SuperCreateContainer(@ptrCast(self), @ptrCast(parent), @bitCast(index), @ptrCast(element), @ptrCast(containerAction));
     }
 
     /// Inherited from KXMLGUIBuilder
@@ -10057,6 +10325,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_RemoveContainer(@ptrCast(self), @ptrCast(container), @ptrCast(parent), @ptrCast(element), @ptrCast(containerAction));
     }
 
+    /// ### DEPRECATED: Use `SuperRemoveContainer` instead
+    ///
+    pub const QBaseRemoveContainer = SuperRemoveContainer;
+
     /// Inherited from KXMLGUIBuilder
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguibuilder.html#removeContainer)
@@ -10075,8 +10347,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` containerAction: QtC.QAction `
     ///
-    pub fn QBaseRemoveContainer(self: ?*anyopaque, container: ?*anyopaque, parent: ?*anyopaque, element: ?*anyopaque, containerAction: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseRemoveContainer(@ptrCast(self), @ptrCast(container), @ptrCast(parent), @ptrCast(element), @ptrCast(containerAction));
+    pub fn SuperRemoveContainer(self: ?*anyopaque, container: ?*anyopaque, parent: ?*anyopaque, element: ?*anyopaque, containerAction: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperRemoveContainer(@ptrCast(self), @ptrCast(container), @ptrCast(parent), @ptrCast(element), @ptrCast(containerAction));
     }
 
     /// Inherited from KXMLGUIBuilder
@@ -10126,6 +10398,10 @@ pub const kxmlguiwindow = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperCustomTags` instead
+    ///
+    pub const QBaseCustomTags = SuperCustomTags;
+
     /// Inherited from KXMLGUIBuilder
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguibuilder.html#customTags)
@@ -10138,8 +10414,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseCustomTags(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KXmlGuiWindow_QBaseCustomTags(@ptrCast(self));
+    pub fn SuperCustomTags(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KXmlGuiWindow_SuperCustomTags(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -10195,6 +10471,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_CreateCustomElement(@ptrCast(self), @ptrCast(parent), @bitCast(index), @ptrCast(element));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateCustomElement` instead
+    ///
+    pub const QBaseCreateCustomElement = SuperCreateCustomElement;
+
     /// Inherited from KXMLGUIBuilder
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguibuilder.html#createCustomElement)
@@ -10211,8 +10491,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` element: QtC.QDomElement `
     ///
-    pub fn QBaseCreateCustomElement(self: ?*anyopaque, parent: ?*anyopaque, index: i32, element: ?*anyopaque) QtC.QAction {
-        return qtc.KXmlGuiWindow_QBaseCreateCustomElement(@ptrCast(self), @ptrCast(parent), @bitCast(index), @ptrCast(element));
+    pub fn SuperCreateCustomElement(self: ?*anyopaque, parent: ?*anyopaque, index: i32, element: ?*anyopaque) QtC.QAction {
+        return qtc.KXmlGuiWindow_SuperCreateCustomElement(@ptrCast(self), @ptrCast(parent), @bitCast(index), @ptrCast(element));
     }
 
     /// Inherited from KXMLGUIBuilder
@@ -10247,6 +10527,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_Action2(@ptrCast(self), @ptrCast(element));
     }
 
+    /// ### DEPRECATED: Use `SuperAction2` instead
+    ///
+    pub const QBaseAction2 = SuperAction2;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
@@ -10259,8 +10543,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` element: QtC.QDomElement `
     ///
-    pub fn QBaseAction2(self: ?*anyopaque, element: ?*anyopaque) QtC.QAction {
-        return qtc.KXmlGuiWindow_QBaseAction2(@ptrCast(self), @ptrCast(element));
+    pub fn SuperAction2(self: ?*anyopaque, element: ?*anyopaque) QtC.QAction {
+        return qtc.KXmlGuiWindow_SuperAction2(@ptrCast(self), @ptrCast(element));
     }
 
     /// Inherited from KXMLGUIClient
@@ -10293,6 +10577,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_ActionCollection(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperActionCollection` instead
+    ///
+    pub const QBaseActionCollection = SuperActionCollection;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
@@ -10303,8 +10591,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseActionCollection(self: ?*anyopaque) QtC.KActionCollection {
-        return qtc.KXmlGuiWindow_QBaseActionCollection(@ptrCast(self));
+    pub fn SuperActionCollection(self: ?*anyopaque) QtC.KActionCollection {
+        return qtc.KXmlGuiWindow_SuperActionCollection(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
@@ -10343,6 +10631,10 @@ pub const kxmlguiwindow = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperComponentName` instead
+    ///
+    pub const QBaseComponentName = SuperComponentName;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
@@ -10355,8 +10647,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KXmlGuiWindow_QBaseComponentName(@ptrCast(self));
+    pub fn SuperComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KXmlGuiWindow_SuperComponentName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10395,6 +10687,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_DomDocument(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDomDocument` instead
+    ///
+    pub const QBaseDomDocument = SuperDomDocument;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
@@ -10405,8 +10701,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseDomDocument(self: ?*anyopaque) QtC.QDomDocument {
-        return qtc.KXmlGuiWindow_QBaseDomDocument(@ptrCast(self));
+    pub fn SuperDomDocument(self: ?*anyopaque) QtC.QDomDocument {
+        return qtc.KXmlGuiWindow_SuperDomDocument(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
@@ -10445,6 +10741,10 @@ pub const kxmlguiwindow = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperXmlFile` instead
+    ///
+    pub const QBaseXmlFile = SuperXmlFile;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
@@ -10457,8 +10757,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseXmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KXmlGuiWindow_QBaseXmlFile(@ptrCast(self));
+    pub fn SuperXmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KXmlGuiWindow_SuperXmlFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.XmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10503,6 +10803,10 @@ pub const kxmlguiwindow = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperLocalXMLFile` instead
+    ///
+    pub const QBaseLocalXMLFile = SuperLocalXMLFile;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
@@ -10515,8 +10819,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseLocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KXmlGuiWindow_QBaseLocalXMLFile(@ptrCast(self));
+    pub fn SuperLocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KXmlGuiWindow_SuperLocalXMLFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.LocalXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10567,6 +10871,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_SetComponentName(@ptrCast(self), componentName_str, componentDisplayName_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSetComponentName` instead
+    ///
+    pub const QBaseSetComponentName = SuperSetComponentName;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setComponentName)
@@ -10581,7 +10889,7 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` componentDisplayName: []const u8 `
     ///
-    pub fn QBaseSetComponentName(self: ?*anyopaque, componentName: []const u8, componentDisplayName: []const u8) void {
+    pub fn SuperSetComponentName(self: ?*anyopaque, componentName: []const u8, componentDisplayName: []const u8) void {
         const componentName_str = qtc.libqt_string{
             .len = componentName.len,
             .data = componentName.ptr,
@@ -10590,7 +10898,7 @@ pub const kxmlguiwindow = struct {
             .len = componentDisplayName.len,
             .data = componentDisplayName.ptr,
         };
-        qtc.KXmlGuiWindow_QBaseSetComponentName(@ptrCast(self), componentName_str, componentDisplayName_str);
+        qtc.KXmlGuiWindow_SuperSetComponentName(@ptrCast(self), componentName_str, componentDisplayName_str);
     }
 
     /// Inherited from KXMLGUIClient
@@ -10633,6 +10941,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_SetXMLFile(@ptrCast(self), file_str, merge, setXMLDoc);
     }
 
+    /// ### DEPRECATED: Use `SuperSetXMLFile` instead
+    ///
+    pub const QBaseSetXMLFile = SuperSetXMLFile;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
@@ -10649,12 +10961,12 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` setXMLDoc: bool `
     ///
-    pub fn QBaseSetXMLFile(self: ?*anyopaque, file: []const u8, merge: bool, setXMLDoc: bool) void {
+    pub fn SuperSetXMLFile(self: ?*anyopaque, file: []const u8, merge: bool, setXMLDoc: bool) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        qtc.KXmlGuiWindow_QBaseSetXMLFile(@ptrCast(self), file_str, merge, setXMLDoc);
+        qtc.KXmlGuiWindow_SuperSetXMLFile(@ptrCast(self), file_str, merge, setXMLDoc);
     }
 
     /// Inherited from KXMLGUIClient
@@ -10693,6 +11005,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_SetLocalXMLFile(@ptrCast(self), file_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSetLocalXMLFile` instead
+    ///
+    pub const QBaseSetLocalXMLFile = SuperSetLocalXMLFile;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
@@ -10705,12 +11021,12 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` file: []const u8 `
     ///
-    pub fn QBaseSetLocalXMLFile(self: ?*anyopaque, file: []const u8) void {
+    pub fn SuperSetLocalXMLFile(self: ?*anyopaque, file: []const u8) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        qtc.KXmlGuiWindow_QBaseSetLocalXMLFile(@ptrCast(self), file_str);
+        qtc.KXmlGuiWindow_SuperSetLocalXMLFile(@ptrCast(self), file_str);
     }
 
     /// Inherited from KXMLGUIClient
@@ -10751,6 +11067,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_SetXML(@ptrCast(self), document_str, merge);
     }
 
+    /// ### DEPRECATED: Use `SuperSetXML` instead
+    ///
+    pub const QBaseSetXML = SuperSetXML;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
@@ -10765,12 +11085,12 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` merge: bool `
     ///
-    pub fn QBaseSetXML(self: ?*anyopaque, document: []const u8, merge: bool) void {
+    pub fn SuperSetXML(self: ?*anyopaque, document: []const u8, merge: bool) void {
         const document_str = qtc.libqt_string{
             .len = document.len,
             .data = document.ptr,
         };
-        qtc.KXmlGuiWindow_QBaseSetXML(@ptrCast(self), document_str, merge);
+        qtc.KXmlGuiWindow_SuperSetXML(@ptrCast(self), document_str, merge);
     }
 
     /// Inherited from KXMLGUIClient
@@ -10807,6 +11127,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_SetDOMDocument(@ptrCast(self), @ptrCast(document), merge);
     }
 
+    /// ### DEPRECATED: Use `SuperSetDOMDocument` instead
+    ///
+    pub const QBaseSetDOMDocument = SuperSetDOMDocument;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
@@ -10821,8 +11145,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` merge: bool `
     ///
-    pub fn QBaseSetDOMDocument(self: ?*anyopaque, document: ?*anyopaque, merge: bool) void {
-        qtc.KXmlGuiWindow_QBaseSetDOMDocument(@ptrCast(self), @ptrCast(document), merge);
+    pub fn SuperSetDOMDocument(self: ?*anyopaque, document: ?*anyopaque, merge: bool) void {
+        qtc.KXmlGuiWindow_SuperSetDOMDocument(@ptrCast(self), @ptrCast(document), merge);
     }
 
     /// Inherited from KXMLGUIClient
@@ -10863,6 +11187,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_StateChanged(@ptrCast(self), newstate_str, @bitCast(reverse));
     }
 
+    /// ### DEPRECATED: Use `SuperStateChanged` instead
+    ///
+    pub const QBaseStateChanged = SuperStateChanged;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
@@ -10877,12 +11205,12 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` reverse: kxmlguiclient_enums.ReverseStateChange `
     ///
-    pub fn QBaseStateChanged(self: ?*anyopaque, newstate: []const u8, reverse: i32) void {
+    pub fn SuperStateChanged(self: ?*anyopaque, newstate: []const u8, reverse: i32) void {
         const newstate_str = qtc.libqt_string{
             .len = newstate.len,
             .data = newstate.ptr,
         };
-        qtc.KXmlGuiWindow_QBaseStateChanged(@ptrCast(self), newstate_str, @bitCast(reverse));
+        qtc.KXmlGuiWindow_SuperStateChanged(@ptrCast(self), newstate_str, @bitCast(reverse));
     }
 
     /// Inherited from KXMLGUIClient
@@ -10919,6 +11247,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_SavePropertiesInternal(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
     }
 
+    /// ### DEPRECATED: Use `SuperSavePropertiesInternal` instead
+    ///
+    pub const QBaseSavePropertiesInternal = SuperSavePropertiesInternal;
+
     /// Inherited from KMainWindow
     ///
     /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#savePropertiesInternal)
@@ -10933,8 +11265,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn QBaseSavePropertiesInternal(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) void {
-        qtc.KXmlGuiWindow_QBaseSavePropertiesInternal(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
+    pub fn SuperSavePropertiesInternal(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) void {
+        qtc.KXmlGuiWindow_SuperSavePropertiesInternal(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
     }
 
     /// Inherited from KMainWindow
@@ -10971,6 +11303,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_ReadPropertiesInternal(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
     }
 
+    /// ### DEPRECATED: Use `SuperReadPropertiesInternal` instead
+    ///
+    pub const QBaseReadPropertiesInternal = SuperReadPropertiesInternal;
+
     /// Inherited from KMainWindow
     ///
     /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#readPropertiesInternal)
@@ -10985,8 +11321,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn QBaseReadPropertiesInternal(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) bool {
-        return qtc.KXmlGuiWindow_QBaseReadPropertiesInternal(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
+    pub fn SuperReadPropertiesInternal(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) bool {
+        return qtc.KXmlGuiWindow_SuperReadPropertiesInternal(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
     }
 
     /// Inherited from KMainWindow
@@ -11019,6 +11355,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_SettingsDirty(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSettingsDirty` instead
+    ///
+    pub const QBaseSettingsDirty = SuperSettingsDirty;
+
     /// Inherited from KMainWindow
     ///
     /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#settingsDirty)
@@ -11029,8 +11369,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseSettingsDirty(self: ?*anyopaque) bool {
-        return qtc.KXmlGuiWindow_QBaseSettingsDirty(@ptrCast(self));
+    pub fn SuperSettingsDirty(self: ?*anyopaque) bool {
+        return qtc.KXmlGuiWindow_SuperSettingsDirty(@ptrCast(self));
     }
 
     /// Inherited from KMainWindow
@@ -11063,6 +11403,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_SaveAutoSaveSettings(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSaveAutoSaveSettings` instead
+    ///
+    pub const QBaseSaveAutoSaveSettings = SuperSaveAutoSaveSettings;
+
     /// Inherited from KMainWindow
     ///
     /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#saveAutoSaveSettings)
@@ -11073,8 +11417,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseSaveAutoSaveSettings(self: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseSaveAutoSaveSettings(@ptrCast(self));
+    pub fn SuperSaveAutoSaveSettings(self: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperSaveAutoSaveSettings(@ptrCast(self));
     }
 
     /// Inherited from KMainWindow
@@ -11107,6 +11451,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_UpdateMicroFocus(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    ///
+    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -11117,8 +11465,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -11151,6 +11499,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_Create(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCreate` instead
+    ///
+    pub const QBaseCreate = SuperCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -11161,8 +11513,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseCreate(self: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseCreate(@ptrCast(self));
+    pub fn SuperCreate(self: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -11195,6 +11547,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_Destroy(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDestroy` instead
+    ///
+    pub const QBaseDestroy = SuperDestroy;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
@@ -11205,8 +11561,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseDestroy(self: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -11239,6 +11595,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_FocusNextChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    ///
+    pub const QBaseFocusNextChild = SuperFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -11249,8 +11609,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.KXmlGuiWindow_QBaseFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
+        return qtc.KXmlGuiWindow_SuperFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -11283,6 +11643,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_FocusPreviousChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    ///
+    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
@@ -11293,8 +11657,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.KXmlGuiWindow_QBaseFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
+        return qtc.KXmlGuiWindow_SuperFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -11327,6 +11691,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -11337,8 +11705,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KXmlGuiWindow_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KXmlGuiWindow_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -11371,6 +11739,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -11381,8 +11753,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KXmlGuiWindow_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KXmlGuiWindow_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -11418,6 +11790,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -11430,9 +11806,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KXmlGuiWindow_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KXmlGuiWindow_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -11467,6 +11843,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -11479,8 +11859,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KXmlGuiWindow_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KXmlGuiWindow_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -11517,6 +11897,10 @@ pub const kxmlguiwindow = struct {
         return qtc.KXmlGuiWindow_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -11531,8 +11915,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KXmlGuiWindow_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.KXmlGuiWindow_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -11571,6 +11955,10 @@ pub const kxmlguiwindow = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperStandardsXmlFileLocation` instead
+    ///
+    pub const QBaseStandardsXmlFileLocation = SuperStandardsXmlFileLocation;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
@@ -11583,8 +11971,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseStandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KXmlGuiWindow_QBaseStandardsXmlFileLocation(@ptrCast(self));
+    pub fn SuperStandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KXmlGuiWindow_SuperStandardsXmlFileLocation(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.StandardsXmlFileLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11623,6 +12011,10 @@ pub const kxmlguiwindow = struct {
         qtc.KXmlGuiWindow_LoadStandardsXmlFile(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperLoadStandardsXmlFile` instead
+    ///
+    pub const QBaseLoadStandardsXmlFile = SuperLoadStandardsXmlFile;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
@@ -11633,8 +12025,8 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QBaseLoadStandardsXmlFile(self: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_QBaseLoadStandardsXmlFile(@ptrCast(self));
+    pub fn SuperLoadStandardsXmlFile(self: ?*anyopaque) void {
+        qtc.KXmlGuiWindow_SuperLoadStandardsXmlFile(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
@@ -11668,6 +12060,9 @@ pub const kxmlguiwindow = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#dtor.KXmlGuiWindow)
     ///
@@ -11677,7 +12072,7 @@ pub const kxmlguiwindow = struct {
     ///
     /// ` self: QtC.KXmlGuiWindow `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KXmlGuiWindow_Delete(@ptrCast(self));
     }
 };

@@ -33,6 +33,10 @@ pub const qdesignercontainerextension = struct {
         qtc.QDesignerContainerExtension_OnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCount` instead
+    ///
+    pub const QBaseCount = SuperCount;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#count)
     ///
     /// Base class method implementation
@@ -41,8 +45,8 @@ pub const qdesignercontainerextension = struct {
     ///
     /// ` self: QtC.QDesignerContainerExtension `
     ///
-    pub fn QBaseCount(self: ?*anyopaque) i32 {
-        return qtc.QDesignerContainerExtension_QBaseCount(@ptrCast(self));
+    pub fn SuperCount(self: ?*anyopaque) i32 {
+        return qtc.QDesignerContainerExtension_SuperCount(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#widget)
@@ -71,6 +75,10 @@ pub const qdesignercontainerextension = struct {
         qtc.QDesignerContainerExtension_OnWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWidget` instead
+    ///
+    pub const QBaseWidget = SuperWidget;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#widget)
     ///
     /// Base class method implementation
@@ -81,8 +89,8 @@ pub const qdesignercontainerextension = struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn QBaseWidget(self: ?*anyopaque, index: i32) QtC.QWidget {
-        return qtc.QDesignerContainerExtension_QBaseWidget(@ptrCast(self), @bitCast(index));
+    pub fn SuperWidget(self: ?*anyopaque, index: i32) QtC.QWidget {
+        return qtc.QDesignerContainerExtension_SuperWidget(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#currentIndex)
@@ -109,6 +117,10 @@ pub const qdesignercontainerextension = struct {
         qtc.QDesignerContainerExtension_OnCurrentIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCurrentIndex` instead
+    ///
+    pub const QBaseCurrentIndex = SuperCurrentIndex;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#currentIndex)
     ///
     /// Base class method implementation
@@ -117,8 +129,8 @@ pub const qdesignercontainerextension = struct {
     ///
     /// ` self: QtC.QDesignerContainerExtension `
     ///
-    pub fn QBaseCurrentIndex(self: ?*anyopaque) i32 {
-        return qtc.QDesignerContainerExtension_QBaseCurrentIndex(@ptrCast(self));
+    pub fn SuperCurrentIndex(self: ?*anyopaque) i32 {
+        return qtc.QDesignerContainerExtension_SuperCurrentIndex(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#setCurrentIndex)
@@ -147,6 +159,10 @@ pub const qdesignercontainerextension = struct {
         qtc.QDesignerContainerExtension_OnSetCurrentIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCurrentIndex` instead
+    ///
+    pub const QBaseSetCurrentIndex = SuperSetCurrentIndex;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#setCurrentIndex)
     ///
     /// Base class method implementation
@@ -157,8 +173,8 @@ pub const qdesignercontainerextension = struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn QBaseSetCurrentIndex(self: ?*anyopaque, index: i32) void {
-        qtc.QDesignerContainerExtension_QBaseSetCurrentIndex(@ptrCast(self), @bitCast(index));
+    pub fn SuperSetCurrentIndex(self: ?*anyopaque, index: i32) void {
+        qtc.QDesignerContainerExtension_SuperSetCurrentIndex(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#canAddWidget)
@@ -185,6 +201,10 @@ pub const qdesignercontainerextension = struct {
         qtc.QDesignerContainerExtension_OnCanAddWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCanAddWidget` instead
+    ///
+    pub const QBaseCanAddWidget = SuperCanAddWidget;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#canAddWidget)
     ///
     /// Base class method implementation
@@ -193,8 +213,8 @@ pub const qdesignercontainerextension = struct {
     ///
     /// ` self: QtC.QDesignerContainerExtension `
     ///
-    pub fn QBaseCanAddWidget(self: ?*anyopaque) bool {
-        return qtc.QDesignerContainerExtension_QBaseCanAddWidget(@ptrCast(self));
+    pub fn SuperCanAddWidget(self: ?*anyopaque) bool {
+        return qtc.QDesignerContainerExtension_SuperCanAddWidget(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#addWidget)
@@ -223,6 +243,10 @@ pub const qdesignercontainerextension = struct {
         qtc.QDesignerContainerExtension_OnAddWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAddWidget` instead
+    ///
+    pub const QBaseAddWidget = SuperAddWidget;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#addWidget)
     ///
     /// Base class method implementation
@@ -233,8 +257,8 @@ pub const qdesignercontainerextension = struct {
     ///
     /// ` widget: QtC.QWidget `
     ///
-    pub fn QBaseAddWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QDesignerContainerExtension_QBaseAddWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn SuperAddWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
+        qtc.QDesignerContainerExtension_SuperAddWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#insertWidget)
@@ -265,6 +289,10 @@ pub const qdesignercontainerextension = struct {
         qtc.QDesignerContainerExtension_OnInsertWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInsertWidget` instead
+    ///
+    pub const QBaseInsertWidget = SuperInsertWidget;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#insertWidget)
     ///
     /// Base class method implementation
@@ -277,8 +305,8 @@ pub const qdesignercontainerextension = struct {
     ///
     /// ` widget: QtC.QWidget `
     ///
-    pub fn QBaseInsertWidget(self: ?*anyopaque, index: i32, widget: ?*anyopaque) void {
-        qtc.QDesignerContainerExtension_QBaseInsertWidget(@ptrCast(self), @bitCast(index), @ptrCast(widget));
+    pub fn SuperInsertWidget(self: ?*anyopaque, index: i32, widget: ?*anyopaque) void {
+        qtc.QDesignerContainerExtension_SuperInsertWidget(@ptrCast(self), @bitCast(index), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#canRemove)
@@ -307,6 +335,10 @@ pub const qdesignercontainerextension = struct {
         qtc.QDesignerContainerExtension_OnCanRemove(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCanRemove` instead
+    ///
+    pub const QBaseCanRemove = SuperCanRemove;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#canRemove)
     ///
     /// Base class method implementation
@@ -317,8 +349,8 @@ pub const qdesignercontainerextension = struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn QBaseCanRemove(self: ?*anyopaque, index: i32) bool {
-        return qtc.QDesignerContainerExtension_QBaseCanRemove(@ptrCast(self), @bitCast(index));
+    pub fn SuperCanRemove(self: ?*anyopaque, index: i32) bool {
+        return qtc.QDesignerContainerExtension_SuperCanRemove(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#remove)
@@ -347,6 +379,10 @@ pub const qdesignercontainerextension = struct {
         qtc.QDesignerContainerExtension_OnRemove(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRemove` instead
+    ///
+    pub const QBaseRemove = SuperRemove;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#remove)
     ///
     /// Base class method implementation
@@ -357,9 +393,12 @@ pub const qdesignercontainerextension = struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn QBaseRemove(self: ?*anyopaque, index: i32) void {
-        qtc.QDesignerContainerExtension_QBaseRemove(@ptrCast(self), @bitCast(index));
+    pub fn SuperRemove(self: ?*anyopaque, index: i32) void {
+        qtc.QDesignerContainerExtension_SuperRemove(@ptrCast(self), @bitCast(index));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercontainerextension.html#dtor.QDesignerContainerExtension)
     ///
@@ -369,7 +408,7 @@ pub const qdesignercontainerextension = struct {
     ///
     /// ` self: QtC.QDesignerContainerExtension `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDesignerContainerExtension_Delete(@ptrCast(self));
     }
 };

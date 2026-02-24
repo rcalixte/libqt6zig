@@ -1042,7 +1042,7 @@ void QWebEnginePage_PrintToPdf3(QWebEnginePage* self, const libqt_string filePat
 }
 
 // Base class handler implementation
-QMetaObject* QWebEnginePage_QBaseMetaObject(const QWebEnginePage* self) {
+QMetaObject* QWebEnginePage_SuperMetaObject(const QWebEnginePage* self) {
     auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self));
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
         vqwebenginepage->setQWebEnginePage_MetaObject_IsBase(true);
@@ -1061,7 +1061,7 @@ void QWebEnginePage_OnMetaObject(const QWebEnginePage* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QWebEnginePage_QBaseMetacast(QWebEnginePage* self, const char* param1) {
+void* QWebEnginePage_SuperMetacast(QWebEnginePage* self, const char* param1) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
         vqwebenginepage->setQWebEnginePage_Metacast_IsBase(true);
@@ -1080,7 +1080,7 @@ void QWebEnginePage_OnMetacast(QWebEnginePage* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QWebEnginePage_QBaseMetacall(QWebEnginePage* self, int param1, int param2, void** param3) {
+int QWebEnginePage_SuperMetacall(QWebEnginePage* self, int param1, int param2, void** param3) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
         vqwebenginepage->setQWebEnginePage_Metacall_IsBase(true);
@@ -1099,7 +1099,7 @@ void QWebEnginePage_OnMetacall(QWebEnginePage* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QWebEnginePage_QBaseTriggerAction(QWebEnginePage* self, int action, bool checked) {
+void QWebEnginePage_SuperTriggerAction(QWebEnginePage* self, int action, bool checked) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
         vqwebenginepage->setQWebEnginePage_TriggerAction_IsBase(true);
@@ -1118,7 +1118,7 @@ void QWebEnginePage_OnTriggerAction(QWebEnginePage* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QWebEnginePage_QBaseEvent(QWebEnginePage* self, QEvent* param1) {
+bool QWebEnginePage_SuperEvent(QWebEnginePage* self, QEvent* param1) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
         vqwebenginepage->setQWebEnginePage_Event_IsBase(true);
@@ -1137,7 +1137,7 @@ void QWebEnginePage_OnEvent(QWebEnginePage* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QWebEnginePage* QWebEnginePage_QBaseCreateWindow(QWebEnginePage* self, int typeVal) {
+QWebEnginePage* QWebEnginePage_SuperCreateWindow(QWebEnginePage* self, int typeVal) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
         vqwebenginepage->setQWebEnginePage_CreateWindow_IsBase(true);
@@ -1156,7 +1156,7 @@ void QWebEnginePage_OnCreateWindow(QWebEnginePage* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QWebEnginePage_QBaseChooseFiles(QWebEnginePage* self, int mode, const libqt_list /* of libqt_string */ oldFiles, const libqt_list /* of libqt_string */ acceptedMimeTypes) {
+libqt_list /* of libqt_string */ QWebEnginePage_SuperChooseFiles(QWebEnginePage* self, int mode, const libqt_list /* of libqt_string */ oldFiles, const libqt_list /* of libqt_string */ acceptedMimeTypes) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     QList<QString> oldFiles_QList;
     oldFiles_QList.reserve(oldFiles.len);
@@ -1223,7 +1223,7 @@ void QWebEnginePage_OnChooseFiles(QWebEnginePage* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QWebEnginePage_QBaseJavaScriptAlert(QWebEnginePage* self, const QUrl* securityOrigin, const libqt_string msg) {
+void QWebEnginePage_SuperJavaScriptAlert(QWebEnginePage* self, const QUrl* securityOrigin, const libqt_string msg) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     QString msg_QString = QString::fromUtf8(msg.data, msg.len);
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
@@ -1243,7 +1243,7 @@ void QWebEnginePage_OnJavaScriptAlert(QWebEnginePage* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QWebEnginePage_QBaseJavaScriptConfirm(QWebEnginePage* self, const QUrl* securityOrigin, const libqt_string msg) {
+bool QWebEnginePage_SuperJavaScriptConfirm(QWebEnginePage* self, const QUrl* securityOrigin, const libqt_string msg) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     QString msg_QString = QString::fromUtf8(msg.data, msg.len);
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
@@ -1263,7 +1263,7 @@ void QWebEnginePage_OnJavaScriptConfirm(QWebEnginePage* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QWebEnginePage_QBaseJavaScriptConsoleMessage(QWebEnginePage* self, int level, const libqt_string message, int lineNumber, const libqt_string sourceID) {
+void QWebEnginePage_SuperJavaScriptConsoleMessage(QWebEnginePage* self, int level, const libqt_string message, int lineNumber, const libqt_string sourceID) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     QString message_QString = QString::fromUtf8(message.data, message.len);
     QString sourceID_QString = QString::fromUtf8(sourceID.data, sourceID.len);
@@ -1284,7 +1284,7 @@ void QWebEnginePage_OnJavaScriptConsoleMessage(QWebEnginePage* self, intptr_t sl
 }
 
 // Base class handler implementation
-bool QWebEnginePage_QBaseAcceptNavigationRequest(QWebEnginePage* self, const QUrl* url, int typeVal, bool isMainFrame) {
+bool QWebEnginePage_SuperAcceptNavigationRequest(QWebEnginePage* self, const QUrl* url, int typeVal, bool isMainFrame) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
         vqwebenginepage->setQWebEnginePage_AcceptNavigationRequest_IsBase(true);
@@ -1313,7 +1313,7 @@ bool QWebEnginePage_EventFilter(QWebEnginePage* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QWebEnginePage_QBaseEventFilter(QWebEnginePage* self, QObject* watched, QEvent* event) {
+bool QWebEnginePage_SuperEventFilter(QWebEnginePage* self, QObject* watched, QEvent* event) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
         vqwebenginepage->setQWebEnginePage_EventFilter_IsBase(true);
@@ -1342,7 +1342,7 @@ void QWebEnginePage_TimerEvent(QWebEnginePage* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEnginePage_QBaseTimerEvent(QWebEnginePage* self, QTimerEvent* event) {
+void QWebEnginePage_SuperTimerEvent(QWebEnginePage* self, QTimerEvent* event) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
         vqwebenginepage->setQWebEnginePage_TimerEvent_IsBase(true);
@@ -1371,7 +1371,7 @@ void QWebEnginePage_ChildEvent(QWebEnginePage* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEnginePage_QBaseChildEvent(QWebEnginePage* self, QChildEvent* event) {
+void QWebEnginePage_SuperChildEvent(QWebEnginePage* self, QChildEvent* event) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
         vqwebenginepage->setQWebEnginePage_ChildEvent_IsBase(true);
@@ -1400,7 +1400,7 @@ void QWebEnginePage_CustomEvent(QWebEnginePage* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEnginePage_QBaseCustomEvent(QWebEnginePage* self, QEvent* event) {
+void QWebEnginePage_SuperCustomEvent(QWebEnginePage* self, QEvent* event) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
         vqwebenginepage->setQWebEnginePage_CustomEvent_IsBase(true);
@@ -1429,7 +1429,7 @@ void QWebEnginePage_ConnectNotify(QWebEnginePage* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QWebEnginePage_QBaseConnectNotify(QWebEnginePage* self, const QMetaMethod* signal) {
+void QWebEnginePage_SuperConnectNotify(QWebEnginePage* self, const QMetaMethod* signal) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
         vqwebenginepage->setQWebEnginePage_ConnectNotify_IsBase(true);
@@ -1458,7 +1458,7 @@ void QWebEnginePage_DisconnectNotify(QWebEnginePage* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QWebEnginePage_QBaseDisconnectNotify(QWebEnginePage* self, const QMetaMethod* signal) {
+void QWebEnginePage_SuperDisconnectNotify(QWebEnginePage* self, const QMetaMethod* signal) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
         vqwebenginepage->setQWebEnginePage_DisconnectNotify_IsBase(true);
@@ -1487,7 +1487,7 @@ QObject* QWebEnginePage_Sender(const QWebEnginePage* self) {
 }
 
 // Base class handler implementation
-QObject* QWebEnginePage_QBaseSender(const QWebEnginePage* self) {
+QObject* QWebEnginePage_SuperSender(const QWebEnginePage* self) {
     auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self));
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
         vqwebenginepage->setQWebEnginePage_Sender_IsBase(true);
@@ -1516,7 +1516,7 @@ int QWebEnginePage_SenderSignalIndex(const QWebEnginePage* self) {
 }
 
 // Base class handler implementation
-int QWebEnginePage_QBaseSenderSignalIndex(const QWebEnginePage* self) {
+int QWebEnginePage_SuperSenderSignalIndex(const QWebEnginePage* self) {
     auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self));
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
         vqwebenginepage->setQWebEnginePage_SenderSignalIndex_IsBase(true);
@@ -1545,7 +1545,7 @@ int QWebEnginePage_Receivers(const QWebEnginePage* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QWebEnginePage_QBaseReceivers(const QWebEnginePage* self, const char* signal) {
+int QWebEnginePage_SuperReceivers(const QWebEnginePage* self, const char* signal) {
     auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self));
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
         vqwebenginepage->setQWebEnginePage_Receivers_IsBase(true);
@@ -1574,7 +1574,7 @@ bool QWebEnginePage_IsSignalConnected(const QWebEnginePage* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QWebEnginePage_QBaseIsSignalConnected(const QWebEnginePage* self, const QMetaMethod* signal) {
+bool QWebEnginePage_SuperIsSignalConnected(const QWebEnginePage* self, const QMetaMethod* signal) {
     auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self));
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
         vqwebenginepage->setQWebEnginePage_IsSignalConnected_IsBase(true);

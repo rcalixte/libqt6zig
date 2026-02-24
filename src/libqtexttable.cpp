@@ -208,7 +208,7 @@ QTextTableFormat* QTextTable_Format(const QTextTable* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QTextTable_QBaseMetaObject(const QTextTable* self) {
+QMetaObject* QTextTable_SuperMetaObject(const QTextTable* self) {
     auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
     if (vqtexttable && vqtexttable->isVirtualQTextTable) {
         vqtexttable->setQTextTable_MetaObject_IsBase(true);
@@ -227,7 +227,7 @@ void QTextTable_OnMetaObject(const QTextTable* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QTextTable_QBaseMetacast(QTextTable* self, const char* param1) {
+void* QTextTable_SuperMetacast(QTextTable* self, const char* param1) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
     if (vqtexttable && vqtexttable->isVirtualQTextTable) {
         vqtexttable->setQTextTable_Metacast_IsBase(true);
@@ -246,7 +246,7 @@ void QTextTable_OnMetacast(QTextTable* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTextTable_QBaseMetacall(QTextTable* self, int param1, int param2, void** param3) {
+int QTextTable_SuperMetacall(QTextTable* self, int param1, int param2, void** param3) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
     if (vqtexttable && vqtexttable->isVirtualQTextTable) {
         vqtexttable->setQTextTable_Metacall_IsBase(true);
@@ -275,7 +275,7 @@ bool QTextTable_Event(QTextTable* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTextTable_QBaseEvent(QTextTable* self, QEvent* event) {
+bool QTextTable_SuperEvent(QTextTable* self, QEvent* event) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
     if (vqtexttable && vqtexttable->isVirtualQTextTable) {
         vqtexttable->setQTextTable_Event_IsBase(true);
@@ -304,7 +304,7 @@ bool QTextTable_EventFilter(QTextTable* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTextTable_QBaseEventFilter(QTextTable* self, QObject* watched, QEvent* event) {
+bool QTextTable_SuperEventFilter(QTextTable* self, QObject* watched, QEvent* event) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
     if (vqtexttable && vqtexttable->isVirtualQTextTable) {
         vqtexttable->setQTextTable_EventFilter_IsBase(true);
@@ -333,7 +333,7 @@ void QTextTable_TimerEvent(QTextTable* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QTextTable_QBaseTimerEvent(QTextTable* self, QTimerEvent* event) {
+void QTextTable_SuperTimerEvent(QTextTable* self, QTimerEvent* event) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
     if (vqtexttable && vqtexttable->isVirtualQTextTable) {
         vqtexttable->setQTextTable_TimerEvent_IsBase(true);
@@ -362,7 +362,7 @@ void QTextTable_ChildEvent(QTextTable* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QTextTable_QBaseChildEvent(QTextTable* self, QChildEvent* event) {
+void QTextTable_SuperChildEvent(QTextTable* self, QChildEvent* event) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
     if (vqtexttable && vqtexttable->isVirtualQTextTable) {
         vqtexttable->setQTextTable_ChildEvent_IsBase(true);
@@ -391,7 +391,7 @@ void QTextTable_CustomEvent(QTextTable* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTextTable_QBaseCustomEvent(QTextTable* self, QEvent* event) {
+void QTextTable_SuperCustomEvent(QTextTable* self, QEvent* event) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
     if (vqtexttable && vqtexttable->isVirtualQTextTable) {
         vqtexttable->setQTextTable_CustomEvent_IsBase(true);
@@ -420,7 +420,7 @@ void QTextTable_ConnectNotify(QTextTable* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTextTable_QBaseConnectNotify(QTextTable* self, const QMetaMethod* signal) {
+void QTextTable_SuperConnectNotify(QTextTable* self, const QMetaMethod* signal) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
     if (vqtexttable && vqtexttable->isVirtualQTextTable) {
         vqtexttable->setQTextTable_ConnectNotify_IsBase(true);
@@ -449,7 +449,7 @@ void QTextTable_DisconnectNotify(QTextTable* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTextTable_QBaseDisconnectNotify(QTextTable* self, const QMetaMethod* signal) {
+void QTextTable_SuperDisconnectNotify(QTextTable* self, const QMetaMethod* signal) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
     if (vqtexttable && vqtexttable->isVirtualQTextTable) {
         vqtexttable->setQTextTable_DisconnectNotify_IsBase(true);
@@ -478,7 +478,7 @@ QObject* QTextTable_Sender(const QTextTable* self) {
 }
 
 // Base class handler implementation
-QObject* QTextTable_QBaseSender(const QTextTable* self) {
+QObject* QTextTable_SuperSender(const QTextTable* self) {
     auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
     if (vqtexttable && vqtexttable->isVirtualQTextTable) {
         vqtexttable->setQTextTable_Sender_IsBase(true);
@@ -507,7 +507,7 @@ int QTextTable_SenderSignalIndex(const QTextTable* self) {
 }
 
 // Base class handler implementation
-int QTextTable_QBaseSenderSignalIndex(const QTextTable* self) {
+int QTextTable_SuperSenderSignalIndex(const QTextTable* self) {
     auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
     if (vqtexttable && vqtexttable->isVirtualQTextTable) {
         vqtexttable->setQTextTable_SenderSignalIndex_IsBase(true);
@@ -536,7 +536,7 @@ int QTextTable_Receivers(const QTextTable* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QTextTable_QBaseReceivers(const QTextTable* self, const char* signal) {
+int QTextTable_SuperReceivers(const QTextTable* self, const char* signal) {
     auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
     if (vqtexttable && vqtexttable->isVirtualQTextTable) {
         vqtexttable->setQTextTable_Receivers_IsBase(true);
@@ -565,7 +565,7 @@ bool QTextTable_IsSignalConnected(const QTextTable* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QTextTable_QBaseIsSignalConnected(const QTextTable* self, const QMetaMethod* signal) {
+bool QTextTable_SuperIsSignalConnected(const QTextTable* self, const QMetaMethod* signal) {
     auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
     if (vqtexttable && vqtexttable->isVirtualQTextTable) {
         vqtexttable->setQTextTable_IsSignalConnected_IsBase(true);

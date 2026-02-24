@@ -431,7 +431,7 @@ libqt_string QIODevice_ReadLine1(QIODevice* self, long long maxlen) {
 }
 
 // Base class handler implementation
-QMetaObject* QIODevice_QBaseMetaObject(const QIODevice* self) {
+QMetaObject* QIODevice_SuperMetaObject(const QIODevice* self) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_MetaObject_IsBase(true);
@@ -450,7 +450,7 @@ void QIODevice_OnMetaObject(const QIODevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QIODevice_QBaseMetacast(QIODevice* self, const char* param1) {
+void* QIODevice_SuperMetacast(QIODevice* self, const char* param1) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_Metacast_IsBase(true);
@@ -469,7 +469,7 @@ void QIODevice_OnMetacast(QIODevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QIODevice_QBaseMetacall(QIODevice* self, int param1, int param2, void** param3) {
+int QIODevice_SuperMetacall(QIODevice* self, int param1, int param2, void** param3) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_Metacall_IsBase(true);
@@ -488,7 +488,7 @@ void QIODevice_OnMetacall(QIODevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QIODevice_QBaseIsSequential(const QIODevice* self) {
+bool QIODevice_SuperIsSequential(const QIODevice* self) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_IsSequential_IsBase(true);
@@ -507,7 +507,7 @@ void QIODevice_OnIsSequential(const QIODevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QIODevice_QBaseOpen(QIODevice* self, int mode) {
+bool QIODevice_SuperOpen(QIODevice* self, int mode) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_Open_IsBase(true);
@@ -526,7 +526,7 @@ void QIODevice_OnOpen(QIODevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QIODevice_QBaseClose(QIODevice* self) {
+void QIODevice_SuperClose(QIODevice* self) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_Close_IsBase(true);
@@ -545,7 +545,7 @@ void QIODevice_OnClose(QIODevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QIODevice_QBasePos(const QIODevice* self) {
+long long QIODevice_SuperPos(const QIODevice* self) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_Pos_IsBase(true);
@@ -564,7 +564,7 @@ void QIODevice_OnPos(const QIODevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QIODevice_QBaseSize(const QIODevice* self) {
+long long QIODevice_SuperSize(const QIODevice* self) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_Size_IsBase(true);
@@ -583,7 +583,7 @@ void QIODevice_OnSize(const QIODevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QIODevice_QBaseSeek(QIODevice* self, long long pos) {
+bool QIODevice_SuperSeek(QIODevice* self, long long pos) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_Seek_IsBase(true);
@@ -602,7 +602,7 @@ void QIODevice_OnSeek(QIODevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QIODevice_QBaseAtEnd(const QIODevice* self) {
+bool QIODevice_SuperAtEnd(const QIODevice* self) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_AtEnd_IsBase(true);
@@ -621,7 +621,7 @@ void QIODevice_OnAtEnd(const QIODevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QIODevice_QBaseReset(QIODevice* self) {
+bool QIODevice_SuperReset(QIODevice* self) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_Reset_IsBase(true);
@@ -640,7 +640,7 @@ void QIODevice_OnReset(QIODevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QIODevice_QBaseBytesAvailable(const QIODevice* self) {
+long long QIODevice_SuperBytesAvailable(const QIODevice* self) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_BytesAvailable_IsBase(true);
@@ -659,7 +659,7 @@ void QIODevice_OnBytesAvailable(const QIODevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QIODevice_QBaseBytesToWrite(const QIODevice* self) {
+long long QIODevice_SuperBytesToWrite(const QIODevice* self) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_BytesToWrite_IsBase(true);
@@ -678,7 +678,7 @@ void QIODevice_OnBytesToWrite(const QIODevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QIODevice_QBaseCanReadLine(const QIODevice* self) {
+bool QIODevice_SuperCanReadLine(const QIODevice* self) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_CanReadLine_IsBase(true);
@@ -697,7 +697,7 @@ void QIODevice_OnCanReadLine(const QIODevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QIODevice_QBaseWaitForReadyRead(QIODevice* self, int msecs) {
+bool QIODevice_SuperWaitForReadyRead(QIODevice* self, int msecs) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_WaitForReadyRead_IsBase(true);
@@ -716,7 +716,7 @@ void QIODevice_OnWaitForReadyRead(QIODevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QIODevice_QBaseWaitForBytesWritten(QIODevice* self, int msecs) {
+bool QIODevice_SuperWaitForBytesWritten(QIODevice* self, int msecs) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_WaitForBytesWritten_IsBase(true);
@@ -735,7 +735,7 @@ void QIODevice_OnWaitForBytesWritten(QIODevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QIODevice_QBaseReadData(QIODevice* self, char* data, long long maxlen) {
+long long QIODevice_SuperReadData(QIODevice* self, char* data, long long maxlen) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_ReadData_IsBase(true);
@@ -754,7 +754,7 @@ void QIODevice_OnReadData(QIODevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QIODevice_QBaseReadLineData(QIODevice* self, char* data, long long maxlen) {
+long long QIODevice_SuperReadLineData(QIODevice* self, char* data, long long maxlen) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_ReadLineData_IsBase(true);
@@ -773,7 +773,7 @@ void QIODevice_OnReadLineData(QIODevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QIODevice_QBaseSkipData(QIODevice* self, long long maxSize) {
+long long QIODevice_SuperSkipData(QIODevice* self, long long maxSize) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_SkipData_IsBase(true);
@@ -792,7 +792,7 @@ void QIODevice_OnSkipData(QIODevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QIODevice_QBaseWriteData(QIODevice* self, const char* data, long long lenVal) {
+long long QIODevice_SuperWriteData(QIODevice* self, const char* data, long long lenVal) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_WriteData_IsBase(true);
@@ -821,7 +821,7 @@ bool QIODevice_Event(QIODevice* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QIODevice_QBaseEvent(QIODevice* self, QEvent* event) {
+bool QIODevice_SuperEvent(QIODevice* self, QEvent* event) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_Event_IsBase(true);
@@ -850,7 +850,7 @@ bool QIODevice_EventFilter(QIODevice* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QIODevice_QBaseEventFilter(QIODevice* self, QObject* watched, QEvent* event) {
+bool QIODevice_SuperEventFilter(QIODevice* self, QObject* watched, QEvent* event) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_EventFilter_IsBase(true);
@@ -879,7 +879,7 @@ void QIODevice_TimerEvent(QIODevice* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QIODevice_QBaseTimerEvent(QIODevice* self, QTimerEvent* event) {
+void QIODevice_SuperTimerEvent(QIODevice* self, QTimerEvent* event) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_TimerEvent_IsBase(true);
@@ -908,7 +908,7 @@ void QIODevice_ChildEvent(QIODevice* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QIODevice_QBaseChildEvent(QIODevice* self, QChildEvent* event) {
+void QIODevice_SuperChildEvent(QIODevice* self, QChildEvent* event) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_ChildEvent_IsBase(true);
@@ -937,7 +937,7 @@ void QIODevice_CustomEvent(QIODevice* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QIODevice_QBaseCustomEvent(QIODevice* self, QEvent* event) {
+void QIODevice_SuperCustomEvent(QIODevice* self, QEvent* event) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_CustomEvent_IsBase(true);
@@ -966,7 +966,7 @@ void QIODevice_ConnectNotify(QIODevice* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QIODevice_QBaseConnectNotify(QIODevice* self, const QMetaMethod* signal) {
+void QIODevice_SuperConnectNotify(QIODevice* self, const QMetaMethod* signal) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_ConnectNotify_IsBase(true);
@@ -995,7 +995,7 @@ void QIODevice_DisconnectNotify(QIODevice* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QIODevice_QBaseDisconnectNotify(QIODevice* self, const QMetaMethod* signal) {
+void QIODevice_SuperDisconnectNotify(QIODevice* self, const QMetaMethod* signal) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_DisconnectNotify_IsBase(true);
@@ -1024,7 +1024,7 @@ void QIODevice_SetOpenMode(QIODevice* self, int openMode) {
 }
 
 // Base class handler implementation
-void QIODevice_QBaseSetOpenMode(QIODevice* self, int openMode) {
+void QIODevice_SuperSetOpenMode(QIODevice* self, int openMode) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_SetOpenMode_IsBase(true);
@@ -1054,7 +1054,7 @@ void QIODevice_SetErrorString(QIODevice* self, const libqt_string errorString) {
 }
 
 // Base class handler implementation
-void QIODevice_QBaseSetErrorString(QIODevice* self, const libqt_string errorString) {
+void QIODevice_SuperSetErrorString(QIODevice* self, const libqt_string errorString) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
@@ -1084,7 +1084,7 @@ QObject* QIODevice_Sender(const QIODevice* self) {
 }
 
 // Base class handler implementation
-QObject* QIODevice_QBaseSender(const QIODevice* self) {
+QObject* QIODevice_SuperSender(const QIODevice* self) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_Sender_IsBase(true);
@@ -1113,7 +1113,7 @@ int QIODevice_SenderSignalIndex(const QIODevice* self) {
 }
 
 // Base class handler implementation
-int QIODevice_QBaseSenderSignalIndex(const QIODevice* self) {
+int QIODevice_SuperSenderSignalIndex(const QIODevice* self) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_SenderSignalIndex_IsBase(true);
@@ -1142,7 +1142,7 @@ int QIODevice_Receivers(const QIODevice* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QIODevice_QBaseReceivers(const QIODevice* self, const char* signal) {
+int QIODevice_SuperReceivers(const QIODevice* self, const char* signal) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_Receivers_IsBase(true);
@@ -1171,7 +1171,7 @@ bool QIODevice_IsSignalConnected(const QIODevice* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool QIODevice_QBaseIsSignalConnected(const QIODevice* self, const QMetaMethod* signal) {
+bool QIODevice_SuperIsSignalConnected(const QIODevice* self, const QMetaMethod* signal) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_IsSignalConnected_IsBase(true);

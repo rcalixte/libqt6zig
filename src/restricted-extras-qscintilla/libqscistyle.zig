@@ -335,6 +335,10 @@ pub const qscistyle = struct {
         qtc.QsciStyle_Refresh(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// Delete this object from C++ memory.
@@ -343,7 +347,7 @@ pub const qscistyle = struct {
     ///
     /// ` self: QtC.QsciStyle `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QsciStyle_Delete(@ptrCast(self));
     }
 };

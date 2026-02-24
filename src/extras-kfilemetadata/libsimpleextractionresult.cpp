@@ -119,7 +119,7 @@ libqt_list /* of int */ KFileMetaData__SimpleExtractionResult_Types(const KFileM
 }
 
 // Base class handler implementation
-void KFileMetaData__SimpleExtractionResult_QBaseAdd(KFileMetaData__SimpleExtractionResult* self, int property, const QVariant* value) {
+void KFileMetaData__SimpleExtractionResult_SuperAdd(KFileMetaData__SimpleExtractionResult* self, int property, const QVariant* value) {
     auto* vkfilemetadatasimpleextractionresult = dynamic_cast<VirtualKFileMetaDataSimpleExtractionResult*>(self);
     if (vkfilemetadatasimpleextractionresult && vkfilemetadatasimpleextractionresult->isVirtualKFileMetaDataSimpleExtractionResult) {
         vkfilemetadatasimpleextractionresult->setKFileMetaData__SimpleExtractionResult_Add_IsBase(true);
@@ -138,7 +138,7 @@ void KFileMetaData__SimpleExtractionResult_OnAdd(KFileMetaData__SimpleExtraction
 }
 
 // Base class handler implementation
-void KFileMetaData__SimpleExtractionResult_QBaseAddType(KFileMetaData__SimpleExtractionResult* self, int typeVal) {
+void KFileMetaData__SimpleExtractionResult_SuperAddType(KFileMetaData__SimpleExtractionResult* self, int typeVal) {
     auto* vkfilemetadatasimpleextractionresult = dynamic_cast<VirtualKFileMetaDataSimpleExtractionResult*>(self);
     if (vkfilemetadatasimpleextractionresult && vkfilemetadatasimpleextractionresult->isVirtualKFileMetaDataSimpleExtractionResult) {
         vkfilemetadatasimpleextractionresult->setKFileMetaData__SimpleExtractionResult_AddType_IsBase(true);
@@ -157,7 +157,7 @@ void KFileMetaData__SimpleExtractionResult_OnAddType(KFileMetaData__SimpleExtrac
 }
 
 // Base class handler implementation
-void KFileMetaData__SimpleExtractionResult_QBaseAppend(KFileMetaData__SimpleExtractionResult* self, const libqt_string text) {
+void KFileMetaData__SimpleExtractionResult_SuperAppend(KFileMetaData__SimpleExtractionResult* self, const libqt_string text) {
     auto* vkfilemetadatasimpleextractionresult = dynamic_cast<VirtualKFileMetaDataSimpleExtractionResult*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vkfilemetadatasimpleextractionresult && vkfilemetadatasimpleextractionresult->isVirtualKFileMetaDataSimpleExtractionResult) {

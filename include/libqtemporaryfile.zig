@@ -80,6 +80,10 @@ pub const qtemporaryfile = struct {
         qtc.QTemporaryFile_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -88,8 +92,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` self: QtC.QTemporaryFile `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QTemporaryFile_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QTemporaryFile_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -115,6 +119,10 @@ pub const qtemporaryfile = struct {
         qtc.QTemporaryFile_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -123,9 +131,9 @@ pub const qtemporaryfile = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QTemporaryFile_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QTemporaryFile_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -154,6 +162,10 @@ pub const qtemporaryfile = struct {
         qtc.QTemporaryFile_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -166,8 +178,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTemporaryFile_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QTemporaryFile_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -251,6 +263,10 @@ pub const qtemporaryfile = struct {
         qtc.QTemporaryFile_OnFileName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFileName` instead
+    ///
+    pub const QBaseFileName = SuperFileName;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#fileName)
     ///
     /// Base class method implementation
@@ -261,8 +277,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseFileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTemporaryFile_QBaseFileName(@ptrCast(self));
+    pub fn SuperFileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTemporaryFile_SuperFileName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtemporaryfile.FileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -367,6 +383,10 @@ pub const qtemporaryfile = struct {
         qtc.QTemporaryFile_OnOpen2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperOpen2` instead
+    ///
+    pub const QBaseOpen2 = SuperOpen2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#open)
     ///
     /// Base class method implementation
@@ -377,8 +397,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` flags: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn QBaseOpen2(self: ?*anyopaque, flags: i32) bool {
-        return qtc.QTemporaryFile_QBaseOpen2(@ptrCast(self), @bitCast(flags));
+    pub fn SuperOpen2(self: ?*anyopaque, flags: i32) bool {
+        return qtc.QTemporaryFile_SuperOpen2(@ptrCast(self), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2340,6 +2360,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_Size(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSize` instead
+    ///
+    pub const QBaseSize = SuperSize;
+
     /// Inherited from QFile
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#size)
@@ -2350,8 +2374,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` self: QtC.QTemporaryFile `
     ///
-    pub fn QBaseSize(self: ?*anyopaque) i64 {
-        return qtc.QTemporaryFile_QBaseSize(@ptrCast(self));
+    pub fn SuperSize(self: ?*anyopaque) i64 {
+        return qtc.QTemporaryFile_SuperSize(@ptrCast(self));
     }
 
     /// Inherited from QFile
@@ -2386,6 +2410,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_Resize(@ptrCast(self), @bitCast(sz));
     }
 
+    /// ### DEPRECATED: Use `SuperResize` instead
+    ///
+    pub const QBaseResize = SuperResize;
+
     /// Inherited from QFile
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#resize)
@@ -2398,8 +2426,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` sz: i64 `
     ///
-    pub fn QBaseResize(self: ?*anyopaque, sz: i64) bool {
-        return qtc.QTemporaryFile_QBaseResize(@ptrCast(self), @bitCast(sz));
+    pub fn SuperResize(self: ?*anyopaque, sz: i64) bool {
+        return qtc.QTemporaryFile_SuperResize(@ptrCast(self), @bitCast(sz));
     }
 
     /// Inherited from QFile
@@ -2436,6 +2464,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_Permissions(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPermissions` instead
+    ///
+    pub const QBasePermissions = SuperPermissions;
+
     /// Inherited from QFile
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#permissions)
@@ -2450,8 +2482,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` flag of qfiledevice_enums.Permission `
     ///
-    pub fn QBasePermissions(self: ?*anyopaque) i32 {
-        return qtc.QTemporaryFile_QBasePermissions(@ptrCast(self));
+    pub fn SuperPermissions(self: ?*anyopaque) i32 {
+        return qtc.QTemporaryFile_SuperPermissions(@ptrCast(self));
     }
 
     /// Inherited from QFile
@@ -2486,6 +2518,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_SetPermissions(@ptrCast(self), @bitCast(permissionSpec));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPermissions` instead
+    ///
+    pub const QBaseSetPermissions = SuperSetPermissions;
+
     /// Inherited from QFile
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#setPermissions)
@@ -2498,8 +2534,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` permissionSpec: flag of qfiledevice_enums.Permission `
     ///
-    pub fn QBaseSetPermissions(self: ?*anyopaque, permissionSpec: i32) bool {
-        return qtc.QTemporaryFile_QBaseSetPermissions(@ptrCast(self), @bitCast(permissionSpec));
+    pub fn SuperSetPermissions(self: ?*anyopaque, permissionSpec: i32) bool {
+        return qtc.QTemporaryFile_SuperSetPermissions(@ptrCast(self), @bitCast(permissionSpec));
     }
 
     /// Inherited from QFile
@@ -2532,6 +2568,10 @@ pub const qtemporaryfile = struct {
         qtc.QTemporaryFile_Close(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperClose` instead
+    ///
+    pub const QBaseClose = SuperClose;
+
     /// Inherited from QFileDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#close)
@@ -2542,8 +2582,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` self: QtC.QTemporaryFile `
     ///
-    pub fn QBaseClose(self: ?*anyopaque) void {
-        qtc.QTemporaryFile_QBaseClose(@ptrCast(self));
+    pub fn SuperClose(self: ?*anyopaque) void {
+        qtc.QTemporaryFile_SuperClose(@ptrCast(self));
     }
 
     /// Inherited from QFileDevice
@@ -2576,6 +2616,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_IsSequential(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSequential` instead
+    ///
+    pub const QBaseIsSequential = SuperIsSequential;
+
     /// Inherited from QFileDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
@@ -2586,8 +2630,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` self: QtC.QTemporaryFile `
     ///
-    pub fn QBaseIsSequential(self: ?*anyopaque) bool {
-        return qtc.QTemporaryFile_QBaseIsSequential(@ptrCast(self));
+    pub fn SuperIsSequential(self: ?*anyopaque) bool {
+        return qtc.QTemporaryFile_SuperIsSequential(@ptrCast(self));
     }
 
     /// Inherited from QFileDevice
@@ -2620,6 +2664,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_Pos(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPos` instead
+    ///
+    pub const QBasePos = SuperPos;
+
     /// Inherited from QFileDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#pos)
@@ -2630,8 +2678,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` self: QtC.QTemporaryFile `
     ///
-    pub fn QBasePos(self: ?*anyopaque) i64 {
-        return qtc.QTemporaryFile_QBasePos(@ptrCast(self));
+    pub fn SuperPos(self: ?*anyopaque) i64 {
+        return qtc.QTemporaryFile_SuperPos(@ptrCast(self));
     }
 
     /// Inherited from QFileDevice
@@ -2666,6 +2714,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_Seek(@ptrCast(self), @bitCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperSeek` instead
+    ///
+    pub const QBaseSeek = SuperSeek;
+
     /// Inherited from QFileDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#seek)
@@ -2678,8 +2730,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` offset: i64 `
     ///
-    pub fn QBaseSeek(self: ?*anyopaque, offset: i64) bool {
-        return qtc.QTemporaryFile_QBaseSeek(@ptrCast(self), @bitCast(offset));
+    pub fn SuperSeek(self: ?*anyopaque, offset: i64) bool {
+        return qtc.QTemporaryFile_SuperSeek(@ptrCast(self), @bitCast(offset));
     }
 
     /// Inherited from QFileDevice
@@ -2712,6 +2764,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_AtEnd(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperAtEnd` instead
+    ///
+    pub const QBaseAtEnd = SuperAtEnd;
+
     /// Inherited from QFileDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
@@ -2722,8 +2778,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` self: QtC.QTemporaryFile `
     ///
-    pub fn QBaseAtEnd(self: ?*anyopaque) bool {
-        return qtc.QTemporaryFile_QBaseAtEnd(@ptrCast(self));
+    pub fn SuperAtEnd(self: ?*anyopaque) bool {
+        return qtc.QTemporaryFile_SuperAtEnd(@ptrCast(self));
     }
 
     /// Inherited from QFileDevice
@@ -2761,6 +2817,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_ReadData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
+    /// ### DEPRECATED: Use `SuperReadData` instead
+    ///
+    pub const QBaseReadData = SuperReadData;
+
     /// Inherited from QFileDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readData)
@@ -2775,9 +2835,9 @@ pub const qtemporaryfile = struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn QBaseReadData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn SuperReadData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QTemporaryFile_QBaseReadData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QTemporaryFile_SuperReadData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QFileDevice
@@ -2815,6 +2875,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_WriteData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
     }
 
+    /// ### DEPRECATED: Use `SuperWriteData` instead
+    ///
+    pub const QBaseWriteData = SuperWriteData;
+
     /// Inherited from QFileDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#writeData)
@@ -2829,9 +2893,9 @@ pub const qtemporaryfile = struct {
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn QBaseWriteData(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn SuperWriteData(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QTemporaryFile_QBaseWriteData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
+        return qtc.QTemporaryFile_SuperWriteData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
     }
 
     /// Inherited from QFileDevice
@@ -2869,6 +2933,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_ReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
+    /// ### DEPRECATED: Use `SuperReadLineData` instead
+    ///
+    pub const QBaseReadLineData = SuperReadLineData;
+
     /// Inherited from QFileDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readLineData)
@@ -2883,9 +2951,9 @@ pub const qtemporaryfile = struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn QBaseReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn SuperReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QTemporaryFile_QBaseReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QTemporaryFile_SuperReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QFileDevice
@@ -2918,6 +2986,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_Reset(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperReset` instead
+    ///
+    pub const QBaseReset = SuperReset;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
@@ -2928,8 +3000,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` self: QtC.QTemporaryFile `
     ///
-    pub fn QBaseReset(self: ?*anyopaque) bool {
-        return qtc.QTemporaryFile_QBaseReset(@ptrCast(self));
+    pub fn SuperReset(self: ?*anyopaque) bool {
+        return qtc.QTemporaryFile_SuperReset(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -2962,6 +3034,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_BytesAvailable(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperBytesAvailable` instead
+    ///
+    pub const QBaseBytesAvailable = SuperBytesAvailable;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
@@ -2972,8 +3048,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` self: QtC.QTemporaryFile `
     ///
-    pub fn QBaseBytesAvailable(self: ?*anyopaque) i64 {
-        return qtc.QTemporaryFile_QBaseBytesAvailable(@ptrCast(self));
+    pub fn SuperBytesAvailable(self: ?*anyopaque) i64 {
+        return qtc.QTemporaryFile_SuperBytesAvailable(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -3006,6 +3082,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_BytesToWrite(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperBytesToWrite` instead
+    ///
+    pub const QBaseBytesToWrite = SuperBytesToWrite;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
@@ -3016,8 +3096,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` self: QtC.QTemporaryFile `
     ///
-    pub fn QBaseBytesToWrite(self: ?*anyopaque) i64 {
-        return qtc.QTemporaryFile_QBaseBytesToWrite(@ptrCast(self));
+    pub fn SuperBytesToWrite(self: ?*anyopaque) i64 {
+        return qtc.QTemporaryFile_SuperBytesToWrite(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -3050,6 +3130,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_CanReadLine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCanReadLine` instead
+    ///
+    pub const QBaseCanReadLine = SuperCanReadLine;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
@@ -3060,8 +3144,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` self: QtC.QTemporaryFile `
     ///
-    pub fn QBaseCanReadLine(self: ?*anyopaque) bool {
-        return qtc.QTemporaryFile_QBaseCanReadLine(@ptrCast(self));
+    pub fn SuperCanReadLine(self: ?*anyopaque) bool {
+        return qtc.QTemporaryFile_SuperCanReadLine(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -3096,6 +3180,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_WaitForReadyRead(@ptrCast(self), @bitCast(msecs));
     }
 
+    /// ### DEPRECATED: Use `SuperWaitForReadyRead` instead
+    ///
+    pub const QBaseWaitForReadyRead = SuperWaitForReadyRead;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
@@ -3108,8 +3196,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn QBaseWaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QTemporaryFile_QBaseWaitForReadyRead(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
+        return qtc.QTemporaryFile_SuperWaitForReadyRead(@ptrCast(self), @bitCast(msecs));
     }
 
     /// Inherited from QIODevice
@@ -3144,6 +3232,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_WaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
     }
 
+    /// ### DEPRECATED: Use `SuperWaitForBytesWritten` instead
+    ///
+    pub const QBaseWaitForBytesWritten = SuperWaitForBytesWritten;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
@@ -3156,8 +3248,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn QBaseWaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QTemporaryFile_QBaseWaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
+        return qtc.QTemporaryFile_SuperWaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
     }
 
     /// Inherited from QIODevice
@@ -3192,6 +3284,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_SkipData(@ptrCast(self), @bitCast(maxSize));
     }
 
+    /// ### DEPRECATED: Use `SuperSkipData` instead
+    ///
+    pub const QBaseSkipData = SuperSkipData;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skipData)
@@ -3204,8 +3300,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn QBaseSkipData(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QTemporaryFile_QBaseSkipData(@ptrCast(self), @bitCast(maxSize));
+    pub fn SuperSkipData(self: ?*anyopaque, maxSize: i64) i64 {
+        return qtc.QTemporaryFile_SuperSkipData(@ptrCast(self), @bitCast(maxSize));
     }
 
     /// Inherited from QIODevice
@@ -3240,6 +3336,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -3252,8 +3352,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTemporaryFile_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QTemporaryFile_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3290,6 +3390,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -3304,8 +3408,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTemporaryFile_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QTemporaryFile_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3340,6 +3444,10 @@ pub const qtemporaryfile = struct {
         qtc.QTemporaryFile_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -3352,8 +3460,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTemporaryFile_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTemporaryFile_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3388,6 +3496,10 @@ pub const qtemporaryfile = struct {
         qtc.QTemporaryFile_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -3400,8 +3512,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTemporaryFile_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTemporaryFile_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3436,6 +3548,10 @@ pub const qtemporaryfile = struct {
         qtc.QTemporaryFile_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -3448,8 +3564,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTemporaryFile_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTemporaryFile_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3484,6 +3600,10 @@ pub const qtemporaryfile = struct {
         qtc.QTemporaryFile_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3496,8 +3616,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTemporaryFile_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QTemporaryFile_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3532,6 +3652,10 @@ pub const qtemporaryfile = struct {
         qtc.QTemporaryFile_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -3544,8 +3668,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTemporaryFile_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QTemporaryFile_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3580,6 +3704,10 @@ pub const qtemporaryfile = struct {
         qtc.QTemporaryFile_SetOpenMode(@ptrCast(self), @bitCast(openMode));
     }
 
+    /// ### DEPRECATED: Use `SuperSetOpenMode` instead
+    ///
+    pub const QBaseSetOpenMode = SuperSetOpenMode;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
@@ -3592,8 +3720,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i32) void {
-        qtc.QTemporaryFile_QBaseSetOpenMode(@ptrCast(self), @bitCast(openMode));
+    pub fn SuperSetOpenMode(self: ?*anyopaque, openMode: i32) void {
+        qtc.QTemporaryFile_SuperSetOpenMode(@ptrCast(self), @bitCast(openMode));
     }
 
     /// Inherited from QIODevice
@@ -3632,6 +3760,10 @@ pub const qtemporaryfile = struct {
         qtc.QTemporaryFile_SetErrorString(@ptrCast(self), errorString_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSetErrorString` instead
+    ///
+    pub const QBaseSetErrorString = SuperSetErrorString;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
@@ -3644,12 +3776,12 @@ pub const qtemporaryfile = struct {
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn QBaseSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
+    pub fn SuperSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QTemporaryFile_QBaseSetErrorString(@ptrCast(self), errorString_str);
+        qtc.QTemporaryFile_SuperSetErrorString(@ptrCast(self), errorString_str);
     }
 
     /// Inherited from QIODevice
@@ -3682,6 +3814,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -3692,8 +3828,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` self: QtC.QTemporaryFile `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QTemporaryFile_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QTemporaryFile_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3726,6 +3862,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -3736,8 +3876,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` self: QtC.QTemporaryFile `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QTemporaryFile_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QTemporaryFile_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3773,6 +3913,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -3785,9 +3929,9 @@ pub const qtemporaryfile = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QTemporaryFile_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QTemporaryFile_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3822,6 +3966,10 @@ pub const qtemporaryfile = struct {
         return qtc.QTemporaryFile_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -3834,8 +3982,8 @@ pub const qtemporaryfile = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QTemporaryFile_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QTemporaryFile_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3869,6 +4017,9 @@ pub const qtemporaryfile = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporaryfile.html#dtor.QTemporaryFile)
     ///
@@ -3878,7 +4029,7 @@ pub const qtemporaryfile = struct {
     ///
     /// ` self: QtC.QTemporaryFile `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTemporaryFile_Delete(@ptrCast(self));
     }
 };

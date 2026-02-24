@@ -27,15 +27,15 @@ libqt_string QAbstractFileIconProvider_Type(const QAbstractFileIconProvider* sel
 void QAbstractFileIconProvider_SetOptions(QAbstractFileIconProvider* self, int options);
 int QAbstractFileIconProvider_Options(const QAbstractFileIconProvider* self);
 void QAbstractFileIconProvider_OnIcon(const QAbstractFileIconProvider* self, intptr_t slot);
-QIcon* QAbstractFileIconProvider_QBaseIcon(const QAbstractFileIconProvider* self, int param1);
+QIcon* QAbstractFileIconProvider_SuperIcon(const QAbstractFileIconProvider* self, int param1);
 void QAbstractFileIconProvider_OnIcon2(const QAbstractFileIconProvider* self, intptr_t slot);
-QIcon* QAbstractFileIconProvider_QBaseIcon2(const QAbstractFileIconProvider* self, const QFileInfo* param1);
+QIcon* QAbstractFileIconProvider_SuperIcon2(const QAbstractFileIconProvider* self, const QFileInfo* param1);
 void QAbstractFileIconProvider_OnType(const QAbstractFileIconProvider* self, intptr_t slot);
-libqt_string QAbstractFileIconProvider_QBaseType(const QAbstractFileIconProvider* self, const QFileInfo* param1);
+libqt_string QAbstractFileIconProvider_SuperType(const QAbstractFileIconProvider* self, const QFileInfo* param1);
 void QAbstractFileIconProvider_OnSetOptions(QAbstractFileIconProvider* self, intptr_t slot);
-void QAbstractFileIconProvider_QBaseSetOptions(QAbstractFileIconProvider* self, int options);
+void QAbstractFileIconProvider_SuperSetOptions(QAbstractFileIconProvider* self, int options);
 void QAbstractFileIconProvider_OnOptions(const QAbstractFileIconProvider* self, intptr_t slot);
-int QAbstractFileIconProvider_QBaseOptions(const QAbstractFileIconProvider* self);
+int QAbstractFileIconProvider_SuperOptions(const QAbstractFileIconProvider* self);
 void QAbstractFileIconProvider_Delete(QAbstractFileIconProvider* self);
 
 #ifdef __cplusplus

@@ -35,7 +35,7 @@ QAction* KParts__PartBase_Action2(const KParts__PartBase* self, const QDomElemen
 }
 
 // Base class handler implementation
-QAction* KParts__PartBase_QBaseAction2(const KParts__PartBase* self, const QDomElement* element) {
+QAction* KParts__PartBase_SuperAction2(const KParts__PartBase* self, const QDomElement* element) {
     auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
     if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
         vkpartspartbase->setKParts__PartBase_Action2_IsBase(true);
@@ -64,7 +64,7 @@ KActionCollection* KParts__PartBase_ActionCollection(const KParts__PartBase* sel
 }
 
 // Base class handler implementation
-KActionCollection* KParts__PartBase_QBaseActionCollection(const KParts__PartBase* self) {
+KActionCollection* KParts__PartBase_SuperActionCollection(const KParts__PartBase* self) {
     auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
     if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
         vkpartspartbase->setKParts__PartBase_ActionCollection_IsBase(true);
@@ -109,7 +109,7 @@ libqt_string KParts__PartBase_ComponentName(const KParts__PartBase* self) {
 }
 
 // Base class handler implementation
-libqt_string KParts__PartBase_QBaseComponentName(const KParts__PartBase* self) {
+libqt_string KParts__PartBase_SuperComponentName(const KParts__PartBase* self) {
     auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
     if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
         vkpartspartbase->setKParts__PartBase_ComponentName_IsBase(true);
@@ -154,7 +154,7 @@ QDomDocument* KParts__PartBase_DomDocument(const KParts__PartBase* self) {
 }
 
 // Base class handler implementation
-QDomDocument* KParts__PartBase_QBaseDomDocument(const KParts__PartBase* self) {
+QDomDocument* KParts__PartBase_SuperDomDocument(const KParts__PartBase* self) {
     auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
     if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
         vkpartspartbase->setKParts__PartBase_DomDocument_IsBase(true);
@@ -199,7 +199,7 @@ libqt_string KParts__PartBase_XmlFile(const KParts__PartBase* self) {
 }
 
 // Base class handler implementation
-libqt_string KParts__PartBase_QBaseXmlFile(const KParts__PartBase* self) {
+libqt_string KParts__PartBase_SuperXmlFile(const KParts__PartBase* self) {
     auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
     if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
         vkpartspartbase->setKParts__PartBase_XmlFile_IsBase(true);
@@ -260,7 +260,7 @@ libqt_string KParts__PartBase_LocalXMLFile(const KParts__PartBase* self) {
 }
 
 // Base class handler implementation
-libqt_string KParts__PartBase_QBaseLocalXMLFile(const KParts__PartBase* self) {
+libqt_string KParts__PartBase_SuperLocalXMLFile(const KParts__PartBase* self) {
     auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
     if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
         vkpartspartbase->setKParts__PartBase_LocalXMLFile_IsBase(true);
@@ -307,7 +307,7 @@ void KParts__PartBase_SetComponentName(KParts__PartBase* self, const libqt_strin
 }
 
 // Base class handler implementation
-void KParts__PartBase_QBaseSetComponentName(KParts__PartBase* self, const libqt_string componentName, const libqt_string componentDisplayName) {
+void KParts__PartBase_SuperSetComponentName(KParts__PartBase* self, const libqt_string componentName, const libqt_string componentDisplayName) {
     auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
     QString componentName_QString = QString::fromUtf8(componentName.data, componentName.len);
     QString componentDisplayName_QString = QString::fromUtf8(componentDisplayName.data, componentDisplayName.len);
@@ -339,7 +339,7 @@ void KParts__PartBase_SetXMLFile(KParts__PartBase* self, const libqt_string file
 }
 
 // Base class handler implementation
-void KParts__PartBase_QBaseSetXMLFile(KParts__PartBase* self, const libqt_string file, bool merge, bool setXMLDoc) {
+void KParts__PartBase_SuperSetXMLFile(KParts__PartBase* self, const libqt_string file, bool merge, bool setXMLDoc) {
     auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
     if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
@@ -370,7 +370,7 @@ void KParts__PartBase_SetLocalXMLFile(KParts__PartBase* self, const libqt_string
 }
 
 // Base class handler implementation
-void KParts__PartBase_QBaseSetLocalXMLFile(KParts__PartBase* self, const libqt_string file) {
+void KParts__PartBase_SuperSetLocalXMLFile(KParts__PartBase* self, const libqt_string file) {
     auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
     if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
@@ -401,7 +401,7 @@ void KParts__PartBase_SetXML(KParts__PartBase* self, const libqt_string document
 }
 
 // Base class handler implementation
-void KParts__PartBase_QBaseSetXML(KParts__PartBase* self, const libqt_string document, bool merge) {
+void KParts__PartBase_SuperSetXML(KParts__PartBase* self, const libqt_string document, bool merge) {
     auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
     QString document_QString = QString::fromUtf8(document.data, document.len);
     if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
@@ -431,7 +431,7 @@ void KParts__PartBase_SetDOMDocument(KParts__PartBase* self, const QDomDocument*
 }
 
 // Base class handler implementation
-void KParts__PartBase_QBaseSetDOMDocument(KParts__PartBase* self, const QDomDocument* document, bool merge) {
+void KParts__PartBase_SuperSetDOMDocument(KParts__PartBase* self, const QDomDocument* document, bool merge) {
     auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
     if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
         vkpartspartbase->setKParts__PartBase_SetDOMDocument_IsBase(true);
@@ -461,7 +461,7 @@ void KParts__PartBase_StateChanged(KParts__PartBase* self, const libqt_string ne
 }
 
 // Base class handler implementation
-void KParts__PartBase_QBaseStateChanged(KParts__PartBase* self, const libqt_string newstate, int reverse) {
+void KParts__PartBase_SuperStateChanged(KParts__PartBase* self, const libqt_string newstate, int reverse) {
     auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
     QString newstate_QString = QString::fromUtf8(newstate.data, newstate.len);
     if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
@@ -507,7 +507,7 @@ libqt_string KParts__PartBase_StandardsXmlFileLocation(KParts__PartBase* self) {
 }
 
 // Base class handler implementation
-libqt_string KParts__PartBase_QBaseStandardsXmlFileLocation(KParts__PartBase* self) {
+libqt_string KParts__PartBase_SuperStandardsXmlFileLocation(KParts__PartBase* self) {
     auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
     if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
         vkpartspartbase->setKParts__PartBase_StandardsXmlFileLocation_IsBase(true);
@@ -552,7 +552,7 @@ void KParts__PartBase_LoadStandardsXmlFile(KParts__PartBase* self) {
 }
 
 // Base class handler implementation
-void KParts__PartBase_QBaseLoadStandardsXmlFile(KParts__PartBase* self) {
+void KParts__PartBase_SuperLoadStandardsXmlFile(KParts__PartBase* self) {
     auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
     if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
         vkpartspartbase->setKParts__PartBase_LoadStandardsXmlFile_IsBase(true);

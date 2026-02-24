@@ -328,23 +328,23 @@ class VirtualQVideoSink final : public QVideoSink {
 
     // Friend functions
     friend void QVideoSink_TimerEvent(QVideoSink* self, QTimerEvent* event);
-    friend void QVideoSink_QBaseTimerEvent(QVideoSink* self, QTimerEvent* event);
+    friend void QVideoSink_SuperTimerEvent(QVideoSink* self, QTimerEvent* event);
     friend void QVideoSink_ChildEvent(QVideoSink* self, QChildEvent* event);
-    friend void QVideoSink_QBaseChildEvent(QVideoSink* self, QChildEvent* event);
+    friend void QVideoSink_SuperChildEvent(QVideoSink* self, QChildEvent* event);
     friend void QVideoSink_CustomEvent(QVideoSink* self, QEvent* event);
-    friend void QVideoSink_QBaseCustomEvent(QVideoSink* self, QEvent* event);
+    friend void QVideoSink_SuperCustomEvent(QVideoSink* self, QEvent* event);
     friend void QVideoSink_ConnectNotify(QVideoSink* self, const QMetaMethod* signal);
-    friend void QVideoSink_QBaseConnectNotify(QVideoSink* self, const QMetaMethod* signal);
+    friend void QVideoSink_SuperConnectNotify(QVideoSink* self, const QMetaMethod* signal);
     friend void QVideoSink_DisconnectNotify(QVideoSink* self, const QMetaMethod* signal);
-    friend void QVideoSink_QBaseDisconnectNotify(QVideoSink* self, const QMetaMethod* signal);
+    friend void QVideoSink_SuperDisconnectNotify(QVideoSink* self, const QMetaMethod* signal);
     friend QObject* QVideoSink_Sender(const QVideoSink* self);
-    friend QObject* QVideoSink_QBaseSender(const QVideoSink* self);
+    friend QObject* QVideoSink_SuperSender(const QVideoSink* self);
     friend int QVideoSink_SenderSignalIndex(const QVideoSink* self);
-    friend int QVideoSink_QBaseSenderSignalIndex(const QVideoSink* self);
+    friend int QVideoSink_SuperSenderSignalIndex(const QVideoSink* self);
     friend int QVideoSink_Receivers(const QVideoSink* self, const char* signal);
-    friend int QVideoSink_QBaseReceivers(const QVideoSink* self, const char* signal);
+    friend int QVideoSink_SuperReceivers(const QVideoSink* self, const char* signal);
     friend bool QVideoSink_IsSignalConnected(const QVideoSink* self, const QMetaMethod* signal);
-    friend bool QVideoSink_QBaseIsSignalConnected(const QVideoSink* self, const QMetaMethod* signal);
+    friend bool QVideoSink_SuperIsSignalConnected(const QVideoSink* self, const QMetaMethod* signal);
 };
 
 #endif

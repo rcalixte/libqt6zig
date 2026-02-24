@@ -366,23 +366,23 @@ class VirtualQCandlestickLegendMarker final : public QCandlestickLegendMarker {
 
     // Friend functions
     friend void QCandlestickLegendMarker_TimerEvent(QCandlestickLegendMarker* self, QTimerEvent* event);
-    friend void QCandlestickLegendMarker_QBaseTimerEvent(QCandlestickLegendMarker* self, QTimerEvent* event);
+    friend void QCandlestickLegendMarker_SuperTimerEvent(QCandlestickLegendMarker* self, QTimerEvent* event);
     friend void QCandlestickLegendMarker_ChildEvent(QCandlestickLegendMarker* self, QChildEvent* event);
-    friend void QCandlestickLegendMarker_QBaseChildEvent(QCandlestickLegendMarker* self, QChildEvent* event);
+    friend void QCandlestickLegendMarker_SuperChildEvent(QCandlestickLegendMarker* self, QChildEvent* event);
     friend void QCandlestickLegendMarker_CustomEvent(QCandlestickLegendMarker* self, QEvent* event);
-    friend void QCandlestickLegendMarker_QBaseCustomEvent(QCandlestickLegendMarker* self, QEvent* event);
+    friend void QCandlestickLegendMarker_SuperCustomEvent(QCandlestickLegendMarker* self, QEvent* event);
     friend void QCandlestickLegendMarker_ConnectNotify(QCandlestickLegendMarker* self, const QMetaMethod* signal);
-    friend void QCandlestickLegendMarker_QBaseConnectNotify(QCandlestickLegendMarker* self, const QMetaMethod* signal);
+    friend void QCandlestickLegendMarker_SuperConnectNotify(QCandlestickLegendMarker* self, const QMetaMethod* signal);
     friend void QCandlestickLegendMarker_DisconnectNotify(QCandlestickLegendMarker* self, const QMetaMethod* signal);
-    friend void QCandlestickLegendMarker_QBaseDisconnectNotify(QCandlestickLegendMarker* self, const QMetaMethod* signal);
+    friend void QCandlestickLegendMarker_SuperDisconnectNotify(QCandlestickLegendMarker* self, const QMetaMethod* signal);
     friend QObject* QCandlestickLegendMarker_Sender(const QCandlestickLegendMarker* self);
-    friend QObject* QCandlestickLegendMarker_QBaseSender(const QCandlestickLegendMarker* self);
+    friend QObject* QCandlestickLegendMarker_SuperSender(const QCandlestickLegendMarker* self);
     friend int QCandlestickLegendMarker_SenderSignalIndex(const QCandlestickLegendMarker* self);
-    friend int QCandlestickLegendMarker_QBaseSenderSignalIndex(const QCandlestickLegendMarker* self);
+    friend int QCandlestickLegendMarker_SuperSenderSignalIndex(const QCandlestickLegendMarker* self);
     friend int QCandlestickLegendMarker_Receivers(const QCandlestickLegendMarker* self, const char* signal);
-    friend int QCandlestickLegendMarker_QBaseReceivers(const QCandlestickLegendMarker* self, const char* signal);
+    friend int QCandlestickLegendMarker_SuperReceivers(const QCandlestickLegendMarker* self, const char* signal);
     friend bool QCandlestickLegendMarker_IsSignalConnected(const QCandlestickLegendMarker* self, const QMetaMethod* signal);
-    friend bool QCandlestickLegendMarker_QBaseIsSignalConnected(const QCandlestickLegendMarker* self, const QMetaMethod* signal);
+    friend bool QCandlestickLegendMarker_SuperIsSignalConnected(const QCandlestickLegendMarker* self, const QMetaMethod* signal);
 };
 
 #endif

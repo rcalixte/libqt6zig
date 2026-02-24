@@ -3574,7 +3574,7 @@ void QOpenGLFunctions_4_2_Compatibility_GlVertexAttribI1i(QOpenGLFunctions_4_2_C
 }
 
 // Base class handler implementation
-bool QOpenGLFunctions_4_2_Compatibility_QBaseInitializeOpenGLFunctions(QOpenGLFunctions_4_2_Compatibility* self) {
+bool QOpenGLFunctions_4_2_Compatibility_SuperInitializeOpenGLFunctions(QOpenGLFunctions_4_2_Compatibility* self) {
     auto* vqopenglfunctions_4_2_compatibility = dynamic_cast<VirtualQOpenGLFunctions_4_2_Compatibility*>(self);
     if (vqopenglfunctions_4_2_compatibility && vqopenglfunctions_4_2_compatibility->isVirtualQOpenGLFunctions_4_2_Compatibility) {
         vqopenglfunctions_4_2_compatibility->setQOpenGLFunctions_4_2_Compatibility_InitializeOpenGLFunctions_IsBase(true);
@@ -3603,7 +3603,7 @@ bool QOpenGLFunctions_4_2_Compatibility_IsInitialized(const QOpenGLFunctions_4_2
 }
 
 // Base class handler implementation
-bool QOpenGLFunctions_4_2_Compatibility_QBaseIsInitialized(const QOpenGLFunctions_4_2_Compatibility* self) {
+bool QOpenGLFunctions_4_2_Compatibility_SuperIsInitialized(const QOpenGLFunctions_4_2_Compatibility* self) {
     auto* vqopenglfunctions_4_2_compatibility = const_cast<VirtualQOpenGLFunctions_4_2_Compatibility*>(dynamic_cast<const VirtualQOpenGLFunctions_4_2_Compatibility*>(self));
     if (vqopenglfunctions_4_2_compatibility && vqopenglfunctions_4_2_compatibility->isVirtualQOpenGLFunctions_4_2_Compatibility) {
         vqopenglfunctions_4_2_compatibility->setQOpenGLFunctions_4_2_Compatibility_IsInitialized_IsBase(true);
@@ -3632,7 +3632,7 @@ void QOpenGLFunctions_4_2_Compatibility_SetOwningContext(QOpenGLFunctions_4_2_Co
 }
 
 // Base class handler implementation
-void QOpenGLFunctions_4_2_Compatibility_QBaseSetOwningContext(QOpenGLFunctions_4_2_Compatibility* self, const QOpenGLContext* context) {
+void QOpenGLFunctions_4_2_Compatibility_SuperSetOwningContext(QOpenGLFunctions_4_2_Compatibility* self, const QOpenGLContext* context) {
     auto* vqopenglfunctions_4_2_compatibility = dynamic_cast<VirtualQOpenGLFunctions_4_2_Compatibility*>(self);
     if (vqopenglfunctions_4_2_compatibility && vqopenglfunctions_4_2_compatibility->isVirtualQOpenGLFunctions_4_2_Compatibility) {
         vqopenglfunctions_4_2_compatibility->setQOpenGLFunctions_4_2_Compatibility_SetOwningContext_IsBase(true);
@@ -3661,7 +3661,7 @@ QOpenGLContext* QOpenGLFunctions_4_2_Compatibility_OwningContext(const QOpenGLFu
 }
 
 // Base class handler implementation
-QOpenGLContext* QOpenGLFunctions_4_2_Compatibility_QBaseOwningContext(const QOpenGLFunctions_4_2_Compatibility* self) {
+QOpenGLContext* QOpenGLFunctions_4_2_Compatibility_SuperOwningContext(const QOpenGLFunctions_4_2_Compatibility* self) {
     auto* vqopenglfunctions_4_2_compatibility = const_cast<VirtualQOpenGLFunctions_4_2_Compatibility*>(dynamic_cast<const VirtualQOpenGLFunctions_4_2_Compatibility*>(self));
     if (vqopenglfunctions_4_2_compatibility && vqopenglfunctions_4_2_compatibility->isVirtualQOpenGLFunctions_4_2_Compatibility) {
         vqopenglfunctions_4_2_compatibility->setQOpenGLFunctions_4_2_Compatibility_OwningContext_IsBase(true);

@@ -337,23 +337,23 @@ class VirtualQDnsLookup final : public QDnsLookup {
 
     // Friend functions
     friend void QDnsLookup_TimerEvent(QDnsLookup* self, QTimerEvent* event);
-    friend void QDnsLookup_QBaseTimerEvent(QDnsLookup* self, QTimerEvent* event);
+    friend void QDnsLookup_SuperTimerEvent(QDnsLookup* self, QTimerEvent* event);
     friend void QDnsLookup_ChildEvent(QDnsLookup* self, QChildEvent* event);
-    friend void QDnsLookup_QBaseChildEvent(QDnsLookup* self, QChildEvent* event);
+    friend void QDnsLookup_SuperChildEvent(QDnsLookup* self, QChildEvent* event);
     friend void QDnsLookup_CustomEvent(QDnsLookup* self, QEvent* event);
-    friend void QDnsLookup_QBaseCustomEvent(QDnsLookup* self, QEvent* event);
+    friend void QDnsLookup_SuperCustomEvent(QDnsLookup* self, QEvent* event);
     friend void QDnsLookup_ConnectNotify(QDnsLookup* self, const QMetaMethod* signal);
-    friend void QDnsLookup_QBaseConnectNotify(QDnsLookup* self, const QMetaMethod* signal);
+    friend void QDnsLookup_SuperConnectNotify(QDnsLookup* self, const QMetaMethod* signal);
     friend void QDnsLookup_DisconnectNotify(QDnsLookup* self, const QMetaMethod* signal);
-    friend void QDnsLookup_QBaseDisconnectNotify(QDnsLookup* self, const QMetaMethod* signal);
+    friend void QDnsLookup_SuperDisconnectNotify(QDnsLookup* self, const QMetaMethod* signal);
     friend QObject* QDnsLookup_Sender(const QDnsLookup* self);
-    friend QObject* QDnsLookup_QBaseSender(const QDnsLookup* self);
+    friend QObject* QDnsLookup_SuperSender(const QDnsLookup* self);
     friend int QDnsLookup_SenderSignalIndex(const QDnsLookup* self);
-    friend int QDnsLookup_QBaseSenderSignalIndex(const QDnsLookup* self);
+    friend int QDnsLookup_SuperSenderSignalIndex(const QDnsLookup* self);
     friend int QDnsLookup_Receivers(const QDnsLookup* self, const char* signal);
-    friend int QDnsLookup_QBaseReceivers(const QDnsLookup* self, const char* signal);
+    friend int QDnsLookup_SuperReceivers(const QDnsLookup* self, const char* signal);
     friend bool QDnsLookup_IsSignalConnected(const QDnsLookup* self, const QMetaMethod* signal);
-    friend bool QDnsLookup_QBaseIsSignalConnected(const QDnsLookup* self, const QMetaMethod* signal);
+    friend bool QDnsLookup_SuperIsSignalConnected(const QDnsLookup* self, const QMetaMethod* signal);
 };
 
 #endif

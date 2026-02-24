@@ -319,7 +319,7 @@ void KPlotWidget_MaskAlongLine3(KPlotWidget* self, const QPointF* p1, const QPoi
 }
 
 // Base class handler implementation
-QMetaObject* KPlotWidget_QBaseMetaObject(const KPlotWidget* self) {
+QMetaObject* KPlotWidget_SuperMetaObject(const KPlotWidget* self) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_MetaObject_IsBase(true);
@@ -338,7 +338,7 @@ void KPlotWidget_OnMetaObject(const KPlotWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KPlotWidget_QBaseMetacast(KPlotWidget* self, const char* param1) {
+void* KPlotWidget_SuperMetacast(KPlotWidget* self, const char* param1) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_Metacast_IsBase(true);
@@ -357,7 +357,7 @@ void KPlotWidget_OnMetacast(KPlotWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KPlotWidget_QBaseMetacall(KPlotWidget* self, int param1, int param2, void** param3) {
+int KPlotWidget_SuperMetacall(KPlotWidget* self, int param1, int param2, void** param3) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_Metacall_IsBase(true);
@@ -376,7 +376,7 @@ void KPlotWidget_OnMetacall(KPlotWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* KPlotWidget_QBaseMinimumSizeHint(const KPlotWidget* self) {
+QSize* KPlotWidget_SuperMinimumSizeHint(const KPlotWidget* self) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_MinimumSizeHint_IsBase(true);
@@ -395,7 +395,7 @@ void KPlotWidget_OnMinimumSizeHint(const KPlotWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* KPlotWidget_QBaseSizeHint(const KPlotWidget* self) {
+QSize* KPlotWidget_SuperSizeHint(const KPlotWidget* self) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_SizeHint_IsBase(true);
@@ -414,7 +414,7 @@ void KPlotWidget_OnSizeHint(const KPlotWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KPlotWidget_QBaseEvent(KPlotWidget* self, QEvent* param1) {
+bool KPlotWidget_SuperEvent(KPlotWidget* self, QEvent* param1) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_Event_IsBase(true);
@@ -433,7 +433,7 @@ void KPlotWidget_OnEvent(KPlotWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBasePaintEvent(KPlotWidget* self, QPaintEvent* param1) {
+void KPlotWidget_SuperPaintEvent(KPlotWidget* self, QPaintEvent* param1) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_PaintEvent_IsBase(true);
@@ -452,7 +452,7 @@ void KPlotWidget_OnPaintEvent(KPlotWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseResizeEvent(KPlotWidget* self, QResizeEvent* param1) {
+void KPlotWidget_SuperResizeEvent(KPlotWidget* self, QResizeEvent* param1) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_ResizeEvent_IsBase(true);
@@ -471,7 +471,7 @@ void KPlotWidget_OnResizeEvent(KPlotWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseDrawAxes(KPlotWidget* self, QPainter* p) {
+void KPlotWidget_SuperDrawAxes(KPlotWidget* self, QPainter* p) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_DrawAxes_IsBase(true);
@@ -500,7 +500,7 @@ void KPlotWidget_ChangeEvent(KPlotWidget* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseChangeEvent(KPlotWidget* self, QEvent* param1) {
+void KPlotWidget_SuperChangeEvent(KPlotWidget* self, QEvent* param1) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_ChangeEvent_IsBase(true);
@@ -529,7 +529,7 @@ void KPlotWidget_InitStyleOption(const KPlotWidget* self, QStyleOptionFrame* opt
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseInitStyleOption(const KPlotWidget* self, QStyleOptionFrame* option) {
+void KPlotWidget_SuperInitStyleOption(const KPlotWidget* self, QStyleOptionFrame* option) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_InitStyleOption_IsBase(true);
@@ -558,7 +558,7 @@ int KPlotWidget_DevType(const KPlotWidget* self) {
 }
 
 // Base class handler implementation
-int KPlotWidget_QBaseDevType(const KPlotWidget* self) {
+int KPlotWidget_SuperDevType(const KPlotWidget* self) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_DevType_IsBase(true);
@@ -587,7 +587,7 @@ void KPlotWidget_SetVisible(KPlotWidget* self, bool visible) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseSetVisible(KPlotWidget* self, bool visible) {
+void KPlotWidget_SuperSetVisible(KPlotWidget* self, bool visible) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_SetVisible_IsBase(true);
@@ -616,7 +616,7 @@ int KPlotWidget_HeightForWidth(const KPlotWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int KPlotWidget_QBaseHeightForWidth(const KPlotWidget* self, int param1) {
+int KPlotWidget_SuperHeightForWidth(const KPlotWidget* self, int param1) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_HeightForWidth_IsBase(true);
@@ -645,7 +645,7 @@ bool KPlotWidget_HasHeightForWidth(const KPlotWidget* self) {
 }
 
 // Base class handler implementation
-bool KPlotWidget_QBaseHasHeightForWidth(const KPlotWidget* self) {
+bool KPlotWidget_SuperHasHeightForWidth(const KPlotWidget* self) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_HasHeightForWidth_IsBase(true);
@@ -674,7 +674,7 @@ QPaintEngine* KPlotWidget_PaintEngine(const KPlotWidget* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KPlotWidget_QBasePaintEngine(const KPlotWidget* self) {
+QPaintEngine* KPlotWidget_SuperPaintEngine(const KPlotWidget* self) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_PaintEngine_IsBase(true);
@@ -703,7 +703,7 @@ void KPlotWidget_MousePressEvent(KPlotWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseMousePressEvent(KPlotWidget* self, QMouseEvent* event) {
+void KPlotWidget_SuperMousePressEvent(KPlotWidget* self, QMouseEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_MousePressEvent_IsBase(true);
@@ -732,7 +732,7 @@ void KPlotWidget_MouseReleaseEvent(KPlotWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseMouseReleaseEvent(KPlotWidget* self, QMouseEvent* event) {
+void KPlotWidget_SuperMouseReleaseEvent(KPlotWidget* self, QMouseEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_MouseReleaseEvent_IsBase(true);
@@ -761,7 +761,7 @@ void KPlotWidget_MouseDoubleClickEvent(KPlotWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseMouseDoubleClickEvent(KPlotWidget* self, QMouseEvent* event) {
+void KPlotWidget_SuperMouseDoubleClickEvent(KPlotWidget* self, QMouseEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_MouseDoubleClickEvent_IsBase(true);
@@ -790,7 +790,7 @@ void KPlotWidget_MouseMoveEvent(KPlotWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseMouseMoveEvent(KPlotWidget* self, QMouseEvent* event) {
+void KPlotWidget_SuperMouseMoveEvent(KPlotWidget* self, QMouseEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_MouseMoveEvent_IsBase(true);
@@ -819,7 +819,7 @@ void KPlotWidget_WheelEvent(KPlotWidget* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseWheelEvent(KPlotWidget* self, QWheelEvent* event) {
+void KPlotWidget_SuperWheelEvent(KPlotWidget* self, QWheelEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_WheelEvent_IsBase(true);
@@ -848,7 +848,7 @@ void KPlotWidget_KeyPressEvent(KPlotWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseKeyPressEvent(KPlotWidget* self, QKeyEvent* event) {
+void KPlotWidget_SuperKeyPressEvent(KPlotWidget* self, QKeyEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_KeyPressEvent_IsBase(true);
@@ -877,7 +877,7 @@ void KPlotWidget_KeyReleaseEvent(KPlotWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseKeyReleaseEvent(KPlotWidget* self, QKeyEvent* event) {
+void KPlotWidget_SuperKeyReleaseEvent(KPlotWidget* self, QKeyEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_KeyReleaseEvent_IsBase(true);
@@ -906,7 +906,7 @@ void KPlotWidget_FocusInEvent(KPlotWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseFocusInEvent(KPlotWidget* self, QFocusEvent* event) {
+void KPlotWidget_SuperFocusInEvent(KPlotWidget* self, QFocusEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_FocusInEvent_IsBase(true);
@@ -935,7 +935,7 @@ void KPlotWidget_FocusOutEvent(KPlotWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseFocusOutEvent(KPlotWidget* self, QFocusEvent* event) {
+void KPlotWidget_SuperFocusOutEvent(KPlotWidget* self, QFocusEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_FocusOutEvent_IsBase(true);
@@ -964,7 +964,7 @@ void KPlotWidget_EnterEvent(KPlotWidget* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseEnterEvent(KPlotWidget* self, QEnterEvent* event) {
+void KPlotWidget_SuperEnterEvent(KPlotWidget* self, QEnterEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_EnterEvent_IsBase(true);
@@ -993,7 +993,7 @@ void KPlotWidget_LeaveEvent(KPlotWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseLeaveEvent(KPlotWidget* self, QEvent* event) {
+void KPlotWidget_SuperLeaveEvent(KPlotWidget* self, QEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_LeaveEvent_IsBase(true);
@@ -1022,7 +1022,7 @@ void KPlotWidget_MoveEvent(KPlotWidget* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseMoveEvent(KPlotWidget* self, QMoveEvent* event) {
+void KPlotWidget_SuperMoveEvent(KPlotWidget* self, QMoveEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_MoveEvent_IsBase(true);
@@ -1051,7 +1051,7 @@ void KPlotWidget_CloseEvent(KPlotWidget* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseCloseEvent(KPlotWidget* self, QCloseEvent* event) {
+void KPlotWidget_SuperCloseEvent(KPlotWidget* self, QCloseEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_CloseEvent_IsBase(true);
@@ -1080,7 +1080,7 @@ void KPlotWidget_ContextMenuEvent(KPlotWidget* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseContextMenuEvent(KPlotWidget* self, QContextMenuEvent* event) {
+void KPlotWidget_SuperContextMenuEvent(KPlotWidget* self, QContextMenuEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_ContextMenuEvent_IsBase(true);
@@ -1109,7 +1109,7 @@ void KPlotWidget_TabletEvent(KPlotWidget* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseTabletEvent(KPlotWidget* self, QTabletEvent* event) {
+void KPlotWidget_SuperTabletEvent(KPlotWidget* self, QTabletEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_TabletEvent_IsBase(true);
@@ -1138,7 +1138,7 @@ void KPlotWidget_ActionEvent(KPlotWidget* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseActionEvent(KPlotWidget* self, QActionEvent* event) {
+void KPlotWidget_SuperActionEvent(KPlotWidget* self, QActionEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_ActionEvent_IsBase(true);
@@ -1167,7 +1167,7 @@ void KPlotWidget_DragEnterEvent(KPlotWidget* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseDragEnterEvent(KPlotWidget* self, QDragEnterEvent* event) {
+void KPlotWidget_SuperDragEnterEvent(KPlotWidget* self, QDragEnterEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_DragEnterEvent_IsBase(true);
@@ -1196,7 +1196,7 @@ void KPlotWidget_DragMoveEvent(KPlotWidget* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseDragMoveEvent(KPlotWidget* self, QDragMoveEvent* event) {
+void KPlotWidget_SuperDragMoveEvent(KPlotWidget* self, QDragMoveEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_DragMoveEvent_IsBase(true);
@@ -1225,7 +1225,7 @@ void KPlotWidget_DragLeaveEvent(KPlotWidget* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseDragLeaveEvent(KPlotWidget* self, QDragLeaveEvent* event) {
+void KPlotWidget_SuperDragLeaveEvent(KPlotWidget* self, QDragLeaveEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_DragLeaveEvent_IsBase(true);
@@ -1254,7 +1254,7 @@ void KPlotWidget_DropEvent(KPlotWidget* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseDropEvent(KPlotWidget* self, QDropEvent* event) {
+void KPlotWidget_SuperDropEvent(KPlotWidget* self, QDropEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_DropEvent_IsBase(true);
@@ -1283,7 +1283,7 @@ void KPlotWidget_ShowEvent(KPlotWidget* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseShowEvent(KPlotWidget* self, QShowEvent* event) {
+void KPlotWidget_SuperShowEvent(KPlotWidget* self, QShowEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_ShowEvent_IsBase(true);
@@ -1312,7 +1312,7 @@ void KPlotWidget_HideEvent(KPlotWidget* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseHideEvent(KPlotWidget* self, QHideEvent* event) {
+void KPlotWidget_SuperHideEvent(KPlotWidget* self, QHideEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_HideEvent_IsBase(true);
@@ -1342,7 +1342,7 @@ bool KPlotWidget_NativeEvent(KPlotWidget* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool KPlotWidget_QBaseNativeEvent(KPlotWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KPlotWidget_SuperNativeEvent(KPlotWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
@@ -1372,7 +1372,7 @@ int KPlotWidget_Metric(const KPlotWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int KPlotWidget_QBaseMetric(const KPlotWidget* self, int param1) {
+int KPlotWidget_SuperMetric(const KPlotWidget* self, int param1) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_Metric_IsBase(true);
@@ -1401,7 +1401,7 @@ void KPlotWidget_InitPainter(const KPlotWidget* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseInitPainter(const KPlotWidget* self, QPainter* painter) {
+void KPlotWidget_SuperInitPainter(const KPlotWidget* self, QPainter* painter) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_InitPainter_IsBase(true);
@@ -1430,7 +1430,7 @@ QPaintDevice* KPlotWidget_Redirected(const KPlotWidget* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KPlotWidget_QBaseRedirected(const KPlotWidget* self, QPoint* offset) {
+QPaintDevice* KPlotWidget_SuperRedirected(const KPlotWidget* self, QPoint* offset) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_Redirected_IsBase(true);
@@ -1459,7 +1459,7 @@ QPainter* KPlotWidget_SharedPainter(const KPlotWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* KPlotWidget_QBaseSharedPainter(const KPlotWidget* self) {
+QPainter* KPlotWidget_SuperSharedPainter(const KPlotWidget* self) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_SharedPainter_IsBase(true);
@@ -1488,7 +1488,7 @@ void KPlotWidget_InputMethodEvent(KPlotWidget* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseInputMethodEvent(KPlotWidget* self, QInputMethodEvent* param1) {
+void KPlotWidget_SuperInputMethodEvent(KPlotWidget* self, QInputMethodEvent* param1) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_InputMethodEvent_IsBase(true);
@@ -1517,7 +1517,7 @@ QVariant* KPlotWidget_InputMethodQuery(const KPlotWidget* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KPlotWidget_QBaseInputMethodQuery(const KPlotWidget* self, int param1) {
+QVariant* KPlotWidget_SuperInputMethodQuery(const KPlotWidget* self, int param1) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_InputMethodQuery_IsBase(true);
@@ -1546,7 +1546,7 @@ bool KPlotWidget_FocusNextPrevChild(KPlotWidget* self, bool next) {
 }
 
 // Base class handler implementation
-bool KPlotWidget_QBaseFocusNextPrevChild(KPlotWidget* self, bool next) {
+bool KPlotWidget_SuperFocusNextPrevChild(KPlotWidget* self, bool next) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_FocusNextPrevChild_IsBase(true);
@@ -1575,7 +1575,7 @@ bool KPlotWidget_EventFilter(KPlotWidget* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool KPlotWidget_QBaseEventFilter(KPlotWidget* self, QObject* watched, QEvent* event) {
+bool KPlotWidget_SuperEventFilter(KPlotWidget* self, QObject* watched, QEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_EventFilter_IsBase(true);
@@ -1604,7 +1604,7 @@ void KPlotWidget_TimerEvent(KPlotWidget* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseTimerEvent(KPlotWidget* self, QTimerEvent* event) {
+void KPlotWidget_SuperTimerEvent(KPlotWidget* self, QTimerEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_TimerEvent_IsBase(true);
@@ -1633,7 +1633,7 @@ void KPlotWidget_ChildEvent(KPlotWidget* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseChildEvent(KPlotWidget* self, QChildEvent* event) {
+void KPlotWidget_SuperChildEvent(KPlotWidget* self, QChildEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_ChildEvent_IsBase(true);
@@ -1662,7 +1662,7 @@ void KPlotWidget_CustomEvent(KPlotWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseCustomEvent(KPlotWidget* self, QEvent* event) {
+void KPlotWidget_SuperCustomEvent(KPlotWidget* self, QEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_CustomEvent_IsBase(true);
@@ -1691,7 +1691,7 @@ void KPlotWidget_ConnectNotify(KPlotWidget* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseConnectNotify(KPlotWidget* self, const QMetaMethod* signal) {
+void KPlotWidget_SuperConnectNotify(KPlotWidget* self, const QMetaMethod* signal) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_ConnectNotify_IsBase(true);
@@ -1720,7 +1720,7 @@ void KPlotWidget_DisconnectNotify(KPlotWidget* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseDisconnectNotify(KPlotWidget* self, const QMetaMethod* signal) {
+void KPlotWidget_SuperDisconnectNotify(KPlotWidget* self, const QMetaMethod* signal) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_DisconnectNotify_IsBase(true);
@@ -1749,7 +1749,7 @@ void KPlotWidget_SetPixRect(KPlotWidget* self) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseSetPixRect(KPlotWidget* self) {
+void KPlotWidget_SuperSetPixRect(KPlotWidget* self) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_SetPixRect_IsBase(true);
@@ -1796,7 +1796,7 @@ libqt_list /* of KPlotPoint* */ KPlotWidget_PointsUnderPoint(const KPlotWidget* 
 }
 
 // Base class handler implementation
-libqt_list /* of KPlotPoint* */ KPlotWidget_QBasePointsUnderPoint(const KPlotWidget* self, const QPoint* p) {
+libqt_list /* of KPlotPoint* */ KPlotWidget_SuperPointsUnderPoint(const KPlotWidget* self, const QPoint* p) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_PointsUnderPoint_IsBase(true);
@@ -1843,7 +1843,7 @@ void KPlotWidget_DrawFrame(KPlotWidget* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseDrawFrame(KPlotWidget* self, QPainter* param1) {
+void KPlotWidget_SuperDrawFrame(KPlotWidget* self, QPainter* param1) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_DrawFrame_IsBase(true);
@@ -1872,7 +1872,7 @@ void KPlotWidget_UpdateMicroFocus(KPlotWidget* self) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseUpdateMicroFocus(KPlotWidget* self) {
+void KPlotWidget_SuperUpdateMicroFocus(KPlotWidget* self) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_UpdateMicroFocus_IsBase(true);
@@ -1901,7 +1901,7 @@ void KPlotWidget_Create(KPlotWidget* self) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseCreate(KPlotWidget* self) {
+void KPlotWidget_SuperCreate(KPlotWidget* self) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_Create_IsBase(true);
@@ -1930,7 +1930,7 @@ void KPlotWidget_Destroy(KPlotWidget* self) {
 }
 
 // Base class handler implementation
-void KPlotWidget_QBaseDestroy(KPlotWidget* self) {
+void KPlotWidget_SuperDestroy(KPlotWidget* self) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_Destroy_IsBase(true);
@@ -1959,7 +1959,7 @@ bool KPlotWidget_FocusNextChild(KPlotWidget* self) {
 }
 
 // Base class handler implementation
-bool KPlotWidget_QBaseFocusNextChild(KPlotWidget* self) {
+bool KPlotWidget_SuperFocusNextChild(KPlotWidget* self) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_FocusNextChild_IsBase(true);
@@ -1988,7 +1988,7 @@ bool KPlotWidget_FocusPreviousChild(KPlotWidget* self) {
 }
 
 // Base class handler implementation
-bool KPlotWidget_QBaseFocusPreviousChild(KPlotWidget* self) {
+bool KPlotWidget_SuperFocusPreviousChild(KPlotWidget* self) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_FocusPreviousChild_IsBase(true);
@@ -2017,7 +2017,7 @@ QObject* KPlotWidget_Sender(const KPlotWidget* self) {
 }
 
 // Base class handler implementation
-QObject* KPlotWidget_QBaseSender(const KPlotWidget* self) {
+QObject* KPlotWidget_SuperSender(const KPlotWidget* self) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_Sender_IsBase(true);
@@ -2046,7 +2046,7 @@ int KPlotWidget_SenderSignalIndex(const KPlotWidget* self) {
 }
 
 // Base class handler implementation
-int KPlotWidget_QBaseSenderSignalIndex(const KPlotWidget* self) {
+int KPlotWidget_SuperSenderSignalIndex(const KPlotWidget* self) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_SenderSignalIndex_IsBase(true);
@@ -2075,7 +2075,7 @@ int KPlotWidget_Receivers(const KPlotWidget* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KPlotWidget_QBaseReceivers(const KPlotWidget* self, const char* signal) {
+int KPlotWidget_SuperReceivers(const KPlotWidget* self, const char* signal) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_Receivers_IsBase(true);
@@ -2104,7 +2104,7 @@ bool KPlotWidget_IsSignalConnected(const KPlotWidget* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool KPlotWidget_QBaseIsSignalConnected(const KPlotWidget* self, const QMetaMethod* signal) {
+bool KPlotWidget_SuperIsSignalConnected(const KPlotWidget* self, const QMetaMethod* signal) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_IsSignalConnected_IsBase(true);
@@ -2133,7 +2133,7 @@ double KPlotWidget_GetDecodedMetricF(const KPlotWidget* self, int metricA, int m
 }
 
 // Base class handler implementation
-double KPlotWidget_QBaseGetDecodedMetricF(const KPlotWidget* self, int metricA, int metricB) {
+double KPlotWidget_SuperGetDecodedMetricF(const KPlotWidget* self, int metricA, int metricB) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         vkplotwidget->setKPlotWidget_GetDecodedMetricF_IsBase(true);

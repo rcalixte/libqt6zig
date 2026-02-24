@@ -306,7 +306,7 @@ libqt_list /* of Accounts__Service* */ Accounts__Manager_ServiceList1(const Acco
 }
 
 // Base class handler implementation
-QMetaObject* Accounts__Manager_QBaseMetaObject(const Accounts__Manager* self) {
+QMetaObject* Accounts__Manager_SuperMetaObject(const Accounts__Manager* self) {
     auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self));
     if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
         vaccountsmanager->setAccounts__Manager_MetaObject_IsBase(true);
@@ -325,7 +325,7 @@ void Accounts__Manager_OnMetaObject(const Accounts__Manager* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* Accounts__Manager_QBaseMetacast(Accounts__Manager* self, const char* param1) {
+void* Accounts__Manager_SuperMetacast(Accounts__Manager* self, const char* param1) {
     auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
     if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
         vaccountsmanager->setAccounts__Manager_Metacast_IsBase(true);
@@ -344,7 +344,7 @@ void Accounts__Manager_OnMetacast(Accounts__Manager* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int Accounts__Manager_QBaseMetacall(Accounts__Manager* self, int param1, int param2, void** param3) {
+int Accounts__Manager_SuperMetacall(Accounts__Manager* self, int param1, int param2, void** param3) {
     auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
     if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
         vaccountsmanager->setAccounts__Manager_Metacall_IsBase(true);
@@ -373,7 +373,7 @@ bool Accounts__Manager_Event(Accounts__Manager* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool Accounts__Manager_QBaseEvent(Accounts__Manager* self, QEvent* event) {
+bool Accounts__Manager_SuperEvent(Accounts__Manager* self, QEvent* event) {
     auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
     if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
         vaccountsmanager->setAccounts__Manager_Event_IsBase(true);
@@ -402,7 +402,7 @@ bool Accounts__Manager_EventFilter(Accounts__Manager* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool Accounts__Manager_QBaseEventFilter(Accounts__Manager* self, QObject* watched, QEvent* event) {
+bool Accounts__Manager_SuperEventFilter(Accounts__Manager* self, QObject* watched, QEvent* event) {
     auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
     if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
         vaccountsmanager->setAccounts__Manager_EventFilter_IsBase(true);
@@ -431,7 +431,7 @@ void Accounts__Manager_TimerEvent(Accounts__Manager* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void Accounts__Manager_QBaseTimerEvent(Accounts__Manager* self, QTimerEvent* event) {
+void Accounts__Manager_SuperTimerEvent(Accounts__Manager* self, QTimerEvent* event) {
     auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
     if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
         vaccountsmanager->setAccounts__Manager_TimerEvent_IsBase(true);
@@ -460,7 +460,7 @@ void Accounts__Manager_ChildEvent(Accounts__Manager* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void Accounts__Manager_QBaseChildEvent(Accounts__Manager* self, QChildEvent* event) {
+void Accounts__Manager_SuperChildEvent(Accounts__Manager* self, QChildEvent* event) {
     auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
     if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
         vaccountsmanager->setAccounts__Manager_ChildEvent_IsBase(true);
@@ -489,7 +489,7 @@ void Accounts__Manager_CustomEvent(Accounts__Manager* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void Accounts__Manager_QBaseCustomEvent(Accounts__Manager* self, QEvent* event) {
+void Accounts__Manager_SuperCustomEvent(Accounts__Manager* self, QEvent* event) {
     auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
     if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
         vaccountsmanager->setAccounts__Manager_CustomEvent_IsBase(true);
@@ -518,7 +518,7 @@ void Accounts__Manager_ConnectNotify(Accounts__Manager* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void Accounts__Manager_QBaseConnectNotify(Accounts__Manager* self, const QMetaMethod* signal) {
+void Accounts__Manager_SuperConnectNotify(Accounts__Manager* self, const QMetaMethod* signal) {
     auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
     if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
         vaccountsmanager->setAccounts__Manager_ConnectNotify_IsBase(true);
@@ -547,7 +547,7 @@ void Accounts__Manager_DisconnectNotify(Accounts__Manager* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void Accounts__Manager_QBaseDisconnectNotify(Accounts__Manager* self, const QMetaMethod* signal) {
+void Accounts__Manager_SuperDisconnectNotify(Accounts__Manager* self, const QMetaMethod* signal) {
     auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
     if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
         vaccountsmanager->setAccounts__Manager_DisconnectNotify_IsBase(true);
@@ -576,7 +576,7 @@ QObject* Accounts__Manager_Sender(const Accounts__Manager* self) {
 }
 
 // Base class handler implementation
-QObject* Accounts__Manager_QBaseSender(const Accounts__Manager* self) {
+QObject* Accounts__Manager_SuperSender(const Accounts__Manager* self) {
     auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self));
     if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
         vaccountsmanager->setAccounts__Manager_Sender_IsBase(true);
@@ -605,7 +605,7 @@ int Accounts__Manager_SenderSignalIndex(const Accounts__Manager* self) {
 }
 
 // Base class handler implementation
-int Accounts__Manager_QBaseSenderSignalIndex(const Accounts__Manager* self) {
+int Accounts__Manager_SuperSenderSignalIndex(const Accounts__Manager* self) {
     auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self));
     if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
         vaccountsmanager->setAccounts__Manager_SenderSignalIndex_IsBase(true);
@@ -634,7 +634,7 @@ int Accounts__Manager_Receivers(const Accounts__Manager* self, const char* signa
 }
 
 // Base class handler implementation
-int Accounts__Manager_QBaseReceivers(const Accounts__Manager* self, const char* signal) {
+int Accounts__Manager_SuperReceivers(const Accounts__Manager* self, const char* signal) {
     auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self));
     if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
         vaccountsmanager->setAccounts__Manager_Receivers_IsBase(true);
@@ -663,7 +663,7 @@ bool Accounts__Manager_IsSignalConnected(const Accounts__Manager* self, const QM
 }
 
 // Base class handler implementation
-bool Accounts__Manager_QBaseIsSignalConnected(const Accounts__Manager* self, const QMetaMethod* signal) {
+bool Accounts__Manager_SuperIsSignalConnected(const Accounts__Manager* self, const QMetaMethod* signal) {
     auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self));
     if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
         vaccountsmanager->setAccounts__Manager_IsSignalConnected_IsBase(true);

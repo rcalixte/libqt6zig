@@ -169,7 +169,7 @@ void KTextEditor__ConfigPage_Connect_Changed(KTextEditor__ConfigPage* self, intp
 }
 
 // Base class handler implementation
-QMetaObject* KTextEditor__ConfigPage_QBaseMetaObject(const KTextEditor__ConfigPage* self) {
+QMetaObject* KTextEditor__ConfigPage_SuperMetaObject(const KTextEditor__ConfigPage* self) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_MetaObject_IsBase(true);
@@ -188,7 +188,7 @@ void KTextEditor__ConfigPage_OnMetaObject(const KTextEditor__ConfigPage* self, i
 }
 
 // Base class handler implementation
-void* KTextEditor__ConfigPage_QBaseMetacast(KTextEditor__ConfigPage* self, const char* param1) {
+void* KTextEditor__ConfigPage_SuperMetacast(KTextEditor__ConfigPage* self, const char* param1) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Metacast_IsBase(true);
@@ -207,7 +207,7 @@ void KTextEditor__ConfigPage_OnMetacast(KTextEditor__ConfigPage* self, intptr_t 
 }
 
 // Base class handler implementation
-int KTextEditor__ConfigPage_QBaseMetacall(KTextEditor__ConfigPage* self, int param1, int param2, void** param3) {
+int KTextEditor__ConfigPage_SuperMetacall(KTextEditor__ConfigPage* self, int param1, int param2, void** param3) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Metacall_IsBase(true);
@@ -226,7 +226,7 @@ void KTextEditor__ConfigPage_OnMetacall(KTextEditor__ConfigPage* self, intptr_t 
 }
 
 // Base class handler implementation
-libqt_string KTextEditor__ConfigPage_QBaseName(const KTextEditor__ConfigPage* self) {
+libqt_string KTextEditor__ConfigPage_SuperName(const KTextEditor__ConfigPage* self) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Name_IsBase(true);
@@ -261,7 +261,7 @@ void KTextEditor__ConfigPage_OnName(const KTextEditor__ConfigPage* self, intptr_
 }
 
 // Base class handler implementation
-libqt_string KTextEditor__ConfigPage_QBaseFullName(const KTextEditor__ConfigPage* self) {
+libqt_string KTextEditor__ConfigPage_SuperFullName(const KTextEditor__ConfigPage* self) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_FullName_IsBase(true);
@@ -296,7 +296,7 @@ void KTextEditor__ConfigPage_OnFullName(const KTextEditor__ConfigPage* self, int
 }
 
 // Base class handler implementation
-QIcon* KTextEditor__ConfigPage_QBaseIcon(const KTextEditor__ConfigPage* self) {
+QIcon* KTextEditor__ConfigPage_SuperIcon(const KTextEditor__ConfigPage* self) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Icon_IsBase(true);
@@ -315,7 +315,7 @@ void KTextEditor__ConfigPage_OnIcon(const KTextEditor__ConfigPage* self, intptr_
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseApply(KTextEditor__ConfigPage* self) {
+void KTextEditor__ConfigPage_SuperApply(KTextEditor__ConfigPage* self) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Apply_IsBase(true);
@@ -334,7 +334,7 @@ void KTextEditor__ConfigPage_OnApply(KTextEditor__ConfigPage* self, intptr_t slo
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseReset(KTextEditor__ConfigPage* self) {
+void KTextEditor__ConfigPage_SuperReset(KTextEditor__ConfigPage* self) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Reset_IsBase(true);
@@ -353,7 +353,7 @@ void KTextEditor__ConfigPage_OnReset(KTextEditor__ConfigPage* self, intptr_t slo
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseDefaults(KTextEditor__ConfigPage* self) {
+void KTextEditor__ConfigPage_SuperDefaults(KTextEditor__ConfigPage* self) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Defaults_IsBase(true);
@@ -382,7 +382,7 @@ int KTextEditor__ConfigPage_DevType(const KTextEditor__ConfigPage* self) {
 }
 
 // Base class handler implementation
-int KTextEditor__ConfigPage_QBaseDevType(const KTextEditor__ConfigPage* self) {
+int KTextEditor__ConfigPage_SuperDevType(const KTextEditor__ConfigPage* self) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_DevType_IsBase(true);
@@ -411,7 +411,7 @@ void KTextEditor__ConfigPage_SetVisible(KTextEditor__ConfigPage* self, bool visi
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseSetVisible(KTextEditor__ConfigPage* self, bool visible) {
+void KTextEditor__ConfigPage_SuperSetVisible(KTextEditor__ConfigPage* self, bool visible) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_SetVisible_IsBase(true);
@@ -440,7 +440,7 @@ QSize* KTextEditor__ConfigPage_SizeHint(const KTextEditor__ConfigPage* self) {
 }
 
 // Base class handler implementation
-QSize* KTextEditor__ConfigPage_QBaseSizeHint(const KTextEditor__ConfigPage* self) {
+QSize* KTextEditor__ConfigPage_SuperSizeHint(const KTextEditor__ConfigPage* self) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_SizeHint_IsBase(true);
@@ -469,7 +469,7 @@ QSize* KTextEditor__ConfigPage_MinimumSizeHint(const KTextEditor__ConfigPage* se
 }
 
 // Base class handler implementation
-QSize* KTextEditor__ConfigPage_QBaseMinimumSizeHint(const KTextEditor__ConfigPage* self) {
+QSize* KTextEditor__ConfigPage_SuperMinimumSizeHint(const KTextEditor__ConfigPage* self) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_MinimumSizeHint_IsBase(true);
@@ -498,7 +498,7 @@ int KTextEditor__ConfigPage_HeightForWidth(const KTextEditor__ConfigPage* self, 
 }
 
 // Base class handler implementation
-int KTextEditor__ConfigPage_QBaseHeightForWidth(const KTextEditor__ConfigPage* self, int param1) {
+int KTextEditor__ConfigPage_SuperHeightForWidth(const KTextEditor__ConfigPage* self, int param1) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_HeightForWidth_IsBase(true);
@@ -527,7 +527,7 @@ bool KTextEditor__ConfigPage_HasHeightForWidth(const KTextEditor__ConfigPage* se
 }
 
 // Base class handler implementation
-bool KTextEditor__ConfigPage_QBaseHasHeightForWidth(const KTextEditor__ConfigPage* self) {
+bool KTextEditor__ConfigPage_SuperHasHeightForWidth(const KTextEditor__ConfigPage* self) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_HasHeightForWidth_IsBase(true);
@@ -556,7 +556,7 @@ QPaintEngine* KTextEditor__ConfigPage_PaintEngine(const KTextEditor__ConfigPage*
 }
 
 // Base class handler implementation
-QPaintEngine* KTextEditor__ConfigPage_QBasePaintEngine(const KTextEditor__ConfigPage* self) {
+QPaintEngine* KTextEditor__ConfigPage_SuperPaintEngine(const KTextEditor__ConfigPage* self) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_PaintEngine_IsBase(true);
@@ -585,7 +585,7 @@ bool KTextEditor__ConfigPage_Event(KTextEditor__ConfigPage* self, QEvent* event)
 }
 
 // Base class handler implementation
-bool KTextEditor__ConfigPage_QBaseEvent(KTextEditor__ConfigPage* self, QEvent* event) {
+bool KTextEditor__ConfigPage_SuperEvent(KTextEditor__ConfigPage* self, QEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Event_IsBase(true);
@@ -614,7 +614,7 @@ void KTextEditor__ConfigPage_MousePressEvent(KTextEditor__ConfigPage* self, QMou
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseMousePressEvent(KTextEditor__ConfigPage* self, QMouseEvent* event) {
+void KTextEditor__ConfigPage_SuperMousePressEvent(KTextEditor__ConfigPage* self, QMouseEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_MousePressEvent_IsBase(true);
@@ -643,7 +643,7 @@ void KTextEditor__ConfigPage_MouseReleaseEvent(KTextEditor__ConfigPage* self, QM
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseMouseReleaseEvent(KTextEditor__ConfigPage* self, QMouseEvent* event) {
+void KTextEditor__ConfigPage_SuperMouseReleaseEvent(KTextEditor__ConfigPage* self, QMouseEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_MouseReleaseEvent_IsBase(true);
@@ -672,7 +672,7 @@ void KTextEditor__ConfigPage_MouseDoubleClickEvent(KTextEditor__ConfigPage* self
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseMouseDoubleClickEvent(KTextEditor__ConfigPage* self, QMouseEvent* event) {
+void KTextEditor__ConfigPage_SuperMouseDoubleClickEvent(KTextEditor__ConfigPage* self, QMouseEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_MouseDoubleClickEvent_IsBase(true);
@@ -701,7 +701,7 @@ void KTextEditor__ConfigPage_MouseMoveEvent(KTextEditor__ConfigPage* self, QMous
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseMouseMoveEvent(KTextEditor__ConfigPage* self, QMouseEvent* event) {
+void KTextEditor__ConfigPage_SuperMouseMoveEvent(KTextEditor__ConfigPage* self, QMouseEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_MouseMoveEvent_IsBase(true);
@@ -730,7 +730,7 @@ void KTextEditor__ConfigPage_WheelEvent(KTextEditor__ConfigPage* self, QWheelEve
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseWheelEvent(KTextEditor__ConfigPage* self, QWheelEvent* event) {
+void KTextEditor__ConfigPage_SuperWheelEvent(KTextEditor__ConfigPage* self, QWheelEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_WheelEvent_IsBase(true);
@@ -759,7 +759,7 @@ void KTextEditor__ConfigPage_KeyPressEvent(KTextEditor__ConfigPage* self, QKeyEv
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseKeyPressEvent(KTextEditor__ConfigPage* self, QKeyEvent* event) {
+void KTextEditor__ConfigPage_SuperKeyPressEvent(KTextEditor__ConfigPage* self, QKeyEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_KeyPressEvent_IsBase(true);
@@ -788,7 +788,7 @@ void KTextEditor__ConfigPage_KeyReleaseEvent(KTextEditor__ConfigPage* self, QKey
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseKeyReleaseEvent(KTextEditor__ConfigPage* self, QKeyEvent* event) {
+void KTextEditor__ConfigPage_SuperKeyReleaseEvent(KTextEditor__ConfigPage* self, QKeyEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_KeyReleaseEvent_IsBase(true);
@@ -817,7 +817,7 @@ void KTextEditor__ConfigPage_FocusInEvent(KTextEditor__ConfigPage* self, QFocusE
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseFocusInEvent(KTextEditor__ConfigPage* self, QFocusEvent* event) {
+void KTextEditor__ConfigPage_SuperFocusInEvent(KTextEditor__ConfigPage* self, QFocusEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_FocusInEvent_IsBase(true);
@@ -846,7 +846,7 @@ void KTextEditor__ConfigPage_FocusOutEvent(KTextEditor__ConfigPage* self, QFocus
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseFocusOutEvent(KTextEditor__ConfigPage* self, QFocusEvent* event) {
+void KTextEditor__ConfigPage_SuperFocusOutEvent(KTextEditor__ConfigPage* self, QFocusEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_FocusOutEvent_IsBase(true);
@@ -875,7 +875,7 @@ void KTextEditor__ConfigPage_EnterEvent(KTextEditor__ConfigPage* self, QEnterEve
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseEnterEvent(KTextEditor__ConfigPage* self, QEnterEvent* event) {
+void KTextEditor__ConfigPage_SuperEnterEvent(KTextEditor__ConfigPage* self, QEnterEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_EnterEvent_IsBase(true);
@@ -904,7 +904,7 @@ void KTextEditor__ConfigPage_LeaveEvent(KTextEditor__ConfigPage* self, QEvent* e
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseLeaveEvent(KTextEditor__ConfigPage* self, QEvent* event) {
+void KTextEditor__ConfigPage_SuperLeaveEvent(KTextEditor__ConfigPage* self, QEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_LeaveEvent_IsBase(true);
@@ -933,7 +933,7 @@ void KTextEditor__ConfigPage_PaintEvent(KTextEditor__ConfigPage* self, QPaintEve
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBasePaintEvent(KTextEditor__ConfigPage* self, QPaintEvent* event) {
+void KTextEditor__ConfigPage_SuperPaintEvent(KTextEditor__ConfigPage* self, QPaintEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_PaintEvent_IsBase(true);
@@ -962,7 +962,7 @@ void KTextEditor__ConfigPage_MoveEvent(KTextEditor__ConfigPage* self, QMoveEvent
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseMoveEvent(KTextEditor__ConfigPage* self, QMoveEvent* event) {
+void KTextEditor__ConfigPage_SuperMoveEvent(KTextEditor__ConfigPage* self, QMoveEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_MoveEvent_IsBase(true);
@@ -991,7 +991,7 @@ void KTextEditor__ConfigPage_ResizeEvent(KTextEditor__ConfigPage* self, QResizeE
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseResizeEvent(KTextEditor__ConfigPage* self, QResizeEvent* event) {
+void KTextEditor__ConfigPage_SuperResizeEvent(KTextEditor__ConfigPage* self, QResizeEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_ResizeEvent_IsBase(true);
@@ -1020,7 +1020,7 @@ void KTextEditor__ConfigPage_CloseEvent(KTextEditor__ConfigPage* self, QCloseEve
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseCloseEvent(KTextEditor__ConfigPage* self, QCloseEvent* event) {
+void KTextEditor__ConfigPage_SuperCloseEvent(KTextEditor__ConfigPage* self, QCloseEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_CloseEvent_IsBase(true);
@@ -1049,7 +1049,7 @@ void KTextEditor__ConfigPage_ContextMenuEvent(KTextEditor__ConfigPage* self, QCo
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseContextMenuEvent(KTextEditor__ConfigPage* self, QContextMenuEvent* event) {
+void KTextEditor__ConfigPage_SuperContextMenuEvent(KTextEditor__ConfigPage* self, QContextMenuEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_ContextMenuEvent_IsBase(true);
@@ -1078,7 +1078,7 @@ void KTextEditor__ConfigPage_TabletEvent(KTextEditor__ConfigPage* self, QTabletE
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseTabletEvent(KTextEditor__ConfigPage* self, QTabletEvent* event) {
+void KTextEditor__ConfigPage_SuperTabletEvent(KTextEditor__ConfigPage* self, QTabletEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_TabletEvent_IsBase(true);
@@ -1107,7 +1107,7 @@ void KTextEditor__ConfigPage_ActionEvent(KTextEditor__ConfigPage* self, QActionE
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseActionEvent(KTextEditor__ConfigPage* self, QActionEvent* event) {
+void KTextEditor__ConfigPage_SuperActionEvent(KTextEditor__ConfigPage* self, QActionEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_ActionEvent_IsBase(true);
@@ -1136,7 +1136,7 @@ void KTextEditor__ConfigPage_DragEnterEvent(KTextEditor__ConfigPage* self, QDrag
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseDragEnterEvent(KTextEditor__ConfigPage* self, QDragEnterEvent* event) {
+void KTextEditor__ConfigPage_SuperDragEnterEvent(KTextEditor__ConfigPage* self, QDragEnterEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_DragEnterEvent_IsBase(true);
@@ -1165,7 +1165,7 @@ void KTextEditor__ConfigPage_DragMoveEvent(KTextEditor__ConfigPage* self, QDragM
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseDragMoveEvent(KTextEditor__ConfigPage* self, QDragMoveEvent* event) {
+void KTextEditor__ConfigPage_SuperDragMoveEvent(KTextEditor__ConfigPage* self, QDragMoveEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_DragMoveEvent_IsBase(true);
@@ -1194,7 +1194,7 @@ void KTextEditor__ConfigPage_DragLeaveEvent(KTextEditor__ConfigPage* self, QDrag
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseDragLeaveEvent(KTextEditor__ConfigPage* self, QDragLeaveEvent* event) {
+void KTextEditor__ConfigPage_SuperDragLeaveEvent(KTextEditor__ConfigPage* self, QDragLeaveEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_DragLeaveEvent_IsBase(true);
@@ -1223,7 +1223,7 @@ void KTextEditor__ConfigPage_DropEvent(KTextEditor__ConfigPage* self, QDropEvent
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseDropEvent(KTextEditor__ConfigPage* self, QDropEvent* event) {
+void KTextEditor__ConfigPage_SuperDropEvent(KTextEditor__ConfigPage* self, QDropEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_DropEvent_IsBase(true);
@@ -1252,7 +1252,7 @@ void KTextEditor__ConfigPage_ShowEvent(KTextEditor__ConfigPage* self, QShowEvent
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseShowEvent(KTextEditor__ConfigPage* self, QShowEvent* event) {
+void KTextEditor__ConfigPage_SuperShowEvent(KTextEditor__ConfigPage* self, QShowEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_ShowEvent_IsBase(true);
@@ -1281,7 +1281,7 @@ void KTextEditor__ConfigPage_HideEvent(KTextEditor__ConfigPage* self, QHideEvent
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseHideEvent(KTextEditor__ConfigPage* self, QHideEvent* event) {
+void KTextEditor__ConfigPage_SuperHideEvent(KTextEditor__ConfigPage* self, QHideEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_HideEvent_IsBase(true);
@@ -1311,7 +1311,7 @@ bool KTextEditor__ConfigPage_NativeEvent(KTextEditor__ConfigPage* self, const li
 }
 
 // Base class handler implementation
-bool KTextEditor__ConfigPage_QBaseNativeEvent(KTextEditor__ConfigPage* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KTextEditor__ConfigPage_SuperNativeEvent(KTextEditor__ConfigPage* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
@@ -1341,7 +1341,7 @@ void KTextEditor__ConfigPage_ChangeEvent(KTextEditor__ConfigPage* self, QEvent* 
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseChangeEvent(KTextEditor__ConfigPage* self, QEvent* param1) {
+void KTextEditor__ConfigPage_SuperChangeEvent(KTextEditor__ConfigPage* self, QEvent* param1) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_ChangeEvent_IsBase(true);
@@ -1370,7 +1370,7 @@ int KTextEditor__ConfigPage_Metric(const KTextEditor__ConfigPage* self, int para
 }
 
 // Base class handler implementation
-int KTextEditor__ConfigPage_QBaseMetric(const KTextEditor__ConfigPage* self, int param1) {
+int KTextEditor__ConfigPage_SuperMetric(const KTextEditor__ConfigPage* self, int param1) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Metric_IsBase(true);
@@ -1399,7 +1399,7 @@ void KTextEditor__ConfigPage_InitPainter(const KTextEditor__ConfigPage* self, QP
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseInitPainter(const KTextEditor__ConfigPage* self, QPainter* painter) {
+void KTextEditor__ConfigPage_SuperInitPainter(const KTextEditor__ConfigPage* self, QPainter* painter) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_InitPainter_IsBase(true);
@@ -1428,7 +1428,7 @@ QPaintDevice* KTextEditor__ConfigPage_Redirected(const KTextEditor__ConfigPage* 
 }
 
 // Base class handler implementation
-QPaintDevice* KTextEditor__ConfigPage_QBaseRedirected(const KTextEditor__ConfigPage* self, QPoint* offset) {
+QPaintDevice* KTextEditor__ConfigPage_SuperRedirected(const KTextEditor__ConfigPage* self, QPoint* offset) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Redirected_IsBase(true);
@@ -1457,7 +1457,7 @@ QPainter* KTextEditor__ConfigPage_SharedPainter(const KTextEditor__ConfigPage* s
 }
 
 // Base class handler implementation
-QPainter* KTextEditor__ConfigPage_QBaseSharedPainter(const KTextEditor__ConfigPage* self) {
+QPainter* KTextEditor__ConfigPage_SuperSharedPainter(const KTextEditor__ConfigPage* self) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_SharedPainter_IsBase(true);
@@ -1486,7 +1486,7 @@ void KTextEditor__ConfigPage_InputMethodEvent(KTextEditor__ConfigPage* self, QIn
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseInputMethodEvent(KTextEditor__ConfigPage* self, QInputMethodEvent* param1) {
+void KTextEditor__ConfigPage_SuperInputMethodEvent(KTextEditor__ConfigPage* self, QInputMethodEvent* param1) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_InputMethodEvent_IsBase(true);
@@ -1515,7 +1515,7 @@ QVariant* KTextEditor__ConfigPage_InputMethodQuery(const KTextEditor__ConfigPage
 }
 
 // Base class handler implementation
-QVariant* KTextEditor__ConfigPage_QBaseInputMethodQuery(const KTextEditor__ConfigPage* self, int param1) {
+QVariant* KTextEditor__ConfigPage_SuperInputMethodQuery(const KTextEditor__ConfigPage* self, int param1) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_InputMethodQuery_IsBase(true);
@@ -1544,7 +1544,7 @@ bool KTextEditor__ConfigPage_FocusNextPrevChild(KTextEditor__ConfigPage* self, b
 }
 
 // Base class handler implementation
-bool KTextEditor__ConfigPage_QBaseFocusNextPrevChild(KTextEditor__ConfigPage* self, bool next) {
+bool KTextEditor__ConfigPage_SuperFocusNextPrevChild(KTextEditor__ConfigPage* self, bool next) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_FocusNextPrevChild_IsBase(true);
@@ -1573,7 +1573,7 @@ bool KTextEditor__ConfigPage_EventFilter(KTextEditor__ConfigPage* self, QObject*
 }
 
 // Base class handler implementation
-bool KTextEditor__ConfigPage_QBaseEventFilter(KTextEditor__ConfigPage* self, QObject* watched, QEvent* event) {
+bool KTextEditor__ConfigPage_SuperEventFilter(KTextEditor__ConfigPage* self, QObject* watched, QEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_EventFilter_IsBase(true);
@@ -1602,7 +1602,7 @@ void KTextEditor__ConfigPage_TimerEvent(KTextEditor__ConfigPage* self, QTimerEve
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseTimerEvent(KTextEditor__ConfigPage* self, QTimerEvent* event) {
+void KTextEditor__ConfigPage_SuperTimerEvent(KTextEditor__ConfigPage* self, QTimerEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_TimerEvent_IsBase(true);
@@ -1631,7 +1631,7 @@ void KTextEditor__ConfigPage_ChildEvent(KTextEditor__ConfigPage* self, QChildEve
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseChildEvent(KTextEditor__ConfigPage* self, QChildEvent* event) {
+void KTextEditor__ConfigPage_SuperChildEvent(KTextEditor__ConfigPage* self, QChildEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_ChildEvent_IsBase(true);
@@ -1660,7 +1660,7 @@ void KTextEditor__ConfigPage_CustomEvent(KTextEditor__ConfigPage* self, QEvent* 
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseCustomEvent(KTextEditor__ConfigPage* self, QEvent* event) {
+void KTextEditor__ConfigPage_SuperCustomEvent(KTextEditor__ConfigPage* self, QEvent* event) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_CustomEvent_IsBase(true);
@@ -1689,7 +1689,7 @@ void KTextEditor__ConfigPage_ConnectNotify(KTextEditor__ConfigPage* self, const 
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseConnectNotify(KTextEditor__ConfigPage* self, const QMetaMethod* signal) {
+void KTextEditor__ConfigPage_SuperConnectNotify(KTextEditor__ConfigPage* self, const QMetaMethod* signal) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_ConnectNotify_IsBase(true);
@@ -1718,7 +1718,7 @@ void KTextEditor__ConfigPage_DisconnectNotify(KTextEditor__ConfigPage* self, con
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseDisconnectNotify(KTextEditor__ConfigPage* self, const QMetaMethod* signal) {
+void KTextEditor__ConfigPage_SuperDisconnectNotify(KTextEditor__ConfigPage* self, const QMetaMethod* signal) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_DisconnectNotify_IsBase(true);
@@ -1747,7 +1747,7 @@ void KTextEditor__ConfigPage_UpdateMicroFocus(KTextEditor__ConfigPage* self) {
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseUpdateMicroFocus(KTextEditor__ConfigPage* self) {
+void KTextEditor__ConfigPage_SuperUpdateMicroFocus(KTextEditor__ConfigPage* self) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_UpdateMicroFocus_IsBase(true);
@@ -1776,7 +1776,7 @@ void KTextEditor__ConfigPage_Create(KTextEditor__ConfigPage* self) {
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseCreate(KTextEditor__ConfigPage* self) {
+void KTextEditor__ConfigPage_SuperCreate(KTextEditor__ConfigPage* self) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Create_IsBase(true);
@@ -1805,7 +1805,7 @@ void KTextEditor__ConfigPage_Destroy(KTextEditor__ConfigPage* self) {
 }
 
 // Base class handler implementation
-void KTextEditor__ConfigPage_QBaseDestroy(KTextEditor__ConfigPage* self) {
+void KTextEditor__ConfigPage_SuperDestroy(KTextEditor__ConfigPage* self) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Destroy_IsBase(true);
@@ -1834,7 +1834,7 @@ bool KTextEditor__ConfigPage_FocusNextChild(KTextEditor__ConfigPage* self) {
 }
 
 // Base class handler implementation
-bool KTextEditor__ConfigPage_QBaseFocusNextChild(KTextEditor__ConfigPage* self) {
+bool KTextEditor__ConfigPage_SuperFocusNextChild(KTextEditor__ConfigPage* self) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_FocusNextChild_IsBase(true);
@@ -1863,7 +1863,7 @@ bool KTextEditor__ConfigPage_FocusPreviousChild(KTextEditor__ConfigPage* self) {
 }
 
 // Base class handler implementation
-bool KTextEditor__ConfigPage_QBaseFocusPreviousChild(KTextEditor__ConfigPage* self) {
+bool KTextEditor__ConfigPage_SuperFocusPreviousChild(KTextEditor__ConfigPage* self) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_FocusPreviousChild_IsBase(true);
@@ -1892,7 +1892,7 @@ QObject* KTextEditor__ConfigPage_Sender(const KTextEditor__ConfigPage* self) {
 }
 
 // Base class handler implementation
-QObject* KTextEditor__ConfigPage_QBaseSender(const KTextEditor__ConfigPage* self) {
+QObject* KTextEditor__ConfigPage_SuperSender(const KTextEditor__ConfigPage* self) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Sender_IsBase(true);
@@ -1921,7 +1921,7 @@ int KTextEditor__ConfigPage_SenderSignalIndex(const KTextEditor__ConfigPage* sel
 }
 
 // Base class handler implementation
-int KTextEditor__ConfigPage_QBaseSenderSignalIndex(const KTextEditor__ConfigPage* self) {
+int KTextEditor__ConfigPage_SuperSenderSignalIndex(const KTextEditor__ConfigPage* self) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_SenderSignalIndex_IsBase(true);
@@ -1950,7 +1950,7 @@ int KTextEditor__ConfigPage_Receivers(const KTextEditor__ConfigPage* self, const
 }
 
 // Base class handler implementation
-int KTextEditor__ConfigPage_QBaseReceivers(const KTextEditor__ConfigPage* self, const char* signal) {
+int KTextEditor__ConfigPage_SuperReceivers(const KTextEditor__ConfigPage* self, const char* signal) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Receivers_IsBase(true);
@@ -1979,7 +1979,7 @@ bool KTextEditor__ConfigPage_IsSignalConnected(const KTextEditor__ConfigPage* se
 }
 
 // Base class handler implementation
-bool KTextEditor__ConfigPage_QBaseIsSignalConnected(const KTextEditor__ConfigPage* self, const QMetaMethod* signal) {
+bool KTextEditor__ConfigPage_SuperIsSignalConnected(const KTextEditor__ConfigPage* self, const QMetaMethod* signal) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_IsSignalConnected_IsBase(true);
@@ -2008,7 +2008,7 @@ double KTextEditor__ConfigPage_GetDecodedMetricF(const KTextEditor__ConfigPage* 
 }
 
 // Base class handler implementation
-double KTextEditor__ConfigPage_QBaseGetDecodedMetricF(const KTextEditor__ConfigPage* self, int metricA, int metricB) {
+double KTextEditor__ConfigPage_SuperGetDecodedMetricF(const KTextEditor__ConfigPage* self, int metricA, int metricB) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_GetDecodedMetricF_IsBase(true);

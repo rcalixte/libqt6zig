@@ -361,25 +361,25 @@ class VirtualKPluginFactory final : public KPluginFactory {
 
     // Friend functions
     friend QObject* KPluginFactory_Create(KPluginFactory* self, const char* iface, QWidget* parentWidget, QObject* parent, const libqt_list /* of QVariant* */ args);
-    friend QObject* KPluginFactory_QBaseCreate(KPluginFactory* self, const char* iface, QWidget* parentWidget, QObject* parent, const libqt_list /* of QVariant* */ args);
+    friend QObject* KPluginFactory_SuperCreate(KPluginFactory* self, const char* iface, QWidget* parentWidget, QObject* parent, const libqt_list /* of QVariant* */ args);
     friend void KPluginFactory_TimerEvent(KPluginFactory* self, QTimerEvent* event);
-    friend void KPluginFactory_QBaseTimerEvent(KPluginFactory* self, QTimerEvent* event);
+    friend void KPluginFactory_SuperTimerEvent(KPluginFactory* self, QTimerEvent* event);
     friend void KPluginFactory_ChildEvent(KPluginFactory* self, QChildEvent* event);
-    friend void KPluginFactory_QBaseChildEvent(KPluginFactory* self, QChildEvent* event);
+    friend void KPluginFactory_SuperChildEvent(KPluginFactory* self, QChildEvent* event);
     friend void KPluginFactory_CustomEvent(KPluginFactory* self, QEvent* event);
-    friend void KPluginFactory_QBaseCustomEvent(KPluginFactory* self, QEvent* event);
+    friend void KPluginFactory_SuperCustomEvent(KPluginFactory* self, QEvent* event);
     friend void KPluginFactory_ConnectNotify(KPluginFactory* self, const QMetaMethod* signal);
-    friend void KPluginFactory_QBaseConnectNotify(KPluginFactory* self, const QMetaMethod* signal);
+    friend void KPluginFactory_SuperConnectNotify(KPluginFactory* self, const QMetaMethod* signal);
     friend void KPluginFactory_DisconnectNotify(KPluginFactory* self, const QMetaMethod* signal);
-    friend void KPluginFactory_QBaseDisconnectNotify(KPluginFactory* self, const QMetaMethod* signal);
+    friend void KPluginFactory_SuperDisconnectNotify(KPluginFactory* self, const QMetaMethod* signal);
     friend QObject* KPluginFactory_Sender(const KPluginFactory* self);
-    friend QObject* KPluginFactory_QBaseSender(const KPluginFactory* self);
+    friend QObject* KPluginFactory_SuperSender(const KPluginFactory* self);
     friend int KPluginFactory_SenderSignalIndex(const KPluginFactory* self);
-    friend int KPluginFactory_QBaseSenderSignalIndex(const KPluginFactory* self);
+    friend int KPluginFactory_SuperSenderSignalIndex(const KPluginFactory* self);
     friend int KPluginFactory_Receivers(const KPluginFactory* self, const char* signal);
-    friend int KPluginFactory_QBaseReceivers(const KPluginFactory* self, const char* signal);
+    friend int KPluginFactory_SuperReceivers(const KPluginFactory* self, const char* signal);
     friend bool KPluginFactory_IsSignalConnected(const KPluginFactory* self, const QMetaMethod* signal);
-    friend bool KPluginFactory_QBaseIsSignalConnected(const KPluginFactory* self, const QMetaMethod* signal);
+    friend bool KPluginFactory_SuperIsSignalConnected(const KPluginFactory* self, const QMetaMethod* signal);
 };
 
 #endif

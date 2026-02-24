@@ -226,6 +226,10 @@ pub const qplacecontent = struct {
         qtc.QPlaceContent_SetAttribution(@ptrCast(self), attribution_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontent.html#dtor.QPlaceContent)
     ///
     /// Delete this object from C++ memory.
@@ -234,7 +238,7 @@ pub const qplacecontent = struct {
     ///
     /// ` self: QtC.QPlaceContent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPlaceContent_Delete(@ptrCast(self));
     }
 };

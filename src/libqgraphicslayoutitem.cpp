@@ -200,7 +200,7 @@ QSizeF* QGraphicsLayoutItem_EffectiveSizeHint2(const QGraphicsLayoutItem* self, 
 }
 
 // Base class handler implementation
-void QGraphicsLayoutItem_QBaseSetGeometry(QGraphicsLayoutItem* self, const QRectF* rect) {
+void QGraphicsLayoutItem_SuperSetGeometry(QGraphicsLayoutItem* self, const QRectF* rect) {
     auto* vqgraphicslayoutitem = dynamic_cast<VirtualQGraphicsLayoutItem*>(self);
     if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem) {
         vqgraphicslayoutitem->setQGraphicsLayoutItem_SetGeometry_IsBase(true);
@@ -219,7 +219,7 @@ void QGraphicsLayoutItem_OnSetGeometry(QGraphicsLayoutItem* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void QGraphicsLayoutItem_QBaseGetContentsMargins(const QGraphicsLayoutItem* self, double* left, double* top, double* right, double* bottom) {
+void QGraphicsLayoutItem_SuperGetContentsMargins(const QGraphicsLayoutItem* self, double* left, double* top, double* right, double* bottom) {
     auto* vqgraphicslayoutitem = const_cast<VirtualQGraphicsLayoutItem*>(dynamic_cast<const VirtualQGraphicsLayoutItem*>(self));
     if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem) {
         vqgraphicslayoutitem->setQGraphicsLayoutItem_GetContentsMargins_IsBase(true);
@@ -238,7 +238,7 @@ void QGraphicsLayoutItem_OnGetContentsMargins(const QGraphicsLayoutItem* self, i
 }
 
 // Base class handler implementation
-void QGraphicsLayoutItem_QBaseUpdateGeometry(QGraphicsLayoutItem* self) {
+void QGraphicsLayoutItem_SuperUpdateGeometry(QGraphicsLayoutItem* self) {
     auto* vqgraphicslayoutitem = dynamic_cast<VirtualQGraphicsLayoutItem*>(self);
     if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem) {
         vqgraphicslayoutitem->setQGraphicsLayoutItem_UpdateGeometry_IsBase(true);
@@ -257,7 +257,7 @@ void QGraphicsLayoutItem_OnUpdateGeometry(QGraphicsLayoutItem* self, intptr_t sl
 }
 
 // Base class handler implementation
-bool QGraphicsLayoutItem_QBaseIsEmpty(const QGraphicsLayoutItem* self) {
+bool QGraphicsLayoutItem_SuperIsEmpty(const QGraphicsLayoutItem* self) {
     auto* vqgraphicslayoutitem = const_cast<VirtualQGraphicsLayoutItem*>(dynamic_cast<const VirtualQGraphicsLayoutItem*>(self));
     if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem) {
         vqgraphicslayoutitem->setQGraphicsLayoutItem_IsEmpty_IsBase(true);
@@ -276,7 +276,7 @@ void QGraphicsLayoutItem_OnIsEmpty(const QGraphicsLayoutItem* self, intptr_t slo
 }
 
 // Base class handler implementation
-QSizeF* QGraphicsLayoutItem_QBaseSizeHint(const QGraphicsLayoutItem* self, int which, const QSizeF* constraint) {
+QSizeF* QGraphicsLayoutItem_SuperSizeHint(const QGraphicsLayoutItem* self, int which, const QSizeF* constraint) {
     auto* vqgraphicslayoutitem = const_cast<VirtualQGraphicsLayoutItem*>(dynamic_cast<const VirtualQGraphicsLayoutItem*>(self));
     if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem) {
         vqgraphicslayoutitem->setQGraphicsLayoutItem_SizeHint_IsBase(true);
@@ -304,7 +304,7 @@ void QGraphicsLayoutItem_SetGraphicsItem(QGraphicsLayoutItem* self, QGraphicsIte
 }
 
 // Base class handler implementation
-void QGraphicsLayoutItem_QBaseSetGraphicsItem(QGraphicsLayoutItem* self, QGraphicsItem* item) {
+void QGraphicsLayoutItem_SuperSetGraphicsItem(QGraphicsLayoutItem* self, QGraphicsItem* item) {
     auto* vqgraphicslayoutitem = dynamic_cast<VirtualQGraphicsLayoutItem*>(self);
     if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem) {
         vqgraphicslayoutitem->setQGraphicsLayoutItem_SetGraphicsItem_IsBase(true);
@@ -333,7 +333,7 @@ void QGraphicsLayoutItem_SetOwnedByLayout(QGraphicsLayoutItem* self, bool ownedB
 }
 
 // Base class handler implementation
-void QGraphicsLayoutItem_QBaseSetOwnedByLayout(QGraphicsLayoutItem* self, bool ownedByLayout) {
+void QGraphicsLayoutItem_SuperSetOwnedByLayout(QGraphicsLayoutItem* self, bool ownedByLayout) {
     auto* vqgraphicslayoutitem = dynamic_cast<VirtualQGraphicsLayoutItem*>(self);
     if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem) {
         vqgraphicslayoutitem->setQGraphicsLayoutItem_SetOwnedByLayout_IsBase(true);

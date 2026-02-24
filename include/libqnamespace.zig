@@ -176,6 +176,10 @@ pub const qkeycombination = struct {
         return qtc.QKeyCombination_ToInt(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#dtor.QKeyCombination)
     ///
     /// Delete this object from C++ memory.
@@ -184,7 +188,7 @@ pub const qkeycombination = struct {
     ///
     /// ` self: QtC.QKeyCombination `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QKeyCombination_Delete(@ptrCast(self));
     }
 };

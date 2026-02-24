@@ -464,7 +464,7 @@ void QSqlDriver_SetLastError(QSqlDriver* self, const QSqlError* e) {
 }
 
 // Base class handler implementation
-QMetaObject* QSqlDriver_QBaseMetaObject(const QSqlDriver* self) {
+QMetaObject* QSqlDriver_SuperMetaObject(const QSqlDriver* self) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_MetaObject_IsBase(true);
@@ -483,7 +483,7 @@ void QSqlDriver_OnMetaObject(const QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QSqlDriver_QBaseMetacast(QSqlDriver* self, const char* param1) {
+void* QSqlDriver_SuperMetacast(QSqlDriver* self, const char* param1) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_Metacast_IsBase(true);
@@ -502,7 +502,7 @@ void QSqlDriver_OnMetacast(QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSqlDriver_QBaseMetacall(QSqlDriver* self, int param1, int param2, void** param3) {
+int QSqlDriver_SuperMetacall(QSqlDriver* self, int param1, int param2, void** param3) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_Metacall_IsBase(true);
@@ -521,7 +521,7 @@ void QSqlDriver_OnMetacall(QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSqlDriver_QBaseIsOpen(const QSqlDriver* self) {
+bool QSqlDriver_SuperIsOpen(const QSqlDriver* self) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_IsOpen_IsBase(true);
@@ -540,7 +540,7 @@ void QSqlDriver_OnIsOpen(const QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSqlDriver_QBaseBeginTransaction(QSqlDriver* self) {
+bool QSqlDriver_SuperBeginTransaction(QSqlDriver* self) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_BeginTransaction_IsBase(true);
@@ -559,7 +559,7 @@ void QSqlDriver_OnBeginTransaction(QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSqlDriver_QBaseCommitTransaction(QSqlDriver* self) {
+bool QSqlDriver_SuperCommitTransaction(QSqlDriver* self) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_CommitTransaction_IsBase(true);
@@ -578,7 +578,7 @@ void QSqlDriver_OnCommitTransaction(QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSqlDriver_QBaseRollbackTransaction(QSqlDriver* self) {
+bool QSqlDriver_SuperRollbackTransaction(QSqlDriver* self) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_RollbackTransaction_IsBase(true);
@@ -597,7 +597,7 @@ void QSqlDriver_OnRollbackTransaction(QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QSqlDriver_QBaseTables(const QSqlDriver* self, int tableType) {
+libqt_list /* of libqt_string */ QSqlDriver_SuperTables(const QSqlDriver* self, int tableType) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_Tables_IsBase(true);
@@ -650,7 +650,7 @@ void QSqlDriver_OnTables(const QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSqlIndex* QSqlDriver_QBasePrimaryIndex(const QSqlDriver* self, const libqt_string tableName) {
+QSqlIndex* QSqlDriver_SuperPrimaryIndex(const QSqlDriver* self, const libqt_string tableName) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
     QString tableName_QString = QString::fromUtf8(tableName.data, tableName.len);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
@@ -670,7 +670,7 @@ void QSqlDriver_OnPrimaryIndex(const QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSqlRecord* QSqlDriver_QBaseRecord(const QSqlDriver* self, const libqt_string tableName) {
+QSqlRecord* QSqlDriver_SuperRecord(const QSqlDriver* self, const libqt_string tableName) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
     QString tableName_QString = QString::fromUtf8(tableName.data, tableName.len);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
@@ -690,7 +690,7 @@ void QSqlDriver_OnRecord(const QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string QSqlDriver_QBaseFormatValue(const QSqlDriver* self, const QSqlField* field, bool trimStrings) {
+libqt_string QSqlDriver_SuperFormatValue(const QSqlDriver* self, const QSqlField* field, bool trimStrings) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_FormatValue_IsBase(true);
@@ -725,7 +725,7 @@ void QSqlDriver_OnFormatValue(const QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string QSqlDriver_QBaseEscapeIdentifier(const QSqlDriver* self, const libqt_string identifier, int typeVal) {
+libqt_string QSqlDriver_SuperEscapeIdentifier(const QSqlDriver* self, const libqt_string identifier, int typeVal) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
     QString identifier_QString = QString::fromUtf8(identifier.data, identifier.len);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
@@ -761,7 +761,7 @@ void QSqlDriver_OnEscapeIdentifier(const QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string QSqlDriver_QBaseSqlStatement(const QSqlDriver* self, int typeVal, const libqt_string tableName, const QSqlRecord* rec, bool preparedStatement) {
+libqt_string QSqlDriver_SuperSqlStatement(const QSqlDriver* self, int typeVal, const libqt_string tableName, const QSqlRecord* rec, bool preparedStatement) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
     QString tableName_QString = QString::fromUtf8(tableName.data, tableName.len);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
@@ -797,7 +797,7 @@ void QSqlDriver_OnSqlStatement(const QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QSqlDriver_QBaseHandle(const QSqlDriver* self) {
+QVariant* QSqlDriver_SuperHandle(const QSqlDriver* self) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_Handle_IsBase(true);
@@ -816,7 +816,7 @@ void QSqlDriver_OnHandle(const QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSqlDriver_QBaseHasFeature(const QSqlDriver* self, int f) {
+bool QSqlDriver_SuperHasFeature(const QSqlDriver* self, int f) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_HasFeature_IsBase(true);
@@ -835,7 +835,7 @@ void QSqlDriver_OnHasFeature(const QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSqlDriver_QBaseClose(QSqlDriver* self) {
+void QSqlDriver_SuperClose(QSqlDriver* self) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_Close_IsBase(true);
@@ -854,7 +854,7 @@ void QSqlDriver_OnClose(QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSqlResult* QSqlDriver_QBaseCreateResult(const QSqlDriver* self) {
+QSqlResult* QSqlDriver_SuperCreateResult(const QSqlDriver* self) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_CreateResult_IsBase(true);
@@ -873,7 +873,7 @@ void QSqlDriver_OnCreateResult(const QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSqlDriver_QBaseOpen(QSqlDriver* self, const libqt_string db, const libqt_string user, const libqt_string password, const libqt_string host, int port, const libqt_string connOpts) {
+bool QSqlDriver_SuperOpen(QSqlDriver* self, const libqt_string db, const libqt_string user, const libqt_string password, const libqt_string host, int port, const libqt_string connOpts) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
     QString db_QString = QString::fromUtf8(db.data, db.len);
     QString user_QString = QString::fromUtf8(user.data, user.len);
@@ -897,7 +897,7 @@ void QSqlDriver_OnOpen(QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSqlDriver_QBaseSubscribeToNotification(QSqlDriver* self, const libqt_string name) {
+bool QSqlDriver_SuperSubscribeToNotification(QSqlDriver* self, const libqt_string name) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
@@ -917,7 +917,7 @@ void QSqlDriver_OnSubscribeToNotification(QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSqlDriver_QBaseUnsubscribeFromNotification(QSqlDriver* self, const libqt_string name) {
+bool QSqlDriver_SuperUnsubscribeFromNotification(QSqlDriver* self, const libqt_string name) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
@@ -937,7 +937,7 @@ void QSqlDriver_OnUnsubscribeFromNotification(QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QSqlDriver_QBaseSubscribedToNotifications(const QSqlDriver* self) {
+libqt_list /* of libqt_string */ QSqlDriver_SuperSubscribedToNotifications(const QSqlDriver* self) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_SubscribedToNotifications_IsBase(true);
@@ -990,7 +990,7 @@ void QSqlDriver_OnSubscribedToNotifications(const QSqlDriver* self, intptr_t slo
 }
 
 // Base class handler implementation
-bool QSqlDriver_QBaseIsIdentifierEscaped(const QSqlDriver* self, const libqt_string identifier, int typeVal) {
+bool QSqlDriver_SuperIsIdentifierEscaped(const QSqlDriver* self, const libqt_string identifier, int typeVal) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
     QString identifier_QString = QString::fromUtf8(identifier.data, identifier.len);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
@@ -1010,7 +1010,7 @@ void QSqlDriver_OnIsIdentifierEscaped(const QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string QSqlDriver_QBaseStripDelimiters(const QSqlDriver* self, const libqt_string identifier, int typeVal) {
+libqt_string QSqlDriver_SuperStripDelimiters(const QSqlDriver* self, const libqt_string identifier, int typeVal) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
     QString identifier_QString = QString::fromUtf8(identifier.data, identifier.len);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
@@ -1046,7 +1046,7 @@ void QSqlDriver_OnStripDelimiters(const QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSqlDriver_QBaseMaximumIdentifierLength(const QSqlDriver* self, int typeVal) {
+int QSqlDriver_SuperMaximumIdentifierLength(const QSqlDriver* self, int typeVal) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_MaximumIdentifierLength_IsBase(true);
@@ -1065,7 +1065,7 @@ void QSqlDriver_OnMaximumIdentifierLength(const QSqlDriver* self, intptr_t slot)
 }
 
 // Base class handler implementation
-bool QSqlDriver_QBaseCancelQuery(QSqlDriver* self) {
+bool QSqlDriver_SuperCancelQuery(QSqlDriver* self) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_CancelQuery_IsBase(true);
@@ -1084,7 +1084,7 @@ void QSqlDriver_OnCancelQuery(QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSqlDriver_QBaseSetOpen(QSqlDriver* self, bool o) {
+void QSqlDriver_SuperSetOpen(QSqlDriver* self, bool o) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_SetOpen_IsBase(true);
@@ -1103,7 +1103,7 @@ void QSqlDriver_OnSetOpen(QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSqlDriver_QBaseSetOpenError(QSqlDriver* self, bool e) {
+void QSqlDriver_SuperSetOpenError(QSqlDriver* self, bool e) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_SetOpenError_IsBase(true);
@@ -1122,7 +1122,7 @@ void QSqlDriver_OnSetOpenError(QSqlDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSqlDriver_QBaseSetLastError(QSqlDriver* self, const QSqlError* e) {
+void QSqlDriver_SuperSetLastError(QSqlDriver* self, const QSqlError* e) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_SetLastError_IsBase(true);
@@ -1151,7 +1151,7 @@ bool QSqlDriver_Event(QSqlDriver* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QSqlDriver_QBaseEvent(QSqlDriver* self, QEvent* event) {
+bool QSqlDriver_SuperEvent(QSqlDriver* self, QEvent* event) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_Event_IsBase(true);
@@ -1180,7 +1180,7 @@ bool QSqlDriver_EventFilter(QSqlDriver* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QSqlDriver_QBaseEventFilter(QSqlDriver* self, QObject* watched, QEvent* event) {
+bool QSqlDriver_SuperEventFilter(QSqlDriver* self, QObject* watched, QEvent* event) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_EventFilter_IsBase(true);
@@ -1209,7 +1209,7 @@ void QSqlDriver_TimerEvent(QSqlDriver* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QSqlDriver_QBaseTimerEvent(QSqlDriver* self, QTimerEvent* event) {
+void QSqlDriver_SuperTimerEvent(QSqlDriver* self, QTimerEvent* event) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_TimerEvent_IsBase(true);
@@ -1238,7 +1238,7 @@ void QSqlDriver_ChildEvent(QSqlDriver* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QSqlDriver_QBaseChildEvent(QSqlDriver* self, QChildEvent* event) {
+void QSqlDriver_SuperChildEvent(QSqlDriver* self, QChildEvent* event) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_ChildEvent_IsBase(true);
@@ -1267,7 +1267,7 @@ void QSqlDriver_CustomEvent(QSqlDriver* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSqlDriver_QBaseCustomEvent(QSqlDriver* self, QEvent* event) {
+void QSqlDriver_SuperCustomEvent(QSqlDriver* self, QEvent* event) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_CustomEvent_IsBase(true);
@@ -1296,7 +1296,7 @@ void QSqlDriver_ConnectNotify(QSqlDriver* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QSqlDriver_QBaseConnectNotify(QSqlDriver* self, const QMetaMethod* signal) {
+void QSqlDriver_SuperConnectNotify(QSqlDriver* self, const QMetaMethod* signal) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_ConnectNotify_IsBase(true);
@@ -1325,7 +1325,7 @@ void QSqlDriver_DisconnectNotify(QSqlDriver* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QSqlDriver_QBaseDisconnectNotify(QSqlDriver* self, const QMetaMethod* signal) {
+void QSqlDriver_SuperDisconnectNotify(QSqlDriver* self, const QMetaMethod* signal) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_DisconnectNotify_IsBase(true);
@@ -1354,7 +1354,7 @@ QObject* QSqlDriver_Sender(const QSqlDriver* self) {
 }
 
 // Base class handler implementation
-QObject* QSqlDriver_QBaseSender(const QSqlDriver* self) {
+QObject* QSqlDriver_SuperSender(const QSqlDriver* self) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_Sender_IsBase(true);
@@ -1383,7 +1383,7 @@ int QSqlDriver_SenderSignalIndex(const QSqlDriver* self) {
 }
 
 // Base class handler implementation
-int QSqlDriver_QBaseSenderSignalIndex(const QSqlDriver* self) {
+int QSqlDriver_SuperSenderSignalIndex(const QSqlDriver* self) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_SenderSignalIndex_IsBase(true);
@@ -1412,7 +1412,7 @@ int QSqlDriver_Receivers(const QSqlDriver* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QSqlDriver_QBaseReceivers(const QSqlDriver* self, const char* signal) {
+int QSqlDriver_SuperReceivers(const QSqlDriver* self, const char* signal) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_Receivers_IsBase(true);
@@ -1441,7 +1441,7 @@ bool QSqlDriver_IsSignalConnected(const QSqlDriver* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QSqlDriver_QBaseIsSignalConnected(const QSqlDriver* self, const QMetaMethod* signal) {
+bool QSqlDriver_SuperIsSignalConnected(const QSqlDriver* self, const QMetaMethod* signal) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_IsSignalConnected_IsBase(true);

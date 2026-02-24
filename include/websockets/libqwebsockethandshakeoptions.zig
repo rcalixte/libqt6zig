@@ -97,6 +97,10 @@ pub const qwebsockethandshakeoptions = struct {
         qtc.QWebSocketHandshakeOptions_SetSubprotocols(@ptrCast(self), protocols_list);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsockethandshakeoptions.html#dtor.QWebSocketHandshakeOptions)
     ///
     /// Delete this object from C++ memory.
@@ -105,7 +109,7 @@ pub const qwebsockethandshakeoptions = struct {
     ///
     /// ` self: QtC.QWebSocketHandshakeOptions `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebSocketHandshakeOptions_Delete(@ptrCast(self));
     }
 };

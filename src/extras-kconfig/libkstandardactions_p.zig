@@ -58,13 +58,17 @@ pub const kstandardactions__rawstringdata = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KStandardActions__RawStringData `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KStandardActions__RawStringData_Delete(@ptrCast(self));
     }
 };
@@ -181,13 +185,17 @@ pub const kstandardactions__kstandardactionsinfo = struct {
         qtc.KStandardActions__KStandardActionsInfo_SetPsToolTip(@ptrCast(self), psToolTip_Cstring);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KStandardActions__KStandardActionsInfo `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KStandardActions__KStandardActionsInfo_Delete(@ptrCast(self));
     }
 };

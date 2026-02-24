@@ -455,31 +455,31 @@ class VirtualQGeoRouteReply final : public QGeoRouteReply {
 
     // Friend functions
     friend void QGeoRouteReply_TimerEvent(QGeoRouteReply* self, QTimerEvent* event);
-    friend void QGeoRouteReply_QBaseTimerEvent(QGeoRouteReply* self, QTimerEvent* event);
+    friend void QGeoRouteReply_SuperTimerEvent(QGeoRouteReply* self, QTimerEvent* event);
     friend void QGeoRouteReply_ChildEvent(QGeoRouteReply* self, QChildEvent* event);
-    friend void QGeoRouteReply_QBaseChildEvent(QGeoRouteReply* self, QChildEvent* event);
+    friend void QGeoRouteReply_SuperChildEvent(QGeoRouteReply* self, QChildEvent* event);
     friend void QGeoRouteReply_CustomEvent(QGeoRouteReply* self, QEvent* event);
-    friend void QGeoRouteReply_QBaseCustomEvent(QGeoRouteReply* self, QEvent* event);
+    friend void QGeoRouteReply_SuperCustomEvent(QGeoRouteReply* self, QEvent* event);
     friend void QGeoRouteReply_ConnectNotify(QGeoRouteReply* self, const QMetaMethod* signal);
-    friend void QGeoRouteReply_QBaseConnectNotify(QGeoRouteReply* self, const QMetaMethod* signal);
+    friend void QGeoRouteReply_SuperConnectNotify(QGeoRouteReply* self, const QMetaMethod* signal);
     friend void QGeoRouteReply_DisconnectNotify(QGeoRouteReply* self, const QMetaMethod* signal);
-    friend void QGeoRouteReply_QBaseDisconnectNotify(QGeoRouteReply* self, const QMetaMethod* signal);
+    friend void QGeoRouteReply_SuperDisconnectNotify(QGeoRouteReply* self, const QMetaMethod* signal);
     friend void QGeoRouteReply_SetError(QGeoRouteReply* self, int errorVal, const libqt_string errorString);
-    friend void QGeoRouteReply_QBaseSetError(QGeoRouteReply* self, int errorVal, const libqt_string errorString);
+    friend void QGeoRouteReply_SuperSetError(QGeoRouteReply* self, int errorVal, const libqt_string errorString);
     friend void QGeoRouteReply_SetFinished(QGeoRouteReply* self, bool finished);
-    friend void QGeoRouteReply_QBaseSetFinished(QGeoRouteReply* self, bool finished);
+    friend void QGeoRouteReply_SuperSetFinished(QGeoRouteReply* self, bool finished);
     friend void QGeoRouteReply_SetRoutes(QGeoRouteReply* self, const libqt_list /* of QGeoRoute* */ routes);
-    friend void QGeoRouteReply_QBaseSetRoutes(QGeoRouteReply* self, const libqt_list /* of QGeoRoute* */ routes);
+    friend void QGeoRouteReply_SuperSetRoutes(QGeoRouteReply* self, const libqt_list /* of QGeoRoute* */ routes);
     friend void QGeoRouteReply_AddRoutes(QGeoRouteReply* self, const libqt_list /* of QGeoRoute* */ routes);
-    friend void QGeoRouteReply_QBaseAddRoutes(QGeoRouteReply* self, const libqt_list /* of QGeoRoute* */ routes);
+    friend void QGeoRouteReply_SuperAddRoutes(QGeoRouteReply* self, const libqt_list /* of QGeoRoute* */ routes);
     friend QObject* QGeoRouteReply_Sender(const QGeoRouteReply* self);
-    friend QObject* QGeoRouteReply_QBaseSender(const QGeoRouteReply* self);
+    friend QObject* QGeoRouteReply_SuperSender(const QGeoRouteReply* self);
     friend int QGeoRouteReply_SenderSignalIndex(const QGeoRouteReply* self);
-    friend int QGeoRouteReply_QBaseSenderSignalIndex(const QGeoRouteReply* self);
+    friend int QGeoRouteReply_SuperSenderSignalIndex(const QGeoRouteReply* self);
     friend int QGeoRouteReply_Receivers(const QGeoRouteReply* self, const char* signal);
-    friend int QGeoRouteReply_QBaseReceivers(const QGeoRouteReply* self, const char* signal);
+    friend int QGeoRouteReply_SuperReceivers(const QGeoRouteReply* self, const char* signal);
     friend bool QGeoRouteReply_IsSignalConnected(const QGeoRouteReply* self, const QMetaMethod* signal);
-    friend bool QGeoRouteReply_QBaseIsSignalConnected(const QGeoRouteReply* self, const QMetaMethod* signal);
+    friend bool QGeoRouteReply_SuperIsSignalConnected(const QGeoRouteReply* self, const QMetaMethod* signal);
 };
 
 #endif

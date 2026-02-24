@@ -289,6 +289,10 @@ pub const qdiriterator = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#dtor.QDirIterator)
     ///
     /// Delete this object from C++ memory.
@@ -297,7 +301,7 @@ pub const qdiriterator = struct {
     ///
     /// ` self: QtC.QDirIterator `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDirIterator_Delete(@ptrCast(self));
     }
 };

@@ -88,6 +88,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -96,8 +100,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KTextEdit_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KTextEdit_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -123,6 +127,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -131,9 +139,9 @@ pub const ktextedit = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KTextEdit_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KTextEdit_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -162,6 +170,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -174,8 +186,8 @@ pub const ktextedit = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KTextEdit_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KTextEdit_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -221,6 +233,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnSetReadOnly(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetReadOnly` instead
+    ///
+    pub const QBaseSetReadOnly = SuperSetReadOnly;
+
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#setReadOnly)
     ///
     /// Base class method implementation
@@ -231,8 +247,8 @@ pub const ktextedit = struct {
     ///
     /// ` readOnly: bool `
     ///
-    pub fn QBaseSetReadOnly(self: ?*anyopaque, readOnly: bool) void {
-        qtc.KTextEdit_QBaseSetReadOnly(@ptrCast(self), readOnly);
+    pub fn SuperSetReadOnly(self: ?*anyopaque, readOnly: bool) void {
+        qtc.KTextEdit_SuperSetReadOnly(@ptrCast(self), readOnly);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#setCheckSpellingEnabled)
@@ -261,6 +277,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnSetCheckSpellingEnabled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCheckSpellingEnabled` instead
+    ///
+    pub const QBaseSetCheckSpellingEnabled = SuperSetCheckSpellingEnabled;
+
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#setCheckSpellingEnabled)
     ///
     /// Base class method implementation
@@ -271,8 +291,8 @@ pub const ktextedit = struct {
     ///
     /// ` check: bool `
     ///
-    pub fn QBaseSetCheckSpellingEnabled(self: ?*anyopaque, check: bool) void {
-        qtc.KTextEdit_QBaseSetCheckSpellingEnabled(@ptrCast(self), check);
+    pub fn SuperSetCheckSpellingEnabled(self: ?*anyopaque, check: bool) void {
+        qtc.KTextEdit_SuperSetCheckSpellingEnabled(@ptrCast(self), check);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#checkSpellingEnabled)
@@ -299,6 +319,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnCheckSpellingEnabled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCheckSpellingEnabled` instead
+    ///
+    pub const QBaseCheckSpellingEnabled = SuperCheckSpellingEnabled;
+
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#checkSpellingEnabled)
     ///
     /// Base class method implementation
@@ -307,8 +331,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseCheckSpellingEnabled(self: ?*anyopaque) bool {
-        return qtc.KTextEdit_QBaseCheckSpellingEnabled(@ptrCast(self));
+    pub fn SuperCheckSpellingEnabled(self: ?*anyopaque) bool {
+        return qtc.KTextEdit_SuperCheckSpellingEnabled(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
@@ -341,6 +365,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnShouldBlockBeSpellChecked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperShouldBlockBeSpellChecked` instead
+    ///
+    pub const QBaseShouldBlockBeSpellChecked = SuperShouldBlockBeSpellChecked;
+
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
     ///
     /// Base class method implementation
@@ -351,12 +379,12 @@ pub const ktextedit = struct {
     ///
     /// ` block: []const u8 `
     ///
-    pub fn QBaseShouldBlockBeSpellChecked(self: ?*anyopaque, block: []const u8) bool {
+    pub fn SuperShouldBlockBeSpellChecked(self: ?*anyopaque, block: []const u8) bool {
         const block_str = qtc.libqt_string{
             .len = block.len,
             .data = block.ptr,
         };
-        return qtc.KTextEdit_QBaseShouldBlockBeSpellChecked(@ptrCast(self), block_str);
+        return qtc.KTextEdit_SuperShouldBlockBeSpellChecked(@ptrCast(self), block_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#highlightWord)
@@ -397,6 +425,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnCreateHighlighter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateHighlighter` instead
+    ///
+    pub const QBaseCreateHighlighter = SuperCreateHighlighter;
+
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#createHighlighter)
     ///
     /// Base class method implementation
@@ -405,8 +437,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseCreateHighlighter(self: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseCreateHighlighter(@ptrCast(self));
+    pub fn SuperCreateHighlighter(self: ?*anyopaque) void {
+        qtc.KTextEdit_SuperCreateHighlighter(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#highlighter)
@@ -455,6 +487,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnMousePopupMenu(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePopupMenu` instead
+    ///
+    pub const QBaseMousePopupMenu = SuperMousePopupMenu;
+
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#mousePopupMenu)
     ///
     /// Base class method implementation
@@ -463,8 +499,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseMousePopupMenu(self: ?*anyopaque) QtC.QMenu {
-        return qtc.KTextEdit_QBaseMousePopupMenu(@ptrCast(self));
+    pub fn SuperMousePopupMenu(self: ?*anyopaque) QtC.QMenu {
+        return qtc.KTextEdit_SuperMousePopupMenu(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#enableFindReplace)
@@ -803,6 +839,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnSlotDoReplace(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotDoReplace` instead
+    ///
+    pub const QBaseSlotDoReplace = SuperSlotDoReplace;
+
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotDoReplace)
     ///
     /// Base class method implementation
@@ -811,8 +851,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseSlotDoReplace(self: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseSlotDoReplace(@ptrCast(self));
+    pub fn SuperSlotDoReplace(self: ?*anyopaque) void {
+        qtc.KTextEdit_SuperSlotDoReplace(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotReplaceNext)
@@ -839,6 +879,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnSlotReplaceNext(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotReplaceNext` instead
+    ///
+    pub const QBaseSlotReplaceNext = SuperSlotReplaceNext;
+
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotReplaceNext)
     ///
     /// Base class method implementation
@@ -847,8 +891,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseSlotReplaceNext(self: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseSlotReplaceNext(@ptrCast(self));
+    pub fn SuperSlotReplaceNext(self: ?*anyopaque) void {
+        qtc.KTextEdit_SuperSlotReplaceNext(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotDoFind)
@@ -875,6 +919,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnSlotDoFind(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotDoFind` instead
+    ///
+    pub const QBaseSlotDoFind = SuperSlotDoFind;
+
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotDoFind)
     ///
     /// Base class method implementation
@@ -883,8 +931,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseSlotDoFind(self: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseSlotDoFind(@ptrCast(self));
+    pub fn SuperSlotDoFind(self: ?*anyopaque) void {
+        qtc.KTextEdit_SuperSlotDoFind(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotFind)
@@ -911,6 +959,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnSlotFind(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotFind` instead
+    ///
+    pub const QBaseSlotFind = SuperSlotFind;
+
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotFind)
     ///
     /// Base class method implementation
@@ -919,8 +971,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseSlotFind(self: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseSlotFind(@ptrCast(self));
+    pub fn SuperSlotFind(self: ?*anyopaque) void {
+        qtc.KTextEdit_SuperSlotFind(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotFindNext)
@@ -947,6 +999,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnSlotFindNext(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotFindNext` instead
+    ///
+    pub const QBaseSlotFindNext = SuperSlotFindNext;
+
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotFindNext)
     ///
     /// Base class method implementation
@@ -955,8 +1011,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseSlotFindNext(self: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseSlotFindNext(@ptrCast(self));
+    pub fn SuperSlotFindNext(self: ?*anyopaque) void {
+        qtc.KTextEdit_SuperSlotFindNext(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotFindPrevious)
@@ -983,6 +1039,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnSlotFindPrevious(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotFindPrevious` instead
+    ///
+    pub const QBaseSlotFindPrevious = SuperSlotFindPrevious;
+
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotFindPrevious)
     ///
     /// Base class method implementation
@@ -991,8 +1051,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseSlotFindPrevious(self: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseSlotFindPrevious(@ptrCast(self));
+    pub fn SuperSlotFindPrevious(self: ?*anyopaque) void {
+        qtc.KTextEdit_SuperSlotFindPrevious(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotReplace)
@@ -1019,6 +1079,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnSlotReplace(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotReplace` instead
+    ///
+    pub const QBaseSlotReplace = SuperSlotReplace;
+
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotReplace)
     ///
     /// Base class method implementation
@@ -1027,8 +1091,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseSlotReplace(self: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseSlotReplace(@ptrCast(self));
+    pub fn SuperSlotReplace(self: ?*anyopaque) void {
+        qtc.KTextEdit_SuperSlotReplace(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotSpeakText)
@@ -1055,6 +1119,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnSlotSpeakText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotSpeakText` instead
+    ///
+    pub const QBaseSlotSpeakText = SuperSlotSpeakText;
+
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotSpeakText)
     ///
     /// Base class method implementation
@@ -1063,8 +1131,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseSlotSpeakText(self: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseSlotSpeakText(@ptrCast(self));
+    pub fn SuperSlotSpeakText(self: ?*anyopaque) void {
+        qtc.KTextEdit_SuperSlotSpeakText(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#event)
@@ -1093,6 +1161,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#event)
     ///
     /// Base class method implementation
@@ -1103,8 +1175,8 @@ pub const ktextedit = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.KTextEdit_QBaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
+        return qtc.KTextEdit_SuperEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#keyPressEvent)
@@ -1133,6 +1205,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#keyPressEvent)
     ///
     /// Base class method implementation
@@ -1143,8 +1219,8 @@ pub const ktextedit = struct {
     ///
     /// ` param1: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KTextEdit_SuperKeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#focusInEvent)
@@ -1173,6 +1249,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#focusInEvent)
     ///
     /// Base class method implementation
@@ -1183,8 +1263,8 @@ pub const ktextedit = struct {
     ///
     /// ` param1: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseFocusInEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KTextEdit_SuperFocusInEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#deleteWordBack)
@@ -1211,6 +1291,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnDeleteWordBack(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDeleteWordBack` instead
+    ///
+    pub const QBaseDeleteWordBack = SuperDeleteWordBack;
+
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#deleteWordBack)
     ///
     /// Base class method implementation
@@ -1219,8 +1303,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseDeleteWordBack(self: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseDeleteWordBack(@ptrCast(self));
+    pub fn SuperDeleteWordBack(self: ?*anyopaque) void {
+        qtc.KTextEdit_SuperDeleteWordBack(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#deleteWordForward)
@@ -1247,6 +1331,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnDeleteWordForward(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDeleteWordForward` instead
+    ///
+    pub const QBaseDeleteWordForward = SuperDeleteWordForward;
+
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#deleteWordForward)
     ///
     /// Base class method implementation
@@ -1255,8 +1343,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseDeleteWordForward(self: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseDeleteWordForward(@ptrCast(self));
+    pub fn SuperDeleteWordForward(self: ?*anyopaque) void {
+        qtc.KTextEdit_SuperDeleteWordForward(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#contextMenuEvent)
@@ -1285,6 +1373,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    ///
+    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#contextMenuEvent)
     ///
     /// Base class method implementation
@@ -1295,8 +1387,8 @@ pub const ktextedit = struct {
     ///
     /// ` param1: QtC.QContextMenuEvent `
     ///
-    pub fn QBaseContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KTextEdit_SuperContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -8050,6 +8142,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_LoadResource(@ptrCast(self), @bitCast(typeVal), @ptrCast(name));
     }
 
+    /// ### DEPRECATED: Use `SuperLoadResource` instead
+    ///
+    pub const QBaseLoadResource = SuperLoadResource;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#loadResource)
@@ -8064,8 +8160,8 @@ pub const ktextedit = struct {
     ///
     /// ` name: QtC.QUrl `
     ///
-    pub fn QBaseLoadResource(self: ?*anyopaque, typeVal: i32, name: ?*anyopaque) QtC.QVariant {
-        return qtc.KTextEdit_QBaseLoadResource(@ptrCast(self), @bitCast(typeVal), @ptrCast(name));
+    pub fn SuperLoadResource(self: ?*anyopaque, typeVal: i32, name: ?*anyopaque) QtC.QVariant {
+        return qtc.KTextEdit_SuperLoadResource(@ptrCast(self), @bitCast(typeVal), @ptrCast(name));
     }
 
     /// Inherited from QTextEdit
@@ -8100,6 +8196,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_InputMethodQuery(@ptrCast(self), @bitCast(property));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    ///
+    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
@@ -8112,8 +8212,8 @@ pub const ktextedit = struct {
     ///
     /// ` property: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, property: i32) QtC.QVariant {
-        return qtc.KTextEdit_QBaseInputMethodQuery(@ptrCast(self), @bitCast(property));
+    pub fn SuperInputMethodQuery(self: ?*anyopaque, property: i32) QtC.QVariant {
+        return qtc.KTextEdit_SuperInputMethodQuery(@ptrCast(self), @bitCast(property));
     }
 
     /// Inherited from QTextEdit
@@ -8148,6 +8248,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_TimerEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#timerEvent)
@@ -8160,8 +8264,8 @@ pub const ktextedit = struct {
     ///
     /// ` e: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseTimerEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperTimerEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KTextEdit_SuperTimerEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8196,6 +8300,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_KeyReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#keyReleaseEvent)
@@ -8208,8 +8316,8 @@ pub const ktextedit = struct {
     ///
     /// ` e: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KTextEdit_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8244,6 +8352,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_ResizeEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#resizeEvent)
@@ -8256,8 +8368,8 @@ pub const ktextedit = struct {
     ///
     /// ` e: QtC.QResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseResizeEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperResizeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KTextEdit_SuperResizeEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8292,6 +8404,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_PaintEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    ///
+    pub const QBasePaintEvent = SuperPaintEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#paintEvent)
@@ -8304,8 +8420,8 @@ pub const ktextedit = struct {
     ///
     /// ` e: QtC.QPaintEvent `
     ///
-    pub fn QBasePaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KTextEdit_QBasePaintEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperPaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KTextEdit_SuperPaintEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8340,6 +8456,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_MousePressEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mousePressEvent)
@@ -8352,8 +8472,8 @@ pub const ktextedit = struct {
     ///
     /// ` e: QtC.QMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseMousePressEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KTextEdit_SuperMousePressEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8388,6 +8508,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_MouseMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseMoveEvent)
@@ -8400,8 +8524,8 @@ pub const ktextedit = struct {
     ///
     /// ` e: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KTextEdit_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8436,6 +8560,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_MouseReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseReleaseEvent)
@@ -8448,8 +8576,8 @@ pub const ktextedit = struct {
     ///
     /// ` e: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KTextEdit_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8484,6 +8612,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseDoubleClickEvent)
@@ -8496,8 +8628,8 @@ pub const ktextedit = struct {
     ///
     /// ` e: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KTextEdit_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8532,6 +8664,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_FocusNextPrevChild(@ptrCast(self), next);
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    ///
+    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusNextPrevChild)
@@ -8544,8 +8680,8 @@ pub const ktextedit = struct {
     ///
     /// ` next: bool `
     ///
-    pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.KTextEdit_QBaseFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
+        return qtc.KTextEdit_SuperFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QTextEdit
@@ -8580,6 +8716,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_DragEnterEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    ///
+    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragEnterEvent)
@@ -8592,8 +8732,8 @@ pub const ktextedit = struct {
     ///
     /// ` e: QtC.QDragEnterEvent `
     ///
-    pub fn QBaseDragEnterEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDragEnterEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KTextEdit_SuperDragEnterEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8628,6 +8768,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_DragLeaveEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    ///
+    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragLeaveEvent)
@@ -8640,8 +8784,8 @@ pub const ktextedit = struct {
     ///
     /// ` e: QtC.QDragLeaveEvent `
     ///
-    pub fn QBaseDragLeaveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDragLeaveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KTextEdit_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8676,6 +8820,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_DragMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    ///
+    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragMoveEvent)
@@ -8688,8 +8836,8 @@ pub const ktextedit = struct {
     ///
     /// ` e: QtC.QDragMoveEvent `
     ///
-    pub fn QBaseDragMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDragMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KTextEdit_SuperDragMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8724,6 +8872,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_DropEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    ///
+    pub const QBaseDropEvent = SuperDropEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dropEvent)
@@ -8736,8 +8888,8 @@ pub const ktextedit = struct {
     ///
     /// ` e: QtC.QDropEvent `
     ///
-    pub fn QBaseDropEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseDropEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDropEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KTextEdit_SuperDropEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8772,6 +8924,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_FocusOutEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusOutEvent)
@@ -8784,8 +8940,8 @@ pub const ktextedit = struct {
     ///
     /// ` e: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KTextEdit_SuperFocusOutEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8820,6 +8976,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_ShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#showEvent)
@@ -8832,8 +8992,8 @@ pub const ktextedit = struct {
     ///
     /// ` param1: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseShowEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KTextEdit_SuperShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QTextEdit
@@ -8868,6 +9028,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_ChangeEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    ///
+    pub const QBaseChangeEvent = SuperChangeEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#changeEvent)
@@ -8880,8 +9044,8 @@ pub const ktextedit = struct {
     ///
     /// ` e: QtC.QEvent `
     ///
-    pub fn QBaseChangeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseChangeEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperChangeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KTextEdit_SuperChangeEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8916,6 +9080,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_WheelEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#wheelEvent)
@@ -8928,8 +9096,8 @@ pub const ktextedit = struct {
     ///
     /// ` e: QtC.QWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseWheelEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperWheelEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KTextEdit_SuperWheelEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8962,6 +9130,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_CreateMimeDataFromSelection(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateMimeDataFromSelection` instead
+    ///
+    pub const QBaseCreateMimeDataFromSelection = SuperCreateMimeDataFromSelection;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#createMimeDataFromSelection)
@@ -8972,8 +9144,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseCreateMimeDataFromSelection(self: ?*anyopaque) QtC.QMimeData {
-        return qtc.KTextEdit_QBaseCreateMimeDataFromSelection(@ptrCast(self));
+    pub fn SuperCreateMimeDataFromSelection(self: ?*anyopaque) QtC.QMimeData {
+        return qtc.KTextEdit_SuperCreateMimeDataFromSelection(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
@@ -9008,6 +9180,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_CanInsertFromMimeData(@ptrCast(self), @ptrCast(source));
     }
 
+    /// ### DEPRECATED: Use `SuperCanInsertFromMimeData` instead
+    ///
+    pub const QBaseCanInsertFromMimeData = SuperCanInsertFromMimeData;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#canInsertFromMimeData)
@@ -9020,8 +9196,8 @@ pub const ktextedit = struct {
     ///
     /// ` source: QtC.QMimeData `
     ///
-    pub fn QBaseCanInsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) bool {
-        return qtc.KTextEdit_QBaseCanInsertFromMimeData(@ptrCast(self), @ptrCast(source));
+    pub fn SuperCanInsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) bool {
+        return qtc.KTextEdit_SuperCanInsertFromMimeData(@ptrCast(self), @ptrCast(source));
     }
 
     /// Inherited from QTextEdit
@@ -9056,6 +9232,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_InsertFromMimeData(@ptrCast(self), @ptrCast(source));
     }
 
+    /// ### DEPRECATED: Use `SuperInsertFromMimeData` instead
+    ///
+    pub const QBaseInsertFromMimeData = SuperInsertFromMimeData;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#insertFromMimeData)
@@ -9068,8 +9248,8 @@ pub const ktextedit = struct {
     ///
     /// ` source: QtC.QMimeData `
     ///
-    pub fn QBaseInsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseInsertFromMimeData(@ptrCast(self), @ptrCast(source));
+    pub fn SuperInsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) void {
+        qtc.KTextEdit_SuperInsertFromMimeData(@ptrCast(self), @ptrCast(source));
     }
 
     /// Inherited from QTextEdit
@@ -9104,6 +9284,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    ///
+    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodEvent)
@@ -9116,8 +9300,8 @@ pub const ktextedit = struct {
     ///
     /// ` param1: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KTextEdit_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QTextEdit
@@ -9154,6 +9338,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_ScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
+    /// ### DEPRECATED: Use `SuperScrollContentsBy` instead
+    ///
+    pub const QBaseScrollContentsBy = SuperScrollContentsBy;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#scrollContentsBy)
@@ -9168,8 +9356,8 @@ pub const ktextedit = struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn QBaseScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.KTextEdit_QBaseScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn SuperScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
+        qtc.KTextEdit_SuperScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QTextEdit
@@ -9204,6 +9392,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_DoSetTextCursor(@ptrCast(self), @ptrCast(cursor));
     }
 
+    /// ### DEPRECATED: Use `SuperDoSetTextCursor` instead
+    ///
+    pub const QBaseDoSetTextCursor = SuperDoSetTextCursor;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#doSetTextCursor)
@@ -9216,8 +9408,8 @@ pub const ktextedit = struct {
     ///
     /// ` cursor: QtC.QTextCursor `
     ///
-    pub fn QBaseDoSetTextCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseDoSetTextCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SuperDoSetTextCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
+        qtc.KTextEdit_SuperDoSetTextCursor(@ptrCast(self), @ptrCast(cursor));
     }
 
     /// Inherited from QTextEdit
@@ -9250,6 +9442,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_MinimumSizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    ///
+    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
@@ -9260,8 +9456,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KTextEdit_QBaseMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.KTextEdit_SuperMinimumSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9294,6 +9490,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_SizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
@@ -9304,8 +9504,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KTextEdit_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.KTextEdit_SuperSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9340,6 +9540,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_SetupViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
+    /// ### DEPRECATED: Use `SuperSetupViewport` instead
+    ///
+    pub const QBaseSetupViewport = SuperSetupViewport;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
@@ -9352,8 +9556,8 @@ pub const ktextedit = struct {
     ///
     /// ` viewport: QtC.QWidget `
     ///
-    pub fn QBaseSetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseSetupViewport(@ptrCast(self), @ptrCast(viewport));
+    pub fn SuperSetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
+        qtc.KTextEdit_SuperSetupViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9390,6 +9594,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_EventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
@@ -9404,8 +9612,8 @@ pub const ktextedit = struct {
     ///
     /// ` param2: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.KTextEdit_QBaseEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn SuperEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
+        return qtc.KTextEdit_SuperEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9440,6 +9648,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_ViewportEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperViewportEvent` instead
+    ///
+    pub const QBaseViewportEvent = SuperViewportEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
@@ -9452,8 +9664,8 @@ pub const ktextedit = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseViewportEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.KTextEdit_QBaseViewportEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperViewportEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
+        return qtc.KTextEdit_SuperViewportEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9486,6 +9698,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_ViewportSizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperViewportSizeHint` instead
+    ///
+    pub const QBaseViewportSizeHint = SuperViewportSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
@@ -9496,8 +9712,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseViewportSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KTextEdit_QBaseViewportSizeHint(@ptrCast(self));
+    pub fn SuperViewportSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.KTextEdit_SuperViewportSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9532,6 +9748,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_InitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
+    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    ///
+    pub const QBaseInitStyleOption = SuperInitStyleOption;
+
     /// Inherited from QFrame
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
@@ -9544,8 +9764,8 @@ pub const ktextedit = struct {
     ///
     /// ` option: QtC.QStyleOptionFrame `
     ///
-    pub fn QBaseInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
+        qtc.KTextEdit_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// Inherited from QFrame
@@ -9578,6 +9798,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_DevType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
@@ -9588,8 +9812,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.KTextEdit_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.KTextEdit_SuperDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9624,6 +9848,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_SetVisible(@ptrCast(self), visible);
     }
 
+    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    ///
+    pub const QBaseSetVisible = SuperSetVisible;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
@@ -9636,8 +9864,8 @@ pub const ktextedit = struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.KTextEdit_QBaseSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
+        qtc.KTextEdit_SuperSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
@@ -9672,6 +9900,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
@@ -9684,8 +9916,8 @@ pub const ktextedit = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KTextEdit_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.KTextEdit_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -9718,6 +9950,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
@@ -9728,8 +9964,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.KTextEdit_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.KTextEdit_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9762,6 +9998,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_PaintEngine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    ///
+    pub const QBasePaintEngine = SuperPaintEngine;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
@@ -9772,8 +10012,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.KTextEdit_QBasePaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.KTextEdit_SuperPaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9808,6 +10048,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    ///
+    pub const QBaseEnterEvent = SuperEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
@@ -9820,8 +10064,8 @@ pub const ktextedit = struct {
     ///
     /// ` event: QtC.QEnterEvent `
     ///
-    pub fn QBaseEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KTextEdit_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9856,6 +10100,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    ///
+    pub const QBaseLeaveEvent = SuperLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
@@ -9868,8 +10116,8 @@ pub const ktextedit = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KTextEdit_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9904,6 +10152,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
@@ -9916,8 +10168,8 @@ pub const ktextedit = struct {
     ///
     /// ` event: QtC.QMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KTextEdit_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9952,6 +10204,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
@@ -9964,8 +10220,8 @@ pub const ktextedit = struct {
     ///
     /// ` event: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KTextEdit_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -10000,6 +10256,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    ///
+    pub const QBaseTabletEvent = SuperTabletEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
@@ -10012,8 +10272,8 @@ pub const ktextedit = struct {
     ///
     /// ` event: QtC.QTabletEvent `
     ///
-    pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KTextEdit_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -10048,6 +10308,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_ActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    ///
+    pub const QBaseActionEvent = SuperActionEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
@@ -10060,8 +10324,8 @@ pub const ktextedit = struct {
     ///
     /// ` event: QtC.QActionEvent `
     ///
-    pub fn QBaseActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KTextEdit_SuperActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -10096,6 +10360,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
@@ -10108,8 +10376,8 @@ pub const ktextedit = struct {
     ///
     /// ` event: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KTextEdit_SuperHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -10152,6 +10420,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
+    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    ///
+    pub const QBaseNativeEvent = SuperNativeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
@@ -10168,12 +10440,12 @@ pub const ktextedit = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KTextEdit_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KTextEdit_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -10208,6 +10480,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_Metric(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
@@ -10220,8 +10496,8 @@ pub const ktextedit = struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KTextEdit_QBaseMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.KTextEdit_SuperMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -10256,6 +10532,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
@@ -10268,8 +10548,8 @@ pub const ktextedit = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.KTextEdit_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
@@ -10304,6 +10584,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
@@ -10316,8 +10600,8 @@ pub const ktextedit = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.KTextEdit_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.KTextEdit_SuperRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
@@ -10350,6 +10634,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
@@ -10360,8 +10648,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.KTextEdit_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.KTextEdit_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10396,6 +10684,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -10408,8 +10700,8 @@ pub const ktextedit = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KTextEdit_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -10444,6 +10736,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -10456,8 +10752,8 @@ pub const ktextedit = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KTextEdit_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -10492,6 +10788,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -10504,8 +10804,8 @@ pub const ktextedit = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KTextEdit_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -10540,6 +10840,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -10552,8 +10856,8 @@ pub const ktextedit = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KTextEdit_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -10588,6 +10892,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_ZoomInF(@ptrCast(self), @bitCast(range));
     }
 
+    /// ### DEPRECATED: Use `SuperZoomInF` instead
+    ///
+    pub const QBaseZoomInF = SuperZoomInF;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
@@ -10600,8 +10908,8 @@ pub const ktextedit = struct {
     ///
     /// ` range: f32 `
     ///
-    pub fn QBaseZoomInF(self: ?*anyopaque, range: f32) void {
-        qtc.KTextEdit_QBaseZoomInF(@ptrCast(self), @bitCast(range));
+    pub fn SuperZoomInF(self: ?*anyopaque, range: f32) void {
+        qtc.KTextEdit_SuperZoomInF(@ptrCast(self), @bitCast(range));
     }
 
     /// Inherited from QTextEdit
@@ -10642,6 +10950,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_SetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
+    /// ### DEPRECATED: Use `SuperSetViewportMargins` instead
+    ///
+    pub const QBaseSetViewportMargins = SuperSetViewportMargins;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
@@ -10660,8 +10972,8 @@ pub const ktextedit = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn QBaseSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.KTextEdit_QBaseSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SuperSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.KTextEdit_SuperSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10694,6 +11006,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_ViewportMargins(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperViewportMargins` instead
+    ///
+    pub const QBaseViewportMargins = SuperViewportMargins;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
@@ -10704,8 +11020,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseViewportMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.KTextEdit_QBaseViewportMargins(@ptrCast(self));
+    pub fn SuperViewportMargins(self: ?*anyopaque) QtC.QMargins {
+        return qtc.KTextEdit_SuperViewportMargins(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10740,6 +11056,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_DrawFrame(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    ///
+    pub const QBaseDrawFrame = SuperDrawFrame;
+
     /// Inherited from QFrame
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
@@ -10752,8 +11072,8 @@ pub const ktextedit = struct {
     ///
     /// ` param1: QtC.QPainter `
     ///
-    pub fn QBaseDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseDrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KTextEdit_SuperDrawFrame(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QFrame
@@ -10786,6 +11106,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_UpdateMicroFocus(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    ///
+    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -10796,8 +11120,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
+        qtc.KTextEdit_SuperUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10830,6 +11154,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_Create(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCreate` instead
+    ///
+    pub const QBaseCreate = SuperCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -10840,8 +11168,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseCreate(self: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseCreate(@ptrCast(self));
+    pub fn SuperCreate(self: ?*anyopaque) void {
+        qtc.KTextEdit_SuperCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10874,6 +11202,10 @@ pub const ktextedit = struct {
         qtc.KTextEdit_Destroy(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDestroy` instead
+    ///
+    pub const QBaseDestroy = SuperDestroy;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
@@ -10884,8 +11216,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseDestroy(self: ?*anyopaque) void {
-        qtc.KTextEdit_QBaseDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: ?*anyopaque) void {
+        qtc.KTextEdit_SuperDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10918,6 +11250,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_FocusNextChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    ///
+    pub const QBaseFocusNextChild = SuperFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -10928,8 +11264,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.KTextEdit_QBaseFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
+        return qtc.KTextEdit_SuperFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10962,6 +11298,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_FocusPreviousChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    ///
+    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
@@ -10972,8 +11312,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.KTextEdit_QBaseFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
+        return qtc.KTextEdit_SuperFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -11006,6 +11346,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -11016,8 +11360,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KTextEdit_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KTextEdit_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -11050,6 +11394,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -11060,8 +11408,8 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KTextEdit_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KTextEdit_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -11097,6 +11445,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -11109,9 +11461,9 @@ pub const ktextedit = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KTextEdit_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KTextEdit_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -11146,6 +11498,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -11158,8 +11514,8 @@ pub const ktextedit = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KTextEdit_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KTextEdit_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -11196,6 +11552,10 @@ pub const ktextedit = struct {
         return qtc.KTextEdit_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -11210,8 +11570,8 @@ pub const ktextedit = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KTextEdit_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.KTextEdit_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -11245,6 +11605,9 @@ pub const ktextedit = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/ktextedit.html#dtor.KTextEdit)
     ///
@@ -11254,7 +11617,7 @@ pub const ktextedit = struct {
     ///
     /// ` self: QtC.KTextEdit `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KTextEdit_Delete(@ptrCast(self));
     }
 };

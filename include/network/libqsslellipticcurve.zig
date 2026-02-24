@@ -144,6 +144,10 @@ pub const qsslellipticcurve = struct {
         return qtc.QSslEllipticCurve_IsTlsNamedCurve(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html#dtor.QSslEllipticCurve)
     ///
     /// Delete this object from C++ memory.
@@ -152,7 +156,7 @@ pub const qsslellipticcurve = struct {
     ///
     /// ` self: QtC.QSslEllipticCurve `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSslEllipticCurve_Delete(@ptrCast(self));
     }
 };

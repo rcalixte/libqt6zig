@@ -65,6 +65,10 @@ pub const qhttp1configuration = struct {
         qtc.QHttp1Configuration_Swap(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttp1configuration.html#dtor.QHttp1Configuration)
     ///
     /// Delete this object from C++ memory.
@@ -73,7 +77,7 @@ pub const qhttp1configuration = struct {
     ///
     /// ` self: QtC.QHttp1Configuration `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QHttp1Configuration_Delete(@ptrCast(self));
     }
 };

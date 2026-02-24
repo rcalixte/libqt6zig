@@ -47,6 +47,10 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
         qtc.KTextEditor__CodeCompletionModelControllerInterface_OnShouldStartCompletion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperShouldStartCompletion` instead
+    ///
+    pub const QBaseShouldStartCompletion = SuperShouldStartCompletion;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#shouldStartCompletion)
     ///
     /// Base class method implementation
@@ -63,12 +67,12 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
     ///
     /// ` position: QtC.KTextEditor__Cursor `
     ///
-    pub fn QBaseShouldStartCompletion(self: ?*anyopaque, view: ?*anyopaque, insertedText: []const u8, userInsertion: bool, position: ?*anyopaque) bool {
+    pub fn SuperShouldStartCompletion(self: ?*anyopaque, view: ?*anyopaque, insertedText: []const u8, userInsertion: bool, position: ?*anyopaque) bool {
         const insertedText_str = qtc.libqt_string{
             .len = insertedText.len,
             .data = insertedText.ptr,
         };
-        return qtc.KTextEditor__CodeCompletionModelControllerInterface_QBaseShouldStartCompletion(@ptrCast(self), @ptrCast(view), insertedText_str, userInsertion, @ptrCast(position));
+        return qtc.KTextEditor__CodeCompletionModelControllerInterface_SuperShouldStartCompletion(@ptrCast(self), @ptrCast(view), insertedText_str, userInsertion, @ptrCast(position));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#completionRange)
@@ -99,6 +103,10 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
         qtc.KTextEditor__CodeCompletionModelControllerInterface_OnCompletionRange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCompletionRange` instead
+    ///
+    pub const QBaseCompletionRange = SuperCompletionRange;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#completionRange)
     ///
     /// Base class method implementation
@@ -111,8 +119,8 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
     ///
     /// ` position: QtC.KTextEditor__Cursor `
     ///
-    pub fn QBaseCompletionRange(self: ?*anyopaque, view: ?*anyopaque, position: ?*anyopaque) QtC.KTextEditor__Range {
-        return qtc.KTextEditor__CodeCompletionModelControllerInterface_QBaseCompletionRange(@ptrCast(self), @ptrCast(view), @ptrCast(position));
+    pub fn SuperCompletionRange(self: ?*anyopaque, view: ?*anyopaque, position: ?*anyopaque) QtC.KTextEditor__Range {
+        return qtc.KTextEditor__CodeCompletionModelControllerInterface_SuperCompletionRange(@ptrCast(self), @ptrCast(view), @ptrCast(position));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#updateCompletionRange)
@@ -143,6 +151,10 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
         qtc.KTextEditor__CodeCompletionModelControllerInterface_OnUpdateCompletionRange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateCompletionRange` instead
+    ///
+    pub const QBaseUpdateCompletionRange = SuperUpdateCompletionRange;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#updateCompletionRange)
     ///
     /// Base class method implementation
@@ -155,8 +167,8 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
     ///
     /// ` range: QtC.KTextEditor__Range `
     ///
-    pub fn QBaseUpdateCompletionRange(self: ?*anyopaque, view: ?*anyopaque, range: ?*anyopaque) QtC.KTextEditor__Range {
-        return qtc.KTextEditor__CodeCompletionModelControllerInterface_QBaseUpdateCompletionRange(@ptrCast(self), @ptrCast(view), @ptrCast(range));
+    pub fn SuperUpdateCompletionRange(self: ?*anyopaque, view: ?*anyopaque, range: ?*anyopaque) QtC.KTextEditor__Range {
+        return qtc.KTextEditor__CodeCompletionModelControllerInterface_SuperUpdateCompletionRange(@ptrCast(self), @ptrCast(view), @ptrCast(range));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#filterString)
@@ -197,6 +209,10 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
         qtc.KTextEditor__CodeCompletionModelControllerInterface_OnFilterString(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFilterString` instead
+    ///
+    pub const QBaseFilterString = SuperFilterString;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#filterString)
     ///
     /// Base class method implementation
@@ -213,8 +229,8 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseFilterString(self: ?*anyopaque, view: ?*anyopaque, range: ?*anyopaque, position: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KTextEditor__CodeCompletionModelControllerInterface_QBaseFilterString(@ptrCast(self), @ptrCast(view), @ptrCast(range), @ptrCast(position));
+    pub fn SuperFilterString(self: ?*anyopaque, view: ?*anyopaque, range: ?*anyopaque, position: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KTextEditor__CodeCompletionModelControllerInterface_SuperFilterString(@ptrCast(self), @ptrCast(view), @ptrCast(range), @ptrCast(position));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__codecompletionmodelcontrollerinterface.FilterString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -255,6 +271,10 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
         qtc.KTextEditor__CodeCompletionModelControllerInterface_OnShouldAbortCompletion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperShouldAbortCompletion` instead
+    ///
+    pub const QBaseShouldAbortCompletion = SuperShouldAbortCompletion;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#shouldAbortCompletion)
     ///
     /// Base class method implementation
@@ -269,12 +289,12 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
     ///
     /// ` currentCompletion: []const u8 `
     ///
-    pub fn QBaseShouldAbortCompletion(self: ?*anyopaque, view: ?*anyopaque, range: ?*anyopaque, currentCompletion: []const u8) bool {
+    pub fn SuperShouldAbortCompletion(self: ?*anyopaque, view: ?*anyopaque, range: ?*anyopaque, currentCompletion: []const u8) bool {
         const currentCompletion_str = qtc.libqt_string{
             .len = currentCompletion.len,
             .data = currentCompletion.ptr,
         };
-        return qtc.KTextEditor__CodeCompletionModelControllerInterface_QBaseShouldAbortCompletion(@ptrCast(self), @ptrCast(view), @ptrCast(range), currentCompletion_str);
+        return qtc.KTextEditor__CodeCompletionModelControllerInterface_SuperShouldAbortCompletion(@ptrCast(self), @ptrCast(view), @ptrCast(range), currentCompletion_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#shouldExecute)
@@ -305,6 +325,10 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
         qtc.KTextEditor__CodeCompletionModelControllerInterface_OnShouldExecute(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperShouldExecute` instead
+    ///
+    pub const QBaseShouldExecute = SuperShouldExecute;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#shouldExecute)
     ///
     /// Base class method implementation
@@ -317,8 +341,8 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
     ///
     /// ` inserted: QtC.QChar `
     ///
-    pub fn QBaseShouldExecute(self: ?*anyopaque, selected: ?*anyopaque, inserted: QtC.QChar) bool {
-        return qtc.KTextEditor__CodeCompletionModelControllerInterface_QBaseShouldExecute(@ptrCast(self), @ptrCast(selected), @ptrCast(inserted));
+    pub fn SuperShouldExecute(self: ?*anyopaque, selected: ?*anyopaque, inserted: QtC.QChar) bool {
+        return qtc.KTextEditor__CodeCompletionModelControllerInterface_SuperShouldExecute(@ptrCast(self), @ptrCast(selected), @ptrCast(inserted));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#aborted)
@@ -347,6 +371,10 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
         qtc.KTextEditor__CodeCompletionModelControllerInterface_OnAborted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAborted` instead
+    ///
+    pub const QBaseAborted = SuperAborted;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#aborted)
     ///
     /// Base class method implementation
@@ -357,8 +385,8 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
     ///
     /// ` view: QtC.KTextEditor__View `
     ///
-    pub fn QBaseAborted(self: ?*anyopaque, view: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModelControllerInterface_QBaseAborted(@ptrCast(self), @ptrCast(view));
+    pub fn SuperAborted(self: ?*anyopaque, view: ?*anyopaque) void {
+        qtc.KTextEditor__CodeCompletionModelControllerInterface_SuperAborted(@ptrCast(self), @ptrCast(view));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#matchingItem)
@@ -391,6 +419,10 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
         qtc.KTextEditor__CodeCompletionModelControllerInterface_OnMatchingItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMatchingItem` instead
+    ///
+    pub const QBaseMatchingItem = SuperMatchingItem;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#matchingItem)
     ///
     /// Base class method implementation
@@ -405,8 +437,8 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
     ///
     /// ` codecompletionmodelcontrollerinterface_enums.MatchReaction `
     ///
-    pub fn QBaseMatchingItem(self: ?*anyopaque, matched: ?*anyopaque) i32 {
-        return qtc.KTextEditor__CodeCompletionModelControllerInterface_QBaseMatchingItem(@ptrCast(self), @ptrCast(matched));
+    pub fn SuperMatchingItem(self: ?*anyopaque, matched: ?*anyopaque) i32 {
+        return qtc.KTextEditor__CodeCompletionModelControllerInterface_SuperMatchingItem(@ptrCast(self), @ptrCast(matched));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#shouldHideItemsWithEqualNames)
@@ -433,6 +465,10 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
         qtc.KTextEditor__CodeCompletionModelControllerInterface_OnShouldHideItemsWithEqualNames(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperShouldHideItemsWithEqualNames` instead
+    ///
+    pub const QBaseShouldHideItemsWithEqualNames = SuperShouldHideItemsWithEqualNames;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#shouldHideItemsWithEqualNames)
     ///
     /// Base class method implementation
@@ -441,8 +477,8 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
     ///
     /// ` self: QtC.KTextEditor__CodeCompletionModelControllerInterface `
     ///
-    pub fn QBaseShouldHideItemsWithEqualNames(self: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModelControllerInterface_QBaseShouldHideItemsWithEqualNames(@ptrCast(self));
+    pub fn SuperShouldHideItemsWithEqualNames(self: ?*anyopaque) bool {
+        return qtc.KTextEditor__CodeCompletionModelControllerInterface_SuperShouldHideItemsWithEqualNames(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#operator-eq)
@@ -457,13 +493,17 @@ pub const ktexteditor__codecompletionmodelcontrollerinterface = struct {
         qtc.KTextEditor__CodeCompletionModelControllerInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KTextEditor__CodeCompletionModelControllerInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KTextEditor__CodeCompletionModelControllerInterface_Delete(@ptrCast(self));
     }
 };

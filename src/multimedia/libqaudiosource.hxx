@@ -332,23 +332,23 @@ class VirtualQAudioSource final : public QAudioSource {
 
     // Friend functions
     friend void QAudioSource_TimerEvent(QAudioSource* self, QTimerEvent* event);
-    friend void QAudioSource_QBaseTimerEvent(QAudioSource* self, QTimerEvent* event);
+    friend void QAudioSource_SuperTimerEvent(QAudioSource* self, QTimerEvent* event);
     friend void QAudioSource_ChildEvent(QAudioSource* self, QChildEvent* event);
-    friend void QAudioSource_QBaseChildEvent(QAudioSource* self, QChildEvent* event);
+    friend void QAudioSource_SuperChildEvent(QAudioSource* self, QChildEvent* event);
     friend void QAudioSource_CustomEvent(QAudioSource* self, QEvent* event);
-    friend void QAudioSource_QBaseCustomEvent(QAudioSource* self, QEvent* event);
+    friend void QAudioSource_SuperCustomEvent(QAudioSource* self, QEvent* event);
     friend void QAudioSource_ConnectNotify(QAudioSource* self, const QMetaMethod* signal);
-    friend void QAudioSource_QBaseConnectNotify(QAudioSource* self, const QMetaMethod* signal);
+    friend void QAudioSource_SuperConnectNotify(QAudioSource* self, const QMetaMethod* signal);
     friend void QAudioSource_DisconnectNotify(QAudioSource* self, const QMetaMethod* signal);
-    friend void QAudioSource_QBaseDisconnectNotify(QAudioSource* self, const QMetaMethod* signal);
+    friend void QAudioSource_SuperDisconnectNotify(QAudioSource* self, const QMetaMethod* signal);
     friend QObject* QAudioSource_Sender(const QAudioSource* self);
-    friend QObject* QAudioSource_QBaseSender(const QAudioSource* self);
+    friend QObject* QAudioSource_SuperSender(const QAudioSource* self);
     friend int QAudioSource_SenderSignalIndex(const QAudioSource* self);
-    friend int QAudioSource_QBaseSenderSignalIndex(const QAudioSource* self);
+    friend int QAudioSource_SuperSenderSignalIndex(const QAudioSource* self);
     friend int QAudioSource_Receivers(const QAudioSource* self, const char* signal);
-    friend int QAudioSource_QBaseReceivers(const QAudioSource* self, const char* signal);
+    friend int QAudioSource_SuperReceivers(const QAudioSource* self, const char* signal);
     friend bool QAudioSource_IsSignalConnected(const QAudioSource* self, const QMetaMethod* signal);
-    friend bool QAudioSource_QBaseIsSignalConnected(const QAudioSource* self, const QMetaMethod* signal);
+    friend bool QAudioSource_SuperIsSignalConnected(const QAudioSource* self, const QMetaMethod* signal);
 };
 
 #endif

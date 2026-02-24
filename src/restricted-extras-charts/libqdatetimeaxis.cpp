@@ -174,7 +174,7 @@ void QDateTimeAxis_Connect_TickCountChanged(QDateTimeAxis* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-QMetaObject* QDateTimeAxis_QBaseMetaObject(const QDateTimeAxis* self) {
+QMetaObject* QDateTimeAxis_SuperMetaObject(const QDateTimeAxis* self) {
     auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
     if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_MetaObject_IsBase(true);
@@ -193,7 +193,7 @@ void QDateTimeAxis_OnMetaObject(const QDateTimeAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QDateTimeAxis_QBaseMetacast(QDateTimeAxis* self, const char* param1) {
+void* QDateTimeAxis_SuperMetacast(QDateTimeAxis* self, const char* param1) {
     auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
     if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_Metacast_IsBase(true);
@@ -212,7 +212,7 @@ void QDateTimeAxis_OnMetacast(QDateTimeAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QDateTimeAxis_QBaseMetacall(QDateTimeAxis* self, int param1, int param2, void** param3) {
+int QDateTimeAxis_SuperMetacall(QDateTimeAxis* self, int param1, int param2, void** param3) {
     auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
     if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_Metacall_IsBase(true);
@@ -231,7 +231,7 @@ void QDateTimeAxis_OnMetacall(QDateTimeAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QDateTimeAxis_QBaseType(const QDateTimeAxis* self) {
+int QDateTimeAxis_SuperType(const QDateTimeAxis* self) {
     auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
     if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_Type_IsBase(true);
@@ -260,7 +260,7 @@ bool QDateTimeAxis_Event(QDateTimeAxis* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QDateTimeAxis_QBaseEvent(QDateTimeAxis* self, QEvent* event) {
+bool QDateTimeAxis_SuperEvent(QDateTimeAxis* self, QEvent* event) {
     auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
     if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_Event_IsBase(true);
@@ -289,7 +289,7 @@ bool QDateTimeAxis_EventFilter(QDateTimeAxis* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QDateTimeAxis_QBaseEventFilter(QDateTimeAxis* self, QObject* watched, QEvent* event) {
+bool QDateTimeAxis_SuperEventFilter(QDateTimeAxis* self, QObject* watched, QEvent* event) {
     auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
     if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_EventFilter_IsBase(true);
@@ -318,7 +318,7 @@ void QDateTimeAxis_TimerEvent(QDateTimeAxis* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeAxis_QBaseTimerEvent(QDateTimeAxis* self, QTimerEvent* event) {
+void QDateTimeAxis_SuperTimerEvent(QDateTimeAxis* self, QTimerEvent* event) {
     auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
     if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_TimerEvent_IsBase(true);
@@ -347,7 +347,7 @@ void QDateTimeAxis_ChildEvent(QDateTimeAxis* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeAxis_QBaseChildEvent(QDateTimeAxis* self, QChildEvent* event) {
+void QDateTimeAxis_SuperChildEvent(QDateTimeAxis* self, QChildEvent* event) {
     auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
     if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_ChildEvent_IsBase(true);
@@ -376,7 +376,7 @@ void QDateTimeAxis_CustomEvent(QDateTimeAxis* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeAxis_QBaseCustomEvent(QDateTimeAxis* self, QEvent* event) {
+void QDateTimeAxis_SuperCustomEvent(QDateTimeAxis* self, QEvent* event) {
     auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
     if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_CustomEvent_IsBase(true);
@@ -405,7 +405,7 @@ void QDateTimeAxis_ConnectNotify(QDateTimeAxis* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QDateTimeAxis_QBaseConnectNotify(QDateTimeAxis* self, const QMetaMethod* signal) {
+void QDateTimeAxis_SuperConnectNotify(QDateTimeAxis* self, const QMetaMethod* signal) {
     auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
     if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_ConnectNotify_IsBase(true);
@@ -434,7 +434,7 @@ void QDateTimeAxis_DisconnectNotify(QDateTimeAxis* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QDateTimeAxis_QBaseDisconnectNotify(QDateTimeAxis* self, const QMetaMethod* signal) {
+void QDateTimeAxis_SuperDisconnectNotify(QDateTimeAxis* self, const QMetaMethod* signal) {
     auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
     if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_DisconnectNotify_IsBase(true);
@@ -463,7 +463,7 @@ QObject* QDateTimeAxis_Sender(const QDateTimeAxis* self) {
 }
 
 // Base class handler implementation
-QObject* QDateTimeAxis_QBaseSender(const QDateTimeAxis* self) {
+QObject* QDateTimeAxis_SuperSender(const QDateTimeAxis* self) {
     auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
     if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_Sender_IsBase(true);
@@ -492,7 +492,7 @@ int QDateTimeAxis_SenderSignalIndex(const QDateTimeAxis* self) {
 }
 
 // Base class handler implementation
-int QDateTimeAxis_QBaseSenderSignalIndex(const QDateTimeAxis* self) {
+int QDateTimeAxis_SuperSenderSignalIndex(const QDateTimeAxis* self) {
     auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
     if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_SenderSignalIndex_IsBase(true);
@@ -521,7 +521,7 @@ int QDateTimeAxis_Receivers(const QDateTimeAxis* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QDateTimeAxis_QBaseReceivers(const QDateTimeAxis* self, const char* signal) {
+int QDateTimeAxis_SuperReceivers(const QDateTimeAxis* self, const char* signal) {
     auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
     if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_Receivers_IsBase(true);
@@ -550,7 +550,7 @@ bool QDateTimeAxis_IsSignalConnected(const QDateTimeAxis* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QDateTimeAxis_QBaseIsSignalConnected(const QDateTimeAxis* self, const QMetaMethod* signal) {
+bool QDateTimeAxis_SuperIsSignalConnected(const QDateTimeAxis* self, const QMetaMethod* signal) {
     auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
     if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
         vqdatetimeaxis->setQDateTimeAxis_IsSignalConnected_IsBase(true);

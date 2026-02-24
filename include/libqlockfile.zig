@@ -172,6 +172,10 @@ pub const qlockfile = struct {
         return qtc.QLockFile_TryLock1(@ptrCast(self), @bitCast(timeout));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlockfile.html#dtor.QLockFile)
     ///
     /// Delete this object from C++ memory.
@@ -180,7 +184,7 @@ pub const qlockfile = struct {
     ///
     /// ` self: QtC.QLockFile `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QLockFile_Delete(@ptrCast(self));
     }
 };

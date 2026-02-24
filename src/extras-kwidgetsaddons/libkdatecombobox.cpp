@@ -315,7 +315,7 @@ void KDateComboBox_SetMaximumDate2(KDateComboBox* self, const QDate* maxDate, co
 }
 
 // Base class handler implementation
-QMetaObject* KDateComboBox_QBaseMetaObject(const KDateComboBox* self) {
+QMetaObject* KDateComboBox_SuperMetaObject(const KDateComboBox* self) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_MetaObject_IsBase(true);
@@ -334,7 +334,7 @@ void KDateComboBox_OnMetaObject(const KDateComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KDateComboBox_QBaseMetacast(KDateComboBox* self, const char* param1) {
+void* KDateComboBox_SuperMetacast(KDateComboBox* self, const char* param1) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_Metacast_IsBase(true);
@@ -353,7 +353,7 @@ void KDateComboBox_OnMetacast(KDateComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KDateComboBox_QBaseMetacall(KDateComboBox* self, int param1, int param2, void** param3) {
+int KDateComboBox_SuperMetacall(KDateComboBox* self, int param1, int param2, void** param3) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_Metacall_IsBase(true);
@@ -372,7 +372,7 @@ void KDateComboBox_OnMetacall(KDateComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KDateComboBox_QBaseEventFilter(KDateComboBox* self, QObject* object, QEvent* event) {
+bool KDateComboBox_SuperEventFilter(KDateComboBox* self, QObject* object, QEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_EventFilter_IsBase(true);
@@ -391,7 +391,7 @@ void KDateComboBox_OnEventFilter(KDateComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseShowPopup(KDateComboBox* self) {
+void KDateComboBox_SuperShowPopup(KDateComboBox* self) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_ShowPopup_IsBase(true);
@@ -410,7 +410,7 @@ void KDateComboBox_OnShowPopup(KDateComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseHidePopup(KDateComboBox* self) {
+void KDateComboBox_SuperHidePopup(KDateComboBox* self) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_HidePopup_IsBase(true);
@@ -429,7 +429,7 @@ void KDateComboBox_OnHidePopup(KDateComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseMousePressEvent(KDateComboBox* self, QMouseEvent* event) {
+void KDateComboBox_SuperMousePressEvent(KDateComboBox* self, QMouseEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_MousePressEvent_IsBase(true);
@@ -448,7 +448,7 @@ void KDateComboBox_OnMousePressEvent(KDateComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseWheelEvent(KDateComboBox* self, QWheelEvent* event) {
+void KDateComboBox_SuperWheelEvent(KDateComboBox* self, QWheelEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_WheelEvent_IsBase(true);
@@ -467,7 +467,7 @@ void KDateComboBox_OnWheelEvent(KDateComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseKeyPressEvent(KDateComboBox* self, QKeyEvent* event) {
+void KDateComboBox_SuperKeyPressEvent(KDateComboBox* self, QKeyEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_KeyPressEvent_IsBase(true);
@@ -486,7 +486,7 @@ void KDateComboBox_OnKeyPressEvent(KDateComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseFocusInEvent(KDateComboBox* self, QFocusEvent* event) {
+void KDateComboBox_SuperFocusInEvent(KDateComboBox* self, QFocusEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_FocusInEvent_IsBase(true);
@@ -505,7 +505,7 @@ void KDateComboBox_OnFocusInEvent(KDateComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseFocusOutEvent(KDateComboBox* self, QFocusEvent* event) {
+void KDateComboBox_SuperFocusOutEvent(KDateComboBox* self, QFocusEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_FocusOutEvent_IsBase(true);
@@ -524,7 +524,7 @@ void KDateComboBox_OnFocusOutEvent(KDateComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseResizeEvent(KDateComboBox* self, QResizeEvent* event) {
+void KDateComboBox_SuperResizeEvent(KDateComboBox* self, QResizeEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_ResizeEvent_IsBase(true);
@@ -543,7 +543,7 @@ void KDateComboBox_OnResizeEvent(KDateComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseAssignDate(KDateComboBox* self, const QDate* date) {
+void KDateComboBox_SuperAssignDate(KDateComboBox* self, const QDate* date) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_AssignDate_IsBase(true);
@@ -572,7 +572,7 @@ void KDateComboBox_SetModel(KDateComboBox* self, QAbstractItemModel* model) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseSetModel(KDateComboBox* self, QAbstractItemModel* model) {
+void KDateComboBox_SuperSetModel(KDateComboBox* self, QAbstractItemModel* model) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_SetModel_IsBase(true);
@@ -601,7 +601,7 @@ QSize* KDateComboBox_SizeHint(const KDateComboBox* self) {
 }
 
 // Base class handler implementation
-QSize* KDateComboBox_QBaseSizeHint(const KDateComboBox* self) {
+QSize* KDateComboBox_SuperSizeHint(const KDateComboBox* self) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_SizeHint_IsBase(true);
@@ -630,7 +630,7 @@ QSize* KDateComboBox_MinimumSizeHint(const KDateComboBox* self) {
 }
 
 // Base class handler implementation
-QSize* KDateComboBox_QBaseMinimumSizeHint(const KDateComboBox* self) {
+QSize* KDateComboBox_SuperMinimumSizeHint(const KDateComboBox* self) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_MinimumSizeHint_IsBase(true);
@@ -659,7 +659,7 @@ bool KDateComboBox_Event(KDateComboBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KDateComboBox_QBaseEvent(KDateComboBox* self, QEvent* event) {
+bool KDateComboBox_SuperEvent(KDateComboBox* self, QEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_Event_IsBase(true);
@@ -688,7 +688,7 @@ QVariant* KDateComboBox_InputMethodQuery(const KDateComboBox* self, int param1) 
 }
 
 // Base class handler implementation
-QVariant* KDateComboBox_QBaseInputMethodQuery(const KDateComboBox* self, int param1) {
+QVariant* KDateComboBox_SuperInputMethodQuery(const KDateComboBox* self, int param1) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_InputMethodQuery_IsBase(true);
@@ -717,7 +717,7 @@ void KDateComboBox_ChangeEvent(KDateComboBox* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseChangeEvent(KDateComboBox* self, QEvent* e) {
+void KDateComboBox_SuperChangeEvent(KDateComboBox* self, QEvent* e) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_ChangeEvent_IsBase(true);
@@ -746,7 +746,7 @@ void KDateComboBox_PaintEvent(KDateComboBox* self, QPaintEvent* e) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBasePaintEvent(KDateComboBox* self, QPaintEvent* e) {
+void KDateComboBox_SuperPaintEvent(KDateComboBox* self, QPaintEvent* e) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_PaintEvent_IsBase(true);
@@ -775,7 +775,7 @@ void KDateComboBox_ShowEvent(KDateComboBox* self, QShowEvent* e) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseShowEvent(KDateComboBox* self, QShowEvent* e) {
+void KDateComboBox_SuperShowEvent(KDateComboBox* self, QShowEvent* e) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_ShowEvent_IsBase(true);
@@ -804,7 +804,7 @@ void KDateComboBox_HideEvent(KDateComboBox* self, QHideEvent* e) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseHideEvent(KDateComboBox* self, QHideEvent* e) {
+void KDateComboBox_SuperHideEvent(KDateComboBox* self, QHideEvent* e) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_HideEvent_IsBase(true);
@@ -833,7 +833,7 @@ void KDateComboBox_MouseReleaseEvent(KDateComboBox* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseMouseReleaseEvent(KDateComboBox* self, QMouseEvent* e) {
+void KDateComboBox_SuperMouseReleaseEvent(KDateComboBox* self, QMouseEvent* e) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_MouseReleaseEvent_IsBase(true);
@@ -862,7 +862,7 @@ void KDateComboBox_KeyReleaseEvent(KDateComboBox* self, QKeyEvent* e) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseKeyReleaseEvent(KDateComboBox* self, QKeyEvent* e) {
+void KDateComboBox_SuperKeyReleaseEvent(KDateComboBox* self, QKeyEvent* e) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_KeyReleaseEvent_IsBase(true);
@@ -891,7 +891,7 @@ void KDateComboBox_ContextMenuEvent(KDateComboBox* self, QContextMenuEvent* e) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseContextMenuEvent(KDateComboBox* self, QContextMenuEvent* e) {
+void KDateComboBox_SuperContextMenuEvent(KDateComboBox* self, QContextMenuEvent* e) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_ContextMenuEvent_IsBase(true);
@@ -920,7 +920,7 @@ void KDateComboBox_InputMethodEvent(KDateComboBox* self, QInputMethodEvent* para
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseInputMethodEvent(KDateComboBox* self, QInputMethodEvent* param1) {
+void KDateComboBox_SuperInputMethodEvent(KDateComboBox* self, QInputMethodEvent* param1) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_InputMethodEvent_IsBase(true);
@@ -949,7 +949,7 @@ void KDateComboBox_InitStyleOption(const KDateComboBox* self, QStyleOptionComboB
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseInitStyleOption(const KDateComboBox* self, QStyleOptionComboBox* option) {
+void KDateComboBox_SuperInitStyleOption(const KDateComboBox* self, QStyleOptionComboBox* option) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_InitStyleOption_IsBase(true);
@@ -978,7 +978,7 @@ int KDateComboBox_DevType(const KDateComboBox* self) {
 }
 
 // Base class handler implementation
-int KDateComboBox_QBaseDevType(const KDateComboBox* self) {
+int KDateComboBox_SuperDevType(const KDateComboBox* self) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_DevType_IsBase(true);
@@ -1007,7 +1007,7 @@ void KDateComboBox_SetVisible(KDateComboBox* self, bool visible) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseSetVisible(KDateComboBox* self, bool visible) {
+void KDateComboBox_SuperSetVisible(KDateComboBox* self, bool visible) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_SetVisible_IsBase(true);
@@ -1036,7 +1036,7 @@ int KDateComboBox_HeightForWidth(const KDateComboBox* self, int param1) {
 }
 
 // Base class handler implementation
-int KDateComboBox_QBaseHeightForWidth(const KDateComboBox* self, int param1) {
+int KDateComboBox_SuperHeightForWidth(const KDateComboBox* self, int param1) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_HeightForWidth_IsBase(true);
@@ -1065,7 +1065,7 @@ bool KDateComboBox_HasHeightForWidth(const KDateComboBox* self) {
 }
 
 // Base class handler implementation
-bool KDateComboBox_QBaseHasHeightForWidth(const KDateComboBox* self) {
+bool KDateComboBox_SuperHasHeightForWidth(const KDateComboBox* self) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_HasHeightForWidth_IsBase(true);
@@ -1094,7 +1094,7 @@ QPaintEngine* KDateComboBox_PaintEngine(const KDateComboBox* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KDateComboBox_QBasePaintEngine(const KDateComboBox* self) {
+QPaintEngine* KDateComboBox_SuperPaintEngine(const KDateComboBox* self) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_PaintEngine_IsBase(true);
@@ -1123,7 +1123,7 @@ void KDateComboBox_MouseDoubleClickEvent(KDateComboBox* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseMouseDoubleClickEvent(KDateComboBox* self, QMouseEvent* event) {
+void KDateComboBox_SuperMouseDoubleClickEvent(KDateComboBox* self, QMouseEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_MouseDoubleClickEvent_IsBase(true);
@@ -1152,7 +1152,7 @@ void KDateComboBox_MouseMoveEvent(KDateComboBox* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseMouseMoveEvent(KDateComboBox* self, QMouseEvent* event) {
+void KDateComboBox_SuperMouseMoveEvent(KDateComboBox* self, QMouseEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_MouseMoveEvent_IsBase(true);
@@ -1181,7 +1181,7 @@ void KDateComboBox_EnterEvent(KDateComboBox* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseEnterEvent(KDateComboBox* self, QEnterEvent* event) {
+void KDateComboBox_SuperEnterEvent(KDateComboBox* self, QEnterEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_EnterEvent_IsBase(true);
@@ -1210,7 +1210,7 @@ void KDateComboBox_LeaveEvent(KDateComboBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseLeaveEvent(KDateComboBox* self, QEvent* event) {
+void KDateComboBox_SuperLeaveEvent(KDateComboBox* self, QEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_LeaveEvent_IsBase(true);
@@ -1239,7 +1239,7 @@ void KDateComboBox_MoveEvent(KDateComboBox* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseMoveEvent(KDateComboBox* self, QMoveEvent* event) {
+void KDateComboBox_SuperMoveEvent(KDateComboBox* self, QMoveEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_MoveEvent_IsBase(true);
@@ -1268,7 +1268,7 @@ void KDateComboBox_CloseEvent(KDateComboBox* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseCloseEvent(KDateComboBox* self, QCloseEvent* event) {
+void KDateComboBox_SuperCloseEvent(KDateComboBox* self, QCloseEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_CloseEvent_IsBase(true);
@@ -1297,7 +1297,7 @@ void KDateComboBox_TabletEvent(KDateComboBox* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseTabletEvent(KDateComboBox* self, QTabletEvent* event) {
+void KDateComboBox_SuperTabletEvent(KDateComboBox* self, QTabletEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_TabletEvent_IsBase(true);
@@ -1326,7 +1326,7 @@ void KDateComboBox_ActionEvent(KDateComboBox* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseActionEvent(KDateComboBox* self, QActionEvent* event) {
+void KDateComboBox_SuperActionEvent(KDateComboBox* self, QActionEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_ActionEvent_IsBase(true);
@@ -1355,7 +1355,7 @@ void KDateComboBox_DragEnterEvent(KDateComboBox* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseDragEnterEvent(KDateComboBox* self, QDragEnterEvent* event) {
+void KDateComboBox_SuperDragEnterEvent(KDateComboBox* self, QDragEnterEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_DragEnterEvent_IsBase(true);
@@ -1384,7 +1384,7 @@ void KDateComboBox_DragMoveEvent(KDateComboBox* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseDragMoveEvent(KDateComboBox* self, QDragMoveEvent* event) {
+void KDateComboBox_SuperDragMoveEvent(KDateComboBox* self, QDragMoveEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_DragMoveEvent_IsBase(true);
@@ -1413,7 +1413,7 @@ void KDateComboBox_DragLeaveEvent(KDateComboBox* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseDragLeaveEvent(KDateComboBox* self, QDragLeaveEvent* event) {
+void KDateComboBox_SuperDragLeaveEvent(KDateComboBox* self, QDragLeaveEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_DragLeaveEvent_IsBase(true);
@@ -1442,7 +1442,7 @@ void KDateComboBox_DropEvent(KDateComboBox* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseDropEvent(KDateComboBox* self, QDropEvent* event) {
+void KDateComboBox_SuperDropEvent(KDateComboBox* self, QDropEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_DropEvent_IsBase(true);
@@ -1472,7 +1472,7 @@ bool KDateComboBox_NativeEvent(KDateComboBox* self, const libqt_string eventType
 }
 
 // Base class handler implementation
-bool KDateComboBox_QBaseNativeEvent(KDateComboBox* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KDateComboBox_SuperNativeEvent(KDateComboBox* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
@@ -1502,7 +1502,7 @@ int KDateComboBox_Metric(const KDateComboBox* self, int param1) {
 }
 
 // Base class handler implementation
-int KDateComboBox_QBaseMetric(const KDateComboBox* self, int param1) {
+int KDateComboBox_SuperMetric(const KDateComboBox* self, int param1) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_Metric_IsBase(true);
@@ -1531,7 +1531,7 @@ void KDateComboBox_InitPainter(const KDateComboBox* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseInitPainter(const KDateComboBox* self, QPainter* painter) {
+void KDateComboBox_SuperInitPainter(const KDateComboBox* self, QPainter* painter) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_InitPainter_IsBase(true);
@@ -1560,7 +1560,7 @@ QPaintDevice* KDateComboBox_Redirected(const KDateComboBox* self, QPoint* offset
 }
 
 // Base class handler implementation
-QPaintDevice* KDateComboBox_QBaseRedirected(const KDateComboBox* self, QPoint* offset) {
+QPaintDevice* KDateComboBox_SuperRedirected(const KDateComboBox* self, QPoint* offset) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_Redirected_IsBase(true);
@@ -1589,7 +1589,7 @@ QPainter* KDateComboBox_SharedPainter(const KDateComboBox* self) {
 }
 
 // Base class handler implementation
-QPainter* KDateComboBox_QBaseSharedPainter(const KDateComboBox* self) {
+QPainter* KDateComboBox_SuperSharedPainter(const KDateComboBox* self) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_SharedPainter_IsBase(true);
@@ -1618,7 +1618,7 @@ bool KDateComboBox_FocusNextPrevChild(KDateComboBox* self, bool next) {
 }
 
 // Base class handler implementation
-bool KDateComboBox_QBaseFocusNextPrevChild(KDateComboBox* self, bool next) {
+bool KDateComboBox_SuperFocusNextPrevChild(KDateComboBox* self, bool next) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_FocusNextPrevChild_IsBase(true);
@@ -1647,7 +1647,7 @@ void KDateComboBox_TimerEvent(KDateComboBox* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseTimerEvent(KDateComboBox* self, QTimerEvent* event) {
+void KDateComboBox_SuperTimerEvent(KDateComboBox* self, QTimerEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_TimerEvent_IsBase(true);
@@ -1676,7 +1676,7 @@ void KDateComboBox_ChildEvent(KDateComboBox* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseChildEvent(KDateComboBox* self, QChildEvent* event) {
+void KDateComboBox_SuperChildEvent(KDateComboBox* self, QChildEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_ChildEvent_IsBase(true);
@@ -1705,7 +1705,7 @@ void KDateComboBox_CustomEvent(KDateComboBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseCustomEvent(KDateComboBox* self, QEvent* event) {
+void KDateComboBox_SuperCustomEvent(KDateComboBox* self, QEvent* event) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_CustomEvent_IsBase(true);
@@ -1734,7 +1734,7 @@ void KDateComboBox_ConnectNotify(KDateComboBox* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseConnectNotify(KDateComboBox* self, const QMetaMethod* signal) {
+void KDateComboBox_SuperConnectNotify(KDateComboBox* self, const QMetaMethod* signal) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_ConnectNotify_IsBase(true);
@@ -1763,7 +1763,7 @@ void KDateComboBox_DisconnectNotify(KDateComboBox* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseDisconnectNotify(KDateComboBox* self, const QMetaMethod* signal) {
+void KDateComboBox_SuperDisconnectNotify(KDateComboBox* self, const QMetaMethod* signal) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_DisconnectNotify_IsBase(true);
@@ -1792,7 +1792,7 @@ void KDateComboBox_UpdateMicroFocus(KDateComboBox* self) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseUpdateMicroFocus(KDateComboBox* self) {
+void KDateComboBox_SuperUpdateMicroFocus(KDateComboBox* self) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_UpdateMicroFocus_IsBase(true);
@@ -1821,7 +1821,7 @@ void KDateComboBox_Create(KDateComboBox* self) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseCreate(KDateComboBox* self) {
+void KDateComboBox_SuperCreate(KDateComboBox* self) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_Create_IsBase(true);
@@ -1850,7 +1850,7 @@ void KDateComboBox_Destroy(KDateComboBox* self) {
 }
 
 // Base class handler implementation
-void KDateComboBox_QBaseDestroy(KDateComboBox* self) {
+void KDateComboBox_SuperDestroy(KDateComboBox* self) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_Destroy_IsBase(true);
@@ -1879,7 +1879,7 @@ bool KDateComboBox_FocusNextChild(KDateComboBox* self) {
 }
 
 // Base class handler implementation
-bool KDateComboBox_QBaseFocusNextChild(KDateComboBox* self) {
+bool KDateComboBox_SuperFocusNextChild(KDateComboBox* self) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_FocusNextChild_IsBase(true);
@@ -1908,7 +1908,7 @@ bool KDateComboBox_FocusPreviousChild(KDateComboBox* self) {
 }
 
 // Base class handler implementation
-bool KDateComboBox_QBaseFocusPreviousChild(KDateComboBox* self) {
+bool KDateComboBox_SuperFocusPreviousChild(KDateComboBox* self) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_FocusPreviousChild_IsBase(true);
@@ -1937,7 +1937,7 @@ QObject* KDateComboBox_Sender(const KDateComboBox* self) {
 }
 
 // Base class handler implementation
-QObject* KDateComboBox_QBaseSender(const KDateComboBox* self) {
+QObject* KDateComboBox_SuperSender(const KDateComboBox* self) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_Sender_IsBase(true);
@@ -1966,7 +1966,7 @@ int KDateComboBox_SenderSignalIndex(const KDateComboBox* self) {
 }
 
 // Base class handler implementation
-int KDateComboBox_QBaseSenderSignalIndex(const KDateComboBox* self) {
+int KDateComboBox_SuperSenderSignalIndex(const KDateComboBox* self) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_SenderSignalIndex_IsBase(true);
@@ -1995,7 +1995,7 @@ int KDateComboBox_Receivers(const KDateComboBox* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KDateComboBox_QBaseReceivers(const KDateComboBox* self, const char* signal) {
+int KDateComboBox_SuperReceivers(const KDateComboBox* self, const char* signal) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_Receivers_IsBase(true);
@@ -2024,7 +2024,7 @@ bool KDateComboBox_IsSignalConnected(const KDateComboBox* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool KDateComboBox_QBaseIsSignalConnected(const KDateComboBox* self, const QMetaMethod* signal) {
+bool KDateComboBox_SuperIsSignalConnected(const KDateComboBox* self, const QMetaMethod* signal) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_IsSignalConnected_IsBase(true);
@@ -2053,7 +2053,7 @@ double KDateComboBox_GetDecodedMetricF(const KDateComboBox* self, int metricA, i
 }
 
 // Base class handler implementation
-double KDateComboBox_QBaseGetDecodedMetricF(const KDateComboBox* self, int metricA, int metricB) {
+double KDateComboBox_SuperGetDecodedMetricF(const KDateComboBox* self, int metricA, int metricB) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->setKDateComboBox_GetDecodedMetricF_IsBase(true);

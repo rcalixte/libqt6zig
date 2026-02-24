@@ -330,23 +330,23 @@ class VirtualQFileSystemWatcher final : public QFileSystemWatcher {
 
     // Friend functions
     friend void QFileSystemWatcher_TimerEvent(QFileSystemWatcher* self, QTimerEvent* event);
-    friend void QFileSystemWatcher_QBaseTimerEvent(QFileSystemWatcher* self, QTimerEvent* event);
+    friend void QFileSystemWatcher_SuperTimerEvent(QFileSystemWatcher* self, QTimerEvent* event);
     friend void QFileSystemWatcher_ChildEvent(QFileSystemWatcher* self, QChildEvent* event);
-    friend void QFileSystemWatcher_QBaseChildEvent(QFileSystemWatcher* self, QChildEvent* event);
+    friend void QFileSystemWatcher_SuperChildEvent(QFileSystemWatcher* self, QChildEvent* event);
     friend void QFileSystemWatcher_CustomEvent(QFileSystemWatcher* self, QEvent* event);
-    friend void QFileSystemWatcher_QBaseCustomEvent(QFileSystemWatcher* self, QEvent* event);
+    friend void QFileSystemWatcher_SuperCustomEvent(QFileSystemWatcher* self, QEvent* event);
     friend void QFileSystemWatcher_ConnectNotify(QFileSystemWatcher* self, const QMetaMethod* signal);
-    friend void QFileSystemWatcher_QBaseConnectNotify(QFileSystemWatcher* self, const QMetaMethod* signal);
+    friend void QFileSystemWatcher_SuperConnectNotify(QFileSystemWatcher* self, const QMetaMethod* signal);
     friend void QFileSystemWatcher_DisconnectNotify(QFileSystemWatcher* self, const QMetaMethod* signal);
-    friend void QFileSystemWatcher_QBaseDisconnectNotify(QFileSystemWatcher* self, const QMetaMethod* signal);
+    friend void QFileSystemWatcher_SuperDisconnectNotify(QFileSystemWatcher* self, const QMetaMethod* signal);
     friend QObject* QFileSystemWatcher_Sender(const QFileSystemWatcher* self);
-    friend QObject* QFileSystemWatcher_QBaseSender(const QFileSystemWatcher* self);
+    friend QObject* QFileSystemWatcher_SuperSender(const QFileSystemWatcher* self);
     friend int QFileSystemWatcher_SenderSignalIndex(const QFileSystemWatcher* self);
-    friend int QFileSystemWatcher_QBaseSenderSignalIndex(const QFileSystemWatcher* self);
+    friend int QFileSystemWatcher_SuperSenderSignalIndex(const QFileSystemWatcher* self);
     friend int QFileSystemWatcher_Receivers(const QFileSystemWatcher* self, const char* signal);
-    friend int QFileSystemWatcher_QBaseReceivers(const QFileSystemWatcher* self, const char* signal);
+    friend int QFileSystemWatcher_SuperReceivers(const QFileSystemWatcher* self, const char* signal);
     friend bool QFileSystemWatcher_IsSignalConnected(const QFileSystemWatcher* self, const QMetaMethod* signal);
-    friend bool QFileSystemWatcher_QBaseIsSignalConnected(const QFileSystemWatcher* self, const QMetaMethod* signal);
+    friend bool QFileSystemWatcher_SuperIsSignalConnected(const QFileSystemWatcher* self, const QMetaMethod* signal);
 };
 
 #endif

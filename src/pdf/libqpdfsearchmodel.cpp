@@ -213,7 +213,7 @@ void QPdfSearchModel_TimerEvent(QPdfSearchModel* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-QMetaObject* QPdfSearchModel_QBaseMetaObject(const QPdfSearchModel* self) {
+QMetaObject* QPdfSearchModel_SuperMetaObject(const QPdfSearchModel* self) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_MetaObject_IsBase(true);
@@ -232,7 +232,7 @@ void QPdfSearchModel_OnMetaObject(const QPdfSearchModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QPdfSearchModel_QBaseMetacast(QPdfSearchModel* self, const char* param1) {
+void* QPdfSearchModel_SuperMetacast(QPdfSearchModel* self, const char* param1) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_Metacast_IsBase(true);
@@ -251,7 +251,7 @@ void QPdfSearchModel_OnMetacast(QPdfSearchModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPdfSearchModel_QBaseMetacall(QPdfSearchModel* self, int param1, int param2, void** param3) {
+int QPdfSearchModel_SuperMetacall(QPdfSearchModel* self, int param1, int param2, void** param3) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_Metacall_IsBase(true);
@@ -270,7 +270,7 @@ void QPdfSearchModel_OnMetacall(QPdfSearchModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ QPdfSearchModel_QBaseRoleNames(const QPdfSearchModel* self) {
+libqt_map /* of int to libqt_string */ QPdfSearchModel_SuperRoleNames(const QPdfSearchModel* self) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_RoleNames_IsBase(true);
@@ -327,7 +327,7 @@ void QPdfSearchModel_OnRoleNames(const QPdfSearchModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPdfSearchModel_QBaseRowCount(const QPdfSearchModel* self, const QModelIndex* parent) {
+int QPdfSearchModel_SuperRowCount(const QPdfSearchModel* self, const QModelIndex* parent) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_RowCount_IsBase(true);
@@ -346,7 +346,7 @@ void QPdfSearchModel_OnRowCount(const QPdfSearchModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QPdfSearchModel_QBaseData(const QPdfSearchModel* self, const QModelIndex* index, int role) {
+QVariant* QPdfSearchModel_SuperData(const QPdfSearchModel* self, const QModelIndex* index, int role) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_Data_IsBase(true);
@@ -365,7 +365,7 @@ void QPdfSearchModel_OnData(const QPdfSearchModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseTimerEvent(QPdfSearchModel* self, QTimerEvent* event) {
+void QPdfSearchModel_SuperTimerEvent(QPdfSearchModel* self, QTimerEvent* event) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_TimerEvent_IsBase(true);
@@ -394,7 +394,7 @@ QModelIndex* QPdfSearchModel_Index(const QPdfSearchModel* self, int row, int col
 }
 
 // Base class handler implementation
-QModelIndex* QPdfSearchModel_QBaseIndex(const QPdfSearchModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* QPdfSearchModel_SuperIndex(const QPdfSearchModel* self, int row, int column, const QModelIndex* parent) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_Index_IsBase(true);
@@ -423,7 +423,7 @@ QModelIndex* QPdfSearchModel_Sibling(const QPdfSearchModel* self, int row, int c
 }
 
 // Base class handler implementation
-QModelIndex* QPdfSearchModel_QBaseSibling(const QPdfSearchModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* QPdfSearchModel_SuperSibling(const QPdfSearchModel* self, int row, int column, const QModelIndex* idx) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_Sibling_IsBase(true);
@@ -452,7 +452,7 @@ bool QPdfSearchModel_DropMimeData(QPdfSearchModel* self, const QMimeData* data, 
 }
 
 // Base class handler implementation
-bool QPdfSearchModel_QBaseDropMimeData(QPdfSearchModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QPdfSearchModel_SuperDropMimeData(QPdfSearchModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_DropMimeData_IsBase(true);
@@ -481,7 +481,7 @@ int QPdfSearchModel_Flags(const QPdfSearchModel* self, const QModelIndex* index)
 }
 
 // Base class handler implementation
-int QPdfSearchModel_QBaseFlags(const QPdfSearchModel* self, const QModelIndex* index) {
+int QPdfSearchModel_SuperFlags(const QPdfSearchModel* self, const QModelIndex* index) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_Flags_IsBase(true);
@@ -510,7 +510,7 @@ bool QPdfSearchModel_SetData(QPdfSearchModel* self, const QModelIndex* index, co
 }
 
 // Base class handler implementation
-bool QPdfSearchModel_QBaseSetData(QPdfSearchModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool QPdfSearchModel_SuperSetData(QPdfSearchModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_SetData_IsBase(true);
@@ -539,7 +539,7 @@ QVariant* QPdfSearchModel_HeaderData(const QPdfSearchModel* self, int section, i
 }
 
 // Base class handler implementation
-QVariant* QPdfSearchModel_QBaseHeaderData(const QPdfSearchModel* self, int section, int orientation, int role) {
+QVariant* QPdfSearchModel_SuperHeaderData(const QPdfSearchModel* self, int section, int orientation, int role) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_HeaderData_IsBase(true);
@@ -568,7 +568,7 @@ bool QPdfSearchModel_SetHeaderData(QPdfSearchModel* self, int section, int orien
 }
 
 // Base class handler implementation
-bool QPdfSearchModel_QBaseSetHeaderData(QPdfSearchModel* self, int section, int orientation, const QVariant* value, int role) {
+bool QPdfSearchModel_SuperSetHeaderData(QPdfSearchModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_SetHeaderData_IsBase(true);
@@ -625,7 +625,7 @@ libqt_map /* of int to QVariant* */ QPdfSearchModel_ItemData(const QPdfSearchMod
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ QPdfSearchModel_QBaseItemData(const QPdfSearchModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ QPdfSearchModel_SuperItemData(const QPdfSearchModel* self, const QModelIndex* index) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_ItemData_IsBase(true);
@@ -688,7 +688,7 @@ bool QPdfSearchModel_SetItemData(QPdfSearchModel* self, const QModelIndex* index
 }
 
 // Base class handler implementation
-bool QPdfSearchModel_QBaseSetItemData(QPdfSearchModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool QPdfSearchModel_SuperSetItemData(QPdfSearchModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -723,7 +723,7 @@ bool QPdfSearchModel_ClearItemData(QPdfSearchModel* self, const QModelIndex* ind
 }
 
 // Base class handler implementation
-bool QPdfSearchModel_QBaseClearItemData(QPdfSearchModel* self, const QModelIndex* index) {
+bool QPdfSearchModel_SuperClearItemData(QPdfSearchModel* self, const QModelIndex* index) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_ClearItemData_IsBase(true);
@@ -786,7 +786,7 @@ libqt_list /* of libqt_string */ QPdfSearchModel_MimeTypes(const QPdfSearchModel
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QPdfSearchModel_QBaseMimeTypes(const QPdfSearchModel* self) {
+libqt_list /* of libqt_string */ QPdfSearchModel_SuperMimeTypes(const QPdfSearchModel* self) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_MimeTypes_IsBase(true);
@@ -855,7 +855,7 @@ QMimeData* QPdfSearchModel_MimeData(const QPdfSearchModel* self, const libqt_lis
 }
 
 // Base class handler implementation
-QMimeData* QPdfSearchModel_QBaseMimeData(const QPdfSearchModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* QPdfSearchModel_SuperMimeData(const QPdfSearchModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -890,7 +890,7 @@ bool QPdfSearchModel_CanDropMimeData(const QPdfSearchModel* self, const QMimeDat
 }
 
 // Base class handler implementation
-bool QPdfSearchModel_QBaseCanDropMimeData(const QPdfSearchModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QPdfSearchModel_SuperCanDropMimeData(const QPdfSearchModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_CanDropMimeData_IsBase(true);
@@ -919,7 +919,7 @@ int QPdfSearchModel_SupportedDropActions(const QPdfSearchModel* self) {
 }
 
 // Base class handler implementation
-int QPdfSearchModel_QBaseSupportedDropActions(const QPdfSearchModel* self) {
+int QPdfSearchModel_SuperSupportedDropActions(const QPdfSearchModel* self) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_SupportedDropActions_IsBase(true);
@@ -948,7 +948,7 @@ int QPdfSearchModel_SupportedDragActions(const QPdfSearchModel* self) {
 }
 
 // Base class handler implementation
-int QPdfSearchModel_QBaseSupportedDragActions(const QPdfSearchModel* self) {
+int QPdfSearchModel_SuperSupportedDragActions(const QPdfSearchModel* self) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_SupportedDragActions_IsBase(true);
@@ -977,7 +977,7 @@ bool QPdfSearchModel_InsertRows(QPdfSearchModel* self, int row, int count, const
 }
 
 // Base class handler implementation
-bool QPdfSearchModel_QBaseInsertRows(QPdfSearchModel* self, int row, int count, const QModelIndex* parent) {
+bool QPdfSearchModel_SuperInsertRows(QPdfSearchModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_InsertRows_IsBase(true);
@@ -1006,7 +1006,7 @@ bool QPdfSearchModel_InsertColumns(QPdfSearchModel* self, int column, int count,
 }
 
 // Base class handler implementation
-bool QPdfSearchModel_QBaseInsertColumns(QPdfSearchModel* self, int column, int count, const QModelIndex* parent) {
+bool QPdfSearchModel_SuperInsertColumns(QPdfSearchModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_InsertColumns_IsBase(true);
@@ -1035,7 +1035,7 @@ bool QPdfSearchModel_RemoveRows(QPdfSearchModel* self, int row, int count, const
 }
 
 // Base class handler implementation
-bool QPdfSearchModel_QBaseRemoveRows(QPdfSearchModel* self, int row, int count, const QModelIndex* parent) {
+bool QPdfSearchModel_SuperRemoveRows(QPdfSearchModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_RemoveRows_IsBase(true);
@@ -1064,7 +1064,7 @@ bool QPdfSearchModel_RemoveColumns(QPdfSearchModel* self, int column, int count,
 }
 
 // Base class handler implementation
-bool QPdfSearchModel_QBaseRemoveColumns(QPdfSearchModel* self, int column, int count, const QModelIndex* parent) {
+bool QPdfSearchModel_SuperRemoveColumns(QPdfSearchModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_RemoveColumns_IsBase(true);
@@ -1093,7 +1093,7 @@ bool QPdfSearchModel_MoveRows(QPdfSearchModel* self, const QModelIndex* sourcePa
 }
 
 // Base class handler implementation
-bool QPdfSearchModel_QBaseMoveRows(QPdfSearchModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QPdfSearchModel_SuperMoveRows(QPdfSearchModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_MoveRows_IsBase(true);
@@ -1122,7 +1122,7 @@ bool QPdfSearchModel_MoveColumns(QPdfSearchModel* self, const QModelIndex* sourc
 }
 
 // Base class handler implementation
-bool QPdfSearchModel_QBaseMoveColumns(QPdfSearchModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QPdfSearchModel_SuperMoveColumns(QPdfSearchModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_MoveColumns_IsBase(true);
@@ -1151,7 +1151,7 @@ void QPdfSearchModel_FetchMore(QPdfSearchModel* self, const QModelIndex* parent)
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseFetchMore(QPdfSearchModel* self, const QModelIndex* parent) {
+void QPdfSearchModel_SuperFetchMore(QPdfSearchModel* self, const QModelIndex* parent) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_FetchMore_IsBase(true);
@@ -1180,7 +1180,7 @@ bool QPdfSearchModel_CanFetchMore(const QPdfSearchModel* self, const QModelIndex
 }
 
 // Base class handler implementation
-bool QPdfSearchModel_QBaseCanFetchMore(const QPdfSearchModel* self, const QModelIndex* parent) {
+bool QPdfSearchModel_SuperCanFetchMore(const QPdfSearchModel* self, const QModelIndex* parent) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_CanFetchMore_IsBase(true);
@@ -1209,7 +1209,7 @@ void QPdfSearchModel_Sort(QPdfSearchModel* self, int column, int order) {
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseSort(QPdfSearchModel* self, int column, int order) {
+void QPdfSearchModel_SuperSort(QPdfSearchModel* self, int column, int order) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_Sort_IsBase(true);
@@ -1238,7 +1238,7 @@ QModelIndex* QPdfSearchModel_Buddy(const QPdfSearchModel* self, const QModelInde
 }
 
 // Base class handler implementation
-QModelIndex* QPdfSearchModel_QBaseBuddy(const QPdfSearchModel* self, const QModelIndex* index) {
+QModelIndex* QPdfSearchModel_SuperBuddy(const QPdfSearchModel* self, const QModelIndex* index) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_Buddy_IsBase(true);
@@ -1285,7 +1285,7 @@ libqt_list /* of QModelIndex* */ QPdfSearchModel_Match(const QPdfSearchModel* se
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QPdfSearchModel_QBaseMatch(const QPdfSearchModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ QPdfSearchModel_SuperMatch(const QPdfSearchModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_Match_IsBase(true);
@@ -1332,7 +1332,7 @@ QSize* QPdfSearchModel_Span(const QPdfSearchModel* self, const QModelIndex* inde
 }
 
 // Base class handler implementation
-QSize* QPdfSearchModel_QBaseSpan(const QPdfSearchModel* self, const QModelIndex* index) {
+QSize* QPdfSearchModel_SuperSpan(const QPdfSearchModel* self, const QModelIndex* index) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_Span_IsBase(true);
@@ -1361,7 +1361,7 @@ void QPdfSearchModel_MultiData(const QPdfSearchModel* self, const QModelIndex* i
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseMultiData(const QPdfSearchModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void QPdfSearchModel_SuperMultiData(const QPdfSearchModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_MultiData_IsBase(true);
@@ -1390,7 +1390,7 @@ bool QPdfSearchModel_Submit(QPdfSearchModel* self) {
 }
 
 // Base class handler implementation
-bool QPdfSearchModel_QBaseSubmit(QPdfSearchModel* self) {
+bool QPdfSearchModel_SuperSubmit(QPdfSearchModel* self) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_Submit_IsBase(true);
@@ -1419,7 +1419,7 @@ void QPdfSearchModel_Revert(QPdfSearchModel* self) {
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseRevert(QPdfSearchModel* self) {
+void QPdfSearchModel_SuperRevert(QPdfSearchModel* self) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_Revert_IsBase(true);
@@ -1448,7 +1448,7 @@ void QPdfSearchModel_ResetInternalData(QPdfSearchModel* self) {
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseResetInternalData(QPdfSearchModel* self) {
+void QPdfSearchModel_SuperResetInternalData(QPdfSearchModel* self) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_ResetInternalData_IsBase(true);
@@ -1477,7 +1477,7 @@ bool QPdfSearchModel_Event(QPdfSearchModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QPdfSearchModel_QBaseEvent(QPdfSearchModel* self, QEvent* event) {
+bool QPdfSearchModel_SuperEvent(QPdfSearchModel* self, QEvent* event) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_Event_IsBase(true);
@@ -1506,7 +1506,7 @@ bool QPdfSearchModel_EventFilter(QPdfSearchModel* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool QPdfSearchModel_QBaseEventFilter(QPdfSearchModel* self, QObject* watched, QEvent* event) {
+bool QPdfSearchModel_SuperEventFilter(QPdfSearchModel* self, QObject* watched, QEvent* event) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_EventFilter_IsBase(true);
@@ -1535,7 +1535,7 @@ void QPdfSearchModel_ChildEvent(QPdfSearchModel* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseChildEvent(QPdfSearchModel* self, QChildEvent* event) {
+void QPdfSearchModel_SuperChildEvent(QPdfSearchModel* self, QChildEvent* event) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_ChildEvent_IsBase(true);
@@ -1564,7 +1564,7 @@ void QPdfSearchModel_CustomEvent(QPdfSearchModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseCustomEvent(QPdfSearchModel* self, QEvent* event) {
+void QPdfSearchModel_SuperCustomEvent(QPdfSearchModel* self, QEvent* event) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_CustomEvent_IsBase(true);
@@ -1593,7 +1593,7 @@ void QPdfSearchModel_ConnectNotify(QPdfSearchModel* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseConnectNotify(QPdfSearchModel* self, const QMetaMethod* signal) {
+void QPdfSearchModel_SuperConnectNotify(QPdfSearchModel* self, const QMetaMethod* signal) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_ConnectNotify_IsBase(true);
@@ -1622,7 +1622,7 @@ void QPdfSearchModel_DisconnectNotify(QPdfSearchModel* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseDisconnectNotify(QPdfSearchModel* self, const QMetaMethod* signal) {
+void QPdfSearchModel_SuperDisconnectNotify(QPdfSearchModel* self, const QMetaMethod* signal) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_DisconnectNotify_IsBase(true);
@@ -1651,7 +1651,7 @@ void QPdfSearchModel_UpdatePage(QPdfSearchModel* self, int page) {
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseUpdatePage(QPdfSearchModel* self, int page) {
+void QPdfSearchModel_SuperUpdatePage(QPdfSearchModel* self, int page) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_UpdatePage_IsBase(true);
@@ -1679,7 +1679,7 @@ QModelIndex* QPdfSearchModel_CreateIndex(const QPdfSearchModel* self, int row, i
 }
 
 // Base class handler implementation
-QModelIndex* QPdfSearchModel_QBaseCreateIndex(const QPdfSearchModel* self, int row, int column) {
+QModelIndex* QPdfSearchModel_SuperCreateIndex(const QPdfSearchModel* self, int row, int column) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_CreateIndex_IsBase(true);
@@ -1713,7 +1713,7 @@ void QPdfSearchModel_EncodeData(const QPdfSearchModel* self, const libqt_list /*
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseEncodeData(const QPdfSearchModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void QPdfSearchModel_SuperEncodeData(const QPdfSearchModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -1748,7 +1748,7 @@ bool QPdfSearchModel_DecodeData(QPdfSearchModel* self, int row, int column, cons
 }
 
 // Base class handler implementation
-bool QPdfSearchModel_QBaseDecodeData(QPdfSearchModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool QPdfSearchModel_SuperDecodeData(QPdfSearchModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_DecodeData_IsBase(true);
@@ -1777,7 +1777,7 @@ void QPdfSearchModel_BeginInsertRows(QPdfSearchModel* self, const QModelIndex* p
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseBeginInsertRows(QPdfSearchModel* self, const QModelIndex* parent, int first, int last) {
+void QPdfSearchModel_SuperBeginInsertRows(QPdfSearchModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_BeginInsertRows_IsBase(true);
@@ -1806,7 +1806,7 @@ void QPdfSearchModel_EndInsertRows(QPdfSearchModel* self) {
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseEndInsertRows(QPdfSearchModel* self) {
+void QPdfSearchModel_SuperEndInsertRows(QPdfSearchModel* self) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_EndInsertRows_IsBase(true);
@@ -1835,7 +1835,7 @@ void QPdfSearchModel_BeginRemoveRows(QPdfSearchModel* self, const QModelIndex* p
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseBeginRemoveRows(QPdfSearchModel* self, const QModelIndex* parent, int first, int last) {
+void QPdfSearchModel_SuperBeginRemoveRows(QPdfSearchModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_BeginRemoveRows_IsBase(true);
@@ -1864,7 +1864,7 @@ void QPdfSearchModel_EndRemoveRows(QPdfSearchModel* self) {
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseEndRemoveRows(QPdfSearchModel* self) {
+void QPdfSearchModel_SuperEndRemoveRows(QPdfSearchModel* self) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_EndRemoveRows_IsBase(true);
@@ -1893,7 +1893,7 @@ bool QPdfSearchModel_BeginMoveRows(QPdfSearchModel* self, const QModelIndex* sou
 }
 
 // Base class handler implementation
-bool QPdfSearchModel_QBaseBeginMoveRows(QPdfSearchModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool QPdfSearchModel_SuperBeginMoveRows(QPdfSearchModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_BeginMoveRows_IsBase(true);
@@ -1922,7 +1922,7 @@ void QPdfSearchModel_EndMoveRows(QPdfSearchModel* self) {
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseEndMoveRows(QPdfSearchModel* self) {
+void QPdfSearchModel_SuperEndMoveRows(QPdfSearchModel* self) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_EndMoveRows_IsBase(true);
@@ -1951,7 +1951,7 @@ void QPdfSearchModel_BeginInsertColumns(QPdfSearchModel* self, const QModelIndex
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseBeginInsertColumns(QPdfSearchModel* self, const QModelIndex* parent, int first, int last) {
+void QPdfSearchModel_SuperBeginInsertColumns(QPdfSearchModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_BeginInsertColumns_IsBase(true);
@@ -1980,7 +1980,7 @@ void QPdfSearchModel_EndInsertColumns(QPdfSearchModel* self) {
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseEndInsertColumns(QPdfSearchModel* self) {
+void QPdfSearchModel_SuperEndInsertColumns(QPdfSearchModel* self) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_EndInsertColumns_IsBase(true);
@@ -2009,7 +2009,7 @@ void QPdfSearchModel_BeginRemoveColumns(QPdfSearchModel* self, const QModelIndex
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseBeginRemoveColumns(QPdfSearchModel* self, const QModelIndex* parent, int first, int last) {
+void QPdfSearchModel_SuperBeginRemoveColumns(QPdfSearchModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_BeginRemoveColumns_IsBase(true);
@@ -2038,7 +2038,7 @@ void QPdfSearchModel_EndRemoveColumns(QPdfSearchModel* self) {
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseEndRemoveColumns(QPdfSearchModel* self) {
+void QPdfSearchModel_SuperEndRemoveColumns(QPdfSearchModel* self) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_EndRemoveColumns_IsBase(true);
@@ -2067,7 +2067,7 @@ bool QPdfSearchModel_BeginMoveColumns(QPdfSearchModel* self, const QModelIndex* 
 }
 
 // Base class handler implementation
-bool QPdfSearchModel_QBaseBeginMoveColumns(QPdfSearchModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool QPdfSearchModel_SuperBeginMoveColumns(QPdfSearchModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_BeginMoveColumns_IsBase(true);
@@ -2096,7 +2096,7 @@ void QPdfSearchModel_EndMoveColumns(QPdfSearchModel* self) {
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseEndMoveColumns(QPdfSearchModel* self) {
+void QPdfSearchModel_SuperEndMoveColumns(QPdfSearchModel* self) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_EndMoveColumns_IsBase(true);
@@ -2125,7 +2125,7 @@ void QPdfSearchModel_BeginResetModel(QPdfSearchModel* self) {
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseBeginResetModel(QPdfSearchModel* self) {
+void QPdfSearchModel_SuperBeginResetModel(QPdfSearchModel* self) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_BeginResetModel_IsBase(true);
@@ -2154,7 +2154,7 @@ void QPdfSearchModel_EndResetModel(QPdfSearchModel* self) {
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseEndResetModel(QPdfSearchModel* self) {
+void QPdfSearchModel_SuperEndResetModel(QPdfSearchModel* self) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_EndResetModel_IsBase(true);
@@ -2183,7 +2183,7 @@ void QPdfSearchModel_ChangePersistentIndex(QPdfSearchModel* self, const QModelIn
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseChangePersistentIndex(QPdfSearchModel* self, const QModelIndex* from, const QModelIndex* to) {
+void QPdfSearchModel_SuperChangePersistentIndex(QPdfSearchModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_ChangePersistentIndex_IsBase(true);
@@ -2224,7 +2224,7 @@ void QPdfSearchModel_ChangePersistentIndexList(QPdfSearchModel* self, const libq
 }
 
 // Base class handler implementation
-void QPdfSearchModel_QBaseChangePersistentIndexList(QPdfSearchModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void QPdfSearchModel_SuperChangePersistentIndexList(QPdfSearchModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -2283,7 +2283,7 @@ libqt_list /* of QModelIndex* */ QPdfSearchModel_PersistentIndexList(const QPdfS
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QPdfSearchModel_QBasePersistentIndexList(const QPdfSearchModel* self) {
+libqt_list /* of QModelIndex* */ QPdfSearchModel_SuperPersistentIndexList(const QPdfSearchModel* self) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_PersistentIndexList_IsBase(true);
@@ -2330,7 +2330,7 @@ QObject* QPdfSearchModel_Sender(const QPdfSearchModel* self) {
 }
 
 // Base class handler implementation
-QObject* QPdfSearchModel_QBaseSender(const QPdfSearchModel* self) {
+QObject* QPdfSearchModel_SuperSender(const QPdfSearchModel* self) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_Sender_IsBase(true);
@@ -2359,7 +2359,7 @@ int QPdfSearchModel_SenderSignalIndex(const QPdfSearchModel* self) {
 }
 
 // Base class handler implementation
-int QPdfSearchModel_QBaseSenderSignalIndex(const QPdfSearchModel* self) {
+int QPdfSearchModel_SuperSenderSignalIndex(const QPdfSearchModel* self) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_SenderSignalIndex_IsBase(true);
@@ -2388,7 +2388,7 @@ int QPdfSearchModel_Receivers(const QPdfSearchModel* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QPdfSearchModel_QBaseReceivers(const QPdfSearchModel* self, const char* signal) {
+int QPdfSearchModel_SuperReceivers(const QPdfSearchModel* self, const char* signal) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_Receivers_IsBase(true);
@@ -2417,7 +2417,7 @@ bool QPdfSearchModel_IsSignalConnected(const QPdfSearchModel* self, const QMetaM
 }
 
 // Base class handler implementation
-bool QPdfSearchModel_QBaseIsSignalConnected(const QPdfSearchModel* self, const QMetaMethod* signal) {
+bool QPdfSearchModel_SuperIsSignalConnected(const QPdfSearchModel* self, const QMetaMethod* signal) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_IsSignalConnected_IsBase(true);

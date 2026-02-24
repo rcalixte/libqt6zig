@@ -59,6 +59,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -67,8 +71,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KParts__ReadWritePart_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KParts__ReadWritePart_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -94,6 +98,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -102,9 +110,9 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KParts__ReadWritePart_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KParts__ReadWritePart_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -133,6 +141,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -145,8 +157,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KParts__ReadWritePart_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KParts__ReadWritePart_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -202,6 +214,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_OnSetReadWrite(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetReadWrite` instead
+    ///
+    pub const QBaseSetReadWrite = SuperSetReadWrite;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setReadWrite)
     ///
     /// Base class method implementation
@@ -212,8 +228,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` readwrite: bool `
     ///
-    pub fn QBaseSetReadWrite(self: ?*anyopaque, readwrite: bool) void {
-        qtc.KParts__ReadWritePart_QBaseSetReadWrite(@ptrCast(self), readwrite);
+    pub fn SuperSetReadWrite(self: ?*anyopaque, readwrite: bool) void {
+        qtc.KParts__ReadWritePart_SuperSetReadWrite(@ptrCast(self), readwrite);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#isModified)
@@ -250,6 +266,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_OnQueryClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperQueryClose` instead
+    ///
+    pub const QBaseQueryClose = SuperQueryClose;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#queryClose)
     ///
     /// Base class method implementation
@@ -258,8 +278,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    pub fn QBaseQueryClose(self: ?*anyopaque) bool {
-        return qtc.KParts__ReadWritePart_QBaseQueryClose(@ptrCast(self));
+    pub fn SuperQueryClose(self: ?*anyopaque) bool {
+        return qtc.KParts__ReadWritePart_SuperQueryClose(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#closeUrl)
@@ -286,6 +306,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_OnCloseUrl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseUrl` instead
+    ///
+    pub const QBaseCloseUrl = SuperCloseUrl;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#closeUrl)
     ///
     /// Base class method implementation
@@ -294,8 +318,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    pub fn QBaseCloseUrl(self: ?*anyopaque) bool {
-        return qtc.KParts__ReadWritePart_QBaseCloseUrl(@ptrCast(self));
+    pub fn SuperCloseUrl(self: ?*anyopaque) bool {
+        return qtc.KParts__ReadWritePart_SuperCloseUrl(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#closeUrl)
@@ -324,6 +348,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_OnCloseUrl2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseUrl2` instead
+    ///
+    pub const QBaseCloseUrl2 = SuperCloseUrl2;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#closeUrl)
     ///
     /// Base class method implementation
@@ -334,8 +362,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` promptToSave: bool `
     ///
-    pub fn QBaseCloseUrl2(self: ?*anyopaque, promptToSave: bool) bool {
-        return qtc.KParts__ReadWritePart_QBaseCloseUrl2(@ptrCast(self), promptToSave);
+    pub fn SuperCloseUrl2(self: ?*anyopaque, promptToSave: bool) bool {
+        return qtc.KParts__ReadWritePart_SuperCloseUrl2(@ptrCast(self), promptToSave);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveAs)
@@ -364,6 +392,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_OnSaveAs(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSaveAs` instead
+    ///
+    pub const QBaseSaveAs = SuperSaveAs;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveAs)
     ///
     /// Base class method implementation
@@ -374,8 +406,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` url: QtC.QUrl `
     ///
-    pub fn QBaseSaveAs(self: ?*anyopaque, url: ?*anyopaque) bool {
-        return qtc.KParts__ReadWritePart_QBaseSaveAs(@ptrCast(self), @ptrCast(url));
+    pub fn SuperSaveAs(self: ?*anyopaque, url: ?*anyopaque) bool {
+        return qtc.KParts__ReadWritePart_SuperSaveAs(@ptrCast(self), @ptrCast(url));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setModified)
@@ -404,6 +436,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_OnSetModified(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetModified` instead
+    ///
+    pub const QBaseSetModified = SuperSetModified;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#setModified)
     ///
     /// Base class method implementation
@@ -414,8 +450,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` modified: bool `
     ///
-    pub fn QBaseSetModified(self: ?*anyopaque, modified: bool) void {
-        qtc.KParts__ReadWritePart_QBaseSetModified(@ptrCast(self), modified);
+    pub fn SuperSetModified(self: ?*anyopaque, modified: bool) void {
+        qtc.KParts__ReadWritePart_SuperSetModified(@ptrCast(self), modified);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#sigQueryClose)
@@ -478,6 +514,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_OnSave(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSave` instead
+    ///
+    pub const QBaseSave = SuperSave;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#save)
     ///
     /// Base class method implementation
@@ -486,8 +526,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    pub fn QBaseSave(self: ?*anyopaque) bool {
-        return qtc.KParts__ReadWritePart_QBaseSave(@ptrCast(self));
+    pub fn SuperSave(self: ?*anyopaque) bool {
+        return qtc.KParts__ReadWritePart_SuperSave(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#waitSaveComplete)
@@ -524,6 +564,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_OnSaveFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSaveFile` instead
+    ///
+    pub const QBaseSaveFile = SuperSaveFile;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveFile)
     ///
     /// Base class method implementation
@@ -532,8 +576,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    pub fn QBaseSaveFile(self: ?*anyopaque) bool {
-        return qtc.KParts__ReadWritePart_QBaseSaveFile(@ptrCast(self));
+    pub fn SuperSaveFile(self: ?*anyopaque) bool {
+        return qtc.KParts__ReadWritePart_SuperSaveFile(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveToUrl)
@@ -560,6 +604,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_OnSaveToUrl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSaveToUrl` instead
+    ///
+    pub const QBaseSaveToUrl = SuperSaveToUrl;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-readwritepart.html#saveToUrl)
     ///
     /// Base class method implementation
@@ -568,8 +616,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    pub fn QBaseSaveToUrl(self: ?*anyopaque) bool {
-        return qtc.KParts__ReadWritePart_QBaseSaveToUrl(@ptrCast(self));
+    pub fn SuperSaveToUrl(self: ?*anyopaque) bool {
+        return qtc.KParts__ReadWritePart_SuperSaveToUrl(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2199,6 +2247,10 @@ pub const kparts__readwritepart = struct {
         return qtc.KParts__ReadWritePart_OpenUrl(@ptrCast(self), @ptrCast(url));
     }
 
+    /// ### DEPRECATED: Use `SuperOpenUrl` instead
+    ///
+    pub const QBaseOpenUrl = SuperOpenUrl;
+
     /// Inherited from KParts::ReadOnlyPart
     ///
     /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openUrl)
@@ -2211,8 +2263,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` url: QtC.QUrl `
     ///
-    pub fn QBaseOpenUrl(self: ?*anyopaque, url: ?*anyopaque) bool {
-        return qtc.KParts__ReadWritePart_QBaseOpenUrl(@ptrCast(self), @ptrCast(url));
+    pub fn SuperOpenUrl(self: ?*anyopaque, url: ?*anyopaque) bool {
+        return qtc.KParts__ReadWritePart_SuperOpenUrl(@ptrCast(self), @ptrCast(url));
     }
 
     /// Inherited from KParts::ReadOnlyPart
@@ -2245,6 +2297,10 @@ pub const kparts__readwritepart = struct {
         return qtc.KParts__ReadWritePart_OpenFile(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperOpenFile` instead
+    ///
+    pub const QBaseOpenFile = SuperOpenFile;
+
     /// Inherited from KParts::ReadOnlyPart
     ///
     /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openFile)
@@ -2255,8 +2311,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    pub fn QBaseOpenFile(self: ?*anyopaque) bool {
-        return qtc.KParts__ReadWritePart_QBaseOpenFile(@ptrCast(self));
+    pub fn SuperOpenFile(self: ?*anyopaque) bool {
+        return qtc.KParts__ReadWritePart_SuperOpenFile(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadOnlyPart
@@ -2291,6 +2347,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_GuiActivateEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperGuiActivateEvent` instead
+    ///
+    pub const QBaseGuiActivateEvent = SuperGuiActivateEvent;
+
     /// Inherited from KParts::ReadOnlyPart
     ///
     /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#guiActivateEvent)
@@ -2303,8 +2363,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` event: QtC.KParts__GUIActivateEvent `
     ///
-    pub fn QBaseGuiActivateEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__ReadWritePart_QBaseGuiActivateEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperGuiActivateEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KParts__ReadWritePart_SuperGuiActivateEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from KParts::ReadOnlyPart
@@ -2337,6 +2397,10 @@ pub const kparts__readwritepart = struct {
         return qtc.KParts__ReadWritePart_Widget(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperWidget` instead
+    ///
+    pub const QBaseWidget = SuperWidget;
+
     /// Inherited from KParts::Part
     ///
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#widget)
@@ -2347,8 +2411,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    pub fn QBaseWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.KParts__ReadWritePart_QBaseWidget(@ptrCast(self));
+    pub fn SuperWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.KParts__ReadWritePart_SuperWidget(@ptrCast(self));
     }
 
     /// Inherited from KParts::Part
@@ -2383,6 +2447,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_SetManager(@ptrCast(self), @ptrCast(manager));
     }
 
+    /// ### DEPRECATED: Use `SuperSetManager` instead
+    ///
+    pub const QBaseSetManager = SuperSetManager;
+
     /// Inherited from KParts::Part
     ///
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setManager)
@@ -2395,8 +2463,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` manager: QtC.KParts__PartManager `
     ///
-    pub fn QBaseSetManager(self: ?*anyopaque, manager: ?*anyopaque) void {
-        qtc.KParts__ReadWritePart_QBaseSetManager(@ptrCast(self), @ptrCast(manager));
+    pub fn SuperSetManager(self: ?*anyopaque, manager: ?*anyopaque) void {
+        qtc.KParts__ReadWritePart_SuperSetManager(@ptrCast(self), @ptrCast(manager));
     }
 
     /// Inherited from KParts::Part
@@ -2433,6 +2501,10 @@ pub const kparts__readwritepart = struct {
         return qtc.KParts__ReadWritePart_HitTest(@ptrCast(self), @ptrCast(widget), @ptrCast(globalPos));
     }
 
+    /// ### DEPRECATED: Use `SuperHitTest` instead
+    ///
+    pub const QBaseHitTest = SuperHitTest;
+
     /// Inherited from KParts::Part
     ///
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#hitTest)
@@ -2447,8 +2519,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` globalPos: QtC.QPoint `
     ///
-    pub fn QBaseHitTest(self: ?*anyopaque, widget: ?*anyopaque, globalPos: ?*anyopaque) QtC.KParts__Part {
-        return qtc.KParts__ReadWritePart_QBaseHitTest(@ptrCast(self), @ptrCast(widget), @ptrCast(globalPos));
+    pub fn SuperHitTest(self: ?*anyopaque, widget: ?*anyopaque, globalPos: ?*anyopaque) QtC.KParts__Part {
+        return qtc.KParts__ReadWritePart_SuperHitTest(@ptrCast(self), @ptrCast(widget), @ptrCast(globalPos));
     }
 
     /// Inherited from KParts::Part
@@ -2483,6 +2555,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_SetWidget(@ptrCast(self), @ptrCast(widget));
     }
 
+    /// ### DEPRECATED: Use `SuperSetWidget` instead
+    ///
+    pub const QBaseSetWidget = SuperSetWidget;
+
     /// Inherited from KParts::Part
     ///
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setWidget)
@@ -2495,8 +2571,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` widget: QtC.QWidget `
     ///
-    pub fn QBaseSetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.KParts__ReadWritePart_QBaseSetWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn SuperSetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
+        qtc.KParts__ReadWritePart_SuperSetWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from KParts::Part
@@ -2531,6 +2607,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from KParts::Part
     ///
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#customEvent)
@@ -2543,8 +2623,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__ReadWritePart_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KParts__ReadWritePart_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from KParts::Part
@@ -2579,6 +2659,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_PartActivateEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperPartActivateEvent` instead
+    ///
+    pub const QBasePartActivateEvent = SuperPartActivateEvent;
+
     /// Inherited from KParts::Part
     ///
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#partActivateEvent)
@@ -2591,8 +2675,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` event: QtC.KParts__PartActivateEvent `
     ///
-    pub fn QBasePartActivateEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__ReadWritePart_QBasePartActivateEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperPartActivateEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KParts__ReadWritePart_SuperPartActivateEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from KParts::Part
@@ -2627,6 +2711,10 @@ pub const kparts__readwritepart = struct {
         return qtc.KParts__ReadWritePart_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -2639,8 +2727,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KParts__ReadWritePart_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KParts__ReadWritePart_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2677,6 +2765,10 @@ pub const kparts__readwritepart = struct {
         return qtc.KParts__ReadWritePart_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -2691,8 +2783,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KParts__ReadWritePart_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KParts__ReadWritePart_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2727,6 +2819,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -2739,8 +2835,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__ReadWritePart_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KParts__ReadWritePart_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2775,6 +2871,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -2787,8 +2887,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__ReadWritePart_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KParts__ReadWritePart_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2823,6 +2923,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2835,8 +2939,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KParts__ReadWritePart_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KParts__ReadWritePart_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2871,6 +2975,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -2883,8 +2991,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KParts__ReadWritePart_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KParts__ReadWritePart_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2919,6 +3027,10 @@ pub const kparts__readwritepart = struct {
         return qtc.KParts__ReadWritePart_Action2(@ptrCast(self), @ptrCast(element));
     }
 
+    /// ### DEPRECATED: Use `SuperAction2` instead
+    ///
+    pub const QBaseAction2 = SuperAction2;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
@@ -2931,8 +3043,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` element: QtC.QDomElement `
     ///
-    pub fn QBaseAction2(self: ?*anyopaque, element: ?*anyopaque) QtC.QAction {
-        return qtc.KParts__ReadWritePart_QBaseAction2(@ptrCast(self), @ptrCast(element));
+    pub fn SuperAction2(self: ?*anyopaque, element: ?*anyopaque) QtC.QAction {
+        return qtc.KParts__ReadWritePart_SuperAction2(@ptrCast(self), @ptrCast(element));
     }
 
     /// Inherited from KXMLGUIClient
@@ -2965,6 +3077,10 @@ pub const kparts__readwritepart = struct {
         return qtc.KParts__ReadWritePart_ActionCollection(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperActionCollection` instead
+    ///
+    pub const QBaseActionCollection = SuperActionCollection;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
@@ -2975,8 +3091,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    pub fn QBaseActionCollection(self: ?*anyopaque) QtC.KActionCollection {
-        return qtc.KParts__ReadWritePart_QBaseActionCollection(@ptrCast(self));
+    pub fn SuperActionCollection(self: ?*anyopaque) QtC.KActionCollection {
+        return qtc.KParts__ReadWritePart_SuperActionCollection(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
@@ -3015,6 +3131,10 @@ pub const kparts__readwritepart = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperComponentName` instead
+    ///
+    pub const QBaseComponentName = SuperComponentName;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
@@ -3027,8 +3147,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__ReadWritePart_QBaseComponentName(@ptrCast(self));
+    pub fn SuperComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__ReadWritePart_SuperComponentName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__readwritepart.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3067,6 +3187,10 @@ pub const kparts__readwritepart = struct {
         return qtc.KParts__ReadWritePart_DomDocument(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDomDocument` instead
+    ///
+    pub const QBaseDomDocument = SuperDomDocument;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
@@ -3077,8 +3201,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    pub fn QBaseDomDocument(self: ?*anyopaque) QtC.QDomDocument {
-        return qtc.KParts__ReadWritePart_QBaseDomDocument(@ptrCast(self));
+    pub fn SuperDomDocument(self: ?*anyopaque) QtC.QDomDocument {
+        return qtc.KParts__ReadWritePart_SuperDomDocument(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
@@ -3117,6 +3241,10 @@ pub const kparts__readwritepart = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperXmlFile` instead
+    ///
+    pub const QBaseXmlFile = SuperXmlFile;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
@@ -3129,8 +3257,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseXmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__ReadWritePart_QBaseXmlFile(@ptrCast(self));
+    pub fn SuperXmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__ReadWritePart_SuperXmlFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__readwritepart.XmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3175,6 +3303,10 @@ pub const kparts__readwritepart = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperLocalXMLFile` instead
+    ///
+    pub const QBaseLocalXMLFile = SuperLocalXMLFile;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
@@ -3187,8 +3319,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseLocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__ReadWritePart_QBaseLocalXMLFile(@ptrCast(self));
+    pub fn SuperLocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__ReadWritePart_SuperLocalXMLFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__readwritepart.LocalXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3239,6 +3371,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_SetComponentName(@ptrCast(self), componentName_str, componentDisplayName_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSetComponentName` instead
+    ///
+    pub const QBaseSetComponentName = SuperSetComponentName;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setComponentName)
@@ -3253,7 +3389,7 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` componentDisplayName: []const u8 `
     ///
-    pub fn QBaseSetComponentName(self: ?*anyopaque, componentName: []const u8, componentDisplayName: []const u8) void {
+    pub fn SuperSetComponentName(self: ?*anyopaque, componentName: []const u8, componentDisplayName: []const u8) void {
         const componentName_str = qtc.libqt_string{
             .len = componentName.len,
             .data = componentName.ptr,
@@ -3262,7 +3398,7 @@ pub const kparts__readwritepart = struct {
             .len = componentDisplayName.len,
             .data = componentDisplayName.ptr,
         };
-        qtc.KParts__ReadWritePart_QBaseSetComponentName(@ptrCast(self), componentName_str, componentDisplayName_str);
+        qtc.KParts__ReadWritePart_SuperSetComponentName(@ptrCast(self), componentName_str, componentDisplayName_str);
     }
 
     /// Inherited from KXMLGUIClient
@@ -3305,6 +3441,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_SetXMLFile(@ptrCast(self), file_str, merge, setXMLDoc);
     }
 
+    /// ### DEPRECATED: Use `SuperSetXMLFile` instead
+    ///
+    pub const QBaseSetXMLFile = SuperSetXMLFile;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
@@ -3321,12 +3461,12 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` setXMLDoc: bool `
     ///
-    pub fn QBaseSetXMLFile(self: ?*anyopaque, file: []const u8, merge: bool, setXMLDoc: bool) void {
+    pub fn SuperSetXMLFile(self: ?*anyopaque, file: []const u8, merge: bool, setXMLDoc: bool) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        qtc.KParts__ReadWritePart_QBaseSetXMLFile(@ptrCast(self), file_str, merge, setXMLDoc);
+        qtc.KParts__ReadWritePart_SuperSetXMLFile(@ptrCast(self), file_str, merge, setXMLDoc);
     }
 
     /// Inherited from KXMLGUIClient
@@ -3365,6 +3505,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_SetLocalXMLFile(@ptrCast(self), file_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSetLocalXMLFile` instead
+    ///
+    pub const QBaseSetLocalXMLFile = SuperSetLocalXMLFile;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
@@ -3377,12 +3521,12 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` file: []const u8 `
     ///
-    pub fn QBaseSetLocalXMLFile(self: ?*anyopaque, file: []const u8) void {
+    pub fn SuperSetLocalXMLFile(self: ?*anyopaque, file: []const u8) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        qtc.KParts__ReadWritePart_QBaseSetLocalXMLFile(@ptrCast(self), file_str);
+        qtc.KParts__ReadWritePart_SuperSetLocalXMLFile(@ptrCast(self), file_str);
     }
 
     /// Inherited from KXMLGUIClient
@@ -3423,6 +3567,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_SetXML(@ptrCast(self), document_str, merge);
     }
 
+    /// ### DEPRECATED: Use `SuperSetXML` instead
+    ///
+    pub const QBaseSetXML = SuperSetXML;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
@@ -3437,12 +3585,12 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` merge: bool `
     ///
-    pub fn QBaseSetXML(self: ?*anyopaque, document: []const u8, merge: bool) void {
+    pub fn SuperSetXML(self: ?*anyopaque, document: []const u8, merge: bool) void {
         const document_str = qtc.libqt_string{
             .len = document.len,
             .data = document.ptr,
         };
-        qtc.KParts__ReadWritePart_QBaseSetXML(@ptrCast(self), document_str, merge);
+        qtc.KParts__ReadWritePart_SuperSetXML(@ptrCast(self), document_str, merge);
     }
 
     /// Inherited from KXMLGUIClient
@@ -3479,6 +3627,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_SetDOMDocument(@ptrCast(self), @ptrCast(document), merge);
     }
 
+    /// ### DEPRECATED: Use `SuperSetDOMDocument` instead
+    ///
+    pub const QBaseSetDOMDocument = SuperSetDOMDocument;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
@@ -3493,8 +3645,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` merge: bool `
     ///
-    pub fn QBaseSetDOMDocument(self: ?*anyopaque, document: ?*anyopaque, merge: bool) void {
-        qtc.KParts__ReadWritePart_QBaseSetDOMDocument(@ptrCast(self), @ptrCast(document), merge);
+    pub fn SuperSetDOMDocument(self: ?*anyopaque, document: ?*anyopaque, merge: bool) void {
+        qtc.KParts__ReadWritePart_SuperSetDOMDocument(@ptrCast(self), @ptrCast(document), merge);
     }
 
     /// Inherited from KXMLGUIClient
@@ -3535,6 +3687,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_StateChanged(@ptrCast(self), newstate_str, @bitCast(reverse));
     }
 
+    /// ### DEPRECATED: Use `SuperStateChanged` instead
+    ///
+    pub const QBaseStateChanged = SuperStateChanged;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
@@ -3549,12 +3705,12 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` reverse: kxmlguiclient_enums.ReverseStateChange `
     ///
-    pub fn QBaseStateChanged(self: ?*anyopaque, newstate: []const u8, reverse: i32) void {
+    pub fn SuperStateChanged(self: ?*anyopaque, newstate: []const u8, reverse: i32) void {
         const newstate_str = qtc.libqt_string{
             .len = newstate.len,
             .data = newstate.ptr,
         };
-        qtc.KParts__ReadWritePart_QBaseStateChanged(@ptrCast(self), newstate_str, @bitCast(reverse));
+        qtc.KParts__ReadWritePart_SuperStateChanged(@ptrCast(self), newstate_str, @bitCast(reverse));
     }
 
     /// Inherited from KXMLGUIClient
@@ -3587,6 +3743,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_AbortLoad(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperAbortLoad` instead
+    ///
+    pub const QBaseAbortLoad = SuperAbortLoad;
+
     /// Inherited from KParts::ReadOnlyPart
     ///
     /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#abortLoad)
@@ -3597,8 +3757,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    pub fn QBaseAbortLoad(self: ?*anyopaque) void {
-        qtc.KParts__ReadWritePart_QBaseAbortLoad(@ptrCast(self));
+    pub fn SuperAbortLoad(self: ?*anyopaque) void {
+        qtc.KParts__ReadWritePart_SuperAbortLoad(@ptrCast(self));
     }
 
     /// Inherited from KParts::ReadOnlyPart
@@ -3633,6 +3793,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_SetUrl(@ptrCast(self), @ptrCast(url));
     }
 
+    /// ### DEPRECATED: Use `SuperSetUrl` instead
+    ///
+    pub const QBaseSetUrl = SuperSetUrl;
+
     /// Inherited from KParts::ReadOnlyPart
     ///
     /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setUrl)
@@ -3645,8 +3809,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` url: QtC.QUrl `
     ///
-    pub fn QBaseSetUrl(self: ?*anyopaque, url: ?*anyopaque) void {
-        qtc.KParts__ReadWritePart_QBaseSetUrl(@ptrCast(self), @ptrCast(url));
+    pub fn SuperSetUrl(self: ?*anyopaque, url: ?*anyopaque) void {
+        qtc.KParts__ReadWritePart_SuperSetUrl(@ptrCast(self), @ptrCast(url));
     }
 
     /// Inherited from KParts::ReadOnlyPart
@@ -3685,6 +3849,10 @@ pub const kparts__readwritepart = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperLocalFilePath` instead
+    ///
+    pub const QBaseLocalFilePath = SuperLocalFilePath;
+
     /// Inherited from KParts::ReadOnlyPart
     ///
     /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#localFilePath)
@@ -3697,8 +3865,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseLocalFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__ReadWritePart_QBaseLocalFilePath(@ptrCast(self));
+    pub fn SuperLocalFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__ReadWritePart_SuperLocalFilePath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__readwritepart.LocalFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3743,6 +3911,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_SetLocalFilePath(@ptrCast(self), localFilePath_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSetLocalFilePath` instead
+    ///
+    pub const QBaseSetLocalFilePath = SuperSetLocalFilePath;
+
     /// Inherited from KParts::ReadOnlyPart
     ///
     /// ### [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setLocalFilePath)
@@ -3755,12 +3927,12 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` localFilePath: []const u8 `
     ///
-    pub fn QBaseSetLocalFilePath(self: ?*anyopaque, localFilePath: []const u8) void {
+    pub fn SuperSetLocalFilePath(self: ?*anyopaque, localFilePath: []const u8) void {
         const localFilePath_str = qtc.libqt_string{
             .len = localFilePath.len,
             .data = localFilePath.ptr,
         };
-        qtc.KParts__ReadWritePart_QBaseSetLocalFilePath(@ptrCast(self), localFilePath_str);
+        qtc.KParts__ReadWritePart_SuperSetLocalFilePath(@ptrCast(self), localFilePath_str);
     }
 
     /// Inherited from KParts::ReadOnlyPart
@@ -3799,6 +3971,10 @@ pub const kparts__readwritepart = struct {
         return qtc.KParts__ReadWritePart_HostContainer(@ptrCast(self), containerName_str);
     }
 
+    /// ### DEPRECATED: Use `SuperHostContainer` instead
+    ///
+    pub const QBaseHostContainer = SuperHostContainer;
+
     /// Inherited from KParts::Part
     ///
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#hostContainer)
@@ -3811,12 +3987,12 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` containerName: []const u8 `
     ///
-    pub fn QBaseHostContainer(self: ?*anyopaque, containerName: []const u8) QtC.QWidget {
+    pub fn SuperHostContainer(self: ?*anyopaque, containerName: []const u8) QtC.QWidget {
         const containerName_str = qtc.libqt_string{
             .len = containerName.len,
             .data = containerName.ptr,
         };
-        return qtc.KParts__ReadWritePart_QBaseHostContainer(@ptrCast(self), containerName_str);
+        return qtc.KParts__ReadWritePart_SuperHostContainer(@ptrCast(self), containerName_str);
     }
 
     /// Inherited from KParts::Part
@@ -3849,6 +4025,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_SlotWidgetDestroyed(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotWidgetDestroyed` instead
+    ///
+    pub const QBaseSlotWidgetDestroyed = SuperSlotWidgetDestroyed;
+
     /// Inherited from KParts::Part
     ///
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#slotWidgetDestroyed)
@@ -3859,8 +4039,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    pub fn QBaseSlotWidgetDestroyed(self: ?*anyopaque) void {
-        qtc.KParts__ReadWritePart_QBaseSlotWidgetDestroyed(@ptrCast(self));
+    pub fn SuperSlotWidgetDestroyed(self: ?*anyopaque) void {
+        qtc.KParts__ReadWritePart_SuperSlotWidgetDestroyed(@ptrCast(self));
     }
 
     /// Inherited from KParts::Part
@@ -3893,6 +4073,10 @@ pub const kparts__readwritepart = struct {
         return qtc.KParts__ReadWritePart_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -3903,8 +4087,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KParts__ReadWritePart_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KParts__ReadWritePart_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3937,6 +4121,10 @@ pub const kparts__readwritepart = struct {
         return qtc.KParts__ReadWritePart_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -3947,8 +4135,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KParts__ReadWritePart_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KParts__ReadWritePart_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3984,6 +4172,10 @@ pub const kparts__readwritepart = struct {
         return qtc.KParts__ReadWritePart_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -3996,9 +4188,9 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KParts__ReadWritePart_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KParts__ReadWritePart_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -4033,6 +4225,10 @@ pub const kparts__readwritepart = struct {
         return qtc.KParts__ReadWritePart_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -4045,8 +4241,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KParts__ReadWritePart_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KParts__ReadWritePart_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -4085,6 +4281,10 @@ pub const kparts__readwritepart = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperStandardsXmlFileLocation` instead
+    ///
+    pub const QBaseStandardsXmlFileLocation = SuperStandardsXmlFileLocation;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
@@ -4097,8 +4297,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseStandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__ReadWritePart_QBaseStandardsXmlFileLocation(@ptrCast(self));
+    pub fn SuperStandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__ReadWritePart_SuperStandardsXmlFileLocation(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__readwritepart.StandardsXmlFileLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4137,6 +4337,10 @@ pub const kparts__readwritepart = struct {
         qtc.KParts__ReadWritePart_LoadStandardsXmlFile(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperLoadStandardsXmlFile` instead
+    ///
+    pub const QBaseLoadStandardsXmlFile = SuperLoadStandardsXmlFile;
+
     /// Inherited from KXMLGUIClient
     ///
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
@@ -4147,8 +4351,8 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    pub fn QBaseLoadStandardsXmlFile(self: ?*anyopaque) void {
-        qtc.KParts__ReadWritePart_QBaseLoadStandardsXmlFile(@ptrCast(self));
+    pub fn SuperLoadStandardsXmlFile(self: ?*anyopaque) void {
+        qtc.KParts__ReadWritePart_SuperLoadStandardsXmlFile(@ptrCast(self));
     }
 
     /// Inherited from KXMLGUIClient
@@ -4182,6 +4386,9 @@ pub const kparts__readwritepart = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -4189,7 +4396,7 @@ pub const kparts__readwritepart = struct {
     ///
     /// ` self: QtC.KParts__ReadWritePart `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KParts__ReadWritePart_Delete(@ptrCast(self));
     }
 };

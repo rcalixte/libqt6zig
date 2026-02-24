@@ -214,7 +214,7 @@ void QOpenGLContext_Connect_AboutToBeDestroyed(QOpenGLContext* self, intptr_t sl
 }
 
 // Base class handler implementation
-QMetaObject* QOpenGLContext_QBaseMetaObject(const QOpenGLContext* self) {
+QMetaObject* QOpenGLContext_SuperMetaObject(const QOpenGLContext* self) {
     auto* vqopenglcontext = const_cast<VirtualQOpenGLContext*>(dynamic_cast<const VirtualQOpenGLContext*>(self));
     if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
         vqopenglcontext->setQOpenGLContext_MetaObject_IsBase(true);
@@ -233,7 +233,7 @@ void QOpenGLContext_OnMetaObject(const QOpenGLContext* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QOpenGLContext_QBaseMetacast(QOpenGLContext* self, const char* param1) {
+void* QOpenGLContext_SuperMetacast(QOpenGLContext* self, const char* param1) {
     auto* vqopenglcontext = dynamic_cast<VirtualQOpenGLContext*>(self);
     if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
         vqopenglcontext->setQOpenGLContext_Metacast_IsBase(true);
@@ -252,7 +252,7 @@ void QOpenGLContext_OnMetacast(QOpenGLContext* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QOpenGLContext_QBaseMetacall(QOpenGLContext* self, int param1, int param2, void** param3) {
+int QOpenGLContext_SuperMetacall(QOpenGLContext* self, int param1, int param2, void** param3) {
     auto* vqopenglcontext = dynamic_cast<VirtualQOpenGLContext*>(self);
     if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
         vqopenglcontext->setQOpenGLContext_Metacall_IsBase(true);
@@ -281,7 +281,7 @@ bool QOpenGLContext_Event(QOpenGLContext* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QOpenGLContext_QBaseEvent(QOpenGLContext* self, QEvent* event) {
+bool QOpenGLContext_SuperEvent(QOpenGLContext* self, QEvent* event) {
     auto* vqopenglcontext = dynamic_cast<VirtualQOpenGLContext*>(self);
     if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
         vqopenglcontext->setQOpenGLContext_Event_IsBase(true);
@@ -310,7 +310,7 @@ bool QOpenGLContext_EventFilter(QOpenGLContext* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QOpenGLContext_QBaseEventFilter(QOpenGLContext* self, QObject* watched, QEvent* event) {
+bool QOpenGLContext_SuperEventFilter(QOpenGLContext* self, QObject* watched, QEvent* event) {
     auto* vqopenglcontext = dynamic_cast<VirtualQOpenGLContext*>(self);
     if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
         vqopenglcontext->setQOpenGLContext_EventFilter_IsBase(true);
@@ -339,7 +339,7 @@ void QOpenGLContext_TimerEvent(QOpenGLContext* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLContext_QBaseTimerEvent(QOpenGLContext* self, QTimerEvent* event) {
+void QOpenGLContext_SuperTimerEvent(QOpenGLContext* self, QTimerEvent* event) {
     auto* vqopenglcontext = dynamic_cast<VirtualQOpenGLContext*>(self);
     if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
         vqopenglcontext->setQOpenGLContext_TimerEvent_IsBase(true);
@@ -368,7 +368,7 @@ void QOpenGLContext_ChildEvent(QOpenGLContext* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLContext_QBaseChildEvent(QOpenGLContext* self, QChildEvent* event) {
+void QOpenGLContext_SuperChildEvent(QOpenGLContext* self, QChildEvent* event) {
     auto* vqopenglcontext = dynamic_cast<VirtualQOpenGLContext*>(self);
     if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
         vqopenglcontext->setQOpenGLContext_ChildEvent_IsBase(true);
@@ -397,7 +397,7 @@ void QOpenGLContext_CustomEvent(QOpenGLContext* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLContext_QBaseCustomEvent(QOpenGLContext* self, QEvent* event) {
+void QOpenGLContext_SuperCustomEvent(QOpenGLContext* self, QEvent* event) {
     auto* vqopenglcontext = dynamic_cast<VirtualQOpenGLContext*>(self);
     if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
         vqopenglcontext->setQOpenGLContext_CustomEvent_IsBase(true);
@@ -426,7 +426,7 @@ void QOpenGLContext_ConnectNotify(QOpenGLContext* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QOpenGLContext_QBaseConnectNotify(QOpenGLContext* self, const QMetaMethod* signal) {
+void QOpenGLContext_SuperConnectNotify(QOpenGLContext* self, const QMetaMethod* signal) {
     auto* vqopenglcontext = dynamic_cast<VirtualQOpenGLContext*>(self);
     if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
         vqopenglcontext->setQOpenGLContext_ConnectNotify_IsBase(true);
@@ -455,7 +455,7 @@ void QOpenGLContext_DisconnectNotify(QOpenGLContext* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QOpenGLContext_QBaseDisconnectNotify(QOpenGLContext* self, const QMetaMethod* signal) {
+void QOpenGLContext_SuperDisconnectNotify(QOpenGLContext* self, const QMetaMethod* signal) {
     auto* vqopenglcontext = dynamic_cast<VirtualQOpenGLContext*>(self);
     if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
         vqopenglcontext->setQOpenGLContext_DisconnectNotify_IsBase(true);
@@ -484,7 +484,7 @@ void* QOpenGLContext_ResolveInterface(const QOpenGLContext* self, const char* na
 }
 
 // Base class handler implementation
-void* QOpenGLContext_QBaseResolveInterface(const QOpenGLContext* self, const char* name, int revision) {
+void* QOpenGLContext_SuperResolveInterface(const QOpenGLContext* self, const char* name, int revision) {
     auto* vqopenglcontext = const_cast<VirtualQOpenGLContext*>(dynamic_cast<const VirtualQOpenGLContext*>(self));
     if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
         vqopenglcontext->setQOpenGLContext_ResolveInterface_IsBase(true);
@@ -513,7 +513,7 @@ QObject* QOpenGLContext_Sender(const QOpenGLContext* self) {
 }
 
 // Base class handler implementation
-QObject* QOpenGLContext_QBaseSender(const QOpenGLContext* self) {
+QObject* QOpenGLContext_SuperSender(const QOpenGLContext* self) {
     auto* vqopenglcontext = const_cast<VirtualQOpenGLContext*>(dynamic_cast<const VirtualQOpenGLContext*>(self));
     if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
         vqopenglcontext->setQOpenGLContext_Sender_IsBase(true);
@@ -542,7 +542,7 @@ int QOpenGLContext_SenderSignalIndex(const QOpenGLContext* self) {
 }
 
 // Base class handler implementation
-int QOpenGLContext_QBaseSenderSignalIndex(const QOpenGLContext* self) {
+int QOpenGLContext_SuperSenderSignalIndex(const QOpenGLContext* self) {
     auto* vqopenglcontext = const_cast<VirtualQOpenGLContext*>(dynamic_cast<const VirtualQOpenGLContext*>(self));
     if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
         vqopenglcontext->setQOpenGLContext_SenderSignalIndex_IsBase(true);
@@ -571,7 +571,7 @@ int QOpenGLContext_Receivers(const QOpenGLContext* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QOpenGLContext_QBaseReceivers(const QOpenGLContext* self, const char* signal) {
+int QOpenGLContext_SuperReceivers(const QOpenGLContext* self, const char* signal) {
     auto* vqopenglcontext = const_cast<VirtualQOpenGLContext*>(dynamic_cast<const VirtualQOpenGLContext*>(self));
     if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
         vqopenglcontext->setQOpenGLContext_Receivers_IsBase(true);
@@ -600,7 +600,7 @@ bool QOpenGLContext_IsSignalConnected(const QOpenGLContext* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QOpenGLContext_QBaseIsSignalConnected(const QOpenGLContext* self, const QMetaMethod* signal) {
+bool QOpenGLContext_SuperIsSignalConnected(const QOpenGLContext* self, const QMetaMethod* signal) {
     auto* vqopenglcontext = const_cast<VirtualQOpenGLContext*>(dynamic_cast<const VirtualQOpenGLContext*>(self));
     if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
         vqopenglcontext->setQOpenGLContext_IsSignalConnected_IsBase(true);

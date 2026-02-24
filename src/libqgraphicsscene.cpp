@@ -975,7 +975,7 @@ void QGraphicsScene_Invalidate22(QGraphicsScene* self, const QRectF* rect, int l
 }
 
 // Base class handler implementation
-QMetaObject* QGraphicsScene_QBaseMetaObject(const QGraphicsScene* self) {
+QMetaObject* QGraphicsScene_SuperMetaObject(const QGraphicsScene* self) {
     auto* vqgraphicsscene = const_cast<VirtualQGraphicsScene*>(dynamic_cast<const VirtualQGraphicsScene*>(self));
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_MetaObject_IsBase(true);
@@ -994,7 +994,7 @@ void QGraphicsScene_OnMetaObject(const QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QGraphicsScene_QBaseMetacast(QGraphicsScene* self, const char* param1) {
+void* QGraphicsScene_SuperMetacast(QGraphicsScene* self, const char* param1) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_Metacast_IsBase(true);
@@ -1013,7 +1013,7 @@ void QGraphicsScene_OnMetacast(QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QGraphicsScene_QBaseMetacall(QGraphicsScene* self, int param1, int param2, void** param3) {
+int QGraphicsScene_SuperMetacall(QGraphicsScene* self, int param1, int param2, void** param3) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_Metacall_IsBase(true);
@@ -1032,7 +1032,7 @@ void QGraphicsScene_OnMetacall(QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QGraphicsScene_QBaseInputMethodQuery(const QGraphicsScene* self, int query) {
+QVariant* QGraphicsScene_SuperInputMethodQuery(const QGraphicsScene* self, int query) {
     auto* vqgraphicsscene = const_cast<VirtualQGraphicsScene*>(dynamic_cast<const VirtualQGraphicsScene*>(self));
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_InputMethodQuery_IsBase(true);
@@ -1051,7 +1051,7 @@ void QGraphicsScene_OnInputMethodQuery(const QGraphicsScene* self, intptr_t slot
 }
 
 // Base class handler implementation
-bool QGraphicsScene_QBaseEvent(QGraphicsScene* self, QEvent* event) {
+bool QGraphicsScene_SuperEvent(QGraphicsScene* self, QEvent* event) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_Event_IsBase(true);
@@ -1070,7 +1070,7 @@ void QGraphicsScene_OnEvent(QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsScene_QBaseEventFilter(QGraphicsScene* self, QObject* watched, QEvent* event) {
+bool QGraphicsScene_SuperEventFilter(QGraphicsScene* self, QObject* watched, QEvent* event) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_EventFilter_IsBase(true);
@@ -1089,7 +1089,7 @@ void QGraphicsScene_OnEventFilter(QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseContextMenuEvent(QGraphicsScene* self, QGraphicsSceneContextMenuEvent* event) {
+void QGraphicsScene_SuperContextMenuEvent(QGraphicsScene* self, QGraphicsSceneContextMenuEvent* event) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_ContextMenuEvent_IsBase(true);
@@ -1108,7 +1108,7 @@ void QGraphicsScene_OnContextMenuEvent(QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseDragEnterEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsScene_SuperDragEnterEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_DragEnterEvent_IsBase(true);
@@ -1127,7 +1127,7 @@ void QGraphicsScene_OnDragEnterEvent(QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseDragMoveEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsScene_SuperDragMoveEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_DragMoveEvent_IsBase(true);
@@ -1146,7 +1146,7 @@ void QGraphicsScene_OnDragMoveEvent(QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseDragLeaveEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsScene_SuperDragLeaveEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_DragLeaveEvent_IsBase(true);
@@ -1165,7 +1165,7 @@ void QGraphicsScene_OnDragLeaveEvent(QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseDropEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsScene_SuperDropEvent(QGraphicsScene* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_DropEvent_IsBase(true);
@@ -1184,7 +1184,7 @@ void QGraphicsScene_OnDropEvent(QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseFocusInEvent(QGraphicsScene* self, QFocusEvent* event) {
+void QGraphicsScene_SuperFocusInEvent(QGraphicsScene* self, QFocusEvent* event) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_FocusInEvent_IsBase(true);
@@ -1203,7 +1203,7 @@ void QGraphicsScene_OnFocusInEvent(QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseFocusOutEvent(QGraphicsScene* self, QFocusEvent* event) {
+void QGraphicsScene_SuperFocusOutEvent(QGraphicsScene* self, QFocusEvent* event) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_FocusOutEvent_IsBase(true);
@@ -1222,7 +1222,7 @@ void QGraphicsScene_OnFocusOutEvent(QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseHelpEvent(QGraphicsScene* self, QGraphicsSceneHelpEvent* event) {
+void QGraphicsScene_SuperHelpEvent(QGraphicsScene* self, QGraphicsSceneHelpEvent* event) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_HelpEvent_IsBase(true);
@@ -1241,7 +1241,7 @@ void QGraphicsScene_OnHelpEvent(QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseKeyPressEvent(QGraphicsScene* self, QKeyEvent* event) {
+void QGraphicsScene_SuperKeyPressEvent(QGraphicsScene* self, QKeyEvent* event) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_KeyPressEvent_IsBase(true);
@@ -1260,7 +1260,7 @@ void QGraphicsScene_OnKeyPressEvent(QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseKeyReleaseEvent(QGraphicsScene* self, QKeyEvent* event) {
+void QGraphicsScene_SuperKeyReleaseEvent(QGraphicsScene* self, QKeyEvent* event) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_KeyReleaseEvent_IsBase(true);
@@ -1279,7 +1279,7 @@ void QGraphicsScene_OnKeyReleaseEvent(QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseMousePressEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsScene_SuperMousePressEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_MousePressEvent_IsBase(true);
@@ -1298,7 +1298,7 @@ void QGraphicsScene_OnMousePressEvent(QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseMouseMoveEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsScene_SuperMouseMoveEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_MouseMoveEvent_IsBase(true);
@@ -1317,7 +1317,7 @@ void QGraphicsScene_OnMouseMoveEvent(QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseMouseReleaseEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsScene_SuperMouseReleaseEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_MouseReleaseEvent_IsBase(true);
@@ -1336,7 +1336,7 @@ void QGraphicsScene_OnMouseReleaseEvent(QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseMouseDoubleClickEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsScene_SuperMouseDoubleClickEvent(QGraphicsScene* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_MouseDoubleClickEvent_IsBase(true);
@@ -1355,7 +1355,7 @@ void QGraphicsScene_OnMouseDoubleClickEvent(QGraphicsScene* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseWheelEvent(QGraphicsScene* self, QGraphicsSceneWheelEvent* event) {
+void QGraphicsScene_SuperWheelEvent(QGraphicsScene* self, QGraphicsSceneWheelEvent* event) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_WheelEvent_IsBase(true);
@@ -1374,7 +1374,7 @@ void QGraphicsScene_OnWheelEvent(QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseInputMethodEvent(QGraphicsScene* self, QInputMethodEvent* event) {
+void QGraphicsScene_SuperInputMethodEvent(QGraphicsScene* self, QInputMethodEvent* event) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_InputMethodEvent_IsBase(true);
@@ -1393,7 +1393,7 @@ void QGraphicsScene_OnInputMethodEvent(QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseDrawBackground(QGraphicsScene* self, QPainter* painter, const QRectF* rect) {
+void QGraphicsScene_SuperDrawBackground(QGraphicsScene* self, QPainter* painter, const QRectF* rect) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_DrawBackground_IsBase(true);
@@ -1412,7 +1412,7 @@ void QGraphicsScene_OnDrawBackground(QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseDrawForeground(QGraphicsScene* self, QPainter* painter, const QRectF* rect) {
+void QGraphicsScene_SuperDrawForeground(QGraphicsScene* self, QPainter* painter, const QRectF* rect) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_DrawForeground_IsBase(true);
@@ -1431,7 +1431,7 @@ void QGraphicsScene_OnDrawForeground(QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseDrawItems(QGraphicsScene* self, QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options, QWidget* widget) {
+void QGraphicsScene_SuperDrawItems(QGraphicsScene* self, QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options, QWidget* widget) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_DrawItems_IsBase(true);
@@ -1450,7 +1450,7 @@ void QGraphicsScene_OnDrawItems(QGraphicsScene* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsScene_QBaseFocusNextPrevChild(QGraphicsScene* self, bool next) {
+bool QGraphicsScene_SuperFocusNextPrevChild(QGraphicsScene* self, bool next) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_FocusNextPrevChild_IsBase(true);
@@ -1479,7 +1479,7 @@ void QGraphicsScene_TimerEvent(QGraphicsScene* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseTimerEvent(QGraphicsScene* self, QTimerEvent* event) {
+void QGraphicsScene_SuperTimerEvent(QGraphicsScene* self, QTimerEvent* event) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_TimerEvent_IsBase(true);
@@ -1508,7 +1508,7 @@ void QGraphicsScene_ChildEvent(QGraphicsScene* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseChildEvent(QGraphicsScene* self, QChildEvent* event) {
+void QGraphicsScene_SuperChildEvent(QGraphicsScene* self, QChildEvent* event) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_ChildEvent_IsBase(true);
@@ -1537,7 +1537,7 @@ void QGraphicsScene_CustomEvent(QGraphicsScene* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseCustomEvent(QGraphicsScene* self, QEvent* event) {
+void QGraphicsScene_SuperCustomEvent(QGraphicsScene* self, QEvent* event) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_CustomEvent_IsBase(true);
@@ -1566,7 +1566,7 @@ void QGraphicsScene_ConnectNotify(QGraphicsScene* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseConnectNotify(QGraphicsScene* self, const QMetaMethod* signal) {
+void QGraphicsScene_SuperConnectNotify(QGraphicsScene* self, const QMetaMethod* signal) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_ConnectNotify_IsBase(true);
@@ -1595,7 +1595,7 @@ void QGraphicsScene_DisconnectNotify(QGraphicsScene* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QGraphicsScene_QBaseDisconnectNotify(QGraphicsScene* self, const QMetaMethod* signal) {
+void QGraphicsScene_SuperDisconnectNotify(QGraphicsScene* self, const QMetaMethod* signal) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_DisconnectNotify_IsBase(true);
@@ -1624,7 +1624,7 @@ QObject* QGraphicsScene_Sender(const QGraphicsScene* self) {
 }
 
 // Base class handler implementation
-QObject* QGraphicsScene_QBaseSender(const QGraphicsScene* self) {
+QObject* QGraphicsScene_SuperSender(const QGraphicsScene* self) {
     auto* vqgraphicsscene = const_cast<VirtualQGraphicsScene*>(dynamic_cast<const VirtualQGraphicsScene*>(self));
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_Sender_IsBase(true);
@@ -1653,7 +1653,7 @@ int QGraphicsScene_SenderSignalIndex(const QGraphicsScene* self) {
 }
 
 // Base class handler implementation
-int QGraphicsScene_QBaseSenderSignalIndex(const QGraphicsScene* self) {
+int QGraphicsScene_SuperSenderSignalIndex(const QGraphicsScene* self) {
     auto* vqgraphicsscene = const_cast<VirtualQGraphicsScene*>(dynamic_cast<const VirtualQGraphicsScene*>(self));
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_SenderSignalIndex_IsBase(true);
@@ -1682,7 +1682,7 @@ int QGraphicsScene_Receivers(const QGraphicsScene* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QGraphicsScene_QBaseReceivers(const QGraphicsScene* self, const char* signal) {
+int QGraphicsScene_SuperReceivers(const QGraphicsScene* self, const char* signal) {
     auto* vqgraphicsscene = const_cast<VirtualQGraphicsScene*>(dynamic_cast<const VirtualQGraphicsScene*>(self));
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_Receivers_IsBase(true);
@@ -1711,7 +1711,7 @@ bool QGraphicsScene_IsSignalConnected(const QGraphicsScene* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QGraphicsScene_QBaseIsSignalConnected(const QGraphicsScene* self, const QMetaMethod* signal) {
+bool QGraphicsScene_SuperIsSignalConnected(const QGraphicsScene* self, const QMetaMethod* signal) {
     auto* vqgraphicsscene = const_cast<VirtualQGraphicsScene*>(dynamic_cast<const VirtualQGraphicsScene*>(self));
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_IsSignalConnected_IsBase(true);

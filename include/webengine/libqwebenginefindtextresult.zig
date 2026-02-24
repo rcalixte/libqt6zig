@@ -51,6 +51,10 @@ pub const qwebenginefindtextresult = struct {
         qtc.QWebEngineFindTextResult_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefindtextresult.html#dtor.QWebEngineFindTextResult)
     ///
     /// Delete this object from C++ memory.
@@ -59,7 +63,7 @@ pub const qwebenginefindtextresult = struct {
     ///
     /// ` self: QtC.QWebEngineFindTextResult `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebEngineFindTextResult_Delete(@ptrCast(self));
     }
 };

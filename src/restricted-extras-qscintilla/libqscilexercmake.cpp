@@ -105,7 +105,7 @@ void QsciLexerCMake_SetFoldAtElse(QsciLexerCMake* self, bool fold) {
 }
 
 // Base class handler implementation
-QMetaObject* QsciLexerCMake_QBaseMetaObject(const QsciLexerCMake* self) {
+QMetaObject* QsciLexerCMake_SuperMetaObject(const QsciLexerCMake* self) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_MetaObject_IsBase(true);
@@ -124,7 +124,7 @@ void QsciLexerCMake_OnMetaObject(const QsciLexerCMake* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QsciLexerCMake_QBaseMetacast(QsciLexerCMake* self, const char* param1) {
+void* QsciLexerCMake_SuperMetacast(QsciLexerCMake* self, const char* param1) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_Metacast_IsBase(true);
@@ -143,7 +143,7 @@ void QsciLexerCMake_OnMetacast(QsciLexerCMake* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QsciLexerCMake_QBaseMetacall(QsciLexerCMake* self, int param1, int param2, void** param3) {
+int QsciLexerCMake_SuperMetacall(QsciLexerCMake* self, int param1, int param2, void** param3) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_Metacall_IsBase(true);
@@ -162,7 +162,7 @@ void QsciLexerCMake_OnMetacall(QsciLexerCMake* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciLexerCMake_QBaseSetFoldAtElse(QsciLexerCMake* self, bool fold) {
+void QsciLexerCMake_SuperSetFoldAtElse(QsciLexerCMake* self, bool fold) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_SetFoldAtElse_IsBase(true);
@@ -191,7 +191,7 @@ int QsciLexerCMake_LexerId(const QsciLexerCMake* self) {
 }
 
 // Base class handler implementation
-int QsciLexerCMake_QBaseLexerId(const QsciLexerCMake* self) {
+int QsciLexerCMake_SuperLexerId(const QsciLexerCMake* self) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_LexerId_IsBase(true);
@@ -220,7 +220,7 @@ const char* QsciLexerCMake_AutoCompletionFillups(const QsciLexerCMake* self) {
 }
 
 // Base class handler implementation
-const char* QsciLexerCMake_QBaseAutoCompletionFillups(const QsciLexerCMake* self) {
+const char* QsciLexerCMake_SuperAutoCompletionFillups(const QsciLexerCMake* self) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_AutoCompletionFillups_IsBase(true);
@@ -283,7 +283,7 @@ libqt_list /* of libqt_string */ QsciLexerCMake_AutoCompletionWordSeparators(con
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QsciLexerCMake_QBaseAutoCompletionWordSeparators(const QsciLexerCMake* self) {
+libqt_list /* of libqt_string */ QsciLexerCMake_SuperAutoCompletionWordSeparators(const QsciLexerCMake* self) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_AutoCompletionWordSeparators_IsBase(true);
@@ -346,7 +346,7 @@ const char* QsciLexerCMake_BlockEnd(const QsciLexerCMake* self, int* style) {
 }
 
 // Base class handler implementation
-const char* QsciLexerCMake_QBaseBlockEnd(const QsciLexerCMake* self, int* style) {
+const char* QsciLexerCMake_SuperBlockEnd(const QsciLexerCMake* self, int* style) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_BlockEnd_IsBase(true);
@@ -375,7 +375,7 @@ int QsciLexerCMake_BlockLookback(const QsciLexerCMake* self) {
 }
 
 // Base class handler implementation
-int QsciLexerCMake_QBaseBlockLookback(const QsciLexerCMake* self) {
+int QsciLexerCMake_SuperBlockLookback(const QsciLexerCMake* self) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_BlockLookback_IsBase(true);
@@ -404,7 +404,7 @@ const char* QsciLexerCMake_BlockStart(const QsciLexerCMake* self, int* style) {
 }
 
 // Base class handler implementation
-const char* QsciLexerCMake_QBaseBlockStart(const QsciLexerCMake* self, int* style) {
+const char* QsciLexerCMake_SuperBlockStart(const QsciLexerCMake* self, int* style) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_BlockStart_IsBase(true);
@@ -433,7 +433,7 @@ const char* QsciLexerCMake_BlockStartKeyword(const QsciLexerCMake* self, int* st
 }
 
 // Base class handler implementation
-const char* QsciLexerCMake_QBaseBlockStartKeyword(const QsciLexerCMake* self, int* style) {
+const char* QsciLexerCMake_SuperBlockStartKeyword(const QsciLexerCMake* self, int* style) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_BlockStartKeyword_IsBase(true);
@@ -462,7 +462,7 @@ int QsciLexerCMake_BraceStyle(const QsciLexerCMake* self) {
 }
 
 // Base class handler implementation
-int QsciLexerCMake_QBaseBraceStyle(const QsciLexerCMake* self) {
+int QsciLexerCMake_SuperBraceStyle(const QsciLexerCMake* self) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_BraceStyle_IsBase(true);
@@ -491,7 +491,7 @@ bool QsciLexerCMake_CaseSensitive(const QsciLexerCMake* self) {
 }
 
 // Base class handler implementation
-bool QsciLexerCMake_QBaseCaseSensitive(const QsciLexerCMake* self) {
+bool QsciLexerCMake_SuperCaseSensitive(const QsciLexerCMake* self) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_CaseSensitive_IsBase(true);
@@ -520,7 +520,7 @@ QColor* QsciLexerCMake_Color(const QsciLexerCMake* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerCMake_QBaseColor(const QsciLexerCMake* self, int style) {
+QColor* QsciLexerCMake_SuperColor(const QsciLexerCMake* self, int style) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_Color_IsBase(true);
@@ -549,7 +549,7 @@ bool QsciLexerCMake_EolFill(const QsciLexerCMake* self, int style) {
 }
 
 // Base class handler implementation
-bool QsciLexerCMake_QBaseEolFill(const QsciLexerCMake* self, int style) {
+bool QsciLexerCMake_SuperEolFill(const QsciLexerCMake* self, int style) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_EolFill_IsBase(true);
@@ -578,7 +578,7 @@ QFont* QsciLexerCMake_Font(const QsciLexerCMake* self, int style) {
 }
 
 // Base class handler implementation
-QFont* QsciLexerCMake_QBaseFont(const QsciLexerCMake* self, int style) {
+QFont* QsciLexerCMake_SuperFont(const QsciLexerCMake* self, int style) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_Font_IsBase(true);
@@ -607,7 +607,7 @@ int QsciLexerCMake_IndentationGuideView(const QsciLexerCMake* self) {
 }
 
 // Base class handler implementation
-int QsciLexerCMake_QBaseIndentationGuideView(const QsciLexerCMake* self) {
+int QsciLexerCMake_SuperIndentationGuideView(const QsciLexerCMake* self) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_IndentationGuideView_IsBase(true);
@@ -636,7 +636,7 @@ int QsciLexerCMake_DefaultStyle(const QsciLexerCMake* self) {
 }
 
 // Base class handler implementation
-int QsciLexerCMake_QBaseDefaultStyle(const QsciLexerCMake* self) {
+int QsciLexerCMake_SuperDefaultStyle(const QsciLexerCMake* self) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_DefaultStyle_IsBase(true);
@@ -665,7 +665,7 @@ QColor* QsciLexerCMake_Paper(const QsciLexerCMake* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerCMake_QBasePaper(const QsciLexerCMake* self, int style) {
+QColor* QsciLexerCMake_SuperPaper(const QsciLexerCMake* self, int style) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_Paper_IsBase(true);
@@ -694,7 +694,7 @@ QColor* QsciLexerCMake_DefaultColor2(const QsciLexerCMake* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerCMake_QBaseDefaultColor2(const QsciLexerCMake* self, int style) {
+QColor* QsciLexerCMake_SuperDefaultColor2(const QsciLexerCMake* self, int style) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_DefaultColor2_IsBase(true);
@@ -723,7 +723,7 @@ bool QsciLexerCMake_DefaultEolFill(const QsciLexerCMake* self, int style) {
 }
 
 // Base class handler implementation
-bool QsciLexerCMake_QBaseDefaultEolFill(const QsciLexerCMake* self, int style) {
+bool QsciLexerCMake_SuperDefaultEolFill(const QsciLexerCMake* self, int style) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_DefaultEolFill_IsBase(true);
@@ -752,7 +752,7 @@ QFont* QsciLexerCMake_DefaultFont2(const QsciLexerCMake* self, int style) {
 }
 
 // Base class handler implementation
-QFont* QsciLexerCMake_QBaseDefaultFont2(const QsciLexerCMake* self, int style) {
+QFont* QsciLexerCMake_SuperDefaultFont2(const QsciLexerCMake* self, int style) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_DefaultFont2_IsBase(true);
@@ -781,7 +781,7 @@ QColor* QsciLexerCMake_DefaultPaper2(const QsciLexerCMake* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerCMake_QBaseDefaultPaper2(const QsciLexerCMake* self, int style) {
+QColor* QsciLexerCMake_SuperDefaultPaper2(const QsciLexerCMake* self, int style) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_DefaultPaper2_IsBase(true);
@@ -810,7 +810,7 @@ void QsciLexerCMake_SetEditor(QsciLexerCMake* self, QsciScintilla* editor) {
 }
 
 // Base class handler implementation
-void QsciLexerCMake_QBaseSetEditor(QsciLexerCMake* self, QsciScintilla* editor) {
+void QsciLexerCMake_SuperSetEditor(QsciLexerCMake* self, QsciScintilla* editor) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_SetEditor_IsBase(true);
@@ -839,7 +839,7 @@ int QsciLexerCMake_StyleBitsNeeded(const QsciLexerCMake* self) {
 }
 
 // Base class handler implementation
-int QsciLexerCMake_QBaseStyleBitsNeeded(const QsciLexerCMake* self) {
+int QsciLexerCMake_SuperStyleBitsNeeded(const QsciLexerCMake* self) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_StyleBitsNeeded_IsBase(true);
@@ -868,7 +868,7 @@ const char* QsciLexerCMake_WordCharacters(const QsciLexerCMake* self) {
 }
 
 // Base class handler implementation
-const char* QsciLexerCMake_QBaseWordCharacters(const QsciLexerCMake* self) {
+const char* QsciLexerCMake_SuperWordCharacters(const QsciLexerCMake* self) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_WordCharacters_IsBase(true);
@@ -897,7 +897,7 @@ void QsciLexerCMake_SetAutoIndentStyle(QsciLexerCMake* self, int autoindentstyle
 }
 
 // Base class handler implementation
-void QsciLexerCMake_QBaseSetAutoIndentStyle(QsciLexerCMake* self, int autoindentstyle) {
+void QsciLexerCMake_SuperSetAutoIndentStyle(QsciLexerCMake* self, int autoindentstyle) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_SetAutoIndentStyle_IsBase(true);
@@ -926,7 +926,7 @@ void QsciLexerCMake_SetColor(QsciLexerCMake* self, const QColor* c, int style) {
 }
 
 // Base class handler implementation
-void QsciLexerCMake_QBaseSetColor(QsciLexerCMake* self, const QColor* c, int style) {
+void QsciLexerCMake_SuperSetColor(QsciLexerCMake* self, const QColor* c, int style) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_SetColor_IsBase(true);
@@ -955,7 +955,7 @@ void QsciLexerCMake_SetEolFill(QsciLexerCMake* self, bool eoffill, int style) {
 }
 
 // Base class handler implementation
-void QsciLexerCMake_QBaseSetEolFill(QsciLexerCMake* self, bool eoffill, int style) {
+void QsciLexerCMake_SuperSetEolFill(QsciLexerCMake* self, bool eoffill, int style) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_SetEolFill_IsBase(true);
@@ -984,7 +984,7 @@ void QsciLexerCMake_SetFont(QsciLexerCMake* self, const QFont* f, int style) {
 }
 
 // Base class handler implementation
-void QsciLexerCMake_QBaseSetFont(QsciLexerCMake* self, const QFont* f, int style) {
+void QsciLexerCMake_SuperSetFont(QsciLexerCMake* self, const QFont* f, int style) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_SetFont_IsBase(true);
@@ -1013,7 +1013,7 @@ void QsciLexerCMake_SetPaper(QsciLexerCMake* self, const QColor* c, int style) {
 }
 
 // Base class handler implementation
-void QsciLexerCMake_QBaseSetPaper(QsciLexerCMake* self, const QColor* c, int style) {
+void QsciLexerCMake_SuperSetPaper(QsciLexerCMake* self, const QColor* c, int style) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_SetPaper_IsBase(true);
@@ -1043,7 +1043,7 @@ bool QsciLexerCMake_ReadProperties(QsciLexerCMake* self, QSettings* qs, const li
 }
 
 // Base class handler implementation
-bool QsciLexerCMake_QBaseReadProperties(QsciLexerCMake* self, QSettings* qs, const libqt_string prefix) {
+bool QsciLexerCMake_SuperReadProperties(QsciLexerCMake* self, QSettings* qs, const libqt_string prefix) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
@@ -1074,7 +1074,7 @@ bool QsciLexerCMake_WriteProperties(const QsciLexerCMake* self, QSettings* qs, c
 }
 
 // Base class handler implementation
-bool QsciLexerCMake_QBaseWriteProperties(const QsciLexerCMake* self, QSettings* qs, const libqt_string prefix) {
+bool QsciLexerCMake_SuperWriteProperties(const QsciLexerCMake* self, QSettings* qs, const libqt_string prefix) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
@@ -1104,7 +1104,7 @@ bool QsciLexerCMake_Event(QsciLexerCMake* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QsciLexerCMake_QBaseEvent(QsciLexerCMake* self, QEvent* event) {
+bool QsciLexerCMake_SuperEvent(QsciLexerCMake* self, QEvent* event) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_Event_IsBase(true);
@@ -1133,7 +1133,7 @@ bool QsciLexerCMake_EventFilter(QsciLexerCMake* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QsciLexerCMake_QBaseEventFilter(QsciLexerCMake* self, QObject* watched, QEvent* event) {
+bool QsciLexerCMake_SuperEventFilter(QsciLexerCMake* self, QObject* watched, QEvent* event) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_EventFilter_IsBase(true);
@@ -1162,7 +1162,7 @@ void QsciLexerCMake_TimerEvent(QsciLexerCMake* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerCMake_QBaseTimerEvent(QsciLexerCMake* self, QTimerEvent* event) {
+void QsciLexerCMake_SuperTimerEvent(QsciLexerCMake* self, QTimerEvent* event) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_TimerEvent_IsBase(true);
@@ -1191,7 +1191,7 @@ void QsciLexerCMake_ChildEvent(QsciLexerCMake* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerCMake_QBaseChildEvent(QsciLexerCMake* self, QChildEvent* event) {
+void QsciLexerCMake_SuperChildEvent(QsciLexerCMake* self, QChildEvent* event) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_ChildEvent_IsBase(true);
@@ -1220,7 +1220,7 @@ void QsciLexerCMake_CustomEvent(QsciLexerCMake* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerCMake_QBaseCustomEvent(QsciLexerCMake* self, QEvent* event) {
+void QsciLexerCMake_SuperCustomEvent(QsciLexerCMake* self, QEvent* event) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_CustomEvent_IsBase(true);
@@ -1249,7 +1249,7 @@ void QsciLexerCMake_ConnectNotify(QsciLexerCMake* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QsciLexerCMake_QBaseConnectNotify(QsciLexerCMake* self, const QMetaMethod* signal) {
+void QsciLexerCMake_SuperConnectNotify(QsciLexerCMake* self, const QMetaMethod* signal) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_ConnectNotify_IsBase(true);
@@ -1278,7 +1278,7 @@ void QsciLexerCMake_DisconnectNotify(QsciLexerCMake* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QsciLexerCMake_QBaseDisconnectNotify(QsciLexerCMake* self, const QMetaMethod* signal) {
+void QsciLexerCMake_SuperDisconnectNotify(QsciLexerCMake* self, const QMetaMethod* signal) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_DisconnectNotify_IsBase(true);
@@ -1318,7 +1318,7 @@ libqt_string QsciLexerCMake_TextAsBytes(const QsciLexerCMake* self, const libqt_
 }
 
 // Base class handler implementation
-libqt_string QsciLexerCMake_QBaseTextAsBytes(const QsciLexerCMake* self, const libqt_string text) {
+libqt_string QsciLexerCMake_SuperTextAsBytes(const QsciLexerCMake* self, const libqt_string text) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
@@ -1374,7 +1374,7 @@ libqt_string QsciLexerCMake_BytesAsText(const QsciLexerCMake* self, const char* 
 }
 
 // Base class handler implementation
-libqt_string QsciLexerCMake_QBaseBytesAsText(const QsciLexerCMake* self, const char* bytes, int size) {
+libqt_string QsciLexerCMake_SuperBytesAsText(const QsciLexerCMake* self, const char* bytes, int size) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_BytesAsText_IsBase(true);
@@ -1419,7 +1419,7 @@ QObject* QsciLexerCMake_Sender(const QsciLexerCMake* self) {
 }
 
 // Base class handler implementation
-QObject* QsciLexerCMake_QBaseSender(const QsciLexerCMake* self) {
+QObject* QsciLexerCMake_SuperSender(const QsciLexerCMake* self) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_Sender_IsBase(true);
@@ -1448,7 +1448,7 @@ int QsciLexerCMake_SenderSignalIndex(const QsciLexerCMake* self) {
 }
 
 // Base class handler implementation
-int QsciLexerCMake_QBaseSenderSignalIndex(const QsciLexerCMake* self) {
+int QsciLexerCMake_SuperSenderSignalIndex(const QsciLexerCMake* self) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_SenderSignalIndex_IsBase(true);
@@ -1477,7 +1477,7 @@ int QsciLexerCMake_Receivers(const QsciLexerCMake* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QsciLexerCMake_QBaseReceivers(const QsciLexerCMake* self, const char* signal) {
+int QsciLexerCMake_SuperReceivers(const QsciLexerCMake* self, const char* signal) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_Receivers_IsBase(true);
@@ -1506,7 +1506,7 @@ bool QsciLexerCMake_IsSignalConnected(const QsciLexerCMake* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QsciLexerCMake_QBaseIsSignalConnected(const QsciLexerCMake* self, const QMetaMethod* signal) {
+bool QsciLexerCMake_SuperIsSignalConnected(const QsciLexerCMake* self, const QMetaMethod* signal) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         vqscilexercmake->setQsciLexerCMake_IsSignalConnected_IsBase(true);

@@ -222,7 +222,7 @@ void KIO__PreviewJob_SetIgnoreMaximumSize1(KIO__PreviewJob* self, bool ignoreSiz
 }
 
 // Base class handler implementation
-QMetaObject* KIO__PreviewJob_QBaseMetaObject(const KIO__PreviewJob* self) {
+QMetaObject* KIO__PreviewJob_SuperMetaObject(const KIO__PreviewJob* self) {
     auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_MetaObject_IsBase(true);
@@ -241,7 +241,7 @@ void KIO__PreviewJob_OnMetaObject(const KIO__PreviewJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KIO__PreviewJob_QBaseMetacast(KIO__PreviewJob* self, const char* param1) {
+void* KIO__PreviewJob_SuperMetacast(KIO__PreviewJob* self, const char* param1) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_Metacast_IsBase(true);
@@ -260,7 +260,7 @@ void KIO__PreviewJob_OnMetacast(KIO__PreviewJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KIO__PreviewJob_QBaseMetacall(KIO__PreviewJob* self, int param1, int param2, void** param3) {
+int KIO__PreviewJob_SuperMetacall(KIO__PreviewJob* self, int param1, int param2, void** param3) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_Metacall_IsBase(true);
@@ -279,7 +279,7 @@ void KIO__PreviewJob_OnMetacall(KIO__PreviewJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KIO__PreviewJob_QBaseSlotResult(KIO__PreviewJob* self, KJob* job) {
+void KIO__PreviewJob_SuperSlotResult(KIO__PreviewJob* self, KJob* job) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_SlotResult_IsBase(true);
@@ -308,7 +308,7 @@ void KIO__PreviewJob_Start(KIO__PreviewJob* self) {
 }
 
 // Base class handler implementation
-void KIO__PreviewJob_QBaseStart(KIO__PreviewJob* self) {
+void KIO__PreviewJob_SuperStart(KIO__PreviewJob* self) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_Start_IsBase(true);
@@ -337,7 +337,7 @@ bool KIO__PreviewJob_DoKill(KIO__PreviewJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__PreviewJob_QBaseDoKill(KIO__PreviewJob* self) {
+bool KIO__PreviewJob_SuperDoKill(KIO__PreviewJob* self) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_DoKill_IsBase(true);
@@ -366,7 +366,7 @@ bool KIO__PreviewJob_DoSuspend(KIO__PreviewJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__PreviewJob_QBaseDoSuspend(KIO__PreviewJob* self) {
+bool KIO__PreviewJob_SuperDoSuspend(KIO__PreviewJob* self) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_DoSuspend_IsBase(true);
@@ -395,7 +395,7 @@ bool KIO__PreviewJob_DoResume(KIO__PreviewJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__PreviewJob_QBaseDoResume(KIO__PreviewJob* self) {
+bool KIO__PreviewJob_SuperDoResume(KIO__PreviewJob* self) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_DoResume_IsBase(true);
@@ -440,7 +440,7 @@ libqt_string KIO__PreviewJob_ErrorString(const KIO__PreviewJob* self) {
 }
 
 // Base class handler implementation
-libqt_string KIO__PreviewJob_QBaseErrorString(const KIO__PreviewJob* self) {
+libqt_string KIO__PreviewJob_SuperErrorString(const KIO__PreviewJob* self) {
     auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_ErrorString_IsBase(true);
@@ -485,7 +485,7 @@ bool KIO__PreviewJob_AddSubjob(KIO__PreviewJob* self, KJob* job) {
 }
 
 // Base class handler implementation
-bool KIO__PreviewJob_QBaseAddSubjob(KIO__PreviewJob* self, KJob* job) {
+bool KIO__PreviewJob_SuperAddSubjob(KIO__PreviewJob* self, KJob* job) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_AddSubjob_IsBase(true);
@@ -514,7 +514,7 @@ bool KIO__PreviewJob_RemoveSubjob(KIO__PreviewJob* self, KJob* job) {
 }
 
 // Base class handler implementation
-bool KIO__PreviewJob_QBaseRemoveSubjob(KIO__PreviewJob* self, KJob* job) {
+bool KIO__PreviewJob_SuperRemoveSubjob(KIO__PreviewJob* self, KJob* job) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_RemoveSubjob_IsBase(true);
@@ -544,7 +544,7 @@ void KIO__PreviewJob_SlotInfoMessage(KIO__PreviewJob* self, KJob* job, const lib
 }
 
 // Base class handler implementation
-void KIO__PreviewJob_QBaseSlotInfoMessage(KIO__PreviewJob* self, KJob* job, const libqt_string message) {
+void KIO__PreviewJob_SuperSlotInfoMessage(KIO__PreviewJob* self, KJob* job, const libqt_string message) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     QString message_QString = QString::fromUtf8(message.data, message.len);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
@@ -574,7 +574,7 @@ bool KIO__PreviewJob_Event(KIO__PreviewJob* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KIO__PreviewJob_QBaseEvent(KIO__PreviewJob* self, QEvent* event) {
+bool KIO__PreviewJob_SuperEvent(KIO__PreviewJob* self, QEvent* event) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_Event_IsBase(true);
@@ -603,7 +603,7 @@ bool KIO__PreviewJob_EventFilter(KIO__PreviewJob* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool KIO__PreviewJob_QBaseEventFilter(KIO__PreviewJob* self, QObject* watched, QEvent* event) {
+bool KIO__PreviewJob_SuperEventFilter(KIO__PreviewJob* self, QObject* watched, QEvent* event) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_EventFilter_IsBase(true);
@@ -632,7 +632,7 @@ void KIO__PreviewJob_TimerEvent(KIO__PreviewJob* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__PreviewJob_QBaseTimerEvent(KIO__PreviewJob* self, QTimerEvent* event) {
+void KIO__PreviewJob_SuperTimerEvent(KIO__PreviewJob* self, QTimerEvent* event) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_TimerEvent_IsBase(true);
@@ -661,7 +661,7 @@ void KIO__PreviewJob_ChildEvent(KIO__PreviewJob* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__PreviewJob_QBaseChildEvent(KIO__PreviewJob* self, QChildEvent* event) {
+void KIO__PreviewJob_SuperChildEvent(KIO__PreviewJob* self, QChildEvent* event) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_ChildEvent_IsBase(true);
@@ -690,7 +690,7 @@ void KIO__PreviewJob_CustomEvent(KIO__PreviewJob* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__PreviewJob_QBaseCustomEvent(KIO__PreviewJob* self, QEvent* event) {
+void KIO__PreviewJob_SuperCustomEvent(KIO__PreviewJob* self, QEvent* event) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_CustomEvent_IsBase(true);
@@ -719,7 +719,7 @@ void KIO__PreviewJob_ConnectNotify(KIO__PreviewJob* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void KIO__PreviewJob_QBaseConnectNotify(KIO__PreviewJob* self, const QMetaMethod* signal) {
+void KIO__PreviewJob_SuperConnectNotify(KIO__PreviewJob* self, const QMetaMethod* signal) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_ConnectNotify_IsBase(true);
@@ -748,7 +748,7 @@ void KIO__PreviewJob_DisconnectNotify(KIO__PreviewJob* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void KIO__PreviewJob_QBaseDisconnectNotify(KIO__PreviewJob* self, const QMetaMethod* signal) {
+void KIO__PreviewJob_SuperDisconnectNotify(KIO__PreviewJob* self, const QMetaMethod* signal) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_DisconnectNotify_IsBase(true);
@@ -777,7 +777,7 @@ bool KIO__PreviewJob_HasSubjobs(const KIO__PreviewJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__PreviewJob_QBaseHasSubjobs(const KIO__PreviewJob* self) {
+bool KIO__PreviewJob_SuperHasSubjobs(const KIO__PreviewJob* self) {
     auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_HasSubjobs_IsBase(true);
@@ -824,7 +824,7 @@ libqt_list /* of KJob* */ KIO__PreviewJob_Subjobs(const KIO__PreviewJob* self) {
 }
 
 // Base class handler implementation
-libqt_list /* of KJob* */ KIO__PreviewJob_QBaseSubjobs(const KIO__PreviewJob* self) {
+libqt_list /* of KJob* */ KIO__PreviewJob_SuperSubjobs(const KIO__PreviewJob* self) {
     auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_Subjobs_IsBase(true);
@@ -871,7 +871,7 @@ void KIO__PreviewJob_ClearSubjobs(KIO__PreviewJob* self) {
 }
 
 // Base class handler implementation
-void KIO__PreviewJob_QBaseClearSubjobs(KIO__PreviewJob* self) {
+void KIO__PreviewJob_SuperClearSubjobs(KIO__PreviewJob* self) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_ClearSubjobs_IsBase(true);
@@ -900,7 +900,7 @@ void KIO__PreviewJob_SetCapabilities(KIO__PreviewJob* self, int capabilities) {
 }
 
 // Base class handler implementation
-void KIO__PreviewJob_QBaseSetCapabilities(KIO__PreviewJob* self, int capabilities) {
+void KIO__PreviewJob_SuperSetCapabilities(KIO__PreviewJob* self, int capabilities) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_SetCapabilities_IsBase(true);
@@ -929,7 +929,7 @@ bool KIO__PreviewJob_IsFinished(const KIO__PreviewJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__PreviewJob_QBaseIsFinished(const KIO__PreviewJob* self) {
+bool KIO__PreviewJob_SuperIsFinished(const KIO__PreviewJob* self) {
     auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_IsFinished_IsBase(true);
@@ -958,7 +958,7 @@ void KIO__PreviewJob_SetError(KIO__PreviewJob* self, int errorCode) {
 }
 
 // Base class handler implementation
-void KIO__PreviewJob_QBaseSetError(KIO__PreviewJob* self, int errorCode) {
+void KIO__PreviewJob_SuperSetError(KIO__PreviewJob* self, int errorCode) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_SetError_IsBase(true);
@@ -988,7 +988,7 @@ void KIO__PreviewJob_SetErrorText(KIO__PreviewJob* self, const libqt_string erro
 }
 
 // Base class handler implementation
-void KIO__PreviewJob_QBaseSetErrorText(KIO__PreviewJob* self, const libqt_string errorText) {
+void KIO__PreviewJob_SuperSetErrorText(KIO__PreviewJob* self, const libqt_string errorText) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
@@ -1018,7 +1018,7 @@ void KIO__PreviewJob_SetProcessedAmount(KIO__PreviewJob* self, int unit, unsigne
 }
 
 // Base class handler implementation
-void KIO__PreviewJob_QBaseSetProcessedAmount(KIO__PreviewJob* self, int unit, unsigned long long amount) {
+void KIO__PreviewJob_SuperSetProcessedAmount(KIO__PreviewJob* self, int unit, unsigned long long amount) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_SetProcessedAmount_IsBase(true);
@@ -1047,7 +1047,7 @@ void KIO__PreviewJob_SetTotalAmount(KIO__PreviewJob* self, int unit, unsigned lo
 }
 
 // Base class handler implementation
-void KIO__PreviewJob_QBaseSetTotalAmount(KIO__PreviewJob* self, int unit, unsigned long long amount) {
+void KIO__PreviewJob_SuperSetTotalAmount(KIO__PreviewJob* self, int unit, unsigned long long amount) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_SetTotalAmount_IsBase(true);
@@ -1076,7 +1076,7 @@ void KIO__PreviewJob_SetProgressUnit(KIO__PreviewJob* self, int unit) {
 }
 
 // Base class handler implementation
-void KIO__PreviewJob_QBaseSetProgressUnit(KIO__PreviewJob* self, int unit) {
+void KIO__PreviewJob_SuperSetProgressUnit(KIO__PreviewJob* self, int unit) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_SetProgressUnit_IsBase(true);
@@ -1105,7 +1105,7 @@ void KIO__PreviewJob_SetPercent(KIO__PreviewJob* self, unsigned long percentage)
 }
 
 // Base class handler implementation
-void KIO__PreviewJob_QBaseSetPercent(KIO__PreviewJob* self, unsigned long percentage) {
+void KIO__PreviewJob_SuperSetPercent(KIO__PreviewJob* self, unsigned long percentage) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_SetPercent_IsBase(true);
@@ -1134,7 +1134,7 @@ void KIO__PreviewJob_EmitResult(KIO__PreviewJob* self) {
 }
 
 // Base class handler implementation
-void KIO__PreviewJob_QBaseEmitResult(KIO__PreviewJob* self) {
+void KIO__PreviewJob_SuperEmitResult(KIO__PreviewJob* self) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_EmitResult_IsBase(true);
@@ -1163,7 +1163,7 @@ void KIO__PreviewJob_EmitPercent(KIO__PreviewJob* self, unsigned long long proce
 }
 
 // Base class handler implementation
-void KIO__PreviewJob_QBaseEmitPercent(KIO__PreviewJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
+void KIO__PreviewJob_SuperEmitPercent(KIO__PreviewJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_EmitPercent_IsBase(true);
@@ -1192,7 +1192,7 @@ void KIO__PreviewJob_EmitSpeed(KIO__PreviewJob* self, unsigned long speed) {
 }
 
 // Base class handler implementation
-void KIO__PreviewJob_QBaseEmitSpeed(KIO__PreviewJob* self, unsigned long speed) {
+void KIO__PreviewJob_SuperEmitSpeed(KIO__PreviewJob* self, unsigned long speed) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_EmitSpeed_IsBase(true);
@@ -1221,7 +1221,7 @@ void KIO__PreviewJob_StartElapsedTimer(KIO__PreviewJob* self) {
 }
 
 // Base class handler implementation
-void KIO__PreviewJob_QBaseStartElapsedTimer(KIO__PreviewJob* self) {
+void KIO__PreviewJob_SuperStartElapsedTimer(KIO__PreviewJob* self) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_StartElapsedTimer_IsBase(true);
@@ -1250,7 +1250,7 @@ QObject* KIO__PreviewJob_Sender(const KIO__PreviewJob* self) {
 }
 
 // Base class handler implementation
-QObject* KIO__PreviewJob_QBaseSender(const KIO__PreviewJob* self) {
+QObject* KIO__PreviewJob_SuperSender(const KIO__PreviewJob* self) {
     auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_Sender_IsBase(true);
@@ -1279,7 +1279,7 @@ int KIO__PreviewJob_SenderSignalIndex(const KIO__PreviewJob* self) {
 }
 
 // Base class handler implementation
-int KIO__PreviewJob_QBaseSenderSignalIndex(const KIO__PreviewJob* self) {
+int KIO__PreviewJob_SuperSenderSignalIndex(const KIO__PreviewJob* self) {
     auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_SenderSignalIndex_IsBase(true);
@@ -1308,7 +1308,7 @@ int KIO__PreviewJob_Receivers(const KIO__PreviewJob* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KIO__PreviewJob_QBaseReceivers(const KIO__PreviewJob* self, const char* signal) {
+int KIO__PreviewJob_SuperReceivers(const KIO__PreviewJob* self, const char* signal) {
     auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_Receivers_IsBase(true);
@@ -1337,7 +1337,7 @@ bool KIO__PreviewJob_IsSignalConnected(const KIO__PreviewJob* self, const QMetaM
 }
 
 // Base class handler implementation
-bool KIO__PreviewJob_QBaseIsSignalConnected(const KIO__PreviewJob* self, const QMetaMethod* signal) {
+bool KIO__PreviewJob_SuperIsSignalConnected(const KIO__PreviewJob* self, const QMetaMethod* signal) {
     auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_IsSignalConnected_IsBase(true);

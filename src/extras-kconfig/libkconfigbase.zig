@@ -174,6 +174,10 @@ pub const kconfigbase = struct {
         qtc.KConfigBase_DeleteGroup2(@ptrCast(self), group_str, @bitCast(flags));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#dtor.KConfigBase)
     ///
     /// Delete this object from C++ memory.
@@ -182,7 +186,7 @@ pub const kconfigbase = struct {
     ///
     /// ` self: QtC.KConfigBase `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KConfigBase_Delete(@ptrCast(self));
     }
 };

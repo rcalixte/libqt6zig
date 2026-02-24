@@ -395,31 +395,31 @@ class VirtualKBookmarkActionMenu final : public KBookmarkActionMenu {
 
     // Friend functions
     friend bool KBookmarkActionMenu_Event(KBookmarkActionMenu* self, QEvent* param1);
-    friend bool KBookmarkActionMenu_QBaseEvent(KBookmarkActionMenu* self, QEvent* param1);
+    friend bool KBookmarkActionMenu_SuperEvent(KBookmarkActionMenu* self, QEvent* param1);
     friend bool KBookmarkActionMenu_EventFilter(KBookmarkActionMenu* self, QObject* param1, QEvent* param2);
-    friend bool KBookmarkActionMenu_QBaseEventFilter(KBookmarkActionMenu* self, QObject* param1, QEvent* param2);
+    friend bool KBookmarkActionMenu_SuperEventFilter(KBookmarkActionMenu* self, QObject* param1, QEvent* param2);
     friend void KBookmarkActionMenu_DeleteWidget(KBookmarkActionMenu* self, QWidget* widget);
-    friend void KBookmarkActionMenu_QBaseDeleteWidget(KBookmarkActionMenu* self, QWidget* widget);
+    friend void KBookmarkActionMenu_SuperDeleteWidget(KBookmarkActionMenu* self, QWidget* widget);
     friend void KBookmarkActionMenu_TimerEvent(KBookmarkActionMenu* self, QTimerEvent* event);
-    friend void KBookmarkActionMenu_QBaseTimerEvent(KBookmarkActionMenu* self, QTimerEvent* event);
+    friend void KBookmarkActionMenu_SuperTimerEvent(KBookmarkActionMenu* self, QTimerEvent* event);
     friend void KBookmarkActionMenu_ChildEvent(KBookmarkActionMenu* self, QChildEvent* event);
-    friend void KBookmarkActionMenu_QBaseChildEvent(KBookmarkActionMenu* self, QChildEvent* event);
+    friend void KBookmarkActionMenu_SuperChildEvent(KBookmarkActionMenu* self, QChildEvent* event);
     friend void KBookmarkActionMenu_CustomEvent(KBookmarkActionMenu* self, QEvent* event);
-    friend void KBookmarkActionMenu_QBaseCustomEvent(KBookmarkActionMenu* self, QEvent* event);
+    friend void KBookmarkActionMenu_SuperCustomEvent(KBookmarkActionMenu* self, QEvent* event);
     friend void KBookmarkActionMenu_ConnectNotify(KBookmarkActionMenu* self, const QMetaMethod* signal);
-    friend void KBookmarkActionMenu_QBaseConnectNotify(KBookmarkActionMenu* self, const QMetaMethod* signal);
+    friend void KBookmarkActionMenu_SuperConnectNotify(KBookmarkActionMenu* self, const QMetaMethod* signal);
     friend void KBookmarkActionMenu_DisconnectNotify(KBookmarkActionMenu* self, const QMetaMethod* signal);
-    friend void KBookmarkActionMenu_QBaseDisconnectNotify(KBookmarkActionMenu* self, const QMetaMethod* signal);
+    friend void KBookmarkActionMenu_SuperDisconnectNotify(KBookmarkActionMenu* self, const QMetaMethod* signal);
     friend libqt_list /* of QWidget* */ KBookmarkActionMenu_CreatedWidgets(const KBookmarkActionMenu* self);
-    friend libqt_list /* of QWidget* */ KBookmarkActionMenu_QBaseCreatedWidgets(const KBookmarkActionMenu* self);
+    friend libqt_list /* of QWidget* */ KBookmarkActionMenu_SuperCreatedWidgets(const KBookmarkActionMenu* self);
     friend QObject* KBookmarkActionMenu_Sender(const KBookmarkActionMenu* self);
-    friend QObject* KBookmarkActionMenu_QBaseSender(const KBookmarkActionMenu* self);
+    friend QObject* KBookmarkActionMenu_SuperSender(const KBookmarkActionMenu* self);
     friend int KBookmarkActionMenu_SenderSignalIndex(const KBookmarkActionMenu* self);
-    friend int KBookmarkActionMenu_QBaseSenderSignalIndex(const KBookmarkActionMenu* self);
+    friend int KBookmarkActionMenu_SuperSenderSignalIndex(const KBookmarkActionMenu* self);
     friend int KBookmarkActionMenu_Receivers(const KBookmarkActionMenu* self, const char* signal);
-    friend int KBookmarkActionMenu_QBaseReceivers(const KBookmarkActionMenu* self, const char* signal);
+    friend int KBookmarkActionMenu_SuperReceivers(const KBookmarkActionMenu* self, const char* signal);
     friend bool KBookmarkActionMenu_IsSignalConnected(const KBookmarkActionMenu* self, const QMetaMethod* signal);
-    friend bool KBookmarkActionMenu_QBaseIsSignalConnected(const KBookmarkActionMenu* self, const QMetaMethod* signal);
+    friend bool KBookmarkActionMenu_SuperIsSignalConnected(const KBookmarkActionMenu* self, const QMetaMethod* signal);
 };
 
 #endif

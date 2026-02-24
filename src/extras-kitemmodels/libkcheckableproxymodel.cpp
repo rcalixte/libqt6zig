@@ -162,7 +162,7 @@ bool KCheckableProxyModel_Select(KCheckableProxyModel* self, const QItemSelectio
 }
 
 // Base class handler implementation
-QMetaObject* KCheckableProxyModel_QBaseMetaObject(const KCheckableProxyModel* self) {
+QMetaObject* KCheckableProxyModel_SuperMetaObject(const KCheckableProxyModel* self) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_MetaObject_IsBase(true);
@@ -181,7 +181,7 @@ void KCheckableProxyModel_OnMetaObject(const KCheckableProxyModel* self, intptr_
 }
 
 // Base class handler implementation
-void* KCheckableProxyModel_QBaseMetacast(KCheckableProxyModel* self, const char* param1) {
+void* KCheckableProxyModel_SuperMetacast(KCheckableProxyModel* self, const char* param1) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_Metacast_IsBase(true);
@@ -200,7 +200,7 @@ void KCheckableProxyModel_OnMetacast(KCheckableProxyModel* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int KCheckableProxyModel_QBaseMetacall(KCheckableProxyModel* self, int param1, int param2, void** param3) {
+int KCheckableProxyModel_SuperMetacall(KCheckableProxyModel* self, int param1, int param2, void** param3) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_Metacall_IsBase(true);
@@ -219,7 +219,7 @@ void KCheckableProxyModel_OnMetacall(KCheckableProxyModel* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int KCheckableProxyModel_QBaseFlags(const KCheckableProxyModel* self, const QModelIndex* index) {
+int KCheckableProxyModel_SuperFlags(const KCheckableProxyModel* self, const QModelIndex* index) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_Flags_IsBase(true);
@@ -238,7 +238,7 @@ void KCheckableProxyModel_OnFlags(const KCheckableProxyModel* self, intptr_t slo
 }
 
 // Base class handler implementation
-QVariant* KCheckableProxyModel_QBaseData(const KCheckableProxyModel* self, const QModelIndex* index, int role) {
+QVariant* KCheckableProxyModel_SuperData(const KCheckableProxyModel* self, const QModelIndex* index, int role) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_Data_IsBase(true);
@@ -257,7 +257,7 @@ void KCheckableProxyModel_OnData(const KCheckableProxyModel* self, intptr_t slot
 }
 
 // Base class handler implementation
-bool KCheckableProxyModel_QBaseSetData(KCheckableProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool KCheckableProxyModel_SuperSetData(KCheckableProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_SetData_IsBase(true);
@@ -276,7 +276,7 @@ void KCheckableProxyModel_OnSetData(KCheckableProxyModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseSetSourceModel(KCheckableProxyModel* self, QAbstractItemModel* sourceModel) {
+void KCheckableProxyModel_SuperSetSourceModel(KCheckableProxyModel* self, QAbstractItemModel* sourceModel) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_SetSourceModel_IsBase(true);
@@ -295,7 +295,7 @@ void KCheckableProxyModel_OnSetSourceModel(KCheckableProxyModel* self, intptr_t 
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ KCheckableProxyModel_QBaseRoleNames(const KCheckableProxyModel* self) {
+libqt_map /* of int to libqt_string */ KCheckableProxyModel_SuperRoleNames(const KCheckableProxyModel* self) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_RoleNames_IsBase(true);
@@ -352,7 +352,7 @@ void KCheckableProxyModel_OnRoleNames(const KCheckableProxyModel* self, intptr_t
 }
 
 // Base class handler implementation
-bool KCheckableProxyModel_QBaseSelect(KCheckableProxyModel* self, const QItemSelection* selection, int command) {
+bool KCheckableProxyModel_SuperSelect(KCheckableProxyModel* self, const QItemSelection* selection, int command) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_Select_IsBase(true);
@@ -381,7 +381,7 @@ int KCheckableProxyModel_ColumnCount(const KCheckableProxyModel* self, const QMo
 }
 
 // Base class handler implementation
-int KCheckableProxyModel_QBaseColumnCount(const KCheckableProxyModel* self, const QModelIndex* parent) {
+int KCheckableProxyModel_SuperColumnCount(const KCheckableProxyModel* self, const QModelIndex* parent) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_ColumnCount_IsBase(true);
@@ -410,7 +410,7 @@ QModelIndex* KCheckableProxyModel_Index(const KCheckableProxyModel* self, int ro
 }
 
 // Base class handler implementation
-QModelIndex* KCheckableProxyModel_QBaseIndex(const KCheckableProxyModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* KCheckableProxyModel_SuperIndex(const KCheckableProxyModel* self, int row, int column, const QModelIndex* parent) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_Index_IsBase(true);
@@ -439,7 +439,7 @@ QModelIndex* KCheckableProxyModel_MapFromSource(const KCheckableProxyModel* self
 }
 
 // Base class handler implementation
-QModelIndex* KCheckableProxyModel_QBaseMapFromSource(const KCheckableProxyModel* self, const QModelIndex* sourceIndex) {
+QModelIndex* KCheckableProxyModel_SuperMapFromSource(const KCheckableProxyModel* self, const QModelIndex* sourceIndex) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_MapFromSource_IsBase(true);
@@ -468,7 +468,7 @@ QModelIndex* KCheckableProxyModel_MapToSource(const KCheckableProxyModel* self, 
 }
 
 // Base class handler implementation
-QModelIndex* KCheckableProxyModel_QBaseMapToSource(const KCheckableProxyModel* self, const QModelIndex* proxyIndex) {
+QModelIndex* KCheckableProxyModel_SuperMapToSource(const KCheckableProxyModel* self, const QModelIndex* proxyIndex) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_MapToSource_IsBase(true);
@@ -497,7 +497,7 @@ QModelIndex* KCheckableProxyModel_Parent(const KCheckableProxyModel* self, const
 }
 
 // Base class handler implementation
-QModelIndex* KCheckableProxyModel_QBaseParent(const KCheckableProxyModel* self, const QModelIndex* child) {
+QModelIndex* KCheckableProxyModel_SuperParent(const KCheckableProxyModel* self, const QModelIndex* child) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_Parent_IsBase(true);
@@ -526,7 +526,7 @@ int KCheckableProxyModel_RowCount(const KCheckableProxyModel* self, const QModel
 }
 
 // Base class handler implementation
-int KCheckableProxyModel_QBaseRowCount(const KCheckableProxyModel* self, const QModelIndex* parent) {
+int KCheckableProxyModel_SuperRowCount(const KCheckableProxyModel* self, const QModelIndex* parent) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_RowCount_IsBase(true);
@@ -555,7 +555,7 @@ QVariant* KCheckableProxyModel_HeaderData(const KCheckableProxyModel* self, int 
 }
 
 // Base class handler implementation
-QVariant* KCheckableProxyModel_QBaseHeaderData(const KCheckableProxyModel* self, int section, int orientation, int role) {
+QVariant* KCheckableProxyModel_SuperHeaderData(const KCheckableProxyModel* self, int section, int orientation, int role) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_HeaderData_IsBase(true);
@@ -584,7 +584,7 @@ bool KCheckableProxyModel_DropMimeData(KCheckableProxyModel* self, const QMimeDa
 }
 
 // Base class handler implementation
-bool KCheckableProxyModel_QBaseDropMimeData(KCheckableProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KCheckableProxyModel_SuperDropMimeData(KCheckableProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_DropMimeData_IsBase(true);
@@ -613,7 +613,7 @@ QModelIndex* KCheckableProxyModel_Sibling(const KCheckableProxyModel* self, int 
 }
 
 // Base class handler implementation
-QModelIndex* KCheckableProxyModel_QBaseSibling(const KCheckableProxyModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* KCheckableProxyModel_SuperSibling(const KCheckableProxyModel* self, int row, int column, const QModelIndex* idx) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_Sibling_IsBase(true);
@@ -642,7 +642,7 @@ QItemSelection* KCheckableProxyModel_MapSelectionFromSource(const KCheckableProx
 }
 
 // Base class handler implementation
-QItemSelection* KCheckableProxyModel_QBaseMapSelectionFromSource(const KCheckableProxyModel* self, const QItemSelection* selection) {
+QItemSelection* KCheckableProxyModel_SuperMapSelectionFromSource(const KCheckableProxyModel* self, const QItemSelection* selection) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_MapSelectionFromSource_IsBase(true);
@@ -671,7 +671,7 @@ QItemSelection* KCheckableProxyModel_MapSelectionToSource(const KCheckableProxyM
 }
 
 // Base class handler implementation
-QItemSelection* KCheckableProxyModel_QBaseMapSelectionToSource(const KCheckableProxyModel* self, const QItemSelection* selection) {
+QItemSelection* KCheckableProxyModel_SuperMapSelectionToSource(const KCheckableProxyModel* self, const QItemSelection* selection) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_MapSelectionToSource_IsBase(true);
@@ -718,7 +718,7 @@ libqt_list /* of QModelIndex* */ KCheckableProxyModel_Match(const KCheckableProx
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KCheckableProxyModel_QBaseMatch(const KCheckableProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ KCheckableProxyModel_SuperMatch(const KCheckableProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_Match_IsBase(true);
@@ -765,7 +765,7 @@ bool KCheckableProxyModel_InsertColumns(KCheckableProxyModel* self, int column, 
 }
 
 // Base class handler implementation
-bool KCheckableProxyModel_QBaseInsertColumns(KCheckableProxyModel* self, int column, int count, const QModelIndex* parent) {
+bool KCheckableProxyModel_SuperInsertColumns(KCheckableProxyModel* self, int column, int count, const QModelIndex* parent) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_InsertColumns_IsBase(true);
@@ -794,7 +794,7 @@ bool KCheckableProxyModel_InsertRows(KCheckableProxyModel* self, int row, int co
 }
 
 // Base class handler implementation
-bool KCheckableProxyModel_QBaseInsertRows(KCheckableProxyModel* self, int row, int count, const QModelIndex* parent) {
+bool KCheckableProxyModel_SuperInsertRows(KCheckableProxyModel* self, int row, int count, const QModelIndex* parent) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_InsertRows_IsBase(true);
@@ -823,7 +823,7 @@ bool KCheckableProxyModel_RemoveColumns(KCheckableProxyModel* self, int column, 
 }
 
 // Base class handler implementation
-bool KCheckableProxyModel_QBaseRemoveColumns(KCheckableProxyModel* self, int column, int count, const QModelIndex* parent) {
+bool KCheckableProxyModel_SuperRemoveColumns(KCheckableProxyModel* self, int column, int count, const QModelIndex* parent) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_RemoveColumns_IsBase(true);
@@ -852,7 +852,7 @@ bool KCheckableProxyModel_RemoveRows(KCheckableProxyModel* self, int row, int co
 }
 
 // Base class handler implementation
-bool KCheckableProxyModel_QBaseRemoveRows(KCheckableProxyModel* self, int row, int count, const QModelIndex* parent) {
+bool KCheckableProxyModel_SuperRemoveRows(KCheckableProxyModel* self, int row, int count, const QModelIndex* parent) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_RemoveRows_IsBase(true);
@@ -881,7 +881,7 @@ bool KCheckableProxyModel_MoveRows(KCheckableProxyModel* self, const QModelIndex
 }
 
 // Base class handler implementation
-bool KCheckableProxyModel_QBaseMoveRows(KCheckableProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KCheckableProxyModel_SuperMoveRows(KCheckableProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_MoveRows_IsBase(true);
@@ -910,7 +910,7 @@ bool KCheckableProxyModel_MoveColumns(KCheckableProxyModel* self, const QModelIn
 }
 
 // Base class handler implementation
-bool KCheckableProxyModel_QBaseMoveColumns(KCheckableProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KCheckableProxyModel_SuperMoveColumns(KCheckableProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_MoveColumns_IsBase(true);
@@ -939,7 +939,7 @@ bool KCheckableProxyModel_Submit(KCheckableProxyModel* self) {
 }
 
 // Base class handler implementation
-bool KCheckableProxyModel_QBaseSubmit(KCheckableProxyModel* self) {
+bool KCheckableProxyModel_SuperSubmit(KCheckableProxyModel* self) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_Submit_IsBase(true);
@@ -968,7 +968,7 @@ void KCheckableProxyModel_Revert(KCheckableProxyModel* self) {
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseRevert(KCheckableProxyModel* self) {
+void KCheckableProxyModel_SuperRevert(KCheckableProxyModel* self) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_Revert_IsBase(true);
@@ -1025,7 +1025,7 @@ libqt_map /* of int to QVariant* */ KCheckableProxyModel_ItemData(const KCheckab
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ KCheckableProxyModel_QBaseItemData(const KCheckableProxyModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ KCheckableProxyModel_SuperItemData(const KCheckableProxyModel* self, const QModelIndex* index) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_ItemData_IsBase(true);
@@ -1088,7 +1088,7 @@ bool KCheckableProxyModel_SetItemData(KCheckableProxyModel* self, const QModelIn
 }
 
 // Base class handler implementation
-bool KCheckableProxyModel_QBaseSetItemData(KCheckableProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool KCheckableProxyModel_SuperSetItemData(KCheckableProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -1123,7 +1123,7 @@ bool KCheckableProxyModel_SetHeaderData(KCheckableProxyModel* self, int section,
 }
 
 // Base class handler implementation
-bool KCheckableProxyModel_QBaseSetHeaderData(KCheckableProxyModel* self, int section, int orientation, const QVariant* value, int role) {
+bool KCheckableProxyModel_SuperSetHeaderData(KCheckableProxyModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_SetHeaderData_IsBase(true);
@@ -1152,7 +1152,7 @@ bool KCheckableProxyModel_ClearItemData(KCheckableProxyModel* self, const QModel
 }
 
 // Base class handler implementation
-bool KCheckableProxyModel_QBaseClearItemData(KCheckableProxyModel* self, const QModelIndex* index) {
+bool KCheckableProxyModel_SuperClearItemData(KCheckableProxyModel* self, const QModelIndex* index) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_ClearItemData_IsBase(true);
@@ -1181,7 +1181,7 @@ QModelIndex* KCheckableProxyModel_Buddy(const KCheckableProxyModel* self, const 
 }
 
 // Base class handler implementation
-QModelIndex* KCheckableProxyModel_QBaseBuddy(const KCheckableProxyModel* self, const QModelIndex* index) {
+QModelIndex* KCheckableProxyModel_SuperBuddy(const KCheckableProxyModel* self, const QModelIndex* index) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_Buddy_IsBase(true);
@@ -1210,7 +1210,7 @@ bool KCheckableProxyModel_CanFetchMore(const KCheckableProxyModel* self, const Q
 }
 
 // Base class handler implementation
-bool KCheckableProxyModel_QBaseCanFetchMore(const KCheckableProxyModel* self, const QModelIndex* parent) {
+bool KCheckableProxyModel_SuperCanFetchMore(const KCheckableProxyModel* self, const QModelIndex* parent) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_CanFetchMore_IsBase(true);
@@ -1239,7 +1239,7 @@ void KCheckableProxyModel_FetchMore(KCheckableProxyModel* self, const QModelInde
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseFetchMore(KCheckableProxyModel* self, const QModelIndex* parent) {
+void KCheckableProxyModel_SuperFetchMore(KCheckableProxyModel* self, const QModelIndex* parent) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_FetchMore_IsBase(true);
@@ -1268,7 +1268,7 @@ void KCheckableProxyModel_Sort(KCheckableProxyModel* self, int column, int order
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseSort(KCheckableProxyModel* self, int column, int order) {
+void KCheckableProxyModel_SuperSort(KCheckableProxyModel* self, int column, int order) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_Sort_IsBase(true);
@@ -1297,7 +1297,7 @@ QSize* KCheckableProxyModel_Span(const KCheckableProxyModel* self, const QModelI
 }
 
 // Base class handler implementation
-QSize* KCheckableProxyModel_QBaseSpan(const KCheckableProxyModel* self, const QModelIndex* index) {
+QSize* KCheckableProxyModel_SuperSpan(const KCheckableProxyModel* self, const QModelIndex* index) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_Span_IsBase(true);
@@ -1326,7 +1326,7 @@ bool KCheckableProxyModel_HasChildren(const KCheckableProxyModel* self, const QM
 }
 
 // Base class handler implementation
-bool KCheckableProxyModel_QBaseHasChildren(const KCheckableProxyModel* self, const QModelIndex* parent) {
+bool KCheckableProxyModel_SuperHasChildren(const KCheckableProxyModel* self, const QModelIndex* parent) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_HasChildren_IsBase(true);
@@ -1361,7 +1361,7 @@ QMimeData* KCheckableProxyModel_MimeData(const KCheckableProxyModel* self, const
 }
 
 // Base class handler implementation
-QMimeData* KCheckableProxyModel_QBaseMimeData(const KCheckableProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* KCheckableProxyModel_SuperMimeData(const KCheckableProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -1396,7 +1396,7 @@ bool KCheckableProxyModel_CanDropMimeData(const KCheckableProxyModel* self, cons
 }
 
 // Base class handler implementation
-bool KCheckableProxyModel_QBaseCanDropMimeData(const KCheckableProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KCheckableProxyModel_SuperCanDropMimeData(const KCheckableProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_CanDropMimeData_IsBase(true);
@@ -1459,7 +1459,7 @@ libqt_list /* of libqt_string */ KCheckableProxyModel_MimeTypes(const KCheckable
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KCheckableProxyModel_QBaseMimeTypes(const KCheckableProxyModel* self) {
+libqt_list /* of libqt_string */ KCheckableProxyModel_SuperMimeTypes(const KCheckableProxyModel* self) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_MimeTypes_IsBase(true);
@@ -1522,7 +1522,7 @@ int KCheckableProxyModel_SupportedDragActions(const KCheckableProxyModel* self) 
 }
 
 // Base class handler implementation
-int KCheckableProxyModel_QBaseSupportedDragActions(const KCheckableProxyModel* self) {
+int KCheckableProxyModel_SuperSupportedDragActions(const KCheckableProxyModel* self) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_SupportedDragActions_IsBase(true);
@@ -1551,7 +1551,7 @@ int KCheckableProxyModel_SupportedDropActions(const KCheckableProxyModel* self) 
 }
 
 // Base class handler implementation
-int KCheckableProxyModel_QBaseSupportedDropActions(const KCheckableProxyModel* self) {
+int KCheckableProxyModel_SuperSupportedDropActions(const KCheckableProxyModel* self) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_SupportedDropActions_IsBase(true);
@@ -1580,7 +1580,7 @@ void KCheckableProxyModel_MultiData(const KCheckableProxyModel* self, const QMod
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseMultiData(const KCheckableProxyModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void KCheckableProxyModel_SuperMultiData(const KCheckableProxyModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_MultiData_IsBase(true);
@@ -1609,7 +1609,7 @@ void KCheckableProxyModel_ResetInternalData(KCheckableProxyModel* self) {
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseResetInternalData(KCheckableProxyModel* self) {
+void KCheckableProxyModel_SuperResetInternalData(KCheckableProxyModel* self) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_ResetInternalData_IsBase(true);
@@ -1638,7 +1638,7 @@ bool KCheckableProxyModel_Event(KCheckableProxyModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KCheckableProxyModel_QBaseEvent(KCheckableProxyModel* self, QEvent* event) {
+bool KCheckableProxyModel_SuperEvent(KCheckableProxyModel* self, QEvent* event) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_Event_IsBase(true);
@@ -1667,7 +1667,7 @@ bool KCheckableProxyModel_EventFilter(KCheckableProxyModel* self, QObject* watch
 }
 
 // Base class handler implementation
-bool KCheckableProxyModel_QBaseEventFilter(KCheckableProxyModel* self, QObject* watched, QEvent* event) {
+bool KCheckableProxyModel_SuperEventFilter(KCheckableProxyModel* self, QObject* watched, QEvent* event) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_EventFilter_IsBase(true);
@@ -1696,7 +1696,7 @@ void KCheckableProxyModel_TimerEvent(KCheckableProxyModel* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseTimerEvent(KCheckableProxyModel* self, QTimerEvent* event) {
+void KCheckableProxyModel_SuperTimerEvent(KCheckableProxyModel* self, QTimerEvent* event) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_TimerEvent_IsBase(true);
@@ -1725,7 +1725,7 @@ void KCheckableProxyModel_ChildEvent(KCheckableProxyModel* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseChildEvent(KCheckableProxyModel* self, QChildEvent* event) {
+void KCheckableProxyModel_SuperChildEvent(KCheckableProxyModel* self, QChildEvent* event) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_ChildEvent_IsBase(true);
@@ -1754,7 +1754,7 @@ void KCheckableProxyModel_CustomEvent(KCheckableProxyModel* self, QEvent* event)
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseCustomEvent(KCheckableProxyModel* self, QEvent* event) {
+void KCheckableProxyModel_SuperCustomEvent(KCheckableProxyModel* self, QEvent* event) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_CustomEvent_IsBase(true);
@@ -1783,7 +1783,7 @@ void KCheckableProxyModel_ConnectNotify(KCheckableProxyModel* self, const QMetaM
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseConnectNotify(KCheckableProxyModel* self, const QMetaMethod* signal) {
+void KCheckableProxyModel_SuperConnectNotify(KCheckableProxyModel* self, const QMetaMethod* signal) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_ConnectNotify_IsBase(true);
@@ -1812,7 +1812,7 @@ void KCheckableProxyModel_DisconnectNotify(KCheckableProxyModel* self, const QMe
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseDisconnectNotify(KCheckableProxyModel* self, const QMetaMethod* signal) {
+void KCheckableProxyModel_SuperDisconnectNotify(KCheckableProxyModel* self, const QMetaMethod* signal) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_DisconnectNotify_IsBase(true);
@@ -1841,7 +1841,7 @@ void KCheckableProxyModel_SetHandleSourceLayoutChanges(KCheckableProxyModel* sel
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseSetHandleSourceLayoutChanges(KCheckableProxyModel* self, bool handleSourceLayoutChanges) {
+void KCheckableProxyModel_SuperSetHandleSourceLayoutChanges(KCheckableProxyModel* self, bool handleSourceLayoutChanges) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_SetHandleSourceLayoutChanges_IsBase(true);
@@ -1870,7 +1870,7 @@ void KCheckableProxyModel_SetHandleSourceDataChanges(KCheckableProxyModel* self,
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseSetHandleSourceDataChanges(KCheckableProxyModel* self, bool handleSourceDataChanges) {
+void KCheckableProxyModel_SuperSetHandleSourceDataChanges(KCheckableProxyModel* self, bool handleSourceDataChanges) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_SetHandleSourceDataChanges_IsBase(true);
@@ -1898,7 +1898,7 @@ QModelIndex* KCheckableProxyModel_CreateSourceIndex(const KCheckableProxyModel* 
 }
 
 // Base class handler implementation
-QModelIndex* KCheckableProxyModel_QBaseCreateSourceIndex(const KCheckableProxyModel* self, int row, int col, void* internalPtr) {
+QModelIndex* KCheckableProxyModel_SuperCreateSourceIndex(const KCheckableProxyModel* self, int row, int col, void* internalPtr) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_CreateSourceIndex_IsBase(true);
@@ -1925,7 +1925,7 @@ QModelIndex* KCheckableProxyModel_CreateIndex(const KCheckableProxyModel* self, 
 }
 
 // Base class handler implementation
-QModelIndex* KCheckableProxyModel_QBaseCreateIndex(const KCheckableProxyModel* self, int row, int column) {
+QModelIndex* KCheckableProxyModel_SuperCreateIndex(const KCheckableProxyModel* self, int row, int column) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_CreateIndex_IsBase(true);
@@ -1959,7 +1959,7 @@ void KCheckableProxyModel_EncodeData(const KCheckableProxyModel* self, const lib
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseEncodeData(const KCheckableProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void KCheckableProxyModel_SuperEncodeData(const KCheckableProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -1994,7 +1994,7 @@ bool KCheckableProxyModel_DecodeData(KCheckableProxyModel* self, int row, int co
 }
 
 // Base class handler implementation
-bool KCheckableProxyModel_QBaseDecodeData(KCheckableProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool KCheckableProxyModel_SuperDecodeData(KCheckableProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_DecodeData_IsBase(true);
@@ -2023,7 +2023,7 @@ void KCheckableProxyModel_BeginInsertRows(KCheckableProxyModel* self, const QMod
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseBeginInsertRows(KCheckableProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KCheckableProxyModel_SuperBeginInsertRows(KCheckableProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_BeginInsertRows_IsBase(true);
@@ -2052,7 +2052,7 @@ void KCheckableProxyModel_EndInsertRows(KCheckableProxyModel* self) {
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseEndInsertRows(KCheckableProxyModel* self) {
+void KCheckableProxyModel_SuperEndInsertRows(KCheckableProxyModel* self) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_EndInsertRows_IsBase(true);
@@ -2081,7 +2081,7 @@ void KCheckableProxyModel_BeginRemoveRows(KCheckableProxyModel* self, const QMod
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseBeginRemoveRows(KCheckableProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KCheckableProxyModel_SuperBeginRemoveRows(KCheckableProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_BeginRemoveRows_IsBase(true);
@@ -2110,7 +2110,7 @@ void KCheckableProxyModel_EndRemoveRows(KCheckableProxyModel* self) {
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseEndRemoveRows(KCheckableProxyModel* self) {
+void KCheckableProxyModel_SuperEndRemoveRows(KCheckableProxyModel* self) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_EndRemoveRows_IsBase(true);
@@ -2139,7 +2139,7 @@ bool KCheckableProxyModel_BeginMoveRows(KCheckableProxyModel* self, const QModel
 }
 
 // Base class handler implementation
-bool KCheckableProxyModel_QBaseBeginMoveRows(KCheckableProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool KCheckableProxyModel_SuperBeginMoveRows(KCheckableProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_BeginMoveRows_IsBase(true);
@@ -2168,7 +2168,7 @@ void KCheckableProxyModel_EndMoveRows(KCheckableProxyModel* self) {
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseEndMoveRows(KCheckableProxyModel* self) {
+void KCheckableProxyModel_SuperEndMoveRows(KCheckableProxyModel* self) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_EndMoveRows_IsBase(true);
@@ -2197,7 +2197,7 @@ void KCheckableProxyModel_BeginInsertColumns(KCheckableProxyModel* self, const Q
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseBeginInsertColumns(KCheckableProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KCheckableProxyModel_SuperBeginInsertColumns(KCheckableProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_BeginInsertColumns_IsBase(true);
@@ -2226,7 +2226,7 @@ void KCheckableProxyModel_EndInsertColumns(KCheckableProxyModel* self) {
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseEndInsertColumns(KCheckableProxyModel* self) {
+void KCheckableProxyModel_SuperEndInsertColumns(KCheckableProxyModel* self) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_EndInsertColumns_IsBase(true);
@@ -2255,7 +2255,7 @@ void KCheckableProxyModel_BeginRemoveColumns(KCheckableProxyModel* self, const Q
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseBeginRemoveColumns(KCheckableProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KCheckableProxyModel_SuperBeginRemoveColumns(KCheckableProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_BeginRemoveColumns_IsBase(true);
@@ -2284,7 +2284,7 @@ void KCheckableProxyModel_EndRemoveColumns(KCheckableProxyModel* self) {
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseEndRemoveColumns(KCheckableProxyModel* self) {
+void KCheckableProxyModel_SuperEndRemoveColumns(KCheckableProxyModel* self) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_EndRemoveColumns_IsBase(true);
@@ -2313,7 +2313,7 @@ bool KCheckableProxyModel_BeginMoveColumns(KCheckableProxyModel* self, const QMo
 }
 
 // Base class handler implementation
-bool KCheckableProxyModel_QBaseBeginMoveColumns(KCheckableProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool KCheckableProxyModel_SuperBeginMoveColumns(KCheckableProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_BeginMoveColumns_IsBase(true);
@@ -2342,7 +2342,7 @@ void KCheckableProxyModel_EndMoveColumns(KCheckableProxyModel* self) {
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseEndMoveColumns(KCheckableProxyModel* self) {
+void KCheckableProxyModel_SuperEndMoveColumns(KCheckableProxyModel* self) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_EndMoveColumns_IsBase(true);
@@ -2371,7 +2371,7 @@ void KCheckableProxyModel_BeginResetModel(KCheckableProxyModel* self) {
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseBeginResetModel(KCheckableProxyModel* self) {
+void KCheckableProxyModel_SuperBeginResetModel(KCheckableProxyModel* self) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_BeginResetModel_IsBase(true);
@@ -2400,7 +2400,7 @@ void KCheckableProxyModel_EndResetModel(KCheckableProxyModel* self) {
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseEndResetModel(KCheckableProxyModel* self) {
+void KCheckableProxyModel_SuperEndResetModel(KCheckableProxyModel* self) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_EndResetModel_IsBase(true);
@@ -2429,7 +2429,7 @@ void KCheckableProxyModel_ChangePersistentIndex(KCheckableProxyModel* self, cons
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseChangePersistentIndex(KCheckableProxyModel* self, const QModelIndex* from, const QModelIndex* to) {
+void KCheckableProxyModel_SuperChangePersistentIndex(KCheckableProxyModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_ChangePersistentIndex_IsBase(true);
@@ -2470,7 +2470,7 @@ void KCheckableProxyModel_ChangePersistentIndexList(KCheckableProxyModel* self, 
 }
 
 // Base class handler implementation
-void KCheckableProxyModel_QBaseChangePersistentIndexList(KCheckableProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void KCheckableProxyModel_SuperChangePersistentIndexList(KCheckableProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -2529,7 +2529,7 @@ libqt_list /* of QModelIndex* */ KCheckableProxyModel_PersistentIndexList(const 
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KCheckableProxyModel_QBasePersistentIndexList(const KCheckableProxyModel* self) {
+libqt_list /* of QModelIndex* */ KCheckableProxyModel_SuperPersistentIndexList(const KCheckableProxyModel* self) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_PersistentIndexList_IsBase(true);
@@ -2576,7 +2576,7 @@ QObject* KCheckableProxyModel_Sender(const KCheckableProxyModel* self) {
 }
 
 // Base class handler implementation
-QObject* KCheckableProxyModel_QBaseSender(const KCheckableProxyModel* self) {
+QObject* KCheckableProxyModel_SuperSender(const KCheckableProxyModel* self) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_Sender_IsBase(true);
@@ -2605,7 +2605,7 @@ int KCheckableProxyModel_SenderSignalIndex(const KCheckableProxyModel* self) {
 }
 
 // Base class handler implementation
-int KCheckableProxyModel_QBaseSenderSignalIndex(const KCheckableProxyModel* self) {
+int KCheckableProxyModel_SuperSenderSignalIndex(const KCheckableProxyModel* self) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_SenderSignalIndex_IsBase(true);
@@ -2634,7 +2634,7 @@ int KCheckableProxyModel_Receivers(const KCheckableProxyModel* self, const char*
 }
 
 // Base class handler implementation
-int KCheckableProxyModel_QBaseReceivers(const KCheckableProxyModel* self, const char* signal) {
+int KCheckableProxyModel_SuperReceivers(const KCheckableProxyModel* self, const char* signal) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_Receivers_IsBase(true);
@@ -2663,7 +2663,7 @@ bool KCheckableProxyModel_IsSignalConnected(const KCheckableProxyModel* self, co
 }
 
 // Base class handler implementation
-bool KCheckableProxyModel_QBaseIsSignalConnected(const KCheckableProxyModel* self, const QMetaMethod* signal) {
+bool KCheckableProxyModel_SuperIsSignalConnected(const KCheckableProxyModel* self, const QMetaMethod* signal) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
     if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
         vkcheckableproxymodel->setKCheckableProxyModel_IsSignalConnected_IsBase(true);

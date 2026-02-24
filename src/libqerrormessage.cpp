@@ -105,7 +105,7 @@ void QErrorMessage_ChangeEvent(QErrorMessage* self, QEvent* e) {
 }
 
 // Base class handler implementation
-QMetaObject* QErrorMessage_QBaseMetaObject(const QErrorMessage* self) {
+QMetaObject* QErrorMessage_SuperMetaObject(const QErrorMessage* self) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_MetaObject_IsBase(true);
@@ -124,7 +124,7 @@ void QErrorMessage_OnMetaObject(const QErrorMessage* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QErrorMessage_QBaseMetacast(QErrorMessage* self, const char* param1) {
+void* QErrorMessage_SuperMetacast(QErrorMessage* self, const char* param1) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_Metacast_IsBase(true);
@@ -143,7 +143,7 @@ void QErrorMessage_OnMetacast(QErrorMessage* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QErrorMessage_QBaseMetacall(QErrorMessage* self, int param1, int param2, void** param3) {
+int QErrorMessage_SuperMetacall(QErrorMessage* self, int param1, int param2, void** param3) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_Metacall_IsBase(true);
@@ -162,7 +162,7 @@ void QErrorMessage_OnMetacall(QErrorMessage* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseDone(QErrorMessage* self, int param1) {
+void QErrorMessage_SuperDone(QErrorMessage* self, int param1) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_Done_IsBase(true);
@@ -181,7 +181,7 @@ void QErrorMessage_OnDone(QErrorMessage* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseChangeEvent(QErrorMessage* self, QEvent* e) {
+void QErrorMessage_SuperChangeEvent(QErrorMessage* self, QEvent* e) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_ChangeEvent_IsBase(true);
@@ -210,7 +210,7 @@ void QErrorMessage_SetVisible(QErrorMessage* self, bool visible) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseSetVisible(QErrorMessage* self, bool visible) {
+void QErrorMessage_SuperSetVisible(QErrorMessage* self, bool visible) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_SetVisible_IsBase(true);
@@ -239,7 +239,7 @@ QSize* QErrorMessage_SizeHint(const QErrorMessage* self) {
 }
 
 // Base class handler implementation
-QSize* QErrorMessage_QBaseSizeHint(const QErrorMessage* self) {
+QSize* QErrorMessage_SuperSizeHint(const QErrorMessage* self) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_SizeHint_IsBase(true);
@@ -268,7 +268,7 @@ QSize* QErrorMessage_MinimumSizeHint(const QErrorMessage* self) {
 }
 
 // Base class handler implementation
-QSize* QErrorMessage_QBaseMinimumSizeHint(const QErrorMessage* self) {
+QSize* QErrorMessage_SuperMinimumSizeHint(const QErrorMessage* self) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_MinimumSizeHint_IsBase(true);
@@ -297,7 +297,7 @@ void QErrorMessage_Open(QErrorMessage* self) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseOpen(QErrorMessage* self) {
+void QErrorMessage_SuperOpen(QErrorMessage* self) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_Open_IsBase(true);
@@ -326,7 +326,7 @@ int QErrorMessage_Exec(QErrorMessage* self) {
 }
 
 // Base class handler implementation
-int QErrorMessage_QBaseExec(QErrorMessage* self) {
+int QErrorMessage_SuperExec(QErrorMessage* self) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_Exec_IsBase(true);
@@ -355,7 +355,7 @@ void QErrorMessage_Accept(QErrorMessage* self) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseAccept(QErrorMessage* self) {
+void QErrorMessage_SuperAccept(QErrorMessage* self) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_Accept_IsBase(true);
@@ -384,7 +384,7 @@ void QErrorMessage_Reject(QErrorMessage* self) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseReject(QErrorMessage* self) {
+void QErrorMessage_SuperReject(QErrorMessage* self) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_Reject_IsBase(true);
@@ -413,7 +413,7 @@ void QErrorMessage_KeyPressEvent(QErrorMessage* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseKeyPressEvent(QErrorMessage* self, QKeyEvent* param1) {
+void QErrorMessage_SuperKeyPressEvent(QErrorMessage* self, QKeyEvent* param1) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_KeyPressEvent_IsBase(true);
@@ -442,7 +442,7 @@ void QErrorMessage_CloseEvent(QErrorMessage* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseCloseEvent(QErrorMessage* self, QCloseEvent* param1) {
+void QErrorMessage_SuperCloseEvent(QErrorMessage* self, QCloseEvent* param1) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_CloseEvent_IsBase(true);
@@ -471,7 +471,7 @@ void QErrorMessage_ShowEvent(QErrorMessage* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseShowEvent(QErrorMessage* self, QShowEvent* param1) {
+void QErrorMessage_SuperShowEvent(QErrorMessage* self, QShowEvent* param1) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_ShowEvent_IsBase(true);
@@ -500,7 +500,7 @@ void QErrorMessage_ResizeEvent(QErrorMessage* self, QResizeEvent* param1) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseResizeEvent(QErrorMessage* self, QResizeEvent* param1) {
+void QErrorMessage_SuperResizeEvent(QErrorMessage* self, QResizeEvent* param1) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_ResizeEvent_IsBase(true);
@@ -529,7 +529,7 @@ void QErrorMessage_ContextMenuEvent(QErrorMessage* self, QContextMenuEvent* para
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseContextMenuEvent(QErrorMessage* self, QContextMenuEvent* param1) {
+void QErrorMessage_SuperContextMenuEvent(QErrorMessage* self, QContextMenuEvent* param1) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_ContextMenuEvent_IsBase(true);
@@ -558,7 +558,7 @@ bool QErrorMessage_EventFilter(QErrorMessage* self, QObject* param1, QEvent* par
 }
 
 // Base class handler implementation
-bool QErrorMessage_QBaseEventFilter(QErrorMessage* self, QObject* param1, QEvent* param2) {
+bool QErrorMessage_SuperEventFilter(QErrorMessage* self, QObject* param1, QEvent* param2) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_EventFilter_IsBase(true);
@@ -587,7 +587,7 @@ int QErrorMessage_DevType(const QErrorMessage* self) {
 }
 
 // Base class handler implementation
-int QErrorMessage_QBaseDevType(const QErrorMessage* self) {
+int QErrorMessage_SuperDevType(const QErrorMessage* self) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_DevType_IsBase(true);
@@ -616,7 +616,7 @@ int QErrorMessage_HeightForWidth(const QErrorMessage* self, int param1) {
 }
 
 // Base class handler implementation
-int QErrorMessage_QBaseHeightForWidth(const QErrorMessage* self, int param1) {
+int QErrorMessage_SuperHeightForWidth(const QErrorMessage* self, int param1) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_HeightForWidth_IsBase(true);
@@ -645,7 +645,7 @@ bool QErrorMessage_HasHeightForWidth(const QErrorMessage* self) {
 }
 
 // Base class handler implementation
-bool QErrorMessage_QBaseHasHeightForWidth(const QErrorMessage* self) {
+bool QErrorMessage_SuperHasHeightForWidth(const QErrorMessage* self) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_HasHeightForWidth_IsBase(true);
@@ -674,7 +674,7 @@ QPaintEngine* QErrorMessage_PaintEngine(const QErrorMessage* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QErrorMessage_QBasePaintEngine(const QErrorMessage* self) {
+QPaintEngine* QErrorMessage_SuperPaintEngine(const QErrorMessage* self) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_PaintEngine_IsBase(true);
@@ -703,7 +703,7 @@ bool QErrorMessage_Event(QErrorMessage* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QErrorMessage_QBaseEvent(QErrorMessage* self, QEvent* event) {
+bool QErrorMessage_SuperEvent(QErrorMessage* self, QEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_Event_IsBase(true);
@@ -732,7 +732,7 @@ void QErrorMessage_MousePressEvent(QErrorMessage* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseMousePressEvent(QErrorMessage* self, QMouseEvent* event) {
+void QErrorMessage_SuperMousePressEvent(QErrorMessage* self, QMouseEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_MousePressEvent_IsBase(true);
@@ -761,7 +761,7 @@ void QErrorMessage_MouseReleaseEvent(QErrorMessage* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseMouseReleaseEvent(QErrorMessage* self, QMouseEvent* event) {
+void QErrorMessage_SuperMouseReleaseEvent(QErrorMessage* self, QMouseEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_MouseReleaseEvent_IsBase(true);
@@ -790,7 +790,7 @@ void QErrorMessage_MouseDoubleClickEvent(QErrorMessage* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseMouseDoubleClickEvent(QErrorMessage* self, QMouseEvent* event) {
+void QErrorMessage_SuperMouseDoubleClickEvent(QErrorMessage* self, QMouseEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_MouseDoubleClickEvent_IsBase(true);
@@ -819,7 +819,7 @@ void QErrorMessage_MouseMoveEvent(QErrorMessage* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseMouseMoveEvent(QErrorMessage* self, QMouseEvent* event) {
+void QErrorMessage_SuperMouseMoveEvent(QErrorMessage* self, QMouseEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_MouseMoveEvent_IsBase(true);
@@ -848,7 +848,7 @@ void QErrorMessage_WheelEvent(QErrorMessage* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseWheelEvent(QErrorMessage* self, QWheelEvent* event) {
+void QErrorMessage_SuperWheelEvent(QErrorMessage* self, QWheelEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_WheelEvent_IsBase(true);
@@ -877,7 +877,7 @@ void QErrorMessage_KeyReleaseEvent(QErrorMessage* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseKeyReleaseEvent(QErrorMessage* self, QKeyEvent* event) {
+void QErrorMessage_SuperKeyReleaseEvent(QErrorMessage* self, QKeyEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_KeyReleaseEvent_IsBase(true);
@@ -906,7 +906,7 @@ void QErrorMessage_FocusInEvent(QErrorMessage* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseFocusInEvent(QErrorMessage* self, QFocusEvent* event) {
+void QErrorMessage_SuperFocusInEvent(QErrorMessage* self, QFocusEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_FocusInEvent_IsBase(true);
@@ -935,7 +935,7 @@ void QErrorMessage_FocusOutEvent(QErrorMessage* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseFocusOutEvent(QErrorMessage* self, QFocusEvent* event) {
+void QErrorMessage_SuperFocusOutEvent(QErrorMessage* self, QFocusEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_FocusOutEvent_IsBase(true);
@@ -964,7 +964,7 @@ void QErrorMessage_EnterEvent(QErrorMessage* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseEnterEvent(QErrorMessage* self, QEnterEvent* event) {
+void QErrorMessage_SuperEnterEvent(QErrorMessage* self, QEnterEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_EnterEvent_IsBase(true);
@@ -993,7 +993,7 @@ void QErrorMessage_LeaveEvent(QErrorMessage* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseLeaveEvent(QErrorMessage* self, QEvent* event) {
+void QErrorMessage_SuperLeaveEvent(QErrorMessage* self, QEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_LeaveEvent_IsBase(true);
@@ -1022,7 +1022,7 @@ void QErrorMessage_PaintEvent(QErrorMessage* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBasePaintEvent(QErrorMessage* self, QPaintEvent* event) {
+void QErrorMessage_SuperPaintEvent(QErrorMessage* self, QPaintEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_PaintEvent_IsBase(true);
@@ -1051,7 +1051,7 @@ void QErrorMessage_MoveEvent(QErrorMessage* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseMoveEvent(QErrorMessage* self, QMoveEvent* event) {
+void QErrorMessage_SuperMoveEvent(QErrorMessage* self, QMoveEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_MoveEvent_IsBase(true);
@@ -1080,7 +1080,7 @@ void QErrorMessage_TabletEvent(QErrorMessage* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseTabletEvent(QErrorMessage* self, QTabletEvent* event) {
+void QErrorMessage_SuperTabletEvent(QErrorMessage* self, QTabletEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_TabletEvent_IsBase(true);
@@ -1109,7 +1109,7 @@ void QErrorMessage_ActionEvent(QErrorMessage* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseActionEvent(QErrorMessage* self, QActionEvent* event) {
+void QErrorMessage_SuperActionEvent(QErrorMessage* self, QActionEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_ActionEvent_IsBase(true);
@@ -1138,7 +1138,7 @@ void QErrorMessage_DragEnterEvent(QErrorMessage* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseDragEnterEvent(QErrorMessage* self, QDragEnterEvent* event) {
+void QErrorMessage_SuperDragEnterEvent(QErrorMessage* self, QDragEnterEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_DragEnterEvent_IsBase(true);
@@ -1167,7 +1167,7 @@ void QErrorMessage_DragMoveEvent(QErrorMessage* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseDragMoveEvent(QErrorMessage* self, QDragMoveEvent* event) {
+void QErrorMessage_SuperDragMoveEvent(QErrorMessage* self, QDragMoveEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_DragMoveEvent_IsBase(true);
@@ -1196,7 +1196,7 @@ void QErrorMessage_DragLeaveEvent(QErrorMessage* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseDragLeaveEvent(QErrorMessage* self, QDragLeaveEvent* event) {
+void QErrorMessage_SuperDragLeaveEvent(QErrorMessage* self, QDragLeaveEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_DragLeaveEvent_IsBase(true);
@@ -1225,7 +1225,7 @@ void QErrorMessage_DropEvent(QErrorMessage* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseDropEvent(QErrorMessage* self, QDropEvent* event) {
+void QErrorMessage_SuperDropEvent(QErrorMessage* self, QDropEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_DropEvent_IsBase(true);
@@ -1254,7 +1254,7 @@ void QErrorMessage_HideEvent(QErrorMessage* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseHideEvent(QErrorMessage* self, QHideEvent* event) {
+void QErrorMessage_SuperHideEvent(QErrorMessage* self, QHideEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_HideEvent_IsBase(true);
@@ -1284,7 +1284,7 @@ bool QErrorMessage_NativeEvent(QErrorMessage* self, const libqt_string eventType
 }
 
 // Base class handler implementation
-bool QErrorMessage_QBaseNativeEvent(QErrorMessage* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QErrorMessage_SuperNativeEvent(QErrorMessage* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
@@ -1314,7 +1314,7 @@ int QErrorMessage_Metric(const QErrorMessage* self, int param1) {
 }
 
 // Base class handler implementation
-int QErrorMessage_QBaseMetric(const QErrorMessage* self, int param1) {
+int QErrorMessage_SuperMetric(const QErrorMessage* self, int param1) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_Metric_IsBase(true);
@@ -1343,7 +1343,7 @@ void QErrorMessage_InitPainter(const QErrorMessage* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseInitPainter(const QErrorMessage* self, QPainter* painter) {
+void QErrorMessage_SuperInitPainter(const QErrorMessage* self, QPainter* painter) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_InitPainter_IsBase(true);
@@ -1372,7 +1372,7 @@ QPaintDevice* QErrorMessage_Redirected(const QErrorMessage* self, QPoint* offset
 }
 
 // Base class handler implementation
-QPaintDevice* QErrorMessage_QBaseRedirected(const QErrorMessage* self, QPoint* offset) {
+QPaintDevice* QErrorMessage_SuperRedirected(const QErrorMessage* self, QPoint* offset) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_Redirected_IsBase(true);
@@ -1401,7 +1401,7 @@ QPainter* QErrorMessage_SharedPainter(const QErrorMessage* self) {
 }
 
 // Base class handler implementation
-QPainter* QErrorMessage_QBaseSharedPainter(const QErrorMessage* self) {
+QPainter* QErrorMessage_SuperSharedPainter(const QErrorMessage* self) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_SharedPainter_IsBase(true);
@@ -1430,7 +1430,7 @@ void QErrorMessage_InputMethodEvent(QErrorMessage* self, QInputMethodEvent* para
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseInputMethodEvent(QErrorMessage* self, QInputMethodEvent* param1) {
+void QErrorMessage_SuperInputMethodEvent(QErrorMessage* self, QInputMethodEvent* param1) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_InputMethodEvent_IsBase(true);
@@ -1459,7 +1459,7 @@ QVariant* QErrorMessage_InputMethodQuery(const QErrorMessage* self, int param1) 
 }
 
 // Base class handler implementation
-QVariant* QErrorMessage_QBaseInputMethodQuery(const QErrorMessage* self, int param1) {
+QVariant* QErrorMessage_SuperInputMethodQuery(const QErrorMessage* self, int param1) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_InputMethodQuery_IsBase(true);
@@ -1488,7 +1488,7 @@ bool QErrorMessage_FocusNextPrevChild(QErrorMessage* self, bool next) {
 }
 
 // Base class handler implementation
-bool QErrorMessage_QBaseFocusNextPrevChild(QErrorMessage* self, bool next) {
+bool QErrorMessage_SuperFocusNextPrevChild(QErrorMessage* self, bool next) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_FocusNextPrevChild_IsBase(true);
@@ -1517,7 +1517,7 @@ void QErrorMessage_TimerEvent(QErrorMessage* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseTimerEvent(QErrorMessage* self, QTimerEvent* event) {
+void QErrorMessage_SuperTimerEvent(QErrorMessage* self, QTimerEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_TimerEvent_IsBase(true);
@@ -1546,7 +1546,7 @@ void QErrorMessage_ChildEvent(QErrorMessage* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseChildEvent(QErrorMessage* self, QChildEvent* event) {
+void QErrorMessage_SuperChildEvent(QErrorMessage* self, QChildEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_ChildEvent_IsBase(true);
@@ -1575,7 +1575,7 @@ void QErrorMessage_CustomEvent(QErrorMessage* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseCustomEvent(QErrorMessage* self, QEvent* event) {
+void QErrorMessage_SuperCustomEvent(QErrorMessage* self, QEvent* event) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_CustomEvent_IsBase(true);
@@ -1604,7 +1604,7 @@ void QErrorMessage_ConnectNotify(QErrorMessage* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseConnectNotify(QErrorMessage* self, const QMetaMethod* signal) {
+void QErrorMessage_SuperConnectNotify(QErrorMessage* self, const QMetaMethod* signal) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_ConnectNotify_IsBase(true);
@@ -1633,7 +1633,7 @@ void QErrorMessage_DisconnectNotify(QErrorMessage* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseDisconnectNotify(QErrorMessage* self, const QMetaMethod* signal) {
+void QErrorMessage_SuperDisconnectNotify(QErrorMessage* self, const QMetaMethod* signal) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_DisconnectNotify_IsBase(true);
@@ -1662,7 +1662,7 @@ void QErrorMessage_AdjustPosition(QErrorMessage* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseAdjustPosition(QErrorMessage* self, QWidget* param1) {
+void QErrorMessage_SuperAdjustPosition(QErrorMessage* self, QWidget* param1) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_AdjustPosition_IsBase(true);
@@ -1691,7 +1691,7 @@ void QErrorMessage_UpdateMicroFocus(QErrorMessage* self) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseUpdateMicroFocus(QErrorMessage* self) {
+void QErrorMessage_SuperUpdateMicroFocus(QErrorMessage* self) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_UpdateMicroFocus_IsBase(true);
@@ -1720,7 +1720,7 @@ void QErrorMessage_Create(QErrorMessage* self) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseCreate(QErrorMessage* self) {
+void QErrorMessage_SuperCreate(QErrorMessage* self) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_Create_IsBase(true);
@@ -1749,7 +1749,7 @@ void QErrorMessage_Destroy(QErrorMessage* self) {
 }
 
 // Base class handler implementation
-void QErrorMessage_QBaseDestroy(QErrorMessage* self) {
+void QErrorMessage_SuperDestroy(QErrorMessage* self) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_Destroy_IsBase(true);
@@ -1778,7 +1778,7 @@ bool QErrorMessage_FocusNextChild(QErrorMessage* self) {
 }
 
 // Base class handler implementation
-bool QErrorMessage_QBaseFocusNextChild(QErrorMessage* self) {
+bool QErrorMessage_SuperFocusNextChild(QErrorMessage* self) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_FocusNextChild_IsBase(true);
@@ -1807,7 +1807,7 @@ bool QErrorMessage_FocusPreviousChild(QErrorMessage* self) {
 }
 
 // Base class handler implementation
-bool QErrorMessage_QBaseFocusPreviousChild(QErrorMessage* self) {
+bool QErrorMessage_SuperFocusPreviousChild(QErrorMessage* self) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_FocusPreviousChild_IsBase(true);
@@ -1836,7 +1836,7 @@ QObject* QErrorMessage_Sender(const QErrorMessage* self) {
 }
 
 // Base class handler implementation
-QObject* QErrorMessage_QBaseSender(const QErrorMessage* self) {
+QObject* QErrorMessage_SuperSender(const QErrorMessage* self) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_Sender_IsBase(true);
@@ -1865,7 +1865,7 @@ int QErrorMessage_SenderSignalIndex(const QErrorMessage* self) {
 }
 
 // Base class handler implementation
-int QErrorMessage_QBaseSenderSignalIndex(const QErrorMessage* self) {
+int QErrorMessage_SuperSenderSignalIndex(const QErrorMessage* self) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_SenderSignalIndex_IsBase(true);
@@ -1894,7 +1894,7 @@ int QErrorMessage_Receivers(const QErrorMessage* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QErrorMessage_QBaseReceivers(const QErrorMessage* self, const char* signal) {
+int QErrorMessage_SuperReceivers(const QErrorMessage* self, const char* signal) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_Receivers_IsBase(true);
@@ -1923,7 +1923,7 @@ bool QErrorMessage_IsSignalConnected(const QErrorMessage* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QErrorMessage_QBaseIsSignalConnected(const QErrorMessage* self, const QMetaMethod* signal) {
+bool QErrorMessage_SuperIsSignalConnected(const QErrorMessage* self, const QMetaMethod* signal) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_IsSignalConnected_IsBase(true);
@@ -1952,7 +1952,7 @@ double QErrorMessage_GetDecodedMetricF(const QErrorMessage* self, int metricA, i
 }
 
 // Base class handler implementation
-double QErrorMessage_QBaseGetDecodedMetricF(const QErrorMessage* self, int metricA, int metricB) {
+double QErrorMessage_SuperGetDecodedMetricF(const QErrorMessage* self, int metricA, int metricB) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->setQErrorMessage_GetDecodedMetricF_IsBase(true);

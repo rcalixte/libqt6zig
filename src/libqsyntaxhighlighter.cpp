@@ -78,7 +78,7 @@ void QSyntaxHighlighter_HighlightBlock(QSyntaxHighlighter* self, const libqt_str
 }
 
 // Base class handler implementation
-QMetaObject* QSyntaxHighlighter_QBaseMetaObject(const QSyntaxHighlighter* self) {
+QMetaObject* QSyntaxHighlighter_SuperMetaObject(const QSyntaxHighlighter* self) {
     auto* vqsyntaxhighlighter = const_cast<VirtualQSyntaxHighlighter*>(dynamic_cast<const VirtualQSyntaxHighlighter*>(self));
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_MetaObject_IsBase(true);
@@ -97,7 +97,7 @@ void QSyntaxHighlighter_OnMetaObject(const QSyntaxHighlighter* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* QSyntaxHighlighter_QBaseMetacast(QSyntaxHighlighter* self, const char* param1) {
+void* QSyntaxHighlighter_SuperMetacast(QSyntaxHighlighter* self, const char* param1) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_Metacast_IsBase(true);
@@ -116,7 +116,7 @@ void QSyntaxHighlighter_OnMetacast(QSyntaxHighlighter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSyntaxHighlighter_QBaseMetacall(QSyntaxHighlighter* self, int param1, int param2, void** param3) {
+int QSyntaxHighlighter_SuperMetacall(QSyntaxHighlighter* self, int param1, int param2, void** param3) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_Metacall_IsBase(true);
@@ -135,7 +135,7 @@ void QSyntaxHighlighter_OnMetacall(QSyntaxHighlighter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSyntaxHighlighter_QBaseHighlightBlock(QSyntaxHighlighter* self, const libqt_string text) {
+void QSyntaxHighlighter_SuperHighlightBlock(QSyntaxHighlighter* self, const libqt_string text) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
@@ -165,7 +165,7 @@ bool QSyntaxHighlighter_Event(QSyntaxHighlighter* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QSyntaxHighlighter_QBaseEvent(QSyntaxHighlighter* self, QEvent* event) {
+bool QSyntaxHighlighter_SuperEvent(QSyntaxHighlighter* self, QEvent* event) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_Event_IsBase(true);
@@ -194,7 +194,7 @@ bool QSyntaxHighlighter_EventFilter(QSyntaxHighlighter* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool QSyntaxHighlighter_QBaseEventFilter(QSyntaxHighlighter* self, QObject* watched, QEvent* event) {
+bool QSyntaxHighlighter_SuperEventFilter(QSyntaxHighlighter* self, QObject* watched, QEvent* event) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_EventFilter_IsBase(true);
@@ -223,7 +223,7 @@ void QSyntaxHighlighter_TimerEvent(QSyntaxHighlighter* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void QSyntaxHighlighter_QBaseTimerEvent(QSyntaxHighlighter* self, QTimerEvent* event) {
+void QSyntaxHighlighter_SuperTimerEvent(QSyntaxHighlighter* self, QTimerEvent* event) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_TimerEvent_IsBase(true);
@@ -252,7 +252,7 @@ void QSyntaxHighlighter_ChildEvent(QSyntaxHighlighter* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void QSyntaxHighlighter_QBaseChildEvent(QSyntaxHighlighter* self, QChildEvent* event) {
+void QSyntaxHighlighter_SuperChildEvent(QSyntaxHighlighter* self, QChildEvent* event) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_ChildEvent_IsBase(true);
@@ -281,7 +281,7 @@ void QSyntaxHighlighter_CustomEvent(QSyntaxHighlighter* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSyntaxHighlighter_QBaseCustomEvent(QSyntaxHighlighter* self, QEvent* event) {
+void QSyntaxHighlighter_SuperCustomEvent(QSyntaxHighlighter* self, QEvent* event) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_CustomEvent_IsBase(true);
@@ -310,7 +310,7 @@ void QSyntaxHighlighter_ConnectNotify(QSyntaxHighlighter* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void QSyntaxHighlighter_QBaseConnectNotify(QSyntaxHighlighter* self, const QMetaMethod* signal) {
+void QSyntaxHighlighter_SuperConnectNotify(QSyntaxHighlighter* self, const QMetaMethod* signal) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_ConnectNotify_IsBase(true);
@@ -339,7 +339,7 @@ void QSyntaxHighlighter_DisconnectNotify(QSyntaxHighlighter* self, const QMetaMe
 }
 
 // Base class handler implementation
-void QSyntaxHighlighter_QBaseDisconnectNotify(QSyntaxHighlighter* self, const QMetaMethod* signal) {
+void QSyntaxHighlighter_SuperDisconnectNotify(QSyntaxHighlighter* self, const QMetaMethod* signal) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_DisconnectNotify_IsBase(true);
@@ -368,7 +368,7 @@ void QSyntaxHighlighter_SetFormat(QSyntaxHighlighter* self, int start, int count
 }
 
 // Base class handler implementation
-void QSyntaxHighlighter_QBaseSetFormat(QSyntaxHighlighter* self, int start, int count, const QTextCharFormat* format) {
+void QSyntaxHighlighter_SuperSetFormat(QSyntaxHighlighter* self, int start, int count, const QTextCharFormat* format) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_SetFormat_IsBase(true);
@@ -397,7 +397,7 @@ void QSyntaxHighlighter_SetFormat2(QSyntaxHighlighter* self, int start, int coun
 }
 
 // Base class handler implementation
-void QSyntaxHighlighter_QBaseSetFormat2(QSyntaxHighlighter* self, int start, int count, const QColor* color) {
+void QSyntaxHighlighter_SuperSetFormat2(QSyntaxHighlighter* self, int start, int count, const QColor* color) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_SetFormat2_IsBase(true);
@@ -426,7 +426,7 @@ void QSyntaxHighlighter_SetFormat3(QSyntaxHighlighter* self, int start, int coun
 }
 
 // Base class handler implementation
-void QSyntaxHighlighter_QBaseSetFormat3(QSyntaxHighlighter* self, int start, int count, const QFont* font) {
+void QSyntaxHighlighter_SuperSetFormat3(QSyntaxHighlighter* self, int start, int count, const QFont* font) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_SetFormat3_IsBase(true);
@@ -454,7 +454,7 @@ QTextCharFormat* QSyntaxHighlighter_Format(const QSyntaxHighlighter* self, int p
 }
 
 // Base class handler implementation
-QTextCharFormat* QSyntaxHighlighter_QBaseFormat(const QSyntaxHighlighter* self, int pos) {
+QTextCharFormat* QSyntaxHighlighter_SuperFormat(const QSyntaxHighlighter* self, int pos) {
     auto* vqsyntaxhighlighter = const_cast<VirtualQSyntaxHighlighter*>(dynamic_cast<const VirtualQSyntaxHighlighter*>(self));
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_Format_IsBase(true);
@@ -482,7 +482,7 @@ int QSyntaxHighlighter_PreviousBlockState(const QSyntaxHighlighter* self) {
 }
 
 // Base class handler implementation
-int QSyntaxHighlighter_QBasePreviousBlockState(const QSyntaxHighlighter* self) {
+int QSyntaxHighlighter_SuperPreviousBlockState(const QSyntaxHighlighter* self) {
     auto* vqsyntaxhighlighter = const_cast<VirtualQSyntaxHighlighter*>(dynamic_cast<const VirtualQSyntaxHighlighter*>(self));
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_PreviousBlockState_IsBase(true);
@@ -511,7 +511,7 @@ int QSyntaxHighlighter_CurrentBlockState(const QSyntaxHighlighter* self) {
 }
 
 // Base class handler implementation
-int QSyntaxHighlighter_QBaseCurrentBlockState(const QSyntaxHighlighter* self) {
+int QSyntaxHighlighter_SuperCurrentBlockState(const QSyntaxHighlighter* self) {
     auto* vqsyntaxhighlighter = const_cast<VirtualQSyntaxHighlighter*>(dynamic_cast<const VirtualQSyntaxHighlighter*>(self));
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_CurrentBlockState_IsBase(true);
@@ -540,7 +540,7 @@ void QSyntaxHighlighter_SetCurrentBlockState(QSyntaxHighlighter* self, int newSt
 }
 
 // Base class handler implementation
-void QSyntaxHighlighter_QBaseSetCurrentBlockState(QSyntaxHighlighter* self, int newState) {
+void QSyntaxHighlighter_SuperSetCurrentBlockState(QSyntaxHighlighter* self, int newState) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_SetCurrentBlockState_IsBase(true);
@@ -569,7 +569,7 @@ void QSyntaxHighlighter_SetCurrentBlockUserData(QSyntaxHighlighter* self, QTextB
 }
 
 // Base class handler implementation
-void QSyntaxHighlighter_QBaseSetCurrentBlockUserData(QSyntaxHighlighter* self, QTextBlockUserData* data) {
+void QSyntaxHighlighter_SuperSetCurrentBlockUserData(QSyntaxHighlighter* self, QTextBlockUserData* data) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_SetCurrentBlockUserData_IsBase(true);
@@ -598,7 +598,7 @@ QTextBlockUserData* QSyntaxHighlighter_CurrentBlockUserData(const QSyntaxHighlig
 }
 
 // Base class handler implementation
-QTextBlockUserData* QSyntaxHighlighter_QBaseCurrentBlockUserData(const QSyntaxHighlighter* self) {
+QTextBlockUserData* QSyntaxHighlighter_SuperCurrentBlockUserData(const QSyntaxHighlighter* self) {
     auto* vqsyntaxhighlighter = const_cast<VirtualQSyntaxHighlighter*>(dynamic_cast<const VirtualQSyntaxHighlighter*>(self));
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_CurrentBlockUserData_IsBase(true);
@@ -626,7 +626,7 @@ QTextBlock* QSyntaxHighlighter_CurrentBlock(const QSyntaxHighlighter* self) {
 }
 
 // Base class handler implementation
-QTextBlock* QSyntaxHighlighter_QBaseCurrentBlock(const QSyntaxHighlighter* self) {
+QTextBlock* QSyntaxHighlighter_SuperCurrentBlock(const QSyntaxHighlighter* self) {
     auto* vqsyntaxhighlighter = const_cast<VirtualQSyntaxHighlighter*>(dynamic_cast<const VirtualQSyntaxHighlighter*>(self));
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_CurrentBlock_IsBase(true);
@@ -654,7 +654,7 @@ QObject* QSyntaxHighlighter_Sender(const QSyntaxHighlighter* self) {
 }
 
 // Base class handler implementation
-QObject* QSyntaxHighlighter_QBaseSender(const QSyntaxHighlighter* self) {
+QObject* QSyntaxHighlighter_SuperSender(const QSyntaxHighlighter* self) {
     auto* vqsyntaxhighlighter = const_cast<VirtualQSyntaxHighlighter*>(dynamic_cast<const VirtualQSyntaxHighlighter*>(self));
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_Sender_IsBase(true);
@@ -683,7 +683,7 @@ int QSyntaxHighlighter_SenderSignalIndex(const QSyntaxHighlighter* self) {
 }
 
 // Base class handler implementation
-int QSyntaxHighlighter_QBaseSenderSignalIndex(const QSyntaxHighlighter* self) {
+int QSyntaxHighlighter_SuperSenderSignalIndex(const QSyntaxHighlighter* self) {
     auto* vqsyntaxhighlighter = const_cast<VirtualQSyntaxHighlighter*>(dynamic_cast<const VirtualQSyntaxHighlighter*>(self));
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_SenderSignalIndex_IsBase(true);
@@ -712,7 +712,7 @@ int QSyntaxHighlighter_Receivers(const QSyntaxHighlighter* self, const char* sig
 }
 
 // Base class handler implementation
-int QSyntaxHighlighter_QBaseReceivers(const QSyntaxHighlighter* self, const char* signal) {
+int QSyntaxHighlighter_SuperReceivers(const QSyntaxHighlighter* self, const char* signal) {
     auto* vqsyntaxhighlighter = const_cast<VirtualQSyntaxHighlighter*>(dynamic_cast<const VirtualQSyntaxHighlighter*>(self));
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_Receivers_IsBase(true);
@@ -741,7 +741,7 @@ bool QSyntaxHighlighter_IsSignalConnected(const QSyntaxHighlighter* self, const 
 }
 
 // Base class handler implementation
-bool QSyntaxHighlighter_QBaseIsSignalConnected(const QSyntaxHighlighter* self, const QMetaMethod* signal) {
+bool QSyntaxHighlighter_SuperIsSignalConnected(const QSyntaxHighlighter* self, const QMetaMethod* signal) {
     auto* vqsyntaxhighlighter = const_cast<VirtualQSyntaxHighlighter*>(dynamic_cast<const VirtualQSyntaxHighlighter*>(self));
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->setQSyntaxHighlighter_IsSignalConnected_IsBase(true);

@@ -398,16 +398,16 @@ void QOpenGLFunctions_1_2_GlColorTableParameteriv(QOpenGLFunctions_1_2* self, ui
 void QOpenGLFunctions_1_2_GlColorTableParameterfv(QOpenGLFunctions_1_2* self, uint32_t target, uint32_t pname, const float* params);
 void QOpenGLFunctions_1_2_GlColorTable(QOpenGLFunctions_1_2* self, uint32_t target, uint32_t internalformat, int32_t width, uint32_t format, uint32_t typeVal, const void* table);
 void QOpenGLFunctions_1_2_OnInitializeOpenGLFunctions(QOpenGLFunctions_1_2* self, intptr_t slot);
-bool QOpenGLFunctions_1_2_QBaseInitializeOpenGLFunctions(QOpenGLFunctions_1_2* self);
+bool QOpenGLFunctions_1_2_SuperInitializeOpenGLFunctions(QOpenGLFunctions_1_2* self);
 bool QOpenGLFunctions_1_2_IsInitialized(const QOpenGLFunctions_1_2* self);
 void QOpenGLFunctions_1_2_OnIsInitialized(const QOpenGLFunctions_1_2* self, intptr_t slot);
-bool QOpenGLFunctions_1_2_QBaseIsInitialized(const QOpenGLFunctions_1_2* self);
+bool QOpenGLFunctions_1_2_SuperIsInitialized(const QOpenGLFunctions_1_2* self);
 void QOpenGLFunctions_1_2_SetOwningContext(QOpenGLFunctions_1_2* self, const QOpenGLContext* context);
 void QOpenGLFunctions_1_2_OnSetOwningContext(QOpenGLFunctions_1_2* self, intptr_t slot);
-void QOpenGLFunctions_1_2_QBaseSetOwningContext(QOpenGLFunctions_1_2* self, const QOpenGLContext* context);
+void QOpenGLFunctions_1_2_SuperSetOwningContext(QOpenGLFunctions_1_2* self, const QOpenGLContext* context);
 QOpenGLContext* QOpenGLFunctions_1_2_OwningContext(const QOpenGLFunctions_1_2* self);
 void QOpenGLFunctions_1_2_OnOwningContext(const QOpenGLFunctions_1_2* self, intptr_t slot);
-QOpenGLContext* QOpenGLFunctions_1_2_QBaseOwningContext(const QOpenGLFunctions_1_2* self);
+QOpenGLContext* QOpenGLFunctions_1_2_SuperOwningContext(const QOpenGLFunctions_1_2* self);
 void QOpenGLFunctions_1_2_Delete(QOpenGLFunctions_1_2* self);
 
 #ifdef __cplusplus

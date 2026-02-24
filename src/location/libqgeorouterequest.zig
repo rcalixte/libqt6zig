@@ -337,6 +337,10 @@ pub const qgeorouterequest = struct {
         return qtc.QGeoRouteRequest_DepartureTime(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#dtor.QGeoRouteRequest)
     ///
     /// Delete this object from C++ memory.
@@ -345,7 +349,7 @@ pub const qgeorouterequest = struct {
     ///
     /// ` self: QtC.QGeoRouteRequest `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGeoRouteRequest_Delete(@ptrCast(self));
     }
 };

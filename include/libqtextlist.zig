@@ -40,6 +40,10 @@ pub const qtextlist = struct {
         qtc.QTextList_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -48,8 +52,8 @@ pub const qtextlist = struct {
     ///
     /// ` self: QtC.QTextList `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QTextList_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QTextList_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -75,6 +79,10 @@ pub const qtextlist = struct {
         qtc.QTextList_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -83,9 +91,9 @@ pub const qtextlist = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QTextList_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QTextList_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -114,6 +122,10 @@ pub const qtextlist = struct {
         qtc.QTextList_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -126,8 +138,8 @@ pub const qtextlist = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTextList_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QTextList_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1089,6 +1101,10 @@ pub const qtextlist = struct {
         qtc.QTextList_BlockInserted(@ptrCast(self), @ptrCast(block));
     }
 
+    /// ### DEPRECATED: Use `SuperBlockInserted` instead
+    ///
+    pub const QBaseBlockInserted = SuperBlockInserted;
+
     /// Inherited from QTextBlockGroup
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockgroup.html#blockInserted)
@@ -1101,8 +1117,8 @@ pub const qtextlist = struct {
     ///
     /// ` block: QtC.QTextBlock `
     ///
-    pub fn QBaseBlockInserted(self: ?*anyopaque, block: ?*anyopaque) void {
-        qtc.QTextList_QBaseBlockInserted(@ptrCast(self), @ptrCast(block));
+    pub fn SuperBlockInserted(self: ?*anyopaque, block: ?*anyopaque) void {
+        qtc.QTextList_SuperBlockInserted(@ptrCast(self), @ptrCast(block));
     }
 
     /// Inherited from QTextBlockGroup
@@ -1137,6 +1153,10 @@ pub const qtextlist = struct {
         qtc.QTextList_BlockRemoved(@ptrCast(self), @ptrCast(block));
     }
 
+    /// ### DEPRECATED: Use `SuperBlockRemoved` instead
+    ///
+    pub const QBaseBlockRemoved = SuperBlockRemoved;
+
     /// Inherited from QTextBlockGroup
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockgroup.html#blockRemoved)
@@ -1149,8 +1169,8 @@ pub const qtextlist = struct {
     ///
     /// ` block: QtC.QTextBlock `
     ///
-    pub fn QBaseBlockRemoved(self: ?*anyopaque, block: ?*anyopaque) void {
-        qtc.QTextList_QBaseBlockRemoved(@ptrCast(self), @ptrCast(block));
+    pub fn SuperBlockRemoved(self: ?*anyopaque, block: ?*anyopaque) void {
+        qtc.QTextList_SuperBlockRemoved(@ptrCast(self), @ptrCast(block));
     }
 
     /// Inherited from QTextBlockGroup
@@ -1185,6 +1205,10 @@ pub const qtextlist = struct {
         qtc.QTextList_BlockFormatChanged(@ptrCast(self), @ptrCast(block));
     }
 
+    /// ### DEPRECATED: Use `SuperBlockFormatChanged` instead
+    ///
+    pub const QBaseBlockFormatChanged = SuperBlockFormatChanged;
+
     /// Inherited from QTextBlockGroup
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockgroup.html#blockFormatChanged)
@@ -1197,8 +1221,8 @@ pub const qtextlist = struct {
     ///
     /// ` block: QtC.QTextBlock `
     ///
-    pub fn QBaseBlockFormatChanged(self: ?*anyopaque, block: ?*anyopaque) void {
-        qtc.QTextList_QBaseBlockFormatChanged(@ptrCast(self), @ptrCast(block));
+    pub fn SuperBlockFormatChanged(self: ?*anyopaque, block: ?*anyopaque) void {
+        qtc.QTextList_SuperBlockFormatChanged(@ptrCast(self), @ptrCast(block));
     }
 
     /// Inherited from QTextBlockGroup
@@ -1233,6 +1257,10 @@ pub const qtextlist = struct {
         return qtc.QTextList_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1245,8 +1273,8 @@ pub const qtextlist = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTextList_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QTextList_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1283,6 +1311,10 @@ pub const qtextlist = struct {
         return qtc.QTextList_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1297,8 +1329,8 @@ pub const qtextlist = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTextList_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QTextList_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1333,6 +1365,10 @@ pub const qtextlist = struct {
         qtc.QTextList_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1345,8 +1381,8 @@ pub const qtextlist = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextList_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTextList_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1381,6 +1417,10 @@ pub const qtextlist = struct {
         qtc.QTextList_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1393,8 +1433,8 @@ pub const qtextlist = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextList_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTextList_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1429,6 +1469,10 @@ pub const qtextlist = struct {
         qtc.QTextList_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1441,8 +1485,8 @@ pub const qtextlist = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextList_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTextList_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1477,6 +1521,10 @@ pub const qtextlist = struct {
         qtc.QTextList_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1489,8 +1537,8 @@ pub const qtextlist = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTextList_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QTextList_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1525,6 +1573,10 @@ pub const qtextlist = struct {
         qtc.QTextList_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1537,8 +1589,8 @@ pub const qtextlist = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTextList_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QTextList_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1578,6 +1630,10 @@ pub const qtextlist = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperBlockList` instead
+    ///
+    pub const QBaseBlockList = SuperBlockList;
+
     /// Inherited from QTextBlockGroup
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockgroup.html#blockList)
@@ -1590,8 +1646,8 @@ pub const qtextlist = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseBlockList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTextBlock {
-        const _arr: qtc.libqt_list = qtc.QTextList_QBaseBlockList(@ptrCast(self));
+    pub fn SuperBlockList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTextBlock {
+        const _arr: qtc.libqt_list = qtc.QTextList_SuperBlockList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextBlock, _arr.len) catch @panic("qtextlist.BlockList: Memory allocation failed");
         const _data: [*]QtC.QTextBlock = @ptrCast(@alignCast(_arr.data));
@@ -1635,6 +1691,10 @@ pub const qtextlist = struct {
         return qtc.QTextList_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1645,8 +1705,8 @@ pub const qtextlist = struct {
     ///
     /// ` self: QtC.QTextList `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QTextList_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QTextList_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1679,6 +1739,10 @@ pub const qtextlist = struct {
         return qtc.QTextList_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1689,8 +1753,8 @@ pub const qtextlist = struct {
     ///
     /// ` self: QtC.QTextList `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QTextList_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QTextList_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1726,6 +1790,10 @@ pub const qtextlist = struct {
         return qtc.QTextList_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1738,9 +1806,9 @@ pub const qtextlist = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QTextList_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QTextList_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1775,6 +1843,10 @@ pub const qtextlist = struct {
         return qtc.QTextList_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -1787,8 +1859,8 @@ pub const qtextlist = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QTextList_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QTextList_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1822,6 +1894,9 @@ pub const qtextlist = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlist.html#dtor.QTextList)
     ///
@@ -1831,7 +1906,7 @@ pub const qtextlist = struct {
     ///
     /// ` self: QtC.QTextList `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTextList_Delete(@ptrCast(self));
     }
 };

@@ -119,6 +119,10 @@ pub const qplaceratings = struct {
         return qtc.QPlaceRatings_IsEmpty(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceratings.html#dtor.QPlaceRatings)
     ///
     /// Delete this object from C++ memory.
@@ -127,7 +131,7 @@ pub const qplaceratings = struct {
     ///
     /// ` self: QtC.QPlaceRatings `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPlaceRatings_Delete(@ptrCast(self));
     }
 };

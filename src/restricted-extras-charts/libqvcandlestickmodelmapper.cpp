@@ -191,7 +191,7 @@ void QVCandlestickModelMapper_Connect_LastSetColumnChanged(QVCandlestickModelMap
 }
 
 // Base class handler implementation
-QMetaObject* QVCandlestickModelMapper_QBaseMetaObject(const QVCandlestickModelMapper* self) {
+QMetaObject* QVCandlestickModelMapper_SuperMetaObject(const QVCandlestickModelMapper* self) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_MetaObject_IsBase(true);
@@ -210,7 +210,7 @@ void QVCandlestickModelMapper_OnMetaObject(const QVCandlestickModelMapper* self,
 }
 
 // Base class handler implementation
-void* QVCandlestickModelMapper_QBaseMetacast(QVCandlestickModelMapper* self, const char* param1) {
+void* QVCandlestickModelMapper_SuperMetacast(QVCandlestickModelMapper* self, const char* param1) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Metacast_IsBase(true);
@@ -229,7 +229,7 @@ void QVCandlestickModelMapper_OnMetacast(QVCandlestickModelMapper* self, intptr_
 }
 
 // Base class handler implementation
-int QVCandlestickModelMapper_QBaseMetacall(QVCandlestickModelMapper* self, int param1, int param2, void** param3) {
+int QVCandlestickModelMapper_SuperMetacall(QVCandlestickModelMapper* self, int param1, int param2, void** param3) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Metacall_IsBase(true);
@@ -248,7 +248,7 @@ void QVCandlestickModelMapper_OnMetacall(QVCandlestickModelMapper* self, intptr_
 }
 
 // Base class handler implementation
-int QVCandlestickModelMapper_QBaseOrientation(const QVCandlestickModelMapper* self) {
+int QVCandlestickModelMapper_SuperOrientation(const QVCandlestickModelMapper* self) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Orientation_IsBase(true);
@@ -277,7 +277,7 @@ bool QVCandlestickModelMapper_Event(QVCandlestickModelMapper* self, QEvent* even
 }
 
 // Base class handler implementation
-bool QVCandlestickModelMapper_QBaseEvent(QVCandlestickModelMapper* self, QEvent* event) {
+bool QVCandlestickModelMapper_SuperEvent(QVCandlestickModelMapper* self, QEvent* event) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Event_IsBase(true);
@@ -306,7 +306,7 @@ bool QVCandlestickModelMapper_EventFilter(QVCandlestickModelMapper* self, QObjec
 }
 
 // Base class handler implementation
-bool QVCandlestickModelMapper_QBaseEventFilter(QVCandlestickModelMapper* self, QObject* watched, QEvent* event) {
+bool QVCandlestickModelMapper_SuperEventFilter(QVCandlestickModelMapper* self, QObject* watched, QEvent* event) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_EventFilter_IsBase(true);
@@ -335,7 +335,7 @@ void QVCandlestickModelMapper_TimerEvent(QVCandlestickModelMapper* self, QTimerE
 }
 
 // Base class handler implementation
-void QVCandlestickModelMapper_QBaseTimerEvent(QVCandlestickModelMapper* self, QTimerEvent* event) {
+void QVCandlestickModelMapper_SuperTimerEvent(QVCandlestickModelMapper* self, QTimerEvent* event) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_TimerEvent_IsBase(true);
@@ -364,7 +364,7 @@ void QVCandlestickModelMapper_ChildEvent(QVCandlestickModelMapper* self, QChildE
 }
 
 // Base class handler implementation
-void QVCandlestickModelMapper_QBaseChildEvent(QVCandlestickModelMapper* self, QChildEvent* event) {
+void QVCandlestickModelMapper_SuperChildEvent(QVCandlestickModelMapper* self, QChildEvent* event) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_ChildEvent_IsBase(true);
@@ -393,7 +393,7 @@ void QVCandlestickModelMapper_CustomEvent(QVCandlestickModelMapper* self, QEvent
 }
 
 // Base class handler implementation
-void QVCandlestickModelMapper_QBaseCustomEvent(QVCandlestickModelMapper* self, QEvent* event) {
+void QVCandlestickModelMapper_SuperCustomEvent(QVCandlestickModelMapper* self, QEvent* event) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_CustomEvent_IsBase(true);
@@ -422,7 +422,7 @@ void QVCandlestickModelMapper_ConnectNotify(QVCandlestickModelMapper* self, cons
 }
 
 // Base class handler implementation
-void QVCandlestickModelMapper_QBaseConnectNotify(QVCandlestickModelMapper* self, const QMetaMethod* signal) {
+void QVCandlestickModelMapper_SuperConnectNotify(QVCandlestickModelMapper* self, const QMetaMethod* signal) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_ConnectNotify_IsBase(true);
@@ -451,7 +451,7 @@ void QVCandlestickModelMapper_DisconnectNotify(QVCandlestickModelMapper* self, c
 }
 
 // Base class handler implementation
-void QVCandlestickModelMapper_QBaseDisconnectNotify(QVCandlestickModelMapper* self, const QMetaMethod* signal) {
+void QVCandlestickModelMapper_SuperDisconnectNotify(QVCandlestickModelMapper* self, const QMetaMethod* signal) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_DisconnectNotify_IsBase(true);
@@ -480,7 +480,7 @@ void QVCandlestickModelMapper_SetTimestamp(QVCandlestickModelMapper* self, int t
 }
 
 // Base class handler implementation
-void QVCandlestickModelMapper_QBaseSetTimestamp(QVCandlestickModelMapper* self, int timestamp) {
+void QVCandlestickModelMapper_SuperSetTimestamp(QVCandlestickModelMapper* self, int timestamp) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_SetTimestamp_IsBase(true);
@@ -509,7 +509,7 @@ int QVCandlestickModelMapper_Timestamp(const QVCandlestickModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVCandlestickModelMapper_QBaseTimestamp(const QVCandlestickModelMapper* self) {
+int QVCandlestickModelMapper_SuperTimestamp(const QVCandlestickModelMapper* self) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Timestamp_IsBase(true);
@@ -538,7 +538,7 @@ void QVCandlestickModelMapper_SetOpen(QVCandlestickModelMapper* self, int open) 
 }
 
 // Base class handler implementation
-void QVCandlestickModelMapper_QBaseSetOpen(QVCandlestickModelMapper* self, int open) {
+void QVCandlestickModelMapper_SuperSetOpen(QVCandlestickModelMapper* self, int open) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_SetOpen_IsBase(true);
@@ -567,7 +567,7 @@ int QVCandlestickModelMapper_Open(const QVCandlestickModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVCandlestickModelMapper_QBaseOpen(const QVCandlestickModelMapper* self) {
+int QVCandlestickModelMapper_SuperOpen(const QVCandlestickModelMapper* self) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Open_IsBase(true);
@@ -596,7 +596,7 @@ void QVCandlestickModelMapper_SetHigh(QVCandlestickModelMapper* self, int high) 
 }
 
 // Base class handler implementation
-void QVCandlestickModelMapper_QBaseSetHigh(QVCandlestickModelMapper* self, int high) {
+void QVCandlestickModelMapper_SuperSetHigh(QVCandlestickModelMapper* self, int high) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_SetHigh_IsBase(true);
@@ -625,7 +625,7 @@ int QVCandlestickModelMapper_High(const QVCandlestickModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVCandlestickModelMapper_QBaseHigh(const QVCandlestickModelMapper* self) {
+int QVCandlestickModelMapper_SuperHigh(const QVCandlestickModelMapper* self) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_High_IsBase(true);
@@ -654,7 +654,7 @@ void QVCandlestickModelMapper_SetLow(QVCandlestickModelMapper* self, int low) {
 }
 
 // Base class handler implementation
-void QVCandlestickModelMapper_QBaseSetLow(QVCandlestickModelMapper* self, int low) {
+void QVCandlestickModelMapper_SuperSetLow(QVCandlestickModelMapper* self, int low) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_SetLow_IsBase(true);
@@ -683,7 +683,7 @@ int QVCandlestickModelMapper_Low(const QVCandlestickModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVCandlestickModelMapper_QBaseLow(const QVCandlestickModelMapper* self) {
+int QVCandlestickModelMapper_SuperLow(const QVCandlestickModelMapper* self) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Low_IsBase(true);
@@ -712,7 +712,7 @@ void QVCandlestickModelMapper_SetClose(QVCandlestickModelMapper* self, int close
 }
 
 // Base class handler implementation
-void QVCandlestickModelMapper_QBaseSetClose(QVCandlestickModelMapper* self, int close) {
+void QVCandlestickModelMapper_SuperSetClose(QVCandlestickModelMapper* self, int close) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_SetClose_IsBase(true);
@@ -741,7 +741,7 @@ int QVCandlestickModelMapper_Close(const QVCandlestickModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVCandlestickModelMapper_QBaseClose(const QVCandlestickModelMapper* self) {
+int QVCandlestickModelMapper_SuperClose(const QVCandlestickModelMapper* self) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Close_IsBase(true);
@@ -770,7 +770,7 @@ void QVCandlestickModelMapper_SetFirstSetSection(QVCandlestickModelMapper* self,
 }
 
 // Base class handler implementation
-void QVCandlestickModelMapper_QBaseSetFirstSetSection(QVCandlestickModelMapper* self, int firstSetSection) {
+void QVCandlestickModelMapper_SuperSetFirstSetSection(QVCandlestickModelMapper* self, int firstSetSection) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_SetFirstSetSection_IsBase(true);
@@ -799,7 +799,7 @@ int QVCandlestickModelMapper_FirstSetSection(const QVCandlestickModelMapper* sel
 }
 
 // Base class handler implementation
-int QVCandlestickModelMapper_QBaseFirstSetSection(const QVCandlestickModelMapper* self) {
+int QVCandlestickModelMapper_SuperFirstSetSection(const QVCandlestickModelMapper* self) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_FirstSetSection_IsBase(true);
@@ -828,7 +828,7 @@ void QVCandlestickModelMapper_SetLastSetSection(QVCandlestickModelMapper* self, 
 }
 
 // Base class handler implementation
-void QVCandlestickModelMapper_QBaseSetLastSetSection(QVCandlestickModelMapper* self, int lastSetSection) {
+void QVCandlestickModelMapper_SuperSetLastSetSection(QVCandlestickModelMapper* self, int lastSetSection) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_SetLastSetSection_IsBase(true);
@@ -857,7 +857,7 @@ int QVCandlestickModelMapper_LastSetSection(const QVCandlestickModelMapper* self
 }
 
 // Base class handler implementation
-int QVCandlestickModelMapper_QBaseLastSetSection(const QVCandlestickModelMapper* self) {
+int QVCandlestickModelMapper_SuperLastSetSection(const QVCandlestickModelMapper* self) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_LastSetSection_IsBase(true);
@@ -886,7 +886,7 @@ QObject* QVCandlestickModelMapper_Sender(const QVCandlestickModelMapper* self) {
 }
 
 // Base class handler implementation
-QObject* QVCandlestickModelMapper_QBaseSender(const QVCandlestickModelMapper* self) {
+QObject* QVCandlestickModelMapper_SuperSender(const QVCandlestickModelMapper* self) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Sender_IsBase(true);
@@ -915,7 +915,7 @@ int QVCandlestickModelMapper_SenderSignalIndex(const QVCandlestickModelMapper* s
 }
 
 // Base class handler implementation
-int QVCandlestickModelMapper_QBaseSenderSignalIndex(const QVCandlestickModelMapper* self) {
+int QVCandlestickModelMapper_SuperSenderSignalIndex(const QVCandlestickModelMapper* self) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_SenderSignalIndex_IsBase(true);
@@ -944,7 +944,7 @@ int QVCandlestickModelMapper_Receivers(const QVCandlestickModelMapper* self, con
 }
 
 // Base class handler implementation
-int QVCandlestickModelMapper_QBaseReceivers(const QVCandlestickModelMapper* self, const char* signal) {
+int QVCandlestickModelMapper_SuperReceivers(const QVCandlestickModelMapper* self, const char* signal) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Receivers_IsBase(true);
@@ -973,7 +973,7 @@ bool QVCandlestickModelMapper_IsSignalConnected(const QVCandlestickModelMapper* 
 }
 
 // Base class handler implementation
-bool QVCandlestickModelMapper_QBaseIsSignalConnected(const QVCandlestickModelMapper* self, const QMetaMethod* signal) {
+bool QVCandlestickModelMapper_SuperIsSignalConnected(const QVCandlestickModelMapper* self, const QMetaMethod* signal) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
     if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_IsSignalConnected_IsBase(true);

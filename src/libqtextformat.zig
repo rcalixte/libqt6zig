@@ -150,6 +150,10 @@ pub const qtextlength = struct {
         return qtc.QTextLength_ToQVariant(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlength.html#dtor.QTextLength)
     ///
     /// Delete this object from C++ memory.
@@ -158,7 +162,7 @@ pub const qtextlength = struct {
     ///
     /// ` self: QtC.QTextLength `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTextLength_Delete(@ptrCast(self));
     }
 };
@@ -790,6 +794,10 @@ pub const qtextformat = struct {
         qtc.QTextFormat_ClearForeground(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#dtor.QTextFormat)
     ///
     /// Delete this object from C++ memory.
@@ -798,7 +806,7 @@ pub const qtextformat = struct {
     ///
     /// ` self: QtC.QTextFormat `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTextFormat_Delete(@ptrCast(self));
     }
 };
@@ -2381,6 +2389,10 @@ pub const qtextcharformat = struct {
         qtc.QTextFormat_ClearForeground(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#dtor.QTextCharFormat)
     ///
     /// Delete this object from C++ memory.
@@ -2389,7 +2401,7 @@ pub const qtextcharformat = struct {
     ///
     /// ` self: QtC.QTextCharFormat `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTextCharFormat_Delete(@ptrCast(self));
     }
 };
@@ -3446,6 +3458,10 @@ pub const qtextblockformat = struct {
         qtc.QTextFormat_ClearForeground(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#dtor.QTextBlockFormat)
     ///
     /// Delete this object from C++ memory.
@@ -3454,7 +3470,7 @@ pub const qtextblockformat = struct {
     ///
     /// ` self: QtC.QTextBlockFormat `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTextBlockFormat_Delete(@ptrCast(self));
     }
 };
@@ -4310,6 +4326,10 @@ pub const qtextlistformat = struct {
         qtc.QTextFormat_ClearForeground(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlistformat.html#dtor.QTextListFormat)
     ///
     /// Delete this object from C++ memory.
@@ -4318,7 +4338,7 @@ pub const qtextlistformat = struct {
     ///
     /// ` self: QtC.QTextListFormat `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTextListFormat_Delete(@ptrCast(self));
     }
 };
@@ -6167,6 +6187,10 @@ pub const qtextimageformat = struct {
         qtc.QTextFormat_ClearForeground(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextimageformat.html#dtor.QTextImageFormat)
     ///
     /// Delete this object from C++ memory.
@@ -6175,7 +6199,7 @@ pub const qtextimageformat = struct {
     ///
     /// ` self: QtC.QTextImageFormat `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTextImageFormat_Delete(@ptrCast(self));
     }
 };
@@ -7219,6 +7243,10 @@ pub const qtextframeformat = struct {
         qtc.QTextFormat_ClearForeground(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#dtor.QTextFrameFormat)
     ///
     /// Delete this object from C++ memory.
@@ -7227,7 +7255,7 @@ pub const qtextframeformat = struct {
     ///
     /// ` self: QtC.QTextFrameFormat `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTextFrameFormat_Delete(@ptrCast(self));
     }
 };
@@ -8506,6 +8534,10 @@ pub const qtexttableformat = struct {
         qtc.QTextFormat_ClearForeground(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttableformat.html#dtor.QTextTableFormat)
     ///
     /// Delete this object from C++ memory.
@@ -8514,7 +8546,7 @@ pub const qtexttableformat = struct {
     ///
     /// ` self: QtC.QTextTableFormat `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTextTableFormat_Delete(@ptrCast(self));
     }
 };
@@ -10649,6 +10681,10 @@ pub const qtexttablecellformat = struct {
         qtc.QTextFormat_ClearForeground(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecellformat.html#dtor.QTextTableCellFormat)
     ///
     /// Delete this object from C++ memory.
@@ -10657,7 +10693,7 @@ pub const qtexttablecellformat = struct {
     ///
     /// ` self: QtC.QTextTableCellFormat `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTextTableCellFormat_Delete(@ptrCast(self));
     }
 };

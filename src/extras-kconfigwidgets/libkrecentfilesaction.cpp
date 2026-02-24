@@ -164,7 +164,7 @@ void KRecentFilesAction_AddUrl22(KRecentFilesAction* self, const QUrl* url, cons
 }
 
 // Base class handler implementation
-QMetaObject* KRecentFilesAction_QBaseMetaObject(const KRecentFilesAction* self) {
+QMetaObject* KRecentFilesAction_SuperMetaObject(const KRecentFilesAction* self) {
     auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         vkrecentfilesaction->setKRecentFilesAction_MetaObject_IsBase(true);
@@ -183,7 +183,7 @@ void KRecentFilesAction_OnMetaObject(const KRecentFilesAction* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* KRecentFilesAction_QBaseMetacast(KRecentFilesAction* self, const char* param1) {
+void* KRecentFilesAction_SuperMetacast(KRecentFilesAction* self, const char* param1) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         vkrecentfilesaction->setKRecentFilesAction_Metacast_IsBase(true);
@@ -202,7 +202,7 @@ void KRecentFilesAction_OnMetacast(KRecentFilesAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KRecentFilesAction_QBaseMetacall(KRecentFilesAction* self, int param1, int param2, void** param3) {
+int KRecentFilesAction_SuperMetacall(KRecentFilesAction* self, int param1, int param2, void** param3) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         vkrecentfilesaction->setKRecentFilesAction_Metacall_IsBase(true);
@@ -221,7 +221,7 @@ void KRecentFilesAction_OnMetacall(KRecentFilesAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QAction* KRecentFilesAction_QBaseRemoveAction(KRecentFilesAction* self, QAction* action) {
+QAction* KRecentFilesAction_SuperRemoveAction(KRecentFilesAction* self, QAction* action) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         vkrecentfilesaction->setKRecentFilesAction_RemoveAction_IsBase(true);
@@ -240,7 +240,7 @@ void KRecentFilesAction_OnRemoveAction(KRecentFilesAction* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void KRecentFilesAction_QBaseClear(KRecentFilesAction* self) {
+void KRecentFilesAction_SuperClear(KRecentFilesAction* self) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         vkrecentfilesaction->setKRecentFilesAction_Clear_IsBase(true);
@@ -269,7 +269,7 @@ void KRecentFilesAction_InsertAction(KRecentFilesAction* self, QAction* before, 
 }
 
 // Base class handler implementation
-void KRecentFilesAction_QBaseInsertAction(KRecentFilesAction* self, QAction* before, QAction* action) {
+void KRecentFilesAction_SuperInsertAction(KRecentFilesAction* self, QAction* before, QAction* action) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         vkrecentfilesaction->setKRecentFilesAction_InsertAction_IsBase(true);
@@ -298,7 +298,7 @@ void KRecentFilesAction_SlotActionTriggered(KRecentFilesAction* self, QAction* a
 }
 
 // Base class handler implementation
-void KRecentFilesAction_QBaseSlotActionTriggered(KRecentFilesAction* self, QAction* action) {
+void KRecentFilesAction_SuperSlotActionTriggered(KRecentFilesAction* self, QAction* action) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         vkrecentfilesaction->setKRecentFilesAction_SlotActionTriggered_IsBase(true);
@@ -327,7 +327,7 @@ QWidget* KRecentFilesAction_CreateWidget(KRecentFilesAction* self, QWidget* pare
 }
 
 // Base class handler implementation
-QWidget* KRecentFilesAction_QBaseCreateWidget(KRecentFilesAction* self, QWidget* parent) {
+QWidget* KRecentFilesAction_SuperCreateWidget(KRecentFilesAction* self, QWidget* parent) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         vkrecentfilesaction->setKRecentFilesAction_CreateWidget_IsBase(true);
@@ -356,7 +356,7 @@ void KRecentFilesAction_DeleteWidget(KRecentFilesAction* self, QWidget* widget) 
 }
 
 // Base class handler implementation
-void KRecentFilesAction_QBaseDeleteWidget(KRecentFilesAction* self, QWidget* widget) {
+void KRecentFilesAction_SuperDeleteWidget(KRecentFilesAction* self, QWidget* widget) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         vkrecentfilesaction->setKRecentFilesAction_DeleteWidget_IsBase(true);
@@ -385,7 +385,7 @@ bool KRecentFilesAction_Event(KRecentFilesAction* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KRecentFilesAction_QBaseEvent(KRecentFilesAction* self, QEvent* event) {
+bool KRecentFilesAction_SuperEvent(KRecentFilesAction* self, QEvent* event) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         vkrecentfilesaction->setKRecentFilesAction_Event_IsBase(true);
@@ -414,7 +414,7 @@ bool KRecentFilesAction_EventFilter(KRecentFilesAction* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool KRecentFilesAction_QBaseEventFilter(KRecentFilesAction* self, QObject* watched, QEvent* event) {
+bool KRecentFilesAction_SuperEventFilter(KRecentFilesAction* self, QObject* watched, QEvent* event) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         vkrecentfilesaction->setKRecentFilesAction_EventFilter_IsBase(true);
@@ -443,7 +443,7 @@ void KRecentFilesAction_TimerEvent(KRecentFilesAction* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void KRecentFilesAction_QBaseTimerEvent(KRecentFilesAction* self, QTimerEvent* event) {
+void KRecentFilesAction_SuperTimerEvent(KRecentFilesAction* self, QTimerEvent* event) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         vkrecentfilesaction->setKRecentFilesAction_TimerEvent_IsBase(true);
@@ -472,7 +472,7 @@ void KRecentFilesAction_ChildEvent(KRecentFilesAction* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void KRecentFilesAction_QBaseChildEvent(KRecentFilesAction* self, QChildEvent* event) {
+void KRecentFilesAction_SuperChildEvent(KRecentFilesAction* self, QChildEvent* event) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         vkrecentfilesaction->setKRecentFilesAction_ChildEvent_IsBase(true);
@@ -501,7 +501,7 @@ void KRecentFilesAction_CustomEvent(KRecentFilesAction* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KRecentFilesAction_QBaseCustomEvent(KRecentFilesAction* self, QEvent* event) {
+void KRecentFilesAction_SuperCustomEvent(KRecentFilesAction* self, QEvent* event) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         vkrecentfilesaction->setKRecentFilesAction_CustomEvent_IsBase(true);
@@ -530,7 +530,7 @@ void KRecentFilesAction_ConnectNotify(KRecentFilesAction* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void KRecentFilesAction_QBaseConnectNotify(KRecentFilesAction* self, const QMetaMethod* signal) {
+void KRecentFilesAction_SuperConnectNotify(KRecentFilesAction* self, const QMetaMethod* signal) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         vkrecentfilesaction->setKRecentFilesAction_ConnectNotify_IsBase(true);
@@ -559,7 +559,7 @@ void KRecentFilesAction_DisconnectNotify(KRecentFilesAction* self, const QMetaMe
 }
 
 // Base class handler implementation
-void KRecentFilesAction_QBaseDisconnectNotify(KRecentFilesAction* self, const QMetaMethod* signal) {
+void KRecentFilesAction_SuperDisconnectNotify(KRecentFilesAction* self, const QMetaMethod* signal) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         vkrecentfilesaction->setKRecentFilesAction_DisconnectNotify_IsBase(true);
@@ -588,7 +588,7 @@ void KRecentFilesAction_SlotToggled(KRecentFilesAction* self, bool param1) {
 }
 
 // Base class handler implementation
-void KRecentFilesAction_QBaseSlotToggled(KRecentFilesAction* self, bool param1) {
+void KRecentFilesAction_SuperSlotToggled(KRecentFilesAction* self, bool param1) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         vkrecentfilesaction->setKRecentFilesAction_SlotToggled_IsBase(true);
@@ -635,7 +635,7 @@ libqt_list /* of QWidget* */ KRecentFilesAction_CreatedWidgets(const KRecentFile
 }
 
 // Base class handler implementation
-libqt_list /* of QWidget* */ KRecentFilesAction_QBaseCreatedWidgets(const KRecentFilesAction* self) {
+libqt_list /* of QWidget* */ KRecentFilesAction_SuperCreatedWidgets(const KRecentFilesAction* self) {
     auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         vkrecentfilesaction->setKRecentFilesAction_CreatedWidgets_IsBase(true);
@@ -682,7 +682,7 @@ QObject* KRecentFilesAction_Sender(const KRecentFilesAction* self) {
 }
 
 // Base class handler implementation
-QObject* KRecentFilesAction_QBaseSender(const KRecentFilesAction* self) {
+QObject* KRecentFilesAction_SuperSender(const KRecentFilesAction* self) {
     auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         vkrecentfilesaction->setKRecentFilesAction_Sender_IsBase(true);
@@ -711,7 +711,7 @@ int KRecentFilesAction_SenderSignalIndex(const KRecentFilesAction* self) {
 }
 
 // Base class handler implementation
-int KRecentFilesAction_QBaseSenderSignalIndex(const KRecentFilesAction* self) {
+int KRecentFilesAction_SuperSenderSignalIndex(const KRecentFilesAction* self) {
     auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         vkrecentfilesaction->setKRecentFilesAction_SenderSignalIndex_IsBase(true);
@@ -740,7 +740,7 @@ int KRecentFilesAction_Receivers(const KRecentFilesAction* self, const char* sig
 }
 
 // Base class handler implementation
-int KRecentFilesAction_QBaseReceivers(const KRecentFilesAction* self, const char* signal) {
+int KRecentFilesAction_SuperReceivers(const KRecentFilesAction* self, const char* signal) {
     auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         vkrecentfilesaction->setKRecentFilesAction_Receivers_IsBase(true);
@@ -769,7 +769,7 @@ bool KRecentFilesAction_IsSignalConnected(const KRecentFilesAction* self, const 
 }
 
 // Base class handler implementation
-bool KRecentFilesAction_QBaseIsSignalConnected(const KRecentFilesAction* self, const QMetaMethod* signal) {
+bool KRecentFilesAction_SuperIsSignalConnected(const KRecentFilesAction* self, const QMetaMethod* signal) {
     auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         vkrecentfilesaction->setKRecentFilesAction_IsSignalConnected_IsBase(true);

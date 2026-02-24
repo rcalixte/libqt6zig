@@ -1090,6 +1090,9 @@ pub const qkeychain__job = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
@@ -1099,7 +1102,7 @@ pub const qkeychain__job = struct {
     ///
     /// ` self: QtC.QKeychain__Job `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QKeychain__Job_Delete(@ptrCast(self));
     }
 };
@@ -1162,6 +1165,10 @@ pub const qkeychain__readpasswordjob = struct {
         qtc.QKeychain__ReadPasswordJob_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -1170,8 +1177,8 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__ReadPasswordJob `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QKeychain__ReadPasswordJob_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QKeychain__ReadPasswordJob_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -1197,6 +1204,10 @@ pub const qkeychain__readpasswordjob = struct {
         qtc.QKeychain__ReadPasswordJob_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -1205,9 +1216,9 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QKeychain__ReadPasswordJob_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QKeychain__ReadPasswordJob_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -1236,6 +1247,10 @@ pub const qkeychain__readpasswordjob = struct {
         qtc.QKeychain__ReadPasswordJob_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -1248,8 +1263,8 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QKeychain__ReadPasswordJob_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QKeychain__ReadPasswordJob_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2335,6 +2350,10 @@ pub const qkeychain__readpasswordjob = struct {
         return qtc.QKeychain__ReadPasswordJob_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -2347,8 +2366,8 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QKeychain__ReadPasswordJob_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QKeychain__ReadPasswordJob_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2385,6 +2404,10 @@ pub const qkeychain__readpasswordjob = struct {
         return qtc.QKeychain__ReadPasswordJob_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -2399,8 +2422,8 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QKeychain__ReadPasswordJob_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QKeychain__ReadPasswordJob_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2435,6 +2458,10 @@ pub const qkeychain__readpasswordjob = struct {
         qtc.QKeychain__ReadPasswordJob_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -2447,8 +2474,8 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QKeychain__ReadPasswordJob_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QKeychain__ReadPasswordJob_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2483,6 +2510,10 @@ pub const qkeychain__readpasswordjob = struct {
         qtc.QKeychain__ReadPasswordJob_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -2495,8 +2526,8 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QKeychain__ReadPasswordJob_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QKeychain__ReadPasswordJob_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2531,6 +2562,10 @@ pub const qkeychain__readpasswordjob = struct {
         qtc.QKeychain__ReadPasswordJob_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -2543,8 +2578,8 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QKeychain__ReadPasswordJob_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QKeychain__ReadPasswordJob_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2579,6 +2614,10 @@ pub const qkeychain__readpasswordjob = struct {
         qtc.QKeychain__ReadPasswordJob_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2591,8 +2630,8 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QKeychain__ReadPasswordJob_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QKeychain__ReadPasswordJob_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2627,6 +2666,10 @@ pub const qkeychain__readpasswordjob = struct {
         qtc.QKeychain__ReadPasswordJob_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -2639,8 +2682,8 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QKeychain__ReadPasswordJob_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QKeychain__ReadPasswordJob_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2673,6 +2716,10 @@ pub const qkeychain__readpasswordjob = struct {
         qtc.QKeychain__ReadPasswordJob_DoStart(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDoStart` instead
+    ///
+    pub const QBaseDoStart = SuperDoStart;
+
     /// Inherited from QKeychain::Job
     ///
     /// ### [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
@@ -2683,8 +2730,8 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__ReadPasswordJob `
     ///
-    pub fn QBaseDoStart(self: ?*anyopaque) void {
-        qtc.QKeychain__ReadPasswordJob_QBaseDoStart(@ptrCast(self));
+    pub fn SuperDoStart(self: ?*anyopaque) void {
+        qtc.QKeychain__ReadPasswordJob_SuperDoStart(@ptrCast(self));
     }
 
     /// Inherited from QKeychain::Job
@@ -2717,6 +2764,10 @@ pub const qkeychain__readpasswordjob = struct {
         return qtc.QKeychain__ReadPasswordJob_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2727,8 +2778,8 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__ReadPasswordJob `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QKeychain__ReadPasswordJob_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QKeychain__ReadPasswordJob_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2761,6 +2812,10 @@ pub const qkeychain__readpasswordjob = struct {
         return qtc.QKeychain__ReadPasswordJob_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2771,8 +2826,8 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__ReadPasswordJob `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QKeychain__ReadPasswordJob_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QKeychain__ReadPasswordJob_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2808,6 +2863,10 @@ pub const qkeychain__readpasswordjob = struct {
         return qtc.QKeychain__ReadPasswordJob_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2820,9 +2879,9 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QKeychain__ReadPasswordJob_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QKeychain__ReadPasswordJob_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2857,6 +2916,10 @@ pub const qkeychain__readpasswordjob = struct {
         return qtc.QKeychain__ReadPasswordJob_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2869,8 +2932,8 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QKeychain__ReadPasswordJob_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QKeychain__ReadPasswordJob_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2904,6 +2967,9 @@ pub const qkeychain__readpasswordjob = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
@@ -2913,7 +2979,7 @@ pub const qkeychain__readpasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__ReadPasswordJob `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QKeychain__ReadPasswordJob_Delete(@ptrCast(self));
     }
 };
@@ -2976,6 +3042,10 @@ pub const qkeychain__writepasswordjob = struct {
         qtc.QKeychain__WritePasswordJob_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -2984,8 +3054,8 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__WritePasswordJob `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QKeychain__WritePasswordJob_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QKeychain__WritePasswordJob_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -3011,6 +3081,10 @@ pub const qkeychain__writepasswordjob = struct {
         qtc.QKeychain__WritePasswordJob_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -3019,9 +3093,9 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QKeychain__WritePasswordJob_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QKeychain__WritePasswordJob_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -3050,6 +3124,10 @@ pub const qkeychain__writepasswordjob = struct {
         qtc.QKeychain__WritePasswordJob_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -3062,8 +3140,8 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QKeychain__WritePasswordJob_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QKeychain__WritePasswordJob_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -4149,6 +4227,10 @@ pub const qkeychain__writepasswordjob = struct {
         return qtc.QKeychain__WritePasswordJob_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -4161,8 +4243,8 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QKeychain__WritePasswordJob_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QKeychain__WritePasswordJob_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4199,6 +4281,10 @@ pub const qkeychain__writepasswordjob = struct {
         return qtc.QKeychain__WritePasswordJob_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -4213,8 +4299,8 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QKeychain__WritePasswordJob_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QKeychain__WritePasswordJob_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4249,6 +4335,10 @@ pub const qkeychain__writepasswordjob = struct {
         qtc.QKeychain__WritePasswordJob_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -4261,8 +4351,8 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QKeychain__WritePasswordJob_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QKeychain__WritePasswordJob_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4297,6 +4387,10 @@ pub const qkeychain__writepasswordjob = struct {
         qtc.QKeychain__WritePasswordJob_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -4309,8 +4403,8 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QKeychain__WritePasswordJob_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QKeychain__WritePasswordJob_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4345,6 +4439,10 @@ pub const qkeychain__writepasswordjob = struct {
         qtc.QKeychain__WritePasswordJob_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -4357,8 +4455,8 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QKeychain__WritePasswordJob_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QKeychain__WritePasswordJob_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4393,6 +4491,10 @@ pub const qkeychain__writepasswordjob = struct {
         qtc.QKeychain__WritePasswordJob_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -4405,8 +4507,8 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QKeychain__WritePasswordJob_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QKeychain__WritePasswordJob_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -4441,6 +4543,10 @@ pub const qkeychain__writepasswordjob = struct {
         qtc.QKeychain__WritePasswordJob_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -4453,8 +4559,8 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QKeychain__WritePasswordJob_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QKeychain__WritePasswordJob_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -4487,6 +4593,10 @@ pub const qkeychain__writepasswordjob = struct {
         qtc.QKeychain__WritePasswordJob_DoStart(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDoStart` instead
+    ///
+    pub const QBaseDoStart = SuperDoStart;
+
     /// Inherited from QKeychain::Job
     ///
     /// ### [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
@@ -4497,8 +4607,8 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__WritePasswordJob `
     ///
-    pub fn QBaseDoStart(self: ?*anyopaque) void {
-        qtc.QKeychain__WritePasswordJob_QBaseDoStart(@ptrCast(self));
+    pub fn SuperDoStart(self: ?*anyopaque) void {
+        qtc.QKeychain__WritePasswordJob_SuperDoStart(@ptrCast(self));
     }
 
     /// Inherited from QKeychain::Job
@@ -4531,6 +4641,10 @@ pub const qkeychain__writepasswordjob = struct {
         return qtc.QKeychain__WritePasswordJob_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -4541,8 +4655,8 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__WritePasswordJob `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QKeychain__WritePasswordJob_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QKeychain__WritePasswordJob_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -4575,6 +4689,10 @@ pub const qkeychain__writepasswordjob = struct {
         return qtc.QKeychain__WritePasswordJob_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -4585,8 +4703,8 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__WritePasswordJob `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QKeychain__WritePasswordJob_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QKeychain__WritePasswordJob_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -4622,6 +4740,10 @@ pub const qkeychain__writepasswordjob = struct {
         return qtc.QKeychain__WritePasswordJob_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -4634,9 +4756,9 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QKeychain__WritePasswordJob_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QKeychain__WritePasswordJob_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -4671,6 +4793,10 @@ pub const qkeychain__writepasswordjob = struct {
         return qtc.QKeychain__WritePasswordJob_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -4683,8 +4809,8 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QKeychain__WritePasswordJob_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QKeychain__WritePasswordJob_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -4718,6 +4844,9 @@ pub const qkeychain__writepasswordjob = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
@@ -4727,7 +4856,7 @@ pub const qkeychain__writepasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__WritePasswordJob `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QKeychain__WritePasswordJob_Delete(@ptrCast(self));
     }
 };
@@ -4790,6 +4919,10 @@ pub const qkeychain__deletepasswordjob = struct {
         qtc.QKeychain__DeletePasswordJob_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -4798,8 +4931,8 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__DeletePasswordJob `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QKeychain__DeletePasswordJob_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QKeychain__DeletePasswordJob_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -4825,6 +4958,10 @@ pub const qkeychain__deletepasswordjob = struct {
         qtc.QKeychain__DeletePasswordJob_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -4833,9 +4970,9 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QKeychain__DeletePasswordJob_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QKeychain__DeletePasswordJob_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -4864,6 +5001,10 @@ pub const qkeychain__deletepasswordjob = struct {
         qtc.QKeychain__DeletePasswordJob_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -4876,8 +5017,8 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QKeychain__DeletePasswordJob_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QKeychain__DeletePasswordJob_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -5931,6 +6072,10 @@ pub const qkeychain__deletepasswordjob = struct {
         return qtc.QKeychain__DeletePasswordJob_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -5943,8 +6088,8 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QKeychain__DeletePasswordJob_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QKeychain__DeletePasswordJob_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -5981,6 +6126,10 @@ pub const qkeychain__deletepasswordjob = struct {
         return qtc.QKeychain__DeletePasswordJob_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -5995,8 +6144,8 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QKeychain__DeletePasswordJob_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QKeychain__DeletePasswordJob_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -6031,6 +6180,10 @@ pub const qkeychain__deletepasswordjob = struct {
         qtc.QKeychain__DeletePasswordJob_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -6043,8 +6196,8 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QKeychain__DeletePasswordJob_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QKeychain__DeletePasswordJob_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -6079,6 +6232,10 @@ pub const qkeychain__deletepasswordjob = struct {
         qtc.QKeychain__DeletePasswordJob_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -6091,8 +6248,8 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QKeychain__DeletePasswordJob_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QKeychain__DeletePasswordJob_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -6127,6 +6284,10 @@ pub const qkeychain__deletepasswordjob = struct {
         qtc.QKeychain__DeletePasswordJob_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -6139,8 +6300,8 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QKeychain__DeletePasswordJob_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QKeychain__DeletePasswordJob_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -6175,6 +6336,10 @@ pub const qkeychain__deletepasswordjob = struct {
         qtc.QKeychain__DeletePasswordJob_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -6187,8 +6352,8 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QKeychain__DeletePasswordJob_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QKeychain__DeletePasswordJob_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -6223,6 +6388,10 @@ pub const qkeychain__deletepasswordjob = struct {
         qtc.QKeychain__DeletePasswordJob_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -6235,8 +6404,8 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QKeychain__DeletePasswordJob_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QKeychain__DeletePasswordJob_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -6269,6 +6438,10 @@ pub const qkeychain__deletepasswordjob = struct {
         qtc.QKeychain__DeletePasswordJob_DoStart(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDoStart` instead
+    ///
+    pub const QBaseDoStart = SuperDoStart;
+
     /// Inherited from QKeychain::Job
     ///
     /// ### [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
@@ -6279,8 +6452,8 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__DeletePasswordJob `
     ///
-    pub fn QBaseDoStart(self: ?*anyopaque) void {
-        qtc.QKeychain__DeletePasswordJob_QBaseDoStart(@ptrCast(self));
+    pub fn SuperDoStart(self: ?*anyopaque) void {
+        qtc.QKeychain__DeletePasswordJob_SuperDoStart(@ptrCast(self));
     }
 
     /// Inherited from QKeychain::Job
@@ -6313,6 +6486,10 @@ pub const qkeychain__deletepasswordjob = struct {
         return qtc.QKeychain__DeletePasswordJob_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -6323,8 +6500,8 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__DeletePasswordJob `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QKeychain__DeletePasswordJob_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QKeychain__DeletePasswordJob_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -6357,6 +6534,10 @@ pub const qkeychain__deletepasswordjob = struct {
         return qtc.QKeychain__DeletePasswordJob_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -6367,8 +6548,8 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__DeletePasswordJob `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QKeychain__DeletePasswordJob_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QKeychain__DeletePasswordJob_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -6404,6 +6585,10 @@ pub const qkeychain__deletepasswordjob = struct {
         return qtc.QKeychain__DeletePasswordJob_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -6416,9 +6601,9 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QKeychain__DeletePasswordJob_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QKeychain__DeletePasswordJob_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -6453,6 +6638,10 @@ pub const qkeychain__deletepasswordjob = struct {
         return qtc.QKeychain__DeletePasswordJob_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -6465,8 +6654,8 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QKeychain__DeletePasswordJob_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QKeychain__DeletePasswordJob_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -6500,6 +6689,9 @@ pub const qkeychain__deletepasswordjob = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
     ///
@@ -6509,7 +6701,7 @@ pub const qkeychain__deletepasswordjob = struct {
     ///
     /// ` self: QtC.QKeychain__DeletePasswordJob `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QKeychain__DeletePasswordJob_Delete(@ptrCast(self));
     }
 };

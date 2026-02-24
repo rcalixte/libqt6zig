@@ -278,13 +278,17 @@ pub const knscore__author = struct {
         qtc.KNSCore__Author_SetDescription(@ptrCast(self), description_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KNSCore__Author `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KNSCore__Author_Delete(@ptrCast(self));
     }
 };

@@ -43,6 +43,10 @@ pub const knewfilemenu = struct {
         qtc.KNewFileMenu_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -51,8 +55,8 @@ pub const knewfilemenu = struct {
     ///
     /// ` self: QtC.KNewFileMenu `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KNewFileMenu_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KNewFileMenu_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -78,6 +82,10 @@ pub const knewfilemenu = struct {
         qtc.KNewFileMenu_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -86,9 +94,9 @@ pub const knewfilemenu = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KNewFileMenu_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KNewFileMenu_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -117,6 +125,10 @@ pub const knewfilemenu = struct {
         qtc.KNewFileMenu_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -129,8 +141,8 @@ pub const knewfilemenu = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KNewFileMenu_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KNewFileMenu_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -555,6 +567,10 @@ pub const knewfilemenu = struct {
         qtc.KNewFileMenu_OnSlotResult(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotResult` instead
+    ///
+    pub const QBaseSlotResult = SuperSlotResult;
+
     /// ### [Upstream resources](https://api.kde.org/knewfilemenu.html#slotResult)
     ///
     /// Base class method implementation
@@ -565,8 +581,8 @@ pub const knewfilemenu = struct {
     ///
     /// ` job: QtC.KJob `
     ///
-    pub fn QBaseSlotResult(self: ?*anyopaque, job: ?*anyopaque) void {
-        qtc.KNewFileMenu_QBaseSlotResult(@ptrCast(self), @ptrCast(job));
+    pub fn SuperSlotResult(self: ?*anyopaque, job: ?*anyopaque) void {
+        qtc.KNewFileMenu_SuperSlotResult(@ptrCast(self), @ptrCast(job));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2515,6 +2531,10 @@ pub const knewfilemenu = struct {
         return qtc.KNewFileMenu_CreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateWidget` instead
+    ///
+    pub const QBaseCreateWidget = SuperCreateWidget;
+
     /// Inherited from KActionMenu
     ///
     /// ### [Upstream resources](https://api.kde.org/kactionmenu.html#createWidget)
@@ -2527,8 +2547,8 @@ pub const knewfilemenu = struct {
     ///
     /// ` parent: QtC.QWidget `
     ///
-    pub fn QBaseCreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.KNewFileMenu_QBaseCreateWidget(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperCreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
+        return qtc.KNewFileMenu_SuperCreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from KActionMenu
@@ -2563,6 +2583,10 @@ pub const knewfilemenu = struct {
         return qtc.KNewFileMenu_Event(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QWidgetAction
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#event)
@@ -2575,8 +2599,8 @@ pub const knewfilemenu = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.KNewFileMenu_QBaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
+        return qtc.KNewFileMenu_SuperEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidgetAction
@@ -2613,6 +2637,10 @@ pub const knewfilemenu = struct {
         return qtc.KNewFileMenu_EventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QWidgetAction
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#eventFilter)
@@ -2627,8 +2655,8 @@ pub const knewfilemenu = struct {
     ///
     /// ` param2: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.KNewFileMenu_QBaseEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn SuperEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
+        return qtc.KNewFileMenu_SuperEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidgetAction
@@ -2663,6 +2691,10 @@ pub const knewfilemenu = struct {
         qtc.KNewFileMenu_DeleteWidget(@ptrCast(self), @ptrCast(widget));
     }
 
+    /// ### DEPRECATED: Use `SuperDeleteWidget` instead
+    ///
+    pub const QBaseDeleteWidget = SuperDeleteWidget;
+
     /// Inherited from QWidgetAction
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
@@ -2675,8 +2707,8 @@ pub const knewfilemenu = struct {
     ///
     /// ` widget: QtC.QWidget `
     ///
-    pub fn QBaseDeleteWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.KNewFileMenu_QBaseDeleteWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn SuperDeleteWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
+        qtc.KNewFileMenu_SuperDeleteWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from QWidgetAction
@@ -2711,6 +2743,10 @@ pub const knewfilemenu = struct {
         qtc.KNewFileMenu_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -2723,8 +2759,8 @@ pub const knewfilemenu = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KNewFileMenu_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KNewFileMenu_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2759,6 +2795,10 @@ pub const knewfilemenu = struct {
         qtc.KNewFileMenu_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -2771,8 +2811,8 @@ pub const knewfilemenu = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KNewFileMenu_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KNewFileMenu_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2807,6 +2847,10 @@ pub const knewfilemenu = struct {
         qtc.KNewFileMenu_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -2819,8 +2863,8 @@ pub const knewfilemenu = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KNewFileMenu_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KNewFileMenu_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2855,6 +2899,10 @@ pub const knewfilemenu = struct {
         qtc.KNewFileMenu_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2867,8 +2915,8 @@ pub const knewfilemenu = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KNewFileMenu_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KNewFileMenu_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2903,6 +2951,10 @@ pub const knewfilemenu = struct {
         qtc.KNewFileMenu_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -2915,8 +2967,8 @@ pub const knewfilemenu = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KNewFileMenu_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KNewFileMenu_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2956,6 +3008,10 @@ pub const knewfilemenu = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperCreatedWidgets` instead
+    ///
+    pub const QBaseCreatedWidgets = SuperCreatedWidgets;
+
     /// Inherited from QWidgetAction
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
@@ -2968,8 +3024,8 @@ pub const knewfilemenu = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseCreatedWidgets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWidget {
-        const _arr: qtc.libqt_list = qtc.KNewFileMenu_QBaseCreatedWidgets(@ptrCast(self));
+    pub fn SuperCreatedWidgets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWidget {
+        const _arr: qtc.libqt_list = qtc.KNewFileMenu_SuperCreatedWidgets(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("knewfilemenu.CreatedWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
@@ -3013,6 +3069,10 @@ pub const knewfilemenu = struct {
         return qtc.KNewFileMenu_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -3023,8 +3083,8 @@ pub const knewfilemenu = struct {
     ///
     /// ` self: QtC.KNewFileMenu `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KNewFileMenu_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KNewFileMenu_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3057,6 +3117,10 @@ pub const knewfilemenu = struct {
         return qtc.KNewFileMenu_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -3067,8 +3131,8 @@ pub const knewfilemenu = struct {
     ///
     /// ` self: QtC.KNewFileMenu `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KNewFileMenu_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KNewFileMenu_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3104,6 +3168,10 @@ pub const knewfilemenu = struct {
         return qtc.KNewFileMenu_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -3116,9 +3184,9 @@ pub const knewfilemenu = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KNewFileMenu_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KNewFileMenu_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3153,6 +3221,10 @@ pub const knewfilemenu = struct {
         return qtc.KNewFileMenu_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -3165,8 +3237,8 @@ pub const knewfilemenu = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KNewFileMenu_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KNewFileMenu_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3200,6 +3272,9 @@ pub const knewfilemenu = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/knewfilemenu.html#dtor.KNewFileMenu)
     ///
@@ -3209,7 +3284,7 @@ pub const knewfilemenu = struct {
     ///
     /// ` self: QtC.KNewFileMenu `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KNewFileMenu_Delete(@ptrCast(self));
     }
 };

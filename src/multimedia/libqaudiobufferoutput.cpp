@@ -76,7 +76,7 @@ void QAudioBufferOutput_Connect_AudioBufferReceived(QAudioBufferOutput* self, in
 }
 
 // Base class handler implementation
-QMetaObject* QAudioBufferOutput_QBaseMetaObject(const QAudioBufferOutput* self) {
+QMetaObject* QAudioBufferOutput_SuperMetaObject(const QAudioBufferOutput* self) {
     auto* vqaudiobufferoutput = const_cast<VirtualQAudioBufferOutput*>(dynamic_cast<const VirtualQAudioBufferOutput*>(self));
     if (vqaudiobufferoutput && vqaudiobufferoutput->isVirtualQAudioBufferOutput) {
         vqaudiobufferoutput->setQAudioBufferOutput_MetaObject_IsBase(true);
@@ -95,7 +95,7 @@ void QAudioBufferOutput_OnMetaObject(const QAudioBufferOutput* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* QAudioBufferOutput_QBaseMetacast(QAudioBufferOutput* self, const char* param1) {
+void* QAudioBufferOutput_SuperMetacast(QAudioBufferOutput* self, const char* param1) {
     auto* vqaudiobufferoutput = dynamic_cast<VirtualQAudioBufferOutput*>(self);
     if (vqaudiobufferoutput && vqaudiobufferoutput->isVirtualQAudioBufferOutput) {
         vqaudiobufferoutput->setQAudioBufferOutput_Metacast_IsBase(true);
@@ -114,7 +114,7 @@ void QAudioBufferOutput_OnMetacast(QAudioBufferOutput* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAudioBufferOutput_QBaseMetacall(QAudioBufferOutput* self, int param1, int param2, void** param3) {
+int QAudioBufferOutput_SuperMetacall(QAudioBufferOutput* self, int param1, int param2, void** param3) {
     auto* vqaudiobufferoutput = dynamic_cast<VirtualQAudioBufferOutput*>(self);
     if (vqaudiobufferoutput && vqaudiobufferoutput->isVirtualQAudioBufferOutput) {
         vqaudiobufferoutput->setQAudioBufferOutput_Metacall_IsBase(true);
@@ -143,7 +143,7 @@ bool QAudioBufferOutput_Event(QAudioBufferOutput* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QAudioBufferOutput_QBaseEvent(QAudioBufferOutput* self, QEvent* event) {
+bool QAudioBufferOutput_SuperEvent(QAudioBufferOutput* self, QEvent* event) {
     auto* vqaudiobufferoutput = dynamic_cast<VirtualQAudioBufferOutput*>(self);
     if (vqaudiobufferoutput && vqaudiobufferoutput->isVirtualQAudioBufferOutput) {
         vqaudiobufferoutput->setQAudioBufferOutput_Event_IsBase(true);
@@ -172,7 +172,7 @@ bool QAudioBufferOutput_EventFilter(QAudioBufferOutput* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool QAudioBufferOutput_QBaseEventFilter(QAudioBufferOutput* self, QObject* watched, QEvent* event) {
+bool QAudioBufferOutput_SuperEventFilter(QAudioBufferOutput* self, QObject* watched, QEvent* event) {
     auto* vqaudiobufferoutput = dynamic_cast<VirtualQAudioBufferOutput*>(self);
     if (vqaudiobufferoutput && vqaudiobufferoutput->isVirtualQAudioBufferOutput) {
         vqaudiobufferoutput->setQAudioBufferOutput_EventFilter_IsBase(true);
@@ -201,7 +201,7 @@ void QAudioBufferOutput_TimerEvent(QAudioBufferOutput* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void QAudioBufferOutput_QBaseTimerEvent(QAudioBufferOutput* self, QTimerEvent* event) {
+void QAudioBufferOutput_SuperTimerEvent(QAudioBufferOutput* self, QTimerEvent* event) {
     auto* vqaudiobufferoutput = dynamic_cast<VirtualQAudioBufferOutput*>(self);
     if (vqaudiobufferoutput && vqaudiobufferoutput->isVirtualQAudioBufferOutput) {
         vqaudiobufferoutput->setQAudioBufferOutput_TimerEvent_IsBase(true);
@@ -230,7 +230,7 @@ void QAudioBufferOutput_ChildEvent(QAudioBufferOutput* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void QAudioBufferOutput_QBaseChildEvent(QAudioBufferOutput* self, QChildEvent* event) {
+void QAudioBufferOutput_SuperChildEvent(QAudioBufferOutput* self, QChildEvent* event) {
     auto* vqaudiobufferoutput = dynamic_cast<VirtualQAudioBufferOutput*>(self);
     if (vqaudiobufferoutput && vqaudiobufferoutput->isVirtualQAudioBufferOutput) {
         vqaudiobufferoutput->setQAudioBufferOutput_ChildEvent_IsBase(true);
@@ -259,7 +259,7 @@ void QAudioBufferOutput_CustomEvent(QAudioBufferOutput* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QAudioBufferOutput_QBaseCustomEvent(QAudioBufferOutput* self, QEvent* event) {
+void QAudioBufferOutput_SuperCustomEvent(QAudioBufferOutput* self, QEvent* event) {
     auto* vqaudiobufferoutput = dynamic_cast<VirtualQAudioBufferOutput*>(self);
     if (vqaudiobufferoutput && vqaudiobufferoutput->isVirtualQAudioBufferOutput) {
         vqaudiobufferoutput->setQAudioBufferOutput_CustomEvent_IsBase(true);
@@ -288,7 +288,7 @@ void QAudioBufferOutput_ConnectNotify(QAudioBufferOutput* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void QAudioBufferOutput_QBaseConnectNotify(QAudioBufferOutput* self, const QMetaMethod* signal) {
+void QAudioBufferOutput_SuperConnectNotify(QAudioBufferOutput* self, const QMetaMethod* signal) {
     auto* vqaudiobufferoutput = dynamic_cast<VirtualQAudioBufferOutput*>(self);
     if (vqaudiobufferoutput && vqaudiobufferoutput->isVirtualQAudioBufferOutput) {
         vqaudiobufferoutput->setQAudioBufferOutput_ConnectNotify_IsBase(true);
@@ -317,7 +317,7 @@ void QAudioBufferOutput_DisconnectNotify(QAudioBufferOutput* self, const QMetaMe
 }
 
 // Base class handler implementation
-void QAudioBufferOutput_QBaseDisconnectNotify(QAudioBufferOutput* self, const QMetaMethod* signal) {
+void QAudioBufferOutput_SuperDisconnectNotify(QAudioBufferOutput* self, const QMetaMethod* signal) {
     auto* vqaudiobufferoutput = dynamic_cast<VirtualQAudioBufferOutput*>(self);
     if (vqaudiobufferoutput && vqaudiobufferoutput->isVirtualQAudioBufferOutput) {
         vqaudiobufferoutput->setQAudioBufferOutput_DisconnectNotify_IsBase(true);
@@ -346,7 +346,7 @@ QObject* QAudioBufferOutput_Sender(const QAudioBufferOutput* self) {
 }
 
 // Base class handler implementation
-QObject* QAudioBufferOutput_QBaseSender(const QAudioBufferOutput* self) {
+QObject* QAudioBufferOutput_SuperSender(const QAudioBufferOutput* self) {
     auto* vqaudiobufferoutput = const_cast<VirtualQAudioBufferOutput*>(dynamic_cast<const VirtualQAudioBufferOutput*>(self));
     if (vqaudiobufferoutput && vqaudiobufferoutput->isVirtualQAudioBufferOutput) {
         vqaudiobufferoutput->setQAudioBufferOutput_Sender_IsBase(true);
@@ -375,7 +375,7 @@ int QAudioBufferOutput_SenderSignalIndex(const QAudioBufferOutput* self) {
 }
 
 // Base class handler implementation
-int QAudioBufferOutput_QBaseSenderSignalIndex(const QAudioBufferOutput* self) {
+int QAudioBufferOutput_SuperSenderSignalIndex(const QAudioBufferOutput* self) {
     auto* vqaudiobufferoutput = const_cast<VirtualQAudioBufferOutput*>(dynamic_cast<const VirtualQAudioBufferOutput*>(self));
     if (vqaudiobufferoutput && vqaudiobufferoutput->isVirtualQAudioBufferOutput) {
         vqaudiobufferoutput->setQAudioBufferOutput_SenderSignalIndex_IsBase(true);
@@ -404,7 +404,7 @@ int QAudioBufferOutput_Receivers(const QAudioBufferOutput* self, const char* sig
 }
 
 // Base class handler implementation
-int QAudioBufferOutput_QBaseReceivers(const QAudioBufferOutput* self, const char* signal) {
+int QAudioBufferOutput_SuperReceivers(const QAudioBufferOutput* self, const char* signal) {
     auto* vqaudiobufferoutput = const_cast<VirtualQAudioBufferOutput*>(dynamic_cast<const VirtualQAudioBufferOutput*>(self));
     if (vqaudiobufferoutput && vqaudiobufferoutput->isVirtualQAudioBufferOutput) {
         vqaudiobufferoutput->setQAudioBufferOutput_Receivers_IsBase(true);
@@ -433,7 +433,7 @@ bool QAudioBufferOutput_IsSignalConnected(const QAudioBufferOutput* self, const 
 }
 
 // Base class handler implementation
-bool QAudioBufferOutput_QBaseIsSignalConnected(const QAudioBufferOutput* self, const QMetaMethod* signal) {
+bool QAudioBufferOutput_SuperIsSignalConnected(const QAudioBufferOutput* self, const QMetaMethod* signal) {
     auto* vqaudiobufferoutput = const_cast<VirtualQAudioBufferOutput*>(dynamic_cast<const VirtualQAudioBufferOutput*>(self));
     if (vqaudiobufferoutput && vqaudiobufferoutput->isVirtualQAudioBufferOutput) {
         vqaudiobufferoutput->setQAudioBufferOutput_IsSignalConnected_IsBase(true);

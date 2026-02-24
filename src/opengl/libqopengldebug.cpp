@@ -316,7 +316,7 @@ void QOpenGLDebugLogger_StartLogging1(QOpenGLDebugLogger* self, int loggingMode)
 }
 
 // Base class handler implementation
-QMetaObject* QOpenGLDebugLogger_QBaseMetaObject(const QOpenGLDebugLogger* self) {
+QMetaObject* QOpenGLDebugLogger_SuperMetaObject(const QOpenGLDebugLogger* self) {
     auto* vqopengldebuglogger = const_cast<VirtualQOpenGLDebugLogger*>(dynamic_cast<const VirtualQOpenGLDebugLogger*>(self));
     if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
         vqopengldebuglogger->setQOpenGLDebugLogger_MetaObject_IsBase(true);
@@ -335,7 +335,7 @@ void QOpenGLDebugLogger_OnMetaObject(const QOpenGLDebugLogger* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* QOpenGLDebugLogger_QBaseMetacast(QOpenGLDebugLogger* self, const char* param1) {
+void* QOpenGLDebugLogger_SuperMetacast(QOpenGLDebugLogger* self, const char* param1) {
     auto* vqopengldebuglogger = dynamic_cast<VirtualQOpenGLDebugLogger*>(self);
     if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
         vqopengldebuglogger->setQOpenGLDebugLogger_Metacast_IsBase(true);
@@ -354,7 +354,7 @@ void QOpenGLDebugLogger_OnMetacast(QOpenGLDebugLogger* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QOpenGLDebugLogger_QBaseMetacall(QOpenGLDebugLogger* self, int param1, int param2, void** param3) {
+int QOpenGLDebugLogger_SuperMetacall(QOpenGLDebugLogger* self, int param1, int param2, void** param3) {
     auto* vqopengldebuglogger = dynamic_cast<VirtualQOpenGLDebugLogger*>(self);
     if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
         vqopengldebuglogger->setQOpenGLDebugLogger_Metacall_IsBase(true);
@@ -383,7 +383,7 @@ bool QOpenGLDebugLogger_Event(QOpenGLDebugLogger* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QOpenGLDebugLogger_QBaseEvent(QOpenGLDebugLogger* self, QEvent* event) {
+bool QOpenGLDebugLogger_SuperEvent(QOpenGLDebugLogger* self, QEvent* event) {
     auto* vqopengldebuglogger = dynamic_cast<VirtualQOpenGLDebugLogger*>(self);
     if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
         vqopengldebuglogger->setQOpenGLDebugLogger_Event_IsBase(true);
@@ -412,7 +412,7 @@ bool QOpenGLDebugLogger_EventFilter(QOpenGLDebugLogger* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool QOpenGLDebugLogger_QBaseEventFilter(QOpenGLDebugLogger* self, QObject* watched, QEvent* event) {
+bool QOpenGLDebugLogger_SuperEventFilter(QOpenGLDebugLogger* self, QObject* watched, QEvent* event) {
     auto* vqopengldebuglogger = dynamic_cast<VirtualQOpenGLDebugLogger*>(self);
     if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
         vqopengldebuglogger->setQOpenGLDebugLogger_EventFilter_IsBase(true);
@@ -441,7 +441,7 @@ void QOpenGLDebugLogger_TimerEvent(QOpenGLDebugLogger* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void QOpenGLDebugLogger_QBaseTimerEvent(QOpenGLDebugLogger* self, QTimerEvent* event) {
+void QOpenGLDebugLogger_SuperTimerEvent(QOpenGLDebugLogger* self, QTimerEvent* event) {
     auto* vqopengldebuglogger = dynamic_cast<VirtualQOpenGLDebugLogger*>(self);
     if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
         vqopengldebuglogger->setQOpenGLDebugLogger_TimerEvent_IsBase(true);
@@ -470,7 +470,7 @@ void QOpenGLDebugLogger_ChildEvent(QOpenGLDebugLogger* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void QOpenGLDebugLogger_QBaseChildEvent(QOpenGLDebugLogger* self, QChildEvent* event) {
+void QOpenGLDebugLogger_SuperChildEvent(QOpenGLDebugLogger* self, QChildEvent* event) {
     auto* vqopengldebuglogger = dynamic_cast<VirtualQOpenGLDebugLogger*>(self);
     if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
         vqopengldebuglogger->setQOpenGLDebugLogger_ChildEvent_IsBase(true);
@@ -499,7 +499,7 @@ void QOpenGLDebugLogger_CustomEvent(QOpenGLDebugLogger* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLDebugLogger_QBaseCustomEvent(QOpenGLDebugLogger* self, QEvent* event) {
+void QOpenGLDebugLogger_SuperCustomEvent(QOpenGLDebugLogger* self, QEvent* event) {
     auto* vqopengldebuglogger = dynamic_cast<VirtualQOpenGLDebugLogger*>(self);
     if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
         vqopengldebuglogger->setQOpenGLDebugLogger_CustomEvent_IsBase(true);
@@ -528,7 +528,7 @@ void QOpenGLDebugLogger_ConnectNotify(QOpenGLDebugLogger* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void QOpenGLDebugLogger_QBaseConnectNotify(QOpenGLDebugLogger* self, const QMetaMethod* signal) {
+void QOpenGLDebugLogger_SuperConnectNotify(QOpenGLDebugLogger* self, const QMetaMethod* signal) {
     auto* vqopengldebuglogger = dynamic_cast<VirtualQOpenGLDebugLogger*>(self);
     if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
         vqopengldebuglogger->setQOpenGLDebugLogger_ConnectNotify_IsBase(true);
@@ -557,7 +557,7 @@ void QOpenGLDebugLogger_DisconnectNotify(QOpenGLDebugLogger* self, const QMetaMe
 }
 
 // Base class handler implementation
-void QOpenGLDebugLogger_QBaseDisconnectNotify(QOpenGLDebugLogger* self, const QMetaMethod* signal) {
+void QOpenGLDebugLogger_SuperDisconnectNotify(QOpenGLDebugLogger* self, const QMetaMethod* signal) {
     auto* vqopengldebuglogger = dynamic_cast<VirtualQOpenGLDebugLogger*>(self);
     if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
         vqopengldebuglogger->setQOpenGLDebugLogger_DisconnectNotify_IsBase(true);
@@ -586,7 +586,7 @@ QObject* QOpenGLDebugLogger_Sender(const QOpenGLDebugLogger* self) {
 }
 
 // Base class handler implementation
-QObject* QOpenGLDebugLogger_QBaseSender(const QOpenGLDebugLogger* self) {
+QObject* QOpenGLDebugLogger_SuperSender(const QOpenGLDebugLogger* self) {
     auto* vqopengldebuglogger = const_cast<VirtualQOpenGLDebugLogger*>(dynamic_cast<const VirtualQOpenGLDebugLogger*>(self));
     if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
         vqopengldebuglogger->setQOpenGLDebugLogger_Sender_IsBase(true);
@@ -615,7 +615,7 @@ int QOpenGLDebugLogger_SenderSignalIndex(const QOpenGLDebugLogger* self) {
 }
 
 // Base class handler implementation
-int QOpenGLDebugLogger_QBaseSenderSignalIndex(const QOpenGLDebugLogger* self) {
+int QOpenGLDebugLogger_SuperSenderSignalIndex(const QOpenGLDebugLogger* self) {
     auto* vqopengldebuglogger = const_cast<VirtualQOpenGLDebugLogger*>(dynamic_cast<const VirtualQOpenGLDebugLogger*>(self));
     if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
         vqopengldebuglogger->setQOpenGLDebugLogger_SenderSignalIndex_IsBase(true);
@@ -644,7 +644,7 @@ int QOpenGLDebugLogger_Receivers(const QOpenGLDebugLogger* self, const char* sig
 }
 
 // Base class handler implementation
-int QOpenGLDebugLogger_QBaseReceivers(const QOpenGLDebugLogger* self, const char* signal) {
+int QOpenGLDebugLogger_SuperReceivers(const QOpenGLDebugLogger* self, const char* signal) {
     auto* vqopengldebuglogger = const_cast<VirtualQOpenGLDebugLogger*>(dynamic_cast<const VirtualQOpenGLDebugLogger*>(self));
     if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
         vqopengldebuglogger->setQOpenGLDebugLogger_Receivers_IsBase(true);
@@ -673,7 +673,7 @@ bool QOpenGLDebugLogger_IsSignalConnected(const QOpenGLDebugLogger* self, const 
 }
 
 // Base class handler implementation
-bool QOpenGLDebugLogger_QBaseIsSignalConnected(const QOpenGLDebugLogger* self, const QMetaMethod* signal) {
+bool QOpenGLDebugLogger_SuperIsSignalConnected(const QOpenGLDebugLogger* self, const QMetaMethod* signal) {
     auto* vqopengldebuglogger = const_cast<VirtualQOpenGLDebugLogger*>(dynamic_cast<const VirtualQOpenGLDebugLogger*>(self));
     if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
         vqopengldebuglogger->setQOpenGLDebugLogger_IsSignalConnected_IsBase(true);

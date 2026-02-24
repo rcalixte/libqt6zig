@@ -100,7 +100,7 @@ KTreeWidgetSearchLine* KTreeWidgetSearchLineWidget_CreateSearchLine(const KTreeW
 }
 
 // Base class handler implementation
-QMetaObject* KTreeWidgetSearchLineWidget_QBaseMetaObject(const KTreeWidgetSearchLineWidget* self) {
+QMetaObject* KTreeWidgetSearchLineWidget_SuperMetaObject(const KTreeWidgetSearchLineWidget* self) {
     auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_MetaObject_IsBase(true);
@@ -119,7 +119,7 @@ void KTreeWidgetSearchLineWidget_OnMetaObject(const KTreeWidgetSearchLineWidget*
 }
 
 // Base class handler implementation
-void* KTreeWidgetSearchLineWidget_QBaseMetacast(KTreeWidgetSearchLineWidget* self, const char* param1) {
+void* KTreeWidgetSearchLineWidget_SuperMetacast(KTreeWidgetSearchLineWidget* self, const char* param1) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_Metacast_IsBase(true);
@@ -138,7 +138,7 @@ void KTreeWidgetSearchLineWidget_OnMetacast(KTreeWidgetSearchLineWidget* self, i
 }
 
 // Base class handler implementation
-int KTreeWidgetSearchLineWidget_QBaseMetacall(KTreeWidgetSearchLineWidget* self, int param1, int param2, void** param3) {
+int KTreeWidgetSearchLineWidget_SuperMetacall(KTreeWidgetSearchLineWidget* self, int param1, int param2, void** param3) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_Metacall_IsBase(true);
@@ -157,7 +157,7 @@ void KTreeWidgetSearchLineWidget_OnMetacall(KTreeWidgetSearchLineWidget* self, i
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseCreateWidgets(KTreeWidgetSearchLineWidget* self) {
+void KTreeWidgetSearchLineWidget_SuperCreateWidgets(KTreeWidgetSearchLineWidget* self) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_CreateWidgets_IsBase(true);
@@ -176,7 +176,7 @@ void KTreeWidgetSearchLineWidget_OnCreateWidgets(KTreeWidgetSearchLineWidget* se
 }
 
 // Base class handler implementation
-KTreeWidgetSearchLine* KTreeWidgetSearchLineWidget_QBaseCreateSearchLine(const KTreeWidgetSearchLineWidget* self, QTreeWidget* treeWidget) {
+KTreeWidgetSearchLine* KTreeWidgetSearchLineWidget_SuperCreateSearchLine(const KTreeWidgetSearchLineWidget* self, QTreeWidget* treeWidget) {
     auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_CreateSearchLine_IsBase(true);
@@ -205,7 +205,7 @@ int KTreeWidgetSearchLineWidget_DevType(const KTreeWidgetSearchLineWidget* self)
 }
 
 // Base class handler implementation
-int KTreeWidgetSearchLineWidget_QBaseDevType(const KTreeWidgetSearchLineWidget* self) {
+int KTreeWidgetSearchLineWidget_SuperDevType(const KTreeWidgetSearchLineWidget* self) {
     auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_DevType_IsBase(true);
@@ -234,7 +234,7 @@ void KTreeWidgetSearchLineWidget_SetVisible(KTreeWidgetSearchLineWidget* self, b
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseSetVisible(KTreeWidgetSearchLineWidget* self, bool visible) {
+void KTreeWidgetSearchLineWidget_SuperSetVisible(KTreeWidgetSearchLineWidget* self, bool visible) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_SetVisible_IsBase(true);
@@ -263,7 +263,7 @@ QSize* KTreeWidgetSearchLineWidget_SizeHint(const KTreeWidgetSearchLineWidget* s
 }
 
 // Base class handler implementation
-QSize* KTreeWidgetSearchLineWidget_QBaseSizeHint(const KTreeWidgetSearchLineWidget* self) {
+QSize* KTreeWidgetSearchLineWidget_SuperSizeHint(const KTreeWidgetSearchLineWidget* self) {
     auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_SizeHint_IsBase(true);
@@ -292,7 +292,7 @@ QSize* KTreeWidgetSearchLineWidget_MinimumSizeHint(const KTreeWidgetSearchLineWi
 }
 
 // Base class handler implementation
-QSize* KTreeWidgetSearchLineWidget_QBaseMinimumSizeHint(const KTreeWidgetSearchLineWidget* self) {
+QSize* KTreeWidgetSearchLineWidget_SuperMinimumSizeHint(const KTreeWidgetSearchLineWidget* self) {
     auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_MinimumSizeHint_IsBase(true);
@@ -321,7 +321,7 @@ int KTreeWidgetSearchLineWidget_HeightForWidth(const KTreeWidgetSearchLineWidget
 }
 
 // Base class handler implementation
-int KTreeWidgetSearchLineWidget_QBaseHeightForWidth(const KTreeWidgetSearchLineWidget* self, int param1) {
+int KTreeWidgetSearchLineWidget_SuperHeightForWidth(const KTreeWidgetSearchLineWidget* self, int param1) {
     auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_HeightForWidth_IsBase(true);
@@ -350,7 +350,7 @@ bool KTreeWidgetSearchLineWidget_HasHeightForWidth(const KTreeWidgetSearchLineWi
 }
 
 // Base class handler implementation
-bool KTreeWidgetSearchLineWidget_QBaseHasHeightForWidth(const KTreeWidgetSearchLineWidget* self) {
+bool KTreeWidgetSearchLineWidget_SuperHasHeightForWidth(const KTreeWidgetSearchLineWidget* self) {
     auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_HasHeightForWidth_IsBase(true);
@@ -379,7 +379,7 @@ QPaintEngine* KTreeWidgetSearchLineWidget_PaintEngine(const KTreeWidgetSearchLin
 }
 
 // Base class handler implementation
-QPaintEngine* KTreeWidgetSearchLineWidget_QBasePaintEngine(const KTreeWidgetSearchLineWidget* self) {
+QPaintEngine* KTreeWidgetSearchLineWidget_SuperPaintEngine(const KTreeWidgetSearchLineWidget* self) {
     auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_PaintEngine_IsBase(true);
@@ -408,7 +408,7 @@ bool KTreeWidgetSearchLineWidget_Event(KTreeWidgetSearchLineWidget* self, QEvent
 }
 
 // Base class handler implementation
-bool KTreeWidgetSearchLineWidget_QBaseEvent(KTreeWidgetSearchLineWidget* self, QEvent* event) {
+bool KTreeWidgetSearchLineWidget_SuperEvent(KTreeWidgetSearchLineWidget* self, QEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_Event_IsBase(true);
@@ -437,7 +437,7 @@ void KTreeWidgetSearchLineWidget_MousePressEvent(KTreeWidgetSearchLineWidget* se
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseMousePressEvent(KTreeWidgetSearchLineWidget* self, QMouseEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperMousePressEvent(KTreeWidgetSearchLineWidget* self, QMouseEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_MousePressEvent_IsBase(true);
@@ -466,7 +466,7 @@ void KTreeWidgetSearchLineWidget_MouseReleaseEvent(KTreeWidgetSearchLineWidget* 
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseMouseReleaseEvent(KTreeWidgetSearchLineWidget* self, QMouseEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperMouseReleaseEvent(KTreeWidgetSearchLineWidget* self, QMouseEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_MouseReleaseEvent_IsBase(true);
@@ -495,7 +495,7 @@ void KTreeWidgetSearchLineWidget_MouseDoubleClickEvent(KTreeWidgetSearchLineWidg
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseMouseDoubleClickEvent(KTreeWidgetSearchLineWidget* self, QMouseEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperMouseDoubleClickEvent(KTreeWidgetSearchLineWidget* self, QMouseEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_MouseDoubleClickEvent_IsBase(true);
@@ -524,7 +524,7 @@ void KTreeWidgetSearchLineWidget_MouseMoveEvent(KTreeWidgetSearchLineWidget* sel
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseMouseMoveEvent(KTreeWidgetSearchLineWidget* self, QMouseEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperMouseMoveEvent(KTreeWidgetSearchLineWidget* self, QMouseEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_MouseMoveEvent_IsBase(true);
@@ -553,7 +553,7 @@ void KTreeWidgetSearchLineWidget_WheelEvent(KTreeWidgetSearchLineWidget* self, Q
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseWheelEvent(KTreeWidgetSearchLineWidget* self, QWheelEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperWheelEvent(KTreeWidgetSearchLineWidget* self, QWheelEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_WheelEvent_IsBase(true);
@@ -582,7 +582,7 @@ void KTreeWidgetSearchLineWidget_KeyPressEvent(KTreeWidgetSearchLineWidget* self
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseKeyPressEvent(KTreeWidgetSearchLineWidget* self, QKeyEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperKeyPressEvent(KTreeWidgetSearchLineWidget* self, QKeyEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_KeyPressEvent_IsBase(true);
@@ -611,7 +611,7 @@ void KTreeWidgetSearchLineWidget_KeyReleaseEvent(KTreeWidgetSearchLineWidget* se
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseKeyReleaseEvent(KTreeWidgetSearchLineWidget* self, QKeyEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperKeyReleaseEvent(KTreeWidgetSearchLineWidget* self, QKeyEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_KeyReleaseEvent_IsBase(true);
@@ -640,7 +640,7 @@ void KTreeWidgetSearchLineWidget_FocusInEvent(KTreeWidgetSearchLineWidget* self,
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseFocusInEvent(KTreeWidgetSearchLineWidget* self, QFocusEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperFocusInEvent(KTreeWidgetSearchLineWidget* self, QFocusEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_FocusInEvent_IsBase(true);
@@ -669,7 +669,7 @@ void KTreeWidgetSearchLineWidget_FocusOutEvent(KTreeWidgetSearchLineWidget* self
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseFocusOutEvent(KTreeWidgetSearchLineWidget* self, QFocusEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperFocusOutEvent(KTreeWidgetSearchLineWidget* self, QFocusEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_FocusOutEvent_IsBase(true);
@@ -698,7 +698,7 @@ void KTreeWidgetSearchLineWidget_EnterEvent(KTreeWidgetSearchLineWidget* self, Q
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseEnterEvent(KTreeWidgetSearchLineWidget* self, QEnterEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperEnterEvent(KTreeWidgetSearchLineWidget* self, QEnterEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_EnterEvent_IsBase(true);
@@ -727,7 +727,7 @@ void KTreeWidgetSearchLineWidget_LeaveEvent(KTreeWidgetSearchLineWidget* self, Q
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseLeaveEvent(KTreeWidgetSearchLineWidget* self, QEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperLeaveEvent(KTreeWidgetSearchLineWidget* self, QEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_LeaveEvent_IsBase(true);
@@ -756,7 +756,7 @@ void KTreeWidgetSearchLineWidget_PaintEvent(KTreeWidgetSearchLineWidget* self, Q
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBasePaintEvent(KTreeWidgetSearchLineWidget* self, QPaintEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperPaintEvent(KTreeWidgetSearchLineWidget* self, QPaintEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_PaintEvent_IsBase(true);
@@ -785,7 +785,7 @@ void KTreeWidgetSearchLineWidget_MoveEvent(KTreeWidgetSearchLineWidget* self, QM
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseMoveEvent(KTreeWidgetSearchLineWidget* self, QMoveEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperMoveEvent(KTreeWidgetSearchLineWidget* self, QMoveEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_MoveEvent_IsBase(true);
@@ -814,7 +814,7 @@ void KTreeWidgetSearchLineWidget_ResizeEvent(KTreeWidgetSearchLineWidget* self, 
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseResizeEvent(KTreeWidgetSearchLineWidget* self, QResizeEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperResizeEvent(KTreeWidgetSearchLineWidget* self, QResizeEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_ResizeEvent_IsBase(true);
@@ -843,7 +843,7 @@ void KTreeWidgetSearchLineWidget_CloseEvent(KTreeWidgetSearchLineWidget* self, Q
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseCloseEvent(KTreeWidgetSearchLineWidget* self, QCloseEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperCloseEvent(KTreeWidgetSearchLineWidget* self, QCloseEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_CloseEvent_IsBase(true);
@@ -872,7 +872,7 @@ void KTreeWidgetSearchLineWidget_ContextMenuEvent(KTreeWidgetSearchLineWidget* s
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseContextMenuEvent(KTreeWidgetSearchLineWidget* self, QContextMenuEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperContextMenuEvent(KTreeWidgetSearchLineWidget* self, QContextMenuEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_ContextMenuEvent_IsBase(true);
@@ -901,7 +901,7 @@ void KTreeWidgetSearchLineWidget_TabletEvent(KTreeWidgetSearchLineWidget* self, 
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseTabletEvent(KTreeWidgetSearchLineWidget* self, QTabletEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperTabletEvent(KTreeWidgetSearchLineWidget* self, QTabletEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_TabletEvent_IsBase(true);
@@ -930,7 +930,7 @@ void KTreeWidgetSearchLineWidget_ActionEvent(KTreeWidgetSearchLineWidget* self, 
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseActionEvent(KTreeWidgetSearchLineWidget* self, QActionEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperActionEvent(KTreeWidgetSearchLineWidget* self, QActionEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_ActionEvent_IsBase(true);
@@ -959,7 +959,7 @@ void KTreeWidgetSearchLineWidget_DragEnterEvent(KTreeWidgetSearchLineWidget* sel
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseDragEnterEvent(KTreeWidgetSearchLineWidget* self, QDragEnterEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperDragEnterEvent(KTreeWidgetSearchLineWidget* self, QDragEnterEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_DragEnterEvent_IsBase(true);
@@ -988,7 +988,7 @@ void KTreeWidgetSearchLineWidget_DragMoveEvent(KTreeWidgetSearchLineWidget* self
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseDragMoveEvent(KTreeWidgetSearchLineWidget* self, QDragMoveEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperDragMoveEvent(KTreeWidgetSearchLineWidget* self, QDragMoveEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_DragMoveEvent_IsBase(true);
@@ -1017,7 +1017,7 @@ void KTreeWidgetSearchLineWidget_DragLeaveEvent(KTreeWidgetSearchLineWidget* sel
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseDragLeaveEvent(KTreeWidgetSearchLineWidget* self, QDragLeaveEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperDragLeaveEvent(KTreeWidgetSearchLineWidget* self, QDragLeaveEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_DragLeaveEvent_IsBase(true);
@@ -1046,7 +1046,7 @@ void KTreeWidgetSearchLineWidget_DropEvent(KTreeWidgetSearchLineWidget* self, QD
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseDropEvent(KTreeWidgetSearchLineWidget* self, QDropEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperDropEvent(KTreeWidgetSearchLineWidget* self, QDropEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_DropEvent_IsBase(true);
@@ -1075,7 +1075,7 @@ void KTreeWidgetSearchLineWidget_ShowEvent(KTreeWidgetSearchLineWidget* self, QS
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseShowEvent(KTreeWidgetSearchLineWidget* self, QShowEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperShowEvent(KTreeWidgetSearchLineWidget* self, QShowEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_ShowEvent_IsBase(true);
@@ -1104,7 +1104,7 @@ void KTreeWidgetSearchLineWidget_HideEvent(KTreeWidgetSearchLineWidget* self, QH
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseHideEvent(KTreeWidgetSearchLineWidget* self, QHideEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperHideEvent(KTreeWidgetSearchLineWidget* self, QHideEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_HideEvent_IsBase(true);
@@ -1134,7 +1134,7 @@ bool KTreeWidgetSearchLineWidget_NativeEvent(KTreeWidgetSearchLineWidget* self, 
 }
 
 // Base class handler implementation
-bool KTreeWidgetSearchLineWidget_QBaseNativeEvent(KTreeWidgetSearchLineWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KTreeWidgetSearchLineWidget_SuperNativeEvent(KTreeWidgetSearchLineWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
@@ -1164,7 +1164,7 @@ void KTreeWidgetSearchLineWidget_ChangeEvent(KTreeWidgetSearchLineWidget* self, 
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseChangeEvent(KTreeWidgetSearchLineWidget* self, QEvent* param1) {
+void KTreeWidgetSearchLineWidget_SuperChangeEvent(KTreeWidgetSearchLineWidget* self, QEvent* param1) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_ChangeEvent_IsBase(true);
@@ -1193,7 +1193,7 @@ int KTreeWidgetSearchLineWidget_Metric(const KTreeWidgetSearchLineWidget* self, 
 }
 
 // Base class handler implementation
-int KTreeWidgetSearchLineWidget_QBaseMetric(const KTreeWidgetSearchLineWidget* self, int param1) {
+int KTreeWidgetSearchLineWidget_SuperMetric(const KTreeWidgetSearchLineWidget* self, int param1) {
     auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_Metric_IsBase(true);
@@ -1222,7 +1222,7 @@ void KTreeWidgetSearchLineWidget_InitPainter(const KTreeWidgetSearchLineWidget* 
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseInitPainter(const KTreeWidgetSearchLineWidget* self, QPainter* painter) {
+void KTreeWidgetSearchLineWidget_SuperInitPainter(const KTreeWidgetSearchLineWidget* self, QPainter* painter) {
     auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_InitPainter_IsBase(true);
@@ -1251,7 +1251,7 @@ QPaintDevice* KTreeWidgetSearchLineWidget_Redirected(const KTreeWidgetSearchLine
 }
 
 // Base class handler implementation
-QPaintDevice* KTreeWidgetSearchLineWidget_QBaseRedirected(const KTreeWidgetSearchLineWidget* self, QPoint* offset) {
+QPaintDevice* KTreeWidgetSearchLineWidget_SuperRedirected(const KTreeWidgetSearchLineWidget* self, QPoint* offset) {
     auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_Redirected_IsBase(true);
@@ -1280,7 +1280,7 @@ QPainter* KTreeWidgetSearchLineWidget_SharedPainter(const KTreeWidgetSearchLineW
 }
 
 // Base class handler implementation
-QPainter* KTreeWidgetSearchLineWidget_QBaseSharedPainter(const KTreeWidgetSearchLineWidget* self) {
+QPainter* KTreeWidgetSearchLineWidget_SuperSharedPainter(const KTreeWidgetSearchLineWidget* self) {
     auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_SharedPainter_IsBase(true);
@@ -1309,7 +1309,7 @@ void KTreeWidgetSearchLineWidget_InputMethodEvent(KTreeWidgetSearchLineWidget* s
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseInputMethodEvent(KTreeWidgetSearchLineWidget* self, QInputMethodEvent* param1) {
+void KTreeWidgetSearchLineWidget_SuperInputMethodEvent(KTreeWidgetSearchLineWidget* self, QInputMethodEvent* param1) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_InputMethodEvent_IsBase(true);
@@ -1338,7 +1338,7 @@ QVariant* KTreeWidgetSearchLineWidget_InputMethodQuery(const KTreeWidgetSearchLi
 }
 
 // Base class handler implementation
-QVariant* KTreeWidgetSearchLineWidget_QBaseInputMethodQuery(const KTreeWidgetSearchLineWidget* self, int param1) {
+QVariant* KTreeWidgetSearchLineWidget_SuperInputMethodQuery(const KTreeWidgetSearchLineWidget* self, int param1) {
     auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_InputMethodQuery_IsBase(true);
@@ -1367,7 +1367,7 @@ bool KTreeWidgetSearchLineWidget_FocusNextPrevChild(KTreeWidgetSearchLineWidget*
 }
 
 // Base class handler implementation
-bool KTreeWidgetSearchLineWidget_QBaseFocusNextPrevChild(KTreeWidgetSearchLineWidget* self, bool next) {
+bool KTreeWidgetSearchLineWidget_SuperFocusNextPrevChild(KTreeWidgetSearchLineWidget* self, bool next) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_FocusNextPrevChild_IsBase(true);
@@ -1396,7 +1396,7 @@ bool KTreeWidgetSearchLineWidget_EventFilter(KTreeWidgetSearchLineWidget* self, 
 }
 
 // Base class handler implementation
-bool KTreeWidgetSearchLineWidget_QBaseEventFilter(KTreeWidgetSearchLineWidget* self, QObject* watched, QEvent* event) {
+bool KTreeWidgetSearchLineWidget_SuperEventFilter(KTreeWidgetSearchLineWidget* self, QObject* watched, QEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_EventFilter_IsBase(true);
@@ -1425,7 +1425,7 @@ void KTreeWidgetSearchLineWidget_TimerEvent(KTreeWidgetSearchLineWidget* self, Q
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseTimerEvent(KTreeWidgetSearchLineWidget* self, QTimerEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperTimerEvent(KTreeWidgetSearchLineWidget* self, QTimerEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_TimerEvent_IsBase(true);
@@ -1454,7 +1454,7 @@ void KTreeWidgetSearchLineWidget_ChildEvent(KTreeWidgetSearchLineWidget* self, Q
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseChildEvent(KTreeWidgetSearchLineWidget* self, QChildEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperChildEvent(KTreeWidgetSearchLineWidget* self, QChildEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_ChildEvent_IsBase(true);
@@ -1483,7 +1483,7 @@ void KTreeWidgetSearchLineWidget_CustomEvent(KTreeWidgetSearchLineWidget* self, 
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseCustomEvent(KTreeWidgetSearchLineWidget* self, QEvent* event) {
+void KTreeWidgetSearchLineWidget_SuperCustomEvent(KTreeWidgetSearchLineWidget* self, QEvent* event) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_CustomEvent_IsBase(true);
@@ -1512,7 +1512,7 @@ void KTreeWidgetSearchLineWidget_ConnectNotify(KTreeWidgetSearchLineWidget* self
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseConnectNotify(KTreeWidgetSearchLineWidget* self, const QMetaMethod* signal) {
+void KTreeWidgetSearchLineWidget_SuperConnectNotify(KTreeWidgetSearchLineWidget* self, const QMetaMethod* signal) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_ConnectNotify_IsBase(true);
@@ -1541,7 +1541,7 @@ void KTreeWidgetSearchLineWidget_DisconnectNotify(KTreeWidgetSearchLineWidget* s
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseDisconnectNotify(KTreeWidgetSearchLineWidget* self, const QMetaMethod* signal) {
+void KTreeWidgetSearchLineWidget_SuperDisconnectNotify(KTreeWidgetSearchLineWidget* self, const QMetaMethod* signal) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_DisconnectNotify_IsBase(true);
@@ -1570,7 +1570,7 @@ void KTreeWidgetSearchLineWidget_UpdateMicroFocus(KTreeWidgetSearchLineWidget* s
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseUpdateMicroFocus(KTreeWidgetSearchLineWidget* self) {
+void KTreeWidgetSearchLineWidget_SuperUpdateMicroFocus(KTreeWidgetSearchLineWidget* self) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_UpdateMicroFocus_IsBase(true);
@@ -1599,7 +1599,7 @@ void KTreeWidgetSearchLineWidget_Create(KTreeWidgetSearchLineWidget* self) {
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseCreate(KTreeWidgetSearchLineWidget* self) {
+void KTreeWidgetSearchLineWidget_SuperCreate(KTreeWidgetSearchLineWidget* self) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_Create_IsBase(true);
@@ -1628,7 +1628,7 @@ void KTreeWidgetSearchLineWidget_Destroy(KTreeWidgetSearchLineWidget* self) {
 }
 
 // Base class handler implementation
-void KTreeWidgetSearchLineWidget_QBaseDestroy(KTreeWidgetSearchLineWidget* self) {
+void KTreeWidgetSearchLineWidget_SuperDestroy(KTreeWidgetSearchLineWidget* self) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_Destroy_IsBase(true);
@@ -1657,7 +1657,7 @@ bool KTreeWidgetSearchLineWidget_FocusNextChild(KTreeWidgetSearchLineWidget* sel
 }
 
 // Base class handler implementation
-bool KTreeWidgetSearchLineWidget_QBaseFocusNextChild(KTreeWidgetSearchLineWidget* self) {
+bool KTreeWidgetSearchLineWidget_SuperFocusNextChild(KTreeWidgetSearchLineWidget* self) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_FocusNextChild_IsBase(true);
@@ -1686,7 +1686,7 @@ bool KTreeWidgetSearchLineWidget_FocusPreviousChild(KTreeWidgetSearchLineWidget*
 }
 
 // Base class handler implementation
-bool KTreeWidgetSearchLineWidget_QBaseFocusPreviousChild(KTreeWidgetSearchLineWidget* self) {
+bool KTreeWidgetSearchLineWidget_SuperFocusPreviousChild(KTreeWidgetSearchLineWidget* self) {
     auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_FocusPreviousChild_IsBase(true);
@@ -1715,7 +1715,7 @@ QObject* KTreeWidgetSearchLineWidget_Sender(const KTreeWidgetSearchLineWidget* s
 }
 
 // Base class handler implementation
-QObject* KTreeWidgetSearchLineWidget_QBaseSender(const KTreeWidgetSearchLineWidget* self) {
+QObject* KTreeWidgetSearchLineWidget_SuperSender(const KTreeWidgetSearchLineWidget* self) {
     auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_Sender_IsBase(true);
@@ -1744,7 +1744,7 @@ int KTreeWidgetSearchLineWidget_SenderSignalIndex(const KTreeWidgetSearchLineWid
 }
 
 // Base class handler implementation
-int KTreeWidgetSearchLineWidget_QBaseSenderSignalIndex(const KTreeWidgetSearchLineWidget* self) {
+int KTreeWidgetSearchLineWidget_SuperSenderSignalIndex(const KTreeWidgetSearchLineWidget* self) {
     auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_SenderSignalIndex_IsBase(true);
@@ -1773,7 +1773,7 @@ int KTreeWidgetSearchLineWidget_Receivers(const KTreeWidgetSearchLineWidget* sel
 }
 
 // Base class handler implementation
-int KTreeWidgetSearchLineWidget_QBaseReceivers(const KTreeWidgetSearchLineWidget* self, const char* signal) {
+int KTreeWidgetSearchLineWidget_SuperReceivers(const KTreeWidgetSearchLineWidget* self, const char* signal) {
     auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_Receivers_IsBase(true);
@@ -1802,7 +1802,7 @@ bool KTreeWidgetSearchLineWidget_IsSignalConnected(const KTreeWidgetSearchLineWi
 }
 
 // Base class handler implementation
-bool KTreeWidgetSearchLineWidget_QBaseIsSignalConnected(const KTreeWidgetSearchLineWidget* self, const QMetaMethod* signal) {
+bool KTreeWidgetSearchLineWidget_SuperIsSignalConnected(const KTreeWidgetSearchLineWidget* self, const QMetaMethod* signal) {
     auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_IsSignalConnected_IsBase(true);
@@ -1831,7 +1831,7 @@ double KTreeWidgetSearchLineWidget_GetDecodedMetricF(const KTreeWidgetSearchLine
 }
 
 // Base class handler implementation
-double KTreeWidgetSearchLineWidget_QBaseGetDecodedMetricF(const KTreeWidgetSearchLineWidget* self, int metricA, int metricB) {
+double KTreeWidgetSearchLineWidget_SuperGetDecodedMetricF(const KTreeWidgetSearchLineWidget* self, int metricA, int metricB) {
     auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
     if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
         vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_GetDecodedMetricF_IsBase(true);

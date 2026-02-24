@@ -130,6 +130,10 @@ pub const qcolormap = struct {
         return qtc.QColormap_Instance1(@bitCast(screen));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#dtor.QColormap)
     ///
     /// Delete this object from C++ memory.
@@ -138,7 +142,7 @@ pub const qcolormap = struct {
     ///
     /// ` self: QtC.QColormap `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QColormap_Delete(@ptrCast(self));
     }
 };

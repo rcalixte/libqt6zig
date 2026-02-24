@@ -2639,7 +2639,7 @@ libqt_string KLocalizedContext_Xi18ndcp14(const KLocalizedContext* self, const l
 }
 
 // Base class handler implementation
-QMetaObject* KLocalizedContext_QBaseMetaObject(const KLocalizedContext* self) {
+QMetaObject* KLocalizedContext_SuperMetaObject(const KLocalizedContext* self) {
     auto* vklocalizedcontext = const_cast<VirtualKLocalizedContext*>(dynamic_cast<const VirtualKLocalizedContext*>(self));
     if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
         vklocalizedcontext->setKLocalizedContext_MetaObject_IsBase(true);
@@ -2658,7 +2658,7 @@ void KLocalizedContext_OnMetaObject(const KLocalizedContext* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* KLocalizedContext_QBaseMetacast(KLocalizedContext* self, const char* param1) {
+void* KLocalizedContext_SuperMetacast(KLocalizedContext* self, const char* param1) {
     auto* vklocalizedcontext = dynamic_cast<VirtualKLocalizedContext*>(self);
     if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
         vklocalizedcontext->setKLocalizedContext_Metacast_IsBase(true);
@@ -2677,7 +2677,7 @@ void KLocalizedContext_OnMetacast(KLocalizedContext* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KLocalizedContext_QBaseMetacall(KLocalizedContext* self, int param1, int param2, void** param3) {
+int KLocalizedContext_SuperMetacall(KLocalizedContext* self, int param1, int param2, void** param3) {
     auto* vklocalizedcontext = dynamic_cast<VirtualKLocalizedContext*>(self);
     if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
         vklocalizedcontext->setKLocalizedContext_Metacall_IsBase(true);
@@ -2706,7 +2706,7 @@ bool KLocalizedContext_Event(KLocalizedContext* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KLocalizedContext_QBaseEvent(KLocalizedContext* self, QEvent* event) {
+bool KLocalizedContext_SuperEvent(KLocalizedContext* self, QEvent* event) {
     auto* vklocalizedcontext = dynamic_cast<VirtualKLocalizedContext*>(self);
     if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
         vklocalizedcontext->setKLocalizedContext_Event_IsBase(true);
@@ -2735,7 +2735,7 @@ bool KLocalizedContext_EventFilter(KLocalizedContext* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool KLocalizedContext_QBaseEventFilter(KLocalizedContext* self, QObject* watched, QEvent* event) {
+bool KLocalizedContext_SuperEventFilter(KLocalizedContext* self, QObject* watched, QEvent* event) {
     auto* vklocalizedcontext = dynamic_cast<VirtualKLocalizedContext*>(self);
     if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
         vklocalizedcontext->setKLocalizedContext_EventFilter_IsBase(true);
@@ -2764,7 +2764,7 @@ void KLocalizedContext_TimerEvent(KLocalizedContext* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KLocalizedContext_QBaseTimerEvent(KLocalizedContext* self, QTimerEvent* event) {
+void KLocalizedContext_SuperTimerEvent(KLocalizedContext* self, QTimerEvent* event) {
     auto* vklocalizedcontext = dynamic_cast<VirtualKLocalizedContext*>(self);
     if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
         vklocalizedcontext->setKLocalizedContext_TimerEvent_IsBase(true);
@@ -2793,7 +2793,7 @@ void KLocalizedContext_ChildEvent(KLocalizedContext* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KLocalizedContext_QBaseChildEvent(KLocalizedContext* self, QChildEvent* event) {
+void KLocalizedContext_SuperChildEvent(KLocalizedContext* self, QChildEvent* event) {
     auto* vklocalizedcontext = dynamic_cast<VirtualKLocalizedContext*>(self);
     if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
         vklocalizedcontext->setKLocalizedContext_ChildEvent_IsBase(true);
@@ -2822,7 +2822,7 @@ void KLocalizedContext_CustomEvent(KLocalizedContext* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KLocalizedContext_QBaseCustomEvent(KLocalizedContext* self, QEvent* event) {
+void KLocalizedContext_SuperCustomEvent(KLocalizedContext* self, QEvent* event) {
     auto* vklocalizedcontext = dynamic_cast<VirtualKLocalizedContext*>(self);
     if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
         vklocalizedcontext->setKLocalizedContext_CustomEvent_IsBase(true);
@@ -2851,7 +2851,7 @@ void KLocalizedContext_ConnectNotify(KLocalizedContext* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void KLocalizedContext_QBaseConnectNotify(KLocalizedContext* self, const QMetaMethod* signal) {
+void KLocalizedContext_SuperConnectNotify(KLocalizedContext* self, const QMetaMethod* signal) {
     auto* vklocalizedcontext = dynamic_cast<VirtualKLocalizedContext*>(self);
     if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
         vklocalizedcontext->setKLocalizedContext_ConnectNotify_IsBase(true);
@@ -2880,7 +2880,7 @@ void KLocalizedContext_DisconnectNotify(KLocalizedContext* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void KLocalizedContext_QBaseDisconnectNotify(KLocalizedContext* self, const QMetaMethod* signal) {
+void KLocalizedContext_SuperDisconnectNotify(KLocalizedContext* self, const QMetaMethod* signal) {
     auto* vklocalizedcontext = dynamic_cast<VirtualKLocalizedContext*>(self);
     if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
         vklocalizedcontext->setKLocalizedContext_DisconnectNotify_IsBase(true);
@@ -2909,7 +2909,7 @@ QObject* KLocalizedContext_Sender(const KLocalizedContext* self) {
 }
 
 // Base class handler implementation
-QObject* KLocalizedContext_QBaseSender(const KLocalizedContext* self) {
+QObject* KLocalizedContext_SuperSender(const KLocalizedContext* self) {
     auto* vklocalizedcontext = const_cast<VirtualKLocalizedContext*>(dynamic_cast<const VirtualKLocalizedContext*>(self));
     if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
         vklocalizedcontext->setKLocalizedContext_Sender_IsBase(true);
@@ -2938,7 +2938,7 @@ int KLocalizedContext_SenderSignalIndex(const KLocalizedContext* self) {
 }
 
 // Base class handler implementation
-int KLocalizedContext_QBaseSenderSignalIndex(const KLocalizedContext* self) {
+int KLocalizedContext_SuperSenderSignalIndex(const KLocalizedContext* self) {
     auto* vklocalizedcontext = const_cast<VirtualKLocalizedContext*>(dynamic_cast<const VirtualKLocalizedContext*>(self));
     if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
         vklocalizedcontext->setKLocalizedContext_SenderSignalIndex_IsBase(true);
@@ -2967,7 +2967,7 @@ int KLocalizedContext_Receivers(const KLocalizedContext* self, const char* signa
 }
 
 // Base class handler implementation
-int KLocalizedContext_QBaseReceivers(const KLocalizedContext* self, const char* signal) {
+int KLocalizedContext_SuperReceivers(const KLocalizedContext* self, const char* signal) {
     auto* vklocalizedcontext = const_cast<VirtualKLocalizedContext*>(dynamic_cast<const VirtualKLocalizedContext*>(self));
     if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
         vklocalizedcontext->setKLocalizedContext_Receivers_IsBase(true);
@@ -2996,7 +2996,7 @@ bool KLocalizedContext_IsSignalConnected(const KLocalizedContext* self, const QM
 }
 
 // Base class handler implementation
-bool KLocalizedContext_QBaseIsSignalConnected(const KLocalizedContext* self, const QMetaMethod* signal) {
+bool KLocalizedContext_SuperIsSignalConnected(const KLocalizedContext* self, const QMetaMethod* signal) {
     auto* vklocalizedcontext = const_cast<VirtualKLocalizedContext*>(dynamic_cast<const VirtualKLocalizedContext*>(self));
     if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
         vklocalizedcontext->setKLocalizedContext_IsSignalConnected_IsBase(true);

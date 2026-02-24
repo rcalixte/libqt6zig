@@ -76,7 +76,7 @@ void QItemEditorFactory_SetDefaultFactory(QItemEditorFactory* factory) {
 }
 
 // Base class handler implementation
-QWidget* QItemEditorFactory_QBaseCreateEditor(const QItemEditorFactory* self, int userType, QWidget* parent) {
+QWidget* QItemEditorFactory_SuperCreateEditor(const QItemEditorFactory* self, int userType, QWidget* parent) {
     auto* vqitemeditorfactory = const_cast<VirtualQItemEditorFactory*>(dynamic_cast<const VirtualQItemEditorFactory*>(self));
     if (vqitemeditorfactory && vqitemeditorfactory->isVirtualQItemEditorFactory) {
         vqitemeditorfactory->setQItemEditorFactory_CreateEditor_IsBase(true);
@@ -95,7 +95,7 @@ void QItemEditorFactory_OnCreateEditor(const QItemEditorFactory* self, intptr_t 
 }
 
 // Base class handler implementation
-libqt_string QItemEditorFactory_QBaseValuePropertyName(const QItemEditorFactory* self, int userType) {
+libqt_string QItemEditorFactory_SuperValuePropertyName(const QItemEditorFactory* self, int userType) {
     auto* vqitemeditorfactory = const_cast<VirtualQItemEditorFactory*>(dynamic_cast<const VirtualQItemEditorFactory*>(self));
     if (vqitemeditorfactory && vqitemeditorfactory->isVirtualQItemEditorFactory) {
         vqitemeditorfactory->setQItemEditorFactory_ValuePropertyName_IsBase(true);

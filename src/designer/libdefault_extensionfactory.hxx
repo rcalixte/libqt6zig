@@ -389,25 +389,25 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
 
     // Friend functions
     friend QObject* QExtensionFactory_CreateExtension(const QExtensionFactory* self, QObject* object, const libqt_string iid, QObject* parent);
-    friend QObject* QExtensionFactory_QBaseCreateExtension(const QExtensionFactory* self, QObject* object, const libqt_string iid, QObject* parent);
+    friend QObject* QExtensionFactory_SuperCreateExtension(const QExtensionFactory* self, QObject* object, const libqt_string iid, QObject* parent);
     friend void QExtensionFactory_TimerEvent(QExtensionFactory* self, QTimerEvent* event);
-    friend void QExtensionFactory_QBaseTimerEvent(QExtensionFactory* self, QTimerEvent* event);
+    friend void QExtensionFactory_SuperTimerEvent(QExtensionFactory* self, QTimerEvent* event);
     friend void QExtensionFactory_ChildEvent(QExtensionFactory* self, QChildEvent* event);
-    friend void QExtensionFactory_QBaseChildEvent(QExtensionFactory* self, QChildEvent* event);
+    friend void QExtensionFactory_SuperChildEvent(QExtensionFactory* self, QChildEvent* event);
     friend void QExtensionFactory_CustomEvent(QExtensionFactory* self, QEvent* event);
-    friend void QExtensionFactory_QBaseCustomEvent(QExtensionFactory* self, QEvent* event);
+    friend void QExtensionFactory_SuperCustomEvent(QExtensionFactory* self, QEvent* event);
     friend void QExtensionFactory_ConnectNotify(QExtensionFactory* self, const QMetaMethod* signal);
-    friend void QExtensionFactory_QBaseConnectNotify(QExtensionFactory* self, const QMetaMethod* signal);
+    friend void QExtensionFactory_SuperConnectNotify(QExtensionFactory* self, const QMetaMethod* signal);
     friend void QExtensionFactory_DisconnectNotify(QExtensionFactory* self, const QMetaMethod* signal);
-    friend void QExtensionFactory_QBaseDisconnectNotify(QExtensionFactory* self, const QMetaMethod* signal);
+    friend void QExtensionFactory_SuperDisconnectNotify(QExtensionFactory* self, const QMetaMethod* signal);
     friend QObject* QExtensionFactory_Sender(const QExtensionFactory* self);
-    friend QObject* QExtensionFactory_QBaseSender(const QExtensionFactory* self);
+    friend QObject* QExtensionFactory_SuperSender(const QExtensionFactory* self);
     friend int QExtensionFactory_SenderSignalIndex(const QExtensionFactory* self);
-    friend int QExtensionFactory_QBaseSenderSignalIndex(const QExtensionFactory* self);
+    friend int QExtensionFactory_SuperSenderSignalIndex(const QExtensionFactory* self);
     friend int QExtensionFactory_Receivers(const QExtensionFactory* self, const char* signal);
-    friend int QExtensionFactory_QBaseReceivers(const QExtensionFactory* self, const char* signal);
+    friend int QExtensionFactory_SuperReceivers(const QExtensionFactory* self, const char* signal);
     friend bool QExtensionFactory_IsSignalConnected(const QExtensionFactory* self, const QMetaMethod* signal);
-    friend bool QExtensionFactory_QBaseIsSignalConnected(const QExtensionFactory* self, const QMetaMethod* signal);
+    friend bool QExtensionFactory_SuperIsSignalConnected(const QExtensionFactory* self, const QMetaMethod* signal);
 };
 
 #endif

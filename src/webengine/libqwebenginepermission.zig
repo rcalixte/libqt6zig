@@ -132,6 +132,10 @@ pub const qwebenginepermission = struct {
         return qtc.QWebEnginePermission_IsPersistent(@bitCast(permissionType));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#dtor.QWebEnginePermission)
     ///
     /// Delete this object from C++ memory.
@@ -140,7 +144,7 @@ pub const qwebenginepermission = struct {
     ///
     /// ` self: QtC.QWebEnginePermission `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebEnginePermission_Delete(@ptrCast(self));
     }
 };

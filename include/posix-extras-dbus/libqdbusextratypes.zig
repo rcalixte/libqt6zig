@@ -101,6 +101,10 @@ pub const qdbusobjectpath = struct {
         return qtc.QDBusObjectPath_ToQVariant(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusobjectpath.html#dtor.QDBusObjectPath)
     ///
     /// Delete this object from C++ memory.
@@ -109,7 +113,7 @@ pub const qdbusobjectpath = struct {
     ///
     /// ` self: QtC.QDBusObjectPath `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDBusObjectPath_Delete(@ptrCast(self));
     }
 };
@@ -203,6 +207,10 @@ pub const qdbussignature = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbussignature.html#dtor.QDBusSignature)
     ///
     /// Delete this object from C++ memory.
@@ -211,7 +219,7 @@ pub const qdbussignature = struct {
     ///
     /// ` self: QtC.QDBusSignature `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDBusSignature_Delete(@ptrCast(self));
     }
 };
@@ -290,6 +298,10 @@ pub const qdbusvariant = struct {
         qtc.QDBusVariant_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusvariant.html#dtor.QDBusVariant)
     ///
     /// Delete this object from C++ memory.
@@ -298,7 +310,7 @@ pub const qdbusvariant = struct {
     ///
     /// ` self: QtC.QDBusVariant `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDBusVariant_Delete(@ptrCast(self));
     }
 };

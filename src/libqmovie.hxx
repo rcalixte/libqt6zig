@@ -334,23 +334,23 @@ class VirtualQMovie final : public QMovie {
 
     // Friend functions
     friend void QMovie_TimerEvent(QMovie* self, QTimerEvent* event);
-    friend void QMovie_QBaseTimerEvent(QMovie* self, QTimerEvent* event);
+    friend void QMovie_SuperTimerEvent(QMovie* self, QTimerEvent* event);
     friend void QMovie_ChildEvent(QMovie* self, QChildEvent* event);
-    friend void QMovie_QBaseChildEvent(QMovie* self, QChildEvent* event);
+    friend void QMovie_SuperChildEvent(QMovie* self, QChildEvent* event);
     friend void QMovie_CustomEvent(QMovie* self, QEvent* event);
-    friend void QMovie_QBaseCustomEvent(QMovie* self, QEvent* event);
+    friend void QMovie_SuperCustomEvent(QMovie* self, QEvent* event);
     friend void QMovie_ConnectNotify(QMovie* self, const QMetaMethod* signal);
-    friend void QMovie_QBaseConnectNotify(QMovie* self, const QMetaMethod* signal);
+    friend void QMovie_SuperConnectNotify(QMovie* self, const QMetaMethod* signal);
     friend void QMovie_DisconnectNotify(QMovie* self, const QMetaMethod* signal);
-    friend void QMovie_QBaseDisconnectNotify(QMovie* self, const QMetaMethod* signal);
+    friend void QMovie_SuperDisconnectNotify(QMovie* self, const QMetaMethod* signal);
     friend QObject* QMovie_Sender(const QMovie* self);
-    friend QObject* QMovie_QBaseSender(const QMovie* self);
+    friend QObject* QMovie_SuperSender(const QMovie* self);
     friend int QMovie_SenderSignalIndex(const QMovie* self);
-    friend int QMovie_QBaseSenderSignalIndex(const QMovie* self);
+    friend int QMovie_SuperSenderSignalIndex(const QMovie* self);
     friend int QMovie_Receivers(const QMovie* self, const char* signal);
-    friend int QMovie_QBaseReceivers(const QMovie* self, const char* signal);
+    friend int QMovie_SuperReceivers(const QMovie* self, const char* signal);
     friend bool QMovie_IsSignalConnected(const QMovie* self, const QMetaMethod* signal);
-    friend bool QMovie_QBaseIsSignalConnected(const QMovie* self, const QMetaMethod* signal);
+    friend bool QMovie_SuperIsSignalConnected(const QMovie* self, const QMetaMethod* signal);
 };
 
 #endif

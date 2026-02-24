@@ -138,7 +138,7 @@ void KAssistantDialog_ShowEvent(KAssistantDialog* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-QMetaObject* KAssistantDialog_QBaseMetaObject(const KAssistantDialog* self) {
+QMetaObject* KAssistantDialog_SuperMetaObject(const KAssistantDialog* self) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_MetaObject_IsBase(true);
@@ -157,7 +157,7 @@ void KAssistantDialog_OnMetaObject(const KAssistantDialog* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* KAssistantDialog_QBaseMetacast(KAssistantDialog* self, const char* param1) {
+void* KAssistantDialog_SuperMetacast(KAssistantDialog* self, const char* param1) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_Metacast_IsBase(true);
@@ -176,7 +176,7 @@ void KAssistantDialog_OnMetacast(KAssistantDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KAssistantDialog_QBaseMetacall(KAssistantDialog* self, int param1, int param2, void** param3) {
+int KAssistantDialog_SuperMetacall(KAssistantDialog* self, int param1, int param2, void** param3) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_Metacall_IsBase(true);
@@ -195,7 +195,7 @@ void KAssistantDialog_OnMetacall(KAssistantDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseBack(KAssistantDialog* self) {
+void KAssistantDialog_SuperBack(KAssistantDialog* self) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_Back_IsBase(true);
@@ -214,7 +214,7 @@ void KAssistantDialog_OnBack(KAssistantDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseNext(KAssistantDialog* self) {
+void KAssistantDialog_SuperNext(KAssistantDialog* self) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_Next_IsBase(true);
@@ -233,7 +233,7 @@ void KAssistantDialog_OnNext(KAssistantDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseShowEvent(KAssistantDialog* self, QShowEvent* event) {
+void KAssistantDialog_SuperShowEvent(KAssistantDialog* self, QShowEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_ShowEvent_IsBase(true);
@@ -262,7 +262,7 @@ void KAssistantDialog_SetVisible(KAssistantDialog* self, bool visible) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseSetVisible(KAssistantDialog* self, bool visible) {
+void KAssistantDialog_SuperSetVisible(KAssistantDialog* self, bool visible) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_SetVisible_IsBase(true);
@@ -291,7 +291,7 @@ QSize* KAssistantDialog_SizeHint(const KAssistantDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KAssistantDialog_QBaseSizeHint(const KAssistantDialog* self) {
+QSize* KAssistantDialog_SuperSizeHint(const KAssistantDialog* self) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_SizeHint_IsBase(true);
@@ -320,7 +320,7 @@ QSize* KAssistantDialog_MinimumSizeHint(const KAssistantDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KAssistantDialog_QBaseMinimumSizeHint(const KAssistantDialog* self) {
+QSize* KAssistantDialog_SuperMinimumSizeHint(const KAssistantDialog* self) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_MinimumSizeHint_IsBase(true);
@@ -349,7 +349,7 @@ void KAssistantDialog_Open(KAssistantDialog* self) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseOpen(KAssistantDialog* self) {
+void KAssistantDialog_SuperOpen(KAssistantDialog* self) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_Open_IsBase(true);
@@ -378,7 +378,7 @@ int KAssistantDialog_Exec(KAssistantDialog* self) {
 }
 
 // Base class handler implementation
-int KAssistantDialog_QBaseExec(KAssistantDialog* self) {
+int KAssistantDialog_SuperExec(KAssistantDialog* self) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_Exec_IsBase(true);
@@ -407,7 +407,7 @@ void KAssistantDialog_Done(KAssistantDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseDone(KAssistantDialog* self, int param1) {
+void KAssistantDialog_SuperDone(KAssistantDialog* self, int param1) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_Done_IsBase(true);
@@ -436,7 +436,7 @@ void KAssistantDialog_Accept(KAssistantDialog* self) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseAccept(KAssistantDialog* self) {
+void KAssistantDialog_SuperAccept(KAssistantDialog* self) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_Accept_IsBase(true);
@@ -465,7 +465,7 @@ void KAssistantDialog_Reject(KAssistantDialog* self) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseReject(KAssistantDialog* self) {
+void KAssistantDialog_SuperReject(KAssistantDialog* self) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_Reject_IsBase(true);
@@ -494,7 +494,7 @@ void KAssistantDialog_KeyPressEvent(KAssistantDialog* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseKeyPressEvent(KAssistantDialog* self, QKeyEvent* param1) {
+void KAssistantDialog_SuperKeyPressEvent(KAssistantDialog* self, QKeyEvent* param1) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_KeyPressEvent_IsBase(true);
@@ -523,7 +523,7 @@ void KAssistantDialog_CloseEvent(KAssistantDialog* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseCloseEvent(KAssistantDialog* self, QCloseEvent* param1) {
+void KAssistantDialog_SuperCloseEvent(KAssistantDialog* self, QCloseEvent* param1) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_CloseEvent_IsBase(true);
@@ -552,7 +552,7 @@ void KAssistantDialog_ResizeEvent(KAssistantDialog* self, QResizeEvent* param1) 
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseResizeEvent(KAssistantDialog* self, QResizeEvent* param1) {
+void KAssistantDialog_SuperResizeEvent(KAssistantDialog* self, QResizeEvent* param1) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_ResizeEvent_IsBase(true);
@@ -581,7 +581,7 @@ void KAssistantDialog_ContextMenuEvent(KAssistantDialog* self, QContextMenuEvent
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseContextMenuEvent(KAssistantDialog* self, QContextMenuEvent* param1) {
+void KAssistantDialog_SuperContextMenuEvent(KAssistantDialog* self, QContextMenuEvent* param1) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_ContextMenuEvent_IsBase(true);
@@ -610,7 +610,7 @@ bool KAssistantDialog_EventFilter(KAssistantDialog* self, QObject* param1, QEven
 }
 
 // Base class handler implementation
-bool KAssistantDialog_QBaseEventFilter(KAssistantDialog* self, QObject* param1, QEvent* param2) {
+bool KAssistantDialog_SuperEventFilter(KAssistantDialog* self, QObject* param1, QEvent* param2) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_EventFilter_IsBase(true);
@@ -639,7 +639,7 @@ int KAssistantDialog_DevType(const KAssistantDialog* self) {
 }
 
 // Base class handler implementation
-int KAssistantDialog_QBaseDevType(const KAssistantDialog* self) {
+int KAssistantDialog_SuperDevType(const KAssistantDialog* self) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_DevType_IsBase(true);
@@ -668,7 +668,7 @@ int KAssistantDialog_HeightForWidth(const KAssistantDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KAssistantDialog_QBaseHeightForWidth(const KAssistantDialog* self, int param1) {
+int KAssistantDialog_SuperHeightForWidth(const KAssistantDialog* self, int param1) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_HeightForWidth_IsBase(true);
@@ -697,7 +697,7 @@ bool KAssistantDialog_HasHeightForWidth(const KAssistantDialog* self) {
 }
 
 // Base class handler implementation
-bool KAssistantDialog_QBaseHasHeightForWidth(const KAssistantDialog* self) {
+bool KAssistantDialog_SuperHasHeightForWidth(const KAssistantDialog* self) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_HasHeightForWidth_IsBase(true);
@@ -726,7 +726,7 @@ QPaintEngine* KAssistantDialog_PaintEngine(const KAssistantDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KAssistantDialog_QBasePaintEngine(const KAssistantDialog* self) {
+QPaintEngine* KAssistantDialog_SuperPaintEngine(const KAssistantDialog* self) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_PaintEngine_IsBase(true);
@@ -755,7 +755,7 @@ bool KAssistantDialog_Event(KAssistantDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KAssistantDialog_QBaseEvent(KAssistantDialog* self, QEvent* event) {
+bool KAssistantDialog_SuperEvent(KAssistantDialog* self, QEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_Event_IsBase(true);
@@ -784,7 +784,7 @@ void KAssistantDialog_MousePressEvent(KAssistantDialog* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseMousePressEvent(KAssistantDialog* self, QMouseEvent* event) {
+void KAssistantDialog_SuperMousePressEvent(KAssistantDialog* self, QMouseEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_MousePressEvent_IsBase(true);
@@ -813,7 +813,7 @@ void KAssistantDialog_MouseReleaseEvent(KAssistantDialog* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseMouseReleaseEvent(KAssistantDialog* self, QMouseEvent* event) {
+void KAssistantDialog_SuperMouseReleaseEvent(KAssistantDialog* self, QMouseEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_MouseReleaseEvent_IsBase(true);
@@ -842,7 +842,7 @@ void KAssistantDialog_MouseDoubleClickEvent(KAssistantDialog* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseMouseDoubleClickEvent(KAssistantDialog* self, QMouseEvent* event) {
+void KAssistantDialog_SuperMouseDoubleClickEvent(KAssistantDialog* self, QMouseEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_MouseDoubleClickEvent_IsBase(true);
@@ -871,7 +871,7 @@ void KAssistantDialog_MouseMoveEvent(KAssistantDialog* self, QMouseEvent* event)
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseMouseMoveEvent(KAssistantDialog* self, QMouseEvent* event) {
+void KAssistantDialog_SuperMouseMoveEvent(KAssistantDialog* self, QMouseEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_MouseMoveEvent_IsBase(true);
@@ -900,7 +900,7 @@ void KAssistantDialog_WheelEvent(KAssistantDialog* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseWheelEvent(KAssistantDialog* self, QWheelEvent* event) {
+void KAssistantDialog_SuperWheelEvent(KAssistantDialog* self, QWheelEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_WheelEvent_IsBase(true);
@@ -929,7 +929,7 @@ void KAssistantDialog_KeyReleaseEvent(KAssistantDialog* self, QKeyEvent* event) 
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseKeyReleaseEvent(KAssistantDialog* self, QKeyEvent* event) {
+void KAssistantDialog_SuperKeyReleaseEvent(KAssistantDialog* self, QKeyEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_KeyReleaseEvent_IsBase(true);
@@ -958,7 +958,7 @@ void KAssistantDialog_FocusInEvent(KAssistantDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseFocusInEvent(KAssistantDialog* self, QFocusEvent* event) {
+void KAssistantDialog_SuperFocusInEvent(KAssistantDialog* self, QFocusEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_FocusInEvent_IsBase(true);
@@ -987,7 +987,7 @@ void KAssistantDialog_FocusOutEvent(KAssistantDialog* self, QFocusEvent* event) 
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseFocusOutEvent(KAssistantDialog* self, QFocusEvent* event) {
+void KAssistantDialog_SuperFocusOutEvent(KAssistantDialog* self, QFocusEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_FocusOutEvent_IsBase(true);
@@ -1016,7 +1016,7 @@ void KAssistantDialog_EnterEvent(KAssistantDialog* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseEnterEvent(KAssistantDialog* self, QEnterEvent* event) {
+void KAssistantDialog_SuperEnterEvent(KAssistantDialog* self, QEnterEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_EnterEvent_IsBase(true);
@@ -1045,7 +1045,7 @@ void KAssistantDialog_LeaveEvent(KAssistantDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseLeaveEvent(KAssistantDialog* self, QEvent* event) {
+void KAssistantDialog_SuperLeaveEvent(KAssistantDialog* self, QEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_LeaveEvent_IsBase(true);
@@ -1074,7 +1074,7 @@ void KAssistantDialog_PaintEvent(KAssistantDialog* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBasePaintEvent(KAssistantDialog* self, QPaintEvent* event) {
+void KAssistantDialog_SuperPaintEvent(KAssistantDialog* self, QPaintEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_PaintEvent_IsBase(true);
@@ -1103,7 +1103,7 @@ void KAssistantDialog_MoveEvent(KAssistantDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseMoveEvent(KAssistantDialog* self, QMoveEvent* event) {
+void KAssistantDialog_SuperMoveEvent(KAssistantDialog* self, QMoveEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_MoveEvent_IsBase(true);
@@ -1132,7 +1132,7 @@ void KAssistantDialog_TabletEvent(KAssistantDialog* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseTabletEvent(KAssistantDialog* self, QTabletEvent* event) {
+void KAssistantDialog_SuperTabletEvent(KAssistantDialog* self, QTabletEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_TabletEvent_IsBase(true);
@@ -1161,7 +1161,7 @@ void KAssistantDialog_ActionEvent(KAssistantDialog* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseActionEvent(KAssistantDialog* self, QActionEvent* event) {
+void KAssistantDialog_SuperActionEvent(KAssistantDialog* self, QActionEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_ActionEvent_IsBase(true);
@@ -1190,7 +1190,7 @@ void KAssistantDialog_DragEnterEvent(KAssistantDialog* self, QDragEnterEvent* ev
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseDragEnterEvent(KAssistantDialog* self, QDragEnterEvent* event) {
+void KAssistantDialog_SuperDragEnterEvent(KAssistantDialog* self, QDragEnterEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_DragEnterEvent_IsBase(true);
@@ -1219,7 +1219,7 @@ void KAssistantDialog_DragMoveEvent(KAssistantDialog* self, QDragMoveEvent* even
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseDragMoveEvent(KAssistantDialog* self, QDragMoveEvent* event) {
+void KAssistantDialog_SuperDragMoveEvent(KAssistantDialog* self, QDragMoveEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_DragMoveEvent_IsBase(true);
@@ -1248,7 +1248,7 @@ void KAssistantDialog_DragLeaveEvent(KAssistantDialog* self, QDragLeaveEvent* ev
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseDragLeaveEvent(KAssistantDialog* self, QDragLeaveEvent* event) {
+void KAssistantDialog_SuperDragLeaveEvent(KAssistantDialog* self, QDragLeaveEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_DragLeaveEvent_IsBase(true);
@@ -1277,7 +1277,7 @@ void KAssistantDialog_DropEvent(KAssistantDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseDropEvent(KAssistantDialog* self, QDropEvent* event) {
+void KAssistantDialog_SuperDropEvent(KAssistantDialog* self, QDropEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_DropEvent_IsBase(true);
@@ -1306,7 +1306,7 @@ void KAssistantDialog_HideEvent(KAssistantDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseHideEvent(KAssistantDialog* self, QHideEvent* event) {
+void KAssistantDialog_SuperHideEvent(KAssistantDialog* self, QHideEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_HideEvent_IsBase(true);
@@ -1336,7 +1336,7 @@ bool KAssistantDialog_NativeEvent(KAssistantDialog* self, const libqt_string eve
 }
 
 // Base class handler implementation
-bool KAssistantDialog_QBaseNativeEvent(KAssistantDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KAssistantDialog_SuperNativeEvent(KAssistantDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
@@ -1366,7 +1366,7 @@ void KAssistantDialog_ChangeEvent(KAssistantDialog* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseChangeEvent(KAssistantDialog* self, QEvent* param1) {
+void KAssistantDialog_SuperChangeEvent(KAssistantDialog* self, QEvent* param1) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_ChangeEvent_IsBase(true);
@@ -1395,7 +1395,7 @@ int KAssistantDialog_Metric(const KAssistantDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KAssistantDialog_QBaseMetric(const KAssistantDialog* self, int param1) {
+int KAssistantDialog_SuperMetric(const KAssistantDialog* self, int param1) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_Metric_IsBase(true);
@@ -1424,7 +1424,7 @@ void KAssistantDialog_InitPainter(const KAssistantDialog* self, QPainter* painte
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseInitPainter(const KAssistantDialog* self, QPainter* painter) {
+void KAssistantDialog_SuperInitPainter(const KAssistantDialog* self, QPainter* painter) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_InitPainter_IsBase(true);
@@ -1453,7 +1453,7 @@ QPaintDevice* KAssistantDialog_Redirected(const KAssistantDialog* self, QPoint* 
 }
 
 // Base class handler implementation
-QPaintDevice* KAssistantDialog_QBaseRedirected(const KAssistantDialog* self, QPoint* offset) {
+QPaintDevice* KAssistantDialog_SuperRedirected(const KAssistantDialog* self, QPoint* offset) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_Redirected_IsBase(true);
@@ -1482,7 +1482,7 @@ QPainter* KAssistantDialog_SharedPainter(const KAssistantDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* KAssistantDialog_QBaseSharedPainter(const KAssistantDialog* self) {
+QPainter* KAssistantDialog_SuperSharedPainter(const KAssistantDialog* self) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_SharedPainter_IsBase(true);
@@ -1511,7 +1511,7 @@ void KAssistantDialog_InputMethodEvent(KAssistantDialog* self, QInputMethodEvent
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseInputMethodEvent(KAssistantDialog* self, QInputMethodEvent* param1) {
+void KAssistantDialog_SuperInputMethodEvent(KAssistantDialog* self, QInputMethodEvent* param1) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_InputMethodEvent_IsBase(true);
@@ -1540,7 +1540,7 @@ QVariant* KAssistantDialog_InputMethodQuery(const KAssistantDialog* self, int pa
 }
 
 // Base class handler implementation
-QVariant* KAssistantDialog_QBaseInputMethodQuery(const KAssistantDialog* self, int param1) {
+QVariant* KAssistantDialog_SuperInputMethodQuery(const KAssistantDialog* self, int param1) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_InputMethodQuery_IsBase(true);
@@ -1569,7 +1569,7 @@ bool KAssistantDialog_FocusNextPrevChild(KAssistantDialog* self, bool next) {
 }
 
 // Base class handler implementation
-bool KAssistantDialog_QBaseFocusNextPrevChild(KAssistantDialog* self, bool next) {
+bool KAssistantDialog_SuperFocusNextPrevChild(KAssistantDialog* self, bool next) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_FocusNextPrevChild_IsBase(true);
@@ -1598,7 +1598,7 @@ void KAssistantDialog_TimerEvent(KAssistantDialog* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseTimerEvent(KAssistantDialog* self, QTimerEvent* event) {
+void KAssistantDialog_SuperTimerEvent(KAssistantDialog* self, QTimerEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_TimerEvent_IsBase(true);
@@ -1627,7 +1627,7 @@ void KAssistantDialog_ChildEvent(KAssistantDialog* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseChildEvent(KAssistantDialog* self, QChildEvent* event) {
+void KAssistantDialog_SuperChildEvent(KAssistantDialog* self, QChildEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_ChildEvent_IsBase(true);
@@ -1656,7 +1656,7 @@ void KAssistantDialog_CustomEvent(KAssistantDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseCustomEvent(KAssistantDialog* self, QEvent* event) {
+void KAssistantDialog_SuperCustomEvent(KAssistantDialog* self, QEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_CustomEvent_IsBase(true);
@@ -1685,7 +1685,7 @@ void KAssistantDialog_ConnectNotify(KAssistantDialog* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseConnectNotify(KAssistantDialog* self, const QMetaMethod* signal) {
+void KAssistantDialog_SuperConnectNotify(KAssistantDialog* self, const QMetaMethod* signal) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_ConnectNotify_IsBase(true);
@@ -1714,7 +1714,7 @@ void KAssistantDialog_DisconnectNotify(KAssistantDialog* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseDisconnectNotify(KAssistantDialog* self, const QMetaMethod* signal) {
+void KAssistantDialog_SuperDisconnectNotify(KAssistantDialog* self, const QMetaMethod* signal) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_DisconnectNotify_IsBase(true);
@@ -1743,7 +1743,7 @@ KPageWidget* KAssistantDialog_PageWidget(KAssistantDialog* self) {
 }
 
 // Base class handler implementation
-KPageWidget* KAssistantDialog_QBasePageWidget(KAssistantDialog* self) {
+KPageWidget* KAssistantDialog_SuperPageWidget(KAssistantDialog* self) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_PageWidget_IsBase(true);
@@ -1772,7 +1772,7 @@ void KAssistantDialog_SetPageWidget(KAssistantDialog* self, KPageWidget* widget)
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseSetPageWidget(KAssistantDialog* self, KPageWidget* widget) {
+void KAssistantDialog_SuperSetPageWidget(KAssistantDialog* self, KPageWidget* widget) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_SetPageWidget_IsBase(true);
@@ -1801,7 +1801,7 @@ QDialogButtonBox* KAssistantDialog_ButtonBox(KAssistantDialog* self) {
 }
 
 // Base class handler implementation
-QDialogButtonBox* KAssistantDialog_QBaseButtonBox(KAssistantDialog* self) {
+QDialogButtonBox* KAssistantDialog_SuperButtonBox(KAssistantDialog* self) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_ButtonBox_IsBase(true);
@@ -1830,7 +1830,7 @@ void KAssistantDialog_SetButtonBox(KAssistantDialog* self, QDialogButtonBox* box
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseSetButtonBox(KAssistantDialog* self, QDialogButtonBox* box) {
+void KAssistantDialog_SuperSetButtonBox(KAssistantDialog* self, QDialogButtonBox* box) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_SetButtonBox_IsBase(true);
@@ -1859,7 +1859,7 @@ void KAssistantDialog_AdjustPosition(KAssistantDialog* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseAdjustPosition(KAssistantDialog* self, QWidget* param1) {
+void KAssistantDialog_SuperAdjustPosition(KAssistantDialog* self, QWidget* param1) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_AdjustPosition_IsBase(true);
@@ -1888,7 +1888,7 @@ void KAssistantDialog_UpdateMicroFocus(KAssistantDialog* self) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseUpdateMicroFocus(KAssistantDialog* self) {
+void KAssistantDialog_SuperUpdateMicroFocus(KAssistantDialog* self) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_UpdateMicroFocus_IsBase(true);
@@ -1917,7 +1917,7 @@ void KAssistantDialog_Create(KAssistantDialog* self) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseCreate(KAssistantDialog* self) {
+void KAssistantDialog_SuperCreate(KAssistantDialog* self) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_Create_IsBase(true);
@@ -1946,7 +1946,7 @@ void KAssistantDialog_Destroy(KAssistantDialog* self) {
 }
 
 // Base class handler implementation
-void KAssistantDialog_QBaseDestroy(KAssistantDialog* self) {
+void KAssistantDialog_SuperDestroy(KAssistantDialog* self) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_Destroy_IsBase(true);
@@ -1975,7 +1975,7 @@ bool KAssistantDialog_FocusNextChild(KAssistantDialog* self) {
 }
 
 // Base class handler implementation
-bool KAssistantDialog_QBaseFocusNextChild(KAssistantDialog* self) {
+bool KAssistantDialog_SuperFocusNextChild(KAssistantDialog* self) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_FocusNextChild_IsBase(true);
@@ -2004,7 +2004,7 @@ bool KAssistantDialog_FocusPreviousChild(KAssistantDialog* self) {
 }
 
 // Base class handler implementation
-bool KAssistantDialog_QBaseFocusPreviousChild(KAssistantDialog* self) {
+bool KAssistantDialog_SuperFocusPreviousChild(KAssistantDialog* self) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_FocusPreviousChild_IsBase(true);
@@ -2033,7 +2033,7 @@ QObject* KAssistantDialog_Sender(const KAssistantDialog* self) {
 }
 
 // Base class handler implementation
-QObject* KAssistantDialog_QBaseSender(const KAssistantDialog* self) {
+QObject* KAssistantDialog_SuperSender(const KAssistantDialog* self) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_Sender_IsBase(true);
@@ -2062,7 +2062,7 @@ int KAssistantDialog_SenderSignalIndex(const KAssistantDialog* self) {
 }
 
 // Base class handler implementation
-int KAssistantDialog_QBaseSenderSignalIndex(const KAssistantDialog* self) {
+int KAssistantDialog_SuperSenderSignalIndex(const KAssistantDialog* self) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_SenderSignalIndex_IsBase(true);
@@ -2091,7 +2091,7 @@ int KAssistantDialog_Receivers(const KAssistantDialog* self, const char* signal)
 }
 
 // Base class handler implementation
-int KAssistantDialog_QBaseReceivers(const KAssistantDialog* self, const char* signal) {
+int KAssistantDialog_SuperReceivers(const KAssistantDialog* self, const char* signal) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_Receivers_IsBase(true);
@@ -2120,7 +2120,7 @@ bool KAssistantDialog_IsSignalConnected(const KAssistantDialog* self, const QMet
 }
 
 // Base class handler implementation
-bool KAssistantDialog_QBaseIsSignalConnected(const KAssistantDialog* self, const QMetaMethod* signal) {
+bool KAssistantDialog_SuperIsSignalConnected(const KAssistantDialog* self, const QMetaMethod* signal) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_IsSignalConnected_IsBase(true);
@@ -2149,7 +2149,7 @@ double KAssistantDialog_GetDecodedMetricF(const KAssistantDialog* self, int metr
 }
 
 // Base class handler implementation
-double KAssistantDialog_QBaseGetDecodedMetricF(const KAssistantDialog* self, int metricA, int metricB) {
+double KAssistantDialog_SuperGetDecodedMetricF(const KAssistantDialog* self, int metricA, int metricB) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->setKAssistantDialog_GetDecodedMetricF_IsBase(true);

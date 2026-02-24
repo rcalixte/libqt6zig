@@ -923,6 +923,9 @@ pub const kconfigwatcher = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kconfigwatcher.html#dtor.KConfigWatcher)
     ///
@@ -932,7 +935,7 @@ pub const kconfigwatcher = struct {
     ///
     /// ` self: QtC.KConfigWatcher `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KConfigWatcher_Delete(@ptrCast(self));
     }
 };

@@ -347,23 +347,23 @@ class VirtualQWebSocketServer final : public QWebSocketServer {
 
     // Friend functions
     friend void QWebSocketServer_TimerEvent(QWebSocketServer* self, QTimerEvent* event);
-    friend void QWebSocketServer_QBaseTimerEvent(QWebSocketServer* self, QTimerEvent* event);
+    friend void QWebSocketServer_SuperTimerEvent(QWebSocketServer* self, QTimerEvent* event);
     friend void QWebSocketServer_ChildEvent(QWebSocketServer* self, QChildEvent* event);
-    friend void QWebSocketServer_QBaseChildEvent(QWebSocketServer* self, QChildEvent* event);
+    friend void QWebSocketServer_SuperChildEvent(QWebSocketServer* self, QChildEvent* event);
     friend void QWebSocketServer_CustomEvent(QWebSocketServer* self, QEvent* event);
-    friend void QWebSocketServer_QBaseCustomEvent(QWebSocketServer* self, QEvent* event);
+    friend void QWebSocketServer_SuperCustomEvent(QWebSocketServer* self, QEvent* event);
     friend void QWebSocketServer_ConnectNotify(QWebSocketServer* self, const QMetaMethod* signal);
-    friend void QWebSocketServer_QBaseConnectNotify(QWebSocketServer* self, const QMetaMethod* signal);
+    friend void QWebSocketServer_SuperConnectNotify(QWebSocketServer* self, const QMetaMethod* signal);
     friend void QWebSocketServer_DisconnectNotify(QWebSocketServer* self, const QMetaMethod* signal);
-    friend void QWebSocketServer_QBaseDisconnectNotify(QWebSocketServer* self, const QMetaMethod* signal);
+    friend void QWebSocketServer_SuperDisconnectNotify(QWebSocketServer* self, const QMetaMethod* signal);
     friend QObject* QWebSocketServer_Sender(const QWebSocketServer* self);
-    friend QObject* QWebSocketServer_QBaseSender(const QWebSocketServer* self);
+    friend QObject* QWebSocketServer_SuperSender(const QWebSocketServer* self);
     friend int QWebSocketServer_SenderSignalIndex(const QWebSocketServer* self);
-    friend int QWebSocketServer_QBaseSenderSignalIndex(const QWebSocketServer* self);
+    friend int QWebSocketServer_SuperSenderSignalIndex(const QWebSocketServer* self);
     friend int QWebSocketServer_Receivers(const QWebSocketServer* self, const char* signal);
-    friend int QWebSocketServer_QBaseReceivers(const QWebSocketServer* self, const char* signal);
+    friend int QWebSocketServer_SuperReceivers(const QWebSocketServer* self, const char* signal);
     friend bool QWebSocketServer_IsSignalConnected(const QWebSocketServer* self, const QMetaMethod* signal);
-    friend bool QWebSocketServer_QBaseIsSignalConnected(const QWebSocketServer* self, const QMetaMethod* signal);
+    friend bool QWebSocketServer_SuperIsSignalConnected(const QWebSocketServer* self, const QMetaMethod* signal);
 };
 
 #endif

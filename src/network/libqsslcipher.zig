@@ -225,6 +225,10 @@ pub const qsslcipher = struct {
         return qtc.QSslCipher_Protocol(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcipher.html#dtor.QSslCipher)
     ///
     /// Delete this object from C++ memory.
@@ -233,7 +237,7 @@ pub const qsslcipher = struct {
     ///
     /// ` self: QtC.QSslCipher `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSslCipher_Delete(@ptrCast(self));
     }
 };

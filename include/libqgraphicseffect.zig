@@ -47,6 +47,10 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -55,8 +59,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` self: QtC.QGraphicsEffect `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QGraphicsEffect_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QGraphicsEffect_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -82,6 +86,10 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -90,9 +98,9 @@ pub const qgraphicseffect = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QGraphicsEffect_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QGraphicsEffect_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -121,6 +129,10 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -133,8 +145,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsEffect_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QGraphicsEffect_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -180,6 +192,10 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnBoundingRectFor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBoundingRectFor` instead
+    ///
+    pub const QBaseBoundingRectFor = SuperBoundingRectFor;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
     ///
     /// Base class method implementation
@@ -190,8 +206,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` sourceRect: QtC.QRectF `
     ///
-    pub fn QBaseBoundingRectFor(self: ?*anyopaque, sourceRect: ?*anyopaque) QtC.QRectF {
-        return qtc.QGraphicsEffect_QBaseBoundingRectFor(@ptrCast(self), @ptrCast(sourceRect));
+    pub fn SuperBoundingRectFor(self: ?*anyopaque, sourceRect: ?*anyopaque) QtC.QRectF {
+        return qtc.QGraphicsEffect_SuperBoundingRectFor(@ptrCast(self), @ptrCast(sourceRect));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRect)
@@ -286,6 +302,10 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnDraw(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDraw` instead
+    ///
+    pub const QBaseDraw = SuperDraw;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#draw)
     ///
     /// Base class method implementation
@@ -296,8 +316,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseDraw(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QGraphicsEffect_QBaseDraw(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperDraw(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QGraphicsEffect_SuperDraw(@ptrCast(self), @ptrCast(painter));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
@@ -326,6 +346,10 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnSourceChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSourceChanged` instead
+    ///
+    pub const QBaseSourceChanged = SuperSourceChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
     /// Base class method implementation
@@ -336,8 +360,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
-    pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsEffect_QBaseSourceChanged(@ptrCast(self), @bitCast(flags));
+    pub fn SuperSourceChanged(self: ?*anyopaque, flags: i32) void {
+        qtc.QGraphicsEffect_SuperSourceChanged(@ptrCast(self), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
@@ -364,6 +388,10 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnUpdateBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateBoundingRect` instead
+    ///
+    pub const QBaseUpdateBoundingRect = SuperUpdateBoundingRect;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
     ///
     /// Base class method implementation
@@ -372,8 +400,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` self: QtC.QGraphicsEffect `
     ///
-    pub fn QBaseUpdateBoundingRect(self: ?*anyopaque) void {
-        qtc.QGraphicsEffect_QBaseUpdateBoundingRect(@ptrCast(self));
+    pub fn SuperUpdateBoundingRect(self: ?*anyopaque) void {
+        qtc.QGraphicsEffect_SuperUpdateBoundingRect(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
@@ -400,6 +428,10 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnSourceIsPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSourceIsPixmap` instead
+    ///
+    pub const QBaseSourceIsPixmap = SuperSourceIsPixmap;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
     ///
     /// Base class method implementation
@@ -408,8 +440,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` self: QtC.QGraphicsEffect `
     ///
-    pub fn QBaseSourceIsPixmap(self: ?*anyopaque) bool {
-        return qtc.QGraphicsEffect_QBaseSourceIsPixmap(@ptrCast(self));
+    pub fn SuperSourceIsPixmap(self: ?*anyopaque) bool {
+        return qtc.QGraphicsEffect_SuperSourceIsPixmap(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
@@ -436,6 +468,10 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnSourceBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSourceBoundingRect` instead
+    ///
+    pub const QBaseSourceBoundingRect = SuperSourceBoundingRect;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Base class method implementation
@@ -444,8 +480,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` self: QtC.QGraphicsEffect `
     ///
-    pub fn QBaseSourceBoundingRect(self: ?*anyopaque) QtC.QRectF {
-        return qtc.QGraphicsEffect_QBaseSourceBoundingRect(@ptrCast(self));
+    pub fn SuperSourceBoundingRect(self: ?*anyopaque) QtC.QRectF {
+        return qtc.QGraphicsEffect_SuperSourceBoundingRect(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
@@ -474,6 +510,10 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnDrawSource(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDrawSource` instead
+    ///
+    pub const QBaseDrawSource = SuperDrawSource;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
     ///
     /// Base class method implementation
@@ -484,8 +524,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseDrawSource(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QGraphicsEffect_QBaseDrawSource(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperDrawSource(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QGraphicsEffect_SuperDrawSource(@ptrCast(self), @ptrCast(painter));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
@@ -512,6 +552,10 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnSourcePixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSourcePixmap` instead
+    ///
+    pub const QBaseSourcePixmap = SuperSourcePixmap;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Base class method implementation
@@ -520,8 +564,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` self: QtC.QGraphicsEffect `
     ///
-    pub fn QBaseSourcePixmap(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QGraphicsEffect_QBaseSourcePixmap(@ptrCast(self));
+    pub fn SuperSourcePixmap(self: ?*anyopaque) QtC.QPixmap {
+        return qtc.QGraphicsEffect_SuperSourcePixmap(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -592,6 +636,10 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnSourceBoundingRect1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSourceBoundingRect1` instead
+    ///
+    pub const QBaseSourceBoundingRect1 = SuperSourceBoundingRect1;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
     ///
     /// Base class method implementation
@@ -602,8 +650,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` system: qnamespace_enums.CoordinateSystem `
     ///
-    pub fn QBaseSourceBoundingRect1(self: ?*anyopaque, system: i32) QtC.QRectF {
-        return qtc.QGraphicsEffect_QBaseSourceBoundingRect1(@ptrCast(self), @bitCast(system));
+    pub fn SuperSourceBoundingRect1(self: ?*anyopaque, system: i32) QtC.QRectF {
+        return qtc.QGraphicsEffect_SuperSourceBoundingRect1(@ptrCast(self), @bitCast(system));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
@@ -632,6 +680,10 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnSourcePixmap1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSourcePixmap1` instead
+    ///
+    pub const QBaseSourcePixmap1 = SuperSourcePixmap1;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Base class method implementation
@@ -642,8 +694,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` system: qnamespace_enums.CoordinateSystem `
     ///
-    pub fn QBaseSourcePixmap1(self: ?*anyopaque, system: i32) QtC.QPixmap {
-        return qtc.QGraphicsEffect_QBaseSourcePixmap1(@ptrCast(self), @bitCast(system));
+    pub fn SuperSourcePixmap1(self: ?*anyopaque, system: i32) QtC.QPixmap {
+        return qtc.QGraphicsEffect_SuperSourcePixmap1(@ptrCast(self), @bitCast(system));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
@@ -674,6 +726,10 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnSourcePixmap2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSourcePixmap2` instead
+    ///
+    pub const QBaseSourcePixmap2 = SuperSourcePixmap2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Base class method implementation
@@ -686,8 +742,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseSourcePixmap2(self: ?*anyopaque, system: i32, offset: ?*anyopaque) QtC.QPixmap {
-        return qtc.QGraphicsEffect_QBaseSourcePixmap2(@ptrCast(self), @bitCast(system), @ptrCast(offset));
+    pub fn SuperSourcePixmap2(self: ?*anyopaque, system: i32, offset: ?*anyopaque) QtC.QPixmap {
+        return qtc.QGraphicsEffect_SuperSourcePixmap2(@ptrCast(self), @bitCast(system), @ptrCast(offset));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
@@ -720,6 +776,10 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_OnSourcePixmap3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSourcePixmap3` instead
+    ///
+    pub const QBaseSourcePixmap3 = SuperSourcePixmap3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
     ///
     /// Base class method implementation
@@ -734,8 +794,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` mode: qgraphicseffect_enums.PixmapPadMode `
     ///
-    pub fn QBaseSourcePixmap3(self: ?*anyopaque, system: i32, offset: ?*anyopaque, mode: i32) QtC.QPixmap {
-        return qtc.QGraphicsEffect_QBaseSourcePixmap3(@ptrCast(self), @bitCast(system), @ptrCast(offset), @bitCast(mode));
+    pub fn SuperSourcePixmap3(self: ?*anyopaque, system: i32, offset: ?*anyopaque, mode: i32) QtC.QPixmap {
+        return qtc.QGraphicsEffect_SuperSourcePixmap3(@ptrCast(self), @bitCast(system), @ptrCast(offset), @bitCast(mode));
     }
 
     /// Inherited from QObject
@@ -1492,6 +1552,10 @@ pub const qgraphicseffect = struct {
         return qtc.QGraphicsEffect_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1504,8 +1568,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGraphicsEffect_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGraphicsEffect_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1542,6 +1606,10 @@ pub const qgraphicseffect = struct {
         return qtc.QGraphicsEffect_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1556,8 +1624,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGraphicsEffect_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGraphicsEffect_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1592,6 +1660,10 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1604,8 +1676,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsEffect_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsEffect_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1640,6 +1712,10 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1652,8 +1728,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsEffect_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsEffect_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1688,6 +1764,10 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1700,8 +1780,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsEffect_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsEffect_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1736,6 +1816,10 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1748,8 +1832,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGraphicsEffect_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QGraphicsEffect_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1784,6 +1868,10 @@ pub const qgraphicseffect = struct {
         qtc.QGraphicsEffect_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1796,8 +1884,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGraphicsEffect_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QGraphicsEffect_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1830,6 +1918,10 @@ pub const qgraphicseffect = struct {
         return qtc.QGraphicsEffect_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1840,8 +1932,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` self: QtC.QGraphicsEffect `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QGraphicsEffect_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QGraphicsEffect_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1874,6 +1966,10 @@ pub const qgraphicseffect = struct {
         return qtc.QGraphicsEffect_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1884,8 +1980,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` self: QtC.QGraphicsEffect `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QGraphicsEffect_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QGraphicsEffect_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1921,6 +2017,10 @@ pub const qgraphicseffect = struct {
         return qtc.QGraphicsEffect_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1933,9 +2033,9 @@ pub const qgraphicseffect = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QGraphicsEffect_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QGraphicsEffect_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1970,6 +2070,10 @@ pub const qgraphicseffect = struct {
         return qtc.QGraphicsEffect_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -1982,8 +2086,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QGraphicsEffect_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QGraphicsEffect_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2017,6 +2121,9 @@ pub const qgraphicseffect = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#dtor.QGraphicsEffect)
     ///
@@ -2026,7 +2133,7 @@ pub const qgraphicseffect = struct {
     ///
     /// ` self: QtC.QGraphicsEffect `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGraphicsEffect_Delete(@ptrCast(self));
     }
 };
@@ -2073,6 +2180,10 @@ pub const qgraphicscolorizeeffect = struct {
         qtc.QGraphicsColorizeEffect_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -2081,8 +2192,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` self: QtC.QGraphicsColorizeEffect `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QGraphicsColorizeEffect_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QGraphicsColorizeEffect_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -2108,6 +2219,10 @@ pub const qgraphicscolorizeeffect = struct {
         qtc.QGraphicsColorizeEffect_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -2116,9 +2231,9 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QGraphicsColorizeEffect_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QGraphicsColorizeEffect_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -2147,6 +2262,10 @@ pub const qgraphicscolorizeeffect = struct {
         qtc.QGraphicsColorizeEffect_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -2159,8 +2278,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsColorizeEffect_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QGraphicsColorizeEffect_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2298,6 +2417,10 @@ pub const qgraphicscolorizeeffect = struct {
         qtc.QGraphicsColorizeEffect_OnDraw(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDraw` instead
+    ///
+    pub const QBaseDraw = SuperDraw;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#draw)
     ///
     /// Base class method implementation
@@ -2308,8 +2431,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseDraw(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QGraphicsColorizeEffect_QBaseDraw(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperDraw(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QGraphicsColorizeEffect_SuperDraw(@ptrCast(self), @ptrCast(painter));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -3186,6 +3309,10 @@ pub const qgraphicscolorizeeffect = struct {
         return qtc.QGraphicsColorizeEffect_BoundingRectFor(@ptrCast(self), @ptrCast(sourceRect));
     }
 
+    /// ### DEPRECATED: Use `SuperBoundingRectFor` instead
+    ///
+    pub const QBaseBoundingRectFor = SuperBoundingRectFor;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
@@ -3198,8 +3325,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` sourceRect: QtC.QRectF `
     ///
-    pub fn QBaseBoundingRectFor(self: ?*anyopaque, sourceRect: ?*anyopaque) QtC.QRectF {
-        return qtc.QGraphicsColorizeEffect_QBaseBoundingRectFor(@ptrCast(self), @ptrCast(sourceRect));
+    pub fn SuperBoundingRectFor(self: ?*anyopaque, sourceRect: ?*anyopaque) QtC.QRectF {
+        return qtc.QGraphicsColorizeEffect_SuperBoundingRectFor(@ptrCast(self), @ptrCast(sourceRect));
     }
 
     /// Inherited from QGraphicsEffect
@@ -3234,6 +3361,10 @@ pub const qgraphicscolorizeeffect = struct {
         qtc.QGraphicsColorizeEffect_SourceChanged(@ptrCast(self), @bitCast(flags));
     }
 
+    /// ### DEPRECATED: Use `SuperSourceChanged` instead
+    ///
+    pub const QBaseSourceChanged = SuperSourceChanged;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
@@ -3246,8 +3377,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
-    pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsColorizeEffect_QBaseSourceChanged(@ptrCast(self), @bitCast(flags));
+    pub fn SuperSourceChanged(self: ?*anyopaque, flags: i32) void {
+        qtc.QGraphicsColorizeEffect_SuperSourceChanged(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsEffect
@@ -3282,6 +3413,10 @@ pub const qgraphicscolorizeeffect = struct {
         return qtc.QGraphicsColorizeEffect_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -3294,8 +3429,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGraphicsColorizeEffect_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGraphicsColorizeEffect_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3332,6 +3467,10 @@ pub const qgraphicscolorizeeffect = struct {
         return qtc.QGraphicsColorizeEffect_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -3346,8 +3485,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGraphicsColorizeEffect_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGraphicsColorizeEffect_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3382,6 +3521,10 @@ pub const qgraphicscolorizeeffect = struct {
         qtc.QGraphicsColorizeEffect_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -3394,8 +3537,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsColorizeEffect_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsColorizeEffect_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3430,6 +3573,10 @@ pub const qgraphicscolorizeeffect = struct {
         qtc.QGraphicsColorizeEffect_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -3442,8 +3589,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsColorizeEffect_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsColorizeEffect_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3478,6 +3625,10 @@ pub const qgraphicscolorizeeffect = struct {
         qtc.QGraphicsColorizeEffect_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -3490,8 +3641,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsColorizeEffect_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsColorizeEffect_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3526,6 +3677,10 @@ pub const qgraphicscolorizeeffect = struct {
         qtc.QGraphicsColorizeEffect_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3538,8 +3693,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGraphicsColorizeEffect_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QGraphicsColorizeEffect_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3574,6 +3729,10 @@ pub const qgraphicscolorizeeffect = struct {
         qtc.QGraphicsColorizeEffect_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -3586,8 +3745,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGraphicsColorizeEffect_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QGraphicsColorizeEffect_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3620,6 +3779,10 @@ pub const qgraphicscolorizeeffect = struct {
         qtc.QGraphicsColorizeEffect_UpdateBoundingRect(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateBoundingRect` instead
+    ///
+    pub const QBaseUpdateBoundingRect = SuperUpdateBoundingRect;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
@@ -3630,8 +3793,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` self: QtC.QGraphicsColorizeEffect `
     ///
-    pub fn QBaseUpdateBoundingRect(self: ?*anyopaque) void {
-        qtc.QGraphicsColorizeEffect_QBaseUpdateBoundingRect(@ptrCast(self));
+    pub fn SuperUpdateBoundingRect(self: ?*anyopaque) void {
+        qtc.QGraphicsColorizeEffect_SuperUpdateBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
@@ -3664,6 +3827,10 @@ pub const qgraphicscolorizeeffect = struct {
         return qtc.QGraphicsColorizeEffect_SourceIsPixmap(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSourceIsPixmap` instead
+    ///
+    pub const QBaseSourceIsPixmap = SuperSourceIsPixmap;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
@@ -3674,8 +3841,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` self: QtC.QGraphicsColorizeEffect `
     ///
-    pub fn QBaseSourceIsPixmap(self: ?*anyopaque) bool {
-        return qtc.QGraphicsColorizeEffect_QBaseSourceIsPixmap(@ptrCast(self));
+    pub fn SuperSourceIsPixmap(self: ?*anyopaque) bool {
+        return qtc.QGraphicsColorizeEffect_SuperSourceIsPixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
@@ -3708,6 +3875,10 @@ pub const qgraphicscolorizeeffect = struct {
         return qtc.QGraphicsColorizeEffect_SourceBoundingRect(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSourceBoundingRect` instead
+    ///
+    pub const QBaseSourceBoundingRect = SuperSourceBoundingRect;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
@@ -3718,8 +3889,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` self: QtC.QGraphicsColorizeEffect `
     ///
-    pub fn QBaseSourceBoundingRect(self: ?*anyopaque) QtC.QRectF {
-        return qtc.QGraphicsColorizeEffect_QBaseSourceBoundingRect(@ptrCast(self));
+    pub fn SuperSourceBoundingRect(self: ?*anyopaque) QtC.QRectF {
+        return qtc.QGraphicsColorizeEffect_SuperSourceBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
@@ -3754,6 +3925,10 @@ pub const qgraphicscolorizeeffect = struct {
         qtc.QGraphicsColorizeEffect_DrawSource(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperDrawSource` instead
+    ///
+    pub const QBaseDrawSource = SuperDrawSource;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
@@ -3766,8 +3941,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseDrawSource(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QGraphicsColorizeEffect_QBaseDrawSource(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperDrawSource(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QGraphicsColorizeEffect_SuperDrawSource(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QGraphicsEffect
@@ -3800,6 +3975,10 @@ pub const qgraphicscolorizeeffect = struct {
         return qtc.QGraphicsColorizeEffect_SourcePixmap(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSourcePixmap` instead
+    ///
+    pub const QBaseSourcePixmap = SuperSourcePixmap;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
@@ -3810,8 +3989,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` self: QtC.QGraphicsColorizeEffect `
     ///
-    pub fn QBaseSourcePixmap(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QGraphicsColorizeEffect_QBaseSourcePixmap(@ptrCast(self));
+    pub fn SuperSourcePixmap(self: ?*anyopaque) QtC.QPixmap {
+        return qtc.QGraphicsColorizeEffect_SuperSourcePixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
@@ -3844,6 +4023,10 @@ pub const qgraphicscolorizeeffect = struct {
         return qtc.QGraphicsColorizeEffect_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -3854,8 +4037,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` self: QtC.QGraphicsColorizeEffect `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QGraphicsColorizeEffect_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QGraphicsColorizeEffect_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3888,6 +4071,10 @@ pub const qgraphicscolorizeeffect = struct {
         return qtc.QGraphicsColorizeEffect_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -3898,8 +4085,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` self: QtC.QGraphicsColorizeEffect `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QGraphicsColorizeEffect_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QGraphicsColorizeEffect_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3935,6 +4122,10 @@ pub const qgraphicscolorizeeffect = struct {
         return qtc.QGraphicsColorizeEffect_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -3947,9 +4138,9 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QGraphicsColorizeEffect_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QGraphicsColorizeEffect_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3984,6 +4175,10 @@ pub const qgraphicscolorizeeffect = struct {
         return qtc.QGraphicsColorizeEffect_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -3996,8 +4191,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QGraphicsColorizeEffect_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QGraphicsColorizeEffect_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -4031,6 +4226,9 @@ pub const qgraphicscolorizeeffect = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#dtor.QGraphicsColorizeEffect)
     ///
@@ -4040,7 +4238,7 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ` self: QtC.QGraphicsColorizeEffect `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGraphicsColorizeEffect_Delete(@ptrCast(self));
     }
 };
@@ -4087,6 +4285,10 @@ pub const qgraphicsblureffect = struct {
         qtc.QGraphicsBlurEffect_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -4095,8 +4297,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` self: QtC.QGraphicsBlurEffect `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QGraphicsBlurEffect_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QGraphicsBlurEffect_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -4122,6 +4324,10 @@ pub const qgraphicsblureffect = struct {
         qtc.QGraphicsBlurEffect_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -4130,9 +4336,9 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QGraphicsBlurEffect_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QGraphicsBlurEffect_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -4161,6 +4367,10 @@ pub const qgraphicsblureffect = struct {
         qtc.QGraphicsBlurEffect_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -4173,8 +4383,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsBlurEffect_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QGraphicsBlurEffect_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -4220,6 +4430,10 @@ pub const qgraphicsblureffect = struct {
         qtc.QGraphicsBlurEffect_OnBoundingRectFor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBoundingRectFor` instead
+    ///
+    pub const QBaseBoundingRectFor = SuperBoundingRectFor;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#boundingRectFor)
     ///
     /// Base class method implementation
@@ -4230,8 +4444,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` rect: QtC.QRectF `
     ///
-    pub fn QBaseBoundingRectFor(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
-        return qtc.QGraphicsBlurEffect_QBaseBoundingRectFor(@ptrCast(self), @ptrCast(rect));
+    pub fn SuperBoundingRectFor(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
+        return qtc.QGraphicsBlurEffect_SuperBoundingRectFor(@ptrCast(self), @ptrCast(rect));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurRadius)
@@ -4356,6 +4570,10 @@ pub const qgraphicsblureffect = struct {
         qtc.QGraphicsBlurEffect_OnDraw(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDraw` instead
+    ///
+    pub const QBaseDraw = SuperDraw;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#draw)
     ///
     /// Base class method implementation
@@ -4366,8 +4584,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseDraw(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QGraphicsBlurEffect_QBaseDraw(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperDraw(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QGraphicsBlurEffect_SuperDraw(@ptrCast(self), @ptrCast(painter));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -5244,6 +5462,10 @@ pub const qgraphicsblureffect = struct {
         qtc.QGraphicsBlurEffect_SourceChanged(@ptrCast(self), @bitCast(flags));
     }
 
+    /// ### DEPRECATED: Use `SuperSourceChanged` instead
+    ///
+    pub const QBaseSourceChanged = SuperSourceChanged;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
@@ -5256,8 +5478,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
-    pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsBlurEffect_QBaseSourceChanged(@ptrCast(self), @bitCast(flags));
+    pub fn SuperSourceChanged(self: ?*anyopaque, flags: i32) void {
+        qtc.QGraphicsBlurEffect_SuperSourceChanged(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsEffect
@@ -5292,6 +5514,10 @@ pub const qgraphicsblureffect = struct {
         return qtc.QGraphicsBlurEffect_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -5304,8 +5530,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGraphicsBlurEffect_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGraphicsBlurEffect_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -5342,6 +5568,10 @@ pub const qgraphicsblureffect = struct {
         return qtc.QGraphicsBlurEffect_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -5356,8 +5586,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGraphicsBlurEffect_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGraphicsBlurEffect_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -5392,6 +5622,10 @@ pub const qgraphicsblureffect = struct {
         qtc.QGraphicsBlurEffect_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -5404,8 +5638,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsBlurEffect_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsBlurEffect_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -5440,6 +5674,10 @@ pub const qgraphicsblureffect = struct {
         qtc.QGraphicsBlurEffect_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -5452,8 +5690,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsBlurEffect_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsBlurEffect_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -5488,6 +5726,10 @@ pub const qgraphicsblureffect = struct {
         qtc.QGraphicsBlurEffect_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -5500,8 +5742,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsBlurEffect_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsBlurEffect_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -5536,6 +5778,10 @@ pub const qgraphicsblureffect = struct {
         qtc.QGraphicsBlurEffect_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -5548,8 +5794,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGraphicsBlurEffect_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QGraphicsBlurEffect_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -5584,6 +5830,10 @@ pub const qgraphicsblureffect = struct {
         qtc.QGraphicsBlurEffect_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -5596,8 +5846,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGraphicsBlurEffect_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QGraphicsBlurEffect_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -5630,6 +5880,10 @@ pub const qgraphicsblureffect = struct {
         qtc.QGraphicsBlurEffect_UpdateBoundingRect(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateBoundingRect` instead
+    ///
+    pub const QBaseUpdateBoundingRect = SuperUpdateBoundingRect;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
@@ -5640,8 +5894,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` self: QtC.QGraphicsBlurEffect `
     ///
-    pub fn QBaseUpdateBoundingRect(self: ?*anyopaque) void {
-        qtc.QGraphicsBlurEffect_QBaseUpdateBoundingRect(@ptrCast(self));
+    pub fn SuperUpdateBoundingRect(self: ?*anyopaque) void {
+        qtc.QGraphicsBlurEffect_SuperUpdateBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
@@ -5674,6 +5928,10 @@ pub const qgraphicsblureffect = struct {
         return qtc.QGraphicsBlurEffect_SourceIsPixmap(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSourceIsPixmap` instead
+    ///
+    pub const QBaseSourceIsPixmap = SuperSourceIsPixmap;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
@@ -5684,8 +5942,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` self: QtC.QGraphicsBlurEffect `
     ///
-    pub fn QBaseSourceIsPixmap(self: ?*anyopaque) bool {
-        return qtc.QGraphicsBlurEffect_QBaseSourceIsPixmap(@ptrCast(self));
+    pub fn SuperSourceIsPixmap(self: ?*anyopaque) bool {
+        return qtc.QGraphicsBlurEffect_SuperSourceIsPixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
@@ -5718,6 +5976,10 @@ pub const qgraphicsblureffect = struct {
         return qtc.QGraphicsBlurEffect_SourceBoundingRect(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSourceBoundingRect` instead
+    ///
+    pub const QBaseSourceBoundingRect = SuperSourceBoundingRect;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
@@ -5728,8 +5990,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` self: QtC.QGraphicsBlurEffect `
     ///
-    pub fn QBaseSourceBoundingRect(self: ?*anyopaque) QtC.QRectF {
-        return qtc.QGraphicsBlurEffect_QBaseSourceBoundingRect(@ptrCast(self));
+    pub fn SuperSourceBoundingRect(self: ?*anyopaque) QtC.QRectF {
+        return qtc.QGraphicsBlurEffect_SuperSourceBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
@@ -5764,6 +6026,10 @@ pub const qgraphicsblureffect = struct {
         qtc.QGraphicsBlurEffect_DrawSource(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperDrawSource` instead
+    ///
+    pub const QBaseDrawSource = SuperDrawSource;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
@@ -5776,8 +6042,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseDrawSource(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QGraphicsBlurEffect_QBaseDrawSource(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperDrawSource(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QGraphicsBlurEffect_SuperDrawSource(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QGraphicsEffect
@@ -5810,6 +6076,10 @@ pub const qgraphicsblureffect = struct {
         return qtc.QGraphicsBlurEffect_SourcePixmap(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSourcePixmap` instead
+    ///
+    pub const QBaseSourcePixmap = SuperSourcePixmap;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
@@ -5820,8 +6090,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` self: QtC.QGraphicsBlurEffect `
     ///
-    pub fn QBaseSourcePixmap(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QGraphicsBlurEffect_QBaseSourcePixmap(@ptrCast(self));
+    pub fn SuperSourcePixmap(self: ?*anyopaque) QtC.QPixmap {
+        return qtc.QGraphicsBlurEffect_SuperSourcePixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
@@ -5854,6 +6124,10 @@ pub const qgraphicsblureffect = struct {
         return qtc.QGraphicsBlurEffect_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -5864,8 +6138,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` self: QtC.QGraphicsBlurEffect `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QGraphicsBlurEffect_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QGraphicsBlurEffect_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -5898,6 +6172,10 @@ pub const qgraphicsblureffect = struct {
         return qtc.QGraphicsBlurEffect_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -5908,8 +6186,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` self: QtC.QGraphicsBlurEffect `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QGraphicsBlurEffect_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QGraphicsBlurEffect_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -5945,6 +6223,10 @@ pub const qgraphicsblureffect = struct {
         return qtc.QGraphicsBlurEffect_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -5957,9 +6239,9 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QGraphicsBlurEffect_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QGraphicsBlurEffect_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5994,6 +6276,10 @@ pub const qgraphicsblureffect = struct {
         return qtc.QGraphicsBlurEffect_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -6006,8 +6292,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QGraphicsBlurEffect_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QGraphicsBlurEffect_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -6041,6 +6327,9 @@ pub const qgraphicsblureffect = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsblureffect.html#dtor.QGraphicsBlurEffect)
     ///
@@ -6050,7 +6339,7 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ` self: QtC.QGraphicsBlurEffect `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGraphicsBlurEffect_Delete(@ptrCast(self));
     }
 };
@@ -6097,6 +6386,10 @@ pub const qgraphicsdropshadoweffect = struct {
         qtc.QGraphicsDropShadowEffect_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -6105,8 +6398,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` self: QtC.QGraphicsDropShadowEffect `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QGraphicsDropShadowEffect_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QGraphicsDropShadowEffect_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -6132,6 +6425,10 @@ pub const qgraphicsdropshadoweffect = struct {
         qtc.QGraphicsDropShadowEffect_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -6140,9 +6437,9 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QGraphicsDropShadowEffect_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QGraphicsDropShadowEffect_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -6171,6 +6468,10 @@ pub const qgraphicsdropshadoweffect = struct {
         qtc.QGraphicsDropShadowEffect_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -6183,8 +6484,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsDropShadowEffect_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QGraphicsDropShadowEffect_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -6230,6 +6531,10 @@ pub const qgraphicsdropshadoweffect = struct {
         qtc.QGraphicsDropShadowEffect_OnBoundingRectFor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBoundingRectFor` instead
+    ///
+    pub const QBaseBoundingRectFor = SuperBoundingRectFor;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#boundingRectFor)
     ///
     /// Base class method implementation
@@ -6240,8 +6545,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` rect: QtC.QRectF `
     ///
-    pub fn QBaseBoundingRectFor(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
-        return qtc.QGraphicsDropShadowEffect_QBaseBoundingRectFor(@ptrCast(self), @ptrCast(rect));
+    pub fn SuperBoundingRectFor(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
+        return qtc.QGraphicsDropShadowEffect_SuperBoundingRectFor(@ptrCast(self), @ptrCast(rect));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#offset)
@@ -6478,6 +6783,10 @@ pub const qgraphicsdropshadoweffect = struct {
         qtc.QGraphicsDropShadowEffect_OnDraw(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDraw` instead
+    ///
+    pub const QBaseDraw = SuperDraw;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#draw)
     ///
     /// Base class method implementation
@@ -6488,8 +6797,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseDraw(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QGraphicsDropShadowEffect_QBaseDraw(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperDraw(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QGraphicsDropShadowEffect_SuperDraw(@ptrCast(self), @ptrCast(painter));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -7366,6 +7675,10 @@ pub const qgraphicsdropshadoweffect = struct {
         qtc.QGraphicsDropShadowEffect_SourceChanged(@ptrCast(self), @bitCast(flags));
     }
 
+    /// ### DEPRECATED: Use `SuperSourceChanged` instead
+    ///
+    pub const QBaseSourceChanged = SuperSourceChanged;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
@@ -7378,8 +7691,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
-    pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsDropShadowEffect_QBaseSourceChanged(@ptrCast(self), @bitCast(flags));
+    pub fn SuperSourceChanged(self: ?*anyopaque, flags: i32) void {
+        qtc.QGraphicsDropShadowEffect_SuperSourceChanged(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsEffect
@@ -7414,6 +7727,10 @@ pub const qgraphicsdropshadoweffect = struct {
         return qtc.QGraphicsDropShadowEffect_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -7426,8 +7743,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGraphicsDropShadowEffect_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGraphicsDropShadowEffect_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7464,6 +7781,10 @@ pub const qgraphicsdropshadoweffect = struct {
         return qtc.QGraphicsDropShadowEffect_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -7478,8 +7799,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGraphicsDropShadowEffect_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGraphicsDropShadowEffect_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7514,6 +7835,10 @@ pub const qgraphicsdropshadoweffect = struct {
         qtc.QGraphicsDropShadowEffect_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -7526,8 +7851,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsDropShadowEffect_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsDropShadowEffect_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7562,6 +7887,10 @@ pub const qgraphicsdropshadoweffect = struct {
         qtc.QGraphicsDropShadowEffect_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -7574,8 +7903,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsDropShadowEffect_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsDropShadowEffect_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7610,6 +7939,10 @@ pub const qgraphicsdropshadoweffect = struct {
         qtc.QGraphicsDropShadowEffect_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -7622,8 +7955,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsDropShadowEffect_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsDropShadowEffect_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7658,6 +7991,10 @@ pub const qgraphicsdropshadoweffect = struct {
         qtc.QGraphicsDropShadowEffect_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -7670,8 +8007,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGraphicsDropShadowEffect_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QGraphicsDropShadowEffect_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -7706,6 +8043,10 @@ pub const qgraphicsdropshadoweffect = struct {
         qtc.QGraphicsDropShadowEffect_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -7718,8 +8059,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGraphicsDropShadowEffect_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QGraphicsDropShadowEffect_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -7752,6 +8093,10 @@ pub const qgraphicsdropshadoweffect = struct {
         qtc.QGraphicsDropShadowEffect_UpdateBoundingRect(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateBoundingRect` instead
+    ///
+    pub const QBaseUpdateBoundingRect = SuperUpdateBoundingRect;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
@@ -7762,8 +8107,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` self: QtC.QGraphicsDropShadowEffect `
     ///
-    pub fn QBaseUpdateBoundingRect(self: ?*anyopaque) void {
-        qtc.QGraphicsDropShadowEffect_QBaseUpdateBoundingRect(@ptrCast(self));
+    pub fn SuperUpdateBoundingRect(self: ?*anyopaque) void {
+        qtc.QGraphicsDropShadowEffect_SuperUpdateBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
@@ -7796,6 +8141,10 @@ pub const qgraphicsdropshadoweffect = struct {
         return qtc.QGraphicsDropShadowEffect_SourceIsPixmap(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSourceIsPixmap` instead
+    ///
+    pub const QBaseSourceIsPixmap = SuperSourceIsPixmap;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
@@ -7806,8 +8155,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` self: QtC.QGraphicsDropShadowEffect `
     ///
-    pub fn QBaseSourceIsPixmap(self: ?*anyopaque) bool {
-        return qtc.QGraphicsDropShadowEffect_QBaseSourceIsPixmap(@ptrCast(self));
+    pub fn SuperSourceIsPixmap(self: ?*anyopaque) bool {
+        return qtc.QGraphicsDropShadowEffect_SuperSourceIsPixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
@@ -7840,6 +8189,10 @@ pub const qgraphicsdropshadoweffect = struct {
         return qtc.QGraphicsDropShadowEffect_SourceBoundingRect(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSourceBoundingRect` instead
+    ///
+    pub const QBaseSourceBoundingRect = SuperSourceBoundingRect;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
@@ -7850,8 +8203,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` self: QtC.QGraphicsDropShadowEffect `
     ///
-    pub fn QBaseSourceBoundingRect(self: ?*anyopaque) QtC.QRectF {
-        return qtc.QGraphicsDropShadowEffect_QBaseSourceBoundingRect(@ptrCast(self));
+    pub fn SuperSourceBoundingRect(self: ?*anyopaque) QtC.QRectF {
+        return qtc.QGraphicsDropShadowEffect_SuperSourceBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
@@ -7886,6 +8239,10 @@ pub const qgraphicsdropshadoweffect = struct {
         qtc.QGraphicsDropShadowEffect_DrawSource(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperDrawSource` instead
+    ///
+    pub const QBaseDrawSource = SuperDrawSource;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
@@ -7898,8 +8255,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseDrawSource(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QGraphicsDropShadowEffect_QBaseDrawSource(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperDrawSource(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QGraphicsDropShadowEffect_SuperDrawSource(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QGraphicsEffect
@@ -7932,6 +8289,10 @@ pub const qgraphicsdropshadoweffect = struct {
         return qtc.QGraphicsDropShadowEffect_SourcePixmap(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSourcePixmap` instead
+    ///
+    pub const QBaseSourcePixmap = SuperSourcePixmap;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
@@ -7942,8 +8303,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` self: QtC.QGraphicsDropShadowEffect `
     ///
-    pub fn QBaseSourcePixmap(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QGraphicsDropShadowEffect_QBaseSourcePixmap(@ptrCast(self));
+    pub fn SuperSourcePixmap(self: ?*anyopaque) QtC.QPixmap {
+        return qtc.QGraphicsDropShadowEffect_SuperSourcePixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
@@ -7976,6 +8337,10 @@ pub const qgraphicsdropshadoweffect = struct {
         return qtc.QGraphicsDropShadowEffect_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -7986,8 +8351,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` self: QtC.QGraphicsDropShadowEffect `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QGraphicsDropShadowEffect_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QGraphicsDropShadowEffect_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -8020,6 +8385,10 @@ pub const qgraphicsdropshadoweffect = struct {
         return qtc.QGraphicsDropShadowEffect_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -8030,8 +8399,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` self: QtC.QGraphicsDropShadowEffect `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QGraphicsDropShadowEffect_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QGraphicsDropShadowEffect_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -8067,6 +8436,10 @@ pub const qgraphicsdropshadoweffect = struct {
         return qtc.QGraphicsDropShadowEffect_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -8079,9 +8452,9 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QGraphicsDropShadowEffect_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QGraphicsDropShadowEffect_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -8116,6 +8489,10 @@ pub const qgraphicsdropshadoweffect = struct {
         return qtc.QGraphicsDropShadowEffect_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -8128,8 +8505,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QGraphicsDropShadowEffect_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QGraphicsDropShadowEffect_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -8163,6 +8540,9 @@ pub const qgraphicsdropshadoweffect = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#dtor.QGraphicsDropShadowEffect)
     ///
@@ -8172,7 +8552,7 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ` self: QtC.QGraphicsDropShadowEffect `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGraphicsDropShadowEffect_Delete(@ptrCast(self));
     }
 };
@@ -8219,6 +8599,10 @@ pub const qgraphicsopacityeffect = struct {
         qtc.QGraphicsOpacityEffect_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -8227,8 +8611,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` self: QtC.QGraphicsOpacityEffect `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QGraphicsOpacityEffect_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QGraphicsOpacityEffect_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -8254,6 +8638,10 @@ pub const qgraphicsopacityeffect = struct {
         qtc.QGraphicsOpacityEffect_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -8262,9 +8650,9 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QGraphicsOpacityEffect_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QGraphicsOpacityEffect_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -8293,6 +8681,10 @@ pub const qgraphicsopacityeffect = struct {
         qtc.QGraphicsOpacityEffect_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -8305,8 +8697,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsOpacityEffect_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QGraphicsOpacityEffect_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -8444,6 +8836,10 @@ pub const qgraphicsopacityeffect = struct {
         qtc.QGraphicsOpacityEffect_OnDraw(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDraw` instead
+    ///
+    pub const QBaseDraw = SuperDraw;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#draw)
     ///
     /// Base class method implementation
@@ -8454,8 +8850,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseDraw(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QGraphicsOpacityEffect_QBaseDraw(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperDraw(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QGraphicsOpacityEffect_SuperDraw(@ptrCast(self), @ptrCast(painter));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -9332,6 +9728,10 @@ pub const qgraphicsopacityeffect = struct {
         return qtc.QGraphicsOpacityEffect_BoundingRectFor(@ptrCast(self), @ptrCast(sourceRect));
     }
 
+    /// ### DEPRECATED: Use `SuperBoundingRectFor` instead
+    ///
+    pub const QBaseBoundingRectFor = SuperBoundingRectFor;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#boundingRectFor)
@@ -9344,8 +9744,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` sourceRect: QtC.QRectF `
     ///
-    pub fn QBaseBoundingRectFor(self: ?*anyopaque, sourceRect: ?*anyopaque) QtC.QRectF {
-        return qtc.QGraphicsOpacityEffect_QBaseBoundingRectFor(@ptrCast(self), @ptrCast(sourceRect));
+    pub fn SuperBoundingRectFor(self: ?*anyopaque, sourceRect: ?*anyopaque) QtC.QRectF {
+        return qtc.QGraphicsOpacityEffect_SuperBoundingRectFor(@ptrCast(self), @ptrCast(sourceRect));
     }
 
     /// Inherited from QGraphicsEffect
@@ -9380,6 +9780,10 @@ pub const qgraphicsopacityeffect = struct {
         qtc.QGraphicsOpacityEffect_SourceChanged(@ptrCast(self), @bitCast(flags));
     }
 
+    /// ### DEPRECATED: Use `SuperSourceChanged` instead
+    ///
+    pub const QBaseSourceChanged = SuperSourceChanged;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
@@ -9392,8 +9796,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` flags: flag of qgraphicseffect_enums.ChangeFlag `
     ///
-    pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i32) void {
-        qtc.QGraphicsOpacityEffect_QBaseSourceChanged(@ptrCast(self), @bitCast(flags));
+    pub fn SuperSourceChanged(self: ?*anyopaque, flags: i32) void {
+        qtc.QGraphicsOpacityEffect_SuperSourceChanged(@ptrCast(self), @bitCast(flags));
     }
 
     /// Inherited from QGraphicsEffect
@@ -9428,6 +9832,10 @@ pub const qgraphicsopacityeffect = struct {
         return qtc.QGraphicsOpacityEffect_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -9440,8 +9848,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGraphicsOpacityEffect_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGraphicsOpacityEffect_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -9478,6 +9886,10 @@ pub const qgraphicsopacityeffect = struct {
         return qtc.QGraphicsOpacityEffect_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -9492,8 +9904,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGraphicsOpacityEffect_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGraphicsOpacityEffect_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -9528,6 +9940,10 @@ pub const qgraphicsopacityeffect = struct {
         qtc.QGraphicsOpacityEffect_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -9540,8 +9956,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsOpacityEffect_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsOpacityEffect_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -9576,6 +9992,10 @@ pub const qgraphicsopacityeffect = struct {
         qtc.QGraphicsOpacityEffect_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -9588,8 +10008,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsOpacityEffect_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsOpacityEffect_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -9624,6 +10044,10 @@ pub const qgraphicsopacityeffect = struct {
         qtc.QGraphicsOpacityEffect_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -9636,8 +10060,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsOpacityEffect_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsOpacityEffect_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -9672,6 +10096,10 @@ pub const qgraphicsopacityeffect = struct {
         qtc.QGraphicsOpacityEffect_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -9684,8 +10112,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGraphicsOpacityEffect_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QGraphicsOpacityEffect_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -9720,6 +10148,10 @@ pub const qgraphicsopacityeffect = struct {
         qtc.QGraphicsOpacityEffect_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -9732,8 +10164,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGraphicsOpacityEffect_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QGraphicsOpacityEffect_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -9766,6 +10198,10 @@ pub const qgraphicsopacityeffect = struct {
         qtc.QGraphicsOpacityEffect_UpdateBoundingRect(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateBoundingRect` instead
+    ///
+    pub const QBaseUpdateBoundingRect = SuperUpdateBoundingRect;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
@@ -9776,8 +10212,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` self: QtC.QGraphicsOpacityEffect `
     ///
-    pub fn QBaseUpdateBoundingRect(self: ?*anyopaque) void {
-        qtc.QGraphicsOpacityEffect_QBaseUpdateBoundingRect(@ptrCast(self));
+    pub fn SuperUpdateBoundingRect(self: ?*anyopaque) void {
+        qtc.QGraphicsOpacityEffect_SuperUpdateBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
@@ -9810,6 +10246,10 @@ pub const qgraphicsopacityeffect = struct {
         return qtc.QGraphicsOpacityEffect_SourceIsPixmap(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSourceIsPixmap` instead
+    ///
+    pub const QBaseSourceIsPixmap = SuperSourceIsPixmap;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
@@ -9820,8 +10260,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` self: QtC.QGraphicsOpacityEffect `
     ///
-    pub fn QBaseSourceIsPixmap(self: ?*anyopaque) bool {
-        return qtc.QGraphicsOpacityEffect_QBaseSourceIsPixmap(@ptrCast(self));
+    pub fn SuperSourceIsPixmap(self: ?*anyopaque) bool {
+        return qtc.QGraphicsOpacityEffect_SuperSourceIsPixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
@@ -9854,6 +10294,10 @@ pub const qgraphicsopacityeffect = struct {
         return qtc.QGraphicsOpacityEffect_SourceBoundingRect(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSourceBoundingRect` instead
+    ///
+    pub const QBaseSourceBoundingRect = SuperSourceBoundingRect;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
@@ -9864,8 +10308,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` self: QtC.QGraphicsOpacityEffect `
     ///
-    pub fn QBaseSourceBoundingRect(self: ?*anyopaque) QtC.QRectF {
-        return qtc.QGraphicsOpacityEffect_QBaseSourceBoundingRect(@ptrCast(self));
+    pub fn SuperSourceBoundingRect(self: ?*anyopaque) QtC.QRectF {
+        return qtc.QGraphicsOpacityEffect_SuperSourceBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
@@ -9900,6 +10344,10 @@ pub const qgraphicsopacityeffect = struct {
         qtc.QGraphicsOpacityEffect_DrawSource(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperDrawSource` instead
+    ///
+    pub const QBaseDrawSource = SuperDrawSource;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
@@ -9912,8 +10360,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseDrawSource(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QGraphicsOpacityEffect_QBaseDrawSource(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperDrawSource(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QGraphicsOpacityEffect_SuperDrawSource(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QGraphicsEffect
@@ -9946,6 +10394,10 @@ pub const qgraphicsopacityeffect = struct {
         return qtc.QGraphicsOpacityEffect_SourcePixmap(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSourcePixmap` instead
+    ///
+    pub const QBaseSourcePixmap = SuperSourcePixmap;
+
     /// Inherited from QGraphicsEffect
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
@@ -9956,8 +10408,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` self: QtC.QGraphicsOpacityEffect `
     ///
-    pub fn QBaseSourcePixmap(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QGraphicsOpacityEffect_QBaseSourcePixmap(@ptrCast(self));
+    pub fn SuperSourcePixmap(self: ?*anyopaque) QtC.QPixmap {
+        return qtc.QGraphicsOpacityEffect_SuperSourcePixmap(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsEffect
@@ -9990,6 +10442,10 @@ pub const qgraphicsopacityeffect = struct {
         return qtc.QGraphicsOpacityEffect_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -10000,8 +10456,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` self: QtC.QGraphicsOpacityEffect `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QGraphicsOpacityEffect_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QGraphicsOpacityEffect_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -10034,6 +10490,10 @@ pub const qgraphicsopacityeffect = struct {
         return qtc.QGraphicsOpacityEffect_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -10044,8 +10504,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` self: QtC.QGraphicsOpacityEffect `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QGraphicsOpacityEffect_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QGraphicsOpacityEffect_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -10081,6 +10541,10 @@ pub const qgraphicsopacityeffect = struct {
         return qtc.QGraphicsOpacityEffect_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -10093,9 +10557,9 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QGraphicsOpacityEffect_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QGraphicsOpacityEffect_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -10130,6 +10594,10 @@ pub const qgraphicsopacityeffect = struct {
         return qtc.QGraphicsOpacityEffect_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -10142,8 +10610,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QGraphicsOpacityEffect_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QGraphicsOpacityEffect_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -10177,6 +10645,9 @@ pub const qgraphicsopacityeffect = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#dtor.QGraphicsOpacityEffect)
     ///
@@ -10186,7 +10657,7 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ` self: QtC.QGraphicsOpacityEffect `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGraphicsOpacityEffect_Delete(@ptrCast(self));
     }
 };

@@ -115,7 +115,7 @@ void QDesignerWidgetFactoryInterface_Initialize(const QDesignerWidgetFactoryInte
 }
 
 // Base class handler implementation
-QMetaObject* QDesignerWidgetFactoryInterface_QBaseMetaObject(const QDesignerWidgetFactoryInterface* self) {
+QMetaObject* QDesignerWidgetFactoryInterface_SuperMetaObject(const QDesignerWidgetFactoryInterface* self) {
     auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
     if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_MetaObject_IsBase(true);
@@ -134,7 +134,7 @@ void QDesignerWidgetFactoryInterface_OnMetaObject(const QDesignerWidgetFactoryIn
 }
 
 // Base class handler implementation
-void* QDesignerWidgetFactoryInterface_QBaseMetacast(QDesignerWidgetFactoryInterface* self, const char* param1) {
+void* QDesignerWidgetFactoryInterface_SuperMetacast(QDesignerWidgetFactoryInterface* self, const char* param1) {
     auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
     if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_Metacast_IsBase(true);
@@ -153,7 +153,7 @@ void QDesignerWidgetFactoryInterface_OnMetacast(QDesignerWidgetFactoryInterface*
 }
 
 // Base class handler implementation
-int QDesignerWidgetFactoryInterface_QBaseMetacall(QDesignerWidgetFactoryInterface* self, int param1, int param2, void** param3) {
+int QDesignerWidgetFactoryInterface_SuperMetacall(QDesignerWidgetFactoryInterface* self, int param1, int param2, void** param3) {
     auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
     if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_Metacall_IsBase(true);
@@ -172,7 +172,7 @@ void QDesignerWidgetFactoryInterface_OnMetacall(QDesignerWidgetFactoryInterface*
 }
 
 // Base class handler implementation
-QDesignerFormEditorInterface* QDesignerWidgetFactoryInterface_QBaseCore(const QDesignerWidgetFactoryInterface* self) {
+QDesignerFormEditorInterface* QDesignerWidgetFactoryInterface_SuperCore(const QDesignerWidgetFactoryInterface* self) {
     auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
     if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_Core_IsBase(true);
@@ -191,7 +191,7 @@ void QDesignerWidgetFactoryInterface_OnCore(const QDesignerWidgetFactoryInterfac
 }
 
 // Base class handler implementation
-QWidget* QDesignerWidgetFactoryInterface_QBaseContainerOfWidget(const QDesignerWidgetFactoryInterface* self, QWidget* w) {
+QWidget* QDesignerWidgetFactoryInterface_SuperContainerOfWidget(const QDesignerWidgetFactoryInterface* self, QWidget* w) {
     auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
     if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_ContainerOfWidget_IsBase(true);
@@ -210,7 +210,7 @@ void QDesignerWidgetFactoryInterface_OnContainerOfWidget(const QDesignerWidgetFa
 }
 
 // Base class handler implementation
-QWidget* QDesignerWidgetFactoryInterface_QBaseWidgetOfContainer(const QDesignerWidgetFactoryInterface* self, QWidget* w) {
+QWidget* QDesignerWidgetFactoryInterface_SuperWidgetOfContainer(const QDesignerWidgetFactoryInterface* self, QWidget* w) {
     auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
     if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_WidgetOfContainer_IsBase(true);
@@ -229,7 +229,7 @@ void QDesignerWidgetFactoryInterface_OnWidgetOfContainer(const QDesignerWidgetFa
 }
 
 // Base class handler implementation
-QWidget* QDesignerWidgetFactoryInterface_QBaseCreateWidget(const QDesignerWidgetFactoryInterface* self, const libqt_string name, QWidget* parentWidget) {
+QWidget* QDesignerWidgetFactoryInterface_SuperCreateWidget(const QDesignerWidgetFactoryInterface* self, const libqt_string name, QWidget* parentWidget) {
     auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
@@ -249,7 +249,7 @@ void QDesignerWidgetFactoryInterface_OnCreateWidget(const QDesignerWidgetFactory
 }
 
 // Base class handler implementation
-QLayout* QDesignerWidgetFactoryInterface_QBaseCreateLayout(const QDesignerWidgetFactoryInterface* self, QWidget* widget, QLayout* layout, int typeVal) {
+QLayout* QDesignerWidgetFactoryInterface_SuperCreateLayout(const QDesignerWidgetFactoryInterface* self, QWidget* widget, QLayout* layout, int typeVal) {
     auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
     if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_CreateLayout_IsBase(true);
@@ -268,7 +268,7 @@ void QDesignerWidgetFactoryInterface_OnCreateLayout(const QDesignerWidgetFactory
 }
 
 // Base class handler implementation
-bool QDesignerWidgetFactoryInterface_QBaseIsPassiveInteractor(QDesignerWidgetFactoryInterface* self, QWidget* widget) {
+bool QDesignerWidgetFactoryInterface_SuperIsPassiveInteractor(QDesignerWidgetFactoryInterface* self, QWidget* widget) {
     auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
     if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_IsPassiveInteractor_IsBase(true);
@@ -287,7 +287,7 @@ void QDesignerWidgetFactoryInterface_OnIsPassiveInteractor(QDesignerWidgetFactor
 }
 
 // Base class handler implementation
-void QDesignerWidgetFactoryInterface_QBaseInitialize(const QDesignerWidgetFactoryInterface* self, QObject* object) {
+void QDesignerWidgetFactoryInterface_SuperInitialize(const QDesignerWidgetFactoryInterface* self, QObject* object) {
     auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
     if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_Initialize_IsBase(true);
@@ -316,7 +316,7 @@ bool QDesignerWidgetFactoryInterface_Event(QDesignerWidgetFactoryInterface* self
 }
 
 // Base class handler implementation
-bool QDesignerWidgetFactoryInterface_QBaseEvent(QDesignerWidgetFactoryInterface* self, QEvent* event) {
+bool QDesignerWidgetFactoryInterface_SuperEvent(QDesignerWidgetFactoryInterface* self, QEvent* event) {
     auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
     if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_Event_IsBase(true);
@@ -345,7 +345,7 @@ bool QDesignerWidgetFactoryInterface_EventFilter(QDesignerWidgetFactoryInterface
 }
 
 // Base class handler implementation
-bool QDesignerWidgetFactoryInterface_QBaseEventFilter(QDesignerWidgetFactoryInterface* self, QObject* watched, QEvent* event) {
+bool QDesignerWidgetFactoryInterface_SuperEventFilter(QDesignerWidgetFactoryInterface* self, QObject* watched, QEvent* event) {
     auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
     if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_EventFilter_IsBase(true);
@@ -374,7 +374,7 @@ void QDesignerWidgetFactoryInterface_TimerEvent(QDesignerWidgetFactoryInterface*
 }
 
 // Base class handler implementation
-void QDesignerWidgetFactoryInterface_QBaseTimerEvent(QDesignerWidgetFactoryInterface* self, QTimerEvent* event) {
+void QDesignerWidgetFactoryInterface_SuperTimerEvent(QDesignerWidgetFactoryInterface* self, QTimerEvent* event) {
     auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
     if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_TimerEvent_IsBase(true);
@@ -403,7 +403,7 @@ void QDesignerWidgetFactoryInterface_ChildEvent(QDesignerWidgetFactoryInterface*
 }
 
 // Base class handler implementation
-void QDesignerWidgetFactoryInterface_QBaseChildEvent(QDesignerWidgetFactoryInterface* self, QChildEvent* event) {
+void QDesignerWidgetFactoryInterface_SuperChildEvent(QDesignerWidgetFactoryInterface* self, QChildEvent* event) {
     auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
     if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_ChildEvent_IsBase(true);
@@ -432,7 +432,7 @@ void QDesignerWidgetFactoryInterface_CustomEvent(QDesignerWidgetFactoryInterface
 }
 
 // Base class handler implementation
-void QDesignerWidgetFactoryInterface_QBaseCustomEvent(QDesignerWidgetFactoryInterface* self, QEvent* event) {
+void QDesignerWidgetFactoryInterface_SuperCustomEvent(QDesignerWidgetFactoryInterface* self, QEvent* event) {
     auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
     if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_CustomEvent_IsBase(true);
@@ -461,7 +461,7 @@ void QDesignerWidgetFactoryInterface_ConnectNotify(QDesignerWidgetFactoryInterfa
 }
 
 // Base class handler implementation
-void QDesignerWidgetFactoryInterface_QBaseConnectNotify(QDesignerWidgetFactoryInterface* self, const QMetaMethod* signal) {
+void QDesignerWidgetFactoryInterface_SuperConnectNotify(QDesignerWidgetFactoryInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
     if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_ConnectNotify_IsBase(true);
@@ -490,7 +490,7 @@ void QDesignerWidgetFactoryInterface_DisconnectNotify(QDesignerWidgetFactoryInte
 }
 
 // Base class handler implementation
-void QDesignerWidgetFactoryInterface_QBaseDisconnectNotify(QDesignerWidgetFactoryInterface* self, const QMetaMethod* signal) {
+void QDesignerWidgetFactoryInterface_SuperDisconnectNotify(QDesignerWidgetFactoryInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
     if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_DisconnectNotify_IsBase(true);
@@ -519,7 +519,7 @@ QObject* QDesignerWidgetFactoryInterface_Sender(const QDesignerWidgetFactoryInte
 }
 
 // Base class handler implementation
-QObject* QDesignerWidgetFactoryInterface_QBaseSender(const QDesignerWidgetFactoryInterface* self) {
+QObject* QDesignerWidgetFactoryInterface_SuperSender(const QDesignerWidgetFactoryInterface* self) {
     auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
     if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_Sender_IsBase(true);
@@ -548,7 +548,7 @@ int QDesignerWidgetFactoryInterface_SenderSignalIndex(const QDesignerWidgetFacto
 }
 
 // Base class handler implementation
-int QDesignerWidgetFactoryInterface_QBaseSenderSignalIndex(const QDesignerWidgetFactoryInterface* self) {
+int QDesignerWidgetFactoryInterface_SuperSenderSignalIndex(const QDesignerWidgetFactoryInterface* self) {
     auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
     if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_SenderSignalIndex_IsBase(true);
@@ -577,7 +577,7 @@ int QDesignerWidgetFactoryInterface_Receivers(const QDesignerWidgetFactoryInterf
 }
 
 // Base class handler implementation
-int QDesignerWidgetFactoryInterface_QBaseReceivers(const QDesignerWidgetFactoryInterface* self, const char* signal) {
+int QDesignerWidgetFactoryInterface_SuperReceivers(const QDesignerWidgetFactoryInterface* self, const char* signal) {
     auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
     if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_Receivers_IsBase(true);
@@ -606,7 +606,7 @@ bool QDesignerWidgetFactoryInterface_IsSignalConnected(const QDesignerWidgetFact
 }
 
 // Base class handler implementation
-bool QDesignerWidgetFactoryInterface_QBaseIsSignalConnected(const QDesignerWidgetFactoryInterface* self, const QMetaMethod* signal) {
+bool QDesignerWidgetFactoryInterface_SuperIsSignalConnected(const QDesignerWidgetFactoryInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
     if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_IsSignalConnected_IsBase(true);

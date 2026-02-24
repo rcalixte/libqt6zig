@@ -182,7 +182,7 @@ QNetworkReply* QRestAccessManager_SendCustomRequest3(QRestAccessManager* self, c
 }
 
 // Base class handler implementation
-QMetaObject* QRestAccessManager_QBaseMetaObject(const QRestAccessManager* self) {
+QMetaObject* QRestAccessManager_SuperMetaObject(const QRestAccessManager* self) {
     auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self));
     if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
         vqrestaccessmanager->setQRestAccessManager_MetaObject_IsBase(true);
@@ -201,7 +201,7 @@ void QRestAccessManager_OnMetaObject(const QRestAccessManager* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* QRestAccessManager_QBaseMetacast(QRestAccessManager* self, const char* param1) {
+void* QRestAccessManager_SuperMetacast(QRestAccessManager* self, const char* param1) {
     auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
     if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
         vqrestaccessmanager->setQRestAccessManager_Metacast_IsBase(true);
@@ -220,7 +220,7 @@ void QRestAccessManager_OnMetacast(QRestAccessManager* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QRestAccessManager_QBaseMetacall(QRestAccessManager* self, int param1, int param2, void** param3) {
+int QRestAccessManager_SuperMetacall(QRestAccessManager* self, int param1, int param2, void** param3) {
     auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
     if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
         vqrestaccessmanager->setQRestAccessManager_Metacall_IsBase(true);
@@ -249,7 +249,7 @@ bool QRestAccessManager_Event(QRestAccessManager* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QRestAccessManager_QBaseEvent(QRestAccessManager* self, QEvent* event) {
+bool QRestAccessManager_SuperEvent(QRestAccessManager* self, QEvent* event) {
     auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
     if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
         vqrestaccessmanager->setQRestAccessManager_Event_IsBase(true);
@@ -278,7 +278,7 @@ bool QRestAccessManager_EventFilter(QRestAccessManager* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool QRestAccessManager_QBaseEventFilter(QRestAccessManager* self, QObject* watched, QEvent* event) {
+bool QRestAccessManager_SuperEventFilter(QRestAccessManager* self, QObject* watched, QEvent* event) {
     auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
     if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
         vqrestaccessmanager->setQRestAccessManager_EventFilter_IsBase(true);
@@ -307,7 +307,7 @@ void QRestAccessManager_TimerEvent(QRestAccessManager* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void QRestAccessManager_QBaseTimerEvent(QRestAccessManager* self, QTimerEvent* event) {
+void QRestAccessManager_SuperTimerEvent(QRestAccessManager* self, QTimerEvent* event) {
     auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
     if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
         vqrestaccessmanager->setQRestAccessManager_TimerEvent_IsBase(true);
@@ -336,7 +336,7 @@ void QRestAccessManager_ChildEvent(QRestAccessManager* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void QRestAccessManager_QBaseChildEvent(QRestAccessManager* self, QChildEvent* event) {
+void QRestAccessManager_SuperChildEvent(QRestAccessManager* self, QChildEvent* event) {
     auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
     if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
         vqrestaccessmanager->setQRestAccessManager_ChildEvent_IsBase(true);
@@ -365,7 +365,7 @@ void QRestAccessManager_CustomEvent(QRestAccessManager* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QRestAccessManager_QBaseCustomEvent(QRestAccessManager* self, QEvent* event) {
+void QRestAccessManager_SuperCustomEvent(QRestAccessManager* self, QEvent* event) {
     auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
     if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
         vqrestaccessmanager->setQRestAccessManager_CustomEvent_IsBase(true);
@@ -394,7 +394,7 @@ void QRestAccessManager_ConnectNotify(QRestAccessManager* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void QRestAccessManager_QBaseConnectNotify(QRestAccessManager* self, const QMetaMethod* signal) {
+void QRestAccessManager_SuperConnectNotify(QRestAccessManager* self, const QMetaMethod* signal) {
     auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
     if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
         vqrestaccessmanager->setQRestAccessManager_ConnectNotify_IsBase(true);
@@ -423,7 +423,7 @@ void QRestAccessManager_DisconnectNotify(QRestAccessManager* self, const QMetaMe
 }
 
 // Base class handler implementation
-void QRestAccessManager_QBaseDisconnectNotify(QRestAccessManager* self, const QMetaMethod* signal) {
+void QRestAccessManager_SuperDisconnectNotify(QRestAccessManager* self, const QMetaMethod* signal) {
     auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
     if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
         vqrestaccessmanager->setQRestAccessManager_DisconnectNotify_IsBase(true);
@@ -452,7 +452,7 @@ QObject* QRestAccessManager_Sender(const QRestAccessManager* self) {
 }
 
 // Base class handler implementation
-QObject* QRestAccessManager_QBaseSender(const QRestAccessManager* self) {
+QObject* QRestAccessManager_SuperSender(const QRestAccessManager* self) {
     auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self));
     if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
         vqrestaccessmanager->setQRestAccessManager_Sender_IsBase(true);
@@ -481,7 +481,7 @@ int QRestAccessManager_SenderSignalIndex(const QRestAccessManager* self) {
 }
 
 // Base class handler implementation
-int QRestAccessManager_QBaseSenderSignalIndex(const QRestAccessManager* self) {
+int QRestAccessManager_SuperSenderSignalIndex(const QRestAccessManager* self) {
     auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self));
     if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
         vqrestaccessmanager->setQRestAccessManager_SenderSignalIndex_IsBase(true);
@@ -510,7 +510,7 @@ int QRestAccessManager_Receivers(const QRestAccessManager* self, const char* sig
 }
 
 // Base class handler implementation
-int QRestAccessManager_QBaseReceivers(const QRestAccessManager* self, const char* signal) {
+int QRestAccessManager_SuperReceivers(const QRestAccessManager* self, const char* signal) {
     auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self));
     if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
         vqrestaccessmanager->setQRestAccessManager_Receivers_IsBase(true);
@@ -539,7 +539,7 @@ bool QRestAccessManager_IsSignalConnected(const QRestAccessManager* self, const 
 }
 
 // Base class handler implementation
-bool QRestAccessManager_QBaseIsSignalConnected(const QRestAccessManager* self, const QMetaMethod* signal) {
+bool QRestAccessManager_SuperIsSignalConnected(const QRestAccessManager* self, const QMetaMethod* signal) {
     auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self));
     if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
         vqrestaccessmanager->setQRestAccessManager_IsSignalConnected_IsBase(true);

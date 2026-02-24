@@ -211,7 +211,7 @@ bool QPushButton_HitButton(const QPushButton* self, const QPoint* pos) {
 }
 
 // Base class handler implementation
-QMetaObject* QPushButton_QBaseMetaObject(const QPushButton* self) {
+QMetaObject* QPushButton_SuperMetaObject(const QPushButton* self) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_MetaObject_IsBase(true);
@@ -230,7 +230,7 @@ void QPushButton_OnMetaObject(const QPushButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QPushButton_QBaseMetacast(QPushButton* self, const char* param1) {
+void* QPushButton_SuperMetacast(QPushButton* self, const char* param1) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_Metacast_IsBase(true);
@@ -249,7 +249,7 @@ void QPushButton_OnMetacast(QPushButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPushButton_QBaseMetacall(QPushButton* self, int param1, int param2, void** param3) {
+int QPushButton_SuperMetacall(QPushButton* self, int param1, int param2, void** param3) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_Metacall_IsBase(true);
@@ -268,7 +268,7 @@ void QPushButton_OnMetacall(QPushButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QPushButton_QBaseSizeHint(const QPushButton* self) {
+QSize* QPushButton_SuperSizeHint(const QPushButton* self) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_SizeHint_IsBase(true);
@@ -287,7 +287,7 @@ void QPushButton_OnSizeHint(const QPushButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QPushButton_QBaseMinimumSizeHint(const QPushButton* self) {
+QSize* QPushButton_SuperMinimumSizeHint(const QPushButton* self) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_MinimumSizeHint_IsBase(true);
@@ -306,7 +306,7 @@ void QPushButton_OnMinimumSizeHint(const QPushButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QPushButton_QBaseEvent(QPushButton* self, QEvent* e) {
+bool QPushButton_SuperEvent(QPushButton* self, QEvent* e) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_Event_IsBase(true);
@@ -325,7 +325,7 @@ void QPushButton_OnEvent(QPushButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPushButton_QBasePaintEvent(QPushButton* self, QPaintEvent* param1) {
+void QPushButton_SuperPaintEvent(QPushButton* self, QPaintEvent* param1) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_PaintEvent_IsBase(true);
@@ -344,7 +344,7 @@ void QPushButton_OnPaintEvent(QPushButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseKeyPressEvent(QPushButton* self, QKeyEvent* param1) {
+void QPushButton_SuperKeyPressEvent(QPushButton* self, QKeyEvent* param1) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_KeyPressEvent_IsBase(true);
@@ -363,7 +363,7 @@ void QPushButton_OnKeyPressEvent(QPushButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseFocusInEvent(QPushButton* self, QFocusEvent* param1) {
+void QPushButton_SuperFocusInEvent(QPushButton* self, QFocusEvent* param1) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_FocusInEvent_IsBase(true);
@@ -382,7 +382,7 @@ void QPushButton_OnFocusInEvent(QPushButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseFocusOutEvent(QPushButton* self, QFocusEvent* param1) {
+void QPushButton_SuperFocusOutEvent(QPushButton* self, QFocusEvent* param1) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_FocusOutEvent_IsBase(true);
@@ -401,7 +401,7 @@ void QPushButton_OnFocusOutEvent(QPushButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseMouseMoveEvent(QPushButton* self, QMouseEvent* param1) {
+void QPushButton_SuperMouseMoveEvent(QPushButton* self, QMouseEvent* param1) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_MouseMoveEvent_IsBase(true);
@@ -420,7 +420,7 @@ void QPushButton_OnMouseMoveEvent(QPushButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseInitStyleOption(const QPushButton* self, QStyleOptionButton* option) {
+void QPushButton_SuperInitStyleOption(const QPushButton* self, QStyleOptionButton* option) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_InitStyleOption_IsBase(true);
@@ -439,7 +439,7 @@ void QPushButton_OnInitStyleOption(const QPushButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QPushButton_QBaseHitButton(const QPushButton* self, const QPoint* pos) {
+bool QPushButton_SuperHitButton(const QPushButton* self, const QPoint* pos) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_HitButton_IsBase(true);
@@ -468,7 +468,7 @@ void QPushButton_CheckStateSet(QPushButton* self) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseCheckStateSet(QPushButton* self) {
+void QPushButton_SuperCheckStateSet(QPushButton* self) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_CheckStateSet_IsBase(true);
@@ -497,7 +497,7 @@ void QPushButton_NextCheckState(QPushButton* self) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseNextCheckState(QPushButton* self) {
+void QPushButton_SuperNextCheckState(QPushButton* self) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_NextCheckState_IsBase(true);
@@ -526,7 +526,7 @@ void QPushButton_KeyReleaseEvent(QPushButton* self, QKeyEvent* e) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseKeyReleaseEvent(QPushButton* self, QKeyEvent* e) {
+void QPushButton_SuperKeyReleaseEvent(QPushButton* self, QKeyEvent* e) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_KeyReleaseEvent_IsBase(true);
@@ -555,7 +555,7 @@ void QPushButton_MousePressEvent(QPushButton* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseMousePressEvent(QPushButton* self, QMouseEvent* e) {
+void QPushButton_SuperMousePressEvent(QPushButton* self, QMouseEvent* e) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_MousePressEvent_IsBase(true);
@@ -584,7 +584,7 @@ void QPushButton_MouseReleaseEvent(QPushButton* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseMouseReleaseEvent(QPushButton* self, QMouseEvent* e) {
+void QPushButton_SuperMouseReleaseEvent(QPushButton* self, QMouseEvent* e) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_MouseReleaseEvent_IsBase(true);
@@ -613,7 +613,7 @@ void QPushButton_ChangeEvent(QPushButton* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseChangeEvent(QPushButton* self, QEvent* e) {
+void QPushButton_SuperChangeEvent(QPushButton* self, QEvent* e) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_ChangeEvent_IsBase(true);
@@ -642,7 +642,7 @@ void QPushButton_TimerEvent(QPushButton* self, QTimerEvent* e) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseTimerEvent(QPushButton* self, QTimerEvent* e) {
+void QPushButton_SuperTimerEvent(QPushButton* self, QTimerEvent* e) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_TimerEvent_IsBase(true);
@@ -671,7 +671,7 @@ int QPushButton_DevType(const QPushButton* self) {
 }
 
 // Base class handler implementation
-int QPushButton_QBaseDevType(const QPushButton* self) {
+int QPushButton_SuperDevType(const QPushButton* self) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_DevType_IsBase(true);
@@ -700,7 +700,7 @@ void QPushButton_SetVisible(QPushButton* self, bool visible) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseSetVisible(QPushButton* self, bool visible) {
+void QPushButton_SuperSetVisible(QPushButton* self, bool visible) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_SetVisible_IsBase(true);
@@ -729,7 +729,7 @@ int QPushButton_HeightForWidth(const QPushButton* self, int param1) {
 }
 
 // Base class handler implementation
-int QPushButton_QBaseHeightForWidth(const QPushButton* self, int param1) {
+int QPushButton_SuperHeightForWidth(const QPushButton* self, int param1) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_HeightForWidth_IsBase(true);
@@ -758,7 +758,7 @@ bool QPushButton_HasHeightForWidth(const QPushButton* self) {
 }
 
 // Base class handler implementation
-bool QPushButton_QBaseHasHeightForWidth(const QPushButton* self) {
+bool QPushButton_SuperHasHeightForWidth(const QPushButton* self) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_HasHeightForWidth_IsBase(true);
@@ -787,7 +787,7 @@ QPaintEngine* QPushButton_PaintEngine(const QPushButton* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QPushButton_QBasePaintEngine(const QPushButton* self) {
+QPaintEngine* QPushButton_SuperPaintEngine(const QPushButton* self) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_PaintEngine_IsBase(true);
@@ -816,7 +816,7 @@ void QPushButton_MouseDoubleClickEvent(QPushButton* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseMouseDoubleClickEvent(QPushButton* self, QMouseEvent* event) {
+void QPushButton_SuperMouseDoubleClickEvent(QPushButton* self, QMouseEvent* event) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_MouseDoubleClickEvent_IsBase(true);
@@ -845,7 +845,7 @@ void QPushButton_WheelEvent(QPushButton* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseWheelEvent(QPushButton* self, QWheelEvent* event) {
+void QPushButton_SuperWheelEvent(QPushButton* self, QWheelEvent* event) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_WheelEvent_IsBase(true);
@@ -874,7 +874,7 @@ void QPushButton_EnterEvent(QPushButton* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseEnterEvent(QPushButton* self, QEnterEvent* event) {
+void QPushButton_SuperEnterEvent(QPushButton* self, QEnterEvent* event) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_EnterEvent_IsBase(true);
@@ -903,7 +903,7 @@ void QPushButton_LeaveEvent(QPushButton* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseLeaveEvent(QPushButton* self, QEvent* event) {
+void QPushButton_SuperLeaveEvent(QPushButton* self, QEvent* event) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_LeaveEvent_IsBase(true);
@@ -932,7 +932,7 @@ void QPushButton_MoveEvent(QPushButton* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseMoveEvent(QPushButton* self, QMoveEvent* event) {
+void QPushButton_SuperMoveEvent(QPushButton* self, QMoveEvent* event) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_MoveEvent_IsBase(true);
@@ -961,7 +961,7 @@ void QPushButton_ResizeEvent(QPushButton* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseResizeEvent(QPushButton* self, QResizeEvent* event) {
+void QPushButton_SuperResizeEvent(QPushButton* self, QResizeEvent* event) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_ResizeEvent_IsBase(true);
@@ -990,7 +990,7 @@ void QPushButton_CloseEvent(QPushButton* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseCloseEvent(QPushButton* self, QCloseEvent* event) {
+void QPushButton_SuperCloseEvent(QPushButton* self, QCloseEvent* event) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_CloseEvent_IsBase(true);
@@ -1019,7 +1019,7 @@ void QPushButton_ContextMenuEvent(QPushButton* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseContextMenuEvent(QPushButton* self, QContextMenuEvent* event) {
+void QPushButton_SuperContextMenuEvent(QPushButton* self, QContextMenuEvent* event) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_ContextMenuEvent_IsBase(true);
@@ -1048,7 +1048,7 @@ void QPushButton_TabletEvent(QPushButton* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseTabletEvent(QPushButton* self, QTabletEvent* event) {
+void QPushButton_SuperTabletEvent(QPushButton* self, QTabletEvent* event) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_TabletEvent_IsBase(true);
@@ -1077,7 +1077,7 @@ void QPushButton_ActionEvent(QPushButton* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseActionEvent(QPushButton* self, QActionEvent* event) {
+void QPushButton_SuperActionEvent(QPushButton* self, QActionEvent* event) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_ActionEvent_IsBase(true);
@@ -1106,7 +1106,7 @@ void QPushButton_DragEnterEvent(QPushButton* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseDragEnterEvent(QPushButton* self, QDragEnterEvent* event) {
+void QPushButton_SuperDragEnterEvent(QPushButton* self, QDragEnterEvent* event) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_DragEnterEvent_IsBase(true);
@@ -1135,7 +1135,7 @@ void QPushButton_DragMoveEvent(QPushButton* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseDragMoveEvent(QPushButton* self, QDragMoveEvent* event) {
+void QPushButton_SuperDragMoveEvent(QPushButton* self, QDragMoveEvent* event) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_DragMoveEvent_IsBase(true);
@@ -1164,7 +1164,7 @@ void QPushButton_DragLeaveEvent(QPushButton* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseDragLeaveEvent(QPushButton* self, QDragLeaveEvent* event) {
+void QPushButton_SuperDragLeaveEvent(QPushButton* self, QDragLeaveEvent* event) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_DragLeaveEvent_IsBase(true);
@@ -1193,7 +1193,7 @@ void QPushButton_DropEvent(QPushButton* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseDropEvent(QPushButton* self, QDropEvent* event) {
+void QPushButton_SuperDropEvent(QPushButton* self, QDropEvent* event) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_DropEvent_IsBase(true);
@@ -1222,7 +1222,7 @@ void QPushButton_ShowEvent(QPushButton* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseShowEvent(QPushButton* self, QShowEvent* event) {
+void QPushButton_SuperShowEvent(QPushButton* self, QShowEvent* event) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_ShowEvent_IsBase(true);
@@ -1251,7 +1251,7 @@ void QPushButton_HideEvent(QPushButton* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseHideEvent(QPushButton* self, QHideEvent* event) {
+void QPushButton_SuperHideEvent(QPushButton* self, QHideEvent* event) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_HideEvent_IsBase(true);
@@ -1281,7 +1281,7 @@ bool QPushButton_NativeEvent(QPushButton* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool QPushButton_QBaseNativeEvent(QPushButton* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QPushButton_SuperNativeEvent(QPushButton* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
@@ -1311,7 +1311,7 @@ int QPushButton_Metric(const QPushButton* self, int param1) {
 }
 
 // Base class handler implementation
-int QPushButton_QBaseMetric(const QPushButton* self, int param1) {
+int QPushButton_SuperMetric(const QPushButton* self, int param1) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_Metric_IsBase(true);
@@ -1340,7 +1340,7 @@ void QPushButton_InitPainter(const QPushButton* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseInitPainter(const QPushButton* self, QPainter* painter) {
+void QPushButton_SuperInitPainter(const QPushButton* self, QPainter* painter) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_InitPainter_IsBase(true);
@@ -1369,7 +1369,7 @@ QPaintDevice* QPushButton_Redirected(const QPushButton* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QPushButton_QBaseRedirected(const QPushButton* self, QPoint* offset) {
+QPaintDevice* QPushButton_SuperRedirected(const QPushButton* self, QPoint* offset) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_Redirected_IsBase(true);
@@ -1398,7 +1398,7 @@ QPainter* QPushButton_SharedPainter(const QPushButton* self) {
 }
 
 // Base class handler implementation
-QPainter* QPushButton_QBaseSharedPainter(const QPushButton* self) {
+QPainter* QPushButton_SuperSharedPainter(const QPushButton* self) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_SharedPainter_IsBase(true);
@@ -1427,7 +1427,7 @@ void QPushButton_InputMethodEvent(QPushButton* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void QPushButton_QBaseInputMethodEvent(QPushButton* self, QInputMethodEvent* param1) {
+void QPushButton_SuperInputMethodEvent(QPushButton* self, QInputMethodEvent* param1) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_InputMethodEvent_IsBase(true);
@@ -1456,7 +1456,7 @@ QVariant* QPushButton_InputMethodQuery(const QPushButton* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QPushButton_QBaseInputMethodQuery(const QPushButton* self, int param1) {
+QVariant* QPushButton_SuperInputMethodQuery(const QPushButton* self, int param1) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_InputMethodQuery_IsBase(true);
@@ -1485,7 +1485,7 @@ bool QPushButton_FocusNextPrevChild(QPushButton* self, bool next) {
 }
 
 // Base class handler implementation
-bool QPushButton_QBaseFocusNextPrevChild(QPushButton* self, bool next) {
+bool QPushButton_SuperFocusNextPrevChild(QPushButton* self, bool next) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_FocusNextPrevChild_IsBase(true);
@@ -1514,7 +1514,7 @@ bool QPushButton_EventFilter(QPushButton* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QPushButton_QBaseEventFilter(QPushButton* self, QObject* watched, QEvent* event) {
+bool QPushButton_SuperEventFilter(QPushButton* self, QObject* watched, QEvent* event) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_EventFilter_IsBase(true);
@@ -1543,7 +1543,7 @@ void QPushButton_ChildEvent(QPushButton* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseChildEvent(QPushButton* self, QChildEvent* event) {
+void QPushButton_SuperChildEvent(QPushButton* self, QChildEvent* event) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_ChildEvent_IsBase(true);
@@ -1572,7 +1572,7 @@ void QPushButton_CustomEvent(QPushButton* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseCustomEvent(QPushButton* self, QEvent* event) {
+void QPushButton_SuperCustomEvent(QPushButton* self, QEvent* event) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_CustomEvent_IsBase(true);
@@ -1601,7 +1601,7 @@ void QPushButton_ConnectNotify(QPushButton* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseConnectNotify(QPushButton* self, const QMetaMethod* signal) {
+void QPushButton_SuperConnectNotify(QPushButton* self, const QMetaMethod* signal) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_ConnectNotify_IsBase(true);
@@ -1630,7 +1630,7 @@ void QPushButton_DisconnectNotify(QPushButton* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QPushButton_QBaseDisconnectNotify(QPushButton* self, const QMetaMethod* signal) {
+void QPushButton_SuperDisconnectNotify(QPushButton* self, const QMetaMethod* signal) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_DisconnectNotify_IsBase(true);
@@ -1659,7 +1659,7 @@ void QPushButton_UpdateMicroFocus(QPushButton* self) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseUpdateMicroFocus(QPushButton* self) {
+void QPushButton_SuperUpdateMicroFocus(QPushButton* self) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_UpdateMicroFocus_IsBase(true);
@@ -1688,7 +1688,7 @@ void QPushButton_Create(QPushButton* self) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseCreate(QPushButton* self) {
+void QPushButton_SuperCreate(QPushButton* self) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_Create_IsBase(true);
@@ -1717,7 +1717,7 @@ void QPushButton_Destroy(QPushButton* self) {
 }
 
 // Base class handler implementation
-void QPushButton_QBaseDestroy(QPushButton* self) {
+void QPushButton_SuperDestroy(QPushButton* self) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_Destroy_IsBase(true);
@@ -1746,7 +1746,7 @@ bool QPushButton_FocusNextChild(QPushButton* self) {
 }
 
 // Base class handler implementation
-bool QPushButton_QBaseFocusNextChild(QPushButton* self) {
+bool QPushButton_SuperFocusNextChild(QPushButton* self) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_FocusNextChild_IsBase(true);
@@ -1775,7 +1775,7 @@ bool QPushButton_FocusPreviousChild(QPushButton* self) {
 }
 
 // Base class handler implementation
-bool QPushButton_QBaseFocusPreviousChild(QPushButton* self) {
+bool QPushButton_SuperFocusPreviousChild(QPushButton* self) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_FocusPreviousChild_IsBase(true);
@@ -1804,7 +1804,7 @@ QObject* QPushButton_Sender(const QPushButton* self) {
 }
 
 // Base class handler implementation
-QObject* QPushButton_QBaseSender(const QPushButton* self) {
+QObject* QPushButton_SuperSender(const QPushButton* self) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_Sender_IsBase(true);
@@ -1833,7 +1833,7 @@ int QPushButton_SenderSignalIndex(const QPushButton* self) {
 }
 
 // Base class handler implementation
-int QPushButton_QBaseSenderSignalIndex(const QPushButton* self) {
+int QPushButton_SuperSenderSignalIndex(const QPushButton* self) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_SenderSignalIndex_IsBase(true);
@@ -1862,7 +1862,7 @@ int QPushButton_Receivers(const QPushButton* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QPushButton_QBaseReceivers(const QPushButton* self, const char* signal) {
+int QPushButton_SuperReceivers(const QPushButton* self, const char* signal) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_Receivers_IsBase(true);
@@ -1891,7 +1891,7 @@ bool QPushButton_IsSignalConnected(const QPushButton* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QPushButton_QBaseIsSignalConnected(const QPushButton* self, const QMetaMethod* signal) {
+bool QPushButton_SuperIsSignalConnected(const QPushButton* self, const QMetaMethod* signal) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_IsSignalConnected_IsBase(true);
@@ -1920,7 +1920,7 @@ double QPushButton_GetDecodedMetricF(const QPushButton* self, int metricA, int m
 }
 
 // Base class handler implementation
-double QPushButton_QBaseGetDecodedMetricF(const QPushButton* self, int metricA, int metricB) {
+double QPushButton_SuperGetDecodedMetricF(const QPushButton* self, int metricA, int metricB) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
     if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
         vqpushbutton->setQPushButton_GetDecodedMetricF_IsBase(true);

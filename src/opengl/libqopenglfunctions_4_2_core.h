@@ -446,16 +446,16 @@ void QOpenGLFunctions_4_2_Core_GlDrawElementsInstancedBaseVertexBaseInstance(QOp
 void QOpenGLFunctions_4_2_Core_GlDrawElementsInstancedBaseInstance(QOpenGLFunctions_4_2_Core* self, uint32_t mode, int32_t count, uint32_t typeVal, const void* indices, int32_t instancecount, uint32_t baseinstance);
 void QOpenGLFunctions_4_2_Core_GlDrawArraysInstancedBaseInstance(QOpenGLFunctions_4_2_Core* self, uint32_t mode, int32_t first, int32_t count, int32_t instancecount, uint32_t baseinstance);
 void QOpenGLFunctions_4_2_Core_OnInitializeOpenGLFunctions(QOpenGLFunctions_4_2_Core* self, intptr_t slot);
-bool QOpenGLFunctions_4_2_Core_QBaseInitializeOpenGLFunctions(QOpenGLFunctions_4_2_Core* self);
+bool QOpenGLFunctions_4_2_Core_SuperInitializeOpenGLFunctions(QOpenGLFunctions_4_2_Core* self);
 bool QOpenGLFunctions_4_2_Core_IsInitialized(const QOpenGLFunctions_4_2_Core* self);
 void QOpenGLFunctions_4_2_Core_OnIsInitialized(const QOpenGLFunctions_4_2_Core* self, intptr_t slot);
-bool QOpenGLFunctions_4_2_Core_QBaseIsInitialized(const QOpenGLFunctions_4_2_Core* self);
+bool QOpenGLFunctions_4_2_Core_SuperIsInitialized(const QOpenGLFunctions_4_2_Core* self);
 void QOpenGLFunctions_4_2_Core_SetOwningContext(QOpenGLFunctions_4_2_Core* self, const QOpenGLContext* context);
 void QOpenGLFunctions_4_2_Core_OnSetOwningContext(QOpenGLFunctions_4_2_Core* self, intptr_t slot);
-void QOpenGLFunctions_4_2_Core_QBaseSetOwningContext(QOpenGLFunctions_4_2_Core* self, const QOpenGLContext* context);
+void QOpenGLFunctions_4_2_Core_SuperSetOwningContext(QOpenGLFunctions_4_2_Core* self, const QOpenGLContext* context);
 QOpenGLContext* QOpenGLFunctions_4_2_Core_OwningContext(const QOpenGLFunctions_4_2_Core* self);
 void QOpenGLFunctions_4_2_Core_OnOwningContext(const QOpenGLFunctions_4_2_Core* self, intptr_t slot);
-QOpenGLContext* QOpenGLFunctions_4_2_Core_QBaseOwningContext(const QOpenGLFunctions_4_2_Core* self);
+QOpenGLContext* QOpenGLFunctions_4_2_Core_SuperOwningContext(const QOpenGLFunctions_4_2_Core* self);
 void QOpenGLFunctions_4_2_Core_Delete(QOpenGLFunctions_4_2_Core* self);
 
 #ifdef __cplusplus

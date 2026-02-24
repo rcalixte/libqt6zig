@@ -417,7 +417,7 @@ void KNSCore__EngineBase_UpdateStatus(KNSCore__EngineBase* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KNSCore__EngineBase_QBaseMetaObject(const KNSCore__EngineBase* self) {
+QMetaObject* KNSCore__EngineBase_SuperMetaObject(const KNSCore__EngineBase* self) {
     auto* vknscoreenginebase = const_cast<VirtualKNSCoreEngineBase*>(dynamic_cast<const VirtualKNSCoreEngineBase*>(self));
     if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
         vknscoreenginebase->setKNSCore__EngineBase_MetaObject_IsBase(true);
@@ -436,7 +436,7 @@ void KNSCore__EngineBase_OnMetaObject(const KNSCore__EngineBase* self, intptr_t 
 }
 
 // Base class handler implementation
-void* KNSCore__EngineBase_QBaseMetacast(KNSCore__EngineBase* self, const char* param1) {
+void* KNSCore__EngineBase_SuperMetacast(KNSCore__EngineBase* self, const char* param1) {
     auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
     if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
         vknscoreenginebase->setKNSCore__EngineBase_Metacast_IsBase(true);
@@ -455,7 +455,7 @@ void KNSCore__EngineBase_OnMetacast(KNSCore__EngineBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KNSCore__EngineBase_QBaseMetacall(KNSCore__EngineBase* self, int param1, int param2, void** param3) {
+int KNSCore__EngineBase_SuperMetacall(KNSCore__EngineBase* self, int param1, int param2, void** param3) {
     auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
     if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
         vknscoreenginebase->setKNSCore__EngineBase_Metacall_IsBase(true);
@@ -474,7 +474,7 @@ void KNSCore__EngineBase_OnMetacall(KNSCore__EngineBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KNSCore__EngineBase_QBaseInit(KNSCore__EngineBase* self, const libqt_string configfile) {
+bool KNSCore__EngineBase_SuperInit(KNSCore__EngineBase* self, const libqt_string configfile) {
     auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
     QString configfile_QString = QString::fromUtf8(configfile.data, configfile.len);
     if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
@@ -494,7 +494,7 @@ void KNSCore__EngineBase_OnInit(KNSCore__EngineBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KNSCore__EngineBase_QBaseUpdateStatus(KNSCore__EngineBase* self) {
+void KNSCore__EngineBase_SuperUpdateStatus(KNSCore__EngineBase* self) {
     auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
     if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
         vknscoreenginebase->setKNSCore__EngineBase_UpdateStatus_IsBase(true);
@@ -523,7 +523,7 @@ bool KNSCore__EngineBase_Event(KNSCore__EngineBase* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KNSCore__EngineBase_QBaseEvent(KNSCore__EngineBase* self, QEvent* event) {
+bool KNSCore__EngineBase_SuperEvent(KNSCore__EngineBase* self, QEvent* event) {
     auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
     if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
         vknscoreenginebase->setKNSCore__EngineBase_Event_IsBase(true);
@@ -552,7 +552,7 @@ bool KNSCore__EngineBase_EventFilter(KNSCore__EngineBase* self, QObject* watched
 }
 
 // Base class handler implementation
-bool KNSCore__EngineBase_QBaseEventFilter(KNSCore__EngineBase* self, QObject* watched, QEvent* event) {
+bool KNSCore__EngineBase_SuperEventFilter(KNSCore__EngineBase* self, QObject* watched, QEvent* event) {
     auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
     if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
         vknscoreenginebase->setKNSCore__EngineBase_EventFilter_IsBase(true);
@@ -581,7 +581,7 @@ void KNSCore__EngineBase_TimerEvent(KNSCore__EngineBase* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void KNSCore__EngineBase_QBaseTimerEvent(KNSCore__EngineBase* self, QTimerEvent* event) {
+void KNSCore__EngineBase_SuperTimerEvent(KNSCore__EngineBase* self, QTimerEvent* event) {
     auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
     if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
         vknscoreenginebase->setKNSCore__EngineBase_TimerEvent_IsBase(true);
@@ -610,7 +610,7 @@ void KNSCore__EngineBase_ChildEvent(KNSCore__EngineBase* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void KNSCore__EngineBase_QBaseChildEvent(KNSCore__EngineBase* self, QChildEvent* event) {
+void KNSCore__EngineBase_SuperChildEvent(KNSCore__EngineBase* self, QChildEvent* event) {
     auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
     if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
         vknscoreenginebase->setKNSCore__EngineBase_ChildEvent_IsBase(true);
@@ -639,7 +639,7 @@ void KNSCore__EngineBase_CustomEvent(KNSCore__EngineBase* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KNSCore__EngineBase_QBaseCustomEvent(KNSCore__EngineBase* self, QEvent* event) {
+void KNSCore__EngineBase_SuperCustomEvent(KNSCore__EngineBase* self, QEvent* event) {
     auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
     if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
         vknscoreenginebase->setKNSCore__EngineBase_CustomEvent_IsBase(true);
@@ -668,7 +668,7 @@ void KNSCore__EngineBase_ConnectNotify(KNSCore__EngineBase* self, const QMetaMet
 }
 
 // Base class handler implementation
-void KNSCore__EngineBase_QBaseConnectNotify(KNSCore__EngineBase* self, const QMetaMethod* signal) {
+void KNSCore__EngineBase_SuperConnectNotify(KNSCore__EngineBase* self, const QMetaMethod* signal) {
     auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
     if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
         vknscoreenginebase->setKNSCore__EngineBase_ConnectNotify_IsBase(true);
@@ -697,7 +697,7 @@ void KNSCore__EngineBase_DisconnectNotify(KNSCore__EngineBase* self, const QMeta
 }
 
 // Base class handler implementation
-void KNSCore__EngineBase_QBaseDisconnectNotify(KNSCore__EngineBase* self, const QMetaMethod* signal) {
+void KNSCore__EngineBase_SuperDisconnectNotify(KNSCore__EngineBase* self, const QMetaMethod* signal) {
     auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
     if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
         vknscoreenginebase->setKNSCore__EngineBase_DisconnectNotify_IsBase(true);
@@ -726,7 +726,7 @@ QObject* KNSCore__EngineBase_Sender(const KNSCore__EngineBase* self) {
 }
 
 // Base class handler implementation
-QObject* KNSCore__EngineBase_QBaseSender(const KNSCore__EngineBase* self) {
+QObject* KNSCore__EngineBase_SuperSender(const KNSCore__EngineBase* self) {
     auto* vknscoreenginebase = const_cast<VirtualKNSCoreEngineBase*>(dynamic_cast<const VirtualKNSCoreEngineBase*>(self));
     if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
         vknscoreenginebase->setKNSCore__EngineBase_Sender_IsBase(true);
@@ -755,7 +755,7 @@ int KNSCore__EngineBase_SenderSignalIndex(const KNSCore__EngineBase* self) {
 }
 
 // Base class handler implementation
-int KNSCore__EngineBase_QBaseSenderSignalIndex(const KNSCore__EngineBase* self) {
+int KNSCore__EngineBase_SuperSenderSignalIndex(const KNSCore__EngineBase* self) {
     auto* vknscoreenginebase = const_cast<VirtualKNSCoreEngineBase*>(dynamic_cast<const VirtualKNSCoreEngineBase*>(self));
     if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
         vknscoreenginebase->setKNSCore__EngineBase_SenderSignalIndex_IsBase(true);
@@ -784,7 +784,7 @@ int KNSCore__EngineBase_Receivers(const KNSCore__EngineBase* self, const char* s
 }
 
 // Base class handler implementation
-int KNSCore__EngineBase_QBaseReceivers(const KNSCore__EngineBase* self, const char* signal) {
+int KNSCore__EngineBase_SuperReceivers(const KNSCore__EngineBase* self, const char* signal) {
     auto* vknscoreenginebase = const_cast<VirtualKNSCoreEngineBase*>(dynamic_cast<const VirtualKNSCoreEngineBase*>(self));
     if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
         vknscoreenginebase->setKNSCore__EngineBase_Receivers_IsBase(true);
@@ -813,7 +813,7 @@ bool KNSCore__EngineBase_IsSignalConnected(const KNSCore__EngineBase* self, cons
 }
 
 // Base class handler implementation
-bool KNSCore__EngineBase_QBaseIsSignalConnected(const KNSCore__EngineBase* self, const QMetaMethod* signal) {
+bool KNSCore__EngineBase_SuperIsSignalConnected(const KNSCore__EngineBase* self, const QMetaMethod* signal) {
     auto* vknscoreenginebase = const_cast<VirtualKNSCoreEngineBase*>(dynamic_cast<const VirtualKNSCoreEngineBase*>(self));
     if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
         vknscoreenginebase->setKNSCore__EngineBase_IsSignalConnected_IsBase(true);

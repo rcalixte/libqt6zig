@@ -13,6 +13,10 @@ pub const qsqlresult = struct {
         return qtc.QSqlResult_Handle(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlresult.html#dtor.QSqlResult)
     ///
     /// Delete this object from C++ memory.
@@ -21,7 +25,7 @@ pub const qsqlresult = struct {
     ///
     /// ` self: QtC.QSqlResult `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSqlResult_Delete(@ptrCast(self));
     }
 };

@@ -168,7 +168,7 @@ int QNmeaSatelliteInfoSource_ParseSatelliteInfoFromNmea(QNmeaSatelliteInfoSource
 }
 
 // Base class handler implementation
-QMetaObject* QNmeaSatelliteInfoSource_QBaseMetaObject(const QNmeaSatelliteInfoSource* self) {
+QMetaObject* QNmeaSatelliteInfoSource_SuperMetaObject(const QNmeaSatelliteInfoSource* self) {
     auto* vqnmeasatelliteinfosource = const_cast<VirtualQNmeaSatelliteInfoSource*>(dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self));
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_MetaObject_IsBase(true);
@@ -187,7 +187,7 @@ void QNmeaSatelliteInfoSource_OnMetaObject(const QNmeaSatelliteInfoSource* self,
 }
 
 // Base class handler implementation
-void* QNmeaSatelliteInfoSource_QBaseMetacast(QNmeaSatelliteInfoSource* self, const char* param1) {
+void* QNmeaSatelliteInfoSource_SuperMetacast(QNmeaSatelliteInfoSource* self, const char* param1) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_Metacast_IsBase(true);
@@ -206,7 +206,7 @@ void QNmeaSatelliteInfoSource_OnMetacast(QNmeaSatelliteInfoSource* self, intptr_
 }
 
 // Base class handler implementation
-int QNmeaSatelliteInfoSource_QBaseMetacall(QNmeaSatelliteInfoSource* self, int param1, int param2, void** param3) {
+int QNmeaSatelliteInfoSource_SuperMetacall(QNmeaSatelliteInfoSource* self, int param1, int param2, void** param3) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_Metacall_IsBase(true);
@@ -225,7 +225,7 @@ void QNmeaSatelliteInfoSource_OnMetacall(QNmeaSatelliteInfoSource* self, intptr_
 }
 
 // Base class handler implementation
-void QNmeaSatelliteInfoSource_QBaseSetUpdateInterval(QNmeaSatelliteInfoSource* self, int msec) {
+void QNmeaSatelliteInfoSource_SuperSetUpdateInterval(QNmeaSatelliteInfoSource* self, int msec) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_SetUpdateInterval_IsBase(true);
@@ -244,7 +244,7 @@ void QNmeaSatelliteInfoSource_OnSetUpdateInterval(QNmeaSatelliteInfoSource* self
 }
 
 // Base class handler implementation
-int QNmeaSatelliteInfoSource_QBaseMinimumUpdateInterval(const QNmeaSatelliteInfoSource* self) {
+int QNmeaSatelliteInfoSource_SuperMinimumUpdateInterval(const QNmeaSatelliteInfoSource* self) {
     auto* vqnmeasatelliteinfosource = const_cast<VirtualQNmeaSatelliteInfoSource*>(dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self));
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_MinimumUpdateInterval_IsBase(true);
@@ -263,7 +263,7 @@ void QNmeaSatelliteInfoSource_OnMinimumUpdateInterval(const QNmeaSatelliteInfoSo
 }
 
 // Base class handler implementation
-int QNmeaSatelliteInfoSource_QBaseError(const QNmeaSatelliteInfoSource* self) {
+int QNmeaSatelliteInfoSource_SuperError(const QNmeaSatelliteInfoSource* self) {
     auto* vqnmeasatelliteinfosource = const_cast<VirtualQNmeaSatelliteInfoSource*>(dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self));
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_Error_IsBase(true);
@@ -282,7 +282,7 @@ void QNmeaSatelliteInfoSource_OnError(const QNmeaSatelliteInfoSource* self, intp
 }
 
 // Base class handler implementation
-bool QNmeaSatelliteInfoSource_QBaseSetBackendProperty(QNmeaSatelliteInfoSource* self, const libqt_string name, const QVariant* value) {
+bool QNmeaSatelliteInfoSource_SuperSetBackendProperty(QNmeaSatelliteInfoSource* self, const libqt_string name, const QVariant* value) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
@@ -302,7 +302,7 @@ void QNmeaSatelliteInfoSource_OnSetBackendProperty(QNmeaSatelliteInfoSource* sel
 }
 
 // Base class handler implementation
-QVariant* QNmeaSatelliteInfoSource_QBaseBackendProperty(const QNmeaSatelliteInfoSource* self, const libqt_string name) {
+QVariant* QNmeaSatelliteInfoSource_SuperBackendProperty(const QNmeaSatelliteInfoSource* self, const libqt_string name) {
     auto* vqnmeasatelliteinfosource = const_cast<VirtualQNmeaSatelliteInfoSource*>(dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self));
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
@@ -322,7 +322,7 @@ void QNmeaSatelliteInfoSource_OnBackendProperty(const QNmeaSatelliteInfoSource* 
 }
 
 // Base class handler implementation
-void QNmeaSatelliteInfoSource_QBaseStartUpdates(QNmeaSatelliteInfoSource* self) {
+void QNmeaSatelliteInfoSource_SuperStartUpdates(QNmeaSatelliteInfoSource* self) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_StartUpdates_IsBase(true);
@@ -341,7 +341,7 @@ void QNmeaSatelliteInfoSource_OnStartUpdates(QNmeaSatelliteInfoSource* self, int
 }
 
 // Base class handler implementation
-void QNmeaSatelliteInfoSource_QBaseStopUpdates(QNmeaSatelliteInfoSource* self) {
+void QNmeaSatelliteInfoSource_SuperStopUpdates(QNmeaSatelliteInfoSource* self) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_StopUpdates_IsBase(true);
@@ -360,7 +360,7 @@ void QNmeaSatelliteInfoSource_OnStopUpdates(QNmeaSatelliteInfoSource* self, intp
 }
 
 // Base class handler implementation
-void QNmeaSatelliteInfoSource_QBaseRequestUpdate(QNmeaSatelliteInfoSource* self, int timeout) {
+void QNmeaSatelliteInfoSource_SuperRequestUpdate(QNmeaSatelliteInfoSource* self, int timeout) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_RequestUpdate_IsBase(true);
@@ -379,7 +379,7 @@ void QNmeaSatelliteInfoSource_OnRequestUpdate(QNmeaSatelliteInfoSource* self, in
 }
 
 // Base class handler implementation
-int QNmeaSatelliteInfoSource_QBaseParseSatellitesInUseFromNmea(QNmeaSatelliteInfoSource* self, const char* data, int size, libqt_list /* of int */ pnrsInUse) {
+int QNmeaSatelliteInfoSource_SuperParseSatellitesInUseFromNmea(QNmeaSatelliteInfoSource* self, const char* data, int size, libqt_list /* of int */ pnrsInUse) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
     QList<int> pnrsInUse_QList;
     pnrsInUse_QList.reserve(pnrsInUse.len);
@@ -404,7 +404,7 @@ void QNmeaSatelliteInfoSource_OnParseSatellitesInUseFromNmea(QNmeaSatelliteInfoS
 }
 
 // Base class handler implementation
-int QNmeaSatelliteInfoSource_QBaseParseSatelliteInfoFromNmea(QNmeaSatelliteInfoSource* self, const char* data, int size, libqt_list /* of QGeoSatelliteInfo* */ infos, int* system) {
+int QNmeaSatelliteInfoSource_SuperParseSatelliteInfoFromNmea(QNmeaSatelliteInfoSource* self, const char* data, int size, libqt_list /* of QGeoSatelliteInfo* */ infos, int* system) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
     QList<QGeoSatelliteInfo> infos_QList;
     infos_QList.reserve(infos.len);
@@ -439,7 +439,7 @@ bool QNmeaSatelliteInfoSource_Event(QNmeaSatelliteInfoSource* self, QEvent* even
 }
 
 // Base class handler implementation
-bool QNmeaSatelliteInfoSource_QBaseEvent(QNmeaSatelliteInfoSource* self, QEvent* event) {
+bool QNmeaSatelliteInfoSource_SuperEvent(QNmeaSatelliteInfoSource* self, QEvent* event) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_Event_IsBase(true);
@@ -468,7 +468,7 @@ bool QNmeaSatelliteInfoSource_EventFilter(QNmeaSatelliteInfoSource* self, QObjec
 }
 
 // Base class handler implementation
-bool QNmeaSatelliteInfoSource_QBaseEventFilter(QNmeaSatelliteInfoSource* self, QObject* watched, QEvent* event) {
+bool QNmeaSatelliteInfoSource_SuperEventFilter(QNmeaSatelliteInfoSource* self, QObject* watched, QEvent* event) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_EventFilter_IsBase(true);
@@ -497,7 +497,7 @@ void QNmeaSatelliteInfoSource_TimerEvent(QNmeaSatelliteInfoSource* self, QTimerE
 }
 
 // Base class handler implementation
-void QNmeaSatelliteInfoSource_QBaseTimerEvent(QNmeaSatelliteInfoSource* self, QTimerEvent* event) {
+void QNmeaSatelliteInfoSource_SuperTimerEvent(QNmeaSatelliteInfoSource* self, QTimerEvent* event) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_TimerEvent_IsBase(true);
@@ -526,7 +526,7 @@ void QNmeaSatelliteInfoSource_ChildEvent(QNmeaSatelliteInfoSource* self, QChildE
 }
 
 // Base class handler implementation
-void QNmeaSatelliteInfoSource_QBaseChildEvent(QNmeaSatelliteInfoSource* self, QChildEvent* event) {
+void QNmeaSatelliteInfoSource_SuperChildEvent(QNmeaSatelliteInfoSource* self, QChildEvent* event) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_ChildEvent_IsBase(true);
@@ -555,7 +555,7 @@ void QNmeaSatelliteInfoSource_CustomEvent(QNmeaSatelliteInfoSource* self, QEvent
 }
 
 // Base class handler implementation
-void QNmeaSatelliteInfoSource_QBaseCustomEvent(QNmeaSatelliteInfoSource* self, QEvent* event) {
+void QNmeaSatelliteInfoSource_SuperCustomEvent(QNmeaSatelliteInfoSource* self, QEvent* event) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_CustomEvent_IsBase(true);
@@ -584,7 +584,7 @@ void QNmeaSatelliteInfoSource_ConnectNotify(QNmeaSatelliteInfoSource* self, cons
 }
 
 // Base class handler implementation
-void QNmeaSatelliteInfoSource_QBaseConnectNotify(QNmeaSatelliteInfoSource* self, const QMetaMethod* signal) {
+void QNmeaSatelliteInfoSource_SuperConnectNotify(QNmeaSatelliteInfoSource* self, const QMetaMethod* signal) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_ConnectNotify_IsBase(true);
@@ -613,7 +613,7 @@ void QNmeaSatelliteInfoSource_DisconnectNotify(QNmeaSatelliteInfoSource* self, c
 }
 
 // Base class handler implementation
-void QNmeaSatelliteInfoSource_QBaseDisconnectNotify(QNmeaSatelliteInfoSource* self, const QMetaMethod* signal) {
+void QNmeaSatelliteInfoSource_SuperDisconnectNotify(QNmeaSatelliteInfoSource* self, const QMetaMethod* signal) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_DisconnectNotify_IsBase(true);
@@ -649,7 +649,7 @@ int QNmeaSatelliteInfoSource_ParseSatellitesInUseFromNmea2(QNmeaSatelliteInfoSou
 }
 
 // Base class handler implementation
-int QNmeaSatelliteInfoSource_QBaseParseSatellitesInUseFromNmea2(QNmeaSatelliteInfoSource* self, libqt_string data, libqt_list /* of int */ pnrsInUse) {
+int QNmeaSatelliteInfoSource_SuperParseSatellitesInUseFromNmea2(QNmeaSatelliteInfoSource* self, libqt_string data, libqt_list /* of int */ pnrsInUse) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
     QByteArrayView data_QByteArrayView(data.data, data.len);
     QList<int> pnrsInUse_QList;
@@ -692,7 +692,7 @@ int QNmeaSatelliteInfoSource_ParseSatelliteInfoFromNmea2(QNmeaSatelliteInfoSourc
 }
 
 // Base class handler implementation
-int QNmeaSatelliteInfoSource_QBaseParseSatelliteInfoFromNmea2(QNmeaSatelliteInfoSource* self, libqt_string data, libqt_list /* of QGeoSatelliteInfo* */ infos, int* system) {
+int QNmeaSatelliteInfoSource_SuperParseSatelliteInfoFromNmea2(QNmeaSatelliteInfoSource* self, libqt_string data, libqt_list /* of QGeoSatelliteInfo* */ infos, int* system) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
     QByteArrayView data_QByteArrayView(data.data, data.len);
     QList<QGeoSatelliteInfo> infos_QList;
@@ -728,7 +728,7 @@ void QNmeaSatelliteInfoSource_SetError(QNmeaSatelliteInfoSource* self, int satel
 }
 
 // Base class handler implementation
-void QNmeaSatelliteInfoSource_QBaseSetError(QNmeaSatelliteInfoSource* self, int satelliteError) {
+void QNmeaSatelliteInfoSource_SuperSetError(QNmeaSatelliteInfoSource* self, int satelliteError) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_SetError_IsBase(true);
@@ -757,7 +757,7 @@ QObject* QNmeaSatelliteInfoSource_Sender(const QNmeaSatelliteInfoSource* self) {
 }
 
 // Base class handler implementation
-QObject* QNmeaSatelliteInfoSource_QBaseSender(const QNmeaSatelliteInfoSource* self) {
+QObject* QNmeaSatelliteInfoSource_SuperSender(const QNmeaSatelliteInfoSource* self) {
     auto* vqnmeasatelliteinfosource = const_cast<VirtualQNmeaSatelliteInfoSource*>(dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self));
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_Sender_IsBase(true);
@@ -786,7 +786,7 @@ int QNmeaSatelliteInfoSource_SenderSignalIndex(const QNmeaSatelliteInfoSource* s
 }
 
 // Base class handler implementation
-int QNmeaSatelliteInfoSource_QBaseSenderSignalIndex(const QNmeaSatelliteInfoSource* self) {
+int QNmeaSatelliteInfoSource_SuperSenderSignalIndex(const QNmeaSatelliteInfoSource* self) {
     auto* vqnmeasatelliteinfosource = const_cast<VirtualQNmeaSatelliteInfoSource*>(dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self));
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_SenderSignalIndex_IsBase(true);
@@ -815,7 +815,7 @@ int QNmeaSatelliteInfoSource_Receivers(const QNmeaSatelliteInfoSource* self, con
 }
 
 // Base class handler implementation
-int QNmeaSatelliteInfoSource_QBaseReceivers(const QNmeaSatelliteInfoSource* self, const char* signal) {
+int QNmeaSatelliteInfoSource_SuperReceivers(const QNmeaSatelliteInfoSource* self, const char* signal) {
     auto* vqnmeasatelliteinfosource = const_cast<VirtualQNmeaSatelliteInfoSource*>(dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self));
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_Receivers_IsBase(true);
@@ -844,7 +844,7 @@ bool QNmeaSatelliteInfoSource_IsSignalConnected(const QNmeaSatelliteInfoSource* 
 }
 
 // Base class handler implementation
-bool QNmeaSatelliteInfoSource_QBaseIsSignalConnected(const QNmeaSatelliteInfoSource* self, const QMetaMethod* signal) {
+bool QNmeaSatelliteInfoSource_SuperIsSignalConnected(const QNmeaSatelliteInfoSource* self, const QMetaMethod* signal) {
     auto* vqnmeasatelliteinfosource = const_cast<VirtualQNmeaSatelliteInfoSource*>(dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self));
     if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_IsSignalConnected_IsBase(true);

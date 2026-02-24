@@ -165,7 +165,7 @@ void QVXYModelMapper_Connect_RowCountChanged(QVXYModelMapper* self, intptr_t slo
 }
 
 // Base class handler implementation
-QMetaObject* QVXYModelMapper_QBaseMetaObject(const QVXYModelMapper* self) {
+QMetaObject* QVXYModelMapper_SuperMetaObject(const QVXYModelMapper* self) {
     auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_MetaObject_IsBase(true);
@@ -184,7 +184,7 @@ void QVXYModelMapper_OnMetaObject(const QVXYModelMapper* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QVXYModelMapper_QBaseMetacast(QVXYModelMapper* self, const char* param1) {
+void* QVXYModelMapper_SuperMetacast(QVXYModelMapper* self, const char* param1) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_Metacast_IsBase(true);
@@ -203,7 +203,7 @@ void QVXYModelMapper_OnMetacast(QVXYModelMapper* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QVXYModelMapper_QBaseMetacall(QVXYModelMapper* self, int param1, int param2, void** param3) {
+int QVXYModelMapper_SuperMetacall(QVXYModelMapper* self, int param1, int param2, void** param3) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_Metacall_IsBase(true);
@@ -232,7 +232,7 @@ bool QVXYModelMapper_Event(QVXYModelMapper* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QVXYModelMapper_QBaseEvent(QVXYModelMapper* self, QEvent* event) {
+bool QVXYModelMapper_SuperEvent(QVXYModelMapper* self, QEvent* event) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_Event_IsBase(true);
@@ -261,7 +261,7 @@ bool QVXYModelMapper_EventFilter(QVXYModelMapper* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool QVXYModelMapper_QBaseEventFilter(QVXYModelMapper* self, QObject* watched, QEvent* event) {
+bool QVXYModelMapper_SuperEventFilter(QVXYModelMapper* self, QObject* watched, QEvent* event) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_EventFilter_IsBase(true);
@@ -290,7 +290,7 @@ void QVXYModelMapper_TimerEvent(QVXYModelMapper* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QVXYModelMapper_QBaseTimerEvent(QVXYModelMapper* self, QTimerEvent* event) {
+void QVXYModelMapper_SuperTimerEvent(QVXYModelMapper* self, QTimerEvent* event) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_TimerEvent_IsBase(true);
@@ -319,7 +319,7 @@ void QVXYModelMapper_ChildEvent(QVXYModelMapper* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QVXYModelMapper_QBaseChildEvent(QVXYModelMapper* self, QChildEvent* event) {
+void QVXYModelMapper_SuperChildEvent(QVXYModelMapper* self, QChildEvent* event) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_ChildEvent_IsBase(true);
@@ -348,7 +348,7 @@ void QVXYModelMapper_CustomEvent(QVXYModelMapper* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QVXYModelMapper_QBaseCustomEvent(QVXYModelMapper* self, QEvent* event) {
+void QVXYModelMapper_SuperCustomEvent(QVXYModelMapper* self, QEvent* event) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_CustomEvent_IsBase(true);
@@ -377,7 +377,7 @@ void QVXYModelMapper_ConnectNotify(QVXYModelMapper* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void QVXYModelMapper_QBaseConnectNotify(QVXYModelMapper* self, const QMetaMethod* signal) {
+void QVXYModelMapper_SuperConnectNotify(QVXYModelMapper* self, const QMetaMethod* signal) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_ConnectNotify_IsBase(true);
@@ -406,7 +406,7 @@ void QVXYModelMapper_DisconnectNotify(QVXYModelMapper* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void QVXYModelMapper_QBaseDisconnectNotify(QVXYModelMapper* self, const QMetaMethod* signal) {
+void QVXYModelMapper_SuperDisconnectNotify(QVXYModelMapper* self, const QMetaMethod* signal) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_DisconnectNotify_IsBase(true);
@@ -435,7 +435,7 @@ int QVXYModelMapper_First(const QVXYModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVXYModelMapper_QBaseFirst(const QVXYModelMapper* self) {
+int QVXYModelMapper_SuperFirst(const QVXYModelMapper* self) {
     auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_First_IsBase(true);
@@ -464,7 +464,7 @@ void QVXYModelMapper_SetFirst(QVXYModelMapper* self, int first) {
 }
 
 // Base class handler implementation
-void QVXYModelMapper_QBaseSetFirst(QVXYModelMapper* self, int first) {
+void QVXYModelMapper_SuperSetFirst(QVXYModelMapper* self, int first) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_SetFirst_IsBase(true);
@@ -493,7 +493,7 @@ int QVXYModelMapper_Count(const QVXYModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVXYModelMapper_QBaseCount(const QVXYModelMapper* self) {
+int QVXYModelMapper_SuperCount(const QVXYModelMapper* self) {
     auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_Count_IsBase(true);
@@ -522,7 +522,7 @@ void QVXYModelMapper_SetCount(QVXYModelMapper* self, int count) {
 }
 
 // Base class handler implementation
-void QVXYModelMapper_QBaseSetCount(QVXYModelMapper* self, int count) {
+void QVXYModelMapper_SuperSetCount(QVXYModelMapper* self, int count) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_SetCount_IsBase(true);
@@ -551,7 +551,7 @@ int QVXYModelMapper_Orientation(const QVXYModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVXYModelMapper_QBaseOrientation(const QVXYModelMapper* self) {
+int QVXYModelMapper_SuperOrientation(const QVXYModelMapper* self) {
     auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_Orientation_IsBase(true);
@@ -580,7 +580,7 @@ void QVXYModelMapper_SetOrientation(QVXYModelMapper* self, int orientation) {
 }
 
 // Base class handler implementation
-void QVXYModelMapper_QBaseSetOrientation(QVXYModelMapper* self, int orientation) {
+void QVXYModelMapper_SuperSetOrientation(QVXYModelMapper* self, int orientation) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_SetOrientation_IsBase(true);
@@ -609,7 +609,7 @@ int QVXYModelMapper_XSection(const QVXYModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVXYModelMapper_QBaseXSection(const QVXYModelMapper* self) {
+int QVXYModelMapper_SuperXSection(const QVXYModelMapper* self) {
     auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_XSection_IsBase(true);
@@ -638,7 +638,7 @@ void QVXYModelMapper_SetXSection(QVXYModelMapper* self, int xSection) {
 }
 
 // Base class handler implementation
-void QVXYModelMapper_QBaseSetXSection(QVXYModelMapper* self, int xSection) {
+void QVXYModelMapper_SuperSetXSection(QVXYModelMapper* self, int xSection) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_SetXSection_IsBase(true);
@@ -667,7 +667,7 @@ int QVXYModelMapper_YSection(const QVXYModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVXYModelMapper_QBaseYSection(const QVXYModelMapper* self) {
+int QVXYModelMapper_SuperYSection(const QVXYModelMapper* self) {
     auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_YSection_IsBase(true);
@@ -696,7 +696,7 @@ void QVXYModelMapper_SetYSection(QVXYModelMapper* self, int ySection) {
 }
 
 // Base class handler implementation
-void QVXYModelMapper_QBaseSetYSection(QVXYModelMapper* self, int ySection) {
+void QVXYModelMapper_SuperSetYSection(QVXYModelMapper* self, int ySection) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_SetYSection_IsBase(true);
@@ -725,7 +725,7 @@ QObject* QVXYModelMapper_Sender(const QVXYModelMapper* self) {
 }
 
 // Base class handler implementation
-QObject* QVXYModelMapper_QBaseSender(const QVXYModelMapper* self) {
+QObject* QVXYModelMapper_SuperSender(const QVXYModelMapper* self) {
     auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_Sender_IsBase(true);
@@ -754,7 +754,7 @@ int QVXYModelMapper_SenderSignalIndex(const QVXYModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVXYModelMapper_QBaseSenderSignalIndex(const QVXYModelMapper* self) {
+int QVXYModelMapper_SuperSenderSignalIndex(const QVXYModelMapper* self) {
     auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_SenderSignalIndex_IsBase(true);
@@ -783,7 +783,7 @@ int QVXYModelMapper_Receivers(const QVXYModelMapper* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QVXYModelMapper_QBaseReceivers(const QVXYModelMapper* self, const char* signal) {
+int QVXYModelMapper_SuperReceivers(const QVXYModelMapper* self, const char* signal) {
     auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_Receivers_IsBase(true);
@@ -812,7 +812,7 @@ bool QVXYModelMapper_IsSignalConnected(const QVXYModelMapper* self, const QMetaM
 }
 
 // Base class handler implementation
-bool QVXYModelMapper_QBaseIsSignalConnected(const QVXYModelMapper* self, const QMetaMethod* signal) {
+bool QVXYModelMapper_SuperIsSignalConnected(const QVXYModelMapper* self, const QMetaMethod* signal) {
     auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
     if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
         vqvxymodelmapper->setQVXYModelMapper_IsSignalConnected_IsBase(true);

@@ -60,7 +60,7 @@ void QObjectCleanupHandler_Clear(QObjectCleanupHandler* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QObjectCleanupHandler_QBaseMetaObject(const QObjectCleanupHandler* self) {
+QMetaObject* QObjectCleanupHandler_SuperMetaObject(const QObjectCleanupHandler* self) {
     auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self));
     if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
         vqobjectcleanuphandler->setQObjectCleanupHandler_MetaObject_IsBase(true);
@@ -79,7 +79,7 @@ void QObjectCleanupHandler_OnMetaObject(const QObjectCleanupHandler* self, intpt
 }
 
 // Base class handler implementation
-void* QObjectCleanupHandler_QBaseMetacast(QObjectCleanupHandler* self, const char* param1) {
+void* QObjectCleanupHandler_SuperMetacast(QObjectCleanupHandler* self, const char* param1) {
     auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
     if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
         vqobjectcleanuphandler->setQObjectCleanupHandler_Metacast_IsBase(true);
@@ -98,7 +98,7 @@ void QObjectCleanupHandler_OnMetacast(QObjectCleanupHandler* self, intptr_t slot
 }
 
 // Base class handler implementation
-int QObjectCleanupHandler_QBaseMetacall(QObjectCleanupHandler* self, int param1, int param2, void** param3) {
+int QObjectCleanupHandler_SuperMetacall(QObjectCleanupHandler* self, int param1, int param2, void** param3) {
     auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
     if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
         vqobjectcleanuphandler->setQObjectCleanupHandler_Metacall_IsBase(true);
@@ -127,7 +127,7 @@ bool QObjectCleanupHandler_Event(QObjectCleanupHandler* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QObjectCleanupHandler_QBaseEvent(QObjectCleanupHandler* self, QEvent* event) {
+bool QObjectCleanupHandler_SuperEvent(QObjectCleanupHandler* self, QEvent* event) {
     auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
     if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
         vqobjectcleanuphandler->setQObjectCleanupHandler_Event_IsBase(true);
@@ -156,7 +156,7 @@ bool QObjectCleanupHandler_EventFilter(QObjectCleanupHandler* self, QObject* wat
 }
 
 // Base class handler implementation
-bool QObjectCleanupHandler_QBaseEventFilter(QObjectCleanupHandler* self, QObject* watched, QEvent* event) {
+bool QObjectCleanupHandler_SuperEventFilter(QObjectCleanupHandler* self, QObject* watched, QEvent* event) {
     auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
     if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
         vqobjectcleanuphandler->setQObjectCleanupHandler_EventFilter_IsBase(true);
@@ -185,7 +185,7 @@ void QObjectCleanupHandler_TimerEvent(QObjectCleanupHandler* self, QTimerEvent* 
 }
 
 // Base class handler implementation
-void QObjectCleanupHandler_QBaseTimerEvent(QObjectCleanupHandler* self, QTimerEvent* event) {
+void QObjectCleanupHandler_SuperTimerEvent(QObjectCleanupHandler* self, QTimerEvent* event) {
     auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
     if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
         vqobjectcleanuphandler->setQObjectCleanupHandler_TimerEvent_IsBase(true);
@@ -214,7 +214,7 @@ void QObjectCleanupHandler_ChildEvent(QObjectCleanupHandler* self, QChildEvent* 
 }
 
 // Base class handler implementation
-void QObjectCleanupHandler_QBaseChildEvent(QObjectCleanupHandler* self, QChildEvent* event) {
+void QObjectCleanupHandler_SuperChildEvent(QObjectCleanupHandler* self, QChildEvent* event) {
     auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
     if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
         vqobjectcleanuphandler->setQObjectCleanupHandler_ChildEvent_IsBase(true);
@@ -243,7 +243,7 @@ void QObjectCleanupHandler_CustomEvent(QObjectCleanupHandler* self, QEvent* even
 }
 
 // Base class handler implementation
-void QObjectCleanupHandler_QBaseCustomEvent(QObjectCleanupHandler* self, QEvent* event) {
+void QObjectCleanupHandler_SuperCustomEvent(QObjectCleanupHandler* self, QEvent* event) {
     auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
     if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
         vqobjectcleanuphandler->setQObjectCleanupHandler_CustomEvent_IsBase(true);
@@ -272,7 +272,7 @@ void QObjectCleanupHandler_ConnectNotify(QObjectCleanupHandler* self, const QMet
 }
 
 // Base class handler implementation
-void QObjectCleanupHandler_QBaseConnectNotify(QObjectCleanupHandler* self, const QMetaMethod* signal) {
+void QObjectCleanupHandler_SuperConnectNotify(QObjectCleanupHandler* self, const QMetaMethod* signal) {
     auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
     if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
         vqobjectcleanuphandler->setQObjectCleanupHandler_ConnectNotify_IsBase(true);
@@ -301,7 +301,7 @@ void QObjectCleanupHandler_DisconnectNotify(QObjectCleanupHandler* self, const Q
 }
 
 // Base class handler implementation
-void QObjectCleanupHandler_QBaseDisconnectNotify(QObjectCleanupHandler* self, const QMetaMethod* signal) {
+void QObjectCleanupHandler_SuperDisconnectNotify(QObjectCleanupHandler* self, const QMetaMethod* signal) {
     auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
     if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
         vqobjectcleanuphandler->setQObjectCleanupHandler_DisconnectNotify_IsBase(true);
@@ -330,7 +330,7 @@ QObject* QObjectCleanupHandler_Sender(const QObjectCleanupHandler* self) {
 }
 
 // Base class handler implementation
-QObject* QObjectCleanupHandler_QBaseSender(const QObjectCleanupHandler* self) {
+QObject* QObjectCleanupHandler_SuperSender(const QObjectCleanupHandler* self) {
     auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self));
     if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
         vqobjectcleanuphandler->setQObjectCleanupHandler_Sender_IsBase(true);
@@ -359,7 +359,7 @@ int QObjectCleanupHandler_SenderSignalIndex(const QObjectCleanupHandler* self) {
 }
 
 // Base class handler implementation
-int QObjectCleanupHandler_QBaseSenderSignalIndex(const QObjectCleanupHandler* self) {
+int QObjectCleanupHandler_SuperSenderSignalIndex(const QObjectCleanupHandler* self) {
     auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self));
     if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
         vqobjectcleanuphandler->setQObjectCleanupHandler_SenderSignalIndex_IsBase(true);
@@ -388,7 +388,7 @@ int QObjectCleanupHandler_Receivers(const QObjectCleanupHandler* self, const cha
 }
 
 // Base class handler implementation
-int QObjectCleanupHandler_QBaseReceivers(const QObjectCleanupHandler* self, const char* signal) {
+int QObjectCleanupHandler_SuperReceivers(const QObjectCleanupHandler* self, const char* signal) {
     auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self));
     if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
         vqobjectcleanuphandler->setQObjectCleanupHandler_Receivers_IsBase(true);
@@ -417,7 +417,7 @@ bool QObjectCleanupHandler_IsSignalConnected(const QObjectCleanupHandler* self, 
 }
 
 // Base class handler implementation
-bool QObjectCleanupHandler_QBaseIsSignalConnected(const QObjectCleanupHandler* self, const QMetaMethod* signal) {
+bool QObjectCleanupHandler_SuperIsSignalConnected(const QObjectCleanupHandler* self, const QMetaMethod* signal) {
     auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self));
     if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
         vqobjectcleanuphandler->setQObjectCleanupHandler_IsSignalConnected_IsBase(true);

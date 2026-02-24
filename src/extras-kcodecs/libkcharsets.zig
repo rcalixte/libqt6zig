@@ -217,6 +217,10 @@ pub const kcharsets = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kcharsets.html#dtor.KCharsets)
     ///
     /// Delete this object from C++ memory.
@@ -225,7 +229,7 @@ pub const kcharsets = struct {
     ///
     /// ` self: QtC.KCharsets `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KCharsets_Delete(@ptrCast(self));
     }
 };

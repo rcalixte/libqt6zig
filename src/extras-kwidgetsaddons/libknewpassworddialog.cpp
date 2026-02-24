@@ -218,7 +218,7 @@ void KNewPasswordDialog_Connect_NewPassword(KNewPasswordDialog* self, intptr_t s
 }
 
 // Base class handler implementation
-QMetaObject* KNewPasswordDialog_QBaseMetaObject(const KNewPasswordDialog* self) {
+QMetaObject* KNewPasswordDialog_SuperMetaObject(const KNewPasswordDialog* self) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_MetaObject_IsBase(true);
@@ -237,7 +237,7 @@ void KNewPasswordDialog_OnMetaObject(const KNewPasswordDialog* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* KNewPasswordDialog_QBaseMetacast(KNewPasswordDialog* self, const char* param1) {
+void* KNewPasswordDialog_SuperMetacast(KNewPasswordDialog* self, const char* param1) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_Metacast_IsBase(true);
@@ -256,7 +256,7 @@ void KNewPasswordDialog_OnMetacast(KNewPasswordDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KNewPasswordDialog_QBaseMetacall(KNewPasswordDialog* self, int param1, int param2, void** param3) {
+int KNewPasswordDialog_SuperMetacall(KNewPasswordDialog* self, int param1, int param2, void** param3) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_Metacall_IsBase(true);
@@ -275,7 +275,7 @@ void KNewPasswordDialog_OnMetacall(KNewPasswordDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseAccept(KNewPasswordDialog* self) {
+void KNewPasswordDialog_SuperAccept(KNewPasswordDialog* self) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_Accept_IsBase(true);
@@ -294,7 +294,7 @@ void KNewPasswordDialog_OnAccept(KNewPasswordDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KNewPasswordDialog_QBaseCheckPassword(KNewPasswordDialog* self, const libqt_string param1) {
+bool KNewPasswordDialog_SuperCheckPassword(KNewPasswordDialog* self, const libqt_string param1) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
@@ -324,7 +324,7 @@ void KNewPasswordDialog_SetVisible(KNewPasswordDialog* self, bool visible) {
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseSetVisible(KNewPasswordDialog* self, bool visible) {
+void KNewPasswordDialog_SuperSetVisible(KNewPasswordDialog* self, bool visible) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_SetVisible_IsBase(true);
@@ -353,7 +353,7 @@ QSize* KNewPasswordDialog_SizeHint(const KNewPasswordDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KNewPasswordDialog_QBaseSizeHint(const KNewPasswordDialog* self) {
+QSize* KNewPasswordDialog_SuperSizeHint(const KNewPasswordDialog* self) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_SizeHint_IsBase(true);
@@ -382,7 +382,7 @@ QSize* KNewPasswordDialog_MinimumSizeHint(const KNewPasswordDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KNewPasswordDialog_QBaseMinimumSizeHint(const KNewPasswordDialog* self) {
+QSize* KNewPasswordDialog_SuperMinimumSizeHint(const KNewPasswordDialog* self) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_MinimumSizeHint_IsBase(true);
@@ -411,7 +411,7 @@ void KNewPasswordDialog_Open(KNewPasswordDialog* self) {
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseOpen(KNewPasswordDialog* self) {
+void KNewPasswordDialog_SuperOpen(KNewPasswordDialog* self) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_Open_IsBase(true);
@@ -440,7 +440,7 @@ int KNewPasswordDialog_Exec(KNewPasswordDialog* self) {
 }
 
 // Base class handler implementation
-int KNewPasswordDialog_QBaseExec(KNewPasswordDialog* self) {
+int KNewPasswordDialog_SuperExec(KNewPasswordDialog* self) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_Exec_IsBase(true);
@@ -469,7 +469,7 @@ void KNewPasswordDialog_Done(KNewPasswordDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseDone(KNewPasswordDialog* self, int param1) {
+void KNewPasswordDialog_SuperDone(KNewPasswordDialog* self, int param1) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_Done_IsBase(true);
@@ -498,7 +498,7 @@ void KNewPasswordDialog_Reject(KNewPasswordDialog* self) {
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseReject(KNewPasswordDialog* self) {
+void KNewPasswordDialog_SuperReject(KNewPasswordDialog* self) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_Reject_IsBase(true);
@@ -527,7 +527,7 @@ void KNewPasswordDialog_KeyPressEvent(KNewPasswordDialog* self, QKeyEvent* param
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseKeyPressEvent(KNewPasswordDialog* self, QKeyEvent* param1) {
+void KNewPasswordDialog_SuperKeyPressEvent(KNewPasswordDialog* self, QKeyEvent* param1) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_KeyPressEvent_IsBase(true);
@@ -556,7 +556,7 @@ void KNewPasswordDialog_CloseEvent(KNewPasswordDialog* self, QCloseEvent* param1
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseCloseEvent(KNewPasswordDialog* self, QCloseEvent* param1) {
+void KNewPasswordDialog_SuperCloseEvent(KNewPasswordDialog* self, QCloseEvent* param1) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_CloseEvent_IsBase(true);
@@ -585,7 +585,7 @@ void KNewPasswordDialog_ShowEvent(KNewPasswordDialog* self, QShowEvent* param1) 
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseShowEvent(KNewPasswordDialog* self, QShowEvent* param1) {
+void KNewPasswordDialog_SuperShowEvent(KNewPasswordDialog* self, QShowEvent* param1) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_ShowEvent_IsBase(true);
@@ -614,7 +614,7 @@ void KNewPasswordDialog_ResizeEvent(KNewPasswordDialog* self, QResizeEvent* para
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseResizeEvent(KNewPasswordDialog* self, QResizeEvent* param1) {
+void KNewPasswordDialog_SuperResizeEvent(KNewPasswordDialog* self, QResizeEvent* param1) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_ResizeEvent_IsBase(true);
@@ -643,7 +643,7 @@ void KNewPasswordDialog_ContextMenuEvent(KNewPasswordDialog* self, QContextMenuE
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseContextMenuEvent(KNewPasswordDialog* self, QContextMenuEvent* param1) {
+void KNewPasswordDialog_SuperContextMenuEvent(KNewPasswordDialog* self, QContextMenuEvent* param1) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_ContextMenuEvent_IsBase(true);
@@ -672,7 +672,7 @@ bool KNewPasswordDialog_EventFilter(KNewPasswordDialog* self, QObject* param1, Q
 }
 
 // Base class handler implementation
-bool KNewPasswordDialog_QBaseEventFilter(KNewPasswordDialog* self, QObject* param1, QEvent* param2) {
+bool KNewPasswordDialog_SuperEventFilter(KNewPasswordDialog* self, QObject* param1, QEvent* param2) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_EventFilter_IsBase(true);
@@ -701,7 +701,7 @@ int KNewPasswordDialog_DevType(const KNewPasswordDialog* self) {
 }
 
 // Base class handler implementation
-int KNewPasswordDialog_QBaseDevType(const KNewPasswordDialog* self) {
+int KNewPasswordDialog_SuperDevType(const KNewPasswordDialog* self) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_DevType_IsBase(true);
@@ -730,7 +730,7 @@ int KNewPasswordDialog_HeightForWidth(const KNewPasswordDialog* self, int param1
 }
 
 // Base class handler implementation
-int KNewPasswordDialog_QBaseHeightForWidth(const KNewPasswordDialog* self, int param1) {
+int KNewPasswordDialog_SuperHeightForWidth(const KNewPasswordDialog* self, int param1) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_HeightForWidth_IsBase(true);
@@ -759,7 +759,7 @@ bool KNewPasswordDialog_HasHeightForWidth(const KNewPasswordDialog* self) {
 }
 
 // Base class handler implementation
-bool KNewPasswordDialog_QBaseHasHeightForWidth(const KNewPasswordDialog* self) {
+bool KNewPasswordDialog_SuperHasHeightForWidth(const KNewPasswordDialog* self) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_HasHeightForWidth_IsBase(true);
@@ -788,7 +788,7 @@ QPaintEngine* KNewPasswordDialog_PaintEngine(const KNewPasswordDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KNewPasswordDialog_QBasePaintEngine(const KNewPasswordDialog* self) {
+QPaintEngine* KNewPasswordDialog_SuperPaintEngine(const KNewPasswordDialog* self) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_PaintEngine_IsBase(true);
@@ -817,7 +817,7 @@ bool KNewPasswordDialog_Event(KNewPasswordDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KNewPasswordDialog_QBaseEvent(KNewPasswordDialog* self, QEvent* event) {
+bool KNewPasswordDialog_SuperEvent(KNewPasswordDialog* self, QEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_Event_IsBase(true);
@@ -846,7 +846,7 @@ void KNewPasswordDialog_MousePressEvent(KNewPasswordDialog* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseMousePressEvent(KNewPasswordDialog* self, QMouseEvent* event) {
+void KNewPasswordDialog_SuperMousePressEvent(KNewPasswordDialog* self, QMouseEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_MousePressEvent_IsBase(true);
@@ -875,7 +875,7 @@ void KNewPasswordDialog_MouseReleaseEvent(KNewPasswordDialog* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseMouseReleaseEvent(KNewPasswordDialog* self, QMouseEvent* event) {
+void KNewPasswordDialog_SuperMouseReleaseEvent(KNewPasswordDialog* self, QMouseEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_MouseReleaseEvent_IsBase(true);
@@ -904,7 +904,7 @@ void KNewPasswordDialog_MouseDoubleClickEvent(KNewPasswordDialog* self, QMouseEv
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseMouseDoubleClickEvent(KNewPasswordDialog* self, QMouseEvent* event) {
+void KNewPasswordDialog_SuperMouseDoubleClickEvent(KNewPasswordDialog* self, QMouseEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_MouseDoubleClickEvent_IsBase(true);
@@ -933,7 +933,7 @@ void KNewPasswordDialog_MouseMoveEvent(KNewPasswordDialog* self, QMouseEvent* ev
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseMouseMoveEvent(KNewPasswordDialog* self, QMouseEvent* event) {
+void KNewPasswordDialog_SuperMouseMoveEvent(KNewPasswordDialog* self, QMouseEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_MouseMoveEvent_IsBase(true);
@@ -962,7 +962,7 @@ void KNewPasswordDialog_WheelEvent(KNewPasswordDialog* self, QWheelEvent* event)
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseWheelEvent(KNewPasswordDialog* self, QWheelEvent* event) {
+void KNewPasswordDialog_SuperWheelEvent(KNewPasswordDialog* self, QWheelEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_WheelEvent_IsBase(true);
@@ -991,7 +991,7 @@ void KNewPasswordDialog_KeyReleaseEvent(KNewPasswordDialog* self, QKeyEvent* eve
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseKeyReleaseEvent(KNewPasswordDialog* self, QKeyEvent* event) {
+void KNewPasswordDialog_SuperKeyReleaseEvent(KNewPasswordDialog* self, QKeyEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_KeyReleaseEvent_IsBase(true);
@@ -1020,7 +1020,7 @@ void KNewPasswordDialog_FocusInEvent(KNewPasswordDialog* self, QFocusEvent* even
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseFocusInEvent(KNewPasswordDialog* self, QFocusEvent* event) {
+void KNewPasswordDialog_SuperFocusInEvent(KNewPasswordDialog* self, QFocusEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_FocusInEvent_IsBase(true);
@@ -1049,7 +1049,7 @@ void KNewPasswordDialog_FocusOutEvent(KNewPasswordDialog* self, QFocusEvent* eve
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseFocusOutEvent(KNewPasswordDialog* self, QFocusEvent* event) {
+void KNewPasswordDialog_SuperFocusOutEvent(KNewPasswordDialog* self, QFocusEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_FocusOutEvent_IsBase(true);
@@ -1078,7 +1078,7 @@ void KNewPasswordDialog_EnterEvent(KNewPasswordDialog* self, QEnterEvent* event)
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseEnterEvent(KNewPasswordDialog* self, QEnterEvent* event) {
+void KNewPasswordDialog_SuperEnterEvent(KNewPasswordDialog* self, QEnterEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_EnterEvent_IsBase(true);
@@ -1107,7 +1107,7 @@ void KNewPasswordDialog_LeaveEvent(KNewPasswordDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseLeaveEvent(KNewPasswordDialog* self, QEvent* event) {
+void KNewPasswordDialog_SuperLeaveEvent(KNewPasswordDialog* self, QEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_LeaveEvent_IsBase(true);
@@ -1136,7 +1136,7 @@ void KNewPasswordDialog_PaintEvent(KNewPasswordDialog* self, QPaintEvent* event)
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBasePaintEvent(KNewPasswordDialog* self, QPaintEvent* event) {
+void KNewPasswordDialog_SuperPaintEvent(KNewPasswordDialog* self, QPaintEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_PaintEvent_IsBase(true);
@@ -1165,7 +1165,7 @@ void KNewPasswordDialog_MoveEvent(KNewPasswordDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseMoveEvent(KNewPasswordDialog* self, QMoveEvent* event) {
+void KNewPasswordDialog_SuperMoveEvent(KNewPasswordDialog* self, QMoveEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_MoveEvent_IsBase(true);
@@ -1194,7 +1194,7 @@ void KNewPasswordDialog_TabletEvent(KNewPasswordDialog* self, QTabletEvent* even
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseTabletEvent(KNewPasswordDialog* self, QTabletEvent* event) {
+void KNewPasswordDialog_SuperTabletEvent(KNewPasswordDialog* self, QTabletEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_TabletEvent_IsBase(true);
@@ -1223,7 +1223,7 @@ void KNewPasswordDialog_ActionEvent(KNewPasswordDialog* self, QActionEvent* even
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseActionEvent(KNewPasswordDialog* self, QActionEvent* event) {
+void KNewPasswordDialog_SuperActionEvent(KNewPasswordDialog* self, QActionEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_ActionEvent_IsBase(true);
@@ -1252,7 +1252,7 @@ void KNewPasswordDialog_DragEnterEvent(KNewPasswordDialog* self, QDragEnterEvent
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseDragEnterEvent(KNewPasswordDialog* self, QDragEnterEvent* event) {
+void KNewPasswordDialog_SuperDragEnterEvent(KNewPasswordDialog* self, QDragEnterEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_DragEnterEvent_IsBase(true);
@@ -1281,7 +1281,7 @@ void KNewPasswordDialog_DragMoveEvent(KNewPasswordDialog* self, QDragMoveEvent* 
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseDragMoveEvent(KNewPasswordDialog* self, QDragMoveEvent* event) {
+void KNewPasswordDialog_SuperDragMoveEvent(KNewPasswordDialog* self, QDragMoveEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_DragMoveEvent_IsBase(true);
@@ -1310,7 +1310,7 @@ void KNewPasswordDialog_DragLeaveEvent(KNewPasswordDialog* self, QDragLeaveEvent
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseDragLeaveEvent(KNewPasswordDialog* self, QDragLeaveEvent* event) {
+void KNewPasswordDialog_SuperDragLeaveEvent(KNewPasswordDialog* self, QDragLeaveEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_DragLeaveEvent_IsBase(true);
@@ -1339,7 +1339,7 @@ void KNewPasswordDialog_DropEvent(KNewPasswordDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseDropEvent(KNewPasswordDialog* self, QDropEvent* event) {
+void KNewPasswordDialog_SuperDropEvent(KNewPasswordDialog* self, QDropEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_DropEvent_IsBase(true);
@@ -1368,7 +1368,7 @@ void KNewPasswordDialog_HideEvent(KNewPasswordDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseHideEvent(KNewPasswordDialog* self, QHideEvent* event) {
+void KNewPasswordDialog_SuperHideEvent(KNewPasswordDialog* self, QHideEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_HideEvent_IsBase(true);
@@ -1398,7 +1398,7 @@ bool KNewPasswordDialog_NativeEvent(KNewPasswordDialog* self, const libqt_string
 }
 
 // Base class handler implementation
-bool KNewPasswordDialog_QBaseNativeEvent(KNewPasswordDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KNewPasswordDialog_SuperNativeEvent(KNewPasswordDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
@@ -1428,7 +1428,7 @@ void KNewPasswordDialog_ChangeEvent(KNewPasswordDialog* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseChangeEvent(KNewPasswordDialog* self, QEvent* param1) {
+void KNewPasswordDialog_SuperChangeEvent(KNewPasswordDialog* self, QEvent* param1) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_ChangeEvent_IsBase(true);
@@ -1457,7 +1457,7 @@ int KNewPasswordDialog_Metric(const KNewPasswordDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KNewPasswordDialog_QBaseMetric(const KNewPasswordDialog* self, int param1) {
+int KNewPasswordDialog_SuperMetric(const KNewPasswordDialog* self, int param1) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_Metric_IsBase(true);
@@ -1486,7 +1486,7 @@ void KNewPasswordDialog_InitPainter(const KNewPasswordDialog* self, QPainter* pa
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseInitPainter(const KNewPasswordDialog* self, QPainter* painter) {
+void KNewPasswordDialog_SuperInitPainter(const KNewPasswordDialog* self, QPainter* painter) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_InitPainter_IsBase(true);
@@ -1515,7 +1515,7 @@ QPaintDevice* KNewPasswordDialog_Redirected(const KNewPasswordDialog* self, QPoi
 }
 
 // Base class handler implementation
-QPaintDevice* KNewPasswordDialog_QBaseRedirected(const KNewPasswordDialog* self, QPoint* offset) {
+QPaintDevice* KNewPasswordDialog_SuperRedirected(const KNewPasswordDialog* self, QPoint* offset) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_Redirected_IsBase(true);
@@ -1544,7 +1544,7 @@ QPainter* KNewPasswordDialog_SharedPainter(const KNewPasswordDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* KNewPasswordDialog_QBaseSharedPainter(const KNewPasswordDialog* self) {
+QPainter* KNewPasswordDialog_SuperSharedPainter(const KNewPasswordDialog* self) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_SharedPainter_IsBase(true);
@@ -1573,7 +1573,7 @@ void KNewPasswordDialog_InputMethodEvent(KNewPasswordDialog* self, QInputMethodE
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseInputMethodEvent(KNewPasswordDialog* self, QInputMethodEvent* param1) {
+void KNewPasswordDialog_SuperInputMethodEvent(KNewPasswordDialog* self, QInputMethodEvent* param1) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_InputMethodEvent_IsBase(true);
@@ -1602,7 +1602,7 @@ QVariant* KNewPasswordDialog_InputMethodQuery(const KNewPasswordDialog* self, in
 }
 
 // Base class handler implementation
-QVariant* KNewPasswordDialog_QBaseInputMethodQuery(const KNewPasswordDialog* self, int param1) {
+QVariant* KNewPasswordDialog_SuperInputMethodQuery(const KNewPasswordDialog* self, int param1) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_InputMethodQuery_IsBase(true);
@@ -1631,7 +1631,7 @@ bool KNewPasswordDialog_FocusNextPrevChild(KNewPasswordDialog* self, bool next) 
 }
 
 // Base class handler implementation
-bool KNewPasswordDialog_QBaseFocusNextPrevChild(KNewPasswordDialog* self, bool next) {
+bool KNewPasswordDialog_SuperFocusNextPrevChild(KNewPasswordDialog* self, bool next) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_FocusNextPrevChild_IsBase(true);
@@ -1660,7 +1660,7 @@ void KNewPasswordDialog_TimerEvent(KNewPasswordDialog* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseTimerEvent(KNewPasswordDialog* self, QTimerEvent* event) {
+void KNewPasswordDialog_SuperTimerEvent(KNewPasswordDialog* self, QTimerEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_TimerEvent_IsBase(true);
@@ -1689,7 +1689,7 @@ void KNewPasswordDialog_ChildEvent(KNewPasswordDialog* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseChildEvent(KNewPasswordDialog* self, QChildEvent* event) {
+void KNewPasswordDialog_SuperChildEvent(KNewPasswordDialog* self, QChildEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_ChildEvent_IsBase(true);
@@ -1718,7 +1718,7 @@ void KNewPasswordDialog_CustomEvent(KNewPasswordDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseCustomEvent(KNewPasswordDialog* self, QEvent* event) {
+void KNewPasswordDialog_SuperCustomEvent(KNewPasswordDialog* self, QEvent* event) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_CustomEvent_IsBase(true);
@@ -1747,7 +1747,7 @@ void KNewPasswordDialog_ConnectNotify(KNewPasswordDialog* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseConnectNotify(KNewPasswordDialog* self, const QMetaMethod* signal) {
+void KNewPasswordDialog_SuperConnectNotify(KNewPasswordDialog* self, const QMetaMethod* signal) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_ConnectNotify_IsBase(true);
@@ -1776,7 +1776,7 @@ void KNewPasswordDialog_DisconnectNotify(KNewPasswordDialog* self, const QMetaMe
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseDisconnectNotify(KNewPasswordDialog* self, const QMetaMethod* signal) {
+void KNewPasswordDialog_SuperDisconnectNotify(KNewPasswordDialog* self, const QMetaMethod* signal) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_DisconnectNotify_IsBase(true);
@@ -1805,7 +1805,7 @@ void KNewPasswordDialog_AdjustPosition(KNewPasswordDialog* self, QWidget* param1
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseAdjustPosition(KNewPasswordDialog* self, QWidget* param1) {
+void KNewPasswordDialog_SuperAdjustPosition(KNewPasswordDialog* self, QWidget* param1) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_AdjustPosition_IsBase(true);
@@ -1834,7 +1834,7 @@ void KNewPasswordDialog_UpdateMicroFocus(KNewPasswordDialog* self) {
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseUpdateMicroFocus(KNewPasswordDialog* self) {
+void KNewPasswordDialog_SuperUpdateMicroFocus(KNewPasswordDialog* self) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_UpdateMicroFocus_IsBase(true);
@@ -1863,7 +1863,7 @@ void KNewPasswordDialog_Create(KNewPasswordDialog* self) {
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseCreate(KNewPasswordDialog* self) {
+void KNewPasswordDialog_SuperCreate(KNewPasswordDialog* self) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_Create_IsBase(true);
@@ -1892,7 +1892,7 @@ void KNewPasswordDialog_Destroy(KNewPasswordDialog* self) {
 }
 
 // Base class handler implementation
-void KNewPasswordDialog_QBaseDestroy(KNewPasswordDialog* self) {
+void KNewPasswordDialog_SuperDestroy(KNewPasswordDialog* self) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_Destroy_IsBase(true);
@@ -1921,7 +1921,7 @@ bool KNewPasswordDialog_FocusNextChild(KNewPasswordDialog* self) {
 }
 
 // Base class handler implementation
-bool KNewPasswordDialog_QBaseFocusNextChild(KNewPasswordDialog* self) {
+bool KNewPasswordDialog_SuperFocusNextChild(KNewPasswordDialog* self) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_FocusNextChild_IsBase(true);
@@ -1950,7 +1950,7 @@ bool KNewPasswordDialog_FocusPreviousChild(KNewPasswordDialog* self) {
 }
 
 // Base class handler implementation
-bool KNewPasswordDialog_QBaseFocusPreviousChild(KNewPasswordDialog* self) {
+bool KNewPasswordDialog_SuperFocusPreviousChild(KNewPasswordDialog* self) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_FocusPreviousChild_IsBase(true);
@@ -1979,7 +1979,7 @@ QObject* KNewPasswordDialog_Sender(const KNewPasswordDialog* self) {
 }
 
 // Base class handler implementation
-QObject* KNewPasswordDialog_QBaseSender(const KNewPasswordDialog* self) {
+QObject* KNewPasswordDialog_SuperSender(const KNewPasswordDialog* self) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_Sender_IsBase(true);
@@ -2008,7 +2008,7 @@ int KNewPasswordDialog_SenderSignalIndex(const KNewPasswordDialog* self) {
 }
 
 // Base class handler implementation
-int KNewPasswordDialog_QBaseSenderSignalIndex(const KNewPasswordDialog* self) {
+int KNewPasswordDialog_SuperSenderSignalIndex(const KNewPasswordDialog* self) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_SenderSignalIndex_IsBase(true);
@@ -2037,7 +2037,7 @@ int KNewPasswordDialog_Receivers(const KNewPasswordDialog* self, const char* sig
 }
 
 // Base class handler implementation
-int KNewPasswordDialog_QBaseReceivers(const KNewPasswordDialog* self, const char* signal) {
+int KNewPasswordDialog_SuperReceivers(const KNewPasswordDialog* self, const char* signal) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_Receivers_IsBase(true);
@@ -2066,7 +2066,7 @@ bool KNewPasswordDialog_IsSignalConnected(const KNewPasswordDialog* self, const 
 }
 
 // Base class handler implementation
-bool KNewPasswordDialog_QBaseIsSignalConnected(const KNewPasswordDialog* self, const QMetaMethod* signal) {
+bool KNewPasswordDialog_SuperIsSignalConnected(const KNewPasswordDialog* self, const QMetaMethod* signal) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_IsSignalConnected_IsBase(true);
@@ -2095,7 +2095,7 @@ double KNewPasswordDialog_GetDecodedMetricF(const KNewPasswordDialog* self, int 
 }
 
 // Base class handler implementation
-double KNewPasswordDialog_QBaseGetDecodedMetricF(const KNewPasswordDialog* self, int metricA, int metricB) {
+double KNewPasswordDialog_SuperGetDecodedMetricF(const KNewPasswordDialog* self, int metricA, int metricB) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
     if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
         vknewpassworddialog->setKNewPasswordDialog_GetDecodedMetricF_IsBase(true);

@@ -141,7 +141,7 @@ void QTimer_TimerEvent(QTimer* self, QTimerEvent* param1) {
 }
 
 // Base class handler implementation
-QMetaObject* QTimer_QBaseMetaObject(const QTimer* self) {
+QMetaObject* QTimer_SuperMetaObject(const QTimer* self) {
     auto* vqtimer = const_cast<VirtualQTimer*>(dynamic_cast<const VirtualQTimer*>(self));
     if (vqtimer && vqtimer->isVirtualQTimer) {
         vqtimer->setQTimer_MetaObject_IsBase(true);
@@ -160,7 +160,7 @@ void QTimer_OnMetaObject(const QTimer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QTimer_QBaseMetacast(QTimer* self, const char* param1) {
+void* QTimer_SuperMetacast(QTimer* self, const char* param1) {
     auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
     if (vqtimer && vqtimer->isVirtualQTimer) {
         vqtimer->setQTimer_Metacast_IsBase(true);
@@ -179,7 +179,7 @@ void QTimer_OnMetacast(QTimer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTimer_QBaseMetacall(QTimer* self, int param1, int param2, void** param3) {
+int QTimer_SuperMetacall(QTimer* self, int param1, int param2, void** param3) {
     auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
     if (vqtimer && vqtimer->isVirtualQTimer) {
         vqtimer->setQTimer_Metacall_IsBase(true);
@@ -198,7 +198,7 @@ void QTimer_OnMetacall(QTimer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTimer_QBaseTimerEvent(QTimer* self, QTimerEvent* param1) {
+void QTimer_SuperTimerEvent(QTimer* self, QTimerEvent* param1) {
     auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
     if (vqtimer && vqtimer->isVirtualQTimer) {
         vqtimer->setQTimer_TimerEvent_IsBase(true);
@@ -227,7 +227,7 @@ bool QTimer_Event(QTimer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTimer_QBaseEvent(QTimer* self, QEvent* event) {
+bool QTimer_SuperEvent(QTimer* self, QEvent* event) {
     auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
     if (vqtimer && vqtimer->isVirtualQTimer) {
         vqtimer->setQTimer_Event_IsBase(true);
@@ -256,7 +256,7 @@ bool QTimer_EventFilter(QTimer* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTimer_QBaseEventFilter(QTimer* self, QObject* watched, QEvent* event) {
+bool QTimer_SuperEventFilter(QTimer* self, QObject* watched, QEvent* event) {
     auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
     if (vqtimer && vqtimer->isVirtualQTimer) {
         vqtimer->setQTimer_EventFilter_IsBase(true);
@@ -285,7 +285,7 @@ void QTimer_ChildEvent(QTimer* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QTimer_QBaseChildEvent(QTimer* self, QChildEvent* event) {
+void QTimer_SuperChildEvent(QTimer* self, QChildEvent* event) {
     auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
     if (vqtimer && vqtimer->isVirtualQTimer) {
         vqtimer->setQTimer_ChildEvent_IsBase(true);
@@ -314,7 +314,7 @@ void QTimer_CustomEvent(QTimer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTimer_QBaseCustomEvent(QTimer* self, QEvent* event) {
+void QTimer_SuperCustomEvent(QTimer* self, QEvent* event) {
     auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
     if (vqtimer && vqtimer->isVirtualQTimer) {
         vqtimer->setQTimer_CustomEvent_IsBase(true);
@@ -343,7 +343,7 @@ void QTimer_ConnectNotify(QTimer* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTimer_QBaseConnectNotify(QTimer* self, const QMetaMethod* signal) {
+void QTimer_SuperConnectNotify(QTimer* self, const QMetaMethod* signal) {
     auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
     if (vqtimer && vqtimer->isVirtualQTimer) {
         vqtimer->setQTimer_ConnectNotify_IsBase(true);
@@ -372,7 +372,7 @@ void QTimer_DisconnectNotify(QTimer* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTimer_QBaseDisconnectNotify(QTimer* self, const QMetaMethod* signal) {
+void QTimer_SuperDisconnectNotify(QTimer* self, const QMetaMethod* signal) {
     auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
     if (vqtimer && vqtimer->isVirtualQTimer) {
         vqtimer->setQTimer_DisconnectNotify_IsBase(true);
@@ -401,7 +401,7 @@ QObject* QTimer_Sender(const QTimer* self) {
 }
 
 // Base class handler implementation
-QObject* QTimer_QBaseSender(const QTimer* self) {
+QObject* QTimer_SuperSender(const QTimer* self) {
     auto* vqtimer = const_cast<VirtualQTimer*>(dynamic_cast<const VirtualQTimer*>(self));
     if (vqtimer && vqtimer->isVirtualQTimer) {
         vqtimer->setQTimer_Sender_IsBase(true);
@@ -430,7 +430,7 @@ int QTimer_SenderSignalIndex(const QTimer* self) {
 }
 
 // Base class handler implementation
-int QTimer_QBaseSenderSignalIndex(const QTimer* self) {
+int QTimer_SuperSenderSignalIndex(const QTimer* self) {
     auto* vqtimer = const_cast<VirtualQTimer*>(dynamic_cast<const VirtualQTimer*>(self));
     if (vqtimer && vqtimer->isVirtualQTimer) {
         vqtimer->setQTimer_SenderSignalIndex_IsBase(true);
@@ -459,7 +459,7 @@ int QTimer_Receivers(const QTimer* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QTimer_QBaseReceivers(const QTimer* self, const char* signal) {
+int QTimer_SuperReceivers(const QTimer* self, const char* signal) {
     auto* vqtimer = const_cast<VirtualQTimer*>(dynamic_cast<const VirtualQTimer*>(self));
     if (vqtimer && vqtimer->isVirtualQTimer) {
         vqtimer->setQTimer_Receivers_IsBase(true);
@@ -488,7 +488,7 @@ bool QTimer_IsSignalConnected(const QTimer* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QTimer_QBaseIsSignalConnected(const QTimer* self, const QMetaMethod* signal) {
+bool QTimer_SuperIsSignalConnected(const QTimer* self, const QMetaMethod* signal) {
     auto* vqtimer = const_cast<VirtualQTimer*>(dynamic_cast<const VirtualQTimer*>(self));
     if (vqtimer && vqtimer->isVirtualQTimer) {
         vqtimer->setQTimer_IsSignalConnected_IsBase(true);

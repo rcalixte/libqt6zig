@@ -340,7 +340,7 @@ void QSettings_BeginWriteArray2(QSettings* self, const char* prefix, int size) {
 }
 
 // Base class handler implementation
-QMetaObject* QSettings_QBaseMetaObject(const QSettings* self) {
+QMetaObject* QSettings_SuperMetaObject(const QSettings* self) {
     auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
     if (vqsettings && vqsettings->isVirtualQSettings) {
         vqsettings->setQSettings_MetaObject_IsBase(true);
@@ -359,7 +359,7 @@ void QSettings_OnMetaObject(const QSettings* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QSettings_QBaseMetacast(QSettings* self, const char* param1) {
+void* QSettings_SuperMetacast(QSettings* self, const char* param1) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
     if (vqsettings && vqsettings->isVirtualQSettings) {
         vqsettings->setQSettings_Metacast_IsBase(true);
@@ -378,7 +378,7 @@ void QSettings_OnMetacast(QSettings* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSettings_QBaseMetacall(QSettings* self, int param1, int param2, void** param3) {
+int QSettings_SuperMetacall(QSettings* self, int param1, int param2, void** param3) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
     if (vqsettings && vqsettings->isVirtualQSettings) {
         vqsettings->setQSettings_Metacall_IsBase(true);
@@ -397,7 +397,7 @@ void QSettings_OnMetacall(QSettings* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSettings_QBaseEvent(QSettings* self, QEvent* event) {
+bool QSettings_SuperEvent(QSettings* self, QEvent* event) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
     if (vqsettings && vqsettings->isVirtualQSettings) {
         vqsettings->setQSettings_Event_IsBase(true);
@@ -426,7 +426,7 @@ bool QSettings_EventFilter(QSettings* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QSettings_QBaseEventFilter(QSettings* self, QObject* watched, QEvent* event) {
+bool QSettings_SuperEventFilter(QSettings* self, QObject* watched, QEvent* event) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
     if (vqsettings && vqsettings->isVirtualQSettings) {
         vqsettings->setQSettings_EventFilter_IsBase(true);
@@ -455,7 +455,7 @@ void QSettings_TimerEvent(QSettings* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QSettings_QBaseTimerEvent(QSettings* self, QTimerEvent* event) {
+void QSettings_SuperTimerEvent(QSettings* self, QTimerEvent* event) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
     if (vqsettings && vqsettings->isVirtualQSettings) {
         vqsettings->setQSettings_TimerEvent_IsBase(true);
@@ -484,7 +484,7 @@ void QSettings_ChildEvent(QSettings* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QSettings_QBaseChildEvent(QSettings* self, QChildEvent* event) {
+void QSettings_SuperChildEvent(QSettings* self, QChildEvent* event) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
     if (vqsettings && vqsettings->isVirtualQSettings) {
         vqsettings->setQSettings_ChildEvent_IsBase(true);
@@ -513,7 +513,7 @@ void QSettings_CustomEvent(QSettings* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSettings_QBaseCustomEvent(QSettings* self, QEvent* event) {
+void QSettings_SuperCustomEvent(QSettings* self, QEvent* event) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
     if (vqsettings && vqsettings->isVirtualQSettings) {
         vqsettings->setQSettings_CustomEvent_IsBase(true);
@@ -542,7 +542,7 @@ void QSettings_ConnectNotify(QSettings* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QSettings_QBaseConnectNotify(QSettings* self, const QMetaMethod* signal) {
+void QSettings_SuperConnectNotify(QSettings* self, const QMetaMethod* signal) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
     if (vqsettings && vqsettings->isVirtualQSettings) {
         vqsettings->setQSettings_ConnectNotify_IsBase(true);
@@ -571,7 +571,7 @@ void QSettings_DisconnectNotify(QSettings* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QSettings_QBaseDisconnectNotify(QSettings* self, const QMetaMethod* signal) {
+void QSettings_SuperDisconnectNotify(QSettings* self, const QMetaMethod* signal) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
     if (vqsettings && vqsettings->isVirtualQSettings) {
         vqsettings->setQSettings_DisconnectNotify_IsBase(true);
@@ -600,7 +600,7 @@ QObject* QSettings_Sender(const QSettings* self) {
 }
 
 // Base class handler implementation
-QObject* QSettings_QBaseSender(const QSettings* self) {
+QObject* QSettings_SuperSender(const QSettings* self) {
     auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
     if (vqsettings && vqsettings->isVirtualQSettings) {
         vqsettings->setQSettings_Sender_IsBase(true);
@@ -629,7 +629,7 @@ int QSettings_SenderSignalIndex(const QSettings* self) {
 }
 
 // Base class handler implementation
-int QSettings_QBaseSenderSignalIndex(const QSettings* self) {
+int QSettings_SuperSenderSignalIndex(const QSettings* self) {
     auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
     if (vqsettings && vqsettings->isVirtualQSettings) {
         vqsettings->setQSettings_SenderSignalIndex_IsBase(true);
@@ -658,7 +658,7 @@ int QSettings_Receivers(const QSettings* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QSettings_QBaseReceivers(const QSettings* self, const char* signal) {
+int QSettings_SuperReceivers(const QSettings* self, const char* signal) {
     auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
     if (vqsettings && vqsettings->isVirtualQSettings) {
         vqsettings->setQSettings_Receivers_IsBase(true);
@@ -687,7 +687,7 @@ bool QSettings_IsSignalConnected(const QSettings* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool QSettings_QBaseIsSignalConnected(const QSettings* self, const QMetaMethod* signal) {
+bool QSettings_SuperIsSignalConnected(const QSettings* self, const QMetaMethod* signal) {
     auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
     if (vqsettings && vqsettings->isVirtualQSettings) {
         vqsettings->setQSettings_IsSignalConnected_IsBase(true);

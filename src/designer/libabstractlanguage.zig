@@ -148,6 +148,10 @@ pub const qdesignerlanguageextension = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlanguageextension.html#dtor.QDesignerLanguageExtension)
     ///
     /// Delete this object from C++ memory.
@@ -156,7 +160,7 @@ pub const qdesignerlanguageextension = struct {
     ///
     /// ` self: QtC.QDesignerLanguageExtension `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDesignerLanguageExtension_Delete(@ptrCast(self));
     }
 };

@@ -36,6 +36,10 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -44,8 +48,8 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` self: QtC.KTextEditor__InlineNoteProvider `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KTextEditor__InlineNoteProvider_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KTextEditor__InlineNoteProvider_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -71,6 +75,10 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -79,9 +87,9 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KTextEditor__InlineNoteProvider_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KTextEditor__InlineNoteProvider_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -110,6 +118,10 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -122,8 +134,8 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KTextEditor__InlineNoteProvider_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KTextEditor__InlineNoteProvider_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -182,6 +194,10 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_OnInlineNotes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInlineNotes` instead
+    ///
+    pub const QBaseInlineNotes = SuperInlineNotes;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNotes)
     ///
     /// Base class method implementation
@@ -194,8 +210,8 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseInlineNotes(self: ?*anyopaque, line: i32, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.libqt_list = qtc.KTextEditor__InlineNoteProvider_QBaseInlineNotes(@ptrCast(self), @bitCast(line));
+    pub fn SuperInlineNotes(self: ?*anyopaque, line: i32, allocator: std.mem.Allocator) []i32 {
+        const _arr: qtc.libqt_list = qtc.KTextEditor__InlineNoteProvider_SuperInlineNotes(@ptrCast(self), @bitCast(line));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("ktexteditor__inlinenoteprovider.InlineNotes: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -229,6 +245,10 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_OnInlineNoteSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInlineNoteSize` instead
+    ///
+    pub const QBaseInlineNoteSize = SuperInlineNoteSize;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteSize)
     ///
     /// Base class method implementation
@@ -239,8 +259,8 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` note: QtC.KTextEditor__InlineNote `
     ///
-    pub fn QBaseInlineNoteSize(self: ?*anyopaque, note: ?*anyopaque) QtC.QSize {
-        return qtc.KTextEditor__InlineNoteProvider_QBaseInlineNoteSize(@ptrCast(self), @ptrCast(note));
+    pub fn SuperInlineNoteSize(self: ?*anyopaque, note: ?*anyopaque) QtC.QSize {
+        return qtc.KTextEditor__InlineNoteProvider_SuperInlineNoteSize(@ptrCast(self), @ptrCast(note));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#paintInlineNote)
@@ -273,6 +293,10 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_OnPaintInlineNote(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintInlineNote` instead
+    ///
+    pub const QBasePaintInlineNote = SuperPaintInlineNote;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#paintInlineNote)
     ///
     /// Base class method implementation
@@ -287,8 +311,8 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn QBasePaintInlineNote(self: ?*anyopaque, note: ?*anyopaque, painter: ?*anyopaque, direction: i32) void {
-        qtc.KTextEditor__InlineNoteProvider_QBasePaintInlineNote(@ptrCast(self), @ptrCast(note), @ptrCast(painter), @bitCast(direction));
+    pub fn SuperPaintInlineNote(self: ?*anyopaque, note: ?*anyopaque, painter: ?*anyopaque, direction: i32) void {
+        qtc.KTextEditor__InlineNoteProvider_SuperPaintInlineNote(@ptrCast(self), @ptrCast(note), @ptrCast(painter), @bitCast(direction));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteActivated)
@@ -321,6 +345,10 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_OnInlineNoteActivated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInlineNoteActivated` instead
+    ///
+    pub const QBaseInlineNoteActivated = SuperInlineNoteActivated;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteActivated)
     ///
     /// Base class method implementation
@@ -335,8 +363,8 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` globalPos: QtC.QPoint `
     ///
-    pub fn QBaseInlineNoteActivated(self: ?*anyopaque, note: ?*anyopaque, buttons: i32, globalPos: ?*anyopaque) void {
-        qtc.KTextEditor__InlineNoteProvider_QBaseInlineNoteActivated(@ptrCast(self), @ptrCast(note), @bitCast(buttons), @ptrCast(globalPos));
+    pub fn SuperInlineNoteActivated(self: ?*anyopaque, note: ?*anyopaque, buttons: i32, globalPos: ?*anyopaque) void {
+        qtc.KTextEditor__InlineNoteProvider_SuperInlineNoteActivated(@ptrCast(self), @ptrCast(note), @bitCast(buttons), @ptrCast(globalPos));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteFocusInEvent)
@@ -367,6 +395,10 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_OnInlineNoteFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInlineNoteFocusInEvent` instead
+    ///
+    pub const QBaseInlineNoteFocusInEvent = SuperInlineNoteFocusInEvent;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteFocusInEvent)
     ///
     /// Base class method implementation
@@ -379,8 +411,8 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` globalPos: QtC.QPoint `
     ///
-    pub fn QBaseInlineNoteFocusInEvent(self: ?*anyopaque, note: ?*anyopaque, globalPos: ?*anyopaque) void {
-        qtc.KTextEditor__InlineNoteProvider_QBaseInlineNoteFocusInEvent(@ptrCast(self), @ptrCast(note), @ptrCast(globalPos));
+    pub fn SuperInlineNoteFocusInEvent(self: ?*anyopaque, note: ?*anyopaque, globalPos: ?*anyopaque) void {
+        qtc.KTextEditor__InlineNoteProvider_SuperInlineNoteFocusInEvent(@ptrCast(self), @ptrCast(note), @ptrCast(globalPos));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteFocusOutEvent)
@@ -409,6 +441,10 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_OnInlineNoteFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInlineNoteFocusOutEvent` instead
+    ///
+    pub const QBaseInlineNoteFocusOutEvent = SuperInlineNoteFocusOutEvent;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteFocusOutEvent)
     ///
     /// Base class method implementation
@@ -419,8 +455,8 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` note: QtC.KTextEditor__InlineNote `
     ///
-    pub fn QBaseInlineNoteFocusOutEvent(self: ?*anyopaque, note: ?*anyopaque) void {
-        qtc.KTextEditor__InlineNoteProvider_QBaseInlineNoteFocusOutEvent(@ptrCast(self), @ptrCast(note));
+    pub fn SuperInlineNoteFocusOutEvent(self: ?*anyopaque, note: ?*anyopaque) void {
+        qtc.KTextEditor__InlineNoteProvider_SuperInlineNoteFocusOutEvent(@ptrCast(self), @ptrCast(note));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteMouseMoveEvent)
@@ -451,6 +487,10 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_OnInlineNoteMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInlineNoteMouseMoveEvent` instead
+    ///
+    pub const QBaseInlineNoteMouseMoveEvent = SuperInlineNoteMouseMoveEvent;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNoteMouseMoveEvent)
     ///
     /// Base class method implementation
@@ -463,8 +503,8 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` globalPos: QtC.QPoint `
     ///
-    pub fn QBaseInlineNoteMouseMoveEvent(self: ?*anyopaque, note: ?*anyopaque, globalPos: ?*anyopaque) void {
-        qtc.KTextEditor__InlineNoteProvider_QBaseInlineNoteMouseMoveEvent(@ptrCast(self), @ptrCast(note), @ptrCast(globalPos));
+    pub fn SuperInlineNoteMouseMoveEvent(self: ?*anyopaque, note: ?*anyopaque, globalPos: ?*anyopaque) void {
+        qtc.KTextEditor__InlineNoteProvider_SuperInlineNoteMouseMoveEvent(@ptrCast(self), @ptrCast(note), @ptrCast(globalPos));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenoteprovider.html#inlineNotesReset)
@@ -1309,6 +1349,10 @@ pub const ktexteditor__inlinenoteprovider = struct {
         return qtc.KTextEditor__InlineNoteProvider_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1321,8 +1365,8 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KTextEditor__InlineNoteProvider_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KTextEditor__InlineNoteProvider_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1359,6 +1403,10 @@ pub const ktexteditor__inlinenoteprovider = struct {
         return qtc.KTextEditor__InlineNoteProvider_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1373,8 +1421,8 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KTextEditor__InlineNoteProvider_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KTextEditor__InlineNoteProvider_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1409,6 +1457,10 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1421,8 +1473,8 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTextEditor__InlineNoteProvider_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KTextEditor__InlineNoteProvider_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1457,6 +1509,10 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1469,8 +1525,8 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTextEditor__InlineNoteProvider_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KTextEditor__InlineNoteProvider_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1505,6 +1561,10 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1517,8 +1577,8 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTextEditor__InlineNoteProvider_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KTextEditor__InlineNoteProvider_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1553,6 +1613,10 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1565,8 +1629,8 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KTextEditor__InlineNoteProvider_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KTextEditor__InlineNoteProvider_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1601,6 +1665,10 @@ pub const ktexteditor__inlinenoteprovider = struct {
         qtc.KTextEditor__InlineNoteProvider_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1613,8 +1681,8 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KTextEditor__InlineNoteProvider_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KTextEditor__InlineNoteProvider_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1647,6 +1715,10 @@ pub const ktexteditor__inlinenoteprovider = struct {
         return qtc.KTextEditor__InlineNoteProvider_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1657,8 +1729,8 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` self: QtC.KTextEditor__InlineNoteProvider `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KTextEditor__InlineNoteProvider_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KTextEditor__InlineNoteProvider_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1691,6 +1763,10 @@ pub const ktexteditor__inlinenoteprovider = struct {
         return qtc.KTextEditor__InlineNoteProvider_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1701,8 +1777,8 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` self: QtC.KTextEditor__InlineNoteProvider `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KTextEditor__InlineNoteProvider_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KTextEditor__InlineNoteProvider_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1738,6 +1814,10 @@ pub const ktexteditor__inlinenoteprovider = struct {
         return qtc.KTextEditor__InlineNoteProvider_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1750,9 +1830,9 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KTextEditor__InlineNoteProvider_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KTextEditor__InlineNoteProvider_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1787,6 +1867,10 @@ pub const ktexteditor__inlinenoteprovider = struct {
         return qtc.KTextEditor__InlineNoteProvider_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -1799,8 +1883,8 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KTextEditor__InlineNoteProvider_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KTextEditor__InlineNoteProvider_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1834,6 +1918,9 @@ pub const ktexteditor__inlinenoteprovider = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -1841,7 +1928,7 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` self: QtC.KTextEditor__InlineNoteProvider `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KTextEditor__InlineNoteProvider_Delete(@ptrCast(self));
     }
 };

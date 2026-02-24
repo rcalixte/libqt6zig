@@ -180,7 +180,7 @@ long long QBuffer_WriteData(QBuffer* self, const char* data, long long lenVal) {
 }
 
 // Base class handler implementation
-QMetaObject* QBuffer_QBaseMetaObject(const QBuffer* self) {
+QMetaObject* QBuffer_SuperMetaObject(const QBuffer* self) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_MetaObject_IsBase(true);
@@ -199,7 +199,7 @@ void QBuffer_OnMetaObject(const QBuffer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QBuffer_QBaseMetacast(QBuffer* self, const char* param1) {
+void* QBuffer_SuperMetacast(QBuffer* self, const char* param1) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_Metacast_IsBase(true);
@@ -218,7 +218,7 @@ void QBuffer_OnMetacast(QBuffer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QBuffer_QBaseMetacall(QBuffer* self, int param1, int param2, void** param3) {
+int QBuffer_SuperMetacall(QBuffer* self, int param1, int param2, void** param3) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_Metacall_IsBase(true);
@@ -237,7 +237,7 @@ void QBuffer_OnMetacall(QBuffer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QBuffer_QBaseOpen(QBuffer* self, int openMode) {
+bool QBuffer_SuperOpen(QBuffer* self, int openMode) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_Open_IsBase(true);
@@ -256,7 +256,7 @@ void QBuffer_OnOpen(QBuffer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QBuffer_QBaseClose(QBuffer* self) {
+void QBuffer_SuperClose(QBuffer* self) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_Close_IsBase(true);
@@ -275,7 +275,7 @@ void QBuffer_OnClose(QBuffer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QBuffer_QBaseSize(const QBuffer* self) {
+long long QBuffer_SuperSize(const QBuffer* self) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_Size_IsBase(true);
@@ -294,7 +294,7 @@ void QBuffer_OnSize(const QBuffer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QBuffer_QBasePos(const QBuffer* self) {
+long long QBuffer_SuperPos(const QBuffer* self) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_Pos_IsBase(true);
@@ -313,7 +313,7 @@ void QBuffer_OnPos(const QBuffer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QBuffer_QBaseSeek(QBuffer* self, long long off) {
+bool QBuffer_SuperSeek(QBuffer* self, long long off) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_Seek_IsBase(true);
@@ -332,7 +332,7 @@ void QBuffer_OnSeek(QBuffer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QBuffer_QBaseAtEnd(const QBuffer* self) {
+bool QBuffer_SuperAtEnd(const QBuffer* self) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_AtEnd_IsBase(true);
@@ -351,7 +351,7 @@ void QBuffer_OnAtEnd(const QBuffer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QBuffer_QBaseCanReadLine(const QBuffer* self) {
+bool QBuffer_SuperCanReadLine(const QBuffer* self) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_CanReadLine_IsBase(true);
@@ -370,7 +370,7 @@ void QBuffer_OnCanReadLine(const QBuffer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QBuffer_QBaseConnectNotify(QBuffer* self, const QMetaMethod* param1) {
+void QBuffer_SuperConnectNotify(QBuffer* self, const QMetaMethod* param1) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_ConnectNotify_IsBase(true);
@@ -389,7 +389,7 @@ void QBuffer_OnConnectNotify(QBuffer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QBuffer_QBaseDisconnectNotify(QBuffer* self, const QMetaMethod* param1) {
+void QBuffer_SuperDisconnectNotify(QBuffer* self, const QMetaMethod* param1) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_DisconnectNotify_IsBase(true);
@@ -408,7 +408,7 @@ void QBuffer_OnDisconnectNotify(QBuffer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QBuffer_QBaseReadData(QBuffer* self, char* data, long long maxlen) {
+long long QBuffer_SuperReadData(QBuffer* self, char* data, long long maxlen) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_ReadData_IsBase(true);
@@ -427,7 +427,7 @@ void QBuffer_OnReadData(QBuffer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QBuffer_QBaseWriteData(QBuffer* self, const char* data, long long lenVal) {
+long long QBuffer_SuperWriteData(QBuffer* self, const char* data, long long lenVal) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_WriteData_IsBase(true);
@@ -456,7 +456,7 @@ bool QBuffer_IsSequential(const QBuffer* self) {
 }
 
 // Base class handler implementation
-bool QBuffer_QBaseIsSequential(const QBuffer* self) {
+bool QBuffer_SuperIsSequential(const QBuffer* self) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_IsSequential_IsBase(true);
@@ -485,7 +485,7 @@ bool QBuffer_Reset(QBuffer* self) {
 }
 
 // Base class handler implementation
-bool QBuffer_QBaseReset(QBuffer* self) {
+bool QBuffer_SuperReset(QBuffer* self) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_Reset_IsBase(true);
@@ -514,7 +514,7 @@ long long QBuffer_BytesAvailable(const QBuffer* self) {
 }
 
 // Base class handler implementation
-long long QBuffer_QBaseBytesAvailable(const QBuffer* self) {
+long long QBuffer_SuperBytesAvailable(const QBuffer* self) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_BytesAvailable_IsBase(true);
@@ -543,7 +543,7 @@ long long QBuffer_BytesToWrite(const QBuffer* self) {
 }
 
 // Base class handler implementation
-long long QBuffer_QBaseBytesToWrite(const QBuffer* self) {
+long long QBuffer_SuperBytesToWrite(const QBuffer* self) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_BytesToWrite_IsBase(true);
@@ -572,7 +572,7 @@ bool QBuffer_WaitForReadyRead(QBuffer* self, int msecs) {
 }
 
 // Base class handler implementation
-bool QBuffer_QBaseWaitForReadyRead(QBuffer* self, int msecs) {
+bool QBuffer_SuperWaitForReadyRead(QBuffer* self, int msecs) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_WaitForReadyRead_IsBase(true);
@@ -601,7 +601,7 @@ bool QBuffer_WaitForBytesWritten(QBuffer* self, int msecs) {
 }
 
 // Base class handler implementation
-bool QBuffer_QBaseWaitForBytesWritten(QBuffer* self, int msecs) {
+bool QBuffer_SuperWaitForBytesWritten(QBuffer* self, int msecs) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_WaitForBytesWritten_IsBase(true);
@@ -630,7 +630,7 @@ long long QBuffer_ReadLineData(QBuffer* self, char* data, long long maxlen) {
 }
 
 // Base class handler implementation
-long long QBuffer_QBaseReadLineData(QBuffer* self, char* data, long long maxlen) {
+long long QBuffer_SuperReadLineData(QBuffer* self, char* data, long long maxlen) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_ReadLineData_IsBase(true);
@@ -659,7 +659,7 @@ long long QBuffer_SkipData(QBuffer* self, long long maxSize) {
 }
 
 // Base class handler implementation
-long long QBuffer_QBaseSkipData(QBuffer* self, long long maxSize) {
+long long QBuffer_SuperSkipData(QBuffer* self, long long maxSize) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_SkipData_IsBase(true);
@@ -688,7 +688,7 @@ bool QBuffer_Event(QBuffer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QBuffer_QBaseEvent(QBuffer* self, QEvent* event) {
+bool QBuffer_SuperEvent(QBuffer* self, QEvent* event) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_Event_IsBase(true);
@@ -717,7 +717,7 @@ bool QBuffer_EventFilter(QBuffer* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QBuffer_QBaseEventFilter(QBuffer* self, QObject* watched, QEvent* event) {
+bool QBuffer_SuperEventFilter(QBuffer* self, QObject* watched, QEvent* event) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_EventFilter_IsBase(true);
@@ -746,7 +746,7 @@ void QBuffer_TimerEvent(QBuffer* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QBuffer_QBaseTimerEvent(QBuffer* self, QTimerEvent* event) {
+void QBuffer_SuperTimerEvent(QBuffer* self, QTimerEvent* event) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_TimerEvent_IsBase(true);
@@ -775,7 +775,7 @@ void QBuffer_ChildEvent(QBuffer* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QBuffer_QBaseChildEvent(QBuffer* self, QChildEvent* event) {
+void QBuffer_SuperChildEvent(QBuffer* self, QChildEvent* event) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_ChildEvent_IsBase(true);
@@ -804,7 +804,7 @@ void QBuffer_CustomEvent(QBuffer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QBuffer_QBaseCustomEvent(QBuffer* self, QEvent* event) {
+void QBuffer_SuperCustomEvent(QBuffer* self, QEvent* event) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_CustomEvent_IsBase(true);
@@ -833,7 +833,7 @@ void QBuffer_SetOpenMode(QBuffer* self, int openMode) {
 }
 
 // Base class handler implementation
-void QBuffer_QBaseSetOpenMode(QBuffer* self, int openMode) {
+void QBuffer_SuperSetOpenMode(QBuffer* self, int openMode) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_SetOpenMode_IsBase(true);
@@ -863,7 +863,7 @@ void QBuffer_SetErrorString(QBuffer* self, const libqt_string errorString) {
 }
 
 // Base class handler implementation
-void QBuffer_QBaseSetErrorString(QBuffer* self, const libqt_string errorString) {
+void QBuffer_SuperSetErrorString(QBuffer* self, const libqt_string errorString) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
@@ -893,7 +893,7 @@ QObject* QBuffer_Sender(const QBuffer* self) {
 }
 
 // Base class handler implementation
-QObject* QBuffer_QBaseSender(const QBuffer* self) {
+QObject* QBuffer_SuperSender(const QBuffer* self) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_Sender_IsBase(true);
@@ -922,7 +922,7 @@ int QBuffer_SenderSignalIndex(const QBuffer* self) {
 }
 
 // Base class handler implementation
-int QBuffer_QBaseSenderSignalIndex(const QBuffer* self) {
+int QBuffer_SuperSenderSignalIndex(const QBuffer* self) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_SenderSignalIndex_IsBase(true);
@@ -951,7 +951,7 @@ int QBuffer_Receivers(const QBuffer* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QBuffer_QBaseReceivers(const QBuffer* self, const char* signal) {
+int QBuffer_SuperReceivers(const QBuffer* self, const char* signal) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_Receivers_IsBase(true);
@@ -980,7 +980,7 @@ bool QBuffer_IsSignalConnected(const QBuffer* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QBuffer_QBaseIsSignalConnected(const QBuffer* self, const QMetaMethod* signal) {
+bool QBuffer_SuperIsSignalConnected(const QBuffer* self, const QMetaMethod* signal) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_IsSignalConnected_IsBase(true);

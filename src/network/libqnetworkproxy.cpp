@@ -434,7 +434,7 @@ libqt_list /* of QNetworkProxy* */ QNetworkProxyFactory_SystemProxyForQuery1(con
 }
 
 // Base class handler implementation
-libqt_list /* of QNetworkProxy* */ QNetworkProxyFactory_QBaseQueryProxy(QNetworkProxyFactory* self, const QNetworkProxyQuery* query) {
+libqt_list /* of QNetworkProxy* */ QNetworkProxyFactory_SuperQueryProxy(QNetworkProxyFactory* self, const QNetworkProxyQuery* query) {
     auto* vqnetworkproxyfactory = dynamic_cast<VirtualQNetworkProxyFactory*>(self);
     if (vqnetworkproxyfactory && vqnetworkproxyfactory->isVirtualQNetworkProxyFactory) {
         vqnetworkproxyfactory->setQNetworkProxyFactory_QueryProxy_IsBase(true);

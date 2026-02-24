@@ -74,7 +74,7 @@ QPieSlice* QPieLegendMarker_Slice(QPieLegendMarker* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QPieLegendMarker_QBaseMetaObject(const QPieLegendMarker* self) {
+QMetaObject* QPieLegendMarker_SuperMetaObject(const QPieLegendMarker* self) {
     auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
     if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
         vqpielegendmarker->setQPieLegendMarker_MetaObject_IsBase(true);
@@ -93,7 +93,7 @@ void QPieLegendMarker_OnMetaObject(const QPieLegendMarker* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* QPieLegendMarker_QBaseMetacast(QPieLegendMarker* self, const char* param1) {
+void* QPieLegendMarker_SuperMetacast(QPieLegendMarker* self, const char* param1) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
     if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
         vqpielegendmarker->setQPieLegendMarker_Metacast_IsBase(true);
@@ -112,7 +112,7 @@ void QPieLegendMarker_OnMetacast(QPieLegendMarker* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPieLegendMarker_QBaseMetacall(QPieLegendMarker* self, int param1, int param2, void** param3) {
+int QPieLegendMarker_SuperMetacall(QPieLegendMarker* self, int param1, int param2, void** param3) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
     if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
         vqpielegendmarker->setQPieLegendMarker_Metacall_IsBase(true);
@@ -131,7 +131,7 @@ void QPieLegendMarker_OnMetacall(QPieLegendMarker* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPieLegendMarker_QBaseType(QPieLegendMarker* self) {
+int QPieLegendMarker_SuperType(QPieLegendMarker* self) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
     if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
         vqpielegendmarker->setQPieLegendMarker_Type_IsBase(true);
@@ -150,7 +150,7 @@ void QPieLegendMarker_OnType(QPieLegendMarker* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPieSeries* QPieLegendMarker_QBaseSeries(QPieLegendMarker* self) {
+QPieSeries* QPieLegendMarker_SuperSeries(QPieLegendMarker* self) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
     if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
         vqpielegendmarker->setQPieLegendMarker_Series_IsBase(true);
@@ -179,7 +179,7 @@ bool QPieLegendMarker_Event(QPieLegendMarker* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QPieLegendMarker_QBaseEvent(QPieLegendMarker* self, QEvent* event) {
+bool QPieLegendMarker_SuperEvent(QPieLegendMarker* self, QEvent* event) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
     if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
         vqpielegendmarker->setQPieLegendMarker_Event_IsBase(true);
@@ -208,7 +208,7 @@ bool QPieLegendMarker_EventFilter(QPieLegendMarker* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool QPieLegendMarker_QBaseEventFilter(QPieLegendMarker* self, QObject* watched, QEvent* event) {
+bool QPieLegendMarker_SuperEventFilter(QPieLegendMarker* self, QObject* watched, QEvent* event) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
     if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
         vqpielegendmarker->setQPieLegendMarker_EventFilter_IsBase(true);
@@ -237,7 +237,7 @@ void QPieLegendMarker_TimerEvent(QPieLegendMarker* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QPieLegendMarker_QBaseTimerEvent(QPieLegendMarker* self, QTimerEvent* event) {
+void QPieLegendMarker_SuperTimerEvent(QPieLegendMarker* self, QTimerEvent* event) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
     if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
         vqpielegendmarker->setQPieLegendMarker_TimerEvent_IsBase(true);
@@ -266,7 +266,7 @@ void QPieLegendMarker_ChildEvent(QPieLegendMarker* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QPieLegendMarker_QBaseChildEvent(QPieLegendMarker* self, QChildEvent* event) {
+void QPieLegendMarker_SuperChildEvent(QPieLegendMarker* self, QChildEvent* event) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
     if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
         vqpielegendmarker->setQPieLegendMarker_ChildEvent_IsBase(true);
@@ -295,7 +295,7 @@ void QPieLegendMarker_CustomEvent(QPieLegendMarker* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPieLegendMarker_QBaseCustomEvent(QPieLegendMarker* self, QEvent* event) {
+void QPieLegendMarker_SuperCustomEvent(QPieLegendMarker* self, QEvent* event) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
     if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
         vqpielegendmarker->setQPieLegendMarker_CustomEvent_IsBase(true);
@@ -324,7 +324,7 @@ void QPieLegendMarker_ConnectNotify(QPieLegendMarker* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void QPieLegendMarker_QBaseConnectNotify(QPieLegendMarker* self, const QMetaMethod* signal) {
+void QPieLegendMarker_SuperConnectNotify(QPieLegendMarker* self, const QMetaMethod* signal) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
     if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
         vqpielegendmarker->setQPieLegendMarker_ConnectNotify_IsBase(true);
@@ -353,7 +353,7 @@ void QPieLegendMarker_DisconnectNotify(QPieLegendMarker* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void QPieLegendMarker_QBaseDisconnectNotify(QPieLegendMarker* self, const QMetaMethod* signal) {
+void QPieLegendMarker_SuperDisconnectNotify(QPieLegendMarker* self, const QMetaMethod* signal) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
     if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
         vqpielegendmarker->setQPieLegendMarker_DisconnectNotify_IsBase(true);
@@ -382,7 +382,7 @@ QObject* QPieLegendMarker_Sender(const QPieLegendMarker* self) {
 }
 
 // Base class handler implementation
-QObject* QPieLegendMarker_QBaseSender(const QPieLegendMarker* self) {
+QObject* QPieLegendMarker_SuperSender(const QPieLegendMarker* self) {
     auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
     if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
         vqpielegendmarker->setQPieLegendMarker_Sender_IsBase(true);
@@ -411,7 +411,7 @@ int QPieLegendMarker_SenderSignalIndex(const QPieLegendMarker* self) {
 }
 
 // Base class handler implementation
-int QPieLegendMarker_QBaseSenderSignalIndex(const QPieLegendMarker* self) {
+int QPieLegendMarker_SuperSenderSignalIndex(const QPieLegendMarker* self) {
     auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
     if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
         vqpielegendmarker->setQPieLegendMarker_SenderSignalIndex_IsBase(true);
@@ -440,7 +440,7 @@ int QPieLegendMarker_Receivers(const QPieLegendMarker* self, const char* signal)
 }
 
 // Base class handler implementation
-int QPieLegendMarker_QBaseReceivers(const QPieLegendMarker* self, const char* signal) {
+int QPieLegendMarker_SuperReceivers(const QPieLegendMarker* self, const char* signal) {
     auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
     if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
         vqpielegendmarker->setQPieLegendMarker_Receivers_IsBase(true);
@@ -469,7 +469,7 @@ bool QPieLegendMarker_IsSignalConnected(const QPieLegendMarker* self, const QMet
 }
 
 // Base class handler implementation
-bool QPieLegendMarker_QBaseIsSignalConnected(const QPieLegendMarker* self, const QMetaMethod* signal) {
+bool QPieLegendMarker_SuperIsSignalConnected(const QPieLegendMarker* self, const QMetaMethod* signal) {
     auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
     if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
         vqpielegendmarker->setQPieLegendMarker_IsSignalConnected_IsBase(true);

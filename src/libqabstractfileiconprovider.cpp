@@ -74,7 +74,7 @@ int QAbstractFileIconProvider_Options(const QAbstractFileIconProvider* self) {
 }
 
 // Base class handler implementation
-QIcon* QAbstractFileIconProvider_QBaseIcon(const QAbstractFileIconProvider* self, int param1) {
+QIcon* QAbstractFileIconProvider_SuperIcon(const QAbstractFileIconProvider* self, int param1) {
     auto* vqabstractfileiconprovider = const_cast<VirtualQAbstractFileIconProvider*>(dynamic_cast<const VirtualQAbstractFileIconProvider*>(self));
     if (vqabstractfileiconprovider && vqabstractfileiconprovider->isVirtualQAbstractFileIconProvider) {
         vqabstractfileiconprovider->setQAbstractFileIconProvider_Icon_IsBase(true);
@@ -93,7 +93,7 @@ void QAbstractFileIconProvider_OnIcon(const QAbstractFileIconProvider* self, int
 }
 
 // Base class handler implementation
-QIcon* QAbstractFileIconProvider_QBaseIcon2(const QAbstractFileIconProvider* self, const QFileInfo* param1) {
+QIcon* QAbstractFileIconProvider_SuperIcon2(const QAbstractFileIconProvider* self, const QFileInfo* param1) {
     auto* vqabstractfileiconprovider = const_cast<VirtualQAbstractFileIconProvider*>(dynamic_cast<const VirtualQAbstractFileIconProvider*>(self));
     if (vqabstractfileiconprovider && vqabstractfileiconprovider->isVirtualQAbstractFileIconProvider) {
         vqabstractfileiconprovider->setQAbstractFileIconProvider_Icon2_IsBase(true);
@@ -112,7 +112,7 @@ void QAbstractFileIconProvider_OnIcon2(const QAbstractFileIconProvider* self, in
 }
 
 // Base class handler implementation
-libqt_string QAbstractFileIconProvider_QBaseType(const QAbstractFileIconProvider* self, const QFileInfo* param1) {
+libqt_string QAbstractFileIconProvider_SuperType(const QAbstractFileIconProvider* self, const QFileInfo* param1) {
     auto* vqabstractfileiconprovider = const_cast<VirtualQAbstractFileIconProvider*>(dynamic_cast<const VirtualQAbstractFileIconProvider*>(self));
     if (vqabstractfileiconprovider && vqabstractfileiconprovider->isVirtualQAbstractFileIconProvider) {
         vqabstractfileiconprovider->setQAbstractFileIconProvider_Type_IsBase(true);
@@ -147,7 +147,7 @@ void QAbstractFileIconProvider_OnType(const QAbstractFileIconProvider* self, int
 }
 
 // Base class handler implementation
-void QAbstractFileIconProvider_QBaseSetOptions(QAbstractFileIconProvider* self, int options) {
+void QAbstractFileIconProvider_SuperSetOptions(QAbstractFileIconProvider* self, int options) {
     auto* vqabstractfileiconprovider = dynamic_cast<VirtualQAbstractFileIconProvider*>(self);
     if (vqabstractfileiconprovider && vqabstractfileiconprovider->isVirtualQAbstractFileIconProvider) {
         vqabstractfileiconprovider->setQAbstractFileIconProvider_SetOptions_IsBase(true);
@@ -166,7 +166,7 @@ void QAbstractFileIconProvider_OnSetOptions(QAbstractFileIconProvider* self, int
 }
 
 // Base class handler implementation
-int QAbstractFileIconProvider_QBaseOptions(const QAbstractFileIconProvider* self) {
+int QAbstractFileIconProvider_SuperOptions(const QAbstractFileIconProvider* self) {
     auto* vqabstractfileiconprovider = const_cast<VirtualQAbstractFileIconProvider*>(dynamic_cast<const VirtualQAbstractFileIconProvider*>(self));
     if (vqabstractfileiconprovider && vqabstractfileiconprovider->isVirtualQAbstractFileIconProvider) {
         vqabstractfileiconprovider->setQAbstractFileIconProvider_Options_IsBase(true);

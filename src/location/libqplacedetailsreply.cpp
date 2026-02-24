@@ -63,7 +63,7 @@ QPlace* QPlaceDetailsReply_Place(const QPlaceDetailsReply* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QPlaceDetailsReply_QBaseMetaObject(const QPlaceDetailsReply* self) {
+QMetaObject* QPlaceDetailsReply_SuperMetaObject(const QPlaceDetailsReply* self) {
     auto* vqplacedetailsreply = const_cast<VirtualQPlaceDetailsReply*>(dynamic_cast<const VirtualQPlaceDetailsReply*>(self));
     if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
         vqplacedetailsreply->setQPlaceDetailsReply_MetaObject_IsBase(true);
@@ -82,7 +82,7 @@ void QPlaceDetailsReply_OnMetaObject(const QPlaceDetailsReply* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* QPlaceDetailsReply_QBaseMetacast(QPlaceDetailsReply* self, const char* param1) {
+void* QPlaceDetailsReply_SuperMetacast(QPlaceDetailsReply* self, const char* param1) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
     if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
         vqplacedetailsreply->setQPlaceDetailsReply_Metacast_IsBase(true);
@@ -101,7 +101,7 @@ void QPlaceDetailsReply_OnMetacast(QPlaceDetailsReply* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPlaceDetailsReply_QBaseMetacall(QPlaceDetailsReply* self, int param1, int param2, void** param3) {
+int QPlaceDetailsReply_SuperMetacall(QPlaceDetailsReply* self, int param1, int param2, void** param3) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
     if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
         vqplacedetailsreply->setQPlaceDetailsReply_Metacall_IsBase(true);
@@ -120,7 +120,7 @@ void QPlaceDetailsReply_OnMetacall(QPlaceDetailsReply* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPlaceDetailsReply_QBaseType(const QPlaceDetailsReply* self) {
+int QPlaceDetailsReply_SuperType(const QPlaceDetailsReply* self) {
     auto* vqplacedetailsreply = const_cast<VirtualQPlaceDetailsReply*>(dynamic_cast<const VirtualQPlaceDetailsReply*>(self));
     if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
         vqplacedetailsreply->setQPlaceDetailsReply_Type_IsBase(true);
@@ -149,7 +149,7 @@ void QPlaceDetailsReply_Abort(QPlaceDetailsReply* self) {
 }
 
 // Base class handler implementation
-void QPlaceDetailsReply_QBaseAbort(QPlaceDetailsReply* self) {
+void QPlaceDetailsReply_SuperAbort(QPlaceDetailsReply* self) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
     if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
         vqplacedetailsreply->setQPlaceDetailsReply_Abort_IsBase(true);
@@ -178,7 +178,7 @@ bool QPlaceDetailsReply_Event(QPlaceDetailsReply* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QPlaceDetailsReply_QBaseEvent(QPlaceDetailsReply* self, QEvent* event) {
+bool QPlaceDetailsReply_SuperEvent(QPlaceDetailsReply* self, QEvent* event) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
     if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
         vqplacedetailsreply->setQPlaceDetailsReply_Event_IsBase(true);
@@ -207,7 +207,7 @@ bool QPlaceDetailsReply_EventFilter(QPlaceDetailsReply* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool QPlaceDetailsReply_QBaseEventFilter(QPlaceDetailsReply* self, QObject* watched, QEvent* event) {
+bool QPlaceDetailsReply_SuperEventFilter(QPlaceDetailsReply* self, QObject* watched, QEvent* event) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
     if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
         vqplacedetailsreply->setQPlaceDetailsReply_EventFilter_IsBase(true);
@@ -236,7 +236,7 @@ void QPlaceDetailsReply_TimerEvent(QPlaceDetailsReply* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void QPlaceDetailsReply_QBaseTimerEvent(QPlaceDetailsReply* self, QTimerEvent* event) {
+void QPlaceDetailsReply_SuperTimerEvent(QPlaceDetailsReply* self, QTimerEvent* event) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
     if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
         vqplacedetailsreply->setQPlaceDetailsReply_TimerEvent_IsBase(true);
@@ -265,7 +265,7 @@ void QPlaceDetailsReply_ChildEvent(QPlaceDetailsReply* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void QPlaceDetailsReply_QBaseChildEvent(QPlaceDetailsReply* self, QChildEvent* event) {
+void QPlaceDetailsReply_SuperChildEvent(QPlaceDetailsReply* self, QChildEvent* event) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
     if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
         vqplacedetailsreply->setQPlaceDetailsReply_ChildEvent_IsBase(true);
@@ -294,7 +294,7 @@ void QPlaceDetailsReply_CustomEvent(QPlaceDetailsReply* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPlaceDetailsReply_QBaseCustomEvent(QPlaceDetailsReply* self, QEvent* event) {
+void QPlaceDetailsReply_SuperCustomEvent(QPlaceDetailsReply* self, QEvent* event) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
     if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
         vqplacedetailsreply->setQPlaceDetailsReply_CustomEvent_IsBase(true);
@@ -323,7 +323,7 @@ void QPlaceDetailsReply_ConnectNotify(QPlaceDetailsReply* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void QPlaceDetailsReply_QBaseConnectNotify(QPlaceDetailsReply* self, const QMetaMethod* signal) {
+void QPlaceDetailsReply_SuperConnectNotify(QPlaceDetailsReply* self, const QMetaMethod* signal) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
     if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
         vqplacedetailsreply->setQPlaceDetailsReply_ConnectNotify_IsBase(true);
@@ -352,7 +352,7 @@ void QPlaceDetailsReply_DisconnectNotify(QPlaceDetailsReply* self, const QMetaMe
 }
 
 // Base class handler implementation
-void QPlaceDetailsReply_QBaseDisconnectNotify(QPlaceDetailsReply* self, const QMetaMethod* signal) {
+void QPlaceDetailsReply_SuperDisconnectNotify(QPlaceDetailsReply* self, const QMetaMethod* signal) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
     if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
         vqplacedetailsreply->setQPlaceDetailsReply_DisconnectNotify_IsBase(true);
@@ -381,7 +381,7 @@ void QPlaceDetailsReply_SetPlace(QPlaceDetailsReply* self, const QPlace* place) 
 }
 
 // Base class handler implementation
-void QPlaceDetailsReply_QBaseSetPlace(QPlaceDetailsReply* self, const QPlace* place) {
+void QPlaceDetailsReply_SuperSetPlace(QPlaceDetailsReply* self, const QPlace* place) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
     if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
         vqplacedetailsreply->setQPlaceDetailsReply_SetPlace_IsBase(true);
@@ -410,7 +410,7 @@ void QPlaceDetailsReply_SetFinished(QPlaceDetailsReply* self, bool finished) {
 }
 
 // Base class handler implementation
-void QPlaceDetailsReply_QBaseSetFinished(QPlaceDetailsReply* self, bool finished) {
+void QPlaceDetailsReply_SuperSetFinished(QPlaceDetailsReply* self, bool finished) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
     if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
         vqplacedetailsreply->setQPlaceDetailsReply_SetFinished_IsBase(true);
@@ -440,7 +440,7 @@ void QPlaceDetailsReply_SetError(QPlaceDetailsReply* self, int errorVal, const l
 }
 
 // Base class handler implementation
-void QPlaceDetailsReply_QBaseSetError(QPlaceDetailsReply* self, int errorVal, const libqt_string errorString) {
+void QPlaceDetailsReply_SuperSetError(QPlaceDetailsReply* self, int errorVal, const libqt_string errorString) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
     if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
@@ -470,7 +470,7 @@ QObject* QPlaceDetailsReply_Sender(const QPlaceDetailsReply* self) {
 }
 
 // Base class handler implementation
-QObject* QPlaceDetailsReply_QBaseSender(const QPlaceDetailsReply* self) {
+QObject* QPlaceDetailsReply_SuperSender(const QPlaceDetailsReply* self) {
     auto* vqplacedetailsreply = const_cast<VirtualQPlaceDetailsReply*>(dynamic_cast<const VirtualQPlaceDetailsReply*>(self));
     if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
         vqplacedetailsreply->setQPlaceDetailsReply_Sender_IsBase(true);
@@ -499,7 +499,7 @@ int QPlaceDetailsReply_SenderSignalIndex(const QPlaceDetailsReply* self) {
 }
 
 // Base class handler implementation
-int QPlaceDetailsReply_QBaseSenderSignalIndex(const QPlaceDetailsReply* self) {
+int QPlaceDetailsReply_SuperSenderSignalIndex(const QPlaceDetailsReply* self) {
     auto* vqplacedetailsreply = const_cast<VirtualQPlaceDetailsReply*>(dynamic_cast<const VirtualQPlaceDetailsReply*>(self));
     if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
         vqplacedetailsreply->setQPlaceDetailsReply_SenderSignalIndex_IsBase(true);
@@ -528,7 +528,7 @@ int QPlaceDetailsReply_Receivers(const QPlaceDetailsReply* self, const char* sig
 }
 
 // Base class handler implementation
-int QPlaceDetailsReply_QBaseReceivers(const QPlaceDetailsReply* self, const char* signal) {
+int QPlaceDetailsReply_SuperReceivers(const QPlaceDetailsReply* self, const char* signal) {
     auto* vqplacedetailsreply = const_cast<VirtualQPlaceDetailsReply*>(dynamic_cast<const VirtualQPlaceDetailsReply*>(self));
     if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
         vqplacedetailsreply->setQPlaceDetailsReply_Receivers_IsBase(true);
@@ -557,7 +557,7 @@ bool QPlaceDetailsReply_IsSignalConnected(const QPlaceDetailsReply* self, const 
 }
 
 // Base class handler implementation
-bool QPlaceDetailsReply_QBaseIsSignalConnected(const QPlaceDetailsReply* self, const QMetaMethod* signal) {
+bool QPlaceDetailsReply_SuperIsSignalConnected(const QPlaceDetailsReply* self, const QMetaMethod* signal) {
     auto* vqplacedetailsreply = const_cast<VirtualQPlaceDetailsReply*>(dynamic_cast<const VirtualQPlaceDetailsReply*>(self));
     if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
         vqplacedetailsreply->setQPlaceDetailsReply_IsSignalConnected_IsBase(true);

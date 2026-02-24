@@ -163,7 +163,7 @@ void QSlider_InitStyleOption(const QSlider* self, QStyleOptionSlider* option) {
 }
 
 // Base class handler implementation
-QMetaObject* QSlider_QBaseMetaObject(const QSlider* self) {
+QMetaObject* QSlider_SuperMetaObject(const QSlider* self) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_MetaObject_IsBase(true);
@@ -182,7 +182,7 @@ void QSlider_OnMetaObject(const QSlider* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QSlider_QBaseMetacast(QSlider* self, const char* param1) {
+void* QSlider_SuperMetacast(QSlider* self, const char* param1) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_Metacast_IsBase(true);
@@ -201,7 +201,7 @@ void QSlider_OnMetacast(QSlider* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSlider_QBaseMetacall(QSlider* self, int param1, int param2, void** param3) {
+int QSlider_SuperMetacall(QSlider* self, int param1, int param2, void** param3) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_Metacall_IsBase(true);
@@ -220,7 +220,7 @@ void QSlider_OnMetacall(QSlider* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QSlider_QBaseSizeHint(const QSlider* self) {
+QSize* QSlider_SuperSizeHint(const QSlider* self) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_SizeHint_IsBase(true);
@@ -239,7 +239,7 @@ void QSlider_OnSizeHint(const QSlider* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QSlider_QBaseMinimumSizeHint(const QSlider* self) {
+QSize* QSlider_SuperMinimumSizeHint(const QSlider* self) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_MinimumSizeHint_IsBase(true);
@@ -258,7 +258,7 @@ void QSlider_OnMinimumSizeHint(const QSlider* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSlider_QBaseEvent(QSlider* self, QEvent* event) {
+bool QSlider_SuperEvent(QSlider* self, QEvent* event) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_Event_IsBase(true);
@@ -277,7 +277,7 @@ void QSlider_OnEvent(QSlider* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSlider_QBasePaintEvent(QSlider* self, QPaintEvent* ev) {
+void QSlider_SuperPaintEvent(QSlider* self, QPaintEvent* ev) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_PaintEvent_IsBase(true);
@@ -296,7 +296,7 @@ void QSlider_OnPaintEvent(QSlider* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseMousePressEvent(QSlider* self, QMouseEvent* ev) {
+void QSlider_SuperMousePressEvent(QSlider* self, QMouseEvent* ev) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_MousePressEvent_IsBase(true);
@@ -315,7 +315,7 @@ void QSlider_OnMousePressEvent(QSlider* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseMouseReleaseEvent(QSlider* self, QMouseEvent* ev) {
+void QSlider_SuperMouseReleaseEvent(QSlider* self, QMouseEvent* ev) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_MouseReleaseEvent_IsBase(true);
@@ -334,7 +334,7 @@ void QSlider_OnMouseReleaseEvent(QSlider* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseMouseMoveEvent(QSlider* self, QMouseEvent* ev) {
+void QSlider_SuperMouseMoveEvent(QSlider* self, QMouseEvent* ev) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_MouseMoveEvent_IsBase(true);
@@ -353,7 +353,7 @@ void QSlider_OnMouseMoveEvent(QSlider* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseInitStyleOption(const QSlider* self, QStyleOptionSlider* option) {
+void QSlider_SuperInitStyleOption(const QSlider* self, QStyleOptionSlider* option) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_InitStyleOption_IsBase(true);
@@ -382,7 +382,7 @@ void QSlider_SliderChange(QSlider* self, int change) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseSliderChange(QSlider* self, int change) {
+void QSlider_SuperSliderChange(QSlider* self, int change) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_SliderChange_IsBase(true);
@@ -411,7 +411,7 @@ void QSlider_KeyPressEvent(QSlider* self, QKeyEvent* ev) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseKeyPressEvent(QSlider* self, QKeyEvent* ev) {
+void QSlider_SuperKeyPressEvent(QSlider* self, QKeyEvent* ev) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_KeyPressEvent_IsBase(true);
@@ -440,7 +440,7 @@ void QSlider_TimerEvent(QSlider* self, QTimerEvent* param1) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseTimerEvent(QSlider* self, QTimerEvent* param1) {
+void QSlider_SuperTimerEvent(QSlider* self, QTimerEvent* param1) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_TimerEvent_IsBase(true);
@@ -469,7 +469,7 @@ void QSlider_WheelEvent(QSlider* self, QWheelEvent* e) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseWheelEvent(QSlider* self, QWheelEvent* e) {
+void QSlider_SuperWheelEvent(QSlider* self, QWheelEvent* e) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_WheelEvent_IsBase(true);
@@ -498,7 +498,7 @@ void QSlider_ChangeEvent(QSlider* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseChangeEvent(QSlider* self, QEvent* e) {
+void QSlider_SuperChangeEvent(QSlider* self, QEvent* e) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_ChangeEvent_IsBase(true);
@@ -527,7 +527,7 @@ int QSlider_DevType(const QSlider* self) {
 }
 
 // Base class handler implementation
-int QSlider_QBaseDevType(const QSlider* self) {
+int QSlider_SuperDevType(const QSlider* self) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_DevType_IsBase(true);
@@ -556,7 +556,7 @@ void QSlider_SetVisible(QSlider* self, bool visible) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseSetVisible(QSlider* self, bool visible) {
+void QSlider_SuperSetVisible(QSlider* self, bool visible) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_SetVisible_IsBase(true);
@@ -585,7 +585,7 @@ int QSlider_HeightForWidth(const QSlider* self, int param1) {
 }
 
 // Base class handler implementation
-int QSlider_QBaseHeightForWidth(const QSlider* self, int param1) {
+int QSlider_SuperHeightForWidth(const QSlider* self, int param1) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_HeightForWidth_IsBase(true);
@@ -614,7 +614,7 @@ bool QSlider_HasHeightForWidth(const QSlider* self) {
 }
 
 // Base class handler implementation
-bool QSlider_QBaseHasHeightForWidth(const QSlider* self) {
+bool QSlider_SuperHasHeightForWidth(const QSlider* self) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_HasHeightForWidth_IsBase(true);
@@ -643,7 +643,7 @@ QPaintEngine* QSlider_PaintEngine(const QSlider* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QSlider_QBasePaintEngine(const QSlider* self) {
+QPaintEngine* QSlider_SuperPaintEngine(const QSlider* self) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_PaintEngine_IsBase(true);
@@ -672,7 +672,7 @@ void QSlider_MouseDoubleClickEvent(QSlider* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseMouseDoubleClickEvent(QSlider* self, QMouseEvent* event) {
+void QSlider_SuperMouseDoubleClickEvent(QSlider* self, QMouseEvent* event) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_MouseDoubleClickEvent_IsBase(true);
@@ -701,7 +701,7 @@ void QSlider_KeyReleaseEvent(QSlider* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseKeyReleaseEvent(QSlider* self, QKeyEvent* event) {
+void QSlider_SuperKeyReleaseEvent(QSlider* self, QKeyEvent* event) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_KeyReleaseEvent_IsBase(true);
@@ -730,7 +730,7 @@ void QSlider_FocusInEvent(QSlider* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseFocusInEvent(QSlider* self, QFocusEvent* event) {
+void QSlider_SuperFocusInEvent(QSlider* self, QFocusEvent* event) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_FocusInEvent_IsBase(true);
@@ -759,7 +759,7 @@ void QSlider_FocusOutEvent(QSlider* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseFocusOutEvent(QSlider* self, QFocusEvent* event) {
+void QSlider_SuperFocusOutEvent(QSlider* self, QFocusEvent* event) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_FocusOutEvent_IsBase(true);
@@ -788,7 +788,7 @@ void QSlider_EnterEvent(QSlider* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseEnterEvent(QSlider* self, QEnterEvent* event) {
+void QSlider_SuperEnterEvent(QSlider* self, QEnterEvent* event) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_EnterEvent_IsBase(true);
@@ -817,7 +817,7 @@ void QSlider_LeaveEvent(QSlider* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseLeaveEvent(QSlider* self, QEvent* event) {
+void QSlider_SuperLeaveEvent(QSlider* self, QEvent* event) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_LeaveEvent_IsBase(true);
@@ -846,7 +846,7 @@ void QSlider_MoveEvent(QSlider* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseMoveEvent(QSlider* self, QMoveEvent* event) {
+void QSlider_SuperMoveEvent(QSlider* self, QMoveEvent* event) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_MoveEvent_IsBase(true);
@@ -875,7 +875,7 @@ void QSlider_ResizeEvent(QSlider* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseResizeEvent(QSlider* self, QResizeEvent* event) {
+void QSlider_SuperResizeEvent(QSlider* self, QResizeEvent* event) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_ResizeEvent_IsBase(true);
@@ -904,7 +904,7 @@ void QSlider_CloseEvent(QSlider* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseCloseEvent(QSlider* self, QCloseEvent* event) {
+void QSlider_SuperCloseEvent(QSlider* self, QCloseEvent* event) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_CloseEvent_IsBase(true);
@@ -933,7 +933,7 @@ void QSlider_ContextMenuEvent(QSlider* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseContextMenuEvent(QSlider* self, QContextMenuEvent* event) {
+void QSlider_SuperContextMenuEvent(QSlider* self, QContextMenuEvent* event) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_ContextMenuEvent_IsBase(true);
@@ -962,7 +962,7 @@ void QSlider_TabletEvent(QSlider* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseTabletEvent(QSlider* self, QTabletEvent* event) {
+void QSlider_SuperTabletEvent(QSlider* self, QTabletEvent* event) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_TabletEvent_IsBase(true);
@@ -991,7 +991,7 @@ void QSlider_ActionEvent(QSlider* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseActionEvent(QSlider* self, QActionEvent* event) {
+void QSlider_SuperActionEvent(QSlider* self, QActionEvent* event) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_ActionEvent_IsBase(true);
@@ -1020,7 +1020,7 @@ void QSlider_DragEnterEvent(QSlider* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseDragEnterEvent(QSlider* self, QDragEnterEvent* event) {
+void QSlider_SuperDragEnterEvent(QSlider* self, QDragEnterEvent* event) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_DragEnterEvent_IsBase(true);
@@ -1049,7 +1049,7 @@ void QSlider_DragMoveEvent(QSlider* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseDragMoveEvent(QSlider* self, QDragMoveEvent* event) {
+void QSlider_SuperDragMoveEvent(QSlider* self, QDragMoveEvent* event) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_DragMoveEvent_IsBase(true);
@@ -1078,7 +1078,7 @@ void QSlider_DragLeaveEvent(QSlider* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseDragLeaveEvent(QSlider* self, QDragLeaveEvent* event) {
+void QSlider_SuperDragLeaveEvent(QSlider* self, QDragLeaveEvent* event) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_DragLeaveEvent_IsBase(true);
@@ -1107,7 +1107,7 @@ void QSlider_DropEvent(QSlider* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseDropEvent(QSlider* self, QDropEvent* event) {
+void QSlider_SuperDropEvent(QSlider* self, QDropEvent* event) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_DropEvent_IsBase(true);
@@ -1136,7 +1136,7 @@ void QSlider_ShowEvent(QSlider* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseShowEvent(QSlider* self, QShowEvent* event) {
+void QSlider_SuperShowEvent(QSlider* self, QShowEvent* event) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_ShowEvent_IsBase(true);
@@ -1165,7 +1165,7 @@ void QSlider_HideEvent(QSlider* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseHideEvent(QSlider* self, QHideEvent* event) {
+void QSlider_SuperHideEvent(QSlider* self, QHideEvent* event) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_HideEvent_IsBase(true);
@@ -1195,7 +1195,7 @@ bool QSlider_NativeEvent(QSlider* self, const libqt_string eventType, void* mess
 }
 
 // Base class handler implementation
-bool QSlider_QBaseNativeEvent(QSlider* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QSlider_SuperNativeEvent(QSlider* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqslider && vqslider->isVirtualQSlider) {
@@ -1225,7 +1225,7 @@ int QSlider_Metric(const QSlider* self, int param1) {
 }
 
 // Base class handler implementation
-int QSlider_QBaseMetric(const QSlider* self, int param1) {
+int QSlider_SuperMetric(const QSlider* self, int param1) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_Metric_IsBase(true);
@@ -1254,7 +1254,7 @@ void QSlider_InitPainter(const QSlider* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseInitPainter(const QSlider* self, QPainter* painter) {
+void QSlider_SuperInitPainter(const QSlider* self, QPainter* painter) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_InitPainter_IsBase(true);
@@ -1283,7 +1283,7 @@ QPaintDevice* QSlider_Redirected(const QSlider* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QSlider_QBaseRedirected(const QSlider* self, QPoint* offset) {
+QPaintDevice* QSlider_SuperRedirected(const QSlider* self, QPoint* offset) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_Redirected_IsBase(true);
@@ -1312,7 +1312,7 @@ QPainter* QSlider_SharedPainter(const QSlider* self) {
 }
 
 // Base class handler implementation
-QPainter* QSlider_QBaseSharedPainter(const QSlider* self) {
+QPainter* QSlider_SuperSharedPainter(const QSlider* self) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_SharedPainter_IsBase(true);
@@ -1341,7 +1341,7 @@ void QSlider_InputMethodEvent(QSlider* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseInputMethodEvent(QSlider* self, QInputMethodEvent* param1) {
+void QSlider_SuperInputMethodEvent(QSlider* self, QInputMethodEvent* param1) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_InputMethodEvent_IsBase(true);
@@ -1370,7 +1370,7 @@ QVariant* QSlider_InputMethodQuery(const QSlider* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QSlider_QBaseInputMethodQuery(const QSlider* self, int param1) {
+QVariant* QSlider_SuperInputMethodQuery(const QSlider* self, int param1) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_InputMethodQuery_IsBase(true);
@@ -1399,7 +1399,7 @@ bool QSlider_FocusNextPrevChild(QSlider* self, bool next) {
 }
 
 // Base class handler implementation
-bool QSlider_QBaseFocusNextPrevChild(QSlider* self, bool next) {
+bool QSlider_SuperFocusNextPrevChild(QSlider* self, bool next) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_FocusNextPrevChild_IsBase(true);
@@ -1428,7 +1428,7 @@ bool QSlider_EventFilter(QSlider* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QSlider_QBaseEventFilter(QSlider* self, QObject* watched, QEvent* event) {
+bool QSlider_SuperEventFilter(QSlider* self, QObject* watched, QEvent* event) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_EventFilter_IsBase(true);
@@ -1457,7 +1457,7 @@ void QSlider_ChildEvent(QSlider* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseChildEvent(QSlider* self, QChildEvent* event) {
+void QSlider_SuperChildEvent(QSlider* self, QChildEvent* event) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_ChildEvent_IsBase(true);
@@ -1486,7 +1486,7 @@ void QSlider_CustomEvent(QSlider* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseCustomEvent(QSlider* self, QEvent* event) {
+void QSlider_SuperCustomEvent(QSlider* self, QEvent* event) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_CustomEvent_IsBase(true);
@@ -1515,7 +1515,7 @@ void QSlider_ConnectNotify(QSlider* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseConnectNotify(QSlider* self, const QMetaMethod* signal) {
+void QSlider_SuperConnectNotify(QSlider* self, const QMetaMethod* signal) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_ConnectNotify_IsBase(true);
@@ -1544,7 +1544,7 @@ void QSlider_DisconnectNotify(QSlider* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseDisconnectNotify(QSlider* self, const QMetaMethod* signal) {
+void QSlider_SuperDisconnectNotify(QSlider* self, const QMetaMethod* signal) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_DisconnectNotify_IsBase(true);
@@ -1573,7 +1573,7 @@ void QSlider_SetRepeatAction(QSlider* self, int action) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseSetRepeatAction(QSlider* self, int action) {
+void QSlider_SuperSetRepeatAction(QSlider* self, int action) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_SetRepeatAction_IsBase(true);
@@ -1602,7 +1602,7 @@ int QSlider_RepeatAction(const QSlider* self) {
 }
 
 // Base class handler implementation
-int QSlider_QBaseRepeatAction(const QSlider* self) {
+int QSlider_SuperRepeatAction(const QSlider* self) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_RepeatAction_IsBase(true);
@@ -1631,7 +1631,7 @@ void QSlider_UpdateMicroFocus(QSlider* self) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseUpdateMicroFocus(QSlider* self) {
+void QSlider_SuperUpdateMicroFocus(QSlider* self) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_UpdateMicroFocus_IsBase(true);
@@ -1660,7 +1660,7 @@ void QSlider_Create(QSlider* self) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseCreate(QSlider* self) {
+void QSlider_SuperCreate(QSlider* self) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_Create_IsBase(true);
@@ -1689,7 +1689,7 @@ void QSlider_Destroy(QSlider* self) {
 }
 
 // Base class handler implementation
-void QSlider_QBaseDestroy(QSlider* self) {
+void QSlider_SuperDestroy(QSlider* self) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_Destroy_IsBase(true);
@@ -1718,7 +1718,7 @@ bool QSlider_FocusNextChild(QSlider* self) {
 }
 
 // Base class handler implementation
-bool QSlider_QBaseFocusNextChild(QSlider* self) {
+bool QSlider_SuperFocusNextChild(QSlider* self) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_FocusNextChild_IsBase(true);
@@ -1747,7 +1747,7 @@ bool QSlider_FocusPreviousChild(QSlider* self) {
 }
 
 // Base class handler implementation
-bool QSlider_QBaseFocusPreviousChild(QSlider* self) {
+bool QSlider_SuperFocusPreviousChild(QSlider* self) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_FocusPreviousChild_IsBase(true);
@@ -1776,7 +1776,7 @@ QObject* QSlider_Sender(const QSlider* self) {
 }
 
 // Base class handler implementation
-QObject* QSlider_QBaseSender(const QSlider* self) {
+QObject* QSlider_SuperSender(const QSlider* self) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_Sender_IsBase(true);
@@ -1805,7 +1805,7 @@ int QSlider_SenderSignalIndex(const QSlider* self) {
 }
 
 // Base class handler implementation
-int QSlider_QBaseSenderSignalIndex(const QSlider* self) {
+int QSlider_SuperSenderSignalIndex(const QSlider* self) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_SenderSignalIndex_IsBase(true);
@@ -1834,7 +1834,7 @@ int QSlider_Receivers(const QSlider* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QSlider_QBaseReceivers(const QSlider* self, const char* signal) {
+int QSlider_SuperReceivers(const QSlider* self, const char* signal) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_Receivers_IsBase(true);
@@ -1863,7 +1863,7 @@ bool QSlider_IsSignalConnected(const QSlider* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QSlider_QBaseIsSignalConnected(const QSlider* self, const QMetaMethod* signal) {
+bool QSlider_SuperIsSignalConnected(const QSlider* self, const QMetaMethod* signal) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_IsSignalConnected_IsBase(true);
@@ -1892,7 +1892,7 @@ double QSlider_GetDecodedMetricF(const QSlider* self, int metricA, int metricB) 
 }
 
 // Base class handler implementation
-double QSlider_QBaseGetDecodedMetricF(const QSlider* self, int metricA, int metricB) {
+double QSlider_SuperGetDecodedMetricF(const QSlider* self, int metricA, int metricB) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->setQSlider_GetDecodedMetricF_IsBase(true);

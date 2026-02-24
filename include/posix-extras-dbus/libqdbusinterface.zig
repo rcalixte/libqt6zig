@@ -139,6 +139,10 @@ pub const qdbusinterface = struct {
         qtc.QDBusInterface_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -147,8 +151,8 @@ pub const qdbusinterface = struct {
     ///
     /// ` self: QtC.QDBusInterface `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QDBusInterface_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QDBusInterface_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -174,6 +178,10 @@ pub const qdbusinterface = struct {
         qtc.QDBusInterface_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -182,9 +190,9 @@ pub const qdbusinterface = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QDBusInterface_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QDBusInterface_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -213,6 +221,10 @@ pub const qdbusinterface = struct {
         qtc.QDBusInterface_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -225,8 +237,8 @@ pub const qdbusinterface = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDBusInterface_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QDBusInterface_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Inherited from QDBusAbstractInterface
@@ -1357,6 +1369,10 @@ pub const qdbusinterface = struct {
         qtc.QDBusInterface_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QDBusAbstractInterface
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#connectNotify)
@@ -1369,8 +1385,8 @@ pub const qdbusinterface = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QDBusInterface_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QDBusInterface_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QDBusAbstractInterface
@@ -1405,6 +1421,10 @@ pub const qdbusinterface = struct {
         qtc.QDBusInterface_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QDBusAbstractInterface
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#disconnectNotify)
@@ -1417,8 +1437,8 @@ pub const qdbusinterface = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QDBusInterface_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QDBusInterface_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QDBusAbstractInterface
@@ -1453,6 +1473,10 @@ pub const qdbusinterface = struct {
         return qtc.QDBusInterface_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1465,8 +1489,8 @@ pub const qdbusinterface = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QDBusInterface_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QDBusInterface_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1503,6 +1527,10 @@ pub const qdbusinterface = struct {
         return qtc.QDBusInterface_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1517,8 +1545,8 @@ pub const qdbusinterface = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QDBusInterface_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QDBusInterface_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1553,6 +1581,10 @@ pub const qdbusinterface = struct {
         qtc.QDBusInterface_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1565,8 +1597,8 @@ pub const qdbusinterface = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDBusInterface_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QDBusInterface_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1601,6 +1633,10 @@ pub const qdbusinterface = struct {
         qtc.QDBusInterface_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1613,8 +1649,8 @@ pub const qdbusinterface = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDBusInterface_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QDBusInterface_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1649,6 +1685,10 @@ pub const qdbusinterface = struct {
         qtc.QDBusInterface_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1661,8 +1701,8 @@ pub const qdbusinterface = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDBusInterface_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QDBusInterface_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1698,6 +1738,10 @@ pub const qdbusinterface = struct {
         return qtc.QDBusInterface_InternalPropGet(@ptrCast(self), propname_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperInternalPropGet` instead
+    ///
+    pub const QBaseInternalPropGet = SuperInternalPropGet;
+
     /// Inherited from QDBusAbstractInterface
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#internalPropGet)
@@ -1710,9 +1754,9 @@ pub const qdbusinterface = struct {
     ///
     /// ` propname: [:0]const u8 `
     ///
-    pub fn QBaseInternalPropGet(self: ?*anyopaque, propname: [:0]const u8) QtC.QVariant {
+    pub fn SuperInternalPropGet(self: ?*anyopaque, propname: [:0]const u8) QtC.QVariant {
         const propname_Cstring = propname.ptr;
-        return qtc.QDBusInterface_QBaseInternalPropGet(@ptrCast(self), propname_Cstring);
+        return qtc.QDBusInterface_SuperInternalPropGet(@ptrCast(self), propname_Cstring);
     }
 
     /// Inherited from QDBusAbstractInterface
@@ -1750,6 +1794,10 @@ pub const qdbusinterface = struct {
         qtc.QDBusInterface_InternalPropSet(@ptrCast(self), propname_Cstring, @ptrCast(value));
     }
 
+    /// ### DEPRECATED: Use `SuperInternalPropSet` instead
+    ///
+    pub const QBaseInternalPropSet = SuperInternalPropSet;
+
     /// Inherited from QDBusAbstractInterface
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#internalPropSet)
@@ -1764,9 +1812,9 @@ pub const qdbusinterface = struct {
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn QBaseInternalPropSet(self: ?*anyopaque, propname: [:0]const u8, value: ?*anyopaque) void {
+    pub fn SuperInternalPropSet(self: ?*anyopaque, propname: [:0]const u8, value: ?*anyopaque) void {
         const propname_Cstring = propname.ptr;
-        qtc.QDBusInterface_QBaseInternalPropSet(@ptrCast(self), propname_Cstring, @ptrCast(value));
+        qtc.QDBusInterface_SuperInternalPropSet(@ptrCast(self), propname_Cstring, @ptrCast(value));
     }
 
     /// Inherited from QDBusAbstractInterface
@@ -1807,6 +1855,10 @@ pub const qdbusinterface = struct {
         return qtc.QDBusInterface_InternalConstCall(@ptrCast(self), @bitCast(mode), method_str);
     }
 
+    /// ### DEPRECATED: Use `SuperInternalConstCall` instead
+    ///
+    pub const QBaseInternalConstCall = SuperInternalConstCall;
+
     /// Inherited from QDBusAbstractInterface
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#internalConstCall)
@@ -1821,12 +1873,12 @@ pub const qdbusinterface = struct {
     ///
     /// ` method: []const u8 `
     ///
-    pub fn QBaseInternalConstCall(self: ?*anyopaque, mode: i32, method: []const u8) QtC.QDBusMessage {
+    pub fn SuperInternalConstCall(self: ?*anyopaque, mode: i32, method: []const u8) QtC.QDBusMessage {
         const method_str = qtc.libqt_string{
             .len = method.len,
             .data = method.ptr,
         };
-        return qtc.QDBusInterface_QBaseInternalConstCall(@ptrCast(self), @bitCast(mode), method_str);
+        return qtc.QDBusInterface_SuperInternalConstCall(@ptrCast(self), @bitCast(mode), method_str);
     }
 
     /// Inherited from QDBusAbstractInterface
@@ -1859,6 +1911,10 @@ pub const qdbusinterface = struct {
         return qtc.QDBusInterface_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1869,8 +1925,8 @@ pub const qdbusinterface = struct {
     ///
     /// ` self: QtC.QDBusInterface `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QDBusInterface_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QDBusInterface_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1903,6 +1959,10 @@ pub const qdbusinterface = struct {
         return qtc.QDBusInterface_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1913,8 +1973,8 @@ pub const qdbusinterface = struct {
     ///
     /// ` self: QtC.QDBusInterface `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QDBusInterface_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QDBusInterface_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1950,6 +2010,10 @@ pub const qdbusinterface = struct {
         return qtc.QDBusInterface_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1962,9 +2026,9 @@ pub const qdbusinterface = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QDBusInterface_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QDBusInterface_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1999,6 +2063,10 @@ pub const qdbusinterface = struct {
         return qtc.QDBusInterface_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2011,8 +2079,8 @@ pub const qdbusinterface = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QDBusInterface_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QDBusInterface_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2046,6 +2114,9 @@ pub const qdbusinterface = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusinterface.html#dtor.QDBusInterface)
     ///
@@ -2055,7 +2126,7 @@ pub const qdbusinterface = struct {
     ///
     /// ` self: QtC.QDBusInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDBusInterface_Delete(@ptrCast(self));
     }
 };

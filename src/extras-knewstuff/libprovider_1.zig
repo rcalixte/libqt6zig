@@ -38,6 +38,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -46,8 +50,8 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KNSCore__Provider_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KNSCore__Provider_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -73,6 +77,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -81,9 +89,9 @@ pub const knscore__provider = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KNSCore__Provider_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KNSCore__Provider_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -112,6 +120,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -124,8 +136,8 @@ pub const knscore__provider = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KNSCore__Provider_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KNSCore__Provider_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -177,6 +189,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_OnId(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperId` instead
+    ///
+    pub const QBaseId = SuperId;
+
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#id)
     ///
     /// Base class method implementation
@@ -187,8 +203,8 @@ pub const knscore__provider = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KNSCore__Provider_QBaseId(@ptrCast(self));
+    pub fn SuperId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KNSCore__Provider_SuperId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__provider.Id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -221,6 +237,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_OnSetProviderXML(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetProviderXML` instead
+    ///
+    pub const QBaseSetProviderXML = SuperSetProviderXML;
+
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setProviderXML)
     ///
     /// Base class method implementation
@@ -231,8 +251,8 @@ pub const knscore__provider = struct {
     ///
     /// ` xmldata: QtC.QDomElement `
     ///
-    pub fn QBaseSetProviderXML(self: ?*anyopaque, xmldata: ?*anyopaque) bool {
-        return qtc.KNSCore__Provider_QBaseSetProviderXML(@ptrCast(self), @ptrCast(xmldata));
+    pub fn SuperSetProviderXML(self: ?*anyopaque, xmldata: ?*anyopaque) bool {
+        return qtc.KNSCore__Provider_SuperSetProviderXML(@ptrCast(self), @ptrCast(xmldata));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#isInitialized)
@@ -259,6 +279,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_OnIsInitialized(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsInitialized` instead
+    ///
+    pub const QBaseIsInitialized = SuperIsInitialized;
+
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#isInitialized)
     ///
     /// Base class method implementation
@@ -267,8 +291,8 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    pub fn QBaseIsInitialized(self: ?*anyopaque) bool {
-        return qtc.KNSCore__Provider_QBaseIsInitialized(@ptrCast(self));
+    pub fn SuperIsInitialized(self: ?*anyopaque) bool {
+        return qtc.KNSCore__Provider_SuperIsInitialized(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setCachedEntries)
@@ -301,6 +325,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_OnSetCachedEntries(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCachedEntries` instead
+    ///
+    pub const QBaseSetCachedEntries = SuperSetCachedEntries;
+
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setCachedEntries)
     ///
     /// Base class method implementation
@@ -311,12 +339,12 @@ pub const knscore__provider = struct {
     ///
     /// ` cachedEntries: []QtC.KNSCore__Entry `
     ///
-    pub fn QBaseSetCachedEntries(self: ?*anyopaque, cachedEntries: []QtC.KNSCore__Entry) void {
+    pub fn SuperSetCachedEntries(self: ?*anyopaque, cachedEntries: []QtC.KNSCore__Entry) void {
         const cachedEntries_list = qtc.libqt_list{
             .len = cachedEntries.len,
             .data = @ptrCast(cachedEntries.ptr),
         };
-        qtc.KNSCore__Provider_QBaseSetCachedEntries(@ptrCast(self), cachedEntries_list);
+        qtc.KNSCore__Provider_SuperSetCachedEntries(@ptrCast(self), cachedEntries_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#name)
@@ -351,6 +379,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_OnName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperName` instead
+    ///
+    pub const QBaseName = SuperName;
+
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#name)
     ///
     /// Base class method implementation
@@ -361,8 +393,8 @@ pub const knscore__provider = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KNSCore__Provider_QBaseName(@ptrCast(self));
+    pub fn SuperName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KNSCore__Provider_SuperName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__provider.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -393,6 +425,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_OnIcon(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIcon` instead
+    ///
+    pub const QBaseIcon = SuperIcon;
+
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#icon)
     ///
     /// Base class method implementation
@@ -401,8 +437,8 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    pub fn QBaseIcon(self: ?*anyopaque) QtC.QUrl {
-        return qtc.KNSCore__Provider_QBaseIcon(@ptrCast(self));
+    pub fn SuperIcon(self: ?*anyopaque) QtC.QUrl {
+        return qtc.KNSCore__Provider_SuperIcon(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadEntries)
@@ -431,6 +467,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_OnLoadEntries(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperLoadEntries` instead
+    ///
+    pub const QBaseLoadEntries = SuperLoadEntries;
+
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadEntries)
     ///
     /// Base class method implementation
@@ -441,8 +481,8 @@ pub const knscore__provider = struct {
     ///
     /// ` request: QtC.KNSCore__Provider__SearchRequest `
     ///
-    pub fn QBaseLoadEntries(self: ?*anyopaque, request: ?*anyopaque) void {
-        qtc.KNSCore__Provider_QBaseLoadEntries(@ptrCast(self), @ptrCast(request));
+    pub fn SuperLoadEntries(self: ?*anyopaque, request: ?*anyopaque) void {
+        qtc.KNSCore__Provider_SuperLoadEntries(@ptrCast(self), @ptrCast(request));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadEntryDetails)
@@ -471,6 +511,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_OnLoadEntryDetails(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperLoadEntryDetails` instead
+    ///
+    pub const QBaseLoadEntryDetails = SuperLoadEntryDetails;
+
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadEntryDetails)
     ///
     /// Base class method implementation
@@ -481,8 +525,8 @@ pub const knscore__provider = struct {
     ///
     /// ` param1: QtC.KNSCore__Entry `
     ///
-    pub fn QBaseLoadEntryDetails(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KNSCore__Provider_QBaseLoadEntryDetails(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperLoadEntryDetails(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KNSCore__Provider_SuperLoadEntryDetails(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadPayloadLink)
@@ -513,6 +557,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_OnLoadPayloadLink(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperLoadPayloadLink` instead
+    ///
+    pub const QBaseLoadPayloadLink = SuperLoadPayloadLink;
+
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadPayloadLink)
     ///
     /// Base class method implementation
@@ -525,8 +573,8 @@ pub const knscore__provider = struct {
     ///
     /// ` linkId: i32 `
     ///
-    pub fn QBaseLoadPayloadLink(self: ?*anyopaque, entry: ?*anyopaque, linkId: i32) void {
-        qtc.KNSCore__Provider_QBaseLoadPayloadLink(@ptrCast(self), @ptrCast(entry), @bitCast(linkId));
+    pub fn SuperLoadPayloadLink(self: ?*anyopaque, entry: ?*anyopaque, linkId: i32) void {
+        qtc.KNSCore__Provider_SuperLoadPayloadLink(@ptrCast(self), @ptrCast(entry), @bitCast(linkId));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadComments)
@@ -559,6 +607,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_OnLoadComments(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperLoadComments` instead
+    ///
+    pub const QBaseLoadComments = SuperLoadComments;
+
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadComments)
     ///
     /// Base class method implementation
@@ -573,8 +625,8 @@ pub const knscore__provider = struct {
     ///
     /// ` param3: i32 `
     ///
-    pub fn QBaseLoadComments(self: ?*anyopaque, param1: ?*anyopaque, param2: i32, param3: i32) void {
-        qtc.KNSCore__Provider_QBaseLoadComments(@ptrCast(self), @ptrCast(param1), @bitCast(param2), @bitCast(param3));
+    pub fn SuperLoadComments(self: ?*anyopaque, param1: ?*anyopaque, param2: i32, param3: i32) void {
+        qtc.KNSCore__Provider_SuperLoadComments(@ptrCast(self), @ptrCast(param1), @bitCast(param2), @bitCast(param3));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadPerson)
@@ -607,6 +659,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_OnLoadPerson(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperLoadPerson` instead
+    ///
+    pub const QBaseLoadPerson = SuperLoadPerson;
+
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadPerson)
     ///
     /// Base class method implementation
@@ -617,12 +673,12 @@ pub const knscore__provider = struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn QBaseLoadPerson(self: ?*anyopaque, param1: []const u8) void {
+    pub fn SuperLoadPerson(self: ?*anyopaque, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        qtc.KNSCore__Provider_QBaseLoadPerson(@ptrCast(self), param1_str);
+        qtc.KNSCore__Provider_SuperLoadPerson(@ptrCast(self), param1_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadBasics)
@@ -649,6 +705,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_OnLoadBasics(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperLoadBasics` instead
+    ///
+    pub const QBaseLoadBasics = SuperLoadBasics;
+
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#loadBasics)
     ///
     /// Base class method implementation
@@ -657,8 +717,8 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    pub fn QBaseLoadBasics(self: ?*anyopaque) void {
-        qtc.KNSCore__Provider_QBaseLoadBasics(@ptrCast(self));
+    pub fn SuperLoadBasics(self: ?*anyopaque) void {
+        qtc.KNSCore__Provider_SuperLoadBasics(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#version)
@@ -815,6 +875,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_OnUserCanVote(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUserCanVote` instead
+    ///
+    pub const QBaseUserCanVote = SuperUserCanVote;
+
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#userCanVote)
     ///
     /// Base class method implementation
@@ -823,8 +887,8 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    pub fn QBaseUserCanVote(self: ?*anyopaque) bool {
-        return qtc.KNSCore__Provider_QBaseUserCanVote(@ptrCast(self));
+    pub fn SuperUserCanVote(self: ?*anyopaque) bool {
+        return qtc.KNSCore__Provider_SuperUserCanVote(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#vote)
@@ -855,6 +919,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_OnVote(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperVote` instead
+    ///
+    pub const QBaseVote = SuperVote;
+
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#vote)
     ///
     /// Base class method implementation
@@ -867,8 +935,8 @@ pub const knscore__provider = struct {
     ///
     /// ` param2: u32 `
     ///
-    pub fn QBaseVote(self: ?*anyopaque, param1: ?*anyopaque, param2: u32) void {
-        qtc.KNSCore__Provider_QBaseVote(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
+    pub fn SuperVote(self: ?*anyopaque, param1: ?*anyopaque, param2: u32) void {
+        qtc.KNSCore__Provider_SuperVote(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#userCanBecomeFan)
@@ -895,6 +963,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_OnUserCanBecomeFan(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUserCanBecomeFan` instead
+    ///
+    pub const QBaseUserCanBecomeFan = SuperUserCanBecomeFan;
+
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#userCanBecomeFan)
     ///
     /// Base class method implementation
@@ -903,8 +975,8 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    pub fn QBaseUserCanBecomeFan(self: ?*anyopaque) bool {
-        return qtc.KNSCore__Provider_QBaseUserCanBecomeFan(@ptrCast(self));
+    pub fn SuperUserCanBecomeFan(self: ?*anyopaque) bool {
+        return qtc.KNSCore__Provider_SuperUserCanBecomeFan(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#becomeFan)
@@ -933,6 +1005,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_OnBecomeFan(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBecomeFan` instead
+    ///
+    pub const QBaseBecomeFan = SuperBecomeFan;
+
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#becomeFan)
     ///
     /// Base class method implementation
@@ -943,8 +1019,8 @@ pub const knscore__provider = struct {
     ///
     /// ` param1: QtC.KNSCore__Entry `
     ///
-    pub fn QBaseBecomeFan(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KNSCore__Provider_QBaseBecomeFan(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperBecomeFan(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KNSCore__Provider_SuperBecomeFan(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setTagFilter)
@@ -1419,6 +1495,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_OnSetName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetName` instead
+    ///
+    pub const QBaseSetName = SuperSetName;
+
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setName)
     ///
     /// Base class method implementation
@@ -1429,12 +1509,12 @@ pub const knscore__provider = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn QBaseSetName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SuperSetName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.KNSCore__Provider_QBaseSetName(@ptrCast(self), name_str);
+        qtc.KNSCore__Provider_SuperSetName(@ptrCast(self), name_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setIcon)
@@ -1463,6 +1543,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_OnSetIcon(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetIcon` instead
+    ///
+    pub const QBaseSetIcon = SuperSetIcon;
+
     /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#setIcon)
     ///
     /// Base class method implementation
@@ -1473,8 +1557,8 @@ pub const knscore__provider = struct {
     ///
     /// ` icon: QtC.QUrl `
     ///
-    pub fn QBaseSetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.KNSCore__Provider_QBaseSetIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SuperSetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
+        qtc.KNSCore__Provider_SuperSetIcon(@ptrCast(self), @ptrCast(icon));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2273,6 +2357,10 @@ pub const knscore__provider = struct {
         return qtc.KNSCore__Provider_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -2285,8 +2373,8 @@ pub const knscore__provider = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KNSCore__Provider_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KNSCore__Provider_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2323,6 +2411,10 @@ pub const knscore__provider = struct {
         return qtc.KNSCore__Provider_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -2337,8 +2429,8 @@ pub const knscore__provider = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KNSCore__Provider_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KNSCore__Provider_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2373,6 +2465,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -2385,8 +2481,8 @@ pub const knscore__provider = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KNSCore__Provider_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KNSCore__Provider_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2421,6 +2517,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -2433,8 +2533,8 @@ pub const knscore__provider = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KNSCore__Provider_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KNSCore__Provider_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2469,6 +2569,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -2481,8 +2585,8 @@ pub const knscore__provider = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KNSCore__Provider_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KNSCore__Provider_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2517,6 +2621,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2529,8 +2637,8 @@ pub const knscore__provider = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KNSCore__Provider_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KNSCore__Provider_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2565,6 +2673,10 @@ pub const knscore__provider = struct {
         qtc.KNSCore__Provider_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -2577,8 +2689,8 @@ pub const knscore__provider = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KNSCore__Provider_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KNSCore__Provider_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2611,6 +2723,10 @@ pub const knscore__provider = struct {
         return qtc.KNSCore__Provider_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2621,8 +2737,8 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KNSCore__Provider_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KNSCore__Provider_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2655,6 +2771,10 @@ pub const knscore__provider = struct {
         return qtc.KNSCore__Provider_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2665,8 +2785,8 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KNSCore__Provider_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KNSCore__Provider_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2702,6 +2822,10 @@ pub const knscore__provider = struct {
         return qtc.KNSCore__Provider_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2714,9 +2838,9 @@ pub const knscore__provider = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KNSCore__Provider_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KNSCore__Provider_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2751,6 +2875,10 @@ pub const knscore__provider = struct {
         return qtc.KNSCore__Provider_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2763,8 +2891,8 @@ pub const knscore__provider = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KNSCore__Provider_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KNSCore__Provider_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2798,6 +2926,9 @@ pub const knscore__provider = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -2805,7 +2936,7 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KNSCore__Provider_Delete(@ptrCast(self));
     }
 };
@@ -3201,13 +3332,17 @@ pub const knscore__provider__searchrequest = struct {
         qtc.KNSCore__Provider__SearchRequest_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KNSCore__Provider__SearchRequest `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KNSCore__Provider__SearchRequest_Delete(@ptrCast(self));
     }
 };
@@ -3332,13 +3467,17 @@ pub const knscore__provider__categorymetadata = struct {
         qtc.KNSCore__Provider__CategoryMetadata_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KNSCore__Provider__CategoryMetadata `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KNSCore__Provider__CategoryMetadata_Delete(@ptrCast(self));
     }
 };
@@ -3511,13 +3650,17 @@ pub const knscore__provider__searchpreset = struct {
         qtc.KNSCore__Provider__SearchPreset_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KNSCore__Provider__SearchPreset `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KNSCore__Provider__SearchPreset_Delete(@ptrCast(self));
     }
 };

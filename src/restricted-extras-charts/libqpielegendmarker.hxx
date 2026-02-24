@@ -366,23 +366,23 @@ class VirtualQPieLegendMarker final : public QPieLegendMarker {
 
     // Friend functions
     friend void QPieLegendMarker_TimerEvent(QPieLegendMarker* self, QTimerEvent* event);
-    friend void QPieLegendMarker_QBaseTimerEvent(QPieLegendMarker* self, QTimerEvent* event);
+    friend void QPieLegendMarker_SuperTimerEvent(QPieLegendMarker* self, QTimerEvent* event);
     friend void QPieLegendMarker_ChildEvent(QPieLegendMarker* self, QChildEvent* event);
-    friend void QPieLegendMarker_QBaseChildEvent(QPieLegendMarker* self, QChildEvent* event);
+    friend void QPieLegendMarker_SuperChildEvent(QPieLegendMarker* self, QChildEvent* event);
     friend void QPieLegendMarker_CustomEvent(QPieLegendMarker* self, QEvent* event);
-    friend void QPieLegendMarker_QBaseCustomEvent(QPieLegendMarker* self, QEvent* event);
+    friend void QPieLegendMarker_SuperCustomEvent(QPieLegendMarker* self, QEvent* event);
     friend void QPieLegendMarker_ConnectNotify(QPieLegendMarker* self, const QMetaMethod* signal);
-    friend void QPieLegendMarker_QBaseConnectNotify(QPieLegendMarker* self, const QMetaMethod* signal);
+    friend void QPieLegendMarker_SuperConnectNotify(QPieLegendMarker* self, const QMetaMethod* signal);
     friend void QPieLegendMarker_DisconnectNotify(QPieLegendMarker* self, const QMetaMethod* signal);
-    friend void QPieLegendMarker_QBaseDisconnectNotify(QPieLegendMarker* self, const QMetaMethod* signal);
+    friend void QPieLegendMarker_SuperDisconnectNotify(QPieLegendMarker* self, const QMetaMethod* signal);
     friend QObject* QPieLegendMarker_Sender(const QPieLegendMarker* self);
-    friend QObject* QPieLegendMarker_QBaseSender(const QPieLegendMarker* self);
+    friend QObject* QPieLegendMarker_SuperSender(const QPieLegendMarker* self);
     friend int QPieLegendMarker_SenderSignalIndex(const QPieLegendMarker* self);
-    friend int QPieLegendMarker_QBaseSenderSignalIndex(const QPieLegendMarker* self);
+    friend int QPieLegendMarker_SuperSenderSignalIndex(const QPieLegendMarker* self);
     friend int QPieLegendMarker_Receivers(const QPieLegendMarker* self, const char* signal);
-    friend int QPieLegendMarker_QBaseReceivers(const QPieLegendMarker* self, const char* signal);
+    friend int QPieLegendMarker_SuperReceivers(const QPieLegendMarker* self, const char* signal);
     friend bool QPieLegendMarker_IsSignalConnected(const QPieLegendMarker* self, const QMetaMethod* signal);
-    friend bool QPieLegendMarker_QBaseIsSignalConnected(const QPieLegendMarker* self, const QMetaMethod* signal);
+    friend bool QPieLegendMarker_SuperIsSignalConnected(const QPieLegendMarker* self, const QMetaMethod* signal);
 };
 
 #endif

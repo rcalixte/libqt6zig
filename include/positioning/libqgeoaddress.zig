@@ -394,6 +394,10 @@ pub const qgeoaddress = struct {
         return qtc.QGeoAddress_IsTextGenerated(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#dtor.QGeoAddress)
     ///
     /// Delete this object from C++ memory.
@@ -402,7 +406,7 @@ pub const qgeoaddress = struct {
     ///
     /// ` self: QtC.QGeoAddress `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGeoAddress_Delete(@ptrCast(self));
     }
 };

@@ -1098,31 +1098,31 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
 
     // Friend functions
     friend bool QsciLexerRuby_ReadProperties(QsciLexerRuby* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerRuby_QBaseReadProperties(QsciLexerRuby* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerRuby_SuperReadProperties(QsciLexerRuby* self, QSettings* qs, const libqt_string prefix);
     friend bool QsciLexerRuby_WriteProperties(const QsciLexerRuby* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerRuby_QBaseWriteProperties(const QsciLexerRuby* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerRuby_SuperWriteProperties(const QsciLexerRuby* self, QSettings* qs, const libqt_string prefix);
     friend void QsciLexerRuby_TimerEvent(QsciLexerRuby* self, QTimerEvent* event);
-    friend void QsciLexerRuby_QBaseTimerEvent(QsciLexerRuby* self, QTimerEvent* event);
+    friend void QsciLexerRuby_SuperTimerEvent(QsciLexerRuby* self, QTimerEvent* event);
     friend void QsciLexerRuby_ChildEvent(QsciLexerRuby* self, QChildEvent* event);
-    friend void QsciLexerRuby_QBaseChildEvent(QsciLexerRuby* self, QChildEvent* event);
+    friend void QsciLexerRuby_SuperChildEvent(QsciLexerRuby* self, QChildEvent* event);
     friend void QsciLexerRuby_CustomEvent(QsciLexerRuby* self, QEvent* event);
-    friend void QsciLexerRuby_QBaseCustomEvent(QsciLexerRuby* self, QEvent* event);
+    friend void QsciLexerRuby_SuperCustomEvent(QsciLexerRuby* self, QEvent* event);
     friend void QsciLexerRuby_ConnectNotify(QsciLexerRuby* self, const QMetaMethod* signal);
-    friend void QsciLexerRuby_QBaseConnectNotify(QsciLexerRuby* self, const QMetaMethod* signal);
+    friend void QsciLexerRuby_SuperConnectNotify(QsciLexerRuby* self, const QMetaMethod* signal);
     friend void QsciLexerRuby_DisconnectNotify(QsciLexerRuby* self, const QMetaMethod* signal);
-    friend void QsciLexerRuby_QBaseDisconnectNotify(QsciLexerRuby* self, const QMetaMethod* signal);
+    friend void QsciLexerRuby_SuperDisconnectNotify(QsciLexerRuby* self, const QMetaMethod* signal);
     friend libqt_string QsciLexerRuby_TextAsBytes(const QsciLexerRuby* self, const libqt_string text);
-    friend libqt_string QsciLexerRuby_QBaseTextAsBytes(const QsciLexerRuby* self, const libqt_string text);
+    friend libqt_string QsciLexerRuby_SuperTextAsBytes(const QsciLexerRuby* self, const libqt_string text);
     friend libqt_string QsciLexerRuby_BytesAsText(const QsciLexerRuby* self, const char* bytes, int size);
-    friend libqt_string QsciLexerRuby_QBaseBytesAsText(const QsciLexerRuby* self, const char* bytes, int size);
+    friend libqt_string QsciLexerRuby_SuperBytesAsText(const QsciLexerRuby* self, const char* bytes, int size);
     friend QObject* QsciLexerRuby_Sender(const QsciLexerRuby* self);
-    friend QObject* QsciLexerRuby_QBaseSender(const QsciLexerRuby* self);
+    friend QObject* QsciLexerRuby_SuperSender(const QsciLexerRuby* self);
     friend int QsciLexerRuby_SenderSignalIndex(const QsciLexerRuby* self);
-    friend int QsciLexerRuby_QBaseSenderSignalIndex(const QsciLexerRuby* self);
+    friend int QsciLexerRuby_SuperSenderSignalIndex(const QsciLexerRuby* self);
     friend int QsciLexerRuby_Receivers(const QsciLexerRuby* self, const char* signal);
-    friend int QsciLexerRuby_QBaseReceivers(const QsciLexerRuby* self, const char* signal);
+    friend int QsciLexerRuby_SuperReceivers(const QsciLexerRuby* self, const char* signal);
     friend bool QsciLexerRuby_IsSignalConnected(const QsciLexerRuby* self, const QMetaMethod* signal);
-    friend bool QsciLexerRuby_QBaseIsSignalConnected(const QsciLexerRuby* self, const QMetaMethod* signal);
+    friend bool QsciLexerRuby_SuperIsSignalConnected(const QsciLexerRuby* self, const QMetaMethod* signal);
 };
 
 #endif

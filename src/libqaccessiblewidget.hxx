@@ -656,11 +656,11 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
 
     // Friend functions
     friend QWidget* QAccessibleWidget_Widget(const QAccessibleWidget* self);
-    friend QWidget* QAccessibleWidget_QBaseWidget(const QAccessibleWidget* self);
+    friend QWidget* QAccessibleWidget_SuperWidget(const QAccessibleWidget* self);
     friend QObject* QAccessibleWidget_ParentObject(const QAccessibleWidget* self);
-    friend QObject* QAccessibleWidget_QBaseParentObject(const QAccessibleWidget* self);
+    friend QObject* QAccessibleWidget_SuperParentObject(const QAccessibleWidget* self);
     friend void QAccessibleWidget_AddControllingSignal(QAccessibleWidget* self, const libqt_string signal);
-    friend void QAccessibleWidget_QBaseAddControllingSignal(QAccessibleWidget* self, const libqt_string signal);
+    friend void QAccessibleWidget_SuperAddControllingSignal(QAccessibleWidget* self, const libqt_string signal);
 };
 
 #endif

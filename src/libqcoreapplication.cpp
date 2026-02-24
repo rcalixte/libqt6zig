@@ -458,7 +458,7 @@ void QCoreApplication_Exit1(int retcode) {
 }
 
 // Base class handler implementation
-QMetaObject* QCoreApplication_QBaseMetaObject(const QCoreApplication* self) {
+QMetaObject* QCoreApplication_SuperMetaObject(const QCoreApplication* self) {
     auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
     if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
         vqcoreapplication->setQCoreApplication_MetaObject_IsBase(true);
@@ -477,7 +477,7 @@ void QCoreApplication_OnMetaObject(const QCoreApplication* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* QCoreApplication_QBaseMetacast(QCoreApplication* self, const char* param1) {
+void* QCoreApplication_SuperMetacast(QCoreApplication* self, const char* param1) {
     auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
     if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
         vqcoreapplication->setQCoreApplication_Metacast_IsBase(true);
@@ -496,7 +496,7 @@ void QCoreApplication_OnMetacast(QCoreApplication* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCoreApplication_QBaseMetacall(QCoreApplication* self, int param1, int param2, void** param3) {
+int QCoreApplication_SuperMetacall(QCoreApplication* self, int param1, int param2, void** param3) {
     auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
     if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
         vqcoreapplication->setQCoreApplication_Metacall_IsBase(true);
@@ -515,7 +515,7 @@ void QCoreApplication_OnMetacall(QCoreApplication* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QCoreApplication_QBaseNotify(QCoreApplication* self, QObject* param1, QEvent* param2) {
+bool QCoreApplication_SuperNotify(QCoreApplication* self, QObject* param1, QEvent* param2) {
     auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
     if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
         vqcoreapplication->setQCoreApplication_Notify_IsBase(true);
@@ -534,7 +534,7 @@ void QCoreApplication_OnNotify(QCoreApplication* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QCoreApplication_QBaseEvent(QCoreApplication* self, QEvent* param1) {
+bool QCoreApplication_SuperEvent(QCoreApplication* self, QEvent* param1) {
     auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
     if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
         vqcoreapplication->setQCoreApplication_Event_IsBase(true);
@@ -563,7 +563,7 @@ bool QCoreApplication_EventFilter(QCoreApplication* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool QCoreApplication_QBaseEventFilter(QCoreApplication* self, QObject* watched, QEvent* event) {
+bool QCoreApplication_SuperEventFilter(QCoreApplication* self, QObject* watched, QEvent* event) {
     auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
     if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
         vqcoreapplication->setQCoreApplication_EventFilter_IsBase(true);
@@ -592,7 +592,7 @@ void QCoreApplication_TimerEvent(QCoreApplication* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCoreApplication_QBaseTimerEvent(QCoreApplication* self, QTimerEvent* event) {
+void QCoreApplication_SuperTimerEvent(QCoreApplication* self, QTimerEvent* event) {
     auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
     if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
         vqcoreapplication->setQCoreApplication_TimerEvent_IsBase(true);
@@ -621,7 +621,7 @@ void QCoreApplication_ChildEvent(QCoreApplication* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCoreApplication_QBaseChildEvent(QCoreApplication* self, QChildEvent* event) {
+void QCoreApplication_SuperChildEvent(QCoreApplication* self, QChildEvent* event) {
     auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
     if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
         vqcoreapplication->setQCoreApplication_ChildEvent_IsBase(true);
@@ -650,7 +650,7 @@ void QCoreApplication_CustomEvent(QCoreApplication* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCoreApplication_QBaseCustomEvent(QCoreApplication* self, QEvent* event) {
+void QCoreApplication_SuperCustomEvent(QCoreApplication* self, QEvent* event) {
     auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
     if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
         vqcoreapplication->setQCoreApplication_CustomEvent_IsBase(true);
@@ -679,7 +679,7 @@ void QCoreApplication_ConnectNotify(QCoreApplication* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void QCoreApplication_QBaseConnectNotify(QCoreApplication* self, const QMetaMethod* signal) {
+void QCoreApplication_SuperConnectNotify(QCoreApplication* self, const QMetaMethod* signal) {
     auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
     if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
         vqcoreapplication->setQCoreApplication_ConnectNotify_IsBase(true);
@@ -708,7 +708,7 @@ void QCoreApplication_DisconnectNotify(QCoreApplication* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void QCoreApplication_QBaseDisconnectNotify(QCoreApplication* self, const QMetaMethod* signal) {
+void QCoreApplication_SuperDisconnectNotify(QCoreApplication* self, const QMetaMethod* signal) {
     auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
     if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
         vqcoreapplication->setQCoreApplication_DisconnectNotify_IsBase(true);
@@ -737,7 +737,7 @@ void* QCoreApplication_ResolveInterface(const QCoreApplication* self, const char
 }
 
 // Base class handler implementation
-void* QCoreApplication_QBaseResolveInterface(const QCoreApplication* self, const char* name, int revision) {
+void* QCoreApplication_SuperResolveInterface(const QCoreApplication* self, const char* name, int revision) {
     auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
     if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
         vqcoreapplication->setQCoreApplication_ResolveInterface_IsBase(true);
@@ -766,7 +766,7 @@ QObject* QCoreApplication_Sender(const QCoreApplication* self) {
 }
 
 // Base class handler implementation
-QObject* QCoreApplication_QBaseSender(const QCoreApplication* self) {
+QObject* QCoreApplication_SuperSender(const QCoreApplication* self) {
     auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
     if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
         vqcoreapplication->setQCoreApplication_Sender_IsBase(true);
@@ -795,7 +795,7 @@ int QCoreApplication_SenderSignalIndex(const QCoreApplication* self) {
 }
 
 // Base class handler implementation
-int QCoreApplication_QBaseSenderSignalIndex(const QCoreApplication* self) {
+int QCoreApplication_SuperSenderSignalIndex(const QCoreApplication* self) {
     auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
     if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
         vqcoreapplication->setQCoreApplication_SenderSignalIndex_IsBase(true);
@@ -824,7 +824,7 @@ int QCoreApplication_Receivers(const QCoreApplication* self, const char* signal)
 }
 
 // Base class handler implementation
-int QCoreApplication_QBaseReceivers(const QCoreApplication* self, const char* signal) {
+int QCoreApplication_SuperReceivers(const QCoreApplication* self, const char* signal) {
     auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
     if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
         vqcoreapplication->setQCoreApplication_Receivers_IsBase(true);
@@ -853,7 +853,7 @@ bool QCoreApplication_IsSignalConnected(const QCoreApplication* self, const QMet
 }
 
 // Base class handler implementation
-bool QCoreApplication_QBaseIsSignalConnected(const QCoreApplication* self, const QMetaMethod* signal) {
+bool QCoreApplication_SuperIsSignalConnected(const QCoreApplication* self, const QMetaMethod* signal) {
     auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
     if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
         vqcoreapplication->setQCoreApplication_IsSignalConnected_IsBase(true);

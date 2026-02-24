@@ -883,6 +883,9 @@ pub const qpiemodelmapper = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper-qtcharts.html#dtor.QPieModelMapper)
     ///
@@ -892,7 +895,7 @@ pub const qpiemodelmapper = struct {
     ///
     /// ` self: QtC.QPieModelMapper `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPieModelMapper_Delete(@ptrCast(self));
     }
 };

@@ -3887,6 +3887,10 @@ pub const qstylepainter = struct {
         qtc.QPainter_SetRenderHints2(@ptrCast(self), @bitCast(hints), on);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylepainter.html#dtor.QStylePainter)
     ///
     /// Delete this object from C++ memory.
@@ -3895,7 +3899,7 @@ pub const qstylepainter = struct {
     ///
     /// ` self: QtC.QStylePainter `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStylePainter_Delete(@ptrCast(self));
     }
 };

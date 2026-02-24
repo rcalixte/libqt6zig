@@ -561,7 +561,7 @@ void QPlaceManagerEngine_Connect_ErrorOccurred3(QPlaceManagerEngine* self, intpt
 }
 
 // Base class handler implementation
-QMetaObject* QPlaceManagerEngine_QBaseMetaObject(const QPlaceManagerEngine* self) {
+QMetaObject* QPlaceManagerEngine_SuperMetaObject(const QPlaceManagerEngine* self) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_MetaObject_IsBase(true);
@@ -580,7 +580,7 @@ void QPlaceManagerEngine_OnMetaObject(const QPlaceManagerEngine* self, intptr_t 
 }
 
 // Base class handler implementation
-void* QPlaceManagerEngine_QBaseMetacast(QPlaceManagerEngine* self, const char* param1) {
+void* QPlaceManagerEngine_SuperMetacast(QPlaceManagerEngine* self, const char* param1) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_Metacast_IsBase(true);
@@ -599,7 +599,7 @@ void QPlaceManagerEngine_OnMetacast(QPlaceManagerEngine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPlaceManagerEngine_QBaseMetacall(QPlaceManagerEngine* self, int param1, int param2, void** param3) {
+int QPlaceManagerEngine_SuperMetacall(QPlaceManagerEngine* self, int param1, int param2, void** param3) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_Metacall_IsBase(true);
@@ -618,7 +618,7 @@ void QPlaceManagerEngine_OnMetacall(QPlaceManagerEngine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPlaceDetailsReply* QPlaceManagerEngine_QBaseGetPlaceDetails(QPlaceManagerEngine* self, const libqt_string placeId) {
+QPlaceDetailsReply* QPlaceManagerEngine_SuperGetPlaceDetails(QPlaceManagerEngine* self, const libqt_string placeId) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     QString placeId_QString = QString::fromUtf8(placeId.data, placeId.len);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
@@ -638,7 +638,7 @@ void QPlaceManagerEngine_OnGetPlaceDetails(QPlaceManagerEngine* self, intptr_t s
 }
 
 // Base class handler implementation
-QPlaceContentReply* QPlaceManagerEngine_QBaseGetPlaceContent(QPlaceManagerEngine* self, const QPlaceContentRequest* request) {
+QPlaceContentReply* QPlaceManagerEngine_SuperGetPlaceContent(QPlaceManagerEngine* self, const QPlaceContentRequest* request) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_GetPlaceContent_IsBase(true);
@@ -657,7 +657,7 @@ void QPlaceManagerEngine_OnGetPlaceContent(QPlaceManagerEngine* self, intptr_t s
 }
 
 // Base class handler implementation
-QPlaceSearchReply* QPlaceManagerEngine_QBaseSearch(QPlaceManagerEngine* self, const QPlaceSearchRequest* request) {
+QPlaceSearchReply* QPlaceManagerEngine_SuperSearch(QPlaceManagerEngine* self, const QPlaceSearchRequest* request) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_Search_IsBase(true);
@@ -676,7 +676,7 @@ void QPlaceManagerEngine_OnSearch(QPlaceManagerEngine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPlaceSearchSuggestionReply* QPlaceManagerEngine_QBaseSearchSuggestions(QPlaceManagerEngine* self, const QPlaceSearchRequest* request) {
+QPlaceSearchSuggestionReply* QPlaceManagerEngine_SuperSearchSuggestions(QPlaceManagerEngine* self, const QPlaceSearchRequest* request) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_SearchSuggestions_IsBase(true);
@@ -695,7 +695,7 @@ void QPlaceManagerEngine_OnSearchSuggestions(QPlaceManagerEngine* self, intptr_t
 }
 
 // Base class handler implementation
-QPlaceIdReply* QPlaceManagerEngine_QBaseSavePlace(QPlaceManagerEngine* self, const QPlace* place) {
+QPlaceIdReply* QPlaceManagerEngine_SuperSavePlace(QPlaceManagerEngine* self, const QPlace* place) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_SavePlace_IsBase(true);
@@ -714,7 +714,7 @@ void QPlaceManagerEngine_OnSavePlace(QPlaceManagerEngine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPlaceIdReply* QPlaceManagerEngine_QBaseRemovePlace(QPlaceManagerEngine* self, const libqt_string placeId) {
+QPlaceIdReply* QPlaceManagerEngine_SuperRemovePlace(QPlaceManagerEngine* self, const libqt_string placeId) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     QString placeId_QString = QString::fromUtf8(placeId.data, placeId.len);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
@@ -734,7 +734,7 @@ void QPlaceManagerEngine_OnRemovePlace(QPlaceManagerEngine* self, intptr_t slot)
 }
 
 // Base class handler implementation
-QPlaceIdReply* QPlaceManagerEngine_QBaseSaveCategory(QPlaceManagerEngine* self, const QPlaceCategory* category, const libqt_string parentId) {
+QPlaceIdReply* QPlaceManagerEngine_SuperSaveCategory(QPlaceManagerEngine* self, const QPlaceCategory* category, const libqt_string parentId) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     QString parentId_QString = QString::fromUtf8(parentId.data, parentId.len);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
@@ -754,7 +754,7 @@ void QPlaceManagerEngine_OnSaveCategory(QPlaceManagerEngine* self, intptr_t slot
 }
 
 // Base class handler implementation
-QPlaceIdReply* QPlaceManagerEngine_QBaseRemoveCategory(QPlaceManagerEngine* self, const libqt_string categoryId) {
+QPlaceIdReply* QPlaceManagerEngine_SuperRemoveCategory(QPlaceManagerEngine* self, const libqt_string categoryId) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     QString categoryId_QString = QString::fromUtf8(categoryId.data, categoryId.len);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
@@ -774,7 +774,7 @@ void QPlaceManagerEngine_OnRemoveCategory(QPlaceManagerEngine* self, intptr_t sl
 }
 
 // Base class handler implementation
-QPlaceReply* QPlaceManagerEngine_QBaseInitializeCategories(QPlaceManagerEngine* self) {
+QPlaceReply* QPlaceManagerEngine_SuperInitializeCategories(QPlaceManagerEngine* self) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_InitializeCategories_IsBase(true);
@@ -793,7 +793,7 @@ void QPlaceManagerEngine_OnInitializeCategories(QPlaceManagerEngine* self, intpt
 }
 
 // Base class handler implementation
-libqt_string QPlaceManagerEngine_QBaseParentCategoryId(const QPlaceManagerEngine* self, const libqt_string categoryId) {
+libqt_string QPlaceManagerEngine_SuperParentCategoryId(const QPlaceManagerEngine* self, const libqt_string categoryId) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
     QString categoryId_QString = QString::fromUtf8(categoryId.data, categoryId.len);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
@@ -829,7 +829,7 @@ void QPlaceManagerEngine_OnParentCategoryId(const QPlaceManagerEngine* self, int
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QPlaceManagerEngine_QBaseChildCategoryIds(const QPlaceManagerEngine* self, const libqt_string categoryId) {
+libqt_list /* of libqt_string */ QPlaceManagerEngine_SuperChildCategoryIds(const QPlaceManagerEngine* self, const libqt_string categoryId) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
     QString categoryId_QString = QString::fromUtf8(categoryId.data, categoryId.len);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
@@ -883,7 +883,7 @@ void QPlaceManagerEngine_OnChildCategoryIds(const QPlaceManagerEngine* self, int
 }
 
 // Base class handler implementation
-QPlaceCategory* QPlaceManagerEngine_QBaseCategory(const QPlaceManagerEngine* self, const libqt_string categoryId) {
+QPlaceCategory* QPlaceManagerEngine_SuperCategory(const QPlaceManagerEngine* self, const libqt_string categoryId) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
     QString categoryId_QString = QString::fromUtf8(categoryId.data, categoryId.len);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
@@ -903,7 +903,7 @@ void QPlaceManagerEngine_OnCategory(const QPlaceManagerEngine* self, intptr_t sl
 }
 
 // Base class handler implementation
-libqt_list /* of QPlaceCategory* */ QPlaceManagerEngine_QBaseChildCategories(const QPlaceManagerEngine* self, const libqt_string parentId) {
+libqt_list /* of QPlaceCategory* */ QPlaceManagerEngine_SuperChildCategories(const QPlaceManagerEngine* self, const libqt_string parentId) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
     QString parentId_QString = QString::fromUtf8(parentId.data, parentId.len);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
@@ -941,7 +941,7 @@ void QPlaceManagerEngine_OnChildCategories(const QPlaceManagerEngine* self, intp
 }
 
 // Base class handler implementation
-libqt_list /* of QLocale* */ QPlaceManagerEngine_QBaseLocales(const QPlaceManagerEngine* self) {
+libqt_list /* of QLocale* */ QPlaceManagerEngine_SuperLocales(const QPlaceManagerEngine* self) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_Locales_IsBase(true);
@@ -978,7 +978,7 @@ void QPlaceManagerEngine_OnLocales(const QPlaceManagerEngine* self, intptr_t slo
 }
 
 // Base class handler implementation
-void QPlaceManagerEngine_QBaseSetLocales(QPlaceManagerEngine* self, const libqt_list /* of QLocale* */ locales) {
+void QPlaceManagerEngine_SuperSetLocales(QPlaceManagerEngine* self, const libqt_list /* of QLocale* */ locales) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     QList<QLocale> locales_QList;
     locales_QList.reserve(locales.len);
@@ -1003,7 +1003,7 @@ void QPlaceManagerEngine_OnSetLocales(QPlaceManagerEngine* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-QUrl* QPlaceManagerEngine_QBaseConstructIconUrl(const QPlaceManagerEngine* self, const QPlaceIcon* icon, const QSize* size) {
+QUrl* QPlaceManagerEngine_SuperConstructIconUrl(const QPlaceManagerEngine* self, const QPlaceIcon* icon, const QSize* size) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_ConstructIconUrl_IsBase(true);
@@ -1022,7 +1022,7 @@ void QPlaceManagerEngine_OnConstructIconUrl(const QPlaceManagerEngine* self, int
 }
 
 // Base class handler implementation
-QPlace* QPlaceManagerEngine_QBaseCompatiblePlace(const QPlaceManagerEngine* self, const QPlace* original) {
+QPlace* QPlaceManagerEngine_SuperCompatiblePlace(const QPlaceManagerEngine* self, const QPlace* original) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_CompatiblePlace_IsBase(true);
@@ -1041,7 +1041,7 @@ void QPlaceManagerEngine_OnCompatiblePlace(const QPlaceManagerEngine* self, intp
 }
 
 // Base class handler implementation
-QPlaceMatchReply* QPlaceManagerEngine_QBaseMatchingPlaces(QPlaceManagerEngine* self, const QPlaceMatchRequest* request) {
+QPlaceMatchReply* QPlaceManagerEngine_SuperMatchingPlaces(QPlaceManagerEngine* self, const QPlaceMatchRequest* request) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_MatchingPlaces_IsBase(true);
@@ -1070,7 +1070,7 @@ bool QPlaceManagerEngine_Event(QPlaceManagerEngine* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QPlaceManagerEngine_QBaseEvent(QPlaceManagerEngine* self, QEvent* event) {
+bool QPlaceManagerEngine_SuperEvent(QPlaceManagerEngine* self, QEvent* event) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_Event_IsBase(true);
@@ -1099,7 +1099,7 @@ bool QPlaceManagerEngine_EventFilter(QPlaceManagerEngine* self, QObject* watched
 }
 
 // Base class handler implementation
-bool QPlaceManagerEngine_QBaseEventFilter(QPlaceManagerEngine* self, QObject* watched, QEvent* event) {
+bool QPlaceManagerEngine_SuperEventFilter(QPlaceManagerEngine* self, QObject* watched, QEvent* event) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_EventFilter_IsBase(true);
@@ -1128,7 +1128,7 @@ void QPlaceManagerEngine_TimerEvent(QPlaceManagerEngine* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void QPlaceManagerEngine_QBaseTimerEvent(QPlaceManagerEngine* self, QTimerEvent* event) {
+void QPlaceManagerEngine_SuperTimerEvent(QPlaceManagerEngine* self, QTimerEvent* event) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_TimerEvent_IsBase(true);
@@ -1157,7 +1157,7 @@ void QPlaceManagerEngine_ChildEvent(QPlaceManagerEngine* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void QPlaceManagerEngine_QBaseChildEvent(QPlaceManagerEngine* self, QChildEvent* event) {
+void QPlaceManagerEngine_SuperChildEvent(QPlaceManagerEngine* self, QChildEvent* event) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_ChildEvent_IsBase(true);
@@ -1186,7 +1186,7 @@ void QPlaceManagerEngine_CustomEvent(QPlaceManagerEngine* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPlaceManagerEngine_QBaseCustomEvent(QPlaceManagerEngine* self, QEvent* event) {
+void QPlaceManagerEngine_SuperCustomEvent(QPlaceManagerEngine* self, QEvent* event) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_CustomEvent_IsBase(true);
@@ -1215,7 +1215,7 @@ void QPlaceManagerEngine_ConnectNotify(QPlaceManagerEngine* self, const QMetaMet
 }
 
 // Base class handler implementation
-void QPlaceManagerEngine_QBaseConnectNotify(QPlaceManagerEngine* self, const QMetaMethod* signal) {
+void QPlaceManagerEngine_SuperConnectNotify(QPlaceManagerEngine* self, const QMetaMethod* signal) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_ConnectNotify_IsBase(true);
@@ -1244,7 +1244,7 @@ void QPlaceManagerEngine_DisconnectNotify(QPlaceManagerEngine* self, const QMeta
 }
 
 // Base class handler implementation
-void QPlaceManagerEngine_QBaseDisconnectNotify(QPlaceManagerEngine* self, const QMetaMethod* signal) {
+void QPlaceManagerEngine_SuperDisconnectNotify(QPlaceManagerEngine* self, const QMetaMethod* signal) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_DisconnectNotify_IsBase(true);
@@ -1273,7 +1273,7 @@ QPlaceManager* QPlaceManagerEngine_Manager(const QPlaceManagerEngine* self) {
 }
 
 // Base class handler implementation
-QPlaceManager* QPlaceManagerEngine_QBaseManager(const QPlaceManagerEngine* self) {
+QPlaceManager* QPlaceManagerEngine_SuperManager(const QPlaceManagerEngine* self) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_Manager_IsBase(true);
@@ -1302,7 +1302,7 @@ QObject* QPlaceManagerEngine_Sender(const QPlaceManagerEngine* self) {
 }
 
 // Base class handler implementation
-QObject* QPlaceManagerEngine_QBaseSender(const QPlaceManagerEngine* self) {
+QObject* QPlaceManagerEngine_SuperSender(const QPlaceManagerEngine* self) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_Sender_IsBase(true);
@@ -1331,7 +1331,7 @@ int QPlaceManagerEngine_SenderSignalIndex(const QPlaceManagerEngine* self) {
 }
 
 // Base class handler implementation
-int QPlaceManagerEngine_QBaseSenderSignalIndex(const QPlaceManagerEngine* self) {
+int QPlaceManagerEngine_SuperSenderSignalIndex(const QPlaceManagerEngine* self) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_SenderSignalIndex_IsBase(true);
@@ -1360,7 +1360,7 @@ int QPlaceManagerEngine_Receivers(const QPlaceManagerEngine* self, const char* s
 }
 
 // Base class handler implementation
-int QPlaceManagerEngine_QBaseReceivers(const QPlaceManagerEngine* self, const char* signal) {
+int QPlaceManagerEngine_SuperReceivers(const QPlaceManagerEngine* self, const char* signal) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_Receivers_IsBase(true);
@@ -1389,7 +1389,7 @@ bool QPlaceManagerEngine_IsSignalConnected(const QPlaceManagerEngine* self, cons
 }
 
 // Base class handler implementation
-bool QPlaceManagerEngine_QBaseIsSignalConnected(const QPlaceManagerEngine* self, const QMetaMethod* signal) {
+bool QPlaceManagerEngine_SuperIsSignalConnected(const QPlaceManagerEngine* self, const QMetaMethod* signal) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
     if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
         vqplacemanagerengine->setQPlaceManagerEngine_IsSignalConnected_IsBase(true);

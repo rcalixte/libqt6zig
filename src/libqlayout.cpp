@@ -327,7 +327,7 @@ void QLayout_ChildEvent(QLayout* self, QChildEvent* e) {
 }
 
 // Base class handler implementation
-QMetaObject* QLayout_QBaseMetaObject(const QLayout* self) {
+QMetaObject* QLayout_SuperMetaObject(const QLayout* self) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_MetaObject_IsBase(true);
@@ -346,7 +346,7 @@ void QLayout_OnMetaObject(const QLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QLayout_QBaseMetacast(QLayout* self, const char* param1) {
+void* QLayout_SuperMetacast(QLayout* self, const char* param1) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_Metacast_IsBase(true);
@@ -365,7 +365,7 @@ void QLayout_OnMetacast(QLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QLayout_QBaseMetacall(QLayout* self, int param1, int param2, void** param3) {
+int QLayout_SuperMetacall(QLayout* self, int param1, int param2, void** param3) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_Metacall_IsBase(true);
@@ -384,7 +384,7 @@ void QLayout_OnMetacall(QLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QLayout_QBaseSpacing(const QLayout* self) {
+int QLayout_SuperSpacing(const QLayout* self) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_Spacing_IsBase(true);
@@ -403,7 +403,7 @@ void QLayout_OnSpacing(const QLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLayout_QBaseSetSpacing(QLayout* self, int spacing) {
+void QLayout_SuperSetSpacing(QLayout* self, int spacing) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_SetSpacing_IsBase(true);
@@ -422,7 +422,7 @@ void QLayout_OnSetSpacing(QLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLayout_QBaseInvalidate(QLayout* self) {
+void QLayout_SuperInvalidate(QLayout* self) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_Invalidate_IsBase(true);
@@ -441,7 +441,7 @@ void QLayout_OnInvalidate(QLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QRect* QLayout_QBaseGeometry(const QLayout* self) {
+QRect* QLayout_SuperGeometry(const QLayout* self) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_Geometry_IsBase(true);
@@ -460,7 +460,7 @@ void QLayout_OnGeometry(const QLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLayout_QBaseAddItem(QLayout* self, QLayoutItem* param1) {
+void QLayout_SuperAddItem(QLayout* self, QLayoutItem* param1) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_AddItem_IsBase(true);
@@ -479,7 +479,7 @@ void QLayout_OnAddItem(QLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QLayout_QBaseExpandingDirections(const QLayout* self) {
+int QLayout_SuperExpandingDirections(const QLayout* self) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_ExpandingDirections_IsBase(true);
@@ -498,7 +498,7 @@ void QLayout_OnExpandingDirections(const QLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QLayout_QBaseMinimumSize(const QLayout* self) {
+QSize* QLayout_SuperMinimumSize(const QLayout* self) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_MinimumSize_IsBase(true);
@@ -517,7 +517,7 @@ void QLayout_OnMinimumSize(const QLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QLayout_QBaseMaximumSize(const QLayout* self) {
+QSize* QLayout_SuperMaximumSize(const QLayout* self) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_MaximumSize_IsBase(true);
@@ -536,7 +536,7 @@ void QLayout_OnMaximumSize(const QLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLayout_QBaseSetGeometry(QLayout* self, const QRect* geometry) {
+void QLayout_SuperSetGeometry(QLayout* self, const QRect* geometry) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_SetGeometry_IsBase(true);
@@ -555,7 +555,7 @@ void QLayout_OnSetGeometry(QLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QLayoutItem* QLayout_QBaseItemAt(const QLayout* self, int index) {
+QLayoutItem* QLayout_SuperItemAt(const QLayout* self, int index) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_ItemAt_IsBase(true);
@@ -574,7 +574,7 @@ void QLayout_OnItemAt(const QLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QLayoutItem* QLayout_QBaseTakeAt(QLayout* self, int index) {
+QLayoutItem* QLayout_SuperTakeAt(QLayout* self, int index) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_TakeAt_IsBase(true);
@@ -593,7 +593,7 @@ void QLayout_OnTakeAt(QLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QLayout_QBaseIndexOf(const QLayout* self, const QWidget* param1) {
+int QLayout_SuperIndexOf(const QLayout* self, const QWidget* param1) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_IndexOf_IsBase(true);
@@ -612,7 +612,7 @@ void QLayout_OnIndexOf(const QLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QLayout_QBaseIndexOf2(const QLayout* self, const QLayoutItem* param1) {
+int QLayout_SuperIndexOf2(const QLayout* self, const QLayoutItem* param1) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_IndexOf2_IsBase(true);
@@ -631,7 +631,7 @@ void QLayout_OnIndexOf2(const QLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QLayout_QBaseCount(const QLayout* self) {
+int QLayout_SuperCount(const QLayout* self) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_Count_IsBase(true);
@@ -650,7 +650,7 @@ void QLayout_OnCount(const QLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QLayout_QBaseIsEmpty(const QLayout* self) {
+bool QLayout_SuperIsEmpty(const QLayout* self) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_IsEmpty_IsBase(true);
@@ -669,7 +669,7 @@ void QLayout_OnIsEmpty(const QLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QLayout_QBaseControlTypes(const QLayout* self) {
+int QLayout_SuperControlTypes(const QLayout* self) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_ControlTypes_IsBase(true);
@@ -688,7 +688,7 @@ void QLayout_OnControlTypes(const QLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QLayoutItem* QLayout_QBaseReplaceWidget(QLayout* self, QWidget* from, QWidget* to, int options) {
+QLayoutItem* QLayout_SuperReplaceWidget(QLayout* self, QWidget* from, QWidget* to, int options) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_ReplaceWidget_IsBase(true);
@@ -707,7 +707,7 @@ void QLayout_OnReplaceWidget(QLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QLayout* QLayout_QBaseLayout(QLayout* self) {
+QLayout* QLayout_SuperLayout(QLayout* self) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_Layout_IsBase(true);
@@ -726,7 +726,7 @@ void QLayout_OnLayout(QLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLayout_QBaseChildEvent(QLayout* self, QChildEvent* e) {
+void QLayout_SuperChildEvent(QLayout* self, QChildEvent* e) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_ChildEvent_IsBase(true);
@@ -755,7 +755,7 @@ bool QLayout_Event(QLayout* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QLayout_QBaseEvent(QLayout* self, QEvent* event) {
+bool QLayout_SuperEvent(QLayout* self, QEvent* event) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_Event_IsBase(true);
@@ -784,7 +784,7 @@ bool QLayout_EventFilter(QLayout* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QLayout_QBaseEventFilter(QLayout* self, QObject* watched, QEvent* event) {
+bool QLayout_SuperEventFilter(QLayout* self, QObject* watched, QEvent* event) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_EventFilter_IsBase(true);
@@ -813,7 +813,7 @@ void QLayout_TimerEvent(QLayout* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QLayout_QBaseTimerEvent(QLayout* self, QTimerEvent* event) {
+void QLayout_SuperTimerEvent(QLayout* self, QTimerEvent* event) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_TimerEvent_IsBase(true);
@@ -842,7 +842,7 @@ void QLayout_CustomEvent(QLayout* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QLayout_QBaseCustomEvent(QLayout* self, QEvent* event) {
+void QLayout_SuperCustomEvent(QLayout* self, QEvent* event) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_CustomEvent_IsBase(true);
@@ -871,7 +871,7 @@ void QLayout_ConnectNotify(QLayout* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QLayout_QBaseConnectNotify(QLayout* self, const QMetaMethod* signal) {
+void QLayout_SuperConnectNotify(QLayout* self, const QMetaMethod* signal) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_ConnectNotify_IsBase(true);
@@ -900,7 +900,7 @@ void QLayout_DisconnectNotify(QLayout* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QLayout_QBaseDisconnectNotify(QLayout* self, const QMetaMethod* signal) {
+void QLayout_SuperDisconnectNotify(QLayout* self, const QMetaMethod* signal) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_DisconnectNotify_IsBase(true);
@@ -929,7 +929,7 @@ QSize* QLayout_SizeHint(const QLayout* self) {
 }
 
 // Base class handler implementation
-QSize* QLayout_QBaseSizeHint(const QLayout* self) {
+QSize* QLayout_SuperSizeHint(const QLayout* self) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_SizeHint_IsBase(true);
@@ -958,7 +958,7 @@ bool QLayout_HasHeightForWidth(const QLayout* self) {
 }
 
 // Base class handler implementation
-bool QLayout_QBaseHasHeightForWidth(const QLayout* self) {
+bool QLayout_SuperHasHeightForWidth(const QLayout* self) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_HasHeightForWidth_IsBase(true);
@@ -987,7 +987,7 @@ int QLayout_HeightForWidth(const QLayout* self, int param1) {
 }
 
 // Base class handler implementation
-int QLayout_QBaseHeightForWidth(const QLayout* self, int param1) {
+int QLayout_SuperHeightForWidth(const QLayout* self, int param1) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_HeightForWidth_IsBase(true);
@@ -1016,7 +1016,7 @@ int QLayout_MinimumHeightForWidth(const QLayout* self, int param1) {
 }
 
 // Base class handler implementation
-int QLayout_QBaseMinimumHeightForWidth(const QLayout* self, int param1) {
+int QLayout_SuperMinimumHeightForWidth(const QLayout* self, int param1) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_MinimumHeightForWidth_IsBase(true);
@@ -1045,7 +1045,7 @@ QWidget* QLayout_Widget(const QLayout* self) {
 }
 
 // Base class handler implementation
-QWidget* QLayout_QBaseWidget(const QLayout* self) {
+QWidget* QLayout_SuperWidget(const QLayout* self) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_Widget_IsBase(true);
@@ -1074,7 +1074,7 @@ QSpacerItem* QLayout_SpacerItem(QLayout* self) {
 }
 
 // Base class handler implementation
-QSpacerItem* QLayout_QBaseSpacerItem(QLayout* self) {
+QSpacerItem* QLayout_SuperSpacerItem(QLayout* self) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_SpacerItem_IsBase(true);
@@ -1103,7 +1103,7 @@ void QLayout_WidgetEvent(QLayout* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QLayout_QBaseWidgetEvent(QLayout* self, QEvent* param1) {
+void QLayout_SuperWidgetEvent(QLayout* self, QEvent* param1) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_WidgetEvent_IsBase(true);
@@ -1132,7 +1132,7 @@ void QLayout_AddChildLayout(QLayout* self, QLayout* l) {
 }
 
 // Base class handler implementation
-void QLayout_QBaseAddChildLayout(QLayout* self, QLayout* l) {
+void QLayout_SuperAddChildLayout(QLayout* self, QLayout* l) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_AddChildLayout_IsBase(true);
@@ -1161,7 +1161,7 @@ void QLayout_AddChildWidget(QLayout* self, QWidget* w) {
 }
 
 // Base class handler implementation
-void QLayout_QBaseAddChildWidget(QLayout* self, QWidget* w) {
+void QLayout_SuperAddChildWidget(QLayout* self, QWidget* w) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_AddChildWidget_IsBase(true);
@@ -1190,7 +1190,7 @@ bool QLayout_AdoptLayout(QLayout* self, QLayout* layout) {
 }
 
 // Base class handler implementation
-bool QLayout_QBaseAdoptLayout(QLayout* self, QLayout* layout) {
+bool QLayout_SuperAdoptLayout(QLayout* self, QLayout* layout) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_AdoptLayout_IsBase(true);
@@ -1218,7 +1218,7 @@ QRect* QLayout_AlignmentRect(const QLayout* self, const QRect* param1) {
 }
 
 // Base class handler implementation
-QRect* QLayout_QBaseAlignmentRect(const QLayout* self, const QRect* param1) {
+QRect* QLayout_SuperAlignmentRect(const QLayout* self, const QRect* param1) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_AlignmentRect_IsBase(true);
@@ -1246,7 +1246,7 @@ QObject* QLayout_Sender(const QLayout* self) {
 }
 
 // Base class handler implementation
-QObject* QLayout_QBaseSender(const QLayout* self) {
+QObject* QLayout_SuperSender(const QLayout* self) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_Sender_IsBase(true);
@@ -1275,7 +1275,7 @@ int QLayout_SenderSignalIndex(const QLayout* self) {
 }
 
 // Base class handler implementation
-int QLayout_QBaseSenderSignalIndex(const QLayout* self) {
+int QLayout_SuperSenderSignalIndex(const QLayout* self) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_SenderSignalIndex_IsBase(true);
@@ -1304,7 +1304,7 @@ int QLayout_Receivers(const QLayout* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QLayout_QBaseReceivers(const QLayout* self, const char* signal) {
+int QLayout_SuperReceivers(const QLayout* self, const char* signal) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_Receivers_IsBase(true);
@@ -1333,7 +1333,7 @@ bool QLayout_IsSignalConnected(const QLayout* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QLayout_QBaseIsSignalConnected(const QLayout* self, const QMetaMethod* signal) {
+bool QLayout_SuperIsSignalConnected(const QLayout* self, const QMetaMethod* signal) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->setQLayout_IsSignalConnected_IsBase(true);

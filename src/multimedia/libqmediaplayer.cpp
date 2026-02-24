@@ -511,7 +511,7 @@ void QMediaPlayer_SetSourceDevice2(QMediaPlayer* self, QIODevice* device, const 
 }
 
 // Base class handler implementation
-QMetaObject* QMediaPlayer_QBaseMetaObject(const QMediaPlayer* self) {
+QMetaObject* QMediaPlayer_SuperMetaObject(const QMediaPlayer* self) {
     auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self));
     if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_MetaObject_IsBase(true);
@@ -530,7 +530,7 @@ void QMediaPlayer_OnMetaObject(const QMediaPlayer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QMediaPlayer_QBaseMetacast(QMediaPlayer* self, const char* param1) {
+void* QMediaPlayer_SuperMetacast(QMediaPlayer* self, const char* param1) {
     auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
     if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_Metacast_IsBase(true);
@@ -549,7 +549,7 @@ void QMediaPlayer_OnMetacast(QMediaPlayer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QMediaPlayer_QBaseMetacall(QMediaPlayer* self, int param1, int param2, void** param3) {
+int QMediaPlayer_SuperMetacall(QMediaPlayer* self, int param1, int param2, void** param3) {
     auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
     if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_Metacall_IsBase(true);
@@ -578,7 +578,7 @@ bool QMediaPlayer_Event(QMediaPlayer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QMediaPlayer_QBaseEvent(QMediaPlayer* self, QEvent* event) {
+bool QMediaPlayer_SuperEvent(QMediaPlayer* self, QEvent* event) {
     auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
     if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_Event_IsBase(true);
@@ -607,7 +607,7 @@ bool QMediaPlayer_EventFilter(QMediaPlayer* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool QMediaPlayer_QBaseEventFilter(QMediaPlayer* self, QObject* watched, QEvent* event) {
+bool QMediaPlayer_SuperEventFilter(QMediaPlayer* self, QObject* watched, QEvent* event) {
     auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
     if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_EventFilter_IsBase(true);
@@ -636,7 +636,7 @@ void QMediaPlayer_TimerEvent(QMediaPlayer* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QMediaPlayer_QBaseTimerEvent(QMediaPlayer* self, QTimerEvent* event) {
+void QMediaPlayer_SuperTimerEvent(QMediaPlayer* self, QTimerEvent* event) {
     auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
     if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_TimerEvent_IsBase(true);
@@ -665,7 +665,7 @@ void QMediaPlayer_ChildEvent(QMediaPlayer* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QMediaPlayer_QBaseChildEvent(QMediaPlayer* self, QChildEvent* event) {
+void QMediaPlayer_SuperChildEvent(QMediaPlayer* self, QChildEvent* event) {
     auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
     if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_ChildEvent_IsBase(true);
@@ -694,7 +694,7 @@ void QMediaPlayer_CustomEvent(QMediaPlayer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QMediaPlayer_QBaseCustomEvent(QMediaPlayer* self, QEvent* event) {
+void QMediaPlayer_SuperCustomEvent(QMediaPlayer* self, QEvent* event) {
     auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
     if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_CustomEvent_IsBase(true);
@@ -723,7 +723,7 @@ void QMediaPlayer_ConnectNotify(QMediaPlayer* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QMediaPlayer_QBaseConnectNotify(QMediaPlayer* self, const QMetaMethod* signal) {
+void QMediaPlayer_SuperConnectNotify(QMediaPlayer* self, const QMetaMethod* signal) {
     auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
     if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_ConnectNotify_IsBase(true);
@@ -752,7 +752,7 @@ void QMediaPlayer_DisconnectNotify(QMediaPlayer* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QMediaPlayer_QBaseDisconnectNotify(QMediaPlayer* self, const QMetaMethod* signal) {
+void QMediaPlayer_SuperDisconnectNotify(QMediaPlayer* self, const QMetaMethod* signal) {
     auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
     if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_DisconnectNotify_IsBase(true);
@@ -781,7 +781,7 @@ QObject* QMediaPlayer_Sender(const QMediaPlayer* self) {
 }
 
 // Base class handler implementation
-QObject* QMediaPlayer_QBaseSender(const QMediaPlayer* self) {
+QObject* QMediaPlayer_SuperSender(const QMediaPlayer* self) {
     auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self));
     if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_Sender_IsBase(true);
@@ -810,7 +810,7 @@ int QMediaPlayer_SenderSignalIndex(const QMediaPlayer* self) {
 }
 
 // Base class handler implementation
-int QMediaPlayer_QBaseSenderSignalIndex(const QMediaPlayer* self) {
+int QMediaPlayer_SuperSenderSignalIndex(const QMediaPlayer* self) {
     auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self));
     if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_SenderSignalIndex_IsBase(true);
@@ -839,7 +839,7 @@ int QMediaPlayer_Receivers(const QMediaPlayer* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QMediaPlayer_QBaseReceivers(const QMediaPlayer* self, const char* signal) {
+int QMediaPlayer_SuperReceivers(const QMediaPlayer* self, const char* signal) {
     auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self));
     if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_Receivers_IsBase(true);
@@ -868,7 +868,7 @@ bool QMediaPlayer_IsSignalConnected(const QMediaPlayer* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QMediaPlayer_QBaseIsSignalConnected(const QMediaPlayer* self, const QMetaMethod* signal) {
+bool QMediaPlayer_SuperIsSignalConnected(const QMediaPlayer* self, const QMetaMethod* signal) {
     auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self));
     if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
         vqmediaplayer->setQMediaPlayer_IsSignalConnected_IsBase(true);

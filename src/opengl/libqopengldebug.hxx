@@ -328,23 +328,23 @@ class VirtualQOpenGLDebugLogger final : public QOpenGLDebugLogger {
 
     // Friend functions
     friend void QOpenGLDebugLogger_TimerEvent(QOpenGLDebugLogger* self, QTimerEvent* event);
-    friend void QOpenGLDebugLogger_QBaseTimerEvent(QOpenGLDebugLogger* self, QTimerEvent* event);
+    friend void QOpenGLDebugLogger_SuperTimerEvent(QOpenGLDebugLogger* self, QTimerEvent* event);
     friend void QOpenGLDebugLogger_ChildEvent(QOpenGLDebugLogger* self, QChildEvent* event);
-    friend void QOpenGLDebugLogger_QBaseChildEvent(QOpenGLDebugLogger* self, QChildEvent* event);
+    friend void QOpenGLDebugLogger_SuperChildEvent(QOpenGLDebugLogger* self, QChildEvent* event);
     friend void QOpenGLDebugLogger_CustomEvent(QOpenGLDebugLogger* self, QEvent* event);
-    friend void QOpenGLDebugLogger_QBaseCustomEvent(QOpenGLDebugLogger* self, QEvent* event);
+    friend void QOpenGLDebugLogger_SuperCustomEvent(QOpenGLDebugLogger* self, QEvent* event);
     friend void QOpenGLDebugLogger_ConnectNotify(QOpenGLDebugLogger* self, const QMetaMethod* signal);
-    friend void QOpenGLDebugLogger_QBaseConnectNotify(QOpenGLDebugLogger* self, const QMetaMethod* signal);
+    friend void QOpenGLDebugLogger_SuperConnectNotify(QOpenGLDebugLogger* self, const QMetaMethod* signal);
     friend void QOpenGLDebugLogger_DisconnectNotify(QOpenGLDebugLogger* self, const QMetaMethod* signal);
-    friend void QOpenGLDebugLogger_QBaseDisconnectNotify(QOpenGLDebugLogger* self, const QMetaMethod* signal);
+    friend void QOpenGLDebugLogger_SuperDisconnectNotify(QOpenGLDebugLogger* self, const QMetaMethod* signal);
     friend QObject* QOpenGLDebugLogger_Sender(const QOpenGLDebugLogger* self);
-    friend QObject* QOpenGLDebugLogger_QBaseSender(const QOpenGLDebugLogger* self);
+    friend QObject* QOpenGLDebugLogger_SuperSender(const QOpenGLDebugLogger* self);
     friend int QOpenGLDebugLogger_SenderSignalIndex(const QOpenGLDebugLogger* self);
-    friend int QOpenGLDebugLogger_QBaseSenderSignalIndex(const QOpenGLDebugLogger* self);
+    friend int QOpenGLDebugLogger_SuperSenderSignalIndex(const QOpenGLDebugLogger* self);
     friend int QOpenGLDebugLogger_Receivers(const QOpenGLDebugLogger* self, const char* signal);
-    friend int QOpenGLDebugLogger_QBaseReceivers(const QOpenGLDebugLogger* self, const char* signal);
+    friend int QOpenGLDebugLogger_SuperReceivers(const QOpenGLDebugLogger* self, const char* signal);
     friend bool QOpenGLDebugLogger_IsSignalConnected(const QOpenGLDebugLogger* self, const QMetaMethod* signal);
-    friend bool QOpenGLDebugLogger_QBaseIsSignalConnected(const QOpenGLDebugLogger* self, const QMetaMethod* signal);
+    friend bool QOpenGLDebugLogger_SuperIsSignalConnected(const QOpenGLDebugLogger* self, const QMetaMethod* signal);
 };
 
 #endif

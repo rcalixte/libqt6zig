@@ -112,7 +112,7 @@ libqt_string KNameAndUrlInputDialog_UrlText(const KNameAndUrlInputDialog* self) 
 }
 
 // Base class handler implementation
-QMetaObject* KNameAndUrlInputDialog_QBaseMetaObject(const KNameAndUrlInputDialog* self) {
+QMetaObject* KNameAndUrlInputDialog_SuperMetaObject(const KNameAndUrlInputDialog* self) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_MetaObject_IsBase(true);
@@ -131,7 +131,7 @@ void KNameAndUrlInputDialog_OnMetaObject(const KNameAndUrlInputDialog* self, int
 }
 
 // Base class handler implementation
-void* KNameAndUrlInputDialog_QBaseMetacast(KNameAndUrlInputDialog* self, const char* param1) {
+void* KNameAndUrlInputDialog_SuperMetacast(KNameAndUrlInputDialog* self, const char* param1) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Metacast_IsBase(true);
@@ -150,7 +150,7 @@ void KNameAndUrlInputDialog_OnMetacast(KNameAndUrlInputDialog* self, intptr_t sl
 }
 
 // Base class handler implementation
-int KNameAndUrlInputDialog_QBaseMetacall(KNameAndUrlInputDialog* self, int param1, int param2, void** param3) {
+int KNameAndUrlInputDialog_SuperMetacall(KNameAndUrlInputDialog* self, int param1, int param2, void** param3) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Metacall_IsBase(true);
@@ -179,7 +179,7 @@ void KNameAndUrlInputDialog_SetVisible(KNameAndUrlInputDialog* self, bool visibl
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseSetVisible(KNameAndUrlInputDialog* self, bool visible) {
+void KNameAndUrlInputDialog_SuperSetVisible(KNameAndUrlInputDialog* self, bool visible) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_SetVisible_IsBase(true);
@@ -208,7 +208,7 @@ QSize* KNameAndUrlInputDialog_SizeHint(const KNameAndUrlInputDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KNameAndUrlInputDialog_QBaseSizeHint(const KNameAndUrlInputDialog* self) {
+QSize* KNameAndUrlInputDialog_SuperSizeHint(const KNameAndUrlInputDialog* self) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_SizeHint_IsBase(true);
@@ -237,7 +237,7 @@ QSize* KNameAndUrlInputDialog_MinimumSizeHint(const KNameAndUrlInputDialog* self
 }
 
 // Base class handler implementation
-QSize* KNameAndUrlInputDialog_QBaseMinimumSizeHint(const KNameAndUrlInputDialog* self) {
+QSize* KNameAndUrlInputDialog_SuperMinimumSizeHint(const KNameAndUrlInputDialog* self) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_MinimumSizeHint_IsBase(true);
@@ -266,7 +266,7 @@ void KNameAndUrlInputDialog_Open(KNameAndUrlInputDialog* self) {
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseOpen(KNameAndUrlInputDialog* self) {
+void KNameAndUrlInputDialog_SuperOpen(KNameAndUrlInputDialog* self) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Open_IsBase(true);
@@ -295,7 +295,7 @@ int KNameAndUrlInputDialog_Exec(KNameAndUrlInputDialog* self) {
 }
 
 // Base class handler implementation
-int KNameAndUrlInputDialog_QBaseExec(KNameAndUrlInputDialog* self) {
+int KNameAndUrlInputDialog_SuperExec(KNameAndUrlInputDialog* self) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Exec_IsBase(true);
@@ -324,7 +324,7 @@ void KNameAndUrlInputDialog_Done(KNameAndUrlInputDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseDone(KNameAndUrlInputDialog* self, int param1) {
+void KNameAndUrlInputDialog_SuperDone(KNameAndUrlInputDialog* self, int param1) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Done_IsBase(true);
@@ -353,7 +353,7 @@ void KNameAndUrlInputDialog_Accept(KNameAndUrlInputDialog* self) {
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseAccept(KNameAndUrlInputDialog* self) {
+void KNameAndUrlInputDialog_SuperAccept(KNameAndUrlInputDialog* self) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Accept_IsBase(true);
@@ -382,7 +382,7 @@ void KNameAndUrlInputDialog_Reject(KNameAndUrlInputDialog* self) {
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseReject(KNameAndUrlInputDialog* self) {
+void KNameAndUrlInputDialog_SuperReject(KNameAndUrlInputDialog* self) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Reject_IsBase(true);
@@ -411,7 +411,7 @@ void KNameAndUrlInputDialog_KeyPressEvent(KNameAndUrlInputDialog* self, QKeyEven
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseKeyPressEvent(KNameAndUrlInputDialog* self, QKeyEvent* param1) {
+void KNameAndUrlInputDialog_SuperKeyPressEvent(KNameAndUrlInputDialog* self, QKeyEvent* param1) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_KeyPressEvent_IsBase(true);
@@ -440,7 +440,7 @@ void KNameAndUrlInputDialog_CloseEvent(KNameAndUrlInputDialog* self, QCloseEvent
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseCloseEvent(KNameAndUrlInputDialog* self, QCloseEvent* param1) {
+void KNameAndUrlInputDialog_SuperCloseEvent(KNameAndUrlInputDialog* self, QCloseEvent* param1) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_CloseEvent_IsBase(true);
@@ -469,7 +469,7 @@ void KNameAndUrlInputDialog_ShowEvent(KNameAndUrlInputDialog* self, QShowEvent* 
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseShowEvent(KNameAndUrlInputDialog* self, QShowEvent* param1) {
+void KNameAndUrlInputDialog_SuperShowEvent(KNameAndUrlInputDialog* self, QShowEvent* param1) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_ShowEvent_IsBase(true);
@@ -498,7 +498,7 @@ void KNameAndUrlInputDialog_ResizeEvent(KNameAndUrlInputDialog* self, QResizeEve
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseResizeEvent(KNameAndUrlInputDialog* self, QResizeEvent* param1) {
+void KNameAndUrlInputDialog_SuperResizeEvent(KNameAndUrlInputDialog* self, QResizeEvent* param1) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_ResizeEvent_IsBase(true);
@@ -527,7 +527,7 @@ void KNameAndUrlInputDialog_ContextMenuEvent(KNameAndUrlInputDialog* self, QCont
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseContextMenuEvent(KNameAndUrlInputDialog* self, QContextMenuEvent* param1) {
+void KNameAndUrlInputDialog_SuperContextMenuEvent(KNameAndUrlInputDialog* self, QContextMenuEvent* param1) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_ContextMenuEvent_IsBase(true);
@@ -556,7 +556,7 @@ bool KNameAndUrlInputDialog_EventFilter(KNameAndUrlInputDialog* self, QObject* p
 }
 
 // Base class handler implementation
-bool KNameAndUrlInputDialog_QBaseEventFilter(KNameAndUrlInputDialog* self, QObject* param1, QEvent* param2) {
+bool KNameAndUrlInputDialog_SuperEventFilter(KNameAndUrlInputDialog* self, QObject* param1, QEvent* param2) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_EventFilter_IsBase(true);
@@ -585,7 +585,7 @@ int KNameAndUrlInputDialog_DevType(const KNameAndUrlInputDialog* self) {
 }
 
 // Base class handler implementation
-int KNameAndUrlInputDialog_QBaseDevType(const KNameAndUrlInputDialog* self) {
+int KNameAndUrlInputDialog_SuperDevType(const KNameAndUrlInputDialog* self) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_DevType_IsBase(true);
@@ -614,7 +614,7 @@ int KNameAndUrlInputDialog_HeightForWidth(const KNameAndUrlInputDialog* self, in
 }
 
 // Base class handler implementation
-int KNameAndUrlInputDialog_QBaseHeightForWidth(const KNameAndUrlInputDialog* self, int param1) {
+int KNameAndUrlInputDialog_SuperHeightForWidth(const KNameAndUrlInputDialog* self, int param1) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_HeightForWidth_IsBase(true);
@@ -643,7 +643,7 @@ bool KNameAndUrlInputDialog_HasHeightForWidth(const KNameAndUrlInputDialog* self
 }
 
 // Base class handler implementation
-bool KNameAndUrlInputDialog_QBaseHasHeightForWidth(const KNameAndUrlInputDialog* self) {
+bool KNameAndUrlInputDialog_SuperHasHeightForWidth(const KNameAndUrlInputDialog* self) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_HasHeightForWidth_IsBase(true);
@@ -672,7 +672,7 @@ QPaintEngine* KNameAndUrlInputDialog_PaintEngine(const KNameAndUrlInputDialog* s
 }
 
 // Base class handler implementation
-QPaintEngine* KNameAndUrlInputDialog_QBasePaintEngine(const KNameAndUrlInputDialog* self) {
+QPaintEngine* KNameAndUrlInputDialog_SuperPaintEngine(const KNameAndUrlInputDialog* self) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_PaintEngine_IsBase(true);
@@ -701,7 +701,7 @@ bool KNameAndUrlInputDialog_Event(KNameAndUrlInputDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KNameAndUrlInputDialog_QBaseEvent(KNameAndUrlInputDialog* self, QEvent* event) {
+bool KNameAndUrlInputDialog_SuperEvent(KNameAndUrlInputDialog* self, QEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Event_IsBase(true);
@@ -730,7 +730,7 @@ void KNameAndUrlInputDialog_MousePressEvent(KNameAndUrlInputDialog* self, QMouse
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseMousePressEvent(KNameAndUrlInputDialog* self, QMouseEvent* event) {
+void KNameAndUrlInputDialog_SuperMousePressEvent(KNameAndUrlInputDialog* self, QMouseEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_MousePressEvent_IsBase(true);
@@ -759,7 +759,7 @@ void KNameAndUrlInputDialog_MouseReleaseEvent(KNameAndUrlInputDialog* self, QMou
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseMouseReleaseEvent(KNameAndUrlInputDialog* self, QMouseEvent* event) {
+void KNameAndUrlInputDialog_SuperMouseReleaseEvent(KNameAndUrlInputDialog* self, QMouseEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_MouseReleaseEvent_IsBase(true);
@@ -788,7 +788,7 @@ void KNameAndUrlInputDialog_MouseDoubleClickEvent(KNameAndUrlInputDialog* self, 
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseMouseDoubleClickEvent(KNameAndUrlInputDialog* self, QMouseEvent* event) {
+void KNameAndUrlInputDialog_SuperMouseDoubleClickEvent(KNameAndUrlInputDialog* self, QMouseEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_MouseDoubleClickEvent_IsBase(true);
@@ -817,7 +817,7 @@ void KNameAndUrlInputDialog_MouseMoveEvent(KNameAndUrlInputDialog* self, QMouseE
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseMouseMoveEvent(KNameAndUrlInputDialog* self, QMouseEvent* event) {
+void KNameAndUrlInputDialog_SuperMouseMoveEvent(KNameAndUrlInputDialog* self, QMouseEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_MouseMoveEvent_IsBase(true);
@@ -846,7 +846,7 @@ void KNameAndUrlInputDialog_WheelEvent(KNameAndUrlInputDialog* self, QWheelEvent
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseWheelEvent(KNameAndUrlInputDialog* self, QWheelEvent* event) {
+void KNameAndUrlInputDialog_SuperWheelEvent(KNameAndUrlInputDialog* self, QWheelEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_WheelEvent_IsBase(true);
@@ -875,7 +875,7 @@ void KNameAndUrlInputDialog_KeyReleaseEvent(KNameAndUrlInputDialog* self, QKeyEv
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseKeyReleaseEvent(KNameAndUrlInputDialog* self, QKeyEvent* event) {
+void KNameAndUrlInputDialog_SuperKeyReleaseEvent(KNameAndUrlInputDialog* self, QKeyEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_KeyReleaseEvent_IsBase(true);
@@ -904,7 +904,7 @@ void KNameAndUrlInputDialog_FocusInEvent(KNameAndUrlInputDialog* self, QFocusEve
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseFocusInEvent(KNameAndUrlInputDialog* self, QFocusEvent* event) {
+void KNameAndUrlInputDialog_SuperFocusInEvent(KNameAndUrlInputDialog* self, QFocusEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_FocusInEvent_IsBase(true);
@@ -933,7 +933,7 @@ void KNameAndUrlInputDialog_FocusOutEvent(KNameAndUrlInputDialog* self, QFocusEv
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseFocusOutEvent(KNameAndUrlInputDialog* self, QFocusEvent* event) {
+void KNameAndUrlInputDialog_SuperFocusOutEvent(KNameAndUrlInputDialog* self, QFocusEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_FocusOutEvent_IsBase(true);
@@ -962,7 +962,7 @@ void KNameAndUrlInputDialog_EnterEvent(KNameAndUrlInputDialog* self, QEnterEvent
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseEnterEvent(KNameAndUrlInputDialog* self, QEnterEvent* event) {
+void KNameAndUrlInputDialog_SuperEnterEvent(KNameAndUrlInputDialog* self, QEnterEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_EnterEvent_IsBase(true);
@@ -991,7 +991,7 @@ void KNameAndUrlInputDialog_LeaveEvent(KNameAndUrlInputDialog* self, QEvent* eve
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseLeaveEvent(KNameAndUrlInputDialog* self, QEvent* event) {
+void KNameAndUrlInputDialog_SuperLeaveEvent(KNameAndUrlInputDialog* self, QEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_LeaveEvent_IsBase(true);
@@ -1020,7 +1020,7 @@ void KNameAndUrlInputDialog_PaintEvent(KNameAndUrlInputDialog* self, QPaintEvent
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBasePaintEvent(KNameAndUrlInputDialog* self, QPaintEvent* event) {
+void KNameAndUrlInputDialog_SuperPaintEvent(KNameAndUrlInputDialog* self, QPaintEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_PaintEvent_IsBase(true);
@@ -1049,7 +1049,7 @@ void KNameAndUrlInputDialog_MoveEvent(KNameAndUrlInputDialog* self, QMoveEvent* 
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseMoveEvent(KNameAndUrlInputDialog* self, QMoveEvent* event) {
+void KNameAndUrlInputDialog_SuperMoveEvent(KNameAndUrlInputDialog* self, QMoveEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_MoveEvent_IsBase(true);
@@ -1078,7 +1078,7 @@ void KNameAndUrlInputDialog_TabletEvent(KNameAndUrlInputDialog* self, QTabletEve
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseTabletEvent(KNameAndUrlInputDialog* self, QTabletEvent* event) {
+void KNameAndUrlInputDialog_SuperTabletEvent(KNameAndUrlInputDialog* self, QTabletEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_TabletEvent_IsBase(true);
@@ -1107,7 +1107,7 @@ void KNameAndUrlInputDialog_ActionEvent(KNameAndUrlInputDialog* self, QActionEve
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseActionEvent(KNameAndUrlInputDialog* self, QActionEvent* event) {
+void KNameAndUrlInputDialog_SuperActionEvent(KNameAndUrlInputDialog* self, QActionEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_ActionEvent_IsBase(true);
@@ -1136,7 +1136,7 @@ void KNameAndUrlInputDialog_DragEnterEvent(KNameAndUrlInputDialog* self, QDragEn
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseDragEnterEvent(KNameAndUrlInputDialog* self, QDragEnterEvent* event) {
+void KNameAndUrlInputDialog_SuperDragEnterEvent(KNameAndUrlInputDialog* self, QDragEnterEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_DragEnterEvent_IsBase(true);
@@ -1165,7 +1165,7 @@ void KNameAndUrlInputDialog_DragMoveEvent(KNameAndUrlInputDialog* self, QDragMov
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseDragMoveEvent(KNameAndUrlInputDialog* self, QDragMoveEvent* event) {
+void KNameAndUrlInputDialog_SuperDragMoveEvent(KNameAndUrlInputDialog* self, QDragMoveEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_DragMoveEvent_IsBase(true);
@@ -1194,7 +1194,7 @@ void KNameAndUrlInputDialog_DragLeaveEvent(KNameAndUrlInputDialog* self, QDragLe
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseDragLeaveEvent(KNameAndUrlInputDialog* self, QDragLeaveEvent* event) {
+void KNameAndUrlInputDialog_SuperDragLeaveEvent(KNameAndUrlInputDialog* self, QDragLeaveEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_DragLeaveEvent_IsBase(true);
@@ -1223,7 +1223,7 @@ void KNameAndUrlInputDialog_DropEvent(KNameAndUrlInputDialog* self, QDropEvent* 
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseDropEvent(KNameAndUrlInputDialog* self, QDropEvent* event) {
+void KNameAndUrlInputDialog_SuperDropEvent(KNameAndUrlInputDialog* self, QDropEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_DropEvent_IsBase(true);
@@ -1252,7 +1252,7 @@ void KNameAndUrlInputDialog_HideEvent(KNameAndUrlInputDialog* self, QHideEvent* 
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseHideEvent(KNameAndUrlInputDialog* self, QHideEvent* event) {
+void KNameAndUrlInputDialog_SuperHideEvent(KNameAndUrlInputDialog* self, QHideEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_HideEvent_IsBase(true);
@@ -1282,7 +1282,7 @@ bool KNameAndUrlInputDialog_NativeEvent(KNameAndUrlInputDialog* self, const libq
 }
 
 // Base class handler implementation
-bool KNameAndUrlInputDialog_QBaseNativeEvent(KNameAndUrlInputDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KNameAndUrlInputDialog_SuperNativeEvent(KNameAndUrlInputDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
@@ -1312,7 +1312,7 @@ void KNameAndUrlInputDialog_ChangeEvent(KNameAndUrlInputDialog* self, QEvent* pa
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseChangeEvent(KNameAndUrlInputDialog* self, QEvent* param1) {
+void KNameAndUrlInputDialog_SuperChangeEvent(KNameAndUrlInputDialog* self, QEvent* param1) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_ChangeEvent_IsBase(true);
@@ -1341,7 +1341,7 @@ int KNameAndUrlInputDialog_Metric(const KNameAndUrlInputDialog* self, int param1
 }
 
 // Base class handler implementation
-int KNameAndUrlInputDialog_QBaseMetric(const KNameAndUrlInputDialog* self, int param1) {
+int KNameAndUrlInputDialog_SuperMetric(const KNameAndUrlInputDialog* self, int param1) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Metric_IsBase(true);
@@ -1370,7 +1370,7 @@ void KNameAndUrlInputDialog_InitPainter(const KNameAndUrlInputDialog* self, QPai
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseInitPainter(const KNameAndUrlInputDialog* self, QPainter* painter) {
+void KNameAndUrlInputDialog_SuperInitPainter(const KNameAndUrlInputDialog* self, QPainter* painter) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_InitPainter_IsBase(true);
@@ -1399,7 +1399,7 @@ QPaintDevice* KNameAndUrlInputDialog_Redirected(const KNameAndUrlInputDialog* se
 }
 
 // Base class handler implementation
-QPaintDevice* KNameAndUrlInputDialog_QBaseRedirected(const KNameAndUrlInputDialog* self, QPoint* offset) {
+QPaintDevice* KNameAndUrlInputDialog_SuperRedirected(const KNameAndUrlInputDialog* self, QPoint* offset) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Redirected_IsBase(true);
@@ -1428,7 +1428,7 @@ QPainter* KNameAndUrlInputDialog_SharedPainter(const KNameAndUrlInputDialog* sel
 }
 
 // Base class handler implementation
-QPainter* KNameAndUrlInputDialog_QBaseSharedPainter(const KNameAndUrlInputDialog* self) {
+QPainter* KNameAndUrlInputDialog_SuperSharedPainter(const KNameAndUrlInputDialog* self) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_SharedPainter_IsBase(true);
@@ -1457,7 +1457,7 @@ void KNameAndUrlInputDialog_InputMethodEvent(KNameAndUrlInputDialog* self, QInpu
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseInputMethodEvent(KNameAndUrlInputDialog* self, QInputMethodEvent* param1) {
+void KNameAndUrlInputDialog_SuperInputMethodEvent(KNameAndUrlInputDialog* self, QInputMethodEvent* param1) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_InputMethodEvent_IsBase(true);
@@ -1486,7 +1486,7 @@ QVariant* KNameAndUrlInputDialog_InputMethodQuery(const KNameAndUrlInputDialog* 
 }
 
 // Base class handler implementation
-QVariant* KNameAndUrlInputDialog_QBaseInputMethodQuery(const KNameAndUrlInputDialog* self, int param1) {
+QVariant* KNameAndUrlInputDialog_SuperInputMethodQuery(const KNameAndUrlInputDialog* self, int param1) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_InputMethodQuery_IsBase(true);
@@ -1515,7 +1515,7 @@ bool KNameAndUrlInputDialog_FocusNextPrevChild(KNameAndUrlInputDialog* self, boo
 }
 
 // Base class handler implementation
-bool KNameAndUrlInputDialog_QBaseFocusNextPrevChild(KNameAndUrlInputDialog* self, bool next) {
+bool KNameAndUrlInputDialog_SuperFocusNextPrevChild(KNameAndUrlInputDialog* self, bool next) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_FocusNextPrevChild_IsBase(true);
@@ -1544,7 +1544,7 @@ void KNameAndUrlInputDialog_TimerEvent(KNameAndUrlInputDialog* self, QTimerEvent
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseTimerEvent(KNameAndUrlInputDialog* self, QTimerEvent* event) {
+void KNameAndUrlInputDialog_SuperTimerEvent(KNameAndUrlInputDialog* self, QTimerEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_TimerEvent_IsBase(true);
@@ -1573,7 +1573,7 @@ void KNameAndUrlInputDialog_ChildEvent(KNameAndUrlInputDialog* self, QChildEvent
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseChildEvent(KNameAndUrlInputDialog* self, QChildEvent* event) {
+void KNameAndUrlInputDialog_SuperChildEvent(KNameAndUrlInputDialog* self, QChildEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_ChildEvent_IsBase(true);
@@ -1602,7 +1602,7 @@ void KNameAndUrlInputDialog_CustomEvent(KNameAndUrlInputDialog* self, QEvent* ev
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseCustomEvent(KNameAndUrlInputDialog* self, QEvent* event) {
+void KNameAndUrlInputDialog_SuperCustomEvent(KNameAndUrlInputDialog* self, QEvent* event) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_CustomEvent_IsBase(true);
@@ -1631,7 +1631,7 @@ void KNameAndUrlInputDialog_ConnectNotify(KNameAndUrlInputDialog* self, const QM
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseConnectNotify(KNameAndUrlInputDialog* self, const QMetaMethod* signal) {
+void KNameAndUrlInputDialog_SuperConnectNotify(KNameAndUrlInputDialog* self, const QMetaMethod* signal) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_ConnectNotify_IsBase(true);
@@ -1660,7 +1660,7 @@ void KNameAndUrlInputDialog_DisconnectNotify(KNameAndUrlInputDialog* self, const
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseDisconnectNotify(KNameAndUrlInputDialog* self, const QMetaMethod* signal) {
+void KNameAndUrlInputDialog_SuperDisconnectNotify(KNameAndUrlInputDialog* self, const QMetaMethod* signal) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_DisconnectNotify_IsBase(true);
@@ -1689,7 +1689,7 @@ void KNameAndUrlInputDialog_AdjustPosition(KNameAndUrlInputDialog* self, QWidget
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseAdjustPosition(KNameAndUrlInputDialog* self, QWidget* param1) {
+void KNameAndUrlInputDialog_SuperAdjustPosition(KNameAndUrlInputDialog* self, QWidget* param1) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_AdjustPosition_IsBase(true);
@@ -1718,7 +1718,7 @@ void KNameAndUrlInputDialog_UpdateMicroFocus(KNameAndUrlInputDialog* self) {
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseUpdateMicroFocus(KNameAndUrlInputDialog* self) {
+void KNameAndUrlInputDialog_SuperUpdateMicroFocus(KNameAndUrlInputDialog* self) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_UpdateMicroFocus_IsBase(true);
@@ -1747,7 +1747,7 @@ void KNameAndUrlInputDialog_Create(KNameAndUrlInputDialog* self) {
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseCreate(KNameAndUrlInputDialog* self) {
+void KNameAndUrlInputDialog_SuperCreate(KNameAndUrlInputDialog* self) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Create_IsBase(true);
@@ -1776,7 +1776,7 @@ void KNameAndUrlInputDialog_Destroy(KNameAndUrlInputDialog* self) {
 }
 
 // Base class handler implementation
-void KNameAndUrlInputDialog_QBaseDestroy(KNameAndUrlInputDialog* self) {
+void KNameAndUrlInputDialog_SuperDestroy(KNameAndUrlInputDialog* self) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Destroy_IsBase(true);
@@ -1805,7 +1805,7 @@ bool KNameAndUrlInputDialog_FocusNextChild(KNameAndUrlInputDialog* self) {
 }
 
 // Base class handler implementation
-bool KNameAndUrlInputDialog_QBaseFocusNextChild(KNameAndUrlInputDialog* self) {
+bool KNameAndUrlInputDialog_SuperFocusNextChild(KNameAndUrlInputDialog* self) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_FocusNextChild_IsBase(true);
@@ -1834,7 +1834,7 @@ bool KNameAndUrlInputDialog_FocusPreviousChild(KNameAndUrlInputDialog* self) {
 }
 
 // Base class handler implementation
-bool KNameAndUrlInputDialog_QBaseFocusPreviousChild(KNameAndUrlInputDialog* self) {
+bool KNameAndUrlInputDialog_SuperFocusPreviousChild(KNameAndUrlInputDialog* self) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_FocusPreviousChild_IsBase(true);
@@ -1863,7 +1863,7 @@ QObject* KNameAndUrlInputDialog_Sender(const KNameAndUrlInputDialog* self) {
 }
 
 // Base class handler implementation
-QObject* KNameAndUrlInputDialog_QBaseSender(const KNameAndUrlInputDialog* self) {
+QObject* KNameAndUrlInputDialog_SuperSender(const KNameAndUrlInputDialog* self) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Sender_IsBase(true);
@@ -1892,7 +1892,7 @@ int KNameAndUrlInputDialog_SenderSignalIndex(const KNameAndUrlInputDialog* self)
 }
 
 // Base class handler implementation
-int KNameAndUrlInputDialog_QBaseSenderSignalIndex(const KNameAndUrlInputDialog* self) {
+int KNameAndUrlInputDialog_SuperSenderSignalIndex(const KNameAndUrlInputDialog* self) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_SenderSignalIndex_IsBase(true);
@@ -1921,7 +1921,7 @@ int KNameAndUrlInputDialog_Receivers(const KNameAndUrlInputDialog* self, const c
 }
 
 // Base class handler implementation
-int KNameAndUrlInputDialog_QBaseReceivers(const KNameAndUrlInputDialog* self, const char* signal) {
+int KNameAndUrlInputDialog_SuperReceivers(const KNameAndUrlInputDialog* self, const char* signal) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Receivers_IsBase(true);
@@ -1950,7 +1950,7 @@ bool KNameAndUrlInputDialog_IsSignalConnected(const KNameAndUrlInputDialog* self
 }
 
 // Base class handler implementation
-bool KNameAndUrlInputDialog_QBaseIsSignalConnected(const KNameAndUrlInputDialog* self, const QMetaMethod* signal) {
+bool KNameAndUrlInputDialog_SuperIsSignalConnected(const KNameAndUrlInputDialog* self, const QMetaMethod* signal) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_IsSignalConnected_IsBase(true);
@@ -1979,7 +1979,7 @@ double KNameAndUrlInputDialog_GetDecodedMetricF(const KNameAndUrlInputDialog* se
 }
 
 // Base class handler implementation
-double KNameAndUrlInputDialog_QBaseGetDecodedMetricF(const KNameAndUrlInputDialog* self, int metricA, int metricB) {
+double KNameAndUrlInputDialog_SuperGetDecodedMetricF(const KNameAndUrlInputDialog* self, int metricA, int metricB) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
     if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
         vknameandurlinputdialog->setKNameAndUrlInputDialog_GetDecodedMetricF_IsBase(true);

@@ -956,6 +956,10 @@ pub const qsslconfiguration = struct {
         qtc.QSslConfiguration_SetBackendConfiguration1(@ptrCast(self), backendConfiguration_map);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#dtor.QSslConfiguration)
     ///
     /// Delete this object from C++ memory.
@@ -964,7 +968,7 @@ pub const qsslconfiguration = struct {
     ///
     /// ` self: QtC.QSslConfiguration `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSslConfiguration_Delete(@ptrCast(self));
     }
 };

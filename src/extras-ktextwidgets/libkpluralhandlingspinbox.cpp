@@ -84,7 +84,7 @@ void KPluralHandlingSpinBox_SetSuffix(KPluralHandlingSpinBox* self, const KLocal
 }
 
 // Base class handler implementation
-QMetaObject* KPluralHandlingSpinBox_QBaseMetaObject(const KPluralHandlingSpinBox* self) {
+QMetaObject* KPluralHandlingSpinBox_SuperMetaObject(const KPluralHandlingSpinBox* self) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_MetaObject_IsBase(true);
@@ -103,7 +103,7 @@ void KPluralHandlingSpinBox_OnMetaObject(const KPluralHandlingSpinBox* self, int
 }
 
 // Base class handler implementation
-void* KPluralHandlingSpinBox_QBaseMetacast(KPluralHandlingSpinBox* self, const char* param1) {
+void* KPluralHandlingSpinBox_SuperMetacast(KPluralHandlingSpinBox* self, const char* param1) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Metacast_IsBase(true);
@@ -122,7 +122,7 @@ void KPluralHandlingSpinBox_OnMetacast(KPluralHandlingSpinBox* self, intptr_t sl
 }
 
 // Base class handler implementation
-int KPluralHandlingSpinBox_QBaseMetacall(KPluralHandlingSpinBox* self, int param1, int param2, void** param3) {
+int KPluralHandlingSpinBox_SuperMetacall(KPluralHandlingSpinBox* self, int param1, int param2, void** param3) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Metacall_IsBase(true);
@@ -151,7 +151,7 @@ bool KPluralHandlingSpinBox_Event(KPluralHandlingSpinBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KPluralHandlingSpinBox_QBaseEvent(KPluralHandlingSpinBox* self, QEvent* event) {
+bool KPluralHandlingSpinBox_SuperEvent(KPluralHandlingSpinBox* self, QEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Event_IsBase(true);
@@ -181,7 +181,7 @@ int KPluralHandlingSpinBox_Validate(const KPluralHandlingSpinBox* self, libqt_st
 }
 
 // Base class handler implementation
-int KPluralHandlingSpinBox_QBaseValidate(const KPluralHandlingSpinBox* self, libqt_string input, int* pos) {
+int KPluralHandlingSpinBox_SuperValidate(const KPluralHandlingSpinBox* self, libqt_string input, int* pos) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
@@ -212,7 +212,7 @@ int KPluralHandlingSpinBox_ValueFromText(const KPluralHandlingSpinBox* self, con
 }
 
 // Base class handler implementation
-int KPluralHandlingSpinBox_QBaseValueFromText(const KPluralHandlingSpinBox* self, const libqt_string text) {
+int KPluralHandlingSpinBox_SuperValueFromText(const KPluralHandlingSpinBox* self, const libqt_string text) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
@@ -258,7 +258,7 @@ libqt_string KPluralHandlingSpinBox_TextFromValue(const KPluralHandlingSpinBox* 
 }
 
 // Base class handler implementation
-libqt_string KPluralHandlingSpinBox_QBaseTextFromValue(const KPluralHandlingSpinBox* self, int val) {
+libqt_string KPluralHandlingSpinBox_SuperTextFromValue(const KPluralHandlingSpinBox* self, int val) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_TextFromValue_IsBase(true);
@@ -304,7 +304,7 @@ void KPluralHandlingSpinBox_Fixup(const KPluralHandlingSpinBox* self, libqt_stri
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseFixup(const KPluralHandlingSpinBox* self, libqt_string str) {
+void KPluralHandlingSpinBox_SuperFixup(const KPluralHandlingSpinBox* self, libqt_string str) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     QString str_QString = QString::fromUtf8(str.data, str.len);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
@@ -334,7 +334,7 @@ QSize* KPluralHandlingSpinBox_SizeHint(const KPluralHandlingSpinBox* self) {
 }
 
 // Base class handler implementation
-QSize* KPluralHandlingSpinBox_QBaseSizeHint(const KPluralHandlingSpinBox* self) {
+QSize* KPluralHandlingSpinBox_SuperSizeHint(const KPluralHandlingSpinBox* self) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_SizeHint_IsBase(true);
@@ -363,7 +363,7 @@ QSize* KPluralHandlingSpinBox_MinimumSizeHint(const KPluralHandlingSpinBox* self
 }
 
 // Base class handler implementation
-QSize* KPluralHandlingSpinBox_QBaseMinimumSizeHint(const KPluralHandlingSpinBox* self) {
+QSize* KPluralHandlingSpinBox_SuperMinimumSizeHint(const KPluralHandlingSpinBox* self) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_MinimumSizeHint_IsBase(true);
@@ -392,7 +392,7 @@ QVariant* KPluralHandlingSpinBox_InputMethodQuery(const KPluralHandlingSpinBox* 
 }
 
 // Base class handler implementation
-QVariant* KPluralHandlingSpinBox_QBaseInputMethodQuery(const KPluralHandlingSpinBox* self, int param1) {
+QVariant* KPluralHandlingSpinBox_SuperInputMethodQuery(const KPluralHandlingSpinBox* self, int param1) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_InputMethodQuery_IsBase(true);
@@ -421,7 +421,7 @@ void KPluralHandlingSpinBox_StepBy(KPluralHandlingSpinBox* self, int steps) {
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseStepBy(KPluralHandlingSpinBox* self, int steps) {
+void KPluralHandlingSpinBox_SuperStepBy(KPluralHandlingSpinBox* self, int steps) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_StepBy_IsBase(true);
@@ -450,7 +450,7 @@ void KPluralHandlingSpinBox_Clear(KPluralHandlingSpinBox* self) {
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseClear(KPluralHandlingSpinBox* self) {
+void KPluralHandlingSpinBox_SuperClear(KPluralHandlingSpinBox* self) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Clear_IsBase(true);
@@ -479,7 +479,7 @@ void KPluralHandlingSpinBox_ResizeEvent(KPluralHandlingSpinBox* self, QResizeEve
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseResizeEvent(KPluralHandlingSpinBox* self, QResizeEvent* event) {
+void KPluralHandlingSpinBox_SuperResizeEvent(KPluralHandlingSpinBox* self, QResizeEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_ResizeEvent_IsBase(true);
@@ -508,7 +508,7 @@ void KPluralHandlingSpinBox_KeyPressEvent(KPluralHandlingSpinBox* self, QKeyEven
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseKeyPressEvent(KPluralHandlingSpinBox* self, QKeyEvent* event) {
+void KPluralHandlingSpinBox_SuperKeyPressEvent(KPluralHandlingSpinBox* self, QKeyEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_KeyPressEvent_IsBase(true);
@@ -537,7 +537,7 @@ void KPluralHandlingSpinBox_KeyReleaseEvent(KPluralHandlingSpinBox* self, QKeyEv
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseKeyReleaseEvent(KPluralHandlingSpinBox* self, QKeyEvent* event) {
+void KPluralHandlingSpinBox_SuperKeyReleaseEvent(KPluralHandlingSpinBox* self, QKeyEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_KeyReleaseEvent_IsBase(true);
@@ -566,7 +566,7 @@ void KPluralHandlingSpinBox_WheelEvent(KPluralHandlingSpinBox* self, QWheelEvent
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseWheelEvent(KPluralHandlingSpinBox* self, QWheelEvent* event) {
+void KPluralHandlingSpinBox_SuperWheelEvent(KPluralHandlingSpinBox* self, QWheelEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_WheelEvent_IsBase(true);
@@ -595,7 +595,7 @@ void KPluralHandlingSpinBox_FocusInEvent(KPluralHandlingSpinBox* self, QFocusEve
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseFocusInEvent(KPluralHandlingSpinBox* self, QFocusEvent* event) {
+void KPluralHandlingSpinBox_SuperFocusInEvent(KPluralHandlingSpinBox* self, QFocusEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_FocusInEvent_IsBase(true);
@@ -624,7 +624,7 @@ void KPluralHandlingSpinBox_FocusOutEvent(KPluralHandlingSpinBox* self, QFocusEv
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseFocusOutEvent(KPluralHandlingSpinBox* self, QFocusEvent* event) {
+void KPluralHandlingSpinBox_SuperFocusOutEvent(KPluralHandlingSpinBox* self, QFocusEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_FocusOutEvent_IsBase(true);
@@ -653,7 +653,7 @@ void KPluralHandlingSpinBox_ContextMenuEvent(KPluralHandlingSpinBox* self, QCont
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseContextMenuEvent(KPluralHandlingSpinBox* self, QContextMenuEvent* event) {
+void KPluralHandlingSpinBox_SuperContextMenuEvent(KPluralHandlingSpinBox* self, QContextMenuEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_ContextMenuEvent_IsBase(true);
@@ -682,7 +682,7 @@ void KPluralHandlingSpinBox_ChangeEvent(KPluralHandlingSpinBox* self, QEvent* ev
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseChangeEvent(KPluralHandlingSpinBox* self, QEvent* event) {
+void KPluralHandlingSpinBox_SuperChangeEvent(KPluralHandlingSpinBox* self, QEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_ChangeEvent_IsBase(true);
@@ -711,7 +711,7 @@ void KPluralHandlingSpinBox_CloseEvent(KPluralHandlingSpinBox* self, QCloseEvent
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseCloseEvent(KPluralHandlingSpinBox* self, QCloseEvent* event) {
+void KPluralHandlingSpinBox_SuperCloseEvent(KPluralHandlingSpinBox* self, QCloseEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_CloseEvent_IsBase(true);
@@ -740,7 +740,7 @@ void KPluralHandlingSpinBox_HideEvent(KPluralHandlingSpinBox* self, QHideEvent* 
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseHideEvent(KPluralHandlingSpinBox* self, QHideEvent* event) {
+void KPluralHandlingSpinBox_SuperHideEvent(KPluralHandlingSpinBox* self, QHideEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_HideEvent_IsBase(true);
@@ -769,7 +769,7 @@ void KPluralHandlingSpinBox_MousePressEvent(KPluralHandlingSpinBox* self, QMouse
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseMousePressEvent(KPluralHandlingSpinBox* self, QMouseEvent* event) {
+void KPluralHandlingSpinBox_SuperMousePressEvent(KPluralHandlingSpinBox* self, QMouseEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_MousePressEvent_IsBase(true);
@@ -798,7 +798,7 @@ void KPluralHandlingSpinBox_MouseReleaseEvent(KPluralHandlingSpinBox* self, QMou
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseMouseReleaseEvent(KPluralHandlingSpinBox* self, QMouseEvent* event) {
+void KPluralHandlingSpinBox_SuperMouseReleaseEvent(KPluralHandlingSpinBox* self, QMouseEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_MouseReleaseEvent_IsBase(true);
@@ -827,7 +827,7 @@ void KPluralHandlingSpinBox_MouseMoveEvent(KPluralHandlingSpinBox* self, QMouseE
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseMouseMoveEvent(KPluralHandlingSpinBox* self, QMouseEvent* event) {
+void KPluralHandlingSpinBox_SuperMouseMoveEvent(KPluralHandlingSpinBox* self, QMouseEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_MouseMoveEvent_IsBase(true);
@@ -856,7 +856,7 @@ void KPluralHandlingSpinBox_TimerEvent(KPluralHandlingSpinBox* self, QTimerEvent
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseTimerEvent(KPluralHandlingSpinBox* self, QTimerEvent* event) {
+void KPluralHandlingSpinBox_SuperTimerEvent(KPluralHandlingSpinBox* self, QTimerEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_TimerEvent_IsBase(true);
@@ -885,7 +885,7 @@ void KPluralHandlingSpinBox_PaintEvent(KPluralHandlingSpinBox* self, QPaintEvent
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBasePaintEvent(KPluralHandlingSpinBox* self, QPaintEvent* event) {
+void KPluralHandlingSpinBox_SuperPaintEvent(KPluralHandlingSpinBox* self, QPaintEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_PaintEvent_IsBase(true);
@@ -914,7 +914,7 @@ void KPluralHandlingSpinBox_ShowEvent(KPluralHandlingSpinBox* self, QShowEvent* 
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseShowEvent(KPluralHandlingSpinBox* self, QShowEvent* event) {
+void KPluralHandlingSpinBox_SuperShowEvent(KPluralHandlingSpinBox* self, QShowEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_ShowEvent_IsBase(true);
@@ -943,7 +943,7 @@ void KPluralHandlingSpinBox_InitStyleOption(const KPluralHandlingSpinBox* self, 
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseInitStyleOption(const KPluralHandlingSpinBox* self, QStyleOptionSpinBox* option) {
+void KPluralHandlingSpinBox_SuperInitStyleOption(const KPluralHandlingSpinBox* self, QStyleOptionSpinBox* option) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_InitStyleOption_IsBase(true);
@@ -972,7 +972,7 @@ int KPluralHandlingSpinBox_StepEnabled(const KPluralHandlingSpinBox* self) {
 }
 
 // Base class handler implementation
-int KPluralHandlingSpinBox_QBaseStepEnabled(const KPluralHandlingSpinBox* self) {
+int KPluralHandlingSpinBox_SuperStepEnabled(const KPluralHandlingSpinBox* self) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_StepEnabled_IsBase(true);
@@ -1001,7 +1001,7 @@ int KPluralHandlingSpinBox_DevType(const KPluralHandlingSpinBox* self) {
 }
 
 // Base class handler implementation
-int KPluralHandlingSpinBox_QBaseDevType(const KPluralHandlingSpinBox* self) {
+int KPluralHandlingSpinBox_SuperDevType(const KPluralHandlingSpinBox* self) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_DevType_IsBase(true);
@@ -1030,7 +1030,7 @@ void KPluralHandlingSpinBox_SetVisible(KPluralHandlingSpinBox* self, bool visibl
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseSetVisible(KPluralHandlingSpinBox* self, bool visible) {
+void KPluralHandlingSpinBox_SuperSetVisible(KPluralHandlingSpinBox* self, bool visible) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_SetVisible_IsBase(true);
@@ -1059,7 +1059,7 @@ int KPluralHandlingSpinBox_HeightForWidth(const KPluralHandlingSpinBox* self, in
 }
 
 // Base class handler implementation
-int KPluralHandlingSpinBox_QBaseHeightForWidth(const KPluralHandlingSpinBox* self, int param1) {
+int KPluralHandlingSpinBox_SuperHeightForWidth(const KPluralHandlingSpinBox* self, int param1) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_HeightForWidth_IsBase(true);
@@ -1088,7 +1088,7 @@ bool KPluralHandlingSpinBox_HasHeightForWidth(const KPluralHandlingSpinBox* self
 }
 
 // Base class handler implementation
-bool KPluralHandlingSpinBox_QBaseHasHeightForWidth(const KPluralHandlingSpinBox* self) {
+bool KPluralHandlingSpinBox_SuperHasHeightForWidth(const KPluralHandlingSpinBox* self) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_HasHeightForWidth_IsBase(true);
@@ -1117,7 +1117,7 @@ QPaintEngine* KPluralHandlingSpinBox_PaintEngine(const KPluralHandlingSpinBox* s
 }
 
 // Base class handler implementation
-QPaintEngine* KPluralHandlingSpinBox_QBasePaintEngine(const KPluralHandlingSpinBox* self) {
+QPaintEngine* KPluralHandlingSpinBox_SuperPaintEngine(const KPluralHandlingSpinBox* self) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_PaintEngine_IsBase(true);
@@ -1146,7 +1146,7 @@ void KPluralHandlingSpinBox_MouseDoubleClickEvent(KPluralHandlingSpinBox* self, 
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseMouseDoubleClickEvent(KPluralHandlingSpinBox* self, QMouseEvent* event) {
+void KPluralHandlingSpinBox_SuperMouseDoubleClickEvent(KPluralHandlingSpinBox* self, QMouseEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_MouseDoubleClickEvent_IsBase(true);
@@ -1175,7 +1175,7 @@ void KPluralHandlingSpinBox_EnterEvent(KPluralHandlingSpinBox* self, QEnterEvent
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseEnterEvent(KPluralHandlingSpinBox* self, QEnterEvent* event) {
+void KPluralHandlingSpinBox_SuperEnterEvent(KPluralHandlingSpinBox* self, QEnterEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_EnterEvent_IsBase(true);
@@ -1204,7 +1204,7 @@ void KPluralHandlingSpinBox_LeaveEvent(KPluralHandlingSpinBox* self, QEvent* eve
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseLeaveEvent(KPluralHandlingSpinBox* self, QEvent* event) {
+void KPluralHandlingSpinBox_SuperLeaveEvent(KPluralHandlingSpinBox* self, QEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_LeaveEvent_IsBase(true);
@@ -1233,7 +1233,7 @@ void KPluralHandlingSpinBox_MoveEvent(KPluralHandlingSpinBox* self, QMoveEvent* 
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseMoveEvent(KPluralHandlingSpinBox* self, QMoveEvent* event) {
+void KPluralHandlingSpinBox_SuperMoveEvent(KPluralHandlingSpinBox* self, QMoveEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_MoveEvent_IsBase(true);
@@ -1262,7 +1262,7 @@ void KPluralHandlingSpinBox_TabletEvent(KPluralHandlingSpinBox* self, QTabletEve
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseTabletEvent(KPluralHandlingSpinBox* self, QTabletEvent* event) {
+void KPluralHandlingSpinBox_SuperTabletEvent(KPluralHandlingSpinBox* self, QTabletEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_TabletEvent_IsBase(true);
@@ -1291,7 +1291,7 @@ void KPluralHandlingSpinBox_ActionEvent(KPluralHandlingSpinBox* self, QActionEve
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseActionEvent(KPluralHandlingSpinBox* self, QActionEvent* event) {
+void KPluralHandlingSpinBox_SuperActionEvent(KPluralHandlingSpinBox* self, QActionEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_ActionEvent_IsBase(true);
@@ -1320,7 +1320,7 @@ void KPluralHandlingSpinBox_DragEnterEvent(KPluralHandlingSpinBox* self, QDragEn
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseDragEnterEvent(KPluralHandlingSpinBox* self, QDragEnterEvent* event) {
+void KPluralHandlingSpinBox_SuperDragEnterEvent(KPluralHandlingSpinBox* self, QDragEnterEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_DragEnterEvent_IsBase(true);
@@ -1349,7 +1349,7 @@ void KPluralHandlingSpinBox_DragMoveEvent(KPluralHandlingSpinBox* self, QDragMov
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseDragMoveEvent(KPluralHandlingSpinBox* self, QDragMoveEvent* event) {
+void KPluralHandlingSpinBox_SuperDragMoveEvent(KPluralHandlingSpinBox* self, QDragMoveEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_DragMoveEvent_IsBase(true);
@@ -1378,7 +1378,7 @@ void KPluralHandlingSpinBox_DragLeaveEvent(KPluralHandlingSpinBox* self, QDragLe
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseDragLeaveEvent(KPluralHandlingSpinBox* self, QDragLeaveEvent* event) {
+void KPluralHandlingSpinBox_SuperDragLeaveEvent(KPluralHandlingSpinBox* self, QDragLeaveEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_DragLeaveEvent_IsBase(true);
@@ -1407,7 +1407,7 @@ void KPluralHandlingSpinBox_DropEvent(KPluralHandlingSpinBox* self, QDropEvent* 
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseDropEvent(KPluralHandlingSpinBox* self, QDropEvent* event) {
+void KPluralHandlingSpinBox_SuperDropEvent(KPluralHandlingSpinBox* self, QDropEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_DropEvent_IsBase(true);
@@ -1437,7 +1437,7 @@ bool KPluralHandlingSpinBox_NativeEvent(KPluralHandlingSpinBox* self, const libq
 }
 
 // Base class handler implementation
-bool KPluralHandlingSpinBox_QBaseNativeEvent(KPluralHandlingSpinBox* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KPluralHandlingSpinBox_SuperNativeEvent(KPluralHandlingSpinBox* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
@@ -1467,7 +1467,7 @@ int KPluralHandlingSpinBox_Metric(const KPluralHandlingSpinBox* self, int param1
 }
 
 // Base class handler implementation
-int KPluralHandlingSpinBox_QBaseMetric(const KPluralHandlingSpinBox* self, int param1) {
+int KPluralHandlingSpinBox_SuperMetric(const KPluralHandlingSpinBox* self, int param1) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Metric_IsBase(true);
@@ -1496,7 +1496,7 @@ void KPluralHandlingSpinBox_InitPainter(const KPluralHandlingSpinBox* self, QPai
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseInitPainter(const KPluralHandlingSpinBox* self, QPainter* painter) {
+void KPluralHandlingSpinBox_SuperInitPainter(const KPluralHandlingSpinBox* self, QPainter* painter) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_InitPainter_IsBase(true);
@@ -1525,7 +1525,7 @@ QPaintDevice* KPluralHandlingSpinBox_Redirected(const KPluralHandlingSpinBox* se
 }
 
 // Base class handler implementation
-QPaintDevice* KPluralHandlingSpinBox_QBaseRedirected(const KPluralHandlingSpinBox* self, QPoint* offset) {
+QPaintDevice* KPluralHandlingSpinBox_SuperRedirected(const KPluralHandlingSpinBox* self, QPoint* offset) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Redirected_IsBase(true);
@@ -1554,7 +1554,7 @@ QPainter* KPluralHandlingSpinBox_SharedPainter(const KPluralHandlingSpinBox* sel
 }
 
 // Base class handler implementation
-QPainter* KPluralHandlingSpinBox_QBaseSharedPainter(const KPluralHandlingSpinBox* self) {
+QPainter* KPluralHandlingSpinBox_SuperSharedPainter(const KPluralHandlingSpinBox* self) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_SharedPainter_IsBase(true);
@@ -1583,7 +1583,7 @@ void KPluralHandlingSpinBox_InputMethodEvent(KPluralHandlingSpinBox* self, QInpu
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseInputMethodEvent(KPluralHandlingSpinBox* self, QInputMethodEvent* param1) {
+void KPluralHandlingSpinBox_SuperInputMethodEvent(KPluralHandlingSpinBox* self, QInputMethodEvent* param1) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_InputMethodEvent_IsBase(true);
@@ -1612,7 +1612,7 @@ bool KPluralHandlingSpinBox_FocusNextPrevChild(KPluralHandlingSpinBox* self, boo
 }
 
 // Base class handler implementation
-bool KPluralHandlingSpinBox_QBaseFocusNextPrevChild(KPluralHandlingSpinBox* self, bool next) {
+bool KPluralHandlingSpinBox_SuperFocusNextPrevChild(KPluralHandlingSpinBox* self, bool next) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_FocusNextPrevChild_IsBase(true);
@@ -1641,7 +1641,7 @@ bool KPluralHandlingSpinBox_EventFilter(KPluralHandlingSpinBox* self, QObject* w
 }
 
 // Base class handler implementation
-bool KPluralHandlingSpinBox_QBaseEventFilter(KPluralHandlingSpinBox* self, QObject* watched, QEvent* event) {
+bool KPluralHandlingSpinBox_SuperEventFilter(KPluralHandlingSpinBox* self, QObject* watched, QEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_EventFilter_IsBase(true);
@@ -1670,7 +1670,7 @@ void KPluralHandlingSpinBox_ChildEvent(KPluralHandlingSpinBox* self, QChildEvent
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseChildEvent(KPluralHandlingSpinBox* self, QChildEvent* event) {
+void KPluralHandlingSpinBox_SuperChildEvent(KPluralHandlingSpinBox* self, QChildEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_ChildEvent_IsBase(true);
@@ -1699,7 +1699,7 @@ void KPluralHandlingSpinBox_CustomEvent(KPluralHandlingSpinBox* self, QEvent* ev
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseCustomEvent(KPluralHandlingSpinBox* self, QEvent* event) {
+void KPluralHandlingSpinBox_SuperCustomEvent(KPluralHandlingSpinBox* self, QEvent* event) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_CustomEvent_IsBase(true);
@@ -1728,7 +1728,7 @@ void KPluralHandlingSpinBox_ConnectNotify(KPluralHandlingSpinBox* self, const QM
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseConnectNotify(KPluralHandlingSpinBox* self, const QMetaMethod* signal) {
+void KPluralHandlingSpinBox_SuperConnectNotify(KPluralHandlingSpinBox* self, const QMetaMethod* signal) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_ConnectNotify_IsBase(true);
@@ -1757,7 +1757,7 @@ void KPluralHandlingSpinBox_DisconnectNotify(KPluralHandlingSpinBox* self, const
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseDisconnectNotify(KPluralHandlingSpinBox* self, const QMetaMethod* signal) {
+void KPluralHandlingSpinBox_SuperDisconnectNotify(KPluralHandlingSpinBox* self, const QMetaMethod* signal) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_DisconnectNotify_IsBase(true);
@@ -1786,7 +1786,7 @@ QLineEdit* KPluralHandlingSpinBox_LineEdit(const KPluralHandlingSpinBox* self) {
 }
 
 // Base class handler implementation
-QLineEdit* KPluralHandlingSpinBox_QBaseLineEdit(const KPluralHandlingSpinBox* self) {
+QLineEdit* KPluralHandlingSpinBox_SuperLineEdit(const KPluralHandlingSpinBox* self) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_LineEdit_IsBase(true);
@@ -1815,7 +1815,7 @@ void KPluralHandlingSpinBox_SetLineEdit(KPluralHandlingSpinBox* self, QLineEdit*
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseSetLineEdit(KPluralHandlingSpinBox* self, QLineEdit* edit) {
+void KPluralHandlingSpinBox_SuperSetLineEdit(KPluralHandlingSpinBox* self, QLineEdit* edit) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_SetLineEdit_IsBase(true);
@@ -1844,7 +1844,7 @@ void KPluralHandlingSpinBox_UpdateMicroFocus(KPluralHandlingSpinBox* self) {
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseUpdateMicroFocus(KPluralHandlingSpinBox* self) {
+void KPluralHandlingSpinBox_SuperUpdateMicroFocus(KPluralHandlingSpinBox* self) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_UpdateMicroFocus_IsBase(true);
@@ -1873,7 +1873,7 @@ void KPluralHandlingSpinBox_Create(KPluralHandlingSpinBox* self) {
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseCreate(KPluralHandlingSpinBox* self) {
+void KPluralHandlingSpinBox_SuperCreate(KPluralHandlingSpinBox* self) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Create_IsBase(true);
@@ -1902,7 +1902,7 @@ void KPluralHandlingSpinBox_Destroy(KPluralHandlingSpinBox* self) {
 }
 
 // Base class handler implementation
-void KPluralHandlingSpinBox_QBaseDestroy(KPluralHandlingSpinBox* self) {
+void KPluralHandlingSpinBox_SuperDestroy(KPluralHandlingSpinBox* self) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Destroy_IsBase(true);
@@ -1931,7 +1931,7 @@ bool KPluralHandlingSpinBox_FocusNextChild(KPluralHandlingSpinBox* self) {
 }
 
 // Base class handler implementation
-bool KPluralHandlingSpinBox_QBaseFocusNextChild(KPluralHandlingSpinBox* self) {
+bool KPluralHandlingSpinBox_SuperFocusNextChild(KPluralHandlingSpinBox* self) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_FocusNextChild_IsBase(true);
@@ -1960,7 +1960,7 @@ bool KPluralHandlingSpinBox_FocusPreviousChild(KPluralHandlingSpinBox* self) {
 }
 
 // Base class handler implementation
-bool KPluralHandlingSpinBox_QBaseFocusPreviousChild(KPluralHandlingSpinBox* self) {
+bool KPluralHandlingSpinBox_SuperFocusPreviousChild(KPluralHandlingSpinBox* self) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_FocusPreviousChild_IsBase(true);
@@ -1989,7 +1989,7 @@ QObject* KPluralHandlingSpinBox_Sender(const KPluralHandlingSpinBox* self) {
 }
 
 // Base class handler implementation
-QObject* KPluralHandlingSpinBox_QBaseSender(const KPluralHandlingSpinBox* self) {
+QObject* KPluralHandlingSpinBox_SuperSender(const KPluralHandlingSpinBox* self) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Sender_IsBase(true);
@@ -2018,7 +2018,7 @@ int KPluralHandlingSpinBox_SenderSignalIndex(const KPluralHandlingSpinBox* self)
 }
 
 // Base class handler implementation
-int KPluralHandlingSpinBox_QBaseSenderSignalIndex(const KPluralHandlingSpinBox* self) {
+int KPluralHandlingSpinBox_SuperSenderSignalIndex(const KPluralHandlingSpinBox* self) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_SenderSignalIndex_IsBase(true);
@@ -2047,7 +2047,7 @@ int KPluralHandlingSpinBox_Receivers(const KPluralHandlingSpinBox* self, const c
 }
 
 // Base class handler implementation
-int KPluralHandlingSpinBox_QBaseReceivers(const KPluralHandlingSpinBox* self, const char* signal) {
+int KPluralHandlingSpinBox_SuperReceivers(const KPluralHandlingSpinBox* self, const char* signal) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Receivers_IsBase(true);
@@ -2076,7 +2076,7 @@ bool KPluralHandlingSpinBox_IsSignalConnected(const KPluralHandlingSpinBox* self
 }
 
 // Base class handler implementation
-bool KPluralHandlingSpinBox_QBaseIsSignalConnected(const KPluralHandlingSpinBox* self, const QMetaMethod* signal) {
+bool KPluralHandlingSpinBox_SuperIsSignalConnected(const KPluralHandlingSpinBox* self, const QMetaMethod* signal) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_IsSignalConnected_IsBase(true);
@@ -2105,7 +2105,7 @@ double KPluralHandlingSpinBox_GetDecodedMetricF(const KPluralHandlingSpinBox* se
 }
 
 // Base class handler implementation
-double KPluralHandlingSpinBox_QBaseGetDecodedMetricF(const KPluralHandlingSpinBox* self, int metricA, int metricB) {
+double KPluralHandlingSpinBox_SuperGetDecodedMetricF(const KPluralHandlingSpinBox* self, int metricA, int metricB) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_GetDecodedMetricF_IsBase(true);

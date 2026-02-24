@@ -297,7 +297,7 @@ QSize* QConcatenateTablesProxyModel_Span(const QConcatenateTablesProxyModel* sel
 }
 
 // Base class handler implementation
-QMetaObject* QConcatenateTablesProxyModel_QBaseMetaObject(const QConcatenateTablesProxyModel* self) {
+QMetaObject* QConcatenateTablesProxyModel_SuperMetaObject(const QConcatenateTablesProxyModel* self) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_MetaObject_IsBase(true);
@@ -316,7 +316,7 @@ void QConcatenateTablesProxyModel_OnMetaObject(const QConcatenateTablesProxyMode
 }
 
 // Base class handler implementation
-void* QConcatenateTablesProxyModel_QBaseMetacast(QConcatenateTablesProxyModel* self, const char* param1) {
+void* QConcatenateTablesProxyModel_SuperMetacast(QConcatenateTablesProxyModel* self, const char* param1) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Metacast_IsBase(true);
@@ -335,7 +335,7 @@ void QConcatenateTablesProxyModel_OnMetacast(QConcatenateTablesProxyModel* self,
 }
 
 // Base class handler implementation
-int QConcatenateTablesProxyModel_QBaseMetacall(QConcatenateTablesProxyModel* self, int param1, int param2, void** param3) {
+int QConcatenateTablesProxyModel_SuperMetacall(QConcatenateTablesProxyModel* self, int param1, int param2, void** param3) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Metacall_IsBase(true);
@@ -354,7 +354,7 @@ void QConcatenateTablesProxyModel_OnMetacall(QConcatenateTablesProxyModel* self,
 }
 
 // Base class handler implementation
-QVariant* QConcatenateTablesProxyModel_QBaseData(const QConcatenateTablesProxyModel* self, const QModelIndex* index, int role) {
+QVariant* QConcatenateTablesProxyModel_SuperData(const QConcatenateTablesProxyModel* self, const QModelIndex* index, int role) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Data_IsBase(true);
@@ -373,7 +373,7 @@ void QConcatenateTablesProxyModel_OnData(const QConcatenateTablesProxyModel* sel
 }
 
 // Base class handler implementation
-bool QConcatenateTablesProxyModel_QBaseSetData(QConcatenateTablesProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool QConcatenateTablesProxyModel_SuperSetData(QConcatenateTablesProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_SetData_IsBase(true);
@@ -392,7 +392,7 @@ void QConcatenateTablesProxyModel_OnSetData(QConcatenateTablesProxyModel* self, 
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ QConcatenateTablesProxyModel_QBaseItemData(const QConcatenateTablesProxyModel* self, const QModelIndex* proxyIndex) {
+libqt_map /* of int to QVariant* */ QConcatenateTablesProxyModel_SuperItemData(const QConcatenateTablesProxyModel* self, const QModelIndex* proxyIndex) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_ItemData_IsBase(true);
@@ -439,7 +439,7 @@ void QConcatenateTablesProxyModel_OnItemData(const QConcatenateTablesProxyModel*
 }
 
 // Base class handler implementation
-bool QConcatenateTablesProxyModel_QBaseSetItemData(QConcatenateTablesProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool QConcatenateTablesProxyModel_SuperSetItemData(QConcatenateTablesProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -464,7 +464,7 @@ void QConcatenateTablesProxyModel_OnSetItemData(QConcatenateTablesProxyModel* se
 }
 
 // Base class handler implementation
-int QConcatenateTablesProxyModel_QBaseFlags(const QConcatenateTablesProxyModel* self, const QModelIndex* index) {
+int QConcatenateTablesProxyModel_SuperFlags(const QConcatenateTablesProxyModel* self, const QModelIndex* index) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Flags_IsBase(true);
@@ -483,7 +483,7 @@ void QConcatenateTablesProxyModel_OnFlags(const QConcatenateTablesProxyModel* se
 }
 
 // Base class handler implementation
-QModelIndex* QConcatenateTablesProxyModel_QBaseIndex(const QConcatenateTablesProxyModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* QConcatenateTablesProxyModel_SuperIndex(const QConcatenateTablesProxyModel* self, int row, int column, const QModelIndex* parent) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Index_IsBase(true);
@@ -502,7 +502,7 @@ void QConcatenateTablesProxyModel_OnIndex(const QConcatenateTablesProxyModel* se
 }
 
 // Base class handler implementation
-QModelIndex* QConcatenateTablesProxyModel_QBaseParent(const QConcatenateTablesProxyModel* self, const QModelIndex* index) {
+QModelIndex* QConcatenateTablesProxyModel_SuperParent(const QConcatenateTablesProxyModel* self, const QModelIndex* index) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Parent_IsBase(true);
@@ -521,7 +521,7 @@ void QConcatenateTablesProxyModel_OnParent(const QConcatenateTablesProxyModel* s
 }
 
 // Base class handler implementation
-int QConcatenateTablesProxyModel_QBaseRowCount(const QConcatenateTablesProxyModel* self, const QModelIndex* parent) {
+int QConcatenateTablesProxyModel_SuperRowCount(const QConcatenateTablesProxyModel* self, const QModelIndex* parent) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_RowCount_IsBase(true);
@@ -540,7 +540,7 @@ void QConcatenateTablesProxyModel_OnRowCount(const QConcatenateTablesProxyModel*
 }
 
 // Base class handler implementation
-QVariant* QConcatenateTablesProxyModel_QBaseHeaderData(const QConcatenateTablesProxyModel* self, int section, int orientation, int role) {
+QVariant* QConcatenateTablesProxyModel_SuperHeaderData(const QConcatenateTablesProxyModel* self, int section, int orientation, int role) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_HeaderData_IsBase(true);
@@ -559,7 +559,7 @@ void QConcatenateTablesProxyModel_OnHeaderData(const QConcatenateTablesProxyMode
 }
 
 // Base class handler implementation
-int QConcatenateTablesProxyModel_QBaseColumnCount(const QConcatenateTablesProxyModel* self, const QModelIndex* parent) {
+int QConcatenateTablesProxyModel_SuperColumnCount(const QConcatenateTablesProxyModel* self, const QModelIndex* parent) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_ColumnCount_IsBase(true);
@@ -578,7 +578,7 @@ void QConcatenateTablesProxyModel_OnColumnCount(const QConcatenateTablesProxyMod
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QConcatenateTablesProxyModel_QBaseMimeTypes(const QConcatenateTablesProxyModel* self) {
+libqt_list /* of libqt_string */ QConcatenateTablesProxyModel_SuperMimeTypes(const QConcatenateTablesProxyModel* self) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_MimeTypes_IsBase(true);
@@ -631,7 +631,7 @@ void QConcatenateTablesProxyModel_OnMimeTypes(const QConcatenateTablesProxyModel
 }
 
 // Base class handler implementation
-QMimeData* QConcatenateTablesProxyModel_QBaseMimeData(const QConcatenateTablesProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* QConcatenateTablesProxyModel_SuperMimeData(const QConcatenateTablesProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -656,7 +656,7 @@ void QConcatenateTablesProxyModel_OnMimeData(const QConcatenateTablesProxyModel*
 }
 
 // Base class handler implementation
-bool QConcatenateTablesProxyModel_QBaseCanDropMimeData(const QConcatenateTablesProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QConcatenateTablesProxyModel_SuperCanDropMimeData(const QConcatenateTablesProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_CanDropMimeData_IsBase(true);
@@ -675,7 +675,7 @@ void QConcatenateTablesProxyModel_OnCanDropMimeData(const QConcatenateTablesProx
 }
 
 // Base class handler implementation
-bool QConcatenateTablesProxyModel_QBaseDropMimeData(QConcatenateTablesProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QConcatenateTablesProxyModel_SuperDropMimeData(QConcatenateTablesProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_DropMimeData_IsBase(true);
@@ -694,7 +694,7 @@ void QConcatenateTablesProxyModel_OnDropMimeData(QConcatenateTablesProxyModel* s
 }
 
 // Base class handler implementation
-QSize* QConcatenateTablesProxyModel_QBaseSpan(const QConcatenateTablesProxyModel* self, const QModelIndex* index) {
+QSize* QConcatenateTablesProxyModel_SuperSpan(const QConcatenateTablesProxyModel* self, const QModelIndex* index) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Span_IsBase(true);
@@ -723,7 +723,7 @@ QModelIndex* QConcatenateTablesProxyModel_Sibling(const QConcatenateTablesProxyM
 }
 
 // Base class handler implementation
-QModelIndex* QConcatenateTablesProxyModel_QBaseSibling(const QConcatenateTablesProxyModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* QConcatenateTablesProxyModel_SuperSibling(const QConcatenateTablesProxyModel* self, int row, int column, const QModelIndex* idx) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Sibling_IsBase(true);
@@ -752,7 +752,7 @@ bool QConcatenateTablesProxyModel_HasChildren(const QConcatenateTablesProxyModel
 }
 
 // Base class handler implementation
-bool QConcatenateTablesProxyModel_QBaseHasChildren(const QConcatenateTablesProxyModel* self, const QModelIndex* parent) {
+bool QConcatenateTablesProxyModel_SuperHasChildren(const QConcatenateTablesProxyModel* self, const QModelIndex* parent) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_HasChildren_IsBase(true);
@@ -781,7 +781,7 @@ bool QConcatenateTablesProxyModel_SetHeaderData(QConcatenateTablesProxyModel* se
 }
 
 // Base class handler implementation
-bool QConcatenateTablesProxyModel_QBaseSetHeaderData(QConcatenateTablesProxyModel* self, int section, int orientation, const QVariant* value, int role) {
+bool QConcatenateTablesProxyModel_SuperSetHeaderData(QConcatenateTablesProxyModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_SetHeaderData_IsBase(true);
@@ -810,7 +810,7 @@ bool QConcatenateTablesProxyModel_ClearItemData(QConcatenateTablesProxyModel* se
 }
 
 // Base class handler implementation
-bool QConcatenateTablesProxyModel_QBaseClearItemData(QConcatenateTablesProxyModel* self, const QModelIndex* index) {
+bool QConcatenateTablesProxyModel_SuperClearItemData(QConcatenateTablesProxyModel* self, const QModelIndex* index) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_ClearItemData_IsBase(true);
@@ -839,7 +839,7 @@ int QConcatenateTablesProxyModel_SupportedDropActions(const QConcatenateTablesPr
 }
 
 // Base class handler implementation
-int QConcatenateTablesProxyModel_QBaseSupportedDropActions(const QConcatenateTablesProxyModel* self) {
+int QConcatenateTablesProxyModel_SuperSupportedDropActions(const QConcatenateTablesProxyModel* self) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_SupportedDropActions_IsBase(true);
@@ -868,7 +868,7 @@ int QConcatenateTablesProxyModel_SupportedDragActions(const QConcatenateTablesPr
 }
 
 // Base class handler implementation
-int QConcatenateTablesProxyModel_QBaseSupportedDragActions(const QConcatenateTablesProxyModel* self) {
+int QConcatenateTablesProxyModel_SuperSupportedDragActions(const QConcatenateTablesProxyModel* self) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_SupportedDragActions_IsBase(true);
@@ -897,7 +897,7 @@ bool QConcatenateTablesProxyModel_InsertRows(QConcatenateTablesProxyModel* self,
 }
 
 // Base class handler implementation
-bool QConcatenateTablesProxyModel_QBaseInsertRows(QConcatenateTablesProxyModel* self, int row, int count, const QModelIndex* parent) {
+bool QConcatenateTablesProxyModel_SuperInsertRows(QConcatenateTablesProxyModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_InsertRows_IsBase(true);
@@ -926,7 +926,7 @@ bool QConcatenateTablesProxyModel_InsertColumns(QConcatenateTablesProxyModel* se
 }
 
 // Base class handler implementation
-bool QConcatenateTablesProxyModel_QBaseInsertColumns(QConcatenateTablesProxyModel* self, int column, int count, const QModelIndex* parent) {
+bool QConcatenateTablesProxyModel_SuperInsertColumns(QConcatenateTablesProxyModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_InsertColumns_IsBase(true);
@@ -955,7 +955,7 @@ bool QConcatenateTablesProxyModel_RemoveRows(QConcatenateTablesProxyModel* self,
 }
 
 // Base class handler implementation
-bool QConcatenateTablesProxyModel_QBaseRemoveRows(QConcatenateTablesProxyModel* self, int row, int count, const QModelIndex* parent) {
+bool QConcatenateTablesProxyModel_SuperRemoveRows(QConcatenateTablesProxyModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_RemoveRows_IsBase(true);
@@ -984,7 +984,7 @@ bool QConcatenateTablesProxyModel_RemoveColumns(QConcatenateTablesProxyModel* se
 }
 
 // Base class handler implementation
-bool QConcatenateTablesProxyModel_QBaseRemoveColumns(QConcatenateTablesProxyModel* self, int column, int count, const QModelIndex* parent) {
+bool QConcatenateTablesProxyModel_SuperRemoveColumns(QConcatenateTablesProxyModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_RemoveColumns_IsBase(true);
@@ -1013,7 +1013,7 @@ bool QConcatenateTablesProxyModel_MoveRows(QConcatenateTablesProxyModel* self, c
 }
 
 // Base class handler implementation
-bool QConcatenateTablesProxyModel_QBaseMoveRows(QConcatenateTablesProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QConcatenateTablesProxyModel_SuperMoveRows(QConcatenateTablesProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_MoveRows_IsBase(true);
@@ -1042,7 +1042,7 @@ bool QConcatenateTablesProxyModel_MoveColumns(QConcatenateTablesProxyModel* self
 }
 
 // Base class handler implementation
-bool QConcatenateTablesProxyModel_QBaseMoveColumns(QConcatenateTablesProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QConcatenateTablesProxyModel_SuperMoveColumns(QConcatenateTablesProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_MoveColumns_IsBase(true);
@@ -1071,7 +1071,7 @@ void QConcatenateTablesProxyModel_FetchMore(QConcatenateTablesProxyModel* self, 
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseFetchMore(QConcatenateTablesProxyModel* self, const QModelIndex* parent) {
+void QConcatenateTablesProxyModel_SuperFetchMore(QConcatenateTablesProxyModel* self, const QModelIndex* parent) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_FetchMore_IsBase(true);
@@ -1100,7 +1100,7 @@ bool QConcatenateTablesProxyModel_CanFetchMore(const QConcatenateTablesProxyMode
 }
 
 // Base class handler implementation
-bool QConcatenateTablesProxyModel_QBaseCanFetchMore(const QConcatenateTablesProxyModel* self, const QModelIndex* parent) {
+bool QConcatenateTablesProxyModel_SuperCanFetchMore(const QConcatenateTablesProxyModel* self, const QModelIndex* parent) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_CanFetchMore_IsBase(true);
@@ -1129,7 +1129,7 @@ void QConcatenateTablesProxyModel_Sort(QConcatenateTablesProxyModel* self, int c
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseSort(QConcatenateTablesProxyModel* self, int column, int order) {
+void QConcatenateTablesProxyModel_SuperSort(QConcatenateTablesProxyModel* self, int column, int order) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Sort_IsBase(true);
@@ -1158,7 +1158,7 @@ QModelIndex* QConcatenateTablesProxyModel_Buddy(const QConcatenateTablesProxyMod
 }
 
 // Base class handler implementation
-QModelIndex* QConcatenateTablesProxyModel_QBaseBuddy(const QConcatenateTablesProxyModel* self, const QModelIndex* index) {
+QModelIndex* QConcatenateTablesProxyModel_SuperBuddy(const QConcatenateTablesProxyModel* self, const QModelIndex* index) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Buddy_IsBase(true);
@@ -1205,7 +1205,7 @@ libqt_list /* of QModelIndex* */ QConcatenateTablesProxyModel_Match(const QConca
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QConcatenateTablesProxyModel_QBaseMatch(const QConcatenateTablesProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ QConcatenateTablesProxyModel_SuperMatch(const QConcatenateTablesProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Match_IsBase(true);
@@ -1290,7 +1290,7 @@ libqt_map /* of int to libqt_string */ QConcatenateTablesProxyModel_RoleNames(co
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ QConcatenateTablesProxyModel_QBaseRoleNames(const QConcatenateTablesProxyModel* self) {
+libqt_map /* of int to libqt_string */ QConcatenateTablesProxyModel_SuperRoleNames(const QConcatenateTablesProxyModel* self) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_RoleNames_IsBase(true);
@@ -1357,7 +1357,7 @@ void QConcatenateTablesProxyModel_MultiData(const QConcatenateTablesProxyModel* 
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseMultiData(const QConcatenateTablesProxyModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void QConcatenateTablesProxyModel_SuperMultiData(const QConcatenateTablesProxyModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_MultiData_IsBase(true);
@@ -1386,7 +1386,7 @@ bool QConcatenateTablesProxyModel_Submit(QConcatenateTablesProxyModel* self) {
 }
 
 // Base class handler implementation
-bool QConcatenateTablesProxyModel_QBaseSubmit(QConcatenateTablesProxyModel* self) {
+bool QConcatenateTablesProxyModel_SuperSubmit(QConcatenateTablesProxyModel* self) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Submit_IsBase(true);
@@ -1415,7 +1415,7 @@ void QConcatenateTablesProxyModel_Revert(QConcatenateTablesProxyModel* self) {
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseRevert(QConcatenateTablesProxyModel* self) {
+void QConcatenateTablesProxyModel_SuperRevert(QConcatenateTablesProxyModel* self) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Revert_IsBase(true);
@@ -1444,7 +1444,7 @@ void QConcatenateTablesProxyModel_ResetInternalData(QConcatenateTablesProxyModel
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseResetInternalData(QConcatenateTablesProxyModel* self) {
+void QConcatenateTablesProxyModel_SuperResetInternalData(QConcatenateTablesProxyModel* self) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_ResetInternalData_IsBase(true);
@@ -1473,7 +1473,7 @@ bool QConcatenateTablesProxyModel_Event(QConcatenateTablesProxyModel* self, QEve
 }
 
 // Base class handler implementation
-bool QConcatenateTablesProxyModel_QBaseEvent(QConcatenateTablesProxyModel* self, QEvent* event) {
+bool QConcatenateTablesProxyModel_SuperEvent(QConcatenateTablesProxyModel* self, QEvent* event) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Event_IsBase(true);
@@ -1502,7 +1502,7 @@ bool QConcatenateTablesProxyModel_EventFilter(QConcatenateTablesProxyModel* self
 }
 
 // Base class handler implementation
-bool QConcatenateTablesProxyModel_QBaseEventFilter(QConcatenateTablesProxyModel* self, QObject* watched, QEvent* event) {
+bool QConcatenateTablesProxyModel_SuperEventFilter(QConcatenateTablesProxyModel* self, QObject* watched, QEvent* event) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_EventFilter_IsBase(true);
@@ -1531,7 +1531,7 @@ void QConcatenateTablesProxyModel_TimerEvent(QConcatenateTablesProxyModel* self,
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseTimerEvent(QConcatenateTablesProxyModel* self, QTimerEvent* event) {
+void QConcatenateTablesProxyModel_SuperTimerEvent(QConcatenateTablesProxyModel* self, QTimerEvent* event) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_TimerEvent_IsBase(true);
@@ -1560,7 +1560,7 @@ void QConcatenateTablesProxyModel_ChildEvent(QConcatenateTablesProxyModel* self,
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseChildEvent(QConcatenateTablesProxyModel* self, QChildEvent* event) {
+void QConcatenateTablesProxyModel_SuperChildEvent(QConcatenateTablesProxyModel* self, QChildEvent* event) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_ChildEvent_IsBase(true);
@@ -1589,7 +1589,7 @@ void QConcatenateTablesProxyModel_CustomEvent(QConcatenateTablesProxyModel* self
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseCustomEvent(QConcatenateTablesProxyModel* self, QEvent* event) {
+void QConcatenateTablesProxyModel_SuperCustomEvent(QConcatenateTablesProxyModel* self, QEvent* event) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_CustomEvent_IsBase(true);
@@ -1618,7 +1618,7 @@ void QConcatenateTablesProxyModel_ConnectNotify(QConcatenateTablesProxyModel* se
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseConnectNotify(QConcatenateTablesProxyModel* self, const QMetaMethod* signal) {
+void QConcatenateTablesProxyModel_SuperConnectNotify(QConcatenateTablesProxyModel* self, const QMetaMethod* signal) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_ConnectNotify_IsBase(true);
@@ -1647,7 +1647,7 @@ void QConcatenateTablesProxyModel_DisconnectNotify(QConcatenateTablesProxyModel*
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseDisconnectNotify(QConcatenateTablesProxyModel* self, const QMetaMethod* signal) {
+void QConcatenateTablesProxyModel_SuperDisconnectNotify(QConcatenateTablesProxyModel* self, const QMetaMethod* signal) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_DisconnectNotify_IsBase(true);
@@ -1675,7 +1675,7 @@ QModelIndex* QConcatenateTablesProxyModel_CreateIndex(const QConcatenateTablesPr
 }
 
 // Base class handler implementation
-QModelIndex* QConcatenateTablesProxyModel_QBaseCreateIndex(const QConcatenateTablesProxyModel* self, int row, int column) {
+QModelIndex* QConcatenateTablesProxyModel_SuperCreateIndex(const QConcatenateTablesProxyModel* self, int row, int column) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_CreateIndex_IsBase(true);
@@ -1709,7 +1709,7 @@ void QConcatenateTablesProxyModel_EncodeData(const QConcatenateTablesProxyModel*
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseEncodeData(const QConcatenateTablesProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void QConcatenateTablesProxyModel_SuperEncodeData(const QConcatenateTablesProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -1744,7 +1744,7 @@ bool QConcatenateTablesProxyModel_DecodeData(QConcatenateTablesProxyModel* self,
 }
 
 // Base class handler implementation
-bool QConcatenateTablesProxyModel_QBaseDecodeData(QConcatenateTablesProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool QConcatenateTablesProxyModel_SuperDecodeData(QConcatenateTablesProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_DecodeData_IsBase(true);
@@ -1773,7 +1773,7 @@ void QConcatenateTablesProxyModel_BeginInsertRows(QConcatenateTablesProxyModel* 
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseBeginInsertRows(QConcatenateTablesProxyModel* self, const QModelIndex* parent, int first, int last) {
+void QConcatenateTablesProxyModel_SuperBeginInsertRows(QConcatenateTablesProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_BeginInsertRows_IsBase(true);
@@ -1802,7 +1802,7 @@ void QConcatenateTablesProxyModel_EndInsertRows(QConcatenateTablesProxyModel* se
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseEndInsertRows(QConcatenateTablesProxyModel* self) {
+void QConcatenateTablesProxyModel_SuperEndInsertRows(QConcatenateTablesProxyModel* self) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_EndInsertRows_IsBase(true);
@@ -1831,7 +1831,7 @@ void QConcatenateTablesProxyModel_BeginRemoveRows(QConcatenateTablesProxyModel* 
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseBeginRemoveRows(QConcatenateTablesProxyModel* self, const QModelIndex* parent, int first, int last) {
+void QConcatenateTablesProxyModel_SuperBeginRemoveRows(QConcatenateTablesProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_BeginRemoveRows_IsBase(true);
@@ -1860,7 +1860,7 @@ void QConcatenateTablesProxyModel_EndRemoveRows(QConcatenateTablesProxyModel* se
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseEndRemoveRows(QConcatenateTablesProxyModel* self) {
+void QConcatenateTablesProxyModel_SuperEndRemoveRows(QConcatenateTablesProxyModel* self) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_EndRemoveRows_IsBase(true);
@@ -1889,7 +1889,7 @@ bool QConcatenateTablesProxyModel_BeginMoveRows(QConcatenateTablesProxyModel* se
 }
 
 // Base class handler implementation
-bool QConcatenateTablesProxyModel_QBaseBeginMoveRows(QConcatenateTablesProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool QConcatenateTablesProxyModel_SuperBeginMoveRows(QConcatenateTablesProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_BeginMoveRows_IsBase(true);
@@ -1918,7 +1918,7 @@ void QConcatenateTablesProxyModel_EndMoveRows(QConcatenateTablesProxyModel* self
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseEndMoveRows(QConcatenateTablesProxyModel* self) {
+void QConcatenateTablesProxyModel_SuperEndMoveRows(QConcatenateTablesProxyModel* self) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_EndMoveRows_IsBase(true);
@@ -1947,7 +1947,7 @@ void QConcatenateTablesProxyModel_BeginInsertColumns(QConcatenateTablesProxyMode
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseBeginInsertColumns(QConcatenateTablesProxyModel* self, const QModelIndex* parent, int first, int last) {
+void QConcatenateTablesProxyModel_SuperBeginInsertColumns(QConcatenateTablesProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_BeginInsertColumns_IsBase(true);
@@ -1976,7 +1976,7 @@ void QConcatenateTablesProxyModel_EndInsertColumns(QConcatenateTablesProxyModel*
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseEndInsertColumns(QConcatenateTablesProxyModel* self) {
+void QConcatenateTablesProxyModel_SuperEndInsertColumns(QConcatenateTablesProxyModel* self) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_EndInsertColumns_IsBase(true);
@@ -2005,7 +2005,7 @@ void QConcatenateTablesProxyModel_BeginRemoveColumns(QConcatenateTablesProxyMode
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseBeginRemoveColumns(QConcatenateTablesProxyModel* self, const QModelIndex* parent, int first, int last) {
+void QConcatenateTablesProxyModel_SuperBeginRemoveColumns(QConcatenateTablesProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_BeginRemoveColumns_IsBase(true);
@@ -2034,7 +2034,7 @@ void QConcatenateTablesProxyModel_EndRemoveColumns(QConcatenateTablesProxyModel*
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseEndRemoveColumns(QConcatenateTablesProxyModel* self) {
+void QConcatenateTablesProxyModel_SuperEndRemoveColumns(QConcatenateTablesProxyModel* self) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_EndRemoveColumns_IsBase(true);
@@ -2063,7 +2063,7 @@ bool QConcatenateTablesProxyModel_BeginMoveColumns(QConcatenateTablesProxyModel*
 }
 
 // Base class handler implementation
-bool QConcatenateTablesProxyModel_QBaseBeginMoveColumns(QConcatenateTablesProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool QConcatenateTablesProxyModel_SuperBeginMoveColumns(QConcatenateTablesProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_BeginMoveColumns_IsBase(true);
@@ -2092,7 +2092,7 @@ void QConcatenateTablesProxyModel_EndMoveColumns(QConcatenateTablesProxyModel* s
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseEndMoveColumns(QConcatenateTablesProxyModel* self) {
+void QConcatenateTablesProxyModel_SuperEndMoveColumns(QConcatenateTablesProxyModel* self) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_EndMoveColumns_IsBase(true);
@@ -2121,7 +2121,7 @@ void QConcatenateTablesProxyModel_BeginResetModel(QConcatenateTablesProxyModel* 
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseBeginResetModel(QConcatenateTablesProxyModel* self) {
+void QConcatenateTablesProxyModel_SuperBeginResetModel(QConcatenateTablesProxyModel* self) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_BeginResetModel_IsBase(true);
@@ -2150,7 +2150,7 @@ void QConcatenateTablesProxyModel_EndResetModel(QConcatenateTablesProxyModel* se
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseEndResetModel(QConcatenateTablesProxyModel* self) {
+void QConcatenateTablesProxyModel_SuperEndResetModel(QConcatenateTablesProxyModel* self) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_EndResetModel_IsBase(true);
@@ -2179,7 +2179,7 @@ void QConcatenateTablesProxyModel_ChangePersistentIndex(QConcatenateTablesProxyM
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseChangePersistentIndex(QConcatenateTablesProxyModel* self, const QModelIndex* from, const QModelIndex* to) {
+void QConcatenateTablesProxyModel_SuperChangePersistentIndex(QConcatenateTablesProxyModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_ChangePersistentIndex_IsBase(true);
@@ -2220,7 +2220,7 @@ void QConcatenateTablesProxyModel_ChangePersistentIndexList(QConcatenateTablesPr
 }
 
 // Base class handler implementation
-void QConcatenateTablesProxyModel_QBaseChangePersistentIndexList(QConcatenateTablesProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void QConcatenateTablesProxyModel_SuperChangePersistentIndexList(QConcatenateTablesProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -2279,7 +2279,7 @@ libqt_list /* of QModelIndex* */ QConcatenateTablesProxyModel_PersistentIndexLis
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QConcatenateTablesProxyModel_QBasePersistentIndexList(const QConcatenateTablesProxyModel* self) {
+libqt_list /* of QModelIndex* */ QConcatenateTablesProxyModel_SuperPersistentIndexList(const QConcatenateTablesProxyModel* self) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_PersistentIndexList_IsBase(true);
@@ -2326,7 +2326,7 @@ QObject* QConcatenateTablesProxyModel_Sender(const QConcatenateTablesProxyModel*
 }
 
 // Base class handler implementation
-QObject* QConcatenateTablesProxyModel_QBaseSender(const QConcatenateTablesProxyModel* self) {
+QObject* QConcatenateTablesProxyModel_SuperSender(const QConcatenateTablesProxyModel* self) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Sender_IsBase(true);
@@ -2355,7 +2355,7 @@ int QConcatenateTablesProxyModel_SenderSignalIndex(const QConcatenateTablesProxy
 }
 
 // Base class handler implementation
-int QConcatenateTablesProxyModel_QBaseSenderSignalIndex(const QConcatenateTablesProxyModel* self) {
+int QConcatenateTablesProxyModel_SuperSenderSignalIndex(const QConcatenateTablesProxyModel* self) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_SenderSignalIndex_IsBase(true);
@@ -2384,7 +2384,7 @@ int QConcatenateTablesProxyModel_Receivers(const QConcatenateTablesProxyModel* s
 }
 
 // Base class handler implementation
-int QConcatenateTablesProxyModel_QBaseReceivers(const QConcatenateTablesProxyModel* self, const char* signal) {
+int QConcatenateTablesProxyModel_SuperReceivers(const QConcatenateTablesProxyModel* self, const char* signal) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Receivers_IsBase(true);
@@ -2413,7 +2413,7 @@ bool QConcatenateTablesProxyModel_IsSignalConnected(const QConcatenateTablesProx
 }
 
 // Base class handler implementation
-bool QConcatenateTablesProxyModel_QBaseIsSignalConnected(const QConcatenateTablesProxyModel* self, const QMetaMethod* signal) {
+bool QConcatenateTablesProxyModel_SuperIsSignalConnected(const QConcatenateTablesProxyModel* self, const QMetaMethod* signal) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_IsSignalConnected_IsBase(true);

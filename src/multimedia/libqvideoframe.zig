@@ -524,6 +524,10 @@ pub const qvideoframe = struct {
         return qtc.QVideoFrame_VideoBuffer(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframe.html#dtor.QVideoFrame)
     ///
     /// Delete this object from C++ memory.
@@ -532,7 +536,7 @@ pub const qvideoframe = struct {
     ///
     /// ` self: QtC.QVideoFrame `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QVideoFrame_Delete(@ptrCast(self));
     }
 };
@@ -657,13 +661,17 @@ pub const qvideoframe__paintoptions = struct {
         qtc.QVideoFrame__PaintOptions_SetPaintFlags(@ptrCast(self), @bitCast(paintFlags));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QVideoFrame__PaintOptions `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QVideoFrame__PaintOptions_Delete(@ptrCast(self));
     }
 };

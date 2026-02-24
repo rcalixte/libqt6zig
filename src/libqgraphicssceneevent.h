@@ -39,10 +39,10 @@ unsigned long long QGraphicsSceneEvent_Timestamp(const QGraphicsSceneEvent* self
 void QGraphicsSceneEvent_SetTimestamp(QGraphicsSceneEvent* self, unsigned long long ts);
 void QGraphicsSceneEvent_SetAccepted(QGraphicsSceneEvent* self, bool accepted);
 void QGraphicsSceneEvent_OnSetAccepted(QGraphicsSceneEvent* self, intptr_t slot);
-void QGraphicsSceneEvent_QBaseSetAccepted(QGraphicsSceneEvent* self, bool accepted);
+void QGraphicsSceneEvent_SuperSetAccepted(QGraphicsSceneEvent* self, bool accepted);
 QEvent* QGraphicsSceneEvent_Clone(const QGraphicsSceneEvent* self);
 void QGraphicsSceneEvent_OnClone(const QGraphicsSceneEvent* self, intptr_t slot);
-QEvent* QGraphicsSceneEvent_QBaseClone(const QGraphicsSceneEvent* self);
+QEvent* QGraphicsSceneEvent_SuperClone(const QGraphicsSceneEvent* self);
 void QGraphicsSceneEvent_Delete(QGraphicsSceneEvent* self);
 
 QGraphicsSceneMouseEvent* QGraphicsSceneMouseEvent_new();
@@ -77,10 +77,10 @@ int QGraphicsSceneMouseEvent_Flags(const QGraphicsSceneMouseEvent* self);
 void QGraphicsSceneMouseEvent_SetFlags(QGraphicsSceneMouseEvent* self, int flags);
 void QGraphicsSceneMouseEvent_SetAccepted(QGraphicsSceneMouseEvent* self, bool accepted);
 void QGraphicsSceneMouseEvent_OnSetAccepted(QGraphicsSceneMouseEvent* self, intptr_t slot);
-void QGraphicsSceneMouseEvent_QBaseSetAccepted(QGraphicsSceneMouseEvent* self, bool accepted);
+void QGraphicsSceneMouseEvent_SuperSetAccepted(QGraphicsSceneMouseEvent* self, bool accepted);
 QEvent* QGraphicsSceneMouseEvent_Clone(const QGraphicsSceneMouseEvent* self);
 void QGraphicsSceneMouseEvent_OnClone(const QGraphicsSceneMouseEvent* self, intptr_t slot);
-QEvent* QGraphicsSceneMouseEvent_QBaseClone(const QGraphicsSceneMouseEvent* self);
+QEvent* QGraphicsSceneMouseEvent_SuperClone(const QGraphicsSceneMouseEvent* self);
 void QGraphicsSceneMouseEvent_Delete(QGraphicsSceneMouseEvent* self);
 
 QGraphicsSceneWheelEvent* QGraphicsSceneWheelEvent_new();
@@ -107,10 +107,10 @@ bool QGraphicsSceneWheelEvent_IsInverted(const QGraphicsSceneWheelEvent* self);
 void QGraphicsSceneWheelEvent_SetInverted(QGraphicsSceneWheelEvent* self, bool inverted);
 void QGraphicsSceneWheelEvent_SetAccepted(QGraphicsSceneWheelEvent* self, bool accepted);
 void QGraphicsSceneWheelEvent_OnSetAccepted(QGraphicsSceneWheelEvent* self, intptr_t slot);
-void QGraphicsSceneWheelEvent_QBaseSetAccepted(QGraphicsSceneWheelEvent* self, bool accepted);
+void QGraphicsSceneWheelEvent_SuperSetAccepted(QGraphicsSceneWheelEvent* self, bool accepted);
 QEvent* QGraphicsSceneWheelEvent_Clone(const QGraphicsSceneWheelEvent* self);
 void QGraphicsSceneWheelEvent_OnClone(const QGraphicsSceneWheelEvent* self, intptr_t slot);
-QEvent* QGraphicsSceneWheelEvent_QBaseClone(const QGraphicsSceneWheelEvent* self);
+QEvent* QGraphicsSceneWheelEvent_SuperClone(const QGraphicsSceneWheelEvent* self);
 void QGraphicsSceneWheelEvent_Delete(QGraphicsSceneWheelEvent* self);
 
 QGraphicsSceneContextMenuEvent* QGraphicsSceneContextMenuEvent_new();
@@ -127,10 +127,10 @@ int QGraphicsSceneContextMenuEvent_Reason(const QGraphicsSceneContextMenuEvent* 
 void QGraphicsSceneContextMenuEvent_SetReason(QGraphicsSceneContextMenuEvent* self, int reason);
 void QGraphicsSceneContextMenuEvent_SetAccepted(QGraphicsSceneContextMenuEvent* self, bool accepted);
 void QGraphicsSceneContextMenuEvent_OnSetAccepted(QGraphicsSceneContextMenuEvent* self, intptr_t slot);
-void QGraphicsSceneContextMenuEvent_QBaseSetAccepted(QGraphicsSceneContextMenuEvent* self, bool accepted);
+void QGraphicsSceneContextMenuEvent_SuperSetAccepted(QGraphicsSceneContextMenuEvent* self, bool accepted);
 QEvent* QGraphicsSceneContextMenuEvent_Clone(const QGraphicsSceneContextMenuEvent* self);
 void QGraphicsSceneContextMenuEvent_OnClone(const QGraphicsSceneContextMenuEvent* self, intptr_t slot);
-QEvent* QGraphicsSceneContextMenuEvent_QBaseClone(const QGraphicsSceneContextMenuEvent* self);
+QEvent* QGraphicsSceneContextMenuEvent_SuperClone(const QGraphicsSceneContextMenuEvent* self);
 void QGraphicsSceneContextMenuEvent_Delete(QGraphicsSceneContextMenuEvent* self);
 
 QGraphicsSceneHoverEvent* QGraphicsSceneHoverEvent_new();
@@ -151,10 +151,10 @@ int QGraphicsSceneHoverEvent_Modifiers(const QGraphicsSceneHoverEvent* self);
 void QGraphicsSceneHoverEvent_SetModifiers(QGraphicsSceneHoverEvent* self, int modifiers);
 void QGraphicsSceneHoverEvent_SetAccepted(QGraphicsSceneHoverEvent* self, bool accepted);
 void QGraphicsSceneHoverEvent_OnSetAccepted(QGraphicsSceneHoverEvent* self, intptr_t slot);
-void QGraphicsSceneHoverEvent_QBaseSetAccepted(QGraphicsSceneHoverEvent* self, bool accepted);
+void QGraphicsSceneHoverEvent_SuperSetAccepted(QGraphicsSceneHoverEvent* self, bool accepted);
 QEvent* QGraphicsSceneHoverEvent_Clone(const QGraphicsSceneHoverEvent* self);
 void QGraphicsSceneHoverEvent_OnClone(const QGraphicsSceneHoverEvent* self, intptr_t slot);
-QEvent* QGraphicsSceneHoverEvent_QBaseClone(const QGraphicsSceneHoverEvent* self);
+QEvent* QGraphicsSceneHoverEvent_SuperClone(const QGraphicsSceneHoverEvent* self);
 void QGraphicsSceneHoverEvent_Delete(QGraphicsSceneHoverEvent* self);
 
 QGraphicsSceneHelpEvent* QGraphicsSceneHelpEvent_new();
@@ -165,10 +165,10 @@ QPoint* QGraphicsSceneHelpEvent_ScreenPos(const QGraphicsSceneHelpEvent* self);
 void QGraphicsSceneHelpEvent_SetScreenPos(QGraphicsSceneHelpEvent* self, const QPoint* pos);
 void QGraphicsSceneHelpEvent_SetAccepted(QGraphicsSceneHelpEvent* self, bool accepted);
 void QGraphicsSceneHelpEvent_OnSetAccepted(QGraphicsSceneHelpEvent* self, intptr_t slot);
-void QGraphicsSceneHelpEvent_QBaseSetAccepted(QGraphicsSceneHelpEvent* self, bool accepted);
+void QGraphicsSceneHelpEvent_SuperSetAccepted(QGraphicsSceneHelpEvent* self, bool accepted);
 QEvent* QGraphicsSceneHelpEvent_Clone(const QGraphicsSceneHelpEvent* self);
 void QGraphicsSceneHelpEvent_OnClone(const QGraphicsSceneHelpEvent* self, intptr_t slot);
-QEvent* QGraphicsSceneHelpEvent_QBaseClone(const QGraphicsSceneHelpEvent* self);
+QEvent* QGraphicsSceneHelpEvent_SuperClone(const QGraphicsSceneHelpEvent* self);
 void QGraphicsSceneHelpEvent_Delete(QGraphicsSceneHelpEvent* self);
 
 QGraphicsSceneDragDropEvent* QGraphicsSceneDragDropEvent_new();
@@ -196,10 +196,10 @@ QMimeData* QGraphicsSceneDragDropEvent_MimeData(const QGraphicsSceneDragDropEven
 void QGraphicsSceneDragDropEvent_SetMimeData(QGraphicsSceneDragDropEvent* self, const QMimeData* data);
 void QGraphicsSceneDragDropEvent_SetAccepted(QGraphicsSceneDragDropEvent* self, bool accepted);
 void QGraphicsSceneDragDropEvent_OnSetAccepted(QGraphicsSceneDragDropEvent* self, intptr_t slot);
-void QGraphicsSceneDragDropEvent_QBaseSetAccepted(QGraphicsSceneDragDropEvent* self, bool accepted);
+void QGraphicsSceneDragDropEvent_SuperSetAccepted(QGraphicsSceneDragDropEvent* self, bool accepted);
 QEvent* QGraphicsSceneDragDropEvent_Clone(const QGraphicsSceneDragDropEvent* self);
 void QGraphicsSceneDragDropEvent_OnClone(const QGraphicsSceneDragDropEvent* self, intptr_t slot);
-QEvent* QGraphicsSceneDragDropEvent_QBaseClone(const QGraphicsSceneDragDropEvent* self);
+QEvent* QGraphicsSceneDragDropEvent_SuperClone(const QGraphicsSceneDragDropEvent* self);
 void QGraphicsSceneDragDropEvent_Delete(QGraphicsSceneDragDropEvent* self);
 
 QGraphicsSceneResizeEvent* QGraphicsSceneResizeEvent_new();
@@ -209,10 +209,10 @@ QSizeF* QGraphicsSceneResizeEvent_NewSize(const QGraphicsSceneResizeEvent* self)
 void QGraphicsSceneResizeEvent_SetNewSize(QGraphicsSceneResizeEvent* self, const QSizeF* size);
 void QGraphicsSceneResizeEvent_SetAccepted(QGraphicsSceneResizeEvent* self, bool accepted);
 void QGraphicsSceneResizeEvent_OnSetAccepted(QGraphicsSceneResizeEvent* self, intptr_t slot);
-void QGraphicsSceneResizeEvent_QBaseSetAccepted(QGraphicsSceneResizeEvent* self, bool accepted);
+void QGraphicsSceneResizeEvent_SuperSetAccepted(QGraphicsSceneResizeEvent* self, bool accepted);
 QEvent* QGraphicsSceneResizeEvent_Clone(const QGraphicsSceneResizeEvent* self);
 void QGraphicsSceneResizeEvent_OnClone(const QGraphicsSceneResizeEvent* self, intptr_t slot);
-QEvent* QGraphicsSceneResizeEvent_QBaseClone(const QGraphicsSceneResizeEvent* self);
+QEvent* QGraphicsSceneResizeEvent_SuperClone(const QGraphicsSceneResizeEvent* self);
 void QGraphicsSceneResizeEvent_Delete(QGraphicsSceneResizeEvent* self);
 
 QGraphicsSceneMoveEvent* QGraphicsSceneMoveEvent_new();
@@ -222,10 +222,10 @@ QPointF* QGraphicsSceneMoveEvent_NewPos(const QGraphicsSceneMoveEvent* self);
 void QGraphicsSceneMoveEvent_SetNewPos(QGraphicsSceneMoveEvent* self, const QPointF* pos);
 void QGraphicsSceneMoveEvent_SetAccepted(QGraphicsSceneMoveEvent* self, bool accepted);
 void QGraphicsSceneMoveEvent_OnSetAccepted(QGraphicsSceneMoveEvent* self, intptr_t slot);
-void QGraphicsSceneMoveEvent_QBaseSetAccepted(QGraphicsSceneMoveEvent* self, bool accepted);
+void QGraphicsSceneMoveEvent_SuperSetAccepted(QGraphicsSceneMoveEvent* self, bool accepted);
 QEvent* QGraphicsSceneMoveEvent_Clone(const QGraphicsSceneMoveEvent* self);
 void QGraphicsSceneMoveEvent_OnClone(const QGraphicsSceneMoveEvent* self, intptr_t slot);
-QEvent* QGraphicsSceneMoveEvent_QBaseClone(const QGraphicsSceneMoveEvent* self);
+QEvent* QGraphicsSceneMoveEvent_SuperClone(const QGraphicsSceneMoveEvent* self);
 void QGraphicsSceneMoveEvent_Delete(QGraphicsSceneMoveEvent* self);
 
 #ifdef __cplusplus

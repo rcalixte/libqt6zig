@@ -177,7 +177,7 @@ void KParts__Part_GuiActivateEvent(KParts__Part* self, KParts__GUIActivateEvent*
 }
 
 // Base class handler implementation
-QMetaObject* KParts__Part_QBaseMetaObject(const KParts__Part* self) {
+QMetaObject* KParts__Part_SuperMetaObject(const KParts__Part* self) {
     auto* vkpartspart = const_cast<VirtualKPartsPart*>(dynamic_cast<const VirtualKPartsPart*>(self));
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_MetaObject_IsBase(true);
@@ -196,7 +196,7 @@ void KParts__Part_OnMetaObject(const KParts__Part* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KParts__Part_QBaseMetacast(KParts__Part* self, const char* param1) {
+void* KParts__Part_SuperMetacast(KParts__Part* self, const char* param1) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_Metacast_IsBase(true);
@@ -215,7 +215,7 @@ void KParts__Part_OnMetacast(KParts__Part* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KParts__Part_QBaseMetacall(KParts__Part* self, int param1, int param2, void** param3) {
+int KParts__Part_SuperMetacall(KParts__Part* self, int param1, int param2, void** param3) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_Metacall_IsBase(true);
@@ -234,7 +234,7 @@ void KParts__Part_OnMetacall(KParts__Part* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QWidget* KParts__Part_QBaseWidget(KParts__Part* self) {
+QWidget* KParts__Part_SuperWidget(KParts__Part* self) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_Widget_IsBase(true);
@@ -253,7 +253,7 @@ void KParts__Part_OnWidget(KParts__Part* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KParts__Part_QBaseSetManager(KParts__Part* self, KParts__PartManager* manager) {
+void KParts__Part_SuperSetManager(KParts__Part* self, KParts__PartManager* manager) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_SetManager_IsBase(true);
@@ -272,7 +272,7 @@ void KParts__Part_OnSetManager(KParts__Part* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KParts__Part* KParts__Part_QBaseHitTest(KParts__Part* self, QWidget* widget, const QPoint* globalPos) {
+KParts__Part* KParts__Part_SuperHitTest(KParts__Part* self, QWidget* widget, const QPoint* globalPos) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_HitTest_IsBase(true);
@@ -291,7 +291,7 @@ void KParts__Part_OnHitTest(KParts__Part* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KParts__Part_QBaseSetWidget(KParts__Part* self, QWidget* widget) {
+void KParts__Part_SuperSetWidget(KParts__Part* self, QWidget* widget) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_SetWidget_IsBase(true);
@@ -310,7 +310,7 @@ void KParts__Part_OnSetWidget(KParts__Part* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KParts__Part_QBaseCustomEvent(KParts__Part* self, QEvent* event) {
+void KParts__Part_SuperCustomEvent(KParts__Part* self, QEvent* event) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_CustomEvent_IsBase(true);
@@ -329,7 +329,7 @@ void KParts__Part_OnCustomEvent(KParts__Part* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KParts__Part_QBasePartActivateEvent(KParts__Part* self, KParts__PartActivateEvent* event) {
+void KParts__Part_SuperPartActivateEvent(KParts__Part* self, KParts__PartActivateEvent* event) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_PartActivateEvent_IsBase(true);
@@ -348,7 +348,7 @@ void KParts__Part_OnPartActivateEvent(KParts__Part* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KParts__Part_QBaseGuiActivateEvent(KParts__Part* self, KParts__GUIActivateEvent* event) {
+void KParts__Part_SuperGuiActivateEvent(KParts__Part* self, KParts__GUIActivateEvent* event) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_GuiActivateEvent_IsBase(true);
@@ -377,7 +377,7 @@ bool KParts__Part_Event(KParts__Part* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KParts__Part_QBaseEvent(KParts__Part* self, QEvent* event) {
+bool KParts__Part_SuperEvent(KParts__Part* self, QEvent* event) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_Event_IsBase(true);
@@ -406,7 +406,7 @@ bool KParts__Part_EventFilter(KParts__Part* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool KParts__Part_QBaseEventFilter(KParts__Part* self, QObject* watched, QEvent* event) {
+bool KParts__Part_SuperEventFilter(KParts__Part* self, QObject* watched, QEvent* event) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_EventFilter_IsBase(true);
@@ -435,7 +435,7 @@ void KParts__Part_TimerEvent(KParts__Part* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KParts__Part_QBaseTimerEvent(KParts__Part* self, QTimerEvent* event) {
+void KParts__Part_SuperTimerEvent(KParts__Part* self, QTimerEvent* event) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_TimerEvent_IsBase(true);
@@ -464,7 +464,7 @@ void KParts__Part_ChildEvent(KParts__Part* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KParts__Part_QBaseChildEvent(KParts__Part* self, QChildEvent* event) {
+void KParts__Part_SuperChildEvent(KParts__Part* self, QChildEvent* event) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_ChildEvent_IsBase(true);
@@ -493,7 +493,7 @@ void KParts__Part_ConnectNotify(KParts__Part* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KParts__Part_QBaseConnectNotify(KParts__Part* self, const QMetaMethod* signal) {
+void KParts__Part_SuperConnectNotify(KParts__Part* self, const QMetaMethod* signal) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_ConnectNotify_IsBase(true);
@@ -522,7 +522,7 @@ void KParts__Part_DisconnectNotify(KParts__Part* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void KParts__Part_QBaseDisconnectNotify(KParts__Part* self, const QMetaMethod* signal) {
+void KParts__Part_SuperDisconnectNotify(KParts__Part* self, const QMetaMethod* signal) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_DisconnectNotify_IsBase(true);
@@ -551,7 +551,7 @@ QAction* KParts__Part_Action2(const KParts__Part* self, const QDomElement* eleme
 }
 
 // Base class handler implementation
-QAction* KParts__Part_QBaseAction2(const KParts__Part* self, const QDomElement* element) {
+QAction* KParts__Part_SuperAction2(const KParts__Part* self, const QDomElement* element) {
     auto* vkpartspart = const_cast<VirtualKPartsPart*>(dynamic_cast<const VirtualKPartsPart*>(self));
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_Action2_IsBase(true);
@@ -580,7 +580,7 @@ KActionCollection* KParts__Part_ActionCollection(const KParts__Part* self) {
 }
 
 // Base class handler implementation
-KActionCollection* KParts__Part_QBaseActionCollection(const KParts__Part* self) {
+KActionCollection* KParts__Part_SuperActionCollection(const KParts__Part* self) {
     auto* vkpartspart = const_cast<VirtualKPartsPart*>(dynamic_cast<const VirtualKPartsPart*>(self));
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_ActionCollection_IsBase(true);
@@ -625,7 +625,7 @@ libqt_string KParts__Part_ComponentName(const KParts__Part* self) {
 }
 
 // Base class handler implementation
-libqt_string KParts__Part_QBaseComponentName(const KParts__Part* self) {
+libqt_string KParts__Part_SuperComponentName(const KParts__Part* self) {
     auto* vkpartspart = const_cast<VirtualKPartsPart*>(dynamic_cast<const VirtualKPartsPart*>(self));
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_ComponentName_IsBase(true);
@@ -670,7 +670,7 @@ QDomDocument* KParts__Part_DomDocument(const KParts__Part* self) {
 }
 
 // Base class handler implementation
-QDomDocument* KParts__Part_QBaseDomDocument(const KParts__Part* self) {
+QDomDocument* KParts__Part_SuperDomDocument(const KParts__Part* self) {
     auto* vkpartspart = const_cast<VirtualKPartsPart*>(dynamic_cast<const VirtualKPartsPart*>(self));
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_DomDocument_IsBase(true);
@@ -715,7 +715,7 @@ libqt_string KParts__Part_XmlFile(const KParts__Part* self) {
 }
 
 // Base class handler implementation
-libqt_string KParts__Part_QBaseXmlFile(const KParts__Part* self) {
+libqt_string KParts__Part_SuperXmlFile(const KParts__Part* self) {
     auto* vkpartspart = const_cast<VirtualKPartsPart*>(dynamic_cast<const VirtualKPartsPart*>(self));
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_XmlFile_IsBase(true);
@@ -776,7 +776,7 @@ libqt_string KParts__Part_LocalXMLFile(const KParts__Part* self) {
 }
 
 // Base class handler implementation
-libqt_string KParts__Part_QBaseLocalXMLFile(const KParts__Part* self) {
+libqt_string KParts__Part_SuperLocalXMLFile(const KParts__Part* self) {
     auto* vkpartspart = const_cast<VirtualKPartsPart*>(dynamic_cast<const VirtualKPartsPart*>(self));
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_LocalXMLFile_IsBase(true);
@@ -823,7 +823,7 @@ void KParts__Part_SetComponentName(KParts__Part* self, const libqt_string compon
 }
 
 // Base class handler implementation
-void KParts__Part_QBaseSetComponentName(KParts__Part* self, const libqt_string componentName, const libqt_string componentDisplayName) {
+void KParts__Part_SuperSetComponentName(KParts__Part* self, const libqt_string componentName, const libqt_string componentDisplayName) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     QString componentName_QString = QString::fromUtf8(componentName.data, componentName.len);
     QString componentDisplayName_QString = QString::fromUtf8(componentDisplayName.data, componentDisplayName.len);
@@ -855,7 +855,7 @@ void KParts__Part_SetXMLFile(KParts__Part* self, const libqt_string file, bool m
 }
 
 // Base class handler implementation
-void KParts__Part_QBaseSetXMLFile(KParts__Part* self, const libqt_string file, bool merge, bool setXMLDoc) {
+void KParts__Part_SuperSetXMLFile(KParts__Part* self, const libqt_string file, bool merge, bool setXMLDoc) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
@@ -886,7 +886,7 @@ void KParts__Part_SetLocalXMLFile(KParts__Part* self, const libqt_string file) {
 }
 
 // Base class handler implementation
-void KParts__Part_QBaseSetLocalXMLFile(KParts__Part* self, const libqt_string file) {
+void KParts__Part_SuperSetLocalXMLFile(KParts__Part* self, const libqt_string file) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
@@ -917,7 +917,7 @@ void KParts__Part_SetXML(KParts__Part* self, const libqt_string document, bool m
 }
 
 // Base class handler implementation
-void KParts__Part_QBaseSetXML(KParts__Part* self, const libqt_string document, bool merge) {
+void KParts__Part_SuperSetXML(KParts__Part* self, const libqt_string document, bool merge) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     QString document_QString = QString::fromUtf8(document.data, document.len);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
@@ -947,7 +947,7 @@ void KParts__Part_SetDOMDocument(KParts__Part* self, const QDomDocument* documen
 }
 
 // Base class handler implementation
-void KParts__Part_QBaseSetDOMDocument(KParts__Part* self, const QDomDocument* document, bool merge) {
+void KParts__Part_SuperSetDOMDocument(KParts__Part* self, const QDomDocument* document, bool merge) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_SetDOMDocument_IsBase(true);
@@ -977,7 +977,7 @@ void KParts__Part_StateChanged(KParts__Part* self, const libqt_string newstate, 
 }
 
 // Base class handler implementation
-void KParts__Part_QBaseStateChanged(KParts__Part* self, const libqt_string newstate, int reverse) {
+void KParts__Part_SuperStateChanged(KParts__Part* self, const libqt_string newstate, int reverse) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     QString newstate_QString = QString::fromUtf8(newstate.data, newstate.len);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
@@ -1008,7 +1008,7 @@ QWidget* KParts__Part_HostContainer(KParts__Part* self, const libqt_string conta
 }
 
 // Base class handler implementation
-QWidget* KParts__Part_QBaseHostContainer(KParts__Part* self, const libqt_string containerName) {
+QWidget* KParts__Part_SuperHostContainer(KParts__Part* self, const libqt_string containerName) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     QString containerName_QString = QString::fromUtf8(containerName.data, containerName.len);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
@@ -1038,7 +1038,7 @@ void KParts__Part_SlotWidgetDestroyed(KParts__Part* self) {
 }
 
 // Base class handler implementation
-void KParts__Part_QBaseSlotWidgetDestroyed(KParts__Part* self) {
+void KParts__Part_SuperSlotWidgetDestroyed(KParts__Part* self) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_SlotWidgetDestroyed_IsBase(true);
@@ -1067,7 +1067,7 @@ QObject* KParts__Part_Sender(const KParts__Part* self) {
 }
 
 // Base class handler implementation
-QObject* KParts__Part_QBaseSender(const KParts__Part* self) {
+QObject* KParts__Part_SuperSender(const KParts__Part* self) {
     auto* vkpartspart = const_cast<VirtualKPartsPart*>(dynamic_cast<const VirtualKPartsPart*>(self));
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_Sender_IsBase(true);
@@ -1096,7 +1096,7 @@ int KParts__Part_SenderSignalIndex(const KParts__Part* self) {
 }
 
 // Base class handler implementation
-int KParts__Part_QBaseSenderSignalIndex(const KParts__Part* self) {
+int KParts__Part_SuperSenderSignalIndex(const KParts__Part* self) {
     auto* vkpartspart = const_cast<VirtualKPartsPart*>(dynamic_cast<const VirtualKPartsPart*>(self));
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_SenderSignalIndex_IsBase(true);
@@ -1125,7 +1125,7 @@ int KParts__Part_Receivers(const KParts__Part* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KParts__Part_QBaseReceivers(const KParts__Part* self, const char* signal) {
+int KParts__Part_SuperReceivers(const KParts__Part* self, const char* signal) {
     auto* vkpartspart = const_cast<VirtualKPartsPart*>(dynamic_cast<const VirtualKPartsPart*>(self));
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_Receivers_IsBase(true);
@@ -1154,7 +1154,7 @@ bool KParts__Part_IsSignalConnected(const KParts__Part* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool KParts__Part_QBaseIsSignalConnected(const KParts__Part* self, const QMetaMethod* signal) {
+bool KParts__Part_SuperIsSignalConnected(const KParts__Part* self, const QMetaMethod* signal) {
     auto* vkpartspart = const_cast<VirtualKPartsPart*>(dynamic_cast<const VirtualKPartsPart*>(self));
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_IsSignalConnected_IsBase(true);
@@ -1199,7 +1199,7 @@ libqt_string KParts__Part_StandardsXmlFileLocation(KParts__Part* self) {
 }
 
 // Base class handler implementation
-libqt_string KParts__Part_QBaseStandardsXmlFileLocation(KParts__Part* self) {
+libqt_string KParts__Part_SuperStandardsXmlFileLocation(KParts__Part* self) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_StandardsXmlFileLocation_IsBase(true);
@@ -1244,7 +1244,7 @@ void KParts__Part_LoadStandardsXmlFile(KParts__Part* self) {
 }
 
 // Base class handler implementation
-void KParts__Part_QBaseLoadStandardsXmlFile(KParts__Part* self) {
+void KParts__Part_SuperLoadStandardsXmlFile(KParts__Part* self) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_LoadStandardsXmlFile_IsBase(true);

@@ -347,6 +347,10 @@ pub const qsizepolicy = struct {
         return qtc.QSizePolicy_Transposed(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#dtor.QSizePolicy)
     ///
     /// Delete this object from C++ memory.
@@ -355,7 +359,7 @@ pub const qsizepolicy = struct {
     ///
     /// ` self: QtC.QSizePolicy `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSizePolicy_Delete(@ptrCast(self));
     }
 };

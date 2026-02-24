@@ -727,6 +727,10 @@ pub const qdbusargument = struct {
         return qtc.QDBusArgument_AsVariant(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusargument.html#dtor.QDBusArgument)
     ///
     /// Delete this object from C++ memory.
@@ -735,7 +739,7 @@ pub const qdbusargument = struct {
     ///
     /// ` self: QtC.QDBusArgument `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDBusArgument_Delete(@ptrCast(self));
     }
 };

@@ -332,23 +332,23 @@ class VirtualQAudioSink final : public QAudioSink {
 
     // Friend functions
     friend void QAudioSink_TimerEvent(QAudioSink* self, QTimerEvent* event);
-    friend void QAudioSink_QBaseTimerEvent(QAudioSink* self, QTimerEvent* event);
+    friend void QAudioSink_SuperTimerEvent(QAudioSink* self, QTimerEvent* event);
     friend void QAudioSink_ChildEvent(QAudioSink* self, QChildEvent* event);
-    friend void QAudioSink_QBaseChildEvent(QAudioSink* self, QChildEvent* event);
+    friend void QAudioSink_SuperChildEvent(QAudioSink* self, QChildEvent* event);
     friend void QAudioSink_CustomEvent(QAudioSink* self, QEvent* event);
-    friend void QAudioSink_QBaseCustomEvent(QAudioSink* self, QEvent* event);
+    friend void QAudioSink_SuperCustomEvent(QAudioSink* self, QEvent* event);
     friend void QAudioSink_ConnectNotify(QAudioSink* self, const QMetaMethod* signal);
-    friend void QAudioSink_QBaseConnectNotify(QAudioSink* self, const QMetaMethod* signal);
+    friend void QAudioSink_SuperConnectNotify(QAudioSink* self, const QMetaMethod* signal);
     friend void QAudioSink_DisconnectNotify(QAudioSink* self, const QMetaMethod* signal);
-    friend void QAudioSink_QBaseDisconnectNotify(QAudioSink* self, const QMetaMethod* signal);
+    friend void QAudioSink_SuperDisconnectNotify(QAudioSink* self, const QMetaMethod* signal);
     friend QObject* QAudioSink_Sender(const QAudioSink* self);
-    friend QObject* QAudioSink_QBaseSender(const QAudioSink* self);
+    friend QObject* QAudioSink_SuperSender(const QAudioSink* self);
     friend int QAudioSink_SenderSignalIndex(const QAudioSink* self);
-    friend int QAudioSink_QBaseSenderSignalIndex(const QAudioSink* self);
+    friend int QAudioSink_SuperSenderSignalIndex(const QAudioSink* self);
     friend int QAudioSink_Receivers(const QAudioSink* self, const char* signal);
-    friend int QAudioSink_QBaseReceivers(const QAudioSink* self, const char* signal);
+    friend int QAudioSink_SuperReceivers(const QAudioSink* self, const char* signal);
     friend bool QAudioSink_IsSignalConnected(const QAudioSink* self, const QMetaMethod* signal);
-    friend bool QAudioSink_QBaseIsSignalConnected(const QAudioSink* self, const QMetaMethod* signal);
+    friend bool QAudioSink_SuperIsSignalConnected(const QAudioSink* self, const QMetaMethod* signal);
 };
 
 #endif

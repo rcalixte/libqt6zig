@@ -346,25 +346,25 @@ class VirtualQKeychainReadPasswordJob final : public QKeychain::ReadPasswordJob 
 
     // Friend functions
     friend void QKeychain__ReadPasswordJob_TimerEvent(QKeychain::ReadPasswordJob* self, QTimerEvent* event);
-    friend void QKeychain__ReadPasswordJob_QBaseTimerEvent(QKeychain::ReadPasswordJob* self, QTimerEvent* event);
+    friend void QKeychain__ReadPasswordJob_SuperTimerEvent(QKeychain::ReadPasswordJob* self, QTimerEvent* event);
     friend void QKeychain__ReadPasswordJob_ChildEvent(QKeychain::ReadPasswordJob* self, QChildEvent* event);
-    friend void QKeychain__ReadPasswordJob_QBaseChildEvent(QKeychain::ReadPasswordJob* self, QChildEvent* event);
+    friend void QKeychain__ReadPasswordJob_SuperChildEvent(QKeychain::ReadPasswordJob* self, QChildEvent* event);
     friend void QKeychain__ReadPasswordJob_CustomEvent(QKeychain::ReadPasswordJob* self, QEvent* event);
-    friend void QKeychain__ReadPasswordJob_QBaseCustomEvent(QKeychain::ReadPasswordJob* self, QEvent* event);
+    friend void QKeychain__ReadPasswordJob_SuperCustomEvent(QKeychain::ReadPasswordJob* self, QEvent* event);
     friend void QKeychain__ReadPasswordJob_ConnectNotify(QKeychain::ReadPasswordJob* self, const QMetaMethod* signal);
-    friend void QKeychain__ReadPasswordJob_QBaseConnectNotify(QKeychain::ReadPasswordJob* self, const QMetaMethod* signal);
+    friend void QKeychain__ReadPasswordJob_SuperConnectNotify(QKeychain::ReadPasswordJob* self, const QMetaMethod* signal);
     friend void QKeychain__ReadPasswordJob_DisconnectNotify(QKeychain::ReadPasswordJob* self, const QMetaMethod* signal);
-    friend void QKeychain__ReadPasswordJob_QBaseDisconnectNotify(QKeychain::ReadPasswordJob* self, const QMetaMethod* signal);
+    friend void QKeychain__ReadPasswordJob_SuperDisconnectNotify(QKeychain::ReadPasswordJob* self, const QMetaMethod* signal);
     friend void QKeychain__ReadPasswordJob_DoStart(QKeychain::ReadPasswordJob* self);
-    friend void QKeychain__ReadPasswordJob_QBaseDoStart(QKeychain::ReadPasswordJob* self);
+    friend void QKeychain__ReadPasswordJob_SuperDoStart(QKeychain::ReadPasswordJob* self);
     friend QObject* QKeychain__ReadPasswordJob_Sender(const QKeychain::ReadPasswordJob* self);
-    friend QObject* QKeychain__ReadPasswordJob_QBaseSender(const QKeychain::ReadPasswordJob* self);
+    friend QObject* QKeychain__ReadPasswordJob_SuperSender(const QKeychain::ReadPasswordJob* self);
     friend int QKeychain__ReadPasswordJob_SenderSignalIndex(const QKeychain::ReadPasswordJob* self);
-    friend int QKeychain__ReadPasswordJob_QBaseSenderSignalIndex(const QKeychain::ReadPasswordJob* self);
+    friend int QKeychain__ReadPasswordJob_SuperSenderSignalIndex(const QKeychain::ReadPasswordJob* self);
     friend int QKeychain__ReadPasswordJob_Receivers(const QKeychain::ReadPasswordJob* self, const char* signal);
-    friend int QKeychain__ReadPasswordJob_QBaseReceivers(const QKeychain::ReadPasswordJob* self, const char* signal);
+    friend int QKeychain__ReadPasswordJob_SuperReceivers(const QKeychain::ReadPasswordJob* self, const char* signal);
     friend bool QKeychain__ReadPasswordJob_IsSignalConnected(const QKeychain::ReadPasswordJob* self, const QMetaMethod* signal);
-    friend bool QKeychain__ReadPasswordJob_QBaseIsSignalConnected(const QKeychain::ReadPasswordJob* self, const QMetaMethod* signal);
+    friend bool QKeychain__ReadPasswordJob_SuperIsSignalConnected(const QKeychain::ReadPasswordJob* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QKeychain::WritePasswordJob so that we can call protected methods
@@ -704,25 +704,25 @@ class VirtualQKeychainWritePasswordJob final : public QKeychain::WritePasswordJo
 
     // Friend functions
     friend void QKeychain__WritePasswordJob_TimerEvent(QKeychain::WritePasswordJob* self, QTimerEvent* event);
-    friend void QKeychain__WritePasswordJob_QBaseTimerEvent(QKeychain::WritePasswordJob* self, QTimerEvent* event);
+    friend void QKeychain__WritePasswordJob_SuperTimerEvent(QKeychain::WritePasswordJob* self, QTimerEvent* event);
     friend void QKeychain__WritePasswordJob_ChildEvent(QKeychain::WritePasswordJob* self, QChildEvent* event);
-    friend void QKeychain__WritePasswordJob_QBaseChildEvent(QKeychain::WritePasswordJob* self, QChildEvent* event);
+    friend void QKeychain__WritePasswordJob_SuperChildEvent(QKeychain::WritePasswordJob* self, QChildEvent* event);
     friend void QKeychain__WritePasswordJob_CustomEvent(QKeychain::WritePasswordJob* self, QEvent* event);
-    friend void QKeychain__WritePasswordJob_QBaseCustomEvent(QKeychain::WritePasswordJob* self, QEvent* event);
+    friend void QKeychain__WritePasswordJob_SuperCustomEvent(QKeychain::WritePasswordJob* self, QEvent* event);
     friend void QKeychain__WritePasswordJob_ConnectNotify(QKeychain::WritePasswordJob* self, const QMetaMethod* signal);
-    friend void QKeychain__WritePasswordJob_QBaseConnectNotify(QKeychain::WritePasswordJob* self, const QMetaMethod* signal);
+    friend void QKeychain__WritePasswordJob_SuperConnectNotify(QKeychain::WritePasswordJob* self, const QMetaMethod* signal);
     friend void QKeychain__WritePasswordJob_DisconnectNotify(QKeychain::WritePasswordJob* self, const QMetaMethod* signal);
-    friend void QKeychain__WritePasswordJob_QBaseDisconnectNotify(QKeychain::WritePasswordJob* self, const QMetaMethod* signal);
+    friend void QKeychain__WritePasswordJob_SuperDisconnectNotify(QKeychain::WritePasswordJob* self, const QMetaMethod* signal);
     friend void QKeychain__WritePasswordJob_DoStart(QKeychain::WritePasswordJob* self);
-    friend void QKeychain__WritePasswordJob_QBaseDoStart(QKeychain::WritePasswordJob* self);
+    friend void QKeychain__WritePasswordJob_SuperDoStart(QKeychain::WritePasswordJob* self);
     friend QObject* QKeychain__WritePasswordJob_Sender(const QKeychain::WritePasswordJob* self);
-    friend QObject* QKeychain__WritePasswordJob_QBaseSender(const QKeychain::WritePasswordJob* self);
+    friend QObject* QKeychain__WritePasswordJob_SuperSender(const QKeychain::WritePasswordJob* self);
     friend int QKeychain__WritePasswordJob_SenderSignalIndex(const QKeychain::WritePasswordJob* self);
-    friend int QKeychain__WritePasswordJob_QBaseSenderSignalIndex(const QKeychain::WritePasswordJob* self);
+    friend int QKeychain__WritePasswordJob_SuperSenderSignalIndex(const QKeychain::WritePasswordJob* self);
     friend int QKeychain__WritePasswordJob_Receivers(const QKeychain::WritePasswordJob* self, const char* signal);
-    friend int QKeychain__WritePasswordJob_QBaseReceivers(const QKeychain::WritePasswordJob* self, const char* signal);
+    friend int QKeychain__WritePasswordJob_SuperReceivers(const QKeychain::WritePasswordJob* self, const char* signal);
     friend bool QKeychain__WritePasswordJob_IsSignalConnected(const QKeychain::WritePasswordJob* self, const QMetaMethod* signal);
-    friend bool QKeychain__WritePasswordJob_QBaseIsSignalConnected(const QKeychain::WritePasswordJob* self, const QMetaMethod* signal);
+    friend bool QKeychain__WritePasswordJob_SuperIsSignalConnected(const QKeychain::WritePasswordJob* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QKeychain::DeletePasswordJob so that we can call protected methods
@@ -1062,25 +1062,25 @@ class VirtualQKeychainDeletePasswordJob final : public QKeychain::DeletePassword
 
     // Friend functions
     friend void QKeychain__DeletePasswordJob_TimerEvent(QKeychain::DeletePasswordJob* self, QTimerEvent* event);
-    friend void QKeychain__DeletePasswordJob_QBaseTimerEvent(QKeychain::DeletePasswordJob* self, QTimerEvent* event);
+    friend void QKeychain__DeletePasswordJob_SuperTimerEvent(QKeychain::DeletePasswordJob* self, QTimerEvent* event);
     friend void QKeychain__DeletePasswordJob_ChildEvent(QKeychain::DeletePasswordJob* self, QChildEvent* event);
-    friend void QKeychain__DeletePasswordJob_QBaseChildEvent(QKeychain::DeletePasswordJob* self, QChildEvent* event);
+    friend void QKeychain__DeletePasswordJob_SuperChildEvent(QKeychain::DeletePasswordJob* self, QChildEvent* event);
     friend void QKeychain__DeletePasswordJob_CustomEvent(QKeychain::DeletePasswordJob* self, QEvent* event);
-    friend void QKeychain__DeletePasswordJob_QBaseCustomEvent(QKeychain::DeletePasswordJob* self, QEvent* event);
+    friend void QKeychain__DeletePasswordJob_SuperCustomEvent(QKeychain::DeletePasswordJob* self, QEvent* event);
     friend void QKeychain__DeletePasswordJob_ConnectNotify(QKeychain::DeletePasswordJob* self, const QMetaMethod* signal);
-    friend void QKeychain__DeletePasswordJob_QBaseConnectNotify(QKeychain::DeletePasswordJob* self, const QMetaMethod* signal);
+    friend void QKeychain__DeletePasswordJob_SuperConnectNotify(QKeychain::DeletePasswordJob* self, const QMetaMethod* signal);
     friend void QKeychain__DeletePasswordJob_DisconnectNotify(QKeychain::DeletePasswordJob* self, const QMetaMethod* signal);
-    friend void QKeychain__DeletePasswordJob_QBaseDisconnectNotify(QKeychain::DeletePasswordJob* self, const QMetaMethod* signal);
+    friend void QKeychain__DeletePasswordJob_SuperDisconnectNotify(QKeychain::DeletePasswordJob* self, const QMetaMethod* signal);
     friend void QKeychain__DeletePasswordJob_DoStart(QKeychain::DeletePasswordJob* self);
-    friend void QKeychain__DeletePasswordJob_QBaseDoStart(QKeychain::DeletePasswordJob* self);
+    friend void QKeychain__DeletePasswordJob_SuperDoStart(QKeychain::DeletePasswordJob* self);
     friend QObject* QKeychain__DeletePasswordJob_Sender(const QKeychain::DeletePasswordJob* self);
-    friend QObject* QKeychain__DeletePasswordJob_QBaseSender(const QKeychain::DeletePasswordJob* self);
+    friend QObject* QKeychain__DeletePasswordJob_SuperSender(const QKeychain::DeletePasswordJob* self);
     friend int QKeychain__DeletePasswordJob_SenderSignalIndex(const QKeychain::DeletePasswordJob* self);
-    friend int QKeychain__DeletePasswordJob_QBaseSenderSignalIndex(const QKeychain::DeletePasswordJob* self);
+    friend int QKeychain__DeletePasswordJob_SuperSenderSignalIndex(const QKeychain::DeletePasswordJob* self);
     friend int QKeychain__DeletePasswordJob_Receivers(const QKeychain::DeletePasswordJob* self, const char* signal);
-    friend int QKeychain__DeletePasswordJob_QBaseReceivers(const QKeychain::DeletePasswordJob* self, const char* signal);
+    friend int QKeychain__DeletePasswordJob_SuperReceivers(const QKeychain::DeletePasswordJob* self, const char* signal);
     friend bool QKeychain__DeletePasswordJob_IsSignalConnected(const QKeychain::DeletePasswordJob* self, const QMetaMethod* signal);
-    friend bool QKeychain__DeletePasswordJob_QBaseIsSignalConnected(const QKeychain::DeletePasswordJob* self, const QMetaMethod* signal);
+    friend bool QKeychain__DeletePasswordJob_SuperIsSignalConnected(const QKeychain::DeletePasswordJob* self, const QMetaMethod* signal);
 };
 
 #endif

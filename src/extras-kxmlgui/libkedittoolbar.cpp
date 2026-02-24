@@ -131,7 +131,7 @@ void KEditToolBar_SetResourceFile2(KEditToolBar* self, const libqt_string file, 
 }
 
 // Base class handler implementation
-QMetaObject* KEditToolBar_QBaseMetaObject(const KEditToolBar* self) {
+QMetaObject* KEditToolBar_SuperMetaObject(const KEditToolBar* self) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_MetaObject_IsBase(true);
@@ -150,7 +150,7 @@ void KEditToolBar_OnMetaObject(const KEditToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KEditToolBar_QBaseMetacast(KEditToolBar* self, const char* param1) {
+void* KEditToolBar_SuperMetacast(KEditToolBar* self, const char* param1) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_Metacast_IsBase(true);
@@ -169,7 +169,7 @@ void KEditToolBar_OnMetacast(KEditToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KEditToolBar_QBaseMetacall(KEditToolBar* self, int param1, int param2, void** param3) {
+int KEditToolBar_SuperMetacall(KEditToolBar* self, int param1, int param2, void** param3) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_Metacall_IsBase(true);
@@ -188,7 +188,7 @@ void KEditToolBar_OnMetacall(KEditToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseShowEvent(KEditToolBar* self, QShowEvent* event) {
+void KEditToolBar_SuperShowEvent(KEditToolBar* self, QShowEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_ShowEvent_IsBase(true);
@@ -207,7 +207,7 @@ void KEditToolBar_OnShowEvent(KEditToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseHideEvent(KEditToolBar* self, QHideEvent* event) {
+void KEditToolBar_SuperHideEvent(KEditToolBar* self, QHideEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_HideEvent_IsBase(true);
@@ -236,7 +236,7 @@ void KEditToolBar_SetVisible(KEditToolBar* self, bool visible) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseSetVisible(KEditToolBar* self, bool visible) {
+void KEditToolBar_SuperSetVisible(KEditToolBar* self, bool visible) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_SetVisible_IsBase(true);
@@ -265,7 +265,7 @@ QSize* KEditToolBar_SizeHint(const KEditToolBar* self) {
 }
 
 // Base class handler implementation
-QSize* KEditToolBar_QBaseSizeHint(const KEditToolBar* self) {
+QSize* KEditToolBar_SuperSizeHint(const KEditToolBar* self) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_SizeHint_IsBase(true);
@@ -294,7 +294,7 @@ QSize* KEditToolBar_MinimumSizeHint(const KEditToolBar* self) {
 }
 
 // Base class handler implementation
-QSize* KEditToolBar_QBaseMinimumSizeHint(const KEditToolBar* self) {
+QSize* KEditToolBar_SuperMinimumSizeHint(const KEditToolBar* self) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_MinimumSizeHint_IsBase(true);
@@ -323,7 +323,7 @@ void KEditToolBar_Open(KEditToolBar* self) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseOpen(KEditToolBar* self) {
+void KEditToolBar_SuperOpen(KEditToolBar* self) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_Open_IsBase(true);
@@ -352,7 +352,7 @@ int KEditToolBar_Exec(KEditToolBar* self) {
 }
 
 // Base class handler implementation
-int KEditToolBar_QBaseExec(KEditToolBar* self) {
+int KEditToolBar_SuperExec(KEditToolBar* self) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_Exec_IsBase(true);
@@ -381,7 +381,7 @@ void KEditToolBar_Done(KEditToolBar* self, int param1) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseDone(KEditToolBar* self, int param1) {
+void KEditToolBar_SuperDone(KEditToolBar* self, int param1) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_Done_IsBase(true);
@@ -410,7 +410,7 @@ void KEditToolBar_Accept(KEditToolBar* self) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseAccept(KEditToolBar* self) {
+void KEditToolBar_SuperAccept(KEditToolBar* self) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_Accept_IsBase(true);
@@ -439,7 +439,7 @@ void KEditToolBar_Reject(KEditToolBar* self) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseReject(KEditToolBar* self) {
+void KEditToolBar_SuperReject(KEditToolBar* self) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_Reject_IsBase(true);
@@ -468,7 +468,7 @@ void KEditToolBar_KeyPressEvent(KEditToolBar* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseKeyPressEvent(KEditToolBar* self, QKeyEvent* param1) {
+void KEditToolBar_SuperKeyPressEvent(KEditToolBar* self, QKeyEvent* param1) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_KeyPressEvent_IsBase(true);
@@ -497,7 +497,7 @@ void KEditToolBar_CloseEvent(KEditToolBar* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseCloseEvent(KEditToolBar* self, QCloseEvent* param1) {
+void KEditToolBar_SuperCloseEvent(KEditToolBar* self, QCloseEvent* param1) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_CloseEvent_IsBase(true);
@@ -526,7 +526,7 @@ void KEditToolBar_ResizeEvent(KEditToolBar* self, QResizeEvent* param1) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseResizeEvent(KEditToolBar* self, QResizeEvent* param1) {
+void KEditToolBar_SuperResizeEvent(KEditToolBar* self, QResizeEvent* param1) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_ResizeEvent_IsBase(true);
@@ -555,7 +555,7 @@ void KEditToolBar_ContextMenuEvent(KEditToolBar* self, QContextMenuEvent* param1
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseContextMenuEvent(KEditToolBar* self, QContextMenuEvent* param1) {
+void KEditToolBar_SuperContextMenuEvent(KEditToolBar* self, QContextMenuEvent* param1) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_ContextMenuEvent_IsBase(true);
@@ -584,7 +584,7 @@ bool KEditToolBar_EventFilter(KEditToolBar* self, QObject* param1, QEvent* param
 }
 
 // Base class handler implementation
-bool KEditToolBar_QBaseEventFilter(KEditToolBar* self, QObject* param1, QEvent* param2) {
+bool KEditToolBar_SuperEventFilter(KEditToolBar* self, QObject* param1, QEvent* param2) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_EventFilter_IsBase(true);
@@ -613,7 +613,7 @@ int KEditToolBar_DevType(const KEditToolBar* self) {
 }
 
 // Base class handler implementation
-int KEditToolBar_QBaseDevType(const KEditToolBar* self) {
+int KEditToolBar_SuperDevType(const KEditToolBar* self) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_DevType_IsBase(true);
@@ -642,7 +642,7 @@ int KEditToolBar_HeightForWidth(const KEditToolBar* self, int param1) {
 }
 
 // Base class handler implementation
-int KEditToolBar_QBaseHeightForWidth(const KEditToolBar* self, int param1) {
+int KEditToolBar_SuperHeightForWidth(const KEditToolBar* self, int param1) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_HeightForWidth_IsBase(true);
@@ -671,7 +671,7 @@ bool KEditToolBar_HasHeightForWidth(const KEditToolBar* self) {
 }
 
 // Base class handler implementation
-bool KEditToolBar_QBaseHasHeightForWidth(const KEditToolBar* self) {
+bool KEditToolBar_SuperHasHeightForWidth(const KEditToolBar* self) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_HasHeightForWidth_IsBase(true);
@@ -700,7 +700,7 @@ QPaintEngine* KEditToolBar_PaintEngine(const KEditToolBar* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KEditToolBar_QBasePaintEngine(const KEditToolBar* self) {
+QPaintEngine* KEditToolBar_SuperPaintEngine(const KEditToolBar* self) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_PaintEngine_IsBase(true);
@@ -729,7 +729,7 @@ bool KEditToolBar_Event(KEditToolBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KEditToolBar_QBaseEvent(KEditToolBar* self, QEvent* event) {
+bool KEditToolBar_SuperEvent(KEditToolBar* self, QEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_Event_IsBase(true);
@@ -758,7 +758,7 @@ void KEditToolBar_MousePressEvent(KEditToolBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseMousePressEvent(KEditToolBar* self, QMouseEvent* event) {
+void KEditToolBar_SuperMousePressEvent(KEditToolBar* self, QMouseEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_MousePressEvent_IsBase(true);
@@ -787,7 +787,7 @@ void KEditToolBar_MouseReleaseEvent(KEditToolBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseMouseReleaseEvent(KEditToolBar* self, QMouseEvent* event) {
+void KEditToolBar_SuperMouseReleaseEvent(KEditToolBar* self, QMouseEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_MouseReleaseEvent_IsBase(true);
@@ -816,7 +816,7 @@ void KEditToolBar_MouseDoubleClickEvent(KEditToolBar* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseMouseDoubleClickEvent(KEditToolBar* self, QMouseEvent* event) {
+void KEditToolBar_SuperMouseDoubleClickEvent(KEditToolBar* self, QMouseEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_MouseDoubleClickEvent_IsBase(true);
@@ -845,7 +845,7 @@ void KEditToolBar_MouseMoveEvent(KEditToolBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseMouseMoveEvent(KEditToolBar* self, QMouseEvent* event) {
+void KEditToolBar_SuperMouseMoveEvent(KEditToolBar* self, QMouseEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_MouseMoveEvent_IsBase(true);
@@ -874,7 +874,7 @@ void KEditToolBar_WheelEvent(KEditToolBar* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseWheelEvent(KEditToolBar* self, QWheelEvent* event) {
+void KEditToolBar_SuperWheelEvent(KEditToolBar* self, QWheelEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_WheelEvent_IsBase(true);
@@ -903,7 +903,7 @@ void KEditToolBar_KeyReleaseEvent(KEditToolBar* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseKeyReleaseEvent(KEditToolBar* self, QKeyEvent* event) {
+void KEditToolBar_SuperKeyReleaseEvent(KEditToolBar* self, QKeyEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_KeyReleaseEvent_IsBase(true);
@@ -932,7 +932,7 @@ void KEditToolBar_FocusInEvent(KEditToolBar* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseFocusInEvent(KEditToolBar* self, QFocusEvent* event) {
+void KEditToolBar_SuperFocusInEvent(KEditToolBar* self, QFocusEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_FocusInEvent_IsBase(true);
@@ -961,7 +961,7 @@ void KEditToolBar_FocusOutEvent(KEditToolBar* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseFocusOutEvent(KEditToolBar* self, QFocusEvent* event) {
+void KEditToolBar_SuperFocusOutEvent(KEditToolBar* self, QFocusEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_FocusOutEvent_IsBase(true);
@@ -990,7 +990,7 @@ void KEditToolBar_EnterEvent(KEditToolBar* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseEnterEvent(KEditToolBar* self, QEnterEvent* event) {
+void KEditToolBar_SuperEnterEvent(KEditToolBar* self, QEnterEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_EnterEvent_IsBase(true);
@@ -1019,7 +1019,7 @@ void KEditToolBar_LeaveEvent(KEditToolBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseLeaveEvent(KEditToolBar* self, QEvent* event) {
+void KEditToolBar_SuperLeaveEvent(KEditToolBar* self, QEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_LeaveEvent_IsBase(true);
@@ -1048,7 +1048,7 @@ void KEditToolBar_PaintEvent(KEditToolBar* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBasePaintEvent(KEditToolBar* self, QPaintEvent* event) {
+void KEditToolBar_SuperPaintEvent(KEditToolBar* self, QPaintEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_PaintEvent_IsBase(true);
@@ -1077,7 +1077,7 @@ void KEditToolBar_MoveEvent(KEditToolBar* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseMoveEvent(KEditToolBar* self, QMoveEvent* event) {
+void KEditToolBar_SuperMoveEvent(KEditToolBar* self, QMoveEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_MoveEvent_IsBase(true);
@@ -1106,7 +1106,7 @@ void KEditToolBar_TabletEvent(KEditToolBar* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseTabletEvent(KEditToolBar* self, QTabletEvent* event) {
+void KEditToolBar_SuperTabletEvent(KEditToolBar* self, QTabletEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_TabletEvent_IsBase(true);
@@ -1135,7 +1135,7 @@ void KEditToolBar_ActionEvent(KEditToolBar* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseActionEvent(KEditToolBar* self, QActionEvent* event) {
+void KEditToolBar_SuperActionEvent(KEditToolBar* self, QActionEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_ActionEvent_IsBase(true);
@@ -1164,7 +1164,7 @@ void KEditToolBar_DragEnterEvent(KEditToolBar* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseDragEnterEvent(KEditToolBar* self, QDragEnterEvent* event) {
+void KEditToolBar_SuperDragEnterEvent(KEditToolBar* self, QDragEnterEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_DragEnterEvent_IsBase(true);
@@ -1193,7 +1193,7 @@ void KEditToolBar_DragMoveEvent(KEditToolBar* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseDragMoveEvent(KEditToolBar* self, QDragMoveEvent* event) {
+void KEditToolBar_SuperDragMoveEvent(KEditToolBar* self, QDragMoveEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_DragMoveEvent_IsBase(true);
@@ -1222,7 +1222,7 @@ void KEditToolBar_DragLeaveEvent(KEditToolBar* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseDragLeaveEvent(KEditToolBar* self, QDragLeaveEvent* event) {
+void KEditToolBar_SuperDragLeaveEvent(KEditToolBar* self, QDragLeaveEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_DragLeaveEvent_IsBase(true);
@@ -1251,7 +1251,7 @@ void KEditToolBar_DropEvent(KEditToolBar* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseDropEvent(KEditToolBar* self, QDropEvent* event) {
+void KEditToolBar_SuperDropEvent(KEditToolBar* self, QDropEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_DropEvent_IsBase(true);
@@ -1281,7 +1281,7 @@ bool KEditToolBar_NativeEvent(KEditToolBar* self, const libqt_string eventType, 
 }
 
 // Base class handler implementation
-bool KEditToolBar_QBaseNativeEvent(KEditToolBar* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KEditToolBar_SuperNativeEvent(KEditToolBar* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
@@ -1311,7 +1311,7 @@ void KEditToolBar_ChangeEvent(KEditToolBar* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseChangeEvent(KEditToolBar* self, QEvent* param1) {
+void KEditToolBar_SuperChangeEvent(KEditToolBar* self, QEvent* param1) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_ChangeEvent_IsBase(true);
@@ -1340,7 +1340,7 @@ int KEditToolBar_Metric(const KEditToolBar* self, int param1) {
 }
 
 // Base class handler implementation
-int KEditToolBar_QBaseMetric(const KEditToolBar* self, int param1) {
+int KEditToolBar_SuperMetric(const KEditToolBar* self, int param1) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_Metric_IsBase(true);
@@ -1369,7 +1369,7 @@ void KEditToolBar_InitPainter(const KEditToolBar* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseInitPainter(const KEditToolBar* self, QPainter* painter) {
+void KEditToolBar_SuperInitPainter(const KEditToolBar* self, QPainter* painter) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_InitPainter_IsBase(true);
@@ -1398,7 +1398,7 @@ QPaintDevice* KEditToolBar_Redirected(const KEditToolBar* self, QPoint* offset) 
 }
 
 // Base class handler implementation
-QPaintDevice* KEditToolBar_QBaseRedirected(const KEditToolBar* self, QPoint* offset) {
+QPaintDevice* KEditToolBar_SuperRedirected(const KEditToolBar* self, QPoint* offset) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_Redirected_IsBase(true);
@@ -1427,7 +1427,7 @@ QPainter* KEditToolBar_SharedPainter(const KEditToolBar* self) {
 }
 
 // Base class handler implementation
-QPainter* KEditToolBar_QBaseSharedPainter(const KEditToolBar* self) {
+QPainter* KEditToolBar_SuperSharedPainter(const KEditToolBar* self) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_SharedPainter_IsBase(true);
@@ -1456,7 +1456,7 @@ void KEditToolBar_InputMethodEvent(KEditToolBar* self, QInputMethodEvent* param1
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseInputMethodEvent(KEditToolBar* self, QInputMethodEvent* param1) {
+void KEditToolBar_SuperInputMethodEvent(KEditToolBar* self, QInputMethodEvent* param1) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_InputMethodEvent_IsBase(true);
@@ -1485,7 +1485,7 @@ QVariant* KEditToolBar_InputMethodQuery(const KEditToolBar* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KEditToolBar_QBaseInputMethodQuery(const KEditToolBar* self, int param1) {
+QVariant* KEditToolBar_SuperInputMethodQuery(const KEditToolBar* self, int param1) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_InputMethodQuery_IsBase(true);
@@ -1514,7 +1514,7 @@ bool KEditToolBar_FocusNextPrevChild(KEditToolBar* self, bool next) {
 }
 
 // Base class handler implementation
-bool KEditToolBar_QBaseFocusNextPrevChild(KEditToolBar* self, bool next) {
+bool KEditToolBar_SuperFocusNextPrevChild(KEditToolBar* self, bool next) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_FocusNextPrevChild_IsBase(true);
@@ -1543,7 +1543,7 @@ void KEditToolBar_TimerEvent(KEditToolBar* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseTimerEvent(KEditToolBar* self, QTimerEvent* event) {
+void KEditToolBar_SuperTimerEvent(KEditToolBar* self, QTimerEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_TimerEvent_IsBase(true);
@@ -1572,7 +1572,7 @@ void KEditToolBar_ChildEvent(KEditToolBar* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseChildEvent(KEditToolBar* self, QChildEvent* event) {
+void KEditToolBar_SuperChildEvent(KEditToolBar* self, QChildEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_ChildEvent_IsBase(true);
@@ -1601,7 +1601,7 @@ void KEditToolBar_CustomEvent(KEditToolBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseCustomEvent(KEditToolBar* self, QEvent* event) {
+void KEditToolBar_SuperCustomEvent(KEditToolBar* self, QEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_CustomEvent_IsBase(true);
@@ -1630,7 +1630,7 @@ void KEditToolBar_ConnectNotify(KEditToolBar* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseConnectNotify(KEditToolBar* self, const QMetaMethod* signal) {
+void KEditToolBar_SuperConnectNotify(KEditToolBar* self, const QMetaMethod* signal) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_ConnectNotify_IsBase(true);
@@ -1659,7 +1659,7 @@ void KEditToolBar_DisconnectNotify(KEditToolBar* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseDisconnectNotify(KEditToolBar* self, const QMetaMethod* signal) {
+void KEditToolBar_SuperDisconnectNotify(KEditToolBar* self, const QMetaMethod* signal) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_DisconnectNotify_IsBase(true);
@@ -1688,7 +1688,7 @@ void KEditToolBar_AdjustPosition(KEditToolBar* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseAdjustPosition(KEditToolBar* self, QWidget* param1) {
+void KEditToolBar_SuperAdjustPosition(KEditToolBar* self, QWidget* param1) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_AdjustPosition_IsBase(true);
@@ -1717,7 +1717,7 @@ void KEditToolBar_UpdateMicroFocus(KEditToolBar* self) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseUpdateMicroFocus(KEditToolBar* self) {
+void KEditToolBar_SuperUpdateMicroFocus(KEditToolBar* self) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_UpdateMicroFocus_IsBase(true);
@@ -1746,7 +1746,7 @@ void KEditToolBar_Create(KEditToolBar* self) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseCreate(KEditToolBar* self) {
+void KEditToolBar_SuperCreate(KEditToolBar* self) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_Create_IsBase(true);
@@ -1775,7 +1775,7 @@ void KEditToolBar_Destroy(KEditToolBar* self) {
 }
 
 // Base class handler implementation
-void KEditToolBar_QBaseDestroy(KEditToolBar* self) {
+void KEditToolBar_SuperDestroy(KEditToolBar* self) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_Destroy_IsBase(true);
@@ -1804,7 +1804,7 @@ bool KEditToolBar_FocusNextChild(KEditToolBar* self) {
 }
 
 // Base class handler implementation
-bool KEditToolBar_QBaseFocusNextChild(KEditToolBar* self) {
+bool KEditToolBar_SuperFocusNextChild(KEditToolBar* self) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_FocusNextChild_IsBase(true);
@@ -1833,7 +1833,7 @@ bool KEditToolBar_FocusPreviousChild(KEditToolBar* self) {
 }
 
 // Base class handler implementation
-bool KEditToolBar_QBaseFocusPreviousChild(KEditToolBar* self) {
+bool KEditToolBar_SuperFocusPreviousChild(KEditToolBar* self) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_FocusPreviousChild_IsBase(true);
@@ -1862,7 +1862,7 @@ QObject* KEditToolBar_Sender(const KEditToolBar* self) {
 }
 
 // Base class handler implementation
-QObject* KEditToolBar_QBaseSender(const KEditToolBar* self) {
+QObject* KEditToolBar_SuperSender(const KEditToolBar* self) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_Sender_IsBase(true);
@@ -1891,7 +1891,7 @@ int KEditToolBar_SenderSignalIndex(const KEditToolBar* self) {
 }
 
 // Base class handler implementation
-int KEditToolBar_QBaseSenderSignalIndex(const KEditToolBar* self) {
+int KEditToolBar_SuperSenderSignalIndex(const KEditToolBar* self) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_SenderSignalIndex_IsBase(true);
@@ -1920,7 +1920,7 @@ int KEditToolBar_Receivers(const KEditToolBar* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KEditToolBar_QBaseReceivers(const KEditToolBar* self, const char* signal) {
+int KEditToolBar_SuperReceivers(const KEditToolBar* self, const char* signal) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_Receivers_IsBase(true);
@@ -1949,7 +1949,7 @@ bool KEditToolBar_IsSignalConnected(const KEditToolBar* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool KEditToolBar_QBaseIsSignalConnected(const KEditToolBar* self, const QMetaMethod* signal) {
+bool KEditToolBar_SuperIsSignalConnected(const KEditToolBar* self, const QMetaMethod* signal) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_IsSignalConnected_IsBase(true);
@@ -1978,7 +1978,7 @@ double KEditToolBar_GetDecodedMetricF(const KEditToolBar* self, int metricA, int
 }
 
 // Base class handler implementation
-double KEditToolBar_QBaseGetDecodedMetricF(const KEditToolBar* self, int metricA, int metricB) {
+double KEditToolBar_SuperGetDecodedMetricF(const KEditToolBar* self, int metricA, int metricB) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
     if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
         vkedittoolbar->setKEditToolBar_GetDecodedMetricF_IsBase(true);

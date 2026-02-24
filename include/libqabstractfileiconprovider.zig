@@ -37,6 +37,10 @@ pub const qabstractfileiconprovider = struct {
         qtc.QAbstractFileIconProvider_OnIcon(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIcon` instead
+    ///
+    pub const QBaseIcon = SuperIcon;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
     ///
     /// Base class method implementation
@@ -47,8 +51,8 @@ pub const qabstractfileiconprovider = struct {
     ///
     /// ` param1: qabstractfileiconprovider_enums.IconType `
     ///
-    pub fn QBaseIcon(self: ?*anyopaque, param1: i32) QtC.QIcon {
-        return qtc.QAbstractFileIconProvider_QBaseIcon(@ptrCast(self), @bitCast(param1));
+    pub fn SuperIcon(self: ?*anyopaque, param1: i32) QtC.QIcon {
+        return qtc.QAbstractFileIconProvider_SuperIcon(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
@@ -77,6 +81,10 @@ pub const qabstractfileiconprovider = struct {
         qtc.QAbstractFileIconProvider_OnIcon2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIcon2` instead
+    ///
+    pub const QBaseIcon2 = SuperIcon2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
     ///
     /// Base class method implementation
@@ -87,8 +95,8 @@ pub const qabstractfileiconprovider = struct {
     ///
     /// ` param1: QtC.QFileInfo `
     ///
-    pub fn QBaseIcon2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QIcon {
-        return qtc.QAbstractFileIconProvider_QBaseIcon2(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperIcon2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QIcon {
+        return qtc.QAbstractFileIconProvider_SuperIcon2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)
@@ -125,6 +133,10 @@ pub const qabstractfileiconprovider = struct {
         qtc.QAbstractFileIconProvider_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperType` instead
+    ///
+    pub const QBaseType = SuperType;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)
     ///
     /// Base class method implementation
@@ -137,8 +149,8 @@ pub const qabstractfileiconprovider = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseType(self: ?*anyopaque, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAbstractFileIconProvider_QBaseType(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperType(self: ?*anyopaque, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QAbstractFileIconProvider_SuperType(@ptrCast(self), @ptrCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractfileiconprovider.Type: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -171,6 +183,10 @@ pub const qabstractfileiconprovider = struct {
         qtc.QAbstractFileIconProvider_OnSetOptions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetOptions` instead
+    ///
+    pub const QBaseSetOptions = SuperSetOptions;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
     ///
     /// Base class method implementation
@@ -181,8 +197,8 @@ pub const qabstractfileiconprovider = struct {
     ///
     /// ` options: flag of qabstractfileiconprovider_enums.Option `
     ///
-    pub fn QBaseSetOptions(self: ?*anyopaque, options: i32) void {
-        qtc.QAbstractFileIconProvider_QBaseSetOptions(@ptrCast(self), @bitCast(options));
+    pub fn SuperSetOptions(self: ?*anyopaque, options: i32) void {
+        qtc.QAbstractFileIconProvider_SuperSetOptions(@ptrCast(self), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)
@@ -213,6 +229,10 @@ pub const qabstractfileiconprovider = struct {
         qtc.QAbstractFileIconProvider_OnOptions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperOptions` instead
+    ///
+    pub const QBaseOptions = SuperOptions;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)
     ///
     /// Base class method implementation
@@ -225,9 +245,12 @@ pub const qabstractfileiconprovider = struct {
     ///
     /// ` flag of qabstractfileiconprovider_enums.Option `
     ///
-    pub fn QBaseOptions(self: ?*anyopaque) i32 {
-        return qtc.QAbstractFileIconProvider_QBaseOptions(@ptrCast(self));
+    pub fn SuperOptions(self: ?*anyopaque) i32 {
+        return qtc.QAbstractFileIconProvider_SuperOptions(@ptrCast(self));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#dtor.QAbstractFileIconProvider)
     ///
@@ -237,7 +260,7 @@ pub const qabstractfileiconprovider = struct {
     ///
     /// ` self: QtC.QAbstractFileIconProvider `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAbstractFileIconProvider_Delete(@ptrCast(self));
     }
 };

@@ -248,7 +248,7 @@ bool QDialog_EventFilter(QDialog* self, QObject* param1, QEvent* param2) {
 }
 
 // Base class handler implementation
-QMetaObject* QDialog_QBaseMetaObject(const QDialog* self) {
+QMetaObject* QDialog_SuperMetaObject(const QDialog* self) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_MetaObject_IsBase(true);
@@ -267,7 +267,7 @@ void QDialog_OnMetaObject(const QDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QDialog_QBaseMetacast(QDialog* self, const char* param1) {
+void* QDialog_SuperMetacast(QDialog* self, const char* param1) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_Metacast_IsBase(true);
@@ -286,7 +286,7 @@ void QDialog_OnMetacast(QDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QDialog_QBaseMetacall(QDialog* self, int param1, int param2, void** param3) {
+int QDialog_SuperMetacall(QDialog* self, int param1, int param2, void** param3) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_Metacall_IsBase(true);
@@ -305,7 +305,7 @@ void QDialog_OnMetacall(QDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseSetVisible(QDialog* self, bool visible) {
+void QDialog_SuperSetVisible(QDialog* self, bool visible) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_SetVisible_IsBase(true);
@@ -324,7 +324,7 @@ void QDialog_OnSetVisible(QDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QDialog_QBaseSizeHint(const QDialog* self) {
+QSize* QDialog_SuperSizeHint(const QDialog* self) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_SizeHint_IsBase(true);
@@ -343,7 +343,7 @@ void QDialog_OnSizeHint(const QDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QDialog_QBaseMinimumSizeHint(const QDialog* self) {
+QSize* QDialog_SuperMinimumSizeHint(const QDialog* self) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_MinimumSizeHint_IsBase(true);
@@ -362,7 +362,7 @@ void QDialog_OnMinimumSizeHint(const QDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseOpen(QDialog* self) {
+void QDialog_SuperOpen(QDialog* self) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_Open_IsBase(true);
@@ -381,7 +381,7 @@ void QDialog_OnOpen(QDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QDialog_QBaseExec(QDialog* self) {
+int QDialog_SuperExec(QDialog* self) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_Exec_IsBase(true);
@@ -400,7 +400,7 @@ void QDialog_OnExec(QDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseDone(QDialog* self, int param1) {
+void QDialog_SuperDone(QDialog* self, int param1) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_Done_IsBase(true);
@@ -419,7 +419,7 @@ void QDialog_OnDone(QDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseAccept(QDialog* self) {
+void QDialog_SuperAccept(QDialog* self) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_Accept_IsBase(true);
@@ -438,7 +438,7 @@ void QDialog_OnAccept(QDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseReject(QDialog* self) {
+void QDialog_SuperReject(QDialog* self) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_Reject_IsBase(true);
@@ -457,7 +457,7 @@ void QDialog_OnReject(QDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseKeyPressEvent(QDialog* self, QKeyEvent* param1) {
+void QDialog_SuperKeyPressEvent(QDialog* self, QKeyEvent* param1) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_KeyPressEvent_IsBase(true);
@@ -476,7 +476,7 @@ void QDialog_OnKeyPressEvent(QDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseCloseEvent(QDialog* self, QCloseEvent* param1) {
+void QDialog_SuperCloseEvent(QDialog* self, QCloseEvent* param1) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_CloseEvent_IsBase(true);
@@ -495,7 +495,7 @@ void QDialog_OnCloseEvent(QDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseShowEvent(QDialog* self, QShowEvent* param1) {
+void QDialog_SuperShowEvent(QDialog* self, QShowEvent* param1) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_ShowEvent_IsBase(true);
@@ -514,7 +514,7 @@ void QDialog_OnShowEvent(QDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseResizeEvent(QDialog* self, QResizeEvent* param1) {
+void QDialog_SuperResizeEvent(QDialog* self, QResizeEvent* param1) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_ResizeEvent_IsBase(true);
@@ -533,7 +533,7 @@ void QDialog_OnResizeEvent(QDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseContextMenuEvent(QDialog* self, QContextMenuEvent* param1) {
+void QDialog_SuperContextMenuEvent(QDialog* self, QContextMenuEvent* param1) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_ContextMenuEvent_IsBase(true);
@@ -552,7 +552,7 @@ void QDialog_OnContextMenuEvent(QDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QDialog_QBaseEventFilter(QDialog* self, QObject* param1, QEvent* param2) {
+bool QDialog_SuperEventFilter(QDialog* self, QObject* param1, QEvent* param2) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_EventFilter_IsBase(true);
@@ -581,7 +581,7 @@ int QDialog_DevType(const QDialog* self) {
 }
 
 // Base class handler implementation
-int QDialog_QBaseDevType(const QDialog* self) {
+int QDialog_SuperDevType(const QDialog* self) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_DevType_IsBase(true);
@@ -610,7 +610,7 @@ int QDialog_HeightForWidth(const QDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int QDialog_QBaseHeightForWidth(const QDialog* self, int param1) {
+int QDialog_SuperHeightForWidth(const QDialog* self, int param1) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_HeightForWidth_IsBase(true);
@@ -639,7 +639,7 @@ bool QDialog_HasHeightForWidth(const QDialog* self) {
 }
 
 // Base class handler implementation
-bool QDialog_QBaseHasHeightForWidth(const QDialog* self) {
+bool QDialog_SuperHasHeightForWidth(const QDialog* self) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_HasHeightForWidth_IsBase(true);
@@ -668,7 +668,7 @@ QPaintEngine* QDialog_PaintEngine(const QDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QDialog_QBasePaintEngine(const QDialog* self) {
+QPaintEngine* QDialog_SuperPaintEngine(const QDialog* self) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_PaintEngine_IsBase(true);
@@ -697,7 +697,7 @@ bool QDialog_Event(QDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QDialog_QBaseEvent(QDialog* self, QEvent* event) {
+bool QDialog_SuperEvent(QDialog* self, QEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_Event_IsBase(true);
@@ -726,7 +726,7 @@ void QDialog_MousePressEvent(QDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseMousePressEvent(QDialog* self, QMouseEvent* event) {
+void QDialog_SuperMousePressEvent(QDialog* self, QMouseEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_MousePressEvent_IsBase(true);
@@ -755,7 +755,7 @@ void QDialog_MouseReleaseEvent(QDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseMouseReleaseEvent(QDialog* self, QMouseEvent* event) {
+void QDialog_SuperMouseReleaseEvent(QDialog* self, QMouseEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_MouseReleaseEvent_IsBase(true);
@@ -784,7 +784,7 @@ void QDialog_MouseDoubleClickEvent(QDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseMouseDoubleClickEvent(QDialog* self, QMouseEvent* event) {
+void QDialog_SuperMouseDoubleClickEvent(QDialog* self, QMouseEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_MouseDoubleClickEvent_IsBase(true);
@@ -813,7 +813,7 @@ void QDialog_MouseMoveEvent(QDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseMouseMoveEvent(QDialog* self, QMouseEvent* event) {
+void QDialog_SuperMouseMoveEvent(QDialog* self, QMouseEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_MouseMoveEvent_IsBase(true);
@@ -842,7 +842,7 @@ void QDialog_WheelEvent(QDialog* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseWheelEvent(QDialog* self, QWheelEvent* event) {
+void QDialog_SuperWheelEvent(QDialog* self, QWheelEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_WheelEvent_IsBase(true);
@@ -871,7 +871,7 @@ void QDialog_KeyReleaseEvent(QDialog* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseKeyReleaseEvent(QDialog* self, QKeyEvent* event) {
+void QDialog_SuperKeyReleaseEvent(QDialog* self, QKeyEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_KeyReleaseEvent_IsBase(true);
@@ -900,7 +900,7 @@ void QDialog_FocusInEvent(QDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseFocusInEvent(QDialog* self, QFocusEvent* event) {
+void QDialog_SuperFocusInEvent(QDialog* self, QFocusEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_FocusInEvent_IsBase(true);
@@ -929,7 +929,7 @@ void QDialog_FocusOutEvent(QDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseFocusOutEvent(QDialog* self, QFocusEvent* event) {
+void QDialog_SuperFocusOutEvent(QDialog* self, QFocusEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_FocusOutEvent_IsBase(true);
@@ -958,7 +958,7 @@ void QDialog_EnterEvent(QDialog* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseEnterEvent(QDialog* self, QEnterEvent* event) {
+void QDialog_SuperEnterEvent(QDialog* self, QEnterEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_EnterEvent_IsBase(true);
@@ -987,7 +987,7 @@ void QDialog_LeaveEvent(QDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseLeaveEvent(QDialog* self, QEvent* event) {
+void QDialog_SuperLeaveEvent(QDialog* self, QEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_LeaveEvent_IsBase(true);
@@ -1016,7 +1016,7 @@ void QDialog_PaintEvent(QDialog* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QDialog_QBasePaintEvent(QDialog* self, QPaintEvent* event) {
+void QDialog_SuperPaintEvent(QDialog* self, QPaintEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_PaintEvent_IsBase(true);
@@ -1045,7 +1045,7 @@ void QDialog_MoveEvent(QDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseMoveEvent(QDialog* self, QMoveEvent* event) {
+void QDialog_SuperMoveEvent(QDialog* self, QMoveEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_MoveEvent_IsBase(true);
@@ -1074,7 +1074,7 @@ void QDialog_TabletEvent(QDialog* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseTabletEvent(QDialog* self, QTabletEvent* event) {
+void QDialog_SuperTabletEvent(QDialog* self, QTabletEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_TabletEvent_IsBase(true);
@@ -1103,7 +1103,7 @@ void QDialog_ActionEvent(QDialog* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseActionEvent(QDialog* self, QActionEvent* event) {
+void QDialog_SuperActionEvent(QDialog* self, QActionEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_ActionEvent_IsBase(true);
@@ -1132,7 +1132,7 @@ void QDialog_DragEnterEvent(QDialog* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseDragEnterEvent(QDialog* self, QDragEnterEvent* event) {
+void QDialog_SuperDragEnterEvent(QDialog* self, QDragEnterEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_DragEnterEvent_IsBase(true);
@@ -1161,7 +1161,7 @@ void QDialog_DragMoveEvent(QDialog* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseDragMoveEvent(QDialog* self, QDragMoveEvent* event) {
+void QDialog_SuperDragMoveEvent(QDialog* self, QDragMoveEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_DragMoveEvent_IsBase(true);
@@ -1190,7 +1190,7 @@ void QDialog_DragLeaveEvent(QDialog* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseDragLeaveEvent(QDialog* self, QDragLeaveEvent* event) {
+void QDialog_SuperDragLeaveEvent(QDialog* self, QDragLeaveEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_DragLeaveEvent_IsBase(true);
@@ -1219,7 +1219,7 @@ void QDialog_DropEvent(QDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseDropEvent(QDialog* self, QDropEvent* event) {
+void QDialog_SuperDropEvent(QDialog* self, QDropEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_DropEvent_IsBase(true);
@@ -1248,7 +1248,7 @@ void QDialog_HideEvent(QDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseHideEvent(QDialog* self, QHideEvent* event) {
+void QDialog_SuperHideEvent(QDialog* self, QHideEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_HideEvent_IsBase(true);
@@ -1278,7 +1278,7 @@ bool QDialog_NativeEvent(QDialog* self, const libqt_string eventType, void* mess
 }
 
 // Base class handler implementation
-bool QDialog_QBaseNativeEvent(QDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QDialog_SuperNativeEvent(QDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqdialog && vqdialog->isVirtualQDialog) {
@@ -1308,7 +1308,7 @@ void QDialog_ChangeEvent(QDialog* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseChangeEvent(QDialog* self, QEvent* param1) {
+void QDialog_SuperChangeEvent(QDialog* self, QEvent* param1) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_ChangeEvent_IsBase(true);
@@ -1337,7 +1337,7 @@ int QDialog_Metric(const QDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int QDialog_QBaseMetric(const QDialog* self, int param1) {
+int QDialog_SuperMetric(const QDialog* self, int param1) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_Metric_IsBase(true);
@@ -1366,7 +1366,7 @@ void QDialog_InitPainter(const QDialog* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseInitPainter(const QDialog* self, QPainter* painter) {
+void QDialog_SuperInitPainter(const QDialog* self, QPainter* painter) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_InitPainter_IsBase(true);
@@ -1395,7 +1395,7 @@ QPaintDevice* QDialog_Redirected(const QDialog* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QDialog_QBaseRedirected(const QDialog* self, QPoint* offset) {
+QPaintDevice* QDialog_SuperRedirected(const QDialog* self, QPoint* offset) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_Redirected_IsBase(true);
@@ -1424,7 +1424,7 @@ QPainter* QDialog_SharedPainter(const QDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* QDialog_QBaseSharedPainter(const QDialog* self) {
+QPainter* QDialog_SuperSharedPainter(const QDialog* self) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_SharedPainter_IsBase(true);
@@ -1453,7 +1453,7 @@ void QDialog_InputMethodEvent(QDialog* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseInputMethodEvent(QDialog* self, QInputMethodEvent* param1) {
+void QDialog_SuperInputMethodEvent(QDialog* self, QInputMethodEvent* param1) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_InputMethodEvent_IsBase(true);
@@ -1482,7 +1482,7 @@ QVariant* QDialog_InputMethodQuery(const QDialog* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QDialog_QBaseInputMethodQuery(const QDialog* self, int param1) {
+QVariant* QDialog_SuperInputMethodQuery(const QDialog* self, int param1) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_InputMethodQuery_IsBase(true);
@@ -1511,7 +1511,7 @@ bool QDialog_FocusNextPrevChild(QDialog* self, bool next) {
 }
 
 // Base class handler implementation
-bool QDialog_QBaseFocusNextPrevChild(QDialog* self, bool next) {
+bool QDialog_SuperFocusNextPrevChild(QDialog* self, bool next) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_FocusNextPrevChild_IsBase(true);
@@ -1540,7 +1540,7 @@ void QDialog_TimerEvent(QDialog* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseTimerEvent(QDialog* self, QTimerEvent* event) {
+void QDialog_SuperTimerEvent(QDialog* self, QTimerEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_TimerEvent_IsBase(true);
@@ -1569,7 +1569,7 @@ void QDialog_ChildEvent(QDialog* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseChildEvent(QDialog* self, QChildEvent* event) {
+void QDialog_SuperChildEvent(QDialog* self, QChildEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_ChildEvent_IsBase(true);
@@ -1598,7 +1598,7 @@ void QDialog_CustomEvent(QDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseCustomEvent(QDialog* self, QEvent* event) {
+void QDialog_SuperCustomEvent(QDialog* self, QEvent* event) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_CustomEvent_IsBase(true);
@@ -1627,7 +1627,7 @@ void QDialog_ConnectNotify(QDialog* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseConnectNotify(QDialog* self, const QMetaMethod* signal) {
+void QDialog_SuperConnectNotify(QDialog* self, const QMetaMethod* signal) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_ConnectNotify_IsBase(true);
@@ -1656,7 +1656,7 @@ void QDialog_DisconnectNotify(QDialog* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseDisconnectNotify(QDialog* self, const QMetaMethod* signal) {
+void QDialog_SuperDisconnectNotify(QDialog* self, const QMetaMethod* signal) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_DisconnectNotify_IsBase(true);
@@ -1685,7 +1685,7 @@ void QDialog_AdjustPosition(QDialog* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseAdjustPosition(QDialog* self, QWidget* param1) {
+void QDialog_SuperAdjustPosition(QDialog* self, QWidget* param1) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_AdjustPosition_IsBase(true);
@@ -1714,7 +1714,7 @@ void QDialog_UpdateMicroFocus(QDialog* self) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseUpdateMicroFocus(QDialog* self) {
+void QDialog_SuperUpdateMicroFocus(QDialog* self) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_UpdateMicroFocus_IsBase(true);
@@ -1743,7 +1743,7 @@ void QDialog_Create(QDialog* self) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseCreate(QDialog* self) {
+void QDialog_SuperCreate(QDialog* self) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_Create_IsBase(true);
@@ -1772,7 +1772,7 @@ void QDialog_Destroy(QDialog* self) {
 }
 
 // Base class handler implementation
-void QDialog_QBaseDestroy(QDialog* self) {
+void QDialog_SuperDestroy(QDialog* self) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_Destroy_IsBase(true);
@@ -1801,7 +1801,7 @@ bool QDialog_FocusNextChild(QDialog* self) {
 }
 
 // Base class handler implementation
-bool QDialog_QBaseFocusNextChild(QDialog* self) {
+bool QDialog_SuperFocusNextChild(QDialog* self) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_FocusNextChild_IsBase(true);
@@ -1830,7 +1830,7 @@ bool QDialog_FocusPreviousChild(QDialog* self) {
 }
 
 // Base class handler implementation
-bool QDialog_QBaseFocusPreviousChild(QDialog* self) {
+bool QDialog_SuperFocusPreviousChild(QDialog* self) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_FocusPreviousChild_IsBase(true);
@@ -1859,7 +1859,7 @@ QObject* QDialog_Sender(const QDialog* self) {
 }
 
 // Base class handler implementation
-QObject* QDialog_QBaseSender(const QDialog* self) {
+QObject* QDialog_SuperSender(const QDialog* self) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_Sender_IsBase(true);
@@ -1888,7 +1888,7 @@ int QDialog_SenderSignalIndex(const QDialog* self) {
 }
 
 // Base class handler implementation
-int QDialog_QBaseSenderSignalIndex(const QDialog* self) {
+int QDialog_SuperSenderSignalIndex(const QDialog* self) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_SenderSignalIndex_IsBase(true);
@@ -1917,7 +1917,7 @@ int QDialog_Receivers(const QDialog* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QDialog_QBaseReceivers(const QDialog* self, const char* signal) {
+int QDialog_SuperReceivers(const QDialog* self, const char* signal) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_Receivers_IsBase(true);
@@ -1946,7 +1946,7 @@ bool QDialog_IsSignalConnected(const QDialog* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QDialog_QBaseIsSignalConnected(const QDialog* self, const QMetaMethod* signal) {
+bool QDialog_SuperIsSignalConnected(const QDialog* self, const QMetaMethod* signal) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_IsSignalConnected_IsBase(true);
@@ -1975,7 +1975,7 @@ double QDialog_GetDecodedMetricF(const QDialog* self, int metricA, int metricB) 
 }
 
 // Base class handler implementation
-double QDialog_QBaseGetDecodedMetricF(const QDialog* self, int metricA, int metricB) {
+double QDialog_SuperGetDecodedMetricF(const QDialog* self, int metricA, int metricB) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
     if (vqdialog && vqdialog->isVirtualQDialog) {
         vqdialog->setQDialog_GetDecodedMetricF_IsBase(true);

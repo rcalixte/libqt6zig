@@ -356,6 +356,10 @@ pub const qmediaformat = struct {
         qtc.QMediaFormat_ResolveForEncoding(@ptrCast(self), @bitCast(flags));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#dtor.QMediaFormat)
     ///
     /// Delete this object from C++ memory.
@@ -364,7 +368,7 @@ pub const qmediaformat = struct {
     ///
     /// ` self: QtC.QMediaFormat `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMediaFormat_Delete(@ptrCast(self));
     }
 };

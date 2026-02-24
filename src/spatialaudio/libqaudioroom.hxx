@@ -327,23 +327,23 @@ class VirtualQAudioRoom final : public QAudioRoom {
 
     // Friend functions
     friend void QAudioRoom_TimerEvent(QAudioRoom* self, QTimerEvent* event);
-    friend void QAudioRoom_QBaseTimerEvent(QAudioRoom* self, QTimerEvent* event);
+    friend void QAudioRoom_SuperTimerEvent(QAudioRoom* self, QTimerEvent* event);
     friend void QAudioRoom_ChildEvent(QAudioRoom* self, QChildEvent* event);
-    friend void QAudioRoom_QBaseChildEvent(QAudioRoom* self, QChildEvent* event);
+    friend void QAudioRoom_SuperChildEvent(QAudioRoom* self, QChildEvent* event);
     friend void QAudioRoom_CustomEvent(QAudioRoom* self, QEvent* event);
-    friend void QAudioRoom_QBaseCustomEvent(QAudioRoom* self, QEvent* event);
+    friend void QAudioRoom_SuperCustomEvent(QAudioRoom* self, QEvent* event);
     friend void QAudioRoom_ConnectNotify(QAudioRoom* self, const QMetaMethod* signal);
-    friend void QAudioRoom_QBaseConnectNotify(QAudioRoom* self, const QMetaMethod* signal);
+    friend void QAudioRoom_SuperConnectNotify(QAudioRoom* self, const QMetaMethod* signal);
     friend void QAudioRoom_DisconnectNotify(QAudioRoom* self, const QMetaMethod* signal);
-    friend void QAudioRoom_QBaseDisconnectNotify(QAudioRoom* self, const QMetaMethod* signal);
+    friend void QAudioRoom_SuperDisconnectNotify(QAudioRoom* self, const QMetaMethod* signal);
     friend QObject* QAudioRoom_Sender(const QAudioRoom* self);
-    friend QObject* QAudioRoom_QBaseSender(const QAudioRoom* self);
+    friend QObject* QAudioRoom_SuperSender(const QAudioRoom* self);
     friend int QAudioRoom_SenderSignalIndex(const QAudioRoom* self);
-    friend int QAudioRoom_QBaseSenderSignalIndex(const QAudioRoom* self);
+    friend int QAudioRoom_SuperSenderSignalIndex(const QAudioRoom* self);
     friend int QAudioRoom_Receivers(const QAudioRoom* self, const char* signal);
-    friend int QAudioRoom_QBaseReceivers(const QAudioRoom* self, const char* signal);
+    friend int QAudioRoom_SuperReceivers(const QAudioRoom* self, const char* signal);
     friend bool QAudioRoom_IsSignalConnected(const QAudioRoom* self, const QMetaMethod* signal);
-    friend bool QAudioRoom_QBaseIsSignalConnected(const QAudioRoom* self, const QMetaMethod* signal);
+    friend bool QAudioRoom_SuperIsSignalConnected(const QAudioRoom* self, const QMetaMethod* signal);
 };
 
 #endif

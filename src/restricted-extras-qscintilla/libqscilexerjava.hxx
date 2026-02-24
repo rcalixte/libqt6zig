@@ -1198,31 +1198,31 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
 
     // Friend functions
     friend bool QsciLexerJava_ReadProperties(QsciLexerJava* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerJava_QBaseReadProperties(QsciLexerJava* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerJava_SuperReadProperties(QsciLexerJava* self, QSettings* qs, const libqt_string prefix);
     friend bool QsciLexerJava_WriteProperties(const QsciLexerJava* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerJava_QBaseWriteProperties(const QsciLexerJava* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerJava_SuperWriteProperties(const QsciLexerJava* self, QSettings* qs, const libqt_string prefix);
     friend void QsciLexerJava_TimerEvent(QsciLexerJava* self, QTimerEvent* event);
-    friend void QsciLexerJava_QBaseTimerEvent(QsciLexerJava* self, QTimerEvent* event);
+    friend void QsciLexerJava_SuperTimerEvent(QsciLexerJava* self, QTimerEvent* event);
     friend void QsciLexerJava_ChildEvent(QsciLexerJava* self, QChildEvent* event);
-    friend void QsciLexerJava_QBaseChildEvent(QsciLexerJava* self, QChildEvent* event);
+    friend void QsciLexerJava_SuperChildEvent(QsciLexerJava* self, QChildEvent* event);
     friend void QsciLexerJava_CustomEvent(QsciLexerJava* self, QEvent* event);
-    friend void QsciLexerJava_QBaseCustomEvent(QsciLexerJava* self, QEvent* event);
+    friend void QsciLexerJava_SuperCustomEvent(QsciLexerJava* self, QEvent* event);
     friend void QsciLexerJava_ConnectNotify(QsciLexerJava* self, const QMetaMethod* signal);
-    friend void QsciLexerJava_QBaseConnectNotify(QsciLexerJava* self, const QMetaMethod* signal);
+    friend void QsciLexerJava_SuperConnectNotify(QsciLexerJava* self, const QMetaMethod* signal);
     friend void QsciLexerJava_DisconnectNotify(QsciLexerJava* self, const QMetaMethod* signal);
-    friend void QsciLexerJava_QBaseDisconnectNotify(QsciLexerJava* self, const QMetaMethod* signal);
+    friend void QsciLexerJava_SuperDisconnectNotify(QsciLexerJava* self, const QMetaMethod* signal);
     friend libqt_string QsciLexerJava_TextAsBytes(const QsciLexerJava* self, const libqt_string text);
-    friend libqt_string QsciLexerJava_QBaseTextAsBytes(const QsciLexerJava* self, const libqt_string text);
+    friend libqt_string QsciLexerJava_SuperTextAsBytes(const QsciLexerJava* self, const libqt_string text);
     friend libqt_string QsciLexerJava_BytesAsText(const QsciLexerJava* self, const char* bytes, int size);
-    friend libqt_string QsciLexerJava_QBaseBytesAsText(const QsciLexerJava* self, const char* bytes, int size);
+    friend libqt_string QsciLexerJava_SuperBytesAsText(const QsciLexerJava* self, const char* bytes, int size);
     friend QObject* QsciLexerJava_Sender(const QsciLexerJava* self);
-    friend QObject* QsciLexerJava_QBaseSender(const QsciLexerJava* self);
+    friend QObject* QsciLexerJava_SuperSender(const QsciLexerJava* self);
     friend int QsciLexerJava_SenderSignalIndex(const QsciLexerJava* self);
-    friend int QsciLexerJava_QBaseSenderSignalIndex(const QsciLexerJava* self);
+    friend int QsciLexerJava_SuperSenderSignalIndex(const QsciLexerJava* self);
     friend int QsciLexerJava_Receivers(const QsciLexerJava* self, const char* signal);
-    friend int QsciLexerJava_QBaseReceivers(const QsciLexerJava* self, const char* signal);
+    friend int QsciLexerJava_SuperReceivers(const QsciLexerJava* self, const char* signal);
     friend bool QsciLexerJava_IsSignalConnected(const QsciLexerJava* self, const QMetaMethod* signal);
-    friend bool QsciLexerJava_QBaseIsSignalConnected(const QsciLexerJava* self, const QMetaMethod* signal);
+    friend bool QsciLexerJava_SuperIsSignalConnected(const QsciLexerJava* self, const QMetaMethod* signal);
 };
 
 #endif

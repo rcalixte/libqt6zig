@@ -61,6 +61,10 @@ pub const qchart = struct {
         qtc.QChart_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -69,8 +73,8 @@ pub const qchart = struct {
     ///
     /// ` self: QtC.QChart `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QChart_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QChart_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -96,6 +100,10 @@ pub const qchart = struct {
         qtc.QChart_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -104,9 +112,9 @@ pub const qchart = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QChart_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QChart_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -135,6 +143,10 @@ pub const qchart = struct {
         qtc.QChart_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -147,8 +159,8 @@ pub const qchart = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QChart_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QChart_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -5867,6 +5879,10 @@ pub const qchart = struct {
         qtc.QChart_SetGeometry(@ptrCast(self), @ptrCast(rect));
     }
 
+    /// ### DEPRECATED: Use `SuperSetGeometry` instead
+    ///
+    pub const QBaseSetGeometry = SuperSetGeometry;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setGeometry)
@@ -5879,8 +5895,8 @@ pub const qchart = struct {
     ///
     /// ` rect: QtC.QRectF `
     ///
-    pub fn QBaseSetGeometry(self: ?*anyopaque, rect: ?*anyopaque) void {
-        qtc.QChart_QBaseSetGeometry(@ptrCast(self), @ptrCast(rect));
+    pub fn SuperSetGeometry(self: ?*anyopaque, rect: ?*anyopaque) void {
+        qtc.QChart_SuperSetGeometry(@ptrCast(self), @ptrCast(rect));
     }
 
     /// Inherited from QGraphicsWidget
@@ -5921,6 +5937,10 @@ pub const qchart = struct {
         qtc.QChart_GetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
+    /// ### DEPRECATED: Use `SuperGetContentsMargins` instead
+    ///
+    pub const QBaseGetContentsMargins = SuperGetContentsMargins;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#getContentsMargins)
@@ -5939,8 +5959,8 @@ pub const qchart = struct {
     ///
     /// ` bottom: *f64 `
     ///
-    pub fn QBaseGetContentsMargins(self: ?*anyopaque, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
-        qtc.QChart_QBaseGetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
+    pub fn SuperGetContentsMargins(self: ?*anyopaque, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
+        qtc.QChart_SuperGetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
     /// Inherited from QGraphicsWidget
@@ -5973,6 +5993,10 @@ pub const qchart = struct {
         return qtc.QChart_Type(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperType` instead
+    ///
+    pub const QBaseType = SuperType;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#type)
@@ -5983,8 +6007,8 @@ pub const qchart = struct {
     ///
     /// ` self: QtC.QChart `
     ///
-    pub fn QBaseType(self: ?*anyopaque) i32 {
-        return qtc.QChart_QBaseType(@ptrCast(self));
+    pub fn SuperType(self: ?*anyopaque) i32 {
+        return qtc.QChart_SuperType(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6023,6 +6047,10 @@ pub const qchart = struct {
         qtc.QChart_Paint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(widget));
     }
 
+    /// ### DEPRECATED: Use `SuperPaint` instead
+    ///
+    pub const QBasePaint = SuperPaint;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#paint)
@@ -6039,8 +6067,8 @@ pub const qchart = struct {
     ///
     /// ` widget: QtC.QWidget `
     ///
-    pub fn QBasePaint(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QChart_QBasePaint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(widget));
+    pub fn SuperPaint(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, widget: ?*anyopaque) void {
+        qtc.QChart_SuperPaint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(widget));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6079,6 +6107,10 @@ pub const qchart = struct {
         qtc.QChart_PaintWindowFrame(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(widget));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintWindowFrame` instead
+    ///
+    pub const QBasePaintWindowFrame = SuperPaintWindowFrame;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#paintWindowFrame)
@@ -6095,8 +6127,8 @@ pub const qchart = struct {
     ///
     /// ` widget: QtC.QWidget `
     ///
-    pub fn QBasePaintWindowFrame(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QChart_QBasePaintWindowFrame(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(widget));
+    pub fn SuperPaintWindowFrame(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, widget: ?*anyopaque) void {
+        qtc.QChart_SuperPaintWindowFrame(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(widget));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6129,6 +6161,10 @@ pub const qchart = struct {
         return qtc.QChart_BoundingRect(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperBoundingRect` instead
+    ///
+    pub const QBaseBoundingRect = SuperBoundingRect;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#boundingRect)
@@ -6139,8 +6175,8 @@ pub const qchart = struct {
     ///
     /// ` self: QtC.QChart `
     ///
-    pub fn QBaseBoundingRect(self: ?*anyopaque) QtC.QRectF {
-        return qtc.QChart_QBaseBoundingRect(@ptrCast(self));
+    pub fn SuperBoundingRect(self: ?*anyopaque) QtC.QRectF {
+        return qtc.QChart_SuperBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6173,6 +6209,10 @@ pub const qchart = struct {
         return qtc.QChart_Shape(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperShape` instead
+    ///
+    pub const QBaseShape = SuperShape;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#shape)
@@ -6183,8 +6223,8 @@ pub const qchart = struct {
     ///
     /// ` self: QtC.QChart `
     ///
-    pub fn QBaseShape(self: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QChart_QBaseShape(@ptrCast(self));
+    pub fn SuperShape(self: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QChart_SuperShape(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6219,6 +6259,10 @@ pub const qchart = struct {
         qtc.QChart_InitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
+    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    ///
+    pub const QBaseInitStyleOption = SuperInitStyleOption;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#initStyleOption)
@@ -6231,8 +6275,8 @@ pub const qchart = struct {
     ///
     /// ` option: QtC.QStyleOption `
     ///
-    pub fn QBaseInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QChart_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
+        qtc.QChart_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6269,6 +6313,10 @@ pub const qchart = struct {
         return qtc.QChart_SizeHint(@ptrCast(self), @bitCast(which), @ptrCast(constraint));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#sizeHint)
@@ -6283,8 +6331,8 @@ pub const qchart = struct {
     ///
     /// ` constraint: QtC.QSizeF `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
-        return qtc.QChart_QBaseSizeHint(@ptrCast(self), @bitCast(which), @ptrCast(constraint));
+    pub fn SuperSizeHint(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
+        return qtc.QChart_SuperSizeHint(@ptrCast(self), @bitCast(which), @ptrCast(constraint));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6317,6 +6365,10 @@ pub const qchart = struct {
         qtc.QChart_UpdateGeometry(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateGeometry` instead
+    ///
+    pub const QBaseUpdateGeometry = SuperUpdateGeometry;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#updateGeometry)
@@ -6327,8 +6379,8 @@ pub const qchart = struct {
     ///
     /// ` self: QtC.QChart `
     ///
-    pub fn QBaseUpdateGeometry(self: ?*anyopaque) void {
-        qtc.QChart_QBaseUpdateGeometry(@ptrCast(self));
+    pub fn SuperUpdateGeometry(self: ?*anyopaque) void {
+        qtc.QChart_SuperUpdateGeometry(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6365,6 +6417,10 @@ pub const qchart = struct {
         return qtc.QChart_ItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
+    /// ### DEPRECATED: Use `SuperItemChange` instead
+    ///
+    pub const QBaseItemChange = SuperItemChange;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#itemChange)
@@ -6379,8 +6435,8 @@ pub const qchart = struct {
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn QBaseItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QChart_QBaseItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
+    pub fn SuperItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
+        return qtc.QChart_SuperItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6421,6 +6477,10 @@ pub const qchart = struct {
         return qtc.QChart_PropertyChange(@ptrCast(self), propertyName_str, @ptrCast(value));
     }
 
+    /// ### DEPRECATED: Use `SuperPropertyChange` instead
+    ///
+    pub const QBasePropertyChange = SuperPropertyChange;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#propertyChange)
@@ -6435,12 +6495,12 @@ pub const qchart = struct {
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn QBasePropertyChange(self: ?*anyopaque, propertyName: []const u8, value: ?*anyopaque) QtC.QVariant {
+    pub fn SuperPropertyChange(self: ?*anyopaque, propertyName: []const u8, value: ?*anyopaque) QtC.QVariant {
         const propertyName_str = qtc.libqt_string{
             .len = propertyName.len,
             .data = propertyName.ptr,
         };
-        return qtc.QChart_QBasePropertyChange(@ptrCast(self), propertyName_str, @ptrCast(value));
+        return qtc.QChart_SuperPropertyChange(@ptrCast(self), propertyName_str, @ptrCast(value));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6475,6 +6535,10 @@ pub const qchart = struct {
         return qtc.QChart_SceneEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperSceneEvent` instead
+    ///
+    pub const QBaseSceneEvent = SuperSceneEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#sceneEvent)
@@ -6487,8 +6551,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseSceneEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QChart_QBaseSceneEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperSceneEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QChart_SuperSceneEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6523,6 +6587,10 @@ pub const qchart = struct {
         return qtc.QChart_WindowFrameEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperWindowFrameEvent` instead
+    ///
+    pub const QBaseWindowFrameEvent = SuperWindowFrameEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameEvent)
@@ -6535,8 +6603,8 @@ pub const qchart = struct {
     ///
     /// ` e: QtC.QEvent `
     ///
-    pub fn QBaseWindowFrameEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QChart_QBaseWindowFrameEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperWindowFrameEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
+        return qtc.QChart_SuperWindowFrameEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6575,6 +6643,10 @@ pub const qchart = struct {
         return qtc.QChart_WindowFrameSectionAt(@ptrCast(self), @ptrCast(pos));
     }
 
+    /// ### DEPRECATED: Use `SuperWindowFrameSectionAt` instead
+    ///
+    pub const QBaseWindowFrameSectionAt = SuperWindowFrameSectionAt;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameSectionAt)
@@ -6591,8 +6663,8 @@ pub const qchart = struct {
     ///
     /// ` qnamespace_enums.WindowFrameSection `
     ///
-    pub fn QBaseWindowFrameSectionAt(self: ?*anyopaque, pos: ?*anyopaque) i32 {
-        return qtc.QChart_QBaseWindowFrameSectionAt(@ptrCast(self), @ptrCast(pos));
+    pub fn SuperWindowFrameSectionAt(self: ?*anyopaque, pos: ?*anyopaque) i32 {
+        return qtc.QChart_SuperWindowFrameSectionAt(@ptrCast(self), @ptrCast(pos));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6627,6 +6699,10 @@ pub const qchart = struct {
         return qtc.QChart_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#event)
@@ -6639,8 +6715,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QChart_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QChart_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6675,6 +6751,10 @@ pub const qchart = struct {
         qtc.QChart_ChangeEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    ///
+    pub const QBaseChangeEvent = SuperChangeEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#changeEvent)
@@ -6687,8 +6767,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseChangeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseChangeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChangeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperChangeEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6723,6 +6803,10 @@ pub const qchart = struct {
         qtc.QChart_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#closeEvent)
@@ -6735,8 +6819,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6771,6 +6855,10 @@ pub const qchart = struct {
         qtc.QChart_FocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#focusInEvent)
@@ -6783,8 +6871,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6819,6 +6907,10 @@ pub const qchart = struct {
         return qtc.QChart_FocusNextPrevChild(@ptrCast(self), next);
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    ///
+    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#focusNextPrevChild)
@@ -6831,8 +6923,8 @@ pub const qchart = struct {
     ///
     /// ` next: bool `
     ///
-    pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QChart_QBaseFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
+        return qtc.QChart_SuperFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QGraphicsWidget
@@ -6867,6 +6959,10 @@ pub const qchart = struct {
         qtc.QChart_FocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#focusOutEvent)
@@ -6879,8 +6975,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6915,6 +7011,10 @@ pub const qchart = struct {
         qtc.QChart_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#hideEvent)
@@ -6927,8 +7027,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6963,6 +7063,10 @@ pub const qchart = struct {
         qtc.QChart_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#moveEvent)
@@ -6975,8 +7079,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QGraphicsSceneMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsWidget
@@ -7009,6 +7113,10 @@ pub const qchart = struct {
         qtc.QChart_PolishEvent(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPolishEvent` instead
+    ///
+    pub const QBasePolishEvent = SuperPolishEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#polishEvent)
@@ -7019,8 +7127,8 @@ pub const qchart = struct {
     ///
     /// ` self: QtC.QChart `
     ///
-    pub fn QBasePolishEvent(self: ?*anyopaque) void {
-        qtc.QChart_QBasePolishEvent(@ptrCast(self));
+    pub fn SuperPolishEvent(self: ?*anyopaque) void {
+        qtc.QChart_SuperPolishEvent(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsWidget
@@ -7055,6 +7163,10 @@ pub const qchart = struct {
         qtc.QChart_ResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#resizeEvent)
@@ -7067,8 +7179,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QGraphicsSceneResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsWidget
@@ -7103,6 +7215,10 @@ pub const qchart = struct {
         qtc.QChart_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#showEvent)
@@ -7115,8 +7231,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsWidget
@@ -7151,6 +7267,10 @@ pub const qchart = struct {
         qtc.QChart_HoverMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperHoverMoveEvent` instead
+    ///
+    pub const QBaseHoverMoveEvent = SuperHoverMoveEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#hoverMoveEvent)
@@ -7163,8 +7283,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QGraphicsSceneHoverEvent `
     ///
-    pub fn QBaseHoverMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseHoverMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHoverMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperHoverMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsWidget
@@ -7199,6 +7319,10 @@ pub const qchart = struct {
         qtc.QChart_HoverLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperHoverLeaveEvent` instead
+    ///
+    pub const QBaseHoverLeaveEvent = SuperHoverLeaveEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#hoverLeaveEvent)
@@ -7211,8 +7335,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QGraphicsSceneHoverEvent `
     ///
-    pub fn QBaseHoverLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseHoverLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHoverLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperHoverLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsWidget
@@ -7247,6 +7371,10 @@ pub const qchart = struct {
         qtc.QChart_GrabMouseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperGrabMouseEvent` instead
+    ///
+    pub const QBaseGrabMouseEvent = SuperGrabMouseEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#grabMouseEvent)
@@ -7259,8 +7387,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseGrabMouseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseGrabMouseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperGrabMouseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperGrabMouseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsWidget
@@ -7295,6 +7423,10 @@ pub const qchart = struct {
         qtc.QChart_UngrabMouseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperUngrabMouseEvent` instead
+    ///
+    pub const QBaseUngrabMouseEvent = SuperUngrabMouseEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabMouseEvent)
@@ -7307,8 +7439,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseUngrabMouseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseUngrabMouseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperUngrabMouseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperUngrabMouseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsWidget
@@ -7343,6 +7475,10 @@ pub const qchart = struct {
         qtc.QChart_GrabKeyboardEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperGrabKeyboardEvent` instead
+    ///
+    pub const QBaseGrabKeyboardEvent = SuperGrabKeyboardEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#grabKeyboardEvent)
@@ -7355,8 +7491,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseGrabKeyboardEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseGrabKeyboardEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperGrabKeyboardEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperGrabKeyboardEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsWidget
@@ -7391,6 +7527,10 @@ pub const qchart = struct {
         qtc.QChart_UngrabKeyboardEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperUngrabKeyboardEvent` instead
+    ///
+    pub const QBaseUngrabKeyboardEvent = SuperUngrabKeyboardEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabKeyboardEvent)
@@ -7403,8 +7543,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseUngrabKeyboardEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseUngrabKeyboardEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperUngrabKeyboardEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperUngrabKeyboardEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsWidget
@@ -7441,6 +7581,10 @@ pub const qchart = struct {
         return qtc.QChart_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -7455,8 +7599,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QChart_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QChart_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7491,6 +7635,10 @@ pub const qchart = struct {
         qtc.QChart_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -7503,8 +7651,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7539,6 +7687,10 @@ pub const qchart = struct {
         qtc.QChart_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -7551,8 +7703,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7587,6 +7739,10 @@ pub const qchart = struct {
         qtc.QChart_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -7599,8 +7755,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7635,6 +7791,10 @@ pub const qchart = struct {
         qtc.QChart_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -7647,8 +7807,8 @@ pub const qchart = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QChart_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QChart_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -7683,6 +7843,10 @@ pub const qchart = struct {
         qtc.QChart_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -7695,8 +7859,8 @@ pub const qchart = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QChart_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QChart_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -7731,6 +7895,10 @@ pub const qchart = struct {
         qtc.QChart_Advance(@ptrCast(self), @bitCast(phase));
     }
 
+    /// ### DEPRECATED: Use `SuperAdvance` instead
+    ///
+    pub const QBaseAdvance = SuperAdvance;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
@@ -7743,8 +7911,8 @@ pub const qchart = struct {
     ///
     /// ` phase: i32 `
     ///
-    pub fn QBaseAdvance(self: ?*anyopaque, phase: i32) void {
-        qtc.QChart_QBaseAdvance(@ptrCast(self), @bitCast(phase));
+    pub fn SuperAdvance(self: ?*anyopaque, phase: i32) void {
+        qtc.QChart_SuperAdvance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -7779,6 +7947,10 @@ pub const qchart = struct {
         return qtc.QChart_Contains(@ptrCast(self), @ptrCast(point));
     }
 
+    /// ### DEPRECATED: Use `SuperContains` instead
+    ///
+    pub const QBaseContains = SuperContains;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
@@ -7791,8 +7963,8 @@ pub const qchart = struct {
     ///
     /// ` point: QtC.QPointF `
     ///
-    pub fn QBaseContains(self: ?*anyopaque, point: ?*anyopaque) bool {
-        return qtc.QChart_QBaseContains(@ptrCast(self), @ptrCast(point));
+    pub fn SuperContains(self: ?*anyopaque, point: ?*anyopaque) bool {
+        return qtc.QChart_SuperContains(@ptrCast(self), @ptrCast(point));
     }
 
     /// Inherited from QGraphicsItem
@@ -7829,6 +8001,10 @@ pub const qchart = struct {
         return qtc.QChart_CollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `SuperCollidesWithItem` instead
+    ///
+    pub const QBaseCollidesWithItem = SuperCollidesWithItem;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
@@ -7843,8 +8019,8 @@ pub const qchart = struct {
     ///
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
-    pub fn QBaseCollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QChart_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
+    pub fn SuperCollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
+        return qtc.QChart_SuperCollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -7881,6 +8057,10 @@ pub const qchart = struct {
         return qtc.QChart_CollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `SuperCollidesWithPath` instead
+    ///
+    pub const QBaseCollidesWithPath = SuperCollidesWithPath;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
@@ -7895,8 +8075,8 @@ pub const qchart = struct {
     ///
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
-    pub fn QBaseCollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QChart_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
+    pub fn SuperCollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
+        return qtc.QChart_SuperCollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -7931,6 +8111,10 @@ pub const qchart = struct {
         return qtc.QChart_IsObscuredBy(@ptrCast(self), @ptrCast(item));
     }
 
+    /// ### DEPRECATED: Use `SuperIsObscuredBy` instead
+    ///
+    pub const QBaseIsObscuredBy = SuperIsObscuredBy;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
@@ -7943,8 +8127,8 @@ pub const qchart = struct {
     ///
     /// ` item: QtC.QGraphicsItem `
     ///
-    pub fn QBaseIsObscuredBy(self: ?*anyopaque, item: ?*anyopaque) bool {
-        return qtc.QChart_QBaseIsObscuredBy(@ptrCast(self), @ptrCast(item));
+    pub fn SuperIsObscuredBy(self: ?*anyopaque, item: ?*anyopaque) bool {
+        return qtc.QChart_SuperIsObscuredBy(@ptrCast(self), @ptrCast(item));
     }
 
     /// Inherited from QGraphicsItem
@@ -7977,6 +8161,10 @@ pub const qchart = struct {
         return qtc.QChart_OpaqueArea(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperOpaqueArea` instead
+    ///
+    pub const QBaseOpaqueArea = SuperOpaqueArea;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
@@ -7987,8 +8175,8 @@ pub const qchart = struct {
     ///
     /// ` self: QtC.QChart `
     ///
-    pub fn QBaseOpaqueArea(self: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QChart_QBaseOpaqueArea(@ptrCast(self));
+    pub fn SuperOpaqueArea(self: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QChart_SuperOpaqueArea(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsItem
@@ -8025,6 +8213,10 @@ pub const qchart = struct {
         return qtc.QChart_SceneEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperSceneEventFilter` instead
+    ///
+    pub const QBaseSceneEventFilter = SuperSceneEventFilter;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
@@ -8039,8 +8231,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseSceneEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QChart_QBaseSceneEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperSceneEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QChart_SuperSceneEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -8075,6 +8267,10 @@ pub const qchart = struct {
         qtc.QChart_ContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    ///
+    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#contextMenuEvent)
@@ -8087,8 +8283,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QGraphicsSceneContextMenuEvent `
     ///
-    pub fn QBaseContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -8123,6 +8319,10 @@ pub const qchart = struct {
         qtc.QChart_DragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    ///
+    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragEnterEvent)
@@ -8135,8 +8335,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QGraphicsSceneDragDropEvent `
     ///
-    pub fn QBaseDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -8171,6 +8371,10 @@ pub const qchart = struct {
         qtc.QChart_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    ///
+    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragLeaveEvent)
@@ -8183,8 +8387,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QGraphicsSceneDragDropEvent `
     ///
-    pub fn QBaseDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -8219,6 +8423,10 @@ pub const qchart = struct {
         qtc.QChart_DragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    ///
+    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragMoveEvent)
@@ -8231,8 +8439,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QGraphicsSceneDragDropEvent `
     ///
-    pub fn QBaseDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -8267,6 +8475,10 @@ pub const qchart = struct {
         qtc.QChart_DropEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    ///
+    pub const QBaseDropEvent = SuperDropEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dropEvent)
@@ -8279,8 +8491,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QGraphicsSceneDragDropEvent `
     ///
-    pub fn QBaseDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -8315,6 +8527,10 @@ pub const qchart = struct {
         qtc.QChart_HoverEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperHoverEnterEvent` instead
+    ///
+    pub const QBaseHoverEnterEvent = SuperHoverEnterEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverEnterEvent)
@@ -8327,8 +8543,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QGraphicsSceneHoverEvent `
     ///
-    pub fn QBaseHoverEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseHoverEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHoverEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperHoverEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -8363,6 +8579,10 @@ pub const qchart = struct {
         qtc.QChart_KeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#keyPressEvent)
@@ -8375,8 +8595,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperKeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -8411,6 +8631,10 @@ pub const qchart = struct {
         qtc.QChart_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#keyReleaseEvent)
@@ -8423,8 +8647,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -8459,6 +8683,10 @@ pub const qchart = struct {
         qtc.QChart_MousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mousePressEvent)
@@ -8471,8 +8699,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QGraphicsSceneMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -8507,6 +8735,10 @@ pub const qchart = struct {
         qtc.QChart_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseMoveEvent)
@@ -8519,8 +8751,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QGraphicsSceneMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -8555,6 +8787,10 @@ pub const qchart = struct {
         qtc.QChart_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseReleaseEvent)
@@ -8567,8 +8803,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QGraphicsSceneMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -8603,6 +8839,10 @@ pub const qchart = struct {
         qtc.QChart_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseDoubleClickEvent)
@@ -8615,8 +8855,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QGraphicsSceneMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -8651,6 +8891,10 @@ pub const qchart = struct {
         qtc.QChart_WheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#wheelEvent)
@@ -8663,8 +8907,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QGraphicsSceneWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -8699,6 +8943,10 @@ pub const qchart = struct {
         qtc.QChart_InputMethodEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    ///
+    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodEvent)
@@ -8711,8 +8959,8 @@ pub const qchart = struct {
     ///
     /// ` event: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseInputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QChart_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperInputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QChart_SuperInputMethodEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -8747,6 +8995,10 @@ pub const qchart = struct {
         return qtc.QChart_InputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    ///
+    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodQuery)
@@ -8759,8 +9011,8 @@ pub const qchart = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QChart_QBaseInputMethodQuery(@ptrCast(self), @bitCast(query));
+    pub fn SuperInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
+        return qtc.QChart_SuperInputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -8795,6 +9047,10 @@ pub const qchart = struct {
         return qtc.QChart_SupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
+    /// ### DEPRECATED: Use `SuperSupportsExtension` instead
+    ///
+    pub const QBaseSupportsExtension = SuperSupportsExtension;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
@@ -8807,8 +9063,8 @@ pub const qchart = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QChart_QBaseSupportsExtension(@ptrCast(self), @bitCast(extension));
+    pub fn SuperSupportsExtension(self: ?*anyopaque, extension: i32) bool {
+        return qtc.QChart_SuperSupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// Inherited from QGraphicsItem
@@ -8845,6 +9101,10 @@ pub const qchart = struct {
         qtc.QChart_SetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
+    /// ### DEPRECATED: Use `SuperSetExtension` instead
+    ///
+    pub const QBaseSetExtension = SuperSetExtension;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
@@ -8859,8 +9119,8 @@ pub const qchart = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QChart_QBaseSetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
+    pub fn SuperSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
+        qtc.QChart_SuperSetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// Inherited from QGraphicsItem
@@ -8895,6 +9155,10 @@ pub const qchart = struct {
         return qtc.QChart_Extension(@ptrCast(self), @ptrCast(variant));
     }
 
+    /// ### DEPRECATED: Use `SuperExtension` instead
+    ///
+    pub const QBaseExtension = SuperExtension;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
@@ -8907,8 +9171,8 @@ pub const qchart = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn QBaseExtension(self: ?*anyopaque, variant: ?*anyopaque) QtC.QVariant {
-        return qtc.QChart_QBaseExtension(@ptrCast(self), @ptrCast(variant));
+    pub fn SuperExtension(self: ?*anyopaque, variant: ?*anyopaque) QtC.QVariant {
+        return qtc.QChart_SuperExtension(@ptrCast(self), @ptrCast(variant));
     }
 
     /// Inherited from QGraphicsItem
@@ -8941,6 +9205,10 @@ pub const qchart = struct {
         return qtc.QChart_IsEmpty(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsEmpty` instead
+    ///
+    pub const QBaseIsEmpty = SuperIsEmpty;
+
     /// Inherited from QGraphicsLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
@@ -8951,8 +9219,8 @@ pub const qchart = struct {
     ///
     /// ` self: QtC.QChart `
     ///
-    pub fn QBaseIsEmpty(self: ?*anyopaque) bool {
-        return qtc.QChart_QBaseIsEmpty(@ptrCast(self));
+    pub fn SuperIsEmpty(self: ?*anyopaque) bool {
+        return qtc.QChart_SuperIsEmpty(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -8985,6 +9253,10 @@ pub const qchart = struct {
         qtc.QChart_UpdateMicroFocus(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    ///
+    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
@@ -8995,8 +9267,8 @@ pub const qchart = struct {
     ///
     /// ` self: QtC.QChart `
     ///
-    pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QChart_QBaseUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
+        qtc.QChart_SuperUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsObject
@@ -9029,6 +9301,10 @@ pub const qchart = struct {
         return qtc.QChart_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -9039,8 +9315,8 @@ pub const qchart = struct {
     ///
     /// ` self: QtC.QChart `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QChart_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QChart_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -9073,6 +9349,10 @@ pub const qchart = struct {
         return qtc.QChart_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -9083,8 +9363,8 @@ pub const qchart = struct {
     ///
     /// ` self: QtC.QChart `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QChart_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QChart_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -9120,6 +9400,10 @@ pub const qchart = struct {
         return qtc.QChart_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -9132,9 +9416,9 @@ pub const qchart = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QChart_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QChart_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -9169,6 +9453,10 @@ pub const qchart = struct {
         return qtc.QChart_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -9181,8 +9469,8 @@ pub const qchart = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QChart_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QChart_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -9215,6 +9503,10 @@ pub const qchart = struct {
         qtc.QChart_AddToIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperAddToIndex` instead
+    ///
+    pub const QBaseAddToIndex = SuperAddToIndex;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
@@ -9225,8 +9517,8 @@ pub const qchart = struct {
     ///
     /// ` self: QtC.QChart `
     ///
-    pub fn QBaseAddToIndex(self: ?*anyopaque) void {
-        qtc.QChart_QBaseAddToIndex(@ptrCast(self));
+    pub fn SuperAddToIndex(self: ?*anyopaque) void {
+        qtc.QChart_SuperAddToIndex(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsItem
@@ -9259,6 +9551,10 @@ pub const qchart = struct {
         qtc.QChart_RemoveFromIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperRemoveFromIndex` instead
+    ///
+    pub const QBaseRemoveFromIndex = SuperRemoveFromIndex;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
@@ -9269,8 +9565,8 @@ pub const qchart = struct {
     ///
     /// ` self: QtC.QChart `
     ///
-    pub fn QBaseRemoveFromIndex(self: ?*anyopaque) void {
-        qtc.QChart_QBaseRemoveFromIndex(@ptrCast(self));
+    pub fn SuperRemoveFromIndex(self: ?*anyopaque) void {
+        qtc.QChart_SuperRemoveFromIndex(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsItem
@@ -9303,6 +9599,10 @@ pub const qchart = struct {
         qtc.QChart_PrepareGeometryChange(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPrepareGeometryChange` instead
+    ///
+    pub const QBasePrepareGeometryChange = SuperPrepareGeometryChange;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
@@ -9313,8 +9613,8 @@ pub const qchart = struct {
     ///
     /// ` self: QtC.QChart `
     ///
-    pub fn QBasePrepareGeometryChange(self: ?*anyopaque) void {
-        qtc.QChart_QBasePrepareGeometryChange(@ptrCast(self));
+    pub fn SuperPrepareGeometryChange(self: ?*anyopaque) void {
+        qtc.QChart_SuperPrepareGeometryChange(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsItem
@@ -9349,6 +9649,10 @@ pub const qchart = struct {
         qtc.QChart_SetGraphicsItem(@ptrCast(self), @ptrCast(item));
     }
 
+    /// ### DEPRECATED: Use `SuperSetGraphicsItem` instead
+    ///
+    pub const QBaseSetGraphicsItem = SuperSetGraphicsItem;
+
     /// Inherited from QGraphicsLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
@@ -9361,8 +9665,8 @@ pub const qchart = struct {
     ///
     /// ` item: QtC.QGraphicsItem `
     ///
-    pub fn QBaseSetGraphicsItem(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QChart_QBaseSetGraphicsItem(@ptrCast(self), @ptrCast(item));
+    pub fn SuperSetGraphicsItem(self: ?*anyopaque, item: ?*anyopaque) void {
+        qtc.QChart_SuperSetGraphicsItem(@ptrCast(self), @ptrCast(item));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -9397,6 +9701,10 @@ pub const qchart = struct {
         qtc.QChart_SetOwnedByLayout(@ptrCast(self), ownedByLayout);
     }
 
+    /// ### DEPRECATED: Use `SuperSetOwnedByLayout` instead
+    ///
+    pub const QBaseSetOwnedByLayout = SuperSetOwnedByLayout;
+
     /// Inherited from QGraphicsLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
@@ -9409,8 +9717,8 @@ pub const qchart = struct {
     ///
     /// ` ownedByLayout: bool `
     ///
-    pub fn QBaseSetOwnedByLayout(self: ?*anyopaque, ownedByLayout: bool) void {
-        qtc.QChart_QBaseSetOwnedByLayout(@ptrCast(self), ownedByLayout);
+    pub fn SuperSetOwnedByLayout(self: ?*anyopaque, ownedByLayout: bool) void {
+        qtc.QChart_SuperSetOwnedByLayout(@ptrCast(self), ownedByLayout);
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -9444,6 +9752,9 @@ pub const qchart = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchart-qtcharts.html#dtor.QChart)
     ///
@@ -9453,7 +9764,7 @@ pub const qchart = struct {
     ///
     /// ` self: QtC.QChart `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QChart_Delete(@ptrCast(self));
     }
 };

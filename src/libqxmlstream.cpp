@@ -174,7 +174,7 @@ libqt_string QXmlStreamEntityResolver_ResolveUndeclaredEntity(QXmlStreamEntityRe
 }
 
 // Base class handler implementation
-libqt_string QXmlStreamEntityResolver_QBaseResolveEntity(QXmlStreamEntityResolver* self, const libqt_string publicId, const libqt_string systemId) {
+libqt_string QXmlStreamEntityResolver_SuperResolveEntity(QXmlStreamEntityResolver* self, const libqt_string publicId, const libqt_string systemId) {
     auto* vqxmlstreamentityresolver = dynamic_cast<VirtualQXmlStreamEntityResolver*>(self);
     QString publicId_QString = QString::fromUtf8(publicId.data, publicId.len);
     QString systemId_QString = QString::fromUtf8(systemId.data, systemId.len);
@@ -211,7 +211,7 @@ void QXmlStreamEntityResolver_OnResolveEntity(QXmlStreamEntityResolver* self, in
 }
 
 // Base class handler implementation
-libqt_string QXmlStreamEntityResolver_QBaseResolveUndeclaredEntity(QXmlStreamEntityResolver* self, const libqt_string name) {
+libqt_string QXmlStreamEntityResolver_SuperResolveUndeclaredEntity(QXmlStreamEntityResolver* self, const libqt_string name) {
     auto* vqxmlstreamentityresolver = dynamic_cast<VirtualQXmlStreamEntityResolver*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqxmlstreamentityresolver && vqxmlstreamentityresolver->isVirtualQXmlStreamEntityResolver) {

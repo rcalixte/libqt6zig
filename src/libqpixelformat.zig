@@ -408,6 +408,10 @@ pub const qpixelformat = struct {
         return qtc.QPixelFormat_SubEnum(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#dtor.QPixelFormat)
     ///
     /// Delete this object from C++ memory.
@@ -416,7 +420,7 @@ pub const qpixelformat = struct {
     ///
     /// ` self: QtC.QPixelFormat `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPixelFormat_Delete(@ptrCast(self));
     }
 };

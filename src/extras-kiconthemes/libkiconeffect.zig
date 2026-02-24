@@ -320,6 +320,10 @@ pub const kiconeffect = struct {
         qtc.KIconEffect_ToActive2(@ptrCast(pixmap));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kiconeffect.html#dtor.KIconEffect)
     ///
     /// Delete this object from C++ memory.
@@ -328,7 +332,7 @@ pub const kiconeffect = struct {
     ///
     /// ` self: QtC.KIconEffect `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KIconEffect_Delete(@ptrCast(self));
     }
 };

@@ -995,7 +995,7 @@ void PackageKit__Transaction_DisconnectNotify(PackageKit__Transaction* self, con
 }
 
 // Base class handler implementation
-QMetaObject* PackageKit__Transaction_QBaseMetaObject(const PackageKit__Transaction* self) {
+QMetaObject* PackageKit__Transaction_SuperMetaObject(const PackageKit__Transaction* self) {
     auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
     if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
         vpackagekittransaction->setPackageKit__Transaction_MetaObject_IsBase(true);
@@ -1014,7 +1014,7 @@ void PackageKit__Transaction_OnMetaObject(const PackageKit__Transaction* self, i
 }
 
 // Base class handler implementation
-void* PackageKit__Transaction_QBaseMetacast(PackageKit__Transaction* self, const char* param1) {
+void* PackageKit__Transaction_SuperMetacast(PackageKit__Transaction* self, const char* param1) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
     if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
         vpackagekittransaction->setPackageKit__Transaction_Metacast_IsBase(true);
@@ -1033,7 +1033,7 @@ void PackageKit__Transaction_OnMetacast(PackageKit__Transaction* self, intptr_t 
 }
 
 // Base class handler implementation
-int PackageKit__Transaction_QBaseMetacall(PackageKit__Transaction* self, int param1, int param2, void** param3) {
+int PackageKit__Transaction_SuperMetacall(PackageKit__Transaction* self, int param1, int param2, void** param3) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
     if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
         vpackagekittransaction->setPackageKit__Transaction_Metacall_IsBase(true);
@@ -1052,7 +1052,7 @@ void PackageKit__Transaction_OnMetacall(PackageKit__Transaction* self, intptr_t 
 }
 
 // Base class handler implementation
-void PackageKit__Transaction_QBaseConnectNotify(PackageKit__Transaction* self, const QMetaMethod* signal) {
+void PackageKit__Transaction_SuperConnectNotify(PackageKit__Transaction* self, const QMetaMethod* signal) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
     if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
         vpackagekittransaction->setPackageKit__Transaction_ConnectNotify_IsBase(true);
@@ -1071,7 +1071,7 @@ void PackageKit__Transaction_OnConnectNotify(PackageKit__Transaction* self, intp
 }
 
 // Base class handler implementation
-void PackageKit__Transaction_QBaseDisconnectNotify(PackageKit__Transaction* self, const QMetaMethod* signal) {
+void PackageKit__Transaction_SuperDisconnectNotify(PackageKit__Transaction* self, const QMetaMethod* signal) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
     if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
         vpackagekittransaction->setPackageKit__Transaction_DisconnectNotify_IsBase(true);
@@ -1100,7 +1100,7 @@ bool PackageKit__Transaction_Event(PackageKit__Transaction* self, QEvent* event)
 }
 
 // Base class handler implementation
-bool PackageKit__Transaction_QBaseEvent(PackageKit__Transaction* self, QEvent* event) {
+bool PackageKit__Transaction_SuperEvent(PackageKit__Transaction* self, QEvent* event) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
     if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
         vpackagekittransaction->setPackageKit__Transaction_Event_IsBase(true);
@@ -1129,7 +1129,7 @@ bool PackageKit__Transaction_EventFilter(PackageKit__Transaction* self, QObject*
 }
 
 // Base class handler implementation
-bool PackageKit__Transaction_QBaseEventFilter(PackageKit__Transaction* self, QObject* watched, QEvent* event) {
+bool PackageKit__Transaction_SuperEventFilter(PackageKit__Transaction* self, QObject* watched, QEvent* event) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
     if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
         vpackagekittransaction->setPackageKit__Transaction_EventFilter_IsBase(true);
@@ -1158,7 +1158,7 @@ void PackageKit__Transaction_TimerEvent(PackageKit__Transaction* self, QTimerEve
 }
 
 // Base class handler implementation
-void PackageKit__Transaction_QBaseTimerEvent(PackageKit__Transaction* self, QTimerEvent* event) {
+void PackageKit__Transaction_SuperTimerEvent(PackageKit__Transaction* self, QTimerEvent* event) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
     if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
         vpackagekittransaction->setPackageKit__Transaction_TimerEvent_IsBase(true);
@@ -1187,7 +1187,7 @@ void PackageKit__Transaction_ChildEvent(PackageKit__Transaction* self, QChildEve
 }
 
 // Base class handler implementation
-void PackageKit__Transaction_QBaseChildEvent(PackageKit__Transaction* self, QChildEvent* event) {
+void PackageKit__Transaction_SuperChildEvent(PackageKit__Transaction* self, QChildEvent* event) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
     if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
         vpackagekittransaction->setPackageKit__Transaction_ChildEvent_IsBase(true);
@@ -1216,7 +1216,7 @@ void PackageKit__Transaction_CustomEvent(PackageKit__Transaction* self, QEvent* 
 }
 
 // Base class handler implementation
-void PackageKit__Transaction_QBaseCustomEvent(PackageKit__Transaction* self, QEvent* event) {
+void PackageKit__Transaction_SuperCustomEvent(PackageKit__Transaction* self, QEvent* event) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
     if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
         vpackagekittransaction->setPackageKit__Transaction_CustomEvent_IsBase(true);
@@ -1246,7 +1246,7 @@ int PackageKit__Transaction_ParseError(PackageKit__Transaction* self, const libq
 }
 
 // Base class handler implementation
-int PackageKit__Transaction_QBaseParseError(PackageKit__Transaction* self, const libqt_string errorName) {
+int PackageKit__Transaction_SuperParseError(PackageKit__Transaction* self, const libqt_string errorName) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
     QString errorName_QString = QString::fromUtf8(errorName.data, errorName.len);
     if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
@@ -1276,7 +1276,7 @@ QObject* PackageKit__Transaction_Sender(const PackageKit__Transaction* self) {
 }
 
 // Base class handler implementation
-QObject* PackageKit__Transaction_QBaseSender(const PackageKit__Transaction* self) {
+QObject* PackageKit__Transaction_SuperSender(const PackageKit__Transaction* self) {
     auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
     if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
         vpackagekittransaction->setPackageKit__Transaction_Sender_IsBase(true);
@@ -1305,7 +1305,7 @@ int PackageKit__Transaction_SenderSignalIndex(const PackageKit__Transaction* sel
 }
 
 // Base class handler implementation
-int PackageKit__Transaction_QBaseSenderSignalIndex(const PackageKit__Transaction* self) {
+int PackageKit__Transaction_SuperSenderSignalIndex(const PackageKit__Transaction* self) {
     auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
     if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
         vpackagekittransaction->setPackageKit__Transaction_SenderSignalIndex_IsBase(true);
@@ -1334,7 +1334,7 @@ int PackageKit__Transaction_Receivers(const PackageKit__Transaction* self, const
 }
 
 // Base class handler implementation
-int PackageKit__Transaction_QBaseReceivers(const PackageKit__Transaction* self, const char* signal) {
+int PackageKit__Transaction_SuperReceivers(const PackageKit__Transaction* self, const char* signal) {
     auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
     if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
         vpackagekittransaction->setPackageKit__Transaction_Receivers_IsBase(true);
@@ -1363,7 +1363,7 @@ bool PackageKit__Transaction_IsSignalConnected(const PackageKit__Transaction* se
 }
 
 // Base class handler implementation
-bool PackageKit__Transaction_QBaseIsSignalConnected(const PackageKit__Transaction* self, const QMetaMethod* signal) {
+bool PackageKit__Transaction_SuperIsSignalConnected(const PackageKit__Transaction* self, const QMetaMethod* signal) {
     auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
     if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
         vpackagekittransaction->setPackageKit__Transaction_IsSignalConnected_IsBase(true);

@@ -530,13 +530,17 @@ pub const attica__downloaddescription = struct {
         qtc.Attica__DownloadDescription_SetVersion(@ptrCast(self), version_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Attica__DownloadDescription `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Attica__DownloadDescription_Delete(@ptrCast(self));
     }
 };

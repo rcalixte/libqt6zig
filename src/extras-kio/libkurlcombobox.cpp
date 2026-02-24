@@ -217,7 +217,7 @@ void KUrlComboBox_RemoveUrl2(KUrlComboBox* self, const QUrl* url, bool checkDefa
 }
 
 // Base class handler implementation
-QMetaObject* KUrlComboBox_QBaseMetaObject(const KUrlComboBox* self) {
+QMetaObject* KUrlComboBox_SuperMetaObject(const KUrlComboBox* self) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_MetaObject_IsBase(true);
@@ -236,7 +236,7 @@ void KUrlComboBox_OnMetaObject(const KUrlComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KUrlComboBox_QBaseMetacast(KUrlComboBox* self, const char* param1) {
+void* KUrlComboBox_SuperMetacast(KUrlComboBox* self, const char* param1) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_Metacast_IsBase(true);
@@ -255,7 +255,7 @@ void KUrlComboBox_OnMetacast(KUrlComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KUrlComboBox_QBaseMetacall(KUrlComboBox* self, int param1, int param2, void** param3) {
+int KUrlComboBox_SuperMetacall(KUrlComboBox* self, int param1, int param2, void** param3) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_Metacall_IsBase(true);
@@ -274,7 +274,7 @@ void KUrlComboBox_OnMetacall(KUrlComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseSetCompletionObject(KUrlComboBox* self, KCompletion* compObj, bool hsig) {
+void KUrlComboBox_SuperSetCompletionObject(KUrlComboBox* self, KCompletion* compObj, bool hsig) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_SetCompletionObject_IsBase(true);
@@ -293,7 +293,7 @@ void KUrlComboBox_OnSetCompletionObject(KUrlComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseMousePressEvent(KUrlComboBox* self, QMouseEvent* event) {
+void KUrlComboBox_SuperMousePressEvent(KUrlComboBox* self, QMouseEvent* event) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_MousePressEvent_IsBase(true);
@@ -312,7 +312,7 @@ void KUrlComboBox_OnMousePressEvent(KUrlComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseMouseMoveEvent(KUrlComboBox* self, QMouseEvent* event) {
+void KUrlComboBox_SuperMouseMoveEvent(KUrlComboBox* self, QMouseEvent* event) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_MouseMoveEvent_IsBase(true);
@@ -341,7 +341,7 @@ void KUrlComboBox_SetAutoCompletion(KUrlComboBox* self, bool autocomplete) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseSetAutoCompletion(KUrlComboBox* self, bool autocomplete) {
+void KUrlComboBox_SuperSetAutoCompletion(KUrlComboBox* self, bool autocomplete) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_SetAutoCompletion_IsBase(true);
@@ -370,7 +370,7 @@ void KUrlComboBox_SetLineEdit(KUrlComboBox* self, QLineEdit* lineEdit) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseSetLineEdit(KUrlComboBox* self, QLineEdit* lineEdit) {
+void KUrlComboBox_SuperSetLineEdit(KUrlComboBox* self, QLineEdit* lineEdit) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_SetLineEdit_IsBase(true);
@@ -399,7 +399,7 @@ QSize* KUrlComboBox_MinimumSizeHint(const KUrlComboBox* self) {
 }
 
 // Base class handler implementation
-QSize* KUrlComboBox_QBaseMinimumSizeHint(const KUrlComboBox* self) {
+QSize* KUrlComboBox_SuperMinimumSizeHint(const KUrlComboBox* self) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_MinimumSizeHint_IsBase(true);
@@ -429,7 +429,7 @@ void KUrlComboBox_SetCompletedText(KUrlComboBox* self, const libqt_string comple
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseSetCompletedText(KUrlComboBox* self, const libqt_string completedText) {
+void KUrlComboBox_SuperSetCompletedText(KUrlComboBox* self, const libqt_string completedText) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     QString completedText_QString = QString::fromUtf8(completedText.data, completedText.len);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
@@ -466,7 +466,7 @@ void KUrlComboBox_SetCompletedItems(KUrlComboBox* self, const libqt_list /* of l
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseSetCompletedItems(KUrlComboBox* self, const libqt_list /* of libqt_string */ items, bool autoSuggest) {
+void KUrlComboBox_SuperSetCompletedItems(KUrlComboBox* self, const libqt_list /* of libqt_string */ items, bool autoSuggest) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     QList<QString> items_QList;
     items_QList.reserve(items.len);
@@ -503,7 +503,7 @@ void KUrlComboBox_MakeCompletion(KUrlComboBox* self, const libqt_string param1) 
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseMakeCompletion(KUrlComboBox* self, const libqt_string param1) {
+void KUrlComboBox_SuperMakeCompletion(KUrlComboBox* self, const libqt_string param1) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
@@ -533,7 +533,7 @@ void KUrlComboBox_SetModel(KUrlComboBox* self, QAbstractItemModel* model) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseSetModel(KUrlComboBox* self, QAbstractItemModel* model) {
+void KUrlComboBox_SuperSetModel(KUrlComboBox* self, QAbstractItemModel* model) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_SetModel_IsBase(true);
@@ -562,7 +562,7 @@ QSize* KUrlComboBox_SizeHint(const KUrlComboBox* self) {
 }
 
 // Base class handler implementation
-QSize* KUrlComboBox_QBaseSizeHint(const KUrlComboBox* self) {
+QSize* KUrlComboBox_SuperSizeHint(const KUrlComboBox* self) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_SizeHint_IsBase(true);
@@ -591,7 +591,7 @@ void KUrlComboBox_ShowPopup(KUrlComboBox* self) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseShowPopup(KUrlComboBox* self) {
+void KUrlComboBox_SuperShowPopup(KUrlComboBox* self) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_ShowPopup_IsBase(true);
@@ -620,7 +620,7 @@ void KUrlComboBox_HidePopup(KUrlComboBox* self) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseHidePopup(KUrlComboBox* self) {
+void KUrlComboBox_SuperHidePopup(KUrlComboBox* self) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_HidePopup_IsBase(true);
@@ -649,7 +649,7 @@ bool KUrlComboBox_Event(KUrlComboBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KUrlComboBox_QBaseEvent(KUrlComboBox* self, QEvent* event) {
+bool KUrlComboBox_SuperEvent(KUrlComboBox* self, QEvent* event) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_Event_IsBase(true);
@@ -678,7 +678,7 @@ QVariant* KUrlComboBox_InputMethodQuery(const KUrlComboBox* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KUrlComboBox_QBaseInputMethodQuery(const KUrlComboBox* self, int param1) {
+QVariant* KUrlComboBox_SuperInputMethodQuery(const KUrlComboBox* self, int param1) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_InputMethodQuery_IsBase(true);
@@ -707,7 +707,7 @@ void KUrlComboBox_FocusInEvent(KUrlComboBox* self, QFocusEvent* e) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseFocusInEvent(KUrlComboBox* self, QFocusEvent* e) {
+void KUrlComboBox_SuperFocusInEvent(KUrlComboBox* self, QFocusEvent* e) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_FocusInEvent_IsBase(true);
@@ -736,7 +736,7 @@ void KUrlComboBox_FocusOutEvent(KUrlComboBox* self, QFocusEvent* e) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseFocusOutEvent(KUrlComboBox* self, QFocusEvent* e) {
+void KUrlComboBox_SuperFocusOutEvent(KUrlComboBox* self, QFocusEvent* e) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_FocusOutEvent_IsBase(true);
@@ -765,7 +765,7 @@ void KUrlComboBox_ChangeEvent(KUrlComboBox* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseChangeEvent(KUrlComboBox* self, QEvent* e) {
+void KUrlComboBox_SuperChangeEvent(KUrlComboBox* self, QEvent* e) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_ChangeEvent_IsBase(true);
@@ -794,7 +794,7 @@ void KUrlComboBox_ResizeEvent(KUrlComboBox* self, QResizeEvent* e) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseResizeEvent(KUrlComboBox* self, QResizeEvent* e) {
+void KUrlComboBox_SuperResizeEvent(KUrlComboBox* self, QResizeEvent* e) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_ResizeEvent_IsBase(true);
@@ -823,7 +823,7 @@ void KUrlComboBox_PaintEvent(KUrlComboBox* self, QPaintEvent* e) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBasePaintEvent(KUrlComboBox* self, QPaintEvent* e) {
+void KUrlComboBox_SuperPaintEvent(KUrlComboBox* self, QPaintEvent* e) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_PaintEvent_IsBase(true);
@@ -852,7 +852,7 @@ void KUrlComboBox_ShowEvent(KUrlComboBox* self, QShowEvent* e) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseShowEvent(KUrlComboBox* self, QShowEvent* e) {
+void KUrlComboBox_SuperShowEvent(KUrlComboBox* self, QShowEvent* e) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_ShowEvent_IsBase(true);
@@ -881,7 +881,7 @@ void KUrlComboBox_HideEvent(KUrlComboBox* self, QHideEvent* e) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseHideEvent(KUrlComboBox* self, QHideEvent* e) {
+void KUrlComboBox_SuperHideEvent(KUrlComboBox* self, QHideEvent* e) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_HideEvent_IsBase(true);
@@ -910,7 +910,7 @@ void KUrlComboBox_MouseReleaseEvent(KUrlComboBox* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseMouseReleaseEvent(KUrlComboBox* self, QMouseEvent* e) {
+void KUrlComboBox_SuperMouseReleaseEvent(KUrlComboBox* self, QMouseEvent* e) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_MouseReleaseEvent_IsBase(true);
@@ -939,7 +939,7 @@ void KUrlComboBox_KeyPressEvent(KUrlComboBox* self, QKeyEvent* e) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseKeyPressEvent(KUrlComboBox* self, QKeyEvent* e) {
+void KUrlComboBox_SuperKeyPressEvent(KUrlComboBox* self, QKeyEvent* e) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_KeyPressEvent_IsBase(true);
@@ -968,7 +968,7 @@ void KUrlComboBox_KeyReleaseEvent(KUrlComboBox* self, QKeyEvent* e) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseKeyReleaseEvent(KUrlComboBox* self, QKeyEvent* e) {
+void KUrlComboBox_SuperKeyReleaseEvent(KUrlComboBox* self, QKeyEvent* e) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_KeyReleaseEvent_IsBase(true);
@@ -997,7 +997,7 @@ void KUrlComboBox_WheelEvent(KUrlComboBox* self, QWheelEvent* e) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseWheelEvent(KUrlComboBox* self, QWheelEvent* e) {
+void KUrlComboBox_SuperWheelEvent(KUrlComboBox* self, QWheelEvent* e) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_WheelEvent_IsBase(true);
@@ -1026,7 +1026,7 @@ void KUrlComboBox_ContextMenuEvent(KUrlComboBox* self, QContextMenuEvent* e) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseContextMenuEvent(KUrlComboBox* self, QContextMenuEvent* e) {
+void KUrlComboBox_SuperContextMenuEvent(KUrlComboBox* self, QContextMenuEvent* e) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_ContextMenuEvent_IsBase(true);
@@ -1055,7 +1055,7 @@ void KUrlComboBox_InputMethodEvent(KUrlComboBox* self, QInputMethodEvent* param1
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseInputMethodEvent(KUrlComboBox* self, QInputMethodEvent* param1) {
+void KUrlComboBox_SuperInputMethodEvent(KUrlComboBox* self, QInputMethodEvent* param1) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_InputMethodEvent_IsBase(true);
@@ -1084,7 +1084,7 @@ void KUrlComboBox_InitStyleOption(const KUrlComboBox* self, QStyleOptionComboBox
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseInitStyleOption(const KUrlComboBox* self, QStyleOptionComboBox* option) {
+void KUrlComboBox_SuperInitStyleOption(const KUrlComboBox* self, QStyleOptionComboBox* option) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_InitStyleOption_IsBase(true);
@@ -1113,7 +1113,7 @@ int KUrlComboBox_DevType(const KUrlComboBox* self) {
 }
 
 // Base class handler implementation
-int KUrlComboBox_QBaseDevType(const KUrlComboBox* self) {
+int KUrlComboBox_SuperDevType(const KUrlComboBox* self) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_DevType_IsBase(true);
@@ -1142,7 +1142,7 @@ void KUrlComboBox_SetVisible(KUrlComboBox* self, bool visible) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseSetVisible(KUrlComboBox* self, bool visible) {
+void KUrlComboBox_SuperSetVisible(KUrlComboBox* self, bool visible) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_SetVisible_IsBase(true);
@@ -1171,7 +1171,7 @@ int KUrlComboBox_HeightForWidth(const KUrlComboBox* self, int param1) {
 }
 
 // Base class handler implementation
-int KUrlComboBox_QBaseHeightForWidth(const KUrlComboBox* self, int param1) {
+int KUrlComboBox_SuperHeightForWidth(const KUrlComboBox* self, int param1) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_HeightForWidth_IsBase(true);
@@ -1200,7 +1200,7 @@ bool KUrlComboBox_HasHeightForWidth(const KUrlComboBox* self) {
 }
 
 // Base class handler implementation
-bool KUrlComboBox_QBaseHasHeightForWidth(const KUrlComboBox* self) {
+bool KUrlComboBox_SuperHasHeightForWidth(const KUrlComboBox* self) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_HasHeightForWidth_IsBase(true);
@@ -1229,7 +1229,7 @@ QPaintEngine* KUrlComboBox_PaintEngine(const KUrlComboBox* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KUrlComboBox_QBasePaintEngine(const KUrlComboBox* self) {
+QPaintEngine* KUrlComboBox_SuperPaintEngine(const KUrlComboBox* self) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_PaintEngine_IsBase(true);
@@ -1258,7 +1258,7 @@ void KUrlComboBox_MouseDoubleClickEvent(KUrlComboBox* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseMouseDoubleClickEvent(KUrlComboBox* self, QMouseEvent* event) {
+void KUrlComboBox_SuperMouseDoubleClickEvent(KUrlComboBox* self, QMouseEvent* event) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_MouseDoubleClickEvent_IsBase(true);
@@ -1287,7 +1287,7 @@ void KUrlComboBox_EnterEvent(KUrlComboBox* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseEnterEvent(KUrlComboBox* self, QEnterEvent* event) {
+void KUrlComboBox_SuperEnterEvent(KUrlComboBox* self, QEnterEvent* event) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_EnterEvent_IsBase(true);
@@ -1316,7 +1316,7 @@ void KUrlComboBox_LeaveEvent(KUrlComboBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseLeaveEvent(KUrlComboBox* self, QEvent* event) {
+void KUrlComboBox_SuperLeaveEvent(KUrlComboBox* self, QEvent* event) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_LeaveEvent_IsBase(true);
@@ -1345,7 +1345,7 @@ void KUrlComboBox_MoveEvent(KUrlComboBox* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseMoveEvent(KUrlComboBox* self, QMoveEvent* event) {
+void KUrlComboBox_SuperMoveEvent(KUrlComboBox* self, QMoveEvent* event) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_MoveEvent_IsBase(true);
@@ -1374,7 +1374,7 @@ void KUrlComboBox_CloseEvent(KUrlComboBox* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseCloseEvent(KUrlComboBox* self, QCloseEvent* event) {
+void KUrlComboBox_SuperCloseEvent(KUrlComboBox* self, QCloseEvent* event) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_CloseEvent_IsBase(true);
@@ -1403,7 +1403,7 @@ void KUrlComboBox_TabletEvent(KUrlComboBox* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseTabletEvent(KUrlComboBox* self, QTabletEvent* event) {
+void KUrlComboBox_SuperTabletEvent(KUrlComboBox* self, QTabletEvent* event) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_TabletEvent_IsBase(true);
@@ -1432,7 +1432,7 @@ void KUrlComboBox_ActionEvent(KUrlComboBox* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseActionEvent(KUrlComboBox* self, QActionEvent* event) {
+void KUrlComboBox_SuperActionEvent(KUrlComboBox* self, QActionEvent* event) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_ActionEvent_IsBase(true);
@@ -1461,7 +1461,7 @@ void KUrlComboBox_DragEnterEvent(KUrlComboBox* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseDragEnterEvent(KUrlComboBox* self, QDragEnterEvent* event) {
+void KUrlComboBox_SuperDragEnterEvent(KUrlComboBox* self, QDragEnterEvent* event) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_DragEnterEvent_IsBase(true);
@@ -1490,7 +1490,7 @@ void KUrlComboBox_DragMoveEvent(KUrlComboBox* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseDragMoveEvent(KUrlComboBox* self, QDragMoveEvent* event) {
+void KUrlComboBox_SuperDragMoveEvent(KUrlComboBox* self, QDragMoveEvent* event) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_DragMoveEvent_IsBase(true);
@@ -1519,7 +1519,7 @@ void KUrlComboBox_DragLeaveEvent(KUrlComboBox* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseDragLeaveEvent(KUrlComboBox* self, QDragLeaveEvent* event) {
+void KUrlComboBox_SuperDragLeaveEvent(KUrlComboBox* self, QDragLeaveEvent* event) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_DragLeaveEvent_IsBase(true);
@@ -1548,7 +1548,7 @@ void KUrlComboBox_DropEvent(KUrlComboBox* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseDropEvent(KUrlComboBox* self, QDropEvent* event) {
+void KUrlComboBox_SuperDropEvent(KUrlComboBox* self, QDropEvent* event) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_DropEvent_IsBase(true);
@@ -1578,7 +1578,7 @@ bool KUrlComboBox_NativeEvent(KUrlComboBox* self, const libqt_string eventType, 
 }
 
 // Base class handler implementation
-bool KUrlComboBox_QBaseNativeEvent(KUrlComboBox* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KUrlComboBox_SuperNativeEvent(KUrlComboBox* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
@@ -1608,7 +1608,7 @@ int KUrlComboBox_Metric(const KUrlComboBox* self, int param1) {
 }
 
 // Base class handler implementation
-int KUrlComboBox_QBaseMetric(const KUrlComboBox* self, int param1) {
+int KUrlComboBox_SuperMetric(const KUrlComboBox* self, int param1) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_Metric_IsBase(true);
@@ -1637,7 +1637,7 @@ void KUrlComboBox_InitPainter(const KUrlComboBox* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseInitPainter(const KUrlComboBox* self, QPainter* painter) {
+void KUrlComboBox_SuperInitPainter(const KUrlComboBox* self, QPainter* painter) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_InitPainter_IsBase(true);
@@ -1666,7 +1666,7 @@ QPaintDevice* KUrlComboBox_Redirected(const KUrlComboBox* self, QPoint* offset) 
 }
 
 // Base class handler implementation
-QPaintDevice* KUrlComboBox_QBaseRedirected(const KUrlComboBox* self, QPoint* offset) {
+QPaintDevice* KUrlComboBox_SuperRedirected(const KUrlComboBox* self, QPoint* offset) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_Redirected_IsBase(true);
@@ -1695,7 +1695,7 @@ QPainter* KUrlComboBox_SharedPainter(const KUrlComboBox* self) {
 }
 
 // Base class handler implementation
-QPainter* KUrlComboBox_QBaseSharedPainter(const KUrlComboBox* self) {
+QPainter* KUrlComboBox_SuperSharedPainter(const KUrlComboBox* self) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_SharedPainter_IsBase(true);
@@ -1724,7 +1724,7 @@ bool KUrlComboBox_FocusNextPrevChild(KUrlComboBox* self, bool next) {
 }
 
 // Base class handler implementation
-bool KUrlComboBox_QBaseFocusNextPrevChild(KUrlComboBox* self, bool next) {
+bool KUrlComboBox_SuperFocusNextPrevChild(KUrlComboBox* self, bool next) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_FocusNextPrevChild_IsBase(true);
@@ -1753,7 +1753,7 @@ bool KUrlComboBox_EventFilter(KUrlComboBox* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool KUrlComboBox_QBaseEventFilter(KUrlComboBox* self, QObject* watched, QEvent* event) {
+bool KUrlComboBox_SuperEventFilter(KUrlComboBox* self, QObject* watched, QEvent* event) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_EventFilter_IsBase(true);
@@ -1782,7 +1782,7 @@ void KUrlComboBox_TimerEvent(KUrlComboBox* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseTimerEvent(KUrlComboBox* self, QTimerEvent* event) {
+void KUrlComboBox_SuperTimerEvent(KUrlComboBox* self, QTimerEvent* event) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_TimerEvent_IsBase(true);
@@ -1811,7 +1811,7 @@ void KUrlComboBox_ChildEvent(KUrlComboBox* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseChildEvent(KUrlComboBox* self, QChildEvent* event) {
+void KUrlComboBox_SuperChildEvent(KUrlComboBox* self, QChildEvent* event) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_ChildEvent_IsBase(true);
@@ -1840,7 +1840,7 @@ void KUrlComboBox_CustomEvent(KUrlComboBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseCustomEvent(KUrlComboBox* self, QEvent* event) {
+void KUrlComboBox_SuperCustomEvent(KUrlComboBox* self, QEvent* event) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_CustomEvent_IsBase(true);
@@ -1869,7 +1869,7 @@ void KUrlComboBox_ConnectNotify(KUrlComboBox* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseConnectNotify(KUrlComboBox* self, const QMetaMethod* signal) {
+void KUrlComboBox_SuperConnectNotify(KUrlComboBox* self, const QMetaMethod* signal) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_ConnectNotify_IsBase(true);
@@ -1898,7 +1898,7 @@ void KUrlComboBox_DisconnectNotify(KUrlComboBox* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseDisconnectNotify(KUrlComboBox* self, const QMetaMethod* signal) {
+void KUrlComboBox_SuperDisconnectNotify(KUrlComboBox* self, const QMetaMethod* signal) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_DisconnectNotify_IsBase(true);
@@ -1927,7 +1927,7 @@ void KUrlComboBox_SetHandleSignals(KUrlComboBox* self, bool handle) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseSetHandleSignals(KUrlComboBox* self, bool handle) {
+void KUrlComboBox_SuperSetHandleSignals(KUrlComboBox* self, bool handle) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_SetHandleSignals_IsBase(true);
@@ -1956,7 +1956,7 @@ void KUrlComboBox_SetCompletionMode(KUrlComboBox* self, int mode) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseSetCompletionMode(KUrlComboBox* self, int mode) {
+void KUrlComboBox_SuperSetCompletionMode(KUrlComboBox* self, int mode) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_SetCompletionMode_IsBase(true);
@@ -1985,7 +1985,7 @@ void KUrlComboBox_VirtualHook(KUrlComboBox* self, int id, void* data) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseVirtualHook(KUrlComboBox* self, int id, void* data) {
+void KUrlComboBox_SuperVirtualHook(KUrlComboBox* self, int id, void* data) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_VirtualHook_IsBase(true);
@@ -2014,7 +2014,7 @@ void KUrlComboBox_UpdateMicroFocus(KUrlComboBox* self) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseUpdateMicroFocus(KUrlComboBox* self) {
+void KUrlComboBox_SuperUpdateMicroFocus(KUrlComboBox* self) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_UpdateMicroFocus_IsBase(true);
@@ -2043,7 +2043,7 @@ void KUrlComboBox_Create(KUrlComboBox* self) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseCreate(KUrlComboBox* self) {
+void KUrlComboBox_SuperCreate(KUrlComboBox* self) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_Create_IsBase(true);
@@ -2072,7 +2072,7 @@ void KUrlComboBox_Destroy(KUrlComboBox* self) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseDestroy(KUrlComboBox* self) {
+void KUrlComboBox_SuperDestroy(KUrlComboBox* self) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_Destroy_IsBase(true);
@@ -2101,7 +2101,7 @@ bool KUrlComboBox_FocusNextChild(KUrlComboBox* self) {
 }
 
 // Base class handler implementation
-bool KUrlComboBox_QBaseFocusNextChild(KUrlComboBox* self) {
+bool KUrlComboBox_SuperFocusNextChild(KUrlComboBox* self) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_FocusNextChild_IsBase(true);
@@ -2130,7 +2130,7 @@ bool KUrlComboBox_FocusPreviousChild(KUrlComboBox* self) {
 }
 
 // Base class handler implementation
-bool KUrlComboBox_QBaseFocusPreviousChild(KUrlComboBox* self) {
+bool KUrlComboBox_SuperFocusPreviousChild(KUrlComboBox* self) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_FocusPreviousChild_IsBase(true);
@@ -2159,7 +2159,7 @@ QObject* KUrlComboBox_Sender(const KUrlComboBox* self) {
 }
 
 // Base class handler implementation
-QObject* KUrlComboBox_QBaseSender(const KUrlComboBox* self) {
+QObject* KUrlComboBox_SuperSender(const KUrlComboBox* self) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_Sender_IsBase(true);
@@ -2188,7 +2188,7 @@ int KUrlComboBox_SenderSignalIndex(const KUrlComboBox* self) {
 }
 
 // Base class handler implementation
-int KUrlComboBox_QBaseSenderSignalIndex(const KUrlComboBox* self) {
+int KUrlComboBox_SuperSenderSignalIndex(const KUrlComboBox* self) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_SenderSignalIndex_IsBase(true);
@@ -2217,7 +2217,7 @@ int KUrlComboBox_Receivers(const KUrlComboBox* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KUrlComboBox_QBaseReceivers(const KUrlComboBox* self, const char* signal) {
+int KUrlComboBox_SuperReceivers(const KUrlComboBox* self, const char* signal) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_Receivers_IsBase(true);
@@ -2246,7 +2246,7 @@ bool KUrlComboBox_IsSignalConnected(const KUrlComboBox* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool KUrlComboBox_QBaseIsSignalConnected(const KUrlComboBox* self, const QMetaMethod* signal) {
+bool KUrlComboBox_SuperIsSignalConnected(const KUrlComboBox* self, const QMetaMethod* signal) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_IsSignalConnected_IsBase(true);
@@ -2275,7 +2275,7 @@ double KUrlComboBox_GetDecodedMetricF(const KUrlComboBox* self, int metricA, int
 }
 
 // Base class handler implementation
-double KUrlComboBox_QBaseGetDecodedMetricF(const KUrlComboBox* self, int metricA, int metricB) {
+double KUrlComboBox_SuperGetDecodedMetricF(const KUrlComboBox* self, int metricA, int metricB) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_GetDecodedMetricF_IsBase(true);
@@ -2350,7 +2350,7 @@ libqt_map /* of int to libqt_list of QKeySequence* */ KUrlComboBox_KeyBindingMap
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_list of QKeySequence* */ KUrlComboBox_QBaseKeyBindingMap(const KUrlComboBox* self) {
+libqt_map /* of int to libqt_list of QKeySequence* */ KUrlComboBox_SuperKeyBindingMap(const KUrlComboBox* self) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_KeyBindingMap_IsBase(true);
@@ -2437,7 +2437,7 @@ void KUrlComboBox_SetKeyBindingMap(KUrlComboBox* self, libqt_map /* of int to li
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseSetKeyBindingMap(KUrlComboBox* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
+void KUrlComboBox_SuperSetKeyBindingMap(KUrlComboBox* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_QMap;
     int* keyBindingMap_karr = static_cast<int*>(keyBindingMap.keys);
@@ -2478,7 +2478,7 @@ void KUrlComboBox_SetDelegate(KUrlComboBox* self, KCompletionBase* delegate) {
 }
 
 // Base class handler implementation
-void KUrlComboBox_QBaseSetDelegate(KUrlComboBox* self, KCompletionBase* delegate) {
+void KUrlComboBox_SuperSetDelegate(KUrlComboBox* self, KCompletionBase* delegate) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_SetDelegate_IsBase(true);
@@ -2507,7 +2507,7 @@ KCompletionBase* KUrlComboBox_Delegate(const KUrlComboBox* self) {
 }
 
 // Base class handler implementation
-KCompletionBase* KUrlComboBox_QBaseDelegate(const KUrlComboBox* self) {
+KCompletionBase* KUrlComboBox_SuperDelegate(const KUrlComboBox* self) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->setKUrlComboBox_Delegate_IsBase(true);

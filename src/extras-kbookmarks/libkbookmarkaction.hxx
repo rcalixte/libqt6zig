@@ -327,25 +327,25 @@ class VirtualKBookmarkAction final : public KBookmarkAction {
 
     // Friend functions
     friend bool KBookmarkAction_Event(KBookmarkAction* self, QEvent* param1);
-    friend bool KBookmarkAction_QBaseEvent(KBookmarkAction* self, QEvent* param1);
+    friend bool KBookmarkAction_SuperEvent(KBookmarkAction* self, QEvent* param1);
     friend void KBookmarkAction_TimerEvent(KBookmarkAction* self, QTimerEvent* event);
-    friend void KBookmarkAction_QBaseTimerEvent(KBookmarkAction* self, QTimerEvent* event);
+    friend void KBookmarkAction_SuperTimerEvent(KBookmarkAction* self, QTimerEvent* event);
     friend void KBookmarkAction_ChildEvent(KBookmarkAction* self, QChildEvent* event);
-    friend void KBookmarkAction_QBaseChildEvent(KBookmarkAction* self, QChildEvent* event);
+    friend void KBookmarkAction_SuperChildEvent(KBookmarkAction* self, QChildEvent* event);
     friend void KBookmarkAction_CustomEvent(KBookmarkAction* self, QEvent* event);
-    friend void KBookmarkAction_QBaseCustomEvent(KBookmarkAction* self, QEvent* event);
+    friend void KBookmarkAction_SuperCustomEvent(KBookmarkAction* self, QEvent* event);
     friend void KBookmarkAction_ConnectNotify(KBookmarkAction* self, const QMetaMethod* signal);
-    friend void KBookmarkAction_QBaseConnectNotify(KBookmarkAction* self, const QMetaMethod* signal);
+    friend void KBookmarkAction_SuperConnectNotify(KBookmarkAction* self, const QMetaMethod* signal);
     friend void KBookmarkAction_DisconnectNotify(KBookmarkAction* self, const QMetaMethod* signal);
-    friend void KBookmarkAction_QBaseDisconnectNotify(KBookmarkAction* self, const QMetaMethod* signal);
+    friend void KBookmarkAction_SuperDisconnectNotify(KBookmarkAction* self, const QMetaMethod* signal);
     friend QObject* KBookmarkAction_Sender(const KBookmarkAction* self);
-    friend QObject* KBookmarkAction_QBaseSender(const KBookmarkAction* self);
+    friend QObject* KBookmarkAction_SuperSender(const KBookmarkAction* self);
     friend int KBookmarkAction_SenderSignalIndex(const KBookmarkAction* self);
-    friend int KBookmarkAction_QBaseSenderSignalIndex(const KBookmarkAction* self);
+    friend int KBookmarkAction_SuperSenderSignalIndex(const KBookmarkAction* self);
     friend int KBookmarkAction_Receivers(const KBookmarkAction* self, const char* signal);
-    friend int KBookmarkAction_QBaseReceivers(const KBookmarkAction* self, const char* signal);
+    friend int KBookmarkAction_SuperReceivers(const KBookmarkAction* self, const char* signal);
     friend bool KBookmarkAction_IsSignalConnected(const KBookmarkAction* self, const QMetaMethod* signal);
-    friend bool KBookmarkAction_QBaseIsSignalConnected(const KBookmarkAction* self, const QMetaMethod* signal);
+    friend bool KBookmarkAction_SuperIsSignalConnected(const KBookmarkAction* self, const QMetaMethod* signal);
 };
 
 #endif

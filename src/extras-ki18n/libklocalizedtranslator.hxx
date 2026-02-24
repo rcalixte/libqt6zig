@@ -372,23 +372,23 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
 
     // Friend functions
     friend void KLocalizedTranslator_TimerEvent(KLocalizedTranslator* self, QTimerEvent* event);
-    friend void KLocalizedTranslator_QBaseTimerEvent(KLocalizedTranslator* self, QTimerEvent* event);
+    friend void KLocalizedTranslator_SuperTimerEvent(KLocalizedTranslator* self, QTimerEvent* event);
     friend void KLocalizedTranslator_ChildEvent(KLocalizedTranslator* self, QChildEvent* event);
-    friend void KLocalizedTranslator_QBaseChildEvent(KLocalizedTranslator* self, QChildEvent* event);
+    friend void KLocalizedTranslator_SuperChildEvent(KLocalizedTranslator* self, QChildEvent* event);
     friend void KLocalizedTranslator_CustomEvent(KLocalizedTranslator* self, QEvent* event);
-    friend void KLocalizedTranslator_QBaseCustomEvent(KLocalizedTranslator* self, QEvent* event);
+    friend void KLocalizedTranslator_SuperCustomEvent(KLocalizedTranslator* self, QEvent* event);
     friend void KLocalizedTranslator_ConnectNotify(KLocalizedTranslator* self, const QMetaMethod* signal);
-    friend void KLocalizedTranslator_QBaseConnectNotify(KLocalizedTranslator* self, const QMetaMethod* signal);
+    friend void KLocalizedTranslator_SuperConnectNotify(KLocalizedTranslator* self, const QMetaMethod* signal);
     friend void KLocalizedTranslator_DisconnectNotify(KLocalizedTranslator* self, const QMetaMethod* signal);
-    friend void KLocalizedTranslator_QBaseDisconnectNotify(KLocalizedTranslator* self, const QMetaMethod* signal);
+    friend void KLocalizedTranslator_SuperDisconnectNotify(KLocalizedTranslator* self, const QMetaMethod* signal);
     friend QObject* KLocalizedTranslator_Sender(const KLocalizedTranslator* self);
-    friend QObject* KLocalizedTranslator_QBaseSender(const KLocalizedTranslator* self);
+    friend QObject* KLocalizedTranslator_SuperSender(const KLocalizedTranslator* self);
     friend int KLocalizedTranslator_SenderSignalIndex(const KLocalizedTranslator* self);
-    friend int KLocalizedTranslator_QBaseSenderSignalIndex(const KLocalizedTranslator* self);
+    friend int KLocalizedTranslator_SuperSenderSignalIndex(const KLocalizedTranslator* self);
     friend int KLocalizedTranslator_Receivers(const KLocalizedTranslator* self, const char* signal);
-    friend int KLocalizedTranslator_QBaseReceivers(const KLocalizedTranslator* self, const char* signal);
+    friend int KLocalizedTranslator_SuperReceivers(const KLocalizedTranslator* self, const char* signal);
     friend bool KLocalizedTranslator_IsSignalConnected(const KLocalizedTranslator* self, const QMetaMethod* signal);
-    friend bool KLocalizedTranslator_QBaseIsSignalConnected(const KLocalizedTranslator* self, const QMetaMethod* signal);
+    friend bool KLocalizedTranslator_SuperIsSignalConnected(const KLocalizedTranslator* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -257,6 +257,10 @@ pub const qnetworkaddressentry = struct {
         return qtc.QNetworkAddressEntry_IsTemporary(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#dtor.QNetworkAddressEntry)
     ///
     /// Delete this object from C++ memory.
@@ -265,7 +269,7 @@ pub const qnetworkaddressentry = struct {
     ///
     /// ` self: QtC.QNetworkAddressEntry `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QNetworkAddressEntry_Delete(@ptrCast(self));
     }
 };
@@ -519,6 +523,10 @@ pub const qnetworkinterface = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkinterface.html#dtor.QNetworkInterface)
     ///
     /// Delete this object from C++ memory.
@@ -527,7 +535,7 @@ pub const qnetworkinterface = struct {
     ///
     /// ` self: QtC.QNetworkInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QNetworkInterface_Delete(@ptrCast(self));
     }
 };

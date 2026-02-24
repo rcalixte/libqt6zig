@@ -67,7 +67,7 @@ void Accounts__Watch_Connect_Notify(Accounts__Watch* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* Accounts__Watch_QBaseMetaObject(const Accounts__Watch* self) {
+QMetaObject* Accounts__Watch_SuperMetaObject(const Accounts__Watch* self) {
     auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self));
     if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
         vaccountswatch->setAccounts__Watch_MetaObject_IsBase(true);
@@ -86,7 +86,7 @@ void Accounts__Watch_OnMetaObject(const Accounts__Watch* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* Accounts__Watch_QBaseMetacast(Accounts__Watch* self, const char* param1) {
+void* Accounts__Watch_SuperMetacast(Accounts__Watch* self, const char* param1) {
     auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
     if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
         vaccountswatch->setAccounts__Watch_Metacast_IsBase(true);
@@ -105,7 +105,7 @@ void Accounts__Watch_OnMetacast(Accounts__Watch* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int Accounts__Watch_QBaseMetacall(Accounts__Watch* self, int param1, int param2, void** param3) {
+int Accounts__Watch_SuperMetacall(Accounts__Watch* self, int param1, int param2, void** param3) {
     auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
     if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
         vaccountswatch->setAccounts__Watch_Metacall_IsBase(true);
@@ -134,7 +134,7 @@ bool Accounts__Watch_Event(Accounts__Watch* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool Accounts__Watch_QBaseEvent(Accounts__Watch* self, QEvent* event) {
+bool Accounts__Watch_SuperEvent(Accounts__Watch* self, QEvent* event) {
     auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
     if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
         vaccountswatch->setAccounts__Watch_Event_IsBase(true);
@@ -163,7 +163,7 @@ bool Accounts__Watch_EventFilter(Accounts__Watch* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool Accounts__Watch_QBaseEventFilter(Accounts__Watch* self, QObject* watched, QEvent* event) {
+bool Accounts__Watch_SuperEventFilter(Accounts__Watch* self, QObject* watched, QEvent* event) {
     auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
     if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
         vaccountswatch->setAccounts__Watch_EventFilter_IsBase(true);
@@ -192,7 +192,7 @@ void Accounts__Watch_TimerEvent(Accounts__Watch* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void Accounts__Watch_QBaseTimerEvent(Accounts__Watch* self, QTimerEvent* event) {
+void Accounts__Watch_SuperTimerEvent(Accounts__Watch* self, QTimerEvent* event) {
     auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
     if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
         vaccountswatch->setAccounts__Watch_TimerEvent_IsBase(true);
@@ -221,7 +221,7 @@ void Accounts__Watch_ChildEvent(Accounts__Watch* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void Accounts__Watch_QBaseChildEvent(Accounts__Watch* self, QChildEvent* event) {
+void Accounts__Watch_SuperChildEvent(Accounts__Watch* self, QChildEvent* event) {
     auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
     if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
         vaccountswatch->setAccounts__Watch_ChildEvent_IsBase(true);
@@ -250,7 +250,7 @@ void Accounts__Watch_CustomEvent(Accounts__Watch* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void Accounts__Watch_QBaseCustomEvent(Accounts__Watch* self, QEvent* event) {
+void Accounts__Watch_SuperCustomEvent(Accounts__Watch* self, QEvent* event) {
     auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
     if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
         vaccountswatch->setAccounts__Watch_CustomEvent_IsBase(true);
@@ -279,7 +279,7 @@ void Accounts__Watch_ConnectNotify(Accounts__Watch* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void Accounts__Watch_QBaseConnectNotify(Accounts__Watch* self, const QMetaMethod* signal) {
+void Accounts__Watch_SuperConnectNotify(Accounts__Watch* self, const QMetaMethod* signal) {
     auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
     if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
         vaccountswatch->setAccounts__Watch_ConnectNotify_IsBase(true);
@@ -308,7 +308,7 @@ void Accounts__Watch_DisconnectNotify(Accounts__Watch* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void Accounts__Watch_QBaseDisconnectNotify(Accounts__Watch* self, const QMetaMethod* signal) {
+void Accounts__Watch_SuperDisconnectNotify(Accounts__Watch* self, const QMetaMethod* signal) {
     auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
     if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
         vaccountswatch->setAccounts__Watch_DisconnectNotify_IsBase(true);
@@ -337,7 +337,7 @@ QObject* Accounts__Watch_Sender(const Accounts__Watch* self) {
 }
 
 // Base class handler implementation
-QObject* Accounts__Watch_QBaseSender(const Accounts__Watch* self) {
+QObject* Accounts__Watch_SuperSender(const Accounts__Watch* self) {
     auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self));
     if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
         vaccountswatch->setAccounts__Watch_Sender_IsBase(true);
@@ -366,7 +366,7 @@ int Accounts__Watch_SenderSignalIndex(const Accounts__Watch* self) {
 }
 
 // Base class handler implementation
-int Accounts__Watch_QBaseSenderSignalIndex(const Accounts__Watch* self) {
+int Accounts__Watch_SuperSenderSignalIndex(const Accounts__Watch* self) {
     auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self));
     if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
         vaccountswatch->setAccounts__Watch_SenderSignalIndex_IsBase(true);
@@ -395,7 +395,7 @@ int Accounts__Watch_Receivers(const Accounts__Watch* self, const char* signal) {
 }
 
 // Base class handler implementation
-int Accounts__Watch_QBaseReceivers(const Accounts__Watch* self, const char* signal) {
+int Accounts__Watch_SuperReceivers(const Accounts__Watch* self, const char* signal) {
     auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self));
     if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
         vaccountswatch->setAccounts__Watch_Receivers_IsBase(true);
@@ -424,7 +424,7 @@ bool Accounts__Watch_IsSignalConnected(const Accounts__Watch* self, const QMetaM
 }
 
 // Base class handler implementation
-bool Accounts__Watch_QBaseIsSignalConnected(const Accounts__Watch* self, const QMetaMethod* signal) {
+bool Accounts__Watch_SuperIsSignalConnected(const Accounts__Watch* self, const QMetaMethod* signal) {
     auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self));
     if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
         vaccountswatch->setAccounts__Watch_IsSignalConnected_IsBase(true);
@@ -942,7 +942,7 @@ Accounts__Watch* Accounts__Account_WatchKey1(Accounts__Account* self, const libq
 }
 
 // Base class handler implementation
-QMetaObject* Accounts__Account_QBaseMetaObject(const Accounts__Account* self) {
+QMetaObject* Accounts__Account_SuperMetaObject(const Accounts__Account* self) {
     auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self));
     if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
         vaccountsaccount->setAccounts__Account_MetaObject_IsBase(true);
@@ -961,7 +961,7 @@ void Accounts__Account_OnMetaObject(const Accounts__Account* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* Accounts__Account_QBaseMetacast(Accounts__Account* self, const char* param1) {
+void* Accounts__Account_SuperMetacast(Accounts__Account* self, const char* param1) {
     auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
     if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
         vaccountsaccount->setAccounts__Account_Metacast_IsBase(true);
@@ -980,7 +980,7 @@ void Accounts__Account_OnMetacast(Accounts__Account* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int Accounts__Account_QBaseMetacall(Accounts__Account* self, int param1, int param2, void** param3) {
+int Accounts__Account_SuperMetacall(Accounts__Account* self, int param1, int param2, void** param3) {
     auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
     if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
         vaccountsaccount->setAccounts__Account_Metacall_IsBase(true);
@@ -1009,7 +1009,7 @@ bool Accounts__Account_Event(Accounts__Account* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool Accounts__Account_QBaseEvent(Accounts__Account* self, QEvent* event) {
+bool Accounts__Account_SuperEvent(Accounts__Account* self, QEvent* event) {
     auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
     if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
         vaccountsaccount->setAccounts__Account_Event_IsBase(true);
@@ -1038,7 +1038,7 @@ bool Accounts__Account_EventFilter(Accounts__Account* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool Accounts__Account_QBaseEventFilter(Accounts__Account* self, QObject* watched, QEvent* event) {
+bool Accounts__Account_SuperEventFilter(Accounts__Account* self, QObject* watched, QEvent* event) {
     auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
     if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
         vaccountsaccount->setAccounts__Account_EventFilter_IsBase(true);
@@ -1067,7 +1067,7 @@ void Accounts__Account_TimerEvent(Accounts__Account* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void Accounts__Account_QBaseTimerEvent(Accounts__Account* self, QTimerEvent* event) {
+void Accounts__Account_SuperTimerEvent(Accounts__Account* self, QTimerEvent* event) {
     auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
     if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
         vaccountsaccount->setAccounts__Account_TimerEvent_IsBase(true);
@@ -1096,7 +1096,7 @@ void Accounts__Account_ChildEvent(Accounts__Account* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void Accounts__Account_QBaseChildEvent(Accounts__Account* self, QChildEvent* event) {
+void Accounts__Account_SuperChildEvent(Accounts__Account* self, QChildEvent* event) {
     auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
     if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
         vaccountsaccount->setAccounts__Account_ChildEvent_IsBase(true);
@@ -1125,7 +1125,7 @@ void Accounts__Account_CustomEvent(Accounts__Account* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void Accounts__Account_QBaseCustomEvent(Accounts__Account* self, QEvent* event) {
+void Accounts__Account_SuperCustomEvent(Accounts__Account* self, QEvent* event) {
     auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
     if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
         vaccountsaccount->setAccounts__Account_CustomEvent_IsBase(true);
@@ -1154,7 +1154,7 @@ void Accounts__Account_ConnectNotify(Accounts__Account* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void Accounts__Account_QBaseConnectNotify(Accounts__Account* self, const QMetaMethod* signal) {
+void Accounts__Account_SuperConnectNotify(Accounts__Account* self, const QMetaMethod* signal) {
     auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
     if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
         vaccountsaccount->setAccounts__Account_ConnectNotify_IsBase(true);
@@ -1183,7 +1183,7 @@ void Accounts__Account_DisconnectNotify(Accounts__Account* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void Accounts__Account_QBaseDisconnectNotify(Accounts__Account* self, const QMetaMethod* signal) {
+void Accounts__Account_SuperDisconnectNotify(Accounts__Account* self, const QMetaMethod* signal) {
     auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
     if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
         vaccountsaccount->setAccounts__Account_DisconnectNotify_IsBase(true);
@@ -1212,7 +1212,7 @@ QObject* Accounts__Account_Sender(const Accounts__Account* self) {
 }
 
 // Base class handler implementation
-QObject* Accounts__Account_QBaseSender(const Accounts__Account* self) {
+QObject* Accounts__Account_SuperSender(const Accounts__Account* self) {
     auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self));
     if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
         vaccountsaccount->setAccounts__Account_Sender_IsBase(true);
@@ -1241,7 +1241,7 @@ int Accounts__Account_SenderSignalIndex(const Accounts__Account* self) {
 }
 
 // Base class handler implementation
-int Accounts__Account_QBaseSenderSignalIndex(const Accounts__Account* self) {
+int Accounts__Account_SuperSenderSignalIndex(const Accounts__Account* self) {
     auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self));
     if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
         vaccountsaccount->setAccounts__Account_SenderSignalIndex_IsBase(true);
@@ -1270,7 +1270,7 @@ int Accounts__Account_Receivers(const Accounts__Account* self, const char* signa
 }
 
 // Base class handler implementation
-int Accounts__Account_QBaseReceivers(const Accounts__Account* self, const char* signal) {
+int Accounts__Account_SuperReceivers(const Accounts__Account* self, const char* signal) {
     auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self));
     if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
         vaccountsaccount->setAccounts__Account_Receivers_IsBase(true);
@@ -1299,7 +1299,7 @@ bool Accounts__Account_IsSignalConnected(const Accounts__Account* self, const QM
 }
 
 // Base class handler implementation
-bool Accounts__Account_QBaseIsSignalConnected(const Accounts__Account* self, const QMetaMethod* signal) {
+bool Accounts__Account_SuperIsSignalConnected(const Accounts__Account* self, const QMetaMethod* signal) {
     auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self));
     if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
         vaccountsaccount->setAccounts__Account_IsSignalConnected_IsBase(true);

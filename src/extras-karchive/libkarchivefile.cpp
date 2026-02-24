@@ -85,7 +85,7 @@ void KArchiveFile_VirtualHook(KArchiveFile* self, int id, void* data) {
 }
 
 // Base class handler implementation
-libqt_string KArchiveFile_QBaseData(const KArchiveFile* self) {
+libqt_string KArchiveFile_SuperData(const KArchiveFile* self) {
     auto* vkarchivefile = const_cast<VirtualKArchiveFile*>(dynamic_cast<const VirtualKArchiveFile*>(self));
     if (vkarchivefile && vkarchivefile->isVirtualKArchiveFile) {
         vkarchivefile->setKArchiveFile_Data_IsBase(true);
@@ -114,7 +114,7 @@ void KArchiveFile_OnData(const KArchiveFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QIODevice* KArchiveFile_QBaseCreateDevice(const KArchiveFile* self) {
+QIODevice* KArchiveFile_SuperCreateDevice(const KArchiveFile* self) {
     auto* vkarchivefile = const_cast<VirtualKArchiveFile*>(dynamic_cast<const VirtualKArchiveFile*>(self));
     if (vkarchivefile && vkarchivefile->isVirtualKArchiveFile) {
         vkarchivefile->setKArchiveFile_CreateDevice_IsBase(true);
@@ -133,7 +133,7 @@ void KArchiveFile_OnCreateDevice(const KArchiveFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KArchiveFile_QBaseIsFile(const KArchiveFile* self) {
+bool KArchiveFile_SuperIsFile(const KArchiveFile* self) {
     auto* vkarchivefile = const_cast<VirtualKArchiveFile*>(dynamic_cast<const VirtualKArchiveFile*>(self));
     if (vkarchivefile && vkarchivefile->isVirtualKArchiveFile) {
         vkarchivefile->setKArchiveFile_IsFile_IsBase(true);
@@ -152,7 +152,7 @@ void KArchiveFile_OnIsFile(const KArchiveFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KArchiveFile_QBaseVirtualHook(KArchiveFile* self, int id, void* data) {
+void KArchiveFile_SuperVirtualHook(KArchiveFile* self, int id, void* data) {
     auto* vkarchivefile = dynamic_cast<VirtualKArchiveFile*>(self);
     if (vkarchivefile && vkarchivefile->isVirtualKArchiveFile) {
         vkarchivefile->setKArchiveFile_VirtualHook_IsBase(true);
@@ -181,7 +181,7 @@ bool KArchiveFile_IsDirectory(const KArchiveFile* self) {
 }
 
 // Base class handler implementation
-bool KArchiveFile_QBaseIsDirectory(const KArchiveFile* self) {
+bool KArchiveFile_SuperIsDirectory(const KArchiveFile* self) {
     auto* vkarchivefile = const_cast<VirtualKArchiveFile*>(dynamic_cast<const VirtualKArchiveFile*>(self));
     if (vkarchivefile && vkarchivefile->isVirtualKArchiveFile) {
         vkarchivefile->setKArchiveFile_IsDirectory_IsBase(true);
@@ -210,7 +210,7 @@ KArchive* KArchiveFile_Archive(const KArchiveFile* self) {
 }
 
 // Base class handler implementation
-KArchive* KArchiveFile_QBaseArchive(const KArchiveFile* self) {
+KArchive* KArchiveFile_SuperArchive(const KArchiveFile* self) {
     auto* vkarchivefile = const_cast<VirtualKArchiveFile*>(dynamic_cast<const VirtualKArchiveFile*>(self));
     if (vkarchivefile && vkarchivefile->isVirtualKArchiveFile) {
         vkarchivefile->setKArchiveFile_Archive_IsBase(true);

@@ -107,7 +107,7 @@ void KNSWidgets__Dialog_Open(KNSWidgets__Dialog* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KNSWidgets__Dialog_QBaseMetaObject(const KNSWidgets__Dialog* self) {
+QMetaObject* KNSWidgets__Dialog_SuperMetaObject(const KNSWidgets__Dialog* self) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_MetaObject_IsBase(true);
@@ -126,7 +126,7 @@ void KNSWidgets__Dialog_OnMetaObject(const KNSWidgets__Dialog* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* KNSWidgets__Dialog_QBaseMetacast(KNSWidgets__Dialog* self, const char* param1) {
+void* KNSWidgets__Dialog_SuperMetacast(KNSWidgets__Dialog* self, const char* param1) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_Metacast_IsBase(true);
@@ -145,7 +145,7 @@ void KNSWidgets__Dialog_OnMetacast(KNSWidgets__Dialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KNSWidgets__Dialog_QBaseMetacall(KNSWidgets__Dialog* self, int param1, int param2, void** param3) {
+int KNSWidgets__Dialog_SuperMetacall(KNSWidgets__Dialog* self, int param1, int param2, void** param3) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_Metacall_IsBase(true);
@@ -164,7 +164,7 @@ void KNSWidgets__Dialog_OnMetacall(KNSWidgets__Dialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseOpen(KNSWidgets__Dialog* self) {
+void KNSWidgets__Dialog_SuperOpen(KNSWidgets__Dialog* self) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_Open_IsBase(true);
@@ -193,7 +193,7 @@ void KNSWidgets__Dialog_SetVisible(KNSWidgets__Dialog* self, bool visible) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseSetVisible(KNSWidgets__Dialog* self, bool visible) {
+void KNSWidgets__Dialog_SuperSetVisible(KNSWidgets__Dialog* self, bool visible) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_SetVisible_IsBase(true);
@@ -222,7 +222,7 @@ QSize* KNSWidgets__Dialog_SizeHint(const KNSWidgets__Dialog* self) {
 }
 
 // Base class handler implementation
-QSize* KNSWidgets__Dialog_QBaseSizeHint(const KNSWidgets__Dialog* self) {
+QSize* KNSWidgets__Dialog_SuperSizeHint(const KNSWidgets__Dialog* self) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_SizeHint_IsBase(true);
@@ -251,7 +251,7 @@ QSize* KNSWidgets__Dialog_MinimumSizeHint(const KNSWidgets__Dialog* self) {
 }
 
 // Base class handler implementation
-QSize* KNSWidgets__Dialog_QBaseMinimumSizeHint(const KNSWidgets__Dialog* self) {
+QSize* KNSWidgets__Dialog_SuperMinimumSizeHint(const KNSWidgets__Dialog* self) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_MinimumSizeHint_IsBase(true);
@@ -280,7 +280,7 @@ int KNSWidgets__Dialog_Exec(KNSWidgets__Dialog* self) {
 }
 
 // Base class handler implementation
-int KNSWidgets__Dialog_QBaseExec(KNSWidgets__Dialog* self) {
+int KNSWidgets__Dialog_SuperExec(KNSWidgets__Dialog* self) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_Exec_IsBase(true);
@@ -309,7 +309,7 @@ void KNSWidgets__Dialog_Done(KNSWidgets__Dialog* self, int param1) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseDone(KNSWidgets__Dialog* self, int param1) {
+void KNSWidgets__Dialog_SuperDone(KNSWidgets__Dialog* self, int param1) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_Done_IsBase(true);
@@ -338,7 +338,7 @@ void KNSWidgets__Dialog_Accept(KNSWidgets__Dialog* self) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseAccept(KNSWidgets__Dialog* self) {
+void KNSWidgets__Dialog_SuperAccept(KNSWidgets__Dialog* self) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_Accept_IsBase(true);
@@ -367,7 +367,7 @@ void KNSWidgets__Dialog_Reject(KNSWidgets__Dialog* self) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseReject(KNSWidgets__Dialog* self) {
+void KNSWidgets__Dialog_SuperReject(KNSWidgets__Dialog* self) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_Reject_IsBase(true);
@@ -396,7 +396,7 @@ void KNSWidgets__Dialog_KeyPressEvent(KNSWidgets__Dialog* self, QKeyEvent* param
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseKeyPressEvent(KNSWidgets__Dialog* self, QKeyEvent* param1) {
+void KNSWidgets__Dialog_SuperKeyPressEvent(KNSWidgets__Dialog* self, QKeyEvent* param1) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_KeyPressEvent_IsBase(true);
@@ -425,7 +425,7 @@ void KNSWidgets__Dialog_CloseEvent(KNSWidgets__Dialog* self, QCloseEvent* param1
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseCloseEvent(KNSWidgets__Dialog* self, QCloseEvent* param1) {
+void KNSWidgets__Dialog_SuperCloseEvent(KNSWidgets__Dialog* self, QCloseEvent* param1) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_CloseEvent_IsBase(true);
@@ -454,7 +454,7 @@ void KNSWidgets__Dialog_ShowEvent(KNSWidgets__Dialog* self, QShowEvent* param1) 
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseShowEvent(KNSWidgets__Dialog* self, QShowEvent* param1) {
+void KNSWidgets__Dialog_SuperShowEvent(KNSWidgets__Dialog* self, QShowEvent* param1) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_ShowEvent_IsBase(true);
@@ -483,7 +483,7 @@ void KNSWidgets__Dialog_ResizeEvent(KNSWidgets__Dialog* self, QResizeEvent* para
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseResizeEvent(KNSWidgets__Dialog* self, QResizeEvent* param1) {
+void KNSWidgets__Dialog_SuperResizeEvent(KNSWidgets__Dialog* self, QResizeEvent* param1) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_ResizeEvent_IsBase(true);
@@ -512,7 +512,7 @@ void KNSWidgets__Dialog_ContextMenuEvent(KNSWidgets__Dialog* self, QContextMenuE
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseContextMenuEvent(KNSWidgets__Dialog* self, QContextMenuEvent* param1) {
+void KNSWidgets__Dialog_SuperContextMenuEvent(KNSWidgets__Dialog* self, QContextMenuEvent* param1) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_ContextMenuEvent_IsBase(true);
@@ -541,7 +541,7 @@ bool KNSWidgets__Dialog_EventFilter(KNSWidgets__Dialog* self, QObject* param1, Q
 }
 
 // Base class handler implementation
-bool KNSWidgets__Dialog_QBaseEventFilter(KNSWidgets__Dialog* self, QObject* param1, QEvent* param2) {
+bool KNSWidgets__Dialog_SuperEventFilter(KNSWidgets__Dialog* self, QObject* param1, QEvent* param2) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_EventFilter_IsBase(true);
@@ -570,7 +570,7 @@ int KNSWidgets__Dialog_DevType(const KNSWidgets__Dialog* self) {
 }
 
 // Base class handler implementation
-int KNSWidgets__Dialog_QBaseDevType(const KNSWidgets__Dialog* self) {
+int KNSWidgets__Dialog_SuperDevType(const KNSWidgets__Dialog* self) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_DevType_IsBase(true);
@@ -599,7 +599,7 @@ int KNSWidgets__Dialog_HeightForWidth(const KNSWidgets__Dialog* self, int param1
 }
 
 // Base class handler implementation
-int KNSWidgets__Dialog_QBaseHeightForWidth(const KNSWidgets__Dialog* self, int param1) {
+int KNSWidgets__Dialog_SuperHeightForWidth(const KNSWidgets__Dialog* self, int param1) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_HeightForWidth_IsBase(true);
@@ -628,7 +628,7 @@ bool KNSWidgets__Dialog_HasHeightForWidth(const KNSWidgets__Dialog* self) {
 }
 
 // Base class handler implementation
-bool KNSWidgets__Dialog_QBaseHasHeightForWidth(const KNSWidgets__Dialog* self) {
+bool KNSWidgets__Dialog_SuperHasHeightForWidth(const KNSWidgets__Dialog* self) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_HasHeightForWidth_IsBase(true);
@@ -657,7 +657,7 @@ QPaintEngine* KNSWidgets__Dialog_PaintEngine(const KNSWidgets__Dialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KNSWidgets__Dialog_QBasePaintEngine(const KNSWidgets__Dialog* self) {
+QPaintEngine* KNSWidgets__Dialog_SuperPaintEngine(const KNSWidgets__Dialog* self) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_PaintEngine_IsBase(true);
@@ -686,7 +686,7 @@ bool KNSWidgets__Dialog_Event(KNSWidgets__Dialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KNSWidgets__Dialog_QBaseEvent(KNSWidgets__Dialog* self, QEvent* event) {
+bool KNSWidgets__Dialog_SuperEvent(KNSWidgets__Dialog* self, QEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_Event_IsBase(true);
@@ -715,7 +715,7 @@ void KNSWidgets__Dialog_MousePressEvent(KNSWidgets__Dialog* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseMousePressEvent(KNSWidgets__Dialog* self, QMouseEvent* event) {
+void KNSWidgets__Dialog_SuperMousePressEvent(KNSWidgets__Dialog* self, QMouseEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_MousePressEvent_IsBase(true);
@@ -744,7 +744,7 @@ void KNSWidgets__Dialog_MouseReleaseEvent(KNSWidgets__Dialog* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseMouseReleaseEvent(KNSWidgets__Dialog* self, QMouseEvent* event) {
+void KNSWidgets__Dialog_SuperMouseReleaseEvent(KNSWidgets__Dialog* self, QMouseEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_MouseReleaseEvent_IsBase(true);
@@ -773,7 +773,7 @@ void KNSWidgets__Dialog_MouseDoubleClickEvent(KNSWidgets__Dialog* self, QMouseEv
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseMouseDoubleClickEvent(KNSWidgets__Dialog* self, QMouseEvent* event) {
+void KNSWidgets__Dialog_SuperMouseDoubleClickEvent(KNSWidgets__Dialog* self, QMouseEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_MouseDoubleClickEvent_IsBase(true);
@@ -802,7 +802,7 @@ void KNSWidgets__Dialog_MouseMoveEvent(KNSWidgets__Dialog* self, QMouseEvent* ev
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseMouseMoveEvent(KNSWidgets__Dialog* self, QMouseEvent* event) {
+void KNSWidgets__Dialog_SuperMouseMoveEvent(KNSWidgets__Dialog* self, QMouseEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_MouseMoveEvent_IsBase(true);
@@ -831,7 +831,7 @@ void KNSWidgets__Dialog_WheelEvent(KNSWidgets__Dialog* self, QWheelEvent* event)
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseWheelEvent(KNSWidgets__Dialog* self, QWheelEvent* event) {
+void KNSWidgets__Dialog_SuperWheelEvent(KNSWidgets__Dialog* self, QWheelEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_WheelEvent_IsBase(true);
@@ -860,7 +860,7 @@ void KNSWidgets__Dialog_KeyReleaseEvent(KNSWidgets__Dialog* self, QKeyEvent* eve
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseKeyReleaseEvent(KNSWidgets__Dialog* self, QKeyEvent* event) {
+void KNSWidgets__Dialog_SuperKeyReleaseEvent(KNSWidgets__Dialog* self, QKeyEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_KeyReleaseEvent_IsBase(true);
@@ -889,7 +889,7 @@ void KNSWidgets__Dialog_FocusInEvent(KNSWidgets__Dialog* self, QFocusEvent* even
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseFocusInEvent(KNSWidgets__Dialog* self, QFocusEvent* event) {
+void KNSWidgets__Dialog_SuperFocusInEvent(KNSWidgets__Dialog* self, QFocusEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_FocusInEvent_IsBase(true);
@@ -918,7 +918,7 @@ void KNSWidgets__Dialog_FocusOutEvent(KNSWidgets__Dialog* self, QFocusEvent* eve
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseFocusOutEvent(KNSWidgets__Dialog* self, QFocusEvent* event) {
+void KNSWidgets__Dialog_SuperFocusOutEvent(KNSWidgets__Dialog* self, QFocusEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_FocusOutEvent_IsBase(true);
@@ -947,7 +947,7 @@ void KNSWidgets__Dialog_EnterEvent(KNSWidgets__Dialog* self, QEnterEvent* event)
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseEnterEvent(KNSWidgets__Dialog* self, QEnterEvent* event) {
+void KNSWidgets__Dialog_SuperEnterEvent(KNSWidgets__Dialog* self, QEnterEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_EnterEvent_IsBase(true);
@@ -976,7 +976,7 @@ void KNSWidgets__Dialog_LeaveEvent(KNSWidgets__Dialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseLeaveEvent(KNSWidgets__Dialog* self, QEvent* event) {
+void KNSWidgets__Dialog_SuperLeaveEvent(KNSWidgets__Dialog* self, QEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_LeaveEvent_IsBase(true);
@@ -1005,7 +1005,7 @@ void KNSWidgets__Dialog_PaintEvent(KNSWidgets__Dialog* self, QPaintEvent* event)
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBasePaintEvent(KNSWidgets__Dialog* self, QPaintEvent* event) {
+void KNSWidgets__Dialog_SuperPaintEvent(KNSWidgets__Dialog* self, QPaintEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_PaintEvent_IsBase(true);
@@ -1034,7 +1034,7 @@ void KNSWidgets__Dialog_MoveEvent(KNSWidgets__Dialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseMoveEvent(KNSWidgets__Dialog* self, QMoveEvent* event) {
+void KNSWidgets__Dialog_SuperMoveEvent(KNSWidgets__Dialog* self, QMoveEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_MoveEvent_IsBase(true);
@@ -1063,7 +1063,7 @@ void KNSWidgets__Dialog_TabletEvent(KNSWidgets__Dialog* self, QTabletEvent* even
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseTabletEvent(KNSWidgets__Dialog* self, QTabletEvent* event) {
+void KNSWidgets__Dialog_SuperTabletEvent(KNSWidgets__Dialog* self, QTabletEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_TabletEvent_IsBase(true);
@@ -1092,7 +1092,7 @@ void KNSWidgets__Dialog_ActionEvent(KNSWidgets__Dialog* self, QActionEvent* even
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseActionEvent(KNSWidgets__Dialog* self, QActionEvent* event) {
+void KNSWidgets__Dialog_SuperActionEvent(KNSWidgets__Dialog* self, QActionEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_ActionEvent_IsBase(true);
@@ -1121,7 +1121,7 @@ void KNSWidgets__Dialog_DragEnterEvent(KNSWidgets__Dialog* self, QDragEnterEvent
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseDragEnterEvent(KNSWidgets__Dialog* self, QDragEnterEvent* event) {
+void KNSWidgets__Dialog_SuperDragEnterEvent(KNSWidgets__Dialog* self, QDragEnterEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_DragEnterEvent_IsBase(true);
@@ -1150,7 +1150,7 @@ void KNSWidgets__Dialog_DragMoveEvent(KNSWidgets__Dialog* self, QDragMoveEvent* 
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseDragMoveEvent(KNSWidgets__Dialog* self, QDragMoveEvent* event) {
+void KNSWidgets__Dialog_SuperDragMoveEvent(KNSWidgets__Dialog* self, QDragMoveEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_DragMoveEvent_IsBase(true);
@@ -1179,7 +1179,7 @@ void KNSWidgets__Dialog_DragLeaveEvent(KNSWidgets__Dialog* self, QDragLeaveEvent
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseDragLeaveEvent(KNSWidgets__Dialog* self, QDragLeaveEvent* event) {
+void KNSWidgets__Dialog_SuperDragLeaveEvent(KNSWidgets__Dialog* self, QDragLeaveEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_DragLeaveEvent_IsBase(true);
@@ -1208,7 +1208,7 @@ void KNSWidgets__Dialog_DropEvent(KNSWidgets__Dialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseDropEvent(KNSWidgets__Dialog* self, QDropEvent* event) {
+void KNSWidgets__Dialog_SuperDropEvent(KNSWidgets__Dialog* self, QDropEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_DropEvent_IsBase(true);
@@ -1237,7 +1237,7 @@ void KNSWidgets__Dialog_HideEvent(KNSWidgets__Dialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseHideEvent(KNSWidgets__Dialog* self, QHideEvent* event) {
+void KNSWidgets__Dialog_SuperHideEvent(KNSWidgets__Dialog* self, QHideEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_HideEvent_IsBase(true);
@@ -1267,7 +1267,7 @@ bool KNSWidgets__Dialog_NativeEvent(KNSWidgets__Dialog* self, const libqt_string
 }
 
 // Base class handler implementation
-bool KNSWidgets__Dialog_QBaseNativeEvent(KNSWidgets__Dialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KNSWidgets__Dialog_SuperNativeEvent(KNSWidgets__Dialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
@@ -1297,7 +1297,7 @@ void KNSWidgets__Dialog_ChangeEvent(KNSWidgets__Dialog* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseChangeEvent(KNSWidgets__Dialog* self, QEvent* param1) {
+void KNSWidgets__Dialog_SuperChangeEvent(KNSWidgets__Dialog* self, QEvent* param1) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_ChangeEvent_IsBase(true);
@@ -1326,7 +1326,7 @@ int KNSWidgets__Dialog_Metric(const KNSWidgets__Dialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KNSWidgets__Dialog_QBaseMetric(const KNSWidgets__Dialog* self, int param1) {
+int KNSWidgets__Dialog_SuperMetric(const KNSWidgets__Dialog* self, int param1) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_Metric_IsBase(true);
@@ -1355,7 +1355,7 @@ void KNSWidgets__Dialog_InitPainter(const KNSWidgets__Dialog* self, QPainter* pa
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseInitPainter(const KNSWidgets__Dialog* self, QPainter* painter) {
+void KNSWidgets__Dialog_SuperInitPainter(const KNSWidgets__Dialog* self, QPainter* painter) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_InitPainter_IsBase(true);
@@ -1384,7 +1384,7 @@ QPaintDevice* KNSWidgets__Dialog_Redirected(const KNSWidgets__Dialog* self, QPoi
 }
 
 // Base class handler implementation
-QPaintDevice* KNSWidgets__Dialog_QBaseRedirected(const KNSWidgets__Dialog* self, QPoint* offset) {
+QPaintDevice* KNSWidgets__Dialog_SuperRedirected(const KNSWidgets__Dialog* self, QPoint* offset) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_Redirected_IsBase(true);
@@ -1413,7 +1413,7 @@ QPainter* KNSWidgets__Dialog_SharedPainter(const KNSWidgets__Dialog* self) {
 }
 
 // Base class handler implementation
-QPainter* KNSWidgets__Dialog_QBaseSharedPainter(const KNSWidgets__Dialog* self) {
+QPainter* KNSWidgets__Dialog_SuperSharedPainter(const KNSWidgets__Dialog* self) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_SharedPainter_IsBase(true);
@@ -1442,7 +1442,7 @@ void KNSWidgets__Dialog_InputMethodEvent(KNSWidgets__Dialog* self, QInputMethodE
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseInputMethodEvent(KNSWidgets__Dialog* self, QInputMethodEvent* param1) {
+void KNSWidgets__Dialog_SuperInputMethodEvent(KNSWidgets__Dialog* self, QInputMethodEvent* param1) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_InputMethodEvent_IsBase(true);
@@ -1471,7 +1471,7 @@ QVariant* KNSWidgets__Dialog_InputMethodQuery(const KNSWidgets__Dialog* self, in
 }
 
 // Base class handler implementation
-QVariant* KNSWidgets__Dialog_QBaseInputMethodQuery(const KNSWidgets__Dialog* self, int param1) {
+QVariant* KNSWidgets__Dialog_SuperInputMethodQuery(const KNSWidgets__Dialog* self, int param1) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_InputMethodQuery_IsBase(true);
@@ -1500,7 +1500,7 @@ bool KNSWidgets__Dialog_FocusNextPrevChild(KNSWidgets__Dialog* self, bool next) 
 }
 
 // Base class handler implementation
-bool KNSWidgets__Dialog_QBaseFocusNextPrevChild(KNSWidgets__Dialog* self, bool next) {
+bool KNSWidgets__Dialog_SuperFocusNextPrevChild(KNSWidgets__Dialog* self, bool next) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_FocusNextPrevChild_IsBase(true);
@@ -1529,7 +1529,7 @@ void KNSWidgets__Dialog_TimerEvent(KNSWidgets__Dialog* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseTimerEvent(KNSWidgets__Dialog* self, QTimerEvent* event) {
+void KNSWidgets__Dialog_SuperTimerEvent(KNSWidgets__Dialog* self, QTimerEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_TimerEvent_IsBase(true);
@@ -1558,7 +1558,7 @@ void KNSWidgets__Dialog_ChildEvent(KNSWidgets__Dialog* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseChildEvent(KNSWidgets__Dialog* self, QChildEvent* event) {
+void KNSWidgets__Dialog_SuperChildEvent(KNSWidgets__Dialog* self, QChildEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_ChildEvent_IsBase(true);
@@ -1587,7 +1587,7 @@ void KNSWidgets__Dialog_CustomEvent(KNSWidgets__Dialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseCustomEvent(KNSWidgets__Dialog* self, QEvent* event) {
+void KNSWidgets__Dialog_SuperCustomEvent(KNSWidgets__Dialog* self, QEvent* event) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_CustomEvent_IsBase(true);
@@ -1616,7 +1616,7 @@ void KNSWidgets__Dialog_ConnectNotify(KNSWidgets__Dialog* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseConnectNotify(KNSWidgets__Dialog* self, const QMetaMethod* signal) {
+void KNSWidgets__Dialog_SuperConnectNotify(KNSWidgets__Dialog* self, const QMetaMethod* signal) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_ConnectNotify_IsBase(true);
@@ -1645,7 +1645,7 @@ void KNSWidgets__Dialog_DisconnectNotify(KNSWidgets__Dialog* self, const QMetaMe
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseDisconnectNotify(KNSWidgets__Dialog* self, const QMetaMethod* signal) {
+void KNSWidgets__Dialog_SuperDisconnectNotify(KNSWidgets__Dialog* self, const QMetaMethod* signal) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_DisconnectNotify_IsBase(true);
@@ -1674,7 +1674,7 @@ void KNSWidgets__Dialog_AdjustPosition(KNSWidgets__Dialog* self, QWidget* param1
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseAdjustPosition(KNSWidgets__Dialog* self, QWidget* param1) {
+void KNSWidgets__Dialog_SuperAdjustPosition(KNSWidgets__Dialog* self, QWidget* param1) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_AdjustPosition_IsBase(true);
@@ -1703,7 +1703,7 @@ void KNSWidgets__Dialog_UpdateMicroFocus(KNSWidgets__Dialog* self) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseUpdateMicroFocus(KNSWidgets__Dialog* self) {
+void KNSWidgets__Dialog_SuperUpdateMicroFocus(KNSWidgets__Dialog* self) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_UpdateMicroFocus_IsBase(true);
@@ -1732,7 +1732,7 @@ void KNSWidgets__Dialog_Create(KNSWidgets__Dialog* self) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseCreate(KNSWidgets__Dialog* self) {
+void KNSWidgets__Dialog_SuperCreate(KNSWidgets__Dialog* self) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_Create_IsBase(true);
@@ -1761,7 +1761,7 @@ void KNSWidgets__Dialog_Destroy(KNSWidgets__Dialog* self) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Dialog_QBaseDestroy(KNSWidgets__Dialog* self) {
+void KNSWidgets__Dialog_SuperDestroy(KNSWidgets__Dialog* self) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_Destroy_IsBase(true);
@@ -1790,7 +1790,7 @@ bool KNSWidgets__Dialog_FocusNextChild(KNSWidgets__Dialog* self) {
 }
 
 // Base class handler implementation
-bool KNSWidgets__Dialog_QBaseFocusNextChild(KNSWidgets__Dialog* self) {
+bool KNSWidgets__Dialog_SuperFocusNextChild(KNSWidgets__Dialog* self) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_FocusNextChild_IsBase(true);
@@ -1819,7 +1819,7 @@ bool KNSWidgets__Dialog_FocusPreviousChild(KNSWidgets__Dialog* self) {
 }
 
 // Base class handler implementation
-bool KNSWidgets__Dialog_QBaseFocusPreviousChild(KNSWidgets__Dialog* self) {
+bool KNSWidgets__Dialog_SuperFocusPreviousChild(KNSWidgets__Dialog* self) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_FocusPreviousChild_IsBase(true);
@@ -1848,7 +1848,7 @@ QObject* KNSWidgets__Dialog_Sender(const KNSWidgets__Dialog* self) {
 }
 
 // Base class handler implementation
-QObject* KNSWidgets__Dialog_QBaseSender(const KNSWidgets__Dialog* self) {
+QObject* KNSWidgets__Dialog_SuperSender(const KNSWidgets__Dialog* self) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_Sender_IsBase(true);
@@ -1877,7 +1877,7 @@ int KNSWidgets__Dialog_SenderSignalIndex(const KNSWidgets__Dialog* self) {
 }
 
 // Base class handler implementation
-int KNSWidgets__Dialog_QBaseSenderSignalIndex(const KNSWidgets__Dialog* self) {
+int KNSWidgets__Dialog_SuperSenderSignalIndex(const KNSWidgets__Dialog* self) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_SenderSignalIndex_IsBase(true);
@@ -1906,7 +1906,7 @@ int KNSWidgets__Dialog_Receivers(const KNSWidgets__Dialog* self, const char* sig
 }
 
 // Base class handler implementation
-int KNSWidgets__Dialog_QBaseReceivers(const KNSWidgets__Dialog* self, const char* signal) {
+int KNSWidgets__Dialog_SuperReceivers(const KNSWidgets__Dialog* self, const char* signal) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_Receivers_IsBase(true);
@@ -1935,7 +1935,7 @@ bool KNSWidgets__Dialog_IsSignalConnected(const KNSWidgets__Dialog* self, const 
 }
 
 // Base class handler implementation
-bool KNSWidgets__Dialog_QBaseIsSignalConnected(const KNSWidgets__Dialog* self, const QMetaMethod* signal) {
+bool KNSWidgets__Dialog_SuperIsSignalConnected(const KNSWidgets__Dialog* self, const QMetaMethod* signal) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_IsSignalConnected_IsBase(true);
@@ -1964,7 +1964,7 @@ double KNSWidgets__Dialog_GetDecodedMetricF(const KNSWidgets__Dialog* self, int 
 }
 
 // Base class handler implementation
-double KNSWidgets__Dialog_QBaseGetDecodedMetricF(const KNSWidgets__Dialog* self, int metricA, int metricB) {
+double KNSWidgets__Dialog_SuperGetDecodedMetricF(const KNSWidgets__Dialog* self, int metricA, int metricB) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
     if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
         vknswidgetsdialog->setKNSWidgets__Dialog_GetDecodedMetricF_IsBase(true);

@@ -328,23 +328,23 @@ class VirtualQScreenCapture final : public QScreenCapture {
 
     // Friend functions
     friend void QScreenCapture_TimerEvent(QScreenCapture* self, QTimerEvent* event);
-    friend void QScreenCapture_QBaseTimerEvent(QScreenCapture* self, QTimerEvent* event);
+    friend void QScreenCapture_SuperTimerEvent(QScreenCapture* self, QTimerEvent* event);
     friend void QScreenCapture_ChildEvent(QScreenCapture* self, QChildEvent* event);
-    friend void QScreenCapture_QBaseChildEvent(QScreenCapture* self, QChildEvent* event);
+    friend void QScreenCapture_SuperChildEvent(QScreenCapture* self, QChildEvent* event);
     friend void QScreenCapture_CustomEvent(QScreenCapture* self, QEvent* event);
-    friend void QScreenCapture_QBaseCustomEvent(QScreenCapture* self, QEvent* event);
+    friend void QScreenCapture_SuperCustomEvent(QScreenCapture* self, QEvent* event);
     friend void QScreenCapture_ConnectNotify(QScreenCapture* self, const QMetaMethod* signal);
-    friend void QScreenCapture_QBaseConnectNotify(QScreenCapture* self, const QMetaMethod* signal);
+    friend void QScreenCapture_SuperConnectNotify(QScreenCapture* self, const QMetaMethod* signal);
     friend void QScreenCapture_DisconnectNotify(QScreenCapture* self, const QMetaMethod* signal);
-    friend void QScreenCapture_QBaseDisconnectNotify(QScreenCapture* self, const QMetaMethod* signal);
+    friend void QScreenCapture_SuperDisconnectNotify(QScreenCapture* self, const QMetaMethod* signal);
     friend QObject* QScreenCapture_Sender(const QScreenCapture* self);
-    friend QObject* QScreenCapture_QBaseSender(const QScreenCapture* self);
+    friend QObject* QScreenCapture_SuperSender(const QScreenCapture* self);
     friend int QScreenCapture_SenderSignalIndex(const QScreenCapture* self);
-    friend int QScreenCapture_QBaseSenderSignalIndex(const QScreenCapture* self);
+    friend int QScreenCapture_SuperSenderSignalIndex(const QScreenCapture* self);
     friend int QScreenCapture_Receivers(const QScreenCapture* self, const char* signal);
-    friend int QScreenCapture_QBaseReceivers(const QScreenCapture* self, const char* signal);
+    friend int QScreenCapture_SuperReceivers(const QScreenCapture* self, const char* signal);
     friend bool QScreenCapture_IsSignalConnected(const QScreenCapture* self, const QMetaMethod* signal);
-    friend bool QScreenCapture_QBaseIsSignalConnected(const QScreenCapture* self, const QMetaMethod* signal);
+    friend bool QScreenCapture_SuperIsSignalConnected(const QScreenCapture* self, const QMetaMethod* signal);
 };
 
 #endif

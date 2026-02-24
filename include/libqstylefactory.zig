@@ -87,6 +87,10 @@ pub const qstylefactory = struct {
         return qtc.QStyleFactory_Create(param1_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylefactory.html#dtor.QStyleFactory)
     ///
     /// Delete this object from C++ memory.
@@ -95,7 +99,7 @@ pub const qstylefactory = struct {
     ///
     /// ` self: QtC.QStyleFactory `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleFactory_Delete(@ptrCast(self));
     }
 };

@@ -90,6 +90,10 @@ pub const qwebengineregisterprotocolhandlerrequest = struct {
         return qtc.QWebEngineRegisterProtocolHandlerRequest_OperatorNotEqual(@ptrCast(self), @ptrCast(that));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineregisterprotocolhandlerrequest.html#dtor.QWebEngineRegisterProtocolHandlerRequest)
     ///
     /// Delete this object from C++ memory.
@@ -98,7 +102,7 @@ pub const qwebengineregisterprotocolhandlerrequest = struct {
     ///
     /// ` self: QtC.QWebEngineRegisterProtocolHandlerRequest `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebEngineRegisterProtocolHandlerRequest_Delete(@ptrCast(self));
     }
 };

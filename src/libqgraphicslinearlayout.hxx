@@ -302,11 +302,11 @@ class VirtualQGraphicsLinearLayout final : public QGraphicsLinearLayout {
 
     // Friend functions
     friend void QGraphicsLinearLayout_AddChildLayoutItem(QGraphicsLinearLayout* self, QGraphicsLayoutItem* layoutItem);
-    friend void QGraphicsLinearLayout_QBaseAddChildLayoutItem(QGraphicsLinearLayout* self, QGraphicsLayoutItem* layoutItem);
+    friend void QGraphicsLinearLayout_SuperAddChildLayoutItem(QGraphicsLinearLayout* self, QGraphicsLayoutItem* layoutItem);
     friend void QGraphicsLinearLayout_SetGraphicsItem(QGraphicsLinearLayout* self, QGraphicsItem* item);
-    friend void QGraphicsLinearLayout_QBaseSetGraphicsItem(QGraphicsLinearLayout* self, QGraphicsItem* item);
+    friend void QGraphicsLinearLayout_SuperSetGraphicsItem(QGraphicsLinearLayout* self, QGraphicsItem* item);
     friend void QGraphicsLinearLayout_SetOwnedByLayout(QGraphicsLinearLayout* self, bool ownedByLayout);
-    friend void QGraphicsLinearLayout_QBaseSetOwnedByLayout(QGraphicsLinearLayout* self, bool ownedByLayout);
+    friend void QGraphicsLinearLayout_SuperSetOwnedByLayout(QGraphicsLinearLayout* self, bool ownedByLayout);
 };
 
 #endif

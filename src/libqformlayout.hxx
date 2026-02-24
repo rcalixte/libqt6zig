@@ -887,33 +887,33 @@ class VirtualQFormLayout final : public QFormLayout {
 
     // Friend functions
     friend void QFormLayout_ChildEvent(QFormLayout* self, QChildEvent* e);
-    friend void QFormLayout_QBaseChildEvent(QFormLayout* self, QChildEvent* e);
+    friend void QFormLayout_SuperChildEvent(QFormLayout* self, QChildEvent* e);
     friend void QFormLayout_TimerEvent(QFormLayout* self, QTimerEvent* event);
-    friend void QFormLayout_QBaseTimerEvent(QFormLayout* self, QTimerEvent* event);
+    friend void QFormLayout_SuperTimerEvent(QFormLayout* self, QTimerEvent* event);
     friend void QFormLayout_CustomEvent(QFormLayout* self, QEvent* event);
-    friend void QFormLayout_QBaseCustomEvent(QFormLayout* self, QEvent* event);
+    friend void QFormLayout_SuperCustomEvent(QFormLayout* self, QEvent* event);
     friend void QFormLayout_ConnectNotify(QFormLayout* self, const QMetaMethod* signal);
-    friend void QFormLayout_QBaseConnectNotify(QFormLayout* self, const QMetaMethod* signal);
+    friend void QFormLayout_SuperConnectNotify(QFormLayout* self, const QMetaMethod* signal);
     friend void QFormLayout_DisconnectNotify(QFormLayout* self, const QMetaMethod* signal);
-    friend void QFormLayout_QBaseDisconnectNotify(QFormLayout* self, const QMetaMethod* signal);
+    friend void QFormLayout_SuperDisconnectNotify(QFormLayout* self, const QMetaMethod* signal);
     friend void QFormLayout_WidgetEvent(QFormLayout* self, QEvent* param1);
-    friend void QFormLayout_QBaseWidgetEvent(QFormLayout* self, QEvent* param1);
+    friend void QFormLayout_SuperWidgetEvent(QFormLayout* self, QEvent* param1);
     friend void QFormLayout_AddChildLayout(QFormLayout* self, QLayout* l);
-    friend void QFormLayout_QBaseAddChildLayout(QFormLayout* self, QLayout* l);
+    friend void QFormLayout_SuperAddChildLayout(QFormLayout* self, QLayout* l);
     friend void QFormLayout_AddChildWidget(QFormLayout* self, QWidget* w);
-    friend void QFormLayout_QBaseAddChildWidget(QFormLayout* self, QWidget* w);
+    friend void QFormLayout_SuperAddChildWidget(QFormLayout* self, QWidget* w);
     friend bool QFormLayout_AdoptLayout(QFormLayout* self, QLayout* layout);
-    friend bool QFormLayout_QBaseAdoptLayout(QFormLayout* self, QLayout* layout);
+    friend bool QFormLayout_SuperAdoptLayout(QFormLayout* self, QLayout* layout);
     friend QRect* QFormLayout_AlignmentRect(const QFormLayout* self, const QRect* param1);
-    friend QRect* QFormLayout_QBaseAlignmentRect(const QFormLayout* self, const QRect* param1);
+    friend QRect* QFormLayout_SuperAlignmentRect(const QFormLayout* self, const QRect* param1);
     friend QObject* QFormLayout_Sender(const QFormLayout* self);
-    friend QObject* QFormLayout_QBaseSender(const QFormLayout* self);
+    friend QObject* QFormLayout_SuperSender(const QFormLayout* self);
     friend int QFormLayout_SenderSignalIndex(const QFormLayout* self);
-    friend int QFormLayout_QBaseSenderSignalIndex(const QFormLayout* self);
+    friend int QFormLayout_SuperSenderSignalIndex(const QFormLayout* self);
     friend int QFormLayout_Receivers(const QFormLayout* self, const char* signal);
-    friend int QFormLayout_QBaseReceivers(const QFormLayout* self, const char* signal);
+    friend int QFormLayout_SuperReceivers(const QFormLayout* self, const char* signal);
     friend bool QFormLayout_IsSignalConnected(const QFormLayout* self, const QMetaMethod* signal);
-    friend bool QFormLayout_QBaseIsSignalConnected(const QFormLayout* self, const QMetaMethod* signal);
+    friend bool QFormLayout_SuperIsSignalConnected(const QFormLayout* self, const QMetaMethod* signal);
 };
 
 #endif

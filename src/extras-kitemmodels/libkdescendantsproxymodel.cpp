@@ -423,7 +423,7 @@ void KDescendantsProxyModel_Connect_SourceIndexCollapsed(KDescendantsProxyModel*
 }
 
 // Base class handler implementation
-QMetaObject* KDescendantsProxyModel_QBaseMetaObject(const KDescendantsProxyModel* self) {
+QMetaObject* KDescendantsProxyModel_SuperMetaObject(const KDescendantsProxyModel* self) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_MetaObject_IsBase(true);
@@ -442,7 +442,7 @@ void KDescendantsProxyModel_OnMetaObject(const KDescendantsProxyModel* self, int
 }
 
 // Base class handler implementation
-void* KDescendantsProxyModel_QBaseMetacast(KDescendantsProxyModel* self, const char* param1) {
+void* KDescendantsProxyModel_SuperMetacast(KDescendantsProxyModel* self, const char* param1) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_Metacast_IsBase(true);
@@ -461,7 +461,7 @@ void KDescendantsProxyModel_OnMetacast(KDescendantsProxyModel* self, intptr_t sl
 }
 
 // Base class handler implementation
-int KDescendantsProxyModel_QBaseMetacall(KDescendantsProxyModel* self, int param1, int param2, void** param3) {
+int KDescendantsProxyModel_SuperMetacall(KDescendantsProxyModel* self, int param1, int param2, void** param3) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_Metacall_IsBase(true);
@@ -480,7 +480,7 @@ void KDescendantsProxyModel_OnMetacall(KDescendantsProxyModel* self, intptr_t sl
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseSetSourceModel(KDescendantsProxyModel* self, QAbstractItemModel* model) {
+void KDescendantsProxyModel_SuperSetSourceModel(KDescendantsProxyModel* self, QAbstractItemModel* model) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_SetSourceModel_IsBase(true);
@@ -499,7 +499,7 @@ void KDescendantsProxyModel_OnSetSourceModel(KDescendantsProxyModel* self, intpt
 }
 
 // Base class handler implementation
-QModelIndex* KDescendantsProxyModel_QBaseMapFromSource(const KDescendantsProxyModel* self, const QModelIndex* sourceIndex) {
+QModelIndex* KDescendantsProxyModel_SuperMapFromSource(const KDescendantsProxyModel* self, const QModelIndex* sourceIndex) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_MapFromSource_IsBase(true);
@@ -518,7 +518,7 @@ void KDescendantsProxyModel_OnMapFromSource(const KDescendantsProxyModel* self, 
 }
 
 // Base class handler implementation
-QModelIndex* KDescendantsProxyModel_QBaseMapToSource(const KDescendantsProxyModel* self, const QModelIndex* proxyIndex) {
+QModelIndex* KDescendantsProxyModel_SuperMapToSource(const KDescendantsProxyModel* self, const QModelIndex* proxyIndex) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_MapToSource_IsBase(true);
@@ -537,7 +537,7 @@ void KDescendantsProxyModel_OnMapToSource(const KDescendantsProxyModel* self, in
 }
 
 // Base class handler implementation
-int KDescendantsProxyModel_QBaseFlags(const KDescendantsProxyModel* self, const QModelIndex* index) {
+int KDescendantsProxyModel_SuperFlags(const KDescendantsProxyModel* self, const QModelIndex* index) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_Flags_IsBase(true);
@@ -556,7 +556,7 @@ void KDescendantsProxyModel_OnFlags(const KDescendantsProxyModel* self, intptr_t
 }
 
 // Base class handler implementation
-QVariant* KDescendantsProxyModel_QBaseData(const KDescendantsProxyModel* self, const QModelIndex* index, int role) {
+QVariant* KDescendantsProxyModel_SuperData(const KDescendantsProxyModel* self, const QModelIndex* index, int role) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_Data_IsBase(true);
@@ -575,7 +575,7 @@ void KDescendantsProxyModel_OnData(const KDescendantsProxyModel* self, intptr_t 
 }
 
 // Base class handler implementation
-int KDescendantsProxyModel_QBaseRowCount(const KDescendantsProxyModel* self, const QModelIndex* parent) {
+int KDescendantsProxyModel_SuperRowCount(const KDescendantsProxyModel* self, const QModelIndex* parent) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_RowCount_IsBase(true);
@@ -594,7 +594,7 @@ void KDescendantsProxyModel_OnRowCount(const KDescendantsProxyModel* self, intpt
 }
 
 // Base class handler implementation
-QVariant* KDescendantsProxyModel_QBaseHeaderData(const KDescendantsProxyModel* self, int section, int orientation, int role) {
+QVariant* KDescendantsProxyModel_SuperHeaderData(const KDescendantsProxyModel* self, int section, int orientation, int role) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_HeaderData_IsBase(true);
@@ -613,7 +613,7 @@ void KDescendantsProxyModel_OnHeaderData(const KDescendantsProxyModel* self, int
 }
 
 // Base class handler implementation
-QMimeData* KDescendantsProxyModel_QBaseMimeData(const KDescendantsProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* KDescendantsProxyModel_SuperMimeData(const KDescendantsProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -638,7 +638,7 @@ void KDescendantsProxyModel_OnMimeData(const KDescendantsProxyModel* self, intpt
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KDescendantsProxyModel_QBaseMimeTypes(const KDescendantsProxyModel* self) {
+libqt_list /* of libqt_string */ KDescendantsProxyModel_SuperMimeTypes(const KDescendantsProxyModel* self) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_MimeTypes_IsBase(true);
@@ -691,7 +691,7 @@ void KDescendantsProxyModel_OnMimeTypes(const KDescendantsProxyModel* self, intp
 }
 
 // Base class handler implementation
-bool KDescendantsProxyModel_QBaseHasChildren(const KDescendantsProxyModel* self, const QModelIndex* parent) {
+bool KDescendantsProxyModel_SuperHasChildren(const KDescendantsProxyModel* self, const QModelIndex* parent) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_HasChildren_IsBase(true);
@@ -710,7 +710,7 @@ void KDescendantsProxyModel_OnHasChildren(const KDescendantsProxyModel* self, in
 }
 
 // Base class handler implementation
-QModelIndex* KDescendantsProxyModel_QBaseIndex(const KDescendantsProxyModel* self, int param1, int param2, const QModelIndex* parent) {
+QModelIndex* KDescendantsProxyModel_SuperIndex(const KDescendantsProxyModel* self, int param1, int param2, const QModelIndex* parent) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_Index_IsBase(true);
@@ -729,7 +729,7 @@ void KDescendantsProxyModel_OnIndex(const KDescendantsProxyModel* self, intptr_t
 }
 
 // Base class handler implementation
-QModelIndex* KDescendantsProxyModel_QBaseParent(const KDescendantsProxyModel* self, const QModelIndex* param1) {
+QModelIndex* KDescendantsProxyModel_SuperParent(const KDescendantsProxyModel* self, const QModelIndex* param1) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_Parent_IsBase(true);
@@ -748,7 +748,7 @@ void KDescendantsProxyModel_OnParent(const KDescendantsProxyModel* self, intptr_
 }
 
 // Base class handler implementation
-int KDescendantsProxyModel_QBaseColumnCount(const KDescendantsProxyModel* self, const QModelIndex* index) {
+int KDescendantsProxyModel_SuperColumnCount(const KDescendantsProxyModel* self, const QModelIndex* index) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_ColumnCount_IsBase(true);
@@ -767,7 +767,7 @@ void KDescendantsProxyModel_OnColumnCount(const KDescendantsProxyModel* self, in
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ KDescendantsProxyModel_QBaseRoleNames(const KDescendantsProxyModel* self) {
+libqt_map /* of int to libqt_string */ KDescendantsProxyModel_SuperRoleNames(const KDescendantsProxyModel* self) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_RoleNames_IsBase(true);
@@ -824,7 +824,7 @@ void KDescendantsProxyModel_OnRoleNames(const KDescendantsProxyModel* self, intp
 }
 
 // Base class handler implementation
-int KDescendantsProxyModel_QBaseSupportedDropActions(const KDescendantsProxyModel* self) {
+int KDescendantsProxyModel_SuperSupportedDropActions(const KDescendantsProxyModel* self) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_SupportedDropActions_IsBase(true);
@@ -843,7 +843,7 @@ void KDescendantsProxyModel_OnSupportedDropActions(const KDescendantsProxyModel*
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KDescendantsProxyModel_QBaseMatch(const KDescendantsProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ KDescendantsProxyModel_SuperMatch(const KDescendantsProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_Match_IsBase(true);
@@ -890,7 +890,7 @@ QItemSelection* KDescendantsProxyModel_MapSelectionToSource(const KDescendantsPr
 }
 
 // Base class handler implementation
-QItemSelection* KDescendantsProxyModel_QBaseMapSelectionToSource(const KDescendantsProxyModel* self, const QItemSelection* selection) {
+QItemSelection* KDescendantsProxyModel_SuperMapSelectionToSource(const KDescendantsProxyModel* self, const QItemSelection* selection) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_MapSelectionToSource_IsBase(true);
@@ -919,7 +919,7 @@ QItemSelection* KDescendantsProxyModel_MapSelectionFromSource(const KDescendants
 }
 
 // Base class handler implementation
-QItemSelection* KDescendantsProxyModel_QBaseMapSelectionFromSource(const KDescendantsProxyModel* self, const QItemSelection* selection) {
+QItemSelection* KDescendantsProxyModel_SuperMapSelectionFromSource(const KDescendantsProxyModel* self, const QItemSelection* selection) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_MapSelectionFromSource_IsBase(true);
@@ -948,7 +948,7 @@ bool KDescendantsProxyModel_Submit(KDescendantsProxyModel* self) {
 }
 
 // Base class handler implementation
-bool KDescendantsProxyModel_QBaseSubmit(KDescendantsProxyModel* self) {
+bool KDescendantsProxyModel_SuperSubmit(KDescendantsProxyModel* self) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_Submit_IsBase(true);
@@ -977,7 +977,7 @@ void KDescendantsProxyModel_Revert(KDescendantsProxyModel* self) {
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseRevert(KDescendantsProxyModel* self) {
+void KDescendantsProxyModel_SuperRevert(KDescendantsProxyModel* self) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_Revert_IsBase(true);
@@ -1034,7 +1034,7 @@ libqt_map /* of int to QVariant* */ KDescendantsProxyModel_ItemData(const KDesce
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ KDescendantsProxyModel_QBaseItemData(const KDescendantsProxyModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ KDescendantsProxyModel_SuperItemData(const KDescendantsProxyModel* self, const QModelIndex* index) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_ItemData_IsBase(true);
@@ -1091,7 +1091,7 @@ bool KDescendantsProxyModel_SetData(KDescendantsProxyModel* self, const QModelIn
 }
 
 // Base class handler implementation
-bool KDescendantsProxyModel_QBaseSetData(KDescendantsProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool KDescendantsProxyModel_SuperSetData(KDescendantsProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_SetData_IsBase(true);
@@ -1126,7 +1126,7 @@ bool KDescendantsProxyModel_SetItemData(KDescendantsProxyModel* self, const QMod
 }
 
 // Base class handler implementation
-bool KDescendantsProxyModel_QBaseSetItemData(KDescendantsProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool KDescendantsProxyModel_SuperSetItemData(KDescendantsProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -1161,7 +1161,7 @@ bool KDescendantsProxyModel_SetHeaderData(KDescendantsProxyModel* self, int sect
 }
 
 // Base class handler implementation
-bool KDescendantsProxyModel_QBaseSetHeaderData(KDescendantsProxyModel* self, int section, int orientation, const QVariant* value, int role) {
+bool KDescendantsProxyModel_SuperSetHeaderData(KDescendantsProxyModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_SetHeaderData_IsBase(true);
@@ -1190,7 +1190,7 @@ bool KDescendantsProxyModel_ClearItemData(KDescendantsProxyModel* self, const QM
 }
 
 // Base class handler implementation
-bool KDescendantsProxyModel_QBaseClearItemData(KDescendantsProxyModel* self, const QModelIndex* index) {
+bool KDescendantsProxyModel_SuperClearItemData(KDescendantsProxyModel* self, const QModelIndex* index) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_ClearItemData_IsBase(true);
@@ -1219,7 +1219,7 @@ QModelIndex* KDescendantsProxyModel_Buddy(const KDescendantsProxyModel* self, co
 }
 
 // Base class handler implementation
-QModelIndex* KDescendantsProxyModel_QBaseBuddy(const KDescendantsProxyModel* self, const QModelIndex* index) {
+QModelIndex* KDescendantsProxyModel_SuperBuddy(const KDescendantsProxyModel* self, const QModelIndex* index) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_Buddy_IsBase(true);
@@ -1248,7 +1248,7 @@ bool KDescendantsProxyModel_CanFetchMore(const KDescendantsProxyModel* self, con
 }
 
 // Base class handler implementation
-bool KDescendantsProxyModel_QBaseCanFetchMore(const KDescendantsProxyModel* self, const QModelIndex* parent) {
+bool KDescendantsProxyModel_SuperCanFetchMore(const KDescendantsProxyModel* self, const QModelIndex* parent) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_CanFetchMore_IsBase(true);
@@ -1277,7 +1277,7 @@ void KDescendantsProxyModel_FetchMore(KDescendantsProxyModel* self, const QModel
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseFetchMore(KDescendantsProxyModel* self, const QModelIndex* parent) {
+void KDescendantsProxyModel_SuperFetchMore(KDescendantsProxyModel* self, const QModelIndex* parent) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_FetchMore_IsBase(true);
@@ -1306,7 +1306,7 @@ void KDescendantsProxyModel_Sort(KDescendantsProxyModel* self, int column, int o
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseSort(KDescendantsProxyModel* self, int column, int order) {
+void KDescendantsProxyModel_SuperSort(KDescendantsProxyModel* self, int column, int order) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_Sort_IsBase(true);
@@ -1335,7 +1335,7 @@ QSize* KDescendantsProxyModel_Span(const KDescendantsProxyModel* self, const QMo
 }
 
 // Base class handler implementation
-QSize* KDescendantsProxyModel_QBaseSpan(const KDescendantsProxyModel* self, const QModelIndex* index) {
+QSize* KDescendantsProxyModel_SuperSpan(const KDescendantsProxyModel* self, const QModelIndex* index) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_Span_IsBase(true);
@@ -1364,7 +1364,7 @@ QModelIndex* KDescendantsProxyModel_Sibling(const KDescendantsProxyModel* self, 
 }
 
 // Base class handler implementation
-QModelIndex* KDescendantsProxyModel_QBaseSibling(const KDescendantsProxyModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* KDescendantsProxyModel_SuperSibling(const KDescendantsProxyModel* self, int row, int column, const QModelIndex* idx) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_Sibling_IsBase(true);
@@ -1393,7 +1393,7 @@ bool KDescendantsProxyModel_CanDropMimeData(const KDescendantsProxyModel* self, 
 }
 
 // Base class handler implementation
-bool KDescendantsProxyModel_QBaseCanDropMimeData(const KDescendantsProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KDescendantsProxyModel_SuperCanDropMimeData(const KDescendantsProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_CanDropMimeData_IsBase(true);
@@ -1422,7 +1422,7 @@ bool KDescendantsProxyModel_DropMimeData(KDescendantsProxyModel* self, const QMi
 }
 
 // Base class handler implementation
-bool KDescendantsProxyModel_QBaseDropMimeData(KDescendantsProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KDescendantsProxyModel_SuperDropMimeData(KDescendantsProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_DropMimeData_IsBase(true);
@@ -1451,7 +1451,7 @@ int KDescendantsProxyModel_SupportedDragActions(const KDescendantsProxyModel* se
 }
 
 // Base class handler implementation
-int KDescendantsProxyModel_QBaseSupportedDragActions(const KDescendantsProxyModel* self) {
+int KDescendantsProxyModel_SuperSupportedDragActions(const KDescendantsProxyModel* self) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_SupportedDragActions_IsBase(true);
@@ -1480,7 +1480,7 @@ bool KDescendantsProxyModel_InsertRows(KDescendantsProxyModel* self, int row, in
 }
 
 // Base class handler implementation
-bool KDescendantsProxyModel_QBaseInsertRows(KDescendantsProxyModel* self, int row, int count, const QModelIndex* parent) {
+bool KDescendantsProxyModel_SuperInsertRows(KDescendantsProxyModel* self, int row, int count, const QModelIndex* parent) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_InsertRows_IsBase(true);
@@ -1509,7 +1509,7 @@ bool KDescendantsProxyModel_InsertColumns(KDescendantsProxyModel* self, int colu
 }
 
 // Base class handler implementation
-bool KDescendantsProxyModel_QBaseInsertColumns(KDescendantsProxyModel* self, int column, int count, const QModelIndex* parent) {
+bool KDescendantsProxyModel_SuperInsertColumns(KDescendantsProxyModel* self, int column, int count, const QModelIndex* parent) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_InsertColumns_IsBase(true);
@@ -1538,7 +1538,7 @@ bool KDescendantsProxyModel_RemoveRows(KDescendantsProxyModel* self, int row, in
 }
 
 // Base class handler implementation
-bool KDescendantsProxyModel_QBaseRemoveRows(KDescendantsProxyModel* self, int row, int count, const QModelIndex* parent) {
+bool KDescendantsProxyModel_SuperRemoveRows(KDescendantsProxyModel* self, int row, int count, const QModelIndex* parent) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_RemoveRows_IsBase(true);
@@ -1567,7 +1567,7 @@ bool KDescendantsProxyModel_RemoveColumns(KDescendantsProxyModel* self, int colu
 }
 
 // Base class handler implementation
-bool KDescendantsProxyModel_QBaseRemoveColumns(KDescendantsProxyModel* self, int column, int count, const QModelIndex* parent) {
+bool KDescendantsProxyModel_SuperRemoveColumns(KDescendantsProxyModel* self, int column, int count, const QModelIndex* parent) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_RemoveColumns_IsBase(true);
@@ -1596,7 +1596,7 @@ bool KDescendantsProxyModel_MoveRows(KDescendantsProxyModel* self, const QModelI
 }
 
 // Base class handler implementation
-bool KDescendantsProxyModel_QBaseMoveRows(KDescendantsProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KDescendantsProxyModel_SuperMoveRows(KDescendantsProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_MoveRows_IsBase(true);
@@ -1625,7 +1625,7 @@ bool KDescendantsProxyModel_MoveColumns(KDescendantsProxyModel* self, const QMod
 }
 
 // Base class handler implementation
-bool KDescendantsProxyModel_QBaseMoveColumns(KDescendantsProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KDescendantsProxyModel_SuperMoveColumns(KDescendantsProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_MoveColumns_IsBase(true);
@@ -1654,7 +1654,7 @@ void KDescendantsProxyModel_MultiData(const KDescendantsProxyModel* self, const 
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseMultiData(const KDescendantsProxyModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void KDescendantsProxyModel_SuperMultiData(const KDescendantsProxyModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_MultiData_IsBase(true);
@@ -1683,7 +1683,7 @@ void KDescendantsProxyModel_ResetInternalData(KDescendantsProxyModel* self) {
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseResetInternalData(KDescendantsProxyModel* self) {
+void KDescendantsProxyModel_SuperResetInternalData(KDescendantsProxyModel* self) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_ResetInternalData_IsBase(true);
@@ -1712,7 +1712,7 @@ bool KDescendantsProxyModel_Event(KDescendantsProxyModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KDescendantsProxyModel_QBaseEvent(KDescendantsProxyModel* self, QEvent* event) {
+bool KDescendantsProxyModel_SuperEvent(KDescendantsProxyModel* self, QEvent* event) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_Event_IsBase(true);
@@ -1741,7 +1741,7 @@ bool KDescendantsProxyModel_EventFilter(KDescendantsProxyModel* self, QObject* w
 }
 
 // Base class handler implementation
-bool KDescendantsProxyModel_QBaseEventFilter(KDescendantsProxyModel* self, QObject* watched, QEvent* event) {
+bool KDescendantsProxyModel_SuperEventFilter(KDescendantsProxyModel* self, QObject* watched, QEvent* event) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_EventFilter_IsBase(true);
@@ -1770,7 +1770,7 @@ void KDescendantsProxyModel_TimerEvent(KDescendantsProxyModel* self, QTimerEvent
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseTimerEvent(KDescendantsProxyModel* self, QTimerEvent* event) {
+void KDescendantsProxyModel_SuperTimerEvent(KDescendantsProxyModel* self, QTimerEvent* event) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_TimerEvent_IsBase(true);
@@ -1799,7 +1799,7 @@ void KDescendantsProxyModel_ChildEvent(KDescendantsProxyModel* self, QChildEvent
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseChildEvent(KDescendantsProxyModel* self, QChildEvent* event) {
+void KDescendantsProxyModel_SuperChildEvent(KDescendantsProxyModel* self, QChildEvent* event) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_ChildEvent_IsBase(true);
@@ -1828,7 +1828,7 @@ void KDescendantsProxyModel_CustomEvent(KDescendantsProxyModel* self, QEvent* ev
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseCustomEvent(KDescendantsProxyModel* self, QEvent* event) {
+void KDescendantsProxyModel_SuperCustomEvent(KDescendantsProxyModel* self, QEvent* event) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_CustomEvent_IsBase(true);
@@ -1857,7 +1857,7 @@ void KDescendantsProxyModel_ConnectNotify(KDescendantsProxyModel* self, const QM
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseConnectNotify(KDescendantsProxyModel* self, const QMetaMethod* signal) {
+void KDescendantsProxyModel_SuperConnectNotify(KDescendantsProxyModel* self, const QMetaMethod* signal) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_ConnectNotify_IsBase(true);
@@ -1886,7 +1886,7 @@ void KDescendantsProxyModel_DisconnectNotify(KDescendantsProxyModel* self, const
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseDisconnectNotify(KDescendantsProxyModel* self, const QMetaMethod* signal) {
+void KDescendantsProxyModel_SuperDisconnectNotify(KDescendantsProxyModel* self, const QMetaMethod* signal) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_DisconnectNotify_IsBase(true);
@@ -1914,7 +1914,7 @@ QModelIndex* KDescendantsProxyModel_CreateSourceIndex(const KDescendantsProxyMod
 }
 
 // Base class handler implementation
-QModelIndex* KDescendantsProxyModel_QBaseCreateSourceIndex(const KDescendantsProxyModel* self, int row, int col, void* internalPtr) {
+QModelIndex* KDescendantsProxyModel_SuperCreateSourceIndex(const KDescendantsProxyModel* self, int row, int col, void* internalPtr) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_CreateSourceIndex_IsBase(true);
@@ -1941,7 +1941,7 @@ QModelIndex* KDescendantsProxyModel_CreateIndex(const KDescendantsProxyModel* se
 }
 
 // Base class handler implementation
-QModelIndex* KDescendantsProxyModel_QBaseCreateIndex(const KDescendantsProxyModel* self, int row, int column) {
+QModelIndex* KDescendantsProxyModel_SuperCreateIndex(const KDescendantsProxyModel* self, int row, int column) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_CreateIndex_IsBase(true);
@@ -1975,7 +1975,7 @@ void KDescendantsProxyModel_EncodeData(const KDescendantsProxyModel* self, const
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseEncodeData(const KDescendantsProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void KDescendantsProxyModel_SuperEncodeData(const KDescendantsProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -2010,7 +2010,7 @@ bool KDescendantsProxyModel_DecodeData(KDescendantsProxyModel* self, int row, in
 }
 
 // Base class handler implementation
-bool KDescendantsProxyModel_QBaseDecodeData(KDescendantsProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool KDescendantsProxyModel_SuperDecodeData(KDescendantsProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_DecodeData_IsBase(true);
@@ -2039,7 +2039,7 @@ void KDescendantsProxyModel_BeginInsertRows(KDescendantsProxyModel* self, const 
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseBeginInsertRows(KDescendantsProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KDescendantsProxyModel_SuperBeginInsertRows(KDescendantsProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_BeginInsertRows_IsBase(true);
@@ -2068,7 +2068,7 @@ void KDescendantsProxyModel_EndInsertRows(KDescendantsProxyModel* self) {
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseEndInsertRows(KDescendantsProxyModel* self) {
+void KDescendantsProxyModel_SuperEndInsertRows(KDescendantsProxyModel* self) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_EndInsertRows_IsBase(true);
@@ -2097,7 +2097,7 @@ void KDescendantsProxyModel_BeginRemoveRows(KDescendantsProxyModel* self, const 
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseBeginRemoveRows(KDescendantsProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KDescendantsProxyModel_SuperBeginRemoveRows(KDescendantsProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_BeginRemoveRows_IsBase(true);
@@ -2126,7 +2126,7 @@ void KDescendantsProxyModel_EndRemoveRows(KDescendantsProxyModel* self) {
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseEndRemoveRows(KDescendantsProxyModel* self) {
+void KDescendantsProxyModel_SuperEndRemoveRows(KDescendantsProxyModel* self) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_EndRemoveRows_IsBase(true);
@@ -2155,7 +2155,7 @@ bool KDescendantsProxyModel_BeginMoveRows(KDescendantsProxyModel* self, const QM
 }
 
 // Base class handler implementation
-bool KDescendantsProxyModel_QBaseBeginMoveRows(KDescendantsProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool KDescendantsProxyModel_SuperBeginMoveRows(KDescendantsProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_BeginMoveRows_IsBase(true);
@@ -2184,7 +2184,7 @@ void KDescendantsProxyModel_EndMoveRows(KDescendantsProxyModel* self) {
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseEndMoveRows(KDescendantsProxyModel* self) {
+void KDescendantsProxyModel_SuperEndMoveRows(KDescendantsProxyModel* self) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_EndMoveRows_IsBase(true);
@@ -2213,7 +2213,7 @@ void KDescendantsProxyModel_BeginInsertColumns(KDescendantsProxyModel* self, con
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseBeginInsertColumns(KDescendantsProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KDescendantsProxyModel_SuperBeginInsertColumns(KDescendantsProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_BeginInsertColumns_IsBase(true);
@@ -2242,7 +2242,7 @@ void KDescendantsProxyModel_EndInsertColumns(KDescendantsProxyModel* self) {
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseEndInsertColumns(KDescendantsProxyModel* self) {
+void KDescendantsProxyModel_SuperEndInsertColumns(KDescendantsProxyModel* self) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_EndInsertColumns_IsBase(true);
@@ -2271,7 +2271,7 @@ void KDescendantsProxyModel_BeginRemoveColumns(KDescendantsProxyModel* self, con
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseBeginRemoveColumns(KDescendantsProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KDescendantsProxyModel_SuperBeginRemoveColumns(KDescendantsProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_BeginRemoveColumns_IsBase(true);
@@ -2300,7 +2300,7 @@ void KDescendantsProxyModel_EndRemoveColumns(KDescendantsProxyModel* self) {
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseEndRemoveColumns(KDescendantsProxyModel* self) {
+void KDescendantsProxyModel_SuperEndRemoveColumns(KDescendantsProxyModel* self) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_EndRemoveColumns_IsBase(true);
@@ -2329,7 +2329,7 @@ bool KDescendantsProxyModel_BeginMoveColumns(KDescendantsProxyModel* self, const
 }
 
 // Base class handler implementation
-bool KDescendantsProxyModel_QBaseBeginMoveColumns(KDescendantsProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool KDescendantsProxyModel_SuperBeginMoveColumns(KDescendantsProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_BeginMoveColumns_IsBase(true);
@@ -2358,7 +2358,7 @@ void KDescendantsProxyModel_EndMoveColumns(KDescendantsProxyModel* self) {
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseEndMoveColumns(KDescendantsProxyModel* self) {
+void KDescendantsProxyModel_SuperEndMoveColumns(KDescendantsProxyModel* self) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_EndMoveColumns_IsBase(true);
@@ -2387,7 +2387,7 @@ void KDescendantsProxyModel_BeginResetModel(KDescendantsProxyModel* self) {
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseBeginResetModel(KDescendantsProxyModel* self) {
+void KDescendantsProxyModel_SuperBeginResetModel(KDescendantsProxyModel* self) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_BeginResetModel_IsBase(true);
@@ -2416,7 +2416,7 @@ void KDescendantsProxyModel_EndResetModel(KDescendantsProxyModel* self) {
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseEndResetModel(KDescendantsProxyModel* self) {
+void KDescendantsProxyModel_SuperEndResetModel(KDescendantsProxyModel* self) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_EndResetModel_IsBase(true);
@@ -2445,7 +2445,7 @@ void KDescendantsProxyModel_ChangePersistentIndex(KDescendantsProxyModel* self, 
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseChangePersistentIndex(KDescendantsProxyModel* self, const QModelIndex* from, const QModelIndex* to) {
+void KDescendantsProxyModel_SuperChangePersistentIndex(KDescendantsProxyModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_ChangePersistentIndex_IsBase(true);
@@ -2486,7 +2486,7 @@ void KDescendantsProxyModel_ChangePersistentIndexList(KDescendantsProxyModel* se
 }
 
 // Base class handler implementation
-void KDescendantsProxyModel_QBaseChangePersistentIndexList(KDescendantsProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void KDescendantsProxyModel_SuperChangePersistentIndexList(KDescendantsProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -2545,7 +2545,7 @@ libqt_list /* of QModelIndex* */ KDescendantsProxyModel_PersistentIndexList(cons
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KDescendantsProxyModel_QBasePersistentIndexList(const KDescendantsProxyModel* self) {
+libqt_list /* of QModelIndex* */ KDescendantsProxyModel_SuperPersistentIndexList(const KDescendantsProxyModel* self) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_PersistentIndexList_IsBase(true);
@@ -2592,7 +2592,7 @@ QObject* KDescendantsProxyModel_Sender(const KDescendantsProxyModel* self) {
 }
 
 // Base class handler implementation
-QObject* KDescendantsProxyModel_QBaseSender(const KDescendantsProxyModel* self) {
+QObject* KDescendantsProxyModel_SuperSender(const KDescendantsProxyModel* self) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_Sender_IsBase(true);
@@ -2621,7 +2621,7 @@ int KDescendantsProxyModel_SenderSignalIndex(const KDescendantsProxyModel* self)
 }
 
 // Base class handler implementation
-int KDescendantsProxyModel_QBaseSenderSignalIndex(const KDescendantsProxyModel* self) {
+int KDescendantsProxyModel_SuperSenderSignalIndex(const KDescendantsProxyModel* self) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_SenderSignalIndex_IsBase(true);
@@ -2650,7 +2650,7 @@ int KDescendantsProxyModel_Receivers(const KDescendantsProxyModel* self, const c
 }
 
 // Base class handler implementation
-int KDescendantsProxyModel_QBaseReceivers(const KDescendantsProxyModel* self, const char* signal) {
+int KDescendantsProxyModel_SuperReceivers(const KDescendantsProxyModel* self, const char* signal) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_Receivers_IsBase(true);
@@ -2679,7 +2679,7 @@ bool KDescendantsProxyModel_IsSignalConnected(const KDescendantsProxyModel* self
 }
 
 // Base class handler implementation
-bool KDescendantsProxyModel_QBaseIsSignalConnected(const KDescendantsProxyModel* self, const QMetaMethod* signal) {
+bool KDescendantsProxyModel_SuperIsSignalConnected(const KDescendantsProxyModel* self, const QMetaMethod* signal) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
     if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
         vkdescendantsproxymodel->setKDescendantsProxyModel_IsSignalConnected_IsBase(true);

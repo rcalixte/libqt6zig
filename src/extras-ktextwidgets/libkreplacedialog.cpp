@@ -192,7 +192,7 @@ void KReplaceDialog_ShowEvent(KReplaceDialog* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-QMetaObject* KReplaceDialog_QBaseMetaObject(const KReplaceDialog* self) {
+QMetaObject* KReplaceDialog_SuperMetaObject(const KReplaceDialog* self) {
     auto* vkreplacedialog = const_cast<VirtualKReplaceDialog*>(dynamic_cast<const VirtualKReplaceDialog*>(self));
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_MetaObject_IsBase(true);
@@ -211,7 +211,7 @@ void KReplaceDialog_OnMetaObject(const KReplaceDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KReplaceDialog_QBaseMetacast(KReplaceDialog* self, const char* param1) {
+void* KReplaceDialog_SuperMetacast(KReplaceDialog* self, const char* param1) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_Metacast_IsBase(true);
@@ -230,7 +230,7 @@ void KReplaceDialog_OnMetacast(KReplaceDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KReplaceDialog_QBaseMetacall(KReplaceDialog* self, int param1, int param2, void** param3) {
+int KReplaceDialog_SuperMetacall(KReplaceDialog* self, int param1, int param2, void** param3) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_Metacall_IsBase(true);
@@ -249,7 +249,7 @@ void KReplaceDialog_OnMetacall(KReplaceDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseShowEvent(KReplaceDialog* self, QShowEvent* param1) {
+void KReplaceDialog_SuperShowEvent(KReplaceDialog* self, QShowEvent* param1) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_ShowEvent_IsBase(true);
@@ -278,7 +278,7 @@ void KReplaceDialog_SetVisible(KReplaceDialog* self, bool visible) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseSetVisible(KReplaceDialog* self, bool visible) {
+void KReplaceDialog_SuperSetVisible(KReplaceDialog* self, bool visible) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_SetVisible_IsBase(true);
@@ -307,7 +307,7 @@ QSize* KReplaceDialog_SizeHint(const KReplaceDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KReplaceDialog_QBaseSizeHint(const KReplaceDialog* self) {
+QSize* KReplaceDialog_SuperSizeHint(const KReplaceDialog* self) {
     auto* vkreplacedialog = const_cast<VirtualKReplaceDialog*>(dynamic_cast<const VirtualKReplaceDialog*>(self));
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_SizeHint_IsBase(true);
@@ -336,7 +336,7 @@ QSize* KReplaceDialog_MinimumSizeHint(const KReplaceDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KReplaceDialog_QBaseMinimumSizeHint(const KReplaceDialog* self) {
+QSize* KReplaceDialog_SuperMinimumSizeHint(const KReplaceDialog* self) {
     auto* vkreplacedialog = const_cast<VirtualKReplaceDialog*>(dynamic_cast<const VirtualKReplaceDialog*>(self));
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_MinimumSizeHint_IsBase(true);
@@ -365,7 +365,7 @@ void KReplaceDialog_Open(KReplaceDialog* self) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseOpen(KReplaceDialog* self) {
+void KReplaceDialog_SuperOpen(KReplaceDialog* self) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_Open_IsBase(true);
@@ -394,7 +394,7 @@ int KReplaceDialog_Exec(KReplaceDialog* self) {
 }
 
 // Base class handler implementation
-int KReplaceDialog_QBaseExec(KReplaceDialog* self) {
+int KReplaceDialog_SuperExec(KReplaceDialog* self) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_Exec_IsBase(true);
@@ -423,7 +423,7 @@ void KReplaceDialog_Done(KReplaceDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseDone(KReplaceDialog* self, int param1) {
+void KReplaceDialog_SuperDone(KReplaceDialog* self, int param1) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_Done_IsBase(true);
@@ -452,7 +452,7 @@ void KReplaceDialog_Accept(KReplaceDialog* self) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseAccept(KReplaceDialog* self) {
+void KReplaceDialog_SuperAccept(KReplaceDialog* self) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_Accept_IsBase(true);
@@ -481,7 +481,7 @@ void KReplaceDialog_Reject(KReplaceDialog* self) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseReject(KReplaceDialog* self) {
+void KReplaceDialog_SuperReject(KReplaceDialog* self) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_Reject_IsBase(true);
@@ -510,7 +510,7 @@ void KReplaceDialog_KeyPressEvent(KReplaceDialog* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseKeyPressEvent(KReplaceDialog* self, QKeyEvent* param1) {
+void KReplaceDialog_SuperKeyPressEvent(KReplaceDialog* self, QKeyEvent* param1) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_KeyPressEvent_IsBase(true);
@@ -539,7 +539,7 @@ void KReplaceDialog_CloseEvent(KReplaceDialog* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseCloseEvent(KReplaceDialog* self, QCloseEvent* param1) {
+void KReplaceDialog_SuperCloseEvent(KReplaceDialog* self, QCloseEvent* param1) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_CloseEvent_IsBase(true);
@@ -568,7 +568,7 @@ void KReplaceDialog_ResizeEvent(KReplaceDialog* self, QResizeEvent* param1) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseResizeEvent(KReplaceDialog* self, QResizeEvent* param1) {
+void KReplaceDialog_SuperResizeEvent(KReplaceDialog* self, QResizeEvent* param1) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_ResizeEvent_IsBase(true);
@@ -597,7 +597,7 @@ void KReplaceDialog_ContextMenuEvent(KReplaceDialog* self, QContextMenuEvent* pa
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseContextMenuEvent(KReplaceDialog* self, QContextMenuEvent* param1) {
+void KReplaceDialog_SuperContextMenuEvent(KReplaceDialog* self, QContextMenuEvent* param1) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_ContextMenuEvent_IsBase(true);
@@ -626,7 +626,7 @@ bool KReplaceDialog_EventFilter(KReplaceDialog* self, QObject* param1, QEvent* p
 }
 
 // Base class handler implementation
-bool KReplaceDialog_QBaseEventFilter(KReplaceDialog* self, QObject* param1, QEvent* param2) {
+bool KReplaceDialog_SuperEventFilter(KReplaceDialog* self, QObject* param1, QEvent* param2) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_EventFilter_IsBase(true);
@@ -655,7 +655,7 @@ int KReplaceDialog_DevType(const KReplaceDialog* self) {
 }
 
 // Base class handler implementation
-int KReplaceDialog_QBaseDevType(const KReplaceDialog* self) {
+int KReplaceDialog_SuperDevType(const KReplaceDialog* self) {
     auto* vkreplacedialog = const_cast<VirtualKReplaceDialog*>(dynamic_cast<const VirtualKReplaceDialog*>(self));
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_DevType_IsBase(true);
@@ -684,7 +684,7 @@ int KReplaceDialog_HeightForWidth(const KReplaceDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KReplaceDialog_QBaseHeightForWidth(const KReplaceDialog* self, int param1) {
+int KReplaceDialog_SuperHeightForWidth(const KReplaceDialog* self, int param1) {
     auto* vkreplacedialog = const_cast<VirtualKReplaceDialog*>(dynamic_cast<const VirtualKReplaceDialog*>(self));
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_HeightForWidth_IsBase(true);
@@ -713,7 +713,7 @@ bool KReplaceDialog_HasHeightForWidth(const KReplaceDialog* self) {
 }
 
 // Base class handler implementation
-bool KReplaceDialog_QBaseHasHeightForWidth(const KReplaceDialog* self) {
+bool KReplaceDialog_SuperHasHeightForWidth(const KReplaceDialog* self) {
     auto* vkreplacedialog = const_cast<VirtualKReplaceDialog*>(dynamic_cast<const VirtualKReplaceDialog*>(self));
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_HasHeightForWidth_IsBase(true);
@@ -742,7 +742,7 @@ QPaintEngine* KReplaceDialog_PaintEngine(const KReplaceDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KReplaceDialog_QBasePaintEngine(const KReplaceDialog* self) {
+QPaintEngine* KReplaceDialog_SuperPaintEngine(const KReplaceDialog* self) {
     auto* vkreplacedialog = const_cast<VirtualKReplaceDialog*>(dynamic_cast<const VirtualKReplaceDialog*>(self));
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_PaintEngine_IsBase(true);
@@ -771,7 +771,7 @@ bool KReplaceDialog_Event(KReplaceDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KReplaceDialog_QBaseEvent(KReplaceDialog* self, QEvent* event) {
+bool KReplaceDialog_SuperEvent(KReplaceDialog* self, QEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_Event_IsBase(true);
@@ -800,7 +800,7 @@ void KReplaceDialog_MousePressEvent(KReplaceDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseMousePressEvent(KReplaceDialog* self, QMouseEvent* event) {
+void KReplaceDialog_SuperMousePressEvent(KReplaceDialog* self, QMouseEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_MousePressEvent_IsBase(true);
@@ -829,7 +829,7 @@ void KReplaceDialog_MouseReleaseEvent(KReplaceDialog* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseMouseReleaseEvent(KReplaceDialog* self, QMouseEvent* event) {
+void KReplaceDialog_SuperMouseReleaseEvent(KReplaceDialog* self, QMouseEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_MouseReleaseEvent_IsBase(true);
@@ -858,7 +858,7 @@ void KReplaceDialog_MouseDoubleClickEvent(KReplaceDialog* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseMouseDoubleClickEvent(KReplaceDialog* self, QMouseEvent* event) {
+void KReplaceDialog_SuperMouseDoubleClickEvent(KReplaceDialog* self, QMouseEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_MouseDoubleClickEvent_IsBase(true);
@@ -887,7 +887,7 @@ void KReplaceDialog_MouseMoveEvent(KReplaceDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseMouseMoveEvent(KReplaceDialog* self, QMouseEvent* event) {
+void KReplaceDialog_SuperMouseMoveEvent(KReplaceDialog* self, QMouseEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_MouseMoveEvent_IsBase(true);
@@ -916,7 +916,7 @@ void KReplaceDialog_WheelEvent(KReplaceDialog* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseWheelEvent(KReplaceDialog* self, QWheelEvent* event) {
+void KReplaceDialog_SuperWheelEvent(KReplaceDialog* self, QWheelEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_WheelEvent_IsBase(true);
@@ -945,7 +945,7 @@ void KReplaceDialog_KeyReleaseEvent(KReplaceDialog* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseKeyReleaseEvent(KReplaceDialog* self, QKeyEvent* event) {
+void KReplaceDialog_SuperKeyReleaseEvent(KReplaceDialog* self, QKeyEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_KeyReleaseEvent_IsBase(true);
@@ -974,7 +974,7 @@ void KReplaceDialog_FocusInEvent(KReplaceDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseFocusInEvent(KReplaceDialog* self, QFocusEvent* event) {
+void KReplaceDialog_SuperFocusInEvent(KReplaceDialog* self, QFocusEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_FocusInEvent_IsBase(true);
@@ -1003,7 +1003,7 @@ void KReplaceDialog_FocusOutEvent(KReplaceDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseFocusOutEvent(KReplaceDialog* self, QFocusEvent* event) {
+void KReplaceDialog_SuperFocusOutEvent(KReplaceDialog* self, QFocusEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_FocusOutEvent_IsBase(true);
@@ -1032,7 +1032,7 @@ void KReplaceDialog_EnterEvent(KReplaceDialog* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseEnterEvent(KReplaceDialog* self, QEnterEvent* event) {
+void KReplaceDialog_SuperEnterEvent(KReplaceDialog* self, QEnterEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_EnterEvent_IsBase(true);
@@ -1061,7 +1061,7 @@ void KReplaceDialog_LeaveEvent(KReplaceDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseLeaveEvent(KReplaceDialog* self, QEvent* event) {
+void KReplaceDialog_SuperLeaveEvent(KReplaceDialog* self, QEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_LeaveEvent_IsBase(true);
@@ -1090,7 +1090,7 @@ void KReplaceDialog_PaintEvent(KReplaceDialog* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBasePaintEvent(KReplaceDialog* self, QPaintEvent* event) {
+void KReplaceDialog_SuperPaintEvent(KReplaceDialog* self, QPaintEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_PaintEvent_IsBase(true);
@@ -1119,7 +1119,7 @@ void KReplaceDialog_MoveEvent(KReplaceDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseMoveEvent(KReplaceDialog* self, QMoveEvent* event) {
+void KReplaceDialog_SuperMoveEvent(KReplaceDialog* self, QMoveEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_MoveEvent_IsBase(true);
@@ -1148,7 +1148,7 @@ void KReplaceDialog_TabletEvent(KReplaceDialog* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseTabletEvent(KReplaceDialog* self, QTabletEvent* event) {
+void KReplaceDialog_SuperTabletEvent(KReplaceDialog* self, QTabletEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_TabletEvent_IsBase(true);
@@ -1177,7 +1177,7 @@ void KReplaceDialog_ActionEvent(KReplaceDialog* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseActionEvent(KReplaceDialog* self, QActionEvent* event) {
+void KReplaceDialog_SuperActionEvent(KReplaceDialog* self, QActionEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_ActionEvent_IsBase(true);
@@ -1206,7 +1206,7 @@ void KReplaceDialog_DragEnterEvent(KReplaceDialog* self, QDragEnterEvent* event)
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseDragEnterEvent(KReplaceDialog* self, QDragEnterEvent* event) {
+void KReplaceDialog_SuperDragEnterEvent(KReplaceDialog* self, QDragEnterEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_DragEnterEvent_IsBase(true);
@@ -1235,7 +1235,7 @@ void KReplaceDialog_DragMoveEvent(KReplaceDialog* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseDragMoveEvent(KReplaceDialog* self, QDragMoveEvent* event) {
+void KReplaceDialog_SuperDragMoveEvent(KReplaceDialog* self, QDragMoveEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_DragMoveEvent_IsBase(true);
@@ -1264,7 +1264,7 @@ void KReplaceDialog_DragLeaveEvent(KReplaceDialog* self, QDragLeaveEvent* event)
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseDragLeaveEvent(KReplaceDialog* self, QDragLeaveEvent* event) {
+void KReplaceDialog_SuperDragLeaveEvent(KReplaceDialog* self, QDragLeaveEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_DragLeaveEvent_IsBase(true);
@@ -1293,7 +1293,7 @@ void KReplaceDialog_DropEvent(KReplaceDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseDropEvent(KReplaceDialog* self, QDropEvent* event) {
+void KReplaceDialog_SuperDropEvent(KReplaceDialog* self, QDropEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_DropEvent_IsBase(true);
@@ -1322,7 +1322,7 @@ void KReplaceDialog_HideEvent(KReplaceDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseHideEvent(KReplaceDialog* self, QHideEvent* event) {
+void KReplaceDialog_SuperHideEvent(KReplaceDialog* self, QHideEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_HideEvent_IsBase(true);
@@ -1352,7 +1352,7 @@ bool KReplaceDialog_NativeEvent(KReplaceDialog* self, const libqt_string eventTy
 }
 
 // Base class handler implementation
-bool KReplaceDialog_QBaseNativeEvent(KReplaceDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KReplaceDialog_SuperNativeEvent(KReplaceDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
@@ -1382,7 +1382,7 @@ void KReplaceDialog_ChangeEvent(KReplaceDialog* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseChangeEvent(KReplaceDialog* self, QEvent* param1) {
+void KReplaceDialog_SuperChangeEvent(KReplaceDialog* self, QEvent* param1) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_ChangeEvent_IsBase(true);
@@ -1411,7 +1411,7 @@ int KReplaceDialog_Metric(const KReplaceDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KReplaceDialog_QBaseMetric(const KReplaceDialog* self, int param1) {
+int KReplaceDialog_SuperMetric(const KReplaceDialog* self, int param1) {
     auto* vkreplacedialog = const_cast<VirtualKReplaceDialog*>(dynamic_cast<const VirtualKReplaceDialog*>(self));
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_Metric_IsBase(true);
@@ -1440,7 +1440,7 @@ void KReplaceDialog_InitPainter(const KReplaceDialog* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseInitPainter(const KReplaceDialog* self, QPainter* painter) {
+void KReplaceDialog_SuperInitPainter(const KReplaceDialog* self, QPainter* painter) {
     auto* vkreplacedialog = const_cast<VirtualKReplaceDialog*>(dynamic_cast<const VirtualKReplaceDialog*>(self));
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_InitPainter_IsBase(true);
@@ -1469,7 +1469,7 @@ QPaintDevice* KReplaceDialog_Redirected(const KReplaceDialog* self, QPoint* offs
 }
 
 // Base class handler implementation
-QPaintDevice* KReplaceDialog_QBaseRedirected(const KReplaceDialog* self, QPoint* offset) {
+QPaintDevice* KReplaceDialog_SuperRedirected(const KReplaceDialog* self, QPoint* offset) {
     auto* vkreplacedialog = const_cast<VirtualKReplaceDialog*>(dynamic_cast<const VirtualKReplaceDialog*>(self));
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_Redirected_IsBase(true);
@@ -1498,7 +1498,7 @@ QPainter* KReplaceDialog_SharedPainter(const KReplaceDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* KReplaceDialog_QBaseSharedPainter(const KReplaceDialog* self) {
+QPainter* KReplaceDialog_SuperSharedPainter(const KReplaceDialog* self) {
     auto* vkreplacedialog = const_cast<VirtualKReplaceDialog*>(dynamic_cast<const VirtualKReplaceDialog*>(self));
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_SharedPainter_IsBase(true);
@@ -1527,7 +1527,7 @@ void KReplaceDialog_InputMethodEvent(KReplaceDialog* self, QInputMethodEvent* pa
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseInputMethodEvent(KReplaceDialog* self, QInputMethodEvent* param1) {
+void KReplaceDialog_SuperInputMethodEvent(KReplaceDialog* self, QInputMethodEvent* param1) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_InputMethodEvent_IsBase(true);
@@ -1556,7 +1556,7 @@ QVariant* KReplaceDialog_InputMethodQuery(const KReplaceDialog* self, int param1
 }
 
 // Base class handler implementation
-QVariant* KReplaceDialog_QBaseInputMethodQuery(const KReplaceDialog* self, int param1) {
+QVariant* KReplaceDialog_SuperInputMethodQuery(const KReplaceDialog* self, int param1) {
     auto* vkreplacedialog = const_cast<VirtualKReplaceDialog*>(dynamic_cast<const VirtualKReplaceDialog*>(self));
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_InputMethodQuery_IsBase(true);
@@ -1585,7 +1585,7 @@ bool KReplaceDialog_FocusNextPrevChild(KReplaceDialog* self, bool next) {
 }
 
 // Base class handler implementation
-bool KReplaceDialog_QBaseFocusNextPrevChild(KReplaceDialog* self, bool next) {
+bool KReplaceDialog_SuperFocusNextPrevChild(KReplaceDialog* self, bool next) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_FocusNextPrevChild_IsBase(true);
@@ -1614,7 +1614,7 @@ void KReplaceDialog_TimerEvent(KReplaceDialog* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseTimerEvent(KReplaceDialog* self, QTimerEvent* event) {
+void KReplaceDialog_SuperTimerEvent(KReplaceDialog* self, QTimerEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_TimerEvent_IsBase(true);
@@ -1643,7 +1643,7 @@ void KReplaceDialog_ChildEvent(KReplaceDialog* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseChildEvent(KReplaceDialog* self, QChildEvent* event) {
+void KReplaceDialog_SuperChildEvent(KReplaceDialog* self, QChildEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_ChildEvent_IsBase(true);
@@ -1672,7 +1672,7 @@ void KReplaceDialog_CustomEvent(KReplaceDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseCustomEvent(KReplaceDialog* self, QEvent* event) {
+void KReplaceDialog_SuperCustomEvent(KReplaceDialog* self, QEvent* event) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_CustomEvent_IsBase(true);
@@ -1701,7 +1701,7 @@ void KReplaceDialog_ConnectNotify(KReplaceDialog* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseConnectNotify(KReplaceDialog* self, const QMetaMethod* signal) {
+void KReplaceDialog_SuperConnectNotify(KReplaceDialog* self, const QMetaMethod* signal) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_ConnectNotify_IsBase(true);
@@ -1730,7 +1730,7 @@ void KReplaceDialog_DisconnectNotify(KReplaceDialog* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseDisconnectNotify(KReplaceDialog* self, const QMetaMethod* signal) {
+void KReplaceDialog_SuperDisconnectNotify(KReplaceDialog* self, const QMetaMethod* signal) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_DisconnectNotify_IsBase(true);
@@ -1759,7 +1759,7 @@ void KReplaceDialog_AdjustPosition(KReplaceDialog* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseAdjustPosition(KReplaceDialog* self, QWidget* param1) {
+void KReplaceDialog_SuperAdjustPosition(KReplaceDialog* self, QWidget* param1) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_AdjustPosition_IsBase(true);
@@ -1788,7 +1788,7 @@ void KReplaceDialog_UpdateMicroFocus(KReplaceDialog* self) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseUpdateMicroFocus(KReplaceDialog* self) {
+void KReplaceDialog_SuperUpdateMicroFocus(KReplaceDialog* self) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_UpdateMicroFocus_IsBase(true);
@@ -1817,7 +1817,7 @@ void KReplaceDialog_Create(KReplaceDialog* self) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseCreate(KReplaceDialog* self) {
+void KReplaceDialog_SuperCreate(KReplaceDialog* self) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_Create_IsBase(true);
@@ -1846,7 +1846,7 @@ void KReplaceDialog_Destroy(KReplaceDialog* self) {
 }
 
 // Base class handler implementation
-void KReplaceDialog_QBaseDestroy(KReplaceDialog* self) {
+void KReplaceDialog_SuperDestroy(KReplaceDialog* self) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_Destroy_IsBase(true);
@@ -1875,7 +1875,7 @@ bool KReplaceDialog_FocusNextChild(KReplaceDialog* self) {
 }
 
 // Base class handler implementation
-bool KReplaceDialog_QBaseFocusNextChild(KReplaceDialog* self) {
+bool KReplaceDialog_SuperFocusNextChild(KReplaceDialog* self) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_FocusNextChild_IsBase(true);
@@ -1904,7 +1904,7 @@ bool KReplaceDialog_FocusPreviousChild(KReplaceDialog* self) {
 }
 
 // Base class handler implementation
-bool KReplaceDialog_QBaseFocusPreviousChild(KReplaceDialog* self) {
+bool KReplaceDialog_SuperFocusPreviousChild(KReplaceDialog* self) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_FocusPreviousChild_IsBase(true);
@@ -1933,7 +1933,7 @@ QObject* KReplaceDialog_Sender(const KReplaceDialog* self) {
 }
 
 // Base class handler implementation
-QObject* KReplaceDialog_QBaseSender(const KReplaceDialog* self) {
+QObject* KReplaceDialog_SuperSender(const KReplaceDialog* self) {
     auto* vkreplacedialog = const_cast<VirtualKReplaceDialog*>(dynamic_cast<const VirtualKReplaceDialog*>(self));
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_Sender_IsBase(true);
@@ -1962,7 +1962,7 @@ int KReplaceDialog_SenderSignalIndex(const KReplaceDialog* self) {
 }
 
 // Base class handler implementation
-int KReplaceDialog_QBaseSenderSignalIndex(const KReplaceDialog* self) {
+int KReplaceDialog_SuperSenderSignalIndex(const KReplaceDialog* self) {
     auto* vkreplacedialog = const_cast<VirtualKReplaceDialog*>(dynamic_cast<const VirtualKReplaceDialog*>(self));
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_SenderSignalIndex_IsBase(true);
@@ -1991,7 +1991,7 @@ int KReplaceDialog_Receivers(const KReplaceDialog* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KReplaceDialog_QBaseReceivers(const KReplaceDialog* self, const char* signal) {
+int KReplaceDialog_SuperReceivers(const KReplaceDialog* self, const char* signal) {
     auto* vkreplacedialog = const_cast<VirtualKReplaceDialog*>(dynamic_cast<const VirtualKReplaceDialog*>(self));
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_Receivers_IsBase(true);
@@ -2020,7 +2020,7 @@ bool KReplaceDialog_IsSignalConnected(const KReplaceDialog* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool KReplaceDialog_QBaseIsSignalConnected(const KReplaceDialog* self, const QMetaMethod* signal) {
+bool KReplaceDialog_SuperIsSignalConnected(const KReplaceDialog* self, const QMetaMethod* signal) {
     auto* vkreplacedialog = const_cast<VirtualKReplaceDialog*>(dynamic_cast<const VirtualKReplaceDialog*>(self));
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_IsSignalConnected_IsBase(true);
@@ -2049,7 +2049,7 @@ double KReplaceDialog_GetDecodedMetricF(const KReplaceDialog* self, int metricA,
 }
 
 // Base class handler implementation
-double KReplaceDialog_QBaseGetDecodedMetricF(const KReplaceDialog* self, int metricA, int metricB) {
+double KReplaceDialog_SuperGetDecodedMetricF(const KReplaceDialog* self, int metricA, int metricB) {
     auto* vkreplacedialog = const_cast<VirtualKReplaceDialog*>(dynamic_cast<const VirtualKReplaceDialog*>(self));
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->setKReplaceDialog_GetDecodedMetricF_IsBase(true);

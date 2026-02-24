@@ -331,23 +331,23 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
 
     // Friend functions
     friend void QDBusServiceWatcher_TimerEvent(QDBusServiceWatcher* self, QTimerEvent* event);
-    friend void QDBusServiceWatcher_QBaseTimerEvent(QDBusServiceWatcher* self, QTimerEvent* event);
+    friend void QDBusServiceWatcher_SuperTimerEvent(QDBusServiceWatcher* self, QTimerEvent* event);
     friend void QDBusServiceWatcher_ChildEvent(QDBusServiceWatcher* self, QChildEvent* event);
-    friend void QDBusServiceWatcher_QBaseChildEvent(QDBusServiceWatcher* self, QChildEvent* event);
+    friend void QDBusServiceWatcher_SuperChildEvent(QDBusServiceWatcher* self, QChildEvent* event);
     friend void QDBusServiceWatcher_CustomEvent(QDBusServiceWatcher* self, QEvent* event);
-    friend void QDBusServiceWatcher_QBaseCustomEvent(QDBusServiceWatcher* self, QEvent* event);
+    friend void QDBusServiceWatcher_SuperCustomEvent(QDBusServiceWatcher* self, QEvent* event);
     friend void QDBusServiceWatcher_ConnectNotify(QDBusServiceWatcher* self, const QMetaMethod* signal);
-    friend void QDBusServiceWatcher_QBaseConnectNotify(QDBusServiceWatcher* self, const QMetaMethod* signal);
+    friend void QDBusServiceWatcher_SuperConnectNotify(QDBusServiceWatcher* self, const QMetaMethod* signal);
     friend void QDBusServiceWatcher_DisconnectNotify(QDBusServiceWatcher* self, const QMetaMethod* signal);
-    friend void QDBusServiceWatcher_QBaseDisconnectNotify(QDBusServiceWatcher* self, const QMetaMethod* signal);
+    friend void QDBusServiceWatcher_SuperDisconnectNotify(QDBusServiceWatcher* self, const QMetaMethod* signal);
     friend QObject* QDBusServiceWatcher_Sender(const QDBusServiceWatcher* self);
-    friend QObject* QDBusServiceWatcher_QBaseSender(const QDBusServiceWatcher* self);
+    friend QObject* QDBusServiceWatcher_SuperSender(const QDBusServiceWatcher* self);
     friend int QDBusServiceWatcher_SenderSignalIndex(const QDBusServiceWatcher* self);
-    friend int QDBusServiceWatcher_QBaseSenderSignalIndex(const QDBusServiceWatcher* self);
+    friend int QDBusServiceWatcher_SuperSenderSignalIndex(const QDBusServiceWatcher* self);
     friend int QDBusServiceWatcher_Receivers(const QDBusServiceWatcher* self, const char* signal);
-    friend int QDBusServiceWatcher_QBaseReceivers(const QDBusServiceWatcher* self, const char* signal);
+    friend int QDBusServiceWatcher_SuperReceivers(const QDBusServiceWatcher* self, const char* signal);
     friend bool QDBusServiceWatcher_IsSignalConnected(const QDBusServiceWatcher* self, const QMetaMethod* signal);
-    friend bool QDBusServiceWatcher_QBaseIsSignalConnected(const QDBusServiceWatcher* self, const QMetaMethod* signal);
+    friend bool QDBusServiceWatcher_SuperIsSignalConnected(const QDBusServiceWatcher* self, const QMetaMethod* signal);
 };
 
 #endif

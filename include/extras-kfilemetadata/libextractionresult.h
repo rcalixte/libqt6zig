@@ -34,11 +34,11 @@ void KFileMetaData__ExtractionResult_Add(KFileMetaData__ExtractionResult* self, 
 void KFileMetaData__ExtractionResult_AddType(KFileMetaData__ExtractionResult* self, int typeVal);
 libqt_map /* of int to libqt_string */ KFileMetaData__ExtractionResult_ImageData(const KFileMetaData__ExtractionResult* self);
 void KFileMetaData__ExtractionResult_OnAppend(KFileMetaData__ExtractionResult* self, intptr_t slot);
-void KFileMetaData__ExtractionResult_QBaseAppend(KFileMetaData__ExtractionResult* self, const libqt_string text);
+void KFileMetaData__ExtractionResult_SuperAppend(KFileMetaData__ExtractionResult* self, const libqt_string text);
 void KFileMetaData__ExtractionResult_OnAdd(KFileMetaData__ExtractionResult* self, intptr_t slot);
-void KFileMetaData__ExtractionResult_QBaseAdd(KFileMetaData__ExtractionResult* self, int property, const QVariant* value);
+void KFileMetaData__ExtractionResult_SuperAdd(KFileMetaData__ExtractionResult* self, int property, const QVariant* value);
 void KFileMetaData__ExtractionResult_OnAddType(KFileMetaData__ExtractionResult* self, intptr_t slot);
-void KFileMetaData__ExtractionResult_QBaseAddType(KFileMetaData__ExtractionResult* self, int typeVal);
+void KFileMetaData__ExtractionResult_SuperAddType(KFileMetaData__ExtractionResult* self, int typeVal);
 void KFileMetaData__ExtractionResult_Delete(KFileMetaData__ExtractionResult* self);
 
 #ifdef __cplusplus

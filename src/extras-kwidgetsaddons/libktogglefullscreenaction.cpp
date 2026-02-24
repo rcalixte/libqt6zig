@@ -74,7 +74,7 @@ void KToggleFullScreenAction_SlotToggled(KToggleFullScreenAction* self, bool che
 }
 
 // Base class handler implementation
-QMetaObject* KToggleFullScreenAction_QBaseMetaObject(const KToggleFullScreenAction* self) {
+QMetaObject* KToggleFullScreenAction_SuperMetaObject(const KToggleFullScreenAction* self) {
     auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self));
     if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
         vktogglefullscreenaction->setKToggleFullScreenAction_MetaObject_IsBase(true);
@@ -93,7 +93,7 @@ void KToggleFullScreenAction_OnMetaObject(const KToggleFullScreenAction* self, i
 }
 
 // Base class handler implementation
-void* KToggleFullScreenAction_QBaseMetacast(KToggleFullScreenAction* self, const char* param1) {
+void* KToggleFullScreenAction_SuperMetacast(KToggleFullScreenAction* self, const char* param1) {
     auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
     if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
         vktogglefullscreenaction->setKToggleFullScreenAction_Metacast_IsBase(true);
@@ -112,7 +112,7 @@ void KToggleFullScreenAction_OnMetacast(KToggleFullScreenAction* self, intptr_t 
 }
 
 // Base class handler implementation
-int KToggleFullScreenAction_QBaseMetacall(KToggleFullScreenAction* self, int param1, int param2, void** param3) {
+int KToggleFullScreenAction_SuperMetacall(KToggleFullScreenAction* self, int param1, int param2, void** param3) {
     auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
     if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
         vktogglefullscreenaction->setKToggleFullScreenAction_Metacall_IsBase(true);
@@ -131,7 +131,7 @@ void KToggleFullScreenAction_OnMetacall(KToggleFullScreenAction* self, intptr_t 
 }
 
 // Base class handler implementation
-bool KToggleFullScreenAction_QBaseEventFilter(KToggleFullScreenAction* self, QObject* object, QEvent* event) {
+bool KToggleFullScreenAction_SuperEventFilter(KToggleFullScreenAction* self, QObject* object, QEvent* event) {
     auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
     if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
         vktogglefullscreenaction->setKToggleFullScreenAction_EventFilter_IsBase(true);
@@ -150,7 +150,7 @@ void KToggleFullScreenAction_OnEventFilter(KToggleFullScreenAction* self, intptr
 }
 
 // Base class handler implementation
-void KToggleFullScreenAction_QBaseSlotToggled(KToggleFullScreenAction* self, bool checked) {
+void KToggleFullScreenAction_SuperSlotToggled(KToggleFullScreenAction* self, bool checked) {
     auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
     if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
         vktogglefullscreenaction->setKToggleFullScreenAction_SlotToggled_IsBase(true);
@@ -179,7 +179,7 @@ bool KToggleFullScreenAction_Event(KToggleFullScreenAction* self, QEvent* param1
 }
 
 // Base class handler implementation
-bool KToggleFullScreenAction_QBaseEvent(KToggleFullScreenAction* self, QEvent* param1) {
+bool KToggleFullScreenAction_SuperEvent(KToggleFullScreenAction* self, QEvent* param1) {
     auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
     if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
         vktogglefullscreenaction->setKToggleFullScreenAction_Event_IsBase(true);
@@ -208,7 +208,7 @@ void KToggleFullScreenAction_TimerEvent(KToggleFullScreenAction* self, QTimerEve
 }
 
 // Base class handler implementation
-void KToggleFullScreenAction_QBaseTimerEvent(KToggleFullScreenAction* self, QTimerEvent* event) {
+void KToggleFullScreenAction_SuperTimerEvent(KToggleFullScreenAction* self, QTimerEvent* event) {
     auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
     if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
         vktogglefullscreenaction->setKToggleFullScreenAction_TimerEvent_IsBase(true);
@@ -237,7 +237,7 @@ void KToggleFullScreenAction_ChildEvent(KToggleFullScreenAction* self, QChildEve
 }
 
 // Base class handler implementation
-void KToggleFullScreenAction_QBaseChildEvent(KToggleFullScreenAction* self, QChildEvent* event) {
+void KToggleFullScreenAction_SuperChildEvent(KToggleFullScreenAction* self, QChildEvent* event) {
     auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
     if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
         vktogglefullscreenaction->setKToggleFullScreenAction_ChildEvent_IsBase(true);
@@ -266,7 +266,7 @@ void KToggleFullScreenAction_CustomEvent(KToggleFullScreenAction* self, QEvent* 
 }
 
 // Base class handler implementation
-void KToggleFullScreenAction_QBaseCustomEvent(KToggleFullScreenAction* self, QEvent* event) {
+void KToggleFullScreenAction_SuperCustomEvent(KToggleFullScreenAction* self, QEvent* event) {
     auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
     if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
         vktogglefullscreenaction->setKToggleFullScreenAction_CustomEvent_IsBase(true);
@@ -295,7 +295,7 @@ void KToggleFullScreenAction_ConnectNotify(KToggleFullScreenAction* self, const 
 }
 
 // Base class handler implementation
-void KToggleFullScreenAction_QBaseConnectNotify(KToggleFullScreenAction* self, const QMetaMethod* signal) {
+void KToggleFullScreenAction_SuperConnectNotify(KToggleFullScreenAction* self, const QMetaMethod* signal) {
     auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
     if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
         vktogglefullscreenaction->setKToggleFullScreenAction_ConnectNotify_IsBase(true);
@@ -324,7 +324,7 @@ void KToggleFullScreenAction_DisconnectNotify(KToggleFullScreenAction* self, con
 }
 
 // Base class handler implementation
-void KToggleFullScreenAction_QBaseDisconnectNotify(KToggleFullScreenAction* self, const QMetaMethod* signal) {
+void KToggleFullScreenAction_SuperDisconnectNotify(KToggleFullScreenAction* self, const QMetaMethod* signal) {
     auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
     if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
         vktogglefullscreenaction->setKToggleFullScreenAction_DisconnectNotify_IsBase(true);
@@ -353,7 +353,7 @@ QObject* KToggleFullScreenAction_Sender(const KToggleFullScreenAction* self) {
 }
 
 // Base class handler implementation
-QObject* KToggleFullScreenAction_QBaseSender(const KToggleFullScreenAction* self) {
+QObject* KToggleFullScreenAction_SuperSender(const KToggleFullScreenAction* self) {
     auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self));
     if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
         vktogglefullscreenaction->setKToggleFullScreenAction_Sender_IsBase(true);
@@ -382,7 +382,7 @@ int KToggleFullScreenAction_SenderSignalIndex(const KToggleFullScreenAction* sel
 }
 
 // Base class handler implementation
-int KToggleFullScreenAction_QBaseSenderSignalIndex(const KToggleFullScreenAction* self) {
+int KToggleFullScreenAction_SuperSenderSignalIndex(const KToggleFullScreenAction* self) {
     auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self));
     if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
         vktogglefullscreenaction->setKToggleFullScreenAction_SenderSignalIndex_IsBase(true);
@@ -411,7 +411,7 @@ int KToggleFullScreenAction_Receivers(const KToggleFullScreenAction* self, const
 }
 
 // Base class handler implementation
-int KToggleFullScreenAction_QBaseReceivers(const KToggleFullScreenAction* self, const char* signal) {
+int KToggleFullScreenAction_SuperReceivers(const KToggleFullScreenAction* self, const char* signal) {
     auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self));
     if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
         vktogglefullscreenaction->setKToggleFullScreenAction_Receivers_IsBase(true);
@@ -440,7 +440,7 @@ bool KToggleFullScreenAction_IsSignalConnected(const KToggleFullScreenAction* se
 }
 
 // Base class handler implementation
-bool KToggleFullScreenAction_QBaseIsSignalConnected(const KToggleFullScreenAction* self, const QMetaMethod* signal) {
+bool KToggleFullScreenAction_SuperIsSignalConnected(const KToggleFullScreenAction* self, const QMetaMethod* signal) {
     auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self));
     if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
         vktogglefullscreenaction->setKToggleFullScreenAction_IsSignalConnected_IsBase(true);

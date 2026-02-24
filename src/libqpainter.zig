@@ -3305,6 +3305,10 @@ pub const qpainter = struct {
         qtc.QPainter_SetRenderHints2(@ptrCast(self), @bitCast(hints), on);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#dtor.QPainter)
     ///
     /// Delete this object from C++ memory.
@@ -3313,7 +3317,7 @@ pub const qpainter = struct {
     ///
     /// ` self: QtC.QPainter `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPainter_Delete(@ptrCast(self));
     }
 };
@@ -3636,13 +3640,17 @@ pub const qpainter__pixmapfragment = struct {
         return qtc.QPainter__PixmapFragment_Create6(@ptrCast(pos), @ptrCast(sourceRect), @bitCast(scaleX), @bitCast(scaleY), @bitCast(rotation), @bitCast(opacity));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QPainter__PixmapFragment `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPainter__PixmapFragment_Delete(@ptrCast(self));
     }
 };

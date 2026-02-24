@@ -49,6 +49,10 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -57,8 +61,8 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` self: QtC.KIO__WidgetsAskUserActionHandler `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KIO__WidgetsAskUserActionHandler_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KIO__WidgetsAskUserActionHandler_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -84,6 +88,10 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -92,9 +100,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KIO__WidgetsAskUserActionHandler_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KIO__WidgetsAskUserActionHandler_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -123,6 +131,10 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -135,8 +147,8 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KIO__WidgetsAskUserActionHandler_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KIO__WidgetsAskUserActionHandler_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -206,6 +218,10 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_OnAskUserRename(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAskUserRename` instead
+    ///
+    pub const QBaseAskUserRename = SuperAskUserRename;
+
     /// ### [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserRename)
     ///
     /// Base class method implementation
@@ -236,12 +252,12 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` mtimeDest: QtC.QDateTime `
     ///
-    pub fn QBaseAskUserRename(self: ?*anyopaque, job: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: u64, sizeDest: u64, ctimeSrc: ?*anyopaque, ctimeDest: ?*anyopaque, mtimeSrc: ?*anyopaque, mtimeDest: ?*anyopaque) void {
+    pub fn SuperAskUserRename(self: ?*anyopaque, job: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: u64, sizeDest: u64, ctimeSrc: ?*anyopaque, ctimeDest: ?*anyopaque, mtimeSrc: ?*anyopaque, mtimeDest: ?*anyopaque) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.KIO__WidgetsAskUserActionHandler_QBaseAskUserRename(@ptrCast(self), @ptrCast(job), title_str, @ptrCast(src), @ptrCast(dest), @bitCast(options), @bitCast(sizeSrc), @bitCast(sizeDest), @ptrCast(ctimeSrc), @ptrCast(ctimeDest), @ptrCast(mtimeSrc), @ptrCast(mtimeDest));
+        qtc.KIO__WidgetsAskUserActionHandler_SuperAskUserRename(@ptrCast(self), @ptrCast(job), title_str, @ptrCast(src), @ptrCast(dest), @bitCast(options), @bitCast(sizeSrc), @bitCast(sizeDest), @ptrCast(ctimeSrc), @ptrCast(ctimeDest), @ptrCast(mtimeSrc), @ptrCast(mtimeDest));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserSkip)
@@ -278,6 +294,10 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_OnAskUserSkip(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAskUserSkip` instead
+    ///
+    pub const QBaseAskUserSkip = SuperAskUserSkip;
+
     /// ### [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserSkip)
     ///
     /// Base class method implementation
@@ -292,12 +312,12 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` error_text: []const u8 `
     ///
-    pub fn QBaseAskUserSkip(self: ?*anyopaque, job: ?*anyopaque, options: i32, error_text: []const u8) void {
+    pub fn SuperAskUserSkip(self: ?*anyopaque, job: ?*anyopaque, options: i32, error_text: []const u8) void {
         const error_text_str = qtc.libqt_string{
             .len = error_text.len,
             .data = error_text.ptr,
         };
-        qtc.KIO__WidgetsAskUserActionHandler_QBaseAskUserSkip(@ptrCast(self), @ptrCast(job), @bitCast(options), error_text_str);
+        qtc.KIO__WidgetsAskUserActionHandler_SuperAskUserSkip(@ptrCast(self), @ptrCast(job), @bitCast(options), error_text_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserDelete)
@@ -336,6 +356,10 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_OnAskUserDelete(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAskUserDelete` instead
+    ///
+    pub const QBaseAskUserDelete = SuperAskUserDelete;
+
     /// ### [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserDelete)
     ///
     /// Base class method implementation
@@ -352,12 +376,12 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` parent: QtC.QWidget `
     ///
-    pub fn QBaseAskUserDelete(self: ?*anyopaque, urls: []QtC.QUrl, deletionType: i32, confirmationType: i32, parent: ?*anyopaque) void {
+    pub fn SuperAskUserDelete(self: ?*anyopaque, urls: []QtC.QUrl, deletionType: i32, confirmationType: i32, parent: ?*anyopaque) void {
         const urls_list = qtc.libqt_list{
             .len = urls.len,
             .data = @ptrCast(urls.ptr),
         };
-        qtc.KIO__WidgetsAskUserActionHandler_QBaseAskUserDelete(@ptrCast(self), urls_list, @bitCast(deletionType), @bitCast(confirmationType), @ptrCast(parent));
+        qtc.KIO__WidgetsAskUserActionHandler_SuperAskUserDelete(@ptrCast(self), urls_list, @bitCast(deletionType), @bitCast(confirmationType), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#requestUserMessageBox)
@@ -436,6 +460,10 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_OnRequestUserMessageBox(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRequestUserMessageBox` instead
+    ///
+    pub const QBaseRequestUserMessageBox = SuperRequestUserMessageBox;
+
     /// ### [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#requestUserMessageBox)
     ///
     /// Base class method implementation
@@ -464,7 +492,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` parent: QtC.QWidget `
     ///
-    pub fn QBaseRequestUserMessageBox(self: ?*anyopaque, typeVal: i32, text: []const u8, title: []const u8, primaryActionText: []const u8, secondaryActionText: []const u8, primaryActionIconName: []const u8, secondaryActionIconName: []const u8, dontAskAgainName: []const u8, details: []const u8, parent: ?*anyopaque) void {
+    pub fn SuperRequestUserMessageBox(self: ?*anyopaque, typeVal: i32, text: []const u8, title: []const u8, primaryActionText: []const u8, secondaryActionText: []const u8, primaryActionIconName: []const u8, secondaryActionIconName: []const u8, dontAskAgainName: []const u8, details: []const u8, parent: ?*anyopaque) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -497,7 +525,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
             .len = details.len,
             .data = details.ptr,
         };
-        qtc.KIO__WidgetsAskUserActionHandler_QBaseRequestUserMessageBox(@ptrCast(self), @bitCast(typeVal), text_str, title_str, primaryActionText_str, secondaryActionText_str, primaryActionIconName_str, secondaryActionIconName_str, dontAskAgainName_str, details_str, @ptrCast(parent));
+        qtc.KIO__WidgetsAskUserActionHandler_SuperRequestUserMessageBox(@ptrCast(self), @bitCast(typeVal), text_str, title_str, primaryActionText_str, secondaryActionText_str, primaryActionIconName_str, secondaryActionIconName_str, dontAskAgainName_str, details_str, @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askIgnoreSslErrors)
@@ -550,6 +578,10 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_OnAskIgnoreSslErrors(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAskIgnoreSslErrors` instead
+    ///
+    pub const QBaseAskIgnoreSslErrors = SuperAskIgnoreSslErrors;
+
     /// ### [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askIgnoreSslErrors)
     ///
     /// Base class method implementation
@@ -564,7 +596,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseAskIgnoreSslErrors(self: ?*anyopaque, sslErrorData: arraymap_constu8_qtcqvariant, parent: ?*anyopaque, allocator: std.mem.Allocator) void {
+    pub fn SuperAskIgnoreSslErrors(self: ?*anyopaque, sslErrorData: arraymap_constu8_qtcqvariant, parent: ?*anyopaque, allocator: std.mem.Allocator) void {
         const sslErrorData_count = sslErrorData.count();
         const sslErrorData_keys = allocator.alloc(qtc.libqt_string, sslErrorData_count) catch @panic("kio__widgetsaskuseractionhandler.AskIgnoreSslErrors: Memory allocation failed");
         defer allocator.free(sslErrorData_keys);
@@ -585,7 +617,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
             .keys = @ptrCast(sslErrorData_keys.ptr),
             .values = @ptrCast(sslErrorData_values.ptr),
         };
-        qtc.KIO__WidgetsAskUserActionHandler_QBaseAskIgnoreSslErrors(@ptrCast(self), sslErrorData_map, @ptrCast(parent));
+        qtc.KIO__WidgetsAskUserActionHandler_SuperAskIgnoreSslErrors(@ptrCast(self), sslErrorData_map, @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-widgetsaskuseractionhandler.html#setWindow)
@@ -1552,6 +1584,10 @@ pub const kio__widgetsaskuseractionhandler = struct {
         return qtc.KIO__WidgetsAskUserActionHandler_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1564,8 +1600,8 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KIO__WidgetsAskUserActionHandler_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KIO__WidgetsAskUserActionHandler_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1602,6 +1638,10 @@ pub const kio__widgetsaskuseractionhandler = struct {
         return qtc.KIO__WidgetsAskUserActionHandler_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1616,8 +1656,8 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KIO__WidgetsAskUserActionHandler_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KIO__WidgetsAskUserActionHandler_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1652,6 +1692,10 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1664,8 +1708,8 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIO__WidgetsAskUserActionHandler_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KIO__WidgetsAskUserActionHandler_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1700,6 +1744,10 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1712,8 +1760,8 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIO__WidgetsAskUserActionHandler_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KIO__WidgetsAskUserActionHandler_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1748,6 +1796,10 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1760,8 +1812,8 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIO__WidgetsAskUserActionHandler_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KIO__WidgetsAskUserActionHandler_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1796,6 +1848,10 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1808,8 +1864,8 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KIO__WidgetsAskUserActionHandler_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KIO__WidgetsAskUserActionHandler_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1844,6 +1900,10 @@ pub const kio__widgetsaskuseractionhandler = struct {
         qtc.KIO__WidgetsAskUserActionHandler_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1856,8 +1916,8 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KIO__WidgetsAskUserActionHandler_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KIO__WidgetsAskUserActionHandler_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1890,6 +1950,10 @@ pub const kio__widgetsaskuseractionhandler = struct {
         return qtc.KIO__WidgetsAskUserActionHandler_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1900,8 +1964,8 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` self: QtC.KIO__WidgetsAskUserActionHandler `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KIO__WidgetsAskUserActionHandler_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KIO__WidgetsAskUserActionHandler_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1934,6 +1998,10 @@ pub const kio__widgetsaskuseractionhandler = struct {
         return qtc.KIO__WidgetsAskUserActionHandler_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1944,8 +2012,8 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` self: QtC.KIO__WidgetsAskUserActionHandler `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KIO__WidgetsAskUserActionHandler_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KIO__WidgetsAskUserActionHandler_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1981,6 +2049,10 @@ pub const kio__widgetsaskuseractionhandler = struct {
         return qtc.KIO__WidgetsAskUserActionHandler_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1993,9 +2065,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KIO__WidgetsAskUserActionHandler_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KIO__WidgetsAskUserActionHandler_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2030,6 +2102,10 @@ pub const kio__widgetsaskuseractionhandler = struct {
         return qtc.KIO__WidgetsAskUserActionHandler_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2042,8 +2118,8 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KIO__WidgetsAskUserActionHandler_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KIO__WidgetsAskUserActionHandler_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2077,6 +2153,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -2084,7 +2163,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` self: QtC.KIO__WidgetsAskUserActionHandler `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KIO__WidgetsAskUserActionHandler_Delete(@ptrCast(self));
     }
 };

@@ -151,7 +151,7 @@ QTextFrame__iterator* QTextFrame_End(const QTextFrame* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QTextFrame_QBaseMetaObject(const QTextFrame* self) {
+QMetaObject* QTextFrame_SuperMetaObject(const QTextFrame* self) {
     auto* vqtextframe = const_cast<VirtualQTextFrame*>(dynamic_cast<const VirtualQTextFrame*>(self));
     if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
         vqtextframe->setQTextFrame_MetaObject_IsBase(true);
@@ -170,7 +170,7 @@ void QTextFrame_OnMetaObject(const QTextFrame* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QTextFrame_QBaseMetacast(QTextFrame* self, const char* param1) {
+void* QTextFrame_SuperMetacast(QTextFrame* self, const char* param1) {
     auto* vqtextframe = dynamic_cast<VirtualQTextFrame*>(self);
     if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
         vqtextframe->setQTextFrame_Metacast_IsBase(true);
@@ -189,7 +189,7 @@ void QTextFrame_OnMetacast(QTextFrame* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTextFrame_QBaseMetacall(QTextFrame* self, int param1, int param2, void** param3) {
+int QTextFrame_SuperMetacall(QTextFrame* self, int param1, int param2, void** param3) {
     auto* vqtextframe = dynamic_cast<VirtualQTextFrame*>(self);
     if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
         vqtextframe->setQTextFrame_Metacall_IsBase(true);
@@ -218,7 +218,7 @@ bool QTextFrame_Event(QTextFrame* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTextFrame_QBaseEvent(QTextFrame* self, QEvent* event) {
+bool QTextFrame_SuperEvent(QTextFrame* self, QEvent* event) {
     auto* vqtextframe = dynamic_cast<VirtualQTextFrame*>(self);
     if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
         vqtextframe->setQTextFrame_Event_IsBase(true);
@@ -247,7 +247,7 @@ bool QTextFrame_EventFilter(QTextFrame* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTextFrame_QBaseEventFilter(QTextFrame* self, QObject* watched, QEvent* event) {
+bool QTextFrame_SuperEventFilter(QTextFrame* self, QObject* watched, QEvent* event) {
     auto* vqtextframe = dynamic_cast<VirtualQTextFrame*>(self);
     if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
         vqtextframe->setQTextFrame_EventFilter_IsBase(true);
@@ -276,7 +276,7 @@ void QTextFrame_TimerEvent(QTextFrame* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QTextFrame_QBaseTimerEvent(QTextFrame* self, QTimerEvent* event) {
+void QTextFrame_SuperTimerEvent(QTextFrame* self, QTimerEvent* event) {
     auto* vqtextframe = dynamic_cast<VirtualQTextFrame*>(self);
     if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
         vqtextframe->setQTextFrame_TimerEvent_IsBase(true);
@@ -305,7 +305,7 @@ void QTextFrame_ChildEvent(QTextFrame* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QTextFrame_QBaseChildEvent(QTextFrame* self, QChildEvent* event) {
+void QTextFrame_SuperChildEvent(QTextFrame* self, QChildEvent* event) {
     auto* vqtextframe = dynamic_cast<VirtualQTextFrame*>(self);
     if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
         vqtextframe->setQTextFrame_ChildEvent_IsBase(true);
@@ -334,7 +334,7 @@ void QTextFrame_CustomEvent(QTextFrame* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTextFrame_QBaseCustomEvent(QTextFrame* self, QEvent* event) {
+void QTextFrame_SuperCustomEvent(QTextFrame* self, QEvent* event) {
     auto* vqtextframe = dynamic_cast<VirtualQTextFrame*>(self);
     if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
         vqtextframe->setQTextFrame_CustomEvent_IsBase(true);
@@ -363,7 +363,7 @@ void QTextFrame_ConnectNotify(QTextFrame* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTextFrame_QBaseConnectNotify(QTextFrame* self, const QMetaMethod* signal) {
+void QTextFrame_SuperConnectNotify(QTextFrame* self, const QMetaMethod* signal) {
     auto* vqtextframe = dynamic_cast<VirtualQTextFrame*>(self);
     if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
         vqtextframe->setQTextFrame_ConnectNotify_IsBase(true);
@@ -392,7 +392,7 @@ void QTextFrame_DisconnectNotify(QTextFrame* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTextFrame_QBaseDisconnectNotify(QTextFrame* self, const QMetaMethod* signal) {
+void QTextFrame_SuperDisconnectNotify(QTextFrame* self, const QMetaMethod* signal) {
     auto* vqtextframe = dynamic_cast<VirtualQTextFrame*>(self);
     if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
         vqtextframe->setQTextFrame_DisconnectNotify_IsBase(true);
@@ -421,7 +421,7 @@ void QTextFrame_SetFormat(QTextFrame* self, const QTextFormat* format) {
 }
 
 // Base class handler implementation
-void QTextFrame_QBaseSetFormat(QTextFrame* self, const QTextFormat* format) {
+void QTextFrame_SuperSetFormat(QTextFrame* self, const QTextFormat* format) {
     auto* vqtextframe = dynamic_cast<VirtualQTextFrame*>(self);
     if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
         vqtextframe->setQTextFrame_SetFormat_IsBase(true);
@@ -450,7 +450,7 @@ QObject* QTextFrame_Sender(const QTextFrame* self) {
 }
 
 // Base class handler implementation
-QObject* QTextFrame_QBaseSender(const QTextFrame* self) {
+QObject* QTextFrame_SuperSender(const QTextFrame* self) {
     auto* vqtextframe = const_cast<VirtualQTextFrame*>(dynamic_cast<const VirtualQTextFrame*>(self));
     if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
         vqtextframe->setQTextFrame_Sender_IsBase(true);
@@ -479,7 +479,7 @@ int QTextFrame_SenderSignalIndex(const QTextFrame* self) {
 }
 
 // Base class handler implementation
-int QTextFrame_QBaseSenderSignalIndex(const QTextFrame* self) {
+int QTextFrame_SuperSenderSignalIndex(const QTextFrame* self) {
     auto* vqtextframe = const_cast<VirtualQTextFrame*>(dynamic_cast<const VirtualQTextFrame*>(self));
     if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
         vqtextframe->setQTextFrame_SenderSignalIndex_IsBase(true);
@@ -508,7 +508,7 @@ int QTextFrame_Receivers(const QTextFrame* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QTextFrame_QBaseReceivers(const QTextFrame* self, const char* signal) {
+int QTextFrame_SuperReceivers(const QTextFrame* self, const char* signal) {
     auto* vqtextframe = const_cast<VirtualQTextFrame*>(dynamic_cast<const VirtualQTextFrame*>(self));
     if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
         vqtextframe->setQTextFrame_Receivers_IsBase(true);
@@ -537,7 +537,7 @@ bool QTextFrame_IsSignalConnected(const QTextFrame* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QTextFrame_QBaseIsSignalConnected(const QTextFrame* self, const QMetaMethod* signal) {
+bool QTextFrame_SuperIsSignalConnected(const QTextFrame* self, const QMetaMethod* signal) {
     auto* vqtextframe = const_cast<VirtualQTextFrame*>(dynamic_cast<const VirtualQTextFrame*>(self));
     if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
         vqtextframe->setQTextFrame_IsSignalConnected_IsBase(true);

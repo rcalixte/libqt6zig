@@ -448,35 +448,35 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
 
     // Friend functions
     friend void QDesignerFormEditorInterface_TimerEvent(QDesignerFormEditorInterface* self, QTimerEvent* event);
-    friend void QDesignerFormEditorInterface_QBaseTimerEvent(QDesignerFormEditorInterface* self, QTimerEvent* event);
+    friend void QDesignerFormEditorInterface_SuperTimerEvent(QDesignerFormEditorInterface* self, QTimerEvent* event);
     friend void QDesignerFormEditorInterface_ChildEvent(QDesignerFormEditorInterface* self, QChildEvent* event);
-    friend void QDesignerFormEditorInterface_QBaseChildEvent(QDesignerFormEditorInterface* self, QChildEvent* event);
+    friend void QDesignerFormEditorInterface_SuperChildEvent(QDesignerFormEditorInterface* self, QChildEvent* event);
     friend void QDesignerFormEditorInterface_CustomEvent(QDesignerFormEditorInterface* self, QEvent* event);
-    friend void QDesignerFormEditorInterface_QBaseCustomEvent(QDesignerFormEditorInterface* self, QEvent* event);
+    friend void QDesignerFormEditorInterface_SuperCustomEvent(QDesignerFormEditorInterface* self, QEvent* event);
     friend void QDesignerFormEditorInterface_ConnectNotify(QDesignerFormEditorInterface* self, const QMetaMethod* signal);
-    friend void QDesignerFormEditorInterface_QBaseConnectNotify(QDesignerFormEditorInterface* self, const QMetaMethod* signal);
+    friend void QDesignerFormEditorInterface_SuperConnectNotify(QDesignerFormEditorInterface* self, const QMetaMethod* signal);
     friend void QDesignerFormEditorInterface_DisconnectNotify(QDesignerFormEditorInterface* self, const QMetaMethod* signal);
-    friend void QDesignerFormEditorInterface_QBaseDisconnectNotify(QDesignerFormEditorInterface* self, const QMetaMethod* signal);
+    friend void QDesignerFormEditorInterface_SuperDisconnectNotify(QDesignerFormEditorInterface* self, const QMetaMethod* signal);
     friend void QDesignerFormEditorInterface_SetFormManager(QDesignerFormEditorInterface* self, QDesignerFormWindowManagerInterface* formWindowManager);
-    friend void QDesignerFormEditorInterface_QBaseSetFormManager(QDesignerFormEditorInterface* self, QDesignerFormWindowManagerInterface* formWindowManager);
+    friend void QDesignerFormEditorInterface_SuperSetFormManager(QDesignerFormEditorInterface* self, QDesignerFormWindowManagerInterface* formWindowManager);
     friend void QDesignerFormEditorInterface_SetMetaDataBase(QDesignerFormEditorInterface* self, QDesignerMetaDataBaseInterface* metaDataBase);
-    friend void QDesignerFormEditorInterface_QBaseSetMetaDataBase(QDesignerFormEditorInterface* self, QDesignerMetaDataBaseInterface* metaDataBase);
+    friend void QDesignerFormEditorInterface_SuperSetMetaDataBase(QDesignerFormEditorInterface* self, QDesignerMetaDataBaseInterface* metaDataBase);
     friend void QDesignerFormEditorInterface_SetWidgetDataBase(QDesignerFormEditorInterface* self, QDesignerWidgetDataBaseInterface* widgetDataBase);
-    friend void QDesignerFormEditorInterface_QBaseSetWidgetDataBase(QDesignerFormEditorInterface* self, QDesignerWidgetDataBaseInterface* widgetDataBase);
+    friend void QDesignerFormEditorInterface_SuperSetWidgetDataBase(QDesignerFormEditorInterface* self, QDesignerWidgetDataBaseInterface* widgetDataBase);
     friend void QDesignerFormEditorInterface_SetPromotion(QDesignerFormEditorInterface* self, QDesignerPromotionInterface* promotion);
-    friend void QDesignerFormEditorInterface_QBaseSetPromotion(QDesignerFormEditorInterface* self, QDesignerPromotionInterface* promotion);
+    friend void QDesignerFormEditorInterface_SuperSetPromotion(QDesignerFormEditorInterface* self, QDesignerPromotionInterface* promotion);
     friend void QDesignerFormEditorInterface_SetWidgetFactory(QDesignerFormEditorInterface* self, QDesignerWidgetFactoryInterface* widgetFactory);
-    friend void QDesignerFormEditorInterface_QBaseSetWidgetFactory(QDesignerFormEditorInterface* self, QDesignerWidgetFactoryInterface* widgetFactory);
+    friend void QDesignerFormEditorInterface_SuperSetWidgetFactory(QDesignerFormEditorInterface* self, QDesignerWidgetFactoryInterface* widgetFactory);
     friend void QDesignerFormEditorInterface_SetExtensionManager(QDesignerFormEditorInterface* self, QExtensionManager* extensionManager);
-    friend void QDesignerFormEditorInterface_QBaseSetExtensionManager(QDesignerFormEditorInterface* self, QExtensionManager* extensionManager);
+    friend void QDesignerFormEditorInterface_SuperSetExtensionManager(QDesignerFormEditorInterface* self, QExtensionManager* extensionManager);
     friend QObject* QDesignerFormEditorInterface_Sender(const QDesignerFormEditorInterface* self);
-    friend QObject* QDesignerFormEditorInterface_QBaseSender(const QDesignerFormEditorInterface* self);
+    friend QObject* QDesignerFormEditorInterface_SuperSender(const QDesignerFormEditorInterface* self);
     friend int QDesignerFormEditorInterface_SenderSignalIndex(const QDesignerFormEditorInterface* self);
-    friend int QDesignerFormEditorInterface_QBaseSenderSignalIndex(const QDesignerFormEditorInterface* self);
+    friend int QDesignerFormEditorInterface_SuperSenderSignalIndex(const QDesignerFormEditorInterface* self);
     friend int QDesignerFormEditorInterface_Receivers(const QDesignerFormEditorInterface* self, const char* signal);
-    friend int QDesignerFormEditorInterface_QBaseReceivers(const QDesignerFormEditorInterface* self, const char* signal);
+    friend int QDesignerFormEditorInterface_SuperReceivers(const QDesignerFormEditorInterface* self, const char* signal);
     friend bool QDesignerFormEditorInterface_IsSignalConnected(const QDesignerFormEditorInterface* self, const QMetaMethod* signal);
-    friend bool QDesignerFormEditorInterface_QBaseIsSignalConnected(const QDesignerFormEditorInterface* self, const QMetaMethod* signal);
+    friend bool QDesignerFormEditorInterface_SuperIsSignalConnected(const QDesignerFormEditorInterface* self, const QMetaMethod* signal);
 };
 
 #endif

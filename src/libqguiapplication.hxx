@@ -372,27 +372,27 @@ class VirtualQGuiApplication final : public QGuiApplication {
 
     // Friend functions
     friend bool QGuiApplication_Event(QGuiApplication* self, QEvent* param1);
-    friend bool QGuiApplication_QBaseEvent(QGuiApplication* self, QEvent* param1);
+    friend bool QGuiApplication_SuperEvent(QGuiApplication* self, QEvent* param1);
     friend void QGuiApplication_TimerEvent(QGuiApplication* self, QTimerEvent* event);
-    friend void QGuiApplication_QBaseTimerEvent(QGuiApplication* self, QTimerEvent* event);
+    friend void QGuiApplication_SuperTimerEvent(QGuiApplication* self, QTimerEvent* event);
     friend void QGuiApplication_ChildEvent(QGuiApplication* self, QChildEvent* event);
-    friend void QGuiApplication_QBaseChildEvent(QGuiApplication* self, QChildEvent* event);
+    friend void QGuiApplication_SuperChildEvent(QGuiApplication* self, QChildEvent* event);
     friend void QGuiApplication_CustomEvent(QGuiApplication* self, QEvent* event);
-    friend void QGuiApplication_QBaseCustomEvent(QGuiApplication* self, QEvent* event);
+    friend void QGuiApplication_SuperCustomEvent(QGuiApplication* self, QEvent* event);
     friend void QGuiApplication_ConnectNotify(QGuiApplication* self, const QMetaMethod* signal);
-    friend void QGuiApplication_QBaseConnectNotify(QGuiApplication* self, const QMetaMethod* signal);
+    friend void QGuiApplication_SuperConnectNotify(QGuiApplication* self, const QMetaMethod* signal);
     friend void QGuiApplication_DisconnectNotify(QGuiApplication* self, const QMetaMethod* signal);
-    friend void QGuiApplication_QBaseDisconnectNotify(QGuiApplication* self, const QMetaMethod* signal);
+    friend void QGuiApplication_SuperDisconnectNotify(QGuiApplication* self, const QMetaMethod* signal);
     friend void* QGuiApplication_ResolveInterface(const QGuiApplication* self, const char* name, int revision);
-    friend void* QGuiApplication_QBaseResolveInterface(const QGuiApplication* self, const char* name, int revision);
+    friend void* QGuiApplication_SuperResolveInterface(const QGuiApplication* self, const char* name, int revision);
     friend QObject* QGuiApplication_Sender(const QGuiApplication* self);
-    friend QObject* QGuiApplication_QBaseSender(const QGuiApplication* self);
+    friend QObject* QGuiApplication_SuperSender(const QGuiApplication* self);
     friend int QGuiApplication_SenderSignalIndex(const QGuiApplication* self);
-    friend int QGuiApplication_QBaseSenderSignalIndex(const QGuiApplication* self);
+    friend int QGuiApplication_SuperSenderSignalIndex(const QGuiApplication* self);
     friend int QGuiApplication_Receivers(const QGuiApplication* self, const char* signal);
-    friend int QGuiApplication_QBaseReceivers(const QGuiApplication* self, const char* signal);
+    friend int QGuiApplication_SuperReceivers(const QGuiApplication* self, const char* signal);
     friend bool QGuiApplication_IsSignalConnected(const QGuiApplication* self, const QMetaMethod* signal);
-    friend bool QGuiApplication_QBaseIsSignalConnected(const QGuiApplication* self, const QMetaMethod* signal);
+    friend bool QGuiApplication_SuperIsSignalConnected(const QGuiApplication* self, const QMetaMethod* signal);
 };
 
 #endif

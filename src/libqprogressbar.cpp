@@ -246,7 +246,7 @@ void QProgressBar_InitStyleOption(const QProgressBar* self, QStyleOptionProgress
 }
 
 // Base class handler implementation
-QMetaObject* QProgressBar_QBaseMetaObject(const QProgressBar* self) {
+QMetaObject* QProgressBar_SuperMetaObject(const QProgressBar* self) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_MetaObject_IsBase(true);
@@ -265,7 +265,7 @@ void QProgressBar_OnMetaObject(const QProgressBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QProgressBar_QBaseMetacast(QProgressBar* self, const char* param1) {
+void* QProgressBar_SuperMetacast(QProgressBar* self, const char* param1) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_Metacast_IsBase(true);
@@ -284,7 +284,7 @@ void QProgressBar_OnMetacast(QProgressBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QProgressBar_QBaseMetacall(QProgressBar* self, int param1, int param2, void** param3) {
+int QProgressBar_SuperMetacall(QProgressBar* self, int param1, int param2, void** param3) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_Metacall_IsBase(true);
@@ -303,7 +303,7 @@ void QProgressBar_OnMetacall(QProgressBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string QProgressBar_QBaseText(const QProgressBar* self) {
+libqt_string QProgressBar_SuperText(const QProgressBar* self) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_Text_IsBase(true);
@@ -338,7 +338,7 @@ void QProgressBar_OnText(const QProgressBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QProgressBar_QBaseSizeHint(const QProgressBar* self) {
+QSize* QProgressBar_SuperSizeHint(const QProgressBar* self) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_SizeHint_IsBase(true);
@@ -357,7 +357,7 @@ void QProgressBar_OnSizeHint(const QProgressBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QProgressBar_QBaseMinimumSizeHint(const QProgressBar* self) {
+QSize* QProgressBar_SuperMinimumSizeHint(const QProgressBar* self) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_MinimumSizeHint_IsBase(true);
@@ -376,7 +376,7 @@ void QProgressBar_OnMinimumSizeHint(const QProgressBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QProgressBar_QBaseEvent(QProgressBar* self, QEvent* e) {
+bool QProgressBar_SuperEvent(QProgressBar* self, QEvent* e) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_Event_IsBase(true);
@@ -395,7 +395,7 @@ void QProgressBar_OnEvent(QProgressBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBasePaintEvent(QProgressBar* self, QPaintEvent* param1) {
+void QProgressBar_SuperPaintEvent(QProgressBar* self, QPaintEvent* param1) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_PaintEvent_IsBase(true);
@@ -414,7 +414,7 @@ void QProgressBar_OnPaintEvent(QProgressBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseInitStyleOption(const QProgressBar* self, QStyleOptionProgressBar* option) {
+void QProgressBar_SuperInitStyleOption(const QProgressBar* self, QStyleOptionProgressBar* option) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_InitStyleOption_IsBase(true);
@@ -443,7 +443,7 @@ int QProgressBar_DevType(const QProgressBar* self) {
 }
 
 // Base class handler implementation
-int QProgressBar_QBaseDevType(const QProgressBar* self) {
+int QProgressBar_SuperDevType(const QProgressBar* self) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_DevType_IsBase(true);
@@ -472,7 +472,7 @@ void QProgressBar_SetVisible(QProgressBar* self, bool visible) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseSetVisible(QProgressBar* self, bool visible) {
+void QProgressBar_SuperSetVisible(QProgressBar* self, bool visible) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_SetVisible_IsBase(true);
@@ -501,7 +501,7 @@ int QProgressBar_HeightForWidth(const QProgressBar* self, int param1) {
 }
 
 // Base class handler implementation
-int QProgressBar_QBaseHeightForWidth(const QProgressBar* self, int param1) {
+int QProgressBar_SuperHeightForWidth(const QProgressBar* self, int param1) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_HeightForWidth_IsBase(true);
@@ -530,7 +530,7 @@ bool QProgressBar_HasHeightForWidth(const QProgressBar* self) {
 }
 
 // Base class handler implementation
-bool QProgressBar_QBaseHasHeightForWidth(const QProgressBar* self) {
+bool QProgressBar_SuperHasHeightForWidth(const QProgressBar* self) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_HasHeightForWidth_IsBase(true);
@@ -559,7 +559,7 @@ QPaintEngine* QProgressBar_PaintEngine(const QProgressBar* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QProgressBar_QBasePaintEngine(const QProgressBar* self) {
+QPaintEngine* QProgressBar_SuperPaintEngine(const QProgressBar* self) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_PaintEngine_IsBase(true);
@@ -588,7 +588,7 @@ void QProgressBar_MousePressEvent(QProgressBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseMousePressEvent(QProgressBar* self, QMouseEvent* event) {
+void QProgressBar_SuperMousePressEvent(QProgressBar* self, QMouseEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_MousePressEvent_IsBase(true);
@@ -617,7 +617,7 @@ void QProgressBar_MouseReleaseEvent(QProgressBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseMouseReleaseEvent(QProgressBar* self, QMouseEvent* event) {
+void QProgressBar_SuperMouseReleaseEvent(QProgressBar* self, QMouseEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_MouseReleaseEvent_IsBase(true);
@@ -646,7 +646,7 @@ void QProgressBar_MouseDoubleClickEvent(QProgressBar* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseMouseDoubleClickEvent(QProgressBar* self, QMouseEvent* event) {
+void QProgressBar_SuperMouseDoubleClickEvent(QProgressBar* self, QMouseEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_MouseDoubleClickEvent_IsBase(true);
@@ -675,7 +675,7 @@ void QProgressBar_MouseMoveEvent(QProgressBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseMouseMoveEvent(QProgressBar* self, QMouseEvent* event) {
+void QProgressBar_SuperMouseMoveEvent(QProgressBar* self, QMouseEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_MouseMoveEvent_IsBase(true);
@@ -704,7 +704,7 @@ void QProgressBar_WheelEvent(QProgressBar* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseWheelEvent(QProgressBar* self, QWheelEvent* event) {
+void QProgressBar_SuperWheelEvent(QProgressBar* self, QWheelEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_WheelEvent_IsBase(true);
@@ -733,7 +733,7 @@ void QProgressBar_KeyPressEvent(QProgressBar* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseKeyPressEvent(QProgressBar* self, QKeyEvent* event) {
+void QProgressBar_SuperKeyPressEvent(QProgressBar* self, QKeyEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_KeyPressEvent_IsBase(true);
@@ -762,7 +762,7 @@ void QProgressBar_KeyReleaseEvent(QProgressBar* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseKeyReleaseEvent(QProgressBar* self, QKeyEvent* event) {
+void QProgressBar_SuperKeyReleaseEvent(QProgressBar* self, QKeyEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_KeyReleaseEvent_IsBase(true);
@@ -791,7 +791,7 @@ void QProgressBar_FocusInEvent(QProgressBar* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseFocusInEvent(QProgressBar* self, QFocusEvent* event) {
+void QProgressBar_SuperFocusInEvent(QProgressBar* self, QFocusEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_FocusInEvent_IsBase(true);
@@ -820,7 +820,7 @@ void QProgressBar_FocusOutEvent(QProgressBar* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseFocusOutEvent(QProgressBar* self, QFocusEvent* event) {
+void QProgressBar_SuperFocusOutEvent(QProgressBar* self, QFocusEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_FocusOutEvent_IsBase(true);
@@ -849,7 +849,7 @@ void QProgressBar_EnterEvent(QProgressBar* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseEnterEvent(QProgressBar* self, QEnterEvent* event) {
+void QProgressBar_SuperEnterEvent(QProgressBar* self, QEnterEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_EnterEvent_IsBase(true);
@@ -878,7 +878,7 @@ void QProgressBar_LeaveEvent(QProgressBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseLeaveEvent(QProgressBar* self, QEvent* event) {
+void QProgressBar_SuperLeaveEvent(QProgressBar* self, QEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_LeaveEvent_IsBase(true);
@@ -907,7 +907,7 @@ void QProgressBar_MoveEvent(QProgressBar* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseMoveEvent(QProgressBar* self, QMoveEvent* event) {
+void QProgressBar_SuperMoveEvent(QProgressBar* self, QMoveEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_MoveEvent_IsBase(true);
@@ -936,7 +936,7 @@ void QProgressBar_ResizeEvent(QProgressBar* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseResizeEvent(QProgressBar* self, QResizeEvent* event) {
+void QProgressBar_SuperResizeEvent(QProgressBar* self, QResizeEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_ResizeEvent_IsBase(true);
@@ -965,7 +965,7 @@ void QProgressBar_CloseEvent(QProgressBar* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseCloseEvent(QProgressBar* self, QCloseEvent* event) {
+void QProgressBar_SuperCloseEvent(QProgressBar* self, QCloseEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_CloseEvent_IsBase(true);
@@ -994,7 +994,7 @@ void QProgressBar_ContextMenuEvent(QProgressBar* self, QContextMenuEvent* event)
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseContextMenuEvent(QProgressBar* self, QContextMenuEvent* event) {
+void QProgressBar_SuperContextMenuEvent(QProgressBar* self, QContextMenuEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_ContextMenuEvent_IsBase(true);
@@ -1023,7 +1023,7 @@ void QProgressBar_TabletEvent(QProgressBar* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseTabletEvent(QProgressBar* self, QTabletEvent* event) {
+void QProgressBar_SuperTabletEvent(QProgressBar* self, QTabletEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_TabletEvent_IsBase(true);
@@ -1052,7 +1052,7 @@ void QProgressBar_ActionEvent(QProgressBar* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseActionEvent(QProgressBar* self, QActionEvent* event) {
+void QProgressBar_SuperActionEvent(QProgressBar* self, QActionEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_ActionEvent_IsBase(true);
@@ -1081,7 +1081,7 @@ void QProgressBar_DragEnterEvent(QProgressBar* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseDragEnterEvent(QProgressBar* self, QDragEnterEvent* event) {
+void QProgressBar_SuperDragEnterEvent(QProgressBar* self, QDragEnterEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_DragEnterEvent_IsBase(true);
@@ -1110,7 +1110,7 @@ void QProgressBar_DragMoveEvent(QProgressBar* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseDragMoveEvent(QProgressBar* self, QDragMoveEvent* event) {
+void QProgressBar_SuperDragMoveEvent(QProgressBar* self, QDragMoveEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_DragMoveEvent_IsBase(true);
@@ -1139,7 +1139,7 @@ void QProgressBar_DragLeaveEvent(QProgressBar* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseDragLeaveEvent(QProgressBar* self, QDragLeaveEvent* event) {
+void QProgressBar_SuperDragLeaveEvent(QProgressBar* self, QDragLeaveEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_DragLeaveEvent_IsBase(true);
@@ -1168,7 +1168,7 @@ void QProgressBar_DropEvent(QProgressBar* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseDropEvent(QProgressBar* self, QDropEvent* event) {
+void QProgressBar_SuperDropEvent(QProgressBar* self, QDropEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_DropEvent_IsBase(true);
@@ -1197,7 +1197,7 @@ void QProgressBar_ShowEvent(QProgressBar* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseShowEvent(QProgressBar* self, QShowEvent* event) {
+void QProgressBar_SuperShowEvent(QProgressBar* self, QShowEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_ShowEvent_IsBase(true);
@@ -1226,7 +1226,7 @@ void QProgressBar_HideEvent(QProgressBar* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseHideEvent(QProgressBar* self, QHideEvent* event) {
+void QProgressBar_SuperHideEvent(QProgressBar* self, QHideEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_HideEvent_IsBase(true);
@@ -1256,7 +1256,7 @@ bool QProgressBar_NativeEvent(QProgressBar* self, const libqt_string eventType, 
 }
 
 // Base class handler implementation
-bool QProgressBar_QBaseNativeEvent(QProgressBar* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QProgressBar_SuperNativeEvent(QProgressBar* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
@@ -1286,7 +1286,7 @@ void QProgressBar_ChangeEvent(QProgressBar* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseChangeEvent(QProgressBar* self, QEvent* param1) {
+void QProgressBar_SuperChangeEvent(QProgressBar* self, QEvent* param1) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_ChangeEvent_IsBase(true);
@@ -1315,7 +1315,7 @@ int QProgressBar_Metric(const QProgressBar* self, int param1) {
 }
 
 // Base class handler implementation
-int QProgressBar_QBaseMetric(const QProgressBar* self, int param1) {
+int QProgressBar_SuperMetric(const QProgressBar* self, int param1) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_Metric_IsBase(true);
@@ -1344,7 +1344,7 @@ void QProgressBar_InitPainter(const QProgressBar* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseInitPainter(const QProgressBar* self, QPainter* painter) {
+void QProgressBar_SuperInitPainter(const QProgressBar* self, QPainter* painter) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_InitPainter_IsBase(true);
@@ -1373,7 +1373,7 @@ QPaintDevice* QProgressBar_Redirected(const QProgressBar* self, QPoint* offset) 
 }
 
 // Base class handler implementation
-QPaintDevice* QProgressBar_QBaseRedirected(const QProgressBar* self, QPoint* offset) {
+QPaintDevice* QProgressBar_SuperRedirected(const QProgressBar* self, QPoint* offset) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_Redirected_IsBase(true);
@@ -1402,7 +1402,7 @@ QPainter* QProgressBar_SharedPainter(const QProgressBar* self) {
 }
 
 // Base class handler implementation
-QPainter* QProgressBar_QBaseSharedPainter(const QProgressBar* self) {
+QPainter* QProgressBar_SuperSharedPainter(const QProgressBar* self) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_SharedPainter_IsBase(true);
@@ -1431,7 +1431,7 @@ void QProgressBar_InputMethodEvent(QProgressBar* self, QInputMethodEvent* param1
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseInputMethodEvent(QProgressBar* self, QInputMethodEvent* param1) {
+void QProgressBar_SuperInputMethodEvent(QProgressBar* self, QInputMethodEvent* param1) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_InputMethodEvent_IsBase(true);
@@ -1460,7 +1460,7 @@ QVariant* QProgressBar_InputMethodQuery(const QProgressBar* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QProgressBar_QBaseInputMethodQuery(const QProgressBar* self, int param1) {
+QVariant* QProgressBar_SuperInputMethodQuery(const QProgressBar* self, int param1) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_InputMethodQuery_IsBase(true);
@@ -1489,7 +1489,7 @@ bool QProgressBar_FocusNextPrevChild(QProgressBar* self, bool next) {
 }
 
 // Base class handler implementation
-bool QProgressBar_QBaseFocusNextPrevChild(QProgressBar* self, bool next) {
+bool QProgressBar_SuperFocusNextPrevChild(QProgressBar* self, bool next) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_FocusNextPrevChild_IsBase(true);
@@ -1518,7 +1518,7 @@ bool QProgressBar_EventFilter(QProgressBar* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool QProgressBar_QBaseEventFilter(QProgressBar* self, QObject* watched, QEvent* event) {
+bool QProgressBar_SuperEventFilter(QProgressBar* self, QObject* watched, QEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_EventFilter_IsBase(true);
@@ -1547,7 +1547,7 @@ void QProgressBar_TimerEvent(QProgressBar* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseTimerEvent(QProgressBar* self, QTimerEvent* event) {
+void QProgressBar_SuperTimerEvent(QProgressBar* self, QTimerEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_TimerEvent_IsBase(true);
@@ -1576,7 +1576,7 @@ void QProgressBar_ChildEvent(QProgressBar* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseChildEvent(QProgressBar* self, QChildEvent* event) {
+void QProgressBar_SuperChildEvent(QProgressBar* self, QChildEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_ChildEvent_IsBase(true);
@@ -1605,7 +1605,7 @@ void QProgressBar_CustomEvent(QProgressBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseCustomEvent(QProgressBar* self, QEvent* event) {
+void QProgressBar_SuperCustomEvent(QProgressBar* self, QEvent* event) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_CustomEvent_IsBase(true);
@@ -1634,7 +1634,7 @@ void QProgressBar_ConnectNotify(QProgressBar* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseConnectNotify(QProgressBar* self, const QMetaMethod* signal) {
+void QProgressBar_SuperConnectNotify(QProgressBar* self, const QMetaMethod* signal) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_ConnectNotify_IsBase(true);
@@ -1663,7 +1663,7 @@ void QProgressBar_DisconnectNotify(QProgressBar* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseDisconnectNotify(QProgressBar* self, const QMetaMethod* signal) {
+void QProgressBar_SuperDisconnectNotify(QProgressBar* self, const QMetaMethod* signal) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_DisconnectNotify_IsBase(true);
@@ -1692,7 +1692,7 @@ void QProgressBar_UpdateMicroFocus(QProgressBar* self) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseUpdateMicroFocus(QProgressBar* self) {
+void QProgressBar_SuperUpdateMicroFocus(QProgressBar* self) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_UpdateMicroFocus_IsBase(true);
@@ -1721,7 +1721,7 @@ void QProgressBar_Create(QProgressBar* self) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseCreate(QProgressBar* self) {
+void QProgressBar_SuperCreate(QProgressBar* self) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_Create_IsBase(true);
@@ -1750,7 +1750,7 @@ void QProgressBar_Destroy(QProgressBar* self) {
 }
 
 // Base class handler implementation
-void QProgressBar_QBaseDestroy(QProgressBar* self) {
+void QProgressBar_SuperDestroy(QProgressBar* self) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_Destroy_IsBase(true);
@@ -1779,7 +1779,7 @@ bool QProgressBar_FocusNextChild(QProgressBar* self) {
 }
 
 // Base class handler implementation
-bool QProgressBar_QBaseFocusNextChild(QProgressBar* self) {
+bool QProgressBar_SuperFocusNextChild(QProgressBar* self) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_FocusNextChild_IsBase(true);
@@ -1808,7 +1808,7 @@ bool QProgressBar_FocusPreviousChild(QProgressBar* self) {
 }
 
 // Base class handler implementation
-bool QProgressBar_QBaseFocusPreviousChild(QProgressBar* self) {
+bool QProgressBar_SuperFocusPreviousChild(QProgressBar* self) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_FocusPreviousChild_IsBase(true);
@@ -1837,7 +1837,7 @@ QObject* QProgressBar_Sender(const QProgressBar* self) {
 }
 
 // Base class handler implementation
-QObject* QProgressBar_QBaseSender(const QProgressBar* self) {
+QObject* QProgressBar_SuperSender(const QProgressBar* self) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_Sender_IsBase(true);
@@ -1866,7 +1866,7 @@ int QProgressBar_SenderSignalIndex(const QProgressBar* self) {
 }
 
 // Base class handler implementation
-int QProgressBar_QBaseSenderSignalIndex(const QProgressBar* self) {
+int QProgressBar_SuperSenderSignalIndex(const QProgressBar* self) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_SenderSignalIndex_IsBase(true);
@@ -1895,7 +1895,7 @@ int QProgressBar_Receivers(const QProgressBar* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QProgressBar_QBaseReceivers(const QProgressBar* self, const char* signal) {
+int QProgressBar_SuperReceivers(const QProgressBar* self, const char* signal) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_Receivers_IsBase(true);
@@ -1924,7 +1924,7 @@ bool QProgressBar_IsSignalConnected(const QProgressBar* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QProgressBar_QBaseIsSignalConnected(const QProgressBar* self, const QMetaMethod* signal) {
+bool QProgressBar_SuperIsSignalConnected(const QProgressBar* self, const QMetaMethod* signal) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_IsSignalConnected_IsBase(true);
@@ -1953,7 +1953,7 @@ double QProgressBar_GetDecodedMetricF(const QProgressBar* self, int metricA, int
 }
 
 // Base class handler implementation
-double QProgressBar_QBaseGetDecodedMetricF(const QProgressBar* self, int metricA, int metricB) {
+double QProgressBar_SuperGetDecodedMetricF(const QProgressBar* self, int metricA, int metricB) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_GetDecodedMetricF_IsBase(true);

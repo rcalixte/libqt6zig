@@ -38,15 +38,15 @@ QTest__QTouchEventWidgetSequence* QTest__QTouchEventWidgetSequence_Press3(QTest_
 QTest__QTouchEventWidgetSequence* QTest__QTouchEventWidgetSequence_Move3(QTest__QTouchEventWidgetSequence* self, int touchId, const QPoint* pt, QWidget* widget);
 QTest__QTouchEventWidgetSequence* QTest__QTouchEventWidgetSequence_Release3(QTest__QTouchEventWidgetSequence* self, int touchId, const QPoint* pt, QWidget* widget);
 void QTest__QTouchEventWidgetSequence_OnStationary(QTest__QTouchEventWidgetSequence* self, intptr_t slot);
-QTest__QTouchEventWidgetSequence* QTest__QTouchEventWidgetSequence_QBaseStationary(QTest__QTouchEventWidgetSequence* self, int touchId);
+QTest__QTouchEventWidgetSequence* QTest__QTouchEventWidgetSequence_SuperStationary(QTest__QTouchEventWidgetSequence* self, int touchId);
 void QTest__QTouchEventWidgetSequence_OnCommit(QTest__QTouchEventWidgetSequence* self, intptr_t slot);
-bool QTest__QTouchEventWidgetSequence_QBaseCommit(QTest__QTouchEventWidgetSequence* self, bool processEvents);
+bool QTest__QTouchEventWidgetSequence_SuperCommit(QTest__QTouchEventWidgetSequence* self, bool processEvents);
 QEventPoint* QTest__QTouchEventWidgetSequence_Point(QTest__QTouchEventWidgetSequence* self, int touchId);
 void QTest__QTouchEventWidgetSequence_OnPoint(QTest__QTouchEventWidgetSequence* self, intptr_t slot);
-QEventPoint* QTest__QTouchEventWidgetSequence_QBasePoint(QTest__QTouchEventWidgetSequence* self, int touchId);
+QEventPoint* QTest__QTouchEventWidgetSequence_SuperPoint(QTest__QTouchEventWidgetSequence* self, int touchId);
 QEventPoint* QTest__QTouchEventWidgetSequence_PointOrPreviousPoint(QTest__QTouchEventWidgetSequence* self, int touchId);
 void QTest__QTouchEventWidgetSequence_OnPointOrPreviousPoint(QTest__QTouchEventWidgetSequence* self, intptr_t slot);
-QEventPoint* QTest__QTouchEventWidgetSequence_QBasePointOrPreviousPoint(QTest__QTouchEventWidgetSequence* self, int touchId);
+QEventPoint* QTest__QTouchEventWidgetSequence_SuperPointOrPreviousPoint(QTest__QTouchEventWidgetSequence* self, int touchId);
 void QTest__QTouchEventWidgetSequence_Delete(QTest__QTouchEventWidgetSequence* self);
 
 #ifdef __cplusplus

@@ -33,6 +33,10 @@ pub const qabstractextensionfactory = struct {
         qtc.QAbstractExtensionFactory_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractextensionfactory.html#dtor.QAbstractExtensionFactory)
     ///
     /// Delete this object from C++ memory.
@@ -41,7 +45,7 @@ pub const qabstractextensionfactory = struct {
     ///
     /// ` self: QtC.QAbstractExtensionFactory `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAbstractExtensionFactory_Delete(@ptrCast(self));
     }
 };
@@ -114,6 +118,10 @@ pub const qabstractextensionmanager = struct {
         qtc.QAbstractExtensionManager_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractextensionmanager.html#dtor.QAbstractExtensionManager)
     ///
     /// Delete this object from C++ memory.
@@ -122,7 +130,7 @@ pub const qabstractextensionmanager = struct {
     ///
     /// ` self: QtC.QAbstractExtensionManager `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAbstractExtensionManager_Delete(@ptrCast(self));
     }
 };

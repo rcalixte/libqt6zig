@@ -382,23 +382,23 @@ class VirtualQsciMacro final : public QsciMacro {
 
     // Friend functions
     friend void QsciMacro_TimerEvent(QsciMacro* self, QTimerEvent* event);
-    friend void QsciMacro_QBaseTimerEvent(QsciMacro* self, QTimerEvent* event);
+    friend void QsciMacro_SuperTimerEvent(QsciMacro* self, QTimerEvent* event);
     friend void QsciMacro_ChildEvent(QsciMacro* self, QChildEvent* event);
-    friend void QsciMacro_QBaseChildEvent(QsciMacro* self, QChildEvent* event);
+    friend void QsciMacro_SuperChildEvent(QsciMacro* self, QChildEvent* event);
     friend void QsciMacro_CustomEvent(QsciMacro* self, QEvent* event);
-    friend void QsciMacro_QBaseCustomEvent(QsciMacro* self, QEvent* event);
+    friend void QsciMacro_SuperCustomEvent(QsciMacro* self, QEvent* event);
     friend void QsciMacro_ConnectNotify(QsciMacro* self, const QMetaMethod* signal);
-    friend void QsciMacro_QBaseConnectNotify(QsciMacro* self, const QMetaMethod* signal);
+    friend void QsciMacro_SuperConnectNotify(QsciMacro* self, const QMetaMethod* signal);
     friend void QsciMacro_DisconnectNotify(QsciMacro* self, const QMetaMethod* signal);
-    friend void QsciMacro_QBaseDisconnectNotify(QsciMacro* self, const QMetaMethod* signal);
+    friend void QsciMacro_SuperDisconnectNotify(QsciMacro* self, const QMetaMethod* signal);
     friend QObject* QsciMacro_Sender(const QsciMacro* self);
-    friend QObject* QsciMacro_QBaseSender(const QsciMacro* self);
+    friend QObject* QsciMacro_SuperSender(const QsciMacro* self);
     friend int QsciMacro_SenderSignalIndex(const QsciMacro* self);
-    friend int QsciMacro_QBaseSenderSignalIndex(const QsciMacro* self);
+    friend int QsciMacro_SuperSenderSignalIndex(const QsciMacro* self);
     friend int QsciMacro_Receivers(const QsciMacro* self, const char* signal);
-    friend int QsciMacro_QBaseReceivers(const QsciMacro* self, const char* signal);
+    friend int QsciMacro_SuperReceivers(const QsciMacro* self, const char* signal);
     friend bool QsciMacro_IsSignalConnected(const QsciMacro* self, const QMetaMethod* signal);
-    friend bool QsciMacro_QBaseIsSignalConnected(const QsciMacro* self, const QMetaMethod* signal);
+    friend bool QsciMacro_SuperIsSignalConnected(const QsciMacro* self, const QMetaMethod* signal);
 };
 
 #endif

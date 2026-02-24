@@ -429,6 +429,10 @@ pub const qgeopath = struct {
         return qtc.QGeoShape_Center(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#dtor.QGeoPath)
     ///
     /// Delete this object from C++ memory.
@@ -437,7 +441,7 @@ pub const qgeopath = struct {
     ///
     /// ` self: QtC.QGeoPath `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGeoPath_Delete(@ptrCast(self));
     }
 };

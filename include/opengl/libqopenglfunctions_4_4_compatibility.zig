@@ -34,6 +34,10 @@ pub const qopenglfunctions_4_4_compatibility = struct {
         qtc.QOpenGLFunctions_4_4_Compatibility_OnInitializeOpenGLFunctions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInitializeOpenGLFunctions` instead
+    ///
+    pub const QBaseInitializeOpenGLFunctions = SuperInitializeOpenGLFunctions;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#initializeOpenGLFunctions)
     ///
     /// Base class method implementation
@@ -42,8 +46,8 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` self: QtC.QOpenGLFunctions_4_4_Compatibility `
     ///
-    pub fn QBaseInitializeOpenGLFunctions(self: ?*anyopaque) bool {
-        return qtc.QOpenGLFunctions_4_4_Compatibility_QBaseInitializeOpenGLFunctions(@ptrCast(self));
+    pub fn SuperInitializeOpenGLFunctions(self: ?*anyopaque) bool {
+        return qtc.QOpenGLFunctions_4_4_Compatibility_SuperInitializeOpenGLFunctions(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glViewport)
@@ -14956,6 +14960,10 @@ pub const qopenglfunctions_4_4_compatibility = struct {
         return qtc.QOpenGLFunctions_4_4_Compatibility_IsInitialized(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsInitialized` instead
+    ///
+    pub const QBaseIsInitialized = SuperIsInitialized;
+
     /// Inherited from QAbstractOpenGLFunctions
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractopenglfunctions.html#isInitialized)
@@ -14966,8 +14974,8 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` self: QtC.QOpenGLFunctions_4_4_Compatibility `
     ///
-    pub fn QBaseIsInitialized(self: ?*anyopaque) bool {
-        return qtc.QOpenGLFunctions_4_4_Compatibility_QBaseIsInitialized(@ptrCast(self));
+    pub fn SuperIsInitialized(self: ?*anyopaque) bool {
+        return qtc.QOpenGLFunctions_4_4_Compatibility_SuperIsInitialized(@ptrCast(self));
     }
 
     /// Inherited from QAbstractOpenGLFunctions
@@ -15002,6 +15010,10 @@ pub const qopenglfunctions_4_4_compatibility = struct {
         qtc.QOpenGLFunctions_4_4_Compatibility_SetOwningContext(@ptrCast(self), @ptrCast(context));
     }
 
+    /// ### DEPRECATED: Use `SuperSetOwningContext` instead
+    ///
+    pub const QBaseSetOwningContext = SuperSetOwningContext;
+
     /// Inherited from QAbstractOpenGLFunctions
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractopenglfunctions.html#setOwningContext)
@@ -15014,8 +15026,8 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` context: QtC.QOpenGLContext `
     ///
-    pub fn QBaseSetOwningContext(self: ?*anyopaque, context: ?*anyopaque) void {
-        qtc.QOpenGLFunctions_4_4_Compatibility_QBaseSetOwningContext(@ptrCast(self), @ptrCast(context));
+    pub fn SuperSetOwningContext(self: ?*anyopaque, context: ?*anyopaque) void {
+        qtc.QOpenGLFunctions_4_4_Compatibility_SuperSetOwningContext(@ptrCast(self), @ptrCast(context));
     }
 
     /// Inherited from QAbstractOpenGLFunctions
@@ -15048,6 +15060,10 @@ pub const qopenglfunctions_4_4_compatibility = struct {
         return qtc.QOpenGLFunctions_4_4_Compatibility_OwningContext(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperOwningContext` instead
+    ///
+    pub const QBaseOwningContext = SuperOwningContext;
+
     /// Inherited from QAbstractOpenGLFunctions
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractopenglfunctions.html#owningContext)
@@ -15058,8 +15074,8 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` self: QtC.QOpenGLFunctions_4_4_Compatibility `
     ///
-    pub fn QBaseOwningContext(self: ?*anyopaque) QtC.QOpenGLContext {
-        return qtc.QOpenGLFunctions_4_4_Compatibility_QBaseOwningContext(@ptrCast(self));
+    pub fn SuperOwningContext(self: ?*anyopaque) QtC.QOpenGLContext {
+        return qtc.QOpenGLFunctions_4_4_Compatibility_SuperOwningContext(@ptrCast(self));
     }
 
     /// Inherited from QAbstractOpenGLFunctions
@@ -15077,6 +15093,9 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     pub fn OnOwningContext(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QOpenGLContext) void {
         qtc.QOpenGLFunctions_4_4_Compatibility_OnOwningContext(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#dtor.QOpenGLFunctions_4_4_Compatibility)
     ///
@@ -15086,7 +15105,7 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` self: QtC.QOpenGLFunctions_4_4_Compatibility `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QOpenGLFunctions_4_4_Compatibility_Delete(@ptrCast(self));
     }
 };

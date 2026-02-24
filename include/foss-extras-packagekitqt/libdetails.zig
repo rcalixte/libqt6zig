@@ -149,6 +149,10 @@ pub const packagekit__details = struct {
         return qtc.PackageKit__Details_Size(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// Delete this object from C++ memory.
@@ -157,7 +161,7 @@ pub const packagekit__details = struct {
     ///
     /// ` self: QtC.PackageKit__Details `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.PackageKit__Details_Delete(@ptrCast(self));
     }
 };

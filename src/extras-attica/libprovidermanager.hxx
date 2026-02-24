@@ -328,23 +328,23 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
 
     // Friend functions
     friend void Attica__ProviderManager_TimerEvent(Attica::ProviderManager* self, QTimerEvent* event);
-    friend void Attica__ProviderManager_QBaseTimerEvent(Attica::ProviderManager* self, QTimerEvent* event);
+    friend void Attica__ProviderManager_SuperTimerEvent(Attica::ProviderManager* self, QTimerEvent* event);
     friend void Attica__ProviderManager_ChildEvent(Attica::ProviderManager* self, QChildEvent* event);
-    friend void Attica__ProviderManager_QBaseChildEvent(Attica::ProviderManager* self, QChildEvent* event);
+    friend void Attica__ProviderManager_SuperChildEvent(Attica::ProviderManager* self, QChildEvent* event);
     friend void Attica__ProviderManager_CustomEvent(Attica::ProviderManager* self, QEvent* event);
-    friend void Attica__ProviderManager_QBaseCustomEvent(Attica::ProviderManager* self, QEvent* event);
+    friend void Attica__ProviderManager_SuperCustomEvent(Attica::ProviderManager* self, QEvent* event);
     friend void Attica__ProviderManager_ConnectNotify(Attica::ProviderManager* self, const QMetaMethod* signal);
-    friend void Attica__ProviderManager_QBaseConnectNotify(Attica::ProviderManager* self, const QMetaMethod* signal);
+    friend void Attica__ProviderManager_SuperConnectNotify(Attica::ProviderManager* self, const QMetaMethod* signal);
     friend void Attica__ProviderManager_DisconnectNotify(Attica::ProviderManager* self, const QMetaMethod* signal);
-    friend void Attica__ProviderManager_QBaseDisconnectNotify(Attica::ProviderManager* self, const QMetaMethod* signal);
+    friend void Attica__ProviderManager_SuperDisconnectNotify(Attica::ProviderManager* self, const QMetaMethod* signal);
     friend QObject* Attica__ProviderManager_Sender(const Attica::ProviderManager* self);
-    friend QObject* Attica__ProviderManager_QBaseSender(const Attica::ProviderManager* self);
+    friend QObject* Attica__ProviderManager_SuperSender(const Attica::ProviderManager* self);
     friend int Attica__ProviderManager_SenderSignalIndex(const Attica::ProviderManager* self);
-    friend int Attica__ProviderManager_QBaseSenderSignalIndex(const Attica::ProviderManager* self);
+    friend int Attica__ProviderManager_SuperSenderSignalIndex(const Attica::ProviderManager* self);
     friend int Attica__ProviderManager_Receivers(const Attica::ProviderManager* self, const char* signal);
-    friend int Attica__ProviderManager_QBaseReceivers(const Attica::ProviderManager* self, const char* signal);
+    friend int Attica__ProviderManager_SuperReceivers(const Attica::ProviderManager* self, const char* signal);
     friend bool Attica__ProviderManager_IsSignalConnected(const Attica::ProviderManager* self, const QMetaMethod* signal);
-    friend bool Attica__ProviderManager_QBaseIsSignalConnected(const Attica::ProviderManager* self, const QMetaMethod* signal);
+    friend bool Attica__ProviderManager_SuperIsSignalConnected(const Attica::ProviderManager* self, const QMetaMethod* signal);
 };
 
 #endif

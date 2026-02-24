@@ -1007,6 +1007,10 @@ pub const qtextcursor = struct {
         qtc.QTextCursor_InsertImage22(@ptrCast(self), @ptrCast(image), name_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#dtor.QTextCursor)
     ///
     /// Delete this object from C++ memory.
@@ -1015,7 +1019,7 @@ pub const qtextcursor = struct {
     ///
     /// ` self: QtC.QTextCursor `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTextCursor_Delete(@ptrCast(self));
     }
 };

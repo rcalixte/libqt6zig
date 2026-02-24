@@ -27,7 +27,7 @@ void KParts__GUIActivateEvent_SetAccepted(KParts__GUIActivateEvent* self, bool a
 }
 
 // Base class handler implementation
-void KParts__GUIActivateEvent_QBaseSetAccepted(KParts__GUIActivateEvent* self, bool accepted) {
+void KParts__GUIActivateEvent_SuperSetAccepted(KParts__GUIActivateEvent* self, bool accepted) {
     auto* vkpartsguiactivateevent = dynamic_cast<VirtualKPartsGUIActivateEvent*>(self);
     if (vkpartsguiactivateevent && vkpartsguiactivateevent->isVirtualKPartsGUIActivateEvent) {
         vkpartsguiactivateevent->setKParts__GUIActivateEvent_SetAccepted_IsBase(true);
@@ -56,7 +56,7 @@ QEvent* KParts__GUIActivateEvent_Clone(const KParts__GUIActivateEvent* self) {
 }
 
 // Base class handler implementation
-QEvent* KParts__GUIActivateEvent_QBaseClone(const KParts__GUIActivateEvent* self) {
+QEvent* KParts__GUIActivateEvent_SuperClone(const KParts__GUIActivateEvent* self) {
     auto* vkpartsguiactivateevent = const_cast<VirtualKPartsGUIActivateEvent*>(dynamic_cast<const VirtualKPartsGUIActivateEvent*>(self));
     if (vkpartsguiactivateevent && vkpartsguiactivateevent->isVirtualKPartsGUIActivateEvent) {
         vkpartsguiactivateevent->setKParts__GUIActivateEvent_Clone_IsBase(true);

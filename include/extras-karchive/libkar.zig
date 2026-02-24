@@ -109,6 +109,10 @@ pub const kar = struct {
         qtc.KAr_OnDoPrepareWriting(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDoPrepareWriting` instead
+    ///
+    pub const QBaseDoPrepareWriting = SuperDoPrepareWriting;
+
     /// ### [Upstream resources](https://api.kde.org/kar.html#doPrepareWriting)
     ///
     /// Base class method implementation
@@ -133,7 +137,7 @@ pub const kar = struct {
     ///
     /// ` ctime: QtC.QDateTime `
     ///
-    pub fn QBaseDoPrepareWriting(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, size: i64, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
+    pub fn SuperDoPrepareWriting(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, size: i64, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -146,7 +150,7 @@ pub const kar = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KAr_QBaseDoPrepareWriting(@ptrCast(self), name_str, user_str, group_str, @bitCast(size), perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
+        return qtc.KAr_SuperDoPrepareWriting(@ptrCast(self), name_str, user_str, group_str, @bitCast(size), perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kar.html#doFinishWriting)
@@ -175,6 +179,10 @@ pub const kar = struct {
         qtc.KAr_OnDoFinishWriting(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDoFinishWriting` instead
+    ///
+    pub const QBaseDoFinishWriting = SuperDoFinishWriting;
+
     /// ### [Upstream resources](https://api.kde.org/kar.html#doFinishWriting)
     ///
     /// Base class method implementation
@@ -185,8 +193,8 @@ pub const kar = struct {
     ///
     /// ` size: i64 `
     ///
-    pub fn QBaseDoFinishWriting(self: ?*anyopaque, size: i64) bool {
-        return qtc.KAr_QBaseDoFinishWriting(@ptrCast(self), @bitCast(size));
+    pub fn SuperDoFinishWriting(self: ?*anyopaque, size: i64) bool {
+        return qtc.KAr_SuperDoFinishWriting(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kar.html#doWriteDir)
@@ -239,6 +247,10 @@ pub const kar = struct {
         qtc.KAr_OnDoWriteDir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDoWriteDir` instead
+    ///
+    pub const QBaseDoWriteDir = SuperDoWriteDir;
+
     /// ### [Upstream resources](https://api.kde.org/kar.html#doWriteDir)
     ///
     /// Base class method implementation
@@ -261,7 +273,7 @@ pub const kar = struct {
     ///
     /// ` ctime: QtC.QDateTime `
     ///
-    pub fn QBaseDoWriteDir(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
+    pub fn SuperDoWriteDir(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -274,7 +286,7 @@ pub const kar = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KAr_QBaseDoWriteDir(@ptrCast(self), name_str, user_str, group_str, perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
+        return qtc.KAr_SuperDoWriteDir(@ptrCast(self), name_str, user_str, group_str, perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kar.html#doWriteSymLink)
@@ -333,6 +345,10 @@ pub const kar = struct {
         qtc.KAr_OnDoWriteSymLink(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDoWriteSymLink` instead
+    ///
+    pub const QBaseDoWriteSymLink = SuperDoWriteSymLink;
+
     /// ### [Upstream resources](https://api.kde.org/kar.html#doWriteSymLink)
     ///
     /// Base class method implementation
@@ -357,7 +373,7 @@ pub const kar = struct {
     ///
     /// ` ctime: QtC.QDateTime `
     ///
-    pub fn QBaseDoWriteSymLink(self: ?*anyopaque, name: []const u8, target: []const u8, user: []const u8, group: []const u8, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
+    pub fn SuperDoWriteSymLink(self: ?*anyopaque, name: []const u8, target: []const u8, user: []const u8, group: []const u8, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -374,7 +390,7 @@ pub const kar = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KAr_QBaseDoWriteSymLink(@ptrCast(self), name_str, target_str, user_str, group_str, perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
+        return qtc.KAr_SuperDoWriteSymLink(@ptrCast(self), name_str, target_str, user_str, group_str, perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kar.html#openArchive)
@@ -403,6 +419,10 @@ pub const kar = struct {
         qtc.KAr_OnOpenArchive(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperOpenArchive` instead
+    ///
+    pub const QBaseOpenArchive = SuperOpenArchive;
+
     /// ### [Upstream resources](https://api.kde.org/kar.html#openArchive)
     ///
     /// Base class method implementation
@@ -413,8 +433,8 @@ pub const kar = struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn QBaseOpenArchive(self: ?*anyopaque, mode: i32) bool {
-        return qtc.KAr_QBaseOpenArchive(@ptrCast(self), @bitCast(mode));
+    pub fn SuperOpenArchive(self: ?*anyopaque, mode: i32) bool {
+        return qtc.KAr_SuperOpenArchive(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kar.html#closeArchive)
@@ -441,6 +461,10 @@ pub const kar = struct {
         qtc.KAr_OnCloseArchive(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseArchive` instead
+    ///
+    pub const QBaseCloseArchive = SuperCloseArchive;
+
     /// ### [Upstream resources](https://api.kde.org/kar.html#closeArchive)
     ///
     /// Base class method implementation
@@ -449,8 +473,8 @@ pub const kar = struct {
     ///
     /// ` self: QtC.KAr `
     ///
-    pub fn QBaseCloseArchive(self: ?*anyopaque) bool {
-        return qtc.KAr_QBaseCloseArchive(@ptrCast(self));
+    pub fn SuperCloseArchive(self: ?*anyopaque) bool {
+        return qtc.KAr_SuperCloseArchive(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kar.html#virtual_hook)
@@ -481,6 +505,10 @@ pub const kar = struct {
         qtc.KAr_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperVirtualHook` instead
+    ///
+    pub const QBaseVirtualHook = SuperVirtualHook;
+
     /// ### [Upstream resources](https://api.kde.org/kar.html#virtual_hook)
     ///
     /// Base class method implementation
@@ -493,8 +521,8 @@ pub const kar = struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KAr_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
+    pub fn SuperVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
+        qtc.KAr_SuperVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1632,6 +1660,10 @@ pub const kar = struct {
         return qtc.KAr_Open(@ptrCast(self), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `SuperOpen` instead
+    ///
+    pub const QBaseOpen = SuperOpen;
+
     /// Inherited from KArchive
     ///
     /// ### [Upstream resources](https://api.kde.org/karchive.html#open)
@@ -1644,8 +1676,8 @@ pub const kar = struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn QBaseOpen(self: ?*anyopaque, mode: i32) bool {
-        return qtc.KAr_QBaseOpen(@ptrCast(self), @bitCast(mode));
+    pub fn SuperOpen(self: ?*anyopaque, mode: i32) bool {
+        return qtc.KAr_SuperOpen(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from KArchive
@@ -1678,6 +1710,10 @@ pub const kar = struct {
         return qtc.KAr_Close(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperClose` instead
+    ///
+    pub const QBaseClose = SuperClose;
+
     /// Inherited from KArchive
     ///
     /// ### [Upstream resources](https://api.kde.org/karchive.html#close)
@@ -1688,8 +1724,8 @@ pub const kar = struct {
     ///
     /// ` self: QtC.KAr `
     ///
-    pub fn QBaseClose(self: ?*anyopaque) bool {
-        return qtc.KAr_QBaseClose(@ptrCast(self));
+    pub fn SuperClose(self: ?*anyopaque) bool {
+        return qtc.KAr_SuperClose(@ptrCast(self));
     }
 
     /// Inherited from KArchive
@@ -1722,6 +1758,10 @@ pub const kar = struct {
         return qtc.KAr_RootDir(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperRootDir` instead
+    ///
+    pub const QBaseRootDir = SuperRootDir;
+
     /// Inherited from KArchive
     ///
     /// ### [Upstream resources](https://api.kde.org/karchive.html#rootDir)
@@ -1732,8 +1772,8 @@ pub const kar = struct {
     ///
     /// ` self: QtC.KAr `
     ///
-    pub fn QBaseRootDir(self: ?*anyopaque) QtC.KArchiveDirectory {
-        return qtc.KAr_QBaseRootDir(@ptrCast(self));
+    pub fn SuperRootDir(self: ?*anyopaque) QtC.KArchiveDirectory {
+        return qtc.KAr_SuperRootDir(@ptrCast(self));
     }
 
     /// Inherited from KArchive
@@ -1771,6 +1811,10 @@ pub const kar = struct {
         return qtc.KAr_DoWriteData(@ptrCast(self), data_Cstring, @bitCast(size));
     }
 
+    /// ### DEPRECATED: Use `SuperDoWriteData` instead
+    ///
+    pub const QBaseDoWriteData = SuperDoWriteData;
+
     /// Inherited from KArchive
     ///
     /// ### [Upstream resources](https://api.kde.org/karchive.html#doWriteData)
@@ -1785,9 +1829,9 @@ pub const kar = struct {
     ///
     /// ` size: i64 `
     ///
-    pub fn QBaseDoWriteData(self: ?*anyopaque, data: [:0]const u8, size: i64) bool {
+    pub fn SuperDoWriteData(self: ?*anyopaque, data: [:0]const u8, size: i64) bool {
         const data_Cstring = data.ptr;
-        return qtc.KAr_QBaseDoWriteData(@ptrCast(self), data_Cstring, @bitCast(size));
+        return qtc.KAr_SuperDoWriteData(@ptrCast(self), data_Cstring, @bitCast(size));
     }
 
     /// Inherited from KArchive
@@ -1822,6 +1866,10 @@ pub const kar = struct {
         return qtc.KAr_CreateDevice(@ptrCast(self), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateDevice` instead
+    ///
+    pub const QBaseCreateDevice = SuperCreateDevice;
+
     /// Inherited from KArchive
     ///
     /// ### [Upstream resources](https://api.kde.org/karchive.html#createDevice)
@@ -1834,8 +1882,8 @@ pub const kar = struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn QBaseCreateDevice(self: ?*anyopaque, mode: i32) bool {
-        return qtc.KAr_QBaseCreateDevice(@ptrCast(self), @bitCast(mode));
+    pub fn SuperCreateDevice(self: ?*anyopaque, mode: i32) bool {
+        return qtc.KAr_SuperCreateDevice(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from KArchive
@@ -1874,6 +1922,10 @@ pub const kar = struct {
         qtc.KAr_SetErrorString(@ptrCast(self), errorStr_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSetErrorString` instead
+    ///
+    pub const QBaseSetErrorString = SuperSetErrorString;
+
     /// Inherited from KArchive
     ///
     /// ### [Upstream resources](https://api.kde.org/karchive.html#setErrorString)
@@ -1886,12 +1938,12 @@ pub const kar = struct {
     ///
     /// ` errorStr: []const u8 `
     ///
-    pub fn QBaseSetErrorString(self: ?*anyopaque, errorStr: []const u8) void {
+    pub fn SuperSetErrorString(self: ?*anyopaque, errorStr: []const u8) void {
         const errorStr_str = qtc.libqt_string{
             .len = errorStr.len,
             .data = errorStr.ptr,
         };
-        qtc.KAr_QBaseSetErrorString(@ptrCast(self), errorStr_str);
+        qtc.KAr_SuperSetErrorString(@ptrCast(self), errorStr_str);
     }
 
     /// Inherited from KArchive
@@ -1930,6 +1982,10 @@ pub const kar = struct {
         return qtc.KAr_FindOrCreate(@ptrCast(self), path_str);
     }
 
+    /// ### DEPRECATED: Use `SuperFindOrCreate` instead
+    ///
+    pub const QBaseFindOrCreate = SuperFindOrCreate;
+
     /// Inherited from KArchive
     ///
     /// ### [Upstream resources](https://api.kde.org/karchive.html#findOrCreate)
@@ -1942,12 +1998,12 @@ pub const kar = struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn QBaseFindOrCreate(self: ?*anyopaque, path: []const u8) QtC.KArchiveDirectory {
+    pub fn SuperFindOrCreate(self: ?*anyopaque, path: []const u8) QtC.KArchiveDirectory {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        return qtc.KAr_QBaseFindOrCreate(@ptrCast(self), path_str);
+        return qtc.KAr_SuperFindOrCreate(@ptrCast(self), path_str);
     }
 
     /// Inherited from KArchive
@@ -1982,6 +2038,10 @@ pub const kar = struct {
         qtc.KAr_SetDevice(@ptrCast(self), @ptrCast(dev));
     }
 
+    /// ### DEPRECATED: Use `SuperSetDevice` instead
+    ///
+    pub const QBaseSetDevice = SuperSetDevice;
+
     /// Inherited from KArchive
     ///
     /// ### [Upstream resources](https://api.kde.org/karchive.html#setDevice)
@@ -1994,8 +2054,8 @@ pub const kar = struct {
     ///
     /// ` dev: QtC.QIODevice `
     ///
-    pub fn QBaseSetDevice(self: ?*anyopaque, dev: ?*anyopaque) void {
-        qtc.KAr_QBaseSetDevice(@ptrCast(self), @ptrCast(dev));
+    pub fn SuperSetDevice(self: ?*anyopaque, dev: ?*anyopaque) void {
+        qtc.KAr_SuperSetDevice(@ptrCast(self), @ptrCast(dev));
     }
 
     /// Inherited from KArchive
@@ -2030,6 +2090,10 @@ pub const kar = struct {
         qtc.KAr_SetRootDir(@ptrCast(self), @ptrCast(rootDir));
     }
 
+    /// ### DEPRECATED: Use `SuperSetRootDir` instead
+    ///
+    pub const QBaseSetRootDir = SuperSetRootDir;
+
     /// Inherited from KArchive
     ///
     /// ### [Upstream resources](https://api.kde.org/karchive.html#setRootDir)
@@ -2042,8 +2106,8 @@ pub const kar = struct {
     ///
     /// ` rootDir: QtC.KArchiveDirectory `
     ///
-    pub fn QBaseSetRootDir(self: ?*anyopaque, rootDir: ?*anyopaque) void {
-        qtc.KAr_QBaseSetRootDir(@ptrCast(self), @ptrCast(rootDir));
+    pub fn SuperSetRootDir(self: ?*anyopaque, rootDir: ?*anyopaque) void {
+        qtc.KAr_SuperSetRootDir(@ptrCast(self), @ptrCast(rootDir));
     }
 
     /// Inherited from KArchive
@@ -2061,6 +2125,9 @@ pub const kar = struct {
     pub fn OnSetRootDir(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KAr_OnSetRootDir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kar.html#dtor.KAr)
     ///
@@ -2070,7 +2137,7 @@ pub const kar = struct {
     ///
     /// ` self: QtC.KAr `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KAr_Delete(@ptrCast(self));
     }
 };

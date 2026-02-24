@@ -27,6 +27,10 @@ pub const qsqldrivercreatorbase = struct {
         qtc.QSqlDriverCreatorBase_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldrivercreatorbase.html#dtor.QSqlDriverCreatorBase)
     ///
     /// Delete this object from C++ memory.
@@ -35,7 +39,7 @@ pub const qsqldrivercreatorbase = struct {
     ///
     /// ` self: QtC.QSqlDriverCreatorBase `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSqlDriverCreatorBase_Delete(@ptrCast(self));
     }
 };
@@ -824,6 +828,10 @@ pub const qsqldatabase = struct {
         return qtc.QSqlDatabase_Contains1(connectionName_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldatabase.html#dtor.QSqlDatabase)
     ///
     /// Delete this object from C++ memory.
@@ -832,7 +840,7 @@ pub const qsqldatabase = struct {
     ///
     /// ` self: QtC.QSqlDatabase `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSqlDatabase_Delete(@ptrCast(self));
     }
 };

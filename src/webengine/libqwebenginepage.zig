@@ -70,6 +70,10 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -78,8 +82,8 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QWebEnginePage_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QWebEnginePage_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -105,6 +109,10 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -113,9 +121,9 @@ pub const qwebenginepage = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QWebEnginePage_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QWebEnginePage_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -144,6 +152,10 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -156,8 +168,8 @@ pub const qwebenginepage = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QWebEnginePage_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QWebEnginePage_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -263,6 +275,10 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_OnTriggerAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperTriggerAction` instead
+    ///
+    pub const QBaseTriggerAction = SuperTriggerAction;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#triggerAction)
     ///
     /// Base class method implementation
@@ -275,8 +291,8 @@ pub const qwebenginepage = struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn QBaseTriggerAction(self: ?*anyopaque, action: i32, checked: bool) void {
-        qtc.QWebEnginePage_QBaseTriggerAction(@ptrCast(self), @bitCast(action), checked);
+    pub fn SuperTriggerAction(self: ?*anyopaque, action: i32, checked: bool) void {
+        qtc.QWebEnginePage_SuperTriggerAction(@ptrCast(self), @bitCast(action), checked);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#replaceMisspelledWord)
@@ -321,6 +337,10 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#event)
     ///
     /// Base class method implementation
@@ -331,8 +351,8 @@ pub const qwebenginepage = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWebEnginePage_QBaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
+        return qtc.QWebEnginePage_SuperEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#findText)
@@ -1903,6 +1923,10 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_OnCreateWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateWindow` instead
+    ///
+    pub const QBaseCreateWindow = SuperCreateWindow;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#createWindow)
     ///
     /// Base class method implementation
@@ -1913,8 +1937,8 @@ pub const qwebenginepage = struct {
     ///
     /// ` typeVal: qwebenginepage_enums.WebWindowType `
     ///
-    pub fn QBaseCreateWindow(self: ?*anyopaque, typeVal: i32) QtC.QWebEnginePage {
-        return qtc.QWebEnginePage_QBaseCreateWindow(@ptrCast(self), @bitCast(typeVal));
+    pub fn SuperCreateWindow(self: ?*anyopaque, typeVal: i32) QtC.QWebEnginePage {
+        return qtc.QWebEnginePage_SuperCreateWindow(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#chooseFiles)
@@ -1990,6 +2014,10 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_OnChooseFiles(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperChooseFiles` instead
+    ///
+    pub const QBaseChooseFiles = SuperChooseFiles;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#chooseFiles)
     ///
     /// Base class method implementation
@@ -2006,7 +2034,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseChooseFiles(self: ?*anyopaque, mode: i32, oldFiles: []const []const u8, acceptedMimeTypes: []const []const u8, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn SuperChooseFiles(self: ?*anyopaque, mode: i32, oldFiles: []const []const u8, acceptedMimeTypes: []const []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const oldFiles_arr = allocator.alloc(qtc.libqt_string, oldFiles.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
         defer allocator.free(oldFiles_arr);
         for (oldFiles, 0..oldFiles.len) |item, i| {
@@ -2031,7 +2059,7 @@ pub const qwebenginepage = struct {
             .len = acceptedMimeTypes.len,
             .data = acceptedMimeTypes_arr.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QWebEnginePage_QBaseChooseFiles(@ptrCast(self), @bitCast(mode), oldFiles_list, acceptedMimeTypes_list);
+        const _arr: qtc.libqt_list = qtc.QWebEnginePage_SuperChooseFiles(@ptrCast(self), @bitCast(mode), oldFiles_list, acceptedMimeTypes_list);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -2081,6 +2109,10 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_OnJavaScriptAlert(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperJavaScriptAlert` instead
+    ///
+    pub const QBaseJavaScriptAlert = SuperJavaScriptAlert;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptAlert)
     ///
     /// Base class method implementation
@@ -2093,12 +2125,12 @@ pub const qwebenginepage = struct {
     ///
     /// ` msg: []const u8 `
     ///
-    pub fn QBaseJavaScriptAlert(self: ?*anyopaque, securityOrigin: ?*anyopaque, msg: []const u8) void {
+    pub fn SuperJavaScriptAlert(self: ?*anyopaque, securityOrigin: ?*anyopaque, msg: []const u8) void {
         const msg_str = qtc.libqt_string{
             .len = msg.len,
             .data = msg.ptr,
         };
-        qtc.QWebEnginePage_QBaseJavaScriptAlert(@ptrCast(self), @ptrCast(securityOrigin), msg_str);
+        qtc.QWebEnginePage_SuperJavaScriptAlert(@ptrCast(self), @ptrCast(securityOrigin), msg_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptConfirm)
@@ -2133,6 +2165,10 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_OnJavaScriptConfirm(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperJavaScriptConfirm` instead
+    ///
+    pub const QBaseJavaScriptConfirm = SuperJavaScriptConfirm;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptConfirm)
     ///
     /// Base class method implementation
@@ -2145,12 +2181,12 @@ pub const qwebenginepage = struct {
     ///
     /// ` msg: []const u8 `
     ///
-    pub fn QBaseJavaScriptConfirm(self: ?*anyopaque, securityOrigin: ?*anyopaque, msg: []const u8) bool {
+    pub fn SuperJavaScriptConfirm(self: ?*anyopaque, securityOrigin: ?*anyopaque, msg: []const u8) bool {
         const msg_str = qtc.libqt_string{
             .len = msg.len,
             .data = msg.ptr,
         };
-        return qtc.QWebEnginePage_QBaseJavaScriptConfirm(@ptrCast(self), @ptrCast(securityOrigin), msg_str);
+        return qtc.QWebEnginePage_SuperJavaScriptConfirm(@ptrCast(self), @ptrCast(securityOrigin), msg_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptConsoleMessage)
@@ -2193,6 +2229,10 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_OnJavaScriptConsoleMessage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperJavaScriptConsoleMessage` instead
+    ///
+    pub const QBaseJavaScriptConsoleMessage = SuperJavaScriptConsoleMessage;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptConsoleMessage)
     ///
     /// Base class method implementation
@@ -2209,7 +2249,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` sourceID: []const u8 `
     ///
-    pub fn QBaseJavaScriptConsoleMessage(self: ?*anyopaque, level: i32, message: []const u8, lineNumber: i32, sourceID: []const u8) void {
+    pub fn SuperJavaScriptConsoleMessage(self: ?*anyopaque, level: i32, message: []const u8, lineNumber: i32, sourceID: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
@@ -2218,7 +2258,7 @@ pub const qwebenginepage = struct {
             .len = sourceID.len,
             .data = sourceID.ptr,
         };
-        qtc.QWebEnginePage_QBaseJavaScriptConsoleMessage(@ptrCast(self), @bitCast(level), message_str, @bitCast(lineNumber), sourceID_str);
+        qtc.QWebEnginePage_SuperJavaScriptConsoleMessage(@ptrCast(self), @bitCast(level), message_str, @bitCast(lineNumber), sourceID_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#acceptNavigationRequest)
@@ -2251,6 +2291,10 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_OnAcceptNavigationRequest(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAcceptNavigationRequest` instead
+    ///
+    pub const QBaseAcceptNavigationRequest = SuperAcceptNavigationRequest;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#acceptNavigationRequest)
     ///
     /// Base class method implementation
@@ -2265,8 +2309,8 @@ pub const qwebenginepage = struct {
     ///
     /// ` isMainFrame: bool `
     ///
-    pub fn QBaseAcceptNavigationRequest(self: ?*anyopaque, url: ?*anyopaque, typeVal: i32, isMainFrame: bool) bool {
-        return qtc.QWebEnginePage_QBaseAcceptNavigationRequest(@ptrCast(self), @ptrCast(url), @bitCast(typeVal), isMainFrame);
+    pub fn SuperAcceptNavigationRequest(self: ?*anyopaque, url: ?*anyopaque, typeVal: i32, isMainFrame: bool) bool {
+        return qtc.QWebEnginePage_SuperAcceptNavigationRequest(@ptrCast(self), @ptrCast(url), @bitCast(typeVal), isMainFrame);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -3255,6 +3299,10 @@ pub const qwebenginepage = struct {
         return qtc.QWebEnginePage_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -3269,8 +3317,8 @@ pub const qwebenginepage = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QWebEnginePage_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QWebEnginePage_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3305,6 +3353,10 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -3317,8 +3369,8 @@ pub const qwebenginepage = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWebEnginePage_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QWebEnginePage_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3353,6 +3405,10 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -3365,8 +3421,8 @@ pub const qwebenginepage = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWebEnginePage_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QWebEnginePage_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3401,6 +3457,10 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -3413,8 +3473,8 @@ pub const qwebenginepage = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWebEnginePage_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QWebEnginePage_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3449,6 +3509,10 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3461,8 +3525,8 @@ pub const qwebenginepage = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWebEnginePage_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QWebEnginePage_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3497,6 +3561,10 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -3509,8 +3577,8 @@ pub const qwebenginepage = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWebEnginePage_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QWebEnginePage_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3543,6 +3611,10 @@ pub const qwebenginepage = struct {
         return qtc.QWebEnginePage_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -3553,8 +3625,8 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QWebEnginePage_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QWebEnginePage_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3587,6 +3659,10 @@ pub const qwebenginepage = struct {
         return qtc.QWebEnginePage_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -3597,8 +3673,8 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QWebEnginePage_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QWebEnginePage_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3634,6 +3710,10 @@ pub const qwebenginepage = struct {
         return qtc.QWebEnginePage_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -3646,9 +3726,9 @@ pub const qwebenginepage = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QWebEnginePage_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QWebEnginePage_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3683,6 +3763,10 @@ pub const qwebenginepage = struct {
         return qtc.QWebEnginePage_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -3695,8 +3779,8 @@ pub const qwebenginepage = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QWebEnginePage_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QWebEnginePage_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3730,6 +3814,9 @@ pub const qwebenginepage = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#dtor.QWebEnginePage)
     ///
@@ -3739,7 +3826,7 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebEnginePage_Delete(@ptrCast(self));
     }
 };

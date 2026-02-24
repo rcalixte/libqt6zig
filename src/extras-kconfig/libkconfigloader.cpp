@@ -87,7 +87,7 @@ bool KConfigLoader_UsrSave(KConfigLoader* self) {
 }
 
 // Base class handler implementation
-bool KConfigLoader_QBaseUsrSave(KConfigLoader* self) {
+bool KConfigLoader_SuperUsrSave(KConfigLoader* self) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_UsrSave_IsBase(true);
@@ -116,7 +116,7 @@ QMetaObject* KConfigLoader_MetaObject(const KConfigLoader* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KConfigLoader_QBaseMetaObject(const KConfigLoader* self) {
+QMetaObject* KConfigLoader_SuperMetaObject(const KConfigLoader* self) {
     auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_MetaObject_IsBase(true);
@@ -145,7 +145,7 @@ void* KConfigLoader_Metacast(KConfigLoader* self, const char* param1) {
 }
 
 // Base class handler implementation
-void* KConfigLoader_QBaseMetacast(KConfigLoader* self, const char* param1) {
+void* KConfigLoader_SuperMetacast(KConfigLoader* self, const char* param1) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_Metacast_IsBase(true);
@@ -174,7 +174,7 @@ int KConfigLoader_Metacall(KConfigLoader* self, int param1, int param2, void** p
 }
 
 // Base class handler implementation
-int KConfigLoader_QBaseMetacall(KConfigLoader* self, int param1, int param2, void** param3) {
+int KConfigLoader_SuperMetacall(KConfigLoader* self, int param1, int param2, void** param3) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_Metacall_IsBase(true);
@@ -203,7 +203,7 @@ void KConfigLoader_SetDefaults(KConfigLoader* self) {
 }
 
 // Base class handler implementation
-void KConfigLoader_QBaseSetDefaults(KConfigLoader* self) {
+void KConfigLoader_SuperSetDefaults(KConfigLoader* self) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_SetDefaults_IsBase(true);
@@ -232,7 +232,7 @@ bool KConfigLoader_UseDefaults(KConfigLoader* self, bool b) {
 }
 
 // Base class handler implementation
-bool KConfigLoader_QBaseUseDefaults(KConfigLoader* self, bool b) {
+bool KConfigLoader_SuperUseDefaults(KConfigLoader* self, bool b) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_UseDefaults_IsBase(true);
@@ -261,7 +261,7 @@ bool KConfigLoader_UsrUseDefaults(KConfigLoader* self, bool b) {
 }
 
 // Base class handler implementation
-bool KConfigLoader_QBaseUsrUseDefaults(KConfigLoader* self, bool b) {
+bool KConfigLoader_SuperUsrUseDefaults(KConfigLoader* self, bool b) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_UsrUseDefaults_IsBase(true);
@@ -290,7 +290,7 @@ void KConfigLoader_UsrSetDefaults(KConfigLoader* self) {
 }
 
 // Base class handler implementation
-void KConfigLoader_QBaseUsrSetDefaults(KConfigLoader* self) {
+void KConfigLoader_SuperUsrSetDefaults(KConfigLoader* self) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_UsrSetDefaults_IsBase(true);
@@ -319,7 +319,7 @@ void KConfigLoader_UsrRead(KConfigLoader* self) {
 }
 
 // Base class handler implementation
-void KConfigLoader_QBaseUsrRead(KConfigLoader* self) {
+void KConfigLoader_SuperUsrRead(KConfigLoader* self) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_UsrRead_IsBase(true);
@@ -348,7 +348,7 @@ bool KConfigLoader_Event(KConfigLoader* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KConfigLoader_QBaseEvent(KConfigLoader* self, QEvent* event) {
+bool KConfigLoader_SuperEvent(KConfigLoader* self, QEvent* event) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_Event_IsBase(true);
@@ -377,7 +377,7 @@ bool KConfigLoader_EventFilter(KConfigLoader* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool KConfigLoader_QBaseEventFilter(KConfigLoader* self, QObject* watched, QEvent* event) {
+bool KConfigLoader_SuperEventFilter(KConfigLoader* self, QObject* watched, QEvent* event) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_EventFilter_IsBase(true);
@@ -406,7 +406,7 @@ void KConfigLoader_TimerEvent(KConfigLoader* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KConfigLoader_QBaseTimerEvent(KConfigLoader* self, QTimerEvent* event) {
+void KConfigLoader_SuperTimerEvent(KConfigLoader* self, QTimerEvent* event) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_TimerEvent_IsBase(true);
@@ -435,7 +435,7 @@ void KConfigLoader_ChildEvent(KConfigLoader* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KConfigLoader_QBaseChildEvent(KConfigLoader* self, QChildEvent* event) {
+void KConfigLoader_SuperChildEvent(KConfigLoader* self, QChildEvent* event) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_ChildEvent_IsBase(true);
@@ -464,7 +464,7 @@ void KConfigLoader_CustomEvent(KConfigLoader* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KConfigLoader_QBaseCustomEvent(KConfigLoader* self, QEvent* event) {
+void KConfigLoader_SuperCustomEvent(KConfigLoader* self, QEvent* event) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_CustomEvent_IsBase(true);
@@ -493,7 +493,7 @@ void KConfigLoader_ConnectNotify(KConfigLoader* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void KConfigLoader_QBaseConnectNotify(KConfigLoader* self, const QMetaMethod* signal) {
+void KConfigLoader_SuperConnectNotify(KConfigLoader* self, const QMetaMethod* signal) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_ConnectNotify_IsBase(true);
@@ -522,7 +522,7 @@ void KConfigLoader_DisconnectNotify(KConfigLoader* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void KConfigLoader_QBaseDisconnectNotify(KConfigLoader* self, const QMetaMethod* signal) {
+void KConfigLoader_SuperDisconnectNotify(KConfigLoader* self, const QMetaMethod* signal) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_DisconnectNotify_IsBase(true);
@@ -551,7 +551,7 @@ QObject* KConfigLoader_Sender(const KConfigLoader* self) {
 }
 
 // Base class handler implementation
-QObject* KConfigLoader_QBaseSender(const KConfigLoader* self) {
+QObject* KConfigLoader_SuperSender(const KConfigLoader* self) {
     auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_Sender_IsBase(true);
@@ -580,7 +580,7 @@ int KConfigLoader_SenderSignalIndex(const KConfigLoader* self) {
 }
 
 // Base class handler implementation
-int KConfigLoader_QBaseSenderSignalIndex(const KConfigLoader* self) {
+int KConfigLoader_SuperSenderSignalIndex(const KConfigLoader* self) {
     auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_SenderSignalIndex_IsBase(true);
@@ -609,7 +609,7 @@ int KConfigLoader_Receivers(const KConfigLoader* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KConfigLoader_QBaseReceivers(const KConfigLoader* self, const char* signal) {
+int KConfigLoader_SuperReceivers(const KConfigLoader* self, const char* signal) {
     auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_Receivers_IsBase(true);
@@ -638,7 +638,7 @@ bool KConfigLoader_IsSignalConnected(const KConfigLoader* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool KConfigLoader_QBaseIsSignalConnected(const KConfigLoader* self, const QMetaMethod* signal) {
+bool KConfigLoader_SuperIsSignalConnected(const KConfigLoader* self, const QMetaMethod* signal) {
     auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_IsSignalConnected_IsBase(true);

@@ -459,35 +459,35 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
 
     // Friend functions
     friend bool QPropertyAnimation_Event(QPropertyAnimation* self, QEvent* event);
-    friend bool QPropertyAnimation_QBaseEvent(QPropertyAnimation* self, QEvent* event);
+    friend bool QPropertyAnimation_SuperEvent(QPropertyAnimation* self, QEvent* event);
     friend void QPropertyAnimation_UpdateCurrentValue(QPropertyAnimation* self, const QVariant* value);
-    friend void QPropertyAnimation_QBaseUpdateCurrentValue(QPropertyAnimation* self, const QVariant* value);
+    friend void QPropertyAnimation_SuperUpdateCurrentValue(QPropertyAnimation* self, const QVariant* value);
     friend void QPropertyAnimation_UpdateState(QPropertyAnimation* self, int newState, int oldState);
-    friend void QPropertyAnimation_QBaseUpdateState(QPropertyAnimation* self, int newState, int oldState);
+    friend void QPropertyAnimation_SuperUpdateState(QPropertyAnimation* self, int newState, int oldState);
     friend void QPropertyAnimation_UpdateCurrentTime(QPropertyAnimation* self, int param1);
-    friend void QPropertyAnimation_QBaseUpdateCurrentTime(QPropertyAnimation* self, int param1);
+    friend void QPropertyAnimation_SuperUpdateCurrentTime(QPropertyAnimation* self, int param1);
     friend QVariant* QPropertyAnimation_Interpolated(const QPropertyAnimation* self, const QVariant* from, const QVariant* to, double progress);
-    friend QVariant* QPropertyAnimation_QBaseInterpolated(const QPropertyAnimation* self, const QVariant* from, const QVariant* to, double progress);
+    friend QVariant* QPropertyAnimation_SuperInterpolated(const QPropertyAnimation* self, const QVariant* from, const QVariant* to, double progress);
     friend void QPropertyAnimation_UpdateDirection(QPropertyAnimation* self, int direction);
-    friend void QPropertyAnimation_QBaseUpdateDirection(QPropertyAnimation* self, int direction);
+    friend void QPropertyAnimation_SuperUpdateDirection(QPropertyAnimation* self, int direction);
     friend void QPropertyAnimation_TimerEvent(QPropertyAnimation* self, QTimerEvent* event);
-    friend void QPropertyAnimation_QBaseTimerEvent(QPropertyAnimation* self, QTimerEvent* event);
+    friend void QPropertyAnimation_SuperTimerEvent(QPropertyAnimation* self, QTimerEvent* event);
     friend void QPropertyAnimation_ChildEvent(QPropertyAnimation* self, QChildEvent* event);
-    friend void QPropertyAnimation_QBaseChildEvent(QPropertyAnimation* self, QChildEvent* event);
+    friend void QPropertyAnimation_SuperChildEvent(QPropertyAnimation* self, QChildEvent* event);
     friend void QPropertyAnimation_CustomEvent(QPropertyAnimation* self, QEvent* event);
-    friend void QPropertyAnimation_QBaseCustomEvent(QPropertyAnimation* self, QEvent* event);
+    friend void QPropertyAnimation_SuperCustomEvent(QPropertyAnimation* self, QEvent* event);
     friend void QPropertyAnimation_ConnectNotify(QPropertyAnimation* self, const QMetaMethod* signal);
-    friend void QPropertyAnimation_QBaseConnectNotify(QPropertyAnimation* self, const QMetaMethod* signal);
+    friend void QPropertyAnimation_SuperConnectNotify(QPropertyAnimation* self, const QMetaMethod* signal);
     friend void QPropertyAnimation_DisconnectNotify(QPropertyAnimation* self, const QMetaMethod* signal);
-    friend void QPropertyAnimation_QBaseDisconnectNotify(QPropertyAnimation* self, const QMetaMethod* signal);
+    friend void QPropertyAnimation_SuperDisconnectNotify(QPropertyAnimation* self, const QMetaMethod* signal);
     friend QObject* QPropertyAnimation_Sender(const QPropertyAnimation* self);
-    friend QObject* QPropertyAnimation_QBaseSender(const QPropertyAnimation* self);
+    friend QObject* QPropertyAnimation_SuperSender(const QPropertyAnimation* self);
     friend int QPropertyAnimation_SenderSignalIndex(const QPropertyAnimation* self);
-    friend int QPropertyAnimation_QBaseSenderSignalIndex(const QPropertyAnimation* self);
+    friend int QPropertyAnimation_SuperSenderSignalIndex(const QPropertyAnimation* self);
     friend int QPropertyAnimation_Receivers(const QPropertyAnimation* self, const char* signal);
-    friend int QPropertyAnimation_QBaseReceivers(const QPropertyAnimation* self, const char* signal);
+    friend int QPropertyAnimation_SuperReceivers(const QPropertyAnimation* self, const char* signal);
     friend bool QPropertyAnimation_IsSignalConnected(const QPropertyAnimation* self, const QMetaMethod* signal);
-    friend bool QPropertyAnimation_QBaseIsSignalConnected(const QPropertyAnimation* self, const QMetaMethod* signal);
+    friend bool QPropertyAnimation_SuperIsSignalConnected(const QPropertyAnimation* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -795,6 +795,10 @@ pub const qtransform = struct {
         return qtc.QTransform_RotateRadians22(@ptrCast(self), @bitCast(a), @bitCast(axis));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#dtor.QTransform)
     ///
     /// Delete this object from C++ memory.
@@ -803,7 +807,7 @@ pub const qtransform = struct {
     ///
     /// ` self: QtC.QTransform `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTransform_Delete(@ptrCast(self));
     }
 };

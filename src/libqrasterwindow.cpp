@@ -94,7 +94,7 @@ void QRasterWindow_ResizeEvent(QRasterWindow* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-QMetaObject* QRasterWindow_QBaseMetaObject(const QRasterWindow* self) {
+QMetaObject* QRasterWindow_SuperMetaObject(const QRasterWindow* self) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_MetaObject_IsBase(true);
@@ -113,7 +113,7 @@ void QRasterWindow_OnMetaObject(const QRasterWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QRasterWindow_QBaseMetacast(QRasterWindow* self, const char* param1) {
+void* QRasterWindow_SuperMetacast(QRasterWindow* self, const char* param1) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_Metacast_IsBase(true);
@@ -132,7 +132,7 @@ void QRasterWindow_OnMetacast(QRasterWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QRasterWindow_QBaseMetacall(QRasterWindow* self, int param1, int param2, void** param3) {
+int QRasterWindow_SuperMetacall(QRasterWindow* self, int param1, int param2, void** param3) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_Metacall_IsBase(true);
@@ -151,7 +151,7 @@ void QRasterWindow_OnMetacall(QRasterWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QRasterWindow_QBaseMetric(const QRasterWindow* self, int metric) {
+int QRasterWindow_SuperMetric(const QRasterWindow* self, int metric) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_Metric_IsBase(true);
@@ -170,7 +170,7 @@ void QRasterWindow_OnMetric(const QRasterWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPaintDevice* QRasterWindow_QBaseRedirected(const QRasterWindow* self, QPoint* param1) {
+QPaintDevice* QRasterWindow_SuperRedirected(const QRasterWindow* self, QPoint* param1) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_Redirected_IsBase(true);
@@ -189,7 +189,7 @@ void QRasterWindow_OnRedirected(const QRasterWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseResizeEvent(QRasterWindow* self, QResizeEvent* event) {
+void QRasterWindow_SuperResizeEvent(QRasterWindow* self, QResizeEvent* event) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_ResizeEvent_IsBase(true);
@@ -218,7 +218,7 @@ void QRasterWindow_ExposeEvent(QRasterWindow* self, QExposeEvent* param1) {
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseExposeEvent(QRasterWindow* self, QExposeEvent* param1) {
+void QRasterWindow_SuperExposeEvent(QRasterWindow* self, QExposeEvent* param1) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_ExposeEvent_IsBase(true);
@@ -247,7 +247,7 @@ void QRasterWindow_PaintEvent(QRasterWindow* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QRasterWindow_QBasePaintEvent(QRasterWindow* self, QPaintEvent* event) {
+void QRasterWindow_SuperPaintEvent(QRasterWindow* self, QPaintEvent* event) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_PaintEvent_IsBase(true);
@@ -276,7 +276,7 @@ bool QRasterWindow_Event(QRasterWindow* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QRasterWindow_QBaseEvent(QRasterWindow* self, QEvent* event) {
+bool QRasterWindow_SuperEvent(QRasterWindow* self, QEvent* event) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_Event_IsBase(true);
@@ -305,7 +305,7 @@ int QRasterWindow_SurfaceType(const QRasterWindow* self) {
 }
 
 // Base class handler implementation
-int QRasterWindow_QBaseSurfaceType(const QRasterWindow* self) {
+int QRasterWindow_SuperSurfaceType(const QRasterWindow* self) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_SurfaceType_IsBase(true);
@@ -334,7 +334,7 @@ QSurfaceFormat* QRasterWindow_Format(const QRasterWindow* self) {
 }
 
 // Base class handler implementation
-QSurfaceFormat* QRasterWindow_QBaseFormat(const QRasterWindow* self) {
+QSurfaceFormat* QRasterWindow_SuperFormat(const QRasterWindow* self) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_Format_IsBase(true);
@@ -363,7 +363,7 @@ QSize* QRasterWindow_Size(const QRasterWindow* self) {
 }
 
 // Base class handler implementation
-QSize* QRasterWindow_QBaseSize(const QRasterWindow* self) {
+QSize* QRasterWindow_SuperSize(const QRasterWindow* self) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_Size_IsBase(true);
@@ -392,7 +392,7 @@ QAccessibleInterface* QRasterWindow_AccessibleRoot(const QRasterWindow* self) {
 }
 
 // Base class handler implementation
-QAccessibleInterface* QRasterWindow_QBaseAccessibleRoot(const QRasterWindow* self) {
+QAccessibleInterface* QRasterWindow_SuperAccessibleRoot(const QRasterWindow* self) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_AccessibleRoot_IsBase(true);
@@ -421,7 +421,7 @@ QObject* QRasterWindow_FocusObject(const QRasterWindow* self) {
 }
 
 // Base class handler implementation
-QObject* QRasterWindow_QBaseFocusObject(const QRasterWindow* self) {
+QObject* QRasterWindow_SuperFocusObject(const QRasterWindow* self) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_FocusObject_IsBase(true);
@@ -450,7 +450,7 @@ void QRasterWindow_MoveEvent(QRasterWindow* self, QMoveEvent* param1) {
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseMoveEvent(QRasterWindow* self, QMoveEvent* param1) {
+void QRasterWindow_SuperMoveEvent(QRasterWindow* self, QMoveEvent* param1) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_MoveEvent_IsBase(true);
@@ -479,7 +479,7 @@ void QRasterWindow_FocusInEvent(QRasterWindow* self, QFocusEvent* param1) {
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseFocusInEvent(QRasterWindow* self, QFocusEvent* param1) {
+void QRasterWindow_SuperFocusInEvent(QRasterWindow* self, QFocusEvent* param1) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_FocusInEvent_IsBase(true);
@@ -508,7 +508,7 @@ void QRasterWindow_FocusOutEvent(QRasterWindow* self, QFocusEvent* param1) {
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseFocusOutEvent(QRasterWindow* self, QFocusEvent* param1) {
+void QRasterWindow_SuperFocusOutEvent(QRasterWindow* self, QFocusEvent* param1) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_FocusOutEvent_IsBase(true);
@@ -537,7 +537,7 @@ void QRasterWindow_ShowEvent(QRasterWindow* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseShowEvent(QRasterWindow* self, QShowEvent* param1) {
+void QRasterWindow_SuperShowEvent(QRasterWindow* self, QShowEvent* param1) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_ShowEvent_IsBase(true);
@@ -566,7 +566,7 @@ void QRasterWindow_HideEvent(QRasterWindow* self, QHideEvent* param1) {
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseHideEvent(QRasterWindow* self, QHideEvent* param1) {
+void QRasterWindow_SuperHideEvent(QRasterWindow* self, QHideEvent* param1) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_HideEvent_IsBase(true);
@@ -595,7 +595,7 @@ void QRasterWindow_CloseEvent(QRasterWindow* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseCloseEvent(QRasterWindow* self, QCloseEvent* param1) {
+void QRasterWindow_SuperCloseEvent(QRasterWindow* self, QCloseEvent* param1) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_CloseEvent_IsBase(true);
@@ -624,7 +624,7 @@ void QRasterWindow_KeyPressEvent(QRasterWindow* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseKeyPressEvent(QRasterWindow* self, QKeyEvent* param1) {
+void QRasterWindow_SuperKeyPressEvent(QRasterWindow* self, QKeyEvent* param1) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_KeyPressEvent_IsBase(true);
@@ -653,7 +653,7 @@ void QRasterWindow_KeyReleaseEvent(QRasterWindow* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseKeyReleaseEvent(QRasterWindow* self, QKeyEvent* param1) {
+void QRasterWindow_SuperKeyReleaseEvent(QRasterWindow* self, QKeyEvent* param1) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_KeyReleaseEvent_IsBase(true);
@@ -682,7 +682,7 @@ void QRasterWindow_MousePressEvent(QRasterWindow* self, QMouseEvent* param1) {
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseMousePressEvent(QRasterWindow* self, QMouseEvent* param1) {
+void QRasterWindow_SuperMousePressEvent(QRasterWindow* self, QMouseEvent* param1) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_MousePressEvent_IsBase(true);
@@ -711,7 +711,7 @@ void QRasterWindow_MouseReleaseEvent(QRasterWindow* self, QMouseEvent* param1) {
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseMouseReleaseEvent(QRasterWindow* self, QMouseEvent* param1) {
+void QRasterWindow_SuperMouseReleaseEvent(QRasterWindow* self, QMouseEvent* param1) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_MouseReleaseEvent_IsBase(true);
@@ -740,7 +740,7 @@ void QRasterWindow_MouseDoubleClickEvent(QRasterWindow* self, QMouseEvent* param
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseMouseDoubleClickEvent(QRasterWindow* self, QMouseEvent* param1) {
+void QRasterWindow_SuperMouseDoubleClickEvent(QRasterWindow* self, QMouseEvent* param1) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_MouseDoubleClickEvent_IsBase(true);
@@ -769,7 +769,7 @@ void QRasterWindow_MouseMoveEvent(QRasterWindow* self, QMouseEvent* param1) {
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseMouseMoveEvent(QRasterWindow* self, QMouseEvent* param1) {
+void QRasterWindow_SuperMouseMoveEvent(QRasterWindow* self, QMouseEvent* param1) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_MouseMoveEvent_IsBase(true);
@@ -798,7 +798,7 @@ void QRasterWindow_WheelEvent(QRasterWindow* self, QWheelEvent* param1) {
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseWheelEvent(QRasterWindow* self, QWheelEvent* param1) {
+void QRasterWindow_SuperWheelEvent(QRasterWindow* self, QWheelEvent* param1) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_WheelEvent_IsBase(true);
@@ -827,7 +827,7 @@ void QRasterWindow_TouchEvent(QRasterWindow* self, QTouchEvent* param1) {
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseTouchEvent(QRasterWindow* self, QTouchEvent* param1) {
+void QRasterWindow_SuperTouchEvent(QRasterWindow* self, QTouchEvent* param1) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_TouchEvent_IsBase(true);
@@ -856,7 +856,7 @@ void QRasterWindow_TabletEvent(QRasterWindow* self, QTabletEvent* param1) {
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseTabletEvent(QRasterWindow* self, QTabletEvent* param1) {
+void QRasterWindow_SuperTabletEvent(QRasterWindow* self, QTabletEvent* param1) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_TabletEvent_IsBase(true);
@@ -886,7 +886,7 @@ bool QRasterWindow_NativeEvent(QRasterWindow* self, const libqt_string eventType
 }
 
 // Base class handler implementation
-bool QRasterWindow_QBaseNativeEvent(QRasterWindow* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QRasterWindow_SuperNativeEvent(QRasterWindow* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
@@ -916,7 +916,7 @@ bool QRasterWindow_EventFilter(QRasterWindow* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QRasterWindow_QBaseEventFilter(QRasterWindow* self, QObject* watched, QEvent* event) {
+bool QRasterWindow_SuperEventFilter(QRasterWindow* self, QObject* watched, QEvent* event) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_EventFilter_IsBase(true);
@@ -945,7 +945,7 @@ void QRasterWindow_TimerEvent(QRasterWindow* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseTimerEvent(QRasterWindow* self, QTimerEvent* event) {
+void QRasterWindow_SuperTimerEvent(QRasterWindow* self, QTimerEvent* event) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_TimerEvent_IsBase(true);
@@ -974,7 +974,7 @@ void QRasterWindow_ChildEvent(QRasterWindow* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseChildEvent(QRasterWindow* self, QChildEvent* event) {
+void QRasterWindow_SuperChildEvent(QRasterWindow* self, QChildEvent* event) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_ChildEvent_IsBase(true);
@@ -1003,7 +1003,7 @@ void QRasterWindow_CustomEvent(QRasterWindow* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseCustomEvent(QRasterWindow* self, QEvent* event) {
+void QRasterWindow_SuperCustomEvent(QRasterWindow* self, QEvent* event) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_CustomEvent_IsBase(true);
@@ -1032,7 +1032,7 @@ void QRasterWindow_ConnectNotify(QRasterWindow* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseConnectNotify(QRasterWindow* self, const QMetaMethod* signal) {
+void QRasterWindow_SuperConnectNotify(QRasterWindow* self, const QMetaMethod* signal) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_ConnectNotify_IsBase(true);
@@ -1061,7 +1061,7 @@ void QRasterWindow_DisconnectNotify(QRasterWindow* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseDisconnectNotify(QRasterWindow* self, const QMetaMethod* signal) {
+void QRasterWindow_SuperDisconnectNotify(QRasterWindow* self, const QMetaMethod* signal) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_DisconnectNotify_IsBase(true);
@@ -1090,7 +1090,7 @@ int QRasterWindow_DevType(const QRasterWindow* self) {
 }
 
 // Base class handler implementation
-int QRasterWindow_QBaseDevType(const QRasterWindow* self) {
+int QRasterWindow_SuperDevType(const QRasterWindow* self) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_DevType_IsBase(true);
@@ -1119,7 +1119,7 @@ void QRasterWindow_InitPainter(const QRasterWindow* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QRasterWindow_QBaseInitPainter(const QRasterWindow* self, QPainter* painter) {
+void QRasterWindow_SuperInitPainter(const QRasterWindow* self, QPainter* painter) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_InitPainter_IsBase(true);
@@ -1148,7 +1148,7 @@ QPainter* QRasterWindow_SharedPainter(const QRasterWindow* self) {
 }
 
 // Base class handler implementation
-QPainter* QRasterWindow_QBaseSharedPainter(const QRasterWindow* self) {
+QPainter* QRasterWindow_SuperSharedPainter(const QRasterWindow* self) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_SharedPainter_IsBase(true);
@@ -1177,7 +1177,7 @@ void* QRasterWindow_ResolveInterface(const QRasterWindow* self, const char* name
 }
 
 // Base class handler implementation
-void* QRasterWindow_QBaseResolveInterface(const QRasterWindow* self, const char* name, int revision) {
+void* QRasterWindow_SuperResolveInterface(const QRasterWindow* self, const char* name, int revision) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_ResolveInterface_IsBase(true);
@@ -1206,7 +1206,7 @@ QObject* QRasterWindow_Sender(const QRasterWindow* self) {
 }
 
 // Base class handler implementation
-QObject* QRasterWindow_QBaseSender(const QRasterWindow* self) {
+QObject* QRasterWindow_SuperSender(const QRasterWindow* self) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_Sender_IsBase(true);
@@ -1235,7 +1235,7 @@ int QRasterWindow_SenderSignalIndex(const QRasterWindow* self) {
 }
 
 // Base class handler implementation
-int QRasterWindow_QBaseSenderSignalIndex(const QRasterWindow* self) {
+int QRasterWindow_SuperSenderSignalIndex(const QRasterWindow* self) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_SenderSignalIndex_IsBase(true);
@@ -1264,7 +1264,7 @@ int QRasterWindow_Receivers(const QRasterWindow* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QRasterWindow_QBaseReceivers(const QRasterWindow* self, const char* signal) {
+int QRasterWindow_SuperReceivers(const QRasterWindow* self, const char* signal) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_Receivers_IsBase(true);
@@ -1293,7 +1293,7 @@ bool QRasterWindow_IsSignalConnected(const QRasterWindow* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QRasterWindow_QBaseIsSignalConnected(const QRasterWindow* self, const QMetaMethod* signal) {
+bool QRasterWindow_SuperIsSignalConnected(const QRasterWindow* self, const QMetaMethod* signal) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_IsSignalConnected_IsBase(true);
@@ -1322,7 +1322,7 @@ double QRasterWindow_GetDecodedMetricF(const QRasterWindow* self, int metricA, i
 }
 
 // Base class handler implementation
-double QRasterWindow_QBaseGetDecodedMetricF(const QRasterWindow* self, int metricA, int metricB) {
+double QRasterWindow_SuperGetDecodedMetricF(const QRasterWindow* self, int metricA, int metricB) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->setQRasterWindow_GetDecodedMetricF_IsBase(true);

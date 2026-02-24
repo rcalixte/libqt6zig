@@ -268,13 +268,17 @@ pub const ktexteditor__documentcursor = struct {
         return qtc.KTextEditor__DocumentCursor_Move2(@ptrCast(self), @bitCast(chars), @bitCast(wrapBehavior));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KTextEditor__DocumentCursor `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KTextEditor__DocumentCursor_Delete(@ptrCast(self));
     }
 };

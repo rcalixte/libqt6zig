@@ -371,29 +371,29 @@ class VirtualQKeyEventTransition final : public QKeyEventTransition {
 
     // Friend functions
     friend void QKeyEventTransition_OnTransition(QKeyEventTransition* self, QEvent* event);
-    friend void QKeyEventTransition_QBaseOnTransition(QKeyEventTransition* self, QEvent* event);
+    friend void QKeyEventTransition_SuperOnTransition(QKeyEventTransition* self, QEvent* event);
     friend bool QKeyEventTransition_EventTest(QKeyEventTransition* self, QEvent* event);
-    friend bool QKeyEventTransition_QBaseEventTest(QKeyEventTransition* self, QEvent* event);
+    friend bool QKeyEventTransition_SuperEventTest(QKeyEventTransition* self, QEvent* event);
     friend bool QKeyEventTransition_Event(QKeyEventTransition* self, QEvent* e);
-    friend bool QKeyEventTransition_QBaseEvent(QKeyEventTransition* self, QEvent* e);
+    friend bool QKeyEventTransition_SuperEvent(QKeyEventTransition* self, QEvent* e);
     friend void QKeyEventTransition_TimerEvent(QKeyEventTransition* self, QTimerEvent* event);
-    friend void QKeyEventTransition_QBaseTimerEvent(QKeyEventTransition* self, QTimerEvent* event);
+    friend void QKeyEventTransition_SuperTimerEvent(QKeyEventTransition* self, QTimerEvent* event);
     friend void QKeyEventTransition_ChildEvent(QKeyEventTransition* self, QChildEvent* event);
-    friend void QKeyEventTransition_QBaseChildEvent(QKeyEventTransition* self, QChildEvent* event);
+    friend void QKeyEventTransition_SuperChildEvent(QKeyEventTransition* self, QChildEvent* event);
     friend void QKeyEventTransition_CustomEvent(QKeyEventTransition* self, QEvent* event);
-    friend void QKeyEventTransition_QBaseCustomEvent(QKeyEventTransition* self, QEvent* event);
+    friend void QKeyEventTransition_SuperCustomEvent(QKeyEventTransition* self, QEvent* event);
     friend void QKeyEventTransition_ConnectNotify(QKeyEventTransition* self, const QMetaMethod* signal);
-    friend void QKeyEventTransition_QBaseConnectNotify(QKeyEventTransition* self, const QMetaMethod* signal);
+    friend void QKeyEventTransition_SuperConnectNotify(QKeyEventTransition* self, const QMetaMethod* signal);
     friend void QKeyEventTransition_DisconnectNotify(QKeyEventTransition* self, const QMetaMethod* signal);
-    friend void QKeyEventTransition_QBaseDisconnectNotify(QKeyEventTransition* self, const QMetaMethod* signal);
+    friend void QKeyEventTransition_SuperDisconnectNotify(QKeyEventTransition* self, const QMetaMethod* signal);
     friend QObject* QKeyEventTransition_Sender(const QKeyEventTransition* self);
-    friend QObject* QKeyEventTransition_QBaseSender(const QKeyEventTransition* self);
+    friend QObject* QKeyEventTransition_SuperSender(const QKeyEventTransition* self);
     friend int QKeyEventTransition_SenderSignalIndex(const QKeyEventTransition* self);
-    friend int QKeyEventTransition_QBaseSenderSignalIndex(const QKeyEventTransition* self);
+    friend int QKeyEventTransition_SuperSenderSignalIndex(const QKeyEventTransition* self);
     friend int QKeyEventTransition_Receivers(const QKeyEventTransition* self, const char* signal);
-    friend int QKeyEventTransition_QBaseReceivers(const QKeyEventTransition* self, const char* signal);
+    friend int QKeyEventTransition_SuperReceivers(const QKeyEventTransition* self, const char* signal);
     friend bool QKeyEventTransition_IsSignalConnected(const QKeyEventTransition* self, const QMetaMethod* signal);
-    friend bool QKeyEventTransition_QBaseIsSignalConnected(const QKeyEventTransition* self, const QMetaMethod* signal);
+    friend bool QKeyEventTransition_SuperIsSignalConnected(const QKeyEventTransition* self, const QMetaMethod* signal);
 };
 
 #endif

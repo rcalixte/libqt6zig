@@ -838,25 +838,25 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
 
     // Friend functions
     friend void QPlaceManagerEngine_TimerEvent(QPlaceManagerEngine* self, QTimerEvent* event);
-    friend void QPlaceManagerEngine_QBaseTimerEvent(QPlaceManagerEngine* self, QTimerEvent* event);
+    friend void QPlaceManagerEngine_SuperTimerEvent(QPlaceManagerEngine* self, QTimerEvent* event);
     friend void QPlaceManagerEngine_ChildEvent(QPlaceManagerEngine* self, QChildEvent* event);
-    friend void QPlaceManagerEngine_QBaseChildEvent(QPlaceManagerEngine* self, QChildEvent* event);
+    friend void QPlaceManagerEngine_SuperChildEvent(QPlaceManagerEngine* self, QChildEvent* event);
     friend void QPlaceManagerEngine_CustomEvent(QPlaceManagerEngine* self, QEvent* event);
-    friend void QPlaceManagerEngine_QBaseCustomEvent(QPlaceManagerEngine* self, QEvent* event);
+    friend void QPlaceManagerEngine_SuperCustomEvent(QPlaceManagerEngine* self, QEvent* event);
     friend void QPlaceManagerEngine_ConnectNotify(QPlaceManagerEngine* self, const QMetaMethod* signal);
-    friend void QPlaceManagerEngine_QBaseConnectNotify(QPlaceManagerEngine* self, const QMetaMethod* signal);
+    friend void QPlaceManagerEngine_SuperConnectNotify(QPlaceManagerEngine* self, const QMetaMethod* signal);
     friend void QPlaceManagerEngine_DisconnectNotify(QPlaceManagerEngine* self, const QMetaMethod* signal);
-    friend void QPlaceManagerEngine_QBaseDisconnectNotify(QPlaceManagerEngine* self, const QMetaMethod* signal);
+    friend void QPlaceManagerEngine_SuperDisconnectNotify(QPlaceManagerEngine* self, const QMetaMethod* signal);
     friend QPlaceManager* QPlaceManagerEngine_Manager(const QPlaceManagerEngine* self);
-    friend QPlaceManager* QPlaceManagerEngine_QBaseManager(const QPlaceManagerEngine* self);
+    friend QPlaceManager* QPlaceManagerEngine_SuperManager(const QPlaceManagerEngine* self);
     friend QObject* QPlaceManagerEngine_Sender(const QPlaceManagerEngine* self);
-    friend QObject* QPlaceManagerEngine_QBaseSender(const QPlaceManagerEngine* self);
+    friend QObject* QPlaceManagerEngine_SuperSender(const QPlaceManagerEngine* self);
     friend int QPlaceManagerEngine_SenderSignalIndex(const QPlaceManagerEngine* self);
-    friend int QPlaceManagerEngine_QBaseSenderSignalIndex(const QPlaceManagerEngine* self);
+    friend int QPlaceManagerEngine_SuperSenderSignalIndex(const QPlaceManagerEngine* self);
     friend int QPlaceManagerEngine_Receivers(const QPlaceManagerEngine* self, const char* signal);
-    friend int QPlaceManagerEngine_QBaseReceivers(const QPlaceManagerEngine* self, const char* signal);
+    friend int QPlaceManagerEngine_SuperReceivers(const QPlaceManagerEngine* self, const char* signal);
     friend bool QPlaceManagerEngine_IsSignalConnected(const QPlaceManagerEngine* self, const QMetaMethod* signal);
-    friend bool QPlaceManagerEngine_QBaseIsSignalConnected(const QPlaceManagerEngine* self, const QMetaMethod* signal);
+    friend bool QPlaceManagerEngine_SuperIsSignalConnected(const QPlaceManagerEngine* self, const QMetaMethod* signal);
 };
 
 #endif

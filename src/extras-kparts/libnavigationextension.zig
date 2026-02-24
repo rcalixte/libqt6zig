@@ -43,6 +43,10 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -51,8 +55,8 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` self: QtC.KParts__NavigationExtension `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KParts__NavigationExtension_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KParts__NavigationExtension_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -78,6 +82,10 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -86,9 +94,9 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KParts__NavigationExtension_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KParts__NavigationExtension_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -117,6 +125,10 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -129,8 +141,8 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KParts__NavigationExtension_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KParts__NavigationExtension_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -174,6 +186,10 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_OnXOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperXOffset` instead
+    ///
+    pub const QBaseXOffset = SuperXOffset;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#xOffset)
     ///
     /// Base class method implementation
@@ -182,8 +198,8 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` self: QtC.KParts__NavigationExtension `
     ///
-    pub fn QBaseXOffset(self: ?*anyopaque) i32 {
-        return qtc.KParts__NavigationExtension_QBaseXOffset(@ptrCast(self));
+    pub fn SuperXOffset(self: ?*anyopaque) i32 {
+        return qtc.KParts__NavigationExtension_SuperXOffset(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#yOffset)
@@ -210,6 +226,10 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_OnYOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperYOffset` instead
+    ///
+    pub const QBaseYOffset = SuperYOffset;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#yOffset)
     ///
     /// Base class method implementation
@@ -218,8 +238,8 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` self: QtC.KParts__NavigationExtension `
     ///
-    pub fn QBaseYOffset(self: ?*anyopaque) i32 {
-        return qtc.KParts__NavigationExtension_QBaseYOffset(@ptrCast(self));
+    pub fn SuperYOffset(self: ?*anyopaque) i32 {
+        return qtc.KParts__NavigationExtension_SuperYOffset(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#saveState)
@@ -248,6 +268,10 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_OnSaveState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSaveState` instead
+    ///
+    pub const QBaseSaveState = SuperSaveState;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#saveState)
     ///
     /// Base class method implementation
@@ -258,8 +282,8 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` stream: QtC.QDataStream `
     ///
-    pub fn QBaseSaveState(self: ?*anyopaque, stream: ?*anyopaque) void {
-        qtc.KParts__NavigationExtension_QBaseSaveState(@ptrCast(self), @ptrCast(stream));
+    pub fn SuperSaveState(self: ?*anyopaque, stream: ?*anyopaque) void {
+        qtc.KParts__NavigationExtension_SuperSaveState(@ptrCast(self), @ptrCast(stream));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#restoreState)
@@ -288,6 +312,10 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_OnRestoreState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRestoreState` instead
+    ///
+    pub const QBaseRestoreState = SuperRestoreState;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#restoreState)
     ///
     /// Base class method implementation
@@ -298,8 +326,8 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` stream: QtC.QDataStream `
     ///
-    pub fn QBaseRestoreState(self: ?*anyopaque, stream: ?*anyopaque) void {
-        qtc.KParts__NavigationExtension_QBaseRestoreState(@ptrCast(self), @ptrCast(stream));
+    pub fn SuperRestoreState(self: ?*anyopaque, stream: ?*anyopaque) void {
+        qtc.KParts__NavigationExtension_SuperRestoreState(@ptrCast(self), @ptrCast(stream));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#isURLDropHandlingEnabled)
@@ -1686,6 +1714,10 @@ pub const kparts__navigationextension = struct {
         return qtc.KParts__NavigationExtension_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1698,8 +1730,8 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KParts__NavigationExtension_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KParts__NavigationExtension_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1736,6 +1768,10 @@ pub const kparts__navigationextension = struct {
         return qtc.KParts__NavigationExtension_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1750,8 +1786,8 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KParts__NavigationExtension_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KParts__NavigationExtension_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1786,6 +1822,10 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1798,8 +1838,8 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__NavigationExtension_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KParts__NavigationExtension_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1834,6 +1874,10 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1846,8 +1890,8 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__NavigationExtension_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KParts__NavigationExtension_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1882,6 +1926,10 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1894,8 +1942,8 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__NavigationExtension_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KParts__NavigationExtension_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1930,6 +1978,10 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1942,8 +1994,8 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KParts__NavigationExtension_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KParts__NavigationExtension_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1978,6 +2030,10 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1990,8 +2046,8 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KParts__NavigationExtension_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KParts__NavigationExtension_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2024,6 +2080,10 @@ pub const kparts__navigationextension = struct {
         return qtc.KParts__NavigationExtension_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2034,8 +2094,8 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` self: QtC.KParts__NavigationExtension `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KParts__NavigationExtension_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KParts__NavigationExtension_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2068,6 +2128,10 @@ pub const kparts__navigationextension = struct {
         return qtc.KParts__NavigationExtension_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2078,8 +2142,8 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` self: QtC.KParts__NavigationExtension `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KParts__NavigationExtension_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KParts__NavigationExtension_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2115,6 +2179,10 @@ pub const kparts__navigationextension = struct {
         return qtc.KParts__NavigationExtension_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2127,9 +2195,9 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KParts__NavigationExtension_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KParts__NavigationExtension_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2164,6 +2232,10 @@ pub const kparts__navigationextension = struct {
         return qtc.KParts__NavigationExtension_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2176,8 +2248,8 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KParts__NavigationExtension_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KParts__NavigationExtension_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2211,6 +2283,9 @@ pub const kparts__navigationextension = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -2218,7 +2293,7 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` self: QtC.KParts__NavigationExtension `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KParts__NavigationExtension_Delete(@ptrCast(self));
     }
 };

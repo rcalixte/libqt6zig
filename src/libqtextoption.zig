@@ -258,6 +258,10 @@ pub const qtextoption = struct {
         return qtc.QTextOption_UseDesignMetrics(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#dtor.QTextOption)
     ///
     /// Delete this object from C++ memory.
@@ -266,7 +270,7 @@ pub const qtextoption = struct {
     ///
     /// ` self: QtC.QTextOption `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTextOption_Delete(@ptrCast(self));
     }
 };
@@ -443,13 +447,17 @@ pub const qtextoption__tab = struct {
         qtc.QTextOption__Tab_SetDelimiter(@ptrCast(self), @ptrCast(delimiter));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QTextOption__Tab `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTextOption__Tab_Delete(@ptrCast(self));
     }
 };

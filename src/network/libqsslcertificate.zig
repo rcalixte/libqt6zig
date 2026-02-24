@@ -850,6 +850,10 @@ pub const qsslcertificate = struct {
         return qtc.QSslCertificate_ImportPkcs125(@ptrCast(device), @ptrCast(key), @ptrCast(cert), caCertificates_list, passPhrase_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#dtor.QSslCertificate)
     ///
     /// Delete this object from C++ memory.
@@ -858,7 +862,7 @@ pub const qsslcertificate = struct {
     ///
     /// ` self: QtC.QSslCertificate `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSslCertificate_Delete(@ptrCast(self));
     }
 };

@@ -559,23 +559,23 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
 
     // Friend functions
     friend void QDesignerMetaDataBaseInterface_TimerEvent(QDesignerMetaDataBaseInterface* self, QTimerEvent* event);
-    friend void QDesignerMetaDataBaseInterface_QBaseTimerEvent(QDesignerMetaDataBaseInterface* self, QTimerEvent* event);
+    friend void QDesignerMetaDataBaseInterface_SuperTimerEvent(QDesignerMetaDataBaseInterface* self, QTimerEvent* event);
     friend void QDesignerMetaDataBaseInterface_ChildEvent(QDesignerMetaDataBaseInterface* self, QChildEvent* event);
-    friend void QDesignerMetaDataBaseInterface_QBaseChildEvent(QDesignerMetaDataBaseInterface* self, QChildEvent* event);
+    friend void QDesignerMetaDataBaseInterface_SuperChildEvent(QDesignerMetaDataBaseInterface* self, QChildEvent* event);
     friend void QDesignerMetaDataBaseInterface_CustomEvent(QDesignerMetaDataBaseInterface* self, QEvent* event);
-    friend void QDesignerMetaDataBaseInterface_QBaseCustomEvent(QDesignerMetaDataBaseInterface* self, QEvent* event);
+    friend void QDesignerMetaDataBaseInterface_SuperCustomEvent(QDesignerMetaDataBaseInterface* self, QEvent* event);
     friend void QDesignerMetaDataBaseInterface_ConnectNotify(QDesignerMetaDataBaseInterface* self, const QMetaMethod* signal);
-    friend void QDesignerMetaDataBaseInterface_QBaseConnectNotify(QDesignerMetaDataBaseInterface* self, const QMetaMethod* signal);
+    friend void QDesignerMetaDataBaseInterface_SuperConnectNotify(QDesignerMetaDataBaseInterface* self, const QMetaMethod* signal);
     friend void QDesignerMetaDataBaseInterface_DisconnectNotify(QDesignerMetaDataBaseInterface* self, const QMetaMethod* signal);
-    friend void QDesignerMetaDataBaseInterface_QBaseDisconnectNotify(QDesignerMetaDataBaseInterface* self, const QMetaMethod* signal);
+    friend void QDesignerMetaDataBaseInterface_SuperDisconnectNotify(QDesignerMetaDataBaseInterface* self, const QMetaMethod* signal);
     friend QObject* QDesignerMetaDataBaseInterface_Sender(const QDesignerMetaDataBaseInterface* self);
-    friend QObject* QDesignerMetaDataBaseInterface_QBaseSender(const QDesignerMetaDataBaseInterface* self);
+    friend QObject* QDesignerMetaDataBaseInterface_SuperSender(const QDesignerMetaDataBaseInterface* self);
     friend int QDesignerMetaDataBaseInterface_SenderSignalIndex(const QDesignerMetaDataBaseInterface* self);
-    friend int QDesignerMetaDataBaseInterface_QBaseSenderSignalIndex(const QDesignerMetaDataBaseInterface* self);
+    friend int QDesignerMetaDataBaseInterface_SuperSenderSignalIndex(const QDesignerMetaDataBaseInterface* self);
     friend int QDesignerMetaDataBaseInterface_Receivers(const QDesignerMetaDataBaseInterface* self, const char* signal);
-    friend int QDesignerMetaDataBaseInterface_QBaseReceivers(const QDesignerMetaDataBaseInterface* self, const char* signal);
+    friend int QDesignerMetaDataBaseInterface_SuperReceivers(const QDesignerMetaDataBaseInterface* self, const char* signal);
     friend bool QDesignerMetaDataBaseInterface_IsSignalConnected(const QDesignerMetaDataBaseInterface* self, const QMetaMethod* signal);
-    friend bool QDesignerMetaDataBaseInterface_QBaseIsSignalConnected(const QDesignerMetaDataBaseInterface* self, const QMetaMethod* signal);
+    friend bool QDesignerMetaDataBaseInterface_SuperIsSignalConnected(const QDesignerMetaDataBaseInterface* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -68,6 +68,10 @@ pub const kconfigskeleton = struct {
         qtc.KConfigSkeleton_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -76,8 +80,8 @@ pub const kconfigskeleton = struct {
     ///
     /// ` self: QtC.KConfigSkeleton `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KConfigSkeleton_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KConfigSkeleton_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -103,6 +107,10 @@ pub const kconfigskeleton = struct {
         qtc.KConfigSkeleton_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -111,9 +119,9 @@ pub const kconfigskeleton = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KConfigSkeleton_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KConfigSkeleton_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -142,6 +150,10 @@ pub const kconfigskeleton = struct {
         qtc.KConfigSkeleton_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -154,8 +166,8 @@ pub const kconfigskeleton = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KConfigSkeleton_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KConfigSkeleton_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2838,6 +2850,10 @@ pub const kconfigskeleton = struct {
         qtc.KConfigSkeleton_SetDefaults(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSetDefaults` instead
+    ///
+    pub const QBaseSetDefaults = SuperSetDefaults;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#setDefaults)
@@ -2848,8 +2864,8 @@ pub const kconfigskeleton = struct {
     ///
     /// ` self: QtC.KConfigSkeleton `
     ///
-    pub fn QBaseSetDefaults(self: ?*anyopaque) void {
-        qtc.KConfigSkeleton_QBaseSetDefaults(@ptrCast(self));
+    pub fn SuperSetDefaults(self: ?*anyopaque) void {
+        qtc.KConfigSkeleton_SuperSetDefaults(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
@@ -2884,6 +2900,10 @@ pub const kconfigskeleton = struct {
         return qtc.KConfigSkeleton_UseDefaults(@ptrCast(self), b);
     }
 
+    /// ### DEPRECATED: Use `SuperUseDefaults` instead
+    ///
+    pub const QBaseUseDefaults = SuperUseDefaults;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#useDefaults)
@@ -2896,8 +2916,8 @@ pub const kconfigskeleton = struct {
     ///
     /// ` b: bool `
     ///
-    pub fn QBaseUseDefaults(self: ?*anyopaque, b: bool) bool {
-        return qtc.KConfigSkeleton_QBaseUseDefaults(@ptrCast(self), b);
+    pub fn SuperUseDefaults(self: ?*anyopaque, b: bool) bool {
+        return qtc.KConfigSkeleton_SuperUseDefaults(@ptrCast(self), b);
     }
 
     /// Inherited from KCoreConfigSkeleton
@@ -2932,6 +2952,10 @@ pub const kconfigskeleton = struct {
         return qtc.KConfigSkeleton_UsrUseDefaults(@ptrCast(self), b);
     }
 
+    /// ### DEPRECATED: Use `SuperUsrUseDefaults` instead
+    ///
+    pub const QBaseUsrUseDefaults = SuperUsrUseDefaults;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrUseDefaults)
@@ -2944,8 +2968,8 @@ pub const kconfigskeleton = struct {
     ///
     /// ` b: bool `
     ///
-    pub fn QBaseUsrUseDefaults(self: ?*anyopaque, b: bool) bool {
-        return qtc.KConfigSkeleton_QBaseUsrUseDefaults(@ptrCast(self), b);
+    pub fn SuperUsrUseDefaults(self: ?*anyopaque, b: bool) bool {
+        return qtc.KConfigSkeleton_SuperUsrUseDefaults(@ptrCast(self), b);
     }
 
     /// Inherited from KCoreConfigSkeleton
@@ -2978,6 +3002,10 @@ pub const kconfigskeleton = struct {
         qtc.KConfigSkeleton_UsrSetDefaults(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUsrSetDefaults` instead
+    ///
+    pub const QBaseUsrSetDefaults = SuperUsrSetDefaults;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrSetDefaults)
@@ -2988,8 +3016,8 @@ pub const kconfigskeleton = struct {
     ///
     /// ` self: QtC.KConfigSkeleton `
     ///
-    pub fn QBaseUsrSetDefaults(self: ?*anyopaque) void {
-        qtc.KConfigSkeleton_QBaseUsrSetDefaults(@ptrCast(self));
+    pub fn SuperUsrSetDefaults(self: ?*anyopaque) void {
+        qtc.KConfigSkeleton_SuperUsrSetDefaults(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
@@ -3022,6 +3050,10 @@ pub const kconfigskeleton = struct {
         qtc.KConfigSkeleton_UsrRead(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUsrRead` instead
+    ///
+    pub const QBaseUsrRead = SuperUsrRead;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrRead)
@@ -3032,8 +3064,8 @@ pub const kconfigskeleton = struct {
     ///
     /// ` self: QtC.KConfigSkeleton `
     ///
-    pub fn QBaseUsrRead(self: ?*anyopaque) void {
-        qtc.KConfigSkeleton_QBaseUsrRead(@ptrCast(self));
+    pub fn SuperUsrRead(self: ?*anyopaque) void {
+        qtc.KConfigSkeleton_SuperUsrRead(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
@@ -3066,6 +3098,10 @@ pub const kconfigskeleton = struct {
         return qtc.KConfigSkeleton_UsrSave(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUsrSave` instead
+    ///
+    pub const QBaseUsrSave = SuperUsrSave;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrSave)
@@ -3076,8 +3112,8 @@ pub const kconfigskeleton = struct {
     ///
     /// ` self: QtC.KConfigSkeleton `
     ///
-    pub fn QBaseUsrSave(self: ?*anyopaque) bool {
-        return qtc.KConfigSkeleton_QBaseUsrSave(@ptrCast(self));
+    pub fn SuperUsrSave(self: ?*anyopaque) bool {
+        return qtc.KConfigSkeleton_SuperUsrSave(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
@@ -3112,6 +3148,10 @@ pub const kconfigskeleton = struct {
         return qtc.KConfigSkeleton_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -3124,8 +3164,8 @@ pub const kconfigskeleton = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KConfigSkeleton_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KConfigSkeleton_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3162,6 +3202,10 @@ pub const kconfigskeleton = struct {
         return qtc.KConfigSkeleton_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -3176,8 +3220,8 @@ pub const kconfigskeleton = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KConfigSkeleton_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KConfigSkeleton_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3212,6 +3256,10 @@ pub const kconfigskeleton = struct {
         qtc.KConfigSkeleton_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -3224,8 +3272,8 @@ pub const kconfigskeleton = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KConfigSkeleton_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KConfigSkeleton_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3260,6 +3308,10 @@ pub const kconfigskeleton = struct {
         qtc.KConfigSkeleton_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -3272,8 +3324,8 @@ pub const kconfigskeleton = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KConfigSkeleton_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KConfigSkeleton_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3308,6 +3360,10 @@ pub const kconfigskeleton = struct {
         qtc.KConfigSkeleton_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -3320,8 +3376,8 @@ pub const kconfigskeleton = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KConfigSkeleton_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KConfigSkeleton_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3356,6 +3412,10 @@ pub const kconfigskeleton = struct {
         qtc.KConfigSkeleton_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3368,8 +3428,8 @@ pub const kconfigskeleton = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KConfigSkeleton_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KConfigSkeleton_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3404,6 +3464,10 @@ pub const kconfigskeleton = struct {
         qtc.KConfigSkeleton_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -3416,8 +3480,8 @@ pub const kconfigskeleton = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KConfigSkeleton_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KConfigSkeleton_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3450,6 +3514,10 @@ pub const kconfigskeleton = struct {
         return qtc.KConfigSkeleton_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -3460,8 +3528,8 @@ pub const kconfigskeleton = struct {
     ///
     /// ` self: QtC.KConfigSkeleton `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KConfigSkeleton_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KConfigSkeleton_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3494,6 +3562,10 @@ pub const kconfigskeleton = struct {
         return qtc.KConfigSkeleton_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -3504,8 +3576,8 @@ pub const kconfigskeleton = struct {
     ///
     /// ` self: QtC.KConfigSkeleton `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KConfigSkeleton_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KConfigSkeleton_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3541,6 +3613,10 @@ pub const kconfigskeleton = struct {
         return qtc.KConfigSkeleton_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -3553,9 +3629,9 @@ pub const kconfigskeleton = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KConfigSkeleton_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KConfigSkeleton_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3590,6 +3666,10 @@ pub const kconfigskeleton = struct {
         return qtc.KConfigSkeleton_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -3602,8 +3682,8 @@ pub const kconfigskeleton = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KConfigSkeleton_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KConfigSkeleton_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3637,6 +3717,9 @@ pub const kconfigskeleton = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeleton.html#dtor.KConfigSkeleton)
     ///
@@ -3646,7 +3729,7 @@ pub const kconfigskeleton = struct {
     ///
     /// ` self: QtC.KConfigSkeleton `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KConfigSkeleton_Delete(@ptrCast(self));
     }
 };
@@ -3727,6 +3810,10 @@ pub const kconfigskeleton__itemcolor = struct {
         qtc.KConfigSkeleton__ItemColor_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperReadConfig` instead
+    ///
+    pub const QBaseReadConfig = SuperReadConfig;
+
     /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#readConfig)
     ///
     /// Base class method implementation
@@ -3737,8 +3824,8 @@ pub const kconfigskeleton__itemcolor = struct {
     ///
     /// ` config: QtC.KConfig `
     ///
-    pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
-        qtc.KConfigSkeleton__ItemColor_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
+    pub fn SuperReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KConfigSkeleton__ItemColor_SuperReadConfig(@ptrCast(self), @ptrCast(config));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#setProperty)
@@ -3767,6 +3854,10 @@ pub const kconfigskeleton__itemcolor = struct {
         qtc.KConfigSkeleton__ItemColor_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetProperty` instead
+    ///
+    pub const QBaseSetProperty = SuperSetProperty;
+
     /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#setProperty)
     ///
     /// Base class method implementation
@@ -3777,8 +3868,8 @@ pub const kconfigskeleton__itemcolor = struct {
     ///
     /// ` p: QtC.QVariant `
     ///
-    pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
-        qtc.KConfigSkeleton__ItemColor_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
+    pub fn SuperSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KConfigSkeleton__ItemColor_SuperSetProperty(@ptrCast(self), @ptrCast(p));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#isEqual)
@@ -3807,6 +3898,10 @@ pub const kconfigskeleton__itemcolor = struct {
         qtc.KConfigSkeleton__ItemColor_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsEqual` instead
+    ///
+    pub const QBaseIsEqual = SuperIsEqual;
+
     /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#isEqual)
     ///
     /// Base class method implementation
@@ -3817,8 +3912,8 @@ pub const kconfigskeleton__itemcolor = struct {
     ///
     /// ` p: QtC.QVariant `
     ///
-    pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
-        return qtc.KConfigSkeleton__ItemColor_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
+    pub fn SuperIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KConfigSkeleton__ItemColor_SuperIsEqual(@ptrCast(self), @ptrCast(p));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#property)
@@ -3845,6 +3940,10 @@ pub const kconfigskeleton__itemcolor = struct {
         qtc.KConfigSkeleton__ItemColor_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperProperty` instead
+    ///
+    pub const QBaseProperty = SuperProperty;
+
     /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemcolor.html#property)
     ///
     /// Base class method implementation
@@ -3853,9 +3952,12 @@ pub const kconfigskeleton__itemcolor = struct {
     ///
     /// ` self: QtC.KConfigSkeleton__ItemColor `
     ///
-    pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
-        return qtc.KConfigSkeleton__ItemColor_QBaseProperty(@ptrCast(self));
+    pub fn SuperProperty(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KConfigSkeleton__ItemColor_SuperProperty(@ptrCast(self));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -3863,7 +3965,7 @@ pub const kconfigskeleton__itemcolor = struct {
     ///
     /// ` self: QtC.KConfigSkeleton__ItemColor `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KConfigSkeleton__ItemColor_Delete(@ptrCast(self));
     }
 };
@@ -3944,6 +4046,10 @@ pub const kconfigskeleton__itemfont = struct {
         qtc.KConfigSkeleton__ItemFont_OnReadConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperReadConfig` instead
+    ///
+    pub const QBaseReadConfig = SuperReadConfig;
+
     /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#readConfig)
     ///
     /// Base class method implementation
@@ -3954,8 +4060,8 @@ pub const kconfigskeleton__itemfont = struct {
     ///
     /// ` config: QtC.KConfig `
     ///
-    pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
-        qtc.KConfigSkeleton__ItemFont_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
+    pub fn SuperReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KConfigSkeleton__ItemFont_SuperReadConfig(@ptrCast(self), @ptrCast(config));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#setProperty)
@@ -3984,6 +4090,10 @@ pub const kconfigskeleton__itemfont = struct {
         qtc.KConfigSkeleton__ItemFont_OnSetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetProperty` instead
+    ///
+    pub const QBaseSetProperty = SuperSetProperty;
+
     /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#setProperty)
     ///
     /// Base class method implementation
@@ -3994,8 +4104,8 @@ pub const kconfigskeleton__itemfont = struct {
     ///
     /// ` p: QtC.QVariant `
     ///
-    pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
-        qtc.KConfigSkeleton__ItemFont_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
+    pub fn SuperSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KConfigSkeleton__ItemFont_SuperSetProperty(@ptrCast(self), @ptrCast(p));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#isEqual)
@@ -4024,6 +4134,10 @@ pub const kconfigskeleton__itemfont = struct {
         qtc.KConfigSkeleton__ItemFont_OnIsEqual(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsEqual` instead
+    ///
+    pub const QBaseIsEqual = SuperIsEqual;
+
     /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#isEqual)
     ///
     /// Base class method implementation
@@ -4034,8 +4148,8 @@ pub const kconfigskeleton__itemfont = struct {
     ///
     /// ` p: QtC.QVariant `
     ///
-    pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
-        return qtc.KConfigSkeleton__ItemFont_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
+    pub fn SuperIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KConfigSkeleton__ItemFont_SuperIsEqual(@ptrCast(self), @ptrCast(p));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#property)
@@ -4062,6 +4176,10 @@ pub const kconfigskeleton__itemfont = struct {
         qtc.KConfigSkeleton__ItemFont_OnProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperProperty` instead
+    ///
+    pub const QBaseProperty = SuperProperty;
+
     /// ### [Upstream resources](https://api.kde.org/kconfigskeleton-itemfont.html#property)
     ///
     /// Base class method implementation
@@ -4070,9 +4188,12 @@ pub const kconfigskeleton__itemfont = struct {
     ///
     /// ` self: QtC.KConfigSkeleton__ItemFont `
     ///
-    pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
-        return qtc.KConfigSkeleton__ItemFont_QBaseProperty(@ptrCast(self));
+    pub fn SuperProperty(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KConfigSkeleton__ItemFont_SuperProperty(@ptrCast(self));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -4080,7 +4201,7 @@ pub const kconfigskeleton__itemfont = struct {
     ///
     /// ` self: QtC.KConfigSkeleton__ItemFont `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KConfigSkeleton__ItemFont_Delete(@ptrCast(self));
     }
 };

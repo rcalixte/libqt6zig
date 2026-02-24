@@ -251,7 +251,7 @@ void QStateMachine_PostEvent2(QStateMachine* self, QEvent* event, int priority) 
 }
 
 // Base class handler implementation
-QMetaObject* QStateMachine_QBaseMetaObject(const QStateMachine* self) {
+QMetaObject* QStateMachine_SuperMetaObject(const QStateMachine* self) {
     auto* vqstatemachine = const_cast<VirtualQStateMachine*>(dynamic_cast<const VirtualQStateMachine*>(self));
     if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
         vqstatemachine->setQStateMachine_MetaObject_IsBase(true);
@@ -270,7 +270,7 @@ void QStateMachine_OnMetaObject(const QStateMachine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QStateMachine_QBaseMetacast(QStateMachine* self, const char* param1) {
+void* QStateMachine_SuperMetacast(QStateMachine* self, const char* param1) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
     if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
         vqstatemachine->setQStateMachine_Metacast_IsBase(true);
@@ -289,7 +289,7 @@ void QStateMachine_OnMetacast(QStateMachine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QStateMachine_QBaseMetacall(QStateMachine* self, int param1, int param2, void** param3) {
+int QStateMachine_SuperMetacall(QStateMachine* self, int param1, int param2, void** param3) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
     if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
         vqstatemachine->setQStateMachine_Metacall_IsBase(true);
@@ -308,7 +308,7 @@ void QStateMachine_OnMetacall(QStateMachine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QStateMachine_QBaseEventFilter(QStateMachine* self, QObject* watched, QEvent* event) {
+bool QStateMachine_SuperEventFilter(QStateMachine* self, QObject* watched, QEvent* event) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
     if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
         vqstatemachine->setQStateMachine_EventFilter_IsBase(true);
@@ -327,7 +327,7 @@ void QStateMachine_OnEventFilter(QStateMachine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStateMachine_QBaseOnEntry(QStateMachine* self, QEvent* event) {
+void QStateMachine_SuperOnEntry(QStateMachine* self, QEvent* event) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
     if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
         vqstatemachine->setQStateMachine_OnEntry_IsBase(true);
@@ -346,7 +346,7 @@ void QStateMachine_OnOnEntry(QStateMachine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStateMachine_QBaseOnExit(QStateMachine* self, QEvent* event) {
+void QStateMachine_SuperOnExit(QStateMachine* self, QEvent* event) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
     if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
         vqstatemachine->setQStateMachine_OnExit_IsBase(true);
@@ -365,7 +365,7 @@ void QStateMachine_OnOnExit(QStateMachine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStateMachine_QBaseBeginSelectTransitions(QStateMachine* self, QEvent* event) {
+void QStateMachine_SuperBeginSelectTransitions(QStateMachine* self, QEvent* event) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
     if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
         vqstatemachine->setQStateMachine_BeginSelectTransitions_IsBase(true);
@@ -384,7 +384,7 @@ void QStateMachine_OnBeginSelectTransitions(QStateMachine* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void QStateMachine_QBaseEndSelectTransitions(QStateMachine* self, QEvent* event) {
+void QStateMachine_SuperEndSelectTransitions(QStateMachine* self, QEvent* event) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
     if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
         vqstatemachine->setQStateMachine_EndSelectTransitions_IsBase(true);
@@ -403,7 +403,7 @@ void QStateMachine_OnEndSelectTransitions(QStateMachine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStateMachine_QBaseBeginMicrostep(QStateMachine* self, QEvent* event) {
+void QStateMachine_SuperBeginMicrostep(QStateMachine* self, QEvent* event) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
     if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
         vqstatemachine->setQStateMachine_BeginMicrostep_IsBase(true);
@@ -422,7 +422,7 @@ void QStateMachine_OnBeginMicrostep(QStateMachine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStateMachine_QBaseEndMicrostep(QStateMachine* self, QEvent* event) {
+void QStateMachine_SuperEndMicrostep(QStateMachine* self, QEvent* event) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
     if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
         vqstatemachine->setQStateMachine_EndMicrostep_IsBase(true);
@@ -441,7 +441,7 @@ void QStateMachine_OnEndMicrostep(QStateMachine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QStateMachine_QBaseEvent(QStateMachine* self, QEvent* e) {
+bool QStateMachine_SuperEvent(QStateMachine* self, QEvent* e) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
     if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
         vqstatemachine->setQStateMachine_Event_IsBase(true);
@@ -470,7 +470,7 @@ void QStateMachine_TimerEvent(QStateMachine* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QStateMachine_QBaseTimerEvent(QStateMachine* self, QTimerEvent* event) {
+void QStateMachine_SuperTimerEvent(QStateMachine* self, QTimerEvent* event) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
     if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
         vqstatemachine->setQStateMachine_TimerEvent_IsBase(true);
@@ -499,7 +499,7 @@ void QStateMachine_ChildEvent(QStateMachine* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QStateMachine_QBaseChildEvent(QStateMachine* self, QChildEvent* event) {
+void QStateMachine_SuperChildEvent(QStateMachine* self, QChildEvent* event) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
     if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
         vqstatemachine->setQStateMachine_ChildEvent_IsBase(true);
@@ -528,7 +528,7 @@ void QStateMachine_CustomEvent(QStateMachine* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QStateMachine_QBaseCustomEvent(QStateMachine* self, QEvent* event) {
+void QStateMachine_SuperCustomEvent(QStateMachine* self, QEvent* event) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
     if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
         vqstatemachine->setQStateMachine_CustomEvent_IsBase(true);
@@ -557,7 +557,7 @@ void QStateMachine_ConnectNotify(QStateMachine* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QStateMachine_QBaseConnectNotify(QStateMachine* self, const QMetaMethod* signal) {
+void QStateMachine_SuperConnectNotify(QStateMachine* self, const QMetaMethod* signal) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
     if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
         vqstatemachine->setQStateMachine_ConnectNotify_IsBase(true);
@@ -586,7 +586,7 @@ void QStateMachine_DisconnectNotify(QStateMachine* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QStateMachine_QBaseDisconnectNotify(QStateMachine* self, const QMetaMethod* signal) {
+void QStateMachine_SuperDisconnectNotify(QStateMachine* self, const QMetaMethod* signal) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
     if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
         vqstatemachine->setQStateMachine_DisconnectNotify_IsBase(true);
@@ -615,7 +615,7 @@ QObject* QStateMachine_Sender(const QStateMachine* self) {
 }
 
 // Base class handler implementation
-QObject* QStateMachine_QBaseSender(const QStateMachine* self) {
+QObject* QStateMachine_SuperSender(const QStateMachine* self) {
     auto* vqstatemachine = const_cast<VirtualQStateMachine*>(dynamic_cast<const VirtualQStateMachine*>(self));
     if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
         vqstatemachine->setQStateMachine_Sender_IsBase(true);
@@ -644,7 +644,7 @@ int QStateMachine_SenderSignalIndex(const QStateMachine* self) {
 }
 
 // Base class handler implementation
-int QStateMachine_QBaseSenderSignalIndex(const QStateMachine* self) {
+int QStateMachine_SuperSenderSignalIndex(const QStateMachine* self) {
     auto* vqstatemachine = const_cast<VirtualQStateMachine*>(dynamic_cast<const VirtualQStateMachine*>(self));
     if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
         vqstatemachine->setQStateMachine_SenderSignalIndex_IsBase(true);
@@ -673,7 +673,7 @@ int QStateMachine_Receivers(const QStateMachine* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QStateMachine_QBaseReceivers(const QStateMachine* self, const char* signal) {
+int QStateMachine_SuperReceivers(const QStateMachine* self, const char* signal) {
     auto* vqstatemachine = const_cast<VirtualQStateMachine*>(dynamic_cast<const VirtualQStateMachine*>(self));
     if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
         vqstatemachine->setQStateMachine_Receivers_IsBase(true);
@@ -702,7 +702,7 @@ bool QStateMachine_IsSignalConnected(const QStateMachine* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QStateMachine_QBaseIsSignalConnected(const QStateMachine* self, const QMetaMethod* signal) {
+bool QStateMachine_SuperIsSignalConnected(const QStateMachine* self, const QMetaMethod* signal) {
     auto* vqstatemachine = const_cast<VirtualQStateMachine*>(dynamic_cast<const VirtualQStateMachine*>(self));
     if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
         vqstatemachine->setQStateMachine_IsSignalConnected_IsBase(true);
@@ -784,7 +784,7 @@ void QStateMachine__SignalEvent_SetAccepted(QStateMachine__SignalEvent* self, bo
 }
 
 // Base class handler implementation
-void QStateMachine__SignalEvent_QBaseSetAccepted(QStateMachine__SignalEvent* self, bool accepted) {
+void QStateMachine__SignalEvent_SuperSetAccepted(QStateMachine__SignalEvent* self, bool accepted) {
     auto* vqstatemachinesignalevent = dynamic_cast<VirtualQStateMachineSignalEvent*>(self);
     if (vqstatemachinesignalevent && vqstatemachinesignalevent->isVirtualQStateMachineSignalEvent) {
         vqstatemachinesignalevent->setQStateMachine__SignalEvent_SetAccepted_IsBase(true);
@@ -813,7 +813,7 @@ QEvent* QStateMachine__SignalEvent_Clone(const QStateMachine__SignalEvent* self)
 }
 
 // Base class handler implementation
-QEvent* QStateMachine__SignalEvent_QBaseClone(const QStateMachine__SignalEvent* self) {
+QEvent* QStateMachine__SignalEvent_SuperClone(const QStateMachine__SignalEvent* self) {
     auto* vqstatemachinesignalevent = const_cast<VirtualQStateMachineSignalEvent*>(dynamic_cast<const VirtualQStateMachineSignalEvent*>(self));
     if (vqstatemachinesignalevent && vqstatemachinesignalevent->isVirtualQStateMachineSignalEvent) {
         vqstatemachinesignalevent->setQStateMachine__SignalEvent_Clone_IsBase(true);
@@ -862,7 +862,7 @@ void QStateMachine__WrappedEvent_SetAccepted(QStateMachine__WrappedEvent* self, 
 }
 
 // Base class handler implementation
-void QStateMachine__WrappedEvent_QBaseSetAccepted(QStateMachine__WrappedEvent* self, bool accepted) {
+void QStateMachine__WrappedEvent_SuperSetAccepted(QStateMachine__WrappedEvent* self, bool accepted) {
     auto* vqstatemachinewrappedevent = dynamic_cast<VirtualQStateMachineWrappedEvent*>(self);
     if (vqstatemachinewrappedevent && vqstatemachinewrappedevent->isVirtualQStateMachineWrappedEvent) {
         vqstatemachinewrappedevent->setQStateMachine__WrappedEvent_SetAccepted_IsBase(true);
@@ -891,7 +891,7 @@ QEvent* QStateMachine__WrappedEvent_Clone(const QStateMachine__WrappedEvent* sel
 }
 
 // Base class handler implementation
-QEvent* QStateMachine__WrappedEvent_QBaseClone(const QStateMachine__WrappedEvent* self) {
+QEvent* QStateMachine__WrappedEvent_SuperClone(const QStateMachine__WrappedEvent* self) {
     auto* vqstatemachinewrappedevent = const_cast<VirtualQStateMachineWrappedEvent*>(dynamic_cast<const VirtualQStateMachineWrappedEvent*>(self));
     if (vqstatemachinewrappedevent && vqstatemachinewrappedevent->isVirtualQStateMachineWrappedEvent) {
         vqstatemachinewrappedevent->setQStateMachine__WrappedEvent_Clone_IsBase(true);

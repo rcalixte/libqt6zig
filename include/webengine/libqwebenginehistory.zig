@@ -109,6 +109,10 @@ pub const qwebenginehistoryitem = struct {
         qtc.QWebEngineHistoryItem_Swap(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistoryitem.html#dtor.QWebEngineHistoryItem)
     ///
     /// Delete this object from C++ memory.
@@ -117,7 +121,7 @@ pub const qwebenginehistoryitem = struct {
     ///
     /// ` self: QtC.QWebEngineHistoryItem `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebEngineHistoryItem_Delete(@ptrCast(self));
     }
 };

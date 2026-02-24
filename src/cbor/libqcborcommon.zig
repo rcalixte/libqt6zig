@@ -61,6 +61,10 @@ pub const qcborerror = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#dtor.QCborError)
     ///
     /// Delete this object from C++ memory.
@@ -69,7 +73,7 @@ pub const qcborerror = struct {
     ///
     /// ` self: QtC.QCborError `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCborError_Delete(@ptrCast(self));
     }
 };

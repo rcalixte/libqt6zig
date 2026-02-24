@@ -228,7 +228,7 @@ bool QDesignerWidgetBoxInterface_Save(QDesignerWidgetBoxInterface* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QDesignerWidgetBoxInterface_QBaseMetaObject(const QDesignerWidgetBoxInterface* self) {
+QMetaObject* QDesignerWidgetBoxInterface_SuperMetaObject(const QDesignerWidgetBoxInterface* self) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MetaObject_IsBase(true);
@@ -247,7 +247,7 @@ void QDesignerWidgetBoxInterface_OnMetaObject(const QDesignerWidgetBoxInterface*
 }
 
 // Base class handler implementation
-void* QDesignerWidgetBoxInterface_QBaseMetacast(QDesignerWidgetBoxInterface* self, const char* param1) {
+void* QDesignerWidgetBoxInterface_SuperMetacast(QDesignerWidgetBoxInterface* self, const char* param1) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Metacast_IsBase(true);
@@ -266,7 +266,7 @@ void QDesignerWidgetBoxInterface_OnMetacast(QDesignerWidgetBoxInterface* self, i
 }
 
 // Base class handler implementation
-int QDesignerWidgetBoxInterface_QBaseMetacall(QDesignerWidgetBoxInterface* self, int param1, int param2, void** param3) {
+int QDesignerWidgetBoxInterface_SuperMetacall(QDesignerWidgetBoxInterface* self, int param1, int param2, void** param3) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Metacall_IsBase(true);
@@ -285,7 +285,7 @@ void QDesignerWidgetBoxInterface_OnMetacall(QDesignerWidgetBoxInterface* self, i
 }
 
 // Base class handler implementation
-int QDesignerWidgetBoxInterface_QBaseCategoryCount(const QDesignerWidgetBoxInterface* self) {
+int QDesignerWidgetBoxInterface_SuperCategoryCount(const QDesignerWidgetBoxInterface* self) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_CategoryCount_IsBase(true);
@@ -304,7 +304,7 @@ void QDesignerWidgetBoxInterface_OnCategoryCount(const QDesignerWidgetBoxInterfa
 }
 
 // Base class handler implementation
-QDesignerWidgetBoxInterface__Category* QDesignerWidgetBoxInterface_QBaseCategory(const QDesignerWidgetBoxInterface* self, int cat_idx) {
+QDesignerWidgetBoxInterface__Category* QDesignerWidgetBoxInterface_SuperCategory(const QDesignerWidgetBoxInterface* self, int cat_idx) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Category_IsBase(true);
@@ -323,7 +323,7 @@ void QDesignerWidgetBoxInterface_OnCategory(const QDesignerWidgetBoxInterface* s
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseAddCategory(QDesignerWidgetBoxInterface* self, const QDesignerWidgetBoxInterface__Category* cat) {
+void QDesignerWidgetBoxInterface_SuperAddCategory(QDesignerWidgetBoxInterface* self, const QDesignerWidgetBoxInterface__Category* cat) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_AddCategory_IsBase(true);
@@ -342,7 +342,7 @@ void QDesignerWidgetBoxInterface_OnAddCategory(QDesignerWidgetBoxInterface* self
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseRemoveCategory(QDesignerWidgetBoxInterface* self, int cat_idx) {
+void QDesignerWidgetBoxInterface_SuperRemoveCategory(QDesignerWidgetBoxInterface* self, int cat_idx) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_RemoveCategory_IsBase(true);
@@ -361,7 +361,7 @@ void QDesignerWidgetBoxInterface_OnRemoveCategory(QDesignerWidgetBoxInterface* s
 }
 
 // Base class handler implementation
-int QDesignerWidgetBoxInterface_QBaseWidgetCount(const QDesignerWidgetBoxInterface* self, int cat_idx) {
+int QDesignerWidgetBoxInterface_SuperWidgetCount(const QDesignerWidgetBoxInterface* self, int cat_idx) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_WidgetCount_IsBase(true);
@@ -380,7 +380,7 @@ void QDesignerWidgetBoxInterface_OnWidgetCount(const QDesignerWidgetBoxInterface
 }
 
 // Base class handler implementation
-QDesignerWidgetBoxInterface__Widget* QDesignerWidgetBoxInterface_QBaseWidget(const QDesignerWidgetBoxInterface* self, int cat_idx, int wgt_idx) {
+QDesignerWidgetBoxInterface__Widget* QDesignerWidgetBoxInterface_SuperWidget(const QDesignerWidgetBoxInterface* self, int cat_idx, int wgt_idx) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Widget_IsBase(true);
@@ -399,7 +399,7 @@ void QDesignerWidgetBoxInterface_OnWidget(const QDesignerWidgetBoxInterface* sel
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseAddWidget(QDesignerWidgetBoxInterface* self, int cat_idx, const QDesignerWidgetBoxInterface__Widget* wgt) {
+void QDesignerWidgetBoxInterface_SuperAddWidget(QDesignerWidgetBoxInterface* self, int cat_idx, const QDesignerWidgetBoxInterface__Widget* wgt) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_AddWidget_IsBase(true);
@@ -418,7 +418,7 @@ void QDesignerWidgetBoxInterface_OnAddWidget(QDesignerWidgetBoxInterface* self, 
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseRemoveWidget(QDesignerWidgetBoxInterface* self, int cat_idx, int wgt_idx) {
+void QDesignerWidgetBoxInterface_SuperRemoveWidget(QDesignerWidgetBoxInterface* self, int cat_idx, int wgt_idx) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_RemoveWidget_IsBase(true);
@@ -437,7 +437,7 @@ void QDesignerWidgetBoxInterface_OnRemoveWidget(QDesignerWidgetBoxInterface* sel
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseDropWidgets(QDesignerWidgetBoxInterface* self, const libqt_list /* of QDesignerDnDItemInterface* */ item_list, const QPoint* global_mouse_pos) {
+void QDesignerWidgetBoxInterface_SuperDropWidgets(QDesignerWidgetBoxInterface* self, const libqt_list /* of QDesignerDnDItemInterface* */ item_list, const QPoint* global_mouse_pos) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     QList<QDesignerDnDItemInterface*> item_list_QList;
     item_list_QList.reserve(item_list.len);
@@ -462,7 +462,7 @@ void QDesignerWidgetBoxInterface_OnDropWidgets(QDesignerWidgetBoxInterface* self
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseSetFileName(QDesignerWidgetBoxInterface* self, const libqt_string file_name) {
+void QDesignerWidgetBoxInterface_SuperSetFileName(QDesignerWidgetBoxInterface* self, const libqt_string file_name) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     QString file_name_QString = QString::fromUtf8(file_name.data, file_name.len);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
@@ -482,7 +482,7 @@ void QDesignerWidgetBoxInterface_OnSetFileName(QDesignerWidgetBoxInterface* self
 }
 
 // Base class handler implementation
-libqt_string QDesignerWidgetBoxInterface_QBaseFileName(const QDesignerWidgetBoxInterface* self) {
+libqt_string QDesignerWidgetBoxInterface_SuperFileName(const QDesignerWidgetBoxInterface* self) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_FileName_IsBase(true);
@@ -517,7 +517,7 @@ void QDesignerWidgetBoxInterface_OnFileName(const QDesignerWidgetBoxInterface* s
 }
 
 // Base class handler implementation
-bool QDesignerWidgetBoxInterface_QBaseLoad(QDesignerWidgetBoxInterface* self) {
+bool QDesignerWidgetBoxInterface_SuperLoad(QDesignerWidgetBoxInterface* self) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Load_IsBase(true);
@@ -536,7 +536,7 @@ void QDesignerWidgetBoxInterface_OnLoad(QDesignerWidgetBoxInterface* self, intpt
 }
 
 // Base class handler implementation
-bool QDesignerWidgetBoxInterface_QBaseSave(QDesignerWidgetBoxInterface* self) {
+bool QDesignerWidgetBoxInterface_SuperSave(QDesignerWidgetBoxInterface* self) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Save_IsBase(true);
@@ -565,7 +565,7 @@ int QDesignerWidgetBoxInterface_DevType(const QDesignerWidgetBoxInterface* self)
 }
 
 // Base class handler implementation
-int QDesignerWidgetBoxInterface_QBaseDevType(const QDesignerWidgetBoxInterface* self) {
+int QDesignerWidgetBoxInterface_SuperDevType(const QDesignerWidgetBoxInterface* self) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_DevType_IsBase(true);
@@ -594,7 +594,7 @@ void QDesignerWidgetBoxInterface_SetVisible(QDesignerWidgetBoxInterface* self, b
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseSetVisible(QDesignerWidgetBoxInterface* self, bool visible) {
+void QDesignerWidgetBoxInterface_SuperSetVisible(QDesignerWidgetBoxInterface* self, bool visible) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_SetVisible_IsBase(true);
@@ -623,7 +623,7 @@ QSize* QDesignerWidgetBoxInterface_SizeHint(const QDesignerWidgetBoxInterface* s
 }
 
 // Base class handler implementation
-QSize* QDesignerWidgetBoxInterface_QBaseSizeHint(const QDesignerWidgetBoxInterface* self) {
+QSize* QDesignerWidgetBoxInterface_SuperSizeHint(const QDesignerWidgetBoxInterface* self) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_SizeHint_IsBase(true);
@@ -652,7 +652,7 @@ QSize* QDesignerWidgetBoxInterface_MinimumSizeHint(const QDesignerWidgetBoxInter
 }
 
 // Base class handler implementation
-QSize* QDesignerWidgetBoxInterface_QBaseMinimumSizeHint(const QDesignerWidgetBoxInterface* self) {
+QSize* QDesignerWidgetBoxInterface_SuperMinimumSizeHint(const QDesignerWidgetBoxInterface* self) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MinimumSizeHint_IsBase(true);
@@ -681,7 +681,7 @@ int QDesignerWidgetBoxInterface_HeightForWidth(const QDesignerWidgetBoxInterface
 }
 
 // Base class handler implementation
-int QDesignerWidgetBoxInterface_QBaseHeightForWidth(const QDesignerWidgetBoxInterface* self, int param1) {
+int QDesignerWidgetBoxInterface_SuperHeightForWidth(const QDesignerWidgetBoxInterface* self, int param1) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_HeightForWidth_IsBase(true);
@@ -710,7 +710,7 @@ bool QDesignerWidgetBoxInterface_HasHeightForWidth(const QDesignerWidgetBoxInter
 }
 
 // Base class handler implementation
-bool QDesignerWidgetBoxInterface_QBaseHasHeightForWidth(const QDesignerWidgetBoxInterface* self) {
+bool QDesignerWidgetBoxInterface_SuperHasHeightForWidth(const QDesignerWidgetBoxInterface* self) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_HasHeightForWidth_IsBase(true);
@@ -739,7 +739,7 @@ QPaintEngine* QDesignerWidgetBoxInterface_PaintEngine(const QDesignerWidgetBoxIn
 }
 
 // Base class handler implementation
-QPaintEngine* QDesignerWidgetBoxInterface_QBasePaintEngine(const QDesignerWidgetBoxInterface* self) {
+QPaintEngine* QDesignerWidgetBoxInterface_SuperPaintEngine(const QDesignerWidgetBoxInterface* self) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_PaintEngine_IsBase(true);
@@ -768,7 +768,7 @@ bool QDesignerWidgetBoxInterface_Event(QDesignerWidgetBoxInterface* self, QEvent
 }
 
 // Base class handler implementation
-bool QDesignerWidgetBoxInterface_QBaseEvent(QDesignerWidgetBoxInterface* self, QEvent* event) {
+bool QDesignerWidgetBoxInterface_SuperEvent(QDesignerWidgetBoxInterface* self, QEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Event_IsBase(true);
@@ -797,7 +797,7 @@ void QDesignerWidgetBoxInterface_MousePressEvent(QDesignerWidgetBoxInterface* se
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseMousePressEvent(QDesignerWidgetBoxInterface* self, QMouseEvent* event) {
+void QDesignerWidgetBoxInterface_SuperMousePressEvent(QDesignerWidgetBoxInterface* self, QMouseEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MousePressEvent_IsBase(true);
@@ -826,7 +826,7 @@ void QDesignerWidgetBoxInterface_MouseReleaseEvent(QDesignerWidgetBoxInterface* 
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseMouseReleaseEvent(QDesignerWidgetBoxInterface* self, QMouseEvent* event) {
+void QDesignerWidgetBoxInterface_SuperMouseReleaseEvent(QDesignerWidgetBoxInterface* self, QMouseEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MouseReleaseEvent_IsBase(true);
@@ -855,7 +855,7 @@ void QDesignerWidgetBoxInterface_MouseDoubleClickEvent(QDesignerWidgetBoxInterfa
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseMouseDoubleClickEvent(QDesignerWidgetBoxInterface* self, QMouseEvent* event) {
+void QDesignerWidgetBoxInterface_SuperMouseDoubleClickEvent(QDesignerWidgetBoxInterface* self, QMouseEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MouseDoubleClickEvent_IsBase(true);
@@ -884,7 +884,7 @@ void QDesignerWidgetBoxInterface_MouseMoveEvent(QDesignerWidgetBoxInterface* sel
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseMouseMoveEvent(QDesignerWidgetBoxInterface* self, QMouseEvent* event) {
+void QDesignerWidgetBoxInterface_SuperMouseMoveEvent(QDesignerWidgetBoxInterface* self, QMouseEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MouseMoveEvent_IsBase(true);
@@ -913,7 +913,7 @@ void QDesignerWidgetBoxInterface_WheelEvent(QDesignerWidgetBoxInterface* self, Q
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseWheelEvent(QDesignerWidgetBoxInterface* self, QWheelEvent* event) {
+void QDesignerWidgetBoxInterface_SuperWheelEvent(QDesignerWidgetBoxInterface* self, QWheelEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_WheelEvent_IsBase(true);
@@ -942,7 +942,7 @@ void QDesignerWidgetBoxInterface_KeyPressEvent(QDesignerWidgetBoxInterface* self
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseKeyPressEvent(QDesignerWidgetBoxInterface* self, QKeyEvent* event) {
+void QDesignerWidgetBoxInterface_SuperKeyPressEvent(QDesignerWidgetBoxInterface* self, QKeyEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_KeyPressEvent_IsBase(true);
@@ -971,7 +971,7 @@ void QDesignerWidgetBoxInterface_KeyReleaseEvent(QDesignerWidgetBoxInterface* se
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseKeyReleaseEvent(QDesignerWidgetBoxInterface* self, QKeyEvent* event) {
+void QDesignerWidgetBoxInterface_SuperKeyReleaseEvent(QDesignerWidgetBoxInterface* self, QKeyEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_KeyReleaseEvent_IsBase(true);
@@ -1000,7 +1000,7 @@ void QDesignerWidgetBoxInterface_FocusInEvent(QDesignerWidgetBoxInterface* self,
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseFocusInEvent(QDesignerWidgetBoxInterface* self, QFocusEvent* event) {
+void QDesignerWidgetBoxInterface_SuperFocusInEvent(QDesignerWidgetBoxInterface* self, QFocusEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_FocusInEvent_IsBase(true);
@@ -1029,7 +1029,7 @@ void QDesignerWidgetBoxInterface_FocusOutEvent(QDesignerWidgetBoxInterface* self
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseFocusOutEvent(QDesignerWidgetBoxInterface* self, QFocusEvent* event) {
+void QDesignerWidgetBoxInterface_SuperFocusOutEvent(QDesignerWidgetBoxInterface* self, QFocusEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_FocusOutEvent_IsBase(true);
@@ -1058,7 +1058,7 @@ void QDesignerWidgetBoxInterface_EnterEvent(QDesignerWidgetBoxInterface* self, Q
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseEnterEvent(QDesignerWidgetBoxInterface* self, QEnterEvent* event) {
+void QDesignerWidgetBoxInterface_SuperEnterEvent(QDesignerWidgetBoxInterface* self, QEnterEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_EnterEvent_IsBase(true);
@@ -1087,7 +1087,7 @@ void QDesignerWidgetBoxInterface_LeaveEvent(QDesignerWidgetBoxInterface* self, Q
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseLeaveEvent(QDesignerWidgetBoxInterface* self, QEvent* event) {
+void QDesignerWidgetBoxInterface_SuperLeaveEvent(QDesignerWidgetBoxInterface* self, QEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_LeaveEvent_IsBase(true);
@@ -1116,7 +1116,7 @@ void QDesignerWidgetBoxInterface_PaintEvent(QDesignerWidgetBoxInterface* self, Q
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBasePaintEvent(QDesignerWidgetBoxInterface* self, QPaintEvent* event) {
+void QDesignerWidgetBoxInterface_SuperPaintEvent(QDesignerWidgetBoxInterface* self, QPaintEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_PaintEvent_IsBase(true);
@@ -1145,7 +1145,7 @@ void QDesignerWidgetBoxInterface_MoveEvent(QDesignerWidgetBoxInterface* self, QM
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseMoveEvent(QDesignerWidgetBoxInterface* self, QMoveEvent* event) {
+void QDesignerWidgetBoxInterface_SuperMoveEvent(QDesignerWidgetBoxInterface* self, QMoveEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MoveEvent_IsBase(true);
@@ -1174,7 +1174,7 @@ void QDesignerWidgetBoxInterface_ResizeEvent(QDesignerWidgetBoxInterface* self, 
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseResizeEvent(QDesignerWidgetBoxInterface* self, QResizeEvent* event) {
+void QDesignerWidgetBoxInterface_SuperResizeEvent(QDesignerWidgetBoxInterface* self, QResizeEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_ResizeEvent_IsBase(true);
@@ -1203,7 +1203,7 @@ void QDesignerWidgetBoxInterface_CloseEvent(QDesignerWidgetBoxInterface* self, Q
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseCloseEvent(QDesignerWidgetBoxInterface* self, QCloseEvent* event) {
+void QDesignerWidgetBoxInterface_SuperCloseEvent(QDesignerWidgetBoxInterface* self, QCloseEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_CloseEvent_IsBase(true);
@@ -1232,7 +1232,7 @@ void QDesignerWidgetBoxInterface_ContextMenuEvent(QDesignerWidgetBoxInterface* s
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseContextMenuEvent(QDesignerWidgetBoxInterface* self, QContextMenuEvent* event) {
+void QDesignerWidgetBoxInterface_SuperContextMenuEvent(QDesignerWidgetBoxInterface* self, QContextMenuEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_ContextMenuEvent_IsBase(true);
@@ -1261,7 +1261,7 @@ void QDesignerWidgetBoxInterface_TabletEvent(QDesignerWidgetBoxInterface* self, 
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseTabletEvent(QDesignerWidgetBoxInterface* self, QTabletEvent* event) {
+void QDesignerWidgetBoxInterface_SuperTabletEvent(QDesignerWidgetBoxInterface* self, QTabletEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_TabletEvent_IsBase(true);
@@ -1290,7 +1290,7 @@ void QDesignerWidgetBoxInterface_ActionEvent(QDesignerWidgetBoxInterface* self, 
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseActionEvent(QDesignerWidgetBoxInterface* self, QActionEvent* event) {
+void QDesignerWidgetBoxInterface_SuperActionEvent(QDesignerWidgetBoxInterface* self, QActionEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_ActionEvent_IsBase(true);
@@ -1319,7 +1319,7 @@ void QDesignerWidgetBoxInterface_DragEnterEvent(QDesignerWidgetBoxInterface* sel
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseDragEnterEvent(QDesignerWidgetBoxInterface* self, QDragEnterEvent* event) {
+void QDesignerWidgetBoxInterface_SuperDragEnterEvent(QDesignerWidgetBoxInterface* self, QDragEnterEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_DragEnterEvent_IsBase(true);
@@ -1348,7 +1348,7 @@ void QDesignerWidgetBoxInterface_DragMoveEvent(QDesignerWidgetBoxInterface* self
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseDragMoveEvent(QDesignerWidgetBoxInterface* self, QDragMoveEvent* event) {
+void QDesignerWidgetBoxInterface_SuperDragMoveEvent(QDesignerWidgetBoxInterface* self, QDragMoveEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_DragMoveEvent_IsBase(true);
@@ -1377,7 +1377,7 @@ void QDesignerWidgetBoxInterface_DragLeaveEvent(QDesignerWidgetBoxInterface* sel
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseDragLeaveEvent(QDesignerWidgetBoxInterface* self, QDragLeaveEvent* event) {
+void QDesignerWidgetBoxInterface_SuperDragLeaveEvent(QDesignerWidgetBoxInterface* self, QDragLeaveEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_DragLeaveEvent_IsBase(true);
@@ -1406,7 +1406,7 @@ void QDesignerWidgetBoxInterface_DropEvent(QDesignerWidgetBoxInterface* self, QD
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseDropEvent(QDesignerWidgetBoxInterface* self, QDropEvent* event) {
+void QDesignerWidgetBoxInterface_SuperDropEvent(QDesignerWidgetBoxInterface* self, QDropEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_DropEvent_IsBase(true);
@@ -1435,7 +1435,7 @@ void QDesignerWidgetBoxInterface_ShowEvent(QDesignerWidgetBoxInterface* self, QS
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseShowEvent(QDesignerWidgetBoxInterface* self, QShowEvent* event) {
+void QDesignerWidgetBoxInterface_SuperShowEvent(QDesignerWidgetBoxInterface* self, QShowEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_ShowEvent_IsBase(true);
@@ -1464,7 +1464,7 @@ void QDesignerWidgetBoxInterface_HideEvent(QDesignerWidgetBoxInterface* self, QH
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseHideEvent(QDesignerWidgetBoxInterface* self, QHideEvent* event) {
+void QDesignerWidgetBoxInterface_SuperHideEvent(QDesignerWidgetBoxInterface* self, QHideEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_HideEvent_IsBase(true);
@@ -1494,7 +1494,7 @@ bool QDesignerWidgetBoxInterface_NativeEvent(QDesignerWidgetBoxInterface* self, 
 }
 
 // Base class handler implementation
-bool QDesignerWidgetBoxInterface_QBaseNativeEvent(QDesignerWidgetBoxInterface* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QDesignerWidgetBoxInterface_SuperNativeEvent(QDesignerWidgetBoxInterface* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
@@ -1524,7 +1524,7 @@ void QDesignerWidgetBoxInterface_ChangeEvent(QDesignerWidgetBoxInterface* self, 
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseChangeEvent(QDesignerWidgetBoxInterface* self, QEvent* param1) {
+void QDesignerWidgetBoxInterface_SuperChangeEvent(QDesignerWidgetBoxInterface* self, QEvent* param1) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_ChangeEvent_IsBase(true);
@@ -1553,7 +1553,7 @@ int QDesignerWidgetBoxInterface_Metric(const QDesignerWidgetBoxInterface* self, 
 }
 
 // Base class handler implementation
-int QDesignerWidgetBoxInterface_QBaseMetric(const QDesignerWidgetBoxInterface* self, int param1) {
+int QDesignerWidgetBoxInterface_SuperMetric(const QDesignerWidgetBoxInterface* self, int param1) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Metric_IsBase(true);
@@ -1582,7 +1582,7 @@ void QDesignerWidgetBoxInterface_InitPainter(const QDesignerWidgetBoxInterface* 
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseInitPainter(const QDesignerWidgetBoxInterface* self, QPainter* painter) {
+void QDesignerWidgetBoxInterface_SuperInitPainter(const QDesignerWidgetBoxInterface* self, QPainter* painter) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_InitPainter_IsBase(true);
@@ -1611,7 +1611,7 @@ QPaintDevice* QDesignerWidgetBoxInterface_Redirected(const QDesignerWidgetBoxInt
 }
 
 // Base class handler implementation
-QPaintDevice* QDesignerWidgetBoxInterface_QBaseRedirected(const QDesignerWidgetBoxInterface* self, QPoint* offset) {
+QPaintDevice* QDesignerWidgetBoxInterface_SuperRedirected(const QDesignerWidgetBoxInterface* self, QPoint* offset) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Redirected_IsBase(true);
@@ -1640,7 +1640,7 @@ QPainter* QDesignerWidgetBoxInterface_SharedPainter(const QDesignerWidgetBoxInte
 }
 
 // Base class handler implementation
-QPainter* QDesignerWidgetBoxInterface_QBaseSharedPainter(const QDesignerWidgetBoxInterface* self) {
+QPainter* QDesignerWidgetBoxInterface_SuperSharedPainter(const QDesignerWidgetBoxInterface* self) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_SharedPainter_IsBase(true);
@@ -1669,7 +1669,7 @@ void QDesignerWidgetBoxInterface_InputMethodEvent(QDesignerWidgetBoxInterface* s
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseInputMethodEvent(QDesignerWidgetBoxInterface* self, QInputMethodEvent* param1) {
+void QDesignerWidgetBoxInterface_SuperInputMethodEvent(QDesignerWidgetBoxInterface* self, QInputMethodEvent* param1) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_InputMethodEvent_IsBase(true);
@@ -1698,7 +1698,7 @@ QVariant* QDesignerWidgetBoxInterface_InputMethodQuery(const QDesignerWidgetBoxI
 }
 
 // Base class handler implementation
-QVariant* QDesignerWidgetBoxInterface_QBaseInputMethodQuery(const QDesignerWidgetBoxInterface* self, int param1) {
+QVariant* QDesignerWidgetBoxInterface_SuperInputMethodQuery(const QDesignerWidgetBoxInterface* self, int param1) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_InputMethodQuery_IsBase(true);
@@ -1727,7 +1727,7 @@ bool QDesignerWidgetBoxInterface_FocusNextPrevChild(QDesignerWidgetBoxInterface*
 }
 
 // Base class handler implementation
-bool QDesignerWidgetBoxInterface_QBaseFocusNextPrevChild(QDesignerWidgetBoxInterface* self, bool next) {
+bool QDesignerWidgetBoxInterface_SuperFocusNextPrevChild(QDesignerWidgetBoxInterface* self, bool next) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_FocusNextPrevChild_IsBase(true);
@@ -1756,7 +1756,7 @@ bool QDesignerWidgetBoxInterface_EventFilter(QDesignerWidgetBoxInterface* self, 
 }
 
 // Base class handler implementation
-bool QDesignerWidgetBoxInterface_QBaseEventFilter(QDesignerWidgetBoxInterface* self, QObject* watched, QEvent* event) {
+bool QDesignerWidgetBoxInterface_SuperEventFilter(QDesignerWidgetBoxInterface* self, QObject* watched, QEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_EventFilter_IsBase(true);
@@ -1785,7 +1785,7 @@ void QDesignerWidgetBoxInterface_TimerEvent(QDesignerWidgetBoxInterface* self, Q
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseTimerEvent(QDesignerWidgetBoxInterface* self, QTimerEvent* event) {
+void QDesignerWidgetBoxInterface_SuperTimerEvent(QDesignerWidgetBoxInterface* self, QTimerEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_TimerEvent_IsBase(true);
@@ -1814,7 +1814,7 @@ void QDesignerWidgetBoxInterface_ChildEvent(QDesignerWidgetBoxInterface* self, Q
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseChildEvent(QDesignerWidgetBoxInterface* self, QChildEvent* event) {
+void QDesignerWidgetBoxInterface_SuperChildEvent(QDesignerWidgetBoxInterface* self, QChildEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_ChildEvent_IsBase(true);
@@ -1843,7 +1843,7 @@ void QDesignerWidgetBoxInterface_CustomEvent(QDesignerWidgetBoxInterface* self, 
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseCustomEvent(QDesignerWidgetBoxInterface* self, QEvent* event) {
+void QDesignerWidgetBoxInterface_SuperCustomEvent(QDesignerWidgetBoxInterface* self, QEvent* event) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_CustomEvent_IsBase(true);
@@ -1872,7 +1872,7 @@ void QDesignerWidgetBoxInterface_ConnectNotify(QDesignerWidgetBoxInterface* self
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseConnectNotify(QDesignerWidgetBoxInterface* self, const QMetaMethod* signal) {
+void QDesignerWidgetBoxInterface_SuperConnectNotify(QDesignerWidgetBoxInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_ConnectNotify_IsBase(true);
@@ -1901,7 +1901,7 @@ void QDesignerWidgetBoxInterface_DisconnectNotify(QDesignerWidgetBoxInterface* s
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseDisconnectNotify(QDesignerWidgetBoxInterface* self, const QMetaMethod* signal) {
+void QDesignerWidgetBoxInterface_SuperDisconnectNotify(QDesignerWidgetBoxInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_DisconnectNotify_IsBase(true);
@@ -1930,7 +1930,7 @@ void QDesignerWidgetBoxInterface_UpdateMicroFocus(QDesignerWidgetBoxInterface* s
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseUpdateMicroFocus(QDesignerWidgetBoxInterface* self) {
+void QDesignerWidgetBoxInterface_SuperUpdateMicroFocus(QDesignerWidgetBoxInterface* self) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_UpdateMicroFocus_IsBase(true);
@@ -1959,7 +1959,7 @@ void QDesignerWidgetBoxInterface_Create(QDesignerWidgetBoxInterface* self) {
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseCreate(QDesignerWidgetBoxInterface* self) {
+void QDesignerWidgetBoxInterface_SuperCreate(QDesignerWidgetBoxInterface* self) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Create_IsBase(true);
@@ -1988,7 +1988,7 @@ void QDesignerWidgetBoxInterface_Destroy(QDesignerWidgetBoxInterface* self) {
 }
 
 // Base class handler implementation
-void QDesignerWidgetBoxInterface_QBaseDestroy(QDesignerWidgetBoxInterface* self) {
+void QDesignerWidgetBoxInterface_SuperDestroy(QDesignerWidgetBoxInterface* self) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Destroy_IsBase(true);
@@ -2017,7 +2017,7 @@ bool QDesignerWidgetBoxInterface_FocusNextChild(QDesignerWidgetBoxInterface* sel
 }
 
 // Base class handler implementation
-bool QDesignerWidgetBoxInterface_QBaseFocusNextChild(QDesignerWidgetBoxInterface* self) {
+bool QDesignerWidgetBoxInterface_SuperFocusNextChild(QDesignerWidgetBoxInterface* self) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_FocusNextChild_IsBase(true);
@@ -2046,7 +2046,7 @@ bool QDesignerWidgetBoxInterface_FocusPreviousChild(QDesignerWidgetBoxInterface*
 }
 
 // Base class handler implementation
-bool QDesignerWidgetBoxInterface_QBaseFocusPreviousChild(QDesignerWidgetBoxInterface* self) {
+bool QDesignerWidgetBoxInterface_SuperFocusPreviousChild(QDesignerWidgetBoxInterface* self) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_FocusPreviousChild_IsBase(true);
@@ -2075,7 +2075,7 @@ QObject* QDesignerWidgetBoxInterface_Sender(const QDesignerWidgetBoxInterface* s
 }
 
 // Base class handler implementation
-QObject* QDesignerWidgetBoxInterface_QBaseSender(const QDesignerWidgetBoxInterface* self) {
+QObject* QDesignerWidgetBoxInterface_SuperSender(const QDesignerWidgetBoxInterface* self) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Sender_IsBase(true);
@@ -2104,7 +2104,7 @@ int QDesignerWidgetBoxInterface_SenderSignalIndex(const QDesignerWidgetBoxInterf
 }
 
 // Base class handler implementation
-int QDesignerWidgetBoxInterface_QBaseSenderSignalIndex(const QDesignerWidgetBoxInterface* self) {
+int QDesignerWidgetBoxInterface_SuperSenderSignalIndex(const QDesignerWidgetBoxInterface* self) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_SenderSignalIndex_IsBase(true);
@@ -2133,7 +2133,7 @@ int QDesignerWidgetBoxInterface_Receivers(const QDesignerWidgetBoxInterface* sel
 }
 
 // Base class handler implementation
-int QDesignerWidgetBoxInterface_QBaseReceivers(const QDesignerWidgetBoxInterface* self, const char* signal) {
+int QDesignerWidgetBoxInterface_SuperReceivers(const QDesignerWidgetBoxInterface* self, const char* signal) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Receivers_IsBase(true);
@@ -2162,7 +2162,7 @@ bool QDesignerWidgetBoxInterface_IsSignalConnected(const QDesignerWidgetBoxInter
 }
 
 // Base class handler implementation
-bool QDesignerWidgetBoxInterface_QBaseIsSignalConnected(const QDesignerWidgetBoxInterface* self, const QMetaMethod* signal) {
+bool QDesignerWidgetBoxInterface_SuperIsSignalConnected(const QDesignerWidgetBoxInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_IsSignalConnected_IsBase(true);
@@ -2191,7 +2191,7 @@ double QDesignerWidgetBoxInterface_GetDecodedMetricF(const QDesignerWidgetBoxInt
 }
 
 // Base class handler implementation
-double QDesignerWidgetBoxInterface_QBaseGetDecodedMetricF(const QDesignerWidgetBoxInterface* self, int metricA, int metricB) {
+double QDesignerWidgetBoxInterface_SuperGetDecodedMetricF(const QDesignerWidgetBoxInterface* self, int metricA, int metricB) {
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_GetDecodedMetricF_IsBase(true);

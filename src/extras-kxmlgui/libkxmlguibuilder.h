@@ -33,17 +33,17 @@ libqt_list /* of libqt_string */ KXMLGUIBuilder_CustomTags(const KXMLGUIBuilder*
 QAction* KXMLGUIBuilder_CreateCustomElement(KXMLGUIBuilder* self, QWidget* parent, int index, const QDomElement* element);
 void KXMLGUIBuilder_FinalizeGUI(KXMLGUIBuilder* self, KXMLGUIClient* client);
 void KXMLGUIBuilder_OnContainerTags(const KXMLGUIBuilder* self, intptr_t slot);
-libqt_list /* of libqt_string */ KXMLGUIBuilder_QBaseContainerTags(const KXMLGUIBuilder* self);
+libqt_list /* of libqt_string */ KXMLGUIBuilder_SuperContainerTags(const KXMLGUIBuilder* self);
 void KXMLGUIBuilder_OnCreateContainer(KXMLGUIBuilder* self, intptr_t slot);
-QWidget* KXMLGUIBuilder_QBaseCreateContainer(KXMLGUIBuilder* self, QWidget* parent, int index, const QDomElement* element, QAction** containerAction);
+QWidget* KXMLGUIBuilder_SuperCreateContainer(KXMLGUIBuilder* self, QWidget* parent, int index, const QDomElement* element, QAction** containerAction);
 void KXMLGUIBuilder_OnRemoveContainer(KXMLGUIBuilder* self, intptr_t slot);
-void KXMLGUIBuilder_QBaseRemoveContainer(KXMLGUIBuilder* self, QWidget* container, QWidget* parent, QDomElement* element, QAction* containerAction);
+void KXMLGUIBuilder_SuperRemoveContainer(KXMLGUIBuilder* self, QWidget* container, QWidget* parent, QDomElement* element, QAction* containerAction);
 void KXMLGUIBuilder_OnCustomTags(const KXMLGUIBuilder* self, intptr_t slot);
-libqt_list /* of libqt_string */ KXMLGUIBuilder_QBaseCustomTags(const KXMLGUIBuilder* self);
+libqt_list /* of libqt_string */ KXMLGUIBuilder_SuperCustomTags(const KXMLGUIBuilder* self);
 void KXMLGUIBuilder_OnCreateCustomElement(KXMLGUIBuilder* self, intptr_t slot);
-QAction* KXMLGUIBuilder_QBaseCreateCustomElement(KXMLGUIBuilder* self, QWidget* parent, int index, const QDomElement* element);
+QAction* KXMLGUIBuilder_SuperCreateCustomElement(KXMLGUIBuilder* self, QWidget* parent, int index, const QDomElement* element);
 void KXMLGUIBuilder_OnFinalizeGUI(KXMLGUIBuilder* self, intptr_t slot);
-void KXMLGUIBuilder_QBaseFinalizeGUI(KXMLGUIBuilder* self, KXMLGUIClient* client);
+void KXMLGUIBuilder_SuperFinalizeGUI(KXMLGUIBuilder* self, KXMLGUIClient* client);
 void KXMLGUIBuilder_Delete(KXMLGUIBuilder* self);
 
 #ifdef __cplusplus

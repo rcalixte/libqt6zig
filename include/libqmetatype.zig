@@ -798,6 +798,10 @@ pub const qmetatype = struct {
         return qtc.QMetaType_Construct22(@ptrCast(self), @ptrCast(where), @ptrCast(copyVal));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#dtor.QMetaType)
     ///
     /// Delete this object from C++ memory.
@@ -806,7 +810,7 @@ pub const qmetatype = struct {
     ///
     /// ` self: QtC.QMetaType `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMetaType_Delete(@ptrCast(self));
     }
 };

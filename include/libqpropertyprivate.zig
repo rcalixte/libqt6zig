@@ -47,6 +47,10 @@ pub const quntypedpropertydata = struct {
         qtc.QUntypedPropertyData_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedpropertydata.html#dtor.QUntypedPropertyData)
     ///
     /// Delete this object from C++ memory.
@@ -55,7 +59,7 @@ pub const quntypedpropertydata = struct {
     ///
     /// ` self: QtC.QUntypedPropertyData `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QUntypedPropertyData_Delete(@ptrCast(self));
     }
 };

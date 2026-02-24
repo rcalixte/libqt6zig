@@ -49,6 +49,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -57,8 +61,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` self: QtC.QRasterWindow `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QRasterWindow_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QRasterWindow_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -84,6 +88,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -92,9 +100,9 @@ pub const qrasterwindow = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QRasterWindow_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QRasterWindow_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -123,6 +131,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -135,8 +147,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QRasterWindow_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QRasterWindow_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -182,6 +194,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrasterwindow.html#metric)
     ///
     /// Base class method implementation
@@ -192,8 +208,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, metric: i32) i32 {
-        return qtc.QRasterWindow_QBaseMetric(@ptrCast(self), @bitCast(metric));
+    pub fn SuperMetric(self: ?*anyopaque, metric: i32) i32 {
+        return qtc.QRasterWindow_SuperMetric(@ptrCast(self), @bitCast(metric));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrasterwindow.html#redirected)
@@ -222,6 +238,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrasterwindow.html#redirected)
     ///
     /// Base class method implementation
@@ -232,8 +252,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` param1: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QRasterWindow_QBaseRedirected(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperRedirected(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.QRasterWindow_SuperRedirected(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrasterwindow.html#resizeEvent)
@@ -262,6 +282,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrasterwindow.html#resizeEvent)
     ///
     /// Base class method implementation
@@ -272,8 +296,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` event: QtC.QResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -3248,6 +3272,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_ExposeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperExposeEvent` instead
+    ///
+    pub const QBaseExposeEvent = SuperExposeEvent;
+
     /// Inherited from QPaintDeviceWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevicewindow.html#exposeEvent)
@@ -3260,8 +3288,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` param1: QtC.QExposeEvent `
     ///
-    pub fn QBaseExposeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseExposeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperExposeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperExposeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QPaintDeviceWindow
@@ -3296,6 +3324,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_PaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    ///
+    pub const QBasePaintEvent = SuperPaintEvent;
+
     /// Inherited from QPaintDeviceWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevicewindow.html#paintEvent)
@@ -3308,8 +3340,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` event: QtC.QPaintEvent `
     ///
-    pub fn QBasePaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QRasterWindow_QBasePaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperPaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperPaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QPaintDeviceWindow
@@ -3344,6 +3376,10 @@ pub const qrasterwindow = struct {
         return qtc.QRasterWindow_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QPaintDeviceWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevicewindow.html#event)
@@ -3356,8 +3392,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QRasterWindow_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QRasterWindow_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QPaintDeviceWindow
@@ -3394,6 +3430,10 @@ pub const qrasterwindow = struct {
         return qtc.QRasterWindow_SurfaceType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSurfaceType` instead
+    ///
+    pub const QBaseSurfaceType = SuperSurfaceType;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#surfaceType)
@@ -3408,8 +3448,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` qsurface_enums.SurfaceType `
     ///
-    pub fn QBaseSurfaceType(self: ?*anyopaque) i32 {
-        return qtc.QRasterWindow_QBaseSurfaceType(@ptrCast(self));
+    pub fn SuperSurfaceType(self: ?*anyopaque) i32 {
+        return qtc.QRasterWindow_SuperSurfaceType(@ptrCast(self));
     }
 
     /// Inherited from QWindow
@@ -3442,6 +3482,10 @@ pub const qrasterwindow = struct {
         return qtc.QRasterWindow_Format(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFormat` instead
+    ///
+    pub const QBaseFormat = SuperFormat;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#format)
@@ -3452,8 +3496,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` self: QtC.QRasterWindow `
     ///
-    pub fn QBaseFormat(self: ?*anyopaque) QtC.QSurfaceFormat {
-        return qtc.QRasterWindow_QBaseFormat(@ptrCast(self));
+    pub fn SuperFormat(self: ?*anyopaque) QtC.QSurfaceFormat {
+        return qtc.QRasterWindow_SuperFormat(@ptrCast(self));
     }
 
     /// Inherited from QWindow
@@ -3486,6 +3530,10 @@ pub const qrasterwindow = struct {
         return qtc.QRasterWindow_Size(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSize` instead
+    ///
+    pub const QBaseSize = SuperSize;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#size)
@@ -3496,8 +3544,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` self: QtC.QRasterWindow `
     ///
-    pub fn QBaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QRasterWindow_QBaseSize(@ptrCast(self));
+    pub fn SuperSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QRasterWindow_SuperSize(@ptrCast(self));
     }
 
     /// Inherited from QWindow
@@ -3530,6 +3578,10 @@ pub const qrasterwindow = struct {
         return qtc.QRasterWindow_AccessibleRoot(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperAccessibleRoot` instead
+    ///
+    pub const QBaseAccessibleRoot = SuperAccessibleRoot;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#accessibleRoot)
@@ -3540,8 +3592,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` self: QtC.QRasterWindow `
     ///
-    pub fn QBaseAccessibleRoot(self: ?*anyopaque) QtC.QAccessibleInterface {
-        return qtc.QRasterWindow_QBaseAccessibleRoot(@ptrCast(self));
+    pub fn SuperAccessibleRoot(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QRasterWindow_SuperAccessibleRoot(@ptrCast(self));
     }
 
     /// Inherited from QWindow
@@ -3574,6 +3626,10 @@ pub const qrasterwindow = struct {
         return qtc.QRasterWindow_FocusObject(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusObject` instead
+    ///
+    pub const QBaseFocusObject = SuperFocusObject;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusObject)
@@ -3584,8 +3640,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` self: QtC.QRasterWindow `
     ///
-    pub fn QBaseFocusObject(self: ?*anyopaque) QtC.QObject {
-        return qtc.QRasterWindow_QBaseFocusObject(@ptrCast(self));
+    pub fn SuperFocusObject(self: ?*anyopaque) QtC.QObject {
+        return qtc.QRasterWindow_SuperFocusObject(@ptrCast(self));
     }
 
     /// Inherited from QWindow
@@ -3620,6 +3676,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_MoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#moveEvent)
@@ -3632,8 +3692,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` param1: QtC.QMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseMoveEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWindow
@@ -3668,6 +3728,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_FocusInEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusInEvent)
@@ -3680,8 +3744,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` param1: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseFocusInEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperFocusInEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWindow
@@ -3716,6 +3780,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_FocusOutEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusOutEvent)
@@ -3728,8 +3796,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` param1: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperFocusOutEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWindow
@@ -3764,6 +3832,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_ShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#showEvent)
@@ -3776,8 +3848,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` param1: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseShowEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWindow
@@ -3812,6 +3884,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_HideEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#hideEvent)
@@ -3824,8 +3900,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` param1: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseHideEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperHideEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperHideEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWindow
@@ -3860,6 +3936,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_CloseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#closeEvent)
@@ -3872,8 +3952,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` param1: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseCloseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperCloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperCloseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWindow
@@ -3908,6 +3988,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#keyPressEvent)
@@ -3920,8 +4004,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` param1: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperKeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWindow
@@ -3956,6 +4040,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_KeyReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#keyReleaseEvent)
@@ -3968,8 +4056,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` param1: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWindow
@@ -4004,6 +4092,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_MousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mousePressEvent)
@@ -4016,8 +4108,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseMousePressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperMousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWindow
@@ -4052,6 +4144,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_MouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseReleaseEvent)
@@ -4064,8 +4160,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWindow
@@ -4100,6 +4196,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseDoubleClickEvent)
@@ -4112,8 +4212,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWindow
@@ -4148,6 +4248,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_MouseMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseMoveEvent)
@@ -4160,8 +4264,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWindow
@@ -4196,6 +4300,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_WheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#wheelEvent)
@@ -4208,8 +4316,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` param1: QtC.QWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseWheelEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperWheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperWheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWindow
@@ -4244,6 +4352,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_TouchEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperTouchEvent` instead
+    ///
+    pub const QBaseTouchEvent = SuperTouchEvent;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#touchEvent)
@@ -4256,8 +4368,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` param1: QtC.QTouchEvent `
     ///
-    pub fn QBaseTouchEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseTouchEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperTouchEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperTouchEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWindow
@@ -4292,6 +4404,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_TabletEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    ///
+    pub const QBaseTabletEvent = SuperTabletEvent;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#tabletEvent)
@@ -4304,8 +4420,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` param1: QtC.QTabletEvent `
     ///
-    pub fn QBaseTabletEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseTabletEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperTabletEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperTabletEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWindow
@@ -4348,6 +4464,10 @@ pub const qrasterwindow = struct {
         return qtc.QRasterWindow_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
+    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    ///
+    pub const QBaseNativeEvent = SuperNativeEvent;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#nativeEvent)
@@ -4364,12 +4484,12 @@ pub const qrasterwindow = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QRasterWindow_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QRasterWindow_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWindow
@@ -4406,6 +4526,10 @@ pub const qrasterwindow = struct {
         return qtc.QRasterWindow_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -4420,8 +4544,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QRasterWindow_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QRasterWindow_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4456,6 +4580,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -4468,8 +4596,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4504,6 +4632,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -4516,8 +4648,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4552,6 +4684,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -4564,8 +4700,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4600,6 +4736,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -4612,8 +4752,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -4648,6 +4788,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -4660,8 +4804,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -4694,6 +4838,10 @@ pub const qrasterwindow = struct {
         return qtc.QRasterWindow_DevType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devType)
@@ -4704,8 +4852,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` self: QtC.QRasterWindow `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.QRasterWindow_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.QRasterWindow_SuperDevType(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
@@ -4740,6 +4888,10 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
@@ -4752,8 +4904,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QRasterWindow_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QPaintDevice
@@ -4786,6 +4938,10 @@ pub const qrasterwindow = struct {
         return qtc.QRasterWindow_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
@@ -4796,8 +4952,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` self: QtC.QRasterWindow `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QRasterWindow_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.QRasterWindow_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
@@ -4835,6 +4991,10 @@ pub const qrasterwindow = struct {
         return qtc.QRasterWindow_ResolveInterface(@ptrCast(self), name_Cstring, @bitCast(revision));
     }
 
+    /// ### DEPRECATED: Use `SuperResolveInterface` instead
+    ///
+    pub const QBaseResolveInterface = SuperResolveInterface;
+
     /// Inherited from QWindow
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#resolveInterface)
@@ -4849,9 +5009,9 @@ pub const qrasterwindow = struct {
     ///
     /// ` revision: i32 `
     ///
-    pub fn QBaseResolveInterface(self: ?*anyopaque, name: [:0]const u8, revision: i32) ?*anyopaque {
+    pub fn SuperResolveInterface(self: ?*anyopaque, name: [:0]const u8, revision: i32) ?*anyopaque {
         const name_Cstring = name.ptr;
-        return qtc.QRasterWindow_QBaseResolveInterface(@ptrCast(self), name_Cstring, @bitCast(revision));
+        return qtc.QRasterWindow_SuperResolveInterface(@ptrCast(self), name_Cstring, @bitCast(revision));
     }
 
     /// Inherited from QWindow
@@ -4884,6 +5044,10 @@ pub const qrasterwindow = struct {
         return qtc.QRasterWindow_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -4894,8 +5058,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` self: QtC.QRasterWindow `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QRasterWindow_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QRasterWindow_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -4928,6 +5092,10 @@ pub const qrasterwindow = struct {
         return qtc.QRasterWindow_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -4938,8 +5106,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` self: QtC.QRasterWindow `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QRasterWindow_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QRasterWindow_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -4975,6 +5143,10 @@ pub const qrasterwindow = struct {
         return qtc.QRasterWindow_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -4987,9 +5159,9 @@ pub const qrasterwindow = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QRasterWindow_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QRasterWindow_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5024,6 +5196,10 @@ pub const qrasterwindow = struct {
         return qtc.QRasterWindow_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -5036,8 +5212,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QRasterWindow_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QRasterWindow_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -5074,6 +5250,10 @@ pub const qrasterwindow = struct {
         return qtc.QRasterWindow_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -5088,8 +5268,8 @@ pub const qrasterwindow = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QRasterWindow_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.QRasterWindow_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -5123,6 +5303,9 @@ pub const qrasterwindow = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrasterwindow.html#dtor.QRasterWindow)
     ///
@@ -5132,7 +5315,7 @@ pub const qrasterwindow = struct {
     ///
     /// ` self: QtC.QRasterWindow `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QRasterWindow_Delete(@ptrCast(self));
     }
 };

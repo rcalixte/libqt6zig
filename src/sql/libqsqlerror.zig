@@ -245,6 +245,10 @@ pub const qsqlerror = struct {
         return qtc.QSqlError_IsValid(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#dtor.QSqlError)
     ///
     /// Delete this object from C++ memory.
@@ -253,7 +257,7 @@ pub const qsqlerror = struct {
     ///
     /// ` self: QtC.QSqlError `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSqlError_Delete(@ptrCast(self));
     }
 };

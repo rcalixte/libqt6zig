@@ -72,7 +72,7 @@ QWidget* KToolBarPopupAction_CreateWidget(KToolBarPopupAction* self, QWidget* pa
 }
 
 // Base class handler implementation
-QMetaObject* KToolBarPopupAction_QBaseMetaObject(const KToolBarPopupAction* self) {
+QMetaObject* KToolBarPopupAction_SuperMetaObject(const KToolBarPopupAction* self) {
     auto* vktoolbarpopupaction = const_cast<VirtualKToolBarPopupAction*>(dynamic_cast<const VirtualKToolBarPopupAction*>(self));
     if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
         vktoolbarpopupaction->setKToolBarPopupAction_MetaObject_IsBase(true);
@@ -91,7 +91,7 @@ void KToolBarPopupAction_OnMetaObject(const KToolBarPopupAction* self, intptr_t 
 }
 
 // Base class handler implementation
-void* KToolBarPopupAction_QBaseMetacast(KToolBarPopupAction* self, const char* param1) {
+void* KToolBarPopupAction_SuperMetacast(KToolBarPopupAction* self, const char* param1) {
     auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
     if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
         vktoolbarpopupaction->setKToolBarPopupAction_Metacast_IsBase(true);
@@ -110,7 +110,7 @@ void KToolBarPopupAction_OnMetacast(KToolBarPopupAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KToolBarPopupAction_QBaseMetacall(KToolBarPopupAction* self, int param1, int param2, void** param3) {
+int KToolBarPopupAction_SuperMetacall(KToolBarPopupAction* self, int param1, int param2, void** param3) {
     auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
     if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
         vktoolbarpopupaction->setKToolBarPopupAction_Metacall_IsBase(true);
@@ -129,7 +129,7 @@ void KToolBarPopupAction_OnMetacall(KToolBarPopupAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QWidget* KToolBarPopupAction_QBaseCreateWidget(KToolBarPopupAction* self, QWidget* parent) {
+QWidget* KToolBarPopupAction_SuperCreateWidget(KToolBarPopupAction* self, QWidget* parent) {
     auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
     if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
         vktoolbarpopupaction->setKToolBarPopupAction_CreateWidget_IsBase(true);
@@ -158,7 +158,7 @@ bool KToolBarPopupAction_Event(KToolBarPopupAction* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-bool KToolBarPopupAction_QBaseEvent(KToolBarPopupAction* self, QEvent* param1) {
+bool KToolBarPopupAction_SuperEvent(KToolBarPopupAction* self, QEvent* param1) {
     auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
     if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
         vktoolbarpopupaction->setKToolBarPopupAction_Event_IsBase(true);
@@ -187,7 +187,7 @@ bool KToolBarPopupAction_EventFilter(KToolBarPopupAction* self, QObject* param1,
 }
 
 // Base class handler implementation
-bool KToolBarPopupAction_QBaseEventFilter(KToolBarPopupAction* self, QObject* param1, QEvent* param2) {
+bool KToolBarPopupAction_SuperEventFilter(KToolBarPopupAction* self, QObject* param1, QEvent* param2) {
     auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
     if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
         vktoolbarpopupaction->setKToolBarPopupAction_EventFilter_IsBase(true);
@@ -216,7 +216,7 @@ void KToolBarPopupAction_DeleteWidget(KToolBarPopupAction* self, QWidget* widget
 }
 
 // Base class handler implementation
-void KToolBarPopupAction_QBaseDeleteWidget(KToolBarPopupAction* self, QWidget* widget) {
+void KToolBarPopupAction_SuperDeleteWidget(KToolBarPopupAction* self, QWidget* widget) {
     auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
     if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
         vktoolbarpopupaction->setKToolBarPopupAction_DeleteWidget_IsBase(true);
@@ -245,7 +245,7 @@ void KToolBarPopupAction_TimerEvent(KToolBarPopupAction* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void KToolBarPopupAction_QBaseTimerEvent(KToolBarPopupAction* self, QTimerEvent* event) {
+void KToolBarPopupAction_SuperTimerEvent(KToolBarPopupAction* self, QTimerEvent* event) {
     auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
     if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
         vktoolbarpopupaction->setKToolBarPopupAction_TimerEvent_IsBase(true);
@@ -274,7 +274,7 @@ void KToolBarPopupAction_ChildEvent(KToolBarPopupAction* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void KToolBarPopupAction_QBaseChildEvent(KToolBarPopupAction* self, QChildEvent* event) {
+void KToolBarPopupAction_SuperChildEvent(KToolBarPopupAction* self, QChildEvent* event) {
     auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
     if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
         vktoolbarpopupaction->setKToolBarPopupAction_ChildEvent_IsBase(true);
@@ -303,7 +303,7 @@ void KToolBarPopupAction_CustomEvent(KToolBarPopupAction* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KToolBarPopupAction_QBaseCustomEvent(KToolBarPopupAction* self, QEvent* event) {
+void KToolBarPopupAction_SuperCustomEvent(KToolBarPopupAction* self, QEvent* event) {
     auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
     if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
         vktoolbarpopupaction->setKToolBarPopupAction_CustomEvent_IsBase(true);
@@ -332,7 +332,7 @@ void KToolBarPopupAction_ConnectNotify(KToolBarPopupAction* self, const QMetaMet
 }
 
 // Base class handler implementation
-void KToolBarPopupAction_QBaseConnectNotify(KToolBarPopupAction* self, const QMetaMethod* signal) {
+void KToolBarPopupAction_SuperConnectNotify(KToolBarPopupAction* self, const QMetaMethod* signal) {
     auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
     if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
         vktoolbarpopupaction->setKToolBarPopupAction_ConnectNotify_IsBase(true);
@@ -361,7 +361,7 @@ void KToolBarPopupAction_DisconnectNotify(KToolBarPopupAction* self, const QMeta
 }
 
 // Base class handler implementation
-void KToolBarPopupAction_QBaseDisconnectNotify(KToolBarPopupAction* self, const QMetaMethod* signal) {
+void KToolBarPopupAction_SuperDisconnectNotify(KToolBarPopupAction* self, const QMetaMethod* signal) {
     auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
     if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
         vktoolbarpopupaction->setKToolBarPopupAction_DisconnectNotify_IsBase(true);
@@ -408,7 +408,7 @@ libqt_list /* of QWidget* */ KToolBarPopupAction_CreatedWidgets(const KToolBarPo
 }
 
 // Base class handler implementation
-libqt_list /* of QWidget* */ KToolBarPopupAction_QBaseCreatedWidgets(const KToolBarPopupAction* self) {
+libqt_list /* of QWidget* */ KToolBarPopupAction_SuperCreatedWidgets(const KToolBarPopupAction* self) {
     auto* vktoolbarpopupaction = const_cast<VirtualKToolBarPopupAction*>(dynamic_cast<const VirtualKToolBarPopupAction*>(self));
     if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
         vktoolbarpopupaction->setKToolBarPopupAction_CreatedWidgets_IsBase(true);
@@ -455,7 +455,7 @@ QObject* KToolBarPopupAction_Sender(const KToolBarPopupAction* self) {
 }
 
 // Base class handler implementation
-QObject* KToolBarPopupAction_QBaseSender(const KToolBarPopupAction* self) {
+QObject* KToolBarPopupAction_SuperSender(const KToolBarPopupAction* self) {
     auto* vktoolbarpopupaction = const_cast<VirtualKToolBarPopupAction*>(dynamic_cast<const VirtualKToolBarPopupAction*>(self));
     if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
         vktoolbarpopupaction->setKToolBarPopupAction_Sender_IsBase(true);
@@ -484,7 +484,7 @@ int KToolBarPopupAction_SenderSignalIndex(const KToolBarPopupAction* self) {
 }
 
 // Base class handler implementation
-int KToolBarPopupAction_QBaseSenderSignalIndex(const KToolBarPopupAction* self) {
+int KToolBarPopupAction_SuperSenderSignalIndex(const KToolBarPopupAction* self) {
     auto* vktoolbarpopupaction = const_cast<VirtualKToolBarPopupAction*>(dynamic_cast<const VirtualKToolBarPopupAction*>(self));
     if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
         vktoolbarpopupaction->setKToolBarPopupAction_SenderSignalIndex_IsBase(true);
@@ -513,7 +513,7 @@ int KToolBarPopupAction_Receivers(const KToolBarPopupAction* self, const char* s
 }
 
 // Base class handler implementation
-int KToolBarPopupAction_QBaseReceivers(const KToolBarPopupAction* self, const char* signal) {
+int KToolBarPopupAction_SuperReceivers(const KToolBarPopupAction* self, const char* signal) {
     auto* vktoolbarpopupaction = const_cast<VirtualKToolBarPopupAction*>(dynamic_cast<const VirtualKToolBarPopupAction*>(self));
     if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
         vktoolbarpopupaction->setKToolBarPopupAction_Receivers_IsBase(true);
@@ -542,7 +542,7 @@ bool KToolBarPopupAction_IsSignalConnected(const KToolBarPopupAction* self, cons
 }
 
 // Base class handler implementation
-bool KToolBarPopupAction_QBaseIsSignalConnected(const KToolBarPopupAction* self, const QMetaMethod* signal) {
+bool KToolBarPopupAction_SuperIsSignalConnected(const KToolBarPopupAction* self, const QMetaMethod* signal) {
     auto* vktoolbarpopupaction = const_cast<VirtualKToolBarPopupAction*>(dynamic_cast<const VirtualKToolBarPopupAction*>(self));
     if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
         vktoolbarpopupaction->setKToolBarPopupAction_IsSignalConnected_IsBase(true);

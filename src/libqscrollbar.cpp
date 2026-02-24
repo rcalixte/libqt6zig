@@ -166,7 +166,7 @@ void QScrollBar_InitStyleOption(const QScrollBar* self, QStyleOptionSlider* opti
 }
 
 // Base class handler implementation
-QMetaObject* QScrollBar_QBaseMetaObject(const QScrollBar* self) {
+QMetaObject* QScrollBar_SuperMetaObject(const QScrollBar* self) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_MetaObject_IsBase(true);
@@ -185,7 +185,7 @@ void QScrollBar_OnMetaObject(const QScrollBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QScrollBar_QBaseMetacast(QScrollBar* self, const char* param1) {
+void* QScrollBar_SuperMetacast(QScrollBar* self, const char* param1) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_Metacast_IsBase(true);
@@ -204,7 +204,7 @@ void QScrollBar_OnMetacast(QScrollBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QScrollBar_QBaseMetacall(QScrollBar* self, int param1, int param2, void** param3) {
+int QScrollBar_SuperMetacall(QScrollBar* self, int param1, int param2, void** param3) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_Metacall_IsBase(true);
@@ -223,7 +223,7 @@ void QScrollBar_OnMetacall(QScrollBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QScrollBar_QBaseSizeHint(const QScrollBar* self) {
+QSize* QScrollBar_SuperSizeHint(const QScrollBar* self) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_SizeHint_IsBase(true);
@@ -242,7 +242,7 @@ void QScrollBar_OnSizeHint(const QScrollBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QScrollBar_QBaseEvent(QScrollBar* self, QEvent* event) {
+bool QScrollBar_SuperEvent(QScrollBar* self, QEvent* event) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_Event_IsBase(true);
@@ -261,7 +261,7 @@ void QScrollBar_OnEvent(QScrollBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseWheelEvent(QScrollBar* self, QWheelEvent* param1) {
+void QScrollBar_SuperWheelEvent(QScrollBar* self, QWheelEvent* param1) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_WheelEvent_IsBase(true);
@@ -280,7 +280,7 @@ void QScrollBar_OnWheelEvent(QScrollBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBasePaintEvent(QScrollBar* self, QPaintEvent* param1) {
+void QScrollBar_SuperPaintEvent(QScrollBar* self, QPaintEvent* param1) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_PaintEvent_IsBase(true);
@@ -299,7 +299,7 @@ void QScrollBar_OnPaintEvent(QScrollBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseMousePressEvent(QScrollBar* self, QMouseEvent* param1) {
+void QScrollBar_SuperMousePressEvent(QScrollBar* self, QMouseEvent* param1) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_MousePressEvent_IsBase(true);
@@ -318,7 +318,7 @@ void QScrollBar_OnMousePressEvent(QScrollBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseMouseReleaseEvent(QScrollBar* self, QMouseEvent* param1) {
+void QScrollBar_SuperMouseReleaseEvent(QScrollBar* self, QMouseEvent* param1) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_MouseReleaseEvent_IsBase(true);
@@ -337,7 +337,7 @@ void QScrollBar_OnMouseReleaseEvent(QScrollBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseMouseMoveEvent(QScrollBar* self, QMouseEvent* param1) {
+void QScrollBar_SuperMouseMoveEvent(QScrollBar* self, QMouseEvent* param1) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_MouseMoveEvent_IsBase(true);
@@ -356,7 +356,7 @@ void QScrollBar_OnMouseMoveEvent(QScrollBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseHideEvent(QScrollBar* self, QHideEvent* param1) {
+void QScrollBar_SuperHideEvent(QScrollBar* self, QHideEvent* param1) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_HideEvent_IsBase(true);
@@ -375,7 +375,7 @@ void QScrollBar_OnHideEvent(QScrollBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseSliderChange(QScrollBar* self, int change) {
+void QScrollBar_SuperSliderChange(QScrollBar* self, int change) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_SliderChange_IsBase(true);
@@ -394,7 +394,7 @@ void QScrollBar_OnSliderChange(QScrollBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseContextMenuEvent(QScrollBar* self, QContextMenuEvent* param1) {
+void QScrollBar_SuperContextMenuEvent(QScrollBar* self, QContextMenuEvent* param1) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_ContextMenuEvent_IsBase(true);
@@ -413,7 +413,7 @@ void QScrollBar_OnContextMenuEvent(QScrollBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseInitStyleOption(const QScrollBar* self, QStyleOptionSlider* option) {
+void QScrollBar_SuperInitStyleOption(const QScrollBar* self, QStyleOptionSlider* option) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_InitStyleOption_IsBase(true);
@@ -442,7 +442,7 @@ void QScrollBar_KeyPressEvent(QScrollBar* self, QKeyEvent* ev) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseKeyPressEvent(QScrollBar* self, QKeyEvent* ev) {
+void QScrollBar_SuperKeyPressEvent(QScrollBar* self, QKeyEvent* ev) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_KeyPressEvent_IsBase(true);
@@ -471,7 +471,7 @@ void QScrollBar_TimerEvent(QScrollBar* self, QTimerEvent* param1) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseTimerEvent(QScrollBar* self, QTimerEvent* param1) {
+void QScrollBar_SuperTimerEvent(QScrollBar* self, QTimerEvent* param1) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_TimerEvent_IsBase(true);
@@ -500,7 +500,7 @@ void QScrollBar_ChangeEvent(QScrollBar* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseChangeEvent(QScrollBar* self, QEvent* e) {
+void QScrollBar_SuperChangeEvent(QScrollBar* self, QEvent* e) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_ChangeEvent_IsBase(true);
@@ -529,7 +529,7 @@ int QScrollBar_DevType(const QScrollBar* self) {
 }
 
 // Base class handler implementation
-int QScrollBar_QBaseDevType(const QScrollBar* self) {
+int QScrollBar_SuperDevType(const QScrollBar* self) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_DevType_IsBase(true);
@@ -558,7 +558,7 @@ void QScrollBar_SetVisible(QScrollBar* self, bool visible) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseSetVisible(QScrollBar* self, bool visible) {
+void QScrollBar_SuperSetVisible(QScrollBar* self, bool visible) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_SetVisible_IsBase(true);
@@ -587,7 +587,7 @@ QSize* QScrollBar_MinimumSizeHint(const QScrollBar* self) {
 }
 
 // Base class handler implementation
-QSize* QScrollBar_QBaseMinimumSizeHint(const QScrollBar* self) {
+QSize* QScrollBar_SuperMinimumSizeHint(const QScrollBar* self) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_MinimumSizeHint_IsBase(true);
@@ -616,7 +616,7 @@ int QScrollBar_HeightForWidth(const QScrollBar* self, int param1) {
 }
 
 // Base class handler implementation
-int QScrollBar_QBaseHeightForWidth(const QScrollBar* self, int param1) {
+int QScrollBar_SuperHeightForWidth(const QScrollBar* self, int param1) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_HeightForWidth_IsBase(true);
@@ -645,7 +645,7 @@ bool QScrollBar_HasHeightForWidth(const QScrollBar* self) {
 }
 
 // Base class handler implementation
-bool QScrollBar_QBaseHasHeightForWidth(const QScrollBar* self) {
+bool QScrollBar_SuperHasHeightForWidth(const QScrollBar* self) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_HasHeightForWidth_IsBase(true);
@@ -674,7 +674,7 @@ QPaintEngine* QScrollBar_PaintEngine(const QScrollBar* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QScrollBar_QBasePaintEngine(const QScrollBar* self) {
+QPaintEngine* QScrollBar_SuperPaintEngine(const QScrollBar* self) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_PaintEngine_IsBase(true);
@@ -703,7 +703,7 @@ void QScrollBar_MouseDoubleClickEvent(QScrollBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseMouseDoubleClickEvent(QScrollBar* self, QMouseEvent* event) {
+void QScrollBar_SuperMouseDoubleClickEvent(QScrollBar* self, QMouseEvent* event) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_MouseDoubleClickEvent_IsBase(true);
@@ -732,7 +732,7 @@ void QScrollBar_KeyReleaseEvent(QScrollBar* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseKeyReleaseEvent(QScrollBar* self, QKeyEvent* event) {
+void QScrollBar_SuperKeyReleaseEvent(QScrollBar* self, QKeyEvent* event) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_KeyReleaseEvent_IsBase(true);
@@ -761,7 +761,7 @@ void QScrollBar_FocusInEvent(QScrollBar* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseFocusInEvent(QScrollBar* self, QFocusEvent* event) {
+void QScrollBar_SuperFocusInEvent(QScrollBar* self, QFocusEvent* event) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_FocusInEvent_IsBase(true);
@@ -790,7 +790,7 @@ void QScrollBar_FocusOutEvent(QScrollBar* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseFocusOutEvent(QScrollBar* self, QFocusEvent* event) {
+void QScrollBar_SuperFocusOutEvent(QScrollBar* self, QFocusEvent* event) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_FocusOutEvent_IsBase(true);
@@ -819,7 +819,7 @@ void QScrollBar_EnterEvent(QScrollBar* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseEnterEvent(QScrollBar* self, QEnterEvent* event) {
+void QScrollBar_SuperEnterEvent(QScrollBar* self, QEnterEvent* event) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_EnterEvent_IsBase(true);
@@ -848,7 +848,7 @@ void QScrollBar_LeaveEvent(QScrollBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseLeaveEvent(QScrollBar* self, QEvent* event) {
+void QScrollBar_SuperLeaveEvent(QScrollBar* self, QEvent* event) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_LeaveEvent_IsBase(true);
@@ -877,7 +877,7 @@ void QScrollBar_MoveEvent(QScrollBar* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseMoveEvent(QScrollBar* self, QMoveEvent* event) {
+void QScrollBar_SuperMoveEvent(QScrollBar* self, QMoveEvent* event) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_MoveEvent_IsBase(true);
@@ -906,7 +906,7 @@ void QScrollBar_ResizeEvent(QScrollBar* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseResizeEvent(QScrollBar* self, QResizeEvent* event) {
+void QScrollBar_SuperResizeEvent(QScrollBar* self, QResizeEvent* event) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_ResizeEvent_IsBase(true);
@@ -935,7 +935,7 @@ void QScrollBar_CloseEvent(QScrollBar* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseCloseEvent(QScrollBar* self, QCloseEvent* event) {
+void QScrollBar_SuperCloseEvent(QScrollBar* self, QCloseEvent* event) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_CloseEvent_IsBase(true);
@@ -964,7 +964,7 @@ void QScrollBar_TabletEvent(QScrollBar* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseTabletEvent(QScrollBar* self, QTabletEvent* event) {
+void QScrollBar_SuperTabletEvent(QScrollBar* self, QTabletEvent* event) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_TabletEvent_IsBase(true);
@@ -993,7 +993,7 @@ void QScrollBar_ActionEvent(QScrollBar* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseActionEvent(QScrollBar* self, QActionEvent* event) {
+void QScrollBar_SuperActionEvent(QScrollBar* self, QActionEvent* event) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_ActionEvent_IsBase(true);
@@ -1022,7 +1022,7 @@ void QScrollBar_DragEnterEvent(QScrollBar* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseDragEnterEvent(QScrollBar* self, QDragEnterEvent* event) {
+void QScrollBar_SuperDragEnterEvent(QScrollBar* self, QDragEnterEvent* event) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_DragEnterEvent_IsBase(true);
@@ -1051,7 +1051,7 @@ void QScrollBar_DragMoveEvent(QScrollBar* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseDragMoveEvent(QScrollBar* self, QDragMoveEvent* event) {
+void QScrollBar_SuperDragMoveEvent(QScrollBar* self, QDragMoveEvent* event) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_DragMoveEvent_IsBase(true);
@@ -1080,7 +1080,7 @@ void QScrollBar_DragLeaveEvent(QScrollBar* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseDragLeaveEvent(QScrollBar* self, QDragLeaveEvent* event) {
+void QScrollBar_SuperDragLeaveEvent(QScrollBar* self, QDragLeaveEvent* event) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_DragLeaveEvent_IsBase(true);
@@ -1109,7 +1109,7 @@ void QScrollBar_DropEvent(QScrollBar* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseDropEvent(QScrollBar* self, QDropEvent* event) {
+void QScrollBar_SuperDropEvent(QScrollBar* self, QDropEvent* event) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_DropEvent_IsBase(true);
@@ -1138,7 +1138,7 @@ void QScrollBar_ShowEvent(QScrollBar* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseShowEvent(QScrollBar* self, QShowEvent* event) {
+void QScrollBar_SuperShowEvent(QScrollBar* self, QShowEvent* event) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_ShowEvent_IsBase(true);
@@ -1168,7 +1168,7 @@ bool QScrollBar_NativeEvent(QScrollBar* self, const libqt_string eventType, void
 }
 
 // Base class handler implementation
-bool QScrollBar_QBaseNativeEvent(QScrollBar* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QScrollBar_SuperNativeEvent(QScrollBar* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
@@ -1198,7 +1198,7 @@ int QScrollBar_Metric(const QScrollBar* self, int param1) {
 }
 
 // Base class handler implementation
-int QScrollBar_QBaseMetric(const QScrollBar* self, int param1) {
+int QScrollBar_SuperMetric(const QScrollBar* self, int param1) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_Metric_IsBase(true);
@@ -1227,7 +1227,7 @@ void QScrollBar_InitPainter(const QScrollBar* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseInitPainter(const QScrollBar* self, QPainter* painter) {
+void QScrollBar_SuperInitPainter(const QScrollBar* self, QPainter* painter) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_InitPainter_IsBase(true);
@@ -1256,7 +1256,7 @@ QPaintDevice* QScrollBar_Redirected(const QScrollBar* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QScrollBar_QBaseRedirected(const QScrollBar* self, QPoint* offset) {
+QPaintDevice* QScrollBar_SuperRedirected(const QScrollBar* self, QPoint* offset) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_Redirected_IsBase(true);
@@ -1285,7 +1285,7 @@ QPainter* QScrollBar_SharedPainter(const QScrollBar* self) {
 }
 
 // Base class handler implementation
-QPainter* QScrollBar_QBaseSharedPainter(const QScrollBar* self) {
+QPainter* QScrollBar_SuperSharedPainter(const QScrollBar* self) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_SharedPainter_IsBase(true);
@@ -1314,7 +1314,7 @@ void QScrollBar_InputMethodEvent(QScrollBar* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseInputMethodEvent(QScrollBar* self, QInputMethodEvent* param1) {
+void QScrollBar_SuperInputMethodEvent(QScrollBar* self, QInputMethodEvent* param1) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_InputMethodEvent_IsBase(true);
@@ -1343,7 +1343,7 @@ QVariant* QScrollBar_InputMethodQuery(const QScrollBar* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QScrollBar_QBaseInputMethodQuery(const QScrollBar* self, int param1) {
+QVariant* QScrollBar_SuperInputMethodQuery(const QScrollBar* self, int param1) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_InputMethodQuery_IsBase(true);
@@ -1372,7 +1372,7 @@ bool QScrollBar_FocusNextPrevChild(QScrollBar* self, bool next) {
 }
 
 // Base class handler implementation
-bool QScrollBar_QBaseFocusNextPrevChild(QScrollBar* self, bool next) {
+bool QScrollBar_SuperFocusNextPrevChild(QScrollBar* self, bool next) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_FocusNextPrevChild_IsBase(true);
@@ -1401,7 +1401,7 @@ bool QScrollBar_EventFilter(QScrollBar* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QScrollBar_QBaseEventFilter(QScrollBar* self, QObject* watched, QEvent* event) {
+bool QScrollBar_SuperEventFilter(QScrollBar* self, QObject* watched, QEvent* event) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_EventFilter_IsBase(true);
@@ -1430,7 +1430,7 @@ void QScrollBar_ChildEvent(QScrollBar* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseChildEvent(QScrollBar* self, QChildEvent* event) {
+void QScrollBar_SuperChildEvent(QScrollBar* self, QChildEvent* event) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_ChildEvent_IsBase(true);
@@ -1459,7 +1459,7 @@ void QScrollBar_CustomEvent(QScrollBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseCustomEvent(QScrollBar* self, QEvent* event) {
+void QScrollBar_SuperCustomEvent(QScrollBar* self, QEvent* event) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_CustomEvent_IsBase(true);
@@ -1488,7 +1488,7 @@ void QScrollBar_ConnectNotify(QScrollBar* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseConnectNotify(QScrollBar* self, const QMetaMethod* signal) {
+void QScrollBar_SuperConnectNotify(QScrollBar* self, const QMetaMethod* signal) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_ConnectNotify_IsBase(true);
@@ -1517,7 +1517,7 @@ void QScrollBar_DisconnectNotify(QScrollBar* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseDisconnectNotify(QScrollBar* self, const QMetaMethod* signal) {
+void QScrollBar_SuperDisconnectNotify(QScrollBar* self, const QMetaMethod* signal) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_DisconnectNotify_IsBase(true);
@@ -1546,7 +1546,7 @@ void QScrollBar_SetRepeatAction(QScrollBar* self, int action) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseSetRepeatAction(QScrollBar* self, int action) {
+void QScrollBar_SuperSetRepeatAction(QScrollBar* self, int action) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_SetRepeatAction_IsBase(true);
@@ -1575,7 +1575,7 @@ int QScrollBar_RepeatAction(const QScrollBar* self) {
 }
 
 // Base class handler implementation
-int QScrollBar_QBaseRepeatAction(const QScrollBar* self) {
+int QScrollBar_SuperRepeatAction(const QScrollBar* self) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_RepeatAction_IsBase(true);
@@ -1604,7 +1604,7 @@ void QScrollBar_UpdateMicroFocus(QScrollBar* self) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseUpdateMicroFocus(QScrollBar* self) {
+void QScrollBar_SuperUpdateMicroFocus(QScrollBar* self) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_UpdateMicroFocus_IsBase(true);
@@ -1633,7 +1633,7 @@ void QScrollBar_Create(QScrollBar* self) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseCreate(QScrollBar* self) {
+void QScrollBar_SuperCreate(QScrollBar* self) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_Create_IsBase(true);
@@ -1662,7 +1662,7 @@ void QScrollBar_Destroy(QScrollBar* self) {
 }
 
 // Base class handler implementation
-void QScrollBar_QBaseDestroy(QScrollBar* self) {
+void QScrollBar_SuperDestroy(QScrollBar* self) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_Destroy_IsBase(true);
@@ -1691,7 +1691,7 @@ bool QScrollBar_FocusNextChild(QScrollBar* self) {
 }
 
 // Base class handler implementation
-bool QScrollBar_QBaseFocusNextChild(QScrollBar* self) {
+bool QScrollBar_SuperFocusNextChild(QScrollBar* self) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_FocusNextChild_IsBase(true);
@@ -1720,7 +1720,7 @@ bool QScrollBar_FocusPreviousChild(QScrollBar* self) {
 }
 
 // Base class handler implementation
-bool QScrollBar_QBaseFocusPreviousChild(QScrollBar* self) {
+bool QScrollBar_SuperFocusPreviousChild(QScrollBar* self) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_FocusPreviousChild_IsBase(true);
@@ -1749,7 +1749,7 @@ QObject* QScrollBar_Sender(const QScrollBar* self) {
 }
 
 // Base class handler implementation
-QObject* QScrollBar_QBaseSender(const QScrollBar* self) {
+QObject* QScrollBar_SuperSender(const QScrollBar* self) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_Sender_IsBase(true);
@@ -1778,7 +1778,7 @@ int QScrollBar_SenderSignalIndex(const QScrollBar* self) {
 }
 
 // Base class handler implementation
-int QScrollBar_QBaseSenderSignalIndex(const QScrollBar* self) {
+int QScrollBar_SuperSenderSignalIndex(const QScrollBar* self) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_SenderSignalIndex_IsBase(true);
@@ -1807,7 +1807,7 @@ int QScrollBar_Receivers(const QScrollBar* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QScrollBar_QBaseReceivers(const QScrollBar* self, const char* signal) {
+int QScrollBar_SuperReceivers(const QScrollBar* self, const char* signal) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_Receivers_IsBase(true);
@@ -1836,7 +1836,7 @@ bool QScrollBar_IsSignalConnected(const QScrollBar* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QScrollBar_QBaseIsSignalConnected(const QScrollBar* self, const QMetaMethod* signal) {
+bool QScrollBar_SuperIsSignalConnected(const QScrollBar* self, const QMetaMethod* signal) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_IsSignalConnected_IsBase(true);
@@ -1865,7 +1865,7 @@ double QScrollBar_GetDecodedMetricF(const QScrollBar* self, int metricA, int met
 }
 
 // Base class handler implementation
-double QScrollBar_QBaseGetDecodedMetricF(const QScrollBar* self, int metricA, int metricB) {
+double QScrollBar_SuperGetDecodedMetricF(const QScrollBar* self, int metricA, int metricB) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->setQScrollBar_GetDecodedMetricF_IsBase(true);

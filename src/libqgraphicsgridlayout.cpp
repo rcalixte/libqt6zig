@@ -236,7 +236,7 @@ void QGraphicsGridLayout_AddItem4(QGraphicsGridLayout* self, QGraphicsLayoutItem
 }
 
 // Base class handler implementation
-int QGraphicsGridLayout_QBaseCount(const QGraphicsGridLayout* self) {
+int QGraphicsGridLayout_SuperCount(const QGraphicsGridLayout* self) {
     auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self));
     if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
         vqgraphicsgridlayout->setQGraphicsGridLayout_Count_IsBase(true);
@@ -255,7 +255,7 @@ void QGraphicsGridLayout_OnCount(const QGraphicsGridLayout* self, intptr_t slot)
 }
 
 // Base class handler implementation
-QGraphicsLayoutItem* QGraphicsGridLayout_QBaseItemAt2(const QGraphicsGridLayout* self, int index) {
+QGraphicsLayoutItem* QGraphicsGridLayout_SuperItemAt2(const QGraphicsGridLayout* self, int index) {
     auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self));
     if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
         vqgraphicsgridlayout->setQGraphicsGridLayout_ItemAt2_IsBase(true);
@@ -274,7 +274,7 @@ void QGraphicsGridLayout_OnItemAt2(const QGraphicsGridLayout* self, intptr_t slo
 }
 
 // Base class handler implementation
-void QGraphicsGridLayout_QBaseRemoveAt(QGraphicsGridLayout* self, int index) {
+void QGraphicsGridLayout_SuperRemoveAt(QGraphicsGridLayout* self, int index) {
     auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
     if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
         vqgraphicsgridlayout->setQGraphicsGridLayout_RemoveAt_IsBase(true);
@@ -293,7 +293,7 @@ void QGraphicsGridLayout_OnRemoveAt(QGraphicsGridLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsGridLayout_QBaseInvalidate(QGraphicsGridLayout* self) {
+void QGraphicsGridLayout_SuperInvalidate(QGraphicsGridLayout* self) {
     auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
     if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
         vqgraphicsgridlayout->setQGraphicsGridLayout_Invalidate_IsBase(true);
@@ -312,7 +312,7 @@ void QGraphicsGridLayout_OnInvalidate(QGraphicsGridLayout* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void QGraphicsGridLayout_QBaseSetGeometry(QGraphicsGridLayout* self, const QRectF* rect) {
+void QGraphicsGridLayout_SuperSetGeometry(QGraphicsGridLayout* self, const QRectF* rect) {
     auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
     if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
         vqgraphicsgridlayout->setQGraphicsGridLayout_SetGeometry_IsBase(true);
@@ -331,7 +331,7 @@ void QGraphicsGridLayout_OnSetGeometry(QGraphicsGridLayout* self, intptr_t slot)
 }
 
 // Base class handler implementation
-QSizeF* QGraphicsGridLayout_QBaseSizeHint(const QGraphicsGridLayout* self, int which, const QSizeF* constraint) {
+QSizeF* QGraphicsGridLayout_SuperSizeHint(const QGraphicsGridLayout* self, int which, const QSizeF* constraint) {
     auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self));
     if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
         vqgraphicsgridlayout->setQGraphicsGridLayout_SizeHint_IsBase(true);
@@ -360,7 +360,7 @@ void QGraphicsGridLayout_GetContentsMargins(const QGraphicsGridLayout* self, dou
 }
 
 // Base class handler implementation
-void QGraphicsGridLayout_QBaseGetContentsMargins(const QGraphicsGridLayout* self, double* left, double* top, double* right, double* bottom) {
+void QGraphicsGridLayout_SuperGetContentsMargins(const QGraphicsGridLayout* self, double* left, double* top, double* right, double* bottom) {
     auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self));
     if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
         vqgraphicsgridlayout->setQGraphicsGridLayout_GetContentsMargins_IsBase(true);
@@ -389,7 +389,7 @@ void QGraphicsGridLayout_UpdateGeometry(QGraphicsGridLayout* self) {
 }
 
 // Base class handler implementation
-void QGraphicsGridLayout_QBaseUpdateGeometry(QGraphicsGridLayout* self) {
+void QGraphicsGridLayout_SuperUpdateGeometry(QGraphicsGridLayout* self) {
     auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
     if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
         vqgraphicsgridlayout->setQGraphicsGridLayout_UpdateGeometry_IsBase(true);
@@ -418,7 +418,7 @@ void QGraphicsGridLayout_WidgetEvent(QGraphicsGridLayout* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void QGraphicsGridLayout_QBaseWidgetEvent(QGraphicsGridLayout* self, QEvent* e) {
+void QGraphicsGridLayout_SuperWidgetEvent(QGraphicsGridLayout* self, QEvent* e) {
     auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
     if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
         vqgraphicsgridlayout->setQGraphicsGridLayout_WidgetEvent_IsBase(true);
@@ -447,7 +447,7 @@ bool QGraphicsGridLayout_IsEmpty(const QGraphicsGridLayout* self) {
 }
 
 // Base class handler implementation
-bool QGraphicsGridLayout_QBaseIsEmpty(const QGraphicsGridLayout* self) {
+bool QGraphicsGridLayout_SuperIsEmpty(const QGraphicsGridLayout* self) {
     auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self));
     if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
         vqgraphicsgridlayout->setQGraphicsGridLayout_IsEmpty_IsBase(true);
@@ -476,7 +476,7 @@ void QGraphicsGridLayout_AddChildLayoutItem(QGraphicsGridLayout* self, QGraphics
 }
 
 // Base class handler implementation
-void QGraphicsGridLayout_QBaseAddChildLayoutItem(QGraphicsGridLayout* self, QGraphicsLayoutItem* layoutItem) {
+void QGraphicsGridLayout_SuperAddChildLayoutItem(QGraphicsGridLayout* self, QGraphicsLayoutItem* layoutItem) {
     auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
     if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
         vqgraphicsgridlayout->setQGraphicsGridLayout_AddChildLayoutItem_IsBase(true);
@@ -505,7 +505,7 @@ void QGraphicsGridLayout_SetGraphicsItem(QGraphicsGridLayout* self, QGraphicsIte
 }
 
 // Base class handler implementation
-void QGraphicsGridLayout_QBaseSetGraphicsItem(QGraphicsGridLayout* self, QGraphicsItem* item) {
+void QGraphicsGridLayout_SuperSetGraphicsItem(QGraphicsGridLayout* self, QGraphicsItem* item) {
     auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
     if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
         vqgraphicsgridlayout->setQGraphicsGridLayout_SetGraphicsItem_IsBase(true);
@@ -534,7 +534,7 @@ void QGraphicsGridLayout_SetOwnedByLayout(QGraphicsGridLayout* self, bool ownedB
 }
 
 // Base class handler implementation
-void QGraphicsGridLayout_QBaseSetOwnedByLayout(QGraphicsGridLayout* self, bool ownedByLayout) {
+void QGraphicsGridLayout_SuperSetOwnedByLayout(QGraphicsGridLayout* self, bool ownedByLayout) {
     auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
     if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
         vqgraphicsgridlayout->setQGraphicsGridLayout_SetOwnedByLayout_IsBase(true);

@@ -59,7 +59,7 @@ int QHorizontalPercentBarSeries_Type(const QHorizontalPercentBarSeries* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QHorizontalPercentBarSeries_QBaseMetaObject(const QHorizontalPercentBarSeries* self) {
+QMetaObject* QHorizontalPercentBarSeries_SuperMetaObject(const QHorizontalPercentBarSeries* self) {
     auto* vqhorizontalpercentbarseries = const_cast<VirtualQHorizontalPercentBarSeries*>(dynamic_cast<const VirtualQHorizontalPercentBarSeries*>(self));
     if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
         vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_MetaObject_IsBase(true);
@@ -78,7 +78,7 @@ void QHorizontalPercentBarSeries_OnMetaObject(const QHorizontalPercentBarSeries*
 }
 
 // Base class handler implementation
-void* QHorizontalPercentBarSeries_QBaseMetacast(QHorizontalPercentBarSeries* self, const char* param1) {
+void* QHorizontalPercentBarSeries_SuperMetacast(QHorizontalPercentBarSeries* self, const char* param1) {
     auto* vqhorizontalpercentbarseries = dynamic_cast<VirtualQHorizontalPercentBarSeries*>(self);
     if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
         vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_Metacast_IsBase(true);
@@ -97,7 +97,7 @@ void QHorizontalPercentBarSeries_OnMetacast(QHorizontalPercentBarSeries* self, i
 }
 
 // Base class handler implementation
-int QHorizontalPercentBarSeries_QBaseMetacall(QHorizontalPercentBarSeries* self, int param1, int param2, void** param3) {
+int QHorizontalPercentBarSeries_SuperMetacall(QHorizontalPercentBarSeries* self, int param1, int param2, void** param3) {
     auto* vqhorizontalpercentbarseries = dynamic_cast<VirtualQHorizontalPercentBarSeries*>(self);
     if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
         vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_Metacall_IsBase(true);
@@ -116,7 +116,7 @@ void QHorizontalPercentBarSeries_OnMetacall(QHorizontalPercentBarSeries* self, i
 }
 
 // Base class handler implementation
-int QHorizontalPercentBarSeries_QBaseType(const QHorizontalPercentBarSeries* self) {
+int QHorizontalPercentBarSeries_SuperType(const QHorizontalPercentBarSeries* self) {
     auto* vqhorizontalpercentbarseries = const_cast<VirtualQHorizontalPercentBarSeries*>(dynamic_cast<const VirtualQHorizontalPercentBarSeries*>(self));
     if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
         vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_Type_IsBase(true);
@@ -145,7 +145,7 @@ bool QHorizontalPercentBarSeries_Event(QHorizontalPercentBarSeries* self, QEvent
 }
 
 // Base class handler implementation
-bool QHorizontalPercentBarSeries_QBaseEvent(QHorizontalPercentBarSeries* self, QEvent* event) {
+bool QHorizontalPercentBarSeries_SuperEvent(QHorizontalPercentBarSeries* self, QEvent* event) {
     auto* vqhorizontalpercentbarseries = dynamic_cast<VirtualQHorizontalPercentBarSeries*>(self);
     if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
         vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_Event_IsBase(true);
@@ -174,7 +174,7 @@ bool QHorizontalPercentBarSeries_EventFilter(QHorizontalPercentBarSeries* self, 
 }
 
 // Base class handler implementation
-bool QHorizontalPercentBarSeries_QBaseEventFilter(QHorizontalPercentBarSeries* self, QObject* watched, QEvent* event) {
+bool QHorizontalPercentBarSeries_SuperEventFilter(QHorizontalPercentBarSeries* self, QObject* watched, QEvent* event) {
     auto* vqhorizontalpercentbarseries = dynamic_cast<VirtualQHorizontalPercentBarSeries*>(self);
     if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
         vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_EventFilter_IsBase(true);
@@ -203,7 +203,7 @@ void QHorizontalPercentBarSeries_TimerEvent(QHorizontalPercentBarSeries* self, Q
 }
 
 // Base class handler implementation
-void QHorizontalPercentBarSeries_QBaseTimerEvent(QHorizontalPercentBarSeries* self, QTimerEvent* event) {
+void QHorizontalPercentBarSeries_SuperTimerEvent(QHorizontalPercentBarSeries* self, QTimerEvent* event) {
     auto* vqhorizontalpercentbarseries = dynamic_cast<VirtualQHorizontalPercentBarSeries*>(self);
     if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
         vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_TimerEvent_IsBase(true);
@@ -232,7 +232,7 @@ void QHorizontalPercentBarSeries_ChildEvent(QHorizontalPercentBarSeries* self, Q
 }
 
 // Base class handler implementation
-void QHorizontalPercentBarSeries_QBaseChildEvent(QHorizontalPercentBarSeries* self, QChildEvent* event) {
+void QHorizontalPercentBarSeries_SuperChildEvent(QHorizontalPercentBarSeries* self, QChildEvent* event) {
     auto* vqhorizontalpercentbarseries = dynamic_cast<VirtualQHorizontalPercentBarSeries*>(self);
     if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
         vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_ChildEvent_IsBase(true);
@@ -261,7 +261,7 @@ void QHorizontalPercentBarSeries_CustomEvent(QHorizontalPercentBarSeries* self, 
 }
 
 // Base class handler implementation
-void QHorizontalPercentBarSeries_QBaseCustomEvent(QHorizontalPercentBarSeries* self, QEvent* event) {
+void QHorizontalPercentBarSeries_SuperCustomEvent(QHorizontalPercentBarSeries* self, QEvent* event) {
     auto* vqhorizontalpercentbarseries = dynamic_cast<VirtualQHorizontalPercentBarSeries*>(self);
     if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
         vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_CustomEvent_IsBase(true);
@@ -290,7 +290,7 @@ void QHorizontalPercentBarSeries_ConnectNotify(QHorizontalPercentBarSeries* self
 }
 
 // Base class handler implementation
-void QHorizontalPercentBarSeries_QBaseConnectNotify(QHorizontalPercentBarSeries* self, const QMetaMethod* signal) {
+void QHorizontalPercentBarSeries_SuperConnectNotify(QHorizontalPercentBarSeries* self, const QMetaMethod* signal) {
     auto* vqhorizontalpercentbarseries = dynamic_cast<VirtualQHorizontalPercentBarSeries*>(self);
     if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
         vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_ConnectNotify_IsBase(true);
@@ -319,7 +319,7 @@ void QHorizontalPercentBarSeries_DisconnectNotify(QHorizontalPercentBarSeries* s
 }
 
 // Base class handler implementation
-void QHorizontalPercentBarSeries_QBaseDisconnectNotify(QHorizontalPercentBarSeries* self, const QMetaMethod* signal) {
+void QHorizontalPercentBarSeries_SuperDisconnectNotify(QHorizontalPercentBarSeries* self, const QMetaMethod* signal) {
     auto* vqhorizontalpercentbarseries = dynamic_cast<VirtualQHorizontalPercentBarSeries*>(self);
     if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
         vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_DisconnectNotify_IsBase(true);
@@ -348,7 +348,7 @@ QObject* QHorizontalPercentBarSeries_Sender(const QHorizontalPercentBarSeries* s
 }
 
 // Base class handler implementation
-QObject* QHorizontalPercentBarSeries_QBaseSender(const QHorizontalPercentBarSeries* self) {
+QObject* QHorizontalPercentBarSeries_SuperSender(const QHorizontalPercentBarSeries* self) {
     auto* vqhorizontalpercentbarseries = const_cast<VirtualQHorizontalPercentBarSeries*>(dynamic_cast<const VirtualQHorizontalPercentBarSeries*>(self));
     if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
         vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_Sender_IsBase(true);
@@ -377,7 +377,7 @@ int QHorizontalPercentBarSeries_SenderSignalIndex(const QHorizontalPercentBarSer
 }
 
 // Base class handler implementation
-int QHorizontalPercentBarSeries_QBaseSenderSignalIndex(const QHorizontalPercentBarSeries* self) {
+int QHorizontalPercentBarSeries_SuperSenderSignalIndex(const QHorizontalPercentBarSeries* self) {
     auto* vqhorizontalpercentbarseries = const_cast<VirtualQHorizontalPercentBarSeries*>(dynamic_cast<const VirtualQHorizontalPercentBarSeries*>(self));
     if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
         vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_SenderSignalIndex_IsBase(true);
@@ -406,7 +406,7 @@ int QHorizontalPercentBarSeries_Receivers(const QHorizontalPercentBarSeries* sel
 }
 
 // Base class handler implementation
-int QHorizontalPercentBarSeries_QBaseReceivers(const QHorizontalPercentBarSeries* self, const char* signal) {
+int QHorizontalPercentBarSeries_SuperReceivers(const QHorizontalPercentBarSeries* self, const char* signal) {
     auto* vqhorizontalpercentbarseries = const_cast<VirtualQHorizontalPercentBarSeries*>(dynamic_cast<const VirtualQHorizontalPercentBarSeries*>(self));
     if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
         vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_Receivers_IsBase(true);
@@ -435,7 +435,7 @@ bool QHorizontalPercentBarSeries_IsSignalConnected(const QHorizontalPercentBarSe
 }
 
 // Base class handler implementation
-bool QHorizontalPercentBarSeries_QBaseIsSignalConnected(const QHorizontalPercentBarSeries* self, const QMetaMethod* signal) {
+bool QHorizontalPercentBarSeries_SuperIsSignalConnected(const QHorizontalPercentBarSeries* self, const QMetaMethod* signal) {
     auto* vqhorizontalpercentbarseries = const_cast<VirtualQHorizontalPercentBarSeries*>(dynamic_cast<const VirtualQHorizontalPercentBarSeries*>(self));
     if (vqhorizontalpercentbarseries && vqhorizontalpercentbarseries->isVirtualQHorizontalPercentBarSeries) {
         vqhorizontalpercentbarseries->setQHorizontalPercentBarSeries_IsSignalConnected_IsBase(true);

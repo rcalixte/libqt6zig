@@ -146,6 +146,10 @@ pub const qmessagelogcontext = struct {
         qtc.QMessageLogContext_SetCategory(@ptrCast(self), category_Cstring);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessagelogcontext.html#dtor.QMessageLogContext)
     ///
     /// Delete this object from C++ memory.
@@ -154,7 +158,7 @@ pub const qmessagelogcontext = struct {
     ///
     /// ` self: QtC.QMessageLogContext `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMessageLogContext_Delete(@ptrCast(self));
     }
 };
@@ -324,6 +328,10 @@ pub const qmessagelogger = struct {
         return qtc.QMessageLogger_NoDebug(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessagelogger.html#dtor.QMessageLogger)
     ///
     /// Delete this object from C++ memory.
@@ -332,7 +340,7 @@ pub const qmessagelogger = struct {
     ///
     /// ` self: QtC.QMessageLogger `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMessageLogger_Delete(@ptrCast(self));
     }
 };

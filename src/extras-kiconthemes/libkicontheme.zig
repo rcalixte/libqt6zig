@@ -608,6 +608,10 @@ pub const kicontheme = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kicontheme.html#dtor.KIconTheme)
     ///
     /// Delete this object from C++ memory.
@@ -616,7 +620,7 @@ pub const kicontheme = struct {
     ///
     /// ` self: QtC.KIconTheme `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KIconTheme_Delete(@ptrCast(self));
     }
 };

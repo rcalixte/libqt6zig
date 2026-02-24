@@ -181,7 +181,7 @@ void QSystemTrayIcon_ShowMessage42(QSystemTrayIcon* self, const libqt_string tit
 }
 
 // Base class handler implementation
-QMetaObject* QSystemTrayIcon_QBaseMetaObject(const QSystemTrayIcon* self) {
+QMetaObject* QSystemTrayIcon_SuperMetaObject(const QSystemTrayIcon* self) {
     auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
     if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
         vqsystemtrayicon->setQSystemTrayIcon_MetaObject_IsBase(true);
@@ -200,7 +200,7 @@ void QSystemTrayIcon_OnMetaObject(const QSystemTrayIcon* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QSystemTrayIcon_QBaseMetacast(QSystemTrayIcon* self, const char* param1) {
+void* QSystemTrayIcon_SuperMetacast(QSystemTrayIcon* self, const char* param1) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
     if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
         vqsystemtrayicon->setQSystemTrayIcon_Metacast_IsBase(true);
@@ -219,7 +219,7 @@ void QSystemTrayIcon_OnMetacast(QSystemTrayIcon* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSystemTrayIcon_QBaseMetacall(QSystemTrayIcon* self, int param1, int param2, void** param3) {
+int QSystemTrayIcon_SuperMetacall(QSystemTrayIcon* self, int param1, int param2, void** param3) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
     if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
         vqsystemtrayicon->setQSystemTrayIcon_Metacall_IsBase(true);
@@ -238,7 +238,7 @@ void QSystemTrayIcon_OnMetacall(QSystemTrayIcon* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSystemTrayIcon_QBaseEvent(QSystemTrayIcon* self, QEvent* event) {
+bool QSystemTrayIcon_SuperEvent(QSystemTrayIcon* self, QEvent* event) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
     if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
         vqsystemtrayicon->setQSystemTrayIcon_Event_IsBase(true);
@@ -267,7 +267,7 @@ bool QSystemTrayIcon_EventFilter(QSystemTrayIcon* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool QSystemTrayIcon_QBaseEventFilter(QSystemTrayIcon* self, QObject* watched, QEvent* event) {
+bool QSystemTrayIcon_SuperEventFilter(QSystemTrayIcon* self, QObject* watched, QEvent* event) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
     if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
         vqsystemtrayicon->setQSystemTrayIcon_EventFilter_IsBase(true);
@@ -296,7 +296,7 @@ void QSystemTrayIcon_TimerEvent(QSystemTrayIcon* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QSystemTrayIcon_QBaseTimerEvent(QSystemTrayIcon* self, QTimerEvent* event) {
+void QSystemTrayIcon_SuperTimerEvent(QSystemTrayIcon* self, QTimerEvent* event) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
     if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
         vqsystemtrayicon->setQSystemTrayIcon_TimerEvent_IsBase(true);
@@ -325,7 +325,7 @@ void QSystemTrayIcon_ChildEvent(QSystemTrayIcon* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QSystemTrayIcon_QBaseChildEvent(QSystemTrayIcon* self, QChildEvent* event) {
+void QSystemTrayIcon_SuperChildEvent(QSystemTrayIcon* self, QChildEvent* event) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
     if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
         vqsystemtrayicon->setQSystemTrayIcon_ChildEvent_IsBase(true);
@@ -354,7 +354,7 @@ void QSystemTrayIcon_CustomEvent(QSystemTrayIcon* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSystemTrayIcon_QBaseCustomEvent(QSystemTrayIcon* self, QEvent* event) {
+void QSystemTrayIcon_SuperCustomEvent(QSystemTrayIcon* self, QEvent* event) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
     if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
         vqsystemtrayicon->setQSystemTrayIcon_CustomEvent_IsBase(true);
@@ -383,7 +383,7 @@ void QSystemTrayIcon_ConnectNotify(QSystemTrayIcon* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void QSystemTrayIcon_QBaseConnectNotify(QSystemTrayIcon* self, const QMetaMethod* signal) {
+void QSystemTrayIcon_SuperConnectNotify(QSystemTrayIcon* self, const QMetaMethod* signal) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
     if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
         vqsystemtrayicon->setQSystemTrayIcon_ConnectNotify_IsBase(true);
@@ -412,7 +412,7 @@ void QSystemTrayIcon_DisconnectNotify(QSystemTrayIcon* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void QSystemTrayIcon_QBaseDisconnectNotify(QSystemTrayIcon* self, const QMetaMethod* signal) {
+void QSystemTrayIcon_SuperDisconnectNotify(QSystemTrayIcon* self, const QMetaMethod* signal) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
     if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
         vqsystemtrayicon->setQSystemTrayIcon_DisconnectNotify_IsBase(true);
@@ -441,7 +441,7 @@ QObject* QSystemTrayIcon_Sender(const QSystemTrayIcon* self) {
 }
 
 // Base class handler implementation
-QObject* QSystemTrayIcon_QBaseSender(const QSystemTrayIcon* self) {
+QObject* QSystemTrayIcon_SuperSender(const QSystemTrayIcon* self) {
     auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
     if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
         vqsystemtrayicon->setQSystemTrayIcon_Sender_IsBase(true);
@@ -470,7 +470,7 @@ int QSystemTrayIcon_SenderSignalIndex(const QSystemTrayIcon* self) {
 }
 
 // Base class handler implementation
-int QSystemTrayIcon_QBaseSenderSignalIndex(const QSystemTrayIcon* self) {
+int QSystemTrayIcon_SuperSenderSignalIndex(const QSystemTrayIcon* self) {
     auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
     if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
         vqsystemtrayicon->setQSystemTrayIcon_SenderSignalIndex_IsBase(true);
@@ -499,7 +499,7 @@ int QSystemTrayIcon_Receivers(const QSystemTrayIcon* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QSystemTrayIcon_QBaseReceivers(const QSystemTrayIcon* self, const char* signal) {
+int QSystemTrayIcon_SuperReceivers(const QSystemTrayIcon* self, const char* signal) {
     auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
     if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
         vqsystemtrayicon->setQSystemTrayIcon_Receivers_IsBase(true);
@@ -528,7 +528,7 @@ bool QSystemTrayIcon_IsSignalConnected(const QSystemTrayIcon* self, const QMetaM
 }
 
 // Base class handler implementation
-bool QSystemTrayIcon_QBaseIsSignalConnected(const QSystemTrayIcon* self, const QMetaMethod* signal) {
+bool QSystemTrayIcon_SuperIsSignalConnected(const QSystemTrayIcon* self, const QMetaMethod* signal) {
     auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
     if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
         vqsystemtrayicon->setQSystemTrayIcon_IsSignalConnected_IsBase(true);

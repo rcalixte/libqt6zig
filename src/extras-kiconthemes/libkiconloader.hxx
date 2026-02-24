@@ -330,23 +330,23 @@ class VirtualKIconLoader final : public KIconLoader {
 
     // Friend functions
     friend void KIconLoader_TimerEvent(KIconLoader* self, QTimerEvent* event);
-    friend void KIconLoader_QBaseTimerEvent(KIconLoader* self, QTimerEvent* event);
+    friend void KIconLoader_SuperTimerEvent(KIconLoader* self, QTimerEvent* event);
     friend void KIconLoader_ChildEvent(KIconLoader* self, QChildEvent* event);
-    friend void KIconLoader_QBaseChildEvent(KIconLoader* self, QChildEvent* event);
+    friend void KIconLoader_SuperChildEvent(KIconLoader* self, QChildEvent* event);
     friend void KIconLoader_CustomEvent(KIconLoader* self, QEvent* event);
-    friend void KIconLoader_QBaseCustomEvent(KIconLoader* self, QEvent* event);
+    friend void KIconLoader_SuperCustomEvent(KIconLoader* self, QEvent* event);
     friend void KIconLoader_ConnectNotify(KIconLoader* self, const QMetaMethod* signal);
-    friend void KIconLoader_QBaseConnectNotify(KIconLoader* self, const QMetaMethod* signal);
+    friend void KIconLoader_SuperConnectNotify(KIconLoader* self, const QMetaMethod* signal);
     friend void KIconLoader_DisconnectNotify(KIconLoader* self, const QMetaMethod* signal);
-    friend void KIconLoader_QBaseDisconnectNotify(KIconLoader* self, const QMetaMethod* signal);
+    friend void KIconLoader_SuperDisconnectNotify(KIconLoader* self, const QMetaMethod* signal);
     friend QObject* KIconLoader_Sender(const KIconLoader* self);
-    friend QObject* KIconLoader_QBaseSender(const KIconLoader* self);
+    friend QObject* KIconLoader_SuperSender(const KIconLoader* self);
     friend int KIconLoader_SenderSignalIndex(const KIconLoader* self);
-    friend int KIconLoader_QBaseSenderSignalIndex(const KIconLoader* self);
+    friend int KIconLoader_SuperSenderSignalIndex(const KIconLoader* self);
     friend int KIconLoader_Receivers(const KIconLoader* self, const char* signal);
-    friend int KIconLoader_QBaseReceivers(const KIconLoader* self, const char* signal);
+    friend int KIconLoader_SuperReceivers(const KIconLoader* self, const char* signal);
     friend bool KIconLoader_IsSignalConnected(const KIconLoader* self, const QMetaMethod* signal);
-    friend bool KIconLoader_QBaseIsSignalConnected(const KIconLoader* self, const QMetaMethod* signal);
+    friend bool KIconLoader_SuperIsSignalConnected(const KIconLoader* self, const QMetaMethod* signal);
 };
 
 #endif

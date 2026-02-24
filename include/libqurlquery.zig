@@ -473,6 +473,10 @@ pub const qurlquery = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#dtor.QUrlQuery)
     ///
     /// Delete this object from C++ memory.
@@ -481,7 +485,7 @@ pub const qurlquery = struct {
     ///
     /// ` self: QtC.QUrlQuery `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QUrlQuery_Delete(@ptrCast(self));
     }
 };

@@ -607,6 +607,10 @@ pub const qaccessibletextinterface = struct {
         qtc.QAccessibleTextInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletextinterface.html#dtor.QAccessibleTextInterface)
     ///
     /// Delete this object from C++ memory.
@@ -615,7 +619,7 @@ pub const qaccessibletextinterface = struct {
     ///
     /// ` self: QtC.QAccessibleTextInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessibleTextInterface_Delete(@ptrCast(self));
     }
 };
@@ -686,6 +690,10 @@ pub const qaccessibleeditabletextinterface = struct {
         qtc.QAccessibleEditableTextInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleeditabletextinterface.html#dtor.QAccessibleEditableTextInterface)
     ///
     /// Delete this object from C++ memory.
@@ -694,7 +702,7 @@ pub const qaccessibleeditabletextinterface = struct {
     ///
     /// ` self: QtC.QAccessibleEditableTextInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessibleEditableTextInterface_Delete(@ptrCast(self));
     }
 };
@@ -765,6 +773,10 @@ pub const qaccessiblevalueinterface = struct {
         qtc.QAccessibleValueInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblevalueinterface.html#dtor.QAccessibleValueInterface)
     ///
     /// Delete this object from C++ memory.
@@ -773,7 +785,7 @@ pub const qaccessiblevalueinterface = struct {
     ///
     /// ` self: QtC.QAccessibleValueInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessibleValueInterface_Delete(@ptrCast(self));
     }
 };
@@ -886,6 +898,10 @@ pub const qaccessibletablecellinterface = struct {
         qtc.QAccessibleTableCellInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#dtor.QAccessibleTableCellInterface)
     ///
     /// Delete this object from C++ memory.
@@ -894,7 +910,7 @@ pub const qaccessibletablecellinterface = struct {
     ///
     /// ` self: QtC.QAccessibleTableCellInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessibleTableCellInterface_Delete(@ptrCast(self));
     }
 };
@@ -1156,6 +1172,10 @@ pub const qaccessibletableinterface = struct {
         qtc.QAccessibleTableInterface_ModelChange(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#dtor.QAccessibleTableInterface)
     ///
     /// Delete this object from C++ memory.
@@ -1164,7 +1184,7 @@ pub const qaccessibletableinterface = struct {
     ///
     /// ` self: QtC.QAccessibleTableInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessibleTableInterface_Delete(@ptrCast(self));
     }
 };
@@ -1530,6 +1550,10 @@ pub const qaccessibleactioninterface = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#dtor.QAccessibleActionInterface)
     ///
     /// Delete this object from C++ memory.
@@ -1538,7 +1562,7 @@ pub const qaccessibleactioninterface = struct {
     ///
     /// ` self: QtC.QAccessibleActionInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessibleActionInterface_Delete(@ptrCast(self));
     }
 };
@@ -1593,6 +1617,10 @@ pub const qaccessibleimageinterface = struct {
         qtc.QAccessibleImageInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleimageinterface.html#dtor.QAccessibleImageInterface)
     ///
     /// Delete this object from C++ memory.
@@ -1601,7 +1629,7 @@ pub const qaccessibleimageinterface = struct {
     ///
     /// ` self: QtC.QAccessibleImageInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessibleImageInterface_Delete(@ptrCast(self));
     }
 };
@@ -1682,6 +1710,10 @@ pub const qaccessiblehyperlinkinterface = struct {
         qtc.QAccessibleHyperlinkInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblehyperlinkinterface.html#dtor.QAccessibleHyperlinkInterface)
     ///
     /// Delete this object from C++ memory.
@@ -1690,7 +1722,7 @@ pub const qaccessiblehyperlinkinterface = struct {
     ///
     /// ` self: QtC.QAccessibleHyperlinkInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessibleHyperlinkInterface_Delete(@ptrCast(self));
     }
 };
@@ -1804,6 +1836,10 @@ pub const qaccessibleselectioninterface = struct {
         qtc.QAccessibleSelectionInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleselectioninterface.html#dtor.QAccessibleSelectionInterface)
     ///
     /// Delete this object from C++ memory.
@@ -1812,7 +1848,7 @@ pub const qaccessibleselectioninterface = struct {
     ///
     /// ` self: QtC.QAccessibleSelectionInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessibleSelectionInterface_Delete(@ptrCast(self));
     }
 };
@@ -1864,6 +1900,10 @@ pub const qaccessibleattributesinterface = struct {
         qtc.QAccessibleAttributesInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleattributesinterface.html#dtor.QAccessibleAttributesInterface)
     ///
     /// Delete this object from C++ memory.
@@ -1872,7 +1912,7 @@ pub const qaccessibleattributesinterface = struct {
     ///
     /// ` self: QtC.QAccessibleAttributesInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessibleAttributesInterface_Delete(@ptrCast(self));
     }
 };
@@ -1983,6 +2023,10 @@ pub const qaccessibleevent = struct {
         qtc.QAccessibleEvent_OnAccessibleInterface(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAccessibleInterface` instead
+    ///
+    pub const QBaseAccessibleInterface = SuperAccessibleInterface;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
     ///
     /// Base class method implementation
@@ -1991,9 +2035,12 @@ pub const qaccessibleevent = struct {
     ///
     /// ` self: QtC.QAccessibleEvent `
     ///
-    pub fn QBaseAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
-        return qtc.QAccessibleEvent_QBaseAccessibleInterface(@ptrCast(self));
+    pub fn SuperAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleEvent_SuperAccessibleInterface(@ptrCast(self));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleevent.html#dtor.QAccessibleEvent)
     ///
@@ -2003,7 +2050,7 @@ pub const qaccessibleevent = struct {
     ///
     /// ` self: QtC.QAccessibleEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessibleEvent_Delete(@ptrCast(self));
     }
 };
@@ -2124,6 +2171,10 @@ pub const qaccessiblestatechangeevent = struct {
         return qtc.QAccessibleStateChangeEvent_AccessibleInterface(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperAccessibleInterface` instead
+    ///
+    pub const QBaseAccessibleInterface = SuperAccessibleInterface;
+
     /// Inherited from QAccessibleEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
@@ -2134,8 +2185,8 @@ pub const qaccessiblestatechangeevent = struct {
     ///
     /// ` self: QtC.QAccessibleStateChangeEvent `
     ///
-    pub fn QBaseAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
-        return qtc.QAccessibleStateChangeEvent_QBaseAccessibleInterface(@ptrCast(self));
+    pub fn SuperAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleStateChangeEvent_SuperAccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
@@ -2153,6 +2204,9 @@ pub const qaccessiblestatechangeevent = struct {
     pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleStateChangeEvent_OnAccessibleInterface(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblestatechangeevent.html#dtor.QAccessibleStateChangeEvent)
     ///
@@ -2162,7 +2216,7 @@ pub const qaccessiblestatechangeevent = struct {
     ///
     /// ` self: QtC.QAccessibleStateChangeEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessibleStateChangeEvent_Delete(@ptrCast(self));
     }
 };
@@ -2295,6 +2349,10 @@ pub const qaccessibletextcursorevent = struct {
         return qtc.QAccessibleTextCursorEvent_AccessibleInterface(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperAccessibleInterface` instead
+    ///
+    pub const QBaseAccessibleInterface = SuperAccessibleInterface;
+
     /// Inherited from QAccessibleEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
@@ -2305,8 +2363,8 @@ pub const qaccessibletextcursorevent = struct {
     ///
     /// ` self: QtC.QAccessibleTextCursorEvent `
     ///
-    pub fn QBaseAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
-        return qtc.QAccessibleTextCursorEvent_QBaseAccessibleInterface(@ptrCast(self));
+    pub fn SuperAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleTextCursorEvent_SuperAccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
@@ -2324,6 +2382,9 @@ pub const qaccessibletextcursorevent = struct {
     pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleTextCursorEvent_OnAccessibleInterface(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletextcursorevent.html#dtor.QAccessibleTextCursorEvent)
     ///
@@ -2333,7 +2394,7 @@ pub const qaccessibletextcursorevent = struct {
     ///
     /// ` self: QtC.QAccessibleTextCursorEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessibleTextCursorEvent_Delete(@ptrCast(self));
     }
 };
@@ -2508,6 +2569,10 @@ pub const qaccessibletextselectionevent = struct {
         return qtc.QAccessibleTextSelectionEvent_AccessibleInterface(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperAccessibleInterface` instead
+    ///
+    pub const QBaseAccessibleInterface = SuperAccessibleInterface;
+
     /// Inherited from QAccessibleEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
@@ -2518,8 +2583,8 @@ pub const qaccessibletextselectionevent = struct {
     ///
     /// ` self: QtC.QAccessibleTextSelectionEvent `
     ///
-    pub fn QBaseAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
-        return qtc.QAccessibleTextSelectionEvent_QBaseAccessibleInterface(@ptrCast(self));
+    pub fn SuperAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleTextSelectionEvent_SuperAccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
@@ -2537,6 +2602,9 @@ pub const qaccessibletextselectionevent = struct {
     pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleTextSelectionEvent_OnAccessibleInterface(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletextselectionevent.html#dtor.QAccessibleTextSelectionEvent)
     ///
@@ -2546,7 +2614,7 @@ pub const qaccessibletextselectionevent = struct {
     ///
     /// ` self: QtC.QAccessibleTextSelectionEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessibleTextSelectionEvent_Delete(@ptrCast(self));
     }
 };
@@ -2723,6 +2791,10 @@ pub const qaccessibletextinsertevent = struct {
         return qtc.QAccessibleTextInsertEvent_AccessibleInterface(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperAccessibleInterface` instead
+    ///
+    pub const QBaseAccessibleInterface = SuperAccessibleInterface;
+
     /// Inherited from QAccessibleEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
@@ -2733,8 +2805,8 @@ pub const qaccessibletextinsertevent = struct {
     ///
     /// ` self: QtC.QAccessibleTextInsertEvent `
     ///
-    pub fn QBaseAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
-        return qtc.QAccessibleTextInsertEvent_QBaseAccessibleInterface(@ptrCast(self));
+    pub fn SuperAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleTextInsertEvent_SuperAccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
@@ -2752,6 +2824,9 @@ pub const qaccessibletextinsertevent = struct {
     pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleTextInsertEvent_OnAccessibleInterface(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletextinsertevent.html#dtor.QAccessibleTextInsertEvent)
     ///
@@ -2761,7 +2836,7 @@ pub const qaccessibletextinsertevent = struct {
     ///
     /// ` self: QtC.QAccessibleTextInsertEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessibleTextInsertEvent_Delete(@ptrCast(self));
     }
 };
@@ -2938,6 +3013,10 @@ pub const qaccessibletextremoveevent = struct {
         return qtc.QAccessibleTextRemoveEvent_AccessibleInterface(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperAccessibleInterface` instead
+    ///
+    pub const QBaseAccessibleInterface = SuperAccessibleInterface;
+
     /// Inherited from QAccessibleEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
@@ -2948,8 +3027,8 @@ pub const qaccessibletextremoveevent = struct {
     ///
     /// ` self: QtC.QAccessibleTextRemoveEvent `
     ///
-    pub fn QBaseAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
-        return qtc.QAccessibleTextRemoveEvent_QBaseAccessibleInterface(@ptrCast(self));
+    pub fn SuperAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleTextRemoveEvent_SuperAccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
@@ -2967,6 +3046,9 @@ pub const qaccessibletextremoveevent = struct {
     pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleTextRemoveEvent_OnAccessibleInterface(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletextremoveevent.html#dtor.QAccessibleTextRemoveEvent)
     ///
@@ -2976,7 +3058,7 @@ pub const qaccessibletextremoveevent = struct {
     ///
     /// ` self: QtC.QAccessibleTextRemoveEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessibleTextRemoveEvent_Delete(@ptrCast(self));
     }
 };
@@ -3181,6 +3263,10 @@ pub const qaccessibletextupdateevent = struct {
         return qtc.QAccessibleTextUpdateEvent_AccessibleInterface(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperAccessibleInterface` instead
+    ///
+    pub const QBaseAccessibleInterface = SuperAccessibleInterface;
+
     /// Inherited from QAccessibleEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
@@ -3191,8 +3277,8 @@ pub const qaccessibletextupdateevent = struct {
     ///
     /// ` self: QtC.QAccessibleTextUpdateEvent `
     ///
-    pub fn QBaseAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
-        return qtc.QAccessibleTextUpdateEvent_QBaseAccessibleInterface(@ptrCast(self));
+    pub fn SuperAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleTextUpdateEvent_SuperAccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
@@ -3210,6 +3296,9 @@ pub const qaccessibletextupdateevent = struct {
     pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleTextUpdateEvent_OnAccessibleInterface(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletextupdateevent.html#dtor.QAccessibleTextUpdateEvent)
     ///
@@ -3219,7 +3308,7 @@ pub const qaccessibletextupdateevent = struct {
     ///
     /// ` self: QtC.QAccessibleTextUpdateEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessibleTextUpdateEvent_Delete(@ptrCast(self));
     }
 };
@@ -3352,6 +3441,10 @@ pub const qaccessiblevaluechangeevent = struct {
         return qtc.QAccessibleValueChangeEvent_AccessibleInterface(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperAccessibleInterface` instead
+    ///
+    pub const QBaseAccessibleInterface = SuperAccessibleInterface;
+
     /// Inherited from QAccessibleEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
@@ -3362,8 +3455,8 @@ pub const qaccessiblevaluechangeevent = struct {
     ///
     /// ` self: QtC.QAccessibleValueChangeEvent `
     ///
-    pub fn QBaseAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
-        return qtc.QAccessibleValueChangeEvent_QBaseAccessibleInterface(@ptrCast(self));
+    pub fn SuperAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleValueChangeEvent_SuperAccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
@@ -3381,6 +3474,9 @@ pub const qaccessiblevaluechangeevent = struct {
     pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleValueChangeEvent_OnAccessibleInterface(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblevaluechangeevent.html#dtor.QAccessibleValueChangeEvent)
     ///
@@ -3390,7 +3486,7 @@ pub const qaccessiblevaluechangeevent = struct {
     ///
     /// ` self: QtC.QAccessibleValueChangeEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessibleValueChangeEvent_Delete(@ptrCast(self));
     }
 };
@@ -3615,6 +3711,10 @@ pub const qaccessibletablemodelchangeevent = struct {
         return qtc.QAccessibleTableModelChangeEvent_AccessibleInterface(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperAccessibleInterface` instead
+    ///
+    pub const QBaseAccessibleInterface = SuperAccessibleInterface;
+
     /// Inherited from QAccessibleEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
@@ -3625,8 +3725,8 @@ pub const qaccessibletablemodelchangeevent = struct {
     ///
     /// ` self: QtC.QAccessibleTableModelChangeEvent `
     ///
-    pub fn QBaseAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
-        return qtc.QAccessibleTableModelChangeEvent_QBaseAccessibleInterface(@ptrCast(self));
+    pub fn SuperAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleTableModelChangeEvent_SuperAccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
@@ -3644,6 +3744,9 @@ pub const qaccessibletablemodelchangeevent = struct {
     pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleTableModelChangeEvent_OnAccessibleInterface(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletablemodelchangeevent.html#dtor.QAccessibleTableModelChangeEvent)
     ///
@@ -3653,7 +3756,7 @@ pub const qaccessibletablemodelchangeevent = struct {
     ///
     /// ` self: QtC.QAccessibleTableModelChangeEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessibleTableModelChangeEvent_Delete(@ptrCast(self));
     }
 };
@@ -3816,6 +3919,10 @@ pub const qaccessibleannouncementevent = struct {
         return qtc.QAccessibleAnnouncementEvent_AccessibleInterface(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperAccessibleInterface` instead
+    ///
+    pub const QBaseAccessibleInterface = SuperAccessibleInterface;
+
     /// Inherited from QAccessibleEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
@@ -3826,8 +3933,8 @@ pub const qaccessibleannouncementevent = struct {
     ///
     /// ` self: QtC.QAccessibleAnnouncementEvent `
     ///
-    pub fn QBaseAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
-        return qtc.QAccessibleAnnouncementEvent_QBaseAccessibleInterface(@ptrCast(self));
+    pub fn SuperAccessibleInterface(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleAnnouncementEvent_SuperAccessibleInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleEvent
@@ -3845,6 +3952,9 @@ pub const qaccessibleannouncementevent = struct {
     pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
         qtc.QAccessibleAnnouncementEvent_OnAccessibleInterface(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleannouncementevent.html#dtor.QAccessibleAnnouncementEvent)
     ///
@@ -3854,7 +3964,7 @@ pub const qaccessibleannouncementevent = struct {
     ///
     /// ` self: QtC.QAccessibleAnnouncementEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessibleAnnouncementEvent_Delete(@ptrCast(self));
     }
 };

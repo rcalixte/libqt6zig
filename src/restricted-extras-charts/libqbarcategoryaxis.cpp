@@ -278,7 +278,7 @@ void QBarCategoryAxis_Connect_CountChanged(QBarCategoryAxis* self, intptr_t slot
 }
 
 // Base class handler implementation
-QMetaObject* QBarCategoryAxis_QBaseMetaObject(const QBarCategoryAxis* self) {
+QMetaObject* QBarCategoryAxis_SuperMetaObject(const QBarCategoryAxis* self) {
     auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self));
     if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
         vqbarcategoryaxis->setQBarCategoryAxis_MetaObject_IsBase(true);
@@ -297,7 +297,7 @@ void QBarCategoryAxis_OnMetaObject(const QBarCategoryAxis* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* QBarCategoryAxis_QBaseMetacast(QBarCategoryAxis* self, const char* param1) {
+void* QBarCategoryAxis_SuperMetacast(QBarCategoryAxis* self, const char* param1) {
     auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
     if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
         vqbarcategoryaxis->setQBarCategoryAxis_Metacast_IsBase(true);
@@ -316,7 +316,7 @@ void QBarCategoryAxis_OnMetacast(QBarCategoryAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QBarCategoryAxis_QBaseMetacall(QBarCategoryAxis* self, int param1, int param2, void** param3) {
+int QBarCategoryAxis_SuperMetacall(QBarCategoryAxis* self, int param1, int param2, void** param3) {
     auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
     if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
         vqbarcategoryaxis->setQBarCategoryAxis_Metacall_IsBase(true);
@@ -335,7 +335,7 @@ void QBarCategoryAxis_OnMetacall(QBarCategoryAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QBarCategoryAxis_QBaseType(const QBarCategoryAxis* self) {
+int QBarCategoryAxis_SuperType(const QBarCategoryAxis* self) {
     auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self));
     if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
         vqbarcategoryaxis->setQBarCategoryAxis_Type_IsBase(true);
@@ -364,7 +364,7 @@ bool QBarCategoryAxis_Event(QBarCategoryAxis* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QBarCategoryAxis_QBaseEvent(QBarCategoryAxis* self, QEvent* event) {
+bool QBarCategoryAxis_SuperEvent(QBarCategoryAxis* self, QEvent* event) {
     auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
     if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
         vqbarcategoryaxis->setQBarCategoryAxis_Event_IsBase(true);
@@ -393,7 +393,7 @@ bool QBarCategoryAxis_EventFilter(QBarCategoryAxis* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool QBarCategoryAxis_QBaseEventFilter(QBarCategoryAxis* self, QObject* watched, QEvent* event) {
+bool QBarCategoryAxis_SuperEventFilter(QBarCategoryAxis* self, QObject* watched, QEvent* event) {
     auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
     if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
         vqbarcategoryaxis->setQBarCategoryAxis_EventFilter_IsBase(true);
@@ -422,7 +422,7 @@ void QBarCategoryAxis_TimerEvent(QBarCategoryAxis* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QBarCategoryAxis_QBaseTimerEvent(QBarCategoryAxis* self, QTimerEvent* event) {
+void QBarCategoryAxis_SuperTimerEvent(QBarCategoryAxis* self, QTimerEvent* event) {
     auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
     if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
         vqbarcategoryaxis->setQBarCategoryAxis_TimerEvent_IsBase(true);
@@ -451,7 +451,7 @@ void QBarCategoryAxis_ChildEvent(QBarCategoryAxis* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QBarCategoryAxis_QBaseChildEvent(QBarCategoryAxis* self, QChildEvent* event) {
+void QBarCategoryAxis_SuperChildEvent(QBarCategoryAxis* self, QChildEvent* event) {
     auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
     if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
         vqbarcategoryaxis->setQBarCategoryAxis_ChildEvent_IsBase(true);
@@ -480,7 +480,7 @@ void QBarCategoryAxis_CustomEvent(QBarCategoryAxis* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QBarCategoryAxis_QBaseCustomEvent(QBarCategoryAxis* self, QEvent* event) {
+void QBarCategoryAxis_SuperCustomEvent(QBarCategoryAxis* self, QEvent* event) {
     auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
     if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
         vqbarcategoryaxis->setQBarCategoryAxis_CustomEvent_IsBase(true);
@@ -509,7 +509,7 @@ void QBarCategoryAxis_ConnectNotify(QBarCategoryAxis* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void QBarCategoryAxis_QBaseConnectNotify(QBarCategoryAxis* self, const QMetaMethod* signal) {
+void QBarCategoryAxis_SuperConnectNotify(QBarCategoryAxis* self, const QMetaMethod* signal) {
     auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
     if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
         vqbarcategoryaxis->setQBarCategoryAxis_ConnectNotify_IsBase(true);
@@ -538,7 +538,7 @@ void QBarCategoryAxis_DisconnectNotify(QBarCategoryAxis* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void QBarCategoryAxis_QBaseDisconnectNotify(QBarCategoryAxis* self, const QMetaMethod* signal) {
+void QBarCategoryAxis_SuperDisconnectNotify(QBarCategoryAxis* self, const QMetaMethod* signal) {
     auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
     if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
         vqbarcategoryaxis->setQBarCategoryAxis_DisconnectNotify_IsBase(true);
@@ -567,7 +567,7 @@ QObject* QBarCategoryAxis_Sender(const QBarCategoryAxis* self) {
 }
 
 // Base class handler implementation
-QObject* QBarCategoryAxis_QBaseSender(const QBarCategoryAxis* self) {
+QObject* QBarCategoryAxis_SuperSender(const QBarCategoryAxis* self) {
     auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self));
     if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
         vqbarcategoryaxis->setQBarCategoryAxis_Sender_IsBase(true);
@@ -596,7 +596,7 @@ int QBarCategoryAxis_SenderSignalIndex(const QBarCategoryAxis* self) {
 }
 
 // Base class handler implementation
-int QBarCategoryAxis_QBaseSenderSignalIndex(const QBarCategoryAxis* self) {
+int QBarCategoryAxis_SuperSenderSignalIndex(const QBarCategoryAxis* self) {
     auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self));
     if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
         vqbarcategoryaxis->setQBarCategoryAxis_SenderSignalIndex_IsBase(true);
@@ -625,7 +625,7 @@ int QBarCategoryAxis_Receivers(const QBarCategoryAxis* self, const char* signal)
 }
 
 // Base class handler implementation
-int QBarCategoryAxis_QBaseReceivers(const QBarCategoryAxis* self, const char* signal) {
+int QBarCategoryAxis_SuperReceivers(const QBarCategoryAxis* self, const char* signal) {
     auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self));
     if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
         vqbarcategoryaxis->setQBarCategoryAxis_Receivers_IsBase(true);
@@ -654,7 +654,7 @@ bool QBarCategoryAxis_IsSignalConnected(const QBarCategoryAxis* self, const QMet
 }
 
 // Base class handler implementation
-bool QBarCategoryAxis_QBaseIsSignalConnected(const QBarCategoryAxis* self, const QMetaMethod* signal) {
+bool QBarCategoryAxis_SuperIsSignalConnected(const QBarCategoryAxis* self, const QMetaMethod* signal) {
     auto* vqbarcategoryaxis = const_cast<VirtualQBarCategoryAxis*>(dynamic_cast<const VirtualQBarCategoryAxis*>(self));
     if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
         vqbarcategoryaxis->setQBarCategoryAxis_IsSignalConnected_IsBase(true);

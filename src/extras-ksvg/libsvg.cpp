@@ -324,7 +324,7 @@ void KSvg__Svg_Paint6(KSvg__Svg* self, QPainter* painter, int x, int y, int widt
 }
 
 // Base class handler implementation
-QMetaObject* KSvg__Svg_QBaseMetaObject(const KSvg__Svg* self) {
+QMetaObject* KSvg__Svg_SuperMetaObject(const KSvg__Svg* self) {
     auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self));
     if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
         vksvgsvg->setKSvg__Svg_MetaObject_IsBase(true);
@@ -343,7 +343,7 @@ void KSvg__Svg_OnMetaObject(const KSvg__Svg* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KSvg__Svg_QBaseMetacast(KSvg__Svg* self, const char* param1) {
+void* KSvg__Svg_SuperMetacast(KSvg__Svg* self, const char* param1) {
     auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
     if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
         vksvgsvg->setKSvg__Svg_Metacast_IsBase(true);
@@ -362,7 +362,7 @@ void KSvg__Svg_OnMetacast(KSvg__Svg* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KSvg__Svg_QBaseMetacall(KSvg__Svg* self, int param1, int param2, void** param3) {
+int KSvg__Svg_SuperMetacall(KSvg__Svg* self, int param1, int param2, void** param3) {
     auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
     if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
         vksvgsvg->setKSvg__Svg_Metacall_IsBase(true);
@@ -381,7 +381,7 @@ void KSvg__Svg_OnMetacall(KSvg__Svg* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KSvg__Svg_QBaseSetImagePath(KSvg__Svg* self, const libqt_string svgFilePath) {
+void KSvg__Svg_SuperSetImagePath(KSvg__Svg* self, const libqt_string svgFilePath) {
     auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
     QString svgFilePath_QString = QString::fromUtf8(svgFilePath.data, svgFilePath.len);
     if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
@@ -411,7 +411,7 @@ bool KSvg__Svg_Event(KSvg__Svg* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KSvg__Svg_QBaseEvent(KSvg__Svg* self, QEvent* event) {
+bool KSvg__Svg_SuperEvent(KSvg__Svg* self, QEvent* event) {
     auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
     if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
         vksvgsvg->setKSvg__Svg_Event_IsBase(true);
@@ -440,7 +440,7 @@ void KSvg__Svg_TimerEvent(KSvg__Svg* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KSvg__Svg_QBaseTimerEvent(KSvg__Svg* self, QTimerEvent* event) {
+void KSvg__Svg_SuperTimerEvent(KSvg__Svg* self, QTimerEvent* event) {
     auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
     if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
         vksvgsvg->setKSvg__Svg_TimerEvent_IsBase(true);
@@ -469,7 +469,7 @@ void KSvg__Svg_ChildEvent(KSvg__Svg* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KSvg__Svg_QBaseChildEvent(KSvg__Svg* self, QChildEvent* event) {
+void KSvg__Svg_SuperChildEvent(KSvg__Svg* self, QChildEvent* event) {
     auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
     if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
         vksvgsvg->setKSvg__Svg_ChildEvent_IsBase(true);
@@ -498,7 +498,7 @@ void KSvg__Svg_CustomEvent(KSvg__Svg* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KSvg__Svg_QBaseCustomEvent(KSvg__Svg* self, QEvent* event) {
+void KSvg__Svg_SuperCustomEvent(KSvg__Svg* self, QEvent* event) {
     auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
     if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
         vksvgsvg->setKSvg__Svg_CustomEvent_IsBase(true);
@@ -527,7 +527,7 @@ void KSvg__Svg_ConnectNotify(KSvg__Svg* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KSvg__Svg_QBaseConnectNotify(KSvg__Svg* self, const QMetaMethod* signal) {
+void KSvg__Svg_SuperConnectNotify(KSvg__Svg* self, const QMetaMethod* signal) {
     auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
     if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
         vksvgsvg->setKSvg__Svg_ConnectNotify_IsBase(true);
@@ -556,7 +556,7 @@ void KSvg__Svg_DisconnectNotify(KSvg__Svg* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KSvg__Svg_QBaseDisconnectNotify(KSvg__Svg* self, const QMetaMethod* signal) {
+void KSvg__Svg_SuperDisconnectNotify(KSvg__Svg* self, const QMetaMethod* signal) {
     auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
     if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
         vksvgsvg->setKSvg__Svg_DisconnectNotify_IsBase(true);
@@ -585,7 +585,7 @@ QObject* KSvg__Svg_Sender(const KSvg__Svg* self) {
 }
 
 // Base class handler implementation
-QObject* KSvg__Svg_QBaseSender(const KSvg__Svg* self) {
+QObject* KSvg__Svg_SuperSender(const KSvg__Svg* self) {
     auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self));
     if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
         vksvgsvg->setKSvg__Svg_Sender_IsBase(true);
@@ -614,7 +614,7 @@ int KSvg__Svg_SenderSignalIndex(const KSvg__Svg* self) {
 }
 
 // Base class handler implementation
-int KSvg__Svg_QBaseSenderSignalIndex(const KSvg__Svg* self) {
+int KSvg__Svg_SuperSenderSignalIndex(const KSvg__Svg* self) {
     auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self));
     if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
         vksvgsvg->setKSvg__Svg_SenderSignalIndex_IsBase(true);
@@ -643,7 +643,7 @@ int KSvg__Svg_Receivers(const KSvg__Svg* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KSvg__Svg_QBaseReceivers(const KSvg__Svg* self, const char* signal) {
+int KSvg__Svg_SuperReceivers(const KSvg__Svg* self, const char* signal) {
     auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self));
     if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
         vksvgsvg->setKSvg__Svg_Receivers_IsBase(true);
@@ -672,7 +672,7 @@ bool KSvg__Svg_IsSignalConnected(const KSvg__Svg* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool KSvg__Svg_QBaseIsSignalConnected(const KSvg__Svg* self, const QMetaMethod* signal) {
+bool KSvg__Svg_SuperIsSignalConnected(const KSvg__Svg* self, const QMetaMethod* signal) {
     auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self));
     if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
         vksvgsvg->setKSvg__Svg_IsSignalConnected_IsBase(true);

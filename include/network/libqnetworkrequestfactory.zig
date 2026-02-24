@@ -459,6 +459,10 @@ pub const qnetworkrequestfactory = struct {
         qtc.QNetworkRequestFactory_ClearAttributes(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequestfactory.html#dtor.QNetworkRequestFactory)
     ///
     /// Delete this object from C++ memory.
@@ -467,7 +471,7 @@ pub const qnetworkrequestfactory = struct {
     ///
     /// ` self: QtC.QNetworkRequestFactory `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QNetworkRequestFactory_Delete(@ptrCast(self));
     }
 };

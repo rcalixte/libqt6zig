@@ -136,7 +136,7 @@ void KToolTipWidget_PaintEvent(KToolTipWidget* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-QMetaObject* KToolTipWidget_QBaseMetaObject(const KToolTipWidget* self) {
+QMetaObject* KToolTipWidget_SuperMetaObject(const KToolTipWidget* self) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_MetaObject_IsBase(true);
@@ -155,7 +155,7 @@ void KToolTipWidget_OnMetaObject(const KToolTipWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KToolTipWidget_QBaseMetacast(KToolTipWidget* self, const char* param1) {
+void* KToolTipWidget_SuperMetacast(KToolTipWidget* self, const char* param1) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_Metacast_IsBase(true);
@@ -174,7 +174,7 @@ void KToolTipWidget_OnMetacast(KToolTipWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KToolTipWidget_QBaseMetacall(KToolTipWidget* self, int param1, int param2, void** param3) {
+int KToolTipWidget_SuperMetacall(KToolTipWidget* self, int param1, int param2, void** param3) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_Metacall_IsBase(true);
@@ -193,7 +193,7 @@ void KToolTipWidget_OnMetacall(KToolTipWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseEnterEvent(KToolTipWidget* self, QEnterEvent* event) {
+void KToolTipWidget_SuperEnterEvent(KToolTipWidget* self, QEnterEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_EnterEvent_IsBase(true);
@@ -212,7 +212,7 @@ void KToolTipWidget_OnEnterEvent(KToolTipWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseHideEvent(KToolTipWidget* self, QHideEvent* param1) {
+void KToolTipWidget_SuperHideEvent(KToolTipWidget* self, QHideEvent* param1) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_HideEvent_IsBase(true);
@@ -231,7 +231,7 @@ void KToolTipWidget_OnHideEvent(KToolTipWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseLeaveEvent(KToolTipWidget* self, QEvent* param1) {
+void KToolTipWidget_SuperLeaveEvent(KToolTipWidget* self, QEvent* param1) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_LeaveEvent_IsBase(true);
@@ -250,7 +250,7 @@ void KToolTipWidget_OnLeaveEvent(KToolTipWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBasePaintEvent(KToolTipWidget* self, QPaintEvent* event) {
+void KToolTipWidget_SuperPaintEvent(KToolTipWidget* self, QPaintEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_PaintEvent_IsBase(true);
@@ -279,7 +279,7 @@ int KToolTipWidget_DevType(const KToolTipWidget* self) {
 }
 
 // Base class handler implementation
-int KToolTipWidget_QBaseDevType(const KToolTipWidget* self) {
+int KToolTipWidget_SuperDevType(const KToolTipWidget* self) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_DevType_IsBase(true);
@@ -308,7 +308,7 @@ void KToolTipWidget_SetVisible(KToolTipWidget* self, bool visible) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseSetVisible(KToolTipWidget* self, bool visible) {
+void KToolTipWidget_SuperSetVisible(KToolTipWidget* self, bool visible) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_SetVisible_IsBase(true);
@@ -337,7 +337,7 @@ QSize* KToolTipWidget_SizeHint(const KToolTipWidget* self) {
 }
 
 // Base class handler implementation
-QSize* KToolTipWidget_QBaseSizeHint(const KToolTipWidget* self) {
+QSize* KToolTipWidget_SuperSizeHint(const KToolTipWidget* self) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_SizeHint_IsBase(true);
@@ -366,7 +366,7 @@ QSize* KToolTipWidget_MinimumSizeHint(const KToolTipWidget* self) {
 }
 
 // Base class handler implementation
-QSize* KToolTipWidget_QBaseMinimumSizeHint(const KToolTipWidget* self) {
+QSize* KToolTipWidget_SuperMinimumSizeHint(const KToolTipWidget* self) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_MinimumSizeHint_IsBase(true);
@@ -395,7 +395,7 @@ int KToolTipWidget_HeightForWidth(const KToolTipWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int KToolTipWidget_QBaseHeightForWidth(const KToolTipWidget* self, int param1) {
+int KToolTipWidget_SuperHeightForWidth(const KToolTipWidget* self, int param1) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_HeightForWidth_IsBase(true);
@@ -424,7 +424,7 @@ bool KToolTipWidget_HasHeightForWidth(const KToolTipWidget* self) {
 }
 
 // Base class handler implementation
-bool KToolTipWidget_QBaseHasHeightForWidth(const KToolTipWidget* self) {
+bool KToolTipWidget_SuperHasHeightForWidth(const KToolTipWidget* self) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_HasHeightForWidth_IsBase(true);
@@ -453,7 +453,7 @@ QPaintEngine* KToolTipWidget_PaintEngine(const KToolTipWidget* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KToolTipWidget_QBasePaintEngine(const KToolTipWidget* self) {
+QPaintEngine* KToolTipWidget_SuperPaintEngine(const KToolTipWidget* self) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_PaintEngine_IsBase(true);
@@ -482,7 +482,7 @@ bool KToolTipWidget_Event(KToolTipWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KToolTipWidget_QBaseEvent(KToolTipWidget* self, QEvent* event) {
+bool KToolTipWidget_SuperEvent(KToolTipWidget* self, QEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_Event_IsBase(true);
@@ -511,7 +511,7 @@ void KToolTipWidget_MousePressEvent(KToolTipWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseMousePressEvent(KToolTipWidget* self, QMouseEvent* event) {
+void KToolTipWidget_SuperMousePressEvent(KToolTipWidget* self, QMouseEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_MousePressEvent_IsBase(true);
@@ -540,7 +540,7 @@ void KToolTipWidget_MouseReleaseEvent(KToolTipWidget* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseMouseReleaseEvent(KToolTipWidget* self, QMouseEvent* event) {
+void KToolTipWidget_SuperMouseReleaseEvent(KToolTipWidget* self, QMouseEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_MouseReleaseEvent_IsBase(true);
@@ -569,7 +569,7 @@ void KToolTipWidget_MouseDoubleClickEvent(KToolTipWidget* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseMouseDoubleClickEvent(KToolTipWidget* self, QMouseEvent* event) {
+void KToolTipWidget_SuperMouseDoubleClickEvent(KToolTipWidget* self, QMouseEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_MouseDoubleClickEvent_IsBase(true);
@@ -598,7 +598,7 @@ void KToolTipWidget_MouseMoveEvent(KToolTipWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseMouseMoveEvent(KToolTipWidget* self, QMouseEvent* event) {
+void KToolTipWidget_SuperMouseMoveEvent(KToolTipWidget* self, QMouseEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_MouseMoveEvent_IsBase(true);
@@ -627,7 +627,7 @@ void KToolTipWidget_WheelEvent(KToolTipWidget* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseWheelEvent(KToolTipWidget* self, QWheelEvent* event) {
+void KToolTipWidget_SuperWheelEvent(KToolTipWidget* self, QWheelEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_WheelEvent_IsBase(true);
@@ -656,7 +656,7 @@ void KToolTipWidget_KeyPressEvent(KToolTipWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseKeyPressEvent(KToolTipWidget* self, QKeyEvent* event) {
+void KToolTipWidget_SuperKeyPressEvent(KToolTipWidget* self, QKeyEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_KeyPressEvent_IsBase(true);
@@ -685,7 +685,7 @@ void KToolTipWidget_KeyReleaseEvent(KToolTipWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseKeyReleaseEvent(KToolTipWidget* self, QKeyEvent* event) {
+void KToolTipWidget_SuperKeyReleaseEvent(KToolTipWidget* self, QKeyEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_KeyReleaseEvent_IsBase(true);
@@ -714,7 +714,7 @@ void KToolTipWidget_FocusInEvent(KToolTipWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseFocusInEvent(KToolTipWidget* self, QFocusEvent* event) {
+void KToolTipWidget_SuperFocusInEvent(KToolTipWidget* self, QFocusEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_FocusInEvent_IsBase(true);
@@ -743,7 +743,7 @@ void KToolTipWidget_FocusOutEvent(KToolTipWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseFocusOutEvent(KToolTipWidget* self, QFocusEvent* event) {
+void KToolTipWidget_SuperFocusOutEvent(KToolTipWidget* self, QFocusEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_FocusOutEvent_IsBase(true);
@@ -772,7 +772,7 @@ void KToolTipWidget_MoveEvent(KToolTipWidget* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseMoveEvent(KToolTipWidget* self, QMoveEvent* event) {
+void KToolTipWidget_SuperMoveEvent(KToolTipWidget* self, QMoveEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_MoveEvent_IsBase(true);
@@ -801,7 +801,7 @@ void KToolTipWidget_ResizeEvent(KToolTipWidget* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseResizeEvent(KToolTipWidget* self, QResizeEvent* event) {
+void KToolTipWidget_SuperResizeEvent(KToolTipWidget* self, QResizeEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_ResizeEvent_IsBase(true);
@@ -830,7 +830,7 @@ void KToolTipWidget_CloseEvent(KToolTipWidget* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseCloseEvent(KToolTipWidget* self, QCloseEvent* event) {
+void KToolTipWidget_SuperCloseEvent(KToolTipWidget* self, QCloseEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_CloseEvent_IsBase(true);
@@ -859,7 +859,7 @@ void KToolTipWidget_ContextMenuEvent(KToolTipWidget* self, QContextMenuEvent* ev
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseContextMenuEvent(KToolTipWidget* self, QContextMenuEvent* event) {
+void KToolTipWidget_SuperContextMenuEvent(KToolTipWidget* self, QContextMenuEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_ContextMenuEvent_IsBase(true);
@@ -888,7 +888,7 @@ void KToolTipWidget_TabletEvent(KToolTipWidget* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseTabletEvent(KToolTipWidget* self, QTabletEvent* event) {
+void KToolTipWidget_SuperTabletEvent(KToolTipWidget* self, QTabletEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_TabletEvent_IsBase(true);
@@ -917,7 +917,7 @@ void KToolTipWidget_ActionEvent(KToolTipWidget* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseActionEvent(KToolTipWidget* self, QActionEvent* event) {
+void KToolTipWidget_SuperActionEvent(KToolTipWidget* self, QActionEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_ActionEvent_IsBase(true);
@@ -946,7 +946,7 @@ void KToolTipWidget_DragEnterEvent(KToolTipWidget* self, QDragEnterEvent* event)
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseDragEnterEvent(KToolTipWidget* self, QDragEnterEvent* event) {
+void KToolTipWidget_SuperDragEnterEvent(KToolTipWidget* self, QDragEnterEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_DragEnterEvent_IsBase(true);
@@ -975,7 +975,7 @@ void KToolTipWidget_DragMoveEvent(KToolTipWidget* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseDragMoveEvent(KToolTipWidget* self, QDragMoveEvent* event) {
+void KToolTipWidget_SuperDragMoveEvent(KToolTipWidget* self, QDragMoveEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_DragMoveEvent_IsBase(true);
@@ -1004,7 +1004,7 @@ void KToolTipWidget_DragLeaveEvent(KToolTipWidget* self, QDragLeaveEvent* event)
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseDragLeaveEvent(KToolTipWidget* self, QDragLeaveEvent* event) {
+void KToolTipWidget_SuperDragLeaveEvent(KToolTipWidget* self, QDragLeaveEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_DragLeaveEvent_IsBase(true);
@@ -1033,7 +1033,7 @@ void KToolTipWidget_DropEvent(KToolTipWidget* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseDropEvent(KToolTipWidget* self, QDropEvent* event) {
+void KToolTipWidget_SuperDropEvent(KToolTipWidget* self, QDropEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_DropEvent_IsBase(true);
@@ -1062,7 +1062,7 @@ void KToolTipWidget_ShowEvent(KToolTipWidget* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseShowEvent(KToolTipWidget* self, QShowEvent* event) {
+void KToolTipWidget_SuperShowEvent(KToolTipWidget* self, QShowEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_ShowEvent_IsBase(true);
@@ -1092,7 +1092,7 @@ bool KToolTipWidget_NativeEvent(KToolTipWidget* self, const libqt_string eventTy
 }
 
 // Base class handler implementation
-bool KToolTipWidget_QBaseNativeEvent(KToolTipWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KToolTipWidget_SuperNativeEvent(KToolTipWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
@@ -1122,7 +1122,7 @@ void KToolTipWidget_ChangeEvent(KToolTipWidget* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseChangeEvent(KToolTipWidget* self, QEvent* param1) {
+void KToolTipWidget_SuperChangeEvent(KToolTipWidget* self, QEvent* param1) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_ChangeEvent_IsBase(true);
@@ -1151,7 +1151,7 @@ int KToolTipWidget_Metric(const KToolTipWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int KToolTipWidget_QBaseMetric(const KToolTipWidget* self, int param1) {
+int KToolTipWidget_SuperMetric(const KToolTipWidget* self, int param1) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_Metric_IsBase(true);
@@ -1180,7 +1180,7 @@ void KToolTipWidget_InitPainter(const KToolTipWidget* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseInitPainter(const KToolTipWidget* self, QPainter* painter) {
+void KToolTipWidget_SuperInitPainter(const KToolTipWidget* self, QPainter* painter) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_InitPainter_IsBase(true);
@@ -1209,7 +1209,7 @@ QPaintDevice* KToolTipWidget_Redirected(const KToolTipWidget* self, QPoint* offs
 }
 
 // Base class handler implementation
-QPaintDevice* KToolTipWidget_QBaseRedirected(const KToolTipWidget* self, QPoint* offset) {
+QPaintDevice* KToolTipWidget_SuperRedirected(const KToolTipWidget* self, QPoint* offset) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_Redirected_IsBase(true);
@@ -1238,7 +1238,7 @@ QPainter* KToolTipWidget_SharedPainter(const KToolTipWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* KToolTipWidget_QBaseSharedPainter(const KToolTipWidget* self) {
+QPainter* KToolTipWidget_SuperSharedPainter(const KToolTipWidget* self) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_SharedPainter_IsBase(true);
@@ -1267,7 +1267,7 @@ void KToolTipWidget_InputMethodEvent(KToolTipWidget* self, QInputMethodEvent* pa
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseInputMethodEvent(KToolTipWidget* self, QInputMethodEvent* param1) {
+void KToolTipWidget_SuperInputMethodEvent(KToolTipWidget* self, QInputMethodEvent* param1) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_InputMethodEvent_IsBase(true);
@@ -1296,7 +1296,7 @@ QVariant* KToolTipWidget_InputMethodQuery(const KToolTipWidget* self, int param1
 }
 
 // Base class handler implementation
-QVariant* KToolTipWidget_QBaseInputMethodQuery(const KToolTipWidget* self, int param1) {
+QVariant* KToolTipWidget_SuperInputMethodQuery(const KToolTipWidget* self, int param1) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_InputMethodQuery_IsBase(true);
@@ -1325,7 +1325,7 @@ bool KToolTipWidget_FocusNextPrevChild(KToolTipWidget* self, bool next) {
 }
 
 // Base class handler implementation
-bool KToolTipWidget_QBaseFocusNextPrevChild(KToolTipWidget* self, bool next) {
+bool KToolTipWidget_SuperFocusNextPrevChild(KToolTipWidget* self, bool next) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_FocusNextPrevChild_IsBase(true);
@@ -1354,7 +1354,7 @@ bool KToolTipWidget_EventFilter(KToolTipWidget* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool KToolTipWidget_QBaseEventFilter(KToolTipWidget* self, QObject* watched, QEvent* event) {
+bool KToolTipWidget_SuperEventFilter(KToolTipWidget* self, QObject* watched, QEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_EventFilter_IsBase(true);
@@ -1383,7 +1383,7 @@ void KToolTipWidget_TimerEvent(KToolTipWidget* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseTimerEvent(KToolTipWidget* self, QTimerEvent* event) {
+void KToolTipWidget_SuperTimerEvent(KToolTipWidget* self, QTimerEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_TimerEvent_IsBase(true);
@@ -1412,7 +1412,7 @@ void KToolTipWidget_ChildEvent(KToolTipWidget* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseChildEvent(KToolTipWidget* self, QChildEvent* event) {
+void KToolTipWidget_SuperChildEvent(KToolTipWidget* self, QChildEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_ChildEvent_IsBase(true);
@@ -1441,7 +1441,7 @@ void KToolTipWidget_CustomEvent(KToolTipWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseCustomEvent(KToolTipWidget* self, QEvent* event) {
+void KToolTipWidget_SuperCustomEvent(KToolTipWidget* self, QEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_CustomEvent_IsBase(true);
@@ -1470,7 +1470,7 @@ void KToolTipWidget_ConnectNotify(KToolTipWidget* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseConnectNotify(KToolTipWidget* self, const QMetaMethod* signal) {
+void KToolTipWidget_SuperConnectNotify(KToolTipWidget* self, const QMetaMethod* signal) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_ConnectNotify_IsBase(true);
@@ -1499,7 +1499,7 @@ void KToolTipWidget_DisconnectNotify(KToolTipWidget* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseDisconnectNotify(KToolTipWidget* self, const QMetaMethod* signal) {
+void KToolTipWidget_SuperDisconnectNotify(KToolTipWidget* self, const QMetaMethod* signal) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_DisconnectNotify_IsBase(true);
@@ -1528,7 +1528,7 @@ void KToolTipWidget_UpdateMicroFocus(KToolTipWidget* self) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseUpdateMicroFocus(KToolTipWidget* self) {
+void KToolTipWidget_SuperUpdateMicroFocus(KToolTipWidget* self) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_UpdateMicroFocus_IsBase(true);
@@ -1557,7 +1557,7 @@ void KToolTipWidget_Create(KToolTipWidget* self) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseCreate(KToolTipWidget* self) {
+void KToolTipWidget_SuperCreate(KToolTipWidget* self) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_Create_IsBase(true);
@@ -1586,7 +1586,7 @@ void KToolTipWidget_Destroy(KToolTipWidget* self) {
 }
 
 // Base class handler implementation
-void KToolTipWidget_QBaseDestroy(KToolTipWidget* self) {
+void KToolTipWidget_SuperDestroy(KToolTipWidget* self) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_Destroy_IsBase(true);
@@ -1615,7 +1615,7 @@ bool KToolTipWidget_FocusNextChild(KToolTipWidget* self) {
 }
 
 // Base class handler implementation
-bool KToolTipWidget_QBaseFocusNextChild(KToolTipWidget* self) {
+bool KToolTipWidget_SuperFocusNextChild(KToolTipWidget* self) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_FocusNextChild_IsBase(true);
@@ -1644,7 +1644,7 @@ bool KToolTipWidget_FocusPreviousChild(KToolTipWidget* self) {
 }
 
 // Base class handler implementation
-bool KToolTipWidget_QBaseFocusPreviousChild(KToolTipWidget* self) {
+bool KToolTipWidget_SuperFocusPreviousChild(KToolTipWidget* self) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_FocusPreviousChild_IsBase(true);
@@ -1673,7 +1673,7 @@ QObject* KToolTipWidget_Sender(const KToolTipWidget* self) {
 }
 
 // Base class handler implementation
-QObject* KToolTipWidget_QBaseSender(const KToolTipWidget* self) {
+QObject* KToolTipWidget_SuperSender(const KToolTipWidget* self) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_Sender_IsBase(true);
@@ -1702,7 +1702,7 @@ int KToolTipWidget_SenderSignalIndex(const KToolTipWidget* self) {
 }
 
 // Base class handler implementation
-int KToolTipWidget_QBaseSenderSignalIndex(const KToolTipWidget* self) {
+int KToolTipWidget_SuperSenderSignalIndex(const KToolTipWidget* self) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_SenderSignalIndex_IsBase(true);
@@ -1731,7 +1731,7 @@ int KToolTipWidget_Receivers(const KToolTipWidget* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KToolTipWidget_QBaseReceivers(const KToolTipWidget* self, const char* signal) {
+int KToolTipWidget_SuperReceivers(const KToolTipWidget* self, const char* signal) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_Receivers_IsBase(true);
@@ -1760,7 +1760,7 @@ bool KToolTipWidget_IsSignalConnected(const KToolTipWidget* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool KToolTipWidget_QBaseIsSignalConnected(const KToolTipWidget* self, const QMetaMethod* signal) {
+bool KToolTipWidget_SuperIsSignalConnected(const KToolTipWidget* self, const QMetaMethod* signal) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_IsSignalConnected_IsBase(true);
@@ -1789,7 +1789,7 @@ double KToolTipWidget_GetDecodedMetricF(const KToolTipWidget* self, int metricA,
 }
 
 // Base class handler implementation
-double KToolTipWidget_QBaseGetDecodedMetricF(const KToolTipWidget* self, int metricA, int metricB) {
+double KToolTipWidget_SuperGetDecodedMetricF(const KToolTipWidget* self, int metricA, int metricB) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->setKToolTipWidget_GetDecodedMetricF_IsBase(true);

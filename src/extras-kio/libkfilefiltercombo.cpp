@@ -158,7 +158,7 @@ void KFileFilterCombo_SetFilters2(KFileFilterCombo* self, const libqt_list /* of
 }
 
 // Base class handler implementation
-QMetaObject* KFileFilterCombo_QBaseMetaObject(const KFileFilterCombo* self) {
+QMetaObject* KFileFilterCombo_SuperMetaObject(const KFileFilterCombo* self) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_MetaObject_IsBase(true);
@@ -177,7 +177,7 @@ void KFileFilterCombo_OnMetaObject(const KFileFilterCombo* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* KFileFilterCombo_QBaseMetacast(KFileFilterCombo* self, const char* param1) {
+void* KFileFilterCombo_SuperMetacast(KFileFilterCombo* self, const char* param1) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_Metacast_IsBase(true);
@@ -196,7 +196,7 @@ void KFileFilterCombo_OnMetacast(KFileFilterCombo* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KFileFilterCombo_QBaseMetacall(KFileFilterCombo* self, int param1, int param2, void** param3) {
+int KFileFilterCombo_SuperMetacall(KFileFilterCombo* self, int param1, int param2, void** param3) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_Metacall_IsBase(true);
@@ -215,7 +215,7 @@ void KFileFilterCombo_OnMetacall(KFileFilterCombo* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KFileFilterCombo_QBaseEventFilter(KFileFilterCombo* self, QObject* param1, QEvent* param2) {
+bool KFileFilterCombo_SuperEventFilter(KFileFilterCombo* self, QObject* param1, QEvent* param2) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_EventFilter_IsBase(true);
@@ -244,7 +244,7 @@ void KFileFilterCombo_SetAutoCompletion(KFileFilterCombo* self, bool autocomplet
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseSetAutoCompletion(KFileFilterCombo* self, bool autocomplete) {
+void KFileFilterCombo_SuperSetAutoCompletion(KFileFilterCombo* self, bool autocomplete) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_SetAutoCompletion_IsBase(true);
@@ -273,7 +273,7 @@ void KFileFilterCombo_SetLineEdit(KFileFilterCombo* self, QLineEdit* lineEdit) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseSetLineEdit(KFileFilterCombo* self, QLineEdit* lineEdit) {
+void KFileFilterCombo_SuperSetLineEdit(KFileFilterCombo* self, QLineEdit* lineEdit) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_SetLineEdit_IsBase(true);
@@ -302,7 +302,7 @@ QSize* KFileFilterCombo_MinimumSizeHint(const KFileFilterCombo* self) {
 }
 
 // Base class handler implementation
-QSize* KFileFilterCombo_QBaseMinimumSizeHint(const KFileFilterCombo* self) {
+QSize* KFileFilterCombo_SuperMinimumSizeHint(const KFileFilterCombo* self) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_MinimumSizeHint_IsBase(true);
@@ -332,7 +332,7 @@ void KFileFilterCombo_SetCompletedText(KFileFilterCombo* self, const libqt_strin
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseSetCompletedText(KFileFilterCombo* self, const libqt_string completedText) {
+void KFileFilterCombo_SuperSetCompletedText(KFileFilterCombo* self, const libqt_string completedText) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     QString completedText_QString = QString::fromUtf8(completedText.data, completedText.len);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
@@ -369,7 +369,7 @@ void KFileFilterCombo_SetCompletedItems(KFileFilterCombo* self, const libqt_list
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseSetCompletedItems(KFileFilterCombo* self, const libqt_list /* of libqt_string */ items, bool autoSuggest) {
+void KFileFilterCombo_SuperSetCompletedItems(KFileFilterCombo* self, const libqt_list /* of libqt_string */ items, bool autoSuggest) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     QList<QString> items_QList;
     items_QList.reserve(items.len);
@@ -406,7 +406,7 @@ void KFileFilterCombo_MakeCompletion(KFileFilterCombo* self, const libqt_string 
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseMakeCompletion(KFileFilterCombo* self, const libqt_string param1) {
+void KFileFilterCombo_SuperMakeCompletion(KFileFilterCombo* self, const libqt_string param1) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
@@ -436,7 +436,7 @@ void KFileFilterCombo_SetModel(KFileFilterCombo* self, QAbstractItemModel* model
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseSetModel(KFileFilterCombo* self, QAbstractItemModel* model) {
+void KFileFilterCombo_SuperSetModel(KFileFilterCombo* self, QAbstractItemModel* model) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_SetModel_IsBase(true);
@@ -465,7 +465,7 @@ QSize* KFileFilterCombo_SizeHint(const KFileFilterCombo* self) {
 }
 
 // Base class handler implementation
-QSize* KFileFilterCombo_QBaseSizeHint(const KFileFilterCombo* self) {
+QSize* KFileFilterCombo_SuperSizeHint(const KFileFilterCombo* self) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_SizeHint_IsBase(true);
@@ -494,7 +494,7 @@ void KFileFilterCombo_ShowPopup(KFileFilterCombo* self) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseShowPopup(KFileFilterCombo* self) {
+void KFileFilterCombo_SuperShowPopup(KFileFilterCombo* self) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_ShowPopup_IsBase(true);
@@ -523,7 +523,7 @@ void KFileFilterCombo_HidePopup(KFileFilterCombo* self) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseHidePopup(KFileFilterCombo* self) {
+void KFileFilterCombo_SuperHidePopup(KFileFilterCombo* self) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_HidePopup_IsBase(true);
@@ -552,7 +552,7 @@ bool KFileFilterCombo_Event(KFileFilterCombo* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KFileFilterCombo_QBaseEvent(KFileFilterCombo* self, QEvent* event) {
+bool KFileFilterCombo_SuperEvent(KFileFilterCombo* self, QEvent* event) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_Event_IsBase(true);
@@ -581,7 +581,7 @@ QVariant* KFileFilterCombo_InputMethodQuery(const KFileFilterCombo* self, int pa
 }
 
 // Base class handler implementation
-QVariant* KFileFilterCombo_QBaseInputMethodQuery(const KFileFilterCombo* self, int param1) {
+QVariant* KFileFilterCombo_SuperInputMethodQuery(const KFileFilterCombo* self, int param1) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_InputMethodQuery_IsBase(true);
@@ -610,7 +610,7 @@ void KFileFilterCombo_FocusInEvent(KFileFilterCombo* self, QFocusEvent* e) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseFocusInEvent(KFileFilterCombo* self, QFocusEvent* e) {
+void KFileFilterCombo_SuperFocusInEvent(KFileFilterCombo* self, QFocusEvent* e) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_FocusInEvent_IsBase(true);
@@ -639,7 +639,7 @@ void KFileFilterCombo_FocusOutEvent(KFileFilterCombo* self, QFocusEvent* e) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseFocusOutEvent(KFileFilterCombo* self, QFocusEvent* e) {
+void KFileFilterCombo_SuperFocusOutEvent(KFileFilterCombo* self, QFocusEvent* e) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_FocusOutEvent_IsBase(true);
@@ -668,7 +668,7 @@ void KFileFilterCombo_ChangeEvent(KFileFilterCombo* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseChangeEvent(KFileFilterCombo* self, QEvent* e) {
+void KFileFilterCombo_SuperChangeEvent(KFileFilterCombo* self, QEvent* e) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_ChangeEvent_IsBase(true);
@@ -697,7 +697,7 @@ void KFileFilterCombo_ResizeEvent(KFileFilterCombo* self, QResizeEvent* e) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseResizeEvent(KFileFilterCombo* self, QResizeEvent* e) {
+void KFileFilterCombo_SuperResizeEvent(KFileFilterCombo* self, QResizeEvent* e) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_ResizeEvent_IsBase(true);
@@ -726,7 +726,7 @@ void KFileFilterCombo_PaintEvent(KFileFilterCombo* self, QPaintEvent* e) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBasePaintEvent(KFileFilterCombo* self, QPaintEvent* e) {
+void KFileFilterCombo_SuperPaintEvent(KFileFilterCombo* self, QPaintEvent* e) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_PaintEvent_IsBase(true);
@@ -755,7 +755,7 @@ void KFileFilterCombo_ShowEvent(KFileFilterCombo* self, QShowEvent* e) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseShowEvent(KFileFilterCombo* self, QShowEvent* e) {
+void KFileFilterCombo_SuperShowEvent(KFileFilterCombo* self, QShowEvent* e) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_ShowEvent_IsBase(true);
@@ -784,7 +784,7 @@ void KFileFilterCombo_HideEvent(KFileFilterCombo* self, QHideEvent* e) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseHideEvent(KFileFilterCombo* self, QHideEvent* e) {
+void KFileFilterCombo_SuperHideEvent(KFileFilterCombo* self, QHideEvent* e) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_HideEvent_IsBase(true);
@@ -813,7 +813,7 @@ void KFileFilterCombo_MousePressEvent(KFileFilterCombo* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseMousePressEvent(KFileFilterCombo* self, QMouseEvent* e) {
+void KFileFilterCombo_SuperMousePressEvent(KFileFilterCombo* self, QMouseEvent* e) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_MousePressEvent_IsBase(true);
@@ -842,7 +842,7 @@ void KFileFilterCombo_MouseReleaseEvent(KFileFilterCombo* self, QMouseEvent* e) 
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseMouseReleaseEvent(KFileFilterCombo* self, QMouseEvent* e) {
+void KFileFilterCombo_SuperMouseReleaseEvent(KFileFilterCombo* self, QMouseEvent* e) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_MouseReleaseEvent_IsBase(true);
@@ -871,7 +871,7 @@ void KFileFilterCombo_KeyPressEvent(KFileFilterCombo* self, QKeyEvent* e) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseKeyPressEvent(KFileFilterCombo* self, QKeyEvent* e) {
+void KFileFilterCombo_SuperKeyPressEvent(KFileFilterCombo* self, QKeyEvent* e) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_KeyPressEvent_IsBase(true);
@@ -900,7 +900,7 @@ void KFileFilterCombo_KeyReleaseEvent(KFileFilterCombo* self, QKeyEvent* e) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseKeyReleaseEvent(KFileFilterCombo* self, QKeyEvent* e) {
+void KFileFilterCombo_SuperKeyReleaseEvent(KFileFilterCombo* self, QKeyEvent* e) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_KeyReleaseEvent_IsBase(true);
@@ -929,7 +929,7 @@ void KFileFilterCombo_WheelEvent(KFileFilterCombo* self, QWheelEvent* e) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseWheelEvent(KFileFilterCombo* self, QWheelEvent* e) {
+void KFileFilterCombo_SuperWheelEvent(KFileFilterCombo* self, QWheelEvent* e) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_WheelEvent_IsBase(true);
@@ -958,7 +958,7 @@ void KFileFilterCombo_ContextMenuEvent(KFileFilterCombo* self, QContextMenuEvent
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseContextMenuEvent(KFileFilterCombo* self, QContextMenuEvent* e) {
+void KFileFilterCombo_SuperContextMenuEvent(KFileFilterCombo* self, QContextMenuEvent* e) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_ContextMenuEvent_IsBase(true);
@@ -987,7 +987,7 @@ void KFileFilterCombo_InputMethodEvent(KFileFilterCombo* self, QInputMethodEvent
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseInputMethodEvent(KFileFilterCombo* self, QInputMethodEvent* param1) {
+void KFileFilterCombo_SuperInputMethodEvent(KFileFilterCombo* self, QInputMethodEvent* param1) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_InputMethodEvent_IsBase(true);
@@ -1016,7 +1016,7 @@ void KFileFilterCombo_InitStyleOption(const KFileFilterCombo* self, QStyleOption
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseInitStyleOption(const KFileFilterCombo* self, QStyleOptionComboBox* option) {
+void KFileFilterCombo_SuperInitStyleOption(const KFileFilterCombo* self, QStyleOptionComboBox* option) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_InitStyleOption_IsBase(true);
@@ -1045,7 +1045,7 @@ int KFileFilterCombo_DevType(const KFileFilterCombo* self) {
 }
 
 // Base class handler implementation
-int KFileFilterCombo_QBaseDevType(const KFileFilterCombo* self) {
+int KFileFilterCombo_SuperDevType(const KFileFilterCombo* self) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_DevType_IsBase(true);
@@ -1074,7 +1074,7 @@ void KFileFilterCombo_SetVisible(KFileFilterCombo* self, bool visible) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseSetVisible(KFileFilterCombo* self, bool visible) {
+void KFileFilterCombo_SuperSetVisible(KFileFilterCombo* self, bool visible) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_SetVisible_IsBase(true);
@@ -1103,7 +1103,7 @@ int KFileFilterCombo_HeightForWidth(const KFileFilterCombo* self, int param1) {
 }
 
 // Base class handler implementation
-int KFileFilterCombo_QBaseHeightForWidth(const KFileFilterCombo* self, int param1) {
+int KFileFilterCombo_SuperHeightForWidth(const KFileFilterCombo* self, int param1) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_HeightForWidth_IsBase(true);
@@ -1132,7 +1132,7 @@ bool KFileFilterCombo_HasHeightForWidth(const KFileFilterCombo* self) {
 }
 
 // Base class handler implementation
-bool KFileFilterCombo_QBaseHasHeightForWidth(const KFileFilterCombo* self) {
+bool KFileFilterCombo_SuperHasHeightForWidth(const KFileFilterCombo* self) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_HasHeightForWidth_IsBase(true);
@@ -1161,7 +1161,7 @@ QPaintEngine* KFileFilterCombo_PaintEngine(const KFileFilterCombo* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KFileFilterCombo_QBasePaintEngine(const KFileFilterCombo* self) {
+QPaintEngine* KFileFilterCombo_SuperPaintEngine(const KFileFilterCombo* self) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_PaintEngine_IsBase(true);
@@ -1190,7 +1190,7 @@ void KFileFilterCombo_MouseDoubleClickEvent(KFileFilterCombo* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseMouseDoubleClickEvent(KFileFilterCombo* self, QMouseEvent* event) {
+void KFileFilterCombo_SuperMouseDoubleClickEvent(KFileFilterCombo* self, QMouseEvent* event) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_MouseDoubleClickEvent_IsBase(true);
@@ -1219,7 +1219,7 @@ void KFileFilterCombo_MouseMoveEvent(KFileFilterCombo* self, QMouseEvent* event)
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseMouseMoveEvent(KFileFilterCombo* self, QMouseEvent* event) {
+void KFileFilterCombo_SuperMouseMoveEvent(KFileFilterCombo* self, QMouseEvent* event) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_MouseMoveEvent_IsBase(true);
@@ -1248,7 +1248,7 @@ void KFileFilterCombo_EnterEvent(KFileFilterCombo* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseEnterEvent(KFileFilterCombo* self, QEnterEvent* event) {
+void KFileFilterCombo_SuperEnterEvent(KFileFilterCombo* self, QEnterEvent* event) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_EnterEvent_IsBase(true);
@@ -1277,7 +1277,7 @@ void KFileFilterCombo_LeaveEvent(KFileFilterCombo* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseLeaveEvent(KFileFilterCombo* self, QEvent* event) {
+void KFileFilterCombo_SuperLeaveEvent(KFileFilterCombo* self, QEvent* event) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_LeaveEvent_IsBase(true);
@@ -1306,7 +1306,7 @@ void KFileFilterCombo_MoveEvent(KFileFilterCombo* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseMoveEvent(KFileFilterCombo* self, QMoveEvent* event) {
+void KFileFilterCombo_SuperMoveEvent(KFileFilterCombo* self, QMoveEvent* event) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_MoveEvent_IsBase(true);
@@ -1335,7 +1335,7 @@ void KFileFilterCombo_CloseEvent(KFileFilterCombo* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseCloseEvent(KFileFilterCombo* self, QCloseEvent* event) {
+void KFileFilterCombo_SuperCloseEvent(KFileFilterCombo* self, QCloseEvent* event) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_CloseEvent_IsBase(true);
@@ -1364,7 +1364,7 @@ void KFileFilterCombo_TabletEvent(KFileFilterCombo* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseTabletEvent(KFileFilterCombo* self, QTabletEvent* event) {
+void KFileFilterCombo_SuperTabletEvent(KFileFilterCombo* self, QTabletEvent* event) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_TabletEvent_IsBase(true);
@@ -1393,7 +1393,7 @@ void KFileFilterCombo_ActionEvent(KFileFilterCombo* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseActionEvent(KFileFilterCombo* self, QActionEvent* event) {
+void KFileFilterCombo_SuperActionEvent(KFileFilterCombo* self, QActionEvent* event) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_ActionEvent_IsBase(true);
@@ -1422,7 +1422,7 @@ void KFileFilterCombo_DragEnterEvent(KFileFilterCombo* self, QDragEnterEvent* ev
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseDragEnterEvent(KFileFilterCombo* self, QDragEnterEvent* event) {
+void KFileFilterCombo_SuperDragEnterEvent(KFileFilterCombo* self, QDragEnterEvent* event) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_DragEnterEvent_IsBase(true);
@@ -1451,7 +1451,7 @@ void KFileFilterCombo_DragMoveEvent(KFileFilterCombo* self, QDragMoveEvent* even
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseDragMoveEvent(KFileFilterCombo* self, QDragMoveEvent* event) {
+void KFileFilterCombo_SuperDragMoveEvent(KFileFilterCombo* self, QDragMoveEvent* event) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_DragMoveEvent_IsBase(true);
@@ -1480,7 +1480,7 @@ void KFileFilterCombo_DragLeaveEvent(KFileFilterCombo* self, QDragLeaveEvent* ev
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseDragLeaveEvent(KFileFilterCombo* self, QDragLeaveEvent* event) {
+void KFileFilterCombo_SuperDragLeaveEvent(KFileFilterCombo* self, QDragLeaveEvent* event) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_DragLeaveEvent_IsBase(true);
@@ -1509,7 +1509,7 @@ void KFileFilterCombo_DropEvent(KFileFilterCombo* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseDropEvent(KFileFilterCombo* self, QDropEvent* event) {
+void KFileFilterCombo_SuperDropEvent(KFileFilterCombo* self, QDropEvent* event) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_DropEvent_IsBase(true);
@@ -1539,7 +1539,7 @@ bool KFileFilterCombo_NativeEvent(KFileFilterCombo* self, const libqt_string eve
 }
 
 // Base class handler implementation
-bool KFileFilterCombo_QBaseNativeEvent(KFileFilterCombo* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KFileFilterCombo_SuperNativeEvent(KFileFilterCombo* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
@@ -1569,7 +1569,7 @@ int KFileFilterCombo_Metric(const KFileFilterCombo* self, int param1) {
 }
 
 // Base class handler implementation
-int KFileFilterCombo_QBaseMetric(const KFileFilterCombo* self, int param1) {
+int KFileFilterCombo_SuperMetric(const KFileFilterCombo* self, int param1) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_Metric_IsBase(true);
@@ -1598,7 +1598,7 @@ void KFileFilterCombo_InitPainter(const KFileFilterCombo* self, QPainter* painte
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseInitPainter(const KFileFilterCombo* self, QPainter* painter) {
+void KFileFilterCombo_SuperInitPainter(const KFileFilterCombo* self, QPainter* painter) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_InitPainter_IsBase(true);
@@ -1627,7 +1627,7 @@ QPaintDevice* KFileFilterCombo_Redirected(const KFileFilterCombo* self, QPoint* 
 }
 
 // Base class handler implementation
-QPaintDevice* KFileFilterCombo_QBaseRedirected(const KFileFilterCombo* self, QPoint* offset) {
+QPaintDevice* KFileFilterCombo_SuperRedirected(const KFileFilterCombo* self, QPoint* offset) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_Redirected_IsBase(true);
@@ -1656,7 +1656,7 @@ QPainter* KFileFilterCombo_SharedPainter(const KFileFilterCombo* self) {
 }
 
 // Base class handler implementation
-QPainter* KFileFilterCombo_QBaseSharedPainter(const KFileFilterCombo* self) {
+QPainter* KFileFilterCombo_SuperSharedPainter(const KFileFilterCombo* self) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_SharedPainter_IsBase(true);
@@ -1685,7 +1685,7 @@ bool KFileFilterCombo_FocusNextPrevChild(KFileFilterCombo* self, bool next) {
 }
 
 // Base class handler implementation
-bool KFileFilterCombo_QBaseFocusNextPrevChild(KFileFilterCombo* self, bool next) {
+bool KFileFilterCombo_SuperFocusNextPrevChild(KFileFilterCombo* self, bool next) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_FocusNextPrevChild_IsBase(true);
@@ -1714,7 +1714,7 @@ void KFileFilterCombo_TimerEvent(KFileFilterCombo* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseTimerEvent(KFileFilterCombo* self, QTimerEvent* event) {
+void KFileFilterCombo_SuperTimerEvent(KFileFilterCombo* self, QTimerEvent* event) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_TimerEvent_IsBase(true);
@@ -1743,7 +1743,7 @@ void KFileFilterCombo_ChildEvent(KFileFilterCombo* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseChildEvent(KFileFilterCombo* self, QChildEvent* event) {
+void KFileFilterCombo_SuperChildEvent(KFileFilterCombo* self, QChildEvent* event) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_ChildEvent_IsBase(true);
@@ -1772,7 +1772,7 @@ void KFileFilterCombo_CustomEvent(KFileFilterCombo* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseCustomEvent(KFileFilterCombo* self, QEvent* event) {
+void KFileFilterCombo_SuperCustomEvent(KFileFilterCombo* self, QEvent* event) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_CustomEvent_IsBase(true);
@@ -1801,7 +1801,7 @@ void KFileFilterCombo_ConnectNotify(KFileFilterCombo* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseConnectNotify(KFileFilterCombo* self, const QMetaMethod* signal) {
+void KFileFilterCombo_SuperConnectNotify(KFileFilterCombo* self, const QMetaMethod* signal) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_ConnectNotify_IsBase(true);
@@ -1830,7 +1830,7 @@ void KFileFilterCombo_DisconnectNotify(KFileFilterCombo* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseDisconnectNotify(KFileFilterCombo* self, const QMetaMethod* signal) {
+void KFileFilterCombo_SuperDisconnectNotify(KFileFilterCombo* self, const QMetaMethod* signal) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_DisconnectNotify_IsBase(true);
@@ -1859,7 +1859,7 @@ void KFileFilterCombo_SetCompletionObject(KFileFilterCombo* self, KCompletion* c
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseSetCompletionObject(KFileFilterCombo* self, KCompletion* completionObject, bool handleSignals) {
+void KFileFilterCombo_SuperSetCompletionObject(KFileFilterCombo* self, KCompletion* completionObject, bool handleSignals) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_SetCompletionObject_IsBase(true);
@@ -1888,7 +1888,7 @@ void KFileFilterCombo_SetHandleSignals(KFileFilterCombo* self, bool handle) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseSetHandleSignals(KFileFilterCombo* self, bool handle) {
+void KFileFilterCombo_SuperSetHandleSignals(KFileFilterCombo* self, bool handle) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_SetHandleSignals_IsBase(true);
@@ -1917,7 +1917,7 @@ void KFileFilterCombo_SetCompletionMode(KFileFilterCombo* self, int mode) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseSetCompletionMode(KFileFilterCombo* self, int mode) {
+void KFileFilterCombo_SuperSetCompletionMode(KFileFilterCombo* self, int mode) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_SetCompletionMode_IsBase(true);
@@ -1946,7 +1946,7 @@ void KFileFilterCombo_VirtualHook(KFileFilterCombo* self, int id, void* data) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseVirtualHook(KFileFilterCombo* self, int id, void* data) {
+void KFileFilterCombo_SuperVirtualHook(KFileFilterCombo* self, int id, void* data) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_VirtualHook_IsBase(true);
@@ -1975,7 +1975,7 @@ void KFileFilterCombo_UpdateMicroFocus(KFileFilterCombo* self) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseUpdateMicroFocus(KFileFilterCombo* self) {
+void KFileFilterCombo_SuperUpdateMicroFocus(KFileFilterCombo* self) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_UpdateMicroFocus_IsBase(true);
@@ -2004,7 +2004,7 @@ void KFileFilterCombo_Create(KFileFilterCombo* self) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseCreate(KFileFilterCombo* self) {
+void KFileFilterCombo_SuperCreate(KFileFilterCombo* self) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_Create_IsBase(true);
@@ -2033,7 +2033,7 @@ void KFileFilterCombo_Destroy(KFileFilterCombo* self) {
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseDestroy(KFileFilterCombo* self) {
+void KFileFilterCombo_SuperDestroy(KFileFilterCombo* self) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_Destroy_IsBase(true);
@@ -2062,7 +2062,7 @@ bool KFileFilterCombo_FocusNextChild(KFileFilterCombo* self) {
 }
 
 // Base class handler implementation
-bool KFileFilterCombo_QBaseFocusNextChild(KFileFilterCombo* self) {
+bool KFileFilterCombo_SuperFocusNextChild(KFileFilterCombo* self) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_FocusNextChild_IsBase(true);
@@ -2091,7 +2091,7 @@ bool KFileFilterCombo_FocusPreviousChild(KFileFilterCombo* self) {
 }
 
 // Base class handler implementation
-bool KFileFilterCombo_QBaseFocusPreviousChild(KFileFilterCombo* self) {
+bool KFileFilterCombo_SuperFocusPreviousChild(KFileFilterCombo* self) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_FocusPreviousChild_IsBase(true);
@@ -2120,7 +2120,7 @@ QObject* KFileFilterCombo_Sender(const KFileFilterCombo* self) {
 }
 
 // Base class handler implementation
-QObject* KFileFilterCombo_QBaseSender(const KFileFilterCombo* self) {
+QObject* KFileFilterCombo_SuperSender(const KFileFilterCombo* self) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_Sender_IsBase(true);
@@ -2149,7 +2149,7 @@ int KFileFilterCombo_SenderSignalIndex(const KFileFilterCombo* self) {
 }
 
 // Base class handler implementation
-int KFileFilterCombo_QBaseSenderSignalIndex(const KFileFilterCombo* self) {
+int KFileFilterCombo_SuperSenderSignalIndex(const KFileFilterCombo* self) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_SenderSignalIndex_IsBase(true);
@@ -2178,7 +2178,7 @@ int KFileFilterCombo_Receivers(const KFileFilterCombo* self, const char* signal)
 }
 
 // Base class handler implementation
-int KFileFilterCombo_QBaseReceivers(const KFileFilterCombo* self, const char* signal) {
+int KFileFilterCombo_SuperReceivers(const KFileFilterCombo* self, const char* signal) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_Receivers_IsBase(true);
@@ -2207,7 +2207,7 @@ bool KFileFilterCombo_IsSignalConnected(const KFileFilterCombo* self, const QMet
 }
 
 // Base class handler implementation
-bool KFileFilterCombo_QBaseIsSignalConnected(const KFileFilterCombo* self, const QMetaMethod* signal) {
+bool KFileFilterCombo_SuperIsSignalConnected(const KFileFilterCombo* self, const QMetaMethod* signal) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_IsSignalConnected_IsBase(true);
@@ -2236,7 +2236,7 @@ double KFileFilterCombo_GetDecodedMetricF(const KFileFilterCombo* self, int metr
 }
 
 // Base class handler implementation
-double KFileFilterCombo_QBaseGetDecodedMetricF(const KFileFilterCombo* self, int metricA, int metricB) {
+double KFileFilterCombo_SuperGetDecodedMetricF(const KFileFilterCombo* self, int metricA, int metricB) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_GetDecodedMetricF_IsBase(true);
@@ -2311,7 +2311,7 @@ libqt_map /* of int to libqt_list of QKeySequence* */ KFileFilterCombo_KeyBindin
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_list of QKeySequence* */ KFileFilterCombo_QBaseKeyBindingMap(const KFileFilterCombo* self) {
+libqt_map /* of int to libqt_list of QKeySequence* */ KFileFilterCombo_SuperKeyBindingMap(const KFileFilterCombo* self) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_KeyBindingMap_IsBase(true);
@@ -2398,7 +2398,7 @@ void KFileFilterCombo_SetKeyBindingMap(KFileFilterCombo* self, libqt_map /* of i
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseSetKeyBindingMap(KFileFilterCombo* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
+void KFileFilterCombo_SuperSetKeyBindingMap(KFileFilterCombo* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_QMap;
     int* keyBindingMap_karr = static_cast<int*>(keyBindingMap.keys);
@@ -2439,7 +2439,7 @@ void KFileFilterCombo_SetDelegate(KFileFilterCombo* self, KCompletionBase* deleg
 }
 
 // Base class handler implementation
-void KFileFilterCombo_QBaseSetDelegate(KFileFilterCombo* self, KCompletionBase* delegate) {
+void KFileFilterCombo_SuperSetDelegate(KFileFilterCombo* self, KCompletionBase* delegate) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_SetDelegate_IsBase(true);
@@ -2468,7 +2468,7 @@ KCompletionBase* KFileFilterCombo_Delegate(const KFileFilterCombo* self) {
 }
 
 // Base class handler implementation
-KCompletionBase* KFileFilterCombo_QBaseDelegate(const KFileFilterCombo* self) {
+KCompletionBase* KFileFilterCombo_SuperDelegate(const KFileFilterCombo* self) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
     if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
         vkfilefiltercombo->setKFileFilterCombo_Delegate_IsBase(true);

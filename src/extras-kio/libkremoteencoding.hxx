@@ -57,7 +57,7 @@ class VirtualKRemoteEncoding final : public KRemoteEncoding {
 
     // Friend functions
     friend void KRemoteEncoding_VirtualHook(KRemoteEncoding* self, int id, void* data);
-    friend void KRemoteEncoding_QBaseVirtualHook(KRemoteEncoding* self, int id, void* data);
+    friend void KRemoteEncoding_SuperVirtualHook(KRemoteEncoding* self, int id, void* data);
 };
 
 #endif

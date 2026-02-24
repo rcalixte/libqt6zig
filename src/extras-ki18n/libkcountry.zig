@@ -278,6 +278,10 @@ pub const kcountry = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kcountry.html#dtor.KCountry)
     ///
     /// Delete this object from C++ memory.
@@ -286,7 +290,7 @@ pub const kcountry = struct {
     ///
     /// ` self: QtC.KCountry `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KCountry_Delete(@ptrCast(self));
     }
 };

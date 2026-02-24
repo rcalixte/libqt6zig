@@ -42,6 +42,10 @@ pub const qdesigneroptionspageinterface = struct {
         qtc.QDesignerOptionsPageInterface_OnName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperName` instead
+    ///
+    pub const QBaseName = SuperName;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#name)
     ///
     /// Base class method implementation
@@ -52,8 +56,8 @@ pub const qdesigneroptionspageinterface = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerOptionsPageInterface_QBaseName(@ptrCast(self));
+    pub fn SuperName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerOptionsPageInterface_SuperName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesigneroptionspageinterface.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -86,6 +90,10 @@ pub const qdesigneroptionspageinterface = struct {
         qtc.QDesignerOptionsPageInterface_OnCreatePage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreatePage` instead
+    ///
+    pub const QBaseCreatePage = SuperCreatePage;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#createPage)
     ///
     /// Base class method implementation
@@ -96,8 +104,8 @@ pub const qdesigneroptionspageinterface = struct {
     ///
     /// ` parent: QtC.QWidget `
     ///
-    pub fn QBaseCreatePage(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QDesignerOptionsPageInterface_QBaseCreatePage(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperCreatePage(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
+        return qtc.QDesignerOptionsPageInterface_SuperCreatePage(@ptrCast(self), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#apply)
@@ -124,6 +132,10 @@ pub const qdesigneroptionspageinterface = struct {
         qtc.QDesignerOptionsPageInterface_OnApply(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperApply` instead
+    ///
+    pub const QBaseApply = SuperApply;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#apply)
     ///
     /// Base class method implementation
@@ -132,8 +144,8 @@ pub const qdesigneroptionspageinterface = struct {
     ///
     /// ` self: QtC.QDesignerOptionsPageInterface `
     ///
-    pub fn QBaseApply(self: ?*anyopaque) void {
-        qtc.QDesignerOptionsPageInterface_QBaseApply(@ptrCast(self));
+    pub fn SuperApply(self: ?*anyopaque) void {
+        qtc.QDesignerOptionsPageInterface_SuperApply(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#finish)
@@ -160,6 +172,10 @@ pub const qdesigneroptionspageinterface = struct {
         qtc.QDesignerOptionsPageInterface_OnFinish(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFinish` instead
+    ///
+    pub const QBaseFinish = SuperFinish;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#finish)
     ///
     /// Base class method implementation
@@ -168,9 +184,12 @@ pub const qdesigneroptionspageinterface = struct {
     ///
     /// ` self: QtC.QDesignerOptionsPageInterface `
     ///
-    pub fn QBaseFinish(self: ?*anyopaque) void {
-        qtc.QDesignerOptionsPageInterface_QBaseFinish(@ptrCast(self));
+    pub fn SuperFinish(self: ?*anyopaque) void {
+        qtc.QDesignerOptionsPageInterface_SuperFinish(@ptrCast(self));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#dtor.QDesignerOptionsPageInterface)
     ///
@@ -180,7 +199,7 @@ pub const qdesigneroptionspageinterface = struct {
     ///
     /// ` self: QtC.QDesignerOptionsPageInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDesignerOptionsPageInterface_Delete(@ptrCast(self));
     }
 };

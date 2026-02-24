@@ -144,7 +144,7 @@ void KRichTextWidget_MouseReleaseEvent(KRichTextWidget* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-QMetaObject* KRichTextWidget_QBaseMetaObject(const KRichTextWidget* self) {
+QMetaObject* KRichTextWidget_SuperMetaObject(const KRichTextWidget* self) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_MetaObject_IsBase(true);
@@ -163,7 +163,7 @@ void KRichTextWidget_OnMetaObject(const KRichTextWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KRichTextWidget_QBaseMetacast(KRichTextWidget* self, const char* param1) {
+void* KRichTextWidget_SuperMetacast(KRichTextWidget* self, const char* param1) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_Metacast_IsBase(true);
@@ -182,7 +182,7 @@ void KRichTextWidget_OnMetacast(KRichTextWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KRichTextWidget_QBaseMetacall(KRichTextWidget* self, int param1, int param2, void** param3) {
+int KRichTextWidget_SuperMetacall(KRichTextWidget* self, int param1, int param2, void** param3) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_Metacall_IsBase(true);
@@ -201,7 +201,7 @@ void KRichTextWidget_OnMetacall(KRichTextWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of QAction* */ KRichTextWidget_QBaseCreateActions(KRichTextWidget* self) {
+libqt_list /* of QAction* */ KRichTextWidget_SuperCreateActions(KRichTextWidget* self) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_CreateActions_IsBase(true);
@@ -238,7 +238,7 @@ void KRichTextWidget_OnCreateActions(KRichTextWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseMouseReleaseEvent(KRichTextWidget* self, QMouseEvent* event) {
+void KRichTextWidget_SuperMouseReleaseEvent(KRichTextWidget* self, QMouseEvent* event) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_MouseReleaseEvent_IsBase(true);
@@ -267,7 +267,7 @@ void KRichTextWidget_KeyPressEvent(KRichTextWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseKeyPressEvent(KRichTextWidget* self, QKeyEvent* event) {
+void KRichTextWidget_SuperKeyPressEvent(KRichTextWidget* self, QKeyEvent* event) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_KeyPressEvent_IsBase(true);
@@ -296,7 +296,7 @@ void KRichTextWidget_SetReadOnly(KRichTextWidget* self, bool readOnly) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseSetReadOnly(KRichTextWidget* self, bool readOnly) {
+void KRichTextWidget_SuperSetReadOnly(KRichTextWidget* self, bool readOnly) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_SetReadOnly_IsBase(true);
@@ -325,7 +325,7 @@ void KRichTextWidget_SetCheckSpellingEnabled(KRichTextWidget* self, bool check) 
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseSetCheckSpellingEnabled(KRichTextWidget* self, bool check) {
+void KRichTextWidget_SuperSetCheckSpellingEnabled(KRichTextWidget* self, bool check) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_SetCheckSpellingEnabled_IsBase(true);
@@ -354,7 +354,7 @@ bool KRichTextWidget_CheckSpellingEnabled(const KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-bool KRichTextWidget_QBaseCheckSpellingEnabled(const KRichTextWidget* self) {
+bool KRichTextWidget_SuperCheckSpellingEnabled(const KRichTextWidget* self) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_CheckSpellingEnabled_IsBase(true);
@@ -384,7 +384,7 @@ bool KRichTextWidget_ShouldBlockBeSpellChecked(const KRichTextWidget* self, cons
 }
 
 // Base class handler implementation
-bool KRichTextWidget_QBaseShouldBlockBeSpellChecked(const KRichTextWidget* self, const libqt_string block) {
+bool KRichTextWidget_SuperShouldBlockBeSpellChecked(const KRichTextWidget* self, const libqt_string block) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     QString block_QString = QString::fromUtf8(block.data, block.len);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
@@ -414,7 +414,7 @@ void KRichTextWidget_CreateHighlighter(KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseCreateHighlighter(KRichTextWidget* self) {
+void KRichTextWidget_SuperCreateHighlighter(KRichTextWidget* self) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_CreateHighlighter_IsBase(true);
@@ -443,7 +443,7 @@ QMenu* KRichTextWidget_MousePopupMenu(KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-QMenu* KRichTextWidget_QBaseMousePopupMenu(KRichTextWidget* self) {
+QMenu* KRichTextWidget_SuperMousePopupMenu(KRichTextWidget* self) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_MousePopupMenu_IsBase(true);
@@ -472,7 +472,7 @@ bool KRichTextWidget_Event(KRichTextWidget* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-bool KRichTextWidget_QBaseEvent(KRichTextWidget* self, QEvent* param1) {
+bool KRichTextWidget_SuperEvent(KRichTextWidget* self, QEvent* param1) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_Event_IsBase(true);
@@ -501,7 +501,7 @@ void KRichTextWidget_FocusInEvent(KRichTextWidget* self, QFocusEvent* param1) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseFocusInEvent(KRichTextWidget* self, QFocusEvent* param1) {
+void KRichTextWidget_SuperFocusInEvent(KRichTextWidget* self, QFocusEvent* param1) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_FocusInEvent_IsBase(true);
@@ -530,7 +530,7 @@ void KRichTextWidget_DeleteWordBack(KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseDeleteWordBack(KRichTextWidget* self) {
+void KRichTextWidget_SuperDeleteWordBack(KRichTextWidget* self) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_DeleteWordBack_IsBase(true);
@@ -559,7 +559,7 @@ void KRichTextWidget_DeleteWordForward(KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseDeleteWordForward(KRichTextWidget* self) {
+void KRichTextWidget_SuperDeleteWordForward(KRichTextWidget* self) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_DeleteWordForward_IsBase(true);
@@ -588,7 +588,7 @@ void KRichTextWidget_ContextMenuEvent(KRichTextWidget* self, QContextMenuEvent* 
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseContextMenuEvent(KRichTextWidget* self, QContextMenuEvent* param1) {
+void KRichTextWidget_SuperContextMenuEvent(KRichTextWidget* self, QContextMenuEvent* param1) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_ContextMenuEvent_IsBase(true);
@@ -617,7 +617,7 @@ QVariant* KRichTextWidget_LoadResource(KRichTextWidget* self, int typeVal, const
 }
 
 // Base class handler implementation
-QVariant* KRichTextWidget_QBaseLoadResource(KRichTextWidget* self, int typeVal, const QUrl* name) {
+QVariant* KRichTextWidget_SuperLoadResource(KRichTextWidget* self, int typeVal, const QUrl* name) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_LoadResource_IsBase(true);
@@ -646,7 +646,7 @@ QVariant* KRichTextWidget_InputMethodQuery(const KRichTextWidget* self, int prop
 }
 
 // Base class handler implementation
-QVariant* KRichTextWidget_QBaseInputMethodQuery(const KRichTextWidget* self, int property) {
+QVariant* KRichTextWidget_SuperInputMethodQuery(const KRichTextWidget* self, int property) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_InputMethodQuery_IsBase(true);
@@ -675,7 +675,7 @@ void KRichTextWidget_TimerEvent(KRichTextWidget* self, QTimerEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseTimerEvent(KRichTextWidget* self, QTimerEvent* e) {
+void KRichTextWidget_SuperTimerEvent(KRichTextWidget* self, QTimerEvent* e) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_TimerEvent_IsBase(true);
@@ -704,7 +704,7 @@ void KRichTextWidget_KeyReleaseEvent(KRichTextWidget* self, QKeyEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseKeyReleaseEvent(KRichTextWidget* self, QKeyEvent* e) {
+void KRichTextWidget_SuperKeyReleaseEvent(KRichTextWidget* self, QKeyEvent* e) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_KeyReleaseEvent_IsBase(true);
@@ -733,7 +733,7 @@ void KRichTextWidget_ResizeEvent(KRichTextWidget* self, QResizeEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseResizeEvent(KRichTextWidget* self, QResizeEvent* e) {
+void KRichTextWidget_SuperResizeEvent(KRichTextWidget* self, QResizeEvent* e) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_ResizeEvent_IsBase(true);
@@ -762,7 +762,7 @@ void KRichTextWidget_PaintEvent(KRichTextWidget* self, QPaintEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBasePaintEvent(KRichTextWidget* self, QPaintEvent* e) {
+void KRichTextWidget_SuperPaintEvent(KRichTextWidget* self, QPaintEvent* e) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_PaintEvent_IsBase(true);
@@ -791,7 +791,7 @@ void KRichTextWidget_MousePressEvent(KRichTextWidget* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseMousePressEvent(KRichTextWidget* self, QMouseEvent* e) {
+void KRichTextWidget_SuperMousePressEvent(KRichTextWidget* self, QMouseEvent* e) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_MousePressEvent_IsBase(true);
@@ -820,7 +820,7 @@ void KRichTextWidget_MouseMoveEvent(KRichTextWidget* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseMouseMoveEvent(KRichTextWidget* self, QMouseEvent* e) {
+void KRichTextWidget_SuperMouseMoveEvent(KRichTextWidget* self, QMouseEvent* e) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_MouseMoveEvent_IsBase(true);
@@ -849,7 +849,7 @@ void KRichTextWidget_MouseDoubleClickEvent(KRichTextWidget* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseMouseDoubleClickEvent(KRichTextWidget* self, QMouseEvent* e) {
+void KRichTextWidget_SuperMouseDoubleClickEvent(KRichTextWidget* self, QMouseEvent* e) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_MouseDoubleClickEvent_IsBase(true);
@@ -878,7 +878,7 @@ bool KRichTextWidget_FocusNextPrevChild(KRichTextWidget* self, bool next) {
 }
 
 // Base class handler implementation
-bool KRichTextWidget_QBaseFocusNextPrevChild(KRichTextWidget* self, bool next) {
+bool KRichTextWidget_SuperFocusNextPrevChild(KRichTextWidget* self, bool next) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_FocusNextPrevChild_IsBase(true);
@@ -907,7 +907,7 @@ void KRichTextWidget_DragEnterEvent(KRichTextWidget* self, QDragEnterEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseDragEnterEvent(KRichTextWidget* self, QDragEnterEvent* e) {
+void KRichTextWidget_SuperDragEnterEvent(KRichTextWidget* self, QDragEnterEvent* e) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_DragEnterEvent_IsBase(true);
@@ -936,7 +936,7 @@ void KRichTextWidget_DragLeaveEvent(KRichTextWidget* self, QDragLeaveEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseDragLeaveEvent(KRichTextWidget* self, QDragLeaveEvent* e) {
+void KRichTextWidget_SuperDragLeaveEvent(KRichTextWidget* self, QDragLeaveEvent* e) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_DragLeaveEvent_IsBase(true);
@@ -965,7 +965,7 @@ void KRichTextWidget_DragMoveEvent(KRichTextWidget* self, QDragMoveEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseDragMoveEvent(KRichTextWidget* self, QDragMoveEvent* e) {
+void KRichTextWidget_SuperDragMoveEvent(KRichTextWidget* self, QDragMoveEvent* e) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_DragMoveEvent_IsBase(true);
@@ -994,7 +994,7 @@ void KRichTextWidget_DropEvent(KRichTextWidget* self, QDropEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseDropEvent(KRichTextWidget* self, QDropEvent* e) {
+void KRichTextWidget_SuperDropEvent(KRichTextWidget* self, QDropEvent* e) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_DropEvent_IsBase(true);
@@ -1023,7 +1023,7 @@ void KRichTextWidget_FocusOutEvent(KRichTextWidget* self, QFocusEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseFocusOutEvent(KRichTextWidget* self, QFocusEvent* e) {
+void KRichTextWidget_SuperFocusOutEvent(KRichTextWidget* self, QFocusEvent* e) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_FocusOutEvent_IsBase(true);
@@ -1052,7 +1052,7 @@ void KRichTextWidget_ShowEvent(KRichTextWidget* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseShowEvent(KRichTextWidget* self, QShowEvent* param1) {
+void KRichTextWidget_SuperShowEvent(KRichTextWidget* self, QShowEvent* param1) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_ShowEvent_IsBase(true);
@@ -1081,7 +1081,7 @@ void KRichTextWidget_ChangeEvent(KRichTextWidget* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseChangeEvent(KRichTextWidget* self, QEvent* e) {
+void KRichTextWidget_SuperChangeEvent(KRichTextWidget* self, QEvent* e) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_ChangeEvent_IsBase(true);
@@ -1110,7 +1110,7 @@ void KRichTextWidget_WheelEvent(KRichTextWidget* self, QWheelEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseWheelEvent(KRichTextWidget* self, QWheelEvent* e) {
+void KRichTextWidget_SuperWheelEvent(KRichTextWidget* self, QWheelEvent* e) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_WheelEvent_IsBase(true);
@@ -1139,7 +1139,7 @@ QMimeData* KRichTextWidget_CreateMimeDataFromSelection(const KRichTextWidget* se
 }
 
 // Base class handler implementation
-QMimeData* KRichTextWidget_QBaseCreateMimeDataFromSelection(const KRichTextWidget* self) {
+QMimeData* KRichTextWidget_SuperCreateMimeDataFromSelection(const KRichTextWidget* self) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_CreateMimeDataFromSelection_IsBase(true);
@@ -1168,7 +1168,7 @@ bool KRichTextWidget_CanInsertFromMimeData(const KRichTextWidget* self, const QM
 }
 
 // Base class handler implementation
-bool KRichTextWidget_QBaseCanInsertFromMimeData(const KRichTextWidget* self, const QMimeData* source) {
+bool KRichTextWidget_SuperCanInsertFromMimeData(const KRichTextWidget* self, const QMimeData* source) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_CanInsertFromMimeData_IsBase(true);
@@ -1197,7 +1197,7 @@ void KRichTextWidget_InsertFromMimeData(KRichTextWidget* self, const QMimeData* 
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseInsertFromMimeData(KRichTextWidget* self, const QMimeData* source) {
+void KRichTextWidget_SuperInsertFromMimeData(KRichTextWidget* self, const QMimeData* source) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_InsertFromMimeData_IsBase(true);
@@ -1226,7 +1226,7 @@ void KRichTextWidget_InputMethodEvent(KRichTextWidget* self, QInputMethodEvent* 
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseInputMethodEvent(KRichTextWidget* self, QInputMethodEvent* param1) {
+void KRichTextWidget_SuperInputMethodEvent(KRichTextWidget* self, QInputMethodEvent* param1) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_InputMethodEvent_IsBase(true);
@@ -1255,7 +1255,7 @@ void KRichTextWidget_ScrollContentsBy(KRichTextWidget* self, int dx, int dy) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseScrollContentsBy(KRichTextWidget* self, int dx, int dy) {
+void KRichTextWidget_SuperScrollContentsBy(KRichTextWidget* self, int dx, int dy) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_ScrollContentsBy_IsBase(true);
@@ -1284,7 +1284,7 @@ void KRichTextWidget_DoSetTextCursor(KRichTextWidget* self, const QTextCursor* c
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseDoSetTextCursor(KRichTextWidget* self, const QTextCursor* cursor) {
+void KRichTextWidget_SuperDoSetTextCursor(KRichTextWidget* self, const QTextCursor* cursor) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_DoSetTextCursor_IsBase(true);
@@ -1313,7 +1313,7 @@ QSize* KRichTextWidget_MinimumSizeHint(const KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-QSize* KRichTextWidget_QBaseMinimumSizeHint(const KRichTextWidget* self) {
+QSize* KRichTextWidget_SuperMinimumSizeHint(const KRichTextWidget* self) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_MinimumSizeHint_IsBase(true);
@@ -1342,7 +1342,7 @@ QSize* KRichTextWidget_SizeHint(const KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-QSize* KRichTextWidget_QBaseSizeHint(const KRichTextWidget* self) {
+QSize* KRichTextWidget_SuperSizeHint(const KRichTextWidget* self) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_SizeHint_IsBase(true);
@@ -1371,7 +1371,7 @@ void KRichTextWidget_SetupViewport(KRichTextWidget* self, QWidget* viewport) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseSetupViewport(KRichTextWidget* self, QWidget* viewport) {
+void KRichTextWidget_SuperSetupViewport(KRichTextWidget* self, QWidget* viewport) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_SetupViewport_IsBase(true);
@@ -1400,7 +1400,7 @@ bool KRichTextWidget_EventFilter(KRichTextWidget* self, QObject* param1, QEvent*
 }
 
 // Base class handler implementation
-bool KRichTextWidget_QBaseEventFilter(KRichTextWidget* self, QObject* param1, QEvent* param2) {
+bool KRichTextWidget_SuperEventFilter(KRichTextWidget* self, QObject* param1, QEvent* param2) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_EventFilter_IsBase(true);
@@ -1429,7 +1429,7 @@ bool KRichTextWidget_ViewportEvent(KRichTextWidget* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-bool KRichTextWidget_QBaseViewportEvent(KRichTextWidget* self, QEvent* param1) {
+bool KRichTextWidget_SuperViewportEvent(KRichTextWidget* self, QEvent* param1) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_ViewportEvent_IsBase(true);
@@ -1457,7 +1457,7 @@ QSize* KRichTextWidget_ViewportSizeHint(const KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-QSize* KRichTextWidget_QBaseViewportSizeHint(const KRichTextWidget* self) {
+QSize* KRichTextWidget_SuperViewportSizeHint(const KRichTextWidget* self) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_ViewportSizeHint_IsBase(true);
@@ -1485,7 +1485,7 @@ void KRichTextWidget_InitStyleOption(const KRichTextWidget* self, QStyleOptionFr
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseInitStyleOption(const KRichTextWidget* self, QStyleOptionFrame* option) {
+void KRichTextWidget_SuperInitStyleOption(const KRichTextWidget* self, QStyleOptionFrame* option) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_InitStyleOption_IsBase(true);
@@ -1514,7 +1514,7 @@ int KRichTextWidget_DevType(const KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-int KRichTextWidget_QBaseDevType(const KRichTextWidget* self) {
+int KRichTextWidget_SuperDevType(const KRichTextWidget* self) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_DevType_IsBase(true);
@@ -1543,7 +1543,7 @@ void KRichTextWidget_SetVisible(KRichTextWidget* self, bool visible) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseSetVisible(KRichTextWidget* self, bool visible) {
+void KRichTextWidget_SuperSetVisible(KRichTextWidget* self, bool visible) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_SetVisible_IsBase(true);
@@ -1572,7 +1572,7 @@ int KRichTextWidget_HeightForWidth(const KRichTextWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int KRichTextWidget_QBaseHeightForWidth(const KRichTextWidget* self, int param1) {
+int KRichTextWidget_SuperHeightForWidth(const KRichTextWidget* self, int param1) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_HeightForWidth_IsBase(true);
@@ -1601,7 +1601,7 @@ bool KRichTextWidget_HasHeightForWidth(const KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-bool KRichTextWidget_QBaseHasHeightForWidth(const KRichTextWidget* self) {
+bool KRichTextWidget_SuperHasHeightForWidth(const KRichTextWidget* self) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_HasHeightForWidth_IsBase(true);
@@ -1630,7 +1630,7 @@ QPaintEngine* KRichTextWidget_PaintEngine(const KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KRichTextWidget_QBasePaintEngine(const KRichTextWidget* self) {
+QPaintEngine* KRichTextWidget_SuperPaintEngine(const KRichTextWidget* self) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_PaintEngine_IsBase(true);
@@ -1659,7 +1659,7 @@ void KRichTextWidget_EnterEvent(KRichTextWidget* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseEnterEvent(KRichTextWidget* self, QEnterEvent* event) {
+void KRichTextWidget_SuperEnterEvent(KRichTextWidget* self, QEnterEvent* event) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_EnterEvent_IsBase(true);
@@ -1688,7 +1688,7 @@ void KRichTextWidget_LeaveEvent(KRichTextWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseLeaveEvent(KRichTextWidget* self, QEvent* event) {
+void KRichTextWidget_SuperLeaveEvent(KRichTextWidget* self, QEvent* event) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_LeaveEvent_IsBase(true);
@@ -1717,7 +1717,7 @@ void KRichTextWidget_MoveEvent(KRichTextWidget* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseMoveEvent(KRichTextWidget* self, QMoveEvent* event) {
+void KRichTextWidget_SuperMoveEvent(KRichTextWidget* self, QMoveEvent* event) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_MoveEvent_IsBase(true);
@@ -1746,7 +1746,7 @@ void KRichTextWidget_CloseEvent(KRichTextWidget* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseCloseEvent(KRichTextWidget* self, QCloseEvent* event) {
+void KRichTextWidget_SuperCloseEvent(KRichTextWidget* self, QCloseEvent* event) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_CloseEvent_IsBase(true);
@@ -1775,7 +1775,7 @@ void KRichTextWidget_TabletEvent(KRichTextWidget* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseTabletEvent(KRichTextWidget* self, QTabletEvent* event) {
+void KRichTextWidget_SuperTabletEvent(KRichTextWidget* self, QTabletEvent* event) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_TabletEvent_IsBase(true);
@@ -1804,7 +1804,7 @@ void KRichTextWidget_ActionEvent(KRichTextWidget* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseActionEvent(KRichTextWidget* self, QActionEvent* event) {
+void KRichTextWidget_SuperActionEvent(KRichTextWidget* self, QActionEvent* event) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_ActionEvent_IsBase(true);
@@ -1833,7 +1833,7 @@ void KRichTextWidget_HideEvent(KRichTextWidget* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseHideEvent(KRichTextWidget* self, QHideEvent* event) {
+void KRichTextWidget_SuperHideEvent(KRichTextWidget* self, QHideEvent* event) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_HideEvent_IsBase(true);
@@ -1863,7 +1863,7 @@ bool KRichTextWidget_NativeEvent(KRichTextWidget* self, const libqt_string event
 }
 
 // Base class handler implementation
-bool KRichTextWidget_QBaseNativeEvent(KRichTextWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KRichTextWidget_SuperNativeEvent(KRichTextWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
@@ -1893,7 +1893,7 @@ int KRichTextWidget_Metric(const KRichTextWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int KRichTextWidget_QBaseMetric(const KRichTextWidget* self, int param1) {
+int KRichTextWidget_SuperMetric(const KRichTextWidget* self, int param1) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_Metric_IsBase(true);
@@ -1922,7 +1922,7 @@ void KRichTextWidget_InitPainter(const KRichTextWidget* self, QPainter* painter)
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseInitPainter(const KRichTextWidget* self, QPainter* painter) {
+void KRichTextWidget_SuperInitPainter(const KRichTextWidget* self, QPainter* painter) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_InitPainter_IsBase(true);
@@ -1951,7 +1951,7 @@ QPaintDevice* KRichTextWidget_Redirected(const KRichTextWidget* self, QPoint* of
 }
 
 // Base class handler implementation
-QPaintDevice* KRichTextWidget_QBaseRedirected(const KRichTextWidget* self, QPoint* offset) {
+QPaintDevice* KRichTextWidget_SuperRedirected(const KRichTextWidget* self, QPoint* offset) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_Redirected_IsBase(true);
@@ -1980,7 +1980,7 @@ QPainter* KRichTextWidget_SharedPainter(const KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* KRichTextWidget_QBaseSharedPainter(const KRichTextWidget* self) {
+QPainter* KRichTextWidget_SuperSharedPainter(const KRichTextWidget* self) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_SharedPainter_IsBase(true);
@@ -2009,7 +2009,7 @@ void KRichTextWidget_ChildEvent(KRichTextWidget* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseChildEvent(KRichTextWidget* self, QChildEvent* event) {
+void KRichTextWidget_SuperChildEvent(KRichTextWidget* self, QChildEvent* event) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_ChildEvent_IsBase(true);
@@ -2038,7 +2038,7 @@ void KRichTextWidget_CustomEvent(KRichTextWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseCustomEvent(KRichTextWidget* self, QEvent* event) {
+void KRichTextWidget_SuperCustomEvent(KRichTextWidget* self, QEvent* event) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_CustomEvent_IsBase(true);
@@ -2067,7 +2067,7 @@ void KRichTextWidget_ConnectNotify(KRichTextWidget* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseConnectNotify(KRichTextWidget* self, const QMetaMethod* signal) {
+void KRichTextWidget_SuperConnectNotify(KRichTextWidget* self, const QMetaMethod* signal) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_ConnectNotify_IsBase(true);
@@ -2096,7 +2096,7 @@ void KRichTextWidget_DisconnectNotify(KRichTextWidget* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseDisconnectNotify(KRichTextWidget* self, const QMetaMethod* signal) {
+void KRichTextWidget_SuperDisconnectNotify(KRichTextWidget* self, const QMetaMethod* signal) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_DisconnectNotify_IsBase(true);
@@ -2125,7 +2125,7 @@ void KRichTextWidget_SlotDoReplace(KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseSlotDoReplace(KRichTextWidget* self) {
+void KRichTextWidget_SuperSlotDoReplace(KRichTextWidget* self) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_SlotDoReplace_IsBase(true);
@@ -2154,7 +2154,7 @@ void KRichTextWidget_SlotReplaceNext(KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseSlotReplaceNext(KRichTextWidget* self) {
+void KRichTextWidget_SuperSlotReplaceNext(KRichTextWidget* self) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_SlotReplaceNext_IsBase(true);
@@ -2183,7 +2183,7 @@ void KRichTextWidget_SlotDoFind(KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseSlotDoFind(KRichTextWidget* self) {
+void KRichTextWidget_SuperSlotDoFind(KRichTextWidget* self) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_SlotDoFind_IsBase(true);
@@ -2212,7 +2212,7 @@ void KRichTextWidget_SlotFind(KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseSlotFind(KRichTextWidget* self) {
+void KRichTextWidget_SuperSlotFind(KRichTextWidget* self) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_SlotFind_IsBase(true);
@@ -2241,7 +2241,7 @@ void KRichTextWidget_SlotFindNext(KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseSlotFindNext(KRichTextWidget* self) {
+void KRichTextWidget_SuperSlotFindNext(KRichTextWidget* self) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_SlotFindNext_IsBase(true);
@@ -2270,7 +2270,7 @@ void KRichTextWidget_SlotFindPrevious(KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseSlotFindPrevious(KRichTextWidget* self) {
+void KRichTextWidget_SuperSlotFindPrevious(KRichTextWidget* self) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_SlotFindPrevious_IsBase(true);
@@ -2299,7 +2299,7 @@ void KRichTextWidget_SlotReplace(KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseSlotReplace(KRichTextWidget* self) {
+void KRichTextWidget_SuperSlotReplace(KRichTextWidget* self) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_SlotReplace_IsBase(true);
@@ -2328,7 +2328,7 @@ void KRichTextWidget_SlotSpeakText(KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseSlotSpeakText(KRichTextWidget* self) {
+void KRichTextWidget_SuperSlotSpeakText(KRichTextWidget* self) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_SlotSpeakText_IsBase(true);
@@ -2357,7 +2357,7 @@ void KRichTextWidget_ZoomInF(KRichTextWidget* self, float range) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseZoomInF(KRichTextWidget* self, float range) {
+void KRichTextWidget_SuperZoomInF(KRichTextWidget* self, float range) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_ZoomInF_IsBase(true);
@@ -2386,7 +2386,7 @@ void KRichTextWidget_SetViewportMargins(KRichTextWidget* self, int left, int top
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseSetViewportMargins(KRichTextWidget* self, int left, int top, int right, int bottom) {
+void KRichTextWidget_SuperSetViewportMargins(KRichTextWidget* self, int left, int top, int right, int bottom) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_SetViewportMargins_IsBase(true);
@@ -2414,7 +2414,7 @@ QMargins* KRichTextWidget_ViewportMargins(const KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-QMargins* KRichTextWidget_QBaseViewportMargins(const KRichTextWidget* self) {
+QMargins* KRichTextWidget_SuperViewportMargins(const KRichTextWidget* self) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_ViewportMargins_IsBase(true);
@@ -2442,7 +2442,7 @@ void KRichTextWidget_DrawFrame(KRichTextWidget* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseDrawFrame(KRichTextWidget* self, QPainter* param1) {
+void KRichTextWidget_SuperDrawFrame(KRichTextWidget* self, QPainter* param1) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_DrawFrame_IsBase(true);
@@ -2471,7 +2471,7 @@ void KRichTextWidget_UpdateMicroFocus(KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseUpdateMicroFocus(KRichTextWidget* self) {
+void KRichTextWidget_SuperUpdateMicroFocus(KRichTextWidget* self) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_UpdateMicroFocus_IsBase(true);
@@ -2500,7 +2500,7 @@ void KRichTextWidget_Create(KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseCreate(KRichTextWidget* self) {
+void KRichTextWidget_SuperCreate(KRichTextWidget* self) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_Create_IsBase(true);
@@ -2529,7 +2529,7 @@ void KRichTextWidget_Destroy(KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-void KRichTextWidget_QBaseDestroy(KRichTextWidget* self) {
+void KRichTextWidget_SuperDestroy(KRichTextWidget* self) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_Destroy_IsBase(true);
@@ -2558,7 +2558,7 @@ bool KRichTextWidget_FocusNextChild(KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-bool KRichTextWidget_QBaseFocusNextChild(KRichTextWidget* self) {
+bool KRichTextWidget_SuperFocusNextChild(KRichTextWidget* self) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_FocusNextChild_IsBase(true);
@@ -2587,7 +2587,7 @@ bool KRichTextWidget_FocusPreviousChild(KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-bool KRichTextWidget_QBaseFocusPreviousChild(KRichTextWidget* self) {
+bool KRichTextWidget_SuperFocusPreviousChild(KRichTextWidget* self) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_FocusPreviousChild_IsBase(true);
@@ -2616,7 +2616,7 @@ QObject* KRichTextWidget_Sender(const KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-QObject* KRichTextWidget_QBaseSender(const KRichTextWidget* self) {
+QObject* KRichTextWidget_SuperSender(const KRichTextWidget* self) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_Sender_IsBase(true);
@@ -2645,7 +2645,7 @@ int KRichTextWidget_SenderSignalIndex(const KRichTextWidget* self) {
 }
 
 // Base class handler implementation
-int KRichTextWidget_QBaseSenderSignalIndex(const KRichTextWidget* self) {
+int KRichTextWidget_SuperSenderSignalIndex(const KRichTextWidget* self) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_SenderSignalIndex_IsBase(true);
@@ -2674,7 +2674,7 @@ int KRichTextWidget_Receivers(const KRichTextWidget* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KRichTextWidget_QBaseReceivers(const KRichTextWidget* self, const char* signal) {
+int KRichTextWidget_SuperReceivers(const KRichTextWidget* self, const char* signal) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_Receivers_IsBase(true);
@@ -2703,7 +2703,7 @@ bool KRichTextWidget_IsSignalConnected(const KRichTextWidget* self, const QMetaM
 }
 
 // Base class handler implementation
-bool KRichTextWidget_QBaseIsSignalConnected(const KRichTextWidget* self, const QMetaMethod* signal) {
+bool KRichTextWidget_SuperIsSignalConnected(const KRichTextWidget* self, const QMetaMethod* signal) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_IsSignalConnected_IsBase(true);
@@ -2732,7 +2732,7 @@ double KRichTextWidget_GetDecodedMetricF(const KRichTextWidget* self, int metric
 }
 
 // Base class handler implementation
-double KRichTextWidget_QBaseGetDecodedMetricF(const KRichTextWidget* self, int metricA, int metricB) {
+double KRichTextWidget_SuperGetDecodedMetricF(const KRichTextWidget* self, int metricA, int metricB) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->setKRichTextWidget_GetDecodedMetricF_IsBase(true);

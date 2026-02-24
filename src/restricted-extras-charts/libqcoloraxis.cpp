@@ -198,7 +198,7 @@ void QColorAxis_Connect_AutoRangeChanged(QColorAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QColorAxis_QBaseMetaObject(const QColorAxis* self) {
+QMetaObject* QColorAxis_SuperMetaObject(const QColorAxis* self) {
     auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
     if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
         vqcoloraxis->setQColorAxis_MetaObject_IsBase(true);
@@ -217,7 +217,7 @@ void QColorAxis_OnMetaObject(const QColorAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QColorAxis_QBaseMetacast(QColorAxis* self, const char* param1) {
+void* QColorAxis_SuperMetacast(QColorAxis* self, const char* param1) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
     if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
         vqcoloraxis->setQColorAxis_Metacast_IsBase(true);
@@ -236,7 +236,7 @@ void QColorAxis_OnMetacast(QColorAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QColorAxis_QBaseMetacall(QColorAxis* self, int param1, int param2, void** param3) {
+int QColorAxis_SuperMetacall(QColorAxis* self, int param1, int param2, void** param3) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
     if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
         vqcoloraxis->setQColorAxis_Metacall_IsBase(true);
@@ -255,7 +255,7 @@ void QColorAxis_OnMetacall(QColorAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QColorAxis_QBaseType(const QColorAxis* self) {
+int QColorAxis_SuperType(const QColorAxis* self) {
     auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
     if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
         vqcoloraxis->setQColorAxis_Type_IsBase(true);
@@ -284,7 +284,7 @@ bool QColorAxis_Event(QColorAxis* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QColorAxis_QBaseEvent(QColorAxis* self, QEvent* event) {
+bool QColorAxis_SuperEvent(QColorAxis* self, QEvent* event) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
     if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
         vqcoloraxis->setQColorAxis_Event_IsBase(true);
@@ -313,7 +313,7 @@ bool QColorAxis_EventFilter(QColorAxis* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QColorAxis_QBaseEventFilter(QColorAxis* self, QObject* watched, QEvent* event) {
+bool QColorAxis_SuperEventFilter(QColorAxis* self, QObject* watched, QEvent* event) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
     if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
         vqcoloraxis->setQColorAxis_EventFilter_IsBase(true);
@@ -342,7 +342,7 @@ void QColorAxis_TimerEvent(QColorAxis* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QColorAxis_QBaseTimerEvent(QColorAxis* self, QTimerEvent* event) {
+void QColorAxis_SuperTimerEvent(QColorAxis* self, QTimerEvent* event) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
     if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
         vqcoloraxis->setQColorAxis_TimerEvent_IsBase(true);
@@ -371,7 +371,7 @@ void QColorAxis_ChildEvent(QColorAxis* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QColorAxis_QBaseChildEvent(QColorAxis* self, QChildEvent* event) {
+void QColorAxis_SuperChildEvent(QColorAxis* self, QChildEvent* event) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
     if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
         vqcoloraxis->setQColorAxis_ChildEvent_IsBase(true);
@@ -400,7 +400,7 @@ void QColorAxis_CustomEvent(QColorAxis* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QColorAxis_QBaseCustomEvent(QColorAxis* self, QEvent* event) {
+void QColorAxis_SuperCustomEvent(QColorAxis* self, QEvent* event) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
     if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
         vqcoloraxis->setQColorAxis_CustomEvent_IsBase(true);
@@ -429,7 +429,7 @@ void QColorAxis_ConnectNotify(QColorAxis* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QColorAxis_QBaseConnectNotify(QColorAxis* self, const QMetaMethod* signal) {
+void QColorAxis_SuperConnectNotify(QColorAxis* self, const QMetaMethod* signal) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
     if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
         vqcoloraxis->setQColorAxis_ConnectNotify_IsBase(true);
@@ -458,7 +458,7 @@ void QColorAxis_DisconnectNotify(QColorAxis* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QColorAxis_QBaseDisconnectNotify(QColorAxis* self, const QMetaMethod* signal) {
+void QColorAxis_SuperDisconnectNotify(QColorAxis* self, const QMetaMethod* signal) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
     if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
         vqcoloraxis->setQColorAxis_DisconnectNotify_IsBase(true);
@@ -487,7 +487,7 @@ QObject* QColorAxis_Sender(const QColorAxis* self) {
 }
 
 // Base class handler implementation
-QObject* QColorAxis_QBaseSender(const QColorAxis* self) {
+QObject* QColorAxis_SuperSender(const QColorAxis* self) {
     auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
     if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
         vqcoloraxis->setQColorAxis_Sender_IsBase(true);
@@ -516,7 +516,7 @@ int QColorAxis_SenderSignalIndex(const QColorAxis* self) {
 }
 
 // Base class handler implementation
-int QColorAxis_QBaseSenderSignalIndex(const QColorAxis* self) {
+int QColorAxis_SuperSenderSignalIndex(const QColorAxis* self) {
     auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
     if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
         vqcoloraxis->setQColorAxis_SenderSignalIndex_IsBase(true);
@@ -545,7 +545,7 @@ int QColorAxis_Receivers(const QColorAxis* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QColorAxis_QBaseReceivers(const QColorAxis* self, const char* signal) {
+int QColorAxis_SuperReceivers(const QColorAxis* self, const char* signal) {
     auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
     if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
         vqcoloraxis->setQColorAxis_Receivers_IsBase(true);
@@ -574,7 +574,7 @@ bool QColorAxis_IsSignalConnected(const QColorAxis* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QColorAxis_QBaseIsSignalConnected(const QColorAxis* self, const QMetaMethod* signal) {
+bool QColorAxis_SuperIsSignalConnected(const QColorAxis* self, const QMetaMethod* signal) {
     auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
     if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
         vqcoloraxis->setQColorAxis_IsSignalConnected_IsBase(true);

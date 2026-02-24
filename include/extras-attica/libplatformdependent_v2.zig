@@ -305,13 +305,17 @@ pub const attica__platformdependentv2 = struct {
         return qtc.Attica__PlatformDependent_Nam(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Attica__PlatformDependentV2 `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Attica__PlatformDependentV2_Delete(@ptrCast(self));
     }
 };

@@ -97,7 +97,7 @@ int QOpenGLPaintDevice_Metric(const QOpenGLPaintDevice* self, int metric) {
 }
 
 // Base class handler implementation
-int QOpenGLPaintDevice_QBaseDevType(const QOpenGLPaintDevice* self) {
+int QOpenGLPaintDevice_SuperDevType(const QOpenGLPaintDevice* self) {
     auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
     if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
         vqopenglpaintdevice->setQOpenGLPaintDevice_DevType_IsBase(true);
@@ -116,7 +116,7 @@ void QOpenGLPaintDevice_OnDevType(const QOpenGLPaintDevice* self, intptr_t slot)
 }
 
 // Base class handler implementation
-QPaintEngine* QOpenGLPaintDevice_QBasePaintEngine(const QOpenGLPaintDevice* self) {
+QPaintEngine* QOpenGLPaintDevice_SuperPaintEngine(const QOpenGLPaintDevice* self) {
     auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
     if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
         vqopenglpaintdevice->setQOpenGLPaintDevice_PaintEngine_IsBase(true);
@@ -135,7 +135,7 @@ void QOpenGLPaintDevice_OnPaintEngine(const QOpenGLPaintDevice* self, intptr_t s
 }
 
 // Base class handler implementation
-void QOpenGLPaintDevice_QBaseEnsureActiveTarget(QOpenGLPaintDevice* self) {
+void QOpenGLPaintDevice_SuperEnsureActiveTarget(QOpenGLPaintDevice* self) {
     auto* vqopenglpaintdevice = dynamic_cast<VirtualQOpenGLPaintDevice*>(self);
     if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
         vqopenglpaintdevice->setQOpenGLPaintDevice_EnsureActiveTarget_IsBase(true);
@@ -154,7 +154,7 @@ void QOpenGLPaintDevice_OnEnsureActiveTarget(QOpenGLPaintDevice* self, intptr_t 
 }
 
 // Base class handler implementation
-int QOpenGLPaintDevice_QBaseMetric(const QOpenGLPaintDevice* self, int metric) {
+int QOpenGLPaintDevice_SuperMetric(const QOpenGLPaintDevice* self, int metric) {
     auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
     if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
         vqopenglpaintdevice->setQOpenGLPaintDevice_Metric_IsBase(true);
@@ -183,7 +183,7 @@ void QOpenGLPaintDevice_InitPainter(const QOpenGLPaintDevice* self, QPainter* pa
 }
 
 // Base class handler implementation
-void QOpenGLPaintDevice_QBaseInitPainter(const QOpenGLPaintDevice* self, QPainter* painter) {
+void QOpenGLPaintDevice_SuperInitPainter(const QOpenGLPaintDevice* self, QPainter* painter) {
     auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
     if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
         vqopenglpaintdevice->setQOpenGLPaintDevice_InitPainter_IsBase(true);
@@ -212,7 +212,7 @@ QPaintDevice* QOpenGLPaintDevice_Redirected(const QOpenGLPaintDevice* self, QPoi
 }
 
 // Base class handler implementation
-QPaintDevice* QOpenGLPaintDevice_QBaseRedirected(const QOpenGLPaintDevice* self, QPoint* offset) {
+QPaintDevice* QOpenGLPaintDevice_SuperRedirected(const QOpenGLPaintDevice* self, QPoint* offset) {
     auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
     if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
         vqopenglpaintdevice->setQOpenGLPaintDevice_Redirected_IsBase(true);
@@ -241,7 +241,7 @@ QPainter* QOpenGLPaintDevice_SharedPainter(const QOpenGLPaintDevice* self) {
 }
 
 // Base class handler implementation
-QPainter* QOpenGLPaintDevice_QBaseSharedPainter(const QOpenGLPaintDevice* self) {
+QPainter* QOpenGLPaintDevice_SuperSharedPainter(const QOpenGLPaintDevice* self) {
     auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
     if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
         vqopenglpaintdevice->setQOpenGLPaintDevice_SharedPainter_IsBase(true);
@@ -270,7 +270,7 @@ double QOpenGLPaintDevice_GetDecodedMetricF(const QOpenGLPaintDevice* self, int 
 }
 
 // Base class handler implementation
-double QOpenGLPaintDevice_QBaseGetDecodedMetricF(const QOpenGLPaintDevice* self, int metricA, int metricB) {
+double QOpenGLPaintDevice_SuperGetDecodedMetricF(const QOpenGLPaintDevice* self, int metricA, int metricB) {
     auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
     if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
         vqopenglpaintdevice->setQOpenGLPaintDevice_GetDecodedMetricF_IsBase(true);

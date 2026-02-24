@@ -809,7 +809,7 @@ double QInputDialog_GetDouble10(QWidget* parent, const libqt_string title, const
 }
 
 // Base class handler implementation
-QMetaObject* QInputDialog_QBaseMetaObject(const QInputDialog* self) {
+QMetaObject* QInputDialog_SuperMetaObject(const QInputDialog* self) {
     auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_MetaObject_IsBase(true);
@@ -828,7 +828,7 @@ void QInputDialog_OnMetaObject(const QInputDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QInputDialog_QBaseMetacast(QInputDialog* self, const char* param1) {
+void* QInputDialog_SuperMetacast(QInputDialog* self, const char* param1) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_Metacast_IsBase(true);
@@ -847,7 +847,7 @@ void QInputDialog_OnMetacast(QInputDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QInputDialog_QBaseMetacall(QInputDialog* self, int param1, int param2, void** param3) {
+int QInputDialog_SuperMetacall(QInputDialog* self, int param1, int param2, void** param3) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_Metacall_IsBase(true);
@@ -866,7 +866,7 @@ void QInputDialog_OnMetacall(QInputDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QInputDialog_QBaseMinimumSizeHint(const QInputDialog* self) {
+QSize* QInputDialog_SuperMinimumSizeHint(const QInputDialog* self) {
     auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_MinimumSizeHint_IsBase(true);
@@ -885,7 +885,7 @@ void QInputDialog_OnMinimumSizeHint(const QInputDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QInputDialog_QBaseSizeHint(const QInputDialog* self) {
+QSize* QInputDialog_SuperSizeHint(const QInputDialog* self) {
     auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_SizeHint_IsBase(true);
@@ -904,7 +904,7 @@ void QInputDialog_OnSizeHint(const QInputDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseSetVisible(QInputDialog* self, bool visible) {
+void QInputDialog_SuperSetVisible(QInputDialog* self, bool visible) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_SetVisible_IsBase(true);
@@ -923,7 +923,7 @@ void QInputDialog_OnSetVisible(QInputDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseDone(QInputDialog* self, int result) {
+void QInputDialog_SuperDone(QInputDialog* self, int result) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_Done_IsBase(true);
@@ -952,7 +952,7 @@ void QInputDialog_Open(QInputDialog* self) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseOpen(QInputDialog* self) {
+void QInputDialog_SuperOpen(QInputDialog* self) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_Open_IsBase(true);
@@ -981,7 +981,7 @@ int QInputDialog_Exec(QInputDialog* self) {
 }
 
 // Base class handler implementation
-int QInputDialog_QBaseExec(QInputDialog* self) {
+int QInputDialog_SuperExec(QInputDialog* self) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_Exec_IsBase(true);
@@ -1010,7 +1010,7 @@ void QInputDialog_Accept(QInputDialog* self) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseAccept(QInputDialog* self) {
+void QInputDialog_SuperAccept(QInputDialog* self) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_Accept_IsBase(true);
@@ -1039,7 +1039,7 @@ void QInputDialog_Reject(QInputDialog* self) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseReject(QInputDialog* self) {
+void QInputDialog_SuperReject(QInputDialog* self) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_Reject_IsBase(true);
@@ -1068,7 +1068,7 @@ void QInputDialog_KeyPressEvent(QInputDialog* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseKeyPressEvent(QInputDialog* self, QKeyEvent* param1) {
+void QInputDialog_SuperKeyPressEvent(QInputDialog* self, QKeyEvent* param1) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_KeyPressEvent_IsBase(true);
@@ -1097,7 +1097,7 @@ void QInputDialog_CloseEvent(QInputDialog* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseCloseEvent(QInputDialog* self, QCloseEvent* param1) {
+void QInputDialog_SuperCloseEvent(QInputDialog* self, QCloseEvent* param1) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_CloseEvent_IsBase(true);
@@ -1126,7 +1126,7 @@ void QInputDialog_ShowEvent(QInputDialog* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseShowEvent(QInputDialog* self, QShowEvent* param1) {
+void QInputDialog_SuperShowEvent(QInputDialog* self, QShowEvent* param1) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_ShowEvent_IsBase(true);
@@ -1155,7 +1155,7 @@ void QInputDialog_ResizeEvent(QInputDialog* self, QResizeEvent* param1) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseResizeEvent(QInputDialog* self, QResizeEvent* param1) {
+void QInputDialog_SuperResizeEvent(QInputDialog* self, QResizeEvent* param1) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_ResizeEvent_IsBase(true);
@@ -1184,7 +1184,7 @@ void QInputDialog_ContextMenuEvent(QInputDialog* self, QContextMenuEvent* param1
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseContextMenuEvent(QInputDialog* self, QContextMenuEvent* param1) {
+void QInputDialog_SuperContextMenuEvent(QInputDialog* self, QContextMenuEvent* param1) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_ContextMenuEvent_IsBase(true);
@@ -1213,7 +1213,7 @@ bool QInputDialog_EventFilter(QInputDialog* self, QObject* param1, QEvent* param
 }
 
 // Base class handler implementation
-bool QInputDialog_QBaseEventFilter(QInputDialog* self, QObject* param1, QEvent* param2) {
+bool QInputDialog_SuperEventFilter(QInputDialog* self, QObject* param1, QEvent* param2) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_EventFilter_IsBase(true);
@@ -1242,7 +1242,7 @@ int QInputDialog_DevType(const QInputDialog* self) {
 }
 
 // Base class handler implementation
-int QInputDialog_QBaseDevType(const QInputDialog* self) {
+int QInputDialog_SuperDevType(const QInputDialog* self) {
     auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_DevType_IsBase(true);
@@ -1271,7 +1271,7 @@ int QInputDialog_HeightForWidth(const QInputDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int QInputDialog_QBaseHeightForWidth(const QInputDialog* self, int param1) {
+int QInputDialog_SuperHeightForWidth(const QInputDialog* self, int param1) {
     auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_HeightForWidth_IsBase(true);
@@ -1300,7 +1300,7 @@ bool QInputDialog_HasHeightForWidth(const QInputDialog* self) {
 }
 
 // Base class handler implementation
-bool QInputDialog_QBaseHasHeightForWidth(const QInputDialog* self) {
+bool QInputDialog_SuperHasHeightForWidth(const QInputDialog* self) {
     auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_HasHeightForWidth_IsBase(true);
@@ -1329,7 +1329,7 @@ QPaintEngine* QInputDialog_PaintEngine(const QInputDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QInputDialog_QBasePaintEngine(const QInputDialog* self) {
+QPaintEngine* QInputDialog_SuperPaintEngine(const QInputDialog* self) {
     auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_PaintEngine_IsBase(true);
@@ -1358,7 +1358,7 @@ bool QInputDialog_Event(QInputDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QInputDialog_QBaseEvent(QInputDialog* self, QEvent* event) {
+bool QInputDialog_SuperEvent(QInputDialog* self, QEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_Event_IsBase(true);
@@ -1387,7 +1387,7 @@ void QInputDialog_MousePressEvent(QInputDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseMousePressEvent(QInputDialog* self, QMouseEvent* event) {
+void QInputDialog_SuperMousePressEvent(QInputDialog* self, QMouseEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_MousePressEvent_IsBase(true);
@@ -1416,7 +1416,7 @@ void QInputDialog_MouseReleaseEvent(QInputDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseMouseReleaseEvent(QInputDialog* self, QMouseEvent* event) {
+void QInputDialog_SuperMouseReleaseEvent(QInputDialog* self, QMouseEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_MouseReleaseEvent_IsBase(true);
@@ -1445,7 +1445,7 @@ void QInputDialog_MouseDoubleClickEvent(QInputDialog* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseMouseDoubleClickEvent(QInputDialog* self, QMouseEvent* event) {
+void QInputDialog_SuperMouseDoubleClickEvent(QInputDialog* self, QMouseEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_MouseDoubleClickEvent_IsBase(true);
@@ -1474,7 +1474,7 @@ void QInputDialog_MouseMoveEvent(QInputDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseMouseMoveEvent(QInputDialog* self, QMouseEvent* event) {
+void QInputDialog_SuperMouseMoveEvent(QInputDialog* self, QMouseEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_MouseMoveEvent_IsBase(true);
@@ -1503,7 +1503,7 @@ void QInputDialog_WheelEvent(QInputDialog* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseWheelEvent(QInputDialog* self, QWheelEvent* event) {
+void QInputDialog_SuperWheelEvent(QInputDialog* self, QWheelEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_WheelEvent_IsBase(true);
@@ -1532,7 +1532,7 @@ void QInputDialog_KeyReleaseEvent(QInputDialog* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseKeyReleaseEvent(QInputDialog* self, QKeyEvent* event) {
+void QInputDialog_SuperKeyReleaseEvent(QInputDialog* self, QKeyEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_KeyReleaseEvent_IsBase(true);
@@ -1561,7 +1561,7 @@ void QInputDialog_FocusInEvent(QInputDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseFocusInEvent(QInputDialog* self, QFocusEvent* event) {
+void QInputDialog_SuperFocusInEvent(QInputDialog* self, QFocusEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_FocusInEvent_IsBase(true);
@@ -1590,7 +1590,7 @@ void QInputDialog_FocusOutEvent(QInputDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseFocusOutEvent(QInputDialog* self, QFocusEvent* event) {
+void QInputDialog_SuperFocusOutEvent(QInputDialog* self, QFocusEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_FocusOutEvent_IsBase(true);
@@ -1619,7 +1619,7 @@ void QInputDialog_EnterEvent(QInputDialog* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseEnterEvent(QInputDialog* self, QEnterEvent* event) {
+void QInputDialog_SuperEnterEvent(QInputDialog* self, QEnterEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_EnterEvent_IsBase(true);
@@ -1648,7 +1648,7 @@ void QInputDialog_LeaveEvent(QInputDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseLeaveEvent(QInputDialog* self, QEvent* event) {
+void QInputDialog_SuperLeaveEvent(QInputDialog* self, QEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_LeaveEvent_IsBase(true);
@@ -1677,7 +1677,7 @@ void QInputDialog_PaintEvent(QInputDialog* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBasePaintEvent(QInputDialog* self, QPaintEvent* event) {
+void QInputDialog_SuperPaintEvent(QInputDialog* self, QPaintEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_PaintEvent_IsBase(true);
@@ -1706,7 +1706,7 @@ void QInputDialog_MoveEvent(QInputDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseMoveEvent(QInputDialog* self, QMoveEvent* event) {
+void QInputDialog_SuperMoveEvent(QInputDialog* self, QMoveEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_MoveEvent_IsBase(true);
@@ -1735,7 +1735,7 @@ void QInputDialog_TabletEvent(QInputDialog* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseTabletEvent(QInputDialog* self, QTabletEvent* event) {
+void QInputDialog_SuperTabletEvent(QInputDialog* self, QTabletEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_TabletEvent_IsBase(true);
@@ -1764,7 +1764,7 @@ void QInputDialog_ActionEvent(QInputDialog* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseActionEvent(QInputDialog* self, QActionEvent* event) {
+void QInputDialog_SuperActionEvent(QInputDialog* self, QActionEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_ActionEvent_IsBase(true);
@@ -1793,7 +1793,7 @@ void QInputDialog_DragEnterEvent(QInputDialog* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseDragEnterEvent(QInputDialog* self, QDragEnterEvent* event) {
+void QInputDialog_SuperDragEnterEvent(QInputDialog* self, QDragEnterEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_DragEnterEvent_IsBase(true);
@@ -1822,7 +1822,7 @@ void QInputDialog_DragMoveEvent(QInputDialog* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseDragMoveEvent(QInputDialog* self, QDragMoveEvent* event) {
+void QInputDialog_SuperDragMoveEvent(QInputDialog* self, QDragMoveEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_DragMoveEvent_IsBase(true);
@@ -1851,7 +1851,7 @@ void QInputDialog_DragLeaveEvent(QInputDialog* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseDragLeaveEvent(QInputDialog* self, QDragLeaveEvent* event) {
+void QInputDialog_SuperDragLeaveEvent(QInputDialog* self, QDragLeaveEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_DragLeaveEvent_IsBase(true);
@@ -1880,7 +1880,7 @@ void QInputDialog_DropEvent(QInputDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseDropEvent(QInputDialog* self, QDropEvent* event) {
+void QInputDialog_SuperDropEvent(QInputDialog* self, QDropEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_DropEvent_IsBase(true);
@@ -1909,7 +1909,7 @@ void QInputDialog_HideEvent(QInputDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseHideEvent(QInputDialog* self, QHideEvent* event) {
+void QInputDialog_SuperHideEvent(QInputDialog* self, QHideEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_HideEvent_IsBase(true);
@@ -1939,7 +1939,7 @@ bool QInputDialog_NativeEvent(QInputDialog* self, const libqt_string eventType, 
 }
 
 // Base class handler implementation
-bool QInputDialog_QBaseNativeEvent(QInputDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QInputDialog_SuperNativeEvent(QInputDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
@@ -1969,7 +1969,7 @@ void QInputDialog_ChangeEvent(QInputDialog* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseChangeEvent(QInputDialog* self, QEvent* param1) {
+void QInputDialog_SuperChangeEvent(QInputDialog* self, QEvent* param1) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_ChangeEvent_IsBase(true);
@@ -1998,7 +1998,7 @@ int QInputDialog_Metric(const QInputDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int QInputDialog_QBaseMetric(const QInputDialog* self, int param1) {
+int QInputDialog_SuperMetric(const QInputDialog* self, int param1) {
     auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_Metric_IsBase(true);
@@ -2027,7 +2027,7 @@ void QInputDialog_InitPainter(const QInputDialog* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseInitPainter(const QInputDialog* self, QPainter* painter) {
+void QInputDialog_SuperInitPainter(const QInputDialog* self, QPainter* painter) {
     auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_InitPainter_IsBase(true);
@@ -2056,7 +2056,7 @@ QPaintDevice* QInputDialog_Redirected(const QInputDialog* self, QPoint* offset) 
 }
 
 // Base class handler implementation
-QPaintDevice* QInputDialog_QBaseRedirected(const QInputDialog* self, QPoint* offset) {
+QPaintDevice* QInputDialog_SuperRedirected(const QInputDialog* self, QPoint* offset) {
     auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_Redirected_IsBase(true);
@@ -2085,7 +2085,7 @@ QPainter* QInputDialog_SharedPainter(const QInputDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* QInputDialog_QBaseSharedPainter(const QInputDialog* self) {
+QPainter* QInputDialog_SuperSharedPainter(const QInputDialog* self) {
     auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_SharedPainter_IsBase(true);
@@ -2114,7 +2114,7 @@ void QInputDialog_InputMethodEvent(QInputDialog* self, QInputMethodEvent* param1
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseInputMethodEvent(QInputDialog* self, QInputMethodEvent* param1) {
+void QInputDialog_SuperInputMethodEvent(QInputDialog* self, QInputMethodEvent* param1) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_InputMethodEvent_IsBase(true);
@@ -2143,7 +2143,7 @@ QVariant* QInputDialog_InputMethodQuery(const QInputDialog* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QInputDialog_QBaseInputMethodQuery(const QInputDialog* self, int param1) {
+QVariant* QInputDialog_SuperInputMethodQuery(const QInputDialog* self, int param1) {
     auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_InputMethodQuery_IsBase(true);
@@ -2172,7 +2172,7 @@ bool QInputDialog_FocusNextPrevChild(QInputDialog* self, bool next) {
 }
 
 // Base class handler implementation
-bool QInputDialog_QBaseFocusNextPrevChild(QInputDialog* self, bool next) {
+bool QInputDialog_SuperFocusNextPrevChild(QInputDialog* self, bool next) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_FocusNextPrevChild_IsBase(true);
@@ -2201,7 +2201,7 @@ void QInputDialog_TimerEvent(QInputDialog* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseTimerEvent(QInputDialog* self, QTimerEvent* event) {
+void QInputDialog_SuperTimerEvent(QInputDialog* self, QTimerEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_TimerEvent_IsBase(true);
@@ -2230,7 +2230,7 @@ void QInputDialog_ChildEvent(QInputDialog* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseChildEvent(QInputDialog* self, QChildEvent* event) {
+void QInputDialog_SuperChildEvent(QInputDialog* self, QChildEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_ChildEvent_IsBase(true);
@@ -2259,7 +2259,7 @@ void QInputDialog_CustomEvent(QInputDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseCustomEvent(QInputDialog* self, QEvent* event) {
+void QInputDialog_SuperCustomEvent(QInputDialog* self, QEvent* event) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_CustomEvent_IsBase(true);
@@ -2288,7 +2288,7 @@ void QInputDialog_ConnectNotify(QInputDialog* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseConnectNotify(QInputDialog* self, const QMetaMethod* signal) {
+void QInputDialog_SuperConnectNotify(QInputDialog* self, const QMetaMethod* signal) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_ConnectNotify_IsBase(true);
@@ -2317,7 +2317,7 @@ void QInputDialog_DisconnectNotify(QInputDialog* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseDisconnectNotify(QInputDialog* self, const QMetaMethod* signal) {
+void QInputDialog_SuperDisconnectNotify(QInputDialog* self, const QMetaMethod* signal) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_DisconnectNotify_IsBase(true);
@@ -2346,7 +2346,7 @@ void QInputDialog_AdjustPosition(QInputDialog* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseAdjustPosition(QInputDialog* self, QWidget* param1) {
+void QInputDialog_SuperAdjustPosition(QInputDialog* self, QWidget* param1) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_AdjustPosition_IsBase(true);
@@ -2375,7 +2375,7 @@ void QInputDialog_UpdateMicroFocus(QInputDialog* self) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseUpdateMicroFocus(QInputDialog* self) {
+void QInputDialog_SuperUpdateMicroFocus(QInputDialog* self) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_UpdateMicroFocus_IsBase(true);
@@ -2404,7 +2404,7 @@ void QInputDialog_Create(QInputDialog* self) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseCreate(QInputDialog* self) {
+void QInputDialog_SuperCreate(QInputDialog* self) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_Create_IsBase(true);
@@ -2433,7 +2433,7 @@ void QInputDialog_Destroy(QInputDialog* self) {
 }
 
 // Base class handler implementation
-void QInputDialog_QBaseDestroy(QInputDialog* self) {
+void QInputDialog_SuperDestroy(QInputDialog* self) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_Destroy_IsBase(true);
@@ -2462,7 +2462,7 @@ bool QInputDialog_FocusNextChild(QInputDialog* self) {
 }
 
 // Base class handler implementation
-bool QInputDialog_QBaseFocusNextChild(QInputDialog* self) {
+bool QInputDialog_SuperFocusNextChild(QInputDialog* self) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_FocusNextChild_IsBase(true);
@@ -2491,7 +2491,7 @@ bool QInputDialog_FocusPreviousChild(QInputDialog* self) {
 }
 
 // Base class handler implementation
-bool QInputDialog_QBaseFocusPreviousChild(QInputDialog* self) {
+bool QInputDialog_SuperFocusPreviousChild(QInputDialog* self) {
     auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_FocusPreviousChild_IsBase(true);
@@ -2520,7 +2520,7 @@ QObject* QInputDialog_Sender(const QInputDialog* self) {
 }
 
 // Base class handler implementation
-QObject* QInputDialog_QBaseSender(const QInputDialog* self) {
+QObject* QInputDialog_SuperSender(const QInputDialog* self) {
     auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_Sender_IsBase(true);
@@ -2549,7 +2549,7 @@ int QInputDialog_SenderSignalIndex(const QInputDialog* self) {
 }
 
 // Base class handler implementation
-int QInputDialog_QBaseSenderSignalIndex(const QInputDialog* self) {
+int QInputDialog_SuperSenderSignalIndex(const QInputDialog* self) {
     auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_SenderSignalIndex_IsBase(true);
@@ -2578,7 +2578,7 @@ int QInputDialog_Receivers(const QInputDialog* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QInputDialog_QBaseReceivers(const QInputDialog* self, const char* signal) {
+int QInputDialog_SuperReceivers(const QInputDialog* self, const char* signal) {
     auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_Receivers_IsBase(true);
@@ -2607,7 +2607,7 @@ bool QInputDialog_IsSignalConnected(const QInputDialog* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QInputDialog_QBaseIsSignalConnected(const QInputDialog* self, const QMetaMethod* signal) {
+bool QInputDialog_SuperIsSignalConnected(const QInputDialog* self, const QMetaMethod* signal) {
     auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_IsSignalConnected_IsBase(true);
@@ -2636,7 +2636,7 @@ double QInputDialog_GetDecodedMetricF(const QInputDialog* self, int metricA, int
 }
 
 // Base class handler implementation
-double QInputDialog_QBaseGetDecodedMetricF(const QInputDialog* self, int metricA, int metricB) {
+double QInputDialog_SuperGetDecodedMetricF(const QInputDialog* self, int metricA, int metricB) {
     auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_GetDecodedMetricF_IsBase(true);

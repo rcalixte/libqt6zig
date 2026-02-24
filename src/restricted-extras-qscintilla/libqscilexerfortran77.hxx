@@ -1118,31 +1118,31 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
 
     // Friend functions
     friend bool QsciLexerFortran77_ReadProperties(QsciLexerFortran77* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerFortran77_QBaseReadProperties(QsciLexerFortran77* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerFortran77_SuperReadProperties(QsciLexerFortran77* self, QSettings* qs, const libqt_string prefix);
     friend bool QsciLexerFortran77_WriteProperties(const QsciLexerFortran77* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerFortran77_QBaseWriteProperties(const QsciLexerFortran77* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerFortran77_SuperWriteProperties(const QsciLexerFortran77* self, QSettings* qs, const libqt_string prefix);
     friend void QsciLexerFortran77_TimerEvent(QsciLexerFortran77* self, QTimerEvent* event);
-    friend void QsciLexerFortran77_QBaseTimerEvent(QsciLexerFortran77* self, QTimerEvent* event);
+    friend void QsciLexerFortran77_SuperTimerEvent(QsciLexerFortran77* self, QTimerEvent* event);
     friend void QsciLexerFortran77_ChildEvent(QsciLexerFortran77* self, QChildEvent* event);
-    friend void QsciLexerFortran77_QBaseChildEvent(QsciLexerFortran77* self, QChildEvent* event);
+    friend void QsciLexerFortran77_SuperChildEvent(QsciLexerFortran77* self, QChildEvent* event);
     friend void QsciLexerFortran77_CustomEvent(QsciLexerFortran77* self, QEvent* event);
-    friend void QsciLexerFortran77_QBaseCustomEvent(QsciLexerFortran77* self, QEvent* event);
+    friend void QsciLexerFortran77_SuperCustomEvent(QsciLexerFortran77* self, QEvent* event);
     friend void QsciLexerFortran77_ConnectNotify(QsciLexerFortran77* self, const QMetaMethod* signal);
-    friend void QsciLexerFortran77_QBaseConnectNotify(QsciLexerFortran77* self, const QMetaMethod* signal);
+    friend void QsciLexerFortran77_SuperConnectNotify(QsciLexerFortran77* self, const QMetaMethod* signal);
     friend void QsciLexerFortran77_DisconnectNotify(QsciLexerFortran77* self, const QMetaMethod* signal);
-    friend void QsciLexerFortran77_QBaseDisconnectNotify(QsciLexerFortran77* self, const QMetaMethod* signal);
+    friend void QsciLexerFortran77_SuperDisconnectNotify(QsciLexerFortran77* self, const QMetaMethod* signal);
     friend libqt_string QsciLexerFortran77_TextAsBytes(const QsciLexerFortran77* self, const libqt_string text);
-    friend libqt_string QsciLexerFortran77_QBaseTextAsBytes(const QsciLexerFortran77* self, const libqt_string text);
+    friend libqt_string QsciLexerFortran77_SuperTextAsBytes(const QsciLexerFortran77* self, const libqt_string text);
     friend libqt_string QsciLexerFortran77_BytesAsText(const QsciLexerFortran77* self, const char* bytes, int size);
-    friend libqt_string QsciLexerFortran77_QBaseBytesAsText(const QsciLexerFortran77* self, const char* bytes, int size);
+    friend libqt_string QsciLexerFortran77_SuperBytesAsText(const QsciLexerFortran77* self, const char* bytes, int size);
     friend QObject* QsciLexerFortran77_Sender(const QsciLexerFortran77* self);
-    friend QObject* QsciLexerFortran77_QBaseSender(const QsciLexerFortran77* self);
+    friend QObject* QsciLexerFortran77_SuperSender(const QsciLexerFortran77* self);
     friend int QsciLexerFortran77_SenderSignalIndex(const QsciLexerFortran77* self);
-    friend int QsciLexerFortran77_QBaseSenderSignalIndex(const QsciLexerFortran77* self);
+    friend int QsciLexerFortran77_SuperSenderSignalIndex(const QsciLexerFortran77* self);
     friend int QsciLexerFortran77_Receivers(const QsciLexerFortran77* self, const char* signal);
-    friend int QsciLexerFortran77_QBaseReceivers(const QsciLexerFortran77* self, const char* signal);
+    friend int QsciLexerFortran77_SuperReceivers(const QsciLexerFortran77* self, const char* signal);
     friend bool QsciLexerFortran77_IsSignalConnected(const QsciLexerFortran77* self, const QMetaMethod* signal);
-    friend bool QsciLexerFortran77_QBaseIsSignalConnected(const QsciLexerFortran77* self, const QMetaMethod* signal);
+    friend bool QsciLexerFortran77_SuperIsSignalConnected(const QsciLexerFortran77* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -50,6 +50,10 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -58,8 +62,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` self: QtC.QSyntaxHighlighter `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QSyntaxHighlighter_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QSyntaxHighlighter_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -85,6 +89,10 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -93,9 +101,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QSyntaxHighlighter_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QSyntaxHighlighter_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -124,6 +132,10 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -136,8 +148,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QSyntaxHighlighter_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QSyntaxHighlighter_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -231,6 +243,10 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnHighlightBlock(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHighlightBlock` instead
+    ///
+    pub const QBaseHighlightBlock = SuperHighlightBlock;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#highlightBlock)
     ///
     /// Base class method implementation
@@ -241,12 +257,12 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn QBaseHighlightBlock(self: ?*anyopaque, text: []const u8) void {
+    pub fn SuperHighlightBlock(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QSyntaxHighlighter_QBaseHighlightBlock(@ptrCast(self), text_str);
+        qtc.QSyntaxHighlighter_SuperHighlightBlock(@ptrCast(self), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
@@ -279,6 +295,10 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnSetFormat(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFormat` instead
+    ///
+    pub const QBaseSetFormat = SuperSetFormat;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
     ///
     /// Base class method implementation
@@ -293,8 +313,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` format: QtC.QTextCharFormat `
     ///
-    pub fn QBaseSetFormat(self: ?*anyopaque, start: i32, count: i32, format: ?*anyopaque) void {
-        qtc.QSyntaxHighlighter_QBaseSetFormat(@ptrCast(self), @bitCast(start), @bitCast(count), @ptrCast(format));
+    pub fn SuperSetFormat(self: ?*anyopaque, start: i32, count: i32, format: ?*anyopaque) void {
+        qtc.QSyntaxHighlighter_SuperSetFormat(@ptrCast(self), @bitCast(start), @bitCast(count), @ptrCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
@@ -327,6 +347,10 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnSetFormat2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFormat2` instead
+    ///
+    pub const QBaseSetFormat2 = SuperSetFormat2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
     ///
     /// Base class method implementation
@@ -341,8 +365,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` color: QtC.QColor `
     ///
-    pub fn QBaseSetFormat2(self: ?*anyopaque, start: i32, count: i32, color: ?*anyopaque) void {
-        qtc.QSyntaxHighlighter_QBaseSetFormat2(@ptrCast(self), @bitCast(start), @bitCast(count), @ptrCast(color));
+    pub fn SuperSetFormat2(self: ?*anyopaque, start: i32, count: i32, color: ?*anyopaque) void {
+        qtc.QSyntaxHighlighter_SuperSetFormat2(@ptrCast(self), @bitCast(start), @bitCast(count), @ptrCast(color));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
@@ -375,6 +399,10 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnSetFormat3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFormat3` instead
+    ///
+    pub const QBaseSetFormat3 = SuperSetFormat3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
     ///
     /// Base class method implementation
@@ -389,8 +417,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` font: QtC.QFont `
     ///
-    pub fn QBaseSetFormat3(self: ?*anyopaque, start: i32, count: i32, font: ?*anyopaque) void {
-        qtc.QSyntaxHighlighter_QBaseSetFormat3(@ptrCast(self), @bitCast(start), @bitCast(count), @ptrCast(font));
+    pub fn SuperSetFormat3(self: ?*anyopaque, start: i32, count: i32, font: ?*anyopaque) void {
+        qtc.QSyntaxHighlighter_SuperSetFormat3(@ptrCast(self), @bitCast(start), @bitCast(count), @ptrCast(font));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#format)
@@ -419,6 +447,10 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnFormat(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFormat` instead
+    ///
+    pub const QBaseFormat = SuperFormat;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#format)
     ///
     /// Base class method implementation
@@ -429,8 +461,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` pos: i32 `
     ///
-    pub fn QBaseFormat(self: ?*anyopaque, pos: i32) QtC.QTextCharFormat {
-        return qtc.QSyntaxHighlighter_QBaseFormat(@ptrCast(self), @bitCast(pos));
+    pub fn SuperFormat(self: ?*anyopaque, pos: i32) QtC.QTextCharFormat {
+        return qtc.QSyntaxHighlighter_SuperFormat(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#previousBlockState)
@@ -457,6 +489,10 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnPreviousBlockState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPreviousBlockState` instead
+    ///
+    pub const QBasePreviousBlockState = SuperPreviousBlockState;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#previousBlockState)
     ///
     /// Base class method implementation
@@ -465,8 +501,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` self: QtC.QSyntaxHighlighter `
     ///
-    pub fn QBasePreviousBlockState(self: ?*anyopaque) i32 {
-        return qtc.QSyntaxHighlighter_QBasePreviousBlockState(@ptrCast(self));
+    pub fn SuperPreviousBlockState(self: ?*anyopaque) i32 {
+        return qtc.QSyntaxHighlighter_SuperPreviousBlockState(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockState)
@@ -493,6 +529,10 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnCurrentBlockState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCurrentBlockState` instead
+    ///
+    pub const QBaseCurrentBlockState = SuperCurrentBlockState;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockState)
     ///
     /// Base class method implementation
@@ -501,8 +541,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` self: QtC.QSyntaxHighlighter `
     ///
-    pub fn QBaseCurrentBlockState(self: ?*anyopaque) i32 {
-        return qtc.QSyntaxHighlighter_QBaseCurrentBlockState(@ptrCast(self));
+    pub fn SuperCurrentBlockState(self: ?*anyopaque) i32 {
+        return qtc.QSyntaxHighlighter_SuperCurrentBlockState(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockState)
@@ -531,6 +571,10 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnSetCurrentBlockState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCurrentBlockState` instead
+    ///
+    pub const QBaseSetCurrentBlockState = SuperSetCurrentBlockState;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockState)
     ///
     /// Base class method implementation
@@ -541,8 +585,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` newState: i32 `
     ///
-    pub fn QBaseSetCurrentBlockState(self: ?*anyopaque, newState: i32) void {
-        qtc.QSyntaxHighlighter_QBaseSetCurrentBlockState(@ptrCast(self), @bitCast(newState));
+    pub fn SuperSetCurrentBlockState(self: ?*anyopaque, newState: i32) void {
+        qtc.QSyntaxHighlighter_SuperSetCurrentBlockState(@ptrCast(self), @bitCast(newState));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockUserData)
@@ -571,6 +615,10 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnSetCurrentBlockUserData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCurrentBlockUserData` instead
+    ///
+    pub const QBaseSetCurrentBlockUserData = SuperSetCurrentBlockUserData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockUserData)
     ///
     /// Base class method implementation
@@ -581,8 +629,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` data: QtC.QTextBlockUserData `
     ///
-    pub fn QBaseSetCurrentBlockUserData(self: ?*anyopaque, data: ?*anyopaque) void {
-        qtc.QSyntaxHighlighter_QBaseSetCurrentBlockUserData(@ptrCast(self), @ptrCast(data));
+    pub fn SuperSetCurrentBlockUserData(self: ?*anyopaque, data: ?*anyopaque) void {
+        qtc.QSyntaxHighlighter_SuperSetCurrentBlockUserData(@ptrCast(self), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockUserData)
@@ -609,6 +657,10 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnCurrentBlockUserData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCurrentBlockUserData` instead
+    ///
+    pub const QBaseCurrentBlockUserData = SuperCurrentBlockUserData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockUserData)
     ///
     /// Base class method implementation
@@ -617,8 +669,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` self: QtC.QSyntaxHighlighter `
     ///
-    pub fn QBaseCurrentBlockUserData(self: ?*anyopaque) QtC.QTextBlockUserData {
-        return qtc.QSyntaxHighlighter_QBaseCurrentBlockUserData(@ptrCast(self));
+    pub fn SuperCurrentBlockUserData(self: ?*anyopaque) QtC.QTextBlockUserData {
+        return qtc.QSyntaxHighlighter_SuperCurrentBlockUserData(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlock)
@@ -645,6 +697,10 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnCurrentBlock(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCurrentBlock` instead
+    ///
+    pub const QBaseCurrentBlock = SuperCurrentBlock;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlock)
     ///
     /// Base class method implementation
@@ -653,8 +709,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` self: QtC.QSyntaxHighlighter `
     ///
-    pub fn QBaseCurrentBlock(self: ?*anyopaque) QtC.QTextBlock {
-        return qtc.QSyntaxHighlighter_QBaseCurrentBlock(@ptrCast(self));
+    pub fn SuperCurrentBlock(self: ?*anyopaque) QtC.QTextBlock {
+        return qtc.QSyntaxHighlighter_SuperCurrentBlock(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1453,6 +1509,10 @@ pub const qsyntaxhighlighter = struct {
         return qtc.QSyntaxHighlighter_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1465,8 +1525,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSyntaxHighlighter_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QSyntaxHighlighter_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1503,6 +1563,10 @@ pub const qsyntaxhighlighter = struct {
         return qtc.QSyntaxHighlighter_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1517,8 +1581,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSyntaxHighlighter_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QSyntaxHighlighter_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1553,6 +1617,10 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1565,8 +1633,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSyntaxHighlighter_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QSyntaxHighlighter_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1601,6 +1669,10 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1613,8 +1685,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSyntaxHighlighter_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QSyntaxHighlighter_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1649,6 +1721,10 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1661,8 +1737,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSyntaxHighlighter_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QSyntaxHighlighter_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1697,6 +1773,10 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1709,8 +1789,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSyntaxHighlighter_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QSyntaxHighlighter_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1745,6 +1825,10 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1757,8 +1841,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSyntaxHighlighter_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QSyntaxHighlighter_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1791,6 +1875,10 @@ pub const qsyntaxhighlighter = struct {
         return qtc.QSyntaxHighlighter_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1801,8 +1889,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` self: QtC.QSyntaxHighlighter `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QSyntaxHighlighter_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QSyntaxHighlighter_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1835,6 +1923,10 @@ pub const qsyntaxhighlighter = struct {
         return qtc.QSyntaxHighlighter_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1845,8 +1937,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` self: QtC.QSyntaxHighlighter `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QSyntaxHighlighter_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QSyntaxHighlighter_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1882,6 +1974,10 @@ pub const qsyntaxhighlighter = struct {
         return qtc.QSyntaxHighlighter_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1894,9 +1990,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QSyntaxHighlighter_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QSyntaxHighlighter_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1931,6 +2027,10 @@ pub const qsyntaxhighlighter = struct {
         return qtc.QSyntaxHighlighter_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -1943,8 +2043,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QSyntaxHighlighter_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QSyntaxHighlighter_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1978,6 +2078,9 @@ pub const qsyntaxhighlighter = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#dtor.QSyntaxHighlighter)
     ///
@@ -1987,7 +2090,7 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// ` self: QtC.QSyntaxHighlighter `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSyntaxHighlighter_Delete(@ptrCast(self));
     }
 };

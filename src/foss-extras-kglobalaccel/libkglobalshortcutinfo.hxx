@@ -328,23 +328,23 @@ class VirtualKGlobalShortcutInfo final : public KGlobalShortcutInfo {
 
     // Friend functions
     friend void KGlobalShortcutInfo_TimerEvent(KGlobalShortcutInfo* self, QTimerEvent* event);
-    friend void KGlobalShortcutInfo_QBaseTimerEvent(KGlobalShortcutInfo* self, QTimerEvent* event);
+    friend void KGlobalShortcutInfo_SuperTimerEvent(KGlobalShortcutInfo* self, QTimerEvent* event);
     friend void KGlobalShortcutInfo_ChildEvent(KGlobalShortcutInfo* self, QChildEvent* event);
-    friend void KGlobalShortcutInfo_QBaseChildEvent(KGlobalShortcutInfo* self, QChildEvent* event);
+    friend void KGlobalShortcutInfo_SuperChildEvent(KGlobalShortcutInfo* self, QChildEvent* event);
     friend void KGlobalShortcutInfo_CustomEvent(KGlobalShortcutInfo* self, QEvent* event);
-    friend void KGlobalShortcutInfo_QBaseCustomEvent(KGlobalShortcutInfo* self, QEvent* event);
+    friend void KGlobalShortcutInfo_SuperCustomEvent(KGlobalShortcutInfo* self, QEvent* event);
     friend void KGlobalShortcutInfo_ConnectNotify(KGlobalShortcutInfo* self, const QMetaMethod* signal);
-    friend void KGlobalShortcutInfo_QBaseConnectNotify(KGlobalShortcutInfo* self, const QMetaMethod* signal);
+    friend void KGlobalShortcutInfo_SuperConnectNotify(KGlobalShortcutInfo* self, const QMetaMethod* signal);
     friend void KGlobalShortcutInfo_DisconnectNotify(KGlobalShortcutInfo* self, const QMetaMethod* signal);
-    friend void KGlobalShortcutInfo_QBaseDisconnectNotify(KGlobalShortcutInfo* self, const QMetaMethod* signal);
+    friend void KGlobalShortcutInfo_SuperDisconnectNotify(KGlobalShortcutInfo* self, const QMetaMethod* signal);
     friend QObject* KGlobalShortcutInfo_Sender(const KGlobalShortcutInfo* self);
-    friend QObject* KGlobalShortcutInfo_QBaseSender(const KGlobalShortcutInfo* self);
+    friend QObject* KGlobalShortcutInfo_SuperSender(const KGlobalShortcutInfo* self);
     friend int KGlobalShortcutInfo_SenderSignalIndex(const KGlobalShortcutInfo* self);
-    friend int KGlobalShortcutInfo_QBaseSenderSignalIndex(const KGlobalShortcutInfo* self);
+    friend int KGlobalShortcutInfo_SuperSenderSignalIndex(const KGlobalShortcutInfo* self);
     friend int KGlobalShortcutInfo_Receivers(const KGlobalShortcutInfo* self, const char* signal);
-    friend int KGlobalShortcutInfo_QBaseReceivers(const KGlobalShortcutInfo* self, const char* signal);
+    friend int KGlobalShortcutInfo_SuperReceivers(const KGlobalShortcutInfo* self, const char* signal);
     friend bool KGlobalShortcutInfo_IsSignalConnected(const KGlobalShortcutInfo* self, const QMetaMethod* signal);
-    friend bool KGlobalShortcutInfo_QBaseIsSignalConnected(const KGlobalShortcutInfo* self, const QMetaMethod* signal);
+    friend bool KGlobalShortcutInfo_SuperIsSignalConnected(const KGlobalShortcutInfo* self, const QMetaMethod* signal);
 };
 
 #endif

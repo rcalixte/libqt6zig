@@ -1126,6 +1126,9 @@ pub const solid__opticaldisc = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -1133,7 +1136,7 @@ pub const solid__opticaldisc = struct {
     ///
     /// ` self: QtC.Solid__OpticalDisc `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Solid__OpticalDisc_Delete(@ptrCast(self));
     }
 };

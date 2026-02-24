@@ -70,7 +70,7 @@ libqt_list /* of KProcessList__KProcessInfo* */ KListOpenFilesJob_ProcessInfoLis
 }
 
 // Base class handler implementation
-QMetaObject* KListOpenFilesJob_QBaseMetaObject(const KListOpenFilesJob* self) {
+QMetaObject* KListOpenFilesJob_SuperMetaObject(const KListOpenFilesJob* self) {
     auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_MetaObject_IsBase(true);
@@ -89,7 +89,7 @@ void KListOpenFilesJob_OnMetaObject(const KListOpenFilesJob* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* KListOpenFilesJob_QBaseMetacast(KListOpenFilesJob* self, const char* param1) {
+void* KListOpenFilesJob_SuperMetacast(KListOpenFilesJob* self, const char* param1) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_Metacast_IsBase(true);
@@ -108,7 +108,7 @@ void KListOpenFilesJob_OnMetacast(KListOpenFilesJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KListOpenFilesJob_QBaseMetacall(KListOpenFilesJob* self, int param1, int param2, void** param3) {
+int KListOpenFilesJob_SuperMetacall(KListOpenFilesJob* self, int param1, int param2, void** param3) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_Metacall_IsBase(true);
@@ -127,7 +127,7 @@ void KListOpenFilesJob_OnMetacall(KListOpenFilesJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KListOpenFilesJob_QBaseStart(KListOpenFilesJob* self) {
+void KListOpenFilesJob_SuperStart(KListOpenFilesJob* self) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_Start_IsBase(true);
@@ -156,7 +156,7 @@ bool KListOpenFilesJob_DoKill(KListOpenFilesJob* self) {
 }
 
 // Base class handler implementation
-bool KListOpenFilesJob_QBaseDoKill(KListOpenFilesJob* self) {
+bool KListOpenFilesJob_SuperDoKill(KListOpenFilesJob* self) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_DoKill_IsBase(true);
@@ -185,7 +185,7 @@ bool KListOpenFilesJob_DoSuspend(KListOpenFilesJob* self) {
 }
 
 // Base class handler implementation
-bool KListOpenFilesJob_QBaseDoSuspend(KListOpenFilesJob* self) {
+bool KListOpenFilesJob_SuperDoSuspend(KListOpenFilesJob* self) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_DoSuspend_IsBase(true);
@@ -214,7 +214,7 @@ bool KListOpenFilesJob_DoResume(KListOpenFilesJob* self) {
 }
 
 // Base class handler implementation
-bool KListOpenFilesJob_QBaseDoResume(KListOpenFilesJob* self) {
+bool KListOpenFilesJob_SuperDoResume(KListOpenFilesJob* self) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_DoResume_IsBase(true);
@@ -259,7 +259,7 @@ libqt_string KListOpenFilesJob_ErrorString(const KListOpenFilesJob* self) {
 }
 
 // Base class handler implementation
-libqt_string KListOpenFilesJob_QBaseErrorString(const KListOpenFilesJob* self) {
+libqt_string KListOpenFilesJob_SuperErrorString(const KListOpenFilesJob* self) {
     auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_ErrorString_IsBase(true);
@@ -304,7 +304,7 @@ bool KListOpenFilesJob_Event(KListOpenFilesJob* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KListOpenFilesJob_QBaseEvent(KListOpenFilesJob* self, QEvent* event) {
+bool KListOpenFilesJob_SuperEvent(KListOpenFilesJob* self, QEvent* event) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_Event_IsBase(true);
@@ -333,7 +333,7 @@ bool KListOpenFilesJob_EventFilter(KListOpenFilesJob* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool KListOpenFilesJob_QBaseEventFilter(KListOpenFilesJob* self, QObject* watched, QEvent* event) {
+bool KListOpenFilesJob_SuperEventFilter(KListOpenFilesJob* self, QObject* watched, QEvent* event) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_EventFilter_IsBase(true);
@@ -362,7 +362,7 @@ void KListOpenFilesJob_TimerEvent(KListOpenFilesJob* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KListOpenFilesJob_QBaseTimerEvent(KListOpenFilesJob* self, QTimerEvent* event) {
+void KListOpenFilesJob_SuperTimerEvent(KListOpenFilesJob* self, QTimerEvent* event) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_TimerEvent_IsBase(true);
@@ -391,7 +391,7 @@ void KListOpenFilesJob_ChildEvent(KListOpenFilesJob* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KListOpenFilesJob_QBaseChildEvent(KListOpenFilesJob* self, QChildEvent* event) {
+void KListOpenFilesJob_SuperChildEvent(KListOpenFilesJob* self, QChildEvent* event) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_ChildEvent_IsBase(true);
@@ -420,7 +420,7 @@ void KListOpenFilesJob_CustomEvent(KListOpenFilesJob* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KListOpenFilesJob_QBaseCustomEvent(KListOpenFilesJob* self, QEvent* event) {
+void KListOpenFilesJob_SuperCustomEvent(KListOpenFilesJob* self, QEvent* event) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_CustomEvent_IsBase(true);
@@ -449,7 +449,7 @@ void KListOpenFilesJob_ConnectNotify(KListOpenFilesJob* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void KListOpenFilesJob_QBaseConnectNotify(KListOpenFilesJob* self, const QMetaMethod* signal) {
+void KListOpenFilesJob_SuperConnectNotify(KListOpenFilesJob* self, const QMetaMethod* signal) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_ConnectNotify_IsBase(true);
@@ -478,7 +478,7 @@ void KListOpenFilesJob_DisconnectNotify(KListOpenFilesJob* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void KListOpenFilesJob_QBaseDisconnectNotify(KListOpenFilesJob* self, const QMetaMethod* signal) {
+void KListOpenFilesJob_SuperDisconnectNotify(KListOpenFilesJob* self, const QMetaMethod* signal) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_DisconnectNotify_IsBase(true);
@@ -507,7 +507,7 @@ void KListOpenFilesJob_SetCapabilities(KListOpenFilesJob* self, int capabilities
 }
 
 // Base class handler implementation
-void KListOpenFilesJob_QBaseSetCapabilities(KListOpenFilesJob* self, int capabilities) {
+void KListOpenFilesJob_SuperSetCapabilities(KListOpenFilesJob* self, int capabilities) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_SetCapabilities_IsBase(true);
@@ -536,7 +536,7 @@ bool KListOpenFilesJob_IsFinished(const KListOpenFilesJob* self) {
 }
 
 // Base class handler implementation
-bool KListOpenFilesJob_QBaseIsFinished(const KListOpenFilesJob* self) {
+bool KListOpenFilesJob_SuperIsFinished(const KListOpenFilesJob* self) {
     auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_IsFinished_IsBase(true);
@@ -565,7 +565,7 @@ void KListOpenFilesJob_SetError(KListOpenFilesJob* self, int errorCode) {
 }
 
 // Base class handler implementation
-void KListOpenFilesJob_QBaseSetError(KListOpenFilesJob* self, int errorCode) {
+void KListOpenFilesJob_SuperSetError(KListOpenFilesJob* self, int errorCode) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_SetError_IsBase(true);
@@ -595,7 +595,7 @@ void KListOpenFilesJob_SetErrorText(KListOpenFilesJob* self, const libqt_string 
 }
 
 // Base class handler implementation
-void KListOpenFilesJob_QBaseSetErrorText(KListOpenFilesJob* self, const libqt_string errorText) {
+void KListOpenFilesJob_SuperSetErrorText(KListOpenFilesJob* self, const libqt_string errorText) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
@@ -625,7 +625,7 @@ void KListOpenFilesJob_SetProcessedAmount(KListOpenFilesJob* self, int unit, uns
 }
 
 // Base class handler implementation
-void KListOpenFilesJob_QBaseSetProcessedAmount(KListOpenFilesJob* self, int unit, unsigned long long amount) {
+void KListOpenFilesJob_SuperSetProcessedAmount(KListOpenFilesJob* self, int unit, unsigned long long amount) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_SetProcessedAmount_IsBase(true);
@@ -654,7 +654,7 @@ void KListOpenFilesJob_SetTotalAmount(KListOpenFilesJob* self, int unit, unsigne
 }
 
 // Base class handler implementation
-void KListOpenFilesJob_QBaseSetTotalAmount(KListOpenFilesJob* self, int unit, unsigned long long amount) {
+void KListOpenFilesJob_SuperSetTotalAmount(KListOpenFilesJob* self, int unit, unsigned long long amount) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_SetTotalAmount_IsBase(true);
@@ -683,7 +683,7 @@ void KListOpenFilesJob_SetProgressUnit(KListOpenFilesJob* self, int unit) {
 }
 
 // Base class handler implementation
-void KListOpenFilesJob_QBaseSetProgressUnit(KListOpenFilesJob* self, int unit) {
+void KListOpenFilesJob_SuperSetProgressUnit(KListOpenFilesJob* self, int unit) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_SetProgressUnit_IsBase(true);
@@ -712,7 +712,7 @@ void KListOpenFilesJob_SetPercent(KListOpenFilesJob* self, unsigned long percent
 }
 
 // Base class handler implementation
-void KListOpenFilesJob_QBaseSetPercent(KListOpenFilesJob* self, unsigned long percentage) {
+void KListOpenFilesJob_SuperSetPercent(KListOpenFilesJob* self, unsigned long percentage) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_SetPercent_IsBase(true);
@@ -741,7 +741,7 @@ void KListOpenFilesJob_EmitResult(KListOpenFilesJob* self) {
 }
 
 // Base class handler implementation
-void KListOpenFilesJob_QBaseEmitResult(KListOpenFilesJob* self) {
+void KListOpenFilesJob_SuperEmitResult(KListOpenFilesJob* self) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_EmitResult_IsBase(true);
@@ -770,7 +770,7 @@ void KListOpenFilesJob_EmitPercent(KListOpenFilesJob* self, unsigned long long p
 }
 
 // Base class handler implementation
-void KListOpenFilesJob_QBaseEmitPercent(KListOpenFilesJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
+void KListOpenFilesJob_SuperEmitPercent(KListOpenFilesJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_EmitPercent_IsBase(true);
@@ -799,7 +799,7 @@ void KListOpenFilesJob_EmitSpeed(KListOpenFilesJob* self, unsigned long speed) {
 }
 
 // Base class handler implementation
-void KListOpenFilesJob_QBaseEmitSpeed(KListOpenFilesJob* self, unsigned long speed) {
+void KListOpenFilesJob_SuperEmitSpeed(KListOpenFilesJob* self, unsigned long speed) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_EmitSpeed_IsBase(true);
@@ -828,7 +828,7 @@ void KListOpenFilesJob_StartElapsedTimer(KListOpenFilesJob* self) {
 }
 
 // Base class handler implementation
-void KListOpenFilesJob_QBaseStartElapsedTimer(KListOpenFilesJob* self) {
+void KListOpenFilesJob_SuperStartElapsedTimer(KListOpenFilesJob* self) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_StartElapsedTimer_IsBase(true);
@@ -857,7 +857,7 @@ QObject* KListOpenFilesJob_Sender(const KListOpenFilesJob* self) {
 }
 
 // Base class handler implementation
-QObject* KListOpenFilesJob_QBaseSender(const KListOpenFilesJob* self) {
+QObject* KListOpenFilesJob_SuperSender(const KListOpenFilesJob* self) {
     auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_Sender_IsBase(true);
@@ -886,7 +886,7 @@ int KListOpenFilesJob_SenderSignalIndex(const KListOpenFilesJob* self) {
 }
 
 // Base class handler implementation
-int KListOpenFilesJob_QBaseSenderSignalIndex(const KListOpenFilesJob* self) {
+int KListOpenFilesJob_SuperSenderSignalIndex(const KListOpenFilesJob* self) {
     auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_SenderSignalIndex_IsBase(true);
@@ -915,7 +915,7 @@ int KListOpenFilesJob_Receivers(const KListOpenFilesJob* self, const char* signa
 }
 
 // Base class handler implementation
-int KListOpenFilesJob_QBaseReceivers(const KListOpenFilesJob* self, const char* signal) {
+int KListOpenFilesJob_SuperReceivers(const KListOpenFilesJob* self, const char* signal) {
     auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_Receivers_IsBase(true);
@@ -944,7 +944,7 @@ bool KListOpenFilesJob_IsSignalConnected(const KListOpenFilesJob* self, const QM
 }
 
 // Base class handler implementation
-bool KListOpenFilesJob_QBaseIsSignalConnected(const KListOpenFilesJob* self, const QMetaMethod* signal) {
+bool KListOpenFilesJob_SuperIsSignalConnected(const KListOpenFilesJob* self, const QMetaMethod* signal) {
     auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_IsSignalConnected_IsBase(true);

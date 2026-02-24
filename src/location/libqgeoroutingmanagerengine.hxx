@@ -494,35 +494,35 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
 
     // Friend functions
     friend void QGeoRoutingManagerEngine_TimerEvent(QGeoRoutingManagerEngine* self, QTimerEvent* event);
-    friend void QGeoRoutingManagerEngine_QBaseTimerEvent(QGeoRoutingManagerEngine* self, QTimerEvent* event);
+    friend void QGeoRoutingManagerEngine_SuperTimerEvent(QGeoRoutingManagerEngine* self, QTimerEvent* event);
     friend void QGeoRoutingManagerEngine_ChildEvent(QGeoRoutingManagerEngine* self, QChildEvent* event);
-    friend void QGeoRoutingManagerEngine_QBaseChildEvent(QGeoRoutingManagerEngine* self, QChildEvent* event);
+    friend void QGeoRoutingManagerEngine_SuperChildEvent(QGeoRoutingManagerEngine* self, QChildEvent* event);
     friend void QGeoRoutingManagerEngine_CustomEvent(QGeoRoutingManagerEngine* self, QEvent* event);
-    friend void QGeoRoutingManagerEngine_QBaseCustomEvent(QGeoRoutingManagerEngine* self, QEvent* event);
+    friend void QGeoRoutingManagerEngine_SuperCustomEvent(QGeoRoutingManagerEngine* self, QEvent* event);
     friend void QGeoRoutingManagerEngine_ConnectNotify(QGeoRoutingManagerEngine* self, const QMetaMethod* signal);
-    friend void QGeoRoutingManagerEngine_QBaseConnectNotify(QGeoRoutingManagerEngine* self, const QMetaMethod* signal);
+    friend void QGeoRoutingManagerEngine_SuperConnectNotify(QGeoRoutingManagerEngine* self, const QMetaMethod* signal);
     friend void QGeoRoutingManagerEngine_DisconnectNotify(QGeoRoutingManagerEngine* self, const QMetaMethod* signal);
-    friend void QGeoRoutingManagerEngine_QBaseDisconnectNotify(QGeoRoutingManagerEngine* self, const QMetaMethod* signal);
+    friend void QGeoRoutingManagerEngine_SuperDisconnectNotify(QGeoRoutingManagerEngine* self, const QMetaMethod* signal);
     friend void QGeoRoutingManagerEngine_SetSupportedTravelModes(QGeoRoutingManagerEngine* self, int travelModes);
-    friend void QGeoRoutingManagerEngine_QBaseSetSupportedTravelModes(QGeoRoutingManagerEngine* self, int travelModes);
+    friend void QGeoRoutingManagerEngine_SuperSetSupportedTravelModes(QGeoRoutingManagerEngine* self, int travelModes);
     friend void QGeoRoutingManagerEngine_SetSupportedFeatureTypes(QGeoRoutingManagerEngine* self, int featureTypes);
-    friend void QGeoRoutingManagerEngine_QBaseSetSupportedFeatureTypes(QGeoRoutingManagerEngine* self, int featureTypes);
+    friend void QGeoRoutingManagerEngine_SuperSetSupportedFeatureTypes(QGeoRoutingManagerEngine* self, int featureTypes);
     friend void QGeoRoutingManagerEngine_SetSupportedFeatureWeights(QGeoRoutingManagerEngine* self, int featureWeights);
-    friend void QGeoRoutingManagerEngine_QBaseSetSupportedFeatureWeights(QGeoRoutingManagerEngine* self, int featureWeights);
+    friend void QGeoRoutingManagerEngine_SuperSetSupportedFeatureWeights(QGeoRoutingManagerEngine* self, int featureWeights);
     friend void QGeoRoutingManagerEngine_SetSupportedRouteOptimizations(QGeoRoutingManagerEngine* self, int optimizations);
-    friend void QGeoRoutingManagerEngine_QBaseSetSupportedRouteOptimizations(QGeoRoutingManagerEngine* self, int optimizations);
+    friend void QGeoRoutingManagerEngine_SuperSetSupportedRouteOptimizations(QGeoRoutingManagerEngine* self, int optimizations);
     friend void QGeoRoutingManagerEngine_SetSupportedSegmentDetails(QGeoRoutingManagerEngine* self, int segmentDetails);
-    friend void QGeoRoutingManagerEngine_QBaseSetSupportedSegmentDetails(QGeoRoutingManagerEngine* self, int segmentDetails);
+    friend void QGeoRoutingManagerEngine_SuperSetSupportedSegmentDetails(QGeoRoutingManagerEngine* self, int segmentDetails);
     friend void QGeoRoutingManagerEngine_SetSupportedManeuverDetails(QGeoRoutingManagerEngine* self, int maneuverDetails);
-    friend void QGeoRoutingManagerEngine_QBaseSetSupportedManeuverDetails(QGeoRoutingManagerEngine* self, int maneuverDetails);
+    friend void QGeoRoutingManagerEngine_SuperSetSupportedManeuverDetails(QGeoRoutingManagerEngine* self, int maneuverDetails);
     friend QObject* QGeoRoutingManagerEngine_Sender(const QGeoRoutingManagerEngine* self);
-    friend QObject* QGeoRoutingManagerEngine_QBaseSender(const QGeoRoutingManagerEngine* self);
+    friend QObject* QGeoRoutingManagerEngine_SuperSender(const QGeoRoutingManagerEngine* self);
     friend int QGeoRoutingManagerEngine_SenderSignalIndex(const QGeoRoutingManagerEngine* self);
-    friend int QGeoRoutingManagerEngine_QBaseSenderSignalIndex(const QGeoRoutingManagerEngine* self);
+    friend int QGeoRoutingManagerEngine_SuperSenderSignalIndex(const QGeoRoutingManagerEngine* self);
     friend int QGeoRoutingManagerEngine_Receivers(const QGeoRoutingManagerEngine* self, const char* signal);
-    friend int QGeoRoutingManagerEngine_QBaseReceivers(const QGeoRoutingManagerEngine* self, const char* signal);
+    friend int QGeoRoutingManagerEngine_SuperReceivers(const QGeoRoutingManagerEngine* self, const char* signal);
     friend bool QGeoRoutingManagerEngine_IsSignalConnected(const QGeoRoutingManagerEngine* self, const QMetaMethod* signal);
-    friend bool QGeoRoutingManagerEngine_QBaseIsSignalConnected(const QGeoRoutingManagerEngine* self, const QMetaMethod* signal);
+    friend bool QGeoRoutingManagerEngine_SuperIsSignalConnected(const QGeoRoutingManagerEngine* self, const QMetaMethod* signal);
 };
 
 #endif

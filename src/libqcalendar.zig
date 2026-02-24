@@ -587,6 +587,10 @@ pub const qcalendar = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#dtor.QCalendar)
     ///
     /// Delete this object from C++ memory.
@@ -595,7 +599,7 @@ pub const qcalendar = struct {
     ///
     /// ` self: QtC.QCalendar `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCalendar_Delete(@ptrCast(self));
     }
 };
@@ -764,13 +768,17 @@ pub const qcalendar__yearmonthday = struct {
         qtc.QCalendar__YearMonthDay_SetDay(@ptrCast(self), @bitCast(day));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QCalendar__YearMonthDay `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCalendar__YearMonthDay_Delete(@ptrCast(self));
     }
 };
@@ -847,13 +855,17 @@ pub const qcalendar__systemid = struct {
         return qtc.QCalendar__SystemId_IsValid(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QCalendar__SystemId `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCalendar__SystemId_Delete(@ptrCast(self));
     }
 };

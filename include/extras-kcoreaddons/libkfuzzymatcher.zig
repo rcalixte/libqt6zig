@@ -91,13 +91,17 @@ pub const kfuzzymatcher__result = struct {
         qtc.KFuzzyMatcher__Result_SetMatched(@ptrCast(self), matched);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KFuzzyMatcher__Result `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KFuzzyMatcher__Result_Delete(@ptrCast(self));
     }
 };
@@ -164,13 +168,17 @@ pub const kfuzzymatcher__range = struct {
         qtc.KFuzzyMatcher__Range_SetLength(@ptrCast(self), @bitCast(length));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KFuzzyMatcher__Range `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KFuzzyMatcher__Range_Delete(@ptrCast(self));
     }
 };

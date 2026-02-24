@@ -147,7 +147,7 @@ void QAudioSink_Connect_StateChanged(QAudioSink* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QAudioSink_QBaseMetaObject(const QAudioSink* self) {
+QMetaObject* QAudioSink_SuperMetaObject(const QAudioSink* self) {
     auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
     if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
         vqaudiosink->setQAudioSink_MetaObject_IsBase(true);
@@ -166,7 +166,7 @@ void QAudioSink_OnMetaObject(const QAudioSink* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QAudioSink_QBaseMetacast(QAudioSink* self, const char* param1) {
+void* QAudioSink_SuperMetacast(QAudioSink* self, const char* param1) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
     if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
         vqaudiosink->setQAudioSink_Metacast_IsBase(true);
@@ -185,7 +185,7 @@ void QAudioSink_OnMetacast(QAudioSink* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAudioSink_QBaseMetacall(QAudioSink* self, int param1, int param2, void** param3) {
+int QAudioSink_SuperMetacall(QAudioSink* self, int param1, int param2, void** param3) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
     if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
         vqaudiosink->setQAudioSink_Metacall_IsBase(true);
@@ -214,7 +214,7 @@ bool QAudioSink_Event(QAudioSink* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QAudioSink_QBaseEvent(QAudioSink* self, QEvent* event) {
+bool QAudioSink_SuperEvent(QAudioSink* self, QEvent* event) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
     if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
         vqaudiosink->setQAudioSink_Event_IsBase(true);
@@ -243,7 +243,7 @@ bool QAudioSink_EventFilter(QAudioSink* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QAudioSink_QBaseEventFilter(QAudioSink* self, QObject* watched, QEvent* event) {
+bool QAudioSink_SuperEventFilter(QAudioSink* self, QObject* watched, QEvent* event) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
     if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
         vqaudiosink->setQAudioSink_EventFilter_IsBase(true);
@@ -272,7 +272,7 @@ void QAudioSink_TimerEvent(QAudioSink* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QAudioSink_QBaseTimerEvent(QAudioSink* self, QTimerEvent* event) {
+void QAudioSink_SuperTimerEvent(QAudioSink* self, QTimerEvent* event) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
     if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
         vqaudiosink->setQAudioSink_TimerEvent_IsBase(true);
@@ -301,7 +301,7 @@ void QAudioSink_ChildEvent(QAudioSink* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QAudioSink_QBaseChildEvent(QAudioSink* self, QChildEvent* event) {
+void QAudioSink_SuperChildEvent(QAudioSink* self, QChildEvent* event) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
     if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
         vqaudiosink->setQAudioSink_ChildEvent_IsBase(true);
@@ -330,7 +330,7 @@ void QAudioSink_CustomEvent(QAudioSink* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QAudioSink_QBaseCustomEvent(QAudioSink* self, QEvent* event) {
+void QAudioSink_SuperCustomEvent(QAudioSink* self, QEvent* event) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
     if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
         vqaudiosink->setQAudioSink_CustomEvent_IsBase(true);
@@ -359,7 +359,7 @@ void QAudioSink_ConnectNotify(QAudioSink* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QAudioSink_QBaseConnectNotify(QAudioSink* self, const QMetaMethod* signal) {
+void QAudioSink_SuperConnectNotify(QAudioSink* self, const QMetaMethod* signal) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
     if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
         vqaudiosink->setQAudioSink_ConnectNotify_IsBase(true);
@@ -388,7 +388,7 @@ void QAudioSink_DisconnectNotify(QAudioSink* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QAudioSink_QBaseDisconnectNotify(QAudioSink* self, const QMetaMethod* signal) {
+void QAudioSink_SuperDisconnectNotify(QAudioSink* self, const QMetaMethod* signal) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
     if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
         vqaudiosink->setQAudioSink_DisconnectNotify_IsBase(true);
@@ -417,7 +417,7 @@ QObject* QAudioSink_Sender(const QAudioSink* self) {
 }
 
 // Base class handler implementation
-QObject* QAudioSink_QBaseSender(const QAudioSink* self) {
+QObject* QAudioSink_SuperSender(const QAudioSink* self) {
     auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
     if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
         vqaudiosink->setQAudioSink_Sender_IsBase(true);
@@ -446,7 +446,7 @@ int QAudioSink_SenderSignalIndex(const QAudioSink* self) {
 }
 
 // Base class handler implementation
-int QAudioSink_QBaseSenderSignalIndex(const QAudioSink* self) {
+int QAudioSink_SuperSenderSignalIndex(const QAudioSink* self) {
     auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
     if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
         vqaudiosink->setQAudioSink_SenderSignalIndex_IsBase(true);
@@ -475,7 +475,7 @@ int QAudioSink_Receivers(const QAudioSink* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QAudioSink_QBaseReceivers(const QAudioSink* self, const char* signal) {
+int QAudioSink_SuperReceivers(const QAudioSink* self, const char* signal) {
     auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
     if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
         vqaudiosink->setQAudioSink_Receivers_IsBase(true);
@@ -504,7 +504,7 @@ bool QAudioSink_IsSignalConnected(const QAudioSink* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QAudioSink_QBaseIsSignalConnected(const QAudioSink* self, const QMetaMethod* signal) {
+bool QAudioSink_SuperIsSignalConnected(const QAudioSink* self, const QMetaMethod* signal) {
     auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
     if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
         vqaudiosink->setQAudioSink_IsSignalConnected_IsBase(true);

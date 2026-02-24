@@ -501,6 +501,10 @@ pub const qpagesize = struct {
         return qtc.QPageSize_Id32(@ptrCast(size), @bitCast(units), @bitCast(matchPolicy));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagesize.html#dtor.QPageSize)
     ///
     /// Delete this object from C++ memory.
@@ -509,7 +513,7 @@ pub const qpagesize = struct {
     ///
     /// ` self: QtC.QPageSize `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPageSize_Delete(@ptrCast(self));
     }
 };

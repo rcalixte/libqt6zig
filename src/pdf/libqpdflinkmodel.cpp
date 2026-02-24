@@ -171,7 +171,7 @@ void QPdfLinkModel_Connect_PageChanged(QPdfLinkModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QPdfLinkModel_QBaseMetaObject(const QPdfLinkModel* self) {
+QMetaObject* QPdfLinkModel_SuperMetaObject(const QPdfLinkModel* self) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_MetaObject_IsBase(true);
@@ -190,7 +190,7 @@ void QPdfLinkModel_OnMetaObject(const QPdfLinkModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QPdfLinkModel_QBaseMetacast(QPdfLinkModel* self, const char* param1) {
+void* QPdfLinkModel_SuperMetacast(QPdfLinkModel* self, const char* param1) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_Metacast_IsBase(true);
@@ -209,7 +209,7 @@ void QPdfLinkModel_OnMetacast(QPdfLinkModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPdfLinkModel_QBaseMetacall(QPdfLinkModel* self, int param1, int param2, void** param3) {
+int QPdfLinkModel_SuperMetacall(QPdfLinkModel* self, int param1, int param2, void** param3) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_Metacall_IsBase(true);
@@ -228,7 +228,7 @@ void QPdfLinkModel_OnMetacall(QPdfLinkModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ QPdfLinkModel_QBaseRoleNames(const QPdfLinkModel* self) {
+libqt_map /* of int to libqt_string */ QPdfLinkModel_SuperRoleNames(const QPdfLinkModel* self) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_RoleNames_IsBase(true);
@@ -285,7 +285,7 @@ void QPdfLinkModel_OnRoleNames(const QPdfLinkModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPdfLinkModel_QBaseRowCount(const QPdfLinkModel* self, const QModelIndex* parent) {
+int QPdfLinkModel_SuperRowCount(const QPdfLinkModel* self, const QModelIndex* parent) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_RowCount_IsBase(true);
@@ -304,7 +304,7 @@ void QPdfLinkModel_OnRowCount(const QPdfLinkModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QPdfLinkModel_QBaseData(const QPdfLinkModel* self, const QModelIndex* index, int role) {
+QVariant* QPdfLinkModel_SuperData(const QPdfLinkModel* self, const QModelIndex* index, int role) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_Data_IsBase(true);
@@ -333,7 +333,7 @@ QModelIndex* QPdfLinkModel_Index(const QPdfLinkModel* self, int row, int column,
 }
 
 // Base class handler implementation
-QModelIndex* QPdfLinkModel_QBaseIndex(const QPdfLinkModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* QPdfLinkModel_SuperIndex(const QPdfLinkModel* self, int row, int column, const QModelIndex* parent) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_Index_IsBase(true);
@@ -362,7 +362,7 @@ QModelIndex* QPdfLinkModel_Sibling(const QPdfLinkModel* self, int row, int colum
 }
 
 // Base class handler implementation
-QModelIndex* QPdfLinkModel_QBaseSibling(const QPdfLinkModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* QPdfLinkModel_SuperSibling(const QPdfLinkModel* self, int row, int column, const QModelIndex* idx) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_Sibling_IsBase(true);
@@ -391,7 +391,7 @@ bool QPdfLinkModel_DropMimeData(QPdfLinkModel* self, const QMimeData* data, int 
 }
 
 // Base class handler implementation
-bool QPdfLinkModel_QBaseDropMimeData(QPdfLinkModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QPdfLinkModel_SuperDropMimeData(QPdfLinkModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_DropMimeData_IsBase(true);
@@ -420,7 +420,7 @@ int QPdfLinkModel_Flags(const QPdfLinkModel* self, const QModelIndex* index) {
 }
 
 // Base class handler implementation
-int QPdfLinkModel_QBaseFlags(const QPdfLinkModel* self, const QModelIndex* index) {
+int QPdfLinkModel_SuperFlags(const QPdfLinkModel* self, const QModelIndex* index) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_Flags_IsBase(true);
@@ -449,7 +449,7 @@ bool QPdfLinkModel_SetData(QPdfLinkModel* self, const QModelIndex* index, const 
 }
 
 // Base class handler implementation
-bool QPdfLinkModel_QBaseSetData(QPdfLinkModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool QPdfLinkModel_SuperSetData(QPdfLinkModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_SetData_IsBase(true);
@@ -478,7 +478,7 @@ QVariant* QPdfLinkModel_HeaderData(const QPdfLinkModel* self, int section, int o
 }
 
 // Base class handler implementation
-QVariant* QPdfLinkModel_QBaseHeaderData(const QPdfLinkModel* self, int section, int orientation, int role) {
+QVariant* QPdfLinkModel_SuperHeaderData(const QPdfLinkModel* self, int section, int orientation, int role) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_HeaderData_IsBase(true);
@@ -507,7 +507,7 @@ bool QPdfLinkModel_SetHeaderData(QPdfLinkModel* self, int section, int orientati
 }
 
 // Base class handler implementation
-bool QPdfLinkModel_QBaseSetHeaderData(QPdfLinkModel* self, int section, int orientation, const QVariant* value, int role) {
+bool QPdfLinkModel_SuperSetHeaderData(QPdfLinkModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_SetHeaderData_IsBase(true);
@@ -564,7 +564,7 @@ libqt_map /* of int to QVariant* */ QPdfLinkModel_ItemData(const QPdfLinkModel* 
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ QPdfLinkModel_QBaseItemData(const QPdfLinkModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ QPdfLinkModel_SuperItemData(const QPdfLinkModel* self, const QModelIndex* index) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_ItemData_IsBase(true);
@@ -627,7 +627,7 @@ bool QPdfLinkModel_SetItemData(QPdfLinkModel* self, const QModelIndex* index, co
 }
 
 // Base class handler implementation
-bool QPdfLinkModel_QBaseSetItemData(QPdfLinkModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool QPdfLinkModel_SuperSetItemData(QPdfLinkModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -662,7 +662,7 @@ bool QPdfLinkModel_ClearItemData(QPdfLinkModel* self, const QModelIndex* index) 
 }
 
 // Base class handler implementation
-bool QPdfLinkModel_QBaseClearItemData(QPdfLinkModel* self, const QModelIndex* index) {
+bool QPdfLinkModel_SuperClearItemData(QPdfLinkModel* self, const QModelIndex* index) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_ClearItemData_IsBase(true);
@@ -725,7 +725,7 @@ libqt_list /* of libqt_string */ QPdfLinkModel_MimeTypes(const QPdfLinkModel* se
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QPdfLinkModel_QBaseMimeTypes(const QPdfLinkModel* self) {
+libqt_list /* of libqt_string */ QPdfLinkModel_SuperMimeTypes(const QPdfLinkModel* self) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_MimeTypes_IsBase(true);
@@ -794,7 +794,7 @@ QMimeData* QPdfLinkModel_MimeData(const QPdfLinkModel* self, const libqt_list /*
 }
 
 // Base class handler implementation
-QMimeData* QPdfLinkModel_QBaseMimeData(const QPdfLinkModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* QPdfLinkModel_SuperMimeData(const QPdfLinkModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -829,7 +829,7 @@ bool QPdfLinkModel_CanDropMimeData(const QPdfLinkModel* self, const QMimeData* d
 }
 
 // Base class handler implementation
-bool QPdfLinkModel_QBaseCanDropMimeData(const QPdfLinkModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QPdfLinkModel_SuperCanDropMimeData(const QPdfLinkModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_CanDropMimeData_IsBase(true);
@@ -858,7 +858,7 @@ int QPdfLinkModel_SupportedDropActions(const QPdfLinkModel* self) {
 }
 
 // Base class handler implementation
-int QPdfLinkModel_QBaseSupportedDropActions(const QPdfLinkModel* self) {
+int QPdfLinkModel_SuperSupportedDropActions(const QPdfLinkModel* self) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_SupportedDropActions_IsBase(true);
@@ -887,7 +887,7 @@ int QPdfLinkModel_SupportedDragActions(const QPdfLinkModel* self) {
 }
 
 // Base class handler implementation
-int QPdfLinkModel_QBaseSupportedDragActions(const QPdfLinkModel* self) {
+int QPdfLinkModel_SuperSupportedDragActions(const QPdfLinkModel* self) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_SupportedDragActions_IsBase(true);
@@ -916,7 +916,7 @@ bool QPdfLinkModel_InsertRows(QPdfLinkModel* self, int row, int count, const QMo
 }
 
 // Base class handler implementation
-bool QPdfLinkModel_QBaseInsertRows(QPdfLinkModel* self, int row, int count, const QModelIndex* parent) {
+bool QPdfLinkModel_SuperInsertRows(QPdfLinkModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_InsertRows_IsBase(true);
@@ -945,7 +945,7 @@ bool QPdfLinkModel_InsertColumns(QPdfLinkModel* self, int column, int count, con
 }
 
 // Base class handler implementation
-bool QPdfLinkModel_QBaseInsertColumns(QPdfLinkModel* self, int column, int count, const QModelIndex* parent) {
+bool QPdfLinkModel_SuperInsertColumns(QPdfLinkModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_InsertColumns_IsBase(true);
@@ -974,7 +974,7 @@ bool QPdfLinkModel_RemoveRows(QPdfLinkModel* self, int row, int count, const QMo
 }
 
 // Base class handler implementation
-bool QPdfLinkModel_QBaseRemoveRows(QPdfLinkModel* self, int row, int count, const QModelIndex* parent) {
+bool QPdfLinkModel_SuperRemoveRows(QPdfLinkModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_RemoveRows_IsBase(true);
@@ -1003,7 +1003,7 @@ bool QPdfLinkModel_RemoveColumns(QPdfLinkModel* self, int column, int count, con
 }
 
 // Base class handler implementation
-bool QPdfLinkModel_QBaseRemoveColumns(QPdfLinkModel* self, int column, int count, const QModelIndex* parent) {
+bool QPdfLinkModel_SuperRemoveColumns(QPdfLinkModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_RemoveColumns_IsBase(true);
@@ -1032,7 +1032,7 @@ bool QPdfLinkModel_MoveRows(QPdfLinkModel* self, const QModelIndex* sourceParent
 }
 
 // Base class handler implementation
-bool QPdfLinkModel_QBaseMoveRows(QPdfLinkModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QPdfLinkModel_SuperMoveRows(QPdfLinkModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_MoveRows_IsBase(true);
@@ -1061,7 +1061,7 @@ bool QPdfLinkModel_MoveColumns(QPdfLinkModel* self, const QModelIndex* sourcePar
 }
 
 // Base class handler implementation
-bool QPdfLinkModel_QBaseMoveColumns(QPdfLinkModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QPdfLinkModel_SuperMoveColumns(QPdfLinkModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_MoveColumns_IsBase(true);
@@ -1090,7 +1090,7 @@ void QPdfLinkModel_FetchMore(QPdfLinkModel* self, const QModelIndex* parent) {
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseFetchMore(QPdfLinkModel* self, const QModelIndex* parent) {
+void QPdfLinkModel_SuperFetchMore(QPdfLinkModel* self, const QModelIndex* parent) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_FetchMore_IsBase(true);
@@ -1119,7 +1119,7 @@ bool QPdfLinkModel_CanFetchMore(const QPdfLinkModel* self, const QModelIndex* pa
 }
 
 // Base class handler implementation
-bool QPdfLinkModel_QBaseCanFetchMore(const QPdfLinkModel* self, const QModelIndex* parent) {
+bool QPdfLinkModel_SuperCanFetchMore(const QPdfLinkModel* self, const QModelIndex* parent) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_CanFetchMore_IsBase(true);
@@ -1148,7 +1148,7 @@ void QPdfLinkModel_Sort(QPdfLinkModel* self, int column, int order) {
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseSort(QPdfLinkModel* self, int column, int order) {
+void QPdfLinkModel_SuperSort(QPdfLinkModel* self, int column, int order) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_Sort_IsBase(true);
@@ -1177,7 +1177,7 @@ QModelIndex* QPdfLinkModel_Buddy(const QPdfLinkModel* self, const QModelIndex* i
 }
 
 // Base class handler implementation
-QModelIndex* QPdfLinkModel_QBaseBuddy(const QPdfLinkModel* self, const QModelIndex* index) {
+QModelIndex* QPdfLinkModel_SuperBuddy(const QPdfLinkModel* self, const QModelIndex* index) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_Buddy_IsBase(true);
@@ -1224,7 +1224,7 @@ libqt_list /* of QModelIndex* */ QPdfLinkModel_Match(const QPdfLinkModel* self, 
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QPdfLinkModel_QBaseMatch(const QPdfLinkModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ QPdfLinkModel_SuperMatch(const QPdfLinkModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_Match_IsBase(true);
@@ -1271,7 +1271,7 @@ QSize* QPdfLinkModel_Span(const QPdfLinkModel* self, const QModelIndex* index) {
 }
 
 // Base class handler implementation
-QSize* QPdfLinkModel_QBaseSpan(const QPdfLinkModel* self, const QModelIndex* index) {
+QSize* QPdfLinkModel_SuperSpan(const QPdfLinkModel* self, const QModelIndex* index) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_Span_IsBase(true);
@@ -1300,7 +1300,7 @@ void QPdfLinkModel_MultiData(const QPdfLinkModel* self, const QModelIndex* index
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseMultiData(const QPdfLinkModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void QPdfLinkModel_SuperMultiData(const QPdfLinkModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_MultiData_IsBase(true);
@@ -1329,7 +1329,7 @@ bool QPdfLinkModel_Submit(QPdfLinkModel* self) {
 }
 
 // Base class handler implementation
-bool QPdfLinkModel_QBaseSubmit(QPdfLinkModel* self) {
+bool QPdfLinkModel_SuperSubmit(QPdfLinkModel* self) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_Submit_IsBase(true);
@@ -1358,7 +1358,7 @@ void QPdfLinkModel_Revert(QPdfLinkModel* self) {
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseRevert(QPdfLinkModel* self) {
+void QPdfLinkModel_SuperRevert(QPdfLinkModel* self) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_Revert_IsBase(true);
@@ -1387,7 +1387,7 @@ void QPdfLinkModel_ResetInternalData(QPdfLinkModel* self) {
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseResetInternalData(QPdfLinkModel* self) {
+void QPdfLinkModel_SuperResetInternalData(QPdfLinkModel* self) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_ResetInternalData_IsBase(true);
@@ -1416,7 +1416,7 @@ bool QPdfLinkModel_Event(QPdfLinkModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QPdfLinkModel_QBaseEvent(QPdfLinkModel* self, QEvent* event) {
+bool QPdfLinkModel_SuperEvent(QPdfLinkModel* self, QEvent* event) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_Event_IsBase(true);
@@ -1445,7 +1445,7 @@ bool QPdfLinkModel_EventFilter(QPdfLinkModel* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QPdfLinkModel_QBaseEventFilter(QPdfLinkModel* self, QObject* watched, QEvent* event) {
+bool QPdfLinkModel_SuperEventFilter(QPdfLinkModel* self, QObject* watched, QEvent* event) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_EventFilter_IsBase(true);
@@ -1474,7 +1474,7 @@ void QPdfLinkModel_TimerEvent(QPdfLinkModel* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseTimerEvent(QPdfLinkModel* self, QTimerEvent* event) {
+void QPdfLinkModel_SuperTimerEvent(QPdfLinkModel* self, QTimerEvent* event) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_TimerEvent_IsBase(true);
@@ -1503,7 +1503,7 @@ void QPdfLinkModel_ChildEvent(QPdfLinkModel* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseChildEvent(QPdfLinkModel* self, QChildEvent* event) {
+void QPdfLinkModel_SuperChildEvent(QPdfLinkModel* self, QChildEvent* event) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_ChildEvent_IsBase(true);
@@ -1532,7 +1532,7 @@ void QPdfLinkModel_CustomEvent(QPdfLinkModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseCustomEvent(QPdfLinkModel* self, QEvent* event) {
+void QPdfLinkModel_SuperCustomEvent(QPdfLinkModel* self, QEvent* event) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_CustomEvent_IsBase(true);
@@ -1561,7 +1561,7 @@ void QPdfLinkModel_ConnectNotify(QPdfLinkModel* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseConnectNotify(QPdfLinkModel* self, const QMetaMethod* signal) {
+void QPdfLinkModel_SuperConnectNotify(QPdfLinkModel* self, const QMetaMethod* signal) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_ConnectNotify_IsBase(true);
@@ -1590,7 +1590,7 @@ void QPdfLinkModel_DisconnectNotify(QPdfLinkModel* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseDisconnectNotify(QPdfLinkModel* self, const QMetaMethod* signal) {
+void QPdfLinkModel_SuperDisconnectNotify(QPdfLinkModel* self, const QMetaMethod* signal) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_DisconnectNotify_IsBase(true);
@@ -1618,7 +1618,7 @@ QModelIndex* QPdfLinkModel_CreateIndex(const QPdfLinkModel* self, int row, int c
 }
 
 // Base class handler implementation
-QModelIndex* QPdfLinkModel_QBaseCreateIndex(const QPdfLinkModel* self, int row, int column) {
+QModelIndex* QPdfLinkModel_SuperCreateIndex(const QPdfLinkModel* self, int row, int column) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_CreateIndex_IsBase(true);
@@ -1652,7 +1652,7 @@ void QPdfLinkModel_EncodeData(const QPdfLinkModel* self, const libqt_list /* of 
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseEncodeData(const QPdfLinkModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void QPdfLinkModel_SuperEncodeData(const QPdfLinkModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -1687,7 +1687,7 @@ bool QPdfLinkModel_DecodeData(QPdfLinkModel* self, int row, int column, const QM
 }
 
 // Base class handler implementation
-bool QPdfLinkModel_QBaseDecodeData(QPdfLinkModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool QPdfLinkModel_SuperDecodeData(QPdfLinkModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_DecodeData_IsBase(true);
@@ -1716,7 +1716,7 @@ void QPdfLinkModel_BeginInsertRows(QPdfLinkModel* self, const QModelIndex* paren
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseBeginInsertRows(QPdfLinkModel* self, const QModelIndex* parent, int first, int last) {
+void QPdfLinkModel_SuperBeginInsertRows(QPdfLinkModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_BeginInsertRows_IsBase(true);
@@ -1745,7 +1745,7 @@ void QPdfLinkModel_EndInsertRows(QPdfLinkModel* self) {
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseEndInsertRows(QPdfLinkModel* self) {
+void QPdfLinkModel_SuperEndInsertRows(QPdfLinkModel* self) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_EndInsertRows_IsBase(true);
@@ -1774,7 +1774,7 @@ void QPdfLinkModel_BeginRemoveRows(QPdfLinkModel* self, const QModelIndex* paren
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseBeginRemoveRows(QPdfLinkModel* self, const QModelIndex* parent, int first, int last) {
+void QPdfLinkModel_SuperBeginRemoveRows(QPdfLinkModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_BeginRemoveRows_IsBase(true);
@@ -1803,7 +1803,7 @@ void QPdfLinkModel_EndRemoveRows(QPdfLinkModel* self) {
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseEndRemoveRows(QPdfLinkModel* self) {
+void QPdfLinkModel_SuperEndRemoveRows(QPdfLinkModel* self) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_EndRemoveRows_IsBase(true);
@@ -1832,7 +1832,7 @@ bool QPdfLinkModel_BeginMoveRows(QPdfLinkModel* self, const QModelIndex* sourceP
 }
 
 // Base class handler implementation
-bool QPdfLinkModel_QBaseBeginMoveRows(QPdfLinkModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool QPdfLinkModel_SuperBeginMoveRows(QPdfLinkModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_BeginMoveRows_IsBase(true);
@@ -1861,7 +1861,7 @@ void QPdfLinkModel_EndMoveRows(QPdfLinkModel* self) {
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseEndMoveRows(QPdfLinkModel* self) {
+void QPdfLinkModel_SuperEndMoveRows(QPdfLinkModel* self) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_EndMoveRows_IsBase(true);
@@ -1890,7 +1890,7 @@ void QPdfLinkModel_BeginInsertColumns(QPdfLinkModel* self, const QModelIndex* pa
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseBeginInsertColumns(QPdfLinkModel* self, const QModelIndex* parent, int first, int last) {
+void QPdfLinkModel_SuperBeginInsertColumns(QPdfLinkModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_BeginInsertColumns_IsBase(true);
@@ -1919,7 +1919,7 @@ void QPdfLinkModel_EndInsertColumns(QPdfLinkModel* self) {
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseEndInsertColumns(QPdfLinkModel* self) {
+void QPdfLinkModel_SuperEndInsertColumns(QPdfLinkModel* self) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_EndInsertColumns_IsBase(true);
@@ -1948,7 +1948,7 @@ void QPdfLinkModel_BeginRemoveColumns(QPdfLinkModel* self, const QModelIndex* pa
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseBeginRemoveColumns(QPdfLinkModel* self, const QModelIndex* parent, int first, int last) {
+void QPdfLinkModel_SuperBeginRemoveColumns(QPdfLinkModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_BeginRemoveColumns_IsBase(true);
@@ -1977,7 +1977,7 @@ void QPdfLinkModel_EndRemoveColumns(QPdfLinkModel* self) {
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseEndRemoveColumns(QPdfLinkModel* self) {
+void QPdfLinkModel_SuperEndRemoveColumns(QPdfLinkModel* self) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_EndRemoveColumns_IsBase(true);
@@ -2006,7 +2006,7 @@ bool QPdfLinkModel_BeginMoveColumns(QPdfLinkModel* self, const QModelIndex* sour
 }
 
 // Base class handler implementation
-bool QPdfLinkModel_QBaseBeginMoveColumns(QPdfLinkModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool QPdfLinkModel_SuperBeginMoveColumns(QPdfLinkModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_BeginMoveColumns_IsBase(true);
@@ -2035,7 +2035,7 @@ void QPdfLinkModel_EndMoveColumns(QPdfLinkModel* self) {
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseEndMoveColumns(QPdfLinkModel* self) {
+void QPdfLinkModel_SuperEndMoveColumns(QPdfLinkModel* self) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_EndMoveColumns_IsBase(true);
@@ -2064,7 +2064,7 @@ void QPdfLinkModel_BeginResetModel(QPdfLinkModel* self) {
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseBeginResetModel(QPdfLinkModel* self) {
+void QPdfLinkModel_SuperBeginResetModel(QPdfLinkModel* self) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_BeginResetModel_IsBase(true);
@@ -2093,7 +2093,7 @@ void QPdfLinkModel_EndResetModel(QPdfLinkModel* self) {
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseEndResetModel(QPdfLinkModel* self) {
+void QPdfLinkModel_SuperEndResetModel(QPdfLinkModel* self) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_EndResetModel_IsBase(true);
@@ -2122,7 +2122,7 @@ void QPdfLinkModel_ChangePersistentIndex(QPdfLinkModel* self, const QModelIndex*
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseChangePersistentIndex(QPdfLinkModel* self, const QModelIndex* from, const QModelIndex* to) {
+void QPdfLinkModel_SuperChangePersistentIndex(QPdfLinkModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_ChangePersistentIndex_IsBase(true);
@@ -2163,7 +2163,7 @@ void QPdfLinkModel_ChangePersistentIndexList(QPdfLinkModel* self, const libqt_li
 }
 
 // Base class handler implementation
-void QPdfLinkModel_QBaseChangePersistentIndexList(QPdfLinkModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void QPdfLinkModel_SuperChangePersistentIndexList(QPdfLinkModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -2222,7 +2222,7 @@ libqt_list /* of QModelIndex* */ QPdfLinkModel_PersistentIndexList(const QPdfLin
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QPdfLinkModel_QBasePersistentIndexList(const QPdfLinkModel* self) {
+libqt_list /* of QModelIndex* */ QPdfLinkModel_SuperPersistentIndexList(const QPdfLinkModel* self) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_PersistentIndexList_IsBase(true);
@@ -2269,7 +2269,7 @@ QObject* QPdfLinkModel_Sender(const QPdfLinkModel* self) {
 }
 
 // Base class handler implementation
-QObject* QPdfLinkModel_QBaseSender(const QPdfLinkModel* self) {
+QObject* QPdfLinkModel_SuperSender(const QPdfLinkModel* self) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_Sender_IsBase(true);
@@ -2298,7 +2298,7 @@ int QPdfLinkModel_SenderSignalIndex(const QPdfLinkModel* self) {
 }
 
 // Base class handler implementation
-int QPdfLinkModel_QBaseSenderSignalIndex(const QPdfLinkModel* self) {
+int QPdfLinkModel_SuperSenderSignalIndex(const QPdfLinkModel* self) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_SenderSignalIndex_IsBase(true);
@@ -2327,7 +2327,7 @@ int QPdfLinkModel_Receivers(const QPdfLinkModel* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QPdfLinkModel_QBaseReceivers(const QPdfLinkModel* self, const char* signal) {
+int QPdfLinkModel_SuperReceivers(const QPdfLinkModel* self, const char* signal) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_Receivers_IsBase(true);
@@ -2356,7 +2356,7 @@ bool QPdfLinkModel_IsSignalConnected(const QPdfLinkModel* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QPdfLinkModel_QBaseIsSignalConnected(const QPdfLinkModel* self, const QMetaMethod* signal) {
+bool QPdfLinkModel_SuperIsSignalConnected(const QPdfLinkModel* self, const QMetaMethod* signal) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
     if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
         vqpdflinkmodel->setQPdfLinkModel_IsSignalConnected_IsBase(true);

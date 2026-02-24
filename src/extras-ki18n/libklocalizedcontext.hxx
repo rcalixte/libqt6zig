@@ -328,23 +328,23 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
 
     // Friend functions
     friend void KLocalizedContext_TimerEvent(KLocalizedContext* self, QTimerEvent* event);
-    friend void KLocalizedContext_QBaseTimerEvent(KLocalizedContext* self, QTimerEvent* event);
+    friend void KLocalizedContext_SuperTimerEvent(KLocalizedContext* self, QTimerEvent* event);
     friend void KLocalizedContext_ChildEvent(KLocalizedContext* self, QChildEvent* event);
-    friend void KLocalizedContext_QBaseChildEvent(KLocalizedContext* self, QChildEvent* event);
+    friend void KLocalizedContext_SuperChildEvent(KLocalizedContext* self, QChildEvent* event);
     friend void KLocalizedContext_CustomEvent(KLocalizedContext* self, QEvent* event);
-    friend void KLocalizedContext_QBaseCustomEvent(KLocalizedContext* self, QEvent* event);
+    friend void KLocalizedContext_SuperCustomEvent(KLocalizedContext* self, QEvent* event);
     friend void KLocalizedContext_ConnectNotify(KLocalizedContext* self, const QMetaMethod* signal);
-    friend void KLocalizedContext_QBaseConnectNotify(KLocalizedContext* self, const QMetaMethod* signal);
+    friend void KLocalizedContext_SuperConnectNotify(KLocalizedContext* self, const QMetaMethod* signal);
     friend void KLocalizedContext_DisconnectNotify(KLocalizedContext* self, const QMetaMethod* signal);
-    friend void KLocalizedContext_QBaseDisconnectNotify(KLocalizedContext* self, const QMetaMethod* signal);
+    friend void KLocalizedContext_SuperDisconnectNotify(KLocalizedContext* self, const QMetaMethod* signal);
     friend QObject* KLocalizedContext_Sender(const KLocalizedContext* self);
-    friend QObject* KLocalizedContext_QBaseSender(const KLocalizedContext* self);
+    friend QObject* KLocalizedContext_SuperSender(const KLocalizedContext* self);
     friend int KLocalizedContext_SenderSignalIndex(const KLocalizedContext* self);
-    friend int KLocalizedContext_QBaseSenderSignalIndex(const KLocalizedContext* self);
+    friend int KLocalizedContext_SuperSenderSignalIndex(const KLocalizedContext* self);
     friend int KLocalizedContext_Receivers(const KLocalizedContext* self, const char* signal);
-    friend int KLocalizedContext_QBaseReceivers(const KLocalizedContext* self, const char* signal);
+    friend int KLocalizedContext_SuperReceivers(const KLocalizedContext* self, const char* signal);
     friend bool KLocalizedContext_IsSignalConnected(const KLocalizedContext* self, const QMetaMethod* signal);
-    friend bool KLocalizedContext_QBaseIsSignalConnected(const KLocalizedContext* self, const QMetaMethod* signal);
+    friend bool KLocalizedContext_SuperIsSignalConnected(const KLocalizedContext* self, const QMetaMethod* signal);
 };
 
 #endif

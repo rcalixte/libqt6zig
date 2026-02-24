@@ -334,13 +334,17 @@ pub const ktexteditor__movingrange = struct {
         return qtc.KTextEditor__MovingRange_NumberOfLines(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KTextEditor__MovingRange `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KTextEditor__MovingRange_Delete(@ptrCast(self));
     }
 };

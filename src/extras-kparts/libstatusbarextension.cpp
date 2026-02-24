@@ -81,7 +81,7 @@ bool KParts__StatusBarExtension_EventFilter(KParts__StatusBarExtension* self, QO
 }
 
 // Base class handler implementation
-QMetaObject* KParts__StatusBarExtension_QBaseMetaObject(const KParts__StatusBarExtension* self) {
+QMetaObject* KParts__StatusBarExtension_SuperMetaObject(const KParts__StatusBarExtension* self) {
     auto* vkpartsstatusbarextension = const_cast<VirtualKPartsStatusBarExtension*>(dynamic_cast<const VirtualKPartsStatusBarExtension*>(self));
     if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
         vkpartsstatusbarextension->setKParts__StatusBarExtension_MetaObject_IsBase(true);
@@ -100,7 +100,7 @@ void KParts__StatusBarExtension_OnMetaObject(const KParts__StatusBarExtension* s
 }
 
 // Base class handler implementation
-void* KParts__StatusBarExtension_QBaseMetacast(KParts__StatusBarExtension* self, const char* param1) {
+void* KParts__StatusBarExtension_SuperMetacast(KParts__StatusBarExtension* self, const char* param1) {
     auto* vkpartsstatusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
     if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
         vkpartsstatusbarextension->setKParts__StatusBarExtension_Metacast_IsBase(true);
@@ -119,7 +119,7 @@ void KParts__StatusBarExtension_OnMetacast(KParts__StatusBarExtension* self, int
 }
 
 // Base class handler implementation
-int KParts__StatusBarExtension_QBaseMetacall(KParts__StatusBarExtension* self, int param1, int param2, void** param3) {
+int KParts__StatusBarExtension_SuperMetacall(KParts__StatusBarExtension* self, int param1, int param2, void** param3) {
     auto* vkpartsstatusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
     if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
         vkpartsstatusbarextension->setKParts__StatusBarExtension_Metacall_IsBase(true);
@@ -138,7 +138,7 @@ void KParts__StatusBarExtension_OnMetacall(KParts__StatusBarExtension* self, int
 }
 
 // Base class handler implementation
-bool KParts__StatusBarExtension_QBaseEventFilter(KParts__StatusBarExtension* self, QObject* watched, QEvent* ev) {
+bool KParts__StatusBarExtension_SuperEventFilter(KParts__StatusBarExtension* self, QObject* watched, QEvent* ev) {
     auto* vkpartsstatusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
     if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
         vkpartsstatusbarextension->setKParts__StatusBarExtension_EventFilter_IsBase(true);
@@ -167,7 +167,7 @@ bool KParts__StatusBarExtension_Event(KParts__StatusBarExtension* self, QEvent* 
 }
 
 // Base class handler implementation
-bool KParts__StatusBarExtension_QBaseEvent(KParts__StatusBarExtension* self, QEvent* event) {
+bool KParts__StatusBarExtension_SuperEvent(KParts__StatusBarExtension* self, QEvent* event) {
     auto* vkpartsstatusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
     if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
         vkpartsstatusbarextension->setKParts__StatusBarExtension_Event_IsBase(true);
@@ -196,7 +196,7 @@ void KParts__StatusBarExtension_TimerEvent(KParts__StatusBarExtension* self, QTi
 }
 
 // Base class handler implementation
-void KParts__StatusBarExtension_QBaseTimerEvent(KParts__StatusBarExtension* self, QTimerEvent* event) {
+void KParts__StatusBarExtension_SuperTimerEvent(KParts__StatusBarExtension* self, QTimerEvent* event) {
     auto* vkpartsstatusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
     if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
         vkpartsstatusbarextension->setKParts__StatusBarExtension_TimerEvent_IsBase(true);
@@ -225,7 +225,7 @@ void KParts__StatusBarExtension_ChildEvent(KParts__StatusBarExtension* self, QCh
 }
 
 // Base class handler implementation
-void KParts__StatusBarExtension_QBaseChildEvent(KParts__StatusBarExtension* self, QChildEvent* event) {
+void KParts__StatusBarExtension_SuperChildEvent(KParts__StatusBarExtension* self, QChildEvent* event) {
     auto* vkpartsstatusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
     if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
         vkpartsstatusbarextension->setKParts__StatusBarExtension_ChildEvent_IsBase(true);
@@ -254,7 +254,7 @@ void KParts__StatusBarExtension_CustomEvent(KParts__StatusBarExtension* self, QE
 }
 
 // Base class handler implementation
-void KParts__StatusBarExtension_QBaseCustomEvent(KParts__StatusBarExtension* self, QEvent* event) {
+void KParts__StatusBarExtension_SuperCustomEvent(KParts__StatusBarExtension* self, QEvent* event) {
     auto* vkpartsstatusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
     if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
         vkpartsstatusbarextension->setKParts__StatusBarExtension_CustomEvent_IsBase(true);
@@ -283,7 +283,7 @@ void KParts__StatusBarExtension_ConnectNotify(KParts__StatusBarExtension* self, 
 }
 
 // Base class handler implementation
-void KParts__StatusBarExtension_QBaseConnectNotify(KParts__StatusBarExtension* self, const QMetaMethod* signal) {
+void KParts__StatusBarExtension_SuperConnectNotify(KParts__StatusBarExtension* self, const QMetaMethod* signal) {
     auto* vkpartsstatusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
     if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
         vkpartsstatusbarextension->setKParts__StatusBarExtension_ConnectNotify_IsBase(true);
@@ -312,7 +312,7 @@ void KParts__StatusBarExtension_DisconnectNotify(KParts__StatusBarExtension* sel
 }
 
 // Base class handler implementation
-void KParts__StatusBarExtension_QBaseDisconnectNotify(KParts__StatusBarExtension* self, const QMetaMethod* signal) {
+void KParts__StatusBarExtension_SuperDisconnectNotify(KParts__StatusBarExtension* self, const QMetaMethod* signal) {
     auto* vkpartsstatusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
     if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
         vkpartsstatusbarextension->setKParts__StatusBarExtension_DisconnectNotify_IsBase(true);
@@ -341,7 +341,7 @@ QObject* KParts__StatusBarExtension_Sender(const KParts__StatusBarExtension* sel
 }
 
 // Base class handler implementation
-QObject* KParts__StatusBarExtension_QBaseSender(const KParts__StatusBarExtension* self) {
+QObject* KParts__StatusBarExtension_SuperSender(const KParts__StatusBarExtension* self) {
     auto* vkpartsstatusbarextension = const_cast<VirtualKPartsStatusBarExtension*>(dynamic_cast<const VirtualKPartsStatusBarExtension*>(self));
     if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
         vkpartsstatusbarextension->setKParts__StatusBarExtension_Sender_IsBase(true);
@@ -370,7 +370,7 @@ int KParts__StatusBarExtension_SenderSignalIndex(const KParts__StatusBarExtensio
 }
 
 // Base class handler implementation
-int KParts__StatusBarExtension_QBaseSenderSignalIndex(const KParts__StatusBarExtension* self) {
+int KParts__StatusBarExtension_SuperSenderSignalIndex(const KParts__StatusBarExtension* self) {
     auto* vkpartsstatusbarextension = const_cast<VirtualKPartsStatusBarExtension*>(dynamic_cast<const VirtualKPartsStatusBarExtension*>(self));
     if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
         vkpartsstatusbarextension->setKParts__StatusBarExtension_SenderSignalIndex_IsBase(true);
@@ -399,7 +399,7 @@ int KParts__StatusBarExtension_Receivers(const KParts__StatusBarExtension* self,
 }
 
 // Base class handler implementation
-int KParts__StatusBarExtension_QBaseReceivers(const KParts__StatusBarExtension* self, const char* signal) {
+int KParts__StatusBarExtension_SuperReceivers(const KParts__StatusBarExtension* self, const char* signal) {
     auto* vkpartsstatusbarextension = const_cast<VirtualKPartsStatusBarExtension*>(dynamic_cast<const VirtualKPartsStatusBarExtension*>(self));
     if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
         vkpartsstatusbarextension->setKParts__StatusBarExtension_Receivers_IsBase(true);
@@ -428,7 +428,7 @@ bool KParts__StatusBarExtension_IsSignalConnected(const KParts__StatusBarExtensi
 }
 
 // Base class handler implementation
-bool KParts__StatusBarExtension_QBaseIsSignalConnected(const KParts__StatusBarExtension* self, const QMetaMethod* signal) {
+bool KParts__StatusBarExtension_SuperIsSignalConnected(const KParts__StatusBarExtension* self, const QMetaMethod* signal) {
     auto* vkpartsstatusbarextension = const_cast<VirtualKPartsStatusBarExtension*>(dynamic_cast<const VirtualKPartsStatusBarExtension*>(self));
     if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
         vkpartsstatusbarextension->setKParts__StatusBarExtension_IsSignalConnected_IsBase(true);

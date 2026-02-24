@@ -91,6 +91,10 @@ pub const qwebenginedesktopmediarequest = struct {
         qtc.QWebEngineDesktopMediaRequest_Cancel(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginedesktopmediarequest.html#dtor.QWebEngineDesktopMediaRequest)
     ///
     /// Delete this object from C++ memory.
@@ -99,7 +103,7 @@ pub const qwebenginedesktopmediarequest = struct {
     ///
     /// ` self: QtC.QWebEngineDesktopMediaRequest `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebEngineDesktopMediaRequest_Delete(@ptrCast(self));
     }
 };

@@ -220,7 +220,7 @@ class VirtualKConfigSkeletonItem : public KConfigSkeletonItem {
 
     // Friend functions
     friend void KConfigSkeletonItem_ReadImmutability(KConfigSkeletonItem* self, const KConfigGroup* group);
-    friend void KConfigSkeletonItem_QBaseReadImmutability(KConfigSkeletonItem* self, const KConfigGroup* group);
+    friend void KConfigSkeletonItem_SuperReadImmutability(KConfigSkeletonItem* self, const KConfigGroup* group);
 };
 
 // This class is a subclass of KPropertySkeletonItem so that we can call protected methods
@@ -470,7 +470,7 @@ class VirtualKPropertySkeletonItem final : public KPropertySkeletonItem {
 
     // Friend functions
     friend void KPropertySkeletonItem_ReadImmutability(KPropertySkeletonItem* self, const KConfigGroup* group);
-    friend void KPropertySkeletonItem_QBaseReadImmutability(KPropertySkeletonItem* self, const KConfigGroup* group);
+    friend void KPropertySkeletonItem_SuperReadImmutability(KPropertySkeletonItem* self, const KConfigGroup* group);
 };
 
 // This class is a subclass of KCoreConfigSkeleton so that we can call protected methods
@@ -908,31 +908,31 @@ class VirtualKCoreConfigSkeleton final : public KCoreConfigSkeleton {
 
     // Friend functions
     friend bool KCoreConfigSkeleton_UsrUseDefaults(KCoreConfigSkeleton* self, bool b);
-    friend bool KCoreConfigSkeleton_QBaseUsrUseDefaults(KCoreConfigSkeleton* self, bool b);
+    friend bool KCoreConfigSkeleton_SuperUsrUseDefaults(KCoreConfigSkeleton* self, bool b);
     friend void KCoreConfigSkeleton_UsrSetDefaults(KCoreConfigSkeleton* self);
-    friend void KCoreConfigSkeleton_QBaseUsrSetDefaults(KCoreConfigSkeleton* self);
+    friend void KCoreConfigSkeleton_SuperUsrSetDefaults(KCoreConfigSkeleton* self);
     friend void KCoreConfigSkeleton_UsrRead(KCoreConfigSkeleton* self);
-    friend void KCoreConfigSkeleton_QBaseUsrRead(KCoreConfigSkeleton* self);
+    friend void KCoreConfigSkeleton_SuperUsrRead(KCoreConfigSkeleton* self);
     friend bool KCoreConfigSkeleton_UsrSave(KCoreConfigSkeleton* self);
-    friend bool KCoreConfigSkeleton_QBaseUsrSave(KCoreConfigSkeleton* self);
+    friend bool KCoreConfigSkeleton_SuperUsrSave(KCoreConfigSkeleton* self);
     friend void KCoreConfigSkeleton_TimerEvent(KCoreConfigSkeleton* self, QTimerEvent* event);
-    friend void KCoreConfigSkeleton_QBaseTimerEvent(KCoreConfigSkeleton* self, QTimerEvent* event);
+    friend void KCoreConfigSkeleton_SuperTimerEvent(KCoreConfigSkeleton* self, QTimerEvent* event);
     friend void KCoreConfigSkeleton_ChildEvent(KCoreConfigSkeleton* self, QChildEvent* event);
-    friend void KCoreConfigSkeleton_QBaseChildEvent(KCoreConfigSkeleton* self, QChildEvent* event);
+    friend void KCoreConfigSkeleton_SuperChildEvent(KCoreConfigSkeleton* self, QChildEvent* event);
     friend void KCoreConfigSkeleton_CustomEvent(KCoreConfigSkeleton* self, QEvent* event);
-    friend void KCoreConfigSkeleton_QBaseCustomEvent(KCoreConfigSkeleton* self, QEvent* event);
+    friend void KCoreConfigSkeleton_SuperCustomEvent(KCoreConfigSkeleton* self, QEvent* event);
     friend void KCoreConfigSkeleton_ConnectNotify(KCoreConfigSkeleton* self, const QMetaMethod* signal);
-    friend void KCoreConfigSkeleton_QBaseConnectNotify(KCoreConfigSkeleton* self, const QMetaMethod* signal);
+    friend void KCoreConfigSkeleton_SuperConnectNotify(KCoreConfigSkeleton* self, const QMetaMethod* signal);
     friend void KCoreConfigSkeleton_DisconnectNotify(KCoreConfigSkeleton* self, const QMetaMethod* signal);
-    friend void KCoreConfigSkeleton_QBaseDisconnectNotify(KCoreConfigSkeleton* self, const QMetaMethod* signal);
+    friend void KCoreConfigSkeleton_SuperDisconnectNotify(KCoreConfigSkeleton* self, const QMetaMethod* signal);
     friend QObject* KCoreConfigSkeleton_Sender(const KCoreConfigSkeleton* self);
-    friend QObject* KCoreConfigSkeleton_QBaseSender(const KCoreConfigSkeleton* self);
+    friend QObject* KCoreConfigSkeleton_SuperSender(const KCoreConfigSkeleton* self);
     friend int KCoreConfigSkeleton_SenderSignalIndex(const KCoreConfigSkeleton* self);
-    friend int KCoreConfigSkeleton_QBaseSenderSignalIndex(const KCoreConfigSkeleton* self);
+    friend int KCoreConfigSkeleton_SuperSenderSignalIndex(const KCoreConfigSkeleton* self);
     friend int KCoreConfigSkeleton_Receivers(const KCoreConfigSkeleton* self, const char* signal);
-    friend int KCoreConfigSkeleton_QBaseReceivers(const KCoreConfigSkeleton* self, const char* signal);
+    friend int KCoreConfigSkeleton_SuperReceivers(const KCoreConfigSkeleton* self, const char* signal);
     friend bool KCoreConfigSkeleton_IsSignalConnected(const KCoreConfigSkeleton* self, const QMetaMethod* signal);
-    friend bool KCoreConfigSkeleton_QBaseIsSignalConnected(const KCoreConfigSkeleton* self, const QMetaMethod* signal);
+    friend bool KCoreConfigSkeleton_SuperIsSignalConnected(const KCoreConfigSkeleton* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of KCoreConfigSkeleton::ItemString so that we can call protected methods

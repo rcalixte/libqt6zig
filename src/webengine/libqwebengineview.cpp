@@ -537,7 +537,7 @@ void QWebEngineView_PrintToPdf3(QWebEngineView* self, const libqt_string filePat
 }
 
 // Base class handler implementation
-QMetaObject* QWebEngineView_QBaseMetaObject(const QWebEngineView* self) {
+QMetaObject* QWebEngineView_SuperMetaObject(const QWebEngineView* self) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_MetaObject_IsBase(true);
@@ -556,7 +556,7 @@ void QWebEngineView_OnMetaObject(const QWebEngineView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QWebEngineView_QBaseMetacast(QWebEngineView* self, const char* param1) {
+void* QWebEngineView_SuperMetacast(QWebEngineView* self, const char* param1) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_Metacast_IsBase(true);
@@ -575,7 +575,7 @@ void QWebEngineView_OnMetacast(QWebEngineView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QWebEngineView_QBaseMetacall(QWebEngineView* self, int param1, int param2, void** param3) {
+int QWebEngineView_SuperMetacall(QWebEngineView* self, int param1, int param2, void** param3) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_Metacall_IsBase(true);
@@ -594,7 +594,7 @@ void QWebEngineView_OnMetacall(QWebEngineView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QWebEngineView_QBaseSizeHint(const QWebEngineView* self) {
+QSize* QWebEngineView_SuperSizeHint(const QWebEngineView* self) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_SizeHint_IsBase(true);
@@ -613,7 +613,7 @@ void QWebEngineView_OnSizeHint(const QWebEngineView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QWebEngineView* QWebEngineView_QBaseCreateWindow(QWebEngineView* self, int typeVal) {
+QWebEngineView* QWebEngineView_SuperCreateWindow(QWebEngineView* self, int typeVal) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_CreateWindow_IsBase(true);
@@ -632,7 +632,7 @@ void QWebEngineView_OnCreateWindow(QWebEngineView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseContextMenuEvent(QWebEngineView* self, QContextMenuEvent* param1) {
+void QWebEngineView_SuperContextMenuEvent(QWebEngineView* self, QContextMenuEvent* param1) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_ContextMenuEvent_IsBase(true);
@@ -651,7 +651,7 @@ void QWebEngineView_OnContextMenuEvent(QWebEngineView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QWebEngineView_QBaseEvent(QWebEngineView* self, QEvent* param1) {
+bool QWebEngineView_SuperEvent(QWebEngineView* self, QEvent* param1) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_Event_IsBase(true);
@@ -670,7 +670,7 @@ void QWebEngineView_OnEvent(QWebEngineView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseShowEvent(QWebEngineView* self, QShowEvent* param1) {
+void QWebEngineView_SuperShowEvent(QWebEngineView* self, QShowEvent* param1) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_ShowEvent_IsBase(true);
@@ -689,7 +689,7 @@ void QWebEngineView_OnShowEvent(QWebEngineView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseHideEvent(QWebEngineView* self, QHideEvent* param1) {
+void QWebEngineView_SuperHideEvent(QWebEngineView* self, QHideEvent* param1) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_HideEvent_IsBase(true);
@@ -708,7 +708,7 @@ void QWebEngineView_OnHideEvent(QWebEngineView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseCloseEvent(QWebEngineView* self, QCloseEvent* param1) {
+void QWebEngineView_SuperCloseEvent(QWebEngineView* self, QCloseEvent* param1) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_CloseEvent_IsBase(true);
@@ -727,7 +727,7 @@ void QWebEngineView_OnCloseEvent(QWebEngineView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseDragEnterEvent(QWebEngineView* self, QDragEnterEvent* e) {
+void QWebEngineView_SuperDragEnterEvent(QWebEngineView* self, QDragEnterEvent* e) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_DragEnterEvent_IsBase(true);
@@ -746,7 +746,7 @@ void QWebEngineView_OnDragEnterEvent(QWebEngineView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseDragLeaveEvent(QWebEngineView* self, QDragLeaveEvent* e) {
+void QWebEngineView_SuperDragLeaveEvent(QWebEngineView* self, QDragLeaveEvent* e) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_DragLeaveEvent_IsBase(true);
@@ -765,7 +765,7 @@ void QWebEngineView_OnDragLeaveEvent(QWebEngineView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseDragMoveEvent(QWebEngineView* self, QDragMoveEvent* e) {
+void QWebEngineView_SuperDragMoveEvent(QWebEngineView* self, QDragMoveEvent* e) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_DragMoveEvent_IsBase(true);
@@ -784,7 +784,7 @@ void QWebEngineView_OnDragMoveEvent(QWebEngineView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseDropEvent(QWebEngineView* self, QDropEvent* e) {
+void QWebEngineView_SuperDropEvent(QWebEngineView* self, QDropEvent* e) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_DropEvent_IsBase(true);
@@ -813,7 +813,7 @@ int QWebEngineView_DevType(const QWebEngineView* self) {
 }
 
 // Base class handler implementation
-int QWebEngineView_QBaseDevType(const QWebEngineView* self) {
+int QWebEngineView_SuperDevType(const QWebEngineView* self) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_DevType_IsBase(true);
@@ -842,7 +842,7 @@ void QWebEngineView_SetVisible(QWebEngineView* self, bool visible) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseSetVisible(QWebEngineView* self, bool visible) {
+void QWebEngineView_SuperSetVisible(QWebEngineView* self, bool visible) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_SetVisible_IsBase(true);
@@ -871,7 +871,7 @@ QSize* QWebEngineView_MinimumSizeHint(const QWebEngineView* self) {
 }
 
 // Base class handler implementation
-QSize* QWebEngineView_QBaseMinimumSizeHint(const QWebEngineView* self) {
+QSize* QWebEngineView_SuperMinimumSizeHint(const QWebEngineView* self) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_MinimumSizeHint_IsBase(true);
@@ -900,7 +900,7 @@ int QWebEngineView_HeightForWidth(const QWebEngineView* self, int param1) {
 }
 
 // Base class handler implementation
-int QWebEngineView_QBaseHeightForWidth(const QWebEngineView* self, int param1) {
+int QWebEngineView_SuperHeightForWidth(const QWebEngineView* self, int param1) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_HeightForWidth_IsBase(true);
@@ -929,7 +929,7 @@ bool QWebEngineView_HasHeightForWidth(const QWebEngineView* self) {
 }
 
 // Base class handler implementation
-bool QWebEngineView_QBaseHasHeightForWidth(const QWebEngineView* self) {
+bool QWebEngineView_SuperHasHeightForWidth(const QWebEngineView* self) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_HasHeightForWidth_IsBase(true);
@@ -958,7 +958,7 @@ QPaintEngine* QWebEngineView_PaintEngine(const QWebEngineView* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QWebEngineView_QBasePaintEngine(const QWebEngineView* self) {
+QPaintEngine* QWebEngineView_SuperPaintEngine(const QWebEngineView* self) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_PaintEngine_IsBase(true);
@@ -987,7 +987,7 @@ void QWebEngineView_MousePressEvent(QWebEngineView* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseMousePressEvent(QWebEngineView* self, QMouseEvent* event) {
+void QWebEngineView_SuperMousePressEvent(QWebEngineView* self, QMouseEvent* event) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_MousePressEvent_IsBase(true);
@@ -1016,7 +1016,7 @@ void QWebEngineView_MouseReleaseEvent(QWebEngineView* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseMouseReleaseEvent(QWebEngineView* self, QMouseEvent* event) {
+void QWebEngineView_SuperMouseReleaseEvent(QWebEngineView* self, QMouseEvent* event) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_MouseReleaseEvent_IsBase(true);
@@ -1045,7 +1045,7 @@ void QWebEngineView_MouseDoubleClickEvent(QWebEngineView* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseMouseDoubleClickEvent(QWebEngineView* self, QMouseEvent* event) {
+void QWebEngineView_SuperMouseDoubleClickEvent(QWebEngineView* self, QMouseEvent* event) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_MouseDoubleClickEvent_IsBase(true);
@@ -1074,7 +1074,7 @@ void QWebEngineView_MouseMoveEvent(QWebEngineView* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseMouseMoveEvent(QWebEngineView* self, QMouseEvent* event) {
+void QWebEngineView_SuperMouseMoveEvent(QWebEngineView* self, QMouseEvent* event) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_MouseMoveEvent_IsBase(true);
@@ -1103,7 +1103,7 @@ void QWebEngineView_WheelEvent(QWebEngineView* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseWheelEvent(QWebEngineView* self, QWheelEvent* event) {
+void QWebEngineView_SuperWheelEvent(QWebEngineView* self, QWheelEvent* event) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_WheelEvent_IsBase(true);
@@ -1132,7 +1132,7 @@ void QWebEngineView_KeyPressEvent(QWebEngineView* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseKeyPressEvent(QWebEngineView* self, QKeyEvent* event) {
+void QWebEngineView_SuperKeyPressEvent(QWebEngineView* self, QKeyEvent* event) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_KeyPressEvent_IsBase(true);
@@ -1161,7 +1161,7 @@ void QWebEngineView_KeyReleaseEvent(QWebEngineView* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseKeyReleaseEvent(QWebEngineView* self, QKeyEvent* event) {
+void QWebEngineView_SuperKeyReleaseEvent(QWebEngineView* self, QKeyEvent* event) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_KeyReleaseEvent_IsBase(true);
@@ -1190,7 +1190,7 @@ void QWebEngineView_FocusInEvent(QWebEngineView* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseFocusInEvent(QWebEngineView* self, QFocusEvent* event) {
+void QWebEngineView_SuperFocusInEvent(QWebEngineView* self, QFocusEvent* event) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_FocusInEvent_IsBase(true);
@@ -1219,7 +1219,7 @@ void QWebEngineView_FocusOutEvent(QWebEngineView* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseFocusOutEvent(QWebEngineView* self, QFocusEvent* event) {
+void QWebEngineView_SuperFocusOutEvent(QWebEngineView* self, QFocusEvent* event) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_FocusOutEvent_IsBase(true);
@@ -1248,7 +1248,7 @@ void QWebEngineView_EnterEvent(QWebEngineView* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseEnterEvent(QWebEngineView* self, QEnterEvent* event) {
+void QWebEngineView_SuperEnterEvent(QWebEngineView* self, QEnterEvent* event) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_EnterEvent_IsBase(true);
@@ -1277,7 +1277,7 @@ void QWebEngineView_LeaveEvent(QWebEngineView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseLeaveEvent(QWebEngineView* self, QEvent* event) {
+void QWebEngineView_SuperLeaveEvent(QWebEngineView* self, QEvent* event) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_LeaveEvent_IsBase(true);
@@ -1306,7 +1306,7 @@ void QWebEngineView_PaintEvent(QWebEngineView* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBasePaintEvent(QWebEngineView* self, QPaintEvent* event) {
+void QWebEngineView_SuperPaintEvent(QWebEngineView* self, QPaintEvent* event) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_PaintEvent_IsBase(true);
@@ -1335,7 +1335,7 @@ void QWebEngineView_MoveEvent(QWebEngineView* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseMoveEvent(QWebEngineView* self, QMoveEvent* event) {
+void QWebEngineView_SuperMoveEvent(QWebEngineView* self, QMoveEvent* event) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_MoveEvent_IsBase(true);
@@ -1364,7 +1364,7 @@ void QWebEngineView_ResizeEvent(QWebEngineView* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseResizeEvent(QWebEngineView* self, QResizeEvent* event) {
+void QWebEngineView_SuperResizeEvent(QWebEngineView* self, QResizeEvent* event) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_ResizeEvent_IsBase(true);
@@ -1393,7 +1393,7 @@ void QWebEngineView_TabletEvent(QWebEngineView* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseTabletEvent(QWebEngineView* self, QTabletEvent* event) {
+void QWebEngineView_SuperTabletEvent(QWebEngineView* self, QTabletEvent* event) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_TabletEvent_IsBase(true);
@@ -1422,7 +1422,7 @@ void QWebEngineView_ActionEvent(QWebEngineView* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseActionEvent(QWebEngineView* self, QActionEvent* event) {
+void QWebEngineView_SuperActionEvent(QWebEngineView* self, QActionEvent* event) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_ActionEvent_IsBase(true);
@@ -1452,7 +1452,7 @@ bool QWebEngineView_NativeEvent(QWebEngineView* self, const libqt_string eventTy
 }
 
 // Base class handler implementation
-bool QWebEngineView_QBaseNativeEvent(QWebEngineView* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QWebEngineView_SuperNativeEvent(QWebEngineView* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
@@ -1482,7 +1482,7 @@ void QWebEngineView_ChangeEvent(QWebEngineView* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseChangeEvent(QWebEngineView* self, QEvent* param1) {
+void QWebEngineView_SuperChangeEvent(QWebEngineView* self, QEvent* param1) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_ChangeEvent_IsBase(true);
@@ -1511,7 +1511,7 @@ int QWebEngineView_Metric(const QWebEngineView* self, int param1) {
 }
 
 // Base class handler implementation
-int QWebEngineView_QBaseMetric(const QWebEngineView* self, int param1) {
+int QWebEngineView_SuperMetric(const QWebEngineView* self, int param1) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_Metric_IsBase(true);
@@ -1540,7 +1540,7 @@ void QWebEngineView_InitPainter(const QWebEngineView* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseInitPainter(const QWebEngineView* self, QPainter* painter) {
+void QWebEngineView_SuperInitPainter(const QWebEngineView* self, QPainter* painter) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_InitPainter_IsBase(true);
@@ -1569,7 +1569,7 @@ QPaintDevice* QWebEngineView_Redirected(const QWebEngineView* self, QPoint* offs
 }
 
 // Base class handler implementation
-QPaintDevice* QWebEngineView_QBaseRedirected(const QWebEngineView* self, QPoint* offset) {
+QPaintDevice* QWebEngineView_SuperRedirected(const QWebEngineView* self, QPoint* offset) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_Redirected_IsBase(true);
@@ -1598,7 +1598,7 @@ QPainter* QWebEngineView_SharedPainter(const QWebEngineView* self) {
 }
 
 // Base class handler implementation
-QPainter* QWebEngineView_QBaseSharedPainter(const QWebEngineView* self) {
+QPainter* QWebEngineView_SuperSharedPainter(const QWebEngineView* self) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_SharedPainter_IsBase(true);
@@ -1627,7 +1627,7 @@ void QWebEngineView_InputMethodEvent(QWebEngineView* self, QInputMethodEvent* pa
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseInputMethodEvent(QWebEngineView* self, QInputMethodEvent* param1) {
+void QWebEngineView_SuperInputMethodEvent(QWebEngineView* self, QInputMethodEvent* param1) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_InputMethodEvent_IsBase(true);
@@ -1656,7 +1656,7 @@ QVariant* QWebEngineView_InputMethodQuery(const QWebEngineView* self, int param1
 }
 
 // Base class handler implementation
-QVariant* QWebEngineView_QBaseInputMethodQuery(const QWebEngineView* self, int param1) {
+QVariant* QWebEngineView_SuperInputMethodQuery(const QWebEngineView* self, int param1) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_InputMethodQuery_IsBase(true);
@@ -1685,7 +1685,7 @@ bool QWebEngineView_FocusNextPrevChild(QWebEngineView* self, bool next) {
 }
 
 // Base class handler implementation
-bool QWebEngineView_QBaseFocusNextPrevChild(QWebEngineView* self, bool next) {
+bool QWebEngineView_SuperFocusNextPrevChild(QWebEngineView* self, bool next) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_FocusNextPrevChild_IsBase(true);
@@ -1714,7 +1714,7 @@ bool QWebEngineView_EventFilter(QWebEngineView* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QWebEngineView_QBaseEventFilter(QWebEngineView* self, QObject* watched, QEvent* event) {
+bool QWebEngineView_SuperEventFilter(QWebEngineView* self, QObject* watched, QEvent* event) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_EventFilter_IsBase(true);
@@ -1743,7 +1743,7 @@ void QWebEngineView_TimerEvent(QWebEngineView* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseTimerEvent(QWebEngineView* self, QTimerEvent* event) {
+void QWebEngineView_SuperTimerEvent(QWebEngineView* self, QTimerEvent* event) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_TimerEvent_IsBase(true);
@@ -1772,7 +1772,7 @@ void QWebEngineView_ChildEvent(QWebEngineView* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseChildEvent(QWebEngineView* self, QChildEvent* event) {
+void QWebEngineView_SuperChildEvent(QWebEngineView* self, QChildEvent* event) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_ChildEvent_IsBase(true);
@@ -1801,7 +1801,7 @@ void QWebEngineView_CustomEvent(QWebEngineView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseCustomEvent(QWebEngineView* self, QEvent* event) {
+void QWebEngineView_SuperCustomEvent(QWebEngineView* self, QEvent* event) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_CustomEvent_IsBase(true);
@@ -1830,7 +1830,7 @@ void QWebEngineView_ConnectNotify(QWebEngineView* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseConnectNotify(QWebEngineView* self, const QMetaMethod* signal) {
+void QWebEngineView_SuperConnectNotify(QWebEngineView* self, const QMetaMethod* signal) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_ConnectNotify_IsBase(true);
@@ -1859,7 +1859,7 @@ void QWebEngineView_DisconnectNotify(QWebEngineView* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseDisconnectNotify(QWebEngineView* self, const QMetaMethod* signal) {
+void QWebEngineView_SuperDisconnectNotify(QWebEngineView* self, const QMetaMethod* signal) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_DisconnectNotify_IsBase(true);
@@ -1888,7 +1888,7 @@ void QWebEngineView_UpdateMicroFocus(QWebEngineView* self) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseUpdateMicroFocus(QWebEngineView* self) {
+void QWebEngineView_SuperUpdateMicroFocus(QWebEngineView* self) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_UpdateMicroFocus_IsBase(true);
@@ -1917,7 +1917,7 @@ void QWebEngineView_Create(QWebEngineView* self) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseCreate(QWebEngineView* self) {
+void QWebEngineView_SuperCreate(QWebEngineView* self) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_Create_IsBase(true);
@@ -1946,7 +1946,7 @@ void QWebEngineView_Destroy(QWebEngineView* self) {
 }
 
 // Base class handler implementation
-void QWebEngineView_QBaseDestroy(QWebEngineView* self) {
+void QWebEngineView_SuperDestroy(QWebEngineView* self) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_Destroy_IsBase(true);
@@ -1975,7 +1975,7 @@ bool QWebEngineView_FocusNextChild(QWebEngineView* self) {
 }
 
 // Base class handler implementation
-bool QWebEngineView_QBaseFocusNextChild(QWebEngineView* self) {
+bool QWebEngineView_SuperFocusNextChild(QWebEngineView* self) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_FocusNextChild_IsBase(true);
@@ -2004,7 +2004,7 @@ bool QWebEngineView_FocusPreviousChild(QWebEngineView* self) {
 }
 
 // Base class handler implementation
-bool QWebEngineView_QBaseFocusPreviousChild(QWebEngineView* self) {
+bool QWebEngineView_SuperFocusPreviousChild(QWebEngineView* self) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_FocusPreviousChild_IsBase(true);
@@ -2033,7 +2033,7 @@ QObject* QWebEngineView_Sender(const QWebEngineView* self) {
 }
 
 // Base class handler implementation
-QObject* QWebEngineView_QBaseSender(const QWebEngineView* self) {
+QObject* QWebEngineView_SuperSender(const QWebEngineView* self) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_Sender_IsBase(true);
@@ -2062,7 +2062,7 @@ int QWebEngineView_SenderSignalIndex(const QWebEngineView* self) {
 }
 
 // Base class handler implementation
-int QWebEngineView_QBaseSenderSignalIndex(const QWebEngineView* self) {
+int QWebEngineView_SuperSenderSignalIndex(const QWebEngineView* self) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_SenderSignalIndex_IsBase(true);
@@ -2091,7 +2091,7 @@ int QWebEngineView_Receivers(const QWebEngineView* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QWebEngineView_QBaseReceivers(const QWebEngineView* self, const char* signal) {
+int QWebEngineView_SuperReceivers(const QWebEngineView* self, const char* signal) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_Receivers_IsBase(true);
@@ -2120,7 +2120,7 @@ bool QWebEngineView_IsSignalConnected(const QWebEngineView* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QWebEngineView_QBaseIsSignalConnected(const QWebEngineView* self, const QMetaMethod* signal) {
+bool QWebEngineView_SuperIsSignalConnected(const QWebEngineView* self, const QMetaMethod* signal) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_IsSignalConnected_IsBase(true);
@@ -2149,7 +2149,7 @@ double QWebEngineView_GetDecodedMetricF(const QWebEngineView* self, int metricA,
 }
 
 // Base class handler implementation
-double QWebEngineView_QBaseGetDecodedMetricF(const QWebEngineView* self, int metricA, int metricB) {
+double QWebEngineView_SuperGetDecodedMetricF(const QWebEngineView* self, int metricA, int metricB) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_GetDecodedMetricF_IsBase(true);

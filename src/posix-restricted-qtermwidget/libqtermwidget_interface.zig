@@ -843,6 +843,10 @@ pub const qtermwidgetinterface = struct {
         qtc.QTermWidgetInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Delete this object from C++ memory.
@@ -851,7 +855,7 @@ pub const qtermwidgetinterface = struct {
     ///
     /// ` self: QtC.QTermWidgetInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTermWidgetInterface_Delete(@ptrCast(self));
     }
 };

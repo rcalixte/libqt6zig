@@ -496,37 +496,37 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
 
     // Friend functions
     friend void KRecentFilesAction_SlotActionTriggered(KRecentFilesAction* self, QAction* action);
-    friend void KRecentFilesAction_QBaseSlotActionTriggered(KRecentFilesAction* self, QAction* action);
+    friend void KRecentFilesAction_SuperSlotActionTriggered(KRecentFilesAction* self, QAction* action);
     friend QWidget* KRecentFilesAction_CreateWidget(KRecentFilesAction* self, QWidget* parent);
-    friend QWidget* KRecentFilesAction_QBaseCreateWidget(KRecentFilesAction* self, QWidget* parent);
+    friend QWidget* KRecentFilesAction_SuperCreateWidget(KRecentFilesAction* self, QWidget* parent);
     friend void KRecentFilesAction_DeleteWidget(KRecentFilesAction* self, QWidget* widget);
-    friend void KRecentFilesAction_QBaseDeleteWidget(KRecentFilesAction* self, QWidget* widget);
+    friend void KRecentFilesAction_SuperDeleteWidget(KRecentFilesAction* self, QWidget* widget);
     friend bool KRecentFilesAction_Event(KRecentFilesAction* self, QEvent* event);
-    friend bool KRecentFilesAction_QBaseEvent(KRecentFilesAction* self, QEvent* event);
+    friend bool KRecentFilesAction_SuperEvent(KRecentFilesAction* self, QEvent* event);
     friend bool KRecentFilesAction_EventFilter(KRecentFilesAction* self, QObject* watched, QEvent* event);
-    friend bool KRecentFilesAction_QBaseEventFilter(KRecentFilesAction* self, QObject* watched, QEvent* event);
+    friend bool KRecentFilesAction_SuperEventFilter(KRecentFilesAction* self, QObject* watched, QEvent* event);
     friend void KRecentFilesAction_TimerEvent(KRecentFilesAction* self, QTimerEvent* event);
-    friend void KRecentFilesAction_QBaseTimerEvent(KRecentFilesAction* self, QTimerEvent* event);
+    friend void KRecentFilesAction_SuperTimerEvent(KRecentFilesAction* self, QTimerEvent* event);
     friend void KRecentFilesAction_ChildEvent(KRecentFilesAction* self, QChildEvent* event);
-    friend void KRecentFilesAction_QBaseChildEvent(KRecentFilesAction* self, QChildEvent* event);
+    friend void KRecentFilesAction_SuperChildEvent(KRecentFilesAction* self, QChildEvent* event);
     friend void KRecentFilesAction_CustomEvent(KRecentFilesAction* self, QEvent* event);
-    friend void KRecentFilesAction_QBaseCustomEvent(KRecentFilesAction* self, QEvent* event);
+    friend void KRecentFilesAction_SuperCustomEvent(KRecentFilesAction* self, QEvent* event);
     friend void KRecentFilesAction_ConnectNotify(KRecentFilesAction* self, const QMetaMethod* signal);
-    friend void KRecentFilesAction_QBaseConnectNotify(KRecentFilesAction* self, const QMetaMethod* signal);
+    friend void KRecentFilesAction_SuperConnectNotify(KRecentFilesAction* self, const QMetaMethod* signal);
     friend void KRecentFilesAction_DisconnectNotify(KRecentFilesAction* self, const QMetaMethod* signal);
-    friend void KRecentFilesAction_QBaseDisconnectNotify(KRecentFilesAction* self, const QMetaMethod* signal);
+    friend void KRecentFilesAction_SuperDisconnectNotify(KRecentFilesAction* self, const QMetaMethod* signal);
     friend void KRecentFilesAction_SlotToggled(KRecentFilesAction* self, bool param1);
-    friend void KRecentFilesAction_QBaseSlotToggled(KRecentFilesAction* self, bool param1);
+    friend void KRecentFilesAction_SuperSlotToggled(KRecentFilesAction* self, bool param1);
     friend libqt_list /* of QWidget* */ KRecentFilesAction_CreatedWidgets(const KRecentFilesAction* self);
-    friend libqt_list /* of QWidget* */ KRecentFilesAction_QBaseCreatedWidgets(const KRecentFilesAction* self);
+    friend libqt_list /* of QWidget* */ KRecentFilesAction_SuperCreatedWidgets(const KRecentFilesAction* self);
     friend QObject* KRecentFilesAction_Sender(const KRecentFilesAction* self);
-    friend QObject* KRecentFilesAction_QBaseSender(const KRecentFilesAction* self);
+    friend QObject* KRecentFilesAction_SuperSender(const KRecentFilesAction* self);
     friend int KRecentFilesAction_SenderSignalIndex(const KRecentFilesAction* self);
-    friend int KRecentFilesAction_QBaseSenderSignalIndex(const KRecentFilesAction* self);
+    friend int KRecentFilesAction_SuperSenderSignalIndex(const KRecentFilesAction* self);
     friend int KRecentFilesAction_Receivers(const KRecentFilesAction* self, const char* signal);
-    friend int KRecentFilesAction_QBaseReceivers(const KRecentFilesAction* self, const char* signal);
+    friend int KRecentFilesAction_SuperReceivers(const KRecentFilesAction* self, const char* signal);
     friend bool KRecentFilesAction_IsSignalConnected(const KRecentFilesAction* self, const QMetaMethod* signal);
-    friend bool KRecentFilesAction_QBaseIsSignalConnected(const KRecentFilesAction* self, const QMetaMethod* signal);
+    friend bool KRecentFilesAction_SuperIsSignalConnected(const KRecentFilesAction* self, const QMetaMethod* signal);
 };
 
 #endif

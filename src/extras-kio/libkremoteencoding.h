@@ -31,7 +31,7 @@ void KRemoteEncoding_SetEncoding(KRemoteEncoding* self, const char* name);
 void KRemoteEncoding_VirtualHook(KRemoteEncoding* self, int id, void* data);
 libqt_string KRemoteEncoding_Directory2(const KRemoteEncoding* self, const QUrl* url, bool ignore_trailing_slash);
 void KRemoteEncoding_OnVirtualHook(KRemoteEncoding* self, intptr_t slot);
-void KRemoteEncoding_QBaseVirtualHook(KRemoteEncoding* self, int id, void* data);
+void KRemoteEncoding_SuperVirtualHook(KRemoteEncoding* self, int id, void* data);
 void KRemoteEncoding_Delete(KRemoteEncoding* self);
 
 #ifdef __cplusplus

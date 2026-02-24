@@ -59,7 +59,7 @@ QAccessibleInterface* QAccessiblePlugin_Create(QAccessiblePlugin* self, const li
 }
 
 // Base class handler implementation
-QMetaObject* QAccessiblePlugin_QBaseMetaObject(const QAccessiblePlugin* self) {
+QMetaObject* QAccessiblePlugin_SuperMetaObject(const QAccessiblePlugin* self) {
     auto* vqaccessibleplugin = const_cast<VirtualQAccessiblePlugin*>(dynamic_cast<const VirtualQAccessiblePlugin*>(self));
     if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
         vqaccessibleplugin->setQAccessiblePlugin_MetaObject_IsBase(true);
@@ -78,7 +78,7 @@ void QAccessiblePlugin_OnMetaObject(const QAccessiblePlugin* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* QAccessiblePlugin_QBaseMetacast(QAccessiblePlugin* self, const char* param1) {
+void* QAccessiblePlugin_SuperMetacast(QAccessiblePlugin* self, const char* param1) {
     auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
     if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
         vqaccessibleplugin->setQAccessiblePlugin_Metacast_IsBase(true);
@@ -97,7 +97,7 @@ void QAccessiblePlugin_OnMetacast(QAccessiblePlugin* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAccessiblePlugin_QBaseMetacall(QAccessiblePlugin* self, int param1, int param2, void** param3) {
+int QAccessiblePlugin_SuperMetacall(QAccessiblePlugin* self, int param1, int param2, void** param3) {
     auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
     if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
         vqaccessibleplugin->setQAccessiblePlugin_Metacall_IsBase(true);
@@ -116,7 +116,7 @@ void QAccessiblePlugin_OnMetacall(QAccessiblePlugin* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QAccessibleInterface* QAccessiblePlugin_QBaseCreate(QAccessiblePlugin* self, const libqt_string key, QObject* object) {
+QAccessibleInterface* QAccessiblePlugin_SuperCreate(QAccessiblePlugin* self, const libqt_string key, QObject* object) {
     auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
     QString key_QString = QString::fromUtf8(key.data, key.len);
     if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
@@ -146,7 +146,7 @@ bool QAccessiblePlugin_Event(QAccessiblePlugin* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QAccessiblePlugin_QBaseEvent(QAccessiblePlugin* self, QEvent* event) {
+bool QAccessiblePlugin_SuperEvent(QAccessiblePlugin* self, QEvent* event) {
     auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
     if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
         vqaccessibleplugin->setQAccessiblePlugin_Event_IsBase(true);
@@ -175,7 +175,7 @@ bool QAccessiblePlugin_EventFilter(QAccessiblePlugin* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool QAccessiblePlugin_QBaseEventFilter(QAccessiblePlugin* self, QObject* watched, QEvent* event) {
+bool QAccessiblePlugin_SuperEventFilter(QAccessiblePlugin* self, QObject* watched, QEvent* event) {
     auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
     if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
         vqaccessibleplugin->setQAccessiblePlugin_EventFilter_IsBase(true);
@@ -204,7 +204,7 @@ void QAccessiblePlugin_TimerEvent(QAccessiblePlugin* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QAccessiblePlugin_QBaseTimerEvent(QAccessiblePlugin* self, QTimerEvent* event) {
+void QAccessiblePlugin_SuperTimerEvent(QAccessiblePlugin* self, QTimerEvent* event) {
     auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
     if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
         vqaccessibleplugin->setQAccessiblePlugin_TimerEvent_IsBase(true);
@@ -233,7 +233,7 @@ void QAccessiblePlugin_ChildEvent(QAccessiblePlugin* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QAccessiblePlugin_QBaseChildEvent(QAccessiblePlugin* self, QChildEvent* event) {
+void QAccessiblePlugin_SuperChildEvent(QAccessiblePlugin* self, QChildEvent* event) {
     auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
     if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
         vqaccessibleplugin->setQAccessiblePlugin_ChildEvent_IsBase(true);
@@ -262,7 +262,7 @@ void QAccessiblePlugin_CustomEvent(QAccessiblePlugin* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QAccessiblePlugin_QBaseCustomEvent(QAccessiblePlugin* self, QEvent* event) {
+void QAccessiblePlugin_SuperCustomEvent(QAccessiblePlugin* self, QEvent* event) {
     auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
     if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
         vqaccessibleplugin->setQAccessiblePlugin_CustomEvent_IsBase(true);
@@ -291,7 +291,7 @@ void QAccessiblePlugin_ConnectNotify(QAccessiblePlugin* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void QAccessiblePlugin_QBaseConnectNotify(QAccessiblePlugin* self, const QMetaMethod* signal) {
+void QAccessiblePlugin_SuperConnectNotify(QAccessiblePlugin* self, const QMetaMethod* signal) {
     auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
     if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
         vqaccessibleplugin->setQAccessiblePlugin_ConnectNotify_IsBase(true);
@@ -320,7 +320,7 @@ void QAccessiblePlugin_DisconnectNotify(QAccessiblePlugin* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void QAccessiblePlugin_QBaseDisconnectNotify(QAccessiblePlugin* self, const QMetaMethod* signal) {
+void QAccessiblePlugin_SuperDisconnectNotify(QAccessiblePlugin* self, const QMetaMethod* signal) {
     auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
     if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
         vqaccessibleplugin->setQAccessiblePlugin_DisconnectNotify_IsBase(true);
@@ -349,7 +349,7 @@ QObject* QAccessiblePlugin_Sender(const QAccessiblePlugin* self) {
 }
 
 // Base class handler implementation
-QObject* QAccessiblePlugin_QBaseSender(const QAccessiblePlugin* self) {
+QObject* QAccessiblePlugin_SuperSender(const QAccessiblePlugin* self) {
     auto* vqaccessibleplugin = const_cast<VirtualQAccessiblePlugin*>(dynamic_cast<const VirtualQAccessiblePlugin*>(self));
     if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
         vqaccessibleplugin->setQAccessiblePlugin_Sender_IsBase(true);
@@ -378,7 +378,7 @@ int QAccessiblePlugin_SenderSignalIndex(const QAccessiblePlugin* self) {
 }
 
 // Base class handler implementation
-int QAccessiblePlugin_QBaseSenderSignalIndex(const QAccessiblePlugin* self) {
+int QAccessiblePlugin_SuperSenderSignalIndex(const QAccessiblePlugin* self) {
     auto* vqaccessibleplugin = const_cast<VirtualQAccessiblePlugin*>(dynamic_cast<const VirtualQAccessiblePlugin*>(self));
     if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
         vqaccessibleplugin->setQAccessiblePlugin_SenderSignalIndex_IsBase(true);
@@ -407,7 +407,7 @@ int QAccessiblePlugin_Receivers(const QAccessiblePlugin* self, const char* signa
 }
 
 // Base class handler implementation
-int QAccessiblePlugin_QBaseReceivers(const QAccessiblePlugin* self, const char* signal) {
+int QAccessiblePlugin_SuperReceivers(const QAccessiblePlugin* self, const char* signal) {
     auto* vqaccessibleplugin = const_cast<VirtualQAccessiblePlugin*>(dynamic_cast<const VirtualQAccessiblePlugin*>(self));
     if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
         vqaccessibleplugin->setQAccessiblePlugin_Receivers_IsBase(true);
@@ -436,7 +436,7 @@ bool QAccessiblePlugin_IsSignalConnected(const QAccessiblePlugin* self, const QM
 }
 
 // Base class handler implementation
-bool QAccessiblePlugin_QBaseIsSignalConnected(const QAccessiblePlugin* self, const QMetaMethod* signal) {
+bool QAccessiblePlugin_SuperIsSignalConnected(const QAccessiblePlugin* self, const QMetaMethod* signal) {
     auto* vqaccessibleplugin = const_cast<VirtualQAccessiblePlugin*>(dynamic_cast<const VirtualQAccessiblePlugin*>(self));
     if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
         vqaccessibleplugin->setQAccessiblePlugin_IsSignalConnected_IsBase(true);

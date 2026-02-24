@@ -259,7 +259,7 @@ void QGeoPositionInfoSource_Connect_SupportedPositioningMethodsChanged(QGeoPosit
 }
 
 // Base class handler implementation
-QMetaObject* QGeoPositionInfoSource_QBaseMetaObject(const QGeoPositionInfoSource* self) {
+QMetaObject* QGeoPositionInfoSource_SuperMetaObject(const QGeoPositionInfoSource* self) {
     auto* vqgeopositioninfosource = const_cast<VirtualQGeoPositionInfoSource*>(dynamic_cast<const VirtualQGeoPositionInfoSource*>(self));
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_MetaObject_IsBase(true);
@@ -278,7 +278,7 @@ void QGeoPositionInfoSource_OnMetaObject(const QGeoPositionInfoSource* self, int
 }
 
 // Base class handler implementation
-void* QGeoPositionInfoSource_QBaseMetacast(QGeoPositionInfoSource* self, const char* param1) {
+void* QGeoPositionInfoSource_SuperMetacast(QGeoPositionInfoSource* self, const char* param1) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_Metacast_IsBase(true);
@@ -297,7 +297,7 @@ void QGeoPositionInfoSource_OnMetacast(QGeoPositionInfoSource* self, intptr_t sl
 }
 
 // Base class handler implementation
-int QGeoPositionInfoSource_QBaseMetacall(QGeoPositionInfoSource* self, int param1, int param2, void** param3) {
+int QGeoPositionInfoSource_SuperMetacall(QGeoPositionInfoSource* self, int param1, int param2, void** param3) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_Metacall_IsBase(true);
@@ -316,7 +316,7 @@ void QGeoPositionInfoSource_OnMetacall(QGeoPositionInfoSource* self, intptr_t sl
 }
 
 // Base class handler implementation
-void QGeoPositionInfoSource_QBaseSetUpdateInterval(QGeoPositionInfoSource* self, int msec) {
+void QGeoPositionInfoSource_SuperSetUpdateInterval(QGeoPositionInfoSource* self, int msec) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_SetUpdateInterval_IsBase(true);
@@ -335,7 +335,7 @@ void QGeoPositionInfoSource_OnSetUpdateInterval(QGeoPositionInfoSource* self, in
 }
 
 // Base class handler implementation
-void QGeoPositionInfoSource_QBaseSetPreferredPositioningMethods(QGeoPositionInfoSource* self, int methods) {
+void QGeoPositionInfoSource_SuperSetPreferredPositioningMethods(QGeoPositionInfoSource* self, int methods) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_SetPreferredPositioningMethods_IsBase(true);
@@ -354,7 +354,7 @@ void QGeoPositionInfoSource_OnSetPreferredPositioningMethods(QGeoPositionInfoSou
 }
 
 // Base class handler implementation
-QGeoPositionInfo* QGeoPositionInfoSource_QBaseLastKnownPosition(const QGeoPositionInfoSource* self, bool fromSatellitePositioningMethodsOnly) {
+QGeoPositionInfo* QGeoPositionInfoSource_SuperLastKnownPosition(const QGeoPositionInfoSource* self, bool fromSatellitePositioningMethodsOnly) {
     auto* vqgeopositioninfosource = const_cast<VirtualQGeoPositionInfoSource*>(dynamic_cast<const VirtualQGeoPositionInfoSource*>(self));
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_LastKnownPosition_IsBase(true);
@@ -373,7 +373,7 @@ void QGeoPositionInfoSource_OnLastKnownPosition(const QGeoPositionInfoSource* se
 }
 
 // Base class handler implementation
-int QGeoPositionInfoSource_QBaseSupportedPositioningMethods(const QGeoPositionInfoSource* self) {
+int QGeoPositionInfoSource_SuperSupportedPositioningMethods(const QGeoPositionInfoSource* self) {
     auto* vqgeopositioninfosource = const_cast<VirtualQGeoPositionInfoSource*>(dynamic_cast<const VirtualQGeoPositionInfoSource*>(self));
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_SupportedPositioningMethods_IsBase(true);
@@ -392,7 +392,7 @@ void QGeoPositionInfoSource_OnSupportedPositioningMethods(const QGeoPositionInfo
 }
 
 // Base class handler implementation
-int QGeoPositionInfoSource_QBaseMinimumUpdateInterval(const QGeoPositionInfoSource* self) {
+int QGeoPositionInfoSource_SuperMinimumUpdateInterval(const QGeoPositionInfoSource* self) {
     auto* vqgeopositioninfosource = const_cast<VirtualQGeoPositionInfoSource*>(dynamic_cast<const VirtualQGeoPositionInfoSource*>(self));
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_MinimumUpdateInterval_IsBase(true);
@@ -411,7 +411,7 @@ void QGeoPositionInfoSource_OnMinimumUpdateInterval(const QGeoPositionInfoSource
 }
 
 // Base class handler implementation
-bool QGeoPositionInfoSource_QBaseSetBackendProperty(QGeoPositionInfoSource* self, const libqt_string name, const QVariant* value) {
+bool QGeoPositionInfoSource_SuperSetBackendProperty(QGeoPositionInfoSource* self, const libqt_string name, const QVariant* value) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
@@ -431,7 +431,7 @@ void QGeoPositionInfoSource_OnSetBackendProperty(QGeoPositionInfoSource* self, i
 }
 
 // Base class handler implementation
-QVariant* QGeoPositionInfoSource_QBaseBackendProperty(const QGeoPositionInfoSource* self, const libqt_string name) {
+QVariant* QGeoPositionInfoSource_SuperBackendProperty(const QGeoPositionInfoSource* self, const libqt_string name) {
     auto* vqgeopositioninfosource = const_cast<VirtualQGeoPositionInfoSource*>(dynamic_cast<const VirtualQGeoPositionInfoSource*>(self));
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
@@ -451,7 +451,7 @@ void QGeoPositionInfoSource_OnBackendProperty(const QGeoPositionInfoSource* self
 }
 
 // Base class handler implementation
-int QGeoPositionInfoSource_QBaseError(const QGeoPositionInfoSource* self) {
+int QGeoPositionInfoSource_SuperError(const QGeoPositionInfoSource* self) {
     auto* vqgeopositioninfosource = const_cast<VirtualQGeoPositionInfoSource*>(dynamic_cast<const VirtualQGeoPositionInfoSource*>(self));
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_Error_IsBase(true);
@@ -470,7 +470,7 @@ void QGeoPositionInfoSource_OnError(const QGeoPositionInfoSource* self, intptr_t
 }
 
 // Base class handler implementation
-void QGeoPositionInfoSource_QBaseStartUpdates(QGeoPositionInfoSource* self) {
+void QGeoPositionInfoSource_SuperStartUpdates(QGeoPositionInfoSource* self) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_StartUpdates_IsBase(true);
@@ -489,7 +489,7 @@ void QGeoPositionInfoSource_OnStartUpdates(QGeoPositionInfoSource* self, intptr_
 }
 
 // Base class handler implementation
-void QGeoPositionInfoSource_QBaseStopUpdates(QGeoPositionInfoSource* self) {
+void QGeoPositionInfoSource_SuperStopUpdates(QGeoPositionInfoSource* self) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_StopUpdates_IsBase(true);
@@ -508,7 +508,7 @@ void QGeoPositionInfoSource_OnStopUpdates(QGeoPositionInfoSource* self, intptr_t
 }
 
 // Base class handler implementation
-void QGeoPositionInfoSource_QBaseRequestUpdate(QGeoPositionInfoSource* self, int timeout) {
+void QGeoPositionInfoSource_SuperRequestUpdate(QGeoPositionInfoSource* self, int timeout) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_RequestUpdate_IsBase(true);
@@ -537,7 +537,7 @@ bool QGeoPositionInfoSource_Event(QGeoPositionInfoSource* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QGeoPositionInfoSource_QBaseEvent(QGeoPositionInfoSource* self, QEvent* event) {
+bool QGeoPositionInfoSource_SuperEvent(QGeoPositionInfoSource* self, QEvent* event) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_Event_IsBase(true);
@@ -566,7 +566,7 @@ bool QGeoPositionInfoSource_EventFilter(QGeoPositionInfoSource* self, QObject* w
 }
 
 // Base class handler implementation
-bool QGeoPositionInfoSource_QBaseEventFilter(QGeoPositionInfoSource* self, QObject* watched, QEvent* event) {
+bool QGeoPositionInfoSource_SuperEventFilter(QGeoPositionInfoSource* self, QObject* watched, QEvent* event) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_EventFilter_IsBase(true);
@@ -595,7 +595,7 @@ void QGeoPositionInfoSource_TimerEvent(QGeoPositionInfoSource* self, QTimerEvent
 }
 
 // Base class handler implementation
-void QGeoPositionInfoSource_QBaseTimerEvent(QGeoPositionInfoSource* self, QTimerEvent* event) {
+void QGeoPositionInfoSource_SuperTimerEvent(QGeoPositionInfoSource* self, QTimerEvent* event) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_TimerEvent_IsBase(true);
@@ -624,7 +624,7 @@ void QGeoPositionInfoSource_ChildEvent(QGeoPositionInfoSource* self, QChildEvent
 }
 
 // Base class handler implementation
-void QGeoPositionInfoSource_QBaseChildEvent(QGeoPositionInfoSource* self, QChildEvent* event) {
+void QGeoPositionInfoSource_SuperChildEvent(QGeoPositionInfoSource* self, QChildEvent* event) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_ChildEvent_IsBase(true);
@@ -653,7 +653,7 @@ void QGeoPositionInfoSource_CustomEvent(QGeoPositionInfoSource* self, QEvent* ev
 }
 
 // Base class handler implementation
-void QGeoPositionInfoSource_QBaseCustomEvent(QGeoPositionInfoSource* self, QEvent* event) {
+void QGeoPositionInfoSource_SuperCustomEvent(QGeoPositionInfoSource* self, QEvent* event) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_CustomEvent_IsBase(true);
@@ -682,7 +682,7 @@ void QGeoPositionInfoSource_ConnectNotify(QGeoPositionInfoSource* self, const QM
 }
 
 // Base class handler implementation
-void QGeoPositionInfoSource_QBaseConnectNotify(QGeoPositionInfoSource* self, const QMetaMethod* signal) {
+void QGeoPositionInfoSource_SuperConnectNotify(QGeoPositionInfoSource* self, const QMetaMethod* signal) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_ConnectNotify_IsBase(true);
@@ -711,7 +711,7 @@ void QGeoPositionInfoSource_DisconnectNotify(QGeoPositionInfoSource* self, const
 }
 
 // Base class handler implementation
-void QGeoPositionInfoSource_QBaseDisconnectNotify(QGeoPositionInfoSource* self, const QMetaMethod* signal) {
+void QGeoPositionInfoSource_SuperDisconnectNotify(QGeoPositionInfoSource* self, const QMetaMethod* signal) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_DisconnectNotify_IsBase(true);
@@ -740,7 +740,7 @@ QObject* QGeoPositionInfoSource_Sender(const QGeoPositionInfoSource* self) {
 }
 
 // Base class handler implementation
-QObject* QGeoPositionInfoSource_QBaseSender(const QGeoPositionInfoSource* self) {
+QObject* QGeoPositionInfoSource_SuperSender(const QGeoPositionInfoSource* self) {
     auto* vqgeopositioninfosource = const_cast<VirtualQGeoPositionInfoSource*>(dynamic_cast<const VirtualQGeoPositionInfoSource*>(self));
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_Sender_IsBase(true);
@@ -769,7 +769,7 @@ int QGeoPositionInfoSource_SenderSignalIndex(const QGeoPositionInfoSource* self)
 }
 
 // Base class handler implementation
-int QGeoPositionInfoSource_QBaseSenderSignalIndex(const QGeoPositionInfoSource* self) {
+int QGeoPositionInfoSource_SuperSenderSignalIndex(const QGeoPositionInfoSource* self) {
     auto* vqgeopositioninfosource = const_cast<VirtualQGeoPositionInfoSource*>(dynamic_cast<const VirtualQGeoPositionInfoSource*>(self));
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_SenderSignalIndex_IsBase(true);
@@ -798,7 +798,7 @@ int QGeoPositionInfoSource_Receivers(const QGeoPositionInfoSource* self, const c
 }
 
 // Base class handler implementation
-int QGeoPositionInfoSource_QBaseReceivers(const QGeoPositionInfoSource* self, const char* signal) {
+int QGeoPositionInfoSource_SuperReceivers(const QGeoPositionInfoSource* self, const char* signal) {
     auto* vqgeopositioninfosource = const_cast<VirtualQGeoPositionInfoSource*>(dynamic_cast<const VirtualQGeoPositionInfoSource*>(self));
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_Receivers_IsBase(true);
@@ -827,7 +827,7 @@ bool QGeoPositionInfoSource_IsSignalConnected(const QGeoPositionInfoSource* self
 }
 
 // Base class handler implementation
-bool QGeoPositionInfoSource_QBaseIsSignalConnected(const QGeoPositionInfoSource* self, const QMetaMethod* signal) {
+bool QGeoPositionInfoSource_SuperIsSignalConnected(const QGeoPositionInfoSource* self, const QMetaMethod* signal) {
     auto* vqgeopositioninfosource = const_cast<VirtualQGeoPositionInfoSource*>(dynamic_cast<const VirtualQGeoPositionInfoSource*>(self));
     if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
         vqgeopositioninfosource->setQGeoPositionInfoSource_IsSignalConnected_IsBase(true);

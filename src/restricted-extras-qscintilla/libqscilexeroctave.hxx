@@ -1098,31 +1098,31 @@ class VirtualQsciLexerOctave final : public QsciLexerOctave {
 
     // Friend functions
     friend bool QsciLexerOctave_ReadProperties(QsciLexerOctave* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerOctave_QBaseReadProperties(QsciLexerOctave* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerOctave_SuperReadProperties(QsciLexerOctave* self, QSettings* qs, const libqt_string prefix);
     friend bool QsciLexerOctave_WriteProperties(const QsciLexerOctave* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerOctave_QBaseWriteProperties(const QsciLexerOctave* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerOctave_SuperWriteProperties(const QsciLexerOctave* self, QSettings* qs, const libqt_string prefix);
     friend void QsciLexerOctave_TimerEvent(QsciLexerOctave* self, QTimerEvent* event);
-    friend void QsciLexerOctave_QBaseTimerEvent(QsciLexerOctave* self, QTimerEvent* event);
+    friend void QsciLexerOctave_SuperTimerEvent(QsciLexerOctave* self, QTimerEvent* event);
     friend void QsciLexerOctave_ChildEvent(QsciLexerOctave* self, QChildEvent* event);
-    friend void QsciLexerOctave_QBaseChildEvent(QsciLexerOctave* self, QChildEvent* event);
+    friend void QsciLexerOctave_SuperChildEvent(QsciLexerOctave* self, QChildEvent* event);
     friend void QsciLexerOctave_CustomEvent(QsciLexerOctave* self, QEvent* event);
-    friend void QsciLexerOctave_QBaseCustomEvent(QsciLexerOctave* self, QEvent* event);
+    friend void QsciLexerOctave_SuperCustomEvent(QsciLexerOctave* self, QEvent* event);
     friend void QsciLexerOctave_ConnectNotify(QsciLexerOctave* self, const QMetaMethod* signal);
-    friend void QsciLexerOctave_QBaseConnectNotify(QsciLexerOctave* self, const QMetaMethod* signal);
+    friend void QsciLexerOctave_SuperConnectNotify(QsciLexerOctave* self, const QMetaMethod* signal);
     friend void QsciLexerOctave_DisconnectNotify(QsciLexerOctave* self, const QMetaMethod* signal);
-    friend void QsciLexerOctave_QBaseDisconnectNotify(QsciLexerOctave* self, const QMetaMethod* signal);
+    friend void QsciLexerOctave_SuperDisconnectNotify(QsciLexerOctave* self, const QMetaMethod* signal);
     friend libqt_string QsciLexerOctave_TextAsBytes(const QsciLexerOctave* self, const libqt_string text);
-    friend libqt_string QsciLexerOctave_QBaseTextAsBytes(const QsciLexerOctave* self, const libqt_string text);
+    friend libqt_string QsciLexerOctave_SuperTextAsBytes(const QsciLexerOctave* self, const libqt_string text);
     friend libqt_string QsciLexerOctave_BytesAsText(const QsciLexerOctave* self, const char* bytes, int size);
-    friend libqt_string QsciLexerOctave_QBaseBytesAsText(const QsciLexerOctave* self, const char* bytes, int size);
+    friend libqt_string QsciLexerOctave_SuperBytesAsText(const QsciLexerOctave* self, const char* bytes, int size);
     friend QObject* QsciLexerOctave_Sender(const QsciLexerOctave* self);
-    friend QObject* QsciLexerOctave_QBaseSender(const QsciLexerOctave* self);
+    friend QObject* QsciLexerOctave_SuperSender(const QsciLexerOctave* self);
     friend int QsciLexerOctave_SenderSignalIndex(const QsciLexerOctave* self);
-    friend int QsciLexerOctave_QBaseSenderSignalIndex(const QsciLexerOctave* self);
+    friend int QsciLexerOctave_SuperSenderSignalIndex(const QsciLexerOctave* self);
     friend int QsciLexerOctave_Receivers(const QsciLexerOctave* self, const char* signal);
-    friend int QsciLexerOctave_QBaseReceivers(const QsciLexerOctave* self, const char* signal);
+    friend int QsciLexerOctave_SuperReceivers(const QsciLexerOctave* self, const char* signal);
     friend bool QsciLexerOctave_IsSignalConnected(const QsciLexerOctave* self, const QMetaMethod* signal);
-    friend bool QsciLexerOctave_QBaseIsSignalConnected(const QsciLexerOctave* self, const QMetaMethod* signal);
+    friend bool QsciLexerOctave_SuperIsSignalConnected(const QsciLexerOctave* self, const QMetaMethod* signal);
 };
 
 #endif

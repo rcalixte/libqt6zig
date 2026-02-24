@@ -229,6 +229,10 @@ pub const qmimedatabase = struct {
         return qtc.QMimeDatabase_MimeTypeForFile23(@ptrCast(self), @ptrCast(fileInfo), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedatabase.html#dtor.QMimeDatabase)
     ///
     /// Delete this object from C++ memory.
@@ -237,7 +241,7 @@ pub const qmimedatabase = struct {
     ///
     /// ` self: QtC.QMimeDatabase `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMimeDatabase_Delete(@ptrCast(self));
     }
 };

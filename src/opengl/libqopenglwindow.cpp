@@ -197,7 +197,7 @@ QPaintDevice* QOpenGLWindow_Redirected(const QOpenGLWindow* self, QPoint* param1
 }
 
 // Base class handler implementation
-QMetaObject* QOpenGLWindow_QBaseMetaObject(const QOpenGLWindow* self) {
+QMetaObject* QOpenGLWindow_SuperMetaObject(const QOpenGLWindow* self) {
     auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_MetaObject_IsBase(true);
@@ -216,7 +216,7 @@ void QOpenGLWindow_OnMetaObject(const QOpenGLWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QOpenGLWindow_QBaseMetacast(QOpenGLWindow* self, const char* param1) {
+void* QOpenGLWindow_SuperMetacast(QOpenGLWindow* self, const char* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_Metacast_IsBase(true);
@@ -235,7 +235,7 @@ void QOpenGLWindow_OnMetacast(QOpenGLWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QOpenGLWindow_QBaseMetacall(QOpenGLWindow* self, int param1, int param2, void** param3) {
+int QOpenGLWindow_SuperMetacall(QOpenGLWindow* self, int param1, int param2, void** param3) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_Metacall_IsBase(true);
@@ -254,7 +254,7 @@ void QOpenGLWindow_OnMetacall(QOpenGLWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseInitializeGL(QOpenGLWindow* self) {
+void QOpenGLWindow_SuperInitializeGL(QOpenGLWindow* self) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_InitializeGL_IsBase(true);
@@ -273,7 +273,7 @@ void QOpenGLWindow_OnInitializeGL(QOpenGLWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseResizeGL(QOpenGLWindow* self, int w, int h) {
+void QOpenGLWindow_SuperResizeGL(QOpenGLWindow* self, int w, int h) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_ResizeGL_IsBase(true);
@@ -292,7 +292,7 @@ void QOpenGLWindow_OnResizeGL(QOpenGLWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBasePaintGL(QOpenGLWindow* self) {
+void QOpenGLWindow_SuperPaintGL(QOpenGLWindow* self) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_PaintGL_IsBase(true);
@@ -311,7 +311,7 @@ void QOpenGLWindow_OnPaintGL(QOpenGLWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBasePaintUnderGL(QOpenGLWindow* self) {
+void QOpenGLWindow_SuperPaintUnderGL(QOpenGLWindow* self) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_PaintUnderGL_IsBase(true);
@@ -330,7 +330,7 @@ void QOpenGLWindow_OnPaintUnderGL(QOpenGLWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBasePaintOverGL(QOpenGLWindow* self) {
+void QOpenGLWindow_SuperPaintOverGL(QOpenGLWindow* self) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_PaintOverGL_IsBase(true);
@@ -349,7 +349,7 @@ void QOpenGLWindow_OnPaintOverGL(QOpenGLWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBasePaintEvent(QOpenGLWindow* self, QPaintEvent* event) {
+void QOpenGLWindow_SuperPaintEvent(QOpenGLWindow* self, QPaintEvent* event) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_PaintEvent_IsBase(true);
@@ -368,7 +368,7 @@ void QOpenGLWindow_OnPaintEvent(QOpenGLWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseResizeEvent(QOpenGLWindow* self, QResizeEvent* event) {
+void QOpenGLWindow_SuperResizeEvent(QOpenGLWindow* self, QResizeEvent* event) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_ResizeEvent_IsBase(true);
@@ -387,7 +387,7 @@ void QOpenGLWindow_OnResizeEvent(QOpenGLWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QOpenGLWindow_QBaseMetric(const QOpenGLWindow* self, int metric) {
+int QOpenGLWindow_SuperMetric(const QOpenGLWindow* self, int metric) {
     auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_Metric_IsBase(true);
@@ -406,7 +406,7 @@ void QOpenGLWindow_OnMetric(const QOpenGLWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPaintDevice* QOpenGLWindow_QBaseRedirected(const QOpenGLWindow* self, QPoint* param1) {
+QPaintDevice* QOpenGLWindow_SuperRedirected(const QOpenGLWindow* self, QPoint* param1) {
     auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_Redirected_IsBase(true);
@@ -435,7 +435,7 @@ void QOpenGLWindow_ExposeEvent(QOpenGLWindow* self, QExposeEvent* param1) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseExposeEvent(QOpenGLWindow* self, QExposeEvent* param1) {
+void QOpenGLWindow_SuperExposeEvent(QOpenGLWindow* self, QExposeEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_ExposeEvent_IsBase(true);
@@ -464,7 +464,7 @@ bool QOpenGLWindow_Event(QOpenGLWindow* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QOpenGLWindow_QBaseEvent(QOpenGLWindow* self, QEvent* event) {
+bool QOpenGLWindow_SuperEvent(QOpenGLWindow* self, QEvent* event) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_Event_IsBase(true);
@@ -493,7 +493,7 @@ int QOpenGLWindow_SurfaceType(const QOpenGLWindow* self) {
 }
 
 // Base class handler implementation
-int QOpenGLWindow_QBaseSurfaceType(const QOpenGLWindow* self) {
+int QOpenGLWindow_SuperSurfaceType(const QOpenGLWindow* self) {
     auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_SurfaceType_IsBase(true);
@@ -522,7 +522,7 @@ QSurfaceFormat* QOpenGLWindow_Format(const QOpenGLWindow* self) {
 }
 
 // Base class handler implementation
-QSurfaceFormat* QOpenGLWindow_QBaseFormat(const QOpenGLWindow* self) {
+QSurfaceFormat* QOpenGLWindow_SuperFormat(const QOpenGLWindow* self) {
     auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_Format_IsBase(true);
@@ -551,7 +551,7 @@ QSize* QOpenGLWindow_Size(const QOpenGLWindow* self) {
 }
 
 // Base class handler implementation
-QSize* QOpenGLWindow_QBaseSize(const QOpenGLWindow* self) {
+QSize* QOpenGLWindow_SuperSize(const QOpenGLWindow* self) {
     auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_Size_IsBase(true);
@@ -580,7 +580,7 @@ QAccessibleInterface* QOpenGLWindow_AccessibleRoot(const QOpenGLWindow* self) {
 }
 
 // Base class handler implementation
-QAccessibleInterface* QOpenGLWindow_QBaseAccessibleRoot(const QOpenGLWindow* self) {
+QAccessibleInterface* QOpenGLWindow_SuperAccessibleRoot(const QOpenGLWindow* self) {
     auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_AccessibleRoot_IsBase(true);
@@ -609,7 +609,7 @@ QObject* QOpenGLWindow_FocusObject(const QOpenGLWindow* self) {
 }
 
 // Base class handler implementation
-QObject* QOpenGLWindow_QBaseFocusObject(const QOpenGLWindow* self) {
+QObject* QOpenGLWindow_SuperFocusObject(const QOpenGLWindow* self) {
     auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_FocusObject_IsBase(true);
@@ -638,7 +638,7 @@ void QOpenGLWindow_MoveEvent(QOpenGLWindow* self, QMoveEvent* param1) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseMoveEvent(QOpenGLWindow* self, QMoveEvent* param1) {
+void QOpenGLWindow_SuperMoveEvent(QOpenGLWindow* self, QMoveEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_MoveEvent_IsBase(true);
@@ -667,7 +667,7 @@ void QOpenGLWindow_FocusInEvent(QOpenGLWindow* self, QFocusEvent* param1) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseFocusInEvent(QOpenGLWindow* self, QFocusEvent* param1) {
+void QOpenGLWindow_SuperFocusInEvent(QOpenGLWindow* self, QFocusEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_FocusInEvent_IsBase(true);
@@ -696,7 +696,7 @@ void QOpenGLWindow_FocusOutEvent(QOpenGLWindow* self, QFocusEvent* param1) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseFocusOutEvent(QOpenGLWindow* self, QFocusEvent* param1) {
+void QOpenGLWindow_SuperFocusOutEvent(QOpenGLWindow* self, QFocusEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_FocusOutEvent_IsBase(true);
@@ -725,7 +725,7 @@ void QOpenGLWindow_ShowEvent(QOpenGLWindow* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseShowEvent(QOpenGLWindow* self, QShowEvent* param1) {
+void QOpenGLWindow_SuperShowEvent(QOpenGLWindow* self, QShowEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_ShowEvent_IsBase(true);
@@ -754,7 +754,7 @@ void QOpenGLWindow_HideEvent(QOpenGLWindow* self, QHideEvent* param1) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseHideEvent(QOpenGLWindow* self, QHideEvent* param1) {
+void QOpenGLWindow_SuperHideEvent(QOpenGLWindow* self, QHideEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_HideEvent_IsBase(true);
@@ -783,7 +783,7 @@ void QOpenGLWindow_CloseEvent(QOpenGLWindow* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseCloseEvent(QOpenGLWindow* self, QCloseEvent* param1) {
+void QOpenGLWindow_SuperCloseEvent(QOpenGLWindow* self, QCloseEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_CloseEvent_IsBase(true);
@@ -812,7 +812,7 @@ void QOpenGLWindow_KeyPressEvent(QOpenGLWindow* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseKeyPressEvent(QOpenGLWindow* self, QKeyEvent* param1) {
+void QOpenGLWindow_SuperKeyPressEvent(QOpenGLWindow* self, QKeyEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_KeyPressEvent_IsBase(true);
@@ -841,7 +841,7 @@ void QOpenGLWindow_KeyReleaseEvent(QOpenGLWindow* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseKeyReleaseEvent(QOpenGLWindow* self, QKeyEvent* param1) {
+void QOpenGLWindow_SuperKeyReleaseEvent(QOpenGLWindow* self, QKeyEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_KeyReleaseEvent_IsBase(true);
@@ -870,7 +870,7 @@ void QOpenGLWindow_MousePressEvent(QOpenGLWindow* self, QMouseEvent* param1) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseMousePressEvent(QOpenGLWindow* self, QMouseEvent* param1) {
+void QOpenGLWindow_SuperMousePressEvent(QOpenGLWindow* self, QMouseEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_MousePressEvent_IsBase(true);
@@ -899,7 +899,7 @@ void QOpenGLWindow_MouseReleaseEvent(QOpenGLWindow* self, QMouseEvent* param1) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseMouseReleaseEvent(QOpenGLWindow* self, QMouseEvent* param1) {
+void QOpenGLWindow_SuperMouseReleaseEvent(QOpenGLWindow* self, QMouseEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_MouseReleaseEvent_IsBase(true);
@@ -928,7 +928,7 @@ void QOpenGLWindow_MouseDoubleClickEvent(QOpenGLWindow* self, QMouseEvent* param
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseMouseDoubleClickEvent(QOpenGLWindow* self, QMouseEvent* param1) {
+void QOpenGLWindow_SuperMouseDoubleClickEvent(QOpenGLWindow* self, QMouseEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_MouseDoubleClickEvent_IsBase(true);
@@ -957,7 +957,7 @@ void QOpenGLWindow_MouseMoveEvent(QOpenGLWindow* self, QMouseEvent* param1) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseMouseMoveEvent(QOpenGLWindow* self, QMouseEvent* param1) {
+void QOpenGLWindow_SuperMouseMoveEvent(QOpenGLWindow* self, QMouseEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_MouseMoveEvent_IsBase(true);
@@ -986,7 +986,7 @@ void QOpenGLWindow_WheelEvent(QOpenGLWindow* self, QWheelEvent* param1) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseWheelEvent(QOpenGLWindow* self, QWheelEvent* param1) {
+void QOpenGLWindow_SuperWheelEvent(QOpenGLWindow* self, QWheelEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_WheelEvent_IsBase(true);
@@ -1015,7 +1015,7 @@ void QOpenGLWindow_TouchEvent(QOpenGLWindow* self, QTouchEvent* param1) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseTouchEvent(QOpenGLWindow* self, QTouchEvent* param1) {
+void QOpenGLWindow_SuperTouchEvent(QOpenGLWindow* self, QTouchEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_TouchEvent_IsBase(true);
@@ -1044,7 +1044,7 @@ void QOpenGLWindow_TabletEvent(QOpenGLWindow* self, QTabletEvent* param1) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseTabletEvent(QOpenGLWindow* self, QTabletEvent* param1) {
+void QOpenGLWindow_SuperTabletEvent(QOpenGLWindow* self, QTabletEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_TabletEvent_IsBase(true);
@@ -1074,7 +1074,7 @@ bool QOpenGLWindow_NativeEvent(QOpenGLWindow* self, const libqt_string eventType
 }
 
 // Base class handler implementation
-bool QOpenGLWindow_QBaseNativeEvent(QOpenGLWindow* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QOpenGLWindow_SuperNativeEvent(QOpenGLWindow* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
@@ -1104,7 +1104,7 @@ bool QOpenGLWindow_EventFilter(QOpenGLWindow* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QOpenGLWindow_QBaseEventFilter(QOpenGLWindow* self, QObject* watched, QEvent* event) {
+bool QOpenGLWindow_SuperEventFilter(QOpenGLWindow* self, QObject* watched, QEvent* event) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_EventFilter_IsBase(true);
@@ -1133,7 +1133,7 @@ void QOpenGLWindow_TimerEvent(QOpenGLWindow* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseTimerEvent(QOpenGLWindow* self, QTimerEvent* event) {
+void QOpenGLWindow_SuperTimerEvent(QOpenGLWindow* self, QTimerEvent* event) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_TimerEvent_IsBase(true);
@@ -1162,7 +1162,7 @@ void QOpenGLWindow_ChildEvent(QOpenGLWindow* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseChildEvent(QOpenGLWindow* self, QChildEvent* event) {
+void QOpenGLWindow_SuperChildEvent(QOpenGLWindow* self, QChildEvent* event) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_ChildEvent_IsBase(true);
@@ -1191,7 +1191,7 @@ void QOpenGLWindow_CustomEvent(QOpenGLWindow* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseCustomEvent(QOpenGLWindow* self, QEvent* event) {
+void QOpenGLWindow_SuperCustomEvent(QOpenGLWindow* self, QEvent* event) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_CustomEvent_IsBase(true);
@@ -1220,7 +1220,7 @@ void QOpenGLWindow_ConnectNotify(QOpenGLWindow* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseConnectNotify(QOpenGLWindow* self, const QMetaMethod* signal) {
+void QOpenGLWindow_SuperConnectNotify(QOpenGLWindow* self, const QMetaMethod* signal) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_ConnectNotify_IsBase(true);
@@ -1249,7 +1249,7 @@ void QOpenGLWindow_DisconnectNotify(QOpenGLWindow* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseDisconnectNotify(QOpenGLWindow* self, const QMetaMethod* signal) {
+void QOpenGLWindow_SuperDisconnectNotify(QOpenGLWindow* self, const QMetaMethod* signal) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_DisconnectNotify_IsBase(true);
@@ -1278,7 +1278,7 @@ int QOpenGLWindow_DevType(const QOpenGLWindow* self) {
 }
 
 // Base class handler implementation
-int QOpenGLWindow_QBaseDevType(const QOpenGLWindow* self) {
+int QOpenGLWindow_SuperDevType(const QOpenGLWindow* self) {
     auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_DevType_IsBase(true);
@@ -1307,7 +1307,7 @@ void QOpenGLWindow_InitPainter(const QOpenGLWindow* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QOpenGLWindow_QBaseInitPainter(const QOpenGLWindow* self, QPainter* painter) {
+void QOpenGLWindow_SuperInitPainter(const QOpenGLWindow* self, QPainter* painter) {
     auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_InitPainter_IsBase(true);
@@ -1336,7 +1336,7 @@ QPainter* QOpenGLWindow_SharedPainter(const QOpenGLWindow* self) {
 }
 
 // Base class handler implementation
-QPainter* QOpenGLWindow_QBaseSharedPainter(const QOpenGLWindow* self) {
+QPainter* QOpenGLWindow_SuperSharedPainter(const QOpenGLWindow* self) {
     auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_SharedPainter_IsBase(true);
@@ -1365,7 +1365,7 @@ void* QOpenGLWindow_ResolveInterface(const QOpenGLWindow* self, const char* name
 }
 
 // Base class handler implementation
-void* QOpenGLWindow_QBaseResolveInterface(const QOpenGLWindow* self, const char* name, int revision) {
+void* QOpenGLWindow_SuperResolveInterface(const QOpenGLWindow* self, const char* name, int revision) {
     auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_ResolveInterface_IsBase(true);
@@ -1394,7 +1394,7 @@ QObject* QOpenGLWindow_Sender(const QOpenGLWindow* self) {
 }
 
 // Base class handler implementation
-QObject* QOpenGLWindow_QBaseSender(const QOpenGLWindow* self) {
+QObject* QOpenGLWindow_SuperSender(const QOpenGLWindow* self) {
     auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_Sender_IsBase(true);
@@ -1423,7 +1423,7 @@ int QOpenGLWindow_SenderSignalIndex(const QOpenGLWindow* self) {
 }
 
 // Base class handler implementation
-int QOpenGLWindow_QBaseSenderSignalIndex(const QOpenGLWindow* self) {
+int QOpenGLWindow_SuperSenderSignalIndex(const QOpenGLWindow* self) {
     auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_SenderSignalIndex_IsBase(true);
@@ -1452,7 +1452,7 @@ int QOpenGLWindow_Receivers(const QOpenGLWindow* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QOpenGLWindow_QBaseReceivers(const QOpenGLWindow* self, const char* signal) {
+int QOpenGLWindow_SuperReceivers(const QOpenGLWindow* self, const char* signal) {
     auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_Receivers_IsBase(true);
@@ -1481,7 +1481,7 @@ bool QOpenGLWindow_IsSignalConnected(const QOpenGLWindow* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QOpenGLWindow_QBaseIsSignalConnected(const QOpenGLWindow* self, const QMetaMethod* signal) {
+bool QOpenGLWindow_SuperIsSignalConnected(const QOpenGLWindow* self, const QMetaMethod* signal) {
     auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_IsSignalConnected_IsBase(true);
@@ -1510,7 +1510,7 @@ double QOpenGLWindow_GetDecodedMetricF(const QOpenGLWindow* self, int metricA, i
 }
 
 // Base class handler implementation
-double QOpenGLWindow_QBaseGetDecodedMetricF(const QOpenGLWindow* self, int metricA, int metricB) {
+double QOpenGLWindow_SuperGetDecodedMetricF(const QOpenGLWindow* self, int metricA, int metricB) {
     auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
     if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
         vqopenglwindow->setQOpenGLWindow_GetDecodedMetricF_IsBase(true);

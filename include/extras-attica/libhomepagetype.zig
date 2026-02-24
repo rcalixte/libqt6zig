@@ -86,13 +86,17 @@ pub const attica__homepagetype = struct {
         qtc.Attica__HomePageType_SetName(@ptrCast(self), name_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Attica__HomePageType `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Attica__HomePageType_Delete(@ptrCast(self));
     }
 };

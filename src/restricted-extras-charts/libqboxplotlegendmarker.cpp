@@ -69,7 +69,7 @@ QBoxPlotSeries* QBoxPlotLegendMarker_Series(QBoxPlotLegendMarker* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QBoxPlotLegendMarker_QBaseMetaObject(const QBoxPlotLegendMarker* self) {
+QMetaObject* QBoxPlotLegendMarker_SuperMetaObject(const QBoxPlotLegendMarker* self) {
     auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
     if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_MetaObject_IsBase(true);
@@ -88,7 +88,7 @@ void QBoxPlotLegendMarker_OnMetaObject(const QBoxPlotLegendMarker* self, intptr_
 }
 
 // Base class handler implementation
-void* QBoxPlotLegendMarker_QBaseMetacast(QBoxPlotLegendMarker* self, const char* param1) {
+void* QBoxPlotLegendMarker_SuperMetacast(QBoxPlotLegendMarker* self, const char* param1) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
     if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_Metacast_IsBase(true);
@@ -107,7 +107,7 @@ void QBoxPlotLegendMarker_OnMetacast(QBoxPlotLegendMarker* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int QBoxPlotLegendMarker_QBaseMetacall(QBoxPlotLegendMarker* self, int param1, int param2, void** param3) {
+int QBoxPlotLegendMarker_SuperMetacall(QBoxPlotLegendMarker* self, int param1, int param2, void** param3) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
     if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_Metacall_IsBase(true);
@@ -126,7 +126,7 @@ void QBoxPlotLegendMarker_OnMetacall(QBoxPlotLegendMarker* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int QBoxPlotLegendMarker_QBaseType(QBoxPlotLegendMarker* self) {
+int QBoxPlotLegendMarker_SuperType(QBoxPlotLegendMarker* self) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
     if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_Type_IsBase(true);
@@ -145,7 +145,7 @@ void QBoxPlotLegendMarker_OnType(QBoxPlotLegendMarker* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QBoxPlotSeries* QBoxPlotLegendMarker_QBaseSeries(QBoxPlotLegendMarker* self) {
+QBoxPlotSeries* QBoxPlotLegendMarker_SuperSeries(QBoxPlotLegendMarker* self) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
     if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_Series_IsBase(true);
@@ -174,7 +174,7 @@ bool QBoxPlotLegendMarker_Event(QBoxPlotLegendMarker* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QBoxPlotLegendMarker_QBaseEvent(QBoxPlotLegendMarker* self, QEvent* event) {
+bool QBoxPlotLegendMarker_SuperEvent(QBoxPlotLegendMarker* self, QEvent* event) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
     if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_Event_IsBase(true);
@@ -203,7 +203,7 @@ bool QBoxPlotLegendMarker_EventFilter(QBoxPlotLegendMarker* self, QObject* watch
 }
 
 // Base class handler implementation
-bool QBoxPlotLegendMarker_QBaseEventFilter(QBoxPlotLegendMarker* self, QObject* watched, QEvent* event) {
+bool QBoxPlotLegendMarker_SuperEventFilter(QBoxPlotLegendMarker* self, QObject* watched, QEvent* event) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
     if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_EventFilter_IsBase(true);
@@ -232,7 +232,7 @@ void QBoxPlotLegendMarker_TimerEvent(QBoxPlotLegendMarker* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void QBoxPlotLegendMarker_QBaseTimerEvent(QBoxPlotLegendMarker* self, QTimerEvent* event) {
+void QBoxPlotLegendMarker_SuperTimerEvent(QBoxPlotLegendMarker* self, QTimerEvent* event) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
     if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_TimerEvent_IsBase(true);
@@ -261,7 +261,7 @@ void QBoxPlotLegendMarker_ChildEvent(QBoxPlotLegendMarker* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void QBoxPlotLegendMarker_QBaseChildEvent(QBoxPlotLegendMarker* self, QChildEvent* event) {
+void QBoxPlotLegendMarker_SuperChildEvent(QBoxPlotLegendMarker* self, QChildEvent* event) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
     if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_ChildEvent_IsBase(true);
@@ -290,7 +290,7 @@ void QBoxPlotLegendMarker_CustomEvent(QBoxPlotLegendMarker* self, QEvent* event)
 }
 
 // Base class handler implementation
-void QBoxPlotLegendMarker_QBaseCustomEvent(QBoxPlotLegendMarker* self, QEvent* event) {
+void QBoxPlotLegendMarker_SuperCustomEvent(QBoxPlotLegendMarker* self, QEvent* event) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
     if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_CustomEvent_IsBase(true);
@@ -319,7 +319,7 @@ void QBoxPlotLegendMarker_ConnectNotify(QBoxPlotLegendMarker* self, const QMetaM
 }
 
 // Base class handler implementation
-void QBoxPlotLegendMarker_QBaseConnectNotify(QBoxPlotLegendMarker* self, const QMetaMethod* signal) {
+void QBoxPlotLegendMarker_SuperConnectNotify(QBoxPlotLegendMarker* self, const QMetaMethod* signal) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
     if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_ConnectNotify_IsBase(true);
@@ -348,7 +348,7 @@ void QBoxPlotLegendMarker_DisconnectNotify(QBoxPlotLegendMarker* self, const QMe
 }
 
 // Base class handler implementation
-void QBoxPlotLegendMarker_QBaseDisconnectNotify(QBoxPlotLegendMarker* self, const QMetaMethod* signal) {
+void QBoxPlotLegendMarker_SuperDisconnectNotify(QBoxPlotLegendMarker* self, const QMetaMethod* signal) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
     if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_DisconnectNotify_IsBase(true);
@@ -377,7 +377,7 @@ QObject* QBoxPlotLegendMarker_Sender(const QBoxPlotLegendMarker* self) {
 }
 
 // Base class handler implementation
-QObject* QBoxPlotLegendMarker_QBaseSender(const QBoxPlotLegendMarker* self) {
+QObject* QBoxPlotLegendMarker_SuperSender(const QBoxPlotLegendMarker* self) {
     auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
     if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_Sender_IsBase(true);
@@ -406,7 +406,7 @@ int QBoxPlotLegendMarker_SenderSignalIndex(const QBoxPlotLegendMarker* self) {
 }
 
 // Base class handler implementation
-int QBoxPlotLegendMarker_QBaseSenderSignalIndex(const QBoxPlotLegendMarker* self) {
+int QBoxPlotLegendMarker_SuperSenderSignalIndex(const QBoxPlotLegendMarker* self) {
     auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
     if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_SenderSignalIndex_IsBase(true);
@@ -435,7 +435,7 @@ int QBoxPlotLegendMarker_Receivers(const QBoxPlotLegendMarker* self, const char*
 }
 
 // Base class handler implementation
-int QBoxPlotLegendMarker_QBaseReceivers(const QBoxPlotLegendMarker* self, const char* signal) {
+int QBoxPlotLegendMarker_SuperReceivers(const QBoxPlotLegendMarker* self, const char* signal) {
     auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
     if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_Receivers_IsBase(true);
@@ -464,7 +464,7 @@ bool QBoxPlotLegendMarker_IsSignalConnected(const QBoxPlotLegendMarker* self, co
 }
 
 // Base class handler implementation
-bool QBoxPlotLegendMarker_QBaseIsSignalConnected(const QBoxPlotLegendMarker* self, const QMetaMethod* signal) {
+bool QBoxPlotLegendMarker_SuperIsSignalConnected(const QBoxPlotLegendMarker* self, const QMetaMethod* signal) {
     auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
     if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_IsSignalConnected_IsBase(true);

@@ -239,7 +239,7 @@ void KFindDialog_ShowEvent(KFindDialog* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-QMetaObject* KFindDialog_QBaseMetaObject(const KFindDialog* self) {
+QMetaObject* KFindDialog_SuperMetaObject(const KFindDialog* self) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_MetaObject_IsBase(true);
@@ -258,7 +258,7 @@ void KFindDialog_OnMetaObject(const KFindDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KFindDialog_QBaseMetacast(KFindDialog* self, const char* param1) {
+void* KFindDialog_SuperMetacast(KFindDialog* self, const char* param1) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_Metacast_IsBase(true);
@@ -277,7 +277,7 @@ void KFindDialog_OnMetacast(KFindDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KFindDialog_QBaseMetacall(KFindDialog* self, int param1, int param2, void** param3) {
+int KFindDialog_SuperMetacall(KFindDialog* self, int param1, int param2, void** param3) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_Metacall_IsBase(true);
@@ -296,7 +296,7 @@ void KFindDialog_OnMetacall(KFindDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseShowEvent(KFindDialog* self, QShowEvent* param1) {
+void KFindDialog_SuperShowEvent(KFindDialog* self, QShowEvent* param1) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_ShowEvent_IsBase(true);
@@ -325,7 +325,7 @@ void KFindDialog_SetVisible(KFindDialog* self, bool visible) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseSetVisible(KFindDialog* self, bool visible) {
+void KFindDialog_SuperSetVisible(KFindDialog* self, bool visible) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_SetVisible_IsBase(true);
@@ -354,7 +354,7 @@ QSize* KFindDialog_SizeHint(const KFindDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KFindDialog_QBaseSizeHint(const KFindDialog* self) {
+QSize* KFindDialog_SuperSizeHint(const KFindDialog* self) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_SizeHint_IsBase(true);
@@ -383,7 +383,7 @@ QSize* KFindDialog_MinimumSizeHint(const KFindDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KFindDialog_QBaseMinimumSizeHint(const KFindDialog* self) {
+QSize* KFindDialog_SuperMinimumSizeHint(const KFindDialog* self) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_MinimumSizeHint_IsBase(true);
@@ -412,7 +412,7 @@ void KFindDialog_Open(KFindDialog* self) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseOpen(KFindDialog* self) {
+void KFindDialog_SuperOpen(KFindDialog* self) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_Open_IsBase(true);
@@ -441,7 +441,7 @@ int KFindDialog_Exec(KFindDialog* self) {
 }
 
 // Base class handler implementation
-int KFindDialog_QBaseExec(KFindDialog* self) {
+int KFindDialog_SuperExec(KFindDialog* self) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_Exec_IsBase(true);
@@ -470,7 +470,7 @@ void KFindDialog_Done(KFindDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseDone(KFindDialog* self, int param1) {
+void KFindDialog_SuperDone(KFindDialog* self, int param1) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_Done_IsBase(true);
@@ -499,7 +499,7 @@ void KFindDialog_Accept(KFindDialog* self) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseAccept(KFindDialog* self) {
+void KFindDialog_SuperAccept(KFindDialog* self) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_Accept_IsBase(true);
@@ -528,7 +528,7 @@ void KFindDialog_Reject(KFindDialog* self) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseReject(KFindDialog* self) {
+void KFindDialog_SuperReject(KFindDialog* self) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_Reject_IsBase(true);
@@ -557,7 +557,7 @@ void KFindDialog_KeyPressEvent(KFindDialog* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseKeyPressEvent(KFindDialog* self, QKeyEvent* param1) {
+void KFindDialog_SuperKeyPressEvent(KFindDialog* self, QKeyEvent* param1) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_KeyPressEvent_IsBase(true);
@@ -586,7 +586,7 @@ void KFindDialog_CloseEvent(KFindDialog* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseCloseEvent(KFindDialog* self, QCloseEvent* param1) {
+void KFindDialog_SuperCloseEvent(KFindDialog* self, QCloseEvent* param1) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_CloseEvent_IsBase(true);
@@ -615,7 +615,7 @@ void KFindDialog_ResizeEvent(KFindDialog* self, QResizeEvent* param1) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseResizeEvent(KFindDialog* self, QResizeEvent* param1) {
+void KFindDialog_SuperResizeEvent(KFindDialog* self, QResizeEvent* param1) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_ResizeEvent_IsBase(true);
@@ -644,7 +644,7 @@ void KFindDialog_ContextMenuEvent(KFindDialog* self, QContextMenuEvent* param1) 
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseContextMenuEvent(KFindDialog* self, QContextMenuEvent* param1) {
+void KFindDialog_SuperContextMenuEvent(KFindDialog* self, QContextMenuEvent* param1) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_ContextMenuEvent_IsBase(true);
@@ -673,7 +673,7 @@ bool KFindDialog_EventFilter(KFindDialog* self, QObject* param1, QEvent* param2)
 }
 
 // Base class handler implementation
-bool KFindDialog_QBaseEventFilter(KFindDialog* self, QObject* param1, QEvent* param2) {
+bool KFindDialog_SuperEventFilter(KFindDialog* self, QObject* param1, QEvent* param2) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_EventFilter_IsBase(true);
@@ -702,7 +702,7 @@ int KFindDialog_DevType(const KFindDialog* self) {
 }
 
 // Base class handler implementation
-int KFindDialog_QBaseDevType(const KFindDialog* self) {
+int KFindDialog_SuperDevType(const KFindDialog* self) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_DevType_IsBase(true);
@@ -731,7 +731,7 @@ int KFindDialog_HeightForWidth(const KFindDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KFindDialog_QBaseHeightForWidth(const KFindDialog* self, int param1) {
+int KFindDialog_SuperHeightForWidth(const KFindDialog* self, int param1) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_HeightForWidth_IsBase(true);
@@ -760,7 +760,7 @@ bool KFindDialog_HasHeightForWidth(const KFindDialog* self) {
 }
 
 // Base class handler implementation
-bool KFindDialog_QBaseHasHeightForWidth(const KFindDialog* self) {
+bool KFindDialog_SuperHasHeightForWidth(const KFindDialog* self) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_HasHeightForWidth_IsBase(true);
@@ -789,7 +789,7 @@ QPaintEngine* KFindDialog_PaintEngine(const KFindDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KFindDialog_QBasePaintEngine(const KFindDialog* self) {
+QPaintEngine* KFindDialog_SuperPaintEngine(const KFindDialog* self) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_PaintEngine_IsBase(true);
@@ -818,7 +818,7 @@ bool KFindDialog_Event(KFindDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KFindDialog_QBaseEvent(KFindDialog* self, QEvent* event) {
+bool KFindDialog_SuperEvent(KFindDialog* self, QEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_Event_IsBase(true);
@@ -847,7 +847,7 @@ void KFindDialog_MousePressEvent(KFindDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseMousePressEvent(KFindDialog* self, QMouseEvent* event) {
+void KFindDialog_SuperMousePressEvent(KFindDialog* self, QMouseEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_MousePressEvent_IsBase(true);
@@ -876,7 +876,7 @@ void KFindDialog_MouseReleaseEvent(KFindDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseMouseReleaseEvent(KFindDialog* self, QMouseEvent* event) {
+void KFindDialog_SuperMouseReleaseEvent(KFindDialog* self, QMouseEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_MouseReleaseEvent_IsBase(true);
@@ -905,7 +905,7 @@ void KFindDialog_MouseDoubleClickEvent(KFindDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseMouseDoubleClickEvent(KFindDialog* self, QMouseEvent* event) {
+void KFindDialog_SuperMouseDoubleClickEvent(KFindDialog* self, QMouseEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_MouseDoubleClickEvent_IsBase(true);
@@ -934,7 +934,7 @@ void KFindDialog_MouseMoveEvent(KFindDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseMouseMoveEvent(KFindDialog* self, QMouseEvent* event) {
+void KFindDialog_SuperMouseMoveEvent(KFindDialog* self, QMouseEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_MouseMoveEvent_IsBase(true);
@@ -963,7 +963,7 @@ void KFindDialog_WheelEvent(KFindDialog* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseWheelEvent(KFindDialog* self, QWheelEvent* event) {
+void KFindDialog_SuperWheelEvent(KFindDialog* self, QWheelEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_WheelEvent_IsBase(true);
@@ -992,7 +992,7 @@ void KFindDialog_KeyReleaseEvent(KFindDialog* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseKeyReleaseEvent(KFindDialog* self, QKeyEvent* event) {
+void KFindDialog_SuperKeyReleaseEvent(KFindDialog* self, QKeyEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_KeyReleaseEvent_IsBase(true);
@@ -1021,7 +1021,7 @@ void KFindDialog_FocusInEvent(KFindDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseFocusInEvent(KFindDialog* self, QFocusEvent* event) {
+void KFindDialog_SuperFocusInEvent(KFindDialog* self, QFocusEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_FocusInEvent_IsBase(true);
@@ -1050,7 +1050,7 @@ void KFindDialog_FocusOutEvent(KFindDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseFocusOutEvent(KFindDialog* self, QFocusEvent* event) {
+void KFindDialog_SuperFocusOutEvent(KFindDialog* self, QFocusEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_FocusOutEvent_IsBase(true);
@@ -1079,7 +1079,7 @@ void KFindDialog_EnterEvent(KFindDialog* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseEnterEvent(KFindDialog* self, QEnterEvent* event) {
+void KFindDialog_SuperEnterEvent(KFindDialog* self, QEnterEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_EnterEvent_IsBase(true);
@@ -1108,7 +1108,7 @@ void KFindDialog_LeaveEvent(KFindDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseLeaveEvent(KFindDialog* self, QEvent* event) {
+void KFindDialog_SuperLeaveEvent(KFindDialog* self, QEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_LeaveEvent_IsBase(true);
@@ -1137,7 +1137,7 @@ void KFindDialog_PaintEvent(KFindDialog* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBasePaintEvent(KFindDialog* self, QPaintEvent* event) {
+void KFindDialog_SuperPaintEvent(KFindDialog* self, QPaintEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_PaintEvent_IsBase(true);
@@ -1166,7 +1166,7 @@ void KFindDialog_MoveEvent(KFindDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseMoveEvent(KFindDialog* self, QMoveEvent* event) {
+void KFindDialog_SuperMoveEvent(KFindDialog* self, QMoveEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_MoveEvent_IsBase(true);
@@ -1195,7 +1195,7 @@ void KFindDialog_TabletEvent(KFindDialog* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseTabletEvent(KFindDialog* self, QTabletEvent* event) {
+void KFindDialog_SuperTabletEvent(KFindDialog* self, QTabletEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_TabletEvent_IsBase(true);
@@ -1224,7 +1224,7 @@ void KFindDialog_ActionEvent(KFindDialog* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseActionEvent(KFindDialog* self, QActionEvent* event) {
+void KFindDialog_SuperActionEvent(KFindDialog* self, QActionEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_ActionEvent_IsBase(true);
@@ -1253,7 +1253,7 @@ void KFindDialog_DragEnterEvent(KFindDialog* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseDragEnterEvent(KFindDialog* self, QDragEnterEvent* event) {
+void KFindDialog_SuperDragEnterEvent(KFindDialog* self, QDragEnterEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_DragEnterEvent_IsBase(true);
@@ -1282,7 +1282,7 @@ void KFindDialog_DragMoveEvent(KFindDialog* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseDragMoveEvent(KFindDialog* self, QDragMoveEvent* event) {
+void KFindDialog_SuperDragMoveEvent(KFindDialog* self, QDragMoveEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_DragMoveEvent_IsBase(true);
@@ -1311,7 +1311,7 @@ void KFindDialog_DragLeaveEvent(KFindDialog* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseDragLeaveEvent(KFindDialog* self, QDragLeaveEvent* event) {
+void KFindDialog_SuperDragLeaveEvent(KFindDialog* self, QDragLeaveEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_DragLeaveEvent_IsBase(true);
@@ -1340,7 +1340,7 @@ void KFindDialog_DropEvent(KFindDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseDropEvent(KFindDialog* self, QDropEvent* event) {
+void KFindDialog_SuperDropEvent(KFindDialog* self, QDropEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_DropEvent_IsBase(true);
@@ -1369,7 +1369,7 @@ void KFindDialog_HideEvent(KFindDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseHideEvent(KFindDialog* self, QHideEvent* event) {
+void KFindDialog_SuperHideEvent(KFindDialog* self, QHideEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_HideEvent_IsBase(true);
@@ -1399,7 +1399,7 @@ bool KFindDialog_NativeEvent(KFindDialog* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool KFindDialog_QBaseNativeEvent(KFindDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KFindDialog_SuperNativeEvent(KFindDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
@@ -1429,7 +1429,7 @@ void KFindDialog_ChangeEvent(KFindDialog* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseChangeEvent(KFindDialog* self, QEvent* param1) {
+void KFindDialog_SuperChangeEvent(KFindDialog* self, QEvent* param1) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_ChangeEvent_IsBase(true);
@@ -1458,7 +1458,7 @@ int KFindDialog_Metric(const KFindDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KFindDialog_QBaseMetric(const KFindDialog* self, int param1) {
+int KFindDialog_SuperMetric(const KFindDialog* self, int param1) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_Metric_IsBase(true);
@@ -1487,7 +1487,7 @@ void KFindDialog_InitPainter(const KFindDialog* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseInitPainter(const KFindDialog* self, QPainter* painter) {
+void KFindDialog_SuperInitPainter(const KFindDialog* self, QPainter* painter) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_InitPainter_IsBase(true);
@@ -1516,7 +1516,7 @@ QPaintDevice* KFindDialog_Redirected(const KFindDialog* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KFindDialog_QBaseRedirected(const KFindDialog* self, QPoint* offset) {
+QPaintDevice* KFindDialog_SuperRedirected(const KFindDialog* self, QPoint* offset) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_Redirected_IsBase(true);
@@ -1545,7 +1545,7 @@ QPainter* KFindDialog_SharedPainter(const KFindDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* KFindDialog_QBaseSharedPainter(const KFindDialog* self) {
+QPainter* KFindDialog_SuperSharedPainter(const KFindDialog* self) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_SharedPainter_IsBase(true);
@@ -1574,7 +1574,7 @@ void KFindDialog_InputMethodEvent(KFindDialog* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseInputMethodEvent(KFindDialog* self, QInputMethodEvent* param1) {
+void KFindDialog_SuperInputMethodEvent(KFindDialog* self, QInputMethodEvent* param1) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_InputMethodEvent_IsBase(true);
@@ -1603,7 +1603,7 @@ QVariant* KFindDialog_InputMethodQuery(const KFindDialog* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KFindDialog_QBaseInputMethodQuery(const KFindDialog* self, int param1) {
+QVariant* KFindDialog_SuperInputMethodQuery(const KFindDialog* self, int param1) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_InputMethodQuery_IsBase(true);
@@ -1632,7 +1632,7 @@ bool KFindDialog_FocusNextPrevChild(KFindDialog* self, bool next) {
 }
 
 // Base class handler implementation
-bool KFindDialog_QBaseFocusNextPrevChild(KFindDialog* self, bool next) {
+bool KFindDialog_SuperFocusNextPrevChild(KFindDialog* self, bool next) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_FocusNextPrevChild_IsBase(true);
@@ -1661,7 +1661,7 @@ void KFindDialog_TimerEvent(KFindDialog* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseTimerEvent(KFindDialog* self, QTimerEvent* event) {
+void KFindDialog_SuperTimerEvent(KFindDialog* self, QTimerEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_TimerEvent_IsBase(true);
@@ -1690,7 +1690,7 @@ void KFindDialog_ChildEvent(KFindDialog* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseChildEvent(KFindDialog* self, QChildEvent* event) {
+void KFindDialog_SuperChildEvent(KFindDialog* self, QChildEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_ChildEvent_IsBase(true);
@@ -1719,7 +1719,7 @@ void KFindDialog_CustomEvent(KFindDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseCustomEvent(KFindDialog* self, QEvent* event) {
+void KFindDialog_SuperCustomEvent(KFindDialog* self, QEvent* event) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_CustomEvent_IsBase(true);
@@ -1748,7 +1748,7 @@ void KFindDialog_ConnectNotify(KFindDialog* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseConnectNotify(KFindDialog* self, const QMetaMethod* signal) {
+void KFindDialog_SuperConnectNotify(KFindDialog* self, const QMetaMethod* signal) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_ConnectNotify_IsBase(true);
@@ -1777,7 +1777,7 @@ void KFindDialog_DisconnectNotify(KFindDialog* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseDisconnectNotify(KFindDialog* self, const QMetaMethod* signal) {
+void KFindDialog_SuperDisconnectNotify(KFindDialog* self, const QMetaMethod* signal) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_DisconnectNotify_IsBase(true);
@@ -1806,7 +1806,7 @@ void KFindDialog_AdjustPosition(KFindDialog* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseAdjustPosition(KFindDialog* self, QWidget* param1) {
+void KFindDialog_SuperAdjustPosition(KFindDialog* self, QWidget* param1) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_AdjustPosition_IsBase(true);
@@ -1835,7 +1835,7 @@ void KFindDialog_UpdateMicroFocus(KFindDialog* self) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseUpdateMicroFocus(KFindDialog* self) {
+void KFindDialog_SuperUpdateMicroFocus(KFindDialog* self) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_UpdateMicroFocus_IsBase(true);
@@ -1864,7 +1864,7 @@ void KFindDialog_Create(KFindDialog* self) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseCreate(KFindDialog* self) {
+void KFindDialog_SuperCreate(KFindDialog* self) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_Create_IsBase(true);
@@ -1893,7 +1893,7 @@ void KFindDialog_Destroy(KFindDialog* self) {
 }
 
 // Base class handler implementation
-void KFindDialog_QBaseDestroy(KFindDialog* self) {
+void KFindDialog_SuperDestroy(KFindDialog* self) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_Destroy_IsBase(true);
@@ -1922,7 +1922,7 @@ bool KFindDialog_FocusNextChild(KFindDialog* self) {
 }
 
 // Base class handler implementation
-bool KFindDialog_QBaseFocusNextChild(KFindDialog* self) {
+bool KFindDialog_SuperFocusNextChild(KFindDialog* self) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_FocusNextChild_IsBase(true);
@@ -1951,7 +1951,7 @@ bool KFindDialog_FocusPreviousChild(KFindDialog* self) {
 }
 
 // Base class handler implementation
-bool KFindDialog_QBaseFocusPreviousChild(KFindDialog* self) {
+bool KFindDialog_SuperFocusPreviousChild(KFindDialog* self) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_FocusPreviousChild_IsBase(true);
@@ -1980,7 +1980,7 @@ QObject* KFindDialog_Sender(const KFindDialog* self) {
 }
 
 // Base class handler implementation
-QObject* KFindDialog_QBaseSender(const KFindDialog* self) {
+QObject* KFindDialog_SuperSender(const KFindDialog* self) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_Sender_IsBase(true);
@@ -2009,7 +2009,7 @@ int KFindDialog_SenderSignalIndex(const KFindDialog* self) {
 }
 
 // Base class handler implementation
-int KFindDialog_QBaseSenderSignalIndex(const KFindDialog* self) {
+int KFindDialog_SuperSenderSignalIndex(const KFindDialog* self) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_SenderSignalIndex_IsBase(true);
@@ -2038,7 +2038,7 @@ int KFindDialog_Receivers(const KFindDialog* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KFindDialog_QBaseReceivers(const KFindDialog* self, const char* signal) {
+int KFindDialog_SuperReceivers(const KFindDialog* self, const char* signal) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_Receivers_IsBase(true);
@@ -2067,7 +2067,7 @@ bool KFindDialog_IsSignalConnected(const KFindDialog* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool KFindDialog_QBaseIsSignalConnected(const KFindDialog* self, const QMetaMethod* signal) {
+bool KFindDialog_SuperIsSignalConnected(const KFindDialog* self, const QMetaMethod* signal) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_IsSignalConnected_IsBase(true);
@@ -2096,7 +2096,7 @@ double KFindDialog_GetDecodedMetricF(const KFindDialog* self, int metricA, int m
 }
 
 // Base class handler implementation
-double KFindDialog_QBaseGetDecodedMetricF(const KFindDialog* self, int metricA, int metricB) {
+double KFindDialog_SuperGetDecodedMetricF(const KFindDialog* self, int metricA, int metricB) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->setKFindDialog_GetDecodedMetricF_IsBase(true);

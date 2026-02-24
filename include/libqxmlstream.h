@@ -58,9 +58,9 @@ QXmlStreamEntityResolver* QXmlStreamEntityResolver_new();
 libqt_string QXmlStreamEntityResolver_ResolveEntity(QXmlStreamEntityResolver* self, const libqt_string publicId, const libqt_string systemId);
 libqt_string QXmlStreamEntityResolver_ResolveUndeclaredEntity(QXmlStreamEntityResolver* self, const libqt_string name);
 void QXmlStreamEntityResolver_OnResolveEntity(QXmlStreamEntityResolver* self, intptr_t slot);
-libqt_string QXmlStreamEntityResolver_QBaseResolveEntity(QXmlStreamEntityResolver* self, const libqt_string publicId, const libqt_string systemId);
+libqt_string QXmlStreamEntityResolver_SuperResolveEntity(QXmlStreamEntityResolver* self, const libqt_string publicId, const libqt_string systemId);
 void QXmlStreamEntityResolver_OnResolveUndeclaredEntity(QXmlStreamEntityResolver* self, intptr_t slot);
-libqt_string QXmlStreamEntityResolver_QBaseResolveUndeclaredEntity(QXmlStreamEntityResolver* self, const libqt_string name);
+libqt_string QXmlStreamEntityResolver_SuperResolveUndeclaredEntity(QXmlStreamEntityResolver* self, const libqt_string name);
 void QXmlStreamEntityResolver_Delete(QXmlStreamEntityResolver* self);
 
 QXmlStreamReader* QXmlStreamReader_new();

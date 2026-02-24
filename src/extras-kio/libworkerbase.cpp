@@ -694,7 +694,7 @@ int KIO__WorkerBase_WaitForAnswer4(KIO__WorkerBase* self, int expected1, int exp
 }
 
 // Base class handler implementation
-void KIO__WorkerBase_QBaseAppConnectionMade(KIO__WorkerBase* self) {
+void KIO__WorkerBase_SuperAppConnectionMade(KIO__WorkerBase* self) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
         vkioworkerbase->setKIO__WorkerBase_AppConnectionMade_IsBase(true);
@@ -713,7 +713,7 @@ void KIO__WorkerBase_OnAppConnectionMade(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KIO__WorkerBase_QBaseSetHost(KIO__WorkerBase* self, const libqt_string host, uint16_t port, const libqt_string user, const libqt_string pass) {
+void KIO__WorkerBase_SuperSetHost(KIO__WorkerBase* self, const libqt_string host, uint16_t port, const libqt_string user, const libqt_string pass) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     QString host_QString = QString::fromUtf8(host.data, host.len);
     QString user_QString = QString::fromUtf8(user.data, user.len);
@@ -735,7 +735,7 @@ void KIO__WorkerBase_OnSetHost(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__WorkerBase_QBaseOpenConnection(KIO__WorkerBase* self) {
+KIO__WorkerResult* KIO__WorkerBase_SuperOpenConnection(KIO__WorkerBase* self) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
         vkioworkerbase->setKIO__WorkerBase_OpenConnection_IsBase(true);
@@ -754,7 +754,7 @@ void KIO__WorkerBase_OnOpenConnection(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KIO__WorkerBase_QBaseCloseConnection(KIO__WorkerBase* self) {
+void KIO__WorkerBase_SuperCloseConnection(KIO__WorkerBase* self) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
         vkioworkerbase->setKIO__WorkerBase_CloseConnection_IsBase(true);
@@ -773,7 +773,7 @@ void KIO__WorkerBase_OnCloseConnection(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__WorkerBase_QBaseGet(KIO__WorkerBase* self, const QUrl* url) {
+KIO__WorkerResult* KIO__WorkerBase_SuperGet(KIO__WorkerBase* self, const QUrl* url) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
         vkioworkerbase->setKIO__WorkerBase_Get_IsBase(true);
@@ -792,7 +792,7 @@ void KIO__WorkerBase_OnGet(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__WorkerBase_QBaseOpen(KIO__WorkerBase* self, const QUrl* url, int mode) {
+KIO__WorkerResult* KIO__WorkerBase_SuperOpen(KIO__WorkerBase* self, const QUrl* url, int mode) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
         vkioworkerbase->setKIO__WorkerBase_Open_IsBase(true);
@@ -811,7 +811,7 @@ void KIO__WorkerBase_OnOpen(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__WorkerBase_QBaseRead(KIO__WorkerBase* self, unsigned long long size) {
+KIO__WorkerResult* KIO__WorkerBase_SuperRead(KIO__WorkerBase* self, unsigned long long size) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
         vkioworkerbase->setKIO__WorkerBase_Read_IsBase(true);
@@ -830,7 +830,7 @@ void KIO__WorkerBase_OnRead(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__WorkerBase_QBaseWrite(KIO__WorkerBase* self, const libqt_string data) {
+KIO__WorkerResult* KIO__WorkerBase_SuperWrite(KIO__WorkerBase* self, const libqt_string data) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     QByteArray data_QByteArray(data.data, data.len);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
@@ -850,7 +850,7 @@ void KIO__WorkerBase_OnWrite(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__WorkerBase_QBaseSeek(KIO__WorkerBase* self, unsigned long long offset) {
+KIO__WorkerResult* KIO__WorkerBase_SuperSeek(KIO__WorkerBase* self, unsigned long long offset) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
         vkioworkerbase->setKIO__WorkerBase_Seek_IsBase(true);
@@ -869,7 +869,7 @@ void KIO__WorkerBase_OnSeek(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__WorkerBase_QBaseTruncate(KIO__WorkerBase* self, unsigned long long size) {
+KIO__WorkerResult* KIO__WorkerBase_SuperTruncate(KIO__WorkerBase* self, unsigned long long size) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
         vkioworkerbase->setKIO__WorkerBase_Truncate_IsBase(true);
@@ -888,7 +888,7 @@ void KIO__WorkerBase_OnTruncate(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__WorkerBase_QBaseClose(KIO__WorkerBase* self) {
+KIO__WorkerResult* KIO__WorkerBase_SuperClose(KIO__WorkerBase* self) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
         vkioworkerbase->setKIO__WorkerBase_Close_IsBase(true);
@@ -907,7 +907,7 @@ void KIO__WorkerBase_OnClose(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__WorkerBase_QBasePut(KIO__WorkerBase* self, const QUrl* url, int permissions, int flags) {
+KIO__WorkerResult* KIO__WorkerBase_SuperPut(KIO__WorkerBase* self, const QUrl* url, int permissions, int flags) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
         vkioworkerbase->setKIO__WorkerBase_Put_IsBase(true);
@@ -926,7 +926,7 @@ void KIO__WorkerBase_OnPut(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__WorkerBase_QBaseStat(KIO__WorkerBase* self, const QUrl* url) {
+KIO__WorkerResult* KIO__WorkerBase_SuperStat(KIO__WorkerBase* self, const QUrl* url) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
         vkioworkerbase->setKIO__WorkerBase_Stat_IsBase(true);
@@ -945,7 +945,7 @@ void KIO__WorkerBase_OnStat(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__WorkerBase_QBaseMimetype(KIO__WorkerBase* self, const QUrl* url) {
+KIO__WorkerResult* KIO__WorkerBase_SuperMimetype(KIO__WorkerBase* self, const QUrl* url) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
         vkioworkerbase->setKIO__WorkerBase_Mimetype_IsBase(true);
@@ -964,7 +964,7 @@ void KIO__WorkerBase_OnMimetype(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__WorkerBase_QBaseListDir(KIO__WorkerBase* self, const QUrl* url) {
+KIO__WorkerResult* KIO__WorkerBase_SuperListDir(KIO__WorkerBase* self, const QUrl* url) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
         vkioworkerbase->setKIO__WorkerBase_ListDir_IsBase(true);
@@ -983,7 +983,7 @@ void KIO__WorkerBase_OnListDir(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__WorkerBase_QBaseMkdir(KIO__WorkerBase* self, const QUrl* url, int permissions) {
+KIO__WorkerResult* KIO__WorkerBase_SuperMkdir(KIO__WorkerBase* self, const QUrl* url, int permissions) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
         vkioworkerbase->setKIO__WorkerBase_Mkdir_IsBase(true);
@@ -1002,7 +1002,7 @@ void KIO__WorkerBase_OnMkdir(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__WorkerBase_QBaseRename(KIO__WorkerBase* self, const QUrl* src, const QUrl* dest, int flags) {
+KIO__WorkerResult* KIO__WorkerBase_SuperRename(KIO__WorkerBase* self, const QUrl* src, const QUrl* dest, int flags) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
         vkioworkerbase->setKIO__WorkerBase_Rename_IsBase(true);
@@ -1021,7 +1021,7 @@ void KIO__WorkerBase_OnRename(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__WorkerBase_QBaseSymlink(KIO__WorkerBase* self, const libqt_string target, const QUrl* dest, int flags) {
+KIO__WorkerResult* KIO__WorkerBase_SuperSymlink(KIO__WorkerBase* self, const libqt_string target, const QUrl* dest, int flags) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     QString target_QString = QString::fromUtf8(target.data, target.len);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
@@ -1041,7 +1041,7 @@ void KIO__WorkerBase_OnSymlink(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__WorkerBase_QBaseChmod(KIO__WorkerBase* self, const QUrl* url, int permissions) {
+KIO__WorkerResult* KIO__WorkerBase_SuperChmod(KIO__WorkerBase* self, const QUrl* url, int permissions) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
         vkioworkerbase->setKIO__WorkerBase_Chmod_IsBase(true);
@@ -1060,7 +1060,7 @@ void KIO__WorkerBase_OnChmod(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__WorkerBase_QBaseChown(KIO__WorkerBase* self, const QUrl* url, const libqt_string owner, const libqt_string group) {
+KIO__WorkerResult* KIO__WorkerBase_SuperChown(KIO__WorkerBase* self, const QUrl* url, const libqt_string owner, const libqt_string group) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     QString owner_QString = QString::fromUtf8(owner.data, owner.len);
     QString group_QString = QString::fromUtf8(group.data, group.len);
@@ -1081,7 +1081,7 @@ void KIO__WorkerBase_OnChown(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__WorkerBase_QBaseSetModificationTime(KIO__WorkerBase* self, const QUrl* url, const QDateTime* mtime) {
+KIO__WorkerResult* KIO__WorkerBase_SuperSetModificationTime(KIO__WorkerBase* self, const QUrl* url, const QDateTime* mtime) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
         vkioworkerbase->setKIO__WorkerBase_SetModificationTime_IsBase(true);
@@ -1100,7 +1100,7 @@ void KIO__WorkerBase_OnSetModificationTime(KIO__WorkerBase* self, intptr_t slot)
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__WorkerBase_QBaseCopy(KIO__WorkerBase* self, const QUrl* src, const QUrl* dest, int permissions, int flags) {
+KIO__WorkerResult* KIO__WorkerBase_SuperCopy(KIO__WorkerBase* self, const QUrl* src, const QUrl* dest, int permissions, int flags) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
         vkioworkerbase->setKIO__WorkerBase_Copy_IsBase(true);
@@ -1119,7 +1119,7 @@ void KIO__WorkerBase_OnCopy(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__WorkerBase_QBaseDel(KIO__WorkerBase* self, const QUrl* url, bool isfile) {
+KIO__WorkerResult* KIO__WorkerBase_SuperDel(KIO__WorkerBase* self, const QUrl* url, bool isfile) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
         vkioworkerbase->setKIO__WorkerBase_Del_IsBase(true);
@@ -1138,7 +1138,7 @@ void KIO__WorkerBase_OnDel(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__WorkerBase_QBaseSpecial(KIO__WorkerBase* self, const libqt_string data) {
+KIO__WorkerResult* KIO__WorkerBase_SuperSpecial(KIO__WorkerBase* self, const libqt_string data) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     QByteArray data_QByteArray(data.data, data.len);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
@@ -1158,7 +1158,7 @@ void KIO__WorkerBase_OnSpecial(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__WorkerBase_QBaseFileSystemFreeSpace(KIO__WorkerBase* self, const QUrl* url) {
+KIO__WorkerResult* KIO__WorkerBase_SuperFileSystemFreeSpace(KIO__WorkerBase* self, const QUrl* url) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
         vkioworkerbase->setKIO__WorkerBase_FileSystemFreeSpace_IsBase(true);
@@ -1177,7 +1177,7 @@ void KIO__WorkerBase_OnFileSystemFreeSpace(KIO__WorkerBase* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void KIO__WorkerBase_QBaseWorkerStatus2(KIO__WorkerBase* self) {
+void KIO__WorkerBase_SuperWorkerStatus2(KIO__WorkerBase* self) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
         vkioworkerbase->setKIO__WorkerBase_WorkerStatus2_IsBase(true);
@@ -1196,7 +1196,7 @@ void KIO__WorkerBase_OnWorkerStatus2(KIO__WorkerBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KIO__WorkerBase_QBaseReparseConfiguration(KIO__WorkerBase* self) {
+void KIO__WorkerBase_SuperReparseConfiguration(KIO__WorkerBase* self) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
     if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
         vkioworkerbase->setKIO__WorkerBase_ReparseConfiguration_IsBase(true);

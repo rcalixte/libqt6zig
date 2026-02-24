@@ -70,7 +70,7 @@ QObject* KPluginFactory_Create(KPluginFactory* self, const char* iface, QWidget*
 }
 
 // Base class handler implementation
-QMetaObject* KPluginFactory_QBaseMetaObject(const KPluginFactory* self) {
+QMetaObject* KPluginFactory_SuperMetaObject(const KPluginFactory* self) {
     auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
     if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
         vkpluginfactory->setKPluginFactory_MetaObject_IsBase(true);
@@ -89,7 +89,7 @@ void KPluginFactory_OnMetaObject(const KPluginFactory* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KPluginFactory_QBaseMetacast(KPluginFactory* self, const char* param1) {
+void* KPluginFactory_SuperMetacast(KPluginFactory* self, const char* param1) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
     if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
         vkpluginfactory->setKPluginFactory_Metacast_IsBase(true);
@@ -108,7 +108,7 @@ void KPluginFactory_OnMetacast(KPluginFactory* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KPluginFactory_QBaseMetacall(KPluginFactory* self, int param1, int param2, void** param3) {
+int KPluginFactory_SuperMetacall(KPluginFactory* self, int param1, int param2, void** param3) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
     if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
         vkpluginfactory->setKPluginFactory_Metacall_IsBase(true);
@@ -127,7 +127,7 @@ void KPluginFactory_OnMetacall(KPluginFactory* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QObject* KPluginFactory_QBaseCreate(KPluginFactory* self, const char* iface, QWidget* parentWidget, QObject* parent, const libqt_list /* of QVariant* */ args) {
+QObject* KPluginFactory_SuperCreate(KPluginFactory* self, const char* iface, QWidget* parentWidget, QObject* parent, const libqt_list /* of QVariant* */ args) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
     QList<QVariant> args_QList;
     args_QList.reserve(args.len);
@@ -162,7 +162,7 @@ bool KPluginFactory_Event(KPluginFactory* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KPluginFactory_QBaseEvent(KPluginFactory* self, QEvent* event) {
+bool KPluginFactory_SuperEvent(KPluginFactory* self, QEvent* event) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
     if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
         vkpluginfactory->setKPluginFactory_Event_IsBase(true);
@@ -191,7 +191,7 @@ bool KPluginFactory_EventFilter(KPluginFactory* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool KPluginFactory_QBaseEventFilter(KPluginFactory* self, QObject* watched, QEvent* event) {
+bool KPluginFactory_SuperEventFilter(KPluginFactory* self, QObject* watched, QEvent* event) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
     if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
         vkpluginfactory->setKPluginFactory_EventFilter_IsBase(true);
@@ -220,7 +220,7 @@ void KPluginFactory_TimerEvent(KPluginFactory* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KPluginFactory_QBaseTimerEvent(KPluginFactory* self, QTimerEvent* event) {
+void KPluginFactory_SuperTimerEvent(KPluginFactory* self, QTimerEvent* event) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
     if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
         vkpluginfactory->setKPluginFactory_TimerEvent_IsBase(true);
@@ -249,7 +249,7 @@ void KPluginFactory_ChildEvent(KPluginFactory* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KPluginFactory_QBaseChildEvent(KPluginFactory* self, QChildEvent* event) {
+void KPluginFactory_SuperChildEvent(KPluginFactory* self, QChildEvent* event) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
     if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
         vkpluginfactory->setKPluginFactory_ChildEvent_IsBase(true);
@@ -278,7 +278,7 @@ void KPluginFactory_CustomEvent(KPluginFactory* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KPluginFactory_QBaseCustomEvent(KPluginFactory* self, QEvent* event) {
+void KPluginFactory_SuperCustomEvent(KPluginFactory* self, QEvent* event) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
     if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
         vkpluginfactory->setKPluginFactory_CustomEvent_IsBase(true);
@@ -307,7 +307,7 @@ void KPluginFactory_ConnectNotify(KPluginFactory* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void KPluginFactory_QBaseConnectNotify(KPluginFactory* self, const QMetaMethod* signal) {
+void KPluginFactory_SuperConnectNotify(KPluginFactory* self, const QMetaMethod* signal) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
     if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
         vkpluginfactory->setKPluginFactory_ConnectNotify_IsBase(true);
@@ -336,7 +336,7 @@ void KPluginFactory_DisconnectNotify(KPluginFactory* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void KPluginFactory_QBaseDisconnectNotify(KPluginFactory* self, const QMetaMethod* signal) {
+void KPluginFactory_SuperDisconnectNotify(KPluginFactory* self, const QMetaMethod* signal) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
     if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
         vkpluginfactory->setKPluginFactory_DisconnectNotify_IsBase(true);
@@ -365,7 +365,7 @@ QObject* KPluginFactory_Sender(const KPluginFactory* self) {
 }
 
 // Base class handler implementation
-QObject* KPluginFactory_QBaseSender(const KPluginFactory* self) {
+QObject* KPluginFactory_SuperSender(const KPluginFactory* self) {
     auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
     if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
         vkpluginfactory->setKPluginFactory_Sender_IsBase(true);
@@ -394,7 +394,7 @@ int KPluginFactory_SenderSignalIndex(const KPluginFactory* self) {
 }
 
 // Base class handler implementation
-int KPluginFactory_QBaseSenderSignalIndex(const KPluginFactory* self) {
+int KPluginFactory_SuperSenderSignalIndex(const KPluginFactory* self) {
     auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
     if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
         vkpluginfactory->setKPluginFactory_SenderSignalIndex_IsBase(true);
@@ -423,7 +423,7 @@ int KPluginFactory_Receivers(const KPluginFactory* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KPluginFactory_QBaseReceivers(const KPluginFactory* self, const char* signal) {
+int KPluginFactory_SuperReceivers(const KPluginFactory* self, const char* signal) {
     auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
     if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
         vkpluginfactory->setKPluginFactory_Receivers_IsBase(true);
@@ -452,7 +452,7 @@ bool KPluginFactory_IsSignalConnected(const KPluginFactory* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool KPluginFactory_QBaseIsSignalConnected(const KPluginFactory* self, const QMetaMethod* signal) {
+bool KPluginFactory_SuperIsSignalConnected(const KPluginFactory* self, const QMetaMethod* signal) {
     auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
     if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
         vkpluginfactory->setKPluginFactory_IsSignalConnected_IsBase(true);

@@ -473,7 +473,7 @@ void QCPAbstractPaintBuffer_SetInvalidated1(QCPAbstractPaintBuffer* self, bool i
 }
 
 // Base class handler implementation
-QCPPainter* QCPAbstractPaintBuffer_QBaseStartPainting(QCPAbstractPaintBuffer* self) {
+QCPPainter* QCPAbstractPaintBuffer_SuperStartPainting(QCPAbstractPaintBuffer* self) {
     auto* vqcpabstractpaintbuffer = dynamic_cast<VirtualQCPAbstractPaintBuffer*>(self);
     if (vqcpabstractpaintbuffer && vqcpabstractpaintbuffer->isVirtualQCPAbstractPaintBuffer) {
         vqcpabstractpaintbuffer->setQCPAbstractPaintBuffer_StartPainting_IsBase(true);
@@ -492,7 +492,7 @@ void QCPAbstractPaintBuffer_OnStartPainting(QCPAbstractPaintBuffer* self, intptr
 }
 
 // Base class handler implementation
-void QCPAbstractPaintBuffer_QBaseDonePainting(QCPAbstractPaintBuffer* self) {
+void QCPAbstractPaintBuffer_SuperDonePainting(QCPAbstractPaintBuffer* self) {
     auto* vqcpabstractpaintbuffer = dynamic_cast<VirtualQCPAbstractPaintBuffer*>(self);
     if (vqcpabstractpaintbuffer && vqcpabstractpaintbuffer->isVirtualQCPAbstractPaintBuffer) {
         vqcpabstractpaintbuffer->setQCPAbstractPaintBuffer_DonePainting_IsBase(true);
@@ -511,7 +511,7 @@ void QCPAbstractPaintBuffer_OnDonePainting(QCPAbstractPaintBuffer* self, intptr_
 }
 
 // Base class handler implementation
-void QCPAbstractPaintBuffer_QBaseDraw(const QCPAbstractPaintBuffer* self, QCPPainter* painter) {
+void QCPAbstractPaintBuffer_SuperDraw(const QCPAbstractPaintBuffer* self, QCPPainter* painter) {
     auto* vqcpabstractpaintbuffer = const_cast<VirtualQCPAbstractPaintBuffer*>(dynamic_cast<const VirtualQCPAbstractPaintBuffer*>(self));
     if (vqcpabstractpaintbuffer && vqcpabstractpaintbuffer->isVirtualQCPAbstractPaintBuffer) {
         vqcpabstractpaintbuffer->setQCPAbstractPaintBuffer_Draw_IsBase(true);
@@ -530,7 +530,7 @@ void QCPAbstractPaintBuffer_OnDraw(const QCPAbstractPaintBuffer* self, intptr_t 
 }
 
 // Base class handler implementation
-void QCPAbstractPaintBuffer_QBaseClear(QCPAbstractPaintBuffer* self, const QColor* color) {
+void QCPAbstractPaintBuffer_SuperClear(QCPAbstractPaintBuffer* self, const QColor* color) {
     auto* vqcpabstractpaintbuffer = dynamic_cast<VirtualQCPAbstractPaintBuffer*>(self);
     if (vqcpabstractpaintbuffer && vqcpabstractpaintbuffer->isVirtualQCPAbstractPaintBuffer) {
         vqcpabstractpaintbuffer->setQCPAbstractPaintBuffer_Clear_IsBase(true);
@@ -549,7 +549,7 @@ void QCPAbstractPaintBuffer_OnClear(QCPAbstractPaintBuffer* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void QCPAbstractPaintBuffer_QBaseReallocateBuffer(QCPAbstractPaintBuffer* self) {
+void QCPAbstractPaintBuffer_SuperReallocateBuffer(QCPAbstractPaintBuffer* self) {
     auto* vqcpabstractpaintbuffer = dynamic_cast<VirtualQCPAbstractPaintBuffer*>(self);
     if (vqcpabstractpaintbuffer && vqcpabstractpaintbuffer->isVirtualQCPAbstractPaintBuffer) {
         vqcpabstractpaintbuffer->setQCPAbstractPaintBuffer_ReallocateBuffer_IsBase(true);
@@ -578,7 +578,7 @@ void QCPAbstractPaintBuffer_OperatorAssign(QCPAbstractPaintBuffer* self, const Q
 }
 
 // Base class handler implementation
-void QCPAbstractPaintBuffer_QBaseOperatorAssign(QCPAbstractPaintBuffer* self, const QCPAbstractPaintBuffer* param1) {
+void QCPAbstractPaintBuffer_SuperOperatorAssign(QCPAbstractPaintBuffer* self, const QCPAbstractPaintBuffer* param1) {
     auto* vqcpabstractpaintbuffer = dynamic_cast<VirtualQCPAbstractPaintBuffer*>(self);
     if (vqcpabstractpaintbuffer && vqcpabstractpaintbuffer->isVirtualQCPAbstractPaintBuffer) {
         vqcpabstractpaintbuffer->setQCPAbstractPaintBuffer_OperatorAssign_IsBase(true);
@@ -643,7 +643,7 @@ void QCPPaintBufferPixmap_ReallocateBuffer(QCPPaintBufferPixmap* self) {
 }
 
 // Base class handler implementation
-QCPPainter* QCPPaintBufferPixmap_QBaseStartPainting(QCPPaintBufferPixmap* self) {
+QCPPainter* QCPPaintBufferPixmap_SuperStartPainting(QCPPaintBufferPixmap* self) {
     auto* vqcppaintbufferpixmap = dynamic_cast<VirtualQCPPaintBufferPixmap*>(self);
     if (vqcppaintbufferpixmap && vqcppaintbufferpixmap->isVirtualQCPPaintBufferPixmap) {
         vqcppaintbufferpixmap->setQCPPaintBufferPixmap_StartPainting_IsBase(true);
@@ -662,7 +662,7 @@ void QCPPaintBufferPixmap_OnStartPainting(QCPPaintBufferPixmap* self, intptr_t s
 }
 
 // Base class handler implementation
-void QCPPaintBufferPixmap_QBaseDraw(const QCPPaintBufferPixmap* self, QCPPainter* painter) {
+void QCPPaintBufferPixmap_SuperDraw(const QCPPaintBufferPixmap* self, QCPPainter* painter) {
     auto* vqcppaintbufferpixmap = const_cast<VirtualQCPPaintBufferPixmap*>(dynamic_cast<const VirtualQCPPaintBufferPixmap*>(self));
     if (vqcppaintbufferpixmap && vqcppaintbufferpixmap->isVirtualQCPPaintBufferPixmap) {
         vqcppaintbufferpixmap->setQCPPaintBufferPixmap_Draw_IsBase(true);
@@ -681,7 +681,7 @@ void QCPPaintBufferPixmap_OnDraw(const QCPPaintBufferPixmap* self, intptr_t slot
 }
 
 // Base class handler implementation
-void QCPPaintBufferPixmap_QBaseClear(QCPPaintBufferPixmap* self, const QColor* color) {
+void QCPPaintBufferPixmap_SuperClear(QCPPaintBufferPixmap* self, const QColor* color) {
     auto* vqcppaintbufferpixmap = dynamic_cast<VirtualQCPPaintBufferPixmap*>(self);
     if (vqcppaintbufferpixmap && vqcppaintbufferpixmap->isVirtualQCPPaintBufferPixmap) {
         vqcppaintbufferpixmap->setQCPPaintBufferPixmap_Clear_IsBase(true);
@@ -700,7 +700,7 @@ void QCPPaintBufferPixmap_OnClear(QCPPaintBufferPixmap* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPPaintBufferPixmap_QBaseReallocateBuffer(QCPPaintBufferPixmap* self) {
+void QCPPaintBufferPixmap_SuperReallocateBuffer(QCPPaintBufferPixmap* self) {
     auto* vqcppaintbufferpixmap = dynamic_cast<VirtualQCPPaintBufferPixmap*>(self);
     if (vqcppaintbufferpixmap && vqcppaintbufferpixmap->isVirtualQCPPaintBufferPixmap) {
         vqcppaintbufferpixmap->setQCPPaintBufferPixmap_ReallocateBuffer_IsBase(true);
@@ -729,7 +729,7 @@ void QCPPaintBufferPixmap_DonePainting(QCPPaintBufferPixmap* self) {
 }
 
 // Base class handler implementation
-void QCPPaintBufferPixmap_QBaseDonePainting(QCPPaintBufferPixmap* self) {
+void QCPPaintBufferPixmap_SuperDonePainting(QCPPaintBufferPixmap* self) {
     auto* vqcppaintbufferpixmap = dynamic_cast<VirtualQCPPaintBufferPixmap*>(self);
     if (vqcppaintbufferpixmap && vqcppaintbufferpixmap->isVirtualQCPPaintBufferPixmap) {
         vqcppaintbufferpixmap->setQCPPaintBufferPixmap_DonePainting_IsBase(true);
@@ -758,7 +758,7 @@ void QCPPaintBufferPixmap_OperatorAssign(QCPPaintBufferPixmap* self, const QCPPa
 }
 
 // Base class handler implementation
-void QCPPaintBufferPixmap_QBaseOperatorAssign(QCPPaintBufferPixmap* self, const QCPPaintBufferPixmap* param1) {
+void QCPPaintBufferPixmap_SuperOperatorAssign(QCPPaintBufferPixmap* self, const QCPPaintBufferPixmap* param1) {
     auto* vqcppaintbufferpixmap = dynamic_cast<VirtualQCPPaintBufferPixmap*>(self);
     if (vqcppaintbufferpixmap && vqcppaintbufferpixmap->isVirtualQCPPaintBufferPixmap) {
         vqcppaintbufferpixmap->setQCPPaintBufferPixmap_OperatorAssign_IsBase(true);
@@ -866,7 +866,7 @@ void QCPLayer_Replot(QCPLayer* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QCPLayer_QBaseMetaObject(const QCPLayer* self) {
+QMetaObject* QCPLayer_SuperMetaObject(const QCPLayer* self) {
     auto* vqcplayer = const_cast<VirtualQCPLayer*>(dynamic_cast<const VirtualQCPLayer*>(self));
     if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
         vqcplayer->setQCPLayer_MetaObject_IsBase(true);
@@ -885,7 +885,7 @@ void QCPLayer_OnMetaObject(const QCPLayer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPLayer_QBaseMetacast(QCPLayer* self, const char* param1) {
+void* QCPLayer_SuperMetacast(QCPLayer* self, const char* param1) {
     auto* vqcplayer = dynamic_cast<VirtualQCPLayer*>(self);
     if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
         vqcplayer->setQCPLayer_Metacast_IsBase(true);
@@ -904,7 +904,7 @@ void QCPLayer_OnMetacast(QCPLayer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPLayer_QBaseMetacall(QCPLayer* self, int param1, int param2, void** param3) {
+int QCPLayer_SuperMetacall(QCPLayer* self, int param1, int param2, void** param3) {
     auto* vqcplayer = dynamic_cast<VirtualQCPLayer*>(self);
     if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
         vqcplayer->setQCPLayer_Metacall_IsBase(true);
@@ -933,7 +933,7 @@ bool QCPLayer_Event(QCPLayer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPLayer_QBaseEvent(QCPLayer* self, QEvent* event) {
+bool QCPLayer_SuperEvent(QCPLayer* self, QEvent* event) {
     auto* vqcplayer = dynamic_cast<VirtualQCPLayer*>(self);
     if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
         vqcplayer->setQCPLayer_Event_IsBase(true);
@@ -962,7 +962,7 @@ bool QCPLayer_EventFilter(QCPLayer* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPLayer_QBaseEventFilter(QCPLayer* self, QObject* watched, QEvent* event) {
+bool QCPLayer_SuperEventFilter(QCPLayer* self, QObject* watched, QEvent* event) {
     auto* vqcplayer = dynamic_cast<VirtualQCPLayer*>(self);
     if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
         vqcplayer->setQCPLayer_EventFilter_IsBase(true);
@@ -991,7 +991,7 @@ void QCPLayer_TimerEvent(QCPLayer* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLayer_QBaseTimerEvent(QCPLayer* self, QTimerEvent* event) {
+void QCPLayer_SuperTimerEvent(QCPLayer* self, QTimerEvent* event) {
     auto* vqcplayer = dynamic_cast<VirtualQCPLayer*>(self);
     if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
         vqcplayer->setQCPLayer_TimerEvent_IsBase(true);
@@ -1020,7 +1020,7 @@ void QCPLayer_ChildEvent(QCPLayer* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLayer_QBaseChildEvent(QCPLayer* self, QChildEvent* event) {
+void QCPLayer_SuperChildEvent(QCPLayer* self, QChildEvent* event) {
     auto* vqcplayer = dynamic_cast<VirtualQCPLayer*>(self);
     if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
         vqcplayer->setQCPLayer_ChildEvent_IsBase(true);
@@ -1049,7 +1049,7 @@ void QCPLayer_CustomEvent(QCPLayer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLayer_QBaseCustomEvent(QCPLayer* self, QEvent* event) {
+void QCPLayer_SuperCustomEvent(QCPLayer* self, QEvent* event) {
     auto* vqcplayer = dynamic_cast<VirtualQCPLayer*>(self);
     if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
         vqcplayer->setQCPLayer_CustomEvent_IsBase(true);
@@ -1078,7 +1078,7 @@ void QCPLayer_ConnectNotify(QCPLayer* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPLayer_QBaseConnectNotify(QCPLayer* self, const QMetaMethod* signal) {
+void QCPLayer_SuperConnectNotify(QCPLayer* self, const QMetaMethod* signal) {
     auto* vqcplayer = dynamic_cast<VirtualQCPLayer*>(self);
     if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
         vqcplayer->setQCPLayer_ConnectNotify_IsBase(true);
@@ -1107,7 +1107,7 @@ void QCPLayer_DisconnectNotify(QCPLayer* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPLayer_QBaseDisconnectNotify(QCPLayer* self, const QMetaMethod* signal) {
+void QCPLayer_SuperDisconnectNotify(QCPLayer* self, const QMetaMethod* signal) {
     auto* vqcplayer = dynamic_cast<VirtualQCPLayer*>(self);
     if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
         vqcplayer->setQCPLayer_DisconnectNotify_IsBase(true);
@@ -1136,7 +1136,7 @@ void QCPLayer_Draw(QCPLayer* self, QCPPainter* painter) {
 }
 
 // Base class handler implementation
-void QCPLayer_QBaseDraw(QCPLayer* self, QCPPainter* painter) {
+void QCPLayer_SuperDraw(QCPLayer* self, QCPPainter* painter) {
     auto* vqcplayer = dynamic_cast<VirtualQCPLayer*>(self);
     if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
         vqcplayer->setQCPLayer_Draw_IsBase(true);
@@ -1165,7 +1165,7 @@ void QCPLayer_DrawToPaintBuffer(QCPLayer* self) {
 }
 
 // Base class handler implementation
-void QCPLayer_QBaseDrawToPaintBuffer(QCPLayer* self) {
+void QCPLayer_SuperDrawToPaintBuffer(QCPLayer* self) {
     auto* vqcplayer = dynamic_cast<VirtualQCPLayer*>(self);
     if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
         vqcplayer->setQCPLayer_DrawToPaintBuffer_IsBase(true);
@@ -1194,7 +1194,7 @@ void QCPLayer_AddChild(QCPLayer* self, QCPLayerable* layerable, bool prepend) {
 }
 
 // Base class handler implementation
-void QCPLayer_QBaseAddChild(QCPLayer* self, QCPLayerable* layerable, bool prepend) {
+void QCPLayer_SuperAddChild(QCPLayer* self, QCPLayerable* layerable, bool prepend) {
     auto* vqcplayer = dynamic_cast<VirtualQCPLayer*>(self);
     if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
         vqcplayer->setQCPLayer_AddChild_IsBase(true);
@@ -1223,7 +1223,7 @@ void QCPLayer_RemoveChild(QCPLayer* self, QCPLayerable* layerable) {
 }
 
 // Base class handler implementation
-void QCPLayer_QBaseRemoveChild(QCPLayer* self, QCPLayerable* layerable) {
+void QCPLayer_SuperRemoveChild(QCPLayer* self, QCPLayerable* layerable) {
     auto* vqcplayer = dynamic_cast<VirtualQCPLayer*>(self);
     if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
         vqcplayer->setQCPLayer_RemoveChild_IsBase(true);
@@ -1252,7 +1252,7 @@ QObject* QCPLayer_Sender(const QCPLayer* self) {
 }
 
 // Base class handler implementation
-QObject* QCPLayer_QBaseSender(const QCPLayer* self) {
+QObject* QCPLayer_SuperSender(const QCPLayer* self) {
     auto* vqcplayer = const_cast<VirtualQCPLayer*>(dynamic_cast<const VirtualQCPLayer*>(self));
     if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
         vqcplayer->setQCPLayer_Sender_IsBase(true);
@@ -1281,7 +1281,7 @@ int QCPLayer_SenderSignalIndex(const QCPLayer* self) {
 }
 
 // Base class handler implementation
-int QCPLayer_QBaseSenderSignalIndex(const QCPLayer* self) {
+int QCPLayer_SuperSenderSignalIndex(const QCPLayer* self) {
     auto* vqcplayer = const_cast<VirtualQCPLayer*>(dynamic_cast<const VirtualQCPLayer*>(self));
     if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
         vqcplayer->setQCPLayer_SenderSignalIndex_IsBase(true);
@@ -1310,7 +1310,7 @@ int QCPLayer_Receivers(const QCPLayer* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPLayer_QBaseReceivers(const QCPLayer* self, const char* signal) {
+int QCPLayer_SuperReceivers(const QCPLayer* self, const char* signal) {
     auto* vqcplayer = const_cast<VirtualQCPLayer*>(dynamic_cast<const VirtualQCPLayer*>(self));
     if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
         vqcplayer->setQCPLayer_Receivers_IsBase(true);
@@ -1339,7 +1339,7 @@ bool QCPLayer_IsSignalConnected(const QCPLayer* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-bool QCPLayer_QBaseIsSignalConnected(const QCPLayer* self, const QMetaMethod* signal) {
+bool QCPLayer_SuperIsSignalConnected(const QCPLayer* self, const QMetaMethod* signal) {
     auto* vqcplayer = const_cast<VirtualQCPLayer*>(dynamic_cast<const VirtualQCPLayer*>(self));
     if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
         vqcplayer->setQCPLayer_IsSignalConnected_IsBase(true);
@@ -1551,7 +1551,7 @@ void QCPLayerable_WheelEvent(QCPLayerable* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-QMetaObject* QCPLayerable_QBaseMetaObject(const QCPLayerable* self) {
+QMetaObject* QCPLayerable_SuperMetaObject(const QCPLayerable* self) {
     auto* vqcplayerable = const_cast<VirtualQCPLayerable*>(dynamic_cast<const VirtualQCPLayerable*>(self));
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_MetaObject_IsBase(true);
@@ -1570,7 +1570,7 @@ void QCPLayerable_OnMetaObject(const QCPLayerable* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPLayerable_QBaseMetacast(QCPLayerable* self, const char* param1) {
+void* QCPLayerable_SuperMetacast(QCPLayerable* self, const char* param1) {
     auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_Metacast_IsBase(true);
@@ -1589,7 +1589,7 @@ void QCPLayerable_OnMetacast(QCPLayerable* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPLayerable_QBaseMetacall(QCPLayerable* self, int param1, int param2, void** param3) {
+int QCPLayerable_SuperMetacall(QCPLayerable* self, int param1, int param2, void** param3) {
     auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_Metacall_IsBase(true);
@@ -1608,7 +1608,7 @@ void QCPLayerable_OnMetacall(QCPLayerable* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPLayerable_QBaseSelectTest(const QCPLayerable* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPLayerable_SuperSelectTest(const QCPLayerable* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcplayerable = const_cast<VirtualQCPLayerable*>(dynamic_cast<const VirtualQCPLayerable*>(self));
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_SelectTest_IsBase(true);
@@ -1627,7 +1627,7 @@ void QCPLayerable_OnSelectTest(const QCPLayerable* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLayerable_QBaseParentPlotInitialized(QCPLayerable* self, QCustomPlot* parentPlot) {
+void QCPLayerable_SuperParentPlotInitialized(QCPLayerable* self, QCustomPlot* parentPlot) {
     auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_ParentPlotInitialized_IsBase(true);
@@ -1646,7 +1646,7 @@ void QCPLayerable_OnParentPlotInitialized(QCPLayerable* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPLayerable_QBaseSelectionCategory(const QCPLayerable* self) {
+int QCPLayerable_SuperSelectionCategory(const QCPLayerable* self) {
     auto* vqcplayerable = const_cast<VirtualQCPLayerable*>(dynamic_cast<const VirtualQCPLayerable*>(self));
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_SelectionCategory_IsBase(true);
@@ -1665,7 +1665,7 @@ void QCPLayerable_OnSelectionCategory(const QCPLayerable* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QRect* QCPLayerable_QBaseClipRect(const QCPLayerable* self) {
+QRect* QCPLayerable_SuperClipRect(const QCPLayerable* self) {
     auto* vqcplayerable = const_cast<VirtualQCPLayerable*>(dynamic_cast<const VirtualQCPLayerable*>(self));
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_ClipRect_IsBase(true);
@@ -1683,7 +1683,7 @@ void QCPLayerable_OnClipRect(const QCPLayerable* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLayerable_QBaseApplyDefaultAntialiasingHint(const QCPLayerable* self, QCPPainter* painter) {
+void QCPLayerable_SuperApplyDefaultAntialiasingHint(const QCPLayerable* self, QCPPainter* painter) {
     auto* vqcplayerable = const_cast<VirtualQCPLayerable*>(dynamic_cast<const VirtualQCPLayerable*>(self));
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -1702,7 +1702,7 @@ void QCPLayerable_OnApplyDefaultAntialiasingHint(const QCPLayerable* self, intpt
 }
 
 // Base class handler implementation
-void QCPLayerable_QBaseDraw(QCPLayerable* self, QCPPainter* painter) {
+void QCPLayerable_SuperDraw(QCPLayerable* self, QCPPainter* painter) {
     auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_Draw_IsBase(true);
@@ -1721,7 +1721,7 @@ void QCPLayerable_OnDraw(QCPLayerable* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLayerable_QBaseSelectEvent(QCPLayerable* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPLayerable_SuperSelectEvent(QCPLayerable* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_SelectEvent_IsBase(true);
@@ -1740,7 +1740,7 @@ void QCPLayerable_OnSelectEvent(QCPLayerable* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLayerable_QBaseDeselectEvent(QCPLayerable* self, bool* selectionStateChanged) {
+void QCPLayerable_SuperDeselectEvent(QCPLayerable* self, bool* selectionStateChanged) {
     auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_DeselectEvent_IsBase(true);
@@ -1759,7 +1759,7 @@ void QCPLayerable_OnDeselectEvent(QCPLayerable* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLayerable_QBaseMousePressEvent(QCPLayerable* self, QMouseEvent* event, const QVariant* details) {
+void QCPLayerable_SuperMousePressEvent(QCPLayerable* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_MousePressEvent_IsBase(true);
@@ -1778,7 +1778,7 @@ void QCPLayerable_OnMousePressEvent(QCPLayerable* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLayerable_QBaseMouseMoveEvent(QCPLayerable* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPLayerable_SuperMouseMoveEvent(QCPLayerable* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_MouseMoveEvent_IsBase(true);
@@ -1797,7 +1797,7 @@ void QCPLayerable_OnMouseMoveEvent(QCPLayerable* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLayerable_QBaseMouseReleaseEvent(QCPLayerable* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPLayerable_SuperMouseReleaseEvent(QCPLayerable* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_MouseReleaseEvent_IsBase(true);
@@ -1816,7 +1816,7 @@ void QCPLayerable_OnMouseReleaseEvent(QCPLayerable* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLayerable_QBaseMouseDoubleClickEvent(QCPLayerable* self, QMouseEvent* event, const QVariant* details) {
+void QCPLayerable_SuperMouseDoubleClickEvent(QCPLayerable* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_MouseDoubleClickEvent_IsBase(true);
@@ -1835,7 +1835,7 @@ void QCPLayerable_OnMouseDoubleClickEvent(QCPLayerable* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLayerable_QBaseWheelEvent(QCPLayerable* self, QWheelEvent* event) {
+void QCPLayerable_SuperWheelEvent(QCPLayerable* self, QWheelEvent* event) {
     auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_WheelEvent_IsBase(true);
@@ -1864,7 +1864,7 @@ bool QCPLayerable_Event(QCPLayerable* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPLayerable_QBaseEvent(QCPLayerable* self, QEvent* event) {
+bool QCPLayerable_SuperEvent(QCPLayerable* self, QEvent* event) {
     auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_Event_IsBase(true);
@@ -1893,7 +1893,7 @@ bool QCPLayerable_EventFilter(QCPLayerable* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool QCPLayerable_QBaseEventFilter(QCPLayerable* self, QObject* watched, QEvent* event) {
+bool QCPLayerable_SuperEventFilter(QCPLayerable* self, QObject* watched, QEvent* event) {
     auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_EventFilter_IsBase(true);
@@ -1922,7 +1922,7 @@ void QCPLayerable_TimerEvent(QCPLayerable* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLayerable_QBaseTimerEvent(QCPLayerable* self, QTimerEvent* event) {
+void QCPLayerable_SuperTimerEvent(QCPLayerable* self, QTimerEvent* event) {
     auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_TimerEvent_IsBase(true);
@@ -1951,7 +1951,7 @@ void QCPLayerable_ChildEvent(QCPLayerable* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLayerable_QBaseChildEvent(QCPLayerable* self, QChildEvent* event) {
+void QCPLayerable_SuperChildEvent(QCPLayerable* self, QChildEvent* event) {
     auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_ChildEvent_IsBase(true);
@@ -1980,7 +1980,7 @@ void QCPLayerable_CustomEvent(QCPLayerable* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLayerable_QBaseCustomEvent(QCPLayerable* self, QEvent* event) {
+void QCPLayerable_SuperCustomEvent(QCPLayerable* self, QEvent* event) {
     auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_CustomEvent_IsBase(true);
@@ -2009,7 +2009,7 @@ void QCPLayerable_ConnectNotify(QCPLayerable* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPLayerable_QBaseConnectNotify(QCPLayerable* self, const QMetaMethod* signal) {
+void QCPLayerable_SuperConnectNotify(QCPLayerable* self, const QMetaMethod* signal) {
     auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_ConnectNotify_IsBase(true);
@@ -2038,7 +2038,7 @@ void QCPLayerable_DisconnectNotify(QCPLayerable* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QCPLayerable_QBaseDisconnectNotify(QCPLayerable* self, const QMetaMethod* signal) {
+void QCPLayerable_SuperDisconnectNotify(QCPLayerable* self, const QMetaMethod* signal) {
     auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_DisconnectNotify_IsBase(true);
@@ -2067,7 +2067,7 @@ void QCPLayerable_InitializeParentPlot(QCPLayerable* self, QCustomPlot* parentPl
 }
 
 // Base class handler implementation
-void QCPLayerable_QBaseInitializeParentPlot(QCPLayerable* self, QCustomPlot* parentPlot) {
+void QCPLayerable_SuperInitializeParentPlot(QCPLayerable* self, QCustomPlot* parentPlot) {
     auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_InitializeParentPlot_IsBase(true);
@@ -2096,7 +2096,7 @@ void QCPLayerable_SetParentLayerable(QCPLayerable* self, QCPLayerable* parentLay
 }
 
 // Base class handler implementation
-void QCPLayerable_QBaseSetParentLayerable(QCPLayerable* self, QCPLayerable* parentLayerable) {
+void QCPLayerable_SuperSetParentLayerable(QCPLayerable* self, QCPLayerable* parentLayerable) {
     auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_SetParentLayerable_IsBase(true);
@@ -2125,7 +2125,7 @@ bool QCPLayerable_MoveToLayer(QCPLayerable* self, QCPLayer* layer, bool prepend)
 }
 
 // Base class handler implementation
-bool QCPLayerable_QBaseMoveToLayer(QCPLayerable* self, QCPLayer* layer, bool prepend) {
+bool QCPLayerable_SuperMoveToLayer(QCPLayerable* self, QCPLayer* layer, bool prepend) {
     auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_MoveToLayer_IsBase(true);
@@ -2154,7 +2154,7 @@ void QCPLayerable_ApplyAntialiasingHint(const QCPLayerable* self, QCPPainter* pa
 }
 
 // Base class handler implementation
-void QCPLayerable_QBaseApplyAntialiasingHint(const QCPLayerable* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPLayerable_SuperApplyAntialiasingHint(const QCPLayerable* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcplayerable = const_cast<VirtualQCPLayerable*>(dynamic_cast<const VirtualQCPLayerable*>(self));
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_ApplyAntialiasingHint_IsBase(true);
@@ -2183,7 +2183,7 @@ QObject* QCPLayerable_Sender(const QCPLayerable* self) {
 }
 
 // Base class handler implementation
-QObject* QCPLayerable_QBaseSender(const QCPLayerable* self) {
+QObject* QCPLayerable_SuperSender(const QCPLayerable* self) {
     auto* vqcplayerable = const_cast<VirtualQCPLayerable*>(dynamic_cast<const VirtualQCPLayerable*>(self));
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_Sender_IsBase(true);
@@ -2212,7 +2212,7 @@ int QCPLayerable_SenderSignalIndex(const QCPLayerable* self) {
 }
 
 // Base class handler implementation
-int QCPLayerable_QBaseSenderSignalIndex(const QCPLayerable* self) {
+int QCPLayerable_SuperSenderSignalIndex(const QCPLayerable* self) {
     auto* vqcplayerable = const_cast<VirtualQCPLayerable*>(dynamic_cast<const VirtualQCPLayerable*>(self));
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_SenderSignalIndex_IsBase(true);
@@ -2241,7 +2241,7 @@ int QCPLayerable_Receivers(const QCPLayerable* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPLayerable_QBaseReceivers(const QCPLayerable* self, const char* signal) {
+int QCPLayerable_SuperReceivers(const QCPLayerable* self, const char* signal) {
     auto* vqcplayerable = const_cast<VirtualQCPLayerable*>(dynamic_cast<const VirtualQCPLayerable*>(self));
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_Receivers_IsBase(true);
@@ -2270,7 +2270,7 @@ bool QCPLayerable_IsSignalConnected(const QCPLayerable* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QCPLayerable_QBaseIsSignalConnected(const QCPLayerable* self, const QMetaMethod* signal) {
+bool QCPLayerable_SuperIsSignalConnected(const QCPLayerable* self, const QMetaMethod* signal) {
     auto* vqcplayerable = const_cast<VirtualQCPLayerable*>(dynamic_cast<const VirtualQCPLayerable*>(self));
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->setQCPLayerable_IsSignalConnected_IsBase(true);
@@ -2804,7 +2804,7 @@ void QCPSelectionRect_Draw(QCPSelectionRect* self, QCPPainter* painter) {
 }
 
 // Base class handler implementation
-QMetaObject* QCPSelectionRect_QBaseMetaObject(const QCPSelectionRect* self) {
+QMetaObject* QCPSelectionRect_SuperMetaObject(const QCPSelectionRect* self) {
     auto* vqcpselectionrect = const_cast<VirtualQCPSelectionRect*>(dynamic_cast<const VirtualQCPSelectionRect*>(self));
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_MetaObject_IsBase(true);
@@ -2823,7 +2823,7 @@ void QCPSelectionRect_OnMetaObject(const QCPSelectionRect* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* QCPSelectionRect_QBaseMetacast(QCPSelectionRect* self, const char* param1) {
+void* QCPSelectionRect_SuperMetacast(QCPSelectionRect* self, const char* param1) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_Metacast_IsBase(true);
@@ -2842,7 +2842,7 @@ void QCPSelectionRect_OnMetacast(QCPSelectionRect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPSelectionRect_QBaseMetacall(QCPSelectionRect* self, int param1, int param2, void** param3) {
+int QCPSelectionRect_SuperMetacall(QCPSelectionRect* self, int param1, int param2, void** param3) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_Metacall_IsBase(true);
@@ -2861,7 +2861,7 @@ void QCPSelectionRect_OnMetacall(QCPSelectionRect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPSelectionRect_QBaseStartSelection(QCPSelectionRect* self, QMouseEvent* event) {
+void QCPSelectionRect_SuperStartSelection(QCPSelectionRect* self, QMouseEvent* event) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_StartSelection_IsBase(true);
@@ -2880,7 +2880,7 @@ void QCPSelectionRect_OnStartSelection(QCPSelectionRect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPSelectionRect_QBaseMoveSelection(QCPSelectionRect* self, QMouseEvent* event) {
+void QCPSelectionRect_SuperMoveSelection(QCPSelectionRect* self, QMouseEvent* event) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_MoveSelection_IsBase(true);
@@ -2899,7 +2899,7 @@ void QCPSelectionRect_OnMoveSelection(QCPSelectionRect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPSelectionRect_QBaseEndSelection(QCPSelectionRect* self, QMouseEvent* event) {
+void QCPSelectionRect_SuperEndSelection(QCPSelectionRect* self, QMouseEvent* event) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_EndSelection_IsBase(true);
@@ -2918,7 +2918,7 @@ void QCPSelectionRect_OnEndSelection(QCPSelectionRect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPSelectionRect_QBaseKeyPressEvent(QCPSelectionRect* self, QKeyEvent* event) {
+void QCPSelectionRect_SuperKeyPressEvent(QCPSelectionRect* self, QKeyEvent* event) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_KeyPressEvent_IsBase(true);
@@ -2937,7 +2937,7 @@ void QCPSelectionRect_OnKeyPressEvent(QCPSelectionRect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPSelectionRect_QBaseApplyDefaultAntialiasingHint(const QCPSelectionRect* self, QCPPainter* painter) {
+void QCPSelectionRect_SuperApplyDefaultAntialiasingHint(const QCPSelectionRect* self, QCPPainter* painter) {
     auto* vqcpselectionrect = const_cast<VirtualQCPSelectionRect*>(dynamic_cast<const VirtualQCPSelectionRect*>(self));
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -2956,7 +2956,7 @@ void QCPSelectionRect_OnApplyDefaultAntialiasingHint(const QCPSelectionRect* sel
 }
 
 // Base class handler implementation
-void QCPSelectionRect_QBaseDraw(QCPSelectionRect* self, QCPPainter* painter) {
+void QCPSelectionRect_SuperDraw(QCPSelectionRect* self, QCPPainter* painter) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_Draw_IsBase(true);
@@ -2985,7 +2985,7 @@ double QCPSelectionRect_SelectTest(const QCPSelectionRect* self, const QPointF* 
 }
 
 // Base class handler implementation
-double QCPSelectionRect_QBaseSelectTest(const QCPSelectionRect* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPSelectionRect_SuperSelectTest(const QCPSelectionRect* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpselectionrect = const_cast<VirtualQCPSelectionRect*>(dynamic_cast<const VirtualQCPSelectionRect*>(self));
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_SelectTest_IsBase(true);
@@ -3014,7 +3014,7 @@ void QCPSelectionRect_ParentPlotInitialized(QCPSelectionRect* self, QCustomPlot*
 }
 
 // Base class handler implementation
-void QCPSelectionRect_QBaseParentPlotInitialized(QCPSelectionRect* self, QCustomPlot* parentPlot) {
+void QCPSelectionRect_SuperParentPlotInitialized(QCPSelectionRect* self, QCustomPlot* parentPlot) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_ParentPlotInitialized_IsBase(true);
@@ -3043,7 +3043,7 @@ int QCPSelectionRect_SelectionCategory(const QCPSelectionRect* self) {
 }
 
 // Base class handler implementation
-int QCPSelectionRect_QBaseSelectionCategory(const QCPSelectionRect* self) {
+int QCPSelectionRect_SuperSelectionCategory(const QCPSelectionRect* self) {
     auto* vqcpselectionrect = const_cast<VirtualQCPSelectionRect*>(dynamic_cast<const VirtualQCPSelectionRect*>(self));
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_SelectionCategory_IsBase(true);
@@ -3071,7 +3071,7 @@ QRect* QCPSelectionRect_ClipRect(const QCPSelectionRect* self) {
 }
 
 // Base class handler implementation
-QRect* QCPSelectionRect_QBaseClipRect(const QCPSelectionRect* self) {
+QRect* QCPSelectionRect_SuperClipRect(const QCPSelectionRect* self) {
     auto* vqcpselectionrect = const_cast<VirtualQCPSelectionRect*>(dynamic_cast<const VirtualQCPSelectionRect*>(self));
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_ClipRect_IsBase(true);
@@ -3099,7 +3099,7 @@ void QCPSelectionRect_SelectEvent(QCPSelectionRect* self, QMouseEvent* event, bo
 }
 
 // Base class handler implementation
-void QCPSelectionRect_QBaseSelectEvent(QCPSelectionRect* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPSelectionRect_SuperSelectEvent(QCPSelectionRect* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_SelectEvent_IsBase(true);
@@ -3128,7 +3128,7 @@ void QCPSelectionRect_DeselectEvent(QCPSelectionRect* self, bool* selectionState
 }
 
 // Base class handler implementation
-void QCPSelectionRect_QBaseDeselectEvent(QCPSelectionRect* self, bool* selectionStateChanged) {
+void QCPSelectionRect_SuperDeselectEvent(QCPSelectionRect* self, bool* selectionStateChanged) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_DeselectEvent_IsBase(true);
@@ -3157,7 +3157,7 @@ void QCPSelectionRect_MousePressEvent(QCPSelectionRect* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void QCPSelectionRect_QBaseMousePressEvent(QCPSelectionRect* self, QMouseEvent* event, const QVariant* details) {
+void QCPSelectionRect_SuperMousePressEvent(QCPSelectionRect* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_MousePressEvent_IsBase(true);
@@ -3186,7 +3186,7 @@ void QCPSelectionRect_MouseMoveEvent(QCPSelectionRect* self, QMouseEvent* event,
 }
 
 // Base class handler implementation
-void QCPSelectionRect_QBaseMouseMoveEvent(QCPSelectionRect* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPSelectionRect_SuperMouseMoveEvent(QCPSelectionRect* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_MouseMoveEvent_IsBase(true);
@@ -3215,7 +3215,7 @@ void QCPSelectionRect_MouseReleaseEvent(QCPSelectionRect* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void QCPSelectionRect_QBaseMouseReleaseEvent(QCPSelectionRect* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPSelectionRect_SuperMouseReleaseEvent(QCPSelectionRect* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_MouseReleaseEvent_IsBase(true);
@@ -3244,7 +3244,7 @@ void QCPSelectionRect_MouseDoubleClickEvent(QCPSelectionRect* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void QCPSelectionRect_QBaseMouseDoubleClickEvent(QCPSelectionRect* self, QMouseEvent* event, const QVariant* details) {
+void QCPSelectionRect_SuperMouseDoubleClickEvent(QCPSelectionRect* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_MouseDoubleClickEvent_IsBase(true);
@@ -3273,7 +3273,7 @@ void QCPSelectionRect_WheelEvent(QCPSelectionRect* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPSelectionRect_QBaseWheelEvent(QCPSelectionRect* self, QWheelEvent* event) {
+void QCPSelectionRect_SuperWheelEvent(QCPSelectionRect* self, QWheelEvent* event) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_WheelEvent_IsBase(true);
@@ -3302,7 +3302,7 @@ bool QCPSelectionRect_Event(QCPSelectionRect* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPSelectionRect_QBaseEvent(QCPSelectionRect* self, QEvent* event) {
+bool QCPSelectionRect_SuperEvent(QCPSelectionRect* self, QEvent* event) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_Event_IsBase(true);
@@ -3331,7 +3331,7 @@ bool QCPSelectionRect_EventFilter(QCPSelectionRect* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool QCPSelectionRect_QBaseEventFilter(QCPSelectionRect* self, QObject* watched, QEvent* event) {
+bool QCPSelectionRect_SuperEventFilter(QCPSelectionRect* self, QObject* watched, QEvent* event) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_EventFilter_IsBase(true);
@@ -3360,7 +3360,7 @@ void QCPSelectionRect_TimerEvent(QCPSelectionRect* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPSelectionRect_QBaseTimerEvent(QCPSelectionRect* self, QTimerEvent* event) {
+void QCPSelectionRect_SuperTimerEvent(QCPSelectionRect* self, QTimerEvent* event) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_TimerEvent_IsBase(true);
@@ -3389,7 +3389,7 @@ void QCPSelectionRect_ChildEvent(QCPSelectionRect* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPSelectionRect_QBaseChildEvent(QCPSelectionRect* self, QChildEvent* event) {
+void QCPSelectionRect_SuperChildEvent(QCPSelectionRect* self, QChildEvent* event) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_ChildEvent_IsBase(true);
@@ -3418,7 +3418,7 @@ void QCPSelectionRect_CustomEvent(QCPSelectionRect* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPSelectionRect_QBaseCustomEvent(QCPSelectionRect* self, QEvent* event) {
+void QCPSelectionRect_SuperCustomEvent(QCPSelectionRect* self, QEvent* event) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_CustomEvent_IsBase(true);
@@ -3447,7 +3447,7 @@ void QCPSelectionRect_ConnectNotify(QCPSelectionRect* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void QCPSelectionRect_QBaseConnectNotify(QCPSelectionRect* self, const QMetaMethod* signal) {
+void QCPSelectionRect_SuperConnectNotify(QCPSelectionRect* self, const QMetaMethod* signal) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_ConnectNotify_IsBase(true);
@@ -3476,7 +3476,7 @@ void QCPSelectionRect_DisconnectNotify(QCPSelectionRect* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void QCPSelectionRect_QBaseDisconnectNotify(QCPSelectionRect* self, const QMetaMethod* signal) {
+void QCPSelectionRect_SuperDisconnectNotify(QCPSelectionRect* self, const QMetaMethod* signal) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_DisconnectNotify_IsBase(true);
@@ -3505,7 +3505,7 @@ void QCPSelectionRect_InitializeParentPlot(QCPSelectionRect* self, QCustomPlot* 
 }
 
 // Base class handler implementation
-void QCPSelectionRect_QBaseInitializeParentPlot(QCPSelectionRect* self, QCustomPlot* parentPlot) {
+void QCPSelectionRect_SuperInitializeParentPlot(QCPSelectionRect* self, QCustomPlot* parentPlot) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_InitializeParentPlot_IsBase(true);
@@ -3534,7 +3534,7 @@ void QCPSelectionRect_SetParentLayerable(QCPSelectionRect* self, QCPLayerable* p
 }
 
 // Base class handler implementation
-void QCPSelectionRect_QBaseSetParentLayerable(QCPSelectionRect* self, QCPLayerable* parentLayerable) {
+void QCPSelectionRect_SuperSetParentLayerable(QCPSelectionRect* self, QCPLayerable* parentLayerable) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_SetParentLayerable_IsBase(true);
@@ -3563,7 +3563,7 @@ bool QCPSelectionRect_MoveToLayer(QCPSelectionRect* self, QCPLayer* layer, bool 
 }
 
 // Base class handler implementation
-bool QCPSelectionRect_QBaseMoveToLayer(QCPSelectionRect* self, QCPLayer* layer, bool prepend) {
+bool QCPSelectionRect_SuperMoveToLayer(QCPSelectionRect* self, QCPLayer* layer, bool prepend) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_MoveToLayer_IsBase(true);
@@ -3592,7 +3592,7 @@ void QCPSelectionRect_ApplyAntialiasingHint(const QCPSelectionRect* self, QCPPai
 }
 
 // Base class handler implementation
-void QCPSelectionRect_QBaseApplyAntialiasingHint(const QCPSelectionRect* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPSelectionRect_SuperApplyAntialiasingHint(const QCPSelectionRect* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpselectionrect = const_cast<VirtualQCPSelectionRect*>(dynamic_cast<const VirtualQCPSelectionRect*>(self));
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_ApplyAntialiasingHint_IsBase(true);
@@ -3621,7 +3621,7 @@ QObject* QCPSelectionRect_Sender(const QCPSelectionRect* self) {
 }
 
 // Base class handler implementation
-QObject* QCPSelectionRect_QBaseSender(const QCPSelectionRect* self) {
+QObject* QCPSelectionRect_SuperSender(const QCPSelectionRect* self) {
     auto* vqcpselectionrect = const_cast<VirtualQCPSelectionRect*>(dynamic_cast<const VirtualQCPSelectionRect*>(self));
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_Sender_IsBase(true);
@@ -3650,7 +3650,7 @@ int QCPSelectionRect_SenderSignalIndex(const QCPSelectionRect* self) {
 }
 
 // Base class handler implementation
-int QCPSelectionRect_QBaseSenderSignalIndex(const QCPSelectionRect* self) {
+int QCPSelectionRect_SuperSenderSignalIndex(const QCPSelectionRect* self) {
     auto* vqcpselectionrect = const_cast<VirtualQCPSelectionRect*>(dynamic_cast<const VirtualQCPSelectionRect*>(self));
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_SenderSignalIndex_IsBase(true);
@@ -3679,7 +3679,7 @@ int QCPSelectionRect_Receivers(const QCPSelectionRect* self, const char* signal)
 }
 
 // Base class handler implementation
-int QCPSelectionRect_QBaseReceivers(const QCPSelectionRect* self, const char* signal) {
+int QCPSelectionRect_SuperReceivers(const QCPSelectionRect* self, const char* signal) {
     auto* vqcpselectionrect = const_cast<VirtualQCPSelectionRect*>(dynamic_cast<const VirtualQCPSelectionRect*>(self));
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_Receivers_IsBase(true);
@@ -3708,7 +3708,7 @@ bool QCPSelectionRect_IsSignalConnected(const QCPSelectionRect* self, const QMet
 }
 
 // Base class handler implementation
-bool QCPSelectionRect_QBaseIsSignalConnected(const QCPSelectionRect* self, const QMetaMethod* signal) {
+bool QCPSelectionRect_SuperIsSignalConnected(const QCPSelectionRect* self, const QMetaMethod* signal) {
     auto* vqcpselectionrect = const_cast<VirtualQCPSelectionRect*>(dynamic_cast<const VirtualQCPSelectionRect*>(self));
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->setQCPSelectionRect_IsSignalConnected_IsBase(true);
@@ -3791,7 +3791,7 @@ int QCPMarginGroup_CommonMargin(const QCPMarginGroup* self, int side) {
 }
 
 // Base class handler implementation
-QMetaObject* QCPMarginGroup_QBaseMetaObject(const QCPMarginGroup* self) {
+QMetaObject* QCPMarginGroup_SuperMetaObject(const QCPMarginGroup* self) {
     auto* vqcpmargingroup = const_cast<VirtualQCPMarginGroup*>(dynamic_cast<const VirtualQCPMarginGroup*>(self));
     if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
         vqcpmargingroup->setQCPMarginGroup_MetaObject_IsBase(true);
@@ -3810,7 +3810,7 @@ void QCPMarginGroup_OnMetaObject(const QCPMarginGroup* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPMarginGroup_QBaseMetacast(QCPMarginGroup* self, const char* param1) {
+void* QCPMarginGroup_SuperMetacast(QCPMarginGroup* self, const char* param1) {
     auto* vqcpmargingroup = dynamic_cast<VirtualQCPMarginGroup*>(self);
     if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
         vqcpmargingroup->setQCPMarginGroup_Metacast_IsBase(true);
@@ -3829,7 +3829,7 @@ void QCPMarginGroup_OnMetacast(QCPMarginGroup* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPMarginGroup_QBaseMetacall(QCPMarginGroup* self, int param1, int param2, void** param3) {
+int QCPMarginGroup_SuperMetacall(QCPMarginGroup* self, int param1, int param2, void** param3) {
     auto* vqcpmargingroup = dynamic_cast<VirtualQCPMarginGroup*>(self);
     if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
         vqcpmargingroup->setQCPMarginGroup_Metacall_IsBase(true);
@@ -3848,7 +3848,7 @@ void QCPMarginGroup_OnMetacall(QCPMarginGroup* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPMarginGroup_QBaseCommonMargin(const QCPMarginGroup* self, int side) {
+int QCPMarginGroup_SuperCommonMargin(const QCPMarginGroup* self, int side) {
     auto* vqcpmargingroup = const_cast<VirtualQCPMarginGroup*>(dynamic_cast<const VirtualQCPMarginGroup*>(self));
     if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
         vqcpmargingroup->setQCPMarginGroup_CommonMargin_IsBase(true);
@@ -3877,7 +3877,7 @@ bool QCPMarginGroup_Event(QCPMarginGroup* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPMarginGroup_QBaseEvent(QCPMarginGroup* self, QEvent* event) {
+bool QCPMarginGroup_SuperEvent(QCPMarginGroup* self, QEvent* event) {
     auto* vqcpmargingroup = dynamic_cast<VirtualQCPMarginGroup*>(self);
     if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
         vqcpmargingroup->setQCPMarginGroup_Event_IsBase(true);
@@ -3906,7 +3906,7 @@ bool QCPMarginGroup_EventFilter(QCPMarginGroup* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QCPMarginGroup_QBaseEventFilter(QCPMarginGroup* self, QObject* watched, QEvent* event) {
+bool QCPMarginGroup_SuperEventFilter(QCPMarginGroup* self, QObject* watched, QEvent* event) {
     auto* vqcpmargingroup = dynamic_cast<VirtualQCPMarginGroup*>(self);
     if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
         vqcpmargingroup->setQCPMarginGroup_EventFilter_IsBase(true);
@@ -3935,7 +3935,7 @@ void QCPMarginGroup_TimerEvent(QCPMarginGroup* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPMarginGroup_QBaseTimerEvent(QCPMarginGroup* self, QTimerEvent* event) {
+void QCPMarginGroup_SuperTimerEvent(QCPMarginGroup* self, QTimerEvent* event) {
     auto* vqcpmargingroup = dynamic_cast<VirtualQCPMarginGroup*>(self);
     if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
         vqcpmargingroup->setQCPMarginGroup_TimerEvent_IsBase(true);
@@ -3964,7 +3964,7 @@ void QCPMarginGroup_ChildEvent(QCPMarginGroup* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPMarginGroup_QBaseChildEvent(QCPMarginGroup* self, QChildEvent* event) {
+void QCPMarginGroup_SuperChildEvent(QCPMarginGroup* self, QChildEvent* event) {
     auto* vqcpmargingroup = dynamic_cast<VirtualQCPMarginGroup*>(self);
     if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
         vqcpmargingroup->setQCPMarginGroup_ChildEvent_IsBase(true);
@@ -3993,7 +3993,7 @@ void QCPMarginGroup_CustomEvent(QCPMarginGroup* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPMarginGroup_QBaseCustomEvent(QCPMarginGroup* self, QEvent* event) {
+void QCPMarginGroup_SuperCustomEvent(QCPMarginGroup* self, QEvent* event) {
     auto* vqcpmargingroup = dynamic_cast<VirtualQCPMarginGroup*>(self);
     if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
         vqcpmargingroup->setQCPMarginGroup_CustomEvent_IsBase(true);
@@ -4022,7 +4022,7 @@ void QCPMarginGroup_ConnectNotify(QCPMarginGroup* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QCPMarginGroup_QBaseConnectNotify(QCPMarginGroup* self, const QMetaMethod* signal) {
+void QCPMarginGroup_SuperConnectNotify(QCPMarginGroup* self, const QMetaMethod* signal) {
     auto* vqcpmargingroup = dynamic_cast<VirtualQCPMarginGroup*>(self);
     if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
         vqcpmargingroup->setQCPMarginGroup_ConnectNotify_IsBase(true);
@@ -4051,7 +4051,7 @@ void QCPMarginGroup_DisconnectNotify(QCPMarginGroup* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QCPMarginGroup_QBaseDisconnectNotify(QCPMarginGroup* self, const QMetaMethod* signal) {
+void QCPMarginGroup_SuperDisconnectNotify(QCPMarginGroup* self, const QMetaMethod* signal) {
     auto* vqcpmargingroup = dynamic_cast<VirtualQCPMarginGroup*>(self);
     if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
         vqcpmargingroup->setQCPMarginGroup_DisconnectNotify_IsBase(true);
@@ -4080,7 +4080,7 @@ void QCPMarginGroup_AddChild(QCPMarginGroup* self, int side, QCPLayoutElement* e
 }
 
 // Base class handler implementation
-void QCPMarginGroup_QBaseAddChild(QCPMarginGroup* self, int side, QCPLayoutElement* element) {
+void QCPMarginGroup_SuperAddChild(QCPMarginGroup* self, int side, QCPLayoutElement* element) {
     auto* vqcpmargingroup = dynamic_cast<VirtualQCPMarginGroup*>(self);
     if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
         vqcpmargingroup->setQCPMarginGroup_AddChild_IsBase(true);
@@ -4109,7 +4109,7 @@ void QCPMarginGroup_RemoveChild(QCPMarginGroup* self, int side, QCPLayoutElement
 }
 
 // Base class handler implementation
-void QCPMarginGroup_QBaseRemoveChild(QCPMarginGroup* self, int side, QCPLayoutElement* element) {
+void QCPMarginGroup_SuperRemoveChild(QCPMarginGroup* self, int side, QCPLayoutElement* element) {
     auto* vqcpmargingroup = dynamic_cast<VirtualQCPMarginGroup*>(self);
     if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
         vqcpmargingroup->setQCPMarginGroup_RemoveChild_IsBase(true);
@@ -4138,7 +4138,7 @@ QObject* QCPMarginGroup_Sender(const QCPMarginGroup* self) {
 }
 
 // Base class handler implementation
-QObject* QCPMarginGroup_QBaseSender(const QCPMarginGroup* self) {
+QObject* QCPMarginGroup_SuperSender(const QCPMarginGroup* self) {
     auto* vqcpmargingroup = const_cast<VirtualQCPMarginGroup*>(dynamic_cast<const VirtualQCPMarginGroup*>(self));
     if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
         vqcpmargingroup->setQCPMarginGroup_Sender_IsBase(true);
@@ -4167,7 +4167,7 @@ int QCPMarginGroup_SenderSignalIndex(const QCPMarginGroup* self) {
 }
 
 // Base class handler implementation
-int QCPMarginGroup_QBaseSenderSignalIndex(const QCPMarginGroup* self) {
+int QCPMarginGroup_SuperSenderSignalIndex(const QCPMarginGroup* self) {
     auto* vqcpmargingroup = const_cast<VirtualQCPMarginGroup*>(dynamic_cast<const VirtualQCPMarginGroup*>(self));
     if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
         vqcpmargingroup->setQCPMarginGroup_SenderSignalIndex_IsBase(true);
@@ -4196,7 +4196,7 @@ int QCPMarginGroup_Receivers(const QCPMarginGroup* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPMarginGroup_QBaseReceivers(const QCPMarginGroup* self, const char* signal) {
+int QCPMarginGroup_SuperReceivers(const QCPMarginGroup* self, const char* signal) {
     auto* vqcpmargingroup = const_cast<VirtualQCPMarginGroup*>(dynamic_cast<const VirtualQCPMarginGroup*>(self));
     if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
         vqcpmargingroup->setQCPMarginGroup_Receivers_IsBase(true);
@@ -4225,7 +4225,7 @@ bool QCPMarginGroup_IsSignalConnected(const QCPMarginGroup* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QCPMarginGroup_QBaseIsSignalConnected(const QCPMarginGroup* self, const QMetaMethod* signal) {
+bool QCPMarginGroup_SuperIsSignalConnected(const QCPMarginGroup* self, const QMetaMethod* signal) {
     auto* vqcpmargingroup = const_cast<VirtualQCPMarginGroup*>(dynamic_cast<const VirtualQCPMarginGroup*>(self));
     if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
         vqcpmargingroup->setQCPMarginGroup_IsSignalConnected_IsBase(true);
@@ -4480,7 +4480,7 @@ void QCPLayoutElement_ParentPlotInitialized(QCPLayoutElement* self, QCustomPlot*
 }
 
 // Base class handler implementation
-QMetaObject* QCPLayoutElement_QBaseMetaObject(const QCPLayoutElement* self) {
+QMetaObject* QCPLayoutElement_SuperMetaObject(const QCPLayoutElement* self) {
     auto* vqcplayoutelement = const_cast<VirtualQCPLayoutElement*>(dynamic_cast<const VirtualQCPLayoutElement*>(self));
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_MetaObject_IsBase(true);
@@ -4499,7 +4499,7 @@ void QCPLayoutElement_OnMetaObject(const QCPLayoutElement* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* QCPLayoutElement_QBaseMetacast(QCPLayoutElement* self, const char* param1) {
+void* QCPLayoutElement_SuperMetacast(QCPLayoutElement* self, const char* param1) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_Metacast_IsBase(true);
@@ -4518,7 +4518,7 @@ void QCPLayoutElement_OnMetacast(QCPLayoutElement* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPLayoutElement_QBaseMetacall(QCPLayoutElement* self, int param1, int param2, void** param3) {
+int QCPLayoutElement_SuperMetacall(QCPLayoutElement* self, int param1, int param2, void** param3) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_Metacall_IsBase(true);
@@ -4537,7 +4537,7 @@ void QCPLayoutElement_OnMetacall(QCPLayoutElement* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLayoutElement_QBaseUpdate(QCPLayoutElement* self, int phase) {
+void QCPLayoutElement_SuperUpdate(QCPLayoutElement* self, int phase) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_Update_IsBase(true);
@@ -4556,7 +4556,7 @@ void QCPLayoutElement_OnUpdate(QCPLayoutElement* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QCPLayoutElement_QBaseMinimumOuterSizeHint(const QCPLayoutElement* self) {
+QSize* QCPLayoutElement_SuperMinimumOuterSizeHint(const QCPLayoutElement* self) {
     auto* vqcplayoutelement = const_cast<VirtualQCPLayoutElement*>(dynamic_cast<const VirtualQCPLayoutElement*>(self));
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_MinimumOuterSizeHint_IsBase(true);
@@ -4575,7 +4575,7 @@ void QCPLayoutElement_OnMinimumOuterSizeHint(const QCPLayoutElement* self, intpt
 }
 
 // Base class handler implementation
-QSize* QCPLayoutElement_QBaseMaximumOuterSizeHint(const QCPLayoutElement* self) {
+QSize* QCPLayoutElement_SuperMaximumOuterSizeHint(const QCPLayoutElement* self) {
     auto* vqcplayoutelement = const_cast<VirtualQCPLayoutElement*>(dynamic_cast<const VirtualQCPLayoutElement*>(self));
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_MaximumOuterSizeHint_IsBase(true);
@@ -4594,7 +4594,7 @@ void QCPLayoutElement_OnMaximumOuterSizeHint(const QCPLayoutElement* self, intpt
 }
 
 // Base class handler implementation
-libqt_list /* of QCPLayoutElement* */ QCPLayoutElement_QBaseElements(const QCPLayoutElement* self, bool recursive) {
+libqt_list /* of QCPLayoutElement* */ QCPLayoutElement_SuperElements(const QCPLayoutElement* self, bool recursive) {
     auto* vqcplayoutelement = const_cast<VirtualQCPLayoutElement*>(dynamic_cast<const VirtualQCPLayoutElement*>(self));
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_Elements_IsBase(true);
@@ -4631,7 +4631,7 @@ void QCPLayoutElement_OnElements(const QCPLayoutElement* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPLayoutElement_QBaseSelectTest(const QCPLayoutElement* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPLayoutElement_SuperSelectTest(const QCPLayoutElement* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcplayoutelement = const_cast<VirtualQCPLayoutElement*>(dynamic_cast<const VirtualQCPLayoutElement*>(self));
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_SelectTest_IsBase(true);
@@ -4650,7 +4650,7 @@ void QCPLayoutElement_OnSelectTest(const QCPLayoutElement* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int QCPLayoutElement_QBaseCalculateAutoMargin(QCPLayoutElement* self, int side) {
+int QCPLayoutElement_SuperCalculateAutoMargin(QCPLayoutElement* self, int side) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_CalculateAutoMargin_IsBase(true);
@@ -4669,7 +4669,7 @@ void QCPLayoutElement_OnCalculateAutoMargin(QCPLayoutElement* self, intptr_t slo
 }
 
 // Base class handler implementation
-void QCPLayoutElement_QBaseLayoutChanged(QCPLayoutElement* self) {
+void QCPLayoutElement_SuperLayoutChanged(QCPLayoutElement* self) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_LayoutChanged_IsBase(true);
@@ -4688,7 +4688,7 @@ void QCPLayoutElement_OnLayoutChanged(QCPLayoutElement* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLayoutElement_QBaseApplyDefaultAntialiasingHint(const QCPLayoutElement* self, QCPPainter* painter) {
+void QCPLayoutElement_SuperApplyDefaultAntialiasingHint(const QCPLayoutElement* self, QCPPainter* painter) {
     auto* vqcplayoutelement = const_cast<VirtualQCPLayoutElement*>(dynamic_cast<const VirtualQCPLayoutElement*>(self));
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -4707,7 +4707,7 @@ void QCPLayoutElement_OnApplyDefaultAntialiasingHint(const QCPLayoutElement* sel
 }
 
 // Base class handler implementation
-void QCPLayoutElement_QBaseDraw(QCPLayoutElement* self, QCPPainter* painter) {
+void QCPLayoutElement_SuperDraw(QCPLayoutElement* self, QCPPainter* painter) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_Draw_IsBase(true);
@@ -4726,7 +4726,7 @@ void QCPLayoutElement_OnDraw(QCPLayoutElement* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLayoutElement_QBaseParentPlotInitialized(QCPLayoutElement* self, QCustomPlot* parentPlot) {
+void QCPLayoutElement_SuperParentPlotInitialized(QCPLayoutElement* self, QCustomPlot* parentPlot) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_ParentPlotInitialized_IsBase(true);
@@ -4755,7 +4755,7 @@ int QCPLayoutElement_SelectionCategory(const QCPLayoutElement* self) {
 }
 
 // Base class handler implementation
-int QCPLayoutElement_QBaseSelectionCategory(const QCPLayoutElement* self) {
+int QCPLayoutElement_SuperSelectionCategory(const QCPLayoutElement* self) {
     auto* vqcplayoutelement = const_cast<VirtualQCPLayoutElement*>(dynamic_cast<const VirtualQCPLayoutElement*>(self));
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_SelectionCategory_IsBase(true);
@@ -4783,7 +4783,7 @@ QRect* QCPLayoutElement_ClipRect(const QCPLayoutElement* self) {
 }
 
 // Base class handler implementation
-QRect* QCPLayoutElement_QBaseClipRect(const QCPLayoutElement* self) {
+QRect* QCPLayoutElement_SuperClipRect(const QCPLayoutElement* self) {
     auto* vqcplayoutelement = const_cast<VirtualQCPLayoutElement*>(dynamic_cast<const VirtualQCPLayoutElement*>(self));
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_ClipRect_IsBase(true);
@@ -4811,7 +4811,7 @@ void QCPLayoutElement_SelectEvent(QCPLayoutElement* self, QMouseEvent* event, bo
 }
 
 // Base class handler implementation
-void QCPLayoutElement_QBaseSelectEvent(QCPLayoutElement* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPLayoutElement_SuperSelectEvent(QCPLayoutElement* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_SelectEvent_IsBase(true);
@@ -4840,7 +4840,7 @@ void QCPLayoutElement_DeselectEvent(QCPLayoutElement* self, bool* selectionState
 }
 
 // Base class handler implementation
-void QCPLayoutElement_QBaseDeselectEvent(QCPLayoutElement* self, bool* selectionStateChanged) {
+void QCPLayoutElement_SuperDeselectEvent(QCPLayoutElement* self, bool* selectionStateChanged) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_DeselectEvent_IsBase(true);
@@ -4869,7 +4869,7 @@ void QCPLayoutElement_MousePressEvent(QCPLayoutElement* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void QCPLayoutElement_QBaseMousePressEvent(QCPLayoutElement* self, QMouseEvent* event, const QVariant* details) {
+void QCPLayoutElement_SuperMousePressEvent(QCPLayoutElement* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_MousePressEvent_IsBase(true);
@@ -4898,7 +4898,7 @@ void QCPLayoutElement_MouseMoveEvent(QCPLayoutElement* self, QMouseEvent* event,
 }
 
 // Base class handler implementation
-void QCPLayoutElement_QBaseMouseMoveEvent(QCPLayoutElement* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPLayoutElement_SuperMouseMoveEvent(QCPLayoutElement* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_MouseMoveEvent_IsBase(true);
@@ -4927,7 +4927,7 @@ void QCPLayoutElement_MouseReleaseEvent(QCPLayoutElement* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void QCPLayoutElement_QBaseMouseReleaseEvent(QCPLayoutElement* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPLayoutElement_SuperMouseReleaseEvent(QCPLayoutElement* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_MouseReleaseEvent_IsBase(true);
@@ -4956,7 +4956,7 @@ void QCPLayoutElement_MouseDoubleClickEvent(QCPLayoutElement* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void QCPLayoutElement_QBaseMouseDoubleClickEvent(QCPLayoutElement* self, QMouseEvent* event, const QVariant* details) {
+void QCPLayoutElement_SuperMouseDoubleClickEvent(QCPLayoutElement* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_MouseDoubleClickEvent_IsBase(true);
@@ -4985,7 +4985,7 @@ void QCPLayoutElement_WheelEvent(QCPLayoutElement* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLayoutElement_QBaseWheelEvent(QCPLayoutElement* self, QWheelEvent* event) {
+void QCPLayoutElement_SuperWheelEvent(QCPLayoutElement* self, QWheelEvent* event) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_WheelEvent_IsBase(true);
@@ -5014,7 +5014,7 @@ bool QCPLayoutElement_Event(QCPLayoutElement* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPLayoutElement_QBaseEvent(QCPLayoutElement* self, QEvent* event) {
+bool QCPLayoutElement_SuperEvent(QCPLayoutElement* self, QEvent* event) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_Event_IsBase(true);
@@ -5043,7 +5043,7 @@ bool QCPLayoutElement_EventFilter(QCPLayoutElement* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool QCPLayoutElement_QBaseEventFilter(QCPLayoutElement* self, QObject* watched, QEvent* event) {
+bool QCPLayoutElement_SuperEventFilter(QCPLayoutElement* self, QObject* watched, QEvent* event) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_EventFilter_IsBase(true);
@@ -5072,7 +5072,7 @@ void QCPLayoutElement_TimerEvent(QCPLayoutElement* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLayoutElement_QBaseTimerEvent(QCPLayoutElement* self, QTimerEvent* event) {
+void QCPLayoutElement_SuperTimerEvent(QCPLayoutElement* self, QTimerEvent* event) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_TimerEvent_IsBase(true);
@@ -5101,7 +5101,7 @@ void QCPLayoutElement_ChildEvent(QCPLayoutElement* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLayoutElement_QBaseChildEvent(QCPLayoutElement* self, QChildEvent* event) {
+void QCPLayoutElement_SuperChildEvent(QCPLayoutElement* self, QChildEvent* event) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_ChildEvent_IsBase(true);
@@ -5130,7 +5130,7 @@ void QCPLayoutElement_CustomEvent(QCPLayoutElement* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLayoutElement_QBaseCustomEvent(QCPLayoutElement* self, QEvent* event) {
+void QCPLayoutElement_SuperCustomEvent(QCPLayoutElement* self, QEvent* event) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_CustomEvent_IsBase(true);
@@ -5159,7 +5159,7 @@ void QCPLayoutElement_ConnectNotify(QCPLayoutElement* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void QCPLayoutElement_QBaseConnectNotify(QCPLayoutElement* self, const QMetaMethod* signal) {
+void QCPLayoutElement_SuperConnectNotify(QCPLayoutElement* self, const QMetaMethod* signal) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_ConnectNotify_IsBase(true);
@@ -5188,7 +5188,7 @@ void QCPLayoutElement_DisconnectNotify(QCPLayoutElement* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void QCPLayoutElement_QBaseDisconnectNotify(QCPLayoutElement* self, const QMetaMethod* signal) {
+void QCPLayoutElement_SuperDisconnectNotify(QCPLayoutElement* self, const QMetaMethod* signal) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_DisconnectNotify_IsBase(true);
@@ -5217,7 +5217,7 @@ void QCPLayoutElement_InitializeParentPlot(QCPLayoutElement* self, QCustomPlot* 
 }
 
 // Base class handler implementation
-void QCPLayoutElement_QBaseInitializeParentPlot(QCPLayoutElement* self, QCustomPlot* parentPlot) {
+void QCPLayoutElement_SuperInitializeParentPlot(QCPLayoutElement* self, QCustomPlot* parentPlot) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_InitializeParentPlot_IsBase(true);
@@ -5246,7 +5246,7 @@ void QCPLayoutElement_SetParentLayerable(QCPLayoutElement* self, QCPLayerable* p
 }
 
 // Base class handler implementation
-void QCPLayoutElement_QBaseSetParentLayerable(QCPLayoutElement* self, QCPLayerable* parentLayerable) {
+void QCPLayoutElement_SuperSetParentLayerable(QCPLayoutElement* self, QCPLayerable* parentLayerable) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_SetParentLayerable_IsBase(true);
@@ -5275,7 +5275,7 @@ bool QCPLayoutElement_MoveToLayer(QCPLayoutElement* self, QCPLayer* layer, bool 
 }
 
 // Base class handler implementation
-bool QCPLayoutElement_QBaseMoveToLayer(QCPLayoutElement* self, QCPLayer* layer, bool prepend) {
+bool QCPLayoutElement_SuperMoveToLayer(QCPLayoutElement* self, QCPLayer* layer, bool prepend) {
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_MoveToLayer_IsBase(true);
@@ -5304,7 +5304,7 @@ void QCPLayoutElement_ApplyAntialiasingHint(const QCPLayoutElement* self, QCPPai
 }
 
 // Base class handler implementation
-void QCPLayoutElement_QBaseApplyAntialiasingHint(const QCPLayoutElement* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPLayoutElement_SuperApplyAntialiasingHint(const QCPLayoutElement* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcplayoutelement = const_cast<VirtualQCPLayoutElement*>(dynamic_cast<const VirtualQCPLayoutElement*>(self));
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_ApplyAntialiasingHint_IsBase(true);
@@ -5333,7 +5333,7 @@ QObject* QCPLayoutElement_Sender(const QCPLayoutElement* self) {
 }
 
 // Base class handler implementation
-QObject* QCPLayoutElement_QBaseSender(const QCPLayoutElement* self) {
+QObject* QCPLayoutElement_SuperSender(const QCPLayoutElement* self) {
     auto* vqcplayoutelement = const_cast<VirtualQCPLayoutElement*>(dynamic_cast<const VirtualQCPLayoutElement*>(self));
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_Sender_IsBase(true);
@@ -5362,7 +5362,7 @@ int QCPLayoutElement_SenderSignalIndex(const QCPLayoutElement* self) {
 }
 
 // Base class handler implementation
-int QCPLayoutElement_QBaseSenderSignalIndex(const QCPLayoutElement* self) {
+int QCPLayoutElement_SuperSenderSignalIndex(const QCPLayoutElement* self) {
     auto* vqcplayoutelement = const_cast<VirtualQCPLayoutElement*>(dynamic_cast<const VirtualQCPLayoutElement*>(self));
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_SenderSignalIndex_IsBase(true);
@@ -5391,7 +5391,7 @@ int QCPLayoutElement_Receivers(const QCPLayoutElement* self, const char* signal)
 }
 
 // Base class handler implementation
-int QCPLayoutElement_QBaseReceivers(const QCPLayoutElement* self, const char* signal) {
+int QCPLayoutElement_SuperReceivers(const QCPLayoutElement* self, const char* signal) {
     auto* vqcplayoutelement = const_cast<VirtualQCPLayoutElement*>(dynamic_cast<const VirtualQCPLayoutElement*>(self));
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_Receivers_IsBase(true);
@@ -5420,7 +5420,7 @@ bool QCPLayoutElement_IsSignalConnected(const QCPLayoutElement* self, const QMet
 }
 
 // Base class handler implementation
-bool QCPLayoutElement_QBaseIsSignalConnected(const QCPLayoutElement* self, const QMetaMethod* signal) {
+bool QCPLayoutElement_SuperIsSignalConnected(const QCPLayoutElement* self, const QMetaMethod* signal) {
     auto* vqcplayoutelement = const_cast<VirtualQCPLayoutElement*>(dynamic_cast<const VirtualQCPLayoutElement*>(self));
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->setQCPLayoutElement_IsSignalConnected_IsBase(true);
@@ -5574,7 +5574,7 @@ void QCPLayout_UpdateLayout(QCPLayout* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QCPLayout_QBaseMetaObject(const QCPLayout* self) {
+QMetaObject* QCPLayout_SuperMetaObject(const QCPLayout* self) {
     auto* vqcplayout = const_cast<VirtualQCPLayout*>(dynamic_cast<const VirtualQCPLayout*>(self));
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_MetaObject_IsBase(true);
@@ -5593,7 +5593,7 @@ void QCPLayout_OnMetaObject(const QCPLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPLayout_QBaseMetacast(QCPLayout* self, const char* param1) {
+void* QCPLayout_SuperMetacast(QCPLayout* self, const char* param1) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_Metacast_IsBase(true);
@@ -5612,7 +5612,7 @@ void QCPLayout_OnMetacast(QCPLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPLayout_QBaseMetacall(QCPLayout* self, int param1, int param2, void** param3) {
+int QCPLayout_SuperMetacall(QCPLayout* self, int param1, int param2, void** param3) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_Metacall_IsBase(true);
@@ -5631,7 +5631,7 @@ void QCPLayout_OnMetacall(QCPLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseUpdate(QCPLayout* self, int phase) {
+void QCPLayout_SuperUpdate(QCPLayout* self, int phase) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_Update_IsBase(true);
@@ -5650,7 +5650,7 @@ void QCPLayout_OnUpdate(QCPLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of QCPLayoutElement* */ QCPLayout_QBaseElements(const QCPLayout* self, bool recursive) {
+libqt_list /* of QCPLayoutElement* */ QCPLayout_SuperElements(const QCPLayout* self, bool recursive) {
     auto* vqcplayout = const_cast<VirtualQCPLayout*>(dynamic_cast<const VirtualQCPLayout*>(self));
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_Elements_IsBase(true);
@@ -5687,7 +5687,7 @@ void QCPLayout_OnElements(const QCPLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPLayout_QBaseElementCount(const QCPLayout* self) {
+int QCPLayout_SuperElementCount(const QCPLayout* self) {
     auto* vqcplayout = const_cast<VirtualQCPLayout*>(dynamic_cast<const VirtualQCPLayout*>(self));
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_ElementCount_IsBase(true);
@@ -5706,7 +5706,7 @@ void QCPLayout_OnElementCount(const QCPLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPLayoutElement* QCPLayout_QBaseElementAt(const QCPLayout* self, int index) {
+QCPLayoutElement* QCPLayout_SuperElementAt(const QCPLayout* self, int index) {
     auto* vqcplayout = const_cast<VirtualQCPLayout*>(dynamic_cast<const VirtualQCPLayout*>(self));
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_ElementAt_IsBase(true);
@@ -5725,7 +5725,7 @@ void QCPLayout_OnElementAt(const QCPLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPLayoutElement* QCPLayout_QBaseTakeAt(QCPLayout* self, int index) {
+QCPLayoutElement* QCPLayout_SuperTakeAt(QCPLayout* self, int index) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_TakeAt_IsBase(true);
@@ -5744,7 +5744,7 @@ void QCPLayout_OnTakeAt(QCPLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QCPLayout_QBaseTake(QCPLayout* self, QCPLayoutElement* element) {
+bool QCPLayout_SuperTake(QCPLayout* self, QCPLayoutElement* element) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_Take_IsBase(true);
@@ -5763,7 +5763,7 @@ void QCPLayout_OnTake(QCPLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseSimplify(QCPLayout* self) {
+void QCPLayout_SuperSimplify(QCPLayout* self) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_Simplify_IsBase(true);
@@ -5782,7 +5782,7 @@ void QCPLayout_OnSimplify(QCPLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseUpdateLayout(QCPLayout* self) {
+void QCPLayout_SuperUpdateLayout(QCPLayout* self) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_UpdateLayout_IsBase(true);
@@ -5811,7 +5811,7 @@ QSize* QCPLayout_MinimumOuterSizeHint(const QCPLayout* self) {
 }
 
 // Base class handler implementation
-QSize* QCPLayout_QBaseMinimumOuterSizeHint(const QCPLayout* self) {
+QSize* QCPLayout_SuperMinimumOuterSizeHint(const QCPLayout* self) {
     auto* vqcplayout = const_cast<VirtualQCPLayout*>(dynamic_cast<const VirtualQCPLayout*>(self));
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_MinimumOuterSizeHint_IsBase(true);
@@ -5840,7 +5840,7 @@ QSize* QCPLayout_MaximumOuterSizeHint(const QCPLayout* self) {
 }
 
 // Base class handler implementation
-QSize* QCPLayout_QBaseMaximumOuterSizeHint(const QCPLayout* self) {
+QSize* QCPLayout_SuperMaximumOuterSizeHint(const QCPLayout* self) {
     auto* vqcplayout = const_cast<VirtualQCPLayout*>(dynamic_cast<const VirtualQCPLayout*>(self));
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_MaximumOuterSizeHint_IsBase(true);
@@ -5869,7 +5869,7 @@ double QCPLayout_SelectTest(const QCPLayout* self, const QPointF* pos, bool only
 }
 
 // Base class handler implementation
-double QCPLayout_QBaseSelectTest(const QCPLayout* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPLayout_SuperSelectTest(const QCPLayout* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcplayout = const_cast<VirtualQCPLayout*>(dynamic_cast<const VirtualQCPLayout*>(self));
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_SelectTest_IsBase(true);
@@ -5898,7 +5898,7 @@ int QCPLayout_CalculateAutoMargin(QCPLayout* self, int side) {
 }
 
 // Base class handler implementation
-int QCPLayout_QBaseCalculateAutoMargin(QCPLayout* self, int side) {
+int QCPLayout_SuperCalculateAutoMargin(QCPLayout* self, int side) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_CalculateAutoMargin_IsBase(true);
@@ -5927,7 +5927,7 @@ void QCPLayout_LayoutChanged(QCPLayout* self) {
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseLayoutChanged(QCPLayout* self) {
+void QCPLayout_SuperLayoutChanged(QCPLayout* self) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_LayoutChanged_IsBase(true);
@@ -5956,7 +5956,7 @@ void QCPLayout_ApplyDefaultAntialiasingHint(const QCPLayout* self, QCPPainter* p
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseApplyDefaultAntialiasingHint(const QCPLayout* self, QCPPainter* painter) {
+void QCPLayout_SuperApplyDefaultAntialiasingHint(const QCPLayout* self, QCPPainter* painter) {
     auto* vqcplayout = const_cast<VirtualQCPLayout*>(dynamic_cast<const VirtualQCPLayout*>(self));
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -5985,7 +5985,7 @@ void QCPLayout_Draw(QCPLayout* self, QCPPainter* painter) {
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseDraw(QCPLayout* self, QCPPainter* painter) {
+void QCPLayout_SuperDraw(QCPLayout* self, QCPPainter* painter) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_Draw_IsBase(true);
@@ -6014,7 +6014,7 @@ void QCPLayout_ParentPlotInitialized(QCPLayout* self, QCustomPlot* parentPlot) {
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseParentPlotInitialized(QCPLayout* self, QCustomPlot* parentPlot) {
+void QCPLayout_SuperParentPlotInitialized(QCPLayout* self, QCustomPlot* parentPlot) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_ParentPlotInitialized_IsBase(true);
@@ -6043,7 +6043,7 @@ int QCPLayout_SelectionCategory(const QCPLayout* self) {
 }
 
 // Base class handler implementation
-int QCPLayout_QBaseSelectionCategory(const QCPLayout* self) {
+int QCPLayout_SuperSelectionCategory(const QCPLayout* self) {
     auto* vqcplayout = const_cast<VirtualQCPLayout*>(dynamic_cast<const VirtualQCPLayout*>(self));
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_SelectionCategory_IsBase(true);
@@ -6071,7 +6071,7 @@ QRect* QCPLayout_ClipRect(const QCPLayout* self) {
 }
 
 // Base class handler implementation
-QRect* QCPLayout_QBaseClipRect(const QCPLayout* self) {
+QRect* QCPLayout_SuperClipRect(const QCPLayout* self) {
     auto* vqcplayout = const_cast<VirtualQCPLayout*>(dynamic_cast<const VirtualQCPLayout*>(self));
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_ClipRect_IsBase(true);
@@ -6099,7 +6099,7 @@ void QCPLayout_SelectEvent(QCPLayout* self, QMouseEvent* event, bool additive, c
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseSelectEvent(QCPLayout* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPLayout_SuperSelectEvent(QCPLayout* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_SelectEvent_IsBase(true);
@@ -6128,7 +6128,7 @@ void QCPLayout_DeselectEvent(QCPLayout* self, bool* selectionStateChanged) {
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseDeselectEvent(QCPLayout* self, bool* selectionStateChanged) {
+void QCPLayout_SuperDeselectEvent(QCPLayout* self, bool* selectionStateChanged) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_DeselectEvent_IsBase(true);
@@ -6157,7 +6157,7 @@ void QCPLayout_MousePressEvent(QCPLayout* self, QMouseEvent* event, const QVaria
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseMousePressEvent(QCPLayout* self, QMouseEvent* event, const QVariant* details) {
+void QCPLayout_SuperMousePressEvent(QCPLayout* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_MousePressEvent_IsBase(true);
@@ -6186,7 +6186,7 @@ void QCPLayout_MouseMoveEvent(QCPLayout* self, QMouseEvent* event, const QPointF
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseMouseMoveEvent(QCPLayout* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPLayout_SuperMouseMoveEvent(QCPLayout* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_MouseMoveEvent_IsBase(true);
@@ -6215,7 +6215,7 @@ void QCPLayout_MouseReleaseEvent(QCPLayout* self, QMouseEvent* event, const QPoi
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseMouseReleaseEvent(QCPLayout* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPLayout_SuperMouseReleaseEvent(QCPLayout* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_MouseReleaseEvent_IsBase(true);
@@ -6244,7 +6244,7 @@ void QCPLayout_MouseDoubleClickEvent(QCPLayout* self, QMouseEvent* event, const 
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseMouseDoubleClickEvent(QCPLayout* self, QMouseEvent* event, const QVariant* details) {
+void QCPLayout_SuperMouseDoubleClickEvent(QCPLayout* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_MouseDoubleClickEvent_IsBase(true);
@@ -6273,7 +6273,7 @@ void QCPLayout_WheelEvent(QCPLayout* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseWheelEvent(QCPLayout* self, QWheelEvent* event) {
+void QCPLayout_SuperWheelEvent(QCPLayout* self, QWheelEvent* event) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_WheelEvent_IsBase(true);
@@ -6302,7 +6302,7 @@ bool QCPLayout_Event(QCPLayout* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPLayout_QBaseEvent(QCPLayout* self, QEvent* event) {
+bool QCPLayout_SuperEvent(QCPLayout* self, QEvent* event) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_Event_IsBase(true);
@@ -6331,7 +6331,7 @@ bool QCPLayout_EventFilter(QCPLayout* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPLayout_QBaseEventFilter(QCPLayout* self, QObject* watched, QEvent* event) {
+bool QCPLayout_SuperEventFilter(QCPLayout* self, QObject* watched, QEvent* event) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_EventFilter_IsBase(true);
@@ -6360,7 +6360,7 @@ void QCPLayout_TimerEvent(QCPLayout* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseTimerEvent(QCPLayout* self, QTimerEvent* event) {
+void QCPLayout_SuperTimerEvent(QCPLayout* self, QTimerEvent* event) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_TimerEvent_IsBase(true);
@@ -6389,7 +6389,7 @@ void QCPLayout_ChildEvent(QCPLayout* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseChildEvent(QCPLayout* self, QChildEvent* event) {
+void QCPLayout_SuperChildEvent(QCPLayout* self, QChildEvent* event) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_ChildEvent_IsBase(true);
@@ -6418,7 +6418,7 @@ void QCPLayout_CustomEvent(QCPLayout* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseCustomEvent(QCPLayout* self, QEvent* event) {
+void QCPLayout_SuperCustomEvent(QCPLayout* self, QEvent* event) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_CustomEvent_IsBase(true);
@@ -6447,7 +6447,7 @@ void QCPLayout_ConnectNotify(QCPLayout* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseConnectNotify(QCPLayout* self, const QMetaMethod* signal) {
+void QCPLayout_SuperConnectNotify(QCPLayout* self, const QMetaMethod* signal) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_ConnectNotify_IsBase(true);
@@ -6476,7 +6476,7 @@ void QCPLayout_DisconnectNotify(QCPLayout* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseDisconnectNotify(QCPLayout* self, const QMetaMethod* signal) {
+void QCPLayout_SuperDisconnectNotify(QCPLayout* self, const QMetaMethod* signal) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_DisconnectNotify_IsBase(true);
@@ -6505,7 +6505,7 @@ void QCPLayout_SizeConstraintsChanged(const QCPLayout* self) {
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseSizeConstraintsChanged(const QCPLayout* self) {
+void QCPLayout_SuperSizeConstraintsChanged(const QCPLayout* self) {
     auto* vqcplayout = const_cast<VirtualQCPLayout*>(dynamic_cast<const VirtualQCPLayout*>(self));
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_SizeConstraintsChanged_IsBase(true);
@@ -6534,7 +6534,7 @@ void QCPLayout_AdoptElement(QCPLayout* self, QCPLayoutElement* el) {
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseAdoptElement(QCPLayout* self, QCPLayoutElement* el) {
+void QCPLayout_SuperAdoptElement(QCPLayout* self, QCPLayoutElement* el) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_AdoptElement_IsBase(true);
@@ -6563,7 +6563,7 @@ void QCPLayout_ReleaseElement(QCPLayout* self, QCPLayoutElement* el) {
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseReleaseElement(QCPLayout* self, QCPLayoutElement* el) {
+void QCPLayout_SuperReleaseElement(QCPLayout* self, QCPLayoutElement* el) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_ReleaseElement_IsBase(true);
@@ -6628,7 +6628,7 @@ libqt_list /* of int */ QCPLayout_GetSectionSizes(const QCPLayout* self, libqt_l
 }
 
 // Base class handler implementation
-libqt_list /* of int */ QCPLayout_QBaseGetSectionSizes(const QCPLayout* self, libqt_list /* of int */ maxSizes, libqt_list /* of int */ minSizes, libqt_list /* of double */ stretchFactors, int totalSize) {
+libqt_list /* of int */ QCPLayout_SuperGetSectionSizes(const QCPLayout* self, libqt_list /* of int */ maxSizes, libqt_list /* of int */ minSizes, libqt_list /* of double */ stretchFactors, int totalSize) {
     auto* vqcplayout = const_cast<VirtualQCPLayout*>(dynamic_cast<const VirtualQCPLayout*>(self));
     QVector<int> maxSizes_QVector;
     maxSizes_QVector.reserve(maxSizes.len);
@@ -6693,7 +6693,7 @@ void QCPLayout_InitializeParentPlot(QCPLayout* self, QCustomPlot* parentPlot) {
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseInitializeParentPlot(QCPLayout* self, QCustomPlot* parentPlot) {
+void QCPLayout_SuperInitializeParentPlot(QCPLayout* self, QCustomPlot* parentPlot) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_InitializeParentPlot_IsBase(true);
@@ -6722,7 +6722,7 @@ void QCPLayout_SetParentLayerable(QCPLayout* self, QCPLayerable* parentLayerable
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseSetParentLayerable(QCPLayout* self, QCPLayerable* parentLayerable) {
+void QCPLayout_SuperSetParentLayerable(QCPLayout* self, QCPLayerable* parentLayerable) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_SetParentLayerable_IsBase(true);
@@ -6751,7 +6751,7 @@ bool QCPLayout_MoveToLayer(QCPLayout* self, QCPLayer* layer, bool prepend) {
 }
 
 // Base class handler implementation
-bool QCPLayout_QBaseMoveToLayer(QCPLayout* self, QCPLayer* layer, bool prepend) {
+bool QCPLayout_SuperMoveToLayer(QCPLayout* self, QCPLayer* layer, bool prepend) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_MoveToLayer_IsBase(true);
@@ -6780,7 +6780,7 @@ void QCPLayout_ApplyAntialiasingHint(const QCPLayout* self, QCPPainter* painter,
 }
 
 // Base class handler implementation
-void QCPLayout_QBaseApplyAntialiasingHint(const QCPLayout* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPLayout_SuperApplyAntialiasingHint(const QCPLayout* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcplayout = const_cast<VirtualQCPLayout*>(dynamic_cast<const VirtualQCPLayout*>(self));
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_ApplyAntialiasingHint_IsBase(true);
@@ -6809,7 +6809,7 @@ QObject* QCPLayout_Sender(const QCPLayout* self) {
 }
 
 // Base class handler implementation
-QObject* QCPLayout_QBaseSender(const QCPLayout* self) {
+QObject* QCPLayout_SuperSender(const QCPLayout* self) {
     auto* vqcplayout = const_cast<VirtualQCPLayout*>(dynamic_cast<const VirtualQCPLayout*>(self));
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_Sender_IsBase(true);
@@ -6838,7 +6838,7 @@ int QCPLayout_SenderSignalIndex(const QCPLayout* self) {
 }
 
 // Base class handler implementation
-int QCPLayout_QBaseSenderSignalIndex(const QCPLayout* self) {
+int QCPLayout_SuperSenderSignalIndex(const QCPLayout* self) {
     auto* vqcplayout = const_cast<VirtualQCPLayout*>(dynamic_cast<const VirtualQCPLayout*>(self));
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_SenderSignalIndex_IsBase(true);
@@ -6867,7 +6867,7 @@ int QCPLayout_Receivers(const QCPLayout* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPLayout_QBaseReceivers(const QCPLayout* self, const char* signal) {
+int QCPLayout_SuperReceivers(const QCPLayout* self, const char* signal) {
     auto* vqcplayout = const_cast<VirtualQCPLayout*>(dynamic_cast<const VirtualQCPLayout*>(self));
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_Receivers_IsBase(true);
@@ -6896,7 +6896,7 @@ bool QCPLayout_IsSignalConnected(const QCPLayout* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool QCPLayout_QBaseIsSignalConnected(const QCPLayout* self, const QMetaMethod* signal) {
+bool QCPLayout_SuperIsSignalConnected(const QCPLayout* self, const QMetaMethod* signal) {
     auto* vqcplayout = const_cast<VirtualQCPLayout*>(dynamic_cast<const VirtualQCPLayout*>(self));
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->setQCPLayout_IsSignalConnected_IsBase(true);
@@ -7183,7 +7183,7 @@ void QCPLayoutGrid_SetFillOrder2(QCPLayoutGrid* self, int order, bool rearrange)
 }
 
 // Base class handler implementation
-QMetaObject* QCPLayoutGrid_QBaseMetaObject(const QCPLayoutGrid* self) {
+QMetaObject* QCPLayoutGrid_SuperMetaObject(const QCPLayoutGrid* self) {
     auto* vqcplayoutgrid = const_cast<VirtualQCPLayoutGrid*>(dynamic_cast<const VirtualQCPLayoutGrid*>(self));
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_MetaObject_IsBase(true);
@@ -7202,7 +7202,7 @@ void QCPLayoutGrid_OnMetaObject(const QCPLayoutGrid* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPLayoutGrid_QBaseMetacast(QCPLayoutGrid* self, const char* param1) {
+void* QCPLayoutGrid_SuperMetacast(QCPLayoutGrid* self, const char* param1) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_Metacast_IsBase(true);
@@ -7221,7 +7221,7 @@ void QCPLayoutGrid_OnMetacast(QCPLayoutGrid* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPLayoutGrid_QBaseMetacall(QCPLayoutGrid* self, int param1, int param2, void** param3) {
+int QCPLayoutGrid_SuperMetacall(QCPLayoutGrid* self, int param1, int param2, void** param3) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_Metacall_IsBase(true);
@@ -7240,7 +7240,7 @@ void QCPLayoutGrid_OnMetacall(QCPLayoutGrid* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseUpdateLayout(QCPLayoutGrid* self) {
+void QCPLayoutGrid_SuperUpdateLayout(QCPLayoutGrid* self) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_UpdateLayout_IsBase(true);
@@ -7259,7 +7259,7 @@ void QCPLayoutGrid_OnUpdateLayout(QCPLayoutGrid* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPLayoutGrid_QBaseElementCount(const QCPLayoutGrid* self) {
+int QCPLayoutGrid_SuperElementCount(const QCPLayoutGrid* self) {
     auto* vqcplayoutgrid = const_cast<VirtualQCPLayoutGrid*>(dynamic_cast<const VirtualQCPLayoutGrid*>(self));
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_ElementCount_IsBase(true);
@@ -7278,7 +7278,7 @@ void QCPLayoutGrid_OnElementCount(const QCPLayoutGrid* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPLayoutElement* QCPLayoutGrid_QBaseElementAt(const QCPLayoutGrid* self, int index) {
+QCPLayoutElement* QCPLayoutGrid_SuperElementAt(const QCPLayoutGrid* self, int index) {
     auto* vqcplayoutgrid = const_cast<VirtualQCPLayoutGrid*>(dynamic_cast<const VirtualQCPLayoutGrid*>(self));
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_ElementAt_IsBase(true);
@@ -7297,7 +7297,7 @@ void QCPLayoutGrid_OnElementAt(const QCPLayoutGrid* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPLayoutElement* QCPLayoutGrid_QBaseTakeAt(QCPLayoutGrid* self, int index) {
+QCPLayoutElement* QCPLayoutGrid_SuperTakeAt(QCPLayoutGrid* self, int index) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_TakeAt_IsBase(true);
@@ -7316,7 +7316,7 @@ void QCPLayoutGrid_OnTakeAt(QCPLayoutGrid* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QCPLayoutGrid_QBaseTake(QCPLayoutGrid* self, QCPLayoutElement* element) {
+bool QCPLayoutGrid_SuperTake(QCPLayoutGrid* self, QCPLayoutElement* element) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_Take_IsBase(true);
@@ -7335,7 +7335,7 @@ void QCPLayoutGrid_OnTake(QCPLayoutGrid* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of QCPLayoutElement* */ QCPLayoutGrid_QBaseElements(const QCPLayoutGrid* self, bool recursive) {
+libqt_list /* of QCPLayoutElement* */ QCPLayoutGrid_SuperElements(const QCPLayoutGrid* self, bool recursive) {
     auto* vqcplayoutgrid = const_cast<VirtualQCPLayoutGrid*>(dynamic_cast<const VirtualQCPLayoutGrid*>(self));
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_Elements_IsBase(true);
@@ -7372,7 +7372,7 @@ void QCPLayoutGrid_OnElements(const QCPLayoutGrid* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseSimplify(QCPLayoutGrid* self) {
+void QCPLayoutGrid_SuperSimplify(QCPLayoutGrid* self) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_Simplify_IsBase(true);
@@ -7391,7 +7391,7 @@ void QCPLayoutGrid_OnSimplify(QCPLayoutGrid* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QCPLayoutGrid_QBaseMinimumOuterSizeHint(const QCPLayoutGrid* self) {
+QSize* QCPLayoutGrid_SuperMinimumOuterSizeHint(const QCPLayoutGrid* self) {
     auto* vqcplayoutgrid = const_cast<VirtualQCPLayoutGrid*>(dynamic_cast<const VirtualQCPLayoutGrid*>(self));
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_MinimumOuterSizeHint_IsBase(true);
@@ -7410,7 +7410,7 @@ void QCPLayoutGrid_OnMinimumOuterSizeHint(const QCPLayoutGrid* self, intptr_t sl
 }
 
 // Base class handler implementation
-QSize* QCPLayoutGrid_QBaseMaximumOuterSizeHint(const QCPLayoutGrid* self) {
+QSize* QCPLayoutGrid_SuperMaximumOuterSizeHint(const QCPLayoutGrid* self) {
     auto* vqcplayoutgrid = const_cast<VirtualQCPLayoutGrid*>(dynamic_cast<const VirtualQCPLayoutGrid*>(self));
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_MaximumOuterSizeHint_IsBase(true);
@@ -7439,7 +7439,7 @@ void QCPLayoutGrid_Update(QCPLayoutGrid* self, int phase) {
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseUpdate(QCPLayoutGrid* self, int phase) {
+void QCPLayoutGrid_SuperUpdate(QCPLayoutGrid* self, int phase) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_Update_IsBase(true);
@@ -7468,7 +7468,7 @@ double QCPLayoutGrid_SelectTest(const QCPLayoutGrid* self, const QPointF* pos, b
 }
 
 // Base class handler implementation
-double QCPLayoutGrid_QBaseSelectTest(const QCPLayoutGrid* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPLayoutGrid_SuperSelectTest(const QCPLayoutGrid* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcplayoutgrid = const_cast<VirtualQCPLayoutGrid*>(dynamic_cast<const VirtualQCPLayoutGrid*>(self));
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_SelectTest_IsBase(true);
@@ -7497,7 +7497,7 @@ int QCPLayoutGrid_CalculateAutoMargin(QCPLayoutGrid* self, int side) {
 }
 
 // Base class handler implementation
-int QCPLayoutGrid_QBaseCalculateAutoMargin(QCPLayoutGrid* self, int side) {
+int QCPLayoutGrid_SuperCalculateAutoMargin(QCPLayoutGrid* self, int side) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_CalculateAutoMargin_IsBase(true);
@@ -7526,7 +7526,7 @@ void QCPLayoutGrid_LayoutChanged(QCPLayoutGrid* self) {
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseLayoutChanged(QCPLayoutGrid* self) {
+void QCPLayoutGrid_SuperLayoutChanged(QCPLayoutGrid* self) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_LayoutChanged_IsBase(true);
@@ -7555,7 +7555,7 @@ void QCPLayoutGrid_ApplyDefaultAntialiasingHint(const QCPLayoutGrid* self, QCPPa
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseApplyDefaultAntialiasingHint(const QCPLayoutGrid* self, QCPPainter* painter) {
+void QCPLayoutGrid_SuperApplyDefaultAntialiasingHint(const QCPLayoutGrid* self, QCPPainter* painter) {
     auto* vqcplayoutgrid = const_cast<VirtualQCPLayoutGrid*>(dynamic_cast<const VirtualQCPLayoutGrid*>(self));
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -7584,7 +7584,7 @@ void QCPLayoutGrid_Draw(QCPLayoutGrid* self, QCPPainter* painter) {
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseDraw(QCPLayoutGrid* self, QCPPainter* painter) {
+void QCPLayoutGrid_SuperDraw(QCPLayoutGrid* self, QCPPainter* painter) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_Draw_IsBase(true);
@@ -7613,7 +7613,7 @@ void QCPLayoutGrid_ParentPlotInitialized(QCPLayoutGrid* self, QCustomPlot* paren
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseParentPlotInitialized(QCPLayoutGrid* self, QCustomPlot* parentPlot) {
+void QCPLayoutGrid_SuperParentPlotInitialized(QCPLayoutGrid* self, QCustomPlot* parentPlot) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_ParentPlotInitialized_IsBase(true);
@@ -7642,7 +7642,7 @@ int QCPLayoutGrid_SelectionCategory(const QCPLayoutGrid* self) {
 }
 
 // Base class handler implementation
-int QCPLayoutGrid_QBaseSelectionCategory(const QCPLayoutGrid* self) {
+int QCPLayoutGrid_SuperSelectionCategory(const QCPLayoutGrid* self) {
     auto* vqcplayoutgrid = const_cast<VirtualQCPLayoutGrid*>(dynamic_cast<const VirtualQCPLayoutGrid*>(self));
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_SelectionCategory_IsBase(true);
@@ -7670,7 +7670,7 @@ QRect* QCPLayoutGrid_ClipRect(const QCPLayoutGrid* self) {
 }
 
 // Base class handler implementation
-QRect* QCPLayoutGrid_QBaseClipRect(const QCPLayoutGrid* self) {
+QRect* QCPLayoutGrid_SuperClipRect(const QCPLayoutGrid* self) {
     auto* vqcplayoutgrid = const_cast<VirtualQCPLayoutGrid*>(dynamic_cast<const VirtualQCPLayoutGrid*>(self));
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_ClipRect_IsBase(true);
@@ -7698,7 +7698,7 @@ void QCPLayoutGrid_SelectEvent(QCPLayoutGrid* self, QMouseEvent* event, bool add
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseSelectEvent(QCPLayoutGrid* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPLayoutGrid_SuperSelectEvent(QCPLayoutGrid* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_SelectEvent_IsBase(true);
@@ -7727,7 +7727,7 @@ void QCPLayoutGrid_DeselectEvent(QCPLayoutGrid* self, bool* selectionStateChange
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseDeselectEvent(QCPLayoutGrid* self, bool* selectionStateChanged) {
+void QCPLayoutGrid_SuperDeselectEvent(QCPLayoutGrid* self, bool* selectionStateChanged) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_DeselectEvent_IsBase(true);
@@ -7756,7 +7756,7 @@ void QCPLayoutGrid_MousePressEvent(QCPLayoutGrid* self, QMouseEvent* event, cons
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseMousePressEvent(QCPLayoutGrid* self, QMouseEvent* event, const QVariant* details) {
+void QCPLayoutGrid_SuperMousePressEvent(QCPLayoutGrid* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_MousePressEvent_IsBase(true);
@@ -7785,7 +7785,7 @@ void QCPLayoutGrid_MouseMoveEvent(QCPLayoutGrid* self, QMouseEvent* event, const
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseMouseMoveEvent(QCPLayoutGrid* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPLayoutGrid_SuperMouseMoveEvent(QCPLayoutGrid* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_MouseMoveEvent_IsBase(true);
@@ -7814,7 +7814,7 @@ void QCPLayoutGrid_MouseReleaseEvent(QCPLayoutGrid* self, QMouseEvent* event, co
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseMouseReleaseEvent(QCPLayoutGrid* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPLayoutGrid_SuperMouseReleaseEvent(QCPLayoutGrid* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_MouseReleaseEvent_IsBase(true);
@@ -7843,7 +7843,7 @@ void QCPLayoutGrid_MouseDoubleClickEvent(QCPLayoutGrid* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseMouseDoubleClickEvent(QCPLayoutGrid* self, QMouseEvent* event, const QVariant* details) {
+void QCPLayoutGrid_SuperMouseDoubleClickEvent(QCPLayoutGrid* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_MouseDoubleClickEvent_IsBase(true);
@@ -7872,7 +7872,7 @@ void QCPLayoutGrid_WheelEvent(QCPLayoutGrid* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseWheelEvent(QCPLayoutGrid* self, QWheelEvent* event) {
+void QCPLayoutGrid_SuperWheelEvent(QCPLayoutGrid* self, QWheelEvent* event) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_WheelEvent_IsBase(true);
@@ -7901,7 +7901,7 @@ bool QCPLayoutGrid_Event(QCPLayoutGrid* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPLayoutGrid_QBaseEvent(QCPLayoutGrid* self, QEvent* event) {
+bool QCPLayoutGrid_SuperEvent(QCPLayoutGrid* self, QEvent* event) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_Event_IsBase(true);
@@ -7930,7 +7930,7 @@ bool QCPLayoutGrid_EventFilter(QCPLayoutGrid* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QCPLayoutGrid_QBaseEventFilter(QCPLayoutGrid* self, QObject* watched, QEvent* event) {
+bool QCPLayoutGrid_SuperEventFilter(QCPLayoutGrid* self, QObject* watched, QEvent* event) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_EventFilter_IsBase(true);
@@ -7959,7 +7959,7 @@ void QCPLayoutGrid_TimerEvent(QCPLayoutGrid* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseTimerEvent(QCPLayoutGrid* self, QTimerEvent* event) {
+void QCPLayoutGrid_SuperTimerEvent(QCPLayoutGrid* self, QTimerEvent* event) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_TimerEvent_IsBase(true);
@@ -7988,7 +7988,7 @@ void QCPLayoutGrid_ChildEvent(QCPLayoutGrid* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseChildEvent(QCPLayoutGrid* self, QChildEvent* event) {
+void QCPLayoutGrid_SuperChildEvent(QCPLayoutGrid* self, QChildEvent* event) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_ChildEvent_IsBase(true);
@@ -8017,7 +8017,7 @@ void QCPLayoutGrid_CustomEvent(QCPLayoutGrid* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseCustomEvent(QCPLayoutGrid* self, QEvent* event) {
+void QCPLayoutGrid_SuperCustomEvent(QCPLayoutGrid* self, QEvent* event) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_CustomEvent_IsBase(true);
@@ -8046,7 +8046,7 @@ void QCPLayoutGrid_ConnectNotify(QCPLayoutGrid* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseConnectNotify(QCPLayoutGrid* self, const QMetaMethod* signal) {
+void QCPLayoutGrid_SuperConnectNotify(QCPLayoutGrid* self, const QMetaMethod* signal) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_ConnectNotify_IsBase(true);
@@ -8075,7 +8075,7 @@ void QCPLayoutGrid_DisconnectNotify(QCPLayoutGrid* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseDisconnectNotify(QCPLayoutGrid* self, const QMetaMethod* signal) {
+void QCPLayoutGrid_SuperDisconnectNotify(QCPLayoutGrid* self, const QMetaMethod* signal) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_DisconnectNotify_IsBase(true);
@@ -8116,7 +8116,7 @@ void QCPLayoutGrid_GetMinimumRowColSizes(const QCPLayoutGrid* self, libqt_list /
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseGetMinimumRowColSizes(const QCPLayoutGrid* self, libqt_list /* of int */ minColWidths, libqt_list /* of int */ minRowHeights) {
+void QCPLayoutGrid_SuperGetMinimumRowColSizes(const QCPLayoutGrid* self, libqt_list /* of int */ minColWidths, libqt_list /* of int */ minRowHeights) {
     auto* vqcplayoutgrid = const_cast<VirtualQCPLayoutGrid*>(dynamic_cast<const VirtualQCPLayoutGrid*>(self));
     QVector<int> minColWidths_QVector;
     minColWidths_QVector.reserve(minColWidths.len);
@@ -8169,7 +8169,7 @@ void QCPLayoutGrid_GetMaximumRowColSizes(const QCPLayoutGrid* self, libqt_list /
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseGetMaximumRowColSizes(const QCPLayoutGrid* self, libqt_list /* of int */ maxColWidths, libqt_list /* of int */ maxRowHeights) {
+void QCPLayoutGrid_SuperGetMaximumRowColSizes(const QCPLayoutGrid* self, libqt_list /* of int */ maxColWidths, libqt_list /* of int */ maxRowHeights) {
     auto* vqcplayoutgrid = const_cast<VirtualQCPLayoutGrid*>(dynamic_cast<const VirtualQCPLayoutGrid*>(self));
     QVector<int> maxColWidths_QVector;
     maxColWidths_QVector.reserve(maxColWidths.len);
@@ -8210,7 +8210,7 @@ void QCPLayoutGrid_SizeConstraintsChanged(const QCPLayoutGrid* self) {
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseSizeConstraintsChanged(const QCPLayoutGrid* self) {
+void QCPLayoutGrid_SuperSizeConstraintsChanged(const QCPLayoutGrid* self) {
     auto* vqcplayoutgrid = const_cast<VirtualQCPLayoutGrid*>(dynamic_cast<const VirtualQCPLayoutGrid*>(self));
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_SizeConstraintsChanged_IsBase(true);
@@ -8239,7 +8239,7 @@ void QCPLayoutGrid_AdoptElement(QCPLayoutGrid* self, QCPLayoutElement* el) {
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseAdoptElement(QCPLayoutGrid* self, QCPLayoutElement* el) {
+void QCPLayoutGrid_SuperAdoptElement(QCPLayoutGrid* self, QCPLayoutElement* el) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_AdoptElement_IsBase(true);
@@ -8268,7 +8268,7 @@ void QCPLayoutGrid_ReleaseElement(QCPLayoutGrid* self, QCPLayoutElement* el) {
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseReleaseElement(QCPLayoutGrid* self, QCPLayoutElement* el) {
+void QCPLayoutGrid_SuperReleaseElement(QCPLayoutGrid* self, QCPLayoutElement* el) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_ReleaseElement_IsBase(true);
@@ -8333,7 +8333,7 @@ libqt_list /* of int */ QCPLayoutGrid_GetSectionSizes(const QCPLayoutGrid* self,
 }
 
 // Base class handler implementation
-libqt_list /* of int */ QCPLayoutGrid_QBaseGetSectionSizes(const QCPLayoutGrid* self, libqt_list /* of int */ maxSizes, libqt_list /* of int */ minSizes, libqt_list /* of double */ stretchFactors, int totalSize) {
+libqt_list /* of int */ QCPLayoutGrid_SuperGetSectionSizes(const QCPLayoutGrid* self, libqt_list /* of int */ maxSizes, libqt_list /* of int */ minSizes, libqt_list /* of double */ stretchFactors, int totalSize) {
     auto* vqcplayoutgrid = const_cast<VirtualQCPLayoutGrid*>(dynamic_cast<const VirtualQCPLayoutGrid*>(self));
     QVector<int> maxSizes_QVector;
     maxSizes_QVector.reserve(maxSizes.len);
@@ -8398,7 +8398,7 @@ void QCPLayoutGrid_InitializeParentPlot(QCPLayoutGrid* self, QCustomPlot* parent
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseInitializeParentPlot(QCPLayoutGrid* self, QCustomPlot* parentPlot) {
+void QCPLayoutGrid_SuperInitializeParentPlot(QCPLayoutGrid* self, QCustomPlot* parentPlot) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_InitializeParentPlot_IsBase(true);
@@ -8427,7 +8427,7 @@ void QCPLayoutGrid_SetParentLayerable(QCPLayoutGrid* self, QCPLayerable* parentL
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseSetParentLayerable(QCPLayoutGrid* self, QCPLayerable* parentLayerable) {
+void QCPLayoutGrid_SuperSetParentLayerable(QCPLayoutGrid* self, QCPLayerable* parentLayerable) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_SetParentLayerable_IsBase(true);
@@ -8456,7 +8456,7 @@ bool QCPLayoutGrid_MoveToLayer(QCPLayoutGrid* self, QCPLayer* layer, bool prepen
 }
 
 // Base class handler implementation
-bool QCPLayoutGrid_QBaseMoveToLayer(QCPLayoutGrid* self, QCPLayer* layer, bool prepend) {
+bool QCPLayoutGrid_SuperMoveToLayer(QCPLayoutGrid* self, QCPLayer* layer, bool prepend) {
     auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_MoveToLayer_IsBase(true);
@@ -8485,7 +8485,7 @@ void QCPLayoutGrid_ApplyAntialiasingHint(const QCPLayoutGrid* self, QCPPainter* 
 }
 
 // Base class handler implementation
-void QCPLayoutGrid_QBaseApplyAntialiasingHint(const QCPLayoutGrid* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPLayoutGrid_SuperApplyAntialiasingHint(const QCPLayoutGrid* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcplayoutgrid = const_cast<VirtualQCPLayoutGrid*>(dynamic_cast<const VirtualQCPLayoutGrid*>(self));
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_ApplyAntialiasingHint_IsBase(true);
@@ -8514,7 +8514,7 @@ QObject* QCPLayoutGrid_Sender(const QCPLayoutGrid* self) {
 }
 
 // Base class handler implementation
-QObject* QCPLayoutGrid_QBaseSender(const QCPLayoutGrid* self) {
+QObject* QCPLayoutGrid_SuperSender(const QCPLayoutGrid* self) {
     auto* vqcplayoutgrid = const_cast<VirtualQCPLayoutGrid*>(dynamic_cast<const VirtualQCPLayoutGrid*>(self));
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_Sender_IsBase(true);
@@ -8543,7 +8543,7 @@ int QCPLayoutGrid_SenderSignalIndex(const QCPLayoutGrid* self) {
 }
 
 // Base class handler implementation
-int QCPLayoutGrid_QBaseSenderSignalIndex(const QCPLayoutGrid* self) {
+int QCPLayoutGrid_SuperSenderSignalIndex(const QCPLayoutGrid* self) {
     auto* vqcplayoutgrid = const_cast<VirtualQCPLayoutGrid*>(dynamic_cast<const VirtualQCPLayoutGrid*>(self));
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_SenderSignalIndex_IsBase(true);
@@ -8572,7 +8572,7 @@ int QCPLayoutGrid_Receivers(const QCPLayoutGrid* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPLayoutGrid_QBaseReceivers(const QCPLayoutGrid* self, const char* signal) {
+int QCPLayoutGrid_SuperReceivers(const QCPLayoutGrid* self, const char* signal) {
     auto* vqcplayoutgrid = const_cast<VirtualQCPLayoutGrid*>(dynamic_cast<const VirtualQCPLayoutGrid*>(self));
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_Receivers_IsBase(true);
@@ -8601,7 +8601,7 @@ bool QCPLayoutGrid_IsSignalConnected(const QCPLayoutGrid* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QCPLayoutGrid_QBaseIsSignalConnected(const QCPLayoutGrid* self, const QMetaMethod* signal) {
+bool QCPLayoutGrid_SuperIsSignalConnected(const QCPLayoutGrid* self, const QMetaMethod* signal) {
     auto* vqcplayoutgrid = const_cast<VirtualQCPLayoutGrid*>(dynamic_cast<const VirtualQCPLayoutGrid*>(self));
     if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
         vqcplayoutgrid->setQCPLayoutGrid_IsSignalConnected_IsBase(true);
@@ -8750,7 +8750,7 @@ void QCPLayoutInset_AddElement2(QCPLayoutInset* self, QCPLayoutElement* element,
 }
 
 // Base class handler implementation
-QMetaObject* QCPLayoutInset_QBaseMetaObject(const QCPLayoutInset* self) {
+QMetaObject* QCPLayoutInset_SuperMetaObject(const QCPLayoutInset* self) {
     auto* vqcplayoutinset = const_cast<VirtualQCPLayoutInset*>(dynamic_cast<const VirtualQCPLayoutInset*>(self));
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_MetaObject_IsBase(true);
@@ -8769,7 +8769,7 @@ void QCPLayoutInset_OnMetaObject(const QCPLayoutInset* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPLayoutInset_QBaseMetacast(QCPLayoutInset* self, const char* param1) {
+void* QCPLayoutInset_SuperMetacast(QCPLayoutInset* self, const char* param1) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_Metacast_IsBase(true);
@@ -8788,7 +8788,7 @@ void QCPLayoutInset_OnMetacast(QCPLayoutInset* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPLayoutInset_QBaseMetacall(QCPLayoutInset* self, int param1, int param2, void** param3) {
+int QCPLayoutInset_SuperMetacall(QCPLayoutInset* self, int param1, int param2, void** param3) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_Metacall_IsBase(true);
@@ -8807,7 +8807,7 @@ void QCPLayoutInset_OnMetacall(QCPLayoutInset* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseUpdateLayout(QCPLayoutInset* self) {
+void QCPLayoutInset_SuperUpdateLayout(QCPLayoutInset* self) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_UpdateLayout_IsBase(true);
@@ -8826,7 +8826,7 @@ void QCPLayoutInset_OnUpdateLayout(QCPLayoutInset* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPLayoutInset_QBaseElementCount(const QCPLayoutInset* self) {
+int QCPLayoutInset_SuperElementCount(const QCPLayoutInset* self) {
     auto* vqcplayoutinset = const_cast<VirtualQCPLayoutInset*>(dynamic_cast<const VirtualQCPLayoutInset*>(self));
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_ElementCount_IsBase(true);
@@ -8845,7 +8845,7 @@ void QCPLayoutInset_OnElementCount(const QCPLayoutInset* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPLayoutElement* QCPLayoutInset_QBaseElementAt(const QCPLayoutInset* self, int index) {
+QCPLayoutElement* QCPLayoutInset_SuperElementAt(const QCPLayoutInset* self, int index) {
     auto* vqcplayoutinset = const_cast<VirtualQCPLayoutInset*>(dynamic_cast<const VirtualQCPLayoutInset*>(self));
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_ElementAt_IsBase(true);
@@ -8864,7 +8864,7 @@ void QCPLayoutInset_OnElementAt(const QCPLayoutInset* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPLayoutElement* QCPLayoutInset_QBaseTakeAt(QCPLayoutInset* self, int index) {
+QCPLayoutElement* QCPLayoutInset_SuperTakeAt(QCPLayoutInset* self, int index) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_TakeAt_IsBase(true);
@@ -8883,7 +8883,7 @@ void QCPLayoutInset_OnTakeAt(QCPLayoutInset* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QCPLayoutInset_QBaseTake(QCPLayoutInset* self, QCPLayoutElement* element) {
+bool QCPLayoutInset_SuperTake(QCPLayoutInset* self, QCPLayoutElement* element) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_Take_IsBase(true);
@@ -8902,7 +8902,7 @@ void QCPLayoutInset_OnTake(QCPLayoutInset* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseSimplify(QCPLayoutInset* self) {
+void QCPLayoutInset_SuperSimplify(QCPLayoutInset* self) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_Simplify_IsBase(true);
@@ -8921,7 +8921,7 @@ void QCPLayoutInset_OnSimplify(QCPLayoutInset* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPLayoutInset_QBaseSelectTest(const QCPLayoutInset* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPLayoutInset_SuperSelectTest(const QCPLayoutInset* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcplayoutinset = const_cast<VirtualQCPLayoutInset*>(dynamic_cast<const VirtualQCPLayoutInset*>(self));
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_SelectTest_IsBase(true);
@@ -8950,7 +8950,7 @@ void QCPLayoutInset_Update(QCPLayoutInset* self, int phase) {
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseUpdate(QCPLayoutInset* self, int phase) {
+void QCPLayoutInset_SuperUpdate(QCPLayoutInset* self, int phase) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_Update_IsBase(true);
@@ -8997,7 +8997,7 @@ libqt_list /* of QCPLayoutElement* */ QCPLayoutInset_Elements(const QCPLayoutIns
 }
 
 // Base class handler implementation
-libqt_list /* of QCPLayoutElement* */ QCPLayoutInset_QBaseElements(const QCPLayoutInset* self, bool recursive) {
+libqt_list /* of QCPLayoutElement* */ QCPLayoutInset_SuperElements(const QCPLayoutInset* self, bool recursive) {
     auto* vqcplayoutinset = const_cast<VirtualQCPLayoutInset*>(dynamic_cast<const VirtualQCPLayoutInset*>(self));
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_Elements_IsBase(true);
@@ -9044,7 +9044,7 @@ QSize* QCPLayoutInset_MinimumOuterSizeHint(const QCPLayoutInset* self) {
 }
 
 // Base class handler implementation
-QSize* QCPLayoutInset_QBaseMinimumOuterSizeHint(const QCPLayoutInset* self) {
+QSize* QCPLayoutInset_SuperMinimumOuterSizeHint(const QCPLayoutInset* self) {
     auto* vqcplayoutinset = const_cast<VirtualQCPLayoutInset*>(dynamic_cast<const VirtualQCPLayoutInset*>(self));
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_MinimumOuterSizeHint_IsBase(true);
@@ -9073,7 +9073,7 @@ QSize* QCPLayoutInset_MaximumOuterSizeHint(const QCPLayoutInset* self) {
 }
 
 // Base class handler implementation
-QSize* QCPLayoutInset_QBaseMaximumOuterSizeHint(const QCPLayoutInset* self) {
+QSize* QCPLayoutInset_SuperMaximumOuterSizeHint(const QCPLayoutInset* self) {
     auto* vqcplayoutinset = const_cast<VirtualQCPLayoutInset*>(dynamic_cast<const VirtualQCPLayoutInset*>(self));
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_MaximumOuterSizeHint_IsBase(true);
@@ -9102,7 +9102,7 @@ int QCPLayoutInset_CalculateAutoMargin(QCPLayoutInset* self, int side) {
 }
 
 // Base class handler implementation
-int QCPLayoutInset_QBaseCalculateAutoMargin(QCPLayoutInset* self, int side) {
+int QCPLayoutInset_SuperCalculateAutoMargin(QCPLayoutInset* self, int side) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_CalculateAutoMargin_IsBase(true);
@@ -9131,7 +9131,7 @@ void QCPLayoutInset_LayoutChanged(QCPLayoutInset* self) {
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseLayoutChanged(QCPLayoutInset* self) {
+void QCPLayoutInset_SuperLayoutChanged(QCPLayoutInset* self) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_LayoutChanged_IsBase(true);
@@ -9160,7 +9160,7 @@ void QCPLayoutInset_ApplyDefaultAntialiasingHint(const QCPLayoutInset* self, QCP
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseApplyDefaultAntialiasingHint(const QCPLayoutInset* self, QCPPainter* painter) {
+void QCPLayoutInset_SuperApplyDefaultAntialiasingHint(const QCPLayoutInset* self, QCPPainter* painter) {
     auto* vqcplayoutinset = const_cast<VirtualQCPLayoutInset*>(dynamic_cast<const VirtualQCPLayoutInset*>(self));
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -9189,7 +9189,7 @@ void QCPLayoutInset_Draw(QCPLayoutInset* self, QCPPainter* painter) {
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseDraw(QCPLayoutInset* self, QCPPainter* painter) {
+void QCPLayoutInset_SuperDraw(QCPLayoutInset* self, QCPPainter* painter) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_Draw_IsBase(true);
@@ -9218,7 +9218,7 @@ void QCPLayoutInset_ParentPlotInitialized(QCPLayoutInset* self, QCustomPlot* par
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseParentPlotInitialized(QCPLayoutInset* self, QCustomPlot* parentPlot) {
+void QCPLayoutInset_SuperParentPlotInitialized(QCPLayoutInset* self, QCustomPlot* parentPlot) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_ParentPlotInitialized_IsBase(true);
@@ -9247,7 +9247,7 @@ int QCPLayoutInset_SelectionCategory(const QCPLayoutInset* self) {
 }
 
 // Base class handler implementation
-int QCPLayoutInset_QBaseSelectionCategory(const QCPLayoutInset* self) {
+int QCPLayoutInset_SuperSelectionCategory(const QCPLayoutInset* self) {
     auto* vqcplayoutinset = const_cast<VirtualQCPLayoutInset*>(dynamic_cast<const VirtualQCPLayoutInset*>(self));
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_SelectionCategory_IsBase(true);
@@ -9275,7 +9275,7 @@ QRect* QCPLayoutInset_ClipRect(const QCPLayoutInset* self) {
 }
 
 // Base class handler implementation
-QRect* QCPLayoutInset_QBaseClipRect(const QCPLayoutInset* self) {
+QRect* QCPLayoutInset_SuperClipRect(const QCPLayoutInset* self) {
     auto* vqcplayoutinset = const_cast<VirtualQCPLayoutInset*>(dynamic_cast<const VirtualQCPLayoutInset*>(self));
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_ClipRect_IsBase(true);
@@ -9303,7 +9303,7 @@ void QCPLayoutInset_SelectEvent(QCPLayoutInset* self, QMouseEvent* event, bool a
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseSelectEvent(QCPLayoutInset* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPLayoutInset_SuperSelectEvent(QCPLayoutInset* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_SelectEvent_IsBase(true);
@@ -9332,7 +9332,7 @@ void QCPLayoutInset_DeselectEvent(QCPLayoutInset* self, bool* selectionStateChan
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseDeselectEvent(QCPLayoutInset* self, bool* selectionStateChanged) {
+void QCPLayoutInset_SuperDeselectEvent(QCPLayoutInset* self, bool* selectionStateChanged) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_DeselectEvent_IsBase(true);
@@ -9361,7 +9361,7 @@ void QCPLayoutInset_MousePressEvent(QCPLayoutInset* self, QMouseEvent* event, co
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseMousePressEvent(QCPLayoutInset* self, QMouseEvent* event, const QVariant* details) {
+void QCPLayoutInset_SuperMousePressEvent(QCPLayoutInset* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_MousePressEvent_IsBase(true);
@@ -9390,7 +9390,7 @@ void QCPLayoutInset_MouseMoveEvent(QCPLayoutInset* self, QMouseEvent* event, con
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseMouseMoveEvent(QCPLayoutInset* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPLayoutInset_SuperMouseMoveEvent(QCPLayoutInset* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_MouseMoveEvent_IsBase(true);
@@ -9419,7 +9419,7 @@ void QCPLayoutInset_MouseReleaseEvent(QCPLayoutInset* self, QMouseEvent* event, 
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseMouseReleaseEvent(QCPLayoutInset* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPLayoutInset_SuperMouseReleaseEvent(QCPLayoutInset* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_MouseReleaseEvent_IsBase(true);
@@ -9448,7 +9448,7 @@ void QCPLayoutInset_MouseDoubleClickEvent(QCPLayoutInset* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseMouseDoubleClickEvent(QCPLayoutInset* self, QMouseEvent* event, const QVariant* details) {
+void QCPLayoutInset_SuperMouseDoubleClickEvent(QCPLayoutInset* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_MouseDoubleClickEvent_IsBase(true);
@@ -9477,7 +9477,7 @@ void QCPLayoutInset_WheelEvent(QCPLayoutInset* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseWheelEvent(QCPLayoutInset* self, QWheelEvent* event) {
+void QCPLayoutInset_SuperWheelEvent(QCPLayoutInset* self, QWheelEvent* event) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_WheelEvent_IsBase(true);
@@ -9506,7 +9506,7 @@ bool QCPLayoutInset_Event(QCPLayoutInset* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPLayoutInset_QBaseEvent(QCPLayoutInset* self, QEvent* event) {
+bool QCPLayoutInset_SuperEvent(QCPLayoutInset* self, QEvent* event) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_Event_IsBase(true);
@@ -9535,7 +9535,7 @@ bool QCPLayoutInset_EventFilter(QCPLayoutInset* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QCPLayoutInset_QBaseEventFilter(QCPLayoutInset* self, QObject* watched, QEvent* event) {
+bool QCPLayoutInset_SuperEventFilter(QCPLayoutInset* self, QObject* watched, QEvent* event) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_EventFilter_IsBase(true);
@@ -9564,7 +9564,7 @@ void QCPLayoutInset_TimerEvent(QCPLayoutInset* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseTimerEvent(QCPLayoutInset* self, QTimerEvent* event) {
+void QCPLayoutInset_SuperTimerEvent(QCPLayoutInset* self, QTimerEvent* event) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_TimerEvent_IsBase(true);
@@ -9593,7 +9593,7 @@ void QCPLayoutInset_ChildEvent(QCPLayoutInset* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseChildEvent(QCPLayoutInset* self, QChildEvent* event) {
+void QCPLayoutInset_SuperChildEvent(QCPLayoutInset* self, QChildEvent* event) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_ChildEvent_IsBase(true);
@@ -9622,7 +9622,7 @@ void QCPLayoutInset_CustomEvent(QCPLayoutInset* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseCustomEvent(QCPLayoutInset* self, QEvent* event) {
+void QCPLayoutInset_SuperCustomEvent(QCPLayoutInset* self, QEvent* event) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_CustomEvent_IsBase(true);
@@ -9651,7 +9651,7 @@ void QCPLayoutInset_ConnectNotify(QCPLayoutInset* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseConnectNotify(QCPLayoutInset* self, const QMetaMethod* signal) {
+void QCPLayoutInset_SuperConnectNotify(QCPLayoutInset* self, const QMetaMethod* signal) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_ConnectNotify_IsBase(true);
@@ -9680,7 +9680,7 @@ void QCPLayoutInset_DisconnectNotify(QCPLayoutInset* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseDisconnectNotify(QCPLayoutInset* self, const QMetaMethod* signal) {
+void QCPLayoutInset_SuperDisconnectNotify(QCPLayoutInset* self, const QMetaMethod* signal) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_DisconnectNotify_IsBase(true);
@@ -9709,7 +9709,7 @@ void QCPLayoutInset_SizeConstraintsChanged(const QCPLayoutInset* self) {
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseSizeConstraintsChanged(const QCPLayoutInset* self) {
+void QCPLayoutInset_SuperSizeConstraintsChanged(const QCPLayoutInset* self) {
     auto* vqcplayoutinset = const_cast<VirtualQCPLayoutInset*>(dynamic_cast<const VirtualQCPLayoutInset*>(self));
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_SizeConstraintsChanged_IsBase(true);
@@ -9738,7 +9738,7 @@ void QCPLayoutInset_AdoptElement(QCPLayoutInset* self, QCPLayoutElement* el) {
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseAdoptElement(QCPLayoutInset* self, QCPLayoutElement* el) {
+void QCPLayoutInset_SuperAdoptElement(QCPLayoutInset* self, QCPLayoutElement* el) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_AdoptElement_IsBase(true);
@@ -9767,7 +9767,7 @@ void QCPLayoutInset_ReleaseElement(QCPLayoutInset* self, QCPLayoutElement* el) {
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseReleaseElement(QCPLayoutInset* self, QCPLayoutElement* el) {
+void QCPLayoutInset_SuperReleaseElement(QCPLayoutInset* self, QCPLayoutElement* el) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_ReleaseElement_IsBase(true);
@@ -9832,7 +9832,7 @@ libqt_list /* of int */ QCPLayoutInset_GetSectionSizes(const QCPLayoutInset* sel
 }
 
 // Base class handler implementation
-libqt_list /* of int */ QCPLayoutInset_QBaseGetSectionSizes(const QCPLayoutInset* self, libqt_list /* of int */ maxSizes, libqt_list /* of int */ minSizes, libqt_list /* of double */ stretchFactors, int totalSize) {
+libqt_list /* of int */ QCPLayoutInset_SuperGetSectionSizes(const QCPLayoutInset* self, libqt_list /* of int */ maxSizes, libqt_list /* of int */ minSizes, libqt_list /* of double */ stretchFactors, int totalSize) {
     auto* vqcplayoutinset = const_cast<VirtualQCPLayoutInset*>(dynamic_cast<const VirtualQCPLayoutInset*>(self));
     QVector<int> maxSizes_QVector;
     maxSizes_QVector.reserve(maxSizes.len);
@@ -9897,7 +9897,7 @@ void QCPLayoutInset_InitializeParentPlot(QCPLayoutInset* self, QCustomPlot* pare
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseInitializeParentPlot(QCPLayoutInset* self, QCustomPlot* parentPlot) {
+void QCPLayoutInset_SuperInitializeParentPlot(QCPLayoutInset* self, QCustomPlot* parentPlot) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_InitializeParentPlot_IsBase(true);
@@ -9926,7 +9926,7 @@ void QCPLayoutInset_SetParentLayerable(QCPLayoutInset* self, QCPLayerable* paren
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseSetParentLayerable(QCPLayoutInset* self, QCPLayerable* parentLayerable) {
+void QCPLayoutInset_SuperSetParentLayerable(QCPLayoutInset* self, QCPLayerable* parentLayerable) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_SetParentLayerable_IsBase(true);
@@ -9955,7 +9955,7 @@ bool QCPLayoutInset_MoveToLayer(QCPLayoutInset* self, QCPLayer* layer, bool prep
 }
 
 // Base class handler implementation
-bool QCPLayoutInset_QBaseMoveToLayer(QCPLayoutInset* self, QCPLayer* layer, bool prepend) {
+bool QCPLayoutInset_SuperMoveToLayer(QCPLayoutInset* self, QCPLayer* layer, bool prepend) {
     auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_MoveToLayer_IsBase(true);
@@ -9984,7 +9984,7 @@ void QCPLayoutInset_ApplyAntialiasingHint(const QCPLayoutInset* self, QCPPainter
 }
 
 // Base class handler implementation
-void QCPLayoutInset_QBaseApplyAntialiasingHint(const QCPLayoutInset* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPLayoutInset_SuperApplyAntialiasingHint(const QCPLayoutInset* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcplayoutinset = const_cast<VirtualQCPLayoutInset*>(dynamic_cast<const VirtualQCPLayoutInset*>(self));
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_ApplyAntialiasingHint_IsBase(true);
@@ -10013,7 +10013,7 @@ QObject* QCPLayoutInset_Sender(const QCPLayoutInset* self) {
 }
 
 // Base class handler implementation
-QObject* QCPLayoutInset_QBaseSender(const QCPLayoutInset* self) {
+QObject* QCPLayoutInset_SuperSender(const QCPLayoutInset* self) {
     auto* vqcplayoutinset = const_cast<VirtualQCPLayoutInset*>(dynamic_cast<const VirtualQCPLayoutInset*>(self));
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_Sender_IsBase(true);
@@ -10042,7 +10042,7 @@ int QCPLayoutInset_SenderSignalIndex(const QCPLayoutInset* self) {
 }
 
 // Base class handler implementation
-int QCPLayoutInset_QBaseSenderSignalIndex(const QCPLayoutInset* self) {
+int QCPLayoutInset_SuperSenderSignalIndex(const QCPLayoutInset* self) {
     auto* vqcplayoutinset = const_cast<VirtualQCPLayoutInset*>(dynamic_cast<const VirtualQCPLayoutInset*>(self));
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_SenderSignalIndex_IsBase(true);
@@ -10071,7 +10071,7 @@ int QCPLayoutInset_Receivers(const QCPLayoutInset* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPLayoutInset_QBaseReceivers(const QCPLayoutInset* self, const char* signal) {
+int QCPLayoutInset_SuperReceivers(const QCPLayoutInset* self, const char* signal) {
     auto* vqcplayoutinset = const_cast<VirtualQCPLayoutInset*>(dynamic_cast<const VirtualQCPLayoutInset*>(self));
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_Receivers_IsBase(true);
@@ -10100,7 +10100,7 @@ bool QCPLayoutInset_IsSignalConnected(const QCPLayoutInset* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QCPLayoutInset_QBaseIsSignalConnected(const QCPLayoutInset* self, const QMetaMethod* signal) {
+bool QCPLayoutInset_SuperIsSignalConnected(const QCPLayoutInset* self, const QMetaMethod* signal) {
     auto* vqcplayoutinset = const_cast<VirtualQCPLayoutInset*>(dynamic_cast<const VirtualQCPLayoutInset*>(self));
     if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
         vqcplayoutinset->setQCPLayoutInset_IsSignalConnected_IsBase(true);
@@ -10374,7 +10374,7 @@ libqt_list /* of libqt_string */ QCPAxisTicker_CreateLabelVector(QCPAxisTicker* 
 }
 
 // Base class handler implementation
-void QCPAxisTicker_QBaseGenerate(QCPAxisTicker* self, const QCPRange* range, const QLocale* locale, QChar* formatChar, int precision, libqt_list /* of double */ ticks, libqt_list /* of double */ subTicks, libqt_list /* of libqt_string */ tickLabels) {
+void QCPAxisTicker_SuperGenerate(QCPAxisTicker* self, const QCPRange* range, const QLocale* locale, QChar* formatChar, int precision, libqt_list /* of double */ ticks, libqt_list /* of double */ subTicks, libqt_list /* of libqt_string */ tickLabels) {
     auto* vqcpaxisticker = dynamic_cast<VirtualQCPAxisTicker*>(self);
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -10412,7 +10412,7 @@ void QCPAxisTicker_OnGenerate(QCPAxisTicker* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPAxisTicker_QBaseGetTickStep(QCPAxisTicker* self, const QCPRange* range) {
+double QCPAxisTicker_SuperGetTickStep(QCPAxisTicker* self, const QCPRange* range) {
     auto* vqcpaxisticker = dynamic_cast<VirtualQCPAxisTicker*>(self);
     if (vqcpaxisticker && vqcpaxisticker->isVirtualQCPAxisTicker) {
         vqcpaxisticker->setQCPAxisTicker_GetTickStep_IsBase(true);
@@ -10431,7 +10431,7 @@ void QCPAxisTicker_OnGetTickStep(QCPAxisTicker* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPAxisTicker_QBaseGetSubTickCount(QCPAxisTicker* self, double tickStep) {
+int QCPAxisTicker_SuperGetSubTickCount(QCPAxisTicker* self, double tickStep) {
     auto* vqcpaxisticker = dynamic_cast<VirtualQCPAxisTicker*>(self);
     if (vqcpaxisticker && vqcpaxisticker->isVirtualQCPAxisTicker) {
         vqcpaxisticker->setQCPAxisTicker_GetSubTickCount_IsBase(true);
@@ -10450,7 +10450,7 @@ void QCPAxisTicker_OnGetSubTickCount(QCPAxisTicker* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string QCPAxisTicker_QBaseGetTickLabel(QCPAxisTicker* self, double tick, const QLocale* locale, QChar* formatChar, int precision) {
+libqt_string QCPAxisTicker_SuperGetTickLabel(QCPAxisTicker* self, double tick, const QLocale* locale, QChar* formatChar, int precision) {
     auto* vqcpaxisticker = dynamic_cast<VirtualQCPAxisTicker*>(self);
     if (vqcpaxisticker && vqcpaxisticker->isVirtualQCPAxisTicker) {
         vqcpaxisticker->setQCPAxisTicker_GetTickLabel_IsBase(true);
@@ -10485,7 +10485,7 @@ void QCPAxisTicker_OnGetTickLabel(QCPAxisTicker* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of double */ QCPAxisTicker_QBaseCreateTickVector(QCPAxisTicker* self, double tickStep, const QCPRange* range) {
+libqt_list /* of double */ QCPAxisTicker_SuperCreateTickVector(QCPAxisTicker* self, double tickStep, const QCPRange* range) {
     auto* vqcpaxisticker = dynamic_cast<VirtualQCPAxisTicker*>(self);
     if (vqcpaxisticker && vqcpaxisticker->isVirtualQCPAxisTicker) {
         vqcpaxisticker->setQCPAxisTicker_CreateTickVector_IsBase(true);
@@ -10522,7 +10522,7 @@ void QCPAxisTicker_OnCreateTickVector(QCPAxisTicker* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of double */ QCPAxisTicker_QBaseCreateSubTickVector(QCPAxisTicker* self, int subTickCount, const libqt_list /* of double */ ticks) {
+libqt_list /* of double */ QCPAxisTicker_SuperCreateSubTickVector(QCPAxisTicker* self, int subTickCount, const libqt_list /* of double */ ticks) {
     auto* vqcpaxisticker = dynamic_cast<VirtualQCPAxisTicker*>(self);
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -10565,7 +10565,7 @@ void QCPAxisTicker_OnCreateSubTickVector(QCPAxisTicker* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QCPAxisTicker_QBaseCreateLabelVector(QCPAxisTicker* self, const libqt_list /* of double */ ticks, const QLocale* locale, QChar* formatChar, int precision) {
+libqt_list /* of libqt_string */ QCPAxisTicker_SuperCreateLabelVector(QCPAxisTicker* self, const libqt_list /* of double */ ticks, const QLocale* locale, QChar* formatChar, int precision) {
     auto* vqcpaxisticker = dynamic_cast<VirtualQCPAxisTicker*>(self);
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -10640,7 +10640,7 @@ void QCPAxisTicker_TrimTicks(const QCPAxisTicker* self, const QCPRange* range, l
 }
 
 // Base class handler implementation
-void QCPAxisTicker_QBaseTrimTicks(const QCPAxisTicker* self, const QCPRange* range, libqt_list /* of double */ ticks, bool keepOneOutlier) {
+void QCPAxisTicker_SuperTrimTicks(const QCPAxisTicker* self, const QCPRange* range, libqt_list /* of double */ ticks, bool keepOneOutlier) {
     auto* vqcpaxisticker = const_cast<VirtualQCPAxisTicker*>(dynamic_cast<const VirtualQCPAxisTicker*>(self));
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -10681,7 +10681,7 @@ double QCPAxisTicker_PickClosest(const QCPAxisTicker* self, double target, const
 }
 
 // Base class handler implementation
-double QCPAxisTicker_QBasePickClosest(const QCPAxisTicker* self, double target, const libqt_list /* of double */ candidates) {
+double QCPAxisTicker_SuperPickClosest(const QCPAxisTicker* self, double target, const libqt_list /* of double */ candidates) {
     auto* vqcpaxisticker = const_cast<VirtualQCPAxisTicker*>(dynamic_cast<const VirtualQCPAxisTicker*>(self));
     QVector<double> candidates_QVector;
     candidates_QVector.reserve(candidates.len);
@@ -10716,7 +10716,7 @@ double QCPAxisTicker_GetMantissa(const QCPAxisTicker* self, double input) {
 }
 
 // Base class handler implementation
-double QCPAxisTicker_QBaseGetMantissa(const QCPAxisTicker* self, double input) {
+double QCPAxisTicker_SuperGetMantissa(const QCPAxisTicker* self, double input) {
     auto* vqcpaxisticker = const_cast<VirtualQCPAxisTicker*>(dynamic_cast<const VirtualQCPAxisTicker*>(self));
     if (vqcpaxisticker && vqcpaxisticker->isVirtualQCPAxisTicker) {
         vqcpaxisticker->setQCPAxisTicker_GetMantissa_IsBase(true);
@@ -10745,7 +10745,7 @@ double QCPAxisTicker_CleanMantissa(const QCPAxisTicker* self, double input) {
 }
 
 // Base class handler implementation
-double QCPAxisTicker_QBaseCleanMantissa(const QCPAxisTicker* self, double input) {
+double QCPAxisTicker_SuperCleanMantissa(const QCPAxisTicker* self, double input) {
     auto* vqcpaxisticker = const_cast<VirtualQCPAxisTicker*>(dynamic_cast<const VirtualQCPAxisTicker*>(self));
     if (vqcpaxisticker && vqcpaxisticker->isVirtualQCPAxisTicker) {
         vqcpaxisticker->setQCPAxisTicker_CleanMantissa_IsBase(true);
@@ -10774,7 +10774,7 @@ double QCPAxisTicker_GetMantissa2(const QCPAxisTicker* self, double input, doubl
 }
 
 // Base class handler implementation
-double QCPAxisTicker_QBaseGetMantissa2(const QCPAxisTicker* self, double input, double* magnitude) {
+double QCPAxisTicker_SuperGetMantissa2(const QCPAxisTicker* self, double input, double* magnitude) {
     auto* vqcpaxisticker = const_cast<VirtualQCPAxisTicker*>(dynamic_cast<const VirtualQCPAxisTicker*>(self));
     if (vqcpaxisticker && vqcpaxisticker->isVirtualQCPAxisTicker) {
         vqcpaxisticker->setQCPAxisTicker_GetMantissa2_IsBase(true);
@@ -10907,7 +10907,7 @@ double QCPAxisTickerDateTime_DateTimeToKey22(const QDate* date, int timeSpec) {
 }
 
 // Base class handler implementation
-double QCPAxisTickerDateTime_QBaseGetTickStep(QCPAxisTickerDateTime* self, const QCPRange* range) {
+double QCPAxisTickerDateTime_SuperGetTickStep(QCPAxisTickerDateTime* self, const QCPRange* range) {
     auto* vqcpaxistickerdatetime = dynamic_cast<VirtualQCPAxisTickerDateTime*>(self);
     if (vqcpaxistickerdatetime && vqcpaxistickerdatetime->isVirtualQCPAxisTickerDateTime) {
         vqcpaxistickerdatetime->setQCPAxisTickerDateTime_GetTickStep_IsBase(true);
@@ -10926,7 +10926,7 @@ void QCPAxisTickerDateTime_OnGetTickStep(QCPAxisTickerDateTime* self, intptr_t s
 }
 
 // Base class handler implementation
-int QCPAxisTickerDateTime_QBaseGetSubTickCount(QCPAxisTickerDateTime* self, double tickStep) {
+int QCPAxisTickerDateTime_SuperGetSubTickCount(QCPAxisTickerDateTime* self, double tickStep) {
     auto* vqcpaxistickerdatetime = dynamic_cast<VirtualQCPAxisTickerDateTime*>(self);
     if (vqcpaxistickerdatetime && vqcpaxistickerdatetime->isVirtualQCPAxisTickerDateTime) {
         vqcpaxistickerdatetime->setQCPAxisTickerDateTime_GetSubTickCount_IsBase(true);
@@ -10945,7 +10945,7 @@ void QCPAxisTickerDateTime_OnGetSubTickCount(QCPAxisTickerDateTime* self, intptr
 }
 
 // Base class handler implementation
-libqt_string QCPAxisTickerDateTime_QBaseGetTickLabel(QCPAxisTickerDateTime* self, double tick, const QLocale* locale, QChar* formatChar, int precision) {
+libqt_string QCPAxisTickerDateTime_SuperGetTickLabel(QCPAxisTickerDateTime* self, double tick, const QLocale* locale, QChar* formatChar, int precision) {
     auto* vqcpaxistickerdatetime = dynamic_cast<VirtualQCPAxisTickerDateTime*>(self);
     if (vqcpaxistickerdatetime && vqcpaxistickerdatetime->isVirtualQCPAxisTickerDateTime) {
         vqcpaxistickerdatetime->setQCPAxisTickerDateTime_GetTickLabel_IsBase(true);
@@ -10980,7 +10980,7 @@ void QCPAxisTickerDateTime_OnGetTickLabel(QCPAxisTickerDateTime* self, intptr_t 
 }
 
 // Base class handler implementation
-libqt_list /* of double */ QCPAxisTickerDateTime_QBaseCreateTickVector(QCPAxisTickerDateTime* self, double tickStep, const QCPRange* range) {
+libqt_list /* of double */ QCPAxisTickerDateTime_SuperCreateTickVector(QCPAxisTickerDateTime* self, double tickStep, const QCPRange* range) {
     auto* vqcpaxistickerdatetime = dynamic_cast<VirtualQCPAxisTickerDateTime*>(self);
     if (vqcpaxistickerdatetime && vqcpaxistickerdatetime->isVirtualQCPAxisTickerDateTime) {
         vqcpaxistickerdatetime->setQCPAxisTickerDateTime_CreateTickVector_IsBase(true);
@@ -11046,7 +11046,7 @@ void QCPAxisTickerDateTime_Generate(QCPAxisTickerDateTime* self, const QCPRange*
 }
 
 // Base class handler implementation
-void QCPAxisTickerDateTime_QBaseGenerate(QCPAxisTickerDateTime* self, const QCPRange* range, const QLocale* locale, QChar* formatChar, int precision, libqt_list /* of double */ ticks, libqt_list /* of double */ subTicks, libqt_list /* of libqt_string */ tickLabels) {
+void QCPAxisTickerDateTime_SuperGenerate(QCPAxisTickerDateTime* self, const QCPRange* range, const QLocale* locale, QChar* formatChar, int precision, libqt_list /* of double */ ticks, libqt_list /* of double */ subTicks, libqt_list /* of libqt_string */ tickLabels) {
     auto* vqcpaxistickerdatetime = dynamic_cast<VirtualQCPAxisTickerDateTime*>(self);
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -11118,7 +11118,7 @@ libqt_list /* of double */ QCPAxisTickerDateTime_CreateSubTickVector(QCPAxisTick
 }
 
 // Base class handler implementation
-libqt_list /* of double */ QCPAxisTickerDateTime_QBaseCreateSubTickVector(QCPAxisTickerDateTime* self, int subTickCount, const libqt_list /* of double */ ticks) {
+libqt_list /* of double */ QCPAxisTickerDateTime_SuperCreateSubTickVector(QCPAxisTickerDateTime* self, int subTickCount, const libqt_list /* of double */ ticks) {
     auto* vqcpaxistickerdatetime = dynamic_cast<VirtualQCPAxisTickerDateTime*>(self);
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -11211,7 +11211,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerDateTime_CreateLabelVector(QCPAxis
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QCPAxisTickerDateTime_QBaseCreateLabelVector(QCPAxisTickerDateTime* self, const libqt_list /* of double */ ticks, const QLocale* locale, QChar* formatChar, int precision) {
+libqt_list /* of libqt_string */ QCPAxisTickerDateTime_SuperCreateLabelVector(QCPAxisTickerDateTime* self, const libqt_list /* of double */ ticks, const QLocale* locale, QChar* formatChar, int precision) {
     auto* vqcpaxistickerdatetime = dynamic_cast<VirtualQCPAxisTickerDateTime*>(self);
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -11286,7 +11286,7 @@ void QCPAxisTickerDateTime_TrimTicks(const QCPAxisTickerDateTime* self, const QC
 }
 
 // Base class handler implementation
-void QCPAxisTickerDateTime_QBaseTrimTicks(const QCPAxisTickerDateTime* self, const QCPRange* range, libqt_list /* of double */ ticks, bool keepOneOutlier) {
+void QCPAxisTickerDateTime_SuperTrimTicks(const QCPAxisTickerDateTime* self, const QCPRange* range, libqt_list /* of double */ ticks, bool keepOneOutlier) {
     auto* vqcpaxistickerdatetime = const_cast<VirtualQCPAxisTickerDateTime*>(dynamic_cast<const VirtualQCPAxisTickerDateTime*>(self));
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -11327,7 +11327,7 @@ double QCPAxisTickerDateTime_PickClosest(const QCPAxisTickerDateTime* self, doub
 }
 
 // Base class handler implementation
-double QCPAxisTickerDateTime_QBasePickClosest(const QCPAxisTickerDateTime* self, double target, const libqt_list /* of double */ candidates) {
+double QCPAxisTickerDateTime_SuperPickClosest(const QCPAxisTickerDateTime* self, double target, const libqt_list /* of double */ candidates) {
     auto* vqcpaxistickerdatetime = const_cast<VirtualQCPAxisTickerDateTime*>(dynamic_cast<const VirtualQCPAxisTickerDateTime*>(self));
     QVector<double> candidates_QVector;
     candidates_QVector.reserve(candidates.len);
@@ -11362,7 +11362,7 @@ double QCPAxisTickerDateTime_GetMantissa(const QCPAxisTickerDateTime* self, doub
 }
 
 // Base class handler implementation
-double QCPAxisTickerDateTime_QBaseGetMantissa(const QCPAxisTickerDateTime* self, double input) {
+double QCPAxisTickerDateTime_SuperGetMantissa(const QCPAxisTickerDateTime* self, double input) {
     auto* vqcpaxistickerdatetime = const_cast<VirtualQCPAxisTickerDateTime*>(dynamic_cast<const VirtualQCPAxisTickerDateTime*>(self));
     if (vqcpaxistickerdatetime && vqcpaxistickerdatetime->isVirtualQCPAxisTickerDateTime) {
         vqcpaxistickerdatetime->setQCPAxisTickerDateTime_GetMantissa_IsBase(true);
@@ -11391,7 +11391,7 @@ double QCPAxisTickerDateTime_CleanMantissa(const QCPAxisTickerDateTime* self, do
 }
 
 // Base class handler implementation
-double QCPAxisTickerDateTime_QBaseCleanMantissa(const QCPAxisTickerDateTime* self, double input) {
+double QCPAxisTickerDateTime_SuperCleanMantissa(const QCPAxisTickerDateTime* self, double input) {
     auto* vqcpaxistickerdatetime = const_cast<VirtualQCPAxisTickerDateTime*>(dynamic_cast<const VirtualQCPAxisTickerDateTime*>(self));
     if (vqcpaxistickerdatetime && vqcpaxistickerdatetime->isVirtualQCPAxisTickerDateTime) {
         vqcpaxistickerdatetime->setQCPAxisTickerDateTime_CleanMantissa_IsBase(true);
@@ -11475,7 +11475,7 @@ libqt_string QCPAxisTickerTime_GetTickLabel(QCPAxisTickerTime* self, double tick
 }
 
 // Base class handler implementation
-double QCPAxisTickerTime_QBaseGetTickStep(QCPAxisTickerTime* self, const QCPRange* range) {
+double QCPAxisTickerTime_SuperGetTickStep(QCPAxisTickerTime* self, const QCPRange* range) {
     auto* vqcpaxistickertime = dynamic_cast<VirtualQCPAxisTickerTime*>(self);
     if (vqcpaxistickertime && vqcpaxistickertime->isVirtualQCPAxisTickerTime) {
         vqcpaxistickertime->setQCPAxisTickerTime_GetTickStep_IsBase(true);
@@ -11494,7 +11494,7 @@ void QCPAxisTickerTime_OnGetTickStep(QCPAxisTickerTime* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPAxisTickerTime_QBaseGetSubTickCount(QCPAxisTickerTime* self, double tickStep) {
+int QCPAxisTickerTime_SuperGetSubTickCount(QCPAxisTickerTime* self, double tickStep) {
     auto* vqcpaxistickertime = dynamic_cast<VirtualQCPAxisTickerTime*>(self);
     if (vqcpaxistickertime && vqcpaxistickertime->isVirtualQCPAxisTickerTime) {
         vqcpaxistickertime->setQCPAxisTickerTime_GetSubTickCount_IsBase(true);
@@ -11513,7 +11513,7 @@ void QCPAxisTickerTime_OnGetSubTickCount(QCPAxisTickerTime* self, intptr_t slot)
 }
 
 // Base class handler implementation
-libqt_string QCPAxisTickerTime_QBaseGetTickLabel(QCPAxisTickerTime* self, double tick, const QLocale* locale, QChar* formatChar, int precision) {
+libqt_string QCPAxisTickerTime_SuperGetTickLabel(QCPAxisTickerTime* self, double tick, const QLocale* locale, QChar* formatChar, int precision) {
     auto* vqcpaxistickertime = dynamic_cast<VirtualQCPAxisTickerTime*>(self);
     if (vqcpaxistickertime && vqcpaxistickertime->isVirtualQCPAxisTickerTime) {
         vqcpaxistickertime->setQCPAxisTickerTime_GetTickLabel_IsBase(true);
@@ -11577,7 +11577,7 @@ void QCPAxisTickerTime_Generate(QCPAxisTickerTime* self, const QCPRange* range, 
 }
 
 // Base class handler implementation
-void QCPAxisTickerTime_QBaseGenerate(QCPAxisTickerTime* self, const QCPRange* range, const QLocale* locale, QChar* formatChar, int precision, libqt_list /* of double */ ticks, libqt_list /* of double */ subTicks, libqt_list /* of libqt_string */ tickLabels) {
+void QCPAxisTickerTime_SuperGenerate(QCPAxisTickerTime* self, const QCPRange* range, const QLocale* locale, QChar* formatChar, int precision, libqt_list /* of double */ ticks, libqt_list /* of double */ subTicks, libqt_list /* of libqt_string */ tickLabels) {
     auto* vqcpaxistickertime = dynamic_cast<VirtualQCPAxisTickerTime*>(self);
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -11643,7 +11643,7 @@ libqt_list /* of double */ QCPAxisTickerTime_CreateTickVector(QCPAxisTickerTime*
 }
 
 // Base class handler implementation
-libqt_list /* of double */ QCPAxisTickerTime_QBaseCreateTickVector(QCPAxisTickerTime* self, double tickStep, const QCPRange* range) {
+libqt_list /* of double */ QCPAxisTickerTime_SuperCreateTickVector(QCPAxisTickerTime* self, double tickStep, const QCPRange* range) {
     auto* vqcpaxistickertime = dynamic_cast<VirtualQCPAxisTickerTime*>(self);
     if (vqcpaxistickertime && vqcpaxistickertime->isVirtualQCPAxisTickerTime) {
         vqcpaxistickertime->setQCPAxisTickerTime_CreateTickVector_IsBase(true);
@@ -11714,7 +11714,7 @@ libqt_list /* of double */ QCPAxisTickerTime_CreateSubTickVector(QCPAxisTickerTi
 }
 
 // Base class handler implementation
-libqt_list /* of double */ QCPAxisTickerTime_QBaseCreateSubTickVector(QCPAxisTickerTime* self, int subTickCount, const libqt_list /* of double */ ticks) {
+libqt_list /* of double */ QCPAxisTickerTime_SuperCreateSubTickVector(QCPAxisTickerTime* self, int subTickCount, const libqt_list /* of double */ ticks) {
     auto* vqcpaxistickertime = dynamic_cast<VirtualQCPAxisTickerTime*>(self);
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -11807,7 +11807,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerTime_CreateLabelVector(QCPAxisTick
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QCPAxisTickerTime_QBaseCreateLabelVector(QCPAxisTickerTime* self, const libqt_list /* of double */ ticks, const QLocale* locale, QChar* formatChar, int precision) {
+libqt_list /* of libqt_string */ QCPAxisTickerTime_SuperCreateLabelVector(QCPAxisTickerTime* self, const libqt_list /* of double */ ticks, const QLocale* locale, QChar* formatChar, int precision) {
     auto* vqcpaxistickertime = dynamic_cast<VirtualQCPAxisTickerTime*>(self);
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -11877,7 +11877,7 @@ void QCPAxisTickerTime_ReplaceUnit(const QCPAxisTickerTime* self, libqt_string t
 }
 
 // Base class handler implementation
-void QCPAxisTickerTime_QBaseReplaceUnit(const QCPAxisTickerTime* self, libqt_string text, int unit, int value) {
+void QCPAxisTickerTime_SuperReplaceUnit(const QCPAxisTickerTime* self, libqt_string text, int unit, int value) {
     auto* vqcpaxistickertime = const_cast<VirtualQCPAxisTickerTime*>(dynamic_cast<const VirtualQCPAxisTickerTime*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqcpaxistickertime && vqcpaxistickertime->isVirtualQCPAxisTickerTime) {
@@ -11913,7 +11913,7 @@ void QCPAxisTickerTime_TrimTicks(const QCPAxisTickerTime* self, const QCPRange* 
 }
 
 // Base class handler implementation
-void QCPAxisTickerTime_QBaseTrimTicks(const QCPAxisTickerTime* self, const QCPRange* range, libqt_list /* of double */ ticks, bool keepOneOutlier) {
+void QCPAxisTickerTime_SuperTrimTicks(const QCPAxisTickerTime* self, const QCPRange* range, libqt_list /* of double */ ticks, bool keepOneOutlier) {
     auto* vqcpaxistickertime = const_cast<VirtualQCPAxisTickerTime*>(dynamic_cast<const VirtualQCPAxisTickerTime*>(self));
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -11954,7 +11954,7 @@ double QCPAxisTickerTime_PickClosest(const QCPAxisTickerTime* self, double targe
 }
 
 // Base class handler implementation
-double QCPAxisTickerTime_QBasePickClosest(const QCPAxisTickerTime* self, double target, const libqt_list /* of double */ candidates) {
+double QCPAxisTickerTime_SuperPickClosest(const QCPAxisTickerTime* self, double target, const libqt_list /* of double */ candidates) {
     auto* vqcpaxistickertime = const_cast<VirtualQCPAxisTickerTime*>(dynamic_cast<const VirtualQCPAxisTickerTime*>(self));
     QVector<double> candidates_QVector;
     candidates_QVector.reserve(candidates.len);
@@ -11989,7 +11989,7 @@ double QCPAxisTickerTime_GetMantissa(const QCPAxisTickerTime* self, double input
 }
 
 // Base class handler implementation
-double QCPAxisTickerTime_QBaseGetMantissa(const QCPAxisTickerTime* self, double input) {
+double QCPAxisTickerTime_SuperGetMantissa(const QCPAxisTickerTime* self, double input) {
     auto* vqcpaxistickertime = const_cast<VirtualQCPAxisTickerTime*>(dynamic_cast<const VirtualQCPAxisTickerTime*>(self));
     if (vqcpaxistickertime && vqcpaxistickertime->isVirtualQCPAxisTickerTime) {
         vqcpaxistickertime->setQCPAxisTickerTime_GetMantissa_IsBase(true);
@@ -12018,7 +12018,7 @@ double QCPAxisTickerTime_CleanMantissa(const QCPAxisTickerTime* self, double inp
 }
 
 // Base class handler implementation
-double QCPAxisTickerTime_QBaseCleanMantissa(const QCPAxisTickerTime* self, double input) {
+double QCPAxisTickerTime_SuperCleanMantissa(const QCPAxisTickerTime* self, double input) {
     auto* vqcpaxistickertime = const_cast<VirtualQCPAxisTickerTime*>(dynamic_cast<const VirtualQCPAxisTickerTime*>(self));
     if (vqcpaxistickertime && vqcpaxistickertime->isVirtualQCPAxisTickerTime) {
         vqcpaxistickertime->setQCPAxisTickerTime_CleanMantissa_IsBase(true);
@@ -12069,7 +12069,7 @@ double QCPAxisTickerFixed_GetTickStep(QCPAxisTickerFixed* self, const QCPRange* 
 }
 
 // Base class handler implementation
-double QCPAxisTickerFixed_QBaseGetTickStep(QCPAxisTickerFixed* self, const QCPRange* range) {
+double QCPAxisTickerFixed_SuperGetTickStep(QCPAxisTickerFixed* self, const QCPRange* range) {
     auto* vqcpaxistickerfixed = dynamic_cast<VirtualQCPAxisTickerFixed*>(self);
     if (vqcpaxistickerfixed && vqcpaxistickerfixed->isVirtualQCPAxisTickerFixed) {
         vqcpaxistickerfixed->setQCPAxisTickerFixed_GetTickStep_IsBase(true);
@@ -12117,7 +12117,7 @@ void QCPAxisTickerFixed_Generate(QCPAxisTickerFixed* self, const QCPRange* range
 }
 
 // Base class handler implementation
-void QCPAxisTickerFixed_QBaseGenerate(QCPAxisTickerFixed* self, const QCPRange* range, const QLocale* locale, QChar* formatChar, int precision, libqt_list /* of double */ ticks, libqt_list /* of double */ subTicks, libqt_list /* of libqt_string */ tickLabels) {
+void QCPAxisTickerFixed_SuperGenerate(QCPAxisTickerFixed* self, const QCPRange* range, const QLocale* locale, QChar* formatChar, int precision, libqt_list /* of double */ ticks, libqt_list /* of double */ subTicks, libqt_list /* of libqt_string */ tickLabels) {
     auto* vqcpaxistickerfixed = dynamic_cast<VirtualQCPAxisTickerFixed*>(self);
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -12165,7 +12165,7 @@ int QCPAxisTickerFixed_GetSubTickCount(QCPAxisTickerFixed* self, double tickStep
 }
 
 // Base class handler implementation
-int QCPAxisTickerFixed_QBaseGetSubTickCount(QCPAxisTickerFixed* self, double tickStep) {
+int QCPAxisTickerFixed_SuperGetSubTickCount(QCPAxisTickerFixed* self, double tickStep) {
     auto* vqcpaxistickerfixed = dynamic_cast<VirtualQCPAxisTickerFixed*>(self);
     if (vqcpaxistickerfixed && vqcpaxistickerfixed->isVirtualQCPAxisTickerFixed) {
         vqcpaxistickerfixed->setQCPAxisTickerFixed_GetSubTickCount_IsBase(true);
@@ -12210,7 +12210,7 @@ libqt_string QCPAxisTickerFixed_GetTickLabel(QCPAxisTickerFixed* self, double ti
 }
 
 // Base class handler implementation
-libqt_string QCPAxisTickerFixed_QBaseGetTickLabel(QCPAxisTickerFixed* self, double tick, const QLocale* locale, QChar* formatChar, int precision) {
+libqt_string QCPAxisTickerFixed_SuperGetTickLabel(QCPAxisTickerFixed* self, double tick, const QLocale* locale, QChar* formatChar, int precision) {
     auto* vqcpaxistickerfixed = dynamic_cast<VirtualQCPAxisTickerFixed*>(self);
     if (vqcpaxistickerfixed && vqcpaxistickerfixed->isVirtualQCPAxisTickerFixed) {
         vqcpaxistickerfixed->setQCPAxisTickerFixed_GetTickLabel_IsBase(true);
@@ -12273,7 +12273,7 @@ libqt_list /* of double */ QCPAxisTickerFixed_CreateTickVector(QCPAxisTickerFixe
 }
 
 // Base class handler implementation
-libqt_list /* of double */ QCPAxisTickerFixed_QBaseCreateTickVector(QCPAxisTickerFixed* self, double tickStep, const QCPRange* range) {
+libqt_list /* of double */ QCPAxisTickerFixed_SuperCreateTickVector(QCPAxisTickerFixed* self, double tickStep, const QCPRange* range) {
     auto* vqcpaxistickerfixed = dynamic_cast<VirtualQCPAxisTickerFixed*>(self);
     if (vqcpaxistickerfixed && vqcpaxistickerfixed->isVirtualQCPAxisTickerFixed) {
         vqcpaxistickerfixed->setQCPAxisTickerFixed_CreateTickVector_IsBase(true);
@@ -12344,7 +12344,7 @@ libqt_list /* of double */ QCPAxisTickerFixed_CreateSubTickVector(QCPAxisTickerF
 }
 
 // Base class handler implementation
-libqt_list /* of double */ QCPAxisTickerFixed_QBaseCreateSubTickVector(QCPAxisTickerFixed* self, int subTickCount, const libqt_list /* of double */ ticks) {
+libqt_list /* of double */ QCPAxisTickerFixed_SuperCreateSubTickVector(QCPAxisTickerFixed* self, int subTickCount, const libqt_list /* of double */ ticks) {
     auto* vqcpaxistickerfixed = dynamic_cast<VirtualQCPAxisTickerFixed*>(self);
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -12437,7 +12437,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerFixed_CreateLabelVector(QCPAxisTic
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QCPAxisTickerFixed_QBaseCreateLabelVector(QCPAxisTickerFixed* self, const libqt_list /* of double */ ticks, const QLocale* locale, QChar* formatChar, int precision) {
+libqt_list /* of libqt_string */ QCPAxisTickerFixed_SuperCreateLabelVector(QCPAxisTickerFixed* self, const libqt_list /* of double */ ticks, const QLocale* locale, QChar* formatChar, int precision) {
     auto* vqcpaxistickerfixed = dynamic_cast<VirtualQCPAxisTickerFixed*>(self);
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -12512,7 +12512,7 @@ void QCPAxisTickerFixed_TrimTicks(const QCPAxisTickerFixed* self, const QCPRange
 }
 
 // Base class handler implementation
-void QCPAxisTickerFixed_QBaseTrimTicks(const QCPAxisTickerFixed* self, const QCPRange* range, libqt_list /* of double */ ticks, bool keepOneOutlier) {
+void QCPAxisTickerFixed_SuperTrimTicks(const QCPAxisTickerFixed* self, const QCPRange* range, libqt_list /* of double */ ticks, bool keepOneOutlier) {
     auto* vqcpaxistickerfixed = const_cast<VirtualQCPAxisTickerFixed*>(dynamic_cast<const VirtualQCPAxisTickerFixed*>(self));
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -12553,7 +12553,7 @@ double QCPAxisTickerFixed_PickClosest(const QCPAxisTickerFixed* self, double tar
 }
 
 // Base class handler implementation
-double QCPAxisTickerFixed_QBasePickClosest(const QCPAxisTickerFixed* self, double target, const libqt_list /* of double */ candidates) {
+double QCPAxisTickerFixed_SuperPickClosest(const QCPAxisTickerFixed* self, double target, const libqt_list /* of double */ candidates) {
     auto* vqcpaxistickerfixed = const_cast<VirtualQCPAxisTickerFixed*>(dynamic_cast<const VirtualQCPAxisTickerFixed*>(self));
     QVector<double> candidates_QVector;
     candidates_QVector.reserve(candidates.len);
@@ -12588,7 +12588,7 @@ double QCPAxisTickerFixed_GetMantissa(const QCPAxisTickerFixed* self, double inp
 }
 
 // Base class handler implementation
-double QCPAxisTickerFixed_QBaseGetMantissa(const QCPAxisTickerFixed* self, double input) {
+double QCPAxisTickerFixed_SuperGetMantissa(const QCPAxisTickerFixed* self, double input) {
     auto* vqcpaxistickerfixed = const_cast<VirtualQCPAxisTickerFixed*>(dynamic_cast<const VirtualQCPAxisTickerFixed*>(self));
     if (vqcpaxistickerfixed && vqcpaxistickerfixed->isVirtualQCPAxisTickerFixed) {
         vqcpaxistickerfixed->setQCPAxisTickerFixed_GetMantissa_IsBase(true);
@@ -12617,7 +12617,7 @@ double QCPAxisTickerFixed_CleanMantissa(const QCPAxisTickerFixed* self, double i
 }
 
 // Base class handler implementation
-double QCPAxisTickerFixed_QBaseCleanMantissa(const QCPAxisTickerFixed* self, double input) {
+double QCPAxisTickerFixed_SuperCleanMantissa(const QCPAxisTickerFixed* self, double input) {
     auto* vqcpaxistickerfixed = const_cast<VirtualQCPAxisTickerFixed*>(dynamic_cast<const VirtualQCPAxisTickerFixed*>(self));
     if (vqcpaxistickerfixed && vqcpaxistickerfixed->isVirtualQCPAxisTickerFixed) {
         vqcpaxistickerfixed->setQCPAxisTickerFixed_CleanMantissa_IsBase(true);
@@ -12792,7 +12792,7 @@ libqt_list /* of double */ QCPAxisTickerText_CreateTickVector(QCPAxisTickerText*
 }
 
 // Base class handler implementation
-double QCPAxisTickerText_QBaseGetTickStep(QCPAxisTickerText* self, const QCPRange* range) {
+double QCPAxisTickerText_SuperGetTickStep(QCPAxisTickerText* self, const QCPRange* range) {
     auto* vqcpaxistickertext = dynamic_cast<VirtualQCPAxisTickerText*>(self);
     if (vqcpaxistickertext && vqcpaxistickertext->isVirtualQCPAxisTickerText) {
         vqcpaxistickertext->setQCPAxisTickerText_GetTickStep_IsBase(true);
@@ -12811,7 +12811,7 @@ void QCPAxisTickerText_OnGetTickStep(QCPAxisTickerText* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPAxisTickerText_QBaseGetSubTickCount(QCPAxisTickerText* self, double tickStep) {
+int QCPAxisTickerText_SuperGetSubTickCount(QCPAxisTickerText* self, double tickStep) {
     auto* vqcpaxistickertext = dynamic_cast<VirtualQCPAxisTickerText*>(self);
     if (vqcpaxistickertext && vqcpaxistickertext->isVirtualQCPAxisTickerText) {
         vqcpaxistickertext->setQCPAxisTickerText_GetSubTickCount_IsBase(true);
@@ -12830,7 +12830,7 @@ void QCPAxisTickerText_OnGetSubTickCount(QCPAxisTickerText* self, intptr_t slot)
 }
 
 // Base class handler implementation
-libqt_string QCPAxisTickerText_QBaseGetTickLabel(QCPAxisTickerText* self, double tick, const QLocale* locale, QChar* formatChar, int precision) {
+libqt_string QCPAxisTickerText_SuperGetTickLabel(QCPAxisTickerText* self, double tick, const QLocale* locale, QChar* formatChar, int precision) {
     auto* vqcpaxistickertext = dynamic_cast<VirtualQCPAxisTickerText*>(self);
     if (vqcpaxistickertext && vqcpaxistickertext->isVirtualQCPAxisTickerText) {
         vqcpaxistickertext->setQCPAxisTickerText_GetTickLabel_IsBase(true);
@@ -12865,7 +12865,7 @@ void QCPAxisTickerText_OnGetTickLabel(QCPAxisTickerText* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of double */ QCPAxisTickerText_QBaseCreateTickVector(QCPAxisTickerText* self, double tickStep, const QCPRange* range) {
+libqt_list /* of double */ QCPAxisTickerText_SuperCreateTickVector(QCPAxisTickerText* self, double tickStep, const QCPRange* range) {
     auto* vqcpaxistickertext = dynamic_cast<VirtualQCPAxisTickerText*>(self);
     if (vqcpaxistickertext && vqcpaxistickertext->isVirtualQCPAxisTickerText) {
         vqcpaxistickertext->setQCPAxisTickerText_CreateTickVector_IsBase(true);
@@ -12931,7 +12931,7 @@ void QCPAxisTickerText_Generate(QCPAxisTickerText* self, const QCPRange* range, 
 }
 
 // Base class handler implementation
-void QCPAxisTickerText_QBaseGenerate(QCPAxisTickerText* self, const QCPRange* range, const QLocale* locale, QChar* formatChar, int precision, libqt_list /* of double */ ticks, libqt_list /* of double */ subTicks, libqt_list /* of libqt_string */ tickLabels) {
+void QCPAxisTickerText_SuperGenerate(QCPAxisTickerText* self, const QCPRange* range, const QLocale* locale, QChar* formatChar, int precision, libqt_list /* of double */ ticks, libqt_list /* of double */ subTicks, libqt_list /* of libqt_string */ tickLabels) {
     auto* vqcpaxistickertext = dynamic_cast<VirtualQCPAxisTickerText*>(self);
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -13003,7 +13003,7 @@ libqt_list /* of double */ QCPAxisTickerText_CreateSubTickVector(QCPAxisTickerTe
 }
 
 // Base class handler implementation
-libqt_list /* of double */ QCPAxisTickerText_QBaseCreateSubTickVector(QCPAxisTickerText* self, int subTickCount, const libqt_list /* of double */ ticks) {
+libqt_list /* of double */ QCPAxisTickerText_SuperCreateSubTickVector(QCPAxisTickerText* self, int subTickCount, const libqt_list /* of double */ ticks) {
     auto* vqcpaxistickertext = dynamic_cast<VirtualQCPAxisTickerText*>(self);
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -13096,7 +13096,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerText_CreateLabelVector(QCPAxisTick
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QCPAxisTickerText_QBaseCreateLabelVector(QCPAxisTickerText* self, const libqt_list /* of double */ ticks, const QLocale* locale, QChar* formatChar, int precision) {
+libqt_list /* of libqt_string */ QCPAxisTickerText_SuperCreateLabelVector(QCPAxisTickerText* self, const libqt_list /* of double */ ticks, const QLocale* locale, QChar* formatChar, int precision) {
     auto* vqcpaxistickertext = dynamic_cast<VirtualQCPAxisTickerText*>(self);
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -13171,7 +13171,7 @@ void QCPAxisTickerText_TrimTicks(const QCPAxisTickerText* self, const QCPRange* 
 }
 
 // Base class handler implementation
-void QCPAxisTickerText_QBaseTrimTicks(const QCPAxisTickerText* self, const QCPRange* range, libqt_list /* of double */ ticks, bool keepOneOutlier) {
+void QCPAxisTickerText_SuperTrimTicks(const QCPAxisTickerText* self, const QCPRange* range, libqt_list /* of double */ ticks, bool keepOneOutlier) {
     auto* vqcpaxistickertext = const_cast<VirtualQCPAxisTickerText*>(dynamic_cast<const VirtualQCPAxisTickerText*>(self));
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -13212,7 +13212,7 @@ double QCPAxisTickerText_PickClosest(const QCPAxisTickerText* self, double targe
 }
 
 // Base class handler implementation
-double QCPAxisTickerText_QBasePickClosest(const QCPAxisTickerText* self, double target, const libqt_list /* of double */ candidates) {
+double QCPAxisTickerText_SuperPickClosest(const QCPAxisTickerText* self, double target, const libqt_list /* of double */ candidates) {
     auto* vqcpaxistickertext = const_cast<VirtualQCPAxisTickerText*>(dynamic_cast<const VirtualQCPAxisTickerText*>(self));
     QVector<double> candidates_QVector;
     candidates_QVector.reserve(candidates.len);
@@ -13247,7 +13247,7 @@ double QCPAxisTickerText_GetMantissa(const QCPAxisTickerText* self, double input
 }
 
 // Base class handler implementation
-double QCPAxisTickerText_QBaseGetMantissa(const QCPAxisTickerText* self, double input) {
+double QCPAxisTickerText_SuperGetMantissa(const QCPAxisTickerText* self, double input) {
     auto* vqcpaxistickertext = const_cast<VirtualQCPAxisTickerText*>(dynamic_cast<const VirtualQCPAxisTickerText*>(self));
     if (vqcpaxistickertext && vqcpaxistickertext->isVirtualQCPAxisTickerText) {
         vqcpaxistickertext->setQCPAxisTickerText_GetMantissa_IsBase(true);
@@ -13276,7 +13276,7 @@ double QCPAxisTickerText_CleanMantissa(const QCPAxisTickerText* self, double inp
 }
 
 // Base class handler implementation
-double QCPAxisTickerText_QBaseCleanMantissa(const QCPAxisTickerText* self, double input) {
+double QCPAxisTickerText_SuperCleanMantissa(const QCPAxisTickerText* self, double input) {
     auto* vqcpaxistickertext = const_cast<VirtualQCPAxisTickerText*>(dynamic_cast<const VirtualQCPAxisTickerText*>(self));
     if (vqcpaxistickertext && vqcpaxistickertext->isVirtualQCPAxisTickerText) {
         vqcpaxistickertext->setQCPAxisTickerText_CleanMantissa_IsBase(true);
@@ -13376,7 +13376,7 @@ libqt_string QCPAxisTickerPi_GetTickLabel(QCPAxisTickerPi* self, double tick, co
 }
 
 // Base class handler implementation
-double QCPAxisTickerPi_QBaseGetTickStep(QCPAxisTickerPi* self, const QCPRange* range) {
+double QCPAxisTickerPi_SuperGetTickStep(QCPAxisTickerPi* self, const QCPRange* range) {
     auto* vqcpaxistickerpi = dynamic_cast<VirtualQCPAxisTickerPi*>(self);
     if (vqcpaxistickerpi && vqcpaxistickerpi->isVirtualQCPAxisTickerPi) {
         vqcpaxistickerpi->setQCPAxisTickerPi_GetTickStep_IsBase(true);
@@ -13395,7 +13395,7 @@ void QCPAxisTickerPi_OnGetTickStep(QCPAxisTickerPi* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPAxisTickerPi_QBaseGetSubTickCount(QCPAxisTickerPi* self, double tickStep) {
+int QCPAxisTickerPi_SuperGetSubTickCount(QCPAxisTickerPi* self, double tickStep) {
     auto* vqcpaxistickerpi = dynamic_cast<VirtualQCPAxisTickerPi*>(self);
     if (vqcpaxistickerpi && vqcpaxistickerpi->isVirtualQCPAxisTickerPi) {
         vqcpaxistickerpi->setQCPAxisTickerPi_GetSubTickCount_IsBase(true);
@@ -13414,7 +13414,7 @@ void QCPAxisTickerPi_OnGetSubTickCount(QCPAxisTickerPi* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string QCPAxisTickerPi_QBaseGetTickLabel(QCPAxisTickerPi* self, double tick, const QLocale* locale, QChar* formatChar, int precision) {
+libqt_string QCPAxisTickerPi_SuperGetTickLabel(QCPAxisTickerPi* self, double tick, const QLocale* locale, QChar* formatChar, int precision) {
     auto* vqcpaxistickerpi = dynamic_cast<VirtualQCPAxisTickerPi*>(self);
     if (vqcpaxistickerpi && vqcpaxistickerpi->isVirtualQCPAxisTickerPi) {
         vqcpaxistickerpi->setQCPAxisTickerPi_GetTickLabel_IsBase(true);
@@ -13478,7 +13478,7 @@ void QCPAxisTickerPi_Generate(QCPAxisTickerPi* self, const QCPRange* range, cons
 }
 
 // Base class handler implementation
-void QCPAxisTickerPi_QBaseGenerate(QCPAxisTickerPi* self, const QCPRange* range, const QLocale* locale, QChar* formatChar, int precision, libqt_list /* of double */ ticks, libqt_list /* of double */ subTicks, libqt_list /* of libqt_string */ tickLabels) {
+void QCPAxisTickerPi_SuperGenerate(QCPAxisTickerPi* self, const QCPRange* range, const QLocale* locale, QChar* formatChar, int precision, libqt_list /* of double */ ticks, libqt_list /* of double */ subTicks, libqt_list /* of libqt_string */ tickLabels) {
     auto* vqcpaxistickerpi = dynamic_cast<VirtualQCPAxisTickerPi*>(self);
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -13544,7 +13544,7 @@ libqt_list /* of double */ QCPAxisTickerPi_CreateTickVector(QCPAxisTickerPi* sel
 }
 
 // Base class handler implementation
-libqt_list /* of double */ QCPAxisTickerPi_QBaseCreateTickVector(QCPAxisTickerPi* self, double tickStep, const QCPRange* range) {
+libqt_list /* of double */ QCPAxisTickerPi_SuperCreateTickVector(QCPAxisTickerPi* self, double tickStep, const QCPRange* range) {
     auto* vqcpaxistickerpi = dynamic_cast<VirtualQCPAxisTickerPi*>(self);
     if (vqcpaxistickerpi && vqcpaxistickerpi->isVirtualQCPAxisTickerPi) {
         vqcpaxistickerpi->setQCPAxisTickerPi_CreateTickVector_IsBase(true);
@@ -13615,7 +13615,7 @@ libqt_list /* of double */ QCPAxisTickerPi_CreateSubTickVector(QCPAxisTickerPi* 
 }
 
 // Base class handler implementation
-libqt_list /* of double */ QCPAxisTickerPi_QBaseCreateSubTickVector(QCPAxisTickerPi* self, int subTickCount, const libqt_list /* of double */ ticks) {
+libqt_list /* of double */ QCPAxisTickerPi_SuperCreateSubTickVector(QCPAxisTickerPi* self, int subTickCount, const libqt_list /* of double */ ticks) {
     auto* vqcpaxistickerpi = dynamic_cast<VirtualQCPAxisTickerPi*>(self);
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -13708,7 +13708,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerPi_CreateLabelVector(QCPAxisTicker
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QCPAxisTickerPi_QBaseCreateLabelVector(QCPAxisTickerPi* self, const libqt_list /* of double */ ticks, const QLocale* locale, QChar* formatChar, int precision) {
+libqt_list /* of libqt_string */ QCPAxisTickerPi_SuperCreateLabelVector(QCPAxisTickerPi* self, const libqt_list /* of double */ ticks, const QLocale* locale, QChar* formatChar, int precision) {
     auto* vqcpaxistickerpi = dynamic_cast<VirtualQCPAxisTickerPi*>(self);
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -13777,7 +13777,7 @@ void QCPAxisTickerPi_SimplifyFraction(const QCPAxisTickerPi* self, int* numerato
 }
 
 // Base class handler implementation
-void QCPAxisTickerPi_QBaseSimplifyFraction(const QCPAxisTickerPi* self, int* numerator, int* denominator) {
+void QCPAxisTickerPi_SuperSimplifyFraction(const QCPAxisTickerPi* self, int* numerator, int* denominator) {
     auto* vqcpaxistickerpi = const_cast<VirtualQCPAxisTickerPi*>(dynamic_cast<const VirtualQCPAxisTickerPi*>(self));
     if (vqcpaxistickerpi && vqcpaxistickerpi->isVirtualQCPAxisTickerPi) {
         vqcpaxistickerpi->setQCPAxisTickerPi_SimplifyFraction_IsBase(true);
@@ -13822,7 +13822,7 @@ libqt_string QCPAxisTickerPi_FractionToString(const QCPAxisTickerPi* self, int n
 }
 
 // Base class handler implementation
-libqt_string QCPAxisTickerPi_QBaseFractionToString(const QCPAxisTickerPi* self, int numerator, int denominator) {
+libqt_string QCPAxisTickerPi_SuperFractionToString(const QCPAxisTickerPi* self, int numerator, int denominator) {
     auto* vqcpaxistickerpi = const_cast<VirtualQCPAxisTickerPi*>(dynamic_cast<const VirtualQCPAxisTickerPi*>(self));
     if (vqcpaxistickerpi && vqcpaxistickerpi->isVirtualQCPAxisTickerPi) {
         vqcpaxistickerpi->setQCPAxisTickerPi_FractionToString_IsBase(true);
@@ -13883,7 +13883,7 @@ libqt_string QCPAxisTickerPi_UnicodeFraction(const QCPAxisTickerPi* self, int nu
 }
 
 // Base class handler implementation
-libqt_string QCPAxisTickerPi_QBaseUnicodeFraction(const QCPAxisTickerPi* self, int numerator, int denominator) {
+libqt_string QCPAxisTickerPi_SuperUnicodeFraction(const QCPAxisTickerPi* self, int numerator, int denominator) {
     auto* vqcpaxistickerpi = const_cast<VirtualQCPAxisTickerPi*>(dynamic_cast<const VirtualQCPAxisTickerPi*>(self));
     if (vqcpaxistickerpi && vqcpaxistickerpi->isVirtualQCPAxisTickerPi) {
         vqcpaxistickerpi->setQCPAxisTickerPi_UnicodeFraction_IsBase(true);
@@ -13944,7 +13944,7 @@ libqt_string QCPAxisTickerPi_UnicodeSuperscript(const QCPAxisTickerPi* self, int
 }
 
 // Base class handler implementation
-libqt_string QCPAxisTickerPi_QBaseUnicodeSuperscript(const QCPAxisTickerPi* self, int number) {
+libqt_string QCPAxisTickerPi_SuperUnicodeSuperscript(const QCPAxisTickerPi* self, int number) {
     auto* vqcpaxistickerpi = const_cast<VirtualQCPAxisTickerPi*>(dynamic_cast<const VirtualQCPAxisTickerPi*>(self));
     if (vqcpaxistickerpi && vqcpaxistickerpi->isVirtualQCPAxisTickerPi) {
         vqcpaxistickerpi->setQCPAxisTickerPi_UnicodeSuperscript_IsBase(true);
@@ -14005,7 +14005,7 @@ libqt_string QCPAxisTickerPi_UnicodeSubscript(const QCPAxisTickerPi* self, int n
 }
 
 // Base class handler implementation
-libqt_string QCPAxisTickerPi_QBaseUnicodeSubscript(const QCPAxisTickerPi* self, int number) {
+libqt_string QCPAxisTickerPi_SuperUnicodeSubscript(const QCPAxisTickerPi* self, int number) {
     auto* vqcpaxistickerpi = const_cast<VirtualQCPAxisTickerPi*>(dynamic_cast<const VirtualQCPAxisTickerPi*>(self));
     if (vqcpaxistickerpi && vqcpaxistickerpi->isVirtualQCPAxisTickerPi) {
         vqcpaxistickerpi->setQCPAxisTickerPi_UnicodeSubscript_IsBase(true);
@@ -14056,7 +14056,7 @@ void QCPAxisTickerPi_TrimTicks(const QCPAxisTickerPi* self, const QCPRange* rang
 }
 
 // Base class handler implementation
-void QCPAxisTickerPi_QBaseTrimTicks(const QCPAxisTickerPi* self, const QCPRange* range, libqt_list /* of double */ ticks, bool keepOneOutlier) {
+void QCPAxisTickerPi_SuperTrimTicks(const QCPAxisTickerPi* self, const QCPRange* range, libqt_list /* of double */ ticks, bool keepOneOutlier) {
     auto* vqcpaxistickerpi = const_cast<VirtualQCPAxisTickerPi*>(dynamic_cast<const VirtualQCPAxisTickerPi*>(self));
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -14097,7 +14097,7 @@ double QCPAxisTickerPi_PickClosest(const QCPAxisTickerPi* self, double target, c
 }
 
 // Base class handler implementation
-double QCPAxisTickerPi_QBasePickClosest(const QCPAxisTickerPi* self, double target, const libqt_list /* of double */ candidates) {
+double QCPAxisTickerPi_SuperPickClosest(const QCPAxisTickerPi* self, double target, const libqt_list /* of double */ candidates) {
     auto* vqcpaxistickerpi = const_cast<VirtualQCPAxisTickerPi*>(dynamic_cast<const VirtualQCPAxisTickerPi*>(self));
     QVector<double> candidates_QVector;
     candidates_QVector.reserve(candidates.len);
@@ -14132,7 +14132,7 @@ double QCPAxisTickerPi_GetMantissa(const QCPAxisTickerPi* self, double input) {
 }
 
 // Base class handler implementation
-double QCPAxisTickerPi_QBaseGetMantissa(const QCPAxisTickerPi* self, double input) {
+double QCPAxisTickerPi_SuperGetMantissa(const QCPAxisTickerPi* self, double input) {
     auto* vqcpaxistickerpi = const_cast<VirtualQCPAxisTickerPi*>(dynamic_cast<const VirtualQCPAxisTickerPi*>(self));
     if (vqcpaxistickerpi && vqcpaxistickerpi->isVirtualQCPAxisTickerPi) {
         vqcpaxistickerpi->setQCPAxisTickerPi_GetMantissa_IsBase(true);
@@ -14161,7 +14161,7 @@ double QCPAxisTickerPi_CleanMantissa(const QCPAxisTickerPi* self, double input) 
 }
 
 // Base class handler implementation
-double QCPAxisTickerPi_QBaseCleanMantissa(const QCPAxisTickerPi* self, double input) {
+double QCPAxisTickerPi_SuperCleanMantissa(const QCPAxisTickerPi* self, double input) {
     auto* vqcpaxistickerpi = const_cast<VirtualQCPAxisTickerPi*>(dynamic_cast<const VirtualQCPAxisTickerPi*>(self));
     if (vqcpaxistickerpi && vqcpaxistickerpi->isVirtualQCPAxisTickerPi) {
         vqcpaxistickerpi->setQCPAxisTickerPi_CleanMantissa_IsBase(true);
@@ -14229,7 +14229,7 @@ libqt_list /* of double */ QCPAxisTickerLog_CreateTickVector(QCPAxisTickerLog* s
 }
 
 // Base class handler implementation
-int QCPAxisTickerLog_QBaseGetSubTickCount(QCPAxisTickerLog* self, double tickStep) {
+int QCPAxisTickerLog_SuperGetSubTickCount(QCPAxisTickerLog* self, double tickStep) {
     auto* vqcpaxistickerlog = dynamic_cast<VirtualQCPAxisTickerLog*>(self);
     if (vqcpaxistickerlog && vqcpaxistickerlog->isVirtualQCPAxisTickerLog) {
         vqcpaxistickerlog->setQCPAxisTickerLog_GetSubTickCount_IsBase(true);
@@ -14248,7 +14248,7 @@ void QCPAxisTickerLog_OnGetSubTickCount(QCPAxisTickerLog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of double */ QCPAxisTickerLog_QBaseCreateTickVector(QCPAxisTickerLog* self, double tickStep, const QCPRange* range) {
+libqt_list /* of double */ QCPAxisTickerLog_SuperCreateTickVector(QCPAxisTickerLog* self, double tickStep, const QCPRange* range) {
     auto* vqcpaxistickerlog = dynamic_cast<VirtualQCPAxisTickerLog*>(self);
     if (vqcpaxistickerlog && vqcpaxistickerlog->isVirtualQCPAxisTickerLog) {
         vqcpaxistickerlog->setQCPAxisTickerLog_CreateTickVector_IsBase(true);
@@ -14314,7 +14314,7 @@ void QCPAxisTickerLog_Generate(QCPAxisTickerLog* self, const QCPRange* range, co
 }
 
 // Base class handler implementation
-void QCPAxisTickerLog_QBaseGenerate(QCPAxisTickerLog* self, const QCPRange* range, const QLocale* locale, QChar* formatChar, int precision, libqt_list /* of double */ ticks, libqt_list /* of double */ subTicks, libqt_list /* of libqt_string */ tickLabels) {
+void QCPAxisTickerLog_SuperGenerate(QCPAxisTickerLog* self, const QCPRange* range, const QLocale* locale, QChar* formatChar, int precision, libqt_list /* of double */ ticks, libqt_list /* of double */ subTicks, libqt_list /* of libqt_string */ tickLabels) {
     auto* vqcpaxistickerlog = dynamic_cast<VirtualQCPAxisTickerLog*>(self);
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -14362,7 +14362,7 @@ double QCPAxisTickerLog_GetTickStep(QCPAxisTickerLog* self, const QCPRange* rang
 }
 
 // Base class handler implementation
-double QCPAxisTickerLog_QBaseGetTickStep(QCPAxisTickerLog* self, const QCPRange* range) {
+double QCPAxisTickerLog_SuperGetTickStep(QCPAxisTickerLog* self, const QCPRange* range) {
     auto* vqcpaxistickerlog = dynamic_cast<VirtualQCPAxisTickerLog*>(self);
     if (vqcpaxistickerlog && vqcpaxistickerlog->isVirtualQCPAxisTickerLog) {
         vqcpaxistickerlog->setQCPAxisTickerLog_GetTickStep_IsBase(true);
@@ -14407,7 +14407,7 @@ libqt_string QCPAxisTickerLog_GetTickLabel(QCPAxisTickerLog* self, double tick, 
 }
 
 // Base class handler implementation
-libqt_string QCPAxisTickerLog_QBaseGetTickLabel(QCPAxisTickerLog* self, double tick, const QLocale* locale, QChar* formatChar, int precision) {
+libqt_string QCPAxisTickerLog_SuperGetTickLabel(QCPAxisTickerLog* self, double tick, const QLocale* locale, QChar* formatChar, int precision) {
     auto* vqcpaxistickerlog = dynamic_cast<VirtualQCPAxisTickerLog*>(self);
     if (vqcpaxistickerlog && vqcpaxistickerlog->isVirtualQCPAxisTickerLog) {
         vqcpaxistickerlog->setQCPAxisTickerLog_GetTickLabel_IsBase(true);
@@ -14476,7 +14476,7 @@ libqt_list /* of double */ QCPAxisTickerLog_CreateSubTickVector(QCPAxisTickerLog
 }
 
 // Base class handler implementation
-libqt_list /* of double */ QCPAxisTickerLog_QBaseCreateSubTickVector(QCPAxisTickerLog* self, int subTickCount, const libqt_list /* of double */ ticks) {
+libqt_list /* of double */ QCPAxisTickerLog_SuperCreateSubTickVector(QCPAxisTickerLog* self, int subTickCount, const libqt_list /* of double */ ticks) {
     auto* vqcpaxistickerlog = dynamic_cast<VirtualQCPAxisTickerLog*>(self);
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -14569,7 +14569,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerLog_CreateLabelVector(QCPAxisTicke
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QCPAxisTickerLog_QBaseCreateLabelVector(QCPAxisTickerLog* self, const libqt_list /* of double */ ticks, const QLocale* locale, QChar* formatChar, int precision) {
+libqt_list /* of libqt_string */ QCPAxisTickerLog_SuperCreateLabelVector(QCPAxisTickerLog* self, const libqt_list /* of double */ ticks, const QLocale* locale, QChar* formatChar, int precision) {
     auto* vqcpaxistickerlog = dynamic_cast<VirtualQCPAxisTickerLog*>(self);
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -14644,7 +14644,7 @@ void QCPAxisTickerLog_TrimTicks(const QCPAxisTickerLog* self, const QCPRange* ra
 }
 
 // Base class handler implementation
-void QCPAxisTickerLog_QBaseTrimTicks(const QCPAxisTickerLog* self, const QCPRange* range, libqt_list /* of double */ ticks, bool keepOneOutlier) {
+void QCPAxisTickerLog_SuperTrimTicks(const QCPAxisTickerLog* self, const QCPRange* range, libqt_list /* of double */ ticks, bool keepOneOutlier) {
     auto* vqcpaxistickerlog = const_cast<VirtualQCPAxisTickerLog*>(dynamic_cast<const VirtualQCPAxisTickerLog*>(self));
     QVector<double> ticks_QVector;
     ticks_QVector.reserve(ticks.len);
@@ -14685,7 +14685,7 @@ double QCPAxisTickerLog_PickClosest(const QCPAxisTickerLog* self, double target,
 }
 
 // Base class handler implementation
-double QCPAxisTickerLog_QBasePickClosest(const QCPAxisTickerLog* self, double target, const libqt_list /* of double */ candidates) {
+double QCPAxisTickerLog_SuperPickClosest(const QCPAxisTickerLog* self, double target, const libqt_list /* of double */ candidates) {
     auto* vqcpaxistickerlog = const_cast<VirtualQCPAxisTickerLog*>(dynamic_cast<const VirtualQCPAxisTickerLog*>(self));
     QVector<double> candidates_QVector;
     candidates_QVector.reserve(candidates.len);
@@ -14720,7 +14720,7 @@ double QCPAxisTickerLog_GetMantissa(const QCPAxisTickerLog* self, double input) 
 }
 
 // Base class handler implementation
-double QCPAxisTickerLog_QBaseGetMantissa(const QCPAxisTickerLog* self, double input) {
+double QCPAxisTickerLog_SuperGetMantissa(const QCPAxisTickerLog* self, double input) {
     auto* vqcpaxistickerlog = const_cast<VirtualQCPAxisTickerLog*>(dynamic_cast<const VirtualQCPAxisTickerLog*>(self));
     if (vqcpaxistickerlog && vqcpaxistickerlog->isVirtualQCPAxisTickerLog) {
         vqcpaxistickerlog->setQCPAxisTickerLog_GetMantissa_IsBase(true);
@@ -14749,7 +14749,7 @@ double QCPAxisTickerLog_CleanMantissa(const QCPAxisTickerLog* self, double input
 }
 
 // Base class handler implementation
-double QCPAxisTickerLog_QBaseCleanMantissa(const QCPAxisTickerLog* self, double input) {
+double QCPAxisTickerLog_SuperCleanMantissa(const QCPAxisTickerLog* self, double input) {
     auto* vqcpaxistickerlog = const_cast<VirtualQCPAxisTickerLog*>(dynamic_cast<const VirtualQCPAxisTickerLog*>(self));
     if (vqcpaxistickerlog && vqcpaxistickerlog->isVirtualQCPAxisTickerLog) {
         vqcpaxistickerlog->setQCPAxisTickerLog_CleanMantissa_IsBase(true);
@@ -14865,7 +14865,7 @@ void QCPGrid_Draw(QCPGrid* self, QCPPainter* painter) {
 }
 
 // Base class handler implementation
-QMetaObject* QCPGrid_QBaseMetaObject(const QCPGrid* self) {
+QMetaObject* QCPGrid_SuperMetaObject(const QCPGrid* self) {
     auto* vqcpgrid = const_cast<VirtualQCPGrid*>(dynamic_cast<const VirtualQCPGrid*>(self));
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_MetaObject_IsBase(true);
@@ -14884,7 +14884,7 @@ void QCPGrid_OnMetaObject(const QCPGrid* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPGrid_QBaseMetacast(QCPGrid* self, const char* param1) {
+void* QCPGrid_SuperMetacast(QCPGrid* self, const char* param1) {
     auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_Metacast_IsBase(true);
@@ -14903,7 +14903,7 @@ void QCPGrid_OnMetacast(QCPGrid* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPGrid_QBaseMetacall(QCPGrid* self, int param1, int param2, void** param3) {
+int QCPGrid_SuperMetacall(QCPGrid* self, int param1, int param2, void** param3) {
     auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_Metacall_IsBase(true);
@@ -14922,7 +14922,7 @@ void QCPGrid_OnMetacall(QCPGrid* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPGrid_QBaseApplyDefaultAntialiasingHint(const QCPGrid* self, QCPPainter* painter) {
+void QCPGrid_SuperApplyDefaultAntialiasingHint(const QCPGrid* self, QCPPainter* painter) {
     auto* vqcpgrid = const_cast<VirtualQCPGrid*>(dynamic_cast<const VirtualQCPGrid*>(self));
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -14941,7 +14941,7 @@ void QCPGrid_OnApplyDefaultAntialiasingHint(const QCPGrid* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void QCPGrid_QBaseDraw(QCPGrid* self, QCPPainter* painter) {
+void QCPGrid_SuperDraw(QCPGrid* self, QCPPainter* painter) {
     auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_Draw_IsBase(true);
@@ -14970,7 +14970,7 @@ double QCPGrid_SelectTest(const QCPGrid* self, const QPointF* pos, bool onlySele
 }
 
 // Base class handler implementation
-double QCPGrid_QBaseSelectTest(const QCPGrid* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPGrid_SuperSelectTest(const QCPGrid* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpgrid = const_cast<VirtualQCPGrid*>(dynamic_cast<const VirtualQCPGrid*>(self));
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_SelectTest_IsBase(true);
@@ -14999,7 +14999,7 @@ void QCPGrid_ParentPlotInitialized(QCPGrid* self, QCustomPlot* parentPlot) {
 }
 
 // Base class handler implementation
-void QCPGrid_QBaseParentPlotInitialized(QCPGrid* self, QCustomPlot* parentPlot) {
+void QCPGrid_SuperParentPlotInitialized(QCPGrid* self, QCustomPlot* parentPlot) {
     auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_ParentPlotInitialized_IsBase(true);
@@ -15028,7 +15028,7 @@ int QCPGrid_SelectionCategory(const QCPGrid* self) {
 }
 
 // Base class handler implementation
-int QCPGrid_QBaseSelectionCategory(const QCPGrid* self) {
+int QCPGrid_SuperSelectionCategory(const QCPGrid* self) {
     auto* vqcpgrid = const_cast<VirtualQCPGrid*>(dynamic_cast<const VirtualQCPGrid*>(self));
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_SelectionCategory_IsBase(true);
@@ -15056,7 +15056,7 @@ QRect* QCPGrid_ClipRect(const QCPGrid* self) {
 }
 
 // Base class handler implementation
-QRect* QCPGrid_QBaseClipRect(const QCPGrid* self) {
+QRect* QCPGrid_SuperClipRect(const QCPGrid* self) {
     auto* vqcpgrid = const_cast<VirtualQCPGrid*>(dynamic_cast<const VirtualQCPGrid*>(self));
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_ClipRect_IsBase(true);
@@ -15084,7 +15084,7 @@ void QCPGrid_SelectEvent(QCPGrid* self, QMouseEvent* event, bool additive, const
 }
 
 // Base class handler implementation
-void QCPGrid_QBaseSelectEvent(QCPGrid* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPGrid_SuperSelectEvent(QCPGrid* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_SelectEvent_IsBase(true);
@@ -15113,7 +15113,7 @@ void QCPGrid_DeselectEvent(QCPGrid* self, bool* selectionStateChanged) {
 }
 
 // Base class handler implementation
-void QCPGrid_QBaseDeselectEvent(QCPGrid* self, bool* selectionStateChanged) {
+void QCPGrid_SuperDeselectEvent(QCPGrid* self, bool* selectionStateChanged) {
     auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_DeselectEvent_IsBase(true);
@@ -15142,7 +15142,7 @@ void QCPGrid_MousePressEvent(QCPGrid* self, QMouseEvent* event, const QVariant* 
 }
 
 // Base class handler implementation
-void QCPGrid_QBaseMousePressEvent(QCPGrid* self, QMouseEvent* event, const QVariant* details) {
+void QCPGrid_SuperMousePressEvent(QCPGrid* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_MousePressEvent_IsBase(true);
@@ -15171,7 +15171,7 @@ void QCPGrid_MouseMoveEvent(QCPGrid* self, QMouseEvent* event, const QPointF* st
 }
 
 // Base class handler implementation
-void QCPGrid_QBaseMouseMoveEvent(QCPGrid* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPGrid_SuperMouseMoveEvent(QCPGrid* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_MouseMoveEvent_IsBase(true);
@@ -15200,7 +15200,7 @@ void QCPGrid_MouseReleaseEvent(QCPGrid* self, QMouseEvent* event, const QPointF*
 }
 
 // Base class handler implementation
-void QCPGrid_QBaseMouseReleaseEvent(QCPGrid* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPGrid_SuperMouseReleaseEvent(QCPGrid* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_MouseReleaseEvent_IsBase(true);
@@ -15229,7 +15229,7 @@ void QCPGrid_MouseDoubleClickEvent(QCPGrid* self, QMouseEvent* event, const QVar
 }
 
 // Base class handler implementation
-void QCPGrid_QBaseMouseDoubleClickEvent(QCPGrid* self, QMouseEvent* event, const QVariant* details) {
+void QCPGrid_SuperMouseDoubleClickEvent(QCPGrid* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_MouseDoubleClickEvent_IsBase(true);
@@ -15258,7 +15258,7 @@ void QCPGrid_WheelEvent(QCPGrid* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPGrid_QBaseWheelEvent(QCPGrid* self, QWheelEvent* event) {
+void QCPGrid_SuperWheelEvent(QCPGrid* self, QWheelEvent* event) {
     auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_WheelEvent_IsBase(true);
@@ -15287,7 +15287,7 @@ bool QCPGrid_Event(QCPGrid* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPGrid_QBaseEvent(QCPGrid* self, QEvent* event) {
+bool QCPGrid_SuperEvent(QCPGrid* self, QEvent* event) {
     auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_Event_IsBase(true);
@@ -15316,7 +15316,7 @@ bool QCPGrid_EventFilter(QCPGrid* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPGrid_QBaseEventFilter(QCPGrid* self, QObject* watched, QEvent* event) {
+bool QCPGrid_SuperEventFilter(QCPGrid* self, QObject* watched, QEvent* event) {
     auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_EventFilter_IsBase(true);
@@ -15345,7 +15345,7 @@ void QCPGrid_TimerEvent(QCPGrid* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPGrid_QBaseTimerEvent(QCPGrid* self, QTimerEvent* event) {
+void QCPGrid_SuperTimerEvent(QCPGrid* self, QTimerEvent* event) {
     auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_TimerEvent_IsBase(true);
@@ -15374,7 +15374,7 @@ void QCPGrid_ChildEvent(QCPGrid* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPGrid_QBaseChildEvent(QCPGrid* self, QChildEvent* event) {
+void QCPGrid_SuperChildEvent(QCPGrid* self, QChildEvent* event) {
     auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_ChildEvent_IsBase(true);
@@ -15403,7 +15403,7 @@ void QCPGrid_CustomEvent(QCPGrid* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPGrid_QBaseCustomEvent(QCPGrid* self, QEvent* event) {
+void QCPGrid_SuperCustomEvent(QCPGrid* self, QEvent* event) {
     auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_CustomEvent_IsBase(true);
@@ -15432,7 +15432,7 @@ void QCPGrid_ConnectNotify(QCPGrid* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPGrid_QBaseConnectNotify(QCPGrid* self, const QMetaMethod* signal) {
+void QCPGrid_SuperConnectNotify(QCPGrid* self, const QMetaMethod* signal) {
     auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_ConnectNotify_IsBase(true);
@@ -15461,7 +15461,7 @@ void QCPGrid_DisconnectNotify(QCPGrid* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPGrid_QBaseDisconnectNotify(QCPGrid* self, const QMetaMethod* signal) {
+void QCPGrid_SuperDisconnectNotify(QCPGrid* self, const QMetaMethod* signal) {
     auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_DisconnectNotify_IsBase(true);
@@ -15490,7 +15490,7 @@ void QCPGrid_DrawGridLines(const QCPGrid* self, QCPPainter* painter) {
 }
 
 // Base class handler implementation
-void QCPGrid_QBaseDrawGridLines(const QCPGrid* self, QCPPainter* painter) {
+void QCPGrid_SuperDrawGridLines(const QCPGrid* self, QCPPainter* painter) {
     auto* vqcpgrid = const_cast<VirtualQCPGrid*>(dynamic_cast<const VirtualQCPGrid*>(self));
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_DrawGridLines_IsBase(true);
@@ -15519,7 +15519,7 @@ void QCPGrid_DrawSubGridLines(const QCPGrid* self, QCPPainter* painter) {
 }
 
 // Base class handler implementation
-void QCPGrid_QBaseDrawSubGridLines(const QCPGrid* self, QCPPainter* painter) {
+void QCPGrid_SuperDrawSubGridLines(const QCPGrid* self, QCPPainter* painter) {
     auto* vqcpgrid = const_cast<VirtualQCPGrid*>(dynamic_cast<const VirtualQCPGrid*>(self));
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_DrawSubGridLines_IsBase(true);
@@ -15548,7 +15548,7 @@ void QCPGrid_InitializeParentPlot(QCPGrid* self, QCustomPlot* parentPlot) {
 }
 
 // Base class handler implementation
-void QCPGrid_QBaseInitializeParentPlot(QCPGrid* self, QCustomPlot* parentPlot) {
+void QCPGrid_SuperInitializeParentPlot(QCPGrid* self, QCustomPlot* parentPlot) {
     auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_InitializeParentPlot_IsBase(true);
@@ -15577,7 +15577,7 @@ void QCPGrid_SetParentLayerable(QCPGrid* self, QCPLayerable* parentLayerable) {
 }
 
 // Base class handler implementation
-void QCPGrid_QBaseSetParentLayerable(QCPGrid* self, QCPLayerable* parentLayerable) {
+void QCPGrid_SuperSetParentLayerable(QCPGrid* self, QCPLayerable* parentLayerable) {
     auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_SetParentLayerable_IsBase(true);
@@ -15606,7 +15606,7 @@ bool QCPGrid_MoveToLayer(QCPGrid* self, QCPLayer* layer, bool prepend) {
 }
 
 // Base class handler implementation
-bool QCPGrid_QBaseMoveToLayer(QCPGrid* self, QCPLayer* layer, bool prepend) {
+bool QCPGrid_SuperMoveToLayer(QCPGrid* self, QCPLayer* layer, bool prepend) {
     auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_MoveToLayer_IsBase(true);
@@ -15635,7 +15635,7 @@ void QCPGrid_ApplyAntialiasingHint(const QCPGrid* self, QCPPainter* painter, boo
 }
 
 // Base class handler implementation
-void QCPGrid_QBaseApplyAntialiasingHint(const QCPGrid* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPGrid_SuperApplyAntialiasingHint(const QCPGrid* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpgrid = const_cast<VirtualQCPGrid*>(dynamic_cast<const VirtualQCPGrid*>(self));
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_ApplyAntialiasingHint_IsBase(true);
@@ -15664,7 +15664,7 @@ QObject* QCPGrid_Sender(const QCPGrid* self) {
 }
 
 // Base class handler implementation
-QObject* QCPGrid_QBaseSender(const QCPGrid* self) {
+QObject* QCPGrid_SuperSender(const QCPGrid* self) {
     auto* vqcpgrid = const_cast<VirtualQCPGrid*>(dynamic_cast<const VirtualQCPGrid*>(self));
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_Sender_IsBase(true);
@@ -15693,7 +15693,7 @@ int QCPGrid_SenderSignalIndex(const QCPGrid* self) {
 }
 
 // Base class handler implementation
-int QCPGrid_QBaseSenderSignalIndex(const QCPGrid* self) {
+int QCPGrid_SuperSenderSignalIndex(const QCPGrid* self) {
     auto* vqcpgrid = const_cast<VirtualQCPGrid*>(dynamic_cast<const VirtualQCPGrid*>(self));
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_SenderSignalIndex_IsBase(true);
@@ -15722,7 +15722,7 @@ int QCPGrid_Receivers(const QCPGrid* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPGrid_QBaseReceivers(const QCPGrid* self, const char* signal) {
+int QCPGrid_SuperReceivers(const QCPGrid* self, const char* signal) {
     auto* vqcpgrid = const_cast<VirtualQCPGrid*>(dynamic_cast<const VirtualQCPGrid*>(self));
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_Receivers_IsBase(true);
@@ -15751,7 +15751,7 @@ bool QCPGrid_IsSignalConnected(const QCPGrid* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QCPGrid_QBaseIsSignalConnected(const QCPGrid* self, const QMetaMethod* signal) {
+bool QCPGrid_SuperIsSignalConnected(const QCPGrid* self, const QMetaMethod* signal) {
     auto* vqcpgrid = const_cast<VirtualQCPGrid*>(dynamic_cast<const VirtualQCPGrid*>(self));
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->setQCPGrid_IsSignalConnected_IsBase(true);
@@ -16397,7 +16397,7 @@ void QCPAxis_Rescale1(QCPAxis* self, bool onlyVisiblePlottables) {
 }
 
 // Base class handler implementation
-QMetaObject* QCPAxis_QBaseMetaObject(const QCPAxis* self) {
+QMetaObject* QCPAxis_SuperMetaObject(const QCPAxis* self) {
     auto* vqcpaxis = const_cast<VirtualQCPAxis*>(dynamic_cast<const VirtualQCPAxis*>(self));
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_MetaObject_IsBase(true);
@@ -16416,7 +16416,7 @@ void QCPAxis_OnMetaObject(const QCPAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPAxis_QBaseMetacast(QCPAxis* self, const char* param1) {
+void* QCPAxis_SuperMetacast(QCPAxis* self, const char* param1) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_Metacast_IsBase(true);
@@ -16435,7 +16435,7 @@ void QCPAxis_OnMetacast(QCPAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPAxis_QBaseMetacall(QCPAxis* self, int param1, int param2, void** param3) {
+int QCPAxis_SuperMetacall(QCPAxis* self, int param1, int param2, void** param3) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_Metacall_IsBase(true);
@@ -16454,7 +16454,7 @@ void QCPAxis_OnMetacall(QCPAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPAxis_QBaseSelectTest(const QCPAxis* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPAxis_SuperSelectTest(const QCPAxis* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpaxis = const_cast<VirtualQCPAxis*>(dynamic_cast<const VirtualQCPAxis*>(self));
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_SelectTest_IsBase(true);
@@ -16473,7 +16473,7 @@ void QCPAxis_OnSelectTest(const QCPAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPAxis_QBaseCalculateMargin(QCPAxis* self) {
+int QCPAxis_SuperCalculateMargin(QCPAxis* self) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_CalculateMargin_IsBase(true);
@@ -16492,7 +16492,7 @@ void QCPAxis_OnCalculateMargin(QCPAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPAxis_QBaseApplyDefaultAntialiasingHint(const QCPAxis* self, QCPPainter* painter) {
+void QCPAxis_SuperApplyDefaultAntialiasingHint(const QCPAxis* self, QCPPainter* painter) {
     auto* vqcpaxis = const_cast<VirtualQCPAxis*>(dynamic_cast<const VirtualQCPAxis*>(self));
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -16511,7 +16511,7 @@ void QCPAxis_OnApplyDefaultAntialiasingHint(const QCPAxis* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void QCPAxis_QBaseDraw(QCPAxis* self, QCPPainter* painter) {
+void QCPAxis_SuperDraw(QCPAxis* self, QCPPainter* painter) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_Draw_IsBase(true);
@@ -16530,7 +16530,7 @@ void QCPAxis_OnDraw(QCPAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPAxis_QBaseSelectionCategory(const QCPAxis* self) {
+int QCPAxis_SuperSelectionCategory(const QCPAxis* self) {
     auto* vqcpaxis = const_cast<VirtualQCPAxis*>(dynamic_cast<const VirtualQCPAxis*>(self));
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_SelectionCategory_IsBase(true);
@@ -16549,7 +16549,7 @@ void QCPAxis_OnSelectionCategory(const QCPAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPAxis_QBaseSelectEvent(QCPAxis* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPAxis_SuperSelectEvent(QCPAxis* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_SelectEvent_IsBase(true);
@@ -16568,7 +16568,7 @@ void QCPAxis_OnSelectEvent(QCPAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPAxis_QBaseDeselectEvent(QCPAxis* self, bool* selectionStateChanged) {
+void QCPAxis_SuperDeselectEvent(QCPAxis* self, bool* selectionStateChanged) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_DeselectEvent_IsBase(true);
@@ -16587,7 +16587,7 @@ void QCPAxis_OnDeselectEvent(QCPAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPAxis_QBaseMousePressEvent(QCPAxis* self, QMouseEvent* event, const QVariant* details) {
+void QCPAxis_SuperMousePressEvent(QCPAxis* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_MousePressEvent_IsBase(true);
@@ -16606,7 +16606,7 @@ void QCPAxis_OnMousePressEvent(QCPAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPAxis_QBaseMouseMoveEvent(QCPAxis* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPAxis_SuperMouseMoveEvent(QCPAxis* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_MouseMoveEvent_IsBase(true);
@@ -16625,7 +16625,7 @@ void QCPAxis_OnMouseMoveEvent(QCPAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPAxis_QBaseMouseReleaseEvent(QCPAxis* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPAxis_SuperMouseReleaseEvent(QCPAxis* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_MouseReleaseEvent_IsBase(true);
@@ -16644,7 +16644,7 @@ void QCPAxis_OnMouseReleaseEvent(QCPAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPAxis_QBaseWheelEvent(QCPAxis* self, QWheelEvent* event) {
+void QCPAxis_SuperWheelEvent(QCPAxis* self, QWheelEvent* event) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_WheelEvent_IsBase(true);
@@ -16673,7 +16673,7 @@ void QCPAxis_ParentPlotInitialized(QCPAxis* self, QCustomPlot* parentPlot) {
 }
 
 // Base class handler implementation
-void QCPAxis_QBaseParentPlotInitialized(QCPAxis* self, QCustomPlot* parentPlot) {
+void QCPAxis_SuperParentPlotInitialized(QCPAxis* self, QCustomPlot* parentPlot) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_ParentPlotInitialized_IsBase(true);
@@ -16701,7 +16701,7 @@ QRect* QCPAxis_ClipRect(const QCPAxis* self) {
 }
 
 // Base class handler implementation
-QRect* QCPAxis_QBaseClipRect(const QCPAxis* self) {
+QRect* QCPAxis_SuperClipRect(const QCPAxis* self) {
     auto* vqcpaxis = const_cast<VirtualQCPAxis*>(dynamic_cast<const VirtualQCPAxis*>(self));
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_ClipRect_IsBase(true);
@@ -16729,7 +16729,7 @@ void QCPAxis_MouseDoubleClickEvent(QCPAxis* self, QMouseEvent* event, const QVar
 }
 
 // Base class handler implementation
-void QCPAxis_QBaseMouseDoubleClickEvent(QCPAxis* self, QMouseEvent* event, const QVariant* details) {
+void QCPAxis_SuperMouseDoubleClickEvent(QCPAxis* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_MouseDoubleClickEvent_IsBase(true);
@@ -16758,7 +16758,7 @@ bool QCPAxis_Event(QCPAxis* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPAxis_QBaseEvent(QCPAxis* self, QEvent* event) {
+bool QCPAxis_SuperEvent(QCPAxis* self, QEvent* event) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_Event_IsBase(true);
@@ -16787,7 +16787,7 @@ bool QCPAxis_EventFilter(QCPAxis* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPAxis_QBaseEventFilter(QCPAxis* self, QObject* watched, QEvent* event) {
+bool QCPAxis_SuperEventFilter(QCPAxis* self, QObject* watched, QEvent* event) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_EventFilter_IsBase(true);
@@ -16816,7 +16816,7 @@ void QCPAxis_TimerEvent(QCPAxis* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPAxis_QBaseTimerEvent(QCPAxis* self, QTimerEvent* event) {
+void QCPAxis_SuperTimerEvent(QCPAxis* self, QTimerEvent* event) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_TimerEvent_IsBase(true);
@@ -16845,7 +16845,7 @@ void QCPAxis_ChildEvent(QCPAxis* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPAxis_QBaseChildEvent(QCPAxis* self, QChildEvent* event) {
+void QCPAxis_SuperChildEvent(QCPAxis* self, QChildEvent* event) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_ChildEvent_IsBase(true);
@@ -16874,7 +16874,7 @@ void QCPAxis_CustomEvent(QCPAxis* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPAxis_QBaseCustomEvent(QCPAxis* self, QEvent* event) {
+void QCPAxis_SuperCustomEvent(QCPAxis* self, QEvent* event) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_CustomEvent_IsBase(true);
@@ -16903,7 +16903,7 @@ void QCPAxis_ConnectNotify(QCPAxis* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPAxis_QBaseConnectNotify(QCPAxis* self, const QMetaMethod* signal) {
+void QCPAxis_SuperConnectNotify(QCPAxis* self, const QMetaMethod* signal) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_ConnectNotify_IsBase(true);
@@ -16932,7 +16932,7 @@ void QCPAxis_DisconnectNotify(QCPAxis* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPAxis_QBaseDisconnectNotify(QCPAxis* self, const QMetaMethod* signal) {
+void QCPAxis_SuperDisconnectNotify(QCPAxis* self, const QMetaMethod* signal) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_DisconnectNotify_IsBase(true);
@@ -16961,7 +16961,7 @@ void QCPAxis_SetupTickVectors(QCPAxis* self) {
 }
 
 // Base class handler implementation
-void QCPAxis_QBaseSetupTickVectors(QCPAxis* self) {
+void QCPAxis_SuperSetupTickVectors(QCPAxis* self) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_SetupTickVectors_IsBase(true);
@@ -16989,7 +16989,7 @@ QPen* QCPAxis_GetBasePen(const QCPAxis* self) {
 }
 
 // Base class handler implementation
-QPen* QCPAxis_QBaseGetBasePen(const QCPAxis* self) {
+QPen* QCPAxis_SuperGetBasePen(const QCPAxis* self) {
     auto* vqcpaxis = const_cast<VirtualQCPAxis*>(dynamic_cast<const VirtualQCPAxis*>(self));
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_GetBasePen_IsBase(true);
@@ -17016,7 +17016,7 @@ QPen* QCPAxis_GetTickPen(const QCPAxis* self) {
 }
 
 // Base class handler implementation
-QPen* QCPAxis_QBaseGetTickPen(const QCPAxis* self) {
+QPen* QCPAxis_SuperGetTickPen(const QCPAxis* self) {
     auto* vqcpaxis = const_cast<VirtualQCPAxis*>(dynamic_cast<const VirtualQCPAxis*>(self));
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_GetTickPen_IsBase(true);
@@ -17043,7 +17043,7 @@ QPen* QCPAxis_GetSubTickPen(const QCPAxis* self) {
 }
 
 // Base class handler implementation
-QPen* QCPAxis_QBaseGetSubTickPen(const QCPAxis* self) {
+QPen* QCPAxis_SuperGetSubTickPen(const QCPAxis* self) {
     auto* vqcpaxis = const_cast<VirtualQCPAxis*>(dynamic_cast<const VirtualQCPAxis*>(self));
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_GetSubTickPen_IsBase(true);
@@ -17070,7 +17070,7 @@ QFont* QCPAxis_GetTickLabelFont(const QCPAxis* self) {
 }
 
 // Base class handler implementation
-QFont* QCPAxis_QBaseGetTickLabelFont(const QCPAxis* self) {
+QFont* QCPAxis_SuperGetTickLabelFont(const QCPAxis* self) {
     auto* vqcpaxis = const_cast<VirtualQCPAxis*>(dynamic_cast<const VirtualQCPAxis*>(self));
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_GetTickLabelFont_IsBase(true);
@@ -17097,7 +17097,7 @@ QFont* QCPAxis_GetLabelFont(const QCPAxis* self) {
 }
 
 // Base class handler implementation
-QFont* QCPAxis_QBaseGetLabelFont(const QCPAxis* self) {
+QFont* QCPAxis_SuperGetLabelFont(const QCPAxis* self) {
     auto* vqcpaxis = const_cast<VirtualQCPAxis*>(dynamic_cast<const VirtualQCPAxis*>(self));
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_GetLabelFont_IsBase(true);
@@ -17124,7 +17124,7 @@ QColor* QCPAxis_GetTickLabelColor(const QCPAxis* self) {
 }
 
 // Base class handler implementation
-QColor* QCPAxis_QBaseGetTickLabelColor(const QCPAxis* self) {
+QColor* QCPAxis_SuperGetTickLabelColor(const QCPAxis* self) {
     auto* vqcpaxis = const_cast<VirtualQCPAxis*>(dynamic_cast<const VirtualQCPAxis*>(self));
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_GetTickLabelColor_IsBase(true);
@@ -17151,7 +17151,7 @@ QColor* QCPAxis_GetLabelColor(const QCPAxis* self) {
 }
 
 // Base class handler implementation
-QColor* QCPAxis_QBaseGetLabelColor(const QCPAxis* self) {
+QColor* QCPAxis_SuperGetLabelColor(const QCPAxis* self) {
     auto* vqcpaxis = const_cast<VirtualQCPAxis*>(dynamic_cast<const VirtualQCPAxis*>(self));
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_GetLabelColor_IsBase(true);
@@ -17179,7 +17179,7 @@ void QCPAxis_InitializeParentPlot(QCPAxis* self, QCustomPlot* parentPlot) {
 }
 
 // Base class handler implementation
-void QCPAxis_QBaseInitializeParentPlot(QCPAxis* self, QCustomPlot* parentPlot) {
+void QCPAxis_SuperInitializeParentPlot(QCPAxis* self, QCustomPlot* parentPlot) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_InitializeParentPlot_IsBase(true);
@@ -17208,7 +17208,7 @@ void QCPAxis_SetParentLayerable(QCPAxis* self, QCPLayerable* parentLayerable) {
 }
 
 // Base class handler implementation
-void QCPAxis_QBaseSetParentLayerable(QCPAxis* self, QCPLayerable* parentLayerable) {
+void QCPAxis_SuperSetParentLayerable(QCPAxis* self, QCPLayerable* parentLayerable) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_SetParentLayerable_IsBase(true);
@@ -17237,7 +17237,7 @@ bool QCPAxis_MoveToLayer(QCPAxis* self, QCPLayer* layer, bool prepend) {
 }
 
 // Base class handler implementation
-bool QCPAxis_QBaseMoveToLayer(QCPAxis* self, QCPLayer* layer, bool prepend) {
+bool QCPAxis_SuperMoveToLayer(QCPAxis* self, QCPLayer* layer, bool prepend) {
     auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_MoveToLayer_IsBase(true);
@@ -17266,7 +17266,7 @@ void QCPAxis_ApplyAntialiasingHint(const QCPAxis* self, QCPPainter* painter, boo
 }
 
 // Base class handler implementation
-void QCPAxis_QBaseApplyAntialiasingHint(const QCPAxis* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPAxis_SuperApplyAntialiasingHint(const QCPAxis* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpaxis = const_cast<VirtualQCPAxis*>(dynamic_cast<const VirtualQCPAxis*>(self));
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_ApplyAntialiasingHint_IsBase(true);
@@ -17295,7 +17295,7 @@ QObject* QCPAxis_Sender(const QCPAxis* self) {
 }
 
 // Base class handler implementation
-QObject* QCPAxis_QBaseSender(const QCPAxis* self) {
+QObject* QCPAxis_SuperSender(const QCPAxis* self) {
     auto* vqcpaxis = const_cast<VirtualQCPAxis*>(dynamic_cast<const VirtualQCPAxis*>(self));
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_Sender_IsBase(true);
@@ -17324,7 +17324,7 @@ int QCPAxis_SenderSignalIndex(const QCPAxis* self) {
 }
 
 // Base class handler implementation
-int QCPAxis_QBaseSenderSignalIndex(const QCPAxis* self) {
+int QCPAxis_SuperSenderSignalIndex(const QCPAxis* self) {
     auto* vqcpaxis = const_cast<VirtualQCPAxis*>(dynamic_cast<const VirtualQCPAxis*>(self));
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_SenderSignalIndex_IsBase(true);
@@ -17353,7 +17353,7 @@ int QCPAxis_Receivers(const QCPAxis* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPAxis_QBaseReceivers(const QCPAxis* self, const char* signal) {
+int QCPAxis_SuperReceivers(const QCPAxis* self, const char* signal) {
     auto* vqcpaxis = const_cast<VirtualQCPAxis*>(dynamic_cast<const VirtualQCPAxis*>(self));
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_Receivers_IsBase(true);
@@ -17382,7 +17382,7 @@ bool QCPAxis_IsSignalConnected(const QCPAxis* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QCPAxis_QBaseIsSignalConnected(const QCPAxis* self, const QMetaMethod* signal) {
+bool QCPAxis_SuperIsSignalConnected(const QCPAxis* self, const QMetaMethod* signal) {
     auto* vqcpaxis = const_cast<VirtualQCPAxis*>(dynamic_cast<const VirtualQCPAxis*>(self));
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->setQCPAxis_IsSignalConnected_IsBase(true);
@@ -17607,7 +17607,7 @@ void QCPSelectionDecorator_SetScatterStyle2(QCPSelectionDecorator* self, const Q
 }
 
 // Base class handler implementation
-void QCPSelectionDecorator_QBaseCopyFrom(QCPSelectionDecorator* self, const QCPSelectionDecorator* other) {
+void QCPSelectionDecorator_SuperCopyFrom(QCPSelectionDecorator* self, const QCPSelectionDecorator* other) {
     auto* vqcpselectiondecorator = dynamic_cast<VirtualQCPSelectionDecorator*>(self);
     if (vqcpselectiondecorator && vqcpselectiondecorator->isVirtualQCPSelectionDecorator) {
         vqcpselectiondecorator->setQCPSelectionDecorator_CopyFrom_IsBase(true);
@@ -17626,7 +17626,7 @@ void QCPSelectionDecorator_OnCopyFrom(QCPSelectionDecorator* self, intptr_t slot
 }
 
 // Base class handler implementation
-void QCPSelectionDecorator_QBaseDrawDecoration(QCPSelectionDecorator* self, QCPPainter* painter, QCPDataSelection* selection) {
+void QCPSelectionDecorator_SuperDrawDecoration(QCPSelectionDecorator* self, QCPPainter* painter, QCPDataSelection* selection) {
     auto* vqcpselectiondecorator = dynamic_cast<VirtualQCPSelectionDecorator*>(self);
     if (vqcpselectiondecorator && vqcpselectiondecorator->isVirtualQCPSelectionDecorator) {
         vqcpselectiondecorator->setQCPSelectionDecorator_DrawDecoration_IsBase(true);
@@ -17645,7 +17645,7 @@ void QCPSelectionDecorator_OnDrawDecoration(QCPSelectionDecorator* self, intptr_
 }
 
 // Base class handler implementation
-bool QCPSelectionDecorator_QBaseRegisterWithPlottable(QCPSelectionDecorator* self, QCPAbstractPlottable* plottable) {
+bool QCPSelectionDecorator_SuperRegisterWithPlottable(QCPSelectionDecorator* self, QCPAbstractPlottable* plottable) {
     auto* vqcpselectiondecorator = dynamic_cast<VirtualQCPSelectionDecorator*>(self);
     if (vqcpselectiondecorator && vqcpselectiondecorator->isVirtualQCPSelectionDecorator) {
         vqcpselectiondecorator->setQCPSelectionDecorator_RegisterWithPlottable_IsBase(true);
@@ -17951,7 +17951,7 @@ void QCPAbstractPlottable_RescaleValueAxis2(const QCPAbstractPlottable* self, bo
 }
 
 // Base class handler implementation
-QMetaObject* QCPAbstractPlottable_QBaseMetaObject(const QCPAbstractPlottable* self) {
+QMetaObject* QCPAbstractPlottable_SuperMetaObject(const QCPAbstractPlottable* self) {
     auto* vqcpabstractplottable = const_cast<VirtualQCPAbstractPlottable*>(dynamic_cast<const VirtualQCPAbstractPlottable*>(self));
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_MetaObject_IsBase(true);
@@ -17970,7 +17970,7 @@ void QCPAbstractPlottable_OnMetaObject(const QCPAbstractPlottable* self, intptr_
 }
 
 // Base class handler implementation
-void* QCPAbstractPlottable_QBaseMetacast(QCPAbstractPlottable* self, const char* param1) {
+void* QCPAbstractPlottable_SuperMetacast(QCPAbstractPlottable* self, const char* param1) {
     auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_Metacast_IsBase(true);
@@ -17989,7 +17989,7 @@ void QCPAbstractPlottable_OnMetacast(QCPAbstractPlottable* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int QCPAbstractPlottable_QBaseMetacall(QCPAbstractPlottable* self, int param1, int param2, void** param3) {
+int QCPAbstractPlottable_SuperMetacall(QCPAbstractPlottable* self, int param1, int param2, void** param3) {
     auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_Metacall_IsBase(true);
@@ -18008,7 +18008,7 @@ void QCPAbstractPlottable_OnMetacall(QCPAbstractPlottable* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-double QCPAbstractPlottable_QBaseSelectTest(const QCPAbstractPlottable* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPAbstractPlottable_SuperSelectTest(const QCPAbstractPlottable* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpabstractplottable = const_cast<VirtualQCPAbstractPlottable*>(dynamic_cast<const VirtualQCPAbstractPlottable*>(self));
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_SelectTest_IsBase(true);
@@ -18027,7 +18027,7 @@ void QCPAbstractPlottable_OnSelectTest(const QCPAbstractPlottable* self, intptr_
 }
 
 // Base class handler implementation
-QCPPlottableInterface1D* QCPAbstractPlottable_QBaseInterface1D(QCPAbstractPlottable* self) {
+QCPPlottableInterface1D* QCPAbstractPlottable_SuperInterface1D(QCPAbstractPlottable* self) {
     auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_Interface1D_IsBase(true);
@@ -18046,7 +18046,7 @@ void QCPAbstractPlottable_OnInterface1D(QCPAbstractPlottable* self, intptr_t slo
 }
 
 // Base class handler implementation
-QCPRange* QCPAbstractPlottable_QBaseGetKeyRange(const QCPAbstractPlottable* self, bool* foundRange, int inSignDomain) {
+QCPRange* QCPAbstractPlottable_SuperGetKeyRange(const QCPAbstractPlottable* self, bool* foundRange, int inSignDomain) {
     auto* vqcpabstractplottable = const_cast<VirtualQCPAbstractPlottable*>(dynamic_cast<const VirtualQCPAbstractPlottable*>(self));
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_GetKeyRange_IsBase(true);
@@ -18065,7 +18065,7 @@ void QCPAbstractPlottable_OnGetKeyRange(const QCPAbstractPlottable* self, intptr
 }
 
 // Base class handler implementation
-QCPRange* QCPAbstractPlottable_QBaseGetValueRange(const QCPAbstractPlottable* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
+QCPRange* QCPAbstractPlottable_SuperGetValueRange(const QCPAbstractPlottable* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
     auto* vqcpabstractplottable = const_cast<VirtualQCPAbstractPlottable*>(dynamic_cast<const VirtualQCPAbstractPlottable*>(self));
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_GetValueRange_IsBase(true);
@@ -18084,7 +18084,7 @@ void QCPAbstractPlottable_OnGetValueRange(const QCPAbstractPlottable* self, intp
 }
 
 // Base class handler implementation
-QRect* QCPAbstractPlottable_QBaseClipRect(const QCPAbstractPlottable* self) {
+QRect* QCPAbstractPlottable_SuperClipRect(const QCPAbstractPlottable* self) {
     auto* vqcpabstractplottable = const_cast<VirtualQCPAbstractPlottable*>(dynamic_cast<const VirtualQCPAbstractPlottable*>(self));
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_ClipRect_IsBase(true);
@@ -18102,7 +18102,7 @@ void QCPAbstractPlottable_OnClipRect(const QCPAbstractPlottable* self, intptr_t 
 }
 
 // Base class handler implementation
-void QCPAbstractPlottable_QBaseDraw(QCPAbstractPlottable* self, QCPPainter* painter) {
+void QCPAbstractPlottable_SuperDraw(QCPAbstractPlottable* self, QCPPainter* painter) {
     auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_Draw_IsBase(true);
@@ -18121,7 +18121,7 @@ void QCPAbstractPlottable_OnDraw(QCPAbstractPlottable* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPAbstractPlottable_QBaseSelectionCategory(const QCPAbstractPlottable* self) {
+int QCPAbstractPlottable_SuperSelectionCategory(const QCPAbstractPlottable* self) {
     auto* vqcpabstractplottable = const_cast<VirtualQCPAbstractPlottable*>(dynamic_cast<const VirtualQCPAbstractPlottable*>(self));
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_SelectionCategory_IsBase(true);
@@ -18140,7 +18140,7 @@ void QCPAbstractPlottable_OnSelectionCategory(const QCPAbstractPlottable* self, 
 }
 
 // Base class handler implementation
-void QCPAbstractPlottable_QBaseApplyDefaultAntialiasingHint(const QCPAbstractPlottable* self, QCPPainter* painter) {
+void QCPAbstractPlottable_SuperApplyDefaultAntialiasingHint(const QCPAbstractPlottable* self, QCPPainter* painter) {
     auto* vqcpabstractplottable = const_cast<VirtualQCPAbstractPlottable*>(dynamic_cast<const VirtualQCPAbstractPlottable*>(self));
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -18159,7 +18159,7 @@ void QCPAbstractPlottable_OnApplyDefaultAntialiasingHint(const QCPAbstractPlotta
 }
 
 // Base class handler implementation
-void QCPAbstractPlottable_QBaseSelectEvent(QCPAbstractPlottable* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPAbstractPlottable_SuperSelectEvent(QCPAbstractPlottable* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_SelectEvent_IsBase(true);
@@ -18178,7 +18178,7 @@ void QCPAbstractPlottable_OnSelectEvent(QCPAbstractPlottable* self, intptr_t slo
 }
 
 // Base class handler implementation
-void QCPAbstractPlottable_QBaseDeselectEvent(QCPAbstractPlottable* self, bool* selectionStateChanged) {
+void QCPAbstractPlottable_SuperDeselectEvent(QCPAbstractPlottable* self, bool* selectionStateChanged) {
     auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_DeselectEvent_IsBase(true);
@@ -18197,7 +18197,7 @@ void QCPAbstractPlottable_OnDeselectEvent(QCPAbstractPlottable* self, intptr_t s
 }
 
 // Base class handler implementation
-void QCPAbstractPlottable_QBaseDrawLegendIcon(const QCPAbstractPlottable* self, QCPPainter* painter, const QRectF* rect) {
+void QCPAbstractPlottable_SuperDrawLegendIcon(const QCPAbstractPlottable* self, QCPPainter* painter, const QRectF* rect) {
     auto* vqcpabstractplottable = const_cast<VirtualQCPAbstractPlottable*>(dynamic_cast<const VirtualQCPAbstractPlottable*>(self));
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_DrawLegendIcon_IsBase(true);
@@ -18226,7 +18226,7 @@ void QCPAbstractPlottable_ParentPlotInitialized(QCPAbstractPlottable* self, QCus
 }
 
 // Base class handler implementation
-void QCPAbstractPlottable_QBaseParentPlotInitialized(QCPAbstractPlottable* self, QCustomPlot* parentPlot) {
+void QCPAbstractPlottable_SuperParentPlotInitialized(QCPAbstractPlottable* self, QCustomPlot* parentPlot) {
     auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_ParentPlotInitialized_IsBase(true);
@@ -18255,7 +18255,7 @@ void QCPAbstractPlottable_MousePressEvent(QCPAbstractPlottable* self, QMouseEven
 }
 
 // Base class handler implementation
-void QCPAbstractPlottable_QBaseMousePressEvent(QCPAbstractPlottable* self, QMouseEvent* event, const QVariant* details) {
+void QCPAbstractPlottable_SuperMousePressEvent(QCPAbstractPlottable* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_MousePressEvent_IsBase(true);
@@ -18284,7 +18284,7 @@ void QCPAbstractPlottable_MouseMoveEvent(QCPAbstractPlottable* self, QMouseEvent
 }
 
 // Base class handler implementation
-void QCPAbstractPlottable_QBaseMouseMoveEvent(QCPAbstractPlottable* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPAbstractPlottable_SuperMouseMoveEvent(QCPAbstractPlottable* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_MouseMoveEvent_IsBase(true);
@@ -18313,7 +18313,7 @@ void QCPAbstractPlottable_MouseReleaseEvent(QCPAbstractPlottable* self, QMouseEv
 }
 
 // Base class handler implementation
-void QCPAbstractPlottable_QBaseMouseReleaseEvent(QCPAbstractPlottable* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPAbstractPlottable_SuperMouseReleaseEvent(QCPAbstractPlottable* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_MouseReleaseEvent_IsBase(true);
@@ -18342,7 +18342,7 @@ void QCPAbstractPlottable_MouseDoubleClickEvent(QCPAbstractPlottable* self, QMou
 }
 
 // Base class handler implementation
-void QCPAbstractPlottable_QBaseMouseDoubleClickEvent(QCPAbstractPlottable* self, QMouseEvent* event, const QVariant* details) {
+void QCPAbstractPlottable_SuperMouseDoubleClickEvent(QCPAbstractPlottable* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_MouseDoubleClickEvent_IsBase(true);
@@ -18371,7 +18371,7 @@ void QCPAbstractPlottable_WheelEvent(QCPAbstractPlottable* self, QWheelEvent* ev
 }
 
 // Base class handler implementation
-void QCPAbstractPlottable_QBaseWheelEvent(QCPAbstractPlottable* self, QWheelEvent* event) {
+void QCPAbstractPlottable_SuperWheelEvent(QCPAbstractPlottable* self, QWheelEvent* event) {
     auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_WheelEvent_IsBase(true);
@@ -18400,7 +18400,7 @@ bool QCPAbstractPlottable_Event(QCPAbstractPlottable* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPAbstractPlottable_QBaseEvent(QCPAbstractPlottable* self, QEvent* event) {
+bool QCPAbstractPlottable_SuperEvent(QCPAbstractPlottable* self, QEvent* event) {
     auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_Event_IsBase(true);
@@ -18429,7 +18429,7 @@ bool QCPAbstractPlottable_EventFilter(QCPAbstractPlottable* self, QObject* watch
 }
 
 // Base class handler implementation
-bool QCPAbstractPlottable_QBaseEventFilter(QCPAbstractPlottable* self, QObject* watched, QEvent* event) {
+bool QCPAbstractPlottable_SuperEventFilter(QCPAbstractPlottable* self, QObject* watched, QEvent* event) {
     auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_EventFilter_IsBase(true);
@@ -18458,7 +18458,7 @@ void QCPAbstractPlottable_TimerEvent(QCPAbstractPlottable* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void QCPAbstractPlottable_QBaseTimerEvent(QCPAbstractPlottable* self, QTimerEvent* event) {
+void QCPAbstractPlottable_SuperTimerEvent(QCPAbstractPlottable* self, QTimerEvent* event) {
     auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_TimerEvent_IsBase(true);
@@ -18487,7 +18487,7 @@ void QCPAbstractPlottable_ChildEvent(QCPAbstractPlottable* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void QCPAbstractPlottable_QBaseChildEvent(QCPAbstractPlottable* self, QChildEvent* event) {
+void QCPAbstractPlottable_SuperChildEvent(QCPAbstractPlottable* self, QChildEvent* event) {
     auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_ChildEvent_IsBase(true);
@@ -18516,7 +18516,7 @@ void QCPAbstractPlottable_CustomEvent(QCPAbstractPlottable* self, QEvent* event)
 }
 
 // Base class handler implementation
-void QCPAbstractPlottable_QBaseCustomEvent(QCPAbstractPlottable* self, QEvent* event) {
+void QCPAbstractPlottable_SuperCustomEvent(QCPAbstractPlottable* self, QEvent* event) {
     auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_CustomEvent_IsBase(true);
@@ -18545,7 +18545,7 @@ void QCPAbstractPlottable_ConnectNotify(QCPAbstractPlottable* self, const QMetaM
 }
 
 // Base class handler implementation
-void QCPAbstractPlottable_QBaseConnectNotify(QCPAbstractPlottable* self, const QMetaMethod* signal) {
+void QCPAbstractPlottable_SuperConnectNotify(QCPAbstractPlottable* self, const QMetaMethod* signal) {
     auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_ConnectNotify_IsBase(true);
@@ -18574,7 +18574,7 @@ void QCPAbstractPlottable_DisconnectNotify(QCPAbstractPlottable* self, const QMe
 }
 
 // Base class handler implementation
-void QCPAbstractPlottable_QBaseDisconnectNotify(QCPAbstractPlottable* self, const QMetaMethod* signal) {
+void QCPAbstractPlottable_SuperDisconnectNotify(QCPAbstractPlottable* self, const QMetaMethod* signal) {
     auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_DisconnectNotify_IsBase(true);
@@ -18603,7 +18603,7 @@ void QCPAbstractPlottable_ApplyFillAntialiasingHint(const QCPAbstractPlottable* 
 }
 
 // Base class handler implementation
-void QCPAbstractPlottable_QBaseApplyFillAntialiasingHint(const QCPAbstractPlottable* self, QCPPainter* painter) {
+void QCPAbstractPlottable_SuperApplyFillAntialiasingHint(const QCPAbstractPlottable* self, QCPPainter* painter) {
     auto* vqcpabstractplottable = const_cast<VirtualQCPAbstractPlottable*>(dynamic_cast<const VirtualQCPAbstractPlottable*>(self));
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_ApplyFillAntialiasingHint_IsBase(true);
@@ -18632,7 +18632,7 @@ void QCPAbstractPlottable_ApplyScattersAntialiasingHint(const QCPAbstractPlottab
 }
 
 // Base class handler implementation
-void QCPAbstractPlottable_QBaseApplyScattersAntialiasingHint(const QCPAbstractPlottable* self, QCPPainter* painter) {
+void QCPAbstractPlottable_SuperApplyScattersAntialiasingHint(const QCPAbstractPlottable* self, QCPPainter* painter) {
     auto* vqcpabstractplottable = const_cast<VirtualQCPAbstractPlottable*>(dynamic_cast<const VirtualQCPAbstractPlottable*>(self));
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_ApplyScattersAntialiasingHint_IsBase(true);
@@ -18661,7 +18661,7 @@ void QCPAbstractPlottable_InitializeParentPlot(QCPAbstractPlottable* self, QCust
 }
 
 // Base class handler implementation
-void QCPAbstractPlottable_QBaseInitializeParentPlot(QCPAbstractPlottable* self, QCustomPlot* parentPlot) {
+void QCPAbstractPlottable_SuperInitializeParentPlot(QCPAbstractPlottable* self, QCustomPlot* parentPlot) {
     auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_InitializeParentPlot_IsBase(true);
@@ -18690,7 +18690,7 @@ void QCPAbstractPlottable_SetParentLayerable(QCPAbstractPlottable* self, QCPLaye
 }
 
 // Base class handler implementation
-void QCPAbstractPlottable_QBaseSetParentLayerable(QCPAbstractPlottable* self, QCPLayerable* parentLayerable) {
+void QCPAbstractPlottable_SuperSetParentLayerable(QCPAbstractPlottable* self, QCPLayerable* parentLayerable) {
     auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_SetParentLayerable_IsBase(true);
@@ -18719,7 +18719,7 @@ bool QCPAbstractPlottable_MoveToLayer(QCPAbstractPlottable* self, QCPLayer* laye
 }
 
 // Base class handler implementation
-bool QCPAbstractPlottable_QBaseMoveToLayer(QCPAbstractPlottable* self, QCPLayer* layer, bool prepend) {
+bool QCPAbstractPlottable_SuperMoveToLayer(QCPAbstractPlottable* self, QCPLayer* layer, bool prepend) {
     auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_MoveToLayer_IsBase(true);
@@ -18748,7 +18748,7 @@ void QCPAbstractPlottable_ApplyAntialiasingHint(const QCPAbstractPlottable* self
 }
 
 // Base class handler implementation
-void QCPAbstractPlottable_QBaseApplyAntialiasingHint(const QCPAbstractPlottable* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPAbstractPlottable_SuperApplyAntialiasingHint(const QCPAbstractPlottable* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpabstractplottable = const_cast<VirtualQCPAbstractPlottable*>(dynamic_cast<const VirtualQCPAbstractPlottable*>(self));
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_ApplyAntialiasingHint_IsBase(true);
@@ -18777,7 +18777,7 @@ QObject* QCPAbstractPlottable_Sender(const QCPAbstractPlottable* self) {
 }
 
 // Base class handler implementation
-QObject* QCPAbstractPlottable_QBaseSender(const QCPAbstractPlottable* self) {
+QObject* QCPAbstractPlottable_SuperSender(const QCPAbstractPlottable* self) {
     auto* vqcpabstractplottable = const_cast<VirtualQCPAbstractPlottable*>(dynamic_cast<const VirtualQCPAbstractPlottable*>(self));
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_Sender_IsBase(true);
@@ -18806,7 +18806,7 @@ int QCPAbstractPlottable_SenderSignalIndex(const QCPAbstractPlottable* self) {
 }
 
 // Base class handler implementation
-int QCPAbstractPlottable_QBaseSenderSignalIndex(const QCPAbstractPlottable* self) {
+int QCPAbstractPlottable_SuperSenderSignalIndex(const QCPAbstractPlottable* self) {
     auto* vqcpabstractplottable = const_cast<VirtualQCPAbstractPlottable*>(dynamic_cast<const VirtualQCPAbstractPlottable*>(self));
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_SenderSignalIndex_IsBase(true);
@@ -18835,7 +18835,7 @@ int QCPAbstractPlottable_Receivers(const QCPAbstractPlottable* self, const char*
 }
 
 // Base class handler implementation
-int QCPAbstractPlottable_QBaseReceivers(const QCPAbstractPlottable* self, const char* signal) {
+int QCPAbstractPlottable_SuperReceivers(const QCPAbstractPlottable* self, const char* signal) {
     auto* vqcpabstractplottable = const_cast<VirtualQCPAbstractPlottable*>(dynamic_cast<const VirtualQCPAbstractPlottable*>(self));
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_Receivers_IsBase(true);
@@ -18864,7 +18864,7 @@ bool QCPAbstractPlottable_IsSignalConnected(const QCPAbstractPlottable* self, co
 }
 
 // Base class handler implementation
-bool QCPAbstractPlottable_QBaseIsSignalConnected(const QCPAbstractPlottable* self, const QMetaMethod* signal) {
+bool QCPAbstractPlottable_SuperIsSignalConnected(const QCPAbstractPlottable* self, const QMetaMethod* signal) {
     auto* vqcpabstractplottable = const_cast<VirtualQCPAbstractPlottable*>(dynamic_cast<const VirtualQCPAbstractPlottable*>(self));
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->setQCPAbstractPlottable_IsSignalConnected_IsBase(true);
@@ -18926,7 +18926,7 @@ QCPItemPosition* QCPItemAnchor_ToQCPItemPosition(QCPItemAnchor* self) {
 }
 
 // Base class handler implementation
-QPointF* QCPItemAnchor_QBasePixelPosition(const QCPItemAnchor* self) {
+QPointF* QCPItemAnchor_SuperPixelPosition(const QCPItemAnchor* self) {
     auto* vqcpitemanchor = const_cast<VirtualQCPItemAnchor*>(dynamic_cast<const VirtualQCPItemAnchor*>(self));
     if (vqcpitemanchor && vqcpitemanchor->isVirtualQCPItemAnchor) {
         vqcpitemanchor->setQCPItemAnchor_PixelPosition_IsBase(true);
@@ -18945,7 +18945,7 @@ void QCPItemAnchor_OnPixelPosition(const QCPItemAnchor* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPItemPosition* QCPItemAnchor_QBaseToQCPItemPosition(QCPItemAnchor* self) {
+QCPItemPosition* QCPItemAnchor_SuperToQCPItemPosition(QCPItemAnchor* self) {
     auto* vqcpitemanchor = dynamic_cast<VirtualQCPItemAnchor*>(self);
     if (vqcpitemanchor && vqcpitemanchor->isVirtualQCPItemAnchor) {
         vqcpitemanchor->setQCPItemAnchor_ToQCPItemPosition_IsBase(true);
@@ -18974,7 +18974,7 @@ void QCPItemAnchor_AddChildX(QCPItemAnchor* self, QCPItemPosition* pos) {
 }
 
 // Base class handler implementation
-void QCPItemAnchor_QBaseAddChildX(QCPItemAnchor* self, QCPItemPosition* pos) {
+void QCPItemAnchor_SuperAddChildX(QCPItemAnchor* self, QCPItemPosition* pos) {
     auto* vqcpitemanchor = dynamic_cast<VirtualQCPItemAnchor*>(self);
     if (vqcpitemanchor && vqcpitemanchor->isVirtualQCPItemAnchor) {
         vqcpitemanchor->setQCPItemAnchor_AddChildX_IsBase(true);
@@ -19003,7 +19003,7 @@ void QCPItemAnchor_RemoveChildX(QCPItemAnchor* self, QCPItemPosition* pos) {
 }
 
 // Base class handler implementation
-void QCPItemAnchor_QBaseRemoveChildX(QCPItemAnchor* self, QCPItemPosition* pos) {
+void QCPItemAnchor_SuperRemoveChildX(QCPItemAnchor* self, QCPItemPosition* pos) {
     auto* vqcpitemanchor = dynamic_cast<VirtualQCPItemAnchor*>(self);
     if (vqcpitemanchor && vqcpitemanchor->isVirtualQCPItemAnchor) {
         vqcpitemanchor->setQCPItemAnchor_RemoveChildX_IsBase(true);
@@ -19032,7 +19032,7 @@ void QCPItemAnchor_AddChildY(QCPItemAnchor* self, QCPItemPosition* pos) {
 }
 
 // Base class handler implementation
-void QCPItemAnchor_QBaseAddChildY(QCPItemAnchor* self, QCPItemPosition* pos) {
+void QCPItemAnchor_SuperAddChildY(QCPItemAnchor* self, QCPItemPosition* pos) {
     auto* vqcpitemanchor = dynamic_cast<VirtualQCPItemAnchor*>(self);
     if (vqcpitemanchor && vqcpitemanchor->isVirtualQCPItemAnchor) {
         vqcpitemanchor->setQCPItemAnchor_AddChildY_IsBase(true);
@@ -19061,7 +19061,7 @@ void QCPItemAnchor_RemoveChildY(QCPItemAnchor* self, QCPItemPosition* pos) {
 }
 
 // Base class handler implementation
-void QCPItemAnchor_QBaseRemoveChildY(QCPItemAnchor* self, QCPItemPosition* pos) {
+void QCPItemAnchor_SuperRemoveChildY(QCPItemAnchor* self, QCPItemPosition* pos) {
     auto* vqcpitemanchor = dynamic_cast<VirtualQCPItemAnchor*>(self);
     if (vqcpitemanchor && vqcpitemanchor->isVirtualQCPItemAnchor) {
         vqcpitemanchor->setQCPItemAnchor_RemoveChildY_IsBase(true);
@@ -19210,7 +19210,7 @@ bool QCPItemPosition_SetParentAnchorY2(QCPItemPosition* self, QCPItemAnchor* par
 }
 
 // Base class handler implementation
-QPointF* QCPItemPosition_QBasePixelPosition(const QCPItemPosition* self) {
+QPointF* QCPItemPosition_SuperPixelPosition(const QCPItemPosition* self) {
     auto* vqcpitemposition = const_cast<VirtualQCPItemPosition*>(dynamic_cast<const VirtualQCPItemPosition*>(self));
     if (vqcpitemposition && vqcpitemposition->isVirtualQCPItemPosition) {
         vqcpitemposition->setQCPItemPosition_PixelPosition_IsBase(true);
@@ -19229,7 +19229,7 @@ void QCPItemPosition_OnPixelPosition(const QCPItemPosition* self, intptr_t slot)
 }
 
 // Base class handler implementation
-QCPItemPosition* QCPItemPosition_QBaseToQCPItemPosition(QCPItemPosition* self) {
+QCPItemPosition* QCPItemPosition_SuperToQCPItemPosition(QCPItemPosition* self) {
     auto* vqcpitemposition = dynamic_cast<VirtualQCPItemPosition*>(self);
     if (vqcpitemposition && vqcpitemposition->isVirtualQCPItemPosition) {
         vqcpitemposition->setQCPItemPosition_ToQCPItemPosition_IsBase(true);
@@ -19258,7 +19258,7 @@ void QCPItemPosition_AddChildX(QCPItemPosition* self, QCPItemPosition* pos) {
 }
 
 // Base class handler implementation
-void QCPItemPosition_QBaseAddChildX(QCPItemPosition* self, QCPItemPosition* pos) {
+void QCPItemPosition_SuperAddChildX(QCPItemPosition* self, QCPItemPosition* pos) {
     auto* vqcpitemposition = dynamic_cast<VirtualQCPItemPosition*>(self);
     if (vqcpitemposition && vqcpitemposition->isVirtualQCPItemPosition) {
         vqcpitemposition->setQCPItemPosition_AddChildX_IsBase(true);
@@ -19287,7 +19287,7 @@ void QCPItemPosition_RemoveChildX(QCPItemPosition* self, QCPItemPosition* pos) {
 }
 
 // Base class handler implementation
-void QCPItemPosition_QBaseRemoveChildX(QCPItemPosition* self, QCPItemPosition* pos) {
+void QCPItemPosition_SuperRemoveChildX(QCPItemPosition* self, QCPItemPosition* pos) {
     auto* vqcpitemposition = dynamic_cast<VirtualQCPItemPosition*>(self);
     if (vqcpitemposition && vqcpitemposition->isVirtualQCPItemPosition) {
         vqcpitemposition->setQCPItemPosition_RemoveChildX_IsBase(true);
@@ -19316,7 +19316,7 @@ void QCPItemPosition_AddChildY(QCPItemPosition* self, QCPItemPosition* pos) {
 }
 
 // Base class handler implementation
-void QCPItemPosition_QBaseAddChildY(QCPItemPosition* self, QCPItemPosition* pos) {
+void QCPItemPosition_SuperAddChildY(QCPItemPosition* self, QCPItemPosition* pos) {
     auto* vqcpitemposition = dynamic_cast<VirtualQCPItemPosition*>(self);
     if (vqcpitemposition && vqcpitemposition->isVirtualQCPItemPosition) {
         vqcpitemposition->setQCPItemPosition_AddChildY_IsBase(true);
@@ -19345,7 +19345,7 @@ void QCPItemPosition_RemoveChildY(QCPItemPosition* self, QCPItemPosition* pos) {
 }
 
 // Base class handler implementation
-void QCPItemPosition_QBaseRemoveChildY(QCPItemPosition* self, QCPItemPosition* pos) {
+void QCPItemPosition_SuperRemoveChildY(QCPItemPosition* self, QCPItemPosition* pos) {
     auto* vqcpitemposition = dynamic_cast<VirtualQCPItemPosition*>(self);
     if (vqcpitemposition && vqcpitemposition->isVirtualQCPItemPosition) {
         vqcpitemposition->setQCPItemPosition_RemoveChildY_IsBase(true);
@@ -19557,7 +19557,7 @@ QPointF* QCPAbstractItem_AnchorPixelPosition(const QCPAbstractItem* self, int an
 }
 
 // Base class handler implementation
-QMetaObject* QCPAbstractItem_QBaseMetaObject(const QCPAbstractItem* self) {
+QMetaObject* QCPAbstractItem_SuperMetaObject(const QCPAbstractItem* self) {
     auto* vqcpabstractitem = const_cast<VirtualQCPAbstractItem*>(dynamic_cast<const VirtualQCPAbstractItem*>(self));
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_MetaObject_IsBase(true);
@@ -19576,7 +19576,7 @@ void QCPAbstractItem_OnMetaObject(const QCPAbstractItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPAbstractItem_QBaseMetacast(QCPAbstractItem* self, const char* param1) {
+void* QCPAbstractItem_SuperMetacast(QCPAbstractItem* self, const char* param1) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_Metacast_IsBase(true);
@@ -19595,7 +19595,7 @@ void QCPAbstractItem_OnMetacast(QCPAbstractItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPAbstractItem_QBaseMetacall(QCPAbstractItem* self, int param1, int param2, void** param3) {
+int QCPAbstractItem_SuperMetacall(QCPAbstractItem* self, int param1, int param2, void** param3) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_Metacall_IsBase(true);
@@ -19614,7 +19614,7 @@ void QCPAbstractItem_OnMetacall(QCPAbstractItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPAbstractItem_QBaseSelectTest(const QCPAbstractItem* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPAbstractItem_SuperSelectTest(const QCPAbstractItem* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpabstractitem = const_cast<VirtualQCPAbstractItem*>(dynamic_cast<const VirtualQCPAbstractItem*>(self));
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_SelectTest_IsBase(true);
@@ -19633,7 +19633,7 @@ void QCPAbstractItem_OnSelectTest(const QCPAbstractItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPAbstractItem_QBaseSelectionCategory(const QCPAbstractItem* self) {
+int QCPAbstractItem_SuperSelectionCategory(const QCPAbstractItem* self) {
     auto* vqcpabstractitem = const_cast<VirtualQCPAbstractItem*>(dynamic_cast<const VirtualQCPAbstractItem*>(self));
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_SelectionCategory_IsBase(true);
@@ -19652,7 +19652,7 @@ void QCPAbstractItem_OnSelectionCategory(const QCPAbstractItem* self, intptr_t s
 }
 
 // Base class handler implementation
-QRect* QCPAbstractItem_QBaseClipRect(const QCPAbstractItem* self) {
+QRect* QCPAbstractItem_SuperClipRect(const QCPAbstractItem* self) {
     auto* vqcpabstractitem = const_cast<VirtualQCPAbstractItem*>(dynamic_cast<const VirtualQCPAbstractItem*>(self));
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_ClipRect_IsBase(true);
@@ -19670,7 +19670,7 @@ void QCPAbstractItem_OnClipRect(const QCPAbstractItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPAbstractItem_QBaseApplyDefaultAntialiasingHint(const QCPAbstractItem* self, QCPPainter* painter) {
+void QCPAbstractItem_SuperApplyDefaultAntialiasingHint(const QCPAbstractItem* self, QCPPainter* painter) {
     auto* vqcpabstractitem = const_cast<VirtualQCPAbstractItem*>(dynamic_cast<const VirtualQCPAbstractItem*>(self));
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -19689,7 +19689,7 @@ void QCPAbstractItem_OnApplyDefaultAntialiasingHint(const QCPAbstractItem* self,
 }
 
 // Base class handler implementation
-void QCPAbstractItem_QBaseDraw(QCPAbstractItem* self, QCPPainter* painter) {
+void QCPAbstractItem_SuperDraw(QCPAbstractItem* self, QCPPainter* painter) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_Draw_IsBase(true);
@@ -19708,7 +19708,7 @@ void QCPAbstractItem_OnDraw(QCPAbstractItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPAbstractItem_QBaseSelectEvent(QCPAbstractItem* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPAbstractItem_SuperSelectEvent(QCPAbstractItem* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_SelectEvent_IsBase(true);
@@ -19727,7 +19727,7 @@ void QCPAbstractItem_OnSelectEvent(QCPAbstractItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPAbstractItem_QBaseDeselectEvent(QCPAbstractItem* self, bool* selectionStateChanged) {
+void QCPAbstractItem_SuperDeselectEvent(QCPAbstractItem* self, bool* selectionStateChanged) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_DeselectEvent_IsBase(true);
@@ -19746,7 +19746,7 @@ void QCPAbstractItem_OnDeselectEvent(QCPAbstractItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPointF* QCPAbstractItem_QBaseAnchorPixelPosition(const QCPAbstractItem* self, int anchorId) {
+QPointF* QCPAbstractItem_SuperAnchorPixelPosition(const QCPAbstractItem* self, int anchorId) {
     auto* vqcpabstractitem = const_cast<VirtualQCPAbstractItem*>(dynamic_cast<const VirtualQCPAbstractItem*>(self));
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_AnchorPixelPosition_IsBase(true);
@@ -19774,7 +19774,7 @@ void QCPAbstractItem_ParentPlotInitialized(QCPAbstractItem* self, QCustomPlot* p
 }
 
 // Base class handler implementation
-void QCPAbstractItem_QBaseParentPlotInitialized(QCPAbstractItem* self, QCustomPlot* parentPlot) {
+void QCPAbstractItem_SuperParentPlotInitialized(QCPAbstractItem* self, QCustomPlot* parentPlot) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_ParentPlotInitialized_IsBase(true);
@@ -19803,7 +19803,7 @@ void QCPAbstractItem_MousePressEvent(QCPAbstractItem* self, QMouseEvent* event, 
 }
 
 // Base class handler implementation
-void QCPAbstractItem_QBaseMousePressEvent(QCPAbstractItem* self, QMouseEvent* event, const QVariant* details) {
+void QCPAbstractItem_SuperMousePressEvent(QCPAbstractItem* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_MousePressEvent_IsBase(true);
@@ -19832,7 +19832,7 @@ void QCPAbstractItem_MouseMoveEvent(QCPAbstractItem* self, QMouseEvent* event, c
 }
 
 // Base class handler implementation
-void QCPAbstractItem_QBaseMouseMoveEvent(QCPAbstractItem* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPAbstractItem_SuperMouseMoveEvent(QCPAbstractItem* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_MouseMoveEvent_IsBase(true);
@@ -19861,7 +19861,7 @@ void QCPAbstractItem_MouseReleaseEvent(QCPAbstractItem* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void QCPAbstractItem_QBaseMouseReleaseEvent(QCPAbstractItem* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPAbstractItem_SuperMouseReleaseEvent(QCPAbstractItem* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_MouseReleaseEvent_IsBase(true);
@@ -19890,7 +19890,7 @@ void QCPAbstractItem_MouseDoubleClickEvent(QCPAbstractItem* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void QCPAbstractItem_QBaseMouseDoubleClickEvent(QCPAbstractItem* self, QMouseEvent* event, const QVariant* details) {
+void QCPAbstractItem_SuperMouseDoubleClickEvent(QCPAbstractItem* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_MouseDoubleClickEvent_IsBase(true);
@@ -19919,7 +19919,7 @@ void QCPAbstractItem_WheelEvent(QCPAbstractItem* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPAbstractItem_QBaseWheelEvent(QCPAbstractItem* self, QWheelEvent* event) {
+void QCPAbstractItem_SuperWheelEvent(QCPAbstractItem* self, QWheelEvent* event) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_WheelEvent_IsBase(true);
@@ -19948,7 +19948,7 @@ bool QCPAbstractItem_Event(QCPAbstractItem* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPAbstractItem_QBaseEvent(QCPAbstractItem* self, QEvent* event) {
+bool QCPAbstractItem_SuperEvent(QCPAbstractItem* self, QEvent* event) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_Event_IsBase(true);
@@ -19977,7 +19977,7 @@ bool QCPAbstractItem_EventFilter(QCPAbstractItem* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool QCPAbstractItem_QBaseEventFilter(QCPAbstractItem* self, QObject* watched, QEvent* event) {
+bool QCPAbstractItem_SuperEventFilter(QCPAbstractItem* self, QObject* watched, QEvent* event) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_EventFilter_IsBase(true);
@@ -20006,7 +20006,7 @@ void QCPAbstractItem_TimerEvent(QCPAbstractItem* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPAbstractItem_QBaseTimerEvent(QCPAbstractItem* self, QTimerEvent* event) {
+void QCPAbstractItem_SuperTimerEvent(QCPAbstractItem* self, QTimerEvent* event) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_TimerEvent_IsBase(true);
@@ -20035,7 +20035,7 @@ void QCPAbstractItem_ChildEvent(QCPAbstractItem* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPAbstractItem_QBaseChildEvent(QCPAbstractItem* self, QChildEvent* event) {
+void QCPAbstractItem_SuperChildEvent(QCPAbstractItem* self, QChildEvent* event) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_ChildEvent_IsBase(true);
@@ -20064,7 +20064,7 @@ void QCPAbstractItem_CustomEvent(QCPAbstractItem* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPAbstractItem_QBaseCustomEvent(QCPAbstractItem* self, QEvent* event) {
+void QCPAbstractItem_SuperCustomEvent(QCPAbstractItem* self, QEvent* event) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_CustomEvent_IsBase(true);
@@ -20093,7 +20093,7 @@ void QCPAbstractItem_ConnectNotify(QCPAbstractItem* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void QCPAbstractItem_QBaseConnectNotify(QCPAbstractItem* self, const QMetaMethod* signal) {
+void QCPAbstractItem_SuperConnectNotify(QCPAbstractItem* self, const QMetaMethod* signal) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_ConnectNotify_IsBase(true);
@@ -20122,7 +20122,7 @@ void QCPAbstractItem_DisconnectNotify(QCPAbstractItem* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void QCPAbstractItem_QBaseDisconnectNotify(QCPAbstractItem* self, const QMetaMethod* signal) {
+void QCPAbstractItem_SuperDisconnectNotify(QCPAbstractItem* self, const QMetaMethod* signal) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_DisconnectNotify_IsBase(true);
@@ -20151,7 +20151,7 @@ double QCPAbstractItem_RectDistance(const QCPAbstractItem* self, const QRectF* r
 }
 
 // Base class handler implementation
-double QCPAbstractItem_QBaseRectDistance(const QCPAbstractItem* self, const QRectF* rect, const QPointF* pos, bool filledRect) {
+double QCPAbstractItem_SuperRectDistance(const QCPAbstractItem* self, const QRectF* rect, const QPointF* pos, bool filledRect) {
     auto* vqcpabstractitem = const_cast<VirtualQCPAbstractItem*>(dynamic_cast<const VirtualQCPAbstractItem*>(self));
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_RectDistance_IsBase(true);
@@ -20181,7 +20181,7 @@ QCPItemPosition* QCPAbstractItem_CreatePosition(QCPAbstractItem* self, const lib
 }
 
 // Base class handler implementation
-QCPItemPosition* QCPAbstractItem_QBaseCreatePosition(QCPAbstractItem* self, const libqt_string name) {
+QCPItemPosition* QCPAbstractItem_SuperCreatePosition(QCPAbstractItem* self, const libqt_string name) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
@@ -20212,7 +20212,7 @@ QCPItemAnchor* QCPAbstractItem_CreateAnchor(QCPAbstractItem* self, const libqt_s
 }
 
 // Base class handler implementation
-QCPItemAnchor* QCPAbstractItem_QBaseCreateAnchor(QCPAbstractItem* self, const libqt_string name, int anchorId) {
+QCPItemAnchor* QCPAbstractItem_SuperCreateAnchor(QCPAbstractItem* self, const libqt_string name, int anchorId) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
@@ -20242,7 +20242,7 @@ void QCPAbstractItem_InitializeParentPlot(QCPAbstractItem* self, QCustomPlot* pa
 }
 
 // Base class handler implementation
-void QCPAbstractItem_QBaseInitializeParentPlot(QCPAbstractItem* self, QCustomPlot* parentPlot) {
+void QCPAbstractItem_SuperInitializeParentPlot(QCPAbstractItem* self, QCustomPlot* parentPlot) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_InitializeParentPlot_IsBase(true);
@@ -20271,7 +20271,7 @@ void QCPAbstractItem_SetParentLayerable(QCPAbstractItem* self, QCPLayerable* par
 }
 
 // Base class handler implementation
-void QCPAbstractItem_QBaseSetParentLayerable(QCPAbstractItem* self, QCPLayerable* parentLayerable) {
+void QCPAbstractItem_SuperSetParentLayerable(QCPAbstractItem* self, QCPLayerable* parentLayerable) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_SetParentLayerable_IsBase(true);
@@ -20300,7 +20300,7 @@ bool QCPAbstractItem_MoveToLayer(QCPAbstractItem* self, QCPLayer* layer, bool pr
 }
 
 // Base class handler implementation
-bool QCPAbstractItem_QBaseMoveToLayer(QCPAbstractItem* self, QCPLayer* layer, bool prepend) {
+bool QCPAbstractItem_SuperMoveToLayer(QCPAbstractItem* self, QCPLayer* layer, bool prepend) {
     auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_MoveToLayer_IsBase(true);
@@ -20329,7 +20329,7 @@ void QCPAbstractItem_ApplyAntialiasingHint(const QCPAbstractItem* self, QCPPaint
 }
 
 // Base class handler implementation
-void QCPAbstractItem_QBaseApplyAntialiasingHint(const QCPAbstractItem* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPAbstractItem_SuperApplyAntialiasingHint(const QCPAbstractItem* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpabstractitem = const_cast<VirtualQCPAbstractItem*>(dynamic_cast<const VirtualQCPAbstractItem*>(self));
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_ApplyAntialiasingHint_IsBase(true);
@@ -20358,7 +20358,7 @@ QObject* QCPAbstractItem_Sender(const QCPAbstractItem* self) {
 }
 
 // Base class handler implementation
-QObject* QCPAbstractItem_QBaseSender(const QCPAbstractItem* self) {
+QObject* QCPAbstractItem_SuperSender(const QCPAbstractItem* self) {
     auto* vqcpabstractitem = const_cast<VirtualQCPAbstractItem*>(dynamic_cast<const VirtualQCPAbstractItem*>(self));
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_Sender_IsBase(true);
@@ -20387,7 +20387,7 @@ int QCPAbstractItem_SenderSignalIndex(const QCPAbstractItem* self) {
 }
 
 // Base class handler implementation
-int QCPAbstractItem_QBaseSenderSignalIndex(const QCPAbstractItem* self) {
+int QCPAbstractItem_SuperSenderSignalIndex(const QCPAbstractItem* self) {
     auto* vqcpabstractitem = const_cast<VirtualQCPAbstractItem*>(dynamic_cast<const VirtualQCPAbstractItem*>(self));
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_SenderSignalIndex_IsBase(true);
@@ -20416,7 +20416,7 @@ int QCPAbstractItem_Receivers(const QCPAbstractItem* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPAbstractItem_QBaseReceivers(const QCPAbstractItem* self, const char* signal) {
+int QCPAbstractItem_SuperReceivers(const QCPAbstractItem* self, const char* signal) {
     auto* vqcpabstractitem = const_cast<VirtualQCPAbstractItem*>(dynamic_cast<const VirtualQCPAbstractItem*>(self));
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_Receivers_IsBase(true);
@@ -20445,7 +20445,7 @@ bool QCPAbstractItem_IsSignalConnected(const QCPAbstractItem* self, const QMetaM
 }
 
 // Base class handler implementation
-bool QCPAbstractItem_QBaseIsSignalConnected(const QCPAbstractItem* self, const QMetaMethod* signal) {
+bool QCPAbstractItem_SuperIsSignalConnected(const QCPAbstractItem* self, const QMetaMethod* signal) {
     auto* vqcpabstractitem = const_cast<VirtualQCPAbstractItem*>(dynamic_cast<const VirtualQCPAbstractItem*>(self));
     if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
         vqcpabstractitem->setQCPAbstractItem_IsSignalConnected_IsBase(true);
@@ -21523,7 +21523,7 @@ double QCustomPlot_ReplotTime1(const QCustomPlot* self, bool average) {
 }
 
 // Base class handler implementation
-QMetaObject* QCustomPlot_QBaseMetaObject(const QCustomPlot* self) {
+QMetaObject* QCustomPlot_SuperMetaObject(const QCustomPlot* self) {
     auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_MetaObject_IsBase(true);
@@ -21542,7 +21542,7 @@ void QCustomPlot_OnMetaObject(const QCustomPlot* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCustomPlot_QBaseMetacast(QCustomPlot* self, const char* param1) {
+void* QCustomPlot_SuperMetacast(QCustomPlot* self, const char* param1) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_Metacast_IsBase(true);
@@ -21561,7 +21561,7 @@ void QCustomPlot_OnMetacast(QCustomPlot* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCustomPlot_QBaseMetacall(QCustomPlot* self, int param1, int param2, void** param3) {
+int QCustomPlot_SuperMetacall(QCustomPlot* self, int param1, int param2, void** param3) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_Metacall_IsBase(true);
@@ -21580,7 +21580,7 @@ void QCustomPlot_OnMetacall(QCustomPlot* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QCustomPlot_QBaseMinimumSizeHint(const QCustomPlot* self) {
+QSize* QCustomPlot_SuperMinimumSizeHint(const QCustomPlot* self) {
     auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_MinimumSizeHint_IsBase(true);
@@ -21598,7 +21598,7 @@ void QCustomPlot_OnMinimumSizeHint(const QCustomPlot* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QCustomPlot_QBaseSizeHint(const QCustomPlot* self) {
+QSize* QCustomPlot_SuperSizeHint(const QCustomPlot* self) {
     auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_SizeHint_IsBase(true);
@@ -21616,7 +21616,7 @@ void QCustomPlot_OnSizeHint(const QCustomPlot* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBasePaintEvent(QCustomPlot* self, QPaintEvent* event) {
+void QCustomPlot_SuperPaintEvent(QCustomPlot* self, QPaintEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_PaintEvent_IsBase(true);
@@ -21635,7 +21635,7 @@ void QCustomPlot_OnPaintEvent(QCustomPlot* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseResizeEvent(QCustomPlot* self, QResizeEvent* event) {
+void QCustomPlot_SuperResizeEvent(QCustomPlot* self, QResizeEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_ResizeEvent_IsBase(true);
@@ -21654,7 +21654,7 @@ void QCustomPlot_OnResizeEvent(QCustomPlot* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseMouseDoubleClickEvent(QCustomPlot* self, QMouseEvent* event) {
+void QCustomPlot_SuperMouseDoubleClickEvent(QCustomPlot* self, QMouseEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_MouseDoubleClickEvent_IsBase(true);
@@ -21673,7 +21673,7 @@ void QCustomPlot_OnMouseDoubleClickEvent(QCustomPlot* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseMousePressEvent(QCustomPlot* self, QMouseEvent* event) {
+void QCustomPlot_SuperMousePressEvent(QCustomPlot* self, QMouseEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_MousePressEvent_IsBase(true);
@@ -21692,7 +21692,7 @@ void QCustomPlot_OnMousePressEvent(QCustomPlot* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseMouseMoveEvent(QCustomPlot* self, QMouseEvent* event) {
+void QCustomPlot_SuperMouseMoveEvent(QCustomPlot* self, QMouseEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_MouseMoveEvent_IsBase(true);
@@ -21711,7 +21711,7 @@ void QCustomPlot_OnMouseMoveEvent(QCustomPlot* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseMouseReleaseEvent(QCustomPlot* self, QMouseEvent* event) {
+void QCustomPlot_SuperMouseReleaseEvent(QCustomPlot* self, QMouseEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_MouseReleaseEvent_IsBase(true);
@@ -21730,7 +21730,7 @@ void QCustomPlot_OnMouseReleaseEvent(QCustomPlot* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseWheelEvent(QCustomPlot* self, QWheelEvent* event) {
+void QCustomPlot_SuperWheelEvent(QCustomPlot* self, QWheelEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_WheelEvent_IsBase(true);
@@ -21749,7 +21749,7 @@ void QCustomPlot_OnWheelEvent(QCustomPlot* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseDraw(QCustomPlot* self, QCPPainter* painter) {
+void QCustomPlot_SuperDraw(QCustomPlot* self, QCPPainter* painter) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_Draw_IsBase(true);
@@ -21768,7 +21768,7 @@ void QCustomPlot_OnDraw(QCustomPlot* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseUpdateLayout(QCustomPlot* self) {
+void QCustomPlot_SuperUpdateLayout(QCustomPlot* self) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_UpdateLayout_IsBase(true);
@@ -21787,7 +21787,7 @@ void QCustomPlot_OnUpdateLayout(QCustomPlot* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseAxisRemoved(QCustomPlot* self, QCPAxis* axis) {
+void QCustomPlot_SuperAxisRemoved(QCustomPlot* self, QCPAxis* axis) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_AxisRemoved_IsBase(true);
@@ -21806,7 +21806,7 @@ void QCustomPlot_OnAxisRemoved(QCustomPlot* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseLegendRemoved(QCustomPlot* self, QCPLegend* legend) {
+void QCustomPlot_SuperLegendRemoved(QCustomPlot* self, QCPLegend* legend) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_LegendRemoved_IsBase(true);
@@ -21825,7 +21825,7 @@ void QCustomPlot_OnLegendRemoved(QCustomPlot* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseProcessRectSelection(QCustomPlot* self, QRect* rect, QMouseEvent* event) {
+void QCustomPlot_SuperProcessRectSelection(QCustomPlot* self, QRect* rect, QMouseEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_ProcessRectSelection_IsBase(true);
@@ -21844,7 +21844,7 @@ void QCustomPlot_OnProcessRectSelection(QCustomPlot* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseProcessRectZoom(QCustomPlot* self, QRect* rect, QMouseEvent* event) {
+void QCustomPlot_SuperProcessRectZoom(QCustomPlot* self, QRect* rect, QMouseEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_ProcessRectZoom_IsBase(true);
@@ -21863,7 +21863,7 @@ void QCustomPlot_OnProcessRectZoom(QCustomPlot* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseProcessPointSelection(QCustomPlot* self, QMouseEvent* event) {
+void QCustomPlot_SuperProcessPointSelection(QCustomPlot* self, QMouseEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_ProcessPointSelection_IsBase(true);
@@ -21892,7 +21892,7 @@ int QCustomPlot_DevType(const QCustomPlot* self) {
 }
 
 // Base class handler implementation
-int QCustomPlot_QBaseDevType(const QCustomPlot* self) {
+int QCustomPlot_SuperDevType(const QCustomPlot* self) {
     auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_DevType_IsBase(true);
@@ -21921,7 +21921,7 @@ void QCustomPlot_SetVisible(QCustomPlot* self, bool visible) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseSetVisible(QCustomPlot* self, bool visible) {
+void QCustomPlot_SuperSetVisible(QCustomPlot* self, bool visible) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_SetVisible_IsBase(true);
@@ -21950,7 +21950,7 @@ int QCustomPlot_HeightForWidth(const QCustomPlot* self, int param1) {
 }
 
 // Base class handler implementation
-int QCustomPlot_QBaseHeightForWidth(const QCustomPlot* self, int param1) {
+int QCustomPlot_SuperHeightForWidth(const QCustomPlot* self, int param1) {
     auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_HeightForWidth_IsBase(true);
@@ -21979,7 +21979,7 @@ bool QCustomPlot_HasHeightForWidth(const QCustomPlot* self) {
 }
 
 // Base class handler implementation
-bool QCustomPlot_QBaseHasHeightForWidth(const QCustomPlot* self) {
+bool QCustomPlot_SuperHasHeightForWidth(const QCustomPlot* self) {
     auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_HasHeightForWidth_IsBase(true);
@@ -22008,7 +22008,7 @@ QPaintEngine* QCustomPlot_PaintEngine(const QCustomPlot* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QCustomPlot_QBasePaintEngine(const QCustomPlot* self) {
+QPaintEngine* QCustomPlot_SuperPaintEngine(const QCustomPlot* self) {
     auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_PaintEngine_IsBase(true);
@@ -22037,7 +22037,7 @@ bool QCustomPlot_Event(QCustomPlot* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCustomPlot_QBaseEvent(QCustomPlot* self, QEvent* event) {
+bool QCustomPlot_SuperEvent(QCustomPlot* self, QEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_Event_IsBase(true);
@@ -22066,7 +22066,7 @@ void QCustomPlot_KeyPressEvent(QCustomPlot* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseKeyPressEvent(QCustomPlot* self, QKeyEvent* event) {
+void QCustomPlot_SuperKeyPressEvent(QCustomPlot* self, QKeyEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_KeyPressEvent_IsBase(true);
@@ -22095,7 +22095,7 @@ void QCustomPlot_KeyReleaseEvent(QCustomPlot* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseKeyReleaseEvent(QCustomPlot* self, QKeyEvent* event) {
+void QCustomPlot_SuperKeyReleaseEvent(QCustomPlot* self, QKeyEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_KeyReleaseEvent_IsBase(true);
@@ -22124,7 +22124,7 @@ void QCustomPlot_FocusInEvent(QCustomPlot* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseFocusInEvent(QCustomPlot* self, QFocusEvent* event) {
+void QCustomPlot_SuperFocusInEvent(QCustomPlot* self, QFocusEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_FocusInEvent_IsBase(true);
@@ -22153,7 +22153,7 @@ void QCustomPlot_FocusOutEvent(QCustomPlot* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseFocusOutEvent(QCustomPlot* self, QFocusEvent* event) {
+void QCustomPlot_SuperFocusOutEvent(QCustomPlot* self, QFocusEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_FocusOutEvent_IsBase(true);
@@ -22182,7 +22182,7 @@ void QCustomPlot_EnterEvent(QCustomPlot* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseEnterEvent(QCustomPlot* self, QEnterEvent* event) {
+void QCustomPlot_SuperEnterEvent(QCustomPlot* self, QEnterEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_EnterEvent_IsBase(true);
@@ -22211,7 +22211,7 @@ void QCustomPlot_LeaveEvent(QCustomPlot* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseLeaveEvent(QCustomPlot* self, QEvent* event) {
+void QCustomPlot_SuperLeaveEvent(QCustomPlot* self, QEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_LeaveEvent_IsBase(true);
@@ -22240,7 +22240,7 @@ void QCustomPlot_MoveEvent(QCustomPlot* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseMoveEvent(QCustomPlot* self, QMoveEvent* event) {
+void QCustomPlot_SuperMoveEvent(QCustomPlot* self, QMoveEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_MoveEvent_IsBase(true);
@@ -22269,7 +22269,7 @@ void QCustomPlot_CloseEvent(QCustomPlot* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseCloseEvent(QCustomPlot* self, QCloseEvent* event) {
+void QCustomPlot_SuperCloseEvent(QCustomPlot* self, QCloseEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_CloseEvent_IsBase(true);
@@ -22298,7 +22298,7 @@ void QCustomPlot_ContextMenuEvent(QCustomPlot* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseContextMenuEvent(QCustomPlot* self, QContextMenuEvent* event) {
+void QCustomPlot_SuperContextMenuEvent(QCustomPlot* self, QContextMenuEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_ContextMenuEvent_IsBase(true);
@@ -22327,7 +22327,7 @@ void QCustomPlot_TabletEvent(QCustomPlot* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseTabletEvent(QCustomPlot* self, QTabletEvent* event) {
+void QCustomPlot_SuperTabletEvent(QCustomPlot* self, QTabletEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_TabletEvent_IsBase(true);
@@ -22356,7 +22356,7 @@ void QCustomPlot_ActionEvent(QCustomPlot* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseActionEvent(QCustomPlot* self, QActionEvent* event) {
+void QCustomPlot_SuperActionEvent(QCustomPlot* self, QActionEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_ActionEvent_IsBase(true);
@@ -22385,7 +22385,7 @@ void QCustomPlot_DragEnterEvent(QCustomPlot* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseDragEnterEvent(QCustomPlot* self, QDragEnterEvent* event) {
+void QCustomPlot_SuperDragEnterEvent(QCustomPlot* self, QDragEnterEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_DragEnterEvent_IsBase(true);
@@ -22414,7 +22414,7 @@ void QCustomPlot_DragMoveEvent(QCustomPlot* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseDragMoveEvent(QCustomPlot* self, QDragMoveEvent* event) {
+void QCustomPlot_SuperDragMoveEvent(QCustomPlot* self, QDragMoveEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_DragMoveEvent_IsBase(true);
@@ -22443,7 +22443,7 @@ void QCustomPlot_DragLeaveEvent(QCustomPlot* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseDragLeaveEvent(QCustomPlot* self, QDragLeaveEvent* event) {
+void QCustomPlot_SuperDragLeaveEvent(QCustomPlot* self, QDragLeaveEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_DragLeaveEvent_IsBase(true);
@@ -22472,7 +22472,7 @@ void QCustomPlot_DropEvent(QCustomPlot* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseDropEvent(QCustomPlot* self, QDropEvent* event) {
+void QCustomPlot_SuperDropEvent(QCustomPlot* self, QDropEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_DropEvent_IsBase(true);
@@ -22501,7 +22501,7 @@ void QCustomPlot_ShowEvent(QCustomPlot* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseShowEvent(QCustomPlot* self, QShowEvent* event) {
+void QCustomPlot_SuperShowEvent(QCustomPlot* self, QShowEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_ShowEvent_IsBase(true);
@@ -22530,7 +22530,7 @@ void QCustomPlot_HideEvent(QCustomPlot* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseHideEvent(QCustomPlot* self, QHideEvent* event) {
+void QCustomPlot_SuperHideEvent(QCustomPlot* self, QHideEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_HideEvent_IsBase(true);
@@ -22560,7 +22560,7 @@ bool QCustomPlot_NativeEvent(QCustomPlot* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool QCustomPlot_QBaseNativeEvent(QCustomPlot* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QCustomPlot_SuperNativeEvent(QCustomPlot* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
@@ -22590,7 +22590,7 @@ void QCustomPlot_ChangeEvent(QCustomPlot* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseChangeEvent(QCustomPlot* self, QEvent* param1) {
+void QCustomPlot_SuperChangeEvent(QCustomPlot* self, QEvent* param1) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_ChangeEvent_IsBase(true);
@@ -22619,7 +22619,7 @@ int QCustomPlot_Metric(const QCustomPlot* self, int param1) {
 }
 
 // Base class handler implementation
-int QCustomPlot_QBaseMetric(const QCustomPlot* self, int param1) {
+int QCustomPlot_SuperMetric(const QCustomPlot* self, int param1) {
     auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_Metric_IsBase(true);
@@ -22648,7 +22648,7 @@ void QCustomPlot_InitPainter(const QCustomPlot* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseInitPainter(const QCustomPlot* self, QPainter* painter) {
+void QCustomPlot_SuperInitPainter(const QCustomPlot* self, QPainter* painter) {
     auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_InitPainter_IsBase(true);
@@ -22677,7 +22677,7 @@ QPaintDevice* QCustomPlot_Redirected(const QCustomPlot* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QCustomPlot_QBaseRedirected(const QCustomPlot* self, QPoint* offset) {
+QPaintDevice* QCustomPlot_SuperRedirected(const QCustomPlot* self, QPoint* offset) {
     auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_Redirected_IsBase(true);
@@ -22706,7 +22706,7 @@ QPainter* QCustomPlot_SharedPainter(const QCustomPlot* self) {
 }
 
 // Base class handler implementation
-QPainter* QCustomPlot_QBaseSharedPainter(const QCustomPlot* self) {
+QPainter* QCustomPlot_SuperSharedPainter(const QCustomPlot* self) {
     auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_SharedPainter_IsBase(true);
@@ -22735,7 +22735,7 @@ void QCustomPlot_InputMethodEvent(QCustomPlot* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseInputMethodEvent(QCustomPlot* self, QInputMethodEvent* param1) {
+void QCustomPlot_SuperInputMethodEvent(QCustomPlot* self, QInputMethodEvent* param1) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_InputMethodEvent_IsBase(true);
@@ -22764,7 +22764,7 @@ QVariant* QCustomPlot_InputMethodQuery(const QCustomPlot* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QCustomPlot_QBaseInputMethodQuery(const QCustomPlot* self, int param1) {
+QVariant* QCustomPlot_SuperInputMethodQuery(const QCustomPlot* self, int param1) {
     auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_InputMethodQuery_IsBase(true);
@@ -22793,7 +22793,7 @@ bool QCustomPlot_FocusNextPrevChild(QCustomPlot* self, bool next) {
 }
 
 // Base class handler implementation
-bool QCustomPlot_QBaseFocusNextPrevChild(QCustomPlot* self, bool next) {
+bool QCustomPlot_SuperFocusNextPrevChild(QCustomPlot* self, bool next) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_FocusNextPrevChild_IsBase(true);
@@ -22822,7 +22822,7 @@ bool QCustomPlot_EventFilter(QCustomPlot* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QCustomPlot_QBaseEventFilter(QCustomPlot* self, QObject* watched, QEvent* event) {
+bool QCustomPlot_SuperEventFilter(QCustomPlot* self, QObject* watched, QEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_EventFilter_IsBase(true);
@@ -22851,7 +22851,7 @@ void QCustomPlot_TimerEvent(QCustomPlot* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseTimerEvent(QCustomPlot* self, QTimerEvent* event) {
+void QCustomPlot_SuperTimerEvent(QCustomPlot* self, QTimerEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_TimerEvent_IsBase(true);
@@ -22880,7 +22880,7 @@ void QCustomPlot_ChildEvent(QCustomPlot* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseChildEvent(QCustomPlot* self, QChildEvent* event) {
+void QCustomPlot_SuperChildEvent(QCustomPlot* self, QChildEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_ChildEvent_IsBase(true);
@@ -22909,7 +22909,7 @@ void QCustomPlot_CustomEvent(QCustomPlot* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseCustomEvent(QCustomPlot* self, QEvent* event) {
+void QCustomPlot_SuperCustomEvent(QCustomPlot* self, QEvent* event) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_CustomEvent_IsBase(true);
@@ -22938,7 +22938,7 @@ void QCustomPlot_ConnectNotify(QCustomPlot* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseConnectNotify(QCustomPlot* self, const QMetaMethod* signal) {
+void QCustomPlot_SuperConnectNotify(QCustomPlot* self, const QMetaMethod* signal) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_ConnectNotify_IsBase(true);
@@ -22967,7 +22967,7 @@ void QCustomPlot_DisconnectNotify(QCustomPlot* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseDisconnectNotify(QCustomPlot* self, const QMetaMethod* signal) {
+void QCustomPlot_SuperDisconnectNotify(QCustomPlot* self, const QMetaMethod* signal) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_DisconnectNotify_IsBase(true);
@@ -22996,7 +22996,7 @@ bool QCustomPlot_RegisterPlottable(QCustomPlot* self, QCPAbstractPlottable* plot
 }
 
 // Base class handler implementation
-bool QCustomPlot_QBaseRegisterPlottable(QCustomPlot* self, QCPAbstractPlottable* plottable) {
+bool QCustomPlot_SuperRegisterPlottable(QCustomPlot* self, QCPAbstractPlottable* plottable) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_RegisterPlottable_IsBase(true);
@@ -23025,7 +23025,7 @@ bool QCustomPlot_RegisterGraph(QCustomPlot* self, QCPGraph* graph) {
 }
 
 // Base class handler implementation
-bool QCustomPlot_QBaseRegisterGraph(QCustomPlot* self, QCPGraph* graph) {
+bool QCustomPlot_SuperRegisterGraph(QCustomPlot* self, QCPGraph* graph) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_RegisterGraph_IsBase(true);
@@ -23054,7 +23054,7 @@ bool QCustomPlot_RegisterItem(QCustomPlot* self, QCPAbstractItem* item) {
 }
 
 // Base class handler implementation
-bool QCustomPlot_QBaseRegisterItem(QCustomPlot* self, QCPAbstractItem* item) {
+bool QCustomPlot_SuperRegisterItem(QCustomPlot* self, QCPAbstractItem* item) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_RegisterItem_IsBase(true);
@@ -23083,7 +23083,7 @@ void QCustomPlot_UpdateLayerIndices(const QCustomPlot* self) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseUpdateLayerIndices(const QCustomPlot* self) {
+void QCustomPlot_SuperUpdateLayerIndices(const QCustomPlot* self) {
     auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_UpdateLayerIndices_IsBase(true);
@@ -23112,7 +23112,7 @@ QCPLayerable* QCustomPlot_LayerableAt(const QCustomPlot* self, const QPointF* po
 }
 
 // Base class handler implementation
-QCPLayerable* QCustomPlot_QBaseLayerableAt(const QCustomPlot* self, const QPointF* pos, bool onlySelectable) {
+QCPLayerable* QCustomPlot_SuperLayerableAt(const QCustomPlot* self, const QPointF* pos, bool onlySelectable) {
     auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_LayerableAt_IsBase(true);
@@ -23159,7 +23159,7 @@ libqt_list /* of QCPLayerable* */ QCustomPlot_LayerableListAt(const QCustomPlot*
 }
 
 // Base class handler implementation
-libqt_list /* of QCPLayerable* */ QCustomPlot_QBaseLayerableListAt(const QCustomPlot* self, const QPointF* pos, bool onlySelectable) {
+libqt_list /* of QCPLayerable* */ QCustomPlot_SuperLayerableListAt(const QCustomPlot* self, const QPointF* pos, bool onlySelectable) {
     auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_LayerableListAt_IsBase(true);
@@ -23206,7 +23206,7 @@ void QCustomPlot_DrawBackground(QCustomPlot* self, QCPPainter* painter) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseDrawBackground(QCustomPlot* self, QCPPainter* painter) {
+void QCustomPlot_SuperDrawBackground(QCustomPlot* self, QCPPainter* painter) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_DrawBackground_IsBase(true);
@@ -23235,7 +23235,7 @@ void QCustomPlot_SetupPaintBuffers(QCustomPlot* self) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseSetupPaintBuffers(QCustomPlot* self) {
+void QCustomPlot_SuperSetupPaintBuffers(QCustomPlot* self) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_SetupPaintBuffers_IsBase(true);
@@ -23264,7 +23264,7 @@ QCPAbstractPaintBuffer* QCustomPlot_CreatePaintBuffer(QCustomPlot* self) {
 }
 
 // Base class handler implementation
-QCPAbstractPaintBuffer* QCustomPlot_QBaseCreatePaintBuffer(QCustomPlot* self) {
+QCPAbstractPaintBuffer* QCustomPlot_SuperCreatePaintBuffer(QCustomPlot* self) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_CreatePaintBuffer_IsBase(true);
@@ -23293,7 +23293,7 @@ bool QCustomPlot_HasInvalidatedPaintBuffers(QCustomPlot* self) {
 }
 
 // Base class handler implementation
-bool QCustomPlot_QBaseHasInvalidatedPaintBuffers(QCustomPlot* self) {
+bool QCustomPlot_SuperHasInvalidatedPaintBuffers(QCustomPlot* self) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_HasInvalidatedPaintBuffers_IsBase(true);
@@ -23322,7 +23322,7 @@ bool QCustomPlot_SetupOpenGl(QCustomPlot* self) {
 }
 
 // Base class handler implementation
-bool QCustomPlot_QBaseSetupOpenGl(QCustomPlot* self) {
+bool QCustomPlot_SuperSetupOpenGl(QCustomPlot* self) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_SetupOpenGl_IsBase(true);
@@ -23351,7 +23351,7 @@ void QCustomPlot_FreeOpenGl(QCustomPlot* self) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseFreeOpenGl(QCustomPlot* self) {
+void QCustomPlot_SuperFreeOpenGl(QCustomPlot* self) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_FreeOpenGl_IsBase(true);
@@ -23380,7 +23380,7 @@ QCPLayerable* QCustomPlot_LayerableAt3(const QCustomPlot* self, const QPointF* p
 }
 
 // Base class handler implementation
-QCPLayerable* QCustomPlot_QBaseLayerableAt3(const QCustomPlot* self, const QPointF* pos, bool onlySelectable, QVariant* selectionDetails) {
+QCPLayerable* QCustomPlot_SuperLayerableAt3(const QCustomPlot* self, const QPointF* pos, bool onlySelectable, QVariant* selectionDetails) {
     auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_LayerableAt3_IsBase(true);
@@ -23433,7 +23433,7 @@ libqt_list /* of QCPLayerable* */ QCustomPlot_LayerableListAt3(const QCustomPlot
 }
 
 // Base class handler implementation
-libqt_list /* of QCPLayerable* */ QCustomPlot_QBaseLayerableListAt3(const QCustomPlot* self, const QPointF* pos, bool onlySelectable, libqt_list /* of QVariant* */ selectionDetails) {
+libqt_list /* of QCPLayerable* */ QCustomPlot_SuperLayerableListAt3(const QCustomPlot* self, const QPointF* pos, bool onlySelectable, libqt_list /* of QVariant* */ selectionDetails) {
     auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
     QList<QVariant> selectionDetails_QList;
     selectionDetails_QList.reserve(selectionDetails.len);
@@ -23486,7 +23486,7 @@ void QCustomPlot_UpdateMicroFocus(QCustomPlot* self) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseUpdateMicroFocus(QCustomPlot* self) {
+void QCustomPlot_SuperUpdateMicroFocus(QCustomPlot* self) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_UpdateMicroFocus_IsBase(true);
@@ -23515,7 +23515,7 @@ void QCustomPlot_Create(QCustomPlot* self) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseCreate(QCustomPlot* self) {
+void QCustomPlot_SuperCreate(QCustomPlot* self) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_Create_IsBase(true);
@@ -23544,7 +23544,7 @@ void QCustomPlot_Destroy(QCustomPlot* self) {
 }
 
 // Base class handler implementation
-void QCustomPlot_QBaseDestroy(QCustomPlot* self) {
+void QCustomPlot_SuperDestroy(QCustomPlot* self) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_Destroy_IsBase(true);
@@ -23573,7 +23573,7 @@ bool QCustomPlot_FocusNextChild(QCustomPlot* self) {
 }
 
 // Base class handler implementation
-bool QCustomPlot_QBaseFocusNextChild(QCustomPlot* self) {
+bool QCustomPlot_SuperFocusNextChild(QCustomPlot* self) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_FocusNextChild_IsBase(true);
@@ -23602,7 +23602,7 @@ bool QCustomPlot_FocusPreviousChild(QCustomPlot* self) {
 }
 
 // Base class handler implementation
-bool QCustomPlot_QBaseFocusPreviousChild(QCustomPlot* self) {
+bool QCustomPlot_SuperFocusPreviousChild(QCustomPlot* self) {
     auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_FocusPreviousChild_IsBase(true);
@@ -23631,7 +23631,7 @@ QObject* QCustomPlot_Sender(const QCustomPlot* self) {
 }
 
 // Base class handler implementation
-QObject* QCustomPlot_QBaseSender(const QCustomPlot* self) {
+QObject* QCustomPlot_SuperSender(const QCustomPlot* self) {
     auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_Sender_IsBase(true);
@@ -23660,7 +23660,7 @@ int QCustomPlot_SenderSignalIndex(const QCustomPlot* self) {
 }
 
 // Base class handler implementation
-int QCustomPlot_QBaseSenderSignalIndex(const QCustomPlot* self) {
+int QCustomPlot_SuperSenderSignalIndex(const QCustomPlot* self) {
     auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_SenderSignalIndex_IsBase(true);
@@ -23689,7 +23689,7 @@ int QCustomPlot_Receivers(const QCustomPlot* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCustomPlot_QBaseReceivers(const QCustomPlot* self, const char* signal) {
+int QCustomPlot_SuperReceivers(const QCustomPlot* self, const char* signal) {
     auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_Receivers_IsBase(true);
@@ -23718,7 +23718,7 @@ bool QCustomPlot_IsSignalConnected(const QCustomPlot* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QCustomPlot_QBaseIsSignalConnected(const QCustomPlot* self, const QMetaMethod* signal) {
+bool QCustomPlot_SuperIsSignalConnected(const QCustomPlot* self, const QMetaMethod* signal) {
     auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_IsSignalConnected_IsBase(true);
@@ -23747,7 +23747,7 @@ double QCustomPlot_GetDecodedMetricF(const QCustomPlot* self, int metricA, int m
 }
 
 // Base class handler implementation
-double QCustomPlot_QBaseGetDecodedMetricF(const QCustomPlot* self, int metricA, int metricB) {
+double QCustomPlot_SuperGetDecodedMetricF(const QCustomPlot* self, int metricA, int metricB) {
     auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->setQCustomPlot_GetDecodedMetricF_IsBase(true);
@@ -24036,7 +24036,7 @@ void QCPSelectionDecoratorBracket_DrawDecoration(QCPSelectionDecoratorBracket* s
 }
 
 // Base class handler implementation
-void QCPSelectionDecoratorBracket_QBaseDrawBracket(const QCPSelectionDecoratorBracket* self, QCPPainter* painter, int direction) {
+void QCPSelectionDecoratorBracket_SuperDrawBracket(const QCPSelectionDecoratorBracket* self, QCPPainter* painter, int direction) {
     auto* vqcpselectiondecoratorbracket = const_cast<VirtualQCPSelectionDecoratorBracket*>(dynamic_cast<const VirtualQCPSelectionDecoratorBracket*>(self));
     if (vqcpselectiondecoratorbracket && vqcpselectiondecoratorbracket->isVirtualQCPSelectionDecoratorBracket) {
         vqcpselectiondecoratorbracket->setQCPSelectionDecoratorBracket_DrawBracket_IsBase(true);
@@ -24055,7 +24055,7 @@ void QCPSelectionDecoratorBracket_OnDrawBracket(const QCPSelectionDecoratorBrack
 }
 
 // Base class handler implementation
-void QCPSelectionDecoratorBracket_QBaseDrawDecoration(QCPSelectionDecoratorBracket* self, QCPPainter* painter, QCPDataSelection* selection) {
+void QCPSelectionDecoratorBracket_SuperDrawDecoration(QCPSelectionDecoratorBracket* self, QCPPainter* painter, QCPDataSelection* selection) {
     auto* vqcpselectiondecoratorbracket = dynamic_cast<VirtualQCPSelectionDecoratorBracket*>(self);
     if (vqcpselectiondecoratorbracket && vqcpselectiondecoratorbracket->isVirtualQCPSelectionDecoratorBracket) {
         vqcpselectiondecoratorbracket->setQCPSelectionDecoratorBracket_DrawDecoration_IsBase(true);
@@ -24084,7 +24084,7 @@ void QCPSelectionDecoratorBracket_CopyFrom(QCPSelectionDecoratorBracket* self, c
 }
 
 // Base class handler implementation
-void QCPSelectionDecoratorBracket_QBaseCopyFrom(QCPSelectionDecoratorBracket* self, const QCPSelectionDecorator* other) {
+void QCPSelectionDecoratorBracket_SuperCopyFrom(QCPSelectionDecoratorBracket* self, const QCPSelectionDecorator* other) {
     auto* vqcpselectiondecoratorbracket = dynamic_cast<VirtualQCPSelectionDecoratorBracket*>(self);
     if (vqcpselectiondecoratorbracket && vqcpselectiondecoratorbracket->isVirtualQCPSelectionDecoratorBracket) {
         vqcpselectiondecoratorbracket->setQCPSelectionDecoratorBracket_CopyFrom_IsBase(true);
@@ -24113,7 +24113,7 @@ bool QCPSelectionDecoratorBracket_RegisterWithPlottable(QCPSelectionDecoratorBra
 }
 
 // Base class handler implementation
-bool QCPSelectionDecoratorBracket_QBaseRegisterWithPlottable(QCPSelectionDecoratorBracket* self, QCPAbstractPlottable* plottable) {
+bool QCPSelectionDecoratorBracket_SuperRegisterWithPlottable(QCPSelectionDecoratorBracket* self, QCPAbstractPlottable* plottable) {
     auto* vqcpselectiondecoratorbracket = dynamic_cast<VirtualQCPSelectionDecoratorBracket*>(self);
     if (vqcpselectiondecoratorbracket && vqcpselectiondecoratorbracket->isVirtualQCPSelectionDecoratorBracket) {
         vqcpselectiondecoratorbracket->setQCPSelectionDecoratorBracket_RegisterWithPlottable_IsBase(true);
@@ -24142,7 +24142,7 @@ double QCPSelectionDecoratorBracket_GetTangentAngle(const QCPSelectionDecoratorB
 }
 
 // Base class handler implementation
-double QCPSelectionDecoratorBracket_QBaseGetTangentAngle(const QCPSelectionDecoratorBracket* self, const QCPPlottableInterface1D* interface1d, int dataIndex, int direction) {
+double QCPSelectionDecoratorBracket_SuperGetTangentAngle(const QCPSelectionDecoratorBracket* self, const QCPPlottableInterface1D* interface1d, int dataIndex, int direction) {
     auto* vqcpselectiondecoratorbracket = const_cast<VirtualQCPSelectionDecoratorBracket*>(dynamic_cast<const VirtualQCPSelectionDecoratorBracket*>(self));
     if (vqcpselectiondecoratorbracket && vqcpselectiondecoratorbracket->isVirtualQCPSelectionDecoratorBracket) {
         vqcpselectiondecoratorbracket->setQCPSelectionDecoratorBracket_GetTangentAngle_IsBase(true);
@@ -24170,7 +24170,7 @@ QPointF* QCPSelectionDecoratorBracket_GetPixelCoordinates(const QCPSelectionDeco
 }
 
 // Base class handler implementation
-QPointF* QCPSelectionDecoratorBracket_QBaseGetPixelCoordinates(const QCPSelectionDecoratorBracket* self, const QCPPlottableInterface1D* interface1d, int dataIndex) {
+QPointF* QCPSelectionDecoratorBracket_SuperGetPixelCoordinates(const QCPSelectionDecoratorBracket* self, const QCPPlottableInterface1D* interface1d, int dataIndex) {
     auto* vqcpselectiondecoratorbracket = const_cast<VirtualQCPSelectionDecoratorBracket*>(dynamic_cast<const VirtualQCPSelectionDecoratorBracket*>(self));
     if (vqcpselectiondecoratorbracket && vqcpselectiondecoratorbracket->isVirtualQCPSelectionDecoratorBracket) {
         vqcpselectiondecoratorbracket->setQCPSelectionDecoratorBracket_GetPixelCoordinates_IsBase(true);
@@ -24658,7 +24658,7 @@ void QCPAxisRect_SetupFullAxesBox1(QCPAxisRect* self, bool connectRanges) {
 }
 
 // Base class handler implementation
-QMetaObject* QCPAxisRect_QBaseMetaObject(const QCPAxisRect* self) {
+QMetaObject* QCPAxisRect_SuperMetaObject(const QCPAxisRect* self) {
     auto* vqcpaxisrect = const_cast<VirtualQCPAxisRect*>(dynamic_cast<const VirtualQCPAxisRect*>(self));
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_MetaObject_IsBase(true);
@@ -24677,7 +24677,7 @@ void QCPAxisRect_OnMetaObject(const QCPAxisRect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPAxisRect_QBaseMetacast(QCPAxisRect* self, const char* param1) {
+void* QCPAxisRect_SuperMetacast(QCPAxisRect* self, const char* param1) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_Metacast_IsBase(true);
@@ -24696,7 +24696,7 @@ void QCPAxisRect_OnMetacast(QCPAxisRect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPAxisRect_QBaseMetacall(QCPAxisRect* self, int param1, int param2, void** param3) {
+int QCPAxisRect_SuperMetacall(QCPAxisRect* self, int param1, int param2, void** param3) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_Metacall_IsBase(true);
@@ -24715,7 +24715,7 @@ void QCPAxisRect_OnMetacall(QCPAxisRect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPAxisRect_QBaseUpdate(QCPAxisRect* self, int phase) {
+void QCPAxisRect_SuperUpdate(QCPAxisRect* self, int phase) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_Update_IsBase(true);
@@ -24734,7 +24734,7 @@ void QCPAxisRect_OnUpdate(QCPAxisRect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of QCPLayoutElement* */ QCPAxisRect_QBaseElements(const QCPAxisRect* self, bool recursive) {
+libqt_list /* of QCPLayoutElement* */ QCPAxisRect_SuperElements(const QCPAxisRect* self, bool recursive) {
     auto* vqcpaxisrect = const_cast<VirtualQCPAxisRect*>(dynamic_cast<const VirtualQCPAxisRect*>(self));
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_Elements_IsBase(true);
@@ -24771,7 +24771,7 @@ void QCPAxisRect_OnElements(const QCPAxisRect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPAxisRect_QBaseApplyDefaultAntialiasingHint(const QCPAxisRect* self, QCPPainter* painter) {
+void QCPAxisRect_SuperApplyDefaultAntialiasingHint(const QCPAxisRect* self, QCPPainter* painter) {
     auto* vqcpaxisrect = const_cast<VirtualQCPAxisRect*>(dynamic_cast<const VirtualQCPAxisRect*>(self));
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -24790,7 +24790,7 @@ void QCPAxisRect_OnApplyDefaultAntialiasingHint(const QCPAxisRect* self, intptr_
 }
 
 // Base class handler implementation
-void QCPAxisRect_QBaseDraw(QCPAxisRect* self, QCPPainter* painter) {
+void QCPAxisRect_SuperDraw(QCPAxisRect* self, QCPPainter* painter) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_Draw_IsBase(true);
@@ -24809,7 +24809,7 @@ void QCPAxisRect_OnDraw(QCPAxisRect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPAxisRect_QBaseCalculateAutoMargin(QCPAxisRect* self, int side) {
+int QCPAxisRect_SuperCalculateAutoMargin(QCPAxisRect* self, int side) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_CalculateAutoMargin_IsBase(true);
@@ -24828,7 +24828,7 @@ void QCPAxisRect_OnCalculateAutoMargin(QCPAxisRect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPAxisRect_QBaseLayoutChanged(QCPAxisRect* self) {
+void QCPAxisRect_SuperLayoutChanged(QCPAxisRect* self) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_LayoutChanged_IsBase(true);
@@ -24847,7 +24847,7 @@ void QCPAxisRect_OnLayoutChanged(QCPAxisRect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPAxisRect_QBaseMousePressEvent(QCPAxisRect* self, QMouseEvent* event, const QVariant* details) {
+void QCPAxisRect_SuperMousePressEvent(QCPAxisRect* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_MousePressEvent_IsBase(true);
@@ -24866,7 +24866,7 @@ void QCPAxisRect_OnMousePressEvent(QCPAxisRect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPAxisRect_QBaseMouseMoveEvent(QCPAxisRect* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPAxisRect_SuperMouseMoveEvent(QCPAxisRect* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_MouseMoveEvent_IsBase(true);
@@ -24885,7 +24885,7 @@ void QCPAxisRect_OnMouseMoveEvent(QCPAxisRect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPAxisRect_QBaseMouseReleaseEvent(QCPAxisRect* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPAxisRect_SuperMouseReleaseEvent(QCPAxisRect* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_MouseReleaseEvent_IsBase(true);
@@ -24904,7 +24904,7 @@ void QCPAxisRect_OnMouseReleaseEvent(QCPAxisRect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPAxisRect_QBaseWheelEvent(QCPAxisRect* self, QWheelEvent* event) {
+void QCPAxisRect_SuperWheelEvent(QCPAxisRect* self, QWheelEvent* event) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_WheelEvent_IsBase(true);
@@ -24933,7 +24933,7 @@ QSize* QCPAxisRect_MinimumOuterSizeHint(const QCPAxisRect* self) {
 }
 
 // Base class handler implementation
-QSize* QCPAxisRect_QBaseMinimumOuterSizeHint(const QCPAxisRect* self) {
+QSize* QCPAxisRect_SuperMinimumOuterSizeHint(const QCPAxisRect* self) {
     auto* vqcpaxisrect = const_cast<VirtualQCPAxisRect*>(dynamic_cast<const VirtualQCPAxisRect*>(self));
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_MinimumOuterSizeHint_IsBase(true);
@@ -24962,7 +24962,7 @@ QSize* QCPAxisRect_MaximumOuterSizeHint(const QCPAxisRect* self) {
 }
 
 // Base class handler implementation
-QSize* QCPAxisRect_QBaseMaximumOuterSizeHint(const QCPAxisRect* self) {
+QSize* QCPAxisRect_SuperMaximumOuterSizeHint(const QCPAxisRect* self) {
     auto* vqcpaxisrect = const_cast<VirtualQCPAxisRect*>(dynamic_cast<const VirtualQCPAxisRect*>(self));
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_MaximumOuterSizeHint_IsBase(true);
@@ -24991,7 +24991,7 @@ double QCPAxisRect_SelectTest(const QCPAxisRect* self, const QPointF* pos, bool 
 }
 
 // Base class handler implementation
-double QCPAxisRect_QBaseSelectTest(const QCPAxisRect* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPAxisRect_SuperSelectTest(const QCPAxisRect* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpaxisrect = const_cast<VirtualQCPAxisRect*>(dynamic_cast<const VirtualQCPAxisRect*>(self));
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_SelectTest_IsBase(true);
@@ -25020,7 +25020,7 @@ void QCPAxisRect_ParentPlotInitialized(QCPAxisRect* self, QCustomPlot* parentPlo
 }
 
 // Base class handler implementation
-void QCPAxisRect_QBaseParentPlotInitialized(QCPAxisRect* self, QCustomPlot* parentPlot) {
+void QCPAxisRect_SuperParentPlotInitialized(QCPAxisRect* self, QCustomPlot* parentPlot) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_ParentPlotInitialized_IsBase(true);
@@ -25049,7 +25049,7 @@ int QCPAxisRect_SelectionCategory(const QCPAxisRect* self) {
 }
 
 // Base class handler implementation
-int QCPAxisRect_QBaseSelectionCategory(const QCPAxisRect* self) {
+int QCPAxisRect_SuperSelectionCategory(const QCPAxisRect* self) {
     auto* vqcpaxisrect = const_cast<VirtualQCPAxisRect*>(dynamic_cast<const VirtualQCPAxisRect*>(self));
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_SelectionCategory_IsBase(true);
@@ -25077,7 +25077,7 @@ QRect* QCPAxisRect_ClipRect(const QCPAxisRect* self) {
 }
 
 // Base class handler implementation
-QRect* QCPAxisRect_QBaseClipRect(const QCPAxisRect* self) {
+QRect* QCPAxisRect_SuperClipRect(const QCPAxisRect* self) {
     auto* vqcpaxisrect = const_cast<VirtualQCPAxisRect*>(dynamic_cast<const VirtualQCPAxisRect*>(self));
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_ClipRect_IsBase(true);
@@ -25105,7 +25105,7 @@ void QCPAxisRect_SelectEvent(QCPAxisRect* self, QMouseEvent* event, bool additiv
 }
 
 // Base class handler implementation
-void QCPAxisRect_QBaseSelectEvent(QCPAxisRect* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPAxisRect_SuperSelectEvent(QCPAxisRect* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_SelectEvent_IsBase(true);
@@ -25134,7 +25134,7 @@ void QCPAxisRect_DeselectEvent(QCPAxisRect* self, bool* selectionStateChanged) {
 }
 
 // Base class handler implementation
-void QCPAxisRect_QBaseDeselectEvent(QCPAxisRect* self, bool* selectionStateChanged) {
+void QCPAxisRect_SuperDeselectEvent(QCPAxisRect* self, bool* selectionStateChanged) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_DeselectEvent_IsBase(true);
@@ -25163,7 +25163,7 @@ void QCPAxisRect_MouseDoubleClickEvent(QCPAxisRect* self, QMouseEvent* event, co
 }
 
 // Base class handler implementation
-void QCPAxisRect_QBaseMouseDoubleClickEvent(QCPAxisRect* self, QMouseEvent* event, const QVariant* details) {
+void QCPAxisRect_SuperMouseDoubleClickEvent(QCPAxisRect* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_MouseDoubleClickEvent_IsBase(true);
@@ -25192,7 +25192,7 @@ bool QCPAxisRect_Event(QCPAxisRect* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPAxisRect_QBaseEvent(QCPAxisRect* self, QEvent* event) {
+bool QCPAxisRect_SuperEvent(QCPAxisRect* self, QEvent* event) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_Event_IsBase(true);
@@ -25221,7 +25221,7 @@ bool QCPAxisRect_EventFilter(QCPAxisRect* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QCPAxisRect_QBaseEventFilter(QCPAxisRect* self, QObject* watched, QEvent* event) {
+bool QCPAxisRect_SuperEventFilter(QCPAxisRect* self, QObject* watched, QEvent* event) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_EventFilter_IsBase(true);
@@ -25250,7 +25250,7 @@ void QCPAxisRect_TimerEvent(QCPAxisRect* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPAxisRect_QBaseTimerEvent(QCPAxisRect* self, QTimerEvent* event) {
+void QCPAxisRect_SuperTimerEvent(QCPAxisRect* self, QTimerEvent* event) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_TimerEvent_IsBase(true);
@@ -25279,7 +25279,7 @@ void QCPAxisRect_ChildEvent(QCPAxisRect* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPAxisRect_QBaseChildEvent(QCPAxisRect* self, QChildEvent* event) {
+void QCPAxisRect_SuperChildEvent(QCPAxisRect* self, QChildEvent* event) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_ChildEvent_IsBase(true);
@@ -25308,7 +25308,7 @@ void QCPAxisRect_CustomEvent(QCPAxisRect* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPAxisRect_QBaseCustomEvent(QCPAxisRect* self, QEvent* event) {
+void QCPAxisRect_SuperCustomEvent(QCPAxisRect* self, QEvent* event) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_CustomEvent_IsBase(true);
@@ -25337,7 +25337,7 @@ void QCPAxisRect_ConnectNotify(QCPAxisRect* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPAxisRect_QBaseConnectNotify(QCPAxisRect* self, const QMetaMethod* signal) {
+void QCPAxisRect_SuperConnectNotify(QCPAxisRect* self, const QMetaMethod* signal) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_ConnectNotify_IsBase(true);
@@ -25366,7 +25366,7 @@ void QCPAxisRect_DisconnectNotify(QCPAxisRect* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QCPAxisRect_QBaseDisconnectNotify(QCPAxisRect* self, const QMetaMethod* signal) {
+void QCPAxisRect_SuperDisconnectNotify(QCPAxisRect* self, const QMetaMethod* signal) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_DisconnectNotify_IsBase(true);
@@ -25395,7 +25395,7 @@ void QCPAxisRect_DrawBackground(QCPAxisRect* self, QCPPainter* painter) {
 }
 
 // Base class handler implementation
-void QCPAxisRect_QBaseDrawBackground(QCPAxisRect* self, QCPPainter* painter) {
+void QCPAxisRect_SuperDrawBackground(QCPAxisRect* self, QCPPainter* painter) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_DrawBackground_IsBase(true);
@@ -25424,7 +25424,7 @@ void QCPAxisRect_UpdateAxesOffset(QCPAxisRect* self, int typeVal) {
 }
 
 // Base class handler implementation
-void QCPAxisRect_QBaseUpdateAxesOffset(QCPAxisRect* self, int typeVal) {
+void QCPAxisRect_SuperUpdateAxesOffset(QCPAxisRect* self, int typeVal) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_UpdateAxesOffset_IsBase(true);
@@ -25453,7 +25453,7 @@ void QCPAxisRect_InitializeParentPlot(QCPAxisRect* self, QCustomPlot* parentPlot
 }
 
 // Base class handler implementation
-void QCPAxisRect_QBaseInitializeParentPlot(QCPAxisRect* self, QCustomPlot* parentPlot) {
+void QCPAxisRect_SuperInitializeParentPlot(QCPAxisRect* self, QCustomPlot* parentPlot) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_InitializeParentPlot_IsBase(true);
@@ -25482,7 +25482,7 @@ void QCPAxisRect_SetParentLayerable(QCPAxisRect* self, QCPLayerable* parentLayer
 }
 
 // Base class handler implementation
-void QCPAxisRect_QBaseSetParentLayerable(QCPAxisRect* self, QCPLayerable* parentLayerable) {
+void QCPAxisRect_SuperSetParentLayerable(QCPAxisRect* self, QCPLayerable* parentLayerable) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_SetParentLayerable_IsBase(true);
@@ -25511,7 +25511,7 @@ bool QCPAxisRect_MoveToLayer(QCPAxisRect* self, QCPLayer* layer, bool prepend) {
 }
 
 // Base class handler implementation
-bool QCPAxisRect_QBaseMoveToLayer(QCPAxisRect* self, QCPLayer* layer, bool prepend) {
+bool QCPAxisRect_SuperMoveToLayer(QCPAxisRect* self, QCPLayer* layer, bool prepend) {
     auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_MoveToLayer_IsBase(true);
@@ -25540,7 +25540,7 @@ void QCPAxisRect_ApplyAntialiasingHint(const QCPAxisRect* self, QCPPainter* pain
 }
 
 // Base class handler implementation
-void QCPAxisRect_QBaseApplyAntialiasingHint(const QCPAxisRect* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPAxisRect_SuperApplyAntialiasingHint(const QCPAxisRect* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpaxisrect = const_cast<VirtualQCPAxisRect*>(dynamic_cast<const VirtualQCPAxisRect*>(self));
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_ApplyAntialiasingHint_IsBase(true);
@@ -25569,7 +25569,7 @@ QObject* QCPAxisRect_Sender(const QCPAxisRect* self) {
 }
 
 // Base class handler implementation
-QObject* QCPAxisRect_QBaseSender(const QCPAxisRect* self) {
+QObject* QCPAxisRect_SuperSender(const QCPAxisRect* self) {
     auto* vqcpaxisrect = const_cast<VirtualQCPAxisRect*>(dynamic_cast<const VirtualQCPAxisRect*>(self));
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_Sender_IsBase(true);
@@ -25598,7 +25598,7 @@ int QCPAxisRect_SenderSignalIndex(const QCPAxisRect* self) {
 }
 
 // Base class handler implementation
-int QCPAxisRect_QBaseSenderSignalIndex(const QCPAxisRect* self) {
+int QCPAxisRect_SuperSenderSignalIndex(const QCPAxisRect* self) {
     auto* vqcpaxisrect = const_cast<VirtualQCPAxisRect*>(dynamic_cast<const VirtualQCPAxisRect*>(self));
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_SenderSignalIndex_IsBase(true);
@@ -25627,7 +25627,7 @@ int QCPAxisRect_Receivers(const QCPAxisRect* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPAxisRect_QBaseReceivers(const QCPAxisRect* self, const char* signal) {
+int QCPAxisRect_SuperReceivers(const QCPAxisRect* self, const char* signal) {
     auto* vqcpaxisrect = const_cast<VirtualQCPAxisRect*>(dynamic_cast<const VirtualQCPAxisRect*>(self));
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_Receivers_IsBase(true);
@@ -25656,7 +25656,7 @@ bool QCPAxisRect_IsSignalConnected(const QCPAxisRect* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QCPAxisRect_QBaseIsSignalConnected(const QCPAxisRect* self, const QMetaMethod* signal) {
+bool QCPAxisRect_SuperIsSignalConnected(const QCPAxisRect* self, const QMetaMethod* signal) {
     auto* vqcpaxisrect = const_cast<VirtualQCPAxisRect*>(dynamic_cast<const VirtualQCPAxisRect*>(self));
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->setQCPAxisRect_IsSignalConnected_IsBase(true);
@@ -25839,7 +25839,7 @@ void QCPAbstractLegendItem_DeselectEvent(QCPAbstractLegendItem* self, bool* sele
 }
 
 // Base class handler implementation
-QMetaObject* QCPAbstractLegendItem_QBaseMetaObject(const QCPAbstractLegendItem* self) {
+QMetaObject* QCPAbstractLegendItem_SuperMetaObject(const QCPAbstractLegendItem* self) {
     auto* vqcpabstractlegenditem = const_cast<VirtualQCPAbstractLegendItem*>(dynamic_cast<const VirtualQCPAbstractLegendItem*>(self));
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_MetaObject_IsBase(true);
@@ -25858,7 +25858,7 @@ void QCPAbstractLegendItem_OnMetaObject(const QCPAbstractLegendItem* self, intpt
 }
 
 // Base class handler implementation
-void* QCPAbstractLegendItem_QBaseMetacast(QCPAbstractLegendItem* self, const char* param1) {
+void* QCPAbstractLegendItem_SuperMetacast(QCPAbstractLegendItem* self, const char* param1) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_Metacast_IsBase(true);
@@ -25877,7 +25877,7 @@ void QCPAbstractLegendItem_OnMetacast(QCPAbstractLegendItem* self, intptr_t slot
 }
 
 // Base class handler implementation
-int QCPAbstractLegendItem_QBaseMetacall(QCPAbstractLegendItem* self, int param1, int param2, void** param3) {
+int QCPAbstractLegendItem_SuperMetacall(QCPAbstractLegendItem* self, int param1, int param2, void** param3) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_Metacall_IsBase(true);
@@ -25896,7 +25896,7 @@ void QCPAbstractLegendItem_OnMetacall(QCPAbstractLegendItem* self, intptr_t slot
 }
 
 // Base class handler implementation
-double QCPAbstractLegendItem_QBaseSelectTest(const QCPAbstractLegendItem* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPAbstractLegendItem_SuperSelectTest(const QCPAbstractLegendItem* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpabstractlegenditem = const_cast<VirtualQCPAbstractLegendItem*>(dynamic_cast<const VirtualQCPAbstractLegendItem*>(self));
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_SelectTest_IsBase(true);
@@ -25915,7 +25915,7 @@ void QCPAbstractLegendItem_OnSelectTest(const QCPAbstractLegendItem* self, intpt
 }
 
 // Base class handler implementation
-int QCPAbstractLegendItem_QBaseSelectionCategory(const QCPAbstractLegendItem* self) {
+int QCPAbstractLegendItem_SuperSelectionCategory(const QCPAbstractLegendItem* self) {
     auto* vqcpabstractlegenditem = const_cast<VirtualQCPAbstractLegendItem*>(dynamic_cast<const VirtualQCPAbstractLegendItem*>(self));
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_SelectionCategory_IsBase(true);
@@ -25934,7 +25934,7 @@ void QCPAbstractLegendItem_OnSelectionCategory(const QCPAbstractLegendItem* self
 }
 
 // Base class handler implementation
-void QCPAbstractLegendItem_QBaseApplyDefaultAntialiasingHint(const QCPAbstractLegendItem* self, QCPPainter* painter) {
+void QCPAbstractLegendItem_SuperApplyDefaultAntialiasingHint(const QCPAbstractLegendItem* self, QCPPainter* painter) {
     auto* vqcpabstractlegenditem = const_cast<VirtualQCPAbstractLegendItem*>(dynamic_cast<const VirtualQCPAbstractLegendItem*>(self));
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -25953,7 +25953,7 @@ void QCPAbstractLegendItem_OnApplyDefaultAntialiasingHint(const QCPAbstractLegen
 }
 
 // Base class handler implementation
-QRect* QCPAbstractLegendItem_QBaseClipRect(const QCPAbstractLegendItem* self) {
+QRect* QCPAbstractLegendItem_SuperClipRect(const QCPAbstractLegendItem* self) {
     auto* vqcpabstractlegenditem = const_cast<VirtualQCPAbstractLegendItem*>(dynamic_cast<const VirtualQCPAbstractLegendItem*>(self));
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_ClipRect_IsBase(true);
@@ -25971,7 +25971,7 @@ void QCPAbstractLegendItem_OnClipRect(const QCPAbstractLegendItem* self, intptr_
 }
 
 // Base class handler implementation
-void QCPAbstractLegendItem_QBaseDraw(QCPAbstractLegendItem* self, QCPPainter* painter) {
+void QCPAbstractLegendItem_SuperDraw(QCPAbstractLegendItem* self, QCPPainter* painter) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_Draw_IsBase(true);
@@ -25990,7 +25990,7 @@ void QCPAbstractLegendItem_OnDraw(QCPAbstractLegendItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPAbstractLegendItem_QBaseSelectEvent(QCPAbstractLegendItem* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPAbstractLegendItem_SuperSelectEvent(QCPAbstractLegendItem* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_SelectEvent_IsBase(true);
@@ -26009,7 +26009,7 @@ void QCPAbstractLegendItem_OnSelectEvent(QCPAbstractLegendItem* self, intptr_t s
 }
 
 // Base class handler implementation
-void QCPAbstractLegendItem_QBaseDeselectEvent(QCPAbstractLegendItem* self, bool* selectionStateChanged) {
+void QCPAbstractLegendItem_SuperDeselectEvent(QCPAbstractLegendItem* self, bool* selectionStateChanged) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_DeselectEvent_IsBase(true);
@@ -26038,7 +26038,7 @@ void QCPAbstractLegendItem_Update(QCPAbstractLegendItem* self, int phase) {
 }
 
 // Base class handler implementation
-void QCPAbstractLegendItem_QBaseUpdate(QCPAbstractLegendItem* self, int phase) {
+void QCPAbstractLegendItem_SuperUpdate(QCPAbstractLegendItem* self, int phase) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_Update_IsBase(true);
@@ -26067,7 +26067,7 @@ QSize* QCPAbstractLegendItem_MinimumOuterSizeHint(const QCPAbstractLegendItem* s
 }
 
 // Base class handler implementation
-QSize* QCPAbstractLegendItem_QBaseMinimumOuterSizeHint(const QCPAbstractLegendItem* self) {
+QSize* QCPAbstractLegendItem_SuperMinimumOuterSizeHint(const QCPAbstractLegendItem* self) {
     auto* vqcpabstractlegenditem = const_cast<VirtualQCPAbstractLegendItem*>(dynamic_cast<const VirtualQCPAbstractLegendItem*>(self));
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_MinimumOuterSizeHint_IsBase(true);
@@ -26096,7 +26096,7 @@ QSize* QCPAbstractLegendItem_MaximumOuterSizeHint(const QCPAbstractLegendItem* s
 }
 
 // Base class handler implementation
-QSize* QCPAbstractLegendItem_QBaseMaximumOuterSizeHint(const QCPAbstractLegendItem* self) {
+QSize* QCPAbstractLegendItem_SuperMaximumOuterSizeHint(const QCPAbstractLegendItem* self) {
     auto* vqcpabstractlegenditem = const_cast<VirtualQCPAbstractLegendItem*>(dynamic_cast<const VirtualQCPAbstractLegendItem*>(self));
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_MaximumOuterSizeHint_IsBase(true);
@@ -26143,7 +26143,7 @@ libqt_list /* of QCPLayoutElement* */ QCPAbstractLegendItem_Elements(const QCPAb
 }
 
 // Base class handler implementation
-libqt_list /* of QCPLayoutElement* */ QCPAbstractLegendItem_QBaseElements(const QCPAbstractLegendItem* self, bool recursive) {
+libqt_list /* of QCPLayoutElement* */ QCPAbstractLegendItem_SuperElements(const QCPAbstractLegendItem* self, bool recursive) {
     auto* vqcpabstractlegenditem = const_cast<VirtualQCPAbstractLegendItem*>(dynamic_cast<const VirtualQCPAbstractLegendItem*>(self));
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_Elements_IsBase(true);
@@ -26190,7 +26190,7 @@ int QCPAbstractLegendItem_CalculateAutoMargin(QCPAbstractLegendItem* self, int s
 }
 
 // Base class handler implementation
-int QCPAbstractLegendItem_QBaseCalculateAutoMargin(QCPAbstractLegendItem* self, int side) {
+int QCPAbstractLegendItem_SuperCalculateAutoMargin(QCPAbstractLegendItem* self, int side) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_CalculateAutoMargin_IsBase(true);
@@ -26219,7 +26219,7 @@ void QCPAbstractLegendItem_LayoutChanged(QCPAbstractLegendItem* self) {
 }
 
 // Base class handler implementation
-void QCPAbstractLegendItem_QBaseLayoutChanged(QCPAbstractLegendItem* self) {
+void QCPAbstractLegendItem_SuperLayoutChanged(QCPAbstractLegendItem* self) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_LayoutChanged_IsBase(true);
@@ -26248,7 +26248,7 @@ void QCPAbstractLegendItem_ParentPlotInitialized(QCPAbstractLegendItem* self, QC
 }
 
 // Base class handler implementation
-void QCPAbstractLegendItem_QBaseParentPlotInitialized(QCPAbstractLegendItem* self, QCustomPlot* parentPlot) {
+void QCPAbstractLegendItem_SuperParentPlotInitialized(QCPAbstractLegendItem* self, QCustomPlot* parentPlot) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_ParentPlotInitialized_IsBase(true);
@@ -26277,7 +26277,7 @@ void QCPAbstractLegendItem_MousePressEvent(QCPAbstractLegendItem* self, QMouseEv
 }
 
 // Base class handler implementation
-void QCPAbstractLegendItem_QBaseMousePressEvent(QCPAbstractLegendItem* self, QMouseEvent* event, const QVariant* details) {
+void QCPAbstractLegendItem_SuperMousePressEvent(QCPAbstractLegendItem* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_MousePressEvent_IsBase(true);
@@ -26306,7 +26306,7 @@ void QCPAbstractLegendItem_MouseMoveEvent(QCPAbstractLegendItem* self, QMouseEve
 }
 
 // Base class handler implementation
-void QCPAbstractLegendItem_QBaseMouseMoveEvent(QCPAbstractLegendItem* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPAbstractLegendItem_SuperMouseMoveEvent(QCPAbstractLegendItem* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_MouseMoveEvent_IsBase(true);
@@ -26335,7 +26335,7 @@ void QCPAbstractLegendItem_MouseReleaseEvent(QCPAbstractLegendItem* self, QMouse
 }
 
 // Base class handler implementation
-void QCPAbstractLegendItem_QBaseMouseReleaseEvent(QCPAbstractLegendItem* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPAbstractLegendItem_SuperMouseReleaseEvent(QCPAbstractLegendItem* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_MouseReleaseEvent_IsBase(true);
@@ -26364,7 +26364,7 @@ void QCPAbstractLegendItem_MouseDoubleClickEvent(QCPAbstractLegendItem* self, QM
 }
 
 // Base class handler implementation
-void QCPAbstractLegendItem_QBaseMouseDoubleClickEvent(QCPAbstractLegendItem* self, QMouseEvent* event, const QVariant* details) {
+void QCPAbstractLegendItem_SuperMouseDoubleClickEvent(QCPAbstractLegendItem* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_MouseDoubleClickEvent_IsBase(true);
@@ -26393,7 +26393,7 @@ void QCPAbstractLegendItem_WheelEvent(QCPAbstractLegendItem* self, QWheelEvent* 
 }
 
 // Base class handler implementation
-void QCPAbstractLegendItem_QBaseWheelEvent(QCPAbstractLegendItem* self, QWheelEvent* event) {
+void QCPAbstractLegendItem_SuperWheelEvent(QCPAbstractLegendItem* self, QWheelEvent* event) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_WheelEvent_IsBase(true);
@@ -26422,7 +26422,7 @@ bool QCPAbstractLegendItem_Event(QCPAbstractLegendItem* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPAbstractLegendItem_QBaseEvent(QCPAbstractLegendItem* self, QEvent* event) {
+bool QCPAbstractLegendItem_SuperEvent(QCPAbstractLegendItem* self, QEvent* event) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_Event_IsBase(true);
@@ -26451,7 +26451,7 @@ bool QCPAbstractLegendItem_EventFilter(QCPAbstractLegendItem* self, QObject* wat
 }
 
 // Base class handler implementation
-bool QCPAbstractLegendItem_QBaseEventFilter(QCPAbstractLegendItem* self, QObject* watched, QEvent* event) {
+bool QCPAbstractLegendItem_SuperEventFilter(QCPAbstractLegendItem* self, QObject* watched, QEvent* event) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_EventFilter_IsBase(true);
@@ -26480,7 +26480,7 @@ void QCPAbstractLegendItem_TimerEvent(QCPAbstractLegendItem* self, QTimerEvent* 
 }
 
 // Base class handler implementation
-void QCPAbstractLegendItem_QBaseTimerEvent(QCPAbstractLegendItem* self, QTimerEvent* event) {
+void QCPAbstractLegendItem_SuperTimerEvent(QCPAbstractLegendItem* self, QTimerEvent* event) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_TimerEvent_IsBase(true);
@@ -26509,7 +26509,7 @@ void QCPAbstractLegendItem_ChildEvent(QCPAbstractLegendItem* self, QChildEvent* 
 }
 
 // Base class handler implementation
-void QCPAbstractLegendItem_QBaseChildEvent(QCPAbstractLegendItem* self, QChildEvent* event) {
+void QCPAbstractLegendItem_SuperChildEvent(QCPAbstractLegendItem* self, QChildEvent* event) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_ChildEvent_IsBase(true);
@@ -26538,7 +26538,7 @@ void QCPAbstractLegendItem_CustomEvent(QCPAbstractLegendItem* self, QEvent* even
 }
 
 // Base class handler implementation
-void QCPAbstractLegendItem_QBaseCustomEvent(QCPAbstractLegendItem* self, QEvent* event) {
+void QCPAbstractLegendItem_SuperCustomEvent(QCPAbstractLegendItem* self, QEvent* event) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_CustomEvent_IsBase(true);
@@ -26567,7 +26567,7 @@ void QCPAbstractLegendItem_ConnectNotify(QCPAbstractLegendItem* self, const QMet
 }
 
 // Base class handler implementation
-void QCPAbstractLegendItem_QBaseConnectNotify(QCPAbstractLegendItem* self, const QMetaMethod* signal) {
+void QCPAbstractLegendItem_SuperConnectNotify(QCPAbstractLegendItem* self, const QMetaMethod* signal) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_ConnectNotify_IsBase(true);
@@ -26596,7 +26596,7 @@ void QCPAbstractLegendItem_DisconnectNotify(QCPAbstractLegendItem* self, const Q
 }
 
 // Base class handler implementation
-void QCPAbstractLegendItem_QBaseDisconnectNotify(QCPAbstractLegendItem* self, const QMetaMethod* signal) {
+void QCPAbstractLegendItem_SuperDisconnectNotify(QCPAbstractLegendItem* self, const QMetaMethod* signal) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_DisconnectNotify_IsBase(true);
@@ -26625,7 +26625,7 @@ void QCPAbstractLegendItem_InitializeParentPlot(QCPAbstractLegendItem* self, QCu
 }
 
 // Base class handler implementation
-void QCPAbstractLegendItem_QBaseInitializeParentPlot(QCPAbstractLegendItem* self, QCustomPlot* parentPlot) {
+void QCPAbstractLegendItem_SuperInitializeParentPlot(QCPAbstractLegendItem* self, QCustomPlot* parentPlot) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_InitializeParentPlot_IsBase(true);
@@ -26654,7 +26654,7 @@ void QCPAbstractLegendItem_SetParentLayerable(QCPAbstractLegendItem* self, QCPLa
 }
 
 // Base class handler implementation
-void QCPAbstractLegendItem_QBaseSetParentLayerable(QCPAbstractLegendItem* self, QCPLayerable* parentLayerable) {
+void QCPAbstractLegendItem_SuperSetParentLayerable(QCPAbstractLegendItem* self, QCPLayerable* parentLayerable) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_SetParentLayerable_IsBase(true);
@@ -26683,7 +26683,7 @@ bool QCPAbstractLegendItem_MoveToLayer(QCPAbstractLegendItem* self, QCPLayer* la
 }
 
 // Base class handler implementation
-bool QCPAbstractLegendItem_QBaseMoveToLayer(QCPAbstractLegendItem* self, QCPLayer* layer, bool prepend) {
+bool QCPAbstractLegendItem_SuperMoveToLayer(QCPAbstractLegendItem* self, QCPLayer* layer, bool prepend) {
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_MoveToLayer_IsBase(true);
@@ -26712,7 +26712,7 @@ void QCPAbstractLegendItem_ApplyAntialiasingHint(const QCPAbstractLegendItem* se
 }
 
 // Base class handler implementation
-void QCPAbstractLegendItem_QBaseApplyAntialiasingHint(const QCPAbstractLegendItem* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPAbstractLegendItem_SuperApplyAntialiasingHint(const QCPAbstractLegendItem* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpabstractlegenditem = const_cast<VirtualQCPAbstractLegendItem*>(dynamic_cast<const VirtualQCPAbstractLegendItem*>(self));
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_ApplyAntialiasingHint_IsBase(true);
@@ -26741,7 +26741,7 @@ QObject* QCPAbstractLegendItem_Sender(const QCPAbstractLegendItem* self) {
 }
 
 // Base class handler implementation
-QObject* QCPAbstractLegendItem_QBaseSender(const QCPAbstractLegendItem* self) {
+QObject* QCPAbstractLegendItem_SuperSender(const QCPAbstractLegendItem* self) {
     auto* vqcpabstractlegenditem = const_cast<VirtualQCPAbstractLegendItem*>(dynamic_cast<const VirtualQCPAbstractLegendItem*>(self));
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_Sender_IsBase(true);
@@ -26770,7 +26770,7 @@ int QCPAbstractLegendItem_SenderSignalIndex(const QCPAbstractLegendItem* self) {
 }
 
 // Base class handler implementation
-int QCPAbstractLegendItem_QBaseSenderSignalIndex(const QCPAbstractLegendItem* self) {
+int QCPAbstractLegendItem_SuperSenderSignalIndex(const QCPAbstractLegendItem* self) {
     auto* vqcpabstractlegenditem = const_cast<VirtualQCPAbstractLegendItem*>(dynamic_cast<const VirtualQCPAbstractLegendItem*>(self));
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_SenderSignalIndex_IsBase(true);
@@ -26799,7 +26799,7 @@ int QCPAbstractLegendItem_Receivers(const QCPAbstractLegendItem* self, const cha
 }
 
 // Base class handler implementation
-int QCPAbstractLegendItem_QBaseReceivers(const QCPAbstractLegendItem* self, const char* signal) {
+int QCPAbstractLegendItem_SuperReceivers(const QCPAbstractLegendItem* self, const char* signal) {
     auto* vqcpabstractlegenditem = const_cast<VirtualQCPAbstractLegendItem*>(dynamic_cast<const VirtualQCPAbstractLegendItem*>(self));
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_Receivers_IsBase(true);
@@ -26828,7 +26828,7 @@ bool QCPAbstractLegendItem_IsSignalConnected(const QCPAbstractLegendItem* self, 
 }
 
 // Base class handler implementation
-bool QCPAbstractLegendItem_QBaseIsSignalConnected(const QCPAbstractLegendItem* self, const QMetaMethod* signal) {
+bool QCPAbstractLegendItem_SuperIsSignalConnected(const QCPAbstractLegendItem* self, const QMetaMethod* signal) {
     auto* vqcpabstractlegenditem = const_cast<VirtualQCPAbstractLegendItem*>(dynamic_cast<const VirtualQCPAbstractLegendItem*>(self));
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->setQCPAbstractLegendItem_IsSignalConnected_IsBase(true);
@@ -26901,7 +26901,7 @@ QSize* QCPPlottableLegendItem_MinimumOuterSizeHint(const QCPPlottableLegendItem*
 }
 
 // Base class handler implementation
-QMetaObject* QCPPlottableLegendItem_QBaseMetaObject(const QCPPlottableLegendItem* self) {
+QMetaObject* QCPPlottableLegendItem_SuperMetaObject(const QCPPlottableLegendItem* self) {
     auto* vqcpplottablelegenditem = const_cast<VirtualQCPPlottableLegendItem*>(dynamic_cast<const VirtualQCPPlottableLegendItem*>(self));
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_MetaObject_IsBase(true);
@@ -26920,7 +26920,7 @@ void QCPPlottableLegendItem_OnMetaObject(const QCPPlottableLegendItem* self, int
 }
 
 // Base class handler implementation
-void* QCPPlottableLegendItem_QBaseMetacast(QCPPlottableLegendItem* self, const char* param1) {
+void* QCPPlottableLegendItem_SuperMetacast(QCPPlottableLegendItem* self, const char* param1) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_Metacast_IsBase(true);
@@ -26939,7 +26939,7 @@ void QCPPlottableLegendItem_OnMetacast(QCPPlottableLegendItem* self, intptr_t sl
 }
 
 // Base class handler implementation
-int QCPPlottableLegendItem_QBaseMetacall(QCPPlottableLegendItem* self, int param1, int param2, void** param3) {
+int QCPPlottableLegendItem_SuperMetacall(QCPPlottableLegendItem* self, int param1, int param2, void** param3) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_Metacall_IsBase(true);
@@ -26958,7 +26958,7 @@ void QCPPlottableLegendItem_OnMetacall(QCPPlottableLegendItem* self, intptr_t sl
 }
 
 // Base class handler implementation
-void QCPPlottableLegendItem_QBaseDraw(QCPPlottableLegendItem* self, QCPPainter* painter) {
+void QCPPlottableLegendItem_SuperDraw(QCPPlottableLegendItem* self, QCPPainter* painter) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_Draw_IsBase(true);
@@ -26977,7 +26977,7 @@ void QCPPlottableLegendItem_OnDraw(QCPPlottableLegendItem* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-QSize* QCPPlottableLegendItem_QBaseMinimumOuterSizeHint(const QCPPlottableLegendItem* self) {
+QSize* QCPPlottableLegendItem_SuperMinimumOuterSizeHint(const QCPPlottableLegendItem* self) {
     auto* vqcpplottablelegenditem = const_cast<VirtualQCPPlottableLegendItem*>(dynamic_cast<const VirtualQCPPlottableLegendItem*>(self));
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_MinimumOuterSizeHint_IsBase(true);
@@ -27005,7 +27005,7 @@ double QCPPlottableLegendItem_SelectTest(const QCPPlottableLegendItem* self, con
 }
 
 // Base class handler implementation
-double QCPPlottableLegendItem_QBaseSelectTest(const QCPPlottableLegendItem* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPPlottableLegendItem_SuperSelectTest(const QCPPlottableLegendItem* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpplottablelegenditem = const_cast<VirtualQCPPlottableLegendItem*>(dynamic_cast<const VirtualQCPPlottableLegendItem*>(self));
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_SelectTest_IsBase(true);
@@ -27034,7 +27034,7 @@ int QCPPlottableLegendItem_SelectionCategory(const QCPPlottableLegendItem* self)
 }
 
 // Base class handler implementation
-int QCPPlottableLegendItem_QBaseSelectionCategory(const QCPPlottableLegendItem* self) {
+int QCPPlottableLegendItem_SuperSelectionCategory(const QCPPlottableLegendItem* self) {
     auto* vqcpplottablelegenditem = const_cast<VirtualQCPPlottableLegendItem*>(dynamic_cast<const VirtualQCPPlottableLegendItem*>(self));
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_SelectionCategory_IsBase(true);
@@ -27063,7 +27063,7 @@ void QCPPlottableLegendItem_ApplyDefaultAntialiasingHint(const QCPPlottableLegen
 }
 
 // Base class handler implementation
-void QCPPlottableLegendItem_QBaseApplyDefaultAntialiasingHint(const QCPPlottableLegendItem* self, QCPPainter* painter) {
+void QCPPlottableLegendItem_SuperApplyDefaultAntialiasingHint(const QCPPlottableLegendItem* self, QCPPainter* painter) {
     auto* vqcpplottablelegenditem = const_cast<VirtualQCPPlottableLegendItem*>(dynamic_cast<const VirtualQCPPlottableLegendItem*>(self));
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -27091,7 +27091,7 @@ QRect* QCPPlottableLegendItem_ClipRect(const QCPPlottableLegendItem* self) {
 }
 
 // Base class handler implementation
-QRect* QCPPlottableLegendItem_QBaseClipRect(const QCPPlottableLegendItem* self) {
+QRect* QCPPlottableLegendItem_SuperClipRect(const QCPPlottableLegendItem* self) {
     auto* vqcpplottablelegenditem = const_cast<VirtualQCPPlottableLegendItem*>(dynamic_cast<const VirtualQCPPlottableLegendItem*>(self));
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_ClipRect_IsBase(true);
@@ -27119,7 +27119,7 @@ void QCPPlottableLegendItem_SelectEvent(QCPPlottableLegendItem* self, QMouseEven
 }
 
 // Base class handler implementation
-void QCPPlottableLegendItem_QBaseSelectEvent(QCPPlottableLegendItem* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPPlottableLegendItem_SuperSelectEvent(QCPPlottableLegendItem* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_SelectEvent_IsBase(true);
@@ -27148,7 +27148,7 @@ void QCPPlottableLegendItem_DeselectEvent(QCPPlottableLegendItem* self, bool* se
 }
 
 // Base class handler implementation
-void QCPPlottableLegendItem_QBaseDeselectEvent(QCPPlottableLegendItem* self, bool* selectionStateChanged) {
+void QCPPlottableLegendItem_SuperDeselectEvent(QCPPlottableLegendItem* self, bool* selectionStateChanged) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_DeselectEvent_IsBase(true);
@@ -27177,7 +27177,7 @@ void QCPPlottableLegendItem_Update(QCPPlottableLegendItem* self, int phase) {
 }
 
 // Base class handler implementation
-void QCPPlottableLegendItem_QBaseUpdate(QCPPlottableLegendItem* self, int phase) {
+void QCPPlottableLegendItem_SuperUpdate(QCPPlottableLegendItem* self, int phase) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_Update_IsBase(true);
@@ -27206,7 +27206,7 @@ QSize* QCPPlottableLegendItem_MaximumOuterSizeHint(const QCPPlottableLegendItem*
 }
 
 // Base class handler implementation
-QSize* QCPPlottableLegendItem_QBaseMaximumOuterSizeHint(const QCPPlottableLegendItem* self) {
+QSize* QCPPlottableLegendItem_SuperMaximumOuterSizeHint(const QCPPlottableLegendItem* self) {
     auto* vqcpplottablelegenditem = const_cast<VirtualQCPPlottableLegendItem*>(dynamic_cast<const VirtualQCPPlottableLegendItem*>(self));
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_MaximumOuterSizeHint_IsBase(true);
@@ -27253,7 +27253,7 @@ libqt_list /* of QCPLayoutElement* */ QCPPlottableLegendItem_Elements(const QCPP
 }
 
 // Base class handler implementation
-libqt_list /* of QCPLayoutElement* */ QCPPlottableLegendItem_QBaseElements(const QCPPlottableLegendItem* self, bool recursive) {
+libqt_list /* of QCPLayoutElement* */ QCPPlottableLegendItem_SuperElements(const QCPPlottableLegendItem* self, bool recursive) {
     auto* vqcpplottablelegenditem = const_cast<VirtualQCPPlottableLegendItem*>(dynamic_cast<const VirtualQCPPlottableLegendItem*>(self));
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_Elements_IsBase(true);
@@ -27300,7 +27300,7 @@ int QCPPlottableLegendItem_CalculateAutoMargin(QCPPlottableLegendItem* self, int
 }
 
 // Base class handler implementation
-int QCPPlottableLegendItem_QBaseCalculateAutoMargin(QCPPlottableLegendItem* self, int side) {
+int QCPPlottableLegendItem_SuperCalculateAutoMargin(QCPPlottableLegendItem* self, int side) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_CalculateAutoMargin_IsBase(true);
@@ -27329,7 +27329,7 @@ void QCPPlottableLegendItem_LayoutChanged(QCPPlottableLegendItem* self) {
 }
 
 // Base class handler implementation
-void QCPPlottableLegendItem_QBaseLayoutChanged(QCPPlottableLegendItem* self) {
+void QCPPlottableLegendItem_SuperLayoutChanged(QCPPlottableLegendItem* self) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_LayoutChanged_IsBase(true);
@@ -27358,7 +27358,7 @@ void QCPPlottableLegendItem_ParentPlotInitialized(QCPPlottableLegendItem* self, 
 }
 
 // Base class handler implementation
-void QCPPlottableLegendItem_QBaseParentPlotInitialized(QCPPlottableLegendItem* self, QCustomPlot* parentPlot) {
+void QCPPlottableLegendItem_SuperParentPlotInitialized(QCPPlottableLegendItem* self, QCustomPlot* parentPlot) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_ParentPlotInitialized_IsBase(true);
@@ -27387,7 +27387,7 @@ void QCPPlottableLegendItem_MousePressEvent(QCPPlottableLegendItem* self, QMouse
 }
 
 // Base class handler implementation
-void QCPPlottableLegendItem_QBaseMousePressEvent(QCPPlottableLegendItem* self, QMouseEvent* event, const QVariant* details) {
+void QCPPlottableLegendItem_SuperMousePressEvent(QCPPlottableLegendItem* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_MousePressEvent_IsBase(true);
@@ -27416,7 +27416,7 @@ void QCPPlottableLegendItem_MouseMoveEvent(QCPPlottableLegendItem* self, QMouseE
 }
 
 // Base class handler implementation
-void QCPPlottableLegendItem_QBaseMouseMoveEvent(QCPPlottableLegendItem* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPPlottableLegendItem_SuperMouseMoveEvent(QCPPlottableLegendItem* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_MouseMoveEvent_IsBase(true);
@@ -27445,7 +27445,7 @@ void QCPPlottableLegendItem_MouseReleaseEvent(QCPPlottableLegendItem* self, QMou
 }
 
 // Base class handler implementation
-void QCPPlottableLegendItem_QBaseMouseReleaseEvent(QCPPlottableLegendItem* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPPlottableLegendItem_SuperMouseReleaseEvent(QCPPlottableLegendItem* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_MouseReleaseEvent_IsBase(true);
@@ -27474,7 +27474,7 @@ void QCPPlottableLegendItem_MouseDoubleClickEvent(QCPPlottableLegendItem* self, 
 }
 
 // Base class handler implementation
-void QCPPlottableLegendItem_QBaseMouseDoubleClickEvent(QCPPlottableLegendItem* self, QMouseEvent* event, const QVariant* details) {
+void QCPPlottableLegendItem_SuperMouseDoubleClickEvent(QCPPlottableLegendItem* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_MouseDoubleClickEvent_IsBase(true);
@@ -27503,7 +27503,7 @@ void QCPPlottableLegendItem_WheelEvent(QCPPlottableLegendItem* self, QWheelEvent
 }
 
 // Base class handler implementation
-void QCPPlottableLegendItem_QBaseWheelEvent(QCPPlottableLegendItem* self, QWheelEvent* event) {
+void QCPPlottableLegendItem_SuperWheelEvent(QCPPlottableLegendItem* self, QWheelEvent* event) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_WheelEvent_IsBase(true);
@@ -27532,7 +27532,7 @@ bool QCPPlottableLegendItem_Event(QCPPlottableLegendItem* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPPlottableLegendItem_QBaseEvent(QCPPlottableLegendItem* self, QEvent* event) {
+bool QCPPlottableLegendItem_SuperEvent(QCPPlottableLegendItem* self, QEvent* event) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_Event_IsBase(true);
@@ -27561,7 +27561,7 @@ bool QCPPlottableLegendItem_EventFilter(QCPPlottableLegendItem* self, QObject* w
 }
 
 // Base class handler implementation
-bool QCPPlottableLegendItem_QBaseEventFilter(QCPPlottableLegendItem* self, QObject* watched, QEvent* event) {
+bool QCPPlottableLegendItem_SuperEventFilter(QCPPlottableLegendItem* self, QObject* watched, QEvent* event) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_EventFilter_IsBase(true);
@@ -27590,7 +27590,7 @@ void QCPPlottableLegendItem_TimerEvent(QCPPlottableLegendItem* self, QTimerEvent
 }
 
 // Base class handler implementation
-void QCPPlottableLegendItem_QBaseTimerEvent(QCPPlottableLegendItem* self, QTimerEvent* event) {
+void QCPPlottableLegendItem_SuperTimerEvent(QCPPlottableLegendItem* self, QTimerEvent* event) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_TimerEvent_IsBase(true);
@@ -27619,7 +27619,7 @@ void QCPPlottableLegendItem_ChildEvent(QCPPlottableLegendItem* self, QChildEvent
 }
 
 // Base class handler implementation
-void QCPPlottableLegendItem_QBaseChildEvent(QCPPlottableLegendItem* self, QChildEvent* event) {
+void QCPPlottableLegendItem_SuperChildEvent(QCPPlottableLegendItem* self, QChildEvent* event) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_ChildEvent_IsBase(true);
@@ -27648,7 +27648,7 @@ void QCPPlottableLegendItem_CustomEvent(QCPPlottableLegendItem* self, QEvent* ev
 }
 
 // Base class handler implementation
-void QCPPlottableLegendItem_QBaseCustomEvent(QCPPlottableLegendItem* self, QEvent* event) {
+void QCPPlottableLegendItem_SuperCustomEvent(QCPPlottableLegendItem* self, QEvent* event) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_CustomEvent_IsBase(true);
@@ -27677,7 +27677,7 @@ void QCPPlottableLegendItem_ConnectNotify(QCPPlottableLegendItem* self, const QM
 }
 
 // Base class handler implementation
-void QCPPlottableLegendItem_QBaseConnectNotify(QCPPlottableLegendItem* self, const QMetaMethod* signal) {
+void QCPPlottableLegendItem_SuperConnectNotify(QCPPlottableLegendItem* self, const QMetaMethod* signal) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_ConnectNotify_IsBase(true);
@@ -27706,7 +27706,7 @@ void QCPPlottableLegendItem_DisconnectNotify(QCPPlottableLegendItem* self, const
 }
 
 // Base class handler implementation
-void QCPPlottableLegendItem_QBaseDisconnectNotify(QCPPlottableLegendItem* self, const QMetaMethod* signal) {
+void QCPPlottableLegendItem_SuperDisconnectNotify(QCPPlottableLegendItem* self, const QMetaMethod* signal) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_DisconnectNotify_IsBase(true);
@@ -27734,7 +27734,7 @@ QPen* QCPPlottableLegendItem_GetIconBorderPen(const QCPPlottableLegendItem* self
 }
 
 // Base class handler implementation
-QPen* QCPPlottableLegendItem_QBaseGetIconBorderPen(const QCPPlottableLegendItem* self) {
+QPen* QCPPlottableLegendItem_SuperGetIconBorderPen(const QCPPlottableLegendItem* self) {
     auto* vqcpplottablelegenditem = const_cast<VirtualQCPPlottableLegendItem*>(dynamic_cast<const VirtualQCPPlottableLegendItem*>(self));
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_GetIconBorderPen_IsBase(true);
@@ -27761,7 +27761,7 @@ QColor* QCPPlottableLegendItem_GetTextColor(const QCPPlottableLegendItem* self) 
 }
 
 // Base class handler implementation
-QColor* QCPPlottableLegendItem_QBaseGetTextColor(const QCPPlottableLegendItem* self) {
+QColor* QCPPlottableLegendItem_SuperGetTextColor(const QCPPlottableLegendItem* self) {
     auto* vqcpplottablelegenditem = const_cast<VirtualQCPPlottableLegendItem*>(dynamic_cast<const VirtualQCPPlottableLegendItem*>(self));
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_GetTextColor_IsBase(true);
@@ -27788,7 +27788,7 @@ QFont* QCPPlottableLegendItem_GetFont(const QCPPlottableLegendItem* self) {
 }
 
 // Base class handler implementation
-QFont* QCPPlottableLegendItem_QBaseGetFont(const QCPPlottableLegendItem* self) {
+QFont* QCPPlottableLegendItem_SuperGetFont(const QCPPlottableLegendItem* self) {
     auto* vqcpplottablelegenditem = const_cast<VirtualQCPPlottableLegendItem*>(dynamic_cast<const VirtualQCPPlottableLegendItem*>(self));
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_GetFont_IsBase(true);
@@ -27816,7 +27816,7 @@ void QCPPlottableLegendItem_InitializeParentPlot(QCPPlottableLegendItem* self, Q
 }
 
 // Base class handler implementation
-void QCPPlottableLegendItem_QBaseInitializeParentPlot(QCPPlottableLegendItem* self, QCustomPlot* parentPlot) {
+void QCPPlottableLegendItem_SuperInitializeParentPlot(QCPPlottableLegendItem* self, QCustomPlot* parentPlot) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_InitializeParentPlot_IsBase(true);
@@ -27845,7 +27845,7 @@ void QCPPlottableLegendItem_SetParentLayerable(QCPPlottableLegendItem* self, QCP
 }
 
 // Base class handler implementation
-void QCPPlottableLegendItem_QBaseSetParentLayerable(QCPPlottableLegendItem* self, QCPLayerable* parentLayerable) {
+void QCPPlottableLegendItem_SuperSetParentLayerable(QCPPlottableLegendItem* self, QCPLayerable* parentLayerable) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_SetParentLayerable_IsBase(true);
@@ -27874,7 +27874,7 @@ bool QCPPlottableLegendItem_MoveToLayer(QCPPlottableLegendItem* self, QCPLayer* 
 }
 
 // Base class handler implementation
-bool QCPPlottableLegendItem_QBaseMoveToLayer(QCPPlottableLegendItem* self, QCPLayer* layer, bool prepend) {
+bool QCPPlottableLegendItem_SuperMoveToLayer(QCPPlottableLegendItem* self, QCPLayer* layer, bool prepend) {
     auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_MoveToLayer_IsBase(true);
@@ -27903,7 +27903,7 @@ void QCPPlottableLegendItem_ApplyAntialiasingHint(const QCPPlottableLegendItem* 
 }
 
 // Base class handler implementation
-void QCPPlottableLegendItem_QBaseApplyAntialiasingHint(const QCPPlottableLegendItem* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPPlottableLegendItem_SuperApplyAntialiasingHint(const QCPPlottableLegendItem* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpplottablelegenditem = const_cast<VirtualQCPPlottableLegendItem*>(dynamic_cast<const VirtualQCPPlottableLegendItem*>(self));
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_ApplyAntialiasingHint_IsBase(true);
@@ -27932,7 +27932,7 @@ QObject* QCPPlottableLegendItem_Sender(const QCPPlottableLegendItem* self) {
 }
 
 // Base class handler implementation
-QObject* QCPPlottableLegendItem_QBaseSender(const QCPPlottableLegendItem* self) {
+QObject* QCPPlottableLegendItem_SuperSender(const QCPPlottableLegendItem* self) {
     auto* vqcpplottablelegenditem = const_cast<VirtualQCPPlottableLegendItem*>(dynamic_cast<const VirtualQCPPlottableLegendItem*>(self));
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_Sender_IsBase(true);
@@ -27961,7 +27961,7 @@ int QCPPlottableLegendItem_SenderSignalIndex(const QCPPlottableLegendItem* self)
 }
 
 // Base class handler implementation
-int QCPPlottableLegendItem_QBaseSenderSignalIndex(const QCPPlottableLegendItem* self) {
+int QCPPlottableLegendItem_SuperSenderSignalIndex(const QCPPlottableLegendItem* self) {
     auto* vqcpplottablelegenditem = const_cast<VirtualQCPPlottableLegendItem*>(dynamic_cast<const VirtualQCPPlottableLegendItem*>(self));
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_SenderSignalIndex_IsBase(true);
@@ -27990,7 +27990,7 @@ int QCPPlottableLegendItem_Receivers(const QCPPlottableLegendItem* self, const c
 }
 
 // Base class handler implementation
-int QCPPlottableLegendItem_QBaseReceivers(const QCPPlottableLegendItem* self, const char* signal) {
+int QCPPlottableLegendItem_SuperReceivers(const QCPPlottableLegendItem* self, const char* signal) {
     auto* vqcpplottablelegenditem = const_cast<VirtualQCPPlottableLegendItem*>(dynamic_cast<const VirtualQCPPlottableLegendItem*>(self));
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_Receivers_IsBase(true);
@@ -28019,7 +28019,7 @@ bool QCPPlottableLegendItem_IsSignalConnected(const QCPPlottableLegendItem* self
 }
 
 // Base class handler implementation
-bool QCPPlottableLegendItem_QBaseIsSignalConnected(const QCPPlottableLegendItem* self, const QMetaMethod* signal) {
+bool QCPPlottableLegendItem_SuperIsSignalConnected(const QCPPlottableLegendItem* self, const QMetaMethod* signal) {
     auto* vqcpplottablelegenditem = const_cast<VirtualQCPPlottableLegendItem*>(dynamic_cast<const VirtualQCPPlottableLegendItem*>(self));
     if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
         vqcpplottablelegenditem->setQCPPlottableLegendItem_IsSignalConnected_IsBase(true);
@@ -28314,7 +28314,7 @@ void QCPLegend_DeselectEvent(QCPLegend* self, bool* selectionStateChanged) {
 }
 
 // Base class handler implementation
-QMetaObject* QCPLegend_QBaseMetaObject(const QCPLegend* self) {
+QMetaObject* QCPLegend_SuperMetaObject(const QCPLegend* self) {
     auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_MetaObject_IsBase(true);
@@ -28333,7 +28333,7 @@ void QCPLegend_OnMetaObject(const QCPLegend* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPLegend_QBaseMetacast(QCPLegend* self, const char* param1) {
+void* QCPLegend_SuperMetacast(QCPLegend* self, const char* param1) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_Metacast_IsBase(true);
@@ -28352,7 +28352,7 @@ void QCPLegend_OnMetacast(QCPLegend* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPLegend_QBaseMetacall(QCPLegend* self, int param1, int param2, void** param3) {
+int QCPLegend_SuperMetacall(QCPLegend* self, int param1, int param2, void** param3) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_Metacall_IsBase(true);
@@ -28371,7 +28371,7 @@ void QCPLegend_OnMetacall(QCPLegend* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPLegend_QBaseSelectTest(const QCPLegend* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPLegend_SuperSelectTest(const QCPLegend* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_SelectTest_IsBase(true);
@@ -28390,7 +28390,7 @@ void QCPLegend_OnSelectTest(const QCPLegend* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseParentPlotInitialized(QCPLegend* self, QCustomPlot* parentPlot) {
+void QCPLegend_SuperParentPlotInitialized(QCPLegend* self, QCustomPlot* parentPlot) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_ParentPlotInitialized_IsBase(true);
@@ -28409,7 +28409,7 @@ void QCPLegend_OnParentPlotInitialized(QCPLegend* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPLegend_QBaseSelectionCategory(const QCPLegend* self) {
+int QCPLegend_SuperSelectionCategory(const QCPLegend* self) {
     auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_SelectionCategory_IsBase(true);
@@ -28428,7 +28428,7 @@ void QCPLegend_OnSelectionCategory(const QCPLegend* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseApplyDefaultAntialiasingHint(const QCPLegend* self, QCPPainter* painter) {
+void QCPLegend_SuperApplyDefaultAntialiasingHint(const QCPLegend* self, QCPPainter* painter) {
     auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -28447,7 +28447,7 @@ void QCPLegend_OnApplyDefaultAntialiasingHint(const QCPLegend* self, intptr_t sl
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseDraw(QCPLegend* self, QCPPainter* painter) {
+void QCPLegend_SuperDraw(QCPLegend* self, QCPPainter* painter) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_Draw_IsBase(true);
@@ -28466,7 +28466,7 @@ void QCPLegend_OnDraw(QCPLegend* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseSelectEvent(QCPLegend* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPLegend_SuperSelectEvent(QCPLegend* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_SelectEvent_IsBase(true);
@@ -28485,7 +28485,7 @@ void QCPLegend_OnSelectEvent(QCPLegend* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseDeselectEvent(QCPLegend* self, bool* selectionStateChanged) {
+void QCPLegend_SuperDeselectEvent(QCPLegend* self, bool* selectionStateChanged) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_DeselectEvent_IsBase(true);
@@ -28514,7 +28514,7 @@ void QCPLegend_UpdateLayout(QCPLegend* self) {
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseUpdateLayout(QCPLegend* self) {
+void QCPLegend_SuperUpdateLayout(QCPLegend* self) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_UpdateLayout_IsBase(true);
@@ -28543,7 +28543,7 @@ int QCPLegend_ElementCount(const QCPLegend* self) {
 }
 
 // Base class handler implementation
-int QCPLegend_QBaseElementCount(const QCPLegend* self) {
+int QCPLegend_SuperElementCount(const QCPLegend* self) {
     auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_ElementCount_IsBase(true);
@@ -28572,7 +28572,7 @@ QCPLayoutElement* QCPLegend_ElementAt(const QCPLegend* self, int index) {
 }
 
 // Base class handler implementation
-QCPLayoutElement* QCPLegend_QBaseElementAt(const QCPLegend* self, int index) {
+QCPLayoutElement* QCPLegend_SuperElementAt(const QCPLegend* self, int index) {
     auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_ElementAt_IsBase(true);
@@ -28601,7 +28601,7 @@ QCPLayoutElement* QCPLegend_TakeAt(QCPLegend* self, int index) {
 }
 
 // Base class handler implementation
-QCPLayoutElement* QCPLegend_QBaseTakeAt(QCPLegend* self, int index) {
+QCPLayoutElement* QCPLegend_SuperTakeAt(QCPLegend* self, int index) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_TakeAt_IsBase(true);
@@ -28630,7 +28630,7 @@ bool QCPLegend_Take(QCPLegend* self, QCPLayoutElement* element) {
 }
 
 // Base class handler implementation
-bool QCPLegend_QBaseTake(QCPLegend* self, QCPLayoutElement* element) {
+bool QCPLegend_SuperTake(QCPLegend* self, QCPLayoutElement* element) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_Take_IsBase(true);
@@ -28677,7 +28677,7 @@ libqt_list /* of QCPLayoutElement* */ QCPLegend_Elements(const QCPLegend* self, 
 }
 
 // Base class handler implementation
-libqt_list /* of QCPLayoutElement* */ QCPLegend_QBaseElements(const QCPLegend* self, bool recursive) {
+libqt_list /* of QCPLayoutElement* */ QCPLegend_SuperElements(const QCPLegend* self, bool recursive) {
     auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_Elements_IsBase(true);
@@ -28724,7 +28724,7 @@ void QCPLegend_Simplify(QCPLegend* self) {
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseSimplify(QCPLegend* self) {
+void QCPLegend_SuperSimplify(QCPLegend* self) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_Simplify_IsBase(true);
@@ -28753,7 +28753,7 @@ QSize* QCPLegend_MinimumOuterSizeHint(const QCPLegend* self) {
 }
 
 // Base class handler implementation
-QSize* QCPLegend_QBaseMinimumOuterSizeHint(const QCPLegend* self) {
+QSize* QCPLegend_SuperMinimumOuterSizeHint(const QCPLegend* self) {
     auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_MinimumOuterSizeHint_IsBase(true);
@@ -28782,7 +28782,7 @@ QSize* QCPLegend_MaximumOuterSizeHint(const QCPLegend* self) {
 }
 
 // Base class handler implementation
-QSize* QCPLegend_QBaseMaximumOuterSizeHint(const QCPLegend* self) {
+QSize* QCPLegend_SuperMaximumOuterSizeHint(const QCPLegend* self) {
     auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_MaximumOuterSizeHint_IsBase(true);
@@ -28811,7 +28811,7 @@ void QCPLegend_Update(QCPLegend* self, int phase) {
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseUpdate(QCPLegend* self, int phase) {
+void QCPLegend_SuperUpdate(QCPLegend* self, int phase) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_Update_IsBase(true);
@@ -28840,7 +28840,7 @@ int QCPLegend_CalculateAutoMargin(QCPLegend* self, int side) {
 }
 
 // Base class handler implementation
-int QCPLegend_QBaseCalculateAutoMargin(QCPLegend* self, int side) {
+int QCPLegend_SuperCalculateAutoMargin(QCPLegend* self, int side) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_CalculateAutoMargin_IsBase(true);
@@ -28869,7 +28869,7 @@ void QCPLegend_LayoutChanged(QCPLegend* self) {
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseLayoutChanged(QCPLegend* self) {
+void QCPLegend_SuperLayoutChanged(QCPLegend* self) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_LayoutChanged_IsBase(true);
@@ -28897,7 +28897,7 @@ QRect* QCPLegend_ClipRect(const QCPLegend* self) {
 }
 
 // Base class handler implementation
-QRect* QCPLegend_QBaseClipRect(const QCPLegend* self) {
+QRect* QCPLegend_SuperClipRect(const QCPLegend* self) {
     auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_ClipRect_IsBase(true);
@@ -28925,7 +28925,7 @@ void QCPLegend_MousePressEvent(QCPLegend* self, QMouseEvent* event, const QVaria
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseMousePressEvent(QCPLegend* self, QMouseEvent* event, const QVariant* details) {
+void QCPLegend_SuperMousePressEvent(QCPLegend* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_MousePressEvent_IsBase(true);
@@ -28954,7 +28954,7 @@ void QCPLegend_MouseMoveEvent(QCPLegend* self, QMouseEvent* event, const QPointF
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseMouseMoveEvent(QCPLegend* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPLegend_SuperMouseMoveEvent(QCPLegend* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_MouseMoveEvent_IsBase(true);
@@ -28983,7 +28983,7 @@ void QCPLegend_MouseReleaseEvent(QCPLegend* self, QMouseEvent* event, const QPoi
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseMouseReleaseEvent(QCPLegend* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPLegend_SuperMouseReleaseEvent(QCPLegend* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_MouseReleaseEvent_IsBase(true);
@@ -29012,7 +29012,7 @@ void QCPLegend_MouseDoubleClickEvent(QCPLegend* self, QMouseEvent* event, const 
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseMouseDoubleClickEvent(QCPLegend* self, QMouseEvent* event, const QVariant* details) {
+void QCPLegend_SuperMouseDoubleClickEvent(QCPLegend* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_MouseDoubleClickEvent_IsBase(true);
@@ -29041,7 +29041,7 @@ void QCPLegend_WheelEvent(QCPLegend* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseWheelEvent(QCPLegend* self, QWheelEvent* event) {
+void QCPLegend_SuperWheelEvent(QCPLegend* self, QWheelEvent* event) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_WheelEvent_IsBase(true);
@@ -29070,7 +29070,7 @@ bool QCPLegend_Event(QCPLegend* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPLegend_QBaseEvent(QCPLegend* self, QEvent* event) {
+bool QCPLegend_SuperEvent(QCPLegend* self, QEvent* event) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_Event_IsBase(true);
@@ -29099,7 +29099,7 @@ bool QCPLegend_EventFilter(QCPLegend* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPLegend_QBaseEventFilter(QCPLegend* self, QObject* watched, QEvent* event) {
+bool QCPLegend_SuperEventFilter(QCPLegend* self, QObject* watched, QEvent* event) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_EventFilter_IsBase(true);
@@ -29128,7 +29128,7 @@ void QCPLegend_TimerEvent(QCPLegend* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseTimerEvent(QCPLegend* self, QTimerEvent* event) {
+void QCPLegend_SuperTimerEvent(QCPLegend* self, QTimerEvent* event) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_TimerEvent_IsBase(true);
@@ -29157,7 +29157,7 @@ void QCPLegend_ChildEvent(QCPLegend* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseChildEvent(QCPLegend* self, QChildEvent* event) {
+void QCPLegend_SuperChildEvent(QCPLegend* self, QChildEvent* event) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_ChildEvent_IsBase(true);
@@ -29186,7 +29186,7 @@ void QCPLegend_CustomEvent(QCPLegend* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseCustomEvent(QCPLegend* self, QEvent* event) {
+void QCPLegend_SuperCustomEvent(QCPLegend* self, QEvent* event) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_CustomEvent_IsBase(true);
@@ -29215,7 +29215,7 @@ void QCPLegend_ConnectNotify(QCPLegend* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseConnectNotify(QCPLegend* self, const QMetaMethod* signal) {
+void QCPLegend_SuperConnectNotify(QCPLegend* self, const QMetaMethod* signal) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_ConnectNotify_IsBase(true);
@@ -29244,7 +29244,7 @@ void QCPLegend_DisconnectNotify(QCPLegend* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseDisconnectNotify(QCPLegend* self, const QMetaMethod* signal) {
+void QCPLegend_SuperDisconnectNotify(QCPLegend* self, const QMetaMethod* signal) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_DisconnectNotify_IsBase(true);
@@ -29272,7 +29272,7 @@ QPen* QCPLegend_GetBorderPen(const QCPLegend* self) {
 }
 
 // Base class handler implementation
-QPen* QCPLegend_QBaseGetBorderPen(const QCPLegend* self) {
+QPen* QCPLegend_SuperGetBorderPen(const QCPLegend* self) {
     auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_GetBorderPen_IsBase(true);
@@ -29299,7 +29299,7 @@ QBrush* QCPLegend_GetBrush(const QCPLegend* self) {
 }
 
 // Base class handler implementation
-QBrush* QCPLegend_QBaseGetBrush(const QCPLegend* self) {
+QBrush* QCPLegend_SuperGetBrush(const QCPLegend* self) {
     auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_GetBrush_IsBase(true);
@@ -29339,7 +29339,7 @@ void QCPLegend_GetMinimumRowColSizes(const QCPLegend* self, libqt_list /* of int
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseGetMinimumRowColSizes(const QCPLegend* self, libqt_list /* of int */ minColWidths, libqt_list /* of int */ minRowHeights) {
+void QCPLegend_SuperGetMinimumRowColSizes(const QCPLegend* self, libqt_list /* of int */ minColWidths, libqt_list /* of int */ minRowHeights) {
     auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
     QVector<int> minColWidths_QVector;
     minColWidths_QVector.reserve(minColWidths.len);
@@ -29392,7 +29392,7 @@ void QCPLegend_GetMaximumRowColSizes(const QCPLegend* self, libqt_list /* of int
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseGetMaximumRowColSizes(const QCPLegend* self, libqt_list /* of int */ maxColWidths, libqt_list /* of int */ maxRowHeights) {
+void QCPLegend_SuperGetMaximumRowColSizes(const QCPLegend* self, libqt_list /* of int */ maxColWidths, libqt_list /* of int */ maxRowHeights) {
     auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
     QVector<int> maxColWidths_QVector;
     maxColWidths_QVector.reserve(maxColWidths.len);
@@ -29433,7 +29433,7 @@ void QCPLegend_SizeConstraintsChanged(const QCPLegend* self) {
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseSizeConstraintsChanged(const QCPLegend* self) {
+void QCPLegend_SuperSizeConstraintsChanged(const QCPLegend* self) {
     auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_SizeConstraintsChanged_IsBase(true);
@@ -29462,7 +29462,7 @@ void QCPLegend_AdoptElement(QCPLegend* self, QCPLayoutElement* el) {
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseAdoptElement(QCPLegend* self, QCPLayoutElement* el) {
+void QCPLegend_SuperAdoptElement(QCPLegend* self, QCPLayoutElement* el) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_AdoptElement_IsBase(true);
@@ -29491,7 +29491,7 @@ void QCPLegend_ReleaseElement(QCPLegend* self, QCPLayoutElement* el) {
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseReleaseElement(QCPLegend* self, QCPLayoutElement* el) {
+void QCPLegend_SuperReleaseElement(QCPLegend* self, QCPLayoutElement* el) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_ReleaseElement_IsBase(true);
@@ -29556,7 +29556,7 @@ libqt_list /* of int */ QCPLegend_GetSectionSizes(const QCPLegend* self, libqt_l
 }
 
 // Base class handler implementation
-libqt_list /* of int */ QCPLegend_QBaseGetSectionSizes(const QCPLegend* self, libqt_list /* of int */ maxSizes, libqt_list /* of int */ minSizes, libqt_list /* of double */ stretchFactors, int totalSize) {
+libqt_list /* of int */ QCPLegend_SuperGetSectionSizes(const QCPLegend* self, libqt_list /* of int */ maxSizes, libqt_list /* of int */ minSizes, libqt_list /* of double */ stretchFactors, int totalSize) {
     auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
     QVector<int> maxSizes_QVector;
     maxSizes_QVector.reserve(maxSizes.len);
@@ -29621,7 +29621,7 @@ void QCPLegend_InitializeParentPlot(QCPLegend* self, QCustomPlot* parentPlot) {
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseInitializeParentPlot(QCPLegend* self, QCustomPlot* parentPlot) {
+void QCPLegend_SuperInitializeParentPlot(QCPLegend* self, QCustomPlot* parentPlot) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_InitializeParentPlot_IsBase(true);
@@ -29650,7 +29650,7 @@ void QCPLegend_SetParentLayerable(QCPLegend* self, QCPLayerable* parentLayerable
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseSetParentLayerable(QCPLegend* self, QCPLayerable* parentLayerable) {
+void QCPLegend_SuperSetParentLayerable(QCPLegend* self, QCPLayerable* parentLayerable) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_SetParentLayerable_IsBase(true);
@@ -29679,7 +29679,7 @@ bool QCPLegend_MoveToLayer(QCPLegend* self, QCPLayer* layer, bool prepend) {
 }
 
 // Base class handler implementation
-bool QCPLegend_QBaseMoveToLayer(QCPLegend* self, QCPLayer* layer, bool prepend) {
+bool QCPLegend_SuperMoveToLayer(QCPLegend* self, QCPLayer* layer, bool prepend) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_MoveToLayer_IsBase(true);
@@ -29708,7 +29708,7 @@ void QCPLegend_ApplyAntialiasingHint(const QCPLegend* self, QCPPainter* painter,
 }
 
 // Base class handler implementation
-void QCPLegend_QBaseApplyAntialiasingHint(const QCPLegend* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPLegend_SuperApplyAntialiasingHint(const QCPLegend* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_ApplyAntialiasingHint_IsBase(true);
@@ -29737,7 +29737,7 @@ QObject* QCPLegend_Sender(const QCPLegend* self) {
 }
 
 // Base class handler implementation
-QObject* QCPLegend_QBaseSender(const QCPLegend* self) {
+QObject* QCPLegend_SuperSender(const QCPLegend* self) {
     auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_Sender_IsBase(true);
@@ -29766,7 +29766,7 @@ int QCPLegend_SenderSignalIndex(const QCPLegend* self) {
 }
 
 // Base class handler implementation
-int QCPLegend_QBaseSenderSignalIndex(const QCPLegend* self) {
+int QCPLegend_SuperSenderSignalIndex(const QCPLegend* self) {
     auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_SenderSignalIndex_IsBase(true);
@@ -29795,7 +29795,7 @@ int QCPLegend_Receivers(const QCPLegend* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPLegend_QBaseReceivers(const QCPLegend* self, const char* signal) {
+int QCPLegend_SuperReceivers(const QCPLegend* self, const char* signal) {
     auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_Receivers_IsBase(true);
@@ -29824,7 +29824,7 @@ bool QCPLegend_IsSignalConnected(const QCPLegend* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool QCPLegend_QBaseIsSignalConnected(const QCPLegend* self, const QMetaMethod* signal) {
+bool QCPLegend_SuperIsSignalConnected(const QCPLegend* self, const QMetaMethod* signal) {
     auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->setQCPLegend_IsSignalConnected_IsBase(true);
@@ -30100,7 +30100,7 @@ void QCPTextElement_DeselectEvent(QCPTextElement* self, bool* selectionStateChan
 }
 
 // Base class handler implementation
-QMetaObject* QCPTextElement_QBaseMetaObject(const QCPTextElement* self) {
+QMetaObject* QCPTextElement_SuperMetaObject(const QCPTextElement* self) {
     auto* vqcptextelement = const_cast<VirtualQCPTextElement*>(dynamic_cast<const VirtualQCPTextElement*>(self));
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_MetaObject_IsBase(true);
@@ -30119,7 +30119,7 @@ void QCPTextElement_OnMetaObject(const QCPTextElement* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPTextElement_QBaseMetacast(QCPTextElement* self, const char* param1) {
+void* QCPTextElement_SuperMetacast(QCPTextElement* self, const char* param1) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_Metacast_IsBase(true);
@@ -30138,7 +30138,7 @@ void QCPTextElement_OnMetacast(QCPTextElement* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPTextElement_QBaseMetacall(QCPTextElement* self, int param1, int param2, void** param3) {
+int QCPTextElement_SuperMetacall(QCPTextElement* self, int param1, int param2, void** param3) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_Metacall_IsBase(true);
@@ -30157,7 +30157,7 @@ void QCPTextElement_OnMetacall(QCPTextElement* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPTextElement_QBaseSelectTest(const QCPTextElement* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPTextElement_SuperSelectTest(const QCPTextElement* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcptextelement = const_cast<VirtualQCPTextElement*>(dynamic_cast<const VirtualQCPTextElement*>(self));
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_SelectTest_IsBase(true);
@@ -30176,7 +30176,7 @@ void QCPTextElement_OnSelectTest(const QCPTextElement* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPTextElement_QBaseMousePressEvent(QCPTextElement* self, QMouseEvent* event, const QVariant* details) {
+void QCPTextElement_SuperMousePressEvent(QCPTextElement* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_MousePressEvent_IsBase(true);
@@ -30195,7 +30195,7 @@ void QCPTextElement_OnMousePressEvent(QCPTextElement* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPTextElement_QBaseMouseReleaseEvent(QCPTextElement* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPTextElement_SuperMouseReleaseEvent(QCPTextElement* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_MouseReleaseEvent_IsBase(true);
@@ -30214,7 +30214,7 @@ void QCPTextElement_OnMouseReleaseEvent(QCPTextElement* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPTextElement_QBaseMouseDoubleClickEvent(QCPTextElement* self, QMouseEvent* event, const QVariant* details) {
+void QCPTextElement_SuperMouseDoubleClickEvent(QCPTextElement* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_MouseDoubleClickEvent_IsBase(true);
@@ -30233,7 +30233,7 @@ void QCPTextElement_OnMouseDoubleClickEvent(QCPTextElement* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void QCPTextElement_QBaseApplyDefaultAntialiasingHint(const QCPTextElement* self, QCPPainter* painter) {
+void QCPTextElement_SuperApplyDefaultAntialiasingHint(const QCPTextElement* self, QCPPainter* painter) {
     auto* vqcptextelement = const_cast<VirtualQCPTextElement*>(dynamic_cast<const VirtualQCPTextElement*>(self));
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -30252,7 +30252,7 @@ void QCPTextElement_OnApplyDefaultAntialiasingHint(const QCPTextElement* self, i
 }
 
 // Base class handler implementation
-void QCPTextElement_QBaseDraw(QCPTextElement* self, QCPPainter* painter) {
+void QCPTextElement_SuperDraw(QCPTextElement* self, QCPPainter* painter) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_Draw_IsBase(true);
@@ -30271,7 +30271,7 @@ void QCPTextElement_OnDraw(QCPTextElement* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QCPTextElement_QBaseMinimumOuterSizeHint(const QCPTextElement* self) {
+QSize* QCPTextElement_SuperMinimumOuterSizeHint(const QCPTextElement* self) {
     auto* vqcptextelement = const_cast<VirtualQCPTextElement*>(dynamic_cast<const VirtualQCPTextElement*>(self));
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_MinimumOuterSizeHint_IsBase(true);
@@ -30289,7 +30289,7 @@ void QCPTextElement_OnMinimumOuterSizeHint(const QCPTextElement* self, intptr_t 
 }
 
 // Base class handler implementation
-QSize* QCPTextElement_QBaseMaximumOuterSizeHint(const QCPTextElement* self) {
+QSize* QCPTextElement_SuperMaximumOuterSizeHint(const QCPTextElement* self) {
     auto* vqcptextelement = const_cast<VirtualQCPTextElement*>(dynamic_cast<const VirtualQCPTextElement*>(self));
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_MaximumOuterSizeHint_IsBase(true);
@@ -30307,7 +30307,7 @@ void QCPTextElement_OnMaximumOuterSizeHint(const QCPTextElement* self, intptr_t 
 }
 
 // Base class handler implementation
-void QCPTextElement_QBaseSelectEvent(QCPTextElement* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPTextElement_SuperSelectEvent(QCPTextElement* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_SelectEvent_IsBase(true);
@@ -30326,7 +30326,7 @@ void QCPTextElement_OnSelectEvent(QCPTextElement* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPTextElement_QBaseDeselectEvent(QCPTextElement* self, bool* selectionStateChanged) {
+void QCPTextElement_SuperDeselectEvent(QCPTextElement* self, bool* selectionStateChanged) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_DeselectEvent_IsBase(true);
@@ -30355,7 +30355,7 @@ void QCPTextElement_Update(QCPTextElement* self, int phase) {
 }
 
 // Base class handler implementation
-void QCPTextElement_QBaseUpdate(QCPTextElement* self, int phase) {
+void QCPTextElement_SuperUpdate(QCPTextElement* self, int phase) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_Update_IsBase(true);
@@ -30402,7 +30402,7 @@ libqt_list /* of QCPLayoutElement* */ QCPTextElement_Elements(const QCPTextEleme
 }
 
 // Base class handler implementation
-libqt_list /* of QCPLayoutElement* */ QCPTextElement_QBaseElements(const QCPTextElement* self, bool recursive) {
+libqt_list /* of QCPLayoutElement* */ QCPTextElement_SuperElements(const QCPTextElement* self, bool recursive) {
     auto* vqcptextelement = const_cast<VirtualQCPTextElement*>(dynamic_cast<const VirtualQCPTextElement*>(self));
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_Elements_IsBase(true);
@@ -30449,7 +30449,7 @@ int QCPTextElement_CalculateAutoMargin(QCPTextElement* self, int side) {
 }
 
 // Base class handler implementation
-int QCPTextElement_QBaseCalculateAutoMargin(QCPTextElement* self, int side) {
+int QCPTextElement_SuperCalculateAutoMargin(QCPTextElement* self, int side) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_CalculateAutoMargin_IsBase(true);
@@ -30478,7 +30478,7 @@ void QCPTextElement_LayoutChanged(QCPTextElement* self) {
 }
 
 // Base class handler implementation
-void QCPTextElement_QBaseLayoutChanged(QCPTextElement* self) {
+void QCPTextElement_SuperLayoutChanged(QCPTextElement* self) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_LayoutChanged_IsBase(true);
@@ -30507,7 +30507,7 @@ void QCPTextElement_ParentPlotInitialized(QCPTextElement* self, QCustomPlot* par
 }
 
 // Base class handler implementation
-void QCPTextElement_QBaseParentPlotInitialized(QCPTextElement* self, QCustomPlot* parentPlot) {
+void QCPTextElement_SuperParentPlotInitialized(QCPTextElement* self, QCustomPlot* parentPlot) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_ParentPlotInitialized_IsBase(true);
@@ -30536,7 +30536,7 @@ int QCPTextElement_SelectionCategory(const QCPTextElement* self) {
 }
 
 // Base class handler implementation
-int QCPTextElement_QBaseSelectionCategory(const QCPTextElement* self) {
+int QCPTextElement_SuperSelectionCategory(const QCPTextElement* self) {
     auto* vqcptextelement = const_cast<VirtualQCPTextElement*>(dynamic_cast<const VirtualQCPTextElement*>(self));
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_SelectionCategory_IsBase(true);
@@ -30564,7 +30564,7 @@ QRect* QCPTextElement_ClipRect(const QCPTextElement* self) {
 }
 
 // Base class handler implementation
-QRect* QCPTextElement_QBaseClipRect(const QCPTextElement* self) {
+QRect* QCPTextElement_SuperClipRect(const QCPTextElement* self) {
     auto* vqcptextelement = const_cast<VirtualQCPTextElement*>(dynamic_cast<const VirtualQCPTextElement*>(self));
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_ClipRect_IsBase(true);
@@ -30592,7 +30592,7 @@ void QCPTextElement_MouseMoveEvent(QCPTextElement* self, QMouseEvent* event, con
 }
 
 // Base class handler implementation
-void QCPTextElement_QBaseMouseMoveEvent(QCPTextElement* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPTextElement_SuperMouseMoveEvent(QCPTextElement* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_MouseMoveEvent_IsBase(true);
@@ -30621,7 +30621,7 @@ void QCPTextElement_WheelEvent(QCPTextElement* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPTextElement_QBaseWheelEvent(QCPTextElement* self, QWheelEvent* event) {
+void QCPTextElement_SuperWheelEvent(QCPTextElement* self, QWheelEvent* event) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_WheelEvent_IsBase(true);
@@ -30650,7 +30650,7 @@ bool QCPTextElement_Event(QCPTextElement* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPTextElement_QBaseEvent(QCPTextElement* self, QEvent* event) {
+bool QCPTextElement_SuperEvent(QCPTextElement* self, QEvent* event) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_Event_IsBase(true);
@@ -30679,7 +30679,7 @@ bool QCPTextElement_EventFilter(QCPTextElement* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QCPTextElement_QBaseEventFilter(QCPTextElement* self, QObject* watched, QEvent* event) {
+bool QCPTextElement_SuperEventFilter(QCPTextElement* self, QObject* watched, QEvent* event) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_EventFilter_IsBase(true);
@@ -30708,7 +30708,7 @@ void QCPTextElement_TimerEvent(QCPTextElement* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPTextElement_QBaseTimerEvent(QCPTextElement* self, QTimerEvent* event) {
+void QCPTextElement_SuperTimerEvent(QCPTextElement* self, QTimerEvent* event) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_TimerEvent_IsBase(true);
@@ -30737,7 +30737,7 @@ void QCPTextElement_ChildEvent(QCPTextElement* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPTextElement_QBaseChildEvent(QCPTextElement* self, QChildEvent* event) {
+void QCPTextElement_SuperChildEvent(QCPTextElement* self, QChildEvent* event) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_ChildEvent_IsBase(true);
@@ -30766,7 +30766,7 @@ void QCPTextElement_CustomEvent(QCPTextElement* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPTextElement_QBaseCustomEvent(QCPTextElement* self, QEvent* event) {
+void QCPTextElement_SuperCustomEvent(QCPTextElement* self, QEvent* event) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_CustomEvent_IsBase(true);
@@ -30795,7 +30795,7 @@ void QCPTextElement_ConnectNotify(QCPTextElement* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QCPTextElement_QBaseConnectNotify(QCPTextElement* self, const QMetaMethod* signal) {
+void QCPTextElement_SuperConnectNotify(QCPTextElement* self, const QMetaMethod* signal) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_ConnectNotify_IsBase(true);
@@ -30824,7 +30824,7 @@ void QCPTextElement_DisconnectNotify(QCPTextElement* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QCPTextElement_QBaseDisconnectNotify(QCPTextElement* self, const QMetaMethod* signal) {
+void QCPTextElement_SuperDisconnectNotify(QCPTextElement* self, const QMetaMethod* signal) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_DisconnectNotify_IsBase(true);
@@ -30852,7 +30852,7 @@ QFont* QCPTextElement_MainFont(const QCPTextElement* self) {
 }
 
 // Base class handler implementation
-QFont* QCPTextElement_QBaseMainFont(const QCPTextElement* self) {
+QFont* QCPTextElement_SuperMainFont(const QCPTextElement* self) {
     auto* vqcptextelement = const_cast<VirtualQCPTextElement*>(dynamic_cast<const VirtualQCPTextElement*>(self));
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_MainFont_IsBase(true);
@@ -30879,7 +30879,7 @@ QColor* QCPTextElement_MainTextColor(const QCPTextElement* self) {
 }
 
 // Base class handler implementation
-QColor* QCPTextElement_QBaseMainTextColor(const QCPTextElement* self) {
+QColor* QCPTextElement_SuperMainTextColor(const QCPTextElement* self) {
     auto* vqcptextelement = const_cast<VirtualQCPTextElement*>(dynamic_cast<const VirtualQCPTextElement*>(self));
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_MainTextColor_IsBase(true);
@@ -30907,7 +30907,7 @@ void QCPTextElement_InitializeParentPlot(QCPTextElement* self, QCustomPlot* pare
 }
 
 // Base class handler implementation
-void QCPTextElement_QBaseInitializeParentPlot(QCPTextElement* self, QCustomPlot* parentPlot) {
+void QCPTextElement_SuperInitializeParentPlot(QCPTextElement* self, QCustomPlot* parentPlot) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_InitializeParentPlot_IsBase(true);
@@ -30936,7 +30936,7 @@ void QCPTextElement_SetParentLayerable(QCPTextElement* self, QCPLayerable* paren
 }
 
 // Base class handler implementation
-void QCPTextElement_QBaseSetParentLayerable(QCPTextElement* self, QCPLayerable* parentLayerable) {
+void QCPTextElement_SuperSetParentLayerable(QCPTextElement* self, QCPLayerable* parentLayerable) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_SetParentLayerable_IsBase(true);
@@ -30965,7 +30965,7 @@ bool QCPTextElement_MoveToLayer(QCPTextElement* self, QCPLayer* layer, bool prep
 }
 
 // Base class handler implementation
-bool QCPTextElement_QBaseMoveToLayer(QCPTextElement* self, QCPLayer* layer, bool prepend) {
+bool QCPTextElement_SuperMoveToLayer(QCPTextElement* self, QCPLayer* layer, bool prepend) {
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_MoveToLayer_IsBase(true);
@@ -30994,7 +30994,7 @@ void QCPTextElement_ApplyAntialiasingHint(const QCPTextElement* self, QCPPainter
 }
 
 // Base class handler implementation
-void QCPTextElement_QBaseApplyAntialiasingHint(const QCPTextElement* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPTextElement_SuperApplyAntialiasingHint(const QCPTextElement* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcptextelement = const_cast<VirtualQCPTextElement*>(dynamic_cast<const VirtualQCPTextElement*>(self));
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_ApplyAntialiasingHint_IsBase(true);
@@ -31023,7 +31023,7 @@ QObject* QCPTextElement_Sender(const QCPTextElement* self) {
 }
 
 // Base class handler implementation
-QObject* QCPTextElement_QBaseSender(const QCPTextElement* self) {
+QObject* QCPTextElement_SuperSender(const QCPTextElement* self) {
     auto* vqcptextelement = const_cast<VirtualQCPTextElement*>(dynamic_cast<const VirtualQCPTextElement*>(self));
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_Sender_IsBase(true);
@@ -31052,7 +31052,7 @@ int QCPTextElement_SenderSignalIndex(const QCPTextElement* self) {
 }
 
 // Base class handler implementation
-int QCPTextElement_QBaseSenderSignalIndex(const QCPTextElement* self) {
+int QCPTextElement_SuperSenderSignalIndex(const QCPTextElement* self) {
     auto* vqcptextelement = const_cast<VirtualQCPTextElement*>(dynamic_cast<const VirtualQCPTextElement*>(self));
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_SenderSignalIndex_IsBase(true);
@@ -31081,7 +31081,7 @@ int QCPTextElement_Receivers(const QCPTextElement* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPTextElement_QBaseReceivers(const QCPTextElement* self, const char* signal) {
+int QCPTextElement_SuperReceivers(const QCPTextElement* self, const char* signal) {
     auto* vqcptextelement = const_cast<VirtualQCPTextElement*>(dynamic_cast<const VirtualQCPTextElement*>(self));
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_Receivers_IsBase(true);
@@ -31110,7 +31110,7 @@ bool QCPTextElement_IsSignalConnected(const QCPTextElement* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QCPTextElement_QBaseIsSignalConnected(const QCPTextElement* self, const QMetaMethod* signal) {
+bool QCPTextElement_SuperIsSignalConnected(const QCPTextElement* self, const QMetaMethod* signal) {
     auto* vqcptextelement = const_cast<VirtualQCPTextElement*>(dynamic_cast<const VirtualQCPTextElement*>(self));
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->setQCPTextElement_IsSignalConnected_IsBase(true);
@@ -31342,7 +31342,7 @@ void QCPColorScale_WheelEvent(QCPColorScale* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-QMetaObject* QCPColorScale_QBaseMetaObject(const QCPColorScale* self) {
+QMetaObject* QCPColorScale_SuperMetaObject(const QCPColorScale* self) {
     auto* vqcpcolorscale = const_cast<VirtualQCPColorScale*>(dynamic_cast<const VirtualQCPColorScale*>(self));
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_MetaObject_IsBase(true);
@@ -31361,7 +31361,7 @@ void QCPColorScale_OnMetaObject(const QCPColorScale* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPColorScale_QBaseMetacast(QCPColorScale* self, const char* param1) {
+void* QCPColorScale_SuperMetacast(QCPColorScale* self, const char* param1) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_Metacast_IsBase(true);
@@ -31380,7 +31380,7 @@ void QCPColorScale_OnMetacast(QCPColorScale* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPColorScale_QBaseMetacall(QCPColorScale* self, int param1, int param2, void** param3) {
+int QCPColorScale_SuperMetacall(QCPColorScale* self, int param1, int param2, void** param3) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_Metacall_IsBase(true);
@@ -31399,7 +31399,7 @@ void QCPColorScale_OnMetacall(QCPColorScale* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPColorScale_QBaseUpdate(QCPColorScale* self, int phase) {
+void QCPColorScale_SuperUpdate(QCPColorScale* self, int phase) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_Update_IsBase(true);
@@ -31418,7 +31418,7 @@ void QCPColorScale_OnUpdate(QCPColorScale* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPColorScale_QBaseApplyDefaultAntialiasingHint(const QCPColorScale* self, QCPPainter* painter) {
+void QCPColorScale_SuperApplyDefaultAntialiasingHint(const QCPColorScale* self, QCPPainter* painter) {
     auto* vqcpcolorscale = const_cast<VirtualQCPColorScale*>(dynamic_cast<const VirtualQCPColorScale*>(self));
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -31437,7 +31437,7 @@ void QCPColorScale_OnApplyDefaultAntialiasingHint(const QCPColorScale* self, int
 }
 
 // Base class handler implementation
-void QCPColorScale_QBaseMousePressEvent(QCPColorScale* self, QMouseEvent* event, const QVariant* details) {
+void QCPColorScale_SuperMousePressEvent(QCPColorScale* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_MousePressEvent_IsBase(true);
@@ -31456,7 +31456,7 @@ void QCPColorScale_OnMousePressEvent(QCPColorScale* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPColorScale_QBaseMouseMoveEvent(QCPColorScale* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPColorScale_SuperMouseMoveEvent(QCPColorScale* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_MouseMoveEvent_IsBase(true);
@@ -31475,7 +31475,7 @@ void QCPColorScale_OnMouseMoveEvent(QCPColorScale* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPColorScale_QBaseMouseReleaseEvent(QCPColorScale* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPColorScale_SuperMouseReleaseEvent(QCPColorScale* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_MouseReleaseEvent_IsBase(true);
@@ -31494,7 +31494,7 @@ void QCPColorScale_OnMouseReleaseEvent(QCPColorScale* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPColorScale_QBaseWheelEvent(QCPColorScale* self, QWheelEvent* event) {
+void QCPColorScale_SuperWheelEvent(QCPColorScale* self, QWheelEvent* event) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_WheelEvent_IsBase(true);
@@ -31523,7 +31523,7 @@ QSize* QCPColorScale_MinimumOuterSizeHint(const QCPColorScale* self) {
 }
 
 // Base class handler implementation
-QSize* QCPColorScale_QBaseMinimumOuterSizeHint(const QCPColorScale* self) {
+QSize* QCPColorScale_SuperMinimumOuterSizeHint(const QCPColorScale* self) {
     auto* vqcpcolorscale = const_cast<VirtualQCPColorScale*>(dynamic_cast<const VirtualQCPColorScale*>(self));
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_MinimumOuterSizeHint_IsBase(true);
@@ -31552,7 +31552,7 @@ QSize* QCPColorScale_MaximumOuterSizeHint(const QCPColorScale* self) {
 }
 
 // Base class handler implementation
-QSize* QCPColorScale_QBaseMaximumOuterSizeHint(const QCPColorScale* self) {
+QSize* QCPColorScale_SuperMaximumOuterSizeHint(const QCPColorScale* self) {
     auto* vqcpcolorscale = const_cast<VirtualQCPColorScale*>(dynamic_cast<const VirtualQCPColorScale*>(self));
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_MaximumOuterSizeHint_IsBase(true);
@@ -31599,7 +31599,7 @@ libqt_list /* of QCPLayoutElement* */ QCPColorScale_Elements(const QCPColorScale
 }
 
 // Base class handler implementation
-libqt_list /* of QCPLayoutElement* */ QCPColorScale_QBaseElements(const QCPColorScale* self, bool recursive) {
+libqt_list /* of QCPLayoutElement* */ QCPColorScale_SuperElements(const QCPColorScale* self, bool recursive) {
     auto* vqcpcolorscale = const_cast<VirtualQCPColorScale*>(dynamic_cast<const VirtualQCPColorScale*>(self));
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_Elements_IsBase(true);
@@ -31646,7 +31646,7 @@ double QCPColorScale_SelectTest(const QCPColorScale* self, const QPointF* pos, b
 }
 
 // Base class handler implementation
-double QCPColorScale_QBaseSelectTest(const QCPColorScale* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPColorScale_SuperSelectTest(const QCPColorScale* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpcolorscale = const_cast<VirtualQCPColorScale*>(dynamic_cast<const VirtualQCPColorScale*>(self));
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_SelectTest_IsBase(true);
@@ -31675,7 +31675,7 @@ int QCPColorScale_CalculateAutoMargin(QCPColorScale* self, int side) {
 }
 
 // Base class handler implementation
-int QCPColorScale_QBaseCalculateAutoMargin(QCPColorScale* self, int side) {
+int QCPColorScale_SuperCalculateAutoMargin(QCPColorScale* self, int side) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_CalculateAutoMargin_IsBase(true);
@@ -31704,7 +31704,7 @@ void QCPColorScale_LayoutChanged(QCPColorScale* self) {
 }
 
 // Base class handler implementation
-void QCPColorScale_QBaseLayoutChanged(QCPColorScale* self) {
+void QCPColorScale_SuperLayoutChanged(QCPColorScale* self) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_LayoutChanged_IsBase(true);
@@ -31733,7 +31733,7 @@ void QCPColorScale_Draw(QCPColorScale* self, QCPPainter* painter) {
 }
 
 // Base class handler implementation
-void QCPColorScale_QBaseDraw(QCPColorScale* self, QCPPainter* painter) {
+void QCPColorScale_SuperDraw(QCPColorScale* self, QCPPainter* painter) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_Draw_IsBase(true);
@@ -31762,7 +31762,7 @@ void QCPColorScale_ParentPlotInitialized(QCPColorScale* self, QCustomPlot* paren
 }
 
 // Base class handler implementation
-void QCPColorScale_QBaseParentPlotInitialized(QCPColorScale* self, QCustomPlot* parentPlot) {
+void QCPColorScale_SuperParentPlotInitialized(QCPColorScale* self, QCustomPlot* parentPlot) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_ParentPlotInitialized_IsBase(true);
@@ -31791,7 +31791,7 @@ int QCPColorScale_SelectionCategory(const QCPColorScale* self) {
 }
 
 // Base class handler implementation
-int QCPColorScale_QBaseSelectionCategory(const QCPColorScale* self) {
+int QCPColorScale_SuperSelectionCategory(const QCPColorScale* self) {
     auto* vqcpcolorscale = const_cast<VirtualQCPColorScale*>(dynamic_cast<const VirtualQCPColorScale*>(self));
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_SelectionCategory_IsBase(true);
@@ -31819,7 +31819,7 @@ QRect* QCPColorScale_ClipRect(const QCPColorScale* self) {
 }
 
 // Base class handler implementation
-QRect* QCPColorScale_QBaseClipRect(const QCPColorScale* self) {
+QRect* QCPColorScale_SuperClipRect(const QCPColorScale* self) {
     auto* vqcpcolorscale = const_cast<VirtualQCPColorScale*>(dynamic_cast<const VirtualQCPColorScale*>(self));
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_ClipRect_IsBase(true);
@@ -31847,7 +31847,7 @@ void QCPColorScale_SelectEvent(QCPColorScale* self, QMouseEvent* event, bool add
 }
 
 // Base class handler implementation
-void QCPColorScale_QBaseSelectEvent(QCPColorScale* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPColorScale_SuperSelectEvent(QCPColorScale* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_SelectEvent_IsBase(true);
@@ -31876,7 +31876,7 @@ void QCPColorScale_DeselectEvent(QCPColorScale* self, bool* selectionStateChange
 }
 
 // Base class handler implementation
-void QCPColorScale_QBaseDeselectEvent(QCPColorScale* self, bool* selectionStateChanged) {
+void QCPColorScale_SuperDeselectEvent(QCPColorScale* self, bool* selectionStateChanged) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_DeselectEvent_IsBase(true);
@@ -31905,7 +31905,7 @@ void QCPColorScale_MouseDoubleClickEvent(QCPColorScale* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void QCPColorScale_QBaseMouseDoubleClickEvent(QCPColorScale* self, QMouseEvent* event, const QVariant* details) {
+void QCPColorScale_SuperMouseDoubleClickEvent(QCPColorScale* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_MouseDoubleClickEvent_IsBase(true);
@@ -31934,7 +31934,7 @@ bool QCPColorScale_Event(QCPColorScale* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPColorScale_QBaseEvent(QCPColorScale* self, QEvent* event) {
+bool QCPColorScale_SuperEvent(QCPColorScale* self, QEvent* event) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_Event_IsBase(true);
@@ -31963,7 +31963,7 @@ bool QCPColorScale_EventFilter(QCPColorScale* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QCPColorScale_QBaseEventFilter(QCPColorScale* self, QObject* watched, QEvent* event) {
+bool QCPColorScale_SuperEventFilter(QCPColorScale* self, QObject* watched, QEvent* event) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_EventFilter_IsBase(true);
@@ -31992,7 +31992,7 @@ void QCPColorScale_TimerEvent(QCPColorScale* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPColorScale_QBaseTimerEvent(QCPColorScale* self, QTimerEvent* event) {
+void QCPColorScale_SuperTimerEvent(QCPColorScale* self, QTimerEvent* event) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_TimerEvent_IsBase(true);
@@ -32021,7 +32021,7 @@ void QCPColorScale_ChildEvent(QCPColorScale* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPColorScale_QBaseChildEvent(QCPColorScale* self, QChildEvent* event) {
+void QCPColorScale_SuperChildEvent(QCPColorScale* self, QChildEvent* event) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_ChildEvent_IsBase(true);
@@ -32050,7 +32050,7 @@ void QCPColorScale_CustomEvent(QCPColorScale* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPColorScale_QBaseCustomEvent(QCPColorScale* self, QEvent* event) {
+void QCPColorScale_SuperCustomEvent(QCPColorScale* self, QEvent* event) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_CustomEvent_IsBase(true);
@@ -32079,7 +32079,7 @@ void QCPColorScale_ConnectNotify(QCPColorScale* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QCPColorScale_QBaseConnectNotify(QCPColorScale* self, const QMetaMethod* signal) {
+void QCPColorScale_SuperConnectNotify(QCPColorScale* self, const QMetaMethod* signal) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_ConnectNotify_IsBase(true);
@@ -32108,7 +32108,7 @@ void QCPColorScale_DisconnectNotify(QCPColorScale* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QCPColorScale_QBaseDisconnectNotify(QCPColorScale* self, const QMetaMethod* signal) {
+void QCPColorScale_SuperDisconnectNotify(QCPColorScale* self, const QMetaMethod* signal) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_DisconnectNotify_IsBase(true);
@@ -32137,7 +32137,7 @@ void QCPColorScale_InitializeParentPlot(QCPColorScale* self, QCustomPlot* parent
 }
 
 // Base class handler implementation
-void QCPColorScale_QBaseInitializeParentPlot(QCPColorScale* self, QCustomPlot* parentPlot) {
+void QCPColorScale_SuperInitializeParentPlot(QCPColorScale* self, QCustomPlot* parentPlot) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_InitializeParentPlot_IsBase(true);
@@ -32166,7 +32166,7 @@ void QCPColorScale_SetParentLayerable(QCPColorScale* self, QCPLayerable* parentL
 }
 
 // Base class handler implementation
-void QCPColorScale_QBaseSetParentLayerable(QCPColorScale* self, QCPLayerable* parentLayerable) {
+void QCPColorScale_SuperSetParentLayerable(QCPColorScale* self, QCPLayerable* parentLayerable) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_SetParentLayerable_IsBase(true);
@@ -32195,7 +32195,7 @@ bool QCPColorScale_MoveToLayer(QCPColorScale* self, QCPLayer* layer, bool prepen
 }
 
 // Base class handler implementation
-bool QCPColorScale_QBaseMoveToLayer(QCPColorScale* self, QCPLayer* layer, bool prepend) {
+bool QCPColorScale_SuperMoveToLayer(QCPColorScale* self, QCPLayer* layer, bool prepend) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_MoveToLayer_IsBase(true);
@@ -32224,7 +32224,7 @@ void QCPColorScale_ApplyAntialiasingHint(const QCPColorScale* self, QCPPainter* 
 }
 
 // Base class handler implementation
-void QCPColorScale_QBaseApplyAntialiasingHint(const QCPColorScale* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPColorScale_SuperApplyAntialiasingHint(const QCPColorScale* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpcolorscale = const_cast<VirtualQCPColorScale*>(dynamic_cast<const VirtualQCPColorScale*>(self));
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_ApplyAntialiasingHint_IsBase(true);
@@ -32253,7 +32253,7 @@ QObject* QCPColorScale_Sender(const QCPColorScale* self) {
 }
 
 // Base class handler implementation
-QObject* QCPColorScale_QBaseSender(const QCPColorScale* self) {
+QObject* QCPColorScale_SuperSender(const QCPColorScale* self) {
     auto* vqcpcolorscale = const_cast<VirtualQCPColorScale*>(dynamic_cast<const VirtualQCPColorScale*>(self));
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_Sender_IsBase(true);
@@ -32282,7 +32282,7 @@ int QCPColorScale_SenderSignalIndex(const QCPColorScale* self) {
 }
 
 // Base class handler implementation
-int QCPColorScale_QBaseSenderSignalIndex(const QCPColorScale* self) {
+int QCPColorScale_SuperSenderSignalIndex(const QCPColorScale* self) {
     auto* vqcpcolorscale = const_cast<VirtualQCPColorScale*>(dynamic_cast<const VirtualQCPColorScale*>(self));
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_SenderSignalIndex_IsBase(true);
@@ -32311,7 +32311,7 @@ int QCPColorScale_Receivers(const QCPColorScale* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPColorScale_QBaseReceivers(const QCPColorScale* self, const char* signal) {
+int QCPColorScale_SuperReceivers(const QCPColorScale* self, const char* signal) {
     auto* vqcpcolorscale = const_cast<VirtualQCPColorScale*>(dynamic_cast<const VirtualQCPColorScale*>(self));
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_Receivers_IsBase(true);
@@ -32340,7 +32340,7 @@ bool QCPColorScale_IsSignalConnected(const QCPColorScale* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QCPColorScale_QBaseIsSignalConnected(const QCPColorScale* self, const QMetaMethod* signal) {
+bool QCPColorScale_SuperIsSignalConnected(const QCPColorScale* self, const QMetaMethod* signal) {
     auto* vqcpcolorscale = const_cast<VirtualQCPColorScale*>(dynamic_cast<const VirtualQCPColorScale*>(self));
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->setQCPColorScale_IsSignalConnected_IsBase(true);
@@ -32667,7 +32667,7 @@ void QCPGraph_AddData3(QCPGraph* self, const libqt_list /* of double */ keys, co
 }
 
 // Base class handler implementation
-QMetaObject* QCPGraph_QBaseMetaObject(const QCPGraph* self) {
+QMetaObject* QCPGraph_SuperMetaObject(const QCPGraph* self) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_MetaObject_IsBase(true);
@@ -32686,7 +32686,7 @@ void QCPGraph_OnMetaObject(const QCPGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPGraph_QBaseMetacast(QCPGraph* self, const char* param1) {
+void* QCPGraph_SuperMetacast(QCPGraph* self, const char* param1) {
     auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_Metacast_IsBase(true);
@@ -32705,7 +32705,7 @@ void QCPGraph_OnMetacast(QCPGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPGraph_QBaseMetacall(QCPGraph* self, int param1, int param2, void** param3) {
+int QCPGraph_SuperMetacall(QCPGraph* self, int param1, int param2, void** param3) {
     auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_Metacall_IsBase(true);
@@ -32724,7 +32724,7 @@ void QCPGraph_OnMetacall(QCPGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPGraph_QBaseSelectTest(const QCPGraph* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPGraph_SuperSelectTest(const QCPGraph* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_SelectTest_IsBase(true);
@@ -32743,7 +32743,7 @@ void QCPGraph_OnSelectTest(const QCPGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPRange* QCPGraph_QBaseGetKeyRange(const QCPGraph* self, bool* foundRange, int inSignDomain) {
+QCPRange* QCPGraph_SuperGetKeyRange(const QCPGraph* self, bool* foundRange, int inSignDomain) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_GetKeyRange_IsBase(true);
@@ -32762,7 +32762,7 @@ void QCPGraph_OnGetKeyRange(const QCPGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPRange* QCPGraph_QBaseGetValueRange(const QCPGraph* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
+QCPRange* QCPGraph_SuperGetValueRange(const QCPGraph* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_GetValueRange_IsBase(true);
@@ -32781,7 +32781,7 @@ void QCPGraph_OnGetValueRange(const QCPGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseDraw(QCPGraph* self, QCPPainter* painter) {
+void QCPGraph_SuperDraw(QCPGraph* self, QCPPainter* painter) {
     auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_Draw_IsBase(true);
@@ -32800,7 +32800,7 @@ void QCPGraph_OnDraw(QCPGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseDrawLegendIcon(const QCPGraph* self, QCPPainter* painter, const QRectF* rect) {
+void QCPGraph_SuperDrawLegendIcon(const QCPGraph* self, QCPPainter* painter, const QRectF* rect) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_DrawLegendIcon_IsBase(true);
@@ -32819,7 +32819,7 @@ void QCPGraph_OnDrawLegendIcon(const QCPGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseDrawFill(const QCPGraph* self, QCPPainter* painter, libqt_list /* of QPointF* */ lines) {
+void QCPGraph_SuperDrawFill(const QCPGraph* self, QCPPainter* painter, libqt_list /* of QPointF* */ lines) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     QVector<QPointF> lines_QVector;
     lines_QVector.reserve(lines.len);
@@ -32844,7 +32844,7 @@ void QCPGraph_OnDrawFill(const QCPGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseDrawScatterPlot(const QCPGraph* self, QCPPainter* painter, const libqt_list /* of QPointF* */ scatters, const QCPScatterStyle* style) {
+void QCPGraph_SuperDrawScatterPlot(const QCPGraph* self, QCPPainter* painter, const libqt_list /* of QPointF* */ scatters, const QCPScatterStyle* style) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     QVector<QPointF> scatters_QVector;
     scatters_QVector.reserve(scatters.len);
@@ -32869,7 +32869,7 @@ void QCPGraph_OnDrawScatterPlot(const QCPGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseDrawLinePlot(const QCPGraph* self, QCPPainter* painter, const libqt_list /* of QPointF* */ lines) {
+void QCPGraph_SuperDrawLinePlot(const QCPGraph* self, QCPPainter* painter, const libqt_list /* of QPointF* */ lines) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     QVector<QPointF> lines_QVector;
     lines_QVector.reserve(lines.len);
@@ -32894,7 +32894,7 @@ void QCPGraph_OnDrawLinePlot(const QCPGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseDrawImpulsePlot(const QCPGraph* self, QCPPainter* painter, const libqt_list /* of QPointF* */ lines) {
+void QCPGraph_SuperDrawImpulsePlot(const QCPGraph* self, QCPPainter* painter, const libqt_list /* of QPointF* */ lines) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     QVector<QPointF> lines_QVector;
     lines_QVector.reserve(lines.len);
@@ -32929,7 +32929,7 @@ int QCPGraph_DataCount(const QCPGraph* self) {
 }
 
 // Base class handler implementation
-int QCPGraph_QBaseDataCount(const QCPGraph* self) {
+int QCPGraph_SuperDataCount(const QCPGraph* self) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_DataCount_IsBase(true);
@@ -32958,7 +32958,7 @@ double QCPGraph_DataMainKey(const QCPGraph* self, int index) {
 }
 
 // Base class handler implementation
-double QCPGraph_QBaseDataMainKey(const QCPGraph* self, int index) {
+double QCPGraph_SuperDataMainKey(const QCPGraph* self, int index) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_DataMainKey_IsBase(true);
@@ -32987,7 +32987,7 @@ double QCPGraph_DataSortKey(const QCPGraph* self, int index) {
 }
 
 // Base class handler implementation
-double QCPGraph_QBaseDataSortKey(const QCPGraph* self, int index) {
+double QCPGraph_SuperDataSortKey(const QCPGraph* self, int index) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_DataSortKey_IsBase(true);
@@ -33016,7 +33016,7 @@ double QCPGraph_DataMainValue(const QCPGraph* self, int index) {
 }
 
 // Base class handler implementation
-double QCPGraph_QBaseDataMainValue(const QCPGraph* self, int index) {
+double QCPGraph_SuperDataMainValue(const QCPGraph* self, int index) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_DataMainValue_IsBase(true);
@@ -33045,7 +33045,7 @@ QCPRange* QCPGraph_DataValueRange(const QCPGraph* self, int index) {
 }
 
 // Base class handler implementation
-QCPRange* QCPGraph_QBaseDataValueRange(const QCPGraph* self, int index) {
+QCPRange* QCPGraph_SuperDataValueRange(const QCPGraph* self, int index) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_DataValueRange_IsBase(true);
@@ -33074,7 +33074,7 @@ QPointF* QCPGraph_DataPixelPosition(const QCPGraph* self, int index) {
 }
 
 // Base class handler implementation
-QPointF* QCPGraph_QBaseDataPixelPosition(const QCPGraph* self, int index) {
+QPointF* QCPGraph_SuperDataPixelPosition(const QCPGraph* self, int index) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_DataPixelPosition_IsBase(true);
@@ -33103,7 +33103,7 @@ bool QCPGraph_SortKeyIsMainKey(const QCPGraph* self) {
 }
 
 // Base class handler implementation
-bool QCPGraph_QBaseSortKeyIsMainKey(const QCPGraph* self) {
+bool QCPGraph_SuperSortKeyIsMainKey(const QCPGraph* self) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_SortKeyIsMainKey_IsBase(true);
@@ -33132,7 +33132,7 @@ QCPDataSelection* QCPGraph_SelectTestRect(const QCPGraph* self, const QRectF* re
 }
 
 // Base class handler implementation
-QCPDataSelection* QCPGraph_QBaseSelectTestRect(const QCPGraph* self, const QRectF* rect, bool onlySelectable) {
+QCPDataSelection* QCPGraph_SuperSelectTestRect(const QCPGraph* self, const QRectF* rect, bool onlySelectable) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_SelectTestRect_IsBase(true);
@@ -33161,7 +33161,7 @@ int QCPGraph_FindBegin(const QCPGraph* self, double sortKey, bool expandedRange)
 }
 
 // Base class handler implementation
-int QCPGraph_QBaseFindBegin(const QCPGraph* self, double sortKey, bool expandedRange) {
+int QCPGraph_SuperFindBegin(const QCPGraph* self, double sortKey, bool expandedRange) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_FindBegin_IsBase(true);
@@ -33190,7 +33190,7 @@ int QCPGraph_FindEnd(const QCPGraph* self, double sortKey, bool expandedRange) {
 }
 
 // Base class handler implementation
-int QCPGraph_QBaseFindEnd(const QCPGraph* self, double sortKey, bool expandedRange) {
+int QCPGraph_SuperFindEnd(const QCPGraph* self, double sortKey, bool expandedRange) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_FindEnd_IsBase(true);
@@ -33219,7 +33219,7 @@ QCPPlottableInterface1D* QCPGraph_Interface1D(QCPGraph* self) {
 }
 
 // Base class handler implementation
-QCPPlottableInterface1D* QCPGraph_QBaseInterface1D(QCPGraph* self) {
+QCPPlottableInterface1D* QCPGraph_SuperInterface1D(QCPGraph* self) {
     auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_Interface1D_IsBase(true);
@@ -33247,7 +33247,7 @@ QRect* QCPGraph_ClipRect(const QCPGraph* self) {
 }
 
 // Base class handler implementation
-QRect* QCPGraph_QBaseClipRect(const QCPGraph* self) {
+QRect* QCPGraph_SuperClipRect(const QCPGraph* self) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_ClipRect_IsBase(true);
@@ -33275,7 +33275,7 @@ int QCPGraph_SelectionCategory(const QCPGraph* self) {
 }
 
 // Base class handler implementation
-int QCPGraph_QBaseSelectionCategory(const QCPGraph* self) {
+int QCPGraph_SuperSelectionCategory(const QCPGraph* self) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_SelectionCategory_IsBase(true);
@@ -33304,7 +33304,7 @@ void QCPGraph_ApplyDefaultAntialiasingHint(const QCPGraph* self, QCPPainter* pai
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseApplyDefaultAntialiasingHint(const QCPGraph* self, QCPPainter* painter) {
+void QCPGraph_SuperApplyDefaultAntialiasingHint(const QCPGraph* self, QCPPainter* painter) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -33333,7 +33333,7 @@ void QCPGraph_SelectEvent(QCPGraph* self, QMouseEvent* event, bool additive, con
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseSelectEvent(QCPGraph* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPGraph_SuperSelectEvent(QCPGraph* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_SelectEvent_IsBase(true);
@@ -33362,7 +33362,7 @@ void QCPGraph_DeselectEvent(QCPGraph* self, bool* selectionStateChanged) {
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseDeselectEvent(QCPGraph* self, bool* selectionStateChanged) {
+void QCPGraph_SuperDeselectEvent(QCPGraph* self, bool* selectionStateChanged) {
     auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_DeselectEvent_IsBase(true);
@@ -33391,7 +33391,7 @@ void QCPGraph_ParentPlotInitialized(QCPGraph* self, QCustomPlot* parentPlot) {
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseParentPlotInitialized(QCPGraph* self, QCustomPlot* parentPlot) {
+void QCPGraph_SuperParentPlotInitialized(QCPGraph* self, QCustomPlot* parentPlot) {
     auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_ParentPlotInitialized_IsBase(true);
@@ -33420,7 +33420,7 @@ void QCPGraph_MousePressEvent(QCPGraph* self, QMouseEvent* event, const QVariant
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseMousePressEvent(QCPGraph* self, QMouseEvent* event, const QVariant* details) {
+void QCPGraph_SuperMousePressEvent(QCPGraph* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_MousePressEvent_IsBase(true);
@@ -33449,7 +33449,7 @@ void QCPGraph_MouseMoveEvent(QCPGraph* self, QMouseEvent* event, const QPointF* 
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseMouseMoveEvent(QCPGraph* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPGraph_SuperMouseMoveEvent(QCPGraph* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_MouseMoveEvent_IsBase(true);
@@ -33478,7 +33478,7 @@ void QCPGraph_MouseReleaseEvent(QCPGraph* self, QMouseEvent* event, const QPoint
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseMouseReleaseEvent(QCPGraph* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPGraph_SuperMouseReleaseEvent(QCPGraph* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_MouseReleaseEvent_IsBase(true);
@@ -33507,7 +33507,7 @@ void QCPGraph_MouseDoubleClickEvent(QCPGraph* self, QMouseEvent* event, const QV
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseMouseDoubleClickEvent(QCPGraph* self, QMouseEvent* event, const QVariant* details) {
+void QCPGraph_SuperMouseDoubleClickEvent(QCPGraph* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_MouseDoubleClickEvent_IsBase(true);
@@ -33536,7 +33536,7 @@ void QCPGraph_WheelEvent(QCPGraph* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseWheelEvent(QCPGraph* self, QWheelEvent* event) {
+void QCPGraph_SuperWheelEvent(QCPGraph* self, QWheelEvent* event) {
     auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_WheelEvent_IsBase(true);
@@ -33565,7 +33565,7 @@ bool QCPGraph_Event(QCPGraph* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPGraph_QBaseEvent(QCPGraph* self, QEvent* event) {
+bool QCPGraph_SuperEvent(QCPGraph* self, QEvent* event) {
     auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_Event_IsBase(true);
@@ -33594,7 +33594,7 @@ bool QCPGraph_EventFilter(QCPGraph* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPGraph_QBaseEventFilter(QCPGraph* self, QObject* watched, QEvent* event) {
+bool QCPGraph_SuperEventFilter(QCPGraph* self, QObject* watched, QEvent* event) {
     auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_EventFilter_IsBase(true);
@@ -33623,7 +33623,7 @@ void QCPGraph_TimerEvent(QCPGraph* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseTimerEvent(QCPGraph* self, QTimerEvent* event) {
+void QCPGraph_SuperTimerEvent(QCPGraph* self, QTimerEvent* event) {
     auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_TimerEvent_IsBase(true);
@@ -33652,7 +33652,7 @@ void QCPGraph_ChildEvent(QCPGraph* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseChildEvent(QCPGraph* self, QChildEvent* event) {
+void QCPGraph_SuperChildEvent(QCPGraph* self, QChildEvent* event) {
     auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_ChildEvent_IsBase(true);
@@ -33681,7 +33681,7 @@ void QCPGraph_CustomEvent(QCPGraph* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseCustomEvent(QCPGraph* self, QEvent* event) {
+void QCPGraph_SuperCustomEvent(QCPGraph* self, QEvent* event) {
     auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_CustomEvent_IsBase(true);
@@ -33710,7 +33710,7 @@ void QCPGraph_ConnectNotify(QCPGraph* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseConnectNotify(QCPGraph* self, const QMetaMethod* signal) {
+void QCPGraph_SuperConnectNotify(QCPGraph* self, const QMetaMethod* signal) {
     auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_ConnectNotify_IsBase(true);
@@ -33739,7 +33739,7 @@ void QCPGraph_DisconnectNotify(QCPGraph* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseDisconnectNotify(QCPGraph* self, const QMetaMethod* signal) {
+void QCPGraph_SuperDisconnectNotify(QCPGraph* self, const QMetaMethod* signal) {
     auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_DisconnectNotify_IsBase(true);
@@ -33774,7 +33774,7 @@ void QCPGraph_GetLines(const QCPGraph* self, libqt_list /* of QPointF* */ lines,
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseGetLines(const QCPGraph* self, libqt_list /* of QPointF* */ lines, const QCPDataRange* dataRange) {
+void QCPGraph_SuperGetLines(const QCPGraph* self, libqt_list /* of QPointF* */ lines, const QCPDataRange* dataRange) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     QVector<QPointF> lines_QVector;
     lines_QVector.reserve(lines.len);
@@ -33815,7 +33815,7 @@ void QCPGraph_GetScatters(const QCPGraph* self, libqt_list /* of QPointF* */ sca
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseGetScatters(const QCPGraph* self, libqt_list /* of QPointF* */ scatters, const QCPDataRange* dataRange) {
+void QCPGraph_SuperGetScatters(const QCPGraph* self, libqt_list /* of QPointF* */ scatters, const QCPDataRange* dataRange) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     QVector<QPointF> scatters_QVector;
     scatters_QVector.reserve(scatters.len);
@@ -33874,7 +33874,7 @@ libqt_list /* of QPointF* */ QCPGraph_DataToLines(const QCPGraph* self, const li
 }
 
 // Base class handler implementation
-libqt_list /* of QPointF* */ QCPGraph_QBaseDataToLines(const QCPGraph* self, const libqt_list /* of QCPGraphData* */ data) {
+libqt_list /* of QPointF* */ QCPGraph_SuperDataToLines(const QCPGraph* self, const libqt_list /* of QCPGraphData* */ data) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     QVector<QCPGraphData> data_QVector;
     data_QVector.reserve(data.len);
@@ -33951,7 +33951,7 @@ libqt_list /* of QPointF* */ QCPGraph_DataToStepLeftLines(const QCPGraph* self, 
 }
 
 // Base class handler implementation
-libqt_list /* of QPointF* */ QCPGraph_QBaseDataToStepLeftLines(const QCPGraph* self, const libqt_list /* of QCPGraphData* */ data) {
+libqt_list /* of QPointF* */ QCPGraph_SuperDataToStepLeftLines(const QCPGraph* self, const libqt_list /* of QCPGraphData* */ data) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     QVector<QCPGraphData> data_QVector;
     data_QVector.reserve(data.len);
@@ -34028,7 +34028,7 @@ libqt_list /* of QPointF* */ QCPGraph_DataToStepRightLines(const QCPGraph* self,
 }
 
 // Base class handler implementation
-libqt_list /* of QPointF* */ QCPGraph_QBaseDataToStepRightLines(const QCPGraph* self, const libqt_list /* of QCPGraphData* */ data) {
+libqt_list /* of QPointF* */ QCPGraph_SuperDataToStepRightLines(const QCPGraph* self, const libqt_list /* of QCPGraphData* */ data) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     QVector<QCPGraphData> data_QVector;
     data_QVector.reserve(data.len);
@@ -34105,7 +34105,7 @@ libqt_list /* of QPointF* */ QCPGraph_DataToStepCenterLines(const QCPGraph* self
 }
 
 // Base class handler implementation
-libqt_list /* of QPointF* */ QCPGraph_QBaseDataToStepCenterLines(const QCPGraph* self, const libqt_list /* of QCPGraphData* */ data) {
+libqt_list /* of QPointF* */ QCPGraph_SuperDataToStepCenterLines(const QCPGraph* self, const libqt_list /* of QCPGraphData* */ data) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     QVector<QCPGraphData> data_QVector;
     data_QVector.reserve(data.len);
@@ -34182,7 +34182,7 @@ libqt_list /* of QPointF* */ QCPGraph_DataToImpulseLines(const QCPGraph* self, c
 }
 
 // Base class handler implementation
-libqt_list /* of QPointF* */ QCPGraph_QBaseDataToImpulseLines(const QCPGraph* self, const libqt_list /* of QCPGraphData* */ data) {
+libqt_list /* of QPointF* */ QCPGraph_SuperDataToImpulseLines(const QCPGraph* self, const libqt_list /* of QCPGraphData* */ data) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     QVector<QCPGraphData> data_QVector;
     data_QVector.reserve(data.len);
@@ -34259,7 +34259,7 @@ libqt_list /* of QCPDataRange* */ QCPGraph_GetNonNanSegments(const QCPGraph* sel
 }
 
 // Base class handler implementation
-libqt_list /* of QCPDataRange* */ QCPGraph_QBaseGetNonNanSegments(const QCPGraph* self, const libqt_list /* of QPointF* */ lineData, int keyOrientation) {
+libqt_list /* of QCPDataRange* */ QCPGraph_SuperGetNonNanSegments(const QCPGraph* self, const libqt_list /* of QPointF* */ lineData, int keyOrientation) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     QVector<QPointF> lineData_QVector;
     lineData_QVector.reserve(lineData.len);
@@ -34364,7 +34364,7 @@ libqt_list /* of pair_qcpdatarange_qcpdatarange tuple of QCPDataRange* and QCPDa
 }
 
 // Base class handler implementation
-libqt_list /* of pair_qcpdatarange_qcpdatarange tuple of QCPDataRange* and QCPDataRange* */ QCPGraph_QBaseGetOverlappingSegments(const QCPGraph* self, libqt_list /* of QCPDataRange* */ thisSegments, const libqt_list /* of QPointF* */ thisData, libqt_list /* of QCPDataRange* */ otherSegments, const libqt_list /* of QPointF* */ otherData) {
+libqt_list /* of pair_qcpdatarange_qcpdatarange tuple of QCPDataRange* and QCPDataRange* */ QCPGraph_SuperGetOverlappingSegments(const QCPGraph* self, libqt_list /* of QCPDataRange* */ thisSegments, const libqt_list /* of QPointF* */ thisData, libqt_list /* of QCPDataRange* */ otherSegments, const libqt_list /* of QPointF* */ otherData) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     QVector<QCPDataRange> thisSegments_QVector;
     thisSegments_QVector.reserve(thisSegments.len);
@@ -34445,7 +34445,7 @@ bool QCPGraph_SegmentsIntersect(const QCPGraph* self, double aLower, double aUpp
 }
 
 // Base class handler implementation
-bool QCPGraph_QBaseSegmentsIntersect(const QCPGraph* self, double aLower, double aUpper, double bLower, double bUpper, int* bPrecedence) {
+bool QCPGraph_SuperSegmentsIntersect(const QCPGraph* self, double aLower, double aUpper, double bLower, double bUpper, int* bPrecedence) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_SegmentsIntersect_IsBase(true);
@@ -34473,7 +34473,7 @@ QPointF* QCPGraph_GetFillBasePoint(const QCPGraph* self, QPointF* matchingDataPo
 }
 
 // Base class handler implementation
-QPointF* QCPGraph_QBaseGetFillBasePoint(const QCPGraph* self, QPointF* matchingDataPoint) {
+QPointF* QCPGraph_SuperGetFillBasePoint(const QCPGraph* self, QPointF* matchingDataPoint) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_GetFillBasePoint_IsBase(true);
@@ -34507,7 +34507,7 @@ int QCPGraph_FindIndexBelowX(const QCPGraph* self, const libqt_list /* of QPoint
 }
 
 // Base class handler implementation
-int QCPGraph_QBaseFindIndexBelowX(const QCPGraph* self, const libqt_list /* of QPointF* */ data, double x) {
+int QCPGraph_SuperFindIndexBelowX(const QCPGraph* self, const libqt_list /* of QPointF* */ data, double x) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     QVector<QPointF> data_QVector;
     data_QVector.reserve(data.len);
@@ -34548,7 +34548,7 @@ int QCPGraph_FindIndexAboveX(const QCPGraph* self, const libqt_list /* of QPoint
 }
 
 // Base class handler implementation
-int QCPGraph_QBaseFindIndexAboveX(const QCPGraph* self, const libqt_list /* of QPointF* */ data, double x) {
+int QCPGraph_SuperFindIndexAboveX(const QCPGraph* self, const libqt_list /* of QPointF* */ data, double x) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     QVector<QPointF> data_QVector;
     data_QVector.reserve(data.len);
@@ -34589,7 +34589,7 @@ int QCPGraph_FindIndexBelowY(const QCPGraph* self, const libqt_list /* of QPoint
 }
 
 // Base class handler implementation
-int QCPGraph_QBaseFindIndexBelowY(const QCPGraph* self, const libqt_list /* of QPointF* */ data, double y) {
+int QCPGraph_SuperFindIndexBelowY(const QCPGraph* self, const libqt_list /* of QPointF* */ data, double y) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     QVector<QPointF> data_QVector;
     data_QVector.reserve(data.len);
@@ -34630,7 +34630,7 @@ int QCPGraph_FindIndexAboveY(const QCPGraph* self, const libqt_list /* of QPoint
 }
 
 // Base class handler implementation
-int QCPGraph_QBaseFindIndexAboveY(const QCPGraph* self, const libqt_list /* of QPointF* */ data, double y) {
+int QCPGraph_SuperFindIndexAboveY(const QCPGraph* self, const libqt_list /* of QPointF* */ data, double y) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     QVector<QPointF> data_QVector;
     data_QVector.reserve(data.len);
@@ -34665,7 +34665,7 @@ void QCPGraph_ApplyFillAntialiasingHint(const QCPGraph* self, QCPPainter* painte
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseApplyFillAntialiasingHint(const QCPGraph* self, QCPPainter* painter) {
+void QCPGraph_SuperApplyFillAntialiasingHint(const QCPGraph* self, QCPPainter* painter) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_ApplyFillAntialiasingHint_IsBase(true);
@@ -34694,7 +34694,7 @@ void QCPGraph_ApplyScattersAntialiasingHint(const QCPGraph* self, QCPPainter* pa
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseApplyScattersAntialiasingHint(const QCPGraph* self, QCPPainter* painter) {
+void QCPGraph_SuperApplyScattersAntialiasingHint(const QCPGraph* self, QCPPainter* painter) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_ApplyScattersAntialiasingHint_IsBase(true);
@@ -34723,7 +34723,7 @@ void QCPGraph_InitializeParentPlot(QCPGraph* self, QCustomPlot* parentPlot) {
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseInitializeParentPlot(QCPGraph* self, QCustomPlot* parentPlot) {
+void QCPGraph_SuperInitializeParentPlot(QCPGraph* self, QCustomPlot* parentPlot) {
     auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_InitializeParentPlot_IsBase(true);
@@ -34752,7 +34752,7 @@ void QCPGraph_SetParentLayerable(QCPGraph* self, QCPLayerable* parentLayerable) 
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseSetParentLayerable(QCPGraph* self, QCPLayerable* parentLayerable) {
+void QCPGraph_SuperSetParentLayerable(QCPGraph* self, QCPLayerable* parentLayerable) {
     auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_SetParentLayerable_IsBase(true);
@@ -34781,7 +34781,7 @@ bool QCPGraph_MoveToLayer(QCPGraph* self, QCPLayer* layer, bool prepend) {
 }
 
 // Base class handler implementation
-bool QCPGraph_QBaseMoveToLayer(QCPGraph* self, QCPLayer* layer, bool prepend) {
+bool QCPGraph_SuperMoveToLayer(QCPGraph* self, QCPLayer* layer, bool prepend) {
     auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_MoveToLayer_IsBase(true);
@@ -34810,7 +34810,7 @@ void QCPGraph_ApplyAntialiasingHint(const QCPGraph* self, QCPPainter* painter, b
 }
 
 // Base class handler implementation
-void QCPGraph_QBaseApplyAntialiasingHint(const QCPGraph* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPGraph_SuperApplyAntialiasingHint(const QCPGraph* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_ApplyAntialiasingHint_IsBase(true);
@@ -34839,7 +34839,7 @@ QObject* QCPGraph_Sender(const QCPGraph* self) {
 }
 
 // Base class handler implementation
-QObject* QCPGraph_QBaseSender(const QCPGraph* self) {
+QObject* QCPGraph_SuperSender(const QCPGraph* self) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_Sender_IsBase(true);
@@ -34868,7 +34868,7 @@ int QCPGraph_SenderSignalIndex(const QCPGraph* self) {
 }
 
 // Base class handler implementation
-int QCPGraph_QBaseSenderSignalIndex(const QCPGraph* self) {
+int QCPGraph_SuperSenderSignalIndex(const QCPGraph* self) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_SenderSignalIndex_IsBase(true);
@@ -34897,7 +34897,7 @@ int QCPGraph_Receivers(const QCPGraph* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPGraph_QBaseReceivers(const QCPGraph* self, const char* signal) {
+int QCPGraph_SuperReceivers(const QCPGraph* self, const char* signal) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_Receivers_IsBase(true);
@@ -34926,7 +34926,7 @@ bool QCPGraph_IsSignalConnected(const QCPGraph* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-bool QCPGraph_QBaseIsSignalConnected(const QCPGraph* self, const QMetaMethod* signal) {
+bool QCPGraph_SuperIsSignalConnected(const QCPGraph* self, const QMetaMethod* signal) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->setQCPGraph_IsSignalConnected_IsBase(true);
@@ -35279,7 +35279,7 @@ void QCPCurve_AddData42(QCPCurve* self, const libqt_list /* of double */ t, cons
 }
 
 // Base class handler implementation
-QMetaObject* QCPCurve_QBaseMetaObject(const QCPCurve* self) {
+QMetaObject* QCPCurve_SuperMetaObject(const QCPCurve* self) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_MetaObject_IsBase(true);
@@ -35298,7 +35298,7 @@ void QCPCurve_OnMetaObject(const QCPCurve* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPCurve_QBaseMetacast(QCPCurve* self, const char* param1) {
+void* QCPCurve_SuperMetacast(QCPCurve* self, const char* param1) {
     auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_Metacast_IsBase(true);
@@ -35317,7 +35317,7 @@ void QCPCurve_OnMetacast(QCPCurve* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPCurve_QBaseMetacall(QCPCurve* self, int param1, int param2, void** param3) {
+int QCPCurve_SuperMetacall(QCPCurve* self, int param1, int param2, void** param3) {
     auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_Metacall_IsBase(true);
@@ -35336,7 +35336,7 @@ void QCPCurve_OnMetacall(QCPCurve* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPCurve_QBaseSelectTest(const QCPCurve* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPCurve_SuperSelectTest(const QCPCurve* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_SelectTest_IsBase(true);
@@ -35355,7 +35355,7 @@ void QCPCurve_OnSelectTest(const QCPCurve* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPRange* QCPCurve_QBaseGetKeyRange(const QCPCurve* self, bool* foundRange, int inSignDomain) {
+QCPRange* QCPCurve_SuperGetKeyRange(const QCPCurve* self, bool* foundRange, int inSignDomain) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_GetKeyRange_IsBase(true);
@@ -35374,7 +35374,7 @@ void QCPCurve_OnGetKeyRange(const QCPCurve* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPRange* QCPCurve_QBaseGetValueRange(const QCPCurve* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
+QCPRange* QCPCurve_SuperGetValueRange(const QCPCurve* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_GetValueRange_IsBase(true);
@@ -35393,7 +35393,7 @@ void QCPCurve_OnGetValueRange(const QCPCurve* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseDraw(QCPCurve* self, QCPPainter* painter) {
+void QCPCurve_SuperDraw(QCPCurve* self, QCPPainter* painter) {
     auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_Draw_IsBase(true);
@@ -35412,7 +35412,7 @@ void QCPCurve_OnDraw(QCPCurve* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseDrawLegendIcon(const QCPCurve* self, QCPPainter* painter, const QRectF* rect) {
+void QCPCurve_SuperDrawLegendIcon(const QCPCurve* self, QCPPainter* painter, const QRectF* rect) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_DrawLegendIcon_IsBase(true);
@@ -35431,7 +35431,7 @@ void QCPCurve_OnDrawLegendIcon(const QCPCurve* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseDrawCurveLine(const QCPCurve* self, QCPPainter* painter, const libqt_list /* of QPointF* */ lines) {
+void QCPCurve_SuperDrawCurveLine(const QCPCurve* self, QCPPainter* painter, const libqt_list /* of QPointF* */ lines) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     QVector<QPointF> lines_QVector;
     lines_QVector.reserve(lines.len);
@@ -35456,7 +35456,7 @@ void QCPCurve_OnDrawCurveLine(const QCPCurve* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseDrawScatterPlot(const QCPCurve* self, QCPPainter* painter, const libqt_list /* of QPointF* */ points, const QCPScatterStyle* style) {
+void QCPCurve_SuperDrawScatterPlot(const QCPCurve* self, QCPPainter* painter, const libqt_list /* of QPointF* */ points, const QCPScatterStyle* style) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     QVector<QPointF> points_QVector;
     points_QVector.reserve(points.len);
@@ -35491,7 +35491,7 @@ int QCPCurve_DataCount(const QCPCurve* self) {
 }
 
 // Base class handler implementation
-int QCPCurve_QBaseDataCount(const QCPCurve* self) {
+int QCPCurve_SuperDataCount(const QCPCurve* self) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_DataCount_IsBase(true);
@@ -35520,7 +35520,7 @@ double QCPCurve_DataMainKey(const QCPCurve* self, int index) {
 }
 
 // Base class handler implementation
-double QCPCurve_QBaseDataMainKey(const QCPCurve* self, int index) {
+double QCPCurve_SuperDataMainKey(const QCPCurve* self, int index) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_DataMainKey_IsBase(true);
@@ -35549,7 +35549,7 @@ double QCPCurve_DataSortKey(const QCPCurve* self, int index) {
 }
 
 // Base class handler implementation
-double QCPCurve_QBaseDataSortKey(const QCPCurve* self, int index) {
+double QCPCurve_SuperDataSortKey(const QCPCurve* self, int index) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_DataSortKey_IsBase(true);
@@ -35578,7 +35578,7 @@ double QCPCurve_DataMainValue(const QCPCurve* self, int index) {
 }
 
 // Base class handler implementation
-double QCPCurve_QBaseDataMainValue(const QCPCurve* self, int index) {
+double QCPCurve_SuperDataMainValue(const QCPCurve* self, int index) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_DataMainValue_IsBase(true);
@@ -35607,7 +35607,7 @@ QCPRange* QCPCurve_DataValueRange(const QCPCurve* self, int index) {
 }
 
 // Base class handler implementation
-QCPRange* QCPCurve_QBaseDataValueRange(const QCPCurve* self, int index) {
+QCPRange* QCPCurve_SuperDataValueRange(const QCPCurve* self, int index) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_DataValueRange_IsBase(true);
@@ -35636,7 +35636,7 @@ QPointF* QCPCurve_DataPixelPosition(const QCPCurve* self, int index) {
 }
 
 // Base class handler implementation
-QPointF* QCPCurve_QBaseDataPixelPosition(const QCPCurve* self, int index) {
+QPointF* QCPCurve_SuperDataPixelPosition(const QCPCurve* self, int index) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_DataPixelPosition_IsBase(true);
@@ -35665,7 +35665,7 @@ bool QCPCurve_SortKeyIsMainKey(const QCPCurve* self) {
 }
 
 // Base class handler implementation
-bool QCPCurve_QBaseSortKeyIsMainKey(const QCPCurve* self) {
+bool QCPCurve_SuperSortKeyIsMainKey(const QCPCurve* self) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_SortKeyIsMainKey_IsBase(true);
@@ -35694,7 +35694,7 @@ QCPDataSelection* QCPCurve_SelectTestRect(const QCPCurve* self, const QRectF* re
 }
 
 // Base class handler implementation
-QCPDataSelection* QCPCurve_QBaseSelectTestRect(const QCPCurve* self, const QRectF* rect, bool onlySelectable) {
+QCPDataSelection* QCPCurve_SuperSelectTestRect(const QCPCurve* self, const QRectF* rect, bool onlySelectable) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_SelectTestRect_IsBase(true);
@@ -35723,7 +35723,7 @@ int QCPCurve_FindBegin(const QCPCurve* self, double sortKey, bool expandedRange)
 }
 
 // Base class handler implementation
-int QCPCurve_QBaseFindBegin(const QCPCurve* self, double sortKey, bool expandedRange) {
+int QCPCurve_SuperFindBegin(const QCPCurve* self, double sortKey, bool expandedRange) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_FindBegin_IsBase(true);
@@ -35752,7 +35752,7 @@ int QCPCurve_FindEnd(const QCPCurve* self, double sortKey, bool expandedRange) {
 }
 
 // Base class handler implementation
-int QCPCurve_QBaseFindEnd(const QCPCurve* self, double sortKey, bool expandedRange) {
+int QCPCurve_SuperFindEnd(const QCPCurve* self, double sortKey, bool expandedRange) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_FindEnd_IsBase(true);
@@ -35781,7 +35781,7 @@ QCPPlottableInterface1D* QCPCurve_Interface1D(QCPCurve* self) {
 }
 
 // Base class handler implementation
-QCPPlottableInterface1D* QCPCurve_QBaseInterface1D(QCPCurve* self) {
+QCPPlottableInterface1D* QCPCurve_SuperInterface1D(QCPCurve* self) {
     auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_Interface1D_IsBase(true);
@@ -35809,7 +35809,7 @@ QRect* QCPCurve_ClipRect(const QCPCurve* self) {
 }
 
 // Base class handler implementation
-QRect* QCPCurve_QBaseClipRect(const QCPCurve* self) {
+QRect* QCPCurve_SuperClipRect(const QCPCurve* self) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_ClipRect_IsBase(true);
@@ -35837,7 +35837,7 @@ int QCPCurve_SelectionCategory(const QCPCurve* self) {
 }
 
 // Base class handler implementation
-int QCPCurve_QBaseSelectionCategory(const QCPCurve* self) {
+int QCPCurve_SuperSelectionCategory(const QCPCurve* self) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_SelectionCategory_IsBase(true);
@@ -35866,7 +35866,7 @@ void QCPCurve_ApplyDefaultAntialiasingHint(const QCPCurve* self, QCPPainter* pai
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseApplyDefaultAntialiasingHint(const QCPCurve* self, QCPPainter* painter) {
+void QCPCurve_SuperApplyDefaultAntialiasingHint(const QCPCurve* self, QCPPainter* painter) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -35895,7 +35895,7 @@ void QCPCurve_SelectEvent(QCPCurve* self, QMouseEvent* event, bool additive, con
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseSelectEvent(QCPCurve* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPCurve_SuperSelectEvent(QCPCurve* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_SelectEvent_IsBase(true);
@@ -35924,7 +35924,7 @@ void QCPCurve_DeselectEvent(QCPCurve* self, bool* selectionStateChanged) {
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseDeselectEvent(QCPCurve* self, bool* selectionStateChanged) {
+void QCPCurve_SuperDeselectEvent(QCPCurve* self, bool* selectionStateChanged) {
     auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_DeselectEvent_IsBase(true);
@@ -35953,7 +35953,7 @@ void QCPCurve_ParentPlotInitialized(QCPCurve* self, QCustomPlot* parentPlot) {
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseParentPlotInitialized(QCPCurve* self, QCustomPlot* parentPlot) {
+void QCPCurve_SuperParentPlotInitialized(QCPCurve* self, QCustomPlot* parentPlot) {
     auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_ParentPlotInitialized_IsBase(true);
@@ -35982,7 +35982,7 @@ void QCPCurve_MousePressEvent(QCPCurve* self, QMouseEvent* event, const QVariant
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseMousePressEvent(QCPCurve* self, QMouseEvent* event, const QVariant* details) {
+void QCPCurve_SuperMousePressEvent(QCPCurve* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_MousePressEvent_IsBase(true);
@@ -36011,7 +36011,7 @@ void QCPCurve_MouseMoveEvent(QCPCurve* self, QMouseEvent* event, const QPointF* 
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseMouseMoveEvent(QCPCurve* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPCurve_SuperMouseMoveEvent(QCPCurve* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_MouseMoveEvent_IsBase(true);
@@ -36040,7 +36040,7 @@ void QCPCurve_MouseReleaseEvent(QCPCurve* self, QMouseEvent* event, const QPoint
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseMouseReleaseEvent(QCPCurve* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPCurve_SuperMouseReleaseEvent(QCPCurve* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_MouseReleaseEvent_IsBase(true);
@@ -36069,7 +36069,7 @@ void QCPCurve_MouseDoubleClickEvent(QCPCurve* self, QMouseEvent* event, const QV
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseMouseDoubleClickEvent(QCPCurve* self, QMouseEvent* event, const QVariant* details) {
+void QCPCurve_SuperMouseDoubleClickEvent(QCPCurve* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_MouseDoubleClickEvent_IsBase(true);
@@ -36098,7 +36098,7 @@ void QCPCurve_WheelEvent(QCPCurve* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseWheelEvent(QCPCurve* self, QWheelEvent* event) {
+void QCPCurve_SuperWheelEvent(QCPCurve* self, QWheelEvent* event) {
     auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_WheelEvent_IsBase(true);
@@ -36127,7 +36127,7 @@ bool QCPCurve_Event(QCPCurve* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPCurve_QBaseEvent(QCPCurve* self, QEvent* event) {
+bool QCPCurve_SuperEvent(QCPCurve* self, QEvent* event) {
     auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_Event_IsBase(true);
@@ -36156,7 +36156,7 @@ bool QCPCurve_EventFilter(QCPCurve* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPCurve_QBaseEventFilter(QCPCurve* self, QObject* watched, QEvent* event) {
+bool QCPCurve_SuperEventFilter(QCPCurve* self, QObject* watched, QEvent* event) {
     auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_EventFilter_IsBase(true);
@@ -36185,7 +36185,7 @@ void QCPCurve_TimerEvent(QCPCurve* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseTimerEvent(QCPCurve* self, QTimerEvent* event) {
+void QCPCurve_SuperTimerEvent(QCPCurve* self, QTimerEvent* event) {
     auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_TimerEvent_IsBase(true);
@@ -36214,7 +36214,7 @@ void QCPCurve_ChildEvent(QCPCurve* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseChildEvent(QCPCurve* self, QChildEvent* event) {
+void QCPCurve_SuperChildEvent(QCPCurve* self, QChildEvent* event) {
     auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_ChildEvent_IsBase(true);
@@ -36243,7 +36243,7 @@ void QCPCurve_CustomEvent(QCPCurve* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseCustomEvent(QCPCurve* self, QEvent* event) {
+void QCPCurve_SuperCustomEvent(QCPCurve* self, QEvent* event) {
     auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_CustomEvent_IsBase(true);
@@ -36272,7 +36272,7 @@ void QCPCurve_ConnectNotify(QCPCurve* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseConnectNotify(QCPCurve* self, const QMetaMethod* signal) {
+void QCPCurve_SuperConnectNotify(QCPCurve* self, const QMetaMethod* signal) {
     auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_ConnectNotify_IsBase(true);
@@ -36301,7 +36301,7 @@ void QCPCurve_DisconnectNotify(QCPCurve* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseDisconnectNotify(QCPCurve* self, const QMetaMethod* signal) {
+void QCPCurve_SuperDisconnectNotify(QCPCurve* self, const QMetaMethod* signal) {
     auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_DisconnectNotify_IsBase(true);
@@ -36336,7 +36336,7 @@ void QCPCurve_GetCurveLines(const QCPCurve* self, libqt_list /* of QPointF* */ l
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseGetCurveLines(const QCPCurve* self, libqt_list /* of QPointF* */ lines, const QCPDataRange* dataRange, double penWidth) {
+void QCPCurve_SuperGetCurveLines(const QCPCurve* self, libqt_list /* of QPointF* */ lines, const QCPDataRange* dataRange, double penWidth) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     QVector<QPointF> lines_QVector;
     lines_QVector.reserve(lines.len);
@@ -36377,7 +36377,7 @@ void QCPCurve_GetScatters(const QCPCurve* self, libqt_list /* of QPointF* */ sca
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseGetScatters(const QCPCurve* self, libqt_list /* of QPointF* */ scatters, const QCPDataRange* dataRange, double scatterWidth) {
+void QCPCurve_SuperGetScatters(const QCPCurve* self, libqt_list /* of QPointF* */ scatters, const QCPDataRange* dataRange, double scatterWidth) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     QVector<QPointF> scatters_QVector;
     scatters_QVector.reserve(scatters.len);
@@ -36412,7 +36412,7 @@ int QCPCurve_GetRegion(const QCPCurve* self, double key, double value, double ke
 }
 
 // Base class handler implementation
-int QCPCurve_QBaseGetRegion(const QCPCurve* self, double key, double value, double keyMin, double valueMax, double keyMax, double valueMin) {
+int QCPCurve_SuperGetRegion(const QCPCurve* self, double key, double value, double keyMin, double valueMax, double keyMax, double valueMin) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_GetRegion_IsBase(true);
@@ -36440,7 +36440,7 @@ QPointF* QCPCurve_GetOptimizedPoint(const QCPCurve* self, int otherRegion, doubl
 }
 
 // Base class handler implementation
-QPointF* QCPCurve_QBaseGetOptimizedPoint(const QCPCurve* self, int otherRegion, double otherKey, double otherValue, double key, double value, double keyMin, double valueMax, double keyMax, double valueMin) {
+QPointF* QCPCurve_SuperGetOptimizedPoint(const QCPCurve* self, int otherRegion, double otherKey, double otherValue, double key, double value, double keyMin, double valueMax, double keyMax, double valueMin) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_GetOptimizedPoint_IsBase(true);
@@ -36486,7 +36486,7 @@ libqt_list /* of QPointF* */ QCPCurve_GetOptimizedCornerPoints(const QCPCurve* s
 }
 
 // Base class handler implementation
-libqt_list /* of QPointF* */ QCPCurve_QBaseGetOptimizedCornerPoints(const QCPCurve* self, int prevRegion, int currentRegion, double prevKey, double prevValue, double key, double value, double keyMin, double valueMax, double keyMax, double valueMin) {
+libqt_list /* of QPointF* */ QCPCurve_SuperGetOptimizedCornerPoints(const QCPCurve* self, int prevRegion, int currentRegion, double prevKey, double prevValue, double key, double value, double keyMin, double valueMax, double keyMax, double valueMin) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_GetOptimizedCornerPoints_IsBase(true);
@@ -36533,7 +36533,7 @@ bool QCPCurve_MayTraverse(const QCPCurve* self, int prevRegion, int currentRegio
 }
 
 // Base class handler implementation
-bool QCPCurve_QBaseMayTraverse(const QCPCurve* self, int prevRegion, int currentRegion) {
+bool QCPCurve_SuperMayTraverse(const QCPCurve* self, int prevRegion, int currentRegion) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_MayTraverse_IsBase(true);
@@ -36562,7 +36562,7 @@ bool QCPCurve_GetTraverse(const QCPCurve* self, double prevKey, double prevValue
 }
 
 // Base class handler implementation
-bool QCPCurve_QBaseGetTraverse(const QCPCurve* self, double prevKey, double prevValue, double key, double value, double keyMin, double valueMax, double keyMax, double valueMin, QPointF* crossA, QPointF* crossB) {
+bool QCPCurve_SuperGetTraverse(const QCPCurve* self, double prevKey, double prevValue, double key, double value, double keyMin, double valueMax, double keyMax, double valueMin, QPointF* crossA, QPointF* crossB) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_GetTraverse_IsBase(true);
@@ -36603,7 +36603,7 @@ void QCPCurve_GetTraverseCornerPoints(const QCPCurve* self, int prevRegion, int 
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseGetTraverseCornerPoints(const QCPCurve* self, int prevRegion, int currentRegion, double keyMin, double valueMax, double keyMax, double valueMin, libqt_list /* of QPointF* */ beforeTraverse, libqt_list /* of QPointF* */ afterTraverse) {
+void QCPCurve_SuperGetTraverseCornerPoints(const QCPCurve* self, int prevRegion, int currentRegion, double keyMin, double valueMax, double keyMax, double valueMin, libqt_list /* of QPointF* */ beforeTraverse, libqt_list /* of QPointF* */ afterTraverse) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     QVector<QPointF> beforeTraverse_QVector;
     beforeTraverse_QVector.reserve(beforeTraverse.len);
@@ -36644,7 +36644,7 @@ void QCPCurve_ApplyFillAntialiasingHint(const QCPCurve* self, QCPPainter* painte
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseApplyFillAntialiasingHint(const QCPCurve* self, QCPPainter* painter) {
+void QCPCurve_SuperApplyFillAntialiasingHint(const QCPCurve* self, QCPPainter* painter) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_ApplyFillAntialiasingHint_IsBase(true);
@@ -36673,7 +36673,7 @@ void QCPCurve_ApplyScattersAntialiasingHint(const QCPCurve* self, QCPPainter* pa
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseApplyScattersAntialiasingHint(const QCPCurve* self, QCPPainter* painter) {
+void QCPCurve_SuperApplyScattersAntialiasingHint(const QCPCurve* self, QCPPainter* painter) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_ApplyScattersAntialiasingHint_IsBase(true);
@@ -36702,7 +36702,7 @@ void QCPCurve_InitializeParentPlot(QCPCurve* self, QCustomPlot* parentPlot) {
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseInitializeParentPlot(QCPCurve* self, QCustomPlot* parentPlot) {
+void QCPCurve_SuperInitializeParentPlot(QCPCurve* self, QCustomPlot* parentPlot) {
     auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_InitializeParentPlot_IsBase(true);
@@ -36731,7 +36731,7 @@ void QCPCurve_SetParentLayerable(QCPCurve* self, QCPLayerable* parentLayerable) 
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseSetParentLayerable(QCPCurve* self, QCPLayerable* parentLayerable) {
+void QCPCurve_SuperSetParentLayerable(QCPCurve* self, QCPLayerable* parentLayerable) {
     auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_SetParentLayerable_IsBase(true);
@@ -36760,7 +36760,7 @@ bool QCPCurve_MoveToLayer(QCPCurve* self, QCPLayer* layer, bool prepend) {
 }
 
 // Base class handler implementation
-bool QCPCurve_QBaseMoveToLayer(QCPCurve* self, QCPLayer* layer, bool prepend) {
+bool QCPCurve_SuperMoveToLayer(QCPCurve* self, QCPLayer* layer, bool prepend) {
     auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_MoveToLayer_IsBase(true);
@@ -36789,7 +36789,7 @@ void QCPCurve_ApplyAntialiasingHint(const QCPCurve* self, QCPPainter* painter, b
 }
 
 // Base class handler implementation
-void QCPCurve_QBaseApplyAntialiasingHint(const QCPCurve* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPCurve_SuperApplyAntialiasingHint(const QCPCurve* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_ApplyAntialiasingHint_IsBase(true);
@@ -36818,7 +36818,7 @@ QObject* QCPCurve_Sender(const QCPCurve* self) {
 }
 
 // Base class handler implementation
-QObject* QCPCurve_QBaseSender(const QCPCurve* self) {
+QObject* QCPCurve_SuperSender(const QCPCurve* self) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_Sender_IsBase(true);
@@ -36847,7 +36847,7 @@ int QCPCurve_SenderSignalIndex(const QCPCurve* self) {
 }
 
 // Base class handler implementation
-int QCPCurve_QBaseSenderSignalIndex(const QCPCurve* self) {
+int QCPCurve_SuperSenderSignalIndex(const QCPCurve* self) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_SenderSignalIndex_IsBase(true);
@@ -36876,7 +36876,7 @@ int QCPCurve_Receivers(const QCPCurve* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPCurve_QBaseReceivers(const QCPCurve* self, const char* signal) {
+int QCPCurve_SuperReceivers(const QCPCurve* self, const char* signal) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_Receivers_IsBase(true);
@@ -36905,7 +36905,7 @@ bool QCPCurve_IsSignalConnected(const QCPCurve* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-bool QCPCurve_QBaseIsSignalConnected(const QCPCurve* self, const QMetaMethod* signal) {
+bool QCPCurve_SuperIsSignalConnected(const QCPCurve* self, const QMetaMethod* signal) {
     auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->setQCPCurve_IsSignalConnected_IsBase(true);
@@ -37020,7 +37020,7 @@ void QCPBarsGroup_Remove(QCPBarsGroup* self, QCPBars* bars) {
 }
 
 // Base class handler implementation
-QMetaObject* QCPBarsGroup_QBaseMetaObject(const QCPBarsGroup* self) {
+QMetaObject* QCPBarsGroup_SuperMetaObject(const QCPBarsGroup* self) {
     auto* vqcpbarsgroup = const_cast<VirtualQCPBarsGroup*>(dynamic_cast<const VirtualQCPBarsGroup*>(self));
     if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
         vqcpbarsgroup->setQCPBarsGroup_MetaObject_IsBase(true);
@@ -37039,7 +37039,7 @@ void QCPBarsGroup_OnMetaObject(const QCPBarsGroup* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPBarsGroup_QBaseMetacast(QCPBarsGroup* self, const char* param1) {
+void* QCPBarsGroup_SuperMetacast(QCPBarsGroup* self, const char* param1) {
     auto* vqcpbarsgroup = dynamic_cast<VirtualQCPBarsGroup*>(self);
     if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
         vqcpbarsgroup->setQCPBarsGroup_Metacast_IsBase(true);
@@ -37058,7 +37058,7 @@ void QCPBarsGroup_OnMetacast(QCPBarsGroup* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPBarsGroup_QBaseMetacall(QCPBarsGroup* self, int param1, int param2, void** param3) {
+int QCPBarsGroup_SuperMetacall(QCPBarsGroup* self, int param1, int param2, void** param3) {
     auto* vqcpbarsgroup = dynamic_cast<VirtualQCPBarsGroup*>(self);
     if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
         vqcpbarsgroup->setQCPBarsGroup_Metacall_IsBase(true);
@@ -37087,7 +37087,7 @@ bool QCPBarsGroup_Event(QCPBarsGroup* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPBarsGroup_QBaseEvent(QCPBarsGroup* self, QEvent* event) {
+bool QCPBarsGroup_SuperEvent(QCPBarsGroup* self, QEvent* event) {
     auto* vqcpbarsgroup = dynamic_cast<VirtualQCPBarsGroup*>(self);
     if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
         vqcpbarsgroup->setQCPBarsGroup_Event_IsBase(true);
@@ -37116,7 +37116,7 @@ bool QCPBarsGroup_EventFilter(QCPBarsGroup* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool QCPBarsGroup_QBaseEventFilter(QCPBarsGroup* self, QObject* watched, QEvent* event) {
+bool QCPBarsGroup_SuperEventFilter(QCPBarsGroup* self, QObject* watched, QEvent* event) {
     auto* vqcpbarsgroup = dynamic_cast<VirtualQCPBarsGroup*>(self);
     if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
         vqcpbarsgroup->setQCPBarsGroup_EventFilter_IsBase(true);
@@ -37145,7 +37145,7 @@ void QCPBarsGroup_TimerEvent(QCPBarsGroup* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPBarsGroup_QBaseTimerEvent(QCPBarsGroup* self, QTimerEvent* event) {
+void QCPBarsGroup_SuperTimerEvent(QCPBarsGroup* self, QTimerEvent* event) {
     auto* vqcpbarsgroup = dynamic_cast<VirtualQCPBarsGroup*>(self);
     if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
         vqcpbarsgroup->setQCPBarsGroup_TimerEvent_IsBase(true);
@@ -37174,7 +37174,7 @@ void QCPBarsGroup_ChildEvent(QCPBarsGroup* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPBarsGroup_QBaseChildEvent(QCPBarsGroup* self, QChildEvent* event) {
+void QCPBarsGroup_SuperChildEvent(QCPBarsGroup* self, QChildEvent* event) {
     auto* vqcpbarsgroup = dynamic_cast<VirtualQCPBarsGroup*>(self);
     if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
         vqcpbarsgroup->setQCPBarsGroup_ChildEvent_IsBase(true);
@@ -37203,7 +37203,7 @@ void QCPBarsGroup_CustomEvent(QCPBarsGroup* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPBarsGroup_QBaseCustomEvent(QCPBarsGroup* self, QEvent* event) {
+void QCPBarsGroup_SuperCustomEvent(QCPBarsGroup* self, QEvent* event) {
     auto* vqcpbarsgroup = dynamic_cast<VirtualQCPBarsGroup*>(self);
     if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
         vqcpbarsgroup->setQCPBarsGroup_CustomEvent_IsBase(true);
@@ -37232,7 +37232,7 @@ void QCPBarsGroup_ConnectNotify(QCPBarsGroup* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPBarsGroup_QBaseConnectNotify(QCPBarsGroup* self, const QMetaMethod* signal) {
+void QCPBarsGroup_SuperConnectNotify(QCPBarsGroup* self, const QMetaMethod* signal) {
     auto* vqcpbarsgroup = dynamic_cast<VirtualQCPBarsGroup*>(self);
     if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
         vqcpbarsgroup->setQCPBarsGroup_ConnectNotify_IsBase(true);
@@ -37261,7 +37261,7 @@ void QCPBarsGroup_DisconnectNotify(QCPBarsGroup* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QCPBarsGroup_QBaseDisconnectNotify(QCPBarsGroup* self, const QMetaMethod* signal) {
+void QCPBarsGroup_SuperDisconnectNotify(QCPBarsGroup* self, const QMetaMethod* signal) {
     auto* vqcpbarsgroup = dynamic_cast<VirtualQCPBarsGroup*>(self);
     if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
         vqcpbarsgroup->setQCPBarsGroup_DisconnectNotify_IsBase(true);
@@ -37290,7 +37290,7 @@ void QCPBarsGroup_RegisterBars(QCPBarsGroup* self, QCPBars* bars) {
 }
 
 // Base class handler implementation
-void QCPBarsGroup_QBaseRegisterBars(QCPBarsGroup* self, QCPBars* bars) {
+void QCPBarsGroup_SuperRegisterBars(QCPBarsGroup* self, QCPBars* bars) {
     auto* vqcpbarsgroup = dynamic_cast<VirtualQCPBarsGroup*>(self);
     if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
         vqcpbarsgroup->setQCPBarsGroup_RegisterBars_IsBase(true);
@@ -37319,7 +37319,7 @@ void QCPBarsGroup_UnregisterBars(QCPBarsGroup* self, QCPBars* bars) {
 }
 
 // Base class handler implementation
-void QCPBarsGroup_QBaseUnregisterBars(QCPBarsGroup* self, QCPBars* bars) {
+void QCPBarsGroup_SuperUnregisterBars(QCPBarsGroup* self, QCPBars* bars) {
     auto* vqcpbarsgroup = dynamic_cast<VirtualQCPBarsGroup*>(self);
     if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
         vqcpbarsgroup->setQCPBarsGroup_UnregisterBars_IsBase(true);
@@ -37348,7 +37348,7 @@ double QCPBarsGroup_KeyPixelOffset(QCPBarsGroup* self, const QCPBars* bars, doub
 }
 
 // Base class handler implementation
-double QCPBarsGroup_QBaseKeyPixelOffset(QCPBarsGroup* self, const QCPBars* bars, double keyCoord) {
+double QCPBarsGroup_SuperKeyPixelOffset(QCPBarsGroup* self, const QCPBars* bars, double keyCoord) {
     auto* vqcpbarsgroup = dynamic_cast<VirtualQCPBarsGroup*>(self);
     if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
         vqcpbarsgroup->setQCPBarsGroup_KeyPixelOffset_IsBase(true);
@@ -37377,7 +37377,7 @@ double QCPBarsGroup_GetPixelSpacing(QCPBarsGroup* self, const QCPBars* bars, dou
 }
 
 // Base class handler implementation
-double QCPBarsGroup_QBaseGetPixelSpacing(QCPBarsGroup* self, const QCPBars* bars, double keyCoord) {
+double QCPBarsGroup_SuperGetPixelSpacing(QCPBarsGroup* self, const QCPBars* bars, double keyCoord) {
     auto* vqcpbarsgroup = dynamic_cast<VirtualQCPBarsGroup*>(self);
     if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
         vqcpbarsgroup->setQCPBarsGroup_GetPixelSpacing_IsBase(true);
@@ -37406,7 +37406,7 @@ QObject* QCPBarsGroup_Sender(const QCPBarsGroup* self) {
 }
 
 // Base class handler implementation
-QObject* QCPBarsGroup_QBaseSender(const QCPBarsGroup* self) {
+QObject* QCPBarsGroup_SuperSender(const QCPBarsGroup* self) {
     auto* vqcpbarsgroup = const_cast<VirtualQCPBarsGroup*>(dynamic_cast<const VirtualQCPBarsGroup*>(self));
     if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
         vqcpbarsgroup->setQCPBarsGroup_Sender_IsBase(true);
@@ -37435,7 +37435,7 @@ int QCPBarsGroup_SenderSignalIndex(const QCPBarsGroup* self) {
 }
 
 // Base class handler implementation
-int QCPBarsGroup_QBaseSenderSignalIndex(const QCPBarsGroup* self) {
+int QCPBarsGroup_SuperSenderSignalIndex(const QCPBarsGroup* self) {
     auto* vqcpbarsgroup = const_cast<VirtualQCPBarsGroup*>(dynamic_cast<const VirtualQCPBarsGroup*>(self));
     if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
         vqcpbarsgroup->setQCPBarsGroup_SenderSignalIndex_IsBase(true);
@@ -37464,7 +37464,7 @@ int QCPBarsGroup_Receivers(const QCPBarsGroup* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPBarsGroup_QBaseReceivers(const QCPBarsGroup* self, const char* signal) {
+int QCPBarsGroup_SuperReceivers(const QCPBarsGroup* self, const char* signal) {
     auto* vqcpbarsgroup = const_cast<VirtualQCPBarsGroup*>(dynamic_cast<const VirtualQCPBarsGroup*>(self));
     if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
         vqcpbarsgroup->setQCPBarsGroup_Receivers_IsBase(true);
@@ -37493,7 +37493,7 @@ bool QCPBarsGroup_IsSignalConnected(const QCPBarsGroup* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QCPBarsGroup_QBaseIsSignalConnected(const QCPBarsGroup* self, const QMetaMethod* signal) {
+bool QCPBarsGroup_SuperIsSignalConnected(const QCPBarsGroup* self, const QMetaMethod* signal) {
     auto* vqcpbarsgroup = const_cast<VirtualQCPBarsGroup*>(dynamic_cast<const VirtualQCPBarsGroup*>(self));
     if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
         vqcpbarsgroup->setQCPBarsGroup_IsSignalConnected_IsBase(true);
@@ -37802,7 +37802,7 @@ void QCPBars_AddData3(QCPBars* self, const libqt_list /* of double */ keys, cons
 }
 
 // Base class handler implementation
-QMetaObject* QCPBars_QBaseMetaObject(const QCPBars* self) {
+QMetaObject* QCPBars_SuperMetaObject(const QCPBars* self) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_MetaObject_IsBase(true);
@@ -37821,7 +37821,7 @@ void QCPBars_OnMetaObject(const QCPBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPBars_QBaseMetacast(QCPBars* self, const char* param1) {
+void* QCPBars_SuperMetacast(QCPBars* self, const char* param1) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_Metacast_IsBase(true);
@@ -37840,7 +37840,7 @@ void QCPBars_OnMetacast(QCPBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPBars_QBaseMetacall(QCPBars* self, int param1, int param2, void** param3) {
+int QCPBars_SuperMetacall(QCPBars* self, int param1, int param2, void** param3) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_Metacall_IsBase(true);
@@ -37859,7 +37859,7 @@ void QCPBars_OnMetacall(QCPBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPDataSelection* QCPBars_QBaseSelectTestRect(const QCPBars* self, const QRectF* rect, bool onlySelectable) {
+QCPDataSelection* QCPBars_SuperSelectTestRect(const QCPBars* self, const QRectF* rect, bool onlySelectable) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_SelectTestRect_IsBase(true);
@@ -37878,7 +37878,7 @@ void QCPBars_OnSelectTestRect(const QCPBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPBars_QBaseSelectTest(const QCPBars* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPBars_SuperSelectTest(const QCPBars* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_SelectTest_IsBase(true);
@@ -37897,7 +37897,7 @@ void QCPBars_OnSelectTest(const QCPBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPRange* QCPBars_QBaseGetKeyRange(const QCPBars* self, bool* foundRange, int inSignDomain) {
+QCPRange* QCPBars_SuperGetKeyRange(const QCPBars* self, bool* foundRange, int inSignDomain) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_GetKeyRange_IsBase(true);
@@ -37916,7 +37916,7 @@ void QCPBars_OnGetKeyRange(const QCPBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPRange* QCPBars_QBaseGetValueRange(const QCPBars* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
+QCPRange* QCPBars_SuperGetValueRange(const QCPBars* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_GetValueRange_IsBase(true);
@@ -37935,7 +37935,7 @@ void QCPBars_OnGetValueRange(const QCPBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPointF* QCPBars_QBaseDataPixelPosition(const QCPBars* self, int index) {
+QPointF* QCPBars_SuperDataPixelPosition(const QCPBars* self, int index) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_DataPixelPosition_IsBase(true);
@@ -37954,7 +37954,7 @@ void QCPBars_OnDataPixelPosition(const QCPBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPBars_QBaseDraw(QCPBars* self, QCPPainter* painter) {
+void QCPBars_SuperDraw(QCPBars* self, QCPPainter* painter) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_Draw_IsBase(true);
@@ -37973,7 +37973,7 @@ void QCPBars_OnDraw(QCPBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPBars_QBaseDrawLegendIcon(const QCPBars* self, QCPPainter* painter, const QRectF* rect) {
+void QCPBars_SuperDrawLegendIcon(const QCPBars* self, QCPPainter* painter, const QRectF* rect) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_DrawLegendIcon_IsBase(true);
@@ -38002,7 +38002,7 @@ int QCPBars_DataCount(const QCPBars* self) {
 }
 
 // Base class handler implementation
-int QCPBars_QBaseDataCount(const QCPBars* self) {
+int QCPBars_SuperDataCount(const QCPBars* self) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_DataCount_IsBase(true);
@@ -38031,7 +38031,7 @@ double QCPBars_DataMainKey(const QCPBars* self, int index) {
 }
 
 // Base class handler implementation
-double QCPBars_QBaseDataMainKey(const QCPBars* self, int index) {
+double QCPBars_SuperDataMainKey(const QCPBars* self, int index) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_DataMainKey_IsBase(true);
@@ -38060,7 +38060,7 @@ double QCPBars_DataSortKey(const QCPBars* self, int index) {
 }
 
 // Base class handler implementation
-double QCPBars_QBaseDataSortKey(const QCPBars* self, int index) {
+double QCPBars_SuperDataSortKey(const QCPBars* self, int index) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_DataSortKey_IsBase(true);
@@ -38089,7 +38089,7 @@ double QCPBars_DataMainValue(const QCPBars* self, int index) {
 }
 
 // Base class handler implementation
-double QCPBars_QBaseDataMainValue(const QCPBars* self, int index) {
+double QCPBars_SuperDataMainValue(const QCPBars* self, int index) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_DataMainValue_IsBase(true);
@@ -38118,7 +38118,7 @@ QCPRange* QCPBars_DataValueRange(const QCPBars* self, int index) {
 }
 
 // Base class handler implementation
-QCPRange* QCPBars_QBaseDataValueRange(const QCPBars* self, int index) {
+QCPRange* QCPBars_SuperDataValueRange(const QCPBars* self, int index) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_DataValueRange_IsBase(true);
@@ -38147,7 +38147,7 @@ bool QCPBars_SortKeyIsMainKey(const QCPBars* self) {
 }
 
 // Base class handler implementation
-bool QCPBars_QBaseSortKeyIsMainKey(const QCPBars* self) {
+bool QCPBars_SuperSortKeyIsMainKey(const QCPBars* self) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_SortKeyIsMainKey_IsBase(true);
@@ -38176,7 +38176,7 @@ int QCPBars_FindBegin(const QCPBars* self, double sortKey, bool expandedRange) {
 }
 
 // Base class handler implementation
-int QCPBars_QBaseFindBegin(const QCPBars* self, double sortKey, bool expandedRange) {
+int QCPBars_SuperFindBegin(const QCPBars* self, double sortKey, bool expandedRange) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_FindBegin_IsBase(true);
@@ -38205,7 +38205,7 @@ int QCPBars_FindEnd(const QCPBars* self, double sortKey, bool expandedRange) {
 }
 
 // Base class handler implementation
-int QCPBars_QBaseFindEnd(const QCPBars* self, double sortKey, bool expandedRange) {
+int QCPBars_SuperFindEnd(const QCPBars* self, double sortKey, bool expandedRange) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_FindEnd_IsBase(true);
@@ -38234,7 +38234,7 @@ QCPPlottableInterface1D* QCPBars_Interface1D(QCPBars* self) {
 }
 
 // Base class handler implementation
-QCPPlottableInterface1D* QCPBars_QBaseInterface1D(QCPBars* self) {
+QCPPlottableInterface1D* QCPBars_SuperInterface1D(QCPBars* self) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_Interface1D_IsBase(true);
@@ -38262,7 +38262,7 @@ QRect* QCPBars_ClipRect(const QCPBars* self) {
 }
 
 // Base class handler implementation
-QRect* QCPBars_QBaseClipRect(const QCPBars* self) {
+QRect* QCPBars_SuperClipRect(const QCPBars* self) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_ClipRect_IsBase(true);
@@ -38290,7 +38290,7 @@ int QCPBars_SelectionCategory(const QCPBars* self) {
 }
 
 // Base class handler implementation
-int QCPBars_QBaseSelectionCategory(const QCPBars* self) {
+int QCPBars_SuperSelectionCategory(const QCPBars* self) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_SelectionCategory_IsBase(true);
@@ -38319,7 +38319,7 @@ void QCPBars_ApplyDefaultAntialiasingHint(const QCPBars* self, QCPPainter* paint
 }
 
 // Base class handler implementation
-void QCPBars_QBaseApplyDefaultAntialiasingHint(const QCPBars* self, QCPPainter* painter) {
+void QCPBars_SuperApplyDefaultAntialiasingHint(const QCPBars* self, QCPPainter* painter) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -38348,7 +38348,7 @@ void QCPBars_SelectEvent(QCPBars* self, QMouseEvent* event, bool additive, const
 }
 
 // Base class handler implementation
-void QCPBars_QBaseSelectEvent(QCPBars* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPBars_SuperSelectEvent(QCPBars* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_SelectEvent_IsBase(true);
@@ -38377,7 +38377,7 @@ void QCPBars_DeselectEvent(QCPBars* self, bool* selectionStateChanged) {
 }
 
 // Base class handler implementation
-void QCPBars_QBaseDeselectEvent(QCPBars* self, bool* selectionStateChanged) {
+void QCPBars_SuperDeselectEvent(QCPBars* self, bool* selectionStateChanged) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_DeselectEvent_IsBase(true);
@@ -38406,7 +38406,7 @@ void QCPBars_ParentPlotInitialized(QCPBars* self, QCustomPlot* parentPlot) {
 }
 
 // Base class handler implementation
-void QCPBars_QBaseParentPlotInitialized(QCPBars* self, QCustomPlot* parentPlot) {
+void QCPBars_SuperParentPlotInitialized(QCPBars* self, QCustomPlot* parentPlot) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_ParentPlotInitialized_IsBase(true);
@@ -38435,7 +38435,7 @@ void QCPBars_MousePressEvent(QCPBars* self, QMouseEvent* event, const QVariant* 
 }
 
 // Base class handler implementation
-void QCPBars_QBaseMousePressEvent(QCPBars* self, QMouseEvent* event, const QVariant* details) {
+void QCPBars_SuperMousePressEvent(QCPBars* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_MousePressEvent_IsBase(true);
@@ -38464,7 +38464,7 @@ void QCPBars_MouseMoveEvent(QCPBars* self, QMouseEvent* event, const QPointF* st
 }
 
 // Base class handler implementation
-void QCPBars_QBaseMouseMoveEvent(QCPBars* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPBars_SuperMouseMoveEvent(QCPBars* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_MouseMoveEvent_IsBase(true);
@@ -38493,7 +38493,7 @@ void QCPBars_MouseReleaseEvent(QCPBars* self, QMouseEvent* event, const QPointF*
 }
 
 // Base class handler implementation
-void QCPBars_QBaseMouseReleaseEvent(QCPBars* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPBars_SuperMouseReleaseEvent(QCPBars* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_MouseReleaseEvent_IsBase(true);
@@ -38522,7 +38522,7 @@ void QCPBars_MouseDoubleClickEvent(QCPBars* self, QMouseEvent* event, const QVar
 }
 
 // Base class handler implementation
-void QCPBars_QBaseMouseDoubleClickEvent(QCPBars* self, QMouseEvent* event, const QVariant* details) {
+void QCPBars_SuperMouseDoubleClickEvent(QCPBars* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_MouseDoubleClickEvent_IsBase(true);
@@ -38551,7 +38551,7 @@ void QCPBars_WheelEvent(QCPBars* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPBars_QBaseWheelEvent(QCPBars* self, QWheelEvent* event) {
+void QCPBars_SuperWheelEvent(QCPBars* self, QWheelEvent* event) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_WheelEvent_IsBase(true);
@@ -38580,7 +38580,7 @@ bool QCPBars_Event(QCPBars* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPBars_QBaseEvent(QCPBars* self, QEvent* event) {
+bool QCPBars_SuperEvent(QCPBars* self, QEvent* event) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_Event_IsBase(true);
@@ -38609,7 +38609,7 @@ bool QCPBars_EventFilter(QCPBars* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPBars_QBaseEventFilter(QCPBars* self, QObject* watched, QEvent* event) {
+bool QCPBars_SuperEventFilter(QCPBars* self, QObject* watched, QEvent* event) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_EventFilter_IsBase(true);
@@ -38638,7 +38638,7 @@ void QCPBars_TimerEvent(QCPBars* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPBars_QBaseTimerEvent(QCPBars* self, QTimerEvent* event) {
+void QCPBars_SuperTimerEvent(QCPBars* self, QTimerEvent* event) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_TimerEvent_IsBase(true);
@@ -38667,7 +38667,7 @@ void QCPBars_ChildEvent(QCPBars* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPBars_QBaseChildEvent(QCPBars* self, QChildEvent* event) {
+void QCPBars_SuperChildEvent(QCPBars* self, QChildEvent* event) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_ChildEvent_IsBase(true);
@@ -38696,7 +38696,7 @@ void QCPBars_CustomEvent(QCPBars* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPBars_QBaseCustomEvent(QCPBars* self, QEvent* event) {
+void QCPBars_SuperCustomEvent(QCPBars* self, QEvent* event) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_CustomEvent_IsBase(true);
@@ -38725,7 +38725,7 @@ void QCPBars_ConnectNotify(QCPBars* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPBars_QBaseConnectNotify(QCPBars* self, const QMetaMethod* signal) {
+void QCPBars_SuperConnectNotify(QCPBars* self, const QMetaMethod* signal) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_ConnectNotify_IsBase(true);
@@ -38754,7 +38754,7 @@ void QCPBars_DisconnectNotify(QCPBars* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPBars_QBaseDisconnectNotify(QCPBars* self, const QMetaMethod* signal) {
+void QCPBars_SuperDisconnectNotify(QCPBars* self, const QMetaMethod* signal) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_DisconnectNotify_IsBase(true);
@@ -38782,7 +38782,7 @@ QRectF* QCPBars_GetBarRect(const QCPBars* self, double key, double value) {
 }
 
 // Base class handler implementation
-QRectF* QCPBars_QBaseGetBarRect(const QCPBars* self, double key, double value) {
+QRectF* QCPBars_SuperGetBarRect(const QCPBars* self, double key, double value) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_GetBarRect_IsBase(true);
@@ -38810,7 +38810,7 @@ void QCPBars_GetPixelWidth(const QCPBars* self, double key, double* lower, doubl
 }
 
 // Base class handler implementation
-void QCPBars_QBaseGetPixelWidth(const QCPBars* self, double key, double* lower, double* upper) {
+void QCPBars_SuperGetPixelWidth(const QCPBars* self, double key, double* lower, double* upper) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_GetPixelWidth_IsBase(true);
@@ -38839,7 +38839,7 @@ double QCPBars_GetStackedBaseValue(const QCPBars* self, double key, bool positiv
 }
 
 // Base class handler implementation
-double QCPBars_QBaseGetStackedBaseValue(const QCPBars* self, double key, bool positive) {
+double QCPBars_SuperGetStackedBaseValue(const QCPBars* self, double key, bool positive) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_GetStackedBaseValue_IsBase(true);
@@ -38868,7 +38868,7 @@ void QCPBars_ConnectBars(QCPBars* self, QCPBars* lower, QCPBars* upper) {
 }
 
 // Base class handler implementation
-void QCPBars_QBaseConnectBars(QCPBars* self, QCPBars* lower, QCPBars* upper) {
+void QCPBars_SuperConnectBars(QCPBars* self, QCPBars* lower, QCPBars* upper) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_ConnectBars_IsBase(true);
@@ -38897,7 +38897,7 @@ void QCPBars_ApplyFillAntialiasingHint(const QCPBars* self, QCPPainter* painter)
 }
 
 // Base class handler implementation
-void QCPBars_QBaseApplyFillAntialiasingHint(const QCPBars* self, QCPPainter* painter) {
+void QCPBars_SuperApplyFillAntialiasingHint(const QCPBars* self, QCPPainter* painter) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_ApplyFillAntialiasingHint_IsBase(true);
@@ -38926,7 +38926,7 @@ void QCPBars_ApplyScattersAntialiasingHint(const QCPBars* self, QCPPainter* pain
 }
 
 // Base class handler implementation
-void QCPBars_QBaseApplyScattersAntialiasingHint(const QCPBars* self, QCPPainter* painter) {
+void QCPBars_SuperApplyScattersAntialiasingHint(const QCPBars* self, QCPPainter* painter) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_ApplyScattersAntialiasingHint_IsBase(true);
@@ -38955,7 +38955,7 @@ void QCPBars_InitializeParentPlot(QCPBars* self, QCustomPlot* parentPlot) {
 }
 
 // Base class handler implementation
-void QCPBars_QBaseInitializeParentPlot(QCPBars* self, QCustomPlot* parentPlot) {
+void QCPBars_SuperInitializeParentPlot(QCPBars* self, QCustomPlot* parentPlot) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_InitializeParentPlot_IsBase(true);
@@ -38984,7 +38984,7 @@ void QCPBars_SetParentLayerable(QCPBars* self, QCPLayerable* parentLayerable) {
 }
 
 // Base class handler implementation
-void QCPBars_QBaseSetParentLayerable(QCPBars* self, QCPLayerable* parentLayerable) {
+void QCPBars_SuperSetParentLayerable(QCPBars* self, QCPLayerable* parentLayerable) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_SetParentLayerable_IsBase(true);
@@ -39013,7 +39013,7 @@ bool QCPBars_MoveToLayer(QCPBars* self, QCPLayer* layer, bool prepend) {
 }
 
 // Base class handler implementation
-bool QCPBars_QBaseMoveToLayer(QCPBars* self, QCPLayer* layer, bool prepend) {
+bool QCPBars_SuperMoveToLayer(QCPBars* self, QCPLayer* layer, bool prepend) {
     auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_MoveToLayer_IsBase(true);
@@ -39042,7 +39042,7 @@ void QCPBars_ApplyAntialiasingHint(const QCPBars* self, QCPPainter* painter, boo
 }
 
 // Base class handler implementation
-void QCPBars_QBaseApplyAntialiasingHint(const QCPBars* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPBars_SuperApplyAntialiasingHint(const QCPBars* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_ApplyAntialiasingHint_IsBase(true);
@@ -39071,7 +39071,7 @@ QObject* QCPBars_Sender(const QCPBars* self) {
 }
 
 // Base class handler implementation
-QObject* QCPBars_QBaseSender(const QCPBars* self) {
+QObject* QCPBars_SuperSender(const QCPBars* self) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_Sender_IsBase(true);
@@ -39100,7 +39100,7 @@ int QCPBars_SenderSignalIndex(const QCPBars* self) {
 }
 
 // Base class handler implementation
-int QCPBars_QBaseSenderSignalIndex(const QCPBars* self) {
+int QCPBars_SuperSenderSignalIndex(const QCPBars* self) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_SenderSignalIndex_IsBase(true);
@@ -39129,7 +39129,7 @@ int QCPBars_Receivers(const QCPBars* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPBars_QBaseReceivers(const QCPBars* self, const char* signal) {
+int QCPBars_SuperReceivers(const QCPBars* self, const char* signal) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_Receivers_IsBase(true);
@@ -39158,7 +39158,7 @@ bool QCPBars_IsSignalConnected(const QCPBars* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QCPBars_QBaseIsSignalConnected(const QCPBars* self, const QMetaMethod* signal) {
+bool QCPBars_SuperIsSignalConnected(const QCPBars* self, const QMetaMethod* signal) {
     auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->setQCPBars_IsSignalConnected_IsBase(true);
@@ -39613,7 +39613,7 @@ void QCPStatisticalBox_AddData72(QCPStatisticalBox* self, double key, double min
 }
 
 // Base class handler implementation
-QMetaObject* QCPStatisticalBox_QBaseMetaObject(const QCPStatisticalBox* self) {
+QMetaObject* QCPStatisticalBox_SuperMetaObject(const QCPStatisticalBox* self) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_MetaObject_IsBase(true);
@@ -39632,7 +39632,7 @@ void QCPStatisticalBox_OnMetaObject(const QCPStatisticalBox* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* QCPStatisticalBox_QBaseMetacast(QCPStatisticalBox* self, const char* param1) {
+void* QCPStatisticalBox_SuperMetacast(QCPStatisticalBox* self, const char* param1) {
     auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_Metacast_IsBase(true);
@@ -39651,7 +39651,7 @@ void QCPStatisticalBox_OnMetacast(QCPStatisticalBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPStatisticalBox_QBaseMetacall(QCPStatisticalBox* self, int param1, int param2, void** param3) {
+int QCPStatisticalBox_SuperMetacall(QCPStatisticalBox* self, int param1, int param2, void** param3) {
     auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_Metacall_IsBase(true);
@@ -39670,7 +39670,7 @@ void QCPStatisticalBox_OnMetacall(QCPStatisticalBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPDataSelection* QCPStatisticalBox_QBaseSelectTestRect(const QCPStatisticalBox* self, const QRectF* rect, bool onlySelectable) {
+QCPDataSelection* QCPStatisticalBox_SuperSelectTestRect(const QCPStatisticalBox* self, const QRectF* rect, bool onlySelectable) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_SelectTestRect_IsBase(true);
@@ -39689,7 +39689,7 @@ void QCPStatisticalBox_OnSelectTestRect(const QCPStatisticalBox* self, intptr_t 
 }
 
 // Base class handler implementation
-double QCPStatisticalBox_QBaseSelectTest(const QCPStatisticalBox* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPStatisticalBox_SuperSelectTest(const QCPStatisticalBox* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_SelectTest_IsBase(true);
@@ -39708,7 +39708,7 @@ void QCPStatisticalBox_OnSelectTest(const QCPStatisticalBox* self, intptr_t slot
 }
 
 // Base class handler implementation
-QCPRange* QCPStatisticalBox_QBaseGetKeyRange(const QCPStatisticalBox* self, bool* foundRange, int inSignDomain) {
+QCPRange* QCPStatisticalBox_SuperGetKeyRange(const QCPStatisticalBox* self, bool* foundRange, int inSignDomain) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_GetKeyRange_IsBase(true);
@@ -39727,7 +39727,7 @@ void QCPStatisticalBox_OnGetKeyRange(const QCPStatisticalBox* self, intptr_t slo
 }
 
 // Base class handler implementation
-QCPRange* QCPStatisticalBox_QBaseGetValueRange(const QCPStatisticalBox* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
+QCPRange* QCPStatisticalBox_SuperGetValueRange(const QCPStatisticalBox* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_GetValueRange_IsBase(true);
@@ -39746,7 +39746,7 @@ void QCPStatisticalBox_OnGetValueRange(const QCPStatisticalBox* self, intptr_t s
 }
 
 // Base class handler implementation
-void QCPStatisticalBox_QBaseDraw(QCPStatisticalBox* self, QCPPainter* painter) {
+void QCPStatisticalBox_SuperDraw(QCPStatisticalBox* self, QCPPainter* painter) {
     auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_Draw_IsBase(true);
@@ -39765,7 +39765,7 @@ void QCPStatisticalBox_OnDraw(QCPStatisticalBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPStatisticalBox_QBaseDrawLegendIcon(const QCPStatisticalBox* self, QCPPainter* painter, const QRectF* rect) {
+void QCPStatisticalBox_SuperDrawLegendIcon(const QCPStatisticalBox* self, QCPPainter* painter, const QRectF* rect) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_DrawLegendIcon_IsBase(true);
@@ -39794,7 +39794,7 @@ int QCPStatisticalBox_DataCount(const QCPStatisticalBox* self) {
 }
 
 // Base class handler implementation
-int QCPStatisticalBox_QBaseDataCount(const QCPStatisticalBox* self) {
+int QCPStatisticalBox_SuperDataCount(const QCPStatisticalBox* self) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_DataCount_IsBase(true);
@@ -39823,7 +39823,7 @@ double QCPStatisticalBox_DataMainKey(const QCPStatisticalBox* self, int index) {
 }
 
 // Base class handler implementation
-double QCPStatisticalBox_QBaseDataMainKey(const QCPStatisticalBox* self, int index) {
+double QCPStatisticalBox_SuperDataMainKey(const QCPStatisticalBox* self, int index) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_DataMainKey_IsBase(true);
@@ -39852,7 +39852,7 @@ double QCPStatisticalBox_DataSortKey(const QCPStatisticalBox* self, int index) {
 }
 
 // Base class handler implementation
-double QCPStatisticalBox_QBaseDataSortKey(const QCPStatisticalBox* self, int index) {
+double QCPStatisticalBox_SuperDataSortKey(const QCPStatisticalBox* self, int index) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_DataSortKey_IsBase(true);
@@ -39881,7 +39881,7 @@ double QCPStatisticalBox_DataMainValue(const QCPStatisticalBox* self, int index)
 }
 
 // Base class handler implementation
-double QCPStatisticalBox_QBaseDataMainValue(const QCPStatisticalBox* self, int index) {
+double QCPStatisticalBox_SuperDataMainValue(const QCPStatisticalBox* self, int index) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_DataMainValue_IsBase(true);
@@ -39910,7 +39910,7 @@ QCPRange* QCPStatisticalBox_DataValueRange(const QCPStatisticalBox* self, int in
 }
 
 // Base class handler implementation
-QCPRange* QCPStatisticalBox_QBaseDataValueRange(const QCPStatisticalBox* self, int index) {
+QCPRange* QCPStatisticalBox_SuperDataValueRange(const QCPStatisticalBox* self, int index) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_DataValueRange_IsBase(true);
@@ -39939,7 +39939,7 @@ QPointF* QCPStatisticalBox_DataPixelPosition(const QCPStatisticalBox* self, int 
 }
 
 // Base class handler implementation
-QPointF* QCPStatisticalBox_QBaseDataPixelPosition(const QCPStatisticalBox* self, int index) {
+QPointF* QCPStatisticalBox_SuperDataPixelPosition(const QCPStatisticalBox* self, int index) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_DataPixelPosition_IsBase(true);
@@ -39968,7 +39968,7 @@ bool QCPStatisticalBox_SortKeyIsMainKey(const QCPStatisticalBox* self) {
 }
 
 // Base class handler implementation
-bool QCPStatisticalBox_QBaseSortKeyIsMainKey(const QCPStatisticalBox* self) {
+bool QCPStatisticalBox_SuperSortKeyIsMainKey(const QCPStatisticalBox* self) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_SortKeyIsMainKey_IsBase(true);
@@ -39997,7 +39997,7 @@ int QCPStatisticalBox_FindBegin(const QCPStatisticalBox* self, double sortKey, b
 }
 
 // Base class handler implementation
-int QCPStatisticalBox_QBaseFindBegin(const QCPStatisticalBox* self, double sortKey, bool expandedRange) {
+int QCPStatisticalBox_SuperFindBegin(const QCPStatisticalBox* self, double sortKey, bool expandedRange) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_FindBegin_IsBase(true);
@@ -40026,7 +40026,7 @@ int QCPStatisticalBox_FindEnd(const QCPStatisticalBox* self, double sortKey, boo
 }
 
 // Base class handler implementation
-int QCPStatisticalBox_QBaseFindEnd(const QCPStatisticalBox* self, double sortKey, bool expandedRange) {
+int QCPStatisticalBox_SuperFindEnd(const QCPStatisticalBox* self, double sortKey, bool expandedRange) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_FindEnd_IsBase(true);
@@ -40055,7 +40055,7 @@ QCPPlottableInterface1D* QCPStatisticalBox_Interface1D(QCPStatisticalBox* self) 
 }
 
 // Base class handler implementation
-QCPPlottableInterface1D* QCPStatisticalBox_QBaseInterface1D(QCPStatisticalBox* self) {
+QCPPlottableInterface1D* QCPStatisticalBox_SuperInterface1D(QCPStatisticalBox* self) {
     auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_Interface1D_IsBase(true);
@@ -40083,7 +40083,7 @@ QRect* QCPStatisticalBox_ClipRect(const QCPStatisticalBox* self) {
 }
 
 // Base class handler implementation
-QRect* QCPStatisticalBox_QBaseClipRect(const QCPStatisticalBox* self) {
+QRect* QCPStatisticalBox_SuperClipRect(const QCPStatisticalBox* self) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_ClipRect_IsBase(true);
@@ -40111,7 +40111,7 @@ int QCPStatisticalBox_SelectionCategory(const QCPStatisticalBox* self) {
 }
 
 // Base class handler implementation
-int QCPStatisticalBox_QBaseSelectionCategory(const QCPStatisticalBox* self) {
+int QCPStatisticalBox_SuperSelectionCategory(const QCPStatisticalBox* self) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_SelectionCategory_IsBase(true);
@@ -40140,7 +40140,7 @@ void QCPStatisticalBox_ApplyDefaultAntialiasingHint(const QCPStatisticalBox* sel
 }
 
 // Base class handler implementation
-void QCPStatisticalBox_QBaseApplyDefaultAntialiasingHint(const QCPStatisticalBox* self, QCPPainter* painter) {
+void QCPStatisticalBox_SuperApplyDefaultAntialiasingHint(const QCPStatisticalBox* self, QCPPainter* painter) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -40169,7 +40169,7 @@ void QCPStatisticalBox_SelectEvent(QCPStatisticalBox* self, QMouseEvent* event, 
 }
 
 // Base class handler implementation
-void QCPStatisticalBox_QBaseSelectEvent(QCPStatisticalBox* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPStatisticalBox_SuperSelectEvent(QCPStatisticalBox* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_SelectEvent_IsBase(true);
@@ -40198,7 +40198,7 @@ void QCPStatisticalBox_DeselectEvent(QCPStatisticalBox* self, bool* selectionSta
 }
 
 // Base class handler implementation
-void QCPStatisticalBox_QBaseDeselectEvent(QCPStatisticalBox* self, bool* selectionStateChanged) {
+void QCPStatisticalBox_SuperDeselectEvent(QCPStatisticalBox* self, bool* selectionStateChanged) {
     auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_DeselectEvent_IsBase(true);
@@ -40227,7 +40227,7 @@ void QCPStatisticalBox_ParentPlotInitialized(QCPStatisticalBox* self, QCustomPlo
 }
 
 // Base class handler implementation
-void QCPStatisticalBox_QBaseParentPlotInitialized(QCPStatisticalBox* self, QCustomPlot* parentPlot) {
+void QCPStatisticalBox_SuperParentPlotInitialized(QCPStatisticalBox* self, QCustomPlot* parentPlot) {
     auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_ParentPlotInitialized_IsBase(true);
@@ -40256,7 +40256,7 @@ void QCPStatisticalBox_MousePressEvent(QCPStatisticalBox* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void QCPStatisticalBox_QBaseMousePressEvent(QCPStatisticalBox* self, QMouseEvent* event, const QVariant* details) {
+void QCPStatisticalBox_SuperMousePressEvent(QCPStatisticalBox* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_MousePressEvent_IsBase(true);
@@ -40285,7 +40285,7 @@ void QCPStatisticalBox_MouseMoveEvent(QCPStatisticalBox* self, QMouseEvent* even
 }
 
 // Base class handler implementation
-void QCPStatisticalBox_QBaseMouseMoveEvent(QCPStatisticalBox* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPStatisticalBox_SuperMouseMoveEvent(QCPStatisticalBox* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_MouseMoveEvent_IsBase(true);
@@ -40314,7 +40314,7 @@ void QCPStatisticalBox_MouseReleaseEvent(QCPStatisticalBox* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void QCPStatisticalBox_QBaseMouseReleaseEvent(QCPStatisticalBox* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPStatisticalBox_SuperMouseReleaseEvent(QCPStatisticalBox* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_MouseReleaseEvent_IsBase(true);
@@ -40343,7 +40343,7 @@ void QCPStatisticalBox_MouseDoubleClickEvent(QCPStatisticalBox* self, QMouseEven
 }
 
 // Base class handler implementation
-void QCPStatisticalBox_QBaseMouseDoubleClickEvent(QCPStatisticalBox* self, QMouseEvent* event, const QVariant* details) {
+void QCPStatisticalBox_SuperMouseDoubleClickEvent(QCPStatisticalBox* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_MouseDoubleClickEvent_IsBase(true);
@@ -40372,7 +40372,7 @@ void QCPStatisticalBox_WheelEvent(QCPStatisticalBox* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPStatisticalBox_QBaseWheelEvent(QCPStatisticalBox* self, QWheelEvent* event) {
+void QCPStatisticalBox_SuperWheelEvent(QCPStatisticalBox* self, QWheelEvent* event) {
     auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_WheelEvent_IsBase(true);
@@ -40401,7 +40401,7 @@ bool QCPStatisticalBox_Event(QCPStatisticalBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPStatisticalBox_QBaseEvent(QCPStatisticalBox* self, QEvent* event) {
+bool QCPStatisticalBox_SuperEvent(QCPStatisticalBox* self, QEvent* event) {
     auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_Event_IsBase(true);
@@ -40430,7 +40430,7 @@ bool QCPStatisticalBox_EventFilter(QCPStatisticalBox* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool QCPStatisticalBox_QBaseEventFilter(QCPStatisticalBox* self, QObject* watched, QEvent* event) {
+bool QCPStatisticalBox_SuperEventFilter(QCPStatisticalBox* self, QObject* watched, QEvent* event) {
     auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_EventFilter_IsBase(true);
@@ -40459,7 +40459,7 @@ void QCPStatisticalBox_TimerEvent(QCPStatisticalBox* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPStatisticalBox_QBaseTimerEvent(QCPStatisticalBox* self, QTimerEvent* event) {
+void QCPStatisticalBox_SuperTimerEvent(QCPStatisticalBox* self, QTimerEvent* event) {
     auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_TimerEvent_IsBase(true);
@@ -40488,7 +40488,7 @@ void QCPStatisticalBox_ChildEvent(QCPStatisticalBox* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPStatisticalBox_QBaseChildEvent(QCPStatisticalBox* self, QChildEvent* event) {
+void QCPStatisticalBox_SuperChildEvent(QCPStatisticalBox* self, QChildEvent* event) {
     auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_ChildEvent_IsBase(true);
@@ -40517,7 +40517,7 @@ void QCPStatisticalBox_CustomEvent(QCPStatisticalBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPStatisticalBox_QBaseCustomEvent(QCPStatisticalBox* self, QEvent* event) {
+void QCPStatisticalBox_SuperCustomEvent(QCPStatisticalBox* self, QEvent* event) {
     auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_CustomEvent_IsBase(true);
@@ -40546,7 +40546,7 @@ void QCPStatisticalBox_ConnectNotify(QCPStatisticalBox* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void QCPStatisticalBox_QBaseConnectNotify(QCPStatisticalBox* self, const QMetaMethod* signal) {
+void QCPStatisticalBox_SuperConnectNotify(QCPStatisticalBox* self, const QMetaMethod* signal) {
     auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_ConnectNotify_IsBase(true);
@@ -40575,7 +40575,7 @@ void QCPStatisticalBox_DisconnectNotify(QCPStatisticalBox* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void QCPStatisticalBox_QBaseDisconnectNotify(QCPStatisticalBox* self, const QMetaMethod* signal) {
+void QCPStatisticalBox_SuperDisconnectNotify(QCPStatisticalBox* self, const QMetaMethod* signal) {
     auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_DisconnectNotify_IsBase(true);
@@ -40604,7 +40604,7 @@ void QCPStatisticalBox_ApplyFillAntialiasingHint(const QCPStatisticalBox* self, 
 }
 
 // Base class handler implementation
-void QCPStatisticalBox_QBaseApplyFillAntialiasingHint(const QCPStatisticalBox* self, QCPPainter* painter) {
+void QCPStatisticalBox_SuperApplyFillAntialiasingHint(const QCPStatisticalBox* self, QCPPainter* painter) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_ApplyFillAntialiasingHint_IsBase(true);
@@ -40633,7 +40633,7 @@ void QCPStatisticalBox_ApplyScattersAntialiasingHint(const QCPStatisticalBox* se
 }
 
 // Base class handler implementation
-void QCPStatisticalBox_QBaseApplyScattersAntialiasingHint(const QCPStatisticalBox* self, QCPPainter* painter) {
+void QCPStatisticalBox_SuperApplyScattersAntialiasingHint(const QCPStatisticalBox* self, QCPPainter* painter) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_ApplyScattersAntialiasingHint_IsBase(true);
@@ -40662,7 +40662,7 @@ void QCPStatisticalBox_InitializeParentPlot(QCPStatisticalBox* self, QCustomPlot
 }
 
 // Base class handler implementation
-void QCPStatisticalBox_QBaseInitializeParentPlot(QCPStatisticalBox* self, QCustomPlot* parentPlot) {
+void QCPStatisticalBox_SuperInitializeParentPlot(QCPStatisticalBox* self, QCustomPlot* parentPlot) {
     auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_InitializeParentPlot_IsBase(true);
@@ -40691,7 +40691,7 @@ void QCPStatisticalBox_SetParentLayerable(QCPStatisticalBox* self, QCPLayerable*
 }
 
 // Base class handler implementation
-void QCPStatisticalBox_QBaseSetParentLayerable(QCPStatisticalBox* self, QCPLayerable* parentLayerable) {
+void QCPStatisticalBox_SuperSetParentLayerable(QCPStatisticalBox* self, QCPLayerable* parentLayerable) {
     auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_SetParentLayerable_IsBase(true);
@@ -40720,7 +40720,7 @@ bool QCPStatisticalBox_MoveToLayer(QCPStatisticalBox* self, QCPLayer* layer, boo
 }
 
 // Base class handler implementation
-bool QCPStatisticalBox_QBaseMoveToLayer(QCPStatisticalBox* self, QCPLayer* layer, bool prepend) {
+bool QCPStatisticalBox_SuperMoveToLayer(QCPStatisticalBox* self, QCPLayer* layer, bool prepend) {
     auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_MoveToLayer_IsBase(true);
@@ -40749,7 +40749,7 @@ void QCPStatisticalBox_ApplyAntialiasingHint(const QCPStatisticalBox* self, QCPP
 }
 
 // Base class handler implementation
-void QCPStatisticalBox_QBaseApplyAntialiasingHint(const QCPStatisticalBox* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPStatisticalBox_SuperApplyAntialiasingHint(const QCPStatisticalBox* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_ApplyAntialiasingHint_IsBase(true);
@@ -40778,7 +40778,7 @@ QObject* QCPStatisticalBox_Sender(const QCPStatisticalBox* self) {
 }
 
 // Base class handler implementation
-QObject* QCPStatisticalBox_QBaseSender(const QCPStatisticalBox* self) {
+QObject* QCPStatisticalBox_SuperSender(const QCPStatisticalBox* self) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_Sender_IsBase(true);
@@ -40807,7 +40807,7 @@ int QCPStatisticalBox_SenderSignalIndex(const QCPStatisticalBox* self) {
 }
 
 // Base class handler implementation
-int QCPStatisticalBox_QBaseSenderSignalIndex(const QCPStatisticalBox* self) {
+int QCPStatisticalBox_SuperSenderSignalIndex(const QCPStatisticalBox* self) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_SenderSignalIndex_IsBase(true);
@@ -40836,7 +40836,7 @@ int QCPStatisticalBox_Receivers(const QCPStatisticalBox* self, const char* signa
 }
 
 // Base class handler implementation
-int QCPStatisticalBox_QBaseReceivers(const QCPStatisticalBox* self, const char* signal) {
+int QCPStatisticalBox_SuperReceivers(const QCPStatisticalBox* self, const char* signal) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_Receivers_IsBase(true);
@@ -40865,7 +40865,7 @@ bool QCPStatisticalBox_IsSignalConnected(const QCPStatisticalBox* self, const QM
 }
 
 // Base class handler implementation
-bool QCPStatisticalBox_QBaseIsSignalConnected(const QCPStatisticalBox* self, const QMetaMethod* signal) {
+bool QCPStatisticalBox_SuperIsSignalConnected(const QCPStatisticalBox* self, const QMetaMethod* signal) {
     auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->setQCPStatisticalBox_IsSignalConnected_IsBase(true);
@@ -41203,7 +41203,7 @@ void QCPColorMap_UpdateLegendIcon2(QCPColorMap* self, int transformMode, const Q
 }
 
 // Base class handler implementation
-QMetaObject* QCPColorMap_QBaseMetaObject(const QCPColorMap* self) {
+QMetaObject* QCPColorMap_SuperMetaObject(const QCPColorMap* self) {
     auto* vqcpcolormap = const_cast<VirtualQCPColorMap*>(dynamic_cast<const VirtualQCPColorMap*>(self));
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_MetaObject_IsBase(true);
@@ -41222,7 +41222,7 @@ void QCPColorMap_OnMetaObject(const QCPColorMap* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPColorMap_QBaseMetacast(QCPColorMap* self, const char* param1) {
+void* QCPColorMap_SuperMetacast(QCPColorMap* self, const char* param1) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_Metacast_IsBase(true);
@@ -41241,7 +41241,7 @@ void QCPColorMap_OnMetacast(QCPColorMap* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPColorMap_QBaseMetacall(QCPColorMap* self, int param1, int param2, void** param3) {
+int QCPColorMap_SuperMetacall(QCPColorMap* self, int param1, int param2, void** param3) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_Metacall_IsBase(true);
@@ -41260,7 +41260,7 @@ void QCPColorMap_OnMetacall(QCPColorMap* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPColorMap_QBaseSelectTest(const QCPColorMap* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPColorMap_SuperSelectTest(const QCPColorMap* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpcolormap = const_cast<VirtualQCPColorMap*>(dynamic_cast<const VirtualQCPColorMap*>(self));
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_SelectTest_IsBase(true);
@@ -41279,7 +41279,7 @@ void QCPColorMap_OnSelectTest(const QCPColorMap* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPRange* QCPColorMap_QBaseGetKeyRange(const QCPColorMap* self, bool* foundRange, int inSignDomain) {
+QCPRange* QCPColorMap_SuperGetKeyRange(const QCPColorMap* self, bool* foundRange, int inSignDomain) {
     auto* vqcpcolormap = const_cast<VirtualQCPColorMap*>(dynamic_cast<const VirtualQCPColorMap*>(self));
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_GetKeyRange_IsBase(true);
@@ -41298,7 +41298,7 @@ void QCPColorMap_OnGetKeyRange(const QCPColorMap* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPRange* QCPColorMap_QBaseGetValueRange(const QCPColorMap* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
+QCPRange* QCPColorMap_SuperGetValueRange(const QCPColorMap* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
     auto* vqcpcolormap = const_cast<VirtualQCPColorMap*>(dynamic_cast<const VirtualQCPColorMap*>(self));
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_GetValueRange_IsBase(true);
@@ -41317,7 +41317,7 @@ void QCPColorMap_OnGetValueRange(const QCPColorMap* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPColorMap_QBaseUpdateMapImage(QCPColorMap* self) {
+void QCPColorMap_SuperUpdateMapImage(QCPColorMap* self) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_UpdateMapImage_IsBase(true);
@@ -41336,7 +41336,7 @@ void QCPColorMap_OnUpdateMapImage(QCPColorMap* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPColorMap_QBaseDraw(QCPColorMap* self, QCPPainter* painter) {
+void QCPColorMap_SuperDraw(QCPColorMap* self, QCPPainter* painter) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_Draw_IsBase(true);
@@ -41355,7 +41355,7 @@ void QCPColorMap_OnDraw(QCPColorMap* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPColorMap_QBaseDrawLegendIcon(const QCPColorMap* self, QCPPainter* painter, const QRectF* rect) {
+void QCPColorMap_SuperDrawLegendIcon(const QCPColorMap* self, QCPPainter* painter, const QRectF* rect) {
     auto* vqcpcolormap = const_cast<VirtualQCPColorMap*>(dynamic_cast<const VirtualQCPColorMap*>(self));
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_DrawLegendIcon_IsBase(true);
@@ -41384,7 +41384,7 @@ QCPPlottableInterface1D* QCPColorMap_Interface1D(QCPColorMap* self) {
 }
 
 // Base class handler implementation
-QCPPlottableInterface1D* QCPColorMap_QBaseInterface1D(QCPColorMap* self) {
+QCPPlottableInterface1D* QCPColorMap_SuperInterface1D(QCPColorMap* self) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_Interface1D_IsBase(true);
@@ -41412,7 +41412,7 @@ QRect* QCPColorMap_ClipRect(const QCPColorMap* self) {
 }
 
 // Base class handler implementation
-QRect* QCPColorMap_QBaseClipRect(const QCPColorMap* self) {
+QRect* QCPColorMap_SuperClipRect(const QCPColorMap* self) {
     auto* vqcpcolormap = const_cast<VirtualQCPColorMap*>(dynamic_cast<const VirtualQCPColorMap*>(self));
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_ClipRect_IsBase(true);
@@ -41440,7 +41440,7 @@ int QCPColorMap_SelectionCategory(const QCPColorMap* self) {
 }
 
 // Base class handler implementation
-int QCPColorMap_QBaseSelectionCategory(const QCPColorMap* self) {
+int QCPColorMap_SuperSelectionCategory(const QCPColorMap* self) {
     auto* vqcpcolormap = const_cast<VirtualQCPColorMap*>(dynamic_cast<const VirtualQCPColorMap*>(self));
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_SelectionCategory_IsBase(true);
@@ -41469,7 +41469,7 @@ void QCPColorMap_ApplyDefaultAntialiasingHint(const QCPColorMap* self, QCPPainte
 }
 
 // Base class handler implementation
-void QCPColorMap_QBaseApplyDefaultAntialiasingHint(const QCPColorMap* self, QCPPainter* painter) {
+void QCPColorMap_SuperApplyDefaultAntialiasingHint(const QCPColorMap* self, QCPPainter* painter) {
     auto* vqcpcolormap = const_cast<VirtualQCPColorMap*>(dynamic_cast<const VirtualQCPColorMap*>(self));
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -41498,7 +41498,7 @@ void QCPColorMap_SelectEvent(QCPColorMap* self, QMouseEvent* event, bool additiv
 }
 
 // Base class handler implementation
-void QCPColorMap_QBaseSelectEvent(QCPColorMap* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPColorMap_SuperSelectEvent(QCPColorMap* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_SelectEvent_IsBase(true);
@@ -41527,7 +41527,7 @@ void QCPColorMap_DeselectEvent(QCPColorMap* self, bool* selectionStateChanged) {
 }
 
 // Base class handler implementation
-void QCPColorMap_QBaseDeselectEvent(QCPColorMap* self, bool* selectionStateChanged) {
+void QCPColorMap_SuperDeselectEvent(QCPColorMap* self, bool* selectionStateChanged) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_DeselectEvent_IsBase(true);
@@ -41556,7 +41556,7 @@ void QCPColorMap_ParentPlotInitialized(QCPColorMap* self, QCustomPlot* parentPlo
 }
 
 // Base class handler implementation
-void QCPColorMap_QBaseParentPlotInitialized(QCPColorMap* self, QCustomPlot* parentPlot) {
+void QCPColorMap_SuperParentPlotInitialized(QCPColorMap* self, QCustomPlot* parentPlot) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_ParentPlotInitialized_IsBase(true);
@@ -41585,7 +41585,7 @@ void QCPColorMap_MousePressEvent(QCPColorMap* self, QMouseEvent* event, const QV
 }
 
 // Base class handler implementation
-void QCPColorMap_QBaseMousePressEvent(QCPColorMap* self, QMouseEvent* event, const QVariant* details) {
+void QCPColorMap_SuperMousePressEvent(QCPColorMap* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_MousePressEvent_IsBase(true);
@@ -41614,7 +41614,7 @@ void QCPColorMap_MouseMoveEvent(QCPColorMap* self, QMouseEvent* event, const QPo
 }
 
 // Base class handler implementation
-void QCPColorMap_QBaseMouseMoveEvent(QCPColorMap* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPColorMap_SuperMouseMoveEvent(QCPColorMap* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_MouseMoveEvent_IsBase(true);
@@ -41643,7 +41643,7 @@ void QCPColorMap_MouseReleaseEvent(QCPColorMap* self, QMouseEvent* event, const 
 }
 
 // Base class handler implementation
-void QCPColorMap_QBaseMouseReleaseEvent(QCPColorMap* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPColorMap_SuperMouseReleaseEvent(QCPColorMap* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_MouseReleaseEvent_IsBase(true);
@@ -41672,7 +41672,7 @@ void QCPColorMap_MouseDoubleClickEvent(QCPColorMap* self, QMouseEvent* event, co
 }
 
 // Base class handler implementation
-void QCPColorMap_QBaseMouseDoubleClickEvent(QCPColorMap* self, QMouseEvent* event, const QVariant* details) {
+void QCPColorMap_SuperMouseDoubleClickEvent(QCPColorMap* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_MouseDoubleClickEvent_IsBase(true);
@@ -41701,7 +41701,7 @@ void QCPColorMap_WheelEvent(QCPColorMap* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPColorMap_QBaseWheelEvent(QCPColorMap* self, QWheelEvent* event) {
+void QCPColorMap_SuperWheelEvent(QCPColorMap* self, QWheelEvent* event) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_WheelEvent_IsBase(true);
@@ -41730,7 +41730,7 @@ bool QCPColorMap_Event(QCPColorMap* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPColorMap_QBaseEvent(QCPColorMap* self, QEvent* event) {
+bool QCPColorMap_SuperEvent(QCPColorMap* self, QEvent* event) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_Event_IsBase(true);
@@ -41759,7 +41759,7 @@ bool QCPColorMap_EventFilter(QCPColorMap* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QCPColorMap_QBaseEventFilter(QCPColorMap* self, QObject* watched, QEvent* event) {
+bool QCPColorMap_SuperEventFilter(QCPColorMap* self, QObject* watched, QEvent* event) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_EventFilter_IsBase(true);
@@ -41788,7 +41788,7 @@ void QCPColorMap_TimerEvent(QCPColorMap* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPColorMap_QBaseTimerEvent(QCPColorMap* self, QTimerEvent* event) {
+void QCPColorMap_SuperTimerEvent(QCPColorMap* self, QTimerEvent* event) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_TimerEvent_IsBase(true);
@@ -41817,7 +41817,7 @@ void QCPColorMap_ChildEvent(QCPColorMap* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPColorMap_QBaseChildEvent(QCPColorMap* self, QChildEvent* event) {
+void QCPColorMap_SuperChildEvent(QCPColorMap* self, QChildEvent* event) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_ChildEvent_IsBase(true);
@@ -41846,7 +41846,7 @@ void QCPColorMap_CustomEvent(QCPColorMap* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPColorMap_QBaseCustomEvent(QCPColorMap* self, QEvent* event) {
+void QCPColorMap_SuperCustomEvent(QCPColorMap* self, QEvent* event) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_CustomEvent_IsBase(true);
@@ -41875,7 +41875,7 @@ void QCPColorMap_ConnectNotify(QCPColorMap* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPColorMap_QBaseConnectNotify(QCPColorMap* self, const QMetaMethod* signal) {
+void QCPColorMap_SuperConnectNotify(QCPColorMap* self, const QMetaMethod* signal) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_ConnectNotify_IsBase(true);
@@ -41904,7 +41904,7 @@ void QCPColorMap_DisconnectNotify(QCPColorMap* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QCPColorMap_QBaseDisconnectNotify(QCPColorMap* self, const QMetaMethod* signal) {
+void QCPColorMap_SuperDisconnectNotify(QCPColorMap* self, const QMetaMethod* signal) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_DisconnectNotify_IsBase(true);
@@ -41933,7 +41933,7 @@ void QCPColorMap_ApplyFillAntialiasingHint(const QCPColorMap* self, QCPPainter* 
 }
 
 // Base class handler implementation
-void QCPColorMap_QBaseApplyFillAntialiasingHint(const QCPColorMap* self, QCPPainter* painter) {
+void QCPColorMap_SuperApplyFillAntialiasingHint(const QCPColorMap* self, QCPPainter* painter) {
     auto* vqcpcolormap = const_cast<VirtualQCPColorMap*>(dynamic_cast<const VirtualQCPColorMap*>(self));
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_ApplyFillAntialiasingHint_IsBase(true);
@@ -41962,7 +41962,7 @@ void QCPColorMap_ApplyScattersAntialiasingHint(const QCPColorMap* self, QCPPaint
 }
 
 // Base class handler implementation
-void QCPColorMap_QBaseApplyScattersAntialiasingHint(const QCPColorMap* self, QCPPainter* painter) {
+void QCPColorMap_SuperApplyScattersAntialiasingHint(const QCPColorMap* self, QCPPainter* painter) {
     auto* vqcpcolormap = const_cast<VirtualQCPColorMap*>(dynamic_cast<const VirtualQCPColorMap*>(self));
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_ApplyScattersAntialiasingHint_IsBase(true);
@@ -41991,7 +41991,7 @@ void QCPColorMap_InitializeParentPlot(QCPColorMap* self, QCustomPlot* parentPlot
 }
 
 // Base class handler implementation
-void QCPColorMap_QBaseInitializeParentPlot(QCPColorMap* self, QCustomPlot* parentPlot) {
+void QCPColorMap_SuperInitializeParentPlot(QCPColorMap* self, QCustomPlot* parentPlot) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_InitializeParentPlot_IsBase(true);
@@ -42020,7 +42020,7 @@ void QCPColorMap_SetParentLayerable(QCPColorMap* self, QCPLayerable* parentLayer
 }
 
 // Base class handler implementation
-void QCPColorMap_QBaseSetParentLayerable(QCPColorMap* self, QCPLayerable* parentLayerable) {
+void QCPColorMap_SuperSetParentLayerable(QCPColorMap* self, QCPLayerable* parentLayerable) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_SetParentLayerable_IsBase(true);
@@ -42049,7 +42049,7 @@ bool QCPColorMap_MoveToLayer(QCPColorMap* self, QCPLayer* layer, bool prepend) {
 }
 
 // Base class handler implementation
-bool QCPColorMap_QBaseMoveToLayer(QCPColorMap* self, QCPLayer* layer, bool prepend) {
+bool QCPColorMap_SuperMoveToLayer(QCPColorMap* self, QCPLayer* layer, bool prepend) {
     auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_MoveToLayer_IsBase(true);
@@ -42078,7 +42078,7 @@ void QCPColorMap_ApplyAntialiasingHint(const QCPColorMap* self, QCPPainter* pain
 }
 
 // Base class handler implementation
-void QCPColorMap_QBaseApplyAntialiasingHint(const QCPColorMap* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPColorMap_SuperApplyAntialiasingHint(const QCPColorMap* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpcolormap = const_cast<VirtualQCPColorMap*>(dynamic_cast<const VirtualQCPColorMap*>(self));
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_ApplyAntialiasingHint_IsBase(true);
@@ -42107,7 +42107,7 @@ QObject* QCPColorMap_Sender(const QCPColorMap* self) {
 }
 
 // Base class handler implementation
-QObject* QCPColorMap_QBaseSender(const QCPColorMap* self) {
+QObject* QCPColorMap_SuperSender(const QCPColorMap* self) {
     auto* vqcpcolormap = const_cast<VirtualQCPColorMap*>(dynamic_cast<const VirtualQCPColorMap*>(self));
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_Sender_IsBase(true);
@@ -42136,7 +42136,7 @@ int QCPColorMap_SenderSignalIndex(const QCPColorMap* self) {
 }
 
 // Base class handler implementation
-int QCPColorMap_QBaseSenderSignalIndex(const QCPColorMap* self) {
+int QCPColorMap_SuperSenderSignalIndex(const QCPColorMap* self) {
     auto* vqcpcolormap = const_cast<VirtualQCPColorMap*>(dynamic_cast<const VirtualQCPColorMap*>(self));
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_SenderSignalIndex_IsBase(true);
@@ -42165,7 +42165,7 @@ int QCPColorMap_Receivers(const QCPColorMap* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPColorMap_QBaseReceivers(const QCPColorMap* self, const char* signal) {
+int QCPColorMap_SuperReceivers(const QCPColorMap* self, const char* signal) {
     auto* vqcpcolormap = const_cast<VirtualQCPColorMap*>(dynamic_cast<const VirtualQCPColorMap*>(self));
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_Receivers_IsBase(true);
@@ -42194,7 +42194,7 @@ bool QCPColorMap_IsSignalConnected(const QCPColorMap* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QCPColorMap_QBaseIsSignalConnected(const QCPColorMap* self, const QMetaMethod* signal) {
+bool QCPColorMap_SuperIsSignalConnected(const QCPColorMap* self, const QMetaMethod* signal) {
     auto* vqcpcolormap = const_cast<VirtualQCPColorMap*>(dynamic_cast<const VirtualQCPColorMap*>(self));
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->setQCPColorMap_IsSignalConnected_IsBase(true);
@@ -42598,7 +42598,7 @@ void QCPFinancial_AddData6(QCPFinancial* self, const libqt_list /* of double */ 
 }
 
 // Base class handler implementation
-QMetaObject* QCPFinancial_QBaseMetaObject(const QCPFinancial* self) {
+QMetaObject* QCPFinancial_SuperMetaObject(const QCPFinancial* self) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_MetaObject_IsBase(true);
@@ -42617,7 +42617,7 @@ void QCPFinancial_OnMetaObject(const QCPFinancial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPFinancial_QBaseMetacast(QCPFinancial* self, const char* param1) {
+void* QCPFinancial_SuperMetacast(QCPFinancial* self, const char* param1) {
     auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_Metacast_IsBase(true);
@@ -42636,7 +42636,7 @@ void QCPFinancial_OnMetacast(QCPFinancial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPFinancial_QBaseMetacall(QCPFinancial* self, int param1, int param2, void** param3) {
+int QCPFinancial_SuperMetacall(QCPFinancial* self, int param1, int param2, void** param3) {
     auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_Metacall_IsBase(true);
@@ -42655,7 +42655,7 @@ void QCPFinancial_OnMetacall(QCPFinancial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPDataSelection* QCPFinancial_QBaseSelectTestRect(const QCPFinancial* self, const QRectF* rect, bool onlySelectable) {
+QCPDataSelection* QCPFinancial_SuperSelectTestRect(const QCPFinancial* self, const QRectF* rect, bool onlySelectable) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_SelectTestRect_IsBase(true);
@@ -42674,7 +42674,7 @@ void QCPFinancial_OnSelectTestRect(const QCPFinancial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPFinancial_QBaseSelectTest(const QCPFinancial* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPFinancial_SuperSelectTest(const QCPFinancial* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_SelectTest_IsBase(true);
@@ -42693,7 +42693,7 @@ void QCPFinancial_OnSelectTest(const QCPFinancial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPRange* QCPFinancial_QBaseGetKeyRange(const QCPFinancial* self, bool* foundRange, int inSignDomain) {
+QCPRange* QCPFinancial_SuperGetKeyRange(const QCPFinancial* self, bool* foundRange, int inSignDomain) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_GetKeyRange_IsBase(true);
@@ -42712,7 +42712,7 @@ void QCPFinancial_OnGetKeyRange(const QCPFinancial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPRange* QCPFinancial_QBaseGetValueRange(const QCPFinancial* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
+QCPRange* QCPFinancial_SuperGetValueRange(const QCPFinancial* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_GetValueRange_IsBase(true);
@@ -42731,7 +42731,7 @@ void QCPFinancial_OnGetValueRange(const QCPFinancial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPFinancial_QBaseDraw(QCPFinancial* self, QCPPainter* painter) {
+void QCPFinancial_SuperDraw(QCPFinancial* self, QCPPainter* painter) {
     auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_Draw_IsBase(true);
@@ -42750,7 +42750,7 @@ void QCPFinancial_OnDraw(QCPFinancial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPFinancial_QBaseDrawLegendIcon(const QCPFinancial* self, QCPPainter* painter, const QRectF* rect) {
+void QCPFinancial_SuperDrawLegendIcon(const QCPFinancial* self, QCPPainter* painter, const QRectF* rect) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_DrawLegendIcon_IsBase(true);
@@ -42779,7 +42779,7 @@ int QCPFinancial_DataCount(const QCPFinancial* self) {
 }
 
 // Base class handler implementation
-int QCPFinancial_QBaseDataCount(const QCPFinancial* self) {
+int QCPFinancial_SuperDataCount(const QCPFinancial* self) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_DataCount_IsBase(true);
@@ -42808,7 +42808,7 @@ double QCPFinancial_DataMainKey(const QCPFinancial* self, int index) {
 }
 
 // Base class handler implementation
-double QCPFinancial_QBaseDataMainKey(const QCPFinancial* self, int index) {
+double QCPFinancial_SuperDataMainKey(const QCPFinancial* self, int index) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_DataMainKey_IsBase(true);
@@ -42837,7 +42837,7 @@ double QCPFinancial_DataSortKey(const QCPFinancial* self, int index) {
 }
 
 // Base class handler implementation
-double QCPFinancial_QBaseDataSortKey(const QCPFinancial* self, int index) {
+double QCPFinancial_SuperDataSortKey(const QCPFinancial* self, int index) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_DataSortKey_IsBase(true);
@@ -42866,7 +42866,7 @@ double QCPFinancial_DataMainValue(const QCPFinancial* self, int index) {
 }
 
 // Base class handler implementation
-double QCPFinancial_QBaseDataMainValue(const QCPFinancial* self, int index) {
+double QCPFinancial_SuperDataMainValue(const QCPFinancial* self, int index) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_DataMainValue_IsBase(true);
@@ -42895,7 +42895,7 @@ QCPRange* QCPFinancial_DataValueRange(const QCPFinancial* self, int index) {
 }
 
 // Base class handler implementation
-QCPRange* QCPFinancial_QBaseDataValueRange(const QCPFinancial* self, int index) {
+QCPRange* QCPFinancial_SuperDataValueRange(const QCPFinancial* self, int index) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_DataValueRange_IsBase(true);
@@ -42924,7 +42924,7 @@ QPointF* QCPFinancial_DataPixelPosition(const QCPFinancial* self, int index) {
 }
 
 // Base class handler implementation
-QPointF* QCPFinancial_QBaseDataPixelPosition(const QCPFinancial* self, int index) {
+QPointF* QCPFinancial_SuperDataPixelPosition(const QCPFinancial* self, int index) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_DataPixelPosition_IsBase(true);
@@ -42953,7 +42953,7 @@ bool QCPFinancial_SortKeyIsMainKey(const QCPFinancial* self) {
 }
 
 // Base class handler implementation
-bool QCPFinancial_QBaseSortKeyIsMainKey(const QCPFinancial* self) {
+bool QCPFinancial_SuperSortKeyIsMainKey(const QCPFinancial* self) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_SortKeyIsMainKey_IsBase(true);
@@ -42982,7 +42982,7 @@ int QCPFinancial_FindBegin(const QCPFinancial* self, double sortKey, bool expand
 }
 
 // Base class handler implementation
-int QCPFinancial_QBaseFindBegin(const QCPFinancial* self, double sortKey, bool expandedRange) {
+int QCPFinancial_SuperFindBegin(const QCPFinancial* self, double sortKey, bool expandedRange) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_FindBegin_IsBase(true);
@@ -43011,7 +43011,7 @@ int QCPFinancial_FindEnd(const QCPFinancial* self, double sortKey, bool expanded
 }
 
 // Base class handler implementation
-int QCPFinancial_QBaseFindEnd(const QCPFinancial* self, double sortKey, bool expandedRange) {
+int QCPFinancial_SuperFindEnd(const QCPFinancial* self, double sortKey, bool expandedRange) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_FindEnd_IsBase(true);
@@ -43040,7 +43040,7 @@ QCPPlottableInterface1D* QCPFinancial_Interface1D(QCPFinancial* self) {
 }
 
 // Base class handler implementation
-QCPPlottableInterface1D* QCPFinancial_QBaseInterface1D(QCPFinancial* self) {
+QCPPlottableInterface1D* QCPFinancial_SuperInterface1D(QCPFinancial* self) {
     auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_Interface1D_IsBase(true);
@@ -43068,7 +43068,7 @@ QRect* QCPFinancial_ClipRect(const QCPFinancial* self) {
 }
 
 // Base class handler implementation
-QRect* QCPFinancial_QBaseClipRect(const QCPFinancial* self) {
+QRect* QCPFinancial_SuperClipRect(const QCPFinancial* self) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_ClipRect_IsBase(true);
@@ -43096,7 +43096,7 @@ int QCPFinancial_SelectionCategory(const QCPFinancial* self) {
 }
 
 // Base class handler implementation
-int QCPFinancial_QBaseSelectionCategory(const QCPFinancial* self) {
+int QCPFinancial_SuperSelectionCategory(const QCPFinancial* self) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_SelectionCategory_IsBase(true);
@@ -43125,7 +43125,7 @@ void QCPFinancial_ApplyDefaultAntialiasingHint(const QCPFinancial* self, QCPPain
 }
 
 // Base class handler implementation
-void QCPFinancial_QBaseApplyDefaultAntialiasingHint(const QCPFinancial* self, QCPPainter* painter) {
+void QCPFinancial_SuperApplyDefaultAntialiasingHint(const QCPFinancial* self, QCPPainter* painter) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -43154,7 +43154,7 @@ void QCPFinancial_SelectEvent(QCPFinancial* self, QMouseEvent* event, bool addit
 }
 
 // Base class handler implementation
-void QCPFinancial_QBaseSelectEvent(QCPFinancial* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPFinancial_SuperSelectEvent(QCPFinancial* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_SelectEvent_IsBase(true);
@@ -43183,7 +43183,7 @@ void QCPFinancial_DeselectEvent(QCPFinancial* self, bool* selectionStateChanged)
 }
 
 // Base class handler implementation
-void QCPFinancial_QBaseDeselectEvent(QCPFinancial* self, bool* selectionStateChanged) {
+void QCPFinancial_SuperDeselectEvent(QCPFinancial* self, bool* selectionStateChanged) {
     auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_DeselectEvent_IsBase(true);
@@ -43212,7 +43212,7 @@ void QCPFinancial_ParentPlotInitialized(QCPFinancial* self, QCustomPlot* parentP
 }
 
 // Base class handler implementation
-void QCPFinancial_QBaseParentPlotInitialized(QCPFinancial* self, QCustomPlot* parentPlot) {
+void QCPFinancial_SuperParentPlotInitialized(QCPFinancial* self, QCustomPlot* parentPlot) {
     auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_ParentPlotInitialized_IsBase(true);
@@ -43241,7 +43241,7 @@ void QCPFinancial_MousePressEvent(QCPFinancial* self, QMouseEvent* event, const 
 }
 
 // Base class handler implementation
-void QCPFinancial_QBaseMousePressEvent(QCPFinancial* self, QMouseEvent* event, const QVariant* details) {
+void QCPFinancial_SuperMousePressEvent(QCPFinancial* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_MousePressEvent_IsBase(true);
@@ -43270,7 +43270,7 @@ void QCPFinancial_MouseMoveEvent(QCPFinancial* self, QMouseEvent* event, const Q
 }
 
 // Base class handler implementation
-void QCPFinancial_QBaseMouseMoveEvent(QCPFinancial* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPFinancial_SuperMouseMoveEvent(QCPFinancial* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_MouseMoveEvent_IsBase(true);
@@ -43299,7 +43299,7 @@ void QCPFinancial_MouseReleaseEvent(QCPFinancial* self, QMouseEvent* event, cons
 }
 
 // Base class handler implementation
-void QCPFinancial_QBaseMouseReleaseEvent(QCPFinancial* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPFinancial_SuperMouseReleaseEvent(QCPFinancial* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_MouseReleaseEvent_IsBase(true);
@@ -43328,7 +43328,7 @@ void QCPFinancial_MouseDoubleClickEvent(QCPFinancial* self, QMouseEvent* event, 
 }
 
 // Base class handler implementation
-void QCPFinancial_QBaseMouseDoubleClickEvent(QCPFinancial* self, QMouseEvent* event, const QVariant* details) {
+void QCPFinancial_SuperMouseDoubleClickEvent(QCPFinancial* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_MouseDoubleClickEvent_IsBase(true);
@@ -43357,7 +43357,7 @@ void QCPFinancial_WheelEvent(QCPFinancial* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPFinancial_QBaseWheelEvent(QCPFinancial* self, QWheelEvent* event) {
+void QCPFinancial_SuperWheelEvent(QCPFinancial* self, QWheelEvent* event) {
     auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_WheelEvent_IsBase(true);
@@ -43386,7 +43386,7 @@ bool QCPFinancial_Event(QCPFinancial* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPFinancial_QBaseEvent(QCPFinancial* self, QEvent* event) {
+bool QCPFinancial_SuperEvent(QCPFinancial* self, QEvent* event) {
     auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_Event_IsBase(true);
@@ -43415,7 +43415,7 @@ bool QCPFinancial_EventFilter(QCPFinancial* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool QCPFinancial_QBaseEventFilter(QCPFinancial* self, QObject* watched, QEvent* event) {
+bool QCPFinancial_SuperEventFilter(QCPFinancial* self, QObject* watched, QEvent* event) {
     auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_EventFilter_IsBase(true);
@@ -43444,7 +43444,7 @@ void QCPFinancial_TimerEvent(QCPFinancial* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPFinancial_QBaseTimerEvent(QCPFinancial* self, QTimerEvent* event) {
+void QCPFinancial_SuperTimerEvent(QCPFinancial* self, QTimerEvent* event) {
     auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_TimerEvent_IsBase(true);
@@ -43473,7 +43473,7 @@ void QCPFinancial_ChildEvent(QCPFinancial* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPFinancial_QBaseChildEvent(QCPFinancial* self, QChildEvent* event) {
+void QCPFinancial_SuperChildEvent(QCPFinancial* self, QChildEvent* event) {
     auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_ChildEvent_IsBase(true);
@@ -43502,7 +43502,7 @@ void QCPFinancial_CustomEvent(QCPFinancial* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPFinancial_QBaseCustomEvent(QCPFinancial* self, QEvent* event) {
+void QCPFinancial_SuperCustomEvent(QCPFinancial* self, QEvent* event) {
     auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_CustomEvent_IsBase(true);
@@ -43531,7 +43531,7 @@ void QCPFinancial_ConnectNotify(QCPFinancial* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPFinancial_QBaseConnectNotify(QCPFinancial* self, const QMetaMethod* signal) {
+void QCPFinancial_SuperConnectNotify(QCPFinancial* self, const QMetaMethod* signal) {
     auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_ConnectNotify_IsBase(true);
@@ -43560,7 +43560,7 @@ void QCPFinancial_DisconnectNotify(QCPFinancial* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QCPFinancial_QBaseDisconnectNotify(QCPFinancial* self, const QMetaMethod* signal) {
+void QCPFinancial_SuperDisconnectNotify(QCPFinancial* self, const QMetaMethod* signal) {
     auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_DisconnectNotify_IsBase(true);
@@ -43589,7 +43589,7 @@ double QCPFinancial_GetPixelWidth(const QCPFinancial* self, double key, double k
 }
 
 // Base class handler implementation
-double QCPFinancial_QBaseGetPixelWidth(const QCPFinancial* self, double key, double keyPixel) {
+double QCPFinancial_SuperGetPixelWidth(const QCPFinancial* self, double key, double keyPixel) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_GetPixelWidth_IsBase(true);
@@ -43618,7 +43618,7 @@ void QCPFinancial_ApplyFillAntialiasingHint(const QCPFinancial* self, QCPPainter
 }
 
 // Base class handler implementation
-void QCPFinancial_QBaseApplyFillAntialiasingHint(const QCPFinancial* self, QCPPainter* painter) {
+void QCPFinancial_SuperApplyFillAntialiasingHint(const QCPFinancial* self, QCPPainter* painter) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_ApplyFillAntialiasingHint_IsBase(true);
@@ -43647,7 +43647,7 @@ void QCPFinancial_ApplyScattersAntialiasingHint(const QCPFinancial* self, QCPPai
 }
 
 // Base class handler implementation
-void QCPFinancial_QBaseApplyScattersAntialiasingHint(const QCPFinancial* self, QCPPainter* painter) {
+void QCPFinancial_SuperApplyScattersAntialiasingHint(const QCPFinancial* self, QCPPainter* painter) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_ApplyScattersAntialiasingHint_IsBase(true);
@@ -43676,7 +43676,7 @@ void QCPFinancial_InitializeParentPlot(QCPFinancial* self, QCustomPlot* parentPl
 }
 
 // Base class handler implementation
-void QCPFinancial_QBaseInitializeParentPlot(QCPFinancial* self, QCustomPlot* parentPlot) {
+void QCPFinancial_SuperInitializeParentPlot(QCPFinancial* self, QCustomPlot* parentPlot) {
     auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_InitializeParentPlot_IsBase(true);
@@ -43705,7 +43705,7 @@ void QCPFinancial_SetParentLayerable(QCPFinancial* self, QCPLayerable* parentLay
 }
 
 // Base class handler implementation
-void QCPFinancial_QBaseSetParentLayerable(QCPFinancial* self, QCPLayerable* parentLayerable) {
+void QCPFinancial_SuperSetParentLayerable(QCPFinancial* self, QCPLayerable* parentLayerable) {
     auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_SetParentLayerable_IsBase(true);
@@ -43734,7 +43734,7 @@ bool QCPFinancial_MoveToLayer(QCPFinancial* self, QCPLayer* layer, bool prepend)
 }
 
 // Base class handler implementation
-bool QCPFinancial_QBaseMoveToLayer(QCPFinancial* self, QCPLayer* layer, bool prepend) {
+bool QCPFinancial_SuperMoveToLayer(QCPFinancial* self, QCPLayer* layer, bool prepend) {
     auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_MoveToLayer_IsBase(true);
@@ -43763,7 +43763,7 @@ void QCPFinancial_ApplyAntialiasingHint(const QCPFinancial* self, QCPPainter* pa
 }
 
 // Base class handler implementation
-void QCPFinancial_QBaseApplyAntialiasingHint(const QCPFinancial* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPFinancial_SuperApplyAntialiasingHint(const QCPFinancial* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_ApplyAntialiasingHint_IsBase(true);
@@ -43792,7 +43792,7 @@ QObject* QCPFinancial_Sender(const QCPFinancial* self) {
 }
 
 // Base class handler implementation
-QObject* QCPFinancial_QBaseSender(const QCPFinancial* self) {
+QObject* QCPFinancial_SuperSender(const QCPFinancial* self) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_Sender_IsBase(true);
@@ -43821,7 +43821,7 @@ int QCPFinancial_SenderSignalIndex(const QCPFinancial* self) {
 }
 
 // Base class handler implementation
-int QCPFinancial_QBaseSenderSignalIndex(const QCPFinancial* self) {
+int QCPFinancial_SuperSenderSignalIndex(const QCPFinancial* self) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_SenderSignalIndex_IsBase(true);
@@ -43850,7 +43850,7 @@ int QCPFinancial_Receivers(const QCPFinancial* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPFinancial_QBaseReceivers(const QCPFinancial* self, const char* signal) {
+int QCPFinancial_SuperReceivers(const QCPFinancial* self, const char* signal) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_Receivers_IsBase(true);
@@ -43879,7 +43879,7 @@ bool QCPFinancial_IsSignalConnected(const QCPFinancial* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QCPFinancial_QBaseIsSignalConnected(const QCPFinancial* self, const QMetaMethod* signal) {
+bool QCPFinancial_SuperIsSignalConnected(const QCPFinancial* self, const QMetaMethod* signal) {
     auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->setQCPFinancial_IsSignalConnected_IsBase(true);
@@ -44215,7 +44215,7 @@ QCPRange* QCPErrorBars_GetValueRange(const QCPErrorBars* self, bool* foundRange,
 }
 
 // Base class handler implementation
-QMetaObject* QCPErrorBars_QBaseMetaObject(const QCPErrorBars* self) {
+QMetaObject* QCPErrorBars_SuperMetaObject(const QCPErrorBars* self) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_MetaObject_IsBase(true);
@@ -44234,7 +44234,7 @@ void QCPErrorBars_OnMetaObject(const QCPErrorBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPErrorBars_QBaseMetacast(QCPErrorBars* self, const char* param1) {
+void* QCPErrorBars_SuperMetacast(QCPErrorBars* self, const char* param1) {
     auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_Metacast_IsBase(true);
@@ -44253,7 +44253,7 @@ void QCPErrorBars_OnMetacast(QCPErrorBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPErrorBars_QBaseMetacall(QCPErrorBars* self, int param1, int param2, void** param3) {
+int QCPErrorBars_SuperMetacall(QCPErrorBars* self, int param1, int param2, void** param3) {
     auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_Metacall_IsBase(true);
@@ -44272,7 +44272,7 @@ void QCPErrorBars_OnMetacall(QCPErrorBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPErrorBars_QBaseDataCount(const QCPErrorBars* self) {
+int QCPErrorBars_SuperDataCount(const QCPErrorBars* self) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_DataCount_IsBase(true);
@@ -44291,7 +44291,7 @@ void QCPErrorBars_OnDataCount(const QCPErrorBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPErrorBars_QBaseDataMainKey(const QCPErrorBars* self, int index) {
+double QCPErrorBars_SuperDataMainKey(const QCPErrorBars* self, int index) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_DataMainKey_IsBase(true);
@@ -44310,7 +44310,7 @@ void QCPErrorBars_OnDataMainKey(const QCPErrorBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPErrorBars_QBaseDataSortKey(const QCPErrorBars* self, int index) {
+double QCPErrorBars_SuperDataSortKey(const QCPErrorBars* self, int index) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_DataSortKey_IsBase(true);
@@ -44329,7 +44329,7 @@ void QCPErrorBars_OnDataSortKey(const QCPErrorBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPErrorBars_QBaseDataMainValue(const QCPErrorBars* self, int index) {
+double QCPErrorBars_SuperDataMainValue(const QCPErrorBars* self, int index) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_DataMainValue_IsBase(true);
@@ -44348,7 +44348,7 @@ void QCPErrorBars_OnDataMainValue(const QCPErrorBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPRange* QCPErrorBars_QBaseDataValueRange(const QCPErrorBars* self, int index) {
+QCPRange* QCPErrorBars_SuperDataValueRange(const QCPErrorBars* self, int index) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_DataValueRange_IsBase(true);
@@ -44367,7 +44367,7 @@ void QCPErrorBars_OnDataValueRange(const QCPErrorBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPointF* QCPErrorBars_QBaseDataPixelPosition(const QCPErrorBars* self, int index) {
+QPointF* QCPErrorBars_SuperDataPixelPosition(const QCPErrorBars* self, int index) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_DataPixelPosition_IsBase(true);
@@ -44386,7 +44386,7 @@ void QCPErrorBars_OnDataPixelPosition(const QCPErrorBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QCPErrorBars_QBaseSortKeyIsMainKey(const QCPErrorBars* self) {
+bool QCPErrorBars_SuperSortKeyIsMainKey(const QCPErrorBars* self) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_SortKeyIsMainKey_IsBase(true);
@@ -44405,7 +44405,7 @@ void QCPErrorBars_OnSortKeyIsMainKey(const QCPErrorBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPDataSelection* QCPErrorBars_QBaseSelectTestRect(const QCPErrorBars* self, const QRectF* rect, bool onlySelectable) {
+QCPDataSelection* QCPErrorBars_SuperSelectTestRect(const QCPErrorBars* self, const QRectF* rect, bool onlySelectable) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_SelectTestRect_IsBase(true);
@@ -44424,7 +44424,7 @@ void QCPErrorBars_OnSelectTestRect(const QCPErrorBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPErrorBars_QBaseFindBegin(const QCPErrorBars* self, double sortKey, bool expandedRange) {
+int QCPErrorBars_SuperFindBegin(const QCPErrorBars* self, double sortKey, bool expandedRange) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_FindBegin_IsBase(true);
@@ -44443,7 +44443,7 @@ void QCPErrorBars_OnFindBegin(const QCPErrorBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPErrorBars_QBaseFindEnd(const QCPErrorBars* self, double sortKey, bool expandedRange) {
+int QCPErrorBars_SuperFindEnd(const QCPErrorBars* self, double sortKey, bool expandedRange) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_FindEnd_IsBase(true);
@@ -44462,7 +44462,7 @@ void QCPErrorBars_OnFindEnd(const QCPErrorBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPErrorBars_QBaseSelectTest(const QCPErrorBars* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPErrorBars_SuperSelectTest(const QCPErrorBars* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_SelectTest_IsBase(true);
@@ -44481,7 +44481,7 @@ void QCPErrorBars_OnSelectTest(const QCPErrorBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPPlottableInterface1D* QCPErrorBars_QBaseInterface1D(QCPErrorBars* self) {
+QCPPlottableInterface1D* QCPErrorBars_SuperInterface1D(QCPErrorBars* self) {
     auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_Interface1D_IsBase(true);
@@ -44500,7 +44500,7 @@ void QCPErrorBars_OnInterface1D(QCPErrorBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPErrorBars_QBaseDraw(QCPErrorBars* self, QCPPainter* painter) {
+void QCPErrorBars_SuperDraw(QCPErrorBars* self, QCPPainter* painter) {
     auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_Draw_IsBase(true);
@@ -44519,7 +44519,7 @@ void QCPErrorBars_OnDraw(QCPErrorBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPErrorBars_QBaseDrawLegendIcon(const QCPErrorBars* self, QCPPainter* painter, const QRectF* rect) {
+void QCPErrorBars_SuperDrawLegendIcon(const QCPErrorBars* self, QCPPainter* painter, const QRectF* rect) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_DrawLegendIcon_IsBase(true);
@@ -44538,7 +44538,7 @@ void QCPErrorBars_OnDrawLegendIcon(const QCPErrorBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPRange* QCPErrorBars_QBaseGetKeyRange(const QCPErrorBars* self, bool* foundRange, int inSignDomain) {
+QCPRange* QCPErrorBars_SuperGetKeyRange(const QCPErrorBars* self, bool* foundRange, int inSignDomain) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_GetKeyRange_IsBase(true);
@@ -44556,7 +44556,7 @@ void QCPErrorBars_OnGetKeyRange(const QCPErrorBars* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPRange* QCPErrorBars_QBaseGetValueRange(const QCPErrorBars* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
+QCPRange* QCPErrorBars_SuperGetValueRange(const QCPErrorBars* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_GetValueRange_IsBase(true);
@@ -44583,7 +44583,7 @@ QRect* QCPErrorBars_ClipRect(const QCPErrorBars* self) {
 }
 
 // Base class handler implementation
-QRect* QCPErrorBars_QBaseClipRect(const QCPErrorBars* self) {
+QRect* QCPErrorBars_SuperClipRect(const QCPErrorBars* self) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_ClipRect_IsBase(true);
@@ -44611,7 +44611,7 @@ int QCPErrorBars_SelectionCategory(const QCPErrorBars* self) {
 }
 
 // Base class handler implementation
-int QCPErrorBars_QBaseSelectionCategory(const QCPErrorBars* self) {
+int QCPErrorBars_SuperSelectionCategory(const QCPErrorBars* self) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_SelectionCategory_IsBase(true);
@@ -44640,7 +44640,7 @@ void QCPErrorBars_ApplyDefaultAntialiasingHint(const QCPErrorBars* self, QCPPain
 }
 
 // Base class handler implementation
-void QCPErrorBars_QBaseApplyDefaultAntialiasingHint(const QCPErrorBars* self, QCPPainter* painter) {
+void QCPErrorBars_SuperApplyDefaultAntialiasingHint(const QCPErrorBars* self, QCPPainter* painter) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -44669,7 +44669,7 @@ void QCPErrorBars_SelectEvent(QCPErrorBars* self, QMouseEvent* event, bool addit
 }
 
 // Base class handler implementation
-void QCPErrorBars_QBaseSelectEvent(QCPErrorBars* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPErrorBars_SuperSelectEvent(QCPErrorBars* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_SelectEvent_IsBase(true);
@@ -44698,7 +44698,7 @@ void QCPErrorBars_DeselectEvent(QCPErrorBars* self, bool* selectionStateChanged)
 }
 
 // Base class handler implementation
-void QCPErrorBars_QBaseDeselectEvent(QCPErrorBars* self, bool* selectionStateChanged) {
+void QCPErrorBars_SuperDeselectEvent(QCPErrorBars* self, bool* selectionStateChanged) {
     auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_DeselectEvent_IsBase(true);
@@ -44727,7 +44727,7 @@ void QCPErrorBars_ParentPlotInitialized(QCPErrorBars* self, QCustomPlot* parentP
 }
 
 // Base class handler implementation
-void QCPErrorBars_QBaseParentPlotInitialized(QCPErrorBars* self, QCustomPlot* parentPlot) {
+void QCPErrorBars_SuperParentPlotInitialized(QCPErrorBars* self, QCustomPlot* parentPlot) {
     auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_ParentPlotInitialized_IsBase(true);
@@ -44756,7 +44756,7 @@ void QCPErrorBars_MousePressEvent(QCPErrorBars* self, QMouseEvent* event, const 
 }
 
 // Base class handler implementation
-void QCPErrorBars_QBaseMousePressEvent(QCPErrorBars* self, QMouseEvent* event, const QVariant* details) {
+void QCPErrorBars_SuperMousePressEvent(QCPErrorBars* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_MousePressEvent_IsBase(true);
@@ -44785,7 +44785,7 @@ void QCPErrorBars_MouseMoveEvent(QCPErrorBars* self, QMouseEvent* event, const Q
 }
 
 // Base class handler implementation
-void QCPErrorBars_QBaseMouseMoveEvent(QCPErrorBars* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPErrorBars_SuperMouseMoveEvent(QCPErrorBars* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_MouseMoveEvent_IsBase(true);
@@ -44814,7 +44814,7 @@ void QCPErrorBars_MouseReleaseEvent(QCPErrorBars* self, QMouseEvent* event, cons
 }
 
 // Base class handler implementation
-void QCPErrorBars_QBaseMouseReleaseEvent(QCPErrorBars* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPErrorBars_SuperMouseReleaseEvent(QCPErrorBars* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_MouseReleaseEvent_IsBase(true);
@@ -44843,7 +44843,7 @@ void QCPErrorBars_MouseDoubleClickEvent(QCPErrorBars* self, QMouseEvent* event, 
 }
 
 // Base class handler implementation
-void QCPErrorBars_QBaseMouseDoubleClickEvent(QCPErrorBars* self, QMouseEvent* event, const QVariant* details) {
+void QCPErrorBars_SuperMouseDoubleClickEvent(QCPErrorBars* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_MouseDoubleClickEvent_IsBase(true);
@@ -44872,7 +44872,7 @@ void QCPErrorBars_WheelEvent(QCPErrorBars* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPErrorBars_QBaseWheelEvent(QCPErrorBars* self, QWheelEvent* event) {
+void QCPErrorBars_SuperWheelEvent(QCPErrorBars* self, QWheelEvent* event) {
     auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_WheelEvent_IsBase(true);
@@ -44901,7 +44901,7 @@ bool QCPErrorBars_Event(QCPErrorBars* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPErrorBars_QBaseEvent(QCPErrorBars* self, QEvent* event) {
+bool QCPErrorBars_SuperEvent(QCPErrorBars* self, QEvent* event) {
     auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_Event_IsBase(true);
@@ -44930,7 +44930,7 @@ bool QCPErrorBars_EventFilter(QCPErrorBars* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool QCPErrorBars_QBaseEventFilter(QCPErrorBars* self, QObject* watched, QEvent* event) {
+bool QCPErrorBars_SuperEventFilter(QCPErrorBars* self, QObject* watched, QEvent* event) {
     auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_EventFilter_IsBase(true);
@@ -44959,7 +44959,7 @@ void QCPErrorBars_TimerEvent(QCPErrorBars* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPErrorBars_QBaseTimerEvent(QCPErrorBars* self, QTimerEvent* event) {
+void QCPErrorBars_SuperTimerEvent(QCPErrorBars* self, QTimerEvent* event) {
     auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_TimerEvent_IsBase(true);
@@ -44988,7 +44988,7 @@ void QCPErrorBars_ChildEvent(QCPErrorBars* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPErrorBars_QBaseChildEvent(QCPErrorBars* self, QChildEvent* event) {
+void QCPErrorBars_SuperChildEvent(QCPErrorBars* self, QChildEvent* event) {
     auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_ChildEvent_IsBase(true);
@@ -45017,7 +45017,7 @@ void QCPErrorBars_CustomEvent(QCPErrorBars* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPErrorBars_QBaseCustomEvent(QCPErrorBars* self, QEvent* event) {
+void QCPErrorBars_SuperCustomEvent(QCPErrorBars* self, QEvent* event) {
     auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_CustomEvent_IsBase(true);
@@ -45046,7 +45046,7 @@ void QCPErrorBars_ConnectNotify(QCPErrorBars* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPErrorBars_QBaseConnectNotify(QCPErrorBars* self, const QMetaMethod* signal) {
+void QCPErrorBars_SuperConnectNotify(QCPErrorBars* self, const QMetaMethod* signal) {
     auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_ConnectNotify_IsBase(true);
@@ -45075,7 +45075,7 @@ void QCPErrorBars_DisconnectNotify(QCPErrorBars* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QCPErrorBars_QBaseDisconnectNotify(QCPErrorBars* self, const QMetaMethod* signal) {
+void QCPErrorBars_SuperDisconnectNotify(QCPErrorBars* self, const QMetaMethod* signal) {
     auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_DisconnectNotify_IsBase(true);
@@ -45116,7 +45116,7 @@ void QCPErrorBars_GetDataSegments(const QCPErrorBars* self, libqt_list /* of QCP
 }
 
 // Base class handler implementation
-void QCPErrorBars_QBaseGetDataSegments(const QCPErrorBars* self, libqt_list /* of QCPDataRange* */ selectedSegments, libqt_list /* of QCPDataRange* */ unselectedSegments) {
+void QCPErrorBars_SuperGetDataSegments(const QCPErrorBars* self, libqt_list /* of QCPDataRange* */ selectedSegments, libqt_list /* of QCPDataRange* */ unselectedSegments) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     QList<QCPDataRange> selectedSegments_QList;
     selectedSegments_QList.reserve(selectedSegments.len);
@@ -45157,7 +45157,7 @@ bool QCPErrorBars_ErrorBarVisible(const QCPErrorBars* self, int index) {
 }
 
 // Base class handler implementation
-bool QCPErrorBars_QBaseErrorBarVisible(const QCPErrorBars* self, int index) {
+bool QCPErrorBars_SuperErrorBarVisible(const QCPErrorBars* self, int index) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_ErrorBarVisible_IsBase(true);
@@ -45186,7 +45186,7 @@ bool QCPErrorBars_RectIntersectsLine(const QCPErrorBars* self, const QRectF* pix
 }
 
 // Base class handler implementation
-bool QCPErrorBars_QBaseRectIntersectsLine(const QCPErrorBars* self, const QRectF* pixelRect, const QLineF* line) {
+bool QCPErrorBars_SuperRectIntersectsLine(const QCPErrorBars* self, const QRectF* pixelRect, const QLineF* line) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_RectIntersectsLine_IsBase(true);
@@ -45215,7 +45215,7 @@ void QCPErrorBars_ApplyFillAntialiasingHint(const QCPErrorBars* self, QCPPainter
 }
 
 // Base class handler implementation
-void QCPErrorBars_QBaseApplyFillAntialiasingHint(const QCPErrorBars* self, QCPPainter* painter) {
+void QCPErrorBars_SuperApplyFillAntialiasingHint(const QCPErrorBars* self, QCPPainter* painter) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_ApplyFillAntialiasingHint_IsBase(true);
@@ -45244,7 +45244,7 @@ void QCPErrorBars_ApplyScattersAntialiasingHint(const QCPErrorBars* self, QCPPai
 }
 
 // Base class handler implementation
-void QCPErrorBars_QBaseApplyScattersAntialiasingHint(const QCPErrorBars* self, QCPPainter* painter) {
+void QCPErrorBars_SuperApplyScattersAntialiasingHint(const QCPErrorBars* self, QCPPainter* painter) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_ApplyScattersAntialiasingHint_IsBase(true);
@@ -45273,7 +45273,7 @@ void QCPErrorBars_InitializeParentPlot(QCPErrorBars* self, QCustomPlot* parentPl
 }
 
 // Base class handler implementation
-void QCPErrorBars_QBaseInitializeParentPlot(QCPErrorBars* self, QCustomPlot* parentPlot) {
+void QCPErrorBars_SuperInitializeParentPlot(QCPErrorBars* self, QCustomPlot* parentPlot) {
     auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_InitializeParentPlot_IsBase(true);
@@ -45302,7 +45302,7 @@ void QCPErrorBars_SetParentLayerable(QCPErrorBars* self, QCPLayerable* parentLay
 }
 
 // Base class handler implementation
-void QCPErrorBars_QBaseSetParentLayerable(QCPErrorBars* self, QCPLayerable* parentLayerable) {
+void QCPErrorBars_SuperSetParentLayerable(QCPErrorBars* self, QCPLayerable* parentLayerable) {
     auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_SetParentLayerable_IsBase(true);
@@ -45331,7 +45331,7 @@ bool QCPErrorBars_MoveToLayer(QCPErrorBars* self, QCPLayer* layer, bool prepend)
 }
 
 // Base class handler implementation
-bool QCPErrorBars_QBaseMoveToLayer(QCPErrorBars* self, QCPLayer* layer, bool prepend) {
+bool QCPErrorBars_SuperMoveToLayer(QCPErrorBars* self, QCPLayer* layer, bool prepend) {
     auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_MoveToLayer_IsBase(true);
@@ -45360,7 +45360,7 @@ void QCPErrorBars_ApplyAntialiasingHint(const QCPErrorBars* self, QCPPainter* pa
 }
 
 // Base class handler implementation
-void QCPErrorBars_QBaseApplyAntialiasingHint(const QCPErrorBars* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPErrorBars_SuperApplyAntialiasingHint(const QCPErrorBars* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_ApplyAntialiasingHint_IsBase(true);
@@ -45389,7 +45389,7 @@ QObject* QCPErrorBars_Sender(const QCPErrorBars* self) {
 }
 
 // Base class handler implementation
-QObject* QCPErrorBars_QBaseSender(const QCPErrorBars* self) {
+QObject* QCPErrorBars_SuperSender(const QCPErrorBars* self) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_Sender_IsBase(true);
@@ -45418,7 +45418,7 @@ int QCPErrorBars_SenderSignalIndex(const QCPErrorBars* self) {
 }
 
 // Base class handler implementation
-int QCPErrorBars_QBaseSenderSignalIndex(const QCPErrorBars* self) {
+int QCPErrorBars_SuperSenderSignalIndex(const QCPErrorBars* self) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_SenderSignalIndex_IsBase(true);
@@ -45447,7 +45447,7 @@ int QCPErrorBars_Receivers(const QCPErrorBars* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPErrorBars_QBaseReceivers(const QCPErrorBars* self, const char* signal) {
+int QCPErrorBars_SuperReceivers(const QCPErrorBars* self, const char* signal) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_Receivers_IsBase(true);
@@ -45476,7 +45476,7 @@ bool QCPErrorBars_IsSignalConnected(const QCPErrorBars* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QCPErrorBars_QBaseIsSignalConnected(const QCPErrorBars* self, const QMetaMethod* signal) {
+bool QCPErrorBars_SuperIsSignalConnected(const QCPErrorBars* self, const QMetaMethod* signal) {
     auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
     if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
         vqcperrorbars->setQCPErrorBars_IsSignalConnected_IsBase(true);
@@ -45570,7 +45570,7 @@ void QCPItemStraightLine_Draw(QCPItemStraightLine* self, QCPPainter* painter) {
 }
 
 // Base class handler implementation
-QMetaObject* QCPItemStraightLine_QBaseMetaObject(const QCPItemStraightLine* self) {
+QMetaObject* QCPItemStraightLine_SuperMetaObject(const QCPItemStraightLine* self) {
     auto* vqcpitemstraightline = const_cast<VirtualQCPItemStraightLine*>(dynamic_cast<const VirtualQCPItemStraightLine*>(self));
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_MetaObject_IsBase(true);
@@ -45589,7 +45589,7 @@ void QCPItemStraightLine_OnMetaObject(const QCPItemStraightLine* self, intptr_t 
 }
 
 // Base class handler implementation
-void* QCPItemStraightLine_QBaseMetacast(QCPItemStraightLine* self, const char* param1) {
+void* QCPItemStraightLine_SuperMetacast(QCPItemStraightLine* self, const char* param1) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_Metacast_IsBase(true);
@@ -45608,7 +45608,7 @@ void QCPItemStraightLine_OnMetacast(QCPItemStraightLine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPItemStraightLine_QBaseMetacall(QCPItemStraightLine* self, int param1, int param2, void** param3) {
+int QCPItemStraightLine_SuperMetacall(QCPItemStraightLine* self, int param1, int param2, void** param3) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_Metacall_IsBase(true);
@@ -45627,7 +45627,7 @@ void QCPItemStraightLine_OnMetacall(QCPItemStraightLine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPItemStraightLine_QBaseSelectTest(const QCPItemStraightLine* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPItemStraightLine_SuperSelectTest(const QCPItemStraightLine* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpitemstraightline = const_cast<VirtualQCPItemStraightLine*>(dynamic_cast<const VirtualQCPItemStraightLine*>(self));
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_SelectTest_IsBase(true);
@@ -45646,7 +45646,7 @@ void QCPItemStraightLine_OnSelectTest(const QCPItemStraightLine* self, intptr_t 
 }
 
 // Base class handler implementation
-void QCPItemStraightLine_QBaseDraw(QCPItemStraightLine* self, QCPPainter* painter) {
+void QCPItemStraightLine_SuperDraw(QCPItemStraightLine* self, QCPPainter* painter) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_Draw_IsBase(true);
@@ -45675,7 +45675,7 @@ int QCPItemStraightLine_SelectionCategory(const QCPItemStraightLine* self) {
 }
 
 // Base class handler implementation
-int QCPItemStraightLine_QBaseSelectionCategory(const QCPItemStraightLine* self) {
+int QCPItemStraightLine_SuperSelectionCategory(const QCPItemStraightLine* self) {
     auto* vqcpitemstraightline = const_cast<VirtualQCPItemStraightLine*>(dynamic_cast<const VirtualQCPItemStraightLine*>(self));
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_SelectionCategory_IsBase(true);
@@ -45703,7 +45703,7 @@ QRect* QCPItemStraightLine_ClipRect(const QCPItemStraightLine* self) {
 }
 
 // Base class handler implementation
-QRect* QCPItemStraightLine_QBaseClipRect(const QCPItemStraightLine* self) {
+QRect* QCPItemStraightLine_SuperClipRect(const QCPItemStraightLine* self) {
     auto* vqcpitemstraightline = const_cast<VirtualQCPItemStraightLine*>(dynamic_cast<const VirtualQCPItemStraightLine*>(self));
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_ClipRect_IsBase(true);
@@ -45731,7 +45731,7 @@ void QCPItemStraightLine_ApplyDefaultAntialiasingHint(const QCPItemStraightLine*
 }
 
 // Base class handler implementation
-void QCPItemStraightLine_QBaseApplyDefaultAntialiasingHint(const QCPItemStraightLine* self, QCPPainter* painter) {
+void QCPItemStraightLine_SuperApplyDefaultAntialiasingHint(const QCPItemStraightLine* self, QCPPainter* painter) {
     auto* vqcpitemstraightline = const_cast<VirtualQCPItemStraightLine*>(dynamic_cast<const VirtualQCPItemStraightLine*>(self));
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -45760,7 +45760,7 @@ void QCPItemStraightLine_SelectEvent(QCPItemStraightLine* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void QCPItemStraightLine_QBaseSelectEvent(QCPItemStraightLine* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPItemStraightLine_SuperSelectEvent(QCPItemStraightLine* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_SelectEvent_IsBase(true);
@@ -45789,7 +45789,7 @@ void QCPItemStraightLine_DeselectEvent(QCPItemStraightLine* self, bool* selectio
 }
 
 // Base class handler implementation
-void QCPItemStraightLine_QBaseDeselectEvent(QCPItemStraightLine* self, bool* selectionStateChanged) {
+void QCPItemStraightLine_SuperDeselectEvent(QCPItemStraightLine* self, bool* selectionStateChanged) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_DeselectEvent_IsBase(true);
@@ -45817,7 +45817,7 @@ QPointF* QCPItemStraightLine_AnchorPixelPosition(const QCPItemStraightLine* self
 }
 
 // Base class handler implementation
-QPointF* QCPItemStraightLine_QBaseAnchorPixelPosition(const QCPItemStraightLine* self, int anchorId) {
+QPointF* QCPItemStraightLine_SuperAnchorPixelPosition(const QCPItemStraightLine* self, int anchorId) {
     auto* vqcpitemstraightline = const_cast<VirtualQCPItemStraightLine*>(dynamic_cast<const VirtualQCPItemStraightLine*>(self));
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_AnchorPixelPosition_IsBase(true);
@@ -45845,7 +45845,7 @@ void QCPItemStraightLine_ParentPlotInitialized(QCPItemStraightLine* self, QCusto
 }
 
 // Base class handler implementation
-void QCPItemStraightLine_QBaseParentPlotInitialized(QCPItemStraightLine* self, QCustomPlot* parentPlot) {
+void QCPItemStraightLine_SuperParentPlotInitialized(QCPItemStraightLine* self, QCustomPlot* parentPlot) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_ParentPlotInitialized_IsBase(true);
@@ -45874,7 +45874,7 @@ void QCPItemStraightLine_MousePressEvent(QCPItemStraightLine* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void QCPItemStraightLine_QBaseMousePressEvent(QCPItemStraightLine* self, QMouseEvent* event, const QVariant* details) {
+void QCPItemStraightLine_SuperMousePressEvent(QCPItemStraightLine* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_MousePressEvent_IsBase(true);
@@ -45903,7 +45903,7 @@ void QCPItemStraightLine_MouseMoveEvent(QCPItemStraightLine* self, QMouseEvent* 
 }
 
 // Base class handler implementation
-void QCPItemStraightLine_QBaseMouseMoveEvent(QCPItemStraightLine* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPItemStraightLine_SuperMouseMoveEvent(QCPItemStraightLine* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_MouseMoveEvent_IsBase(true);
@@ -45932,7 +45932,7 @@ void QCPItemStraightLine_MouseReleaseEvent(QCPItemStraightLine* self, QMouseEven
 }
 
 // Base class handler implementation
-void QCPItemStraightLine_QBaseMouseReleaseEvent(QCPItemStraightLine* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPItemStraightLine_SuperMouseReleaseEvent(QCPItemStraightLine* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_MouseReleaseEvent_IsBase(true);
@@ -45961,7 +45961,7 @@ void QCPItemStraightLine_MouseDoubleClickEvent(QCPItemStraightLine* self, QMouse
 }
 
 // Base class handler implementation
-void QCPItemStraightLine_QBaseMouseDoubleClickEvent(QCPItemStraightLine* self, QMouseEvent* event, const QVariant* details) {
+void QCPItemStraightLine_SuperMouseDoubleClickEvent(QCPItemStraightLine* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_MouseDoubleClickEvent_IsBase(true);
@@ -45990,7 +45990,7 @@ void QCPItemStraightLine_WheelEvent(QCPItemStraightLine* self, QWheelEvent* even
 }
 
 // Base class handler implementation
-void QCPItemStraightLine_QBaseWheelEvent(QCPItemStraightLine* self, QWheelEvent* event) {
+void QCPItemStraightLine_SuperWheelEvent(QCPItemStraightLine* self, QWheelEvent* event) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_WheelEvent_IsBase(true);
@@ -46019,7 +46019,7 @@ bool QCPItemStraightLine_Event(QCPItemStraightLine* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPItemStraightLine_QBaseEvent(QCPItemStraightLine* self, QEvent* event) {
+bool QCPItemStraightLine_SuperEvent(QCPItemStraightLine* self, QEvent* event) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_Event_IsBase(true);
@@ -46048,7 +46048,7 @@ bool QCPItemStraightLine_EventFilter(QCPItemStraightLine* self, QObject* watched
 }
 
 // Base class handler implementation
-bool QCPItemStraightLine_QBaseEventFilter(QCPItemStraightLine* self, QObject* watched, QEvent* event) {
+bool QCPItemStraightLine_SuperEventFilter(QCPItemStraightLine* self, QObject* watched, QEvent* event) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_EventFilter_IsBase(true);
@@ -46077,7 +46077,7 @@ void QCPItemStraightLine_TimerEvent(QCPItemStraightLine* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void QCPItemStraightLine_QBaseTimerEvent(QCPItemStraightLine* self, QTimerEvent* event) {
+void QCPItemStraightLine_SuperTimerEvent(QCPItemStraightLine* self, QTimerEvent* event) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_TimerEvent_IsBase(true);
@@ -46106,7 +46106,7 @@ void QCPItemStraightLine_ChildEvent(QCPItemStraightLine* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void QCPItemStraightLine_QBaseChildEvent(QCPItemStraightLine* self, QChildEvent* event) {
+void QCPItemStraightLine_SuperChildEvent(QCPItemStraightLine* self, QChildEvent* event) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_ChildEvent_IsBase(true);
@@ -46135,7 +46135,7 @@ void QCPItemStraightLine_CustomEvent(QCPItemStraightLine* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemStraightLine_QBaseCustomEvent(QCPItemStraightLine* self, QEvent* event) {
+void QCPItemStraightLine_SuperCustomEvent(QCPItemStraightLine* self, QEvent* event) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_CustomEvent_IsBase(true);
@@ -46164,7 +46164,7 @@ void QCPItemStraightLine_ConnectNotify(QCPItemStraightLine* self, const QMetaMet
 }
 
 // Base class handler implementation
-void QCPItemStraightLine_QBaseConnectNotify(QCPItemStraightLine* self, const QMetaMethod* signal) {
+void QCPItemStraightLine_SuperConnectNotify(QCPItemStraightLine* self, const QMetaMethod* signal) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_ConnectNotify_IsBase(true);
@@ -46193,7 +46193,7 @@ void QCPItemStraightLine_DisconnectNotify(QCPItemStraightLine* self, const QMeta
 }
 
 // Base class handler implementation
-void QCPItemStraightLine_QBaseDisconnectNotify(QCPItemStraightLine* self, const QMetaMethod* signal) {
+void QCPItemStraightLine_SuperDisconnectNotify(QCPItemStraightLine* self, const QMetaMethod* signal) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_DisconnectNotify_IsBase(true);
@@ -46221,7 +46221,7 @@ QLineF* QCPItemStraightLine_GetRectClippedStraightLine(const QCPItemStraightLine
 }
 
 // Base class handler implementation
-QLineF* QCPItemStraightLine_QBaseGetRectClippedStraightLine(const QCPItemStraightLine* self, const QCPVector2D* base, const QCPVector2D* vec, const QRect* rect) {
+QLineF* QCPItemStraightLine_SuperGetRectClippedStraightLine(const QCPItemStraightLine* self, const QCPVector2D* base, const QCPVector2D* vec, const QRect* rect) {
     auto* vqcpitemstraightline = const_cast<VirtualQCPItemStraightLine*>(dynamic_cast<const VirtualQCPItemStraightLine*>(self));
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_GetRectClippedStraightLine_IsBase(true);
@@ -46248,7 +46248,7 @@ QPen* QCPItemStraightLine_MainPen(const QCPItemStraightLine* self) {
 }
 
 // Base class handler implementation
-QPen* QCPItemStraightLine_QBaseMainPen(const QCPItemStraightLine* self) {
+QPen* QCPItemStraightLine_SuperMainPen(const QCPItemStraightLine* self) {
     auto* vqcpitemstraightline = const_cast<VirtualQCPItemStraightLine*>(dynamic_cast<const VirtualQCPItemStraightLine*>(self));
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_MainPen_IsBase(true);
@@ -46276,7 +46276,7 @@ double QCPItemStraightLine_RectDistance(const QCPItemStraightLine* self, const Q
 }
 
 // Base class handler implementation
-double QCPItemStraightLine_QBaseRectDistance(const QCPItemStraightLine* self, const QRectF* rect, const QPointF* pos, bool filledRect) {
+double QCPItemStraightLine_SuperRectDistance(const QCPItemStraightLine* self, const QRectF* rect, const QPointF* pos, bool filledRect) {
     auto* vqcpitemstraightline = const_cast<VirtualQCPItemStraightLine*>(dynamic_cast<const VirtualQCPItemStraightLine*>(self));
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_RectDistance_IsBase(true);
@@ -46306,7 +46306,7 @@ QCPItemPosition* QCPItemStraightLine_CreatePosition(QCPItemStraightLine* self, c
 }
 
 // Base class handler implementation
-QCPItemPosition* QCPItemStraightLine_QBaseCreatePosition(QCPItemStraightLine* self, const libqt_string name) {
+QCPItemPosition* QCPItemStraightLine_SuperCreatePosition(QCPItemStraightLine* self, const libqt_string name) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
@@ -46337,7 +46337,7 @@ QCPItemAnchor* QCPItemStraightLine_CreateAnchor(QCPItemStraightLine* self, const
 }
 
 // Base class handler implementation
-QCPItemAnchor* QCPItemStraightLine_QBaseCreateAnchor(QCPItemStraightLine* self, const libqt_string name, int anchorId) {
+QCPItemAnchor* QCPItemStraightLine_SuperCreateAnchor(QCPItemStraightLine* self, const libqt_string name, int anchorId) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
@@ -46367,7 +46367,7 @@ void QCPItemStraightLine_InitializeParentPlot(QCPItemStraightLine* self, QCustom
 }
 
 // Base class handler implementation
-void QCPItemStraightLine_QBaseInitializeParentPlot(QCPItemStraightLine* self, QCustomPlot* parentPlot) {
+void QCPItemStraightLine_SuperInitializeParentPlot(QCPItemStraightLine* self, QCustomPlot* parentPlot) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_InitializeParentPlot_IsBase(true);
@@ -46396,7 +46396,7 @@ void QCPItemStraightLine_SetParentLayerable(QCPItemStraightLine* self, QCPLayera
 }
 
 // Base class handler implementation
-void QCPItemStraightLine_QBaseSetParentLayerable(QCPItemStraightLine* self, QCPLayerable* parentLayerable) {
+void QCPItemStraightLine_SuperSetParentLayerable(QCPItemStraightLine* self, QCPLayerable* parentLayerable) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_SetParentLayerable_IsBase(true);
@@ -46425,7 +46425,7 @@ bool QCPItemStraightLine_MoveToLayer(QCPItemStraightLine* self, QCPLayer* layer,
 }
 
 // Base class handler implementation
-bool QCPItemStraightLine_QBaseMoveToLayer(QCPItemStraightLine* self, QCPLayer* layer, bool prepend) {
+bool QCPItemStraightLine_SuperMoveToLayer(QCPItemStraightLine* self, QCPLayer* layer, bool prepend) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_MoveToLayer_IsBase(true);
@@ -46454,7 +46454,7 @@ void QCPItemStraightLine_ApplyAntialiasingHint(const QCPItemStraightLine* self, 
 }
 
 // Base class handler implementation
-void QCPItemStraightLine_QBaseApplyAntialiasingHint(const QCPItemStraightLine* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPItemStraightLine_SuperApplyAntialiasingHint(const QCPItemStraightLine* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpitemstraightline = const_cast<VirtualQCPItemStraightLine*>(dynamic_cast<const VirtualQCPItemStraightLine*>(self));
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_ApplyAntialiasingHint_IsBase(true);
@@ -46483,7 +46483,7 @@ QObject* QCPItemStraightLine_Sender(const QCPItemStraightLine* self) {
 }
 
 // Base class handler implementation
-QObject* QCPItemStraightLine_QBaseSender(const QCPItemStraightLine* self) {
+QObject* QCPItemStraightLine_SuperSender(const QCPItemStraightLine* self) {
     auto* vqcpitemstraightline = const_cast<VirtualQCPItemStraightLine*>(dynamic_cast<const VirtualQCPItemStraightLine*>(self));
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_Sender_IsBase(true);
@@ -46512,7 +46512,7 @@ int QCPItemStraightLine_SenderSignalIndex(const QCPItemStraightLine* self) {
 }
 
 // Base class handler implementation
-int QCPItemStraightLine_QBaseSenderSignalIndex(const QCPItemStraightLine* self) {
+int QCPItemStraightLine_SuperSenderSignalIndex(const QCPItemStraightLine* self) {
     auto* vqcpitemstraightline = const_cast<VirtualQCPItemStraightLine*>(dynamic_cast<const VirtualQCPItemStraightLine*>(self));
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_SenderSignalIndex_IsBase(true);
@@ -46541,7 +46541,7 @@ int QCPItemStraightLine_Receivers(const QCPItemStraightLine* self, const char* s
 }
 
 // Base class handler implementation
-int QCPItemStraightLine_QBaseReceivers(const QCPItemStraightLine* self, const char* signal) {
+int QCPItemStraightLine_SuperReceivers(const QCPItemStraightLine* self, const char* signal) {
     auto* vqcpitemstraightline = const_cast<VirtualQCPItemStraightLine*>(dynamic_cast<const VirtualQCPItemStraightLine*>(self));
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_Receivers_IsBase(true);
@@ -46570,7 +46570,7 @@ bool QCPItemStraightLine_IsSignalConnected(const QCPItemStraightLine* self, cons
 }
 
 // Base class handler implementation
-bool QCPItemStraightLine_QBaseIsSignalConnected(const QCPItemStraightLine* self, const QMetaMethod* signal) {
+bool QCPItemStraightLine_SuperIsSignalConnected(const QCPItemStraightLine* self, const QMetaMethod* signal) {
     auto* vqcpitemstraightline = const_cast<VirtualQCPItemStraightLine*>(dynamic_cast<const VirtualQCPItemStraightLine*>(self));
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->setQCPItemStraightLine_IsSignalConnected_IsBase(true);
@@ -46680,7 +46680,7 @@ void QCPItemLine_Draw(QCPItemLine* self, QCPPainter* painter) {
 }
 
 // Base class handler implementation
-QMetaObject* QCPItemLine_QBaseMetaObject(const QCPItemLine* self) {
+QMetaObject* QCPItemLine_SuperMetaObject(const QCPItemLine* self) {
     auto* vqcpitemline = const_cast<VirtualQCPItemLine*>(dynamic_cast<const VirtualQCPItemLine*>(self));
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_MetaObject_IsBase(true);
@@ -46699,7 +46699,7 @@ void QCPItemLine_OnMetaObject(const QCPItemLine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPItemLine_QBaseMetacast(QCPItemLine* self, const char* param1) {
+void* QCPItemLine_SuperMetacast(QCPItemLine* self, const char* param1) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_Metacast_IsBase(true);
@@ -46718,7 +46718,7 @@ void QCPItemLine_OnMetacast(QCPItemLine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPItemLine_QBaseMetacall(QCPItemLine* self, int param1, int param2, void** param3) {
+int QCPItemLine_SuperMetacall(QCPItemLine* self, int param1, int param2, void** param3) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_Metacall_IsBase(true);
@@ -46737,7 +46737,7 @@ void QCPItemLine_OnMetacall(QCPItemLine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPItemLine_QBaseSelectTest(const QCPItemLine* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPItemLine_SuperSelectTest(const QCPItemLine* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpitemline = const_cast<VirtualQCPItemLine*>(dynamic_cast<const VirtualQCPItemLine*>(self));
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_SelectTest_IsBase(true);
@@ -46756,7 +46756,7 @@ void QCPItemLine_OnSelectTest(const QCPItemLine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPItemLine_QBaseDraw(QCPItemLine* self, QCPPainter* painter) {
+void QCPItemLine_SuperDraw(QCPItemLine* self, QCPPainter* painter) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_Draw_IsBase(true);
@@ -46785,7 +46785,7 @@ int QCPItemLine_SelectionCategory(const QCPItemLine* self) {
 }
 
 // Base class handler implementation
-int QCPItemLine_QBaseSelectionCategory(const QCPItemLine* self) {
+int QCPItemLine_SuperSelectionCategory(const QCPItemLine* self) {
     auto* vqcpitemline = const_cast<VirtualQCPItemLine*>(dynamic_cast<const VirtualQCPItemLine*>(self));
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_SelectionCategory_IsBase(true);
@@ -46813,7 +46813,7 @@ QRect* QCPItemLine_ClipRect(const QCPItemLine* self) {
 }
 
 // Base class handler implementation
-QRect* QCPItemLine_QBaseClipRect(const QCPItemLine* self) {
+QRect* QCPItemLine_SuperClipRect(const QCPItemLine* self) {
     auto* vqcpitemline = const_cast<VirtualQCPItemLine*>(dynamic_cast<const VirtualQCPItemLine*>(self));
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_ClipRect_IsBase(true);
@@ -46841,7 +46841,7 @@ void QCPItemLine_ApplyDefaultAntialiasingHint(const QCPItemLine* self, QCPPainte
 }
 
 // Base class handler implementation
-void QCPItemLine_QBaseApplyDefaultAntialiasingHint(const QCPItemLine* self, QCPPainter* painter) {
+void QCPItemLine_SuperApplyDefaultAntialiasingHint(const QCPItemLine* self, QCPPainter* painter) {
     auto* vqcpitemline = const_cast<VirtualQCPItemLine*>(dynamic_cast<const VirtualQCPItemLine*>(self));
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -46870,7 +46870,7 @@ void QCPItemLine_SelectEvent(QCPItemLine* self, QMouseEvent* event, bool additiv
 }
 
 // Base class handler implementation
-void QCPItemLine_QBaseSelectEvent(QCPItemLine* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPItemLine_SuperSelectEvent(QCPItemLine* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_SelectEvent_IsBase(true);
@@ -46899,7 +46899,7 @@ void QCPItemLine_DeselectEvent(QCPItemLine* self, bool* selectionStateChanged) {
 }
 
 // Base class handler implementation
-void QCPItemLine_QBaseDeselectEvent(QCPItemLine* self, bool* selectionStateChanged) {
+void QCPItemLine_SuperDeselectEvent(QCPItemLine* self, bool* selectionStateChanged) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_DeselectEvent_IsBase(true);
@@ -46927,7 +46927,7 @@ QPointF* QCPItemLine_AnchorPixelPosition(const QCPItemLine* self, int anchorId) 
 }
 
 // Base class handler implementation
-QPointF* QCPItemLine_QBaseAnchorPixelPosition(const QCPItemLine* self, int anchorId) {
+QPointF* QCPItemLine_SuperAnchorPixelPosition(const QCPItemLine* self, int anchorId) {
     auto* vqcpitemline = const_cast<VirtualQCPItemLine*>(dynamic_cast<const VirtualQCPItemLine*>(self));
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_AnchorPixelPosition_IsBase(true);
@@ -46955,7 +46955,7 @@ void QCPItemLine_ParentPlotInitialized(QCPItemLine* self, QCustomPlot* parentPlo
 }
 
 // Base class handler implementation
-void QCPItemLine_QBaseParentPlotInitialized(QCPItemLine* self, QCustomPlot* parentPlot) {
+void QCPItemLine_SuperParentPlotInitialized(QCPItemLine* self, QCustomPlot* parentPlot) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_ParentPlotInitialized_IsBase(true);
@@ -46984,7 +46984,7 @@ void QCPItemLine_MousePressEvent(QCPItemLine* self, QMouseEvent* event, const QV
 }
 
 // Base class handler implementation
-void QCPItemLine_QBaseMousePressEvent(QCPItemLine* self, QMouseEvent* event, const QVariant* details) {
+void QCPItemLine_SuperMousePressEvent(QCPItemLine* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_MousePressEvent_IsBase(true);
@@ -47013,7 +47013,7 @@ void QCPItemLine_MouseMoveEvent(QCPItemLine* self, QMouseEvent* event, const QPo
 }
 
 // Base class handler implementation
-void QCPItemLine_QBaseMouseMoveEvent(QCPItemLine* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPItemLine_SuperMouseMoveEvent(QCPItemLine* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_MouseMoveEvent_IsBase(true);
@@ -47042,7 +47042,7 @@ void QCPItemLine_MouseReleaseEvent(QCPItemLine* self, QMouseEvent* event, const 
 }
 
 // Base class handler implementation
-void QCPItemLine_QBaseMouseReleaseEvent(QCPItemLine* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPItemLine_SuperMouseReleaseEvent(QCPItemLine* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_MouseReleaseEvent_IsBase(true);
@@ -47071,7 +47071,7 @@ void QCPItemLine_MouseDoubleClickEvent(QCPItemLine* self, QMouseEvent* event, co
 }
 
 // Base class handler implementation
-void QCPItemLine_QBaseMouseDoubleClickEvent(QCPItemLine* self, QMouseEvent* event, const QVariant* details) {
+void QCPItemLine_SuperMouseDoubleClickEvent(QCPItemLine* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_MouseDoubleClickEvent_IsBase(true);
@@ -47100,7 +47100,7 @@ void QCPItemLine_WheelEvent(QCPItemLine* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemLine_QBaseWheelEvent(QCPItemLine* self, QWheelEvent* event) {
+void QCPItemLine_SuperWheelEvent(QCPItemLine* self, QWheelEvent* event) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_WheelEvent_IsBase(true);
@@ -47129,7 +47129,7 @@ bool QCPItemLine_Event(QCPItemLine* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPItemLine_QBaseEvent(QCPItemLine* self, QEvent* event) {
+bool QCPItemLine_SuperEvent(QCPItemLine* self, QEvent* event) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_Event_IsBase(true);
@@ -47158,7 +47158,7 @@ bool QCPItemLine_EventFilter(QCPItemLine* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QCPItemLine_QBaseEventFilter(QCPItemLine* self, QObject* watched, QEvent* event) {
+bool QCPItemLine_SuperEventFilter(QCPItemLine* self, QObject* watched, QEvent* event) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_EventFilter_IsBase(true);
@@ -47187,7 +47187,7 @@ void QCPItemLine_TimerEvent(QCPItemLine* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemLine_QBaseTimerEvent(QCPItemLine* self, QTimerEvent* event) {
+void QCPItemLine_SuperTimerEvent(QCPItemLine* self, QTimerEvent* event) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_TimerEvent_IsBase(true);
@@ -47216,7 +47216,7 @@ void QCPItemLine_ChildEvent(QCPItemLine* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemLine_QBaseChildEvent(QCPItemLine* self, QChildEvent* event) {
+void QCPItemLine_SuperChildEvent(QCPItemLine* self, QChildEvent* event) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_ChildEvent_IsBase(true);
@@ -47245,7 +47245,7 @@ void QCPItemLine_CustomEvent(QCPItemLine* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemLine_QBaseCustomEvent(QCPItemLine* self, QEvent* event) {
+void QCPItemLine_SuperCustomEvent(QCPItemLine* self, QEvent* event) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_CustomEvent_IsBase(true);
@@ -47274,7 +47274,7 @@ void QCPItemLine_ConnectNotify(QCPItemLine* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPItemLine_QBaseConnectNotify(QCPItemLine* self, const QMetaMethod* signal) {
+void QCPItemLine_SuperConnectNotify(QCPItemLine* self, const QMetaMethod* signal) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_ConnectNotify_IsBase(true);
@@ -47303,7 +47303,7 @@ void QCPItemLine_DisconnectNotify(QCPItemLine* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QCPItemLine_QBaseDisconnectNotify(QCPItemLine* self, const QMetaMethod* signal) {
+void QCPItemLine_SuperDisconnectNotify(QCPItemLine* self, const QMetaMethod* signal) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_DisconnectNotify_IsBase(true);
@@ -47331,7 +47331,7 @@ QLineF* QCPItemLine_GetRectClippedLine(const QCPItemLine* self, const QCPVector2
 }
 
 // Base class handler implementation
-QLineF* QCPItemLine_QBaseGetRectClippedLine(const QCPItemLine* self, const QCPVector2D* start, const QCPVector2D* end, const QRect* rect) {
+QLineF* QCPItemLine_SuperGetRectClippedLine(const QCPItemLine* self, const QCPVector2D* start, const QCPVector2D* end, const QRect* rect) {
     auto* vqcpitemline = const_cast<VirtualQCPItemLine*>(dynamic_cast<const VirtualQCPItemLine*>(self));
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_GetRectClippedLine_IsBase(true);
@@ -47358,7 +47358,7 @@ QPen* QCPItemLine_MainPen(const QCPItemLine* self) {
 }
 
 // Base class handler implementation
-QPen* QCPItemLine_QBaseMainPen(const QCPItemLine* self) {
+QPen* QCPItemLine_SuperMainPen(const QCPItemLine* self) {
     auto* vqcpitemline = const_cast<VirtualQCPItemLine*>(dynamic_cast<const VirtualQCPItemLine*>(self));
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_MainPen_IsBase(true);
@@ -47386,7 +47386,7 @@ double QCPItemLine_RectDistance(const QCPItemLine* self, const QRectF* rect, con
 }
 
 // Base class handler implementation
-double QCPItemLine_QBaseRectDistance(const QCPItemLine* self, const QRectF* rect, const QPointF* pos, bool filledRect) {
+double QCPItemLine_SuperRectDistance(const QCPItemLine* self, const QRectF* rect, const QPointF* pos, bool filledRect) {
     auto* vqcpitemline = const_cast<VirtualQCPItemLine*>(dynamic_cast<const VirtualQCPItemLine*>(self));
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_RectDistance_IsBase(true);
@@ -47416,7 +47416,7 @@ QCPItemPosition* QCPItemLine_CreatePosition(QCPItemLine* self, const libqt_strin
 }
 
 // Base class handler implementation
-QCPItemPosition* QCPItemLine_QBaseCreatePosition(QCPItemLine* self, const libqt_string name) {
+QCPItemPosition* QCPItemLine_SuperCreatePosition(QCPItemLine* self, const libqt_string name) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
@@ -47447,7 +47447,7 @@ QCPItemAnchor* QCPItemLine_CreateAnchor(QCPItemLine* self, const libqt_string na
 }
 
 // Base class handler implementation
-QCPItemAnchor* QCPItemLine_QBaseCreateAnchor(QCPItemLine* self, const libqt_string name, int anchorId) {
+QCPItemAnchor* QCPItemLine_SuperCreateAnchor(QCPItemLine* self, const libqt_string name, int anchorId) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
@@ -47477,7 +47477,7 @@ void QCPItemLine_InitializeParentPlot(QCPItemLine* self, QCustomPlot* parentPlot
 }
 
 // Base class handler implementation
-void QCPItemLine_QBaseInitializeParentPlot(QCPItemLine* self, QCustomPlot* parentPlot) {
+void QCPItemLine_SuperInitializeParentPlot(QCPItemLine* self, QCustomPlot* parentPlot) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_InitializeParentPlot_IsBase(true);
@@ -47506,7 +47506,7 @@ void QCPItemLine_SetParentLayerable(QCPItemLine* self, QCPLayerable* parentLayer
 }
 
 // Base class handler implementation
-void QCPItemLine_QBaseSetParentLayerable(QCPItemLine* self, QCPLayerable* parentLayerable) {
+void QCPItemLine_SuperSetParentLayerable(QCPItemLine* self, QCPLayerable* parentLayerable) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_SetParentLayerable_IsBase(true);
@@ -47535,7 +47535,7 @@ bool QCPItemLine_MoveToLayer(QCPItemLine* self, QCPLayer* layer, bool prepend) {
 }
 
 // Base class handler implementation
-bool QCPItemLine_QBaseMoveToLayer(QCPItemLine* self, QCPLayer* layer, bool prepend) {
+bool QCPItemLine_SuperMoveToLayer(QCPItemLine* self, QCPLayer* layer, bool prepend) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_MoveToLayer_IsBase(true);
@@ -47564,7 +47564,7 @@ void QCPItemLine_ApplyAntialiasingHint(const QCPItemLine* self, QCPPainter* pain
 }
 
 // Base class handler implementation
-void QCPItemLine_QBaseApplyAntialiasingHint(const QCPItemLine* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPItemLine_SuperApplyAntialiasingHint(const QCPItemLine* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpitemline = const_cast<VirtualQCPItemLine*>(dynamic_cast<const VirtualQCPItemLine*>(self));
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_ApplyAntialiasingHint_IsBase(true);
@@ -47593,7 +47593,7 @@ QObject* QCPItemLine_Sender(const QCPItemLine* self) {
 }
 
 // Base class handler implementation
-QObject* QCPItemLine_QBaseSender(const QCPItemLine* self) {
+QObject* QCPItemLine_SuperSender(const QCPItemLine* self) {
     auto* vqcpitemline = const_cast<VirtualQCPItemLine*>(dynamic_cast<const VirtualQCPItemLine*>(self));
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_Sender_IsBase(true);
@@ -47622,7 +47622,7 @@ int QCPItemLine_SenderSignalIndex(const QCPItemLine* self) {
 }
 
 // Base class handler implementation
-int QCPItemLine_QBaseSenderSignalIndex(const QCPItemLine* self) {
+int QCPItemLine_SuperSenderSignalIndex(const QCPItemLine* self) {
     auto* vqcpitemline = const_cast<VirtualQCPItemLine*>(dynamic_cast<const VirtualQCPItemLine*>(self));
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_SenderSignalIndex_IsBase(true);
@@ -47651,7 +47651,7 @@ int QCPItemLine_Receivers(const QCPItemLine* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPItemLine_QBaseReceivers(const QCPItemLine* self, const char* signal) {
+int QCPItemLine_SuperReceivers(const QCPItemLine* self, const char* signal) {
     auto* vqcpitemline = const_cast<VirtualQCPItemLine*>(dynamic_cast<const VirtualQCPItemLine*>(self));
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_Receivers_IsBase(true);
@@ -47680,7 +47680,7 @@ bool QCPItemLine_IsSignalConnected(const QCPItemLine* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QCPItemLine_QBaseIsSignalConnected(const QCPItemLine* self, const QMetaMethod* signal) {
+bool QCPItemLine_SuperIsSignalConnected(const QCPItemLine* self, const QMetaMethod* signal) {
     auto* vqcpitemline = const_cast<VirtualQCPItemLine*>(dynamic_cast<const VirtualQCPItemLine*>(self));
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->setQCPItemLine_IsSignalConnected_IsBase(true);
@@ -47798,7 +47798,7 @@ void QCPItemCurve_Draw(QCPItemCurve* self, QCPPainter* painter) {
 }
 
 // Base class handler implementation
-QMetaObject* QCPItemCurve_QBaseMetaObject(const QCPItemCurve* self) {
+QMetaObject* QCPItemCurve_SuperMetaObject(const QCPItemCurve* self) {
     auto* vqcpitemcurve = const_cast<VirtualQCPItemCurve*>(dynamic_cast<const VirtualQCPItemCurve*>(self));
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_MetaObject_IsBase(true);
@@ -47817,7 +47817,7 @@ void QCPItemCurve_OnMetaObject(const QCPItemCurve* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPItemCurve_QBaseMetacast(QCPItemCurve* self, const char* param1) {
+void* QCPItemCurve_SuperMetacast(QCPItemCurve* self, const char* param1) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_Metacast_IsBase(true);
@@ -47836,7 +47836,7 @@ void QCPItemCurve_OnMetacast(QCPItemCurve* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPItemCurve_QBaseMetacall(QCPItemCurve* self, int param1, int param2, void** param3) {
+int QCPItemCurve_SuperMetacall(QCPItemCurve* self, int param1, int param2, void** param3) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_Metacall_IsBase(true);
@@ -47855,7 +47855,7 @@ void QCPItemCurve_OnMetacall(QCPItemCurve* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPItemCurve_QBaseSelectTest(const QCPItemCurve* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPItemCurve_SuperSelectTest(const QCPItemCurve* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpitemcurve = const_cast<VirtualQCPItemCurve*>(dynamic_cast<const VirtualQCPItemCurve*>(self));
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_SelectTest_IsBase(true);
@@ -47874,7 +47874,7 @@ void QCPItemCurve_OnSelectTest(const QCPItemCurve* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPItemCurve_QBaseDraw(QCPItemCurve* self, QCPPainter* painter) {
+void QCPItemCurve_SuperDraw(QCPItemCurve* self, QCPPainter* painter) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_Draw_IsBase(true);
@@ -47903,7 +47903,7 @@ int QCPItemCurve_SelectionCategory(const QCPItemCurve* self) {
 }
 
 // Base class handler implementation
-int QCPItemCurve_QBaseSelectionCategory(const QCPItemCurve* self) {
+int QCPItemCurve_SuperSelectionCategory(const QCPItemCurve* self) {
     auto* vqcpitemcurve = const_cast<VirtualQCPItemCurve*>(dynamic_cast<const VirtualQCPItemCurve*>(self));
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_SelectionCategory_IsBase(true);
@@ -47931,7 +47931,7 @@ QRect* QCPItemCurve_ClipRect(const QCPItemCurve* self) {
 }
 
 // Base class handler implementation
-QRect* QCPItemCurve_QBaseClipRect(const QCPItemCurve* self) {
+QRect* QCPItemCurve_SuperClipRect(const QCPItemCurve* self) {
     auto* vqcpitemcurve = const_cast<VirtualQCPItemCurve*>(dynamic_cast<const VirtualQCPItemCurve*>(self));
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_ClipRect_IsBase(true);
@@ -47959,7 +47959,7 @@ void QCPItemCurve_ApplyDefaultAntialiasingHint(const QCPItemCurve* self, QCPPain
 }
 
 // Base class handler implementation
-void QCPItemCurve_QBaseApplyDefaultAntialiasingHint(const QCPItemCurve* self, QCPPainter* painter) {
+void QCPItemCurve_SuperApplyDefaultAntialiasingHint(const QCPItemCurve* self, QCPPainter* painter) {
     auto* vqcpitemcurve = const_cast<VirtualQCPItemCurve*>(dynamic_cast<const VirtualQCPItemCurve*>(self));
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -47988,7 +47988,7 @@ void QCPItemCurve_SelectEvent(QCPItemCurve* self, QMouseEvent* event, bool addit
 }
 
 // Base class handler implementation
-void QCPItemCurve_QBaseSelectEvent(QCPItemCurve* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPItemCurve_SuperSelectEvent(QCPItemCurve* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_SelectEvent_IsBase(true);
@@ -48017,7 +48017,7 @@ void QCPItemCurve_DeselectEvent(QCPItemCurve* self, bool* selectionStateChanged)
 }
 
 // Base class handler implementation
-void QCPItemCurve_QBaseDeselectEvent(QCPItemCurve* self, bool* selectionStateChanged) {
+void QCPItemCurve_SuperDeselectEvent(QCPItemCurve* self, bool* selectionStateChanged) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_DeselectEvent_IsBase(true);
@@ -48045,7 +48045,7 @@ QPointF* QCPItemCurve_AnchorPixelPosition(const QCPItemCurve* self, int anchorId
 }
 
 // Base class handler implementation
-QPointF* QCPItemCurve_QBaseAnchorPixelPosition(const QCPItemCurve* self, int anchorId) {
+QPointF* QCPItemCurve_SuperAnchorPixelPosition(const QCPItemCurve* self, int anchorId) {
     auto* vqcpitemcurve = const_cast<VirtualQCPItemCurve*>(dynamic_cast<const VirtualQCPItemCurve*>(self));
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_AnchorPixelPosition_IsBase(true);
@@ -48073,7 +48073,7 @@ void QCPItemCurve_ParentPlotInitialized(QCPItemCurve* self, QCustomPlot* parentP
 }
 
 // Base class handler implementation
-void QCPItemCurve_QBaseParentPlotInitialized(QCPItemCurve* self, QCustomPlot* parentPlot) {
+void QCPItemCurve_SuperParentPlotInitialized(QCPItemCurve* self, QCustomPlot* parentPlot) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_ParentPlotInitialized_IsBase(true);
@@ -48102,7 +48102,7 @@ void QCPItemCurve_MousePressEvent(QCPItemCurve* self, QMouseEvent* event, const 
 }
 
 // Base class handler implementation
-void QCPItemCurve_QBaseMousePressEvent(QCPItemCurve* self, QMouseEvent* event, const QVariant* details) {
+void QCPItemCurve_SuperMousePressEvent(QCPItemCurve* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_MousePressEvent_IsBase(true);
@@ -48131,7 +48131,7 @@ void QCPItemCurve_MouseMoveEvent(QCPItemCurve* self, QMouseEvent* event, const Q
 }
 
 // Base class handler implementation
-void QCPItemCurve_QBaseMouseMoveEvent(QCPItemCurve* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPItemCurve_SuperMouseMoveEvent(QCPItemCurve* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_MouseMoveEvent_IsBase(true);
@@ -48160,7 +48160,7 @@ void QCPItemCurve_MouseReleaseEvent(QCPItemCurve* self, QMouseEvent* event, cons
 }
 
 // Base class handler implementation
-void QCPItemCurve_QBaseMouseReleaseEvent(QCPItemCurve* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPItemCurve_SuperMouseReleaseEvent(QCPItemCurve* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_MouseReleaseEvent_IsBase(true);
@@ -48189,7 +48189,7 @@ void QCPItemCurve_MouseDoubleClickEvent(QCPItemCurve* self, QMouseEvent* event, 
 }
 
 // Base class handler implementation
-void QCPItemCurve_QBaseMouseDoubleClickEvent(QCPItemCurve* self, QMouseEvent* event, const QVariant* details) {
+void QCPItemCurve_SuperMouseDoubleClickEvent(QCPItemCurve* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_MouseDoubleClickEvent_IsBase(true);
@@ -48218,7 +48218,7 @@ void QCPItemCurve_WheelEvent(QCPItemCurve* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemCurve_QBaseWheelEvent(QCPItemCurve* self, QWheelEvent* event) {
+void QCPItemCurve_SuperWheelEvent(QCPItemCurve* self, QWheelEvent* event) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_WheelEvent_IsBase(true);
@@ -48247,7 +48247,7 @@ bool QCPItemCurve_Event(QCPItemCurve* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPItemCurve_QBaseEvent(QCPItemCurve* self, QEvent* event) {
+bool QCPItemCurve_SuperEvent(QCPItemCurve* self, QEvent* event) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_Event_IsBase(true);
@@ -48276,7 +48276,7 @@ bool QCPItemCurve_EventFilter(QCPItemCurve* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool QCPItemCurve_QBaseEventFilter(QCPItemCurve* self, QObject* watched, QEvent* event) {
+bool QCPItemCurve_SuperEventFilter(QCPItemCurve* self, QObject* watched, QEvent* event) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_EventFilter_IsBase(true);
@@ -48305,7 +48305,7 @@ void QCPItemCurve_TimerEvent(QCPItemCurve* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemCurve_QBaseTimerEvent(QCPItemCurve* self, QTimerEvent* event) {
+void QCPItemCurve_SuperTimerEvent(QCPItemCurve* self, QTimerEvent* event) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_TimerEvent_IsBase(true);
@@ -48334,7 +48334,7 @@ void QCPItemCurve_ChildEvent(QCPItemCurve* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemCurve_QBaseChildEvent(QCPItemCurve* self, QChildEvent* event) {
+void QCPItemCurve_SuperChildEvent(QCPItemCurve* self, QChildEvent* event) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_ChildEvent_IsBase(true);
@@ -48363,7 +48363,7 @@ void QCPItemCurve_CustomEvent(QCPItemCurve* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemCurve_QBaseCustomEvent(QCPItemCurve* self, QEvent* event) {
+void QCPItemCurve_SuperCustomEvent(QCPItemCurve* self, QEvent* event) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_CustomEvent_IsBase(true);
@@ -48392,7 +48392,7 @@ void QCPItemCurve_ConnectNotify(QCPItemCurve* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPItemCurve_QBaseConnectNotify(QCPItemCurve* self, const QMetaMethod* signal) {
+void QCPItemCurve_SuperConnectNotify(QCPItemCurve* self, const QMetaMethod* signal) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_ConnectNotify_IsBase(true);
@@ -48421,7 +48421,7 @@ void QCPItemCurve_DisconnectNotify(QCPItemCurve* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QCPItemCurve_QBaseDisconnectNotify(QCPItemCurve* self, const QMetaMethod* signal) {
+void QCPItemCurve_SuperDisconnectNotify(QCPItemCurve* self, const QMetaMethod* signal) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_DisconnectNotify_IsBase(true);
@@ -48449,7 +48449,7 @@ QPen* QCPItemCurve_MainPen(const QCPItemCurve* self) {
 }
 
 // Base class handler implementation
-QPen* QCPItemCurve_QBaseMainPen(const QCPItemCurve* self) {
+QPen* QCPItemCurve_SuperMainPen(const QCPItemCurve* self) {
     auto* vqcpitemcurve = const_cast<VirtualQCPItemCurve*>(dynamic_cast<const VirtualQCPItemCurve*>(self));
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_MainPen_IsBase(true);
@@ -48477,7 +48477,7 @@ double QCPItemCurve_RectDistance(const QCPItemCurve* self, const QRectF* rect, c
 }
 
 // Base class handler implementation
-double QCPItemCurve_QBaseRectDistance(const QCPItemCurve* self, const QRectF* rect, const QPointF* pos, bool filledRect) {
+double QCPItemCurve_SuperRectDistance(const QCPItemCurve* self, const QRectF* rect, const QPointF* pos, bool filledRect) {
     auto* vqcpitemcurve = const_cast<VirtualQCPItemCurve*>(dynamic_cast<const VirtualQCPItemCurve*>(self));
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_RectDistance_IsBase(true);
@@ -48507,7 +48507,7 @@ QCPItemPosition* QCPItemCurve_CreatePosition(QCPItemCurve* self, const libqt_str
 }
 
 // Base class handler implementation
-QCPItemPosition* QCPItemCurve_QBaseCreatePosition(QCPItemCurve* self, const libqt_string name) {
+QCPItemPosition* QCPItemCurve_SuperCreatePosition(QCPItemCurve* self, const libqt_string name) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
@@ -48538,7 +48538,7 @@ QCPItemAnchor* QCPItemCurve_CreateAnchor(QCPItemCurve* self, const libqt_string 
 }
 
 // Base class handler implementation
-QCPItemAnchor* QCPItemCurve_QBaseCreateAnchor(QCPItemCurve* self, const libqt_string name, int anchorId) {
+QCPItemAnchor* QCPItemCurve_SuperCreateAnchor(QCPItemCurve* self, const libqt_string name, int anchorId) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
@@ -48568,7 +48568,7 @@ void QCPItemCurve_InitializeParentPlot(QCPItemCurve* self, QCustomPlot* parentPl
 }
 
 // Base class handler implementation
-void QCPItemCurve_QBaseInitializeParentPlot(QCPItemCurve* self, QCustomPlot* parentPlot) {
+void QCPItemCurve_SuperInitializeParentPlot(QCPItemCurve* self, QCustomPlot* parentPlot) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_InitializeParentPlot_IsBase(true);
@@ -48597,7 +48597,7 @@ void QCPItemCurve_SetParentLayerable(QCPItemCurve* self, QCPLayerable* parentLay
 }
 
 // Base class handler implementation
-void QCPItemCurve_QBaseSetParentLayerable(QCPItemCurve* self, QCPLayerable* parentLayerable) {
+void QCPItemCurve_SuperSetParentLayerable(QCPItemCurve* self, QCPLayerable* parentLayerable) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_SetParentLayerable_IsBase(true);
@@ -48626,7 +48626,7 @@ bool QCPItemCurve_MoveToLayer(QCPItemCurve* self, QCPLayer* layer, bool prepend)
 }
 
 // Base class handler implementation
-bool QCPItemCurve_QBaseMoveToLayer(QCPItemCurve* self, QCPLayer* layer, bool prepend) {
+bool QCPItemCurve_SuperMoveToLayer(QCPItemCurve* self, QCPLayer* layer, bool prepend) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_MoveToLayer_IsBase(true);
@@ -48655,7 +48655,7 @@ void QCPItemCurve_ApplyAntialiasingHint(const QCPItemCurve* self, QCPPainter* pa
 }
 
 // Base class handler implementation
-void QCPItemCurve_QBaseApplyAntialiasingHint(const QCPItemCurve* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPItemCurve_SuperApplyAntialiasingHint(const QCPItemCurve* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpitemcurve = const_cast<VirtualQCPItemCurve*>(dynamic_cast<const VirtualQCPItemCurve*>(self));
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_ApplyAntialiasingHint_IsBase(true);
@@ -48684,7 +48684,7 @@ QObject* QCPItemCurve_Sender(const QCPItemCurve* self) {
 }
 
 // Base class handler implementation
-QObject* QCPItemCurve_QBaseSender(const QCPItemCurve* self) {
+QObject* QCPItemCurve_SuperSender(const QCPItemCurve* self) {
     auto* vqcpitemcurve = const_cast<VirtualQCPItemCurve*>(dynamic_cast<const VirtualQCPItemCurve*>(self));
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_Sender_IsBase(true);
@@ -48713,7 +48713,7 @@ int QCPItemCurve_SenderSignalIndex(const QCPItemCurve* self) {
 }
 
 // Base class handler implementation
-int QCPItemCurve_QBaseSenderSignalIndex(const QCPItemCurve* self) {
+int QCPItemCurve_SuperSenderSignalIndex(const QCPItemCurve* self) {
     auto* vqcpitemcurve = const_cast<VirtualQCPItemCurve*>(dynamic_cast<const VirtualQCPItemCurve*>(self));
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_SenderSignalIndex_IsBase(true);
@@ -48742,7 +48742,7 @@ int QCPItemCurve_Receivers(const QCPItemCurve* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPItemCurve_QBaseReceivers(const QCPItemCurve* self, const char* signal) {
+int QCPItemCurve_SuperReceivers(const QCPItemCurve* self, const char* signal) {
     auto* vqcpitemcurve = const_cast<VirtualQCPItemCurve*>(dynamic_cast<const VirtualQCPItemCurve*>(self));
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_Receivers_IsBase(true);
@@ -48771,7 +48771,7 @@ bool QCPItemCurve_IsSignalConnected(const QCPItemCurve* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QCPItemCurve_QBaseIsSignalConnected(const QCPItemCurve* self, const QMetaMethod* signal) {
+bool QCPItemCurve_SuperIsSignalConnected(const QCPItemCurve* self, const QMetaMethod* signal) {
     auto* vqcpitemcurve = const_cast<VirtualQCPItemCurve*>(dynamic_cast<const VirtualQCPItemCurve*>(self));
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->setQCPItemCurve_IsSignalConnected_IsBase(true);
@@ -48913,7 +48913,7 @@ QPointF* QCPItemRect_AnchorPixelPosition(const QCPItemRect* self, int anchorId) 
 }
 
 // Base class handler implementation
-QMetaObject* QCPItemRect_QBaseMetaObject(const QCPItemRect* self) {
+QMetaObject* QCPItemRect_SuperMetaObject(const QCPItemRect* self) {
     auto* vqcpitemrect = const_cast<VirtualQCPItemRect*>(dynamic_cast<const VirtualQCPItemRect*>(self));
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_MetaObject_IsBase(true);
@@ -48932,7 +48932,7 @@ void QCPItemRect_OnMetaObject(const QCPItemRect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPItemRect_QBaseMetacast(QCPItemRect* self, const char* param1) {
+void* QCPItemRect_SuperMetacast(QCPItemRect* self, const char* param1) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_Metacast_IsBase(true);
@@ -48951,7 +48951,7 @@ void QCPItemRect_OnMetacast(QCPItemRect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPItemRect_QBaseMetacall(QCPItemRect* self, int param1, int param2, void** param3) {
+int QCPItemRect_SuperMetacall(QCPItemRect* self, int param1, int param2, void** param3) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_Metacall_IsBase(true);
@@ -48970,7 +48970,7 @@ void QCPItemRect_OnMetacall(QCPItemRect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPItemRect_QBaseSelectTest(const QCPItemRect* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPItemRect_SuperSelectTest(const QCPItemRect* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpitemrect = const_cast<VirtualQCPItemRect*>(dynamic_cast<const VirtualQCPItemRect*>(self));
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_SelectTest_IsBase(true);
@@ -48989,7 +48989,7 @@ void QCPItemRect_OnSelectTest(const QCPItemRect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPItemRect_QBaseDraw(QCPItemRect* self, QCPPainter* painter) {
+void QCPItemRect_SuperDraw(QCPItemRect* self, QCPPainter* painter) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_Draw_IsBase(true);
@@ -49008,7 +49008,7 @@ void QCPItemRect_OnDraw(QCPItemRect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPointF* QCPItemRect_QBaseAnchorPixelPosition(const QCPItemRect* self, int anchorId) {
+QPointF* QCPItemRect_SuperAnchorPixelPosition(const QCPItemRect* self, int anchorId) {
     auto* vqcpitemrect = const_cast<VirtualQCPItemRect*>(dynamic_cast<const VirtualQCPItemRect*>(self));
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_AnchorPixelPosition_IsBase(true);
@@ -49036,7 +49036,7 @@ int QCPItemRect_SelectionCategory(const QCPItemRect* self) {
 }
 
 // Base class handler implementation
-int QCPItemRect_QBaseSelectionCategory(const QCPItemRect* self) {
+int QCPItemRect_SuperSelectionCategory(const QCPItemRect* self) {
     auto* vqcpitemrect = const_cast<VirtualQCPItemRect*>(dynamic_cast<const VirtualQCPItemRect*>(self));
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_SelectionCategory_IsBase(true);
@@ -49064,7 +49064,7 @@ QRect* QCPItemRect_ClipRect(const QCPItemRect* self) {
 }
 
 // Base class handler implementation
-QRect* QCPItemRect_QBaseClipRect(const QCPItemRect* self) {
+QRect* QCPItemRect_SuperClipRect(const QCPItemRect* self) {
     auto* vqcpitemrect = const_cast<VirtualQCPItemRect*>(dynamic_cast<const VirtualQCPItemRect*>(self));
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_ClipRect_IsBase(true);
@@ -49092,7 +49092,7 @@ void QCPItemRect_ApplyDefaultAntialiasingHint(const QCPItemRect* self, QCPPainte
 }
 
 // Base class handler implementation
-void QCPItemRect_QBaseApplyDefaultAntialiasingHint(const QCPItemRect* self, QCPPainter* painter) {
+void QCPItemRect_SuperApplyDefaultAntialiasingHint(const QCPItemRect* self, QCPPainter* painter) {
     auto* vqcpitemrect = const_cast<VirtualQCPItemRect*>(dynamic_cast<const VirtualQCPItemRect*>(self));
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -49121,7 +49121,7 @@ void QCPItemRect_SelectEvent(QCPItemRect* self, QMouseEvent* event, bool additiv
 }
 
 // Base class handler implementation
-void QCPItemRect_QBaseSelectEvent(QCPItemRect* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPItemRect_SuperSelectEvent(QCPItemRect* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_SelectEvent_IsBase(true);
@@ -49150,7 +49150,7 @@ void QCPItemRect_DeselectEvent(QCPItemRect* self, bool* selectionStateChanged) {
 }
 
 // Base class handler implementation
-void QCPItemRect_QBaseDeselectEvent(QCPItemRect* self, bool* selectionStateChanged) {
+void QCPItemRect_SuperDeselectEvent(QCPItemRect* self, bool* selectionStateChanged) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_DeselectEvent_IsBase(true);
@@ -49179,7 +49179,7 @@ void QCPItemRect_ParentPlotInitialized(QCPItemRect* self, QCustomPlot* parentPlo
 }
 
 // Base class handler implementation
-void QCPItemRect_QBaseParentPlotInitialized(QCPItemRect* self, QCustomPlot* parentPlot) {
+void QCPItemRect_SuperParentPlotInitialized(QCPItemRect* self, QCustomPlot* parentPlot) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_ParentPlotInitialized_IsBase(true);
@@ -49208,7 +49208,7 @@ void QCPItemRect_MousePressEvent(QCPItemRect* self, QMouseEvent* event, const QV
 }
 
 // Base class handler implementation
-void QCPItemRect_QBaseMousePressEvent(QCPItemRect* self, QMouseEvent* event, const QVariant* details) {
+void QCPItemRect_SuperMousePressEvent(QCPItemRect* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_MousePressEvent_IsBase(true);
@@ -49237,7 +49237,7 @@ void QCPItemRect_MouseMoveEvent(QCPItemRect* self, QMouseEvent* event, const QPo
 }
 
 // Base class handler implementation
-void QCPItemRect_QBaseMouseMoveEvent(QCPItemRect* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPItemRect_SuperMouseMoveEvent(QCPItemRect* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_MouseMoveEvent_IsBase(true);
@@ -49266,7 +49266,7 @@ void QCPItemRect_MouseReleaseEvent(QCPItemRect* self, QMouseEvent* event, const 
 }
 
 // Base class handler implementation
-void QCPItemRect_QBaseMouseReleaseEvent(QCPItemRect* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPItemRect_SuperMouseReleaseEvent(QCPItemRect* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_MouseReleaseEvent_IsBase(true);
@@ -49295,7 +49295,7 @@ void QCPItemRect_MouseDoubleClickEvent(QCPItemRect* self, QMouseEvent* event, co
 }
 
 // Base class handler implementation
-void QCPItemRect_QBaseMouseDoubleClickEvent(QCPItemRect* self, QMouseEvent* event, const QVariant* details) {
+void QCPItemRect_SuperMouseDoubleClickEvent(QCPItemRect* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_MouseDoubleClickEvent_IsBase(true);
@@ -49324,7 +49324,7 @@ void QCPItemRect_WheelEvent(QCPItemRect* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemRect_QBaseWheelEvent(QCPItemRect* self, QWheelEvent* event) {
+void QCPItemRect_SuperWheelEvent(QCPItemRect* self, QWheelEvent* event) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_WheelEvent_IsBase(true);
@@ -49353,7 +49353,7 @@ bool QCPItemRect_Event(QCPItemRect* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPItemRect_QBaseEvent(QCPItemRect* self, QEvent* event) {
+bool QCPItemRect_SuperEvent(QCPItemRect* self, QEvent* event) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_Event_IsBase(true);
@@ -49382,7 +49382,7 @@ bool QCPItemRect_EventFilter(QCPItemRect* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QCPItemRect_QBaseEventFilter(QCPItemRect* self, QObject* watched, QEvent* event) {
+bool QCPItemRect_SuperEventFilter(QCPItemRect* self, QObject* watched, QEvent* event) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_EventFilter_IsBase(true);
@@ -49411,7 +49411,7 @@ void QCPItemRect_TimerEvent(QCPItemRect* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemRect_QBaseTimerEvent(QCPItemRect* self, QTimerEvent* event) {
+void QCPItemRect_SuperTimerEvent(QCPItemRect* self, QTimerEvent* event) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_TimerEvent_IsBase(true);
@@ -49440,7 +49440,7 @@ void QCPItemRect_ChildEvent(QCPItemRect* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemRect_QBaseChildEvent(QCPItemRect* self, QChildEvent* event) {
+void QCPItemRect_SuperChildEvent(QCPItemRect* self, QChildEvent* event) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_ChildEvent_IsBase(true);
@@ -49469,7 +49469,7 @@ void QCPItemRect_CustomEvent(QCPItemRect* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemRect_QBaseCustomEvent(QCPItemRect* self, QEvent* event) {
+void QCPItemRect_SuperCustomEvent(QCPItemRect* self, QEvent* event) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_CustomEvent_IsBase(true);
@@ -49498,7 +49498,7 @@ void QCPItemRect_ConnectNotify(QCPItemRect* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPItemRect_QBaseConnectNotify(QCPItemRect* self, const QMetaMethod* signal) {
+void QCPItemRect_SuperConnectNotify(QCPItemRect* self, const QMetaMethod* signal) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_ConnectNotify_IsBase(true);
@@ -49527,7 +49527,7 @@ void QCPItemRect_DisconnectNotify(QCPItemRect* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QCPItemRect_QBaseDisconnectNotify(QCPItemRect* self, const QMetaMethod* signal) {
+void QCPItemRect_SuperDisconnectNotify(QCPItemRect* self, const QMetaMethod* signal) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_DisconnectNotify_IsBase(true);
@@ -49555,7 +49555,7 @@ QPen* QCPItemRect_MainPen(const QCPItemRect* self) {
 }
 
 // Base class handler implementation
-QPen* QCPItemRect_QBaseMainPen(const QCPItemRect* self) {
+QPen* QCPItemRect_SuperMainPen(const QCPItemRect* self) {
     auto* vqcpitemrect = const_cast<VirtualQCPItemRect*>(dynamic_cast<const VirtualQCPItemRect*>(self));
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_MainPen_IsBase(true);
@@ -49582,7 +49582,7 @@ QBrush* QCPItemRect_MainBrush(const QCPItemRect* self) {
 }
 
 // Base class handler implementation
-QBrush* QCPItemRect_QBaseMainBrush(const QCPItemRect* self) {
+QBrush* QCPItemRect_SuperMainBrush(const QCPItemRect* self) {
     auto* vqcpitemrect = const_cast<VirtualQCPItemRect*>(dynamic_cast<const VirtualQCPItemRect*>(self));
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_MainBrush_IsBase(true);
@@ -49610,7 +49610,7 @@ double QCPItemRect_RectDistance(const QCPItemRect* self, const QRectF* rect, con
 }
 
 // Base class handler implementation
-double QCPItemRect_QBaseRectDistance(const QCPItemRect* self, const QRectF* rect, const QPointF* pos, bool filledRect) {
+double QCPItemRect_SuperRectDistance(const QCPItemRect* self, const QRectF* rect, const QPointF* pos, bool filledRect) {
     auto* vqcpitemrect = const_cast<VirtualQCPItemRect*>(dynamic_cast<const VirtualQCPItemRect*>(self));
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_RectDistance_IsBase(true);
@@ -49640,7 +49640,7 @@ QCPItemPosition* QCPItemRect_CreatePosition(QCPItemRect* self, const libqt_strin
 }
 
 // Base class handler implementation
-QCPItemPosition* QCPItemRect_QBaseCreatePosition(QCPItemRect* self, const libqt_string name) {
+QCPItemPosition* QCPItemRect_SuperCreatePosition(QCPItemRect* self, const libqt_string name) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
@@ -49671,7 +49671,7 @@ QCPItemAnchor* QCPItemRect_CreateAnchor(QCPItemRect* self, const libqt_string na
 }
 
 // Base class handler implementation
-QCPItemAnchor* QCPItemRect_QBaseCreateAnchor(QCPItemRect* self, const libqt_string name, int anchorId) {
+QCPItemAnchor* QCPItemRect_SuperCreateAnchor(QCPItemRect* self, const libqt_string name, int anchorId) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
@@ -49701,7 +49701,7 @@ void QCPItemRect_InitializeParentPlot(QCPItemRect* self, QCustomPlot* parentPlot
 }
 
 // Base class handler implementation
-void QCPItemRect_QBaseInitializeParentPlot(QCPItemRect* self, QCustomPlot* parentPlot) {
+void QCPItemRect_SuperInitializeParentPlot(QCPItemRect* self, QCustomPlot* parentPlot) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_InitializeParentPlot_IsBase(true);
@@ -49730,7 +49730,7 @@ void QCPItemRect_SetParentLayerable(QCPItemRect* self, QCPLayerable* parentLayer
 }
 
 // Base class handler implementation
-void QCPItemRect_QBaseSetParentLayerable(QCPItemRect* self, QCPLayerable* parentLayerable) {
+void QCPItemRect_SuperSetParentLayerable(QCPItemRect* self, QCPLayerable* parentLayerable) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_SetParentLayerable_IsBase(true);
@@ -49759,7 +49759,7 @@ bool QCPItemRect_MoveToLayer(QCPItemRect* self, QCPLayer* layer, bool prepend) {
 }
 
 // Base class handler implementation
-bool QCPItemRect_QBaseMoveToLayer(QCPItemRect* self, QCPLayer* layer, bool prepend) {
+bool QCPItemRect_SuperMoveToLayer(QCPItemRect* self, QCPLayer* layer, bool prepend) {
     auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_MoveToLayer_IsBase(true);
@@ -49788,7 +49788,7 @@ void QCPItemRect_ApplyAntialiasingHint(const QCPItemRect* self, QCPPainter* pain
 }
 
 // Base class handler implementation
-void QCPItemRect_QBaseApplyAntialiasingHint(const QCPItemRect* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPItemRect_SuperApplyAntialiasingHint(const QCPItemRect* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpitemrect = const_cast<VirtualQCPItemRect*>(dynamic_cast<const VirtualQCPItemRect*>(self));
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_ApplyAntialiasingHint_IsBase(true);
@@ -49817,7 +49817,7 @@ QObject* QCPItemRect_Sender(const QCPItemRect* self) {
 }
 
 // Base class handler implementation
-QObject* QCPItemRect_QBaseSender(const QCPItemRect* self) {
+QObject* QCPItemRect_SuperSender(const QCPItemRect* self) {
     auto* vqcpitemrect = const_cast<VirtualQCPItemRect*>(dynamic_cast<const VirtualQCPItemRect*>(self));
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_Sender_IsBase(true);
@@ -49846,7 +49846,7 @@ int QCPItemRect_SenderSignalIndex(const QCPItemRect* self) {
 }
 
 // Base class handler implementation
-int QCPItemRect_QBaseSenderSignalIndex(const QCPItemRect* self) {
+int QCPItemRect_SuperSenderSignalIndex(const QCPItemRect* self) {
     auto* vqcpitemrect = const_cast<VirtualQCPItemRect*>(dynamic_cast<const VirtualQCPItemRect*>(self));
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_SenderSignalIndex_IsBase(true);
@@ -49875,7 +49875,7 @@ int QCPItemRect_Receivers(const QCPItemRect* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPItemRect_QBaseReceivers(const QCPItemRect* self, const char* signal) {
+int QCPItemRect_SuperReceivers(const QCPItemRect* self, const char* signal) {
     auto* vqcpitemrect = const_cast<VirtualQCPItemRect*>(dynamic_cast<const VirtualQCPItemRect*>(self));
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_Receivers_IsBase(true);
@@ -49904,7 +49904,7 @@ bool QCPItemRect_IsSignalConnected(const QCPItemRect* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QCPItemRect_QBaseIsSignalConnected(const QCPItemRect* self, const QMetaMethod* signal) {
+bool QCPItemRect_SuperIsSignalConnected(const QCPItemRect* self, const QMetaMethod* signal) {
     auto* vqcpitemrect = const_cast<VirtualQCPItemRect*>(dynamic_cast<const VirtualQCPItemRect*>(self));
     if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
         vqcpitemrect->setQCPItemRect_IsSignalConnected_IsBase(true);
@@ -50131,7 +50131,7 @@ QPointF* QCPItemText_AnchorPixelPosition(const QCPItemText* self, int anchorId) 
 }
 
 // Base class handler implementation
-QMetaObject* QCPItemText_QBaseMetaObject(const QCPItemText* self) {
+QMetaObject* QCPItemText_SuperMetaObject(const QCPItemText* self) {
     auto* vqcpitemtext = const_cast<VirtualQCPItemText*>(dynamic_cast<const VirtualQCPItemText*>(self));
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_MetaObject_IsBase(true);
@@ -50150,7 +50150,7 @@ void QCPItemText_OnMetaObject(const QCPItemText* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPItemText_QBaseMetacast(QCPItemText* self, const char* param1) {
+void* QCPItemText_SuperMetacast(QCPItemText* self, const char* param1) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_Metacast_IsBase(true);
@@ -50169,7 +50169,7 @@ void QCPItemText_OnMetacast(QCPItemText* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPItemText_QBaseMetacall(QCPItemText* self, int param1, int param2, void** param3) {
+int QCPItemText_SuperMetacall(QCPItemText* self, int param1, int param2, void** param3) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_Metacall_IsBase(true);
@@ -50188,7 +50188,7 @@ void QCPItemText_OnMetacall(QCPItemText* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPItemText_QBaseSelectTest(const QCPItemText* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPItemText_SuperSelectTest(const QCPItemText* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpitemtext = const_cast<VirtualQCPItemText*>(dynamic_cast<const VirtualQCPItemText*>(self));
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_SelectTest_IsBase(true);
@@ -50207,7 +50207,7 @@ void QCPItemText_OnSelectTest(const QCPItemText* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPItemText_QBaseDraw(QCPItemText* self, QCPPainter* painter) {
+void QCPItemText_SuperDraw(QCPItemText* self, QCPPainter* painter) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_Draw_IsBase(true);
@@ -50226,7 +50226,7 @@ void QCPItemText_OnDraw(QCPItemText* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPointF* QCPItemText_QBaseAnchorPixelPosition(const QCPItemText* self, int anchorId) {
+QPointF* QCPItemText_SuperAnchorPixelPosition(const QCPItemText* self, int anchorId) {
     auto* vqcpitemtext = const_cast<VirtualQCPItemText*>(dynamic_cast<const VirtualQCPItemText*>(self));
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_AnchorPixelPosition_IsBase(true);
@@ -50254,7 +50254,7 @@ int QCPItemText_SelectionCategory(const QCPItemText* self) {
 }
 
 // Base class handler implementation
-int QCPItemText_QBaseSelectionCategory(const QCPItemText* self) {
+int QCPItemText_SuperSelectionCategory(const QCPItemText* self) {
     auto* vqcpitemtext = const_cast<VirtualQCPItemText*>(dynamic_cast<const VirtualQCPItemText*>(self));
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_SelectionCategory_IsBase(true);
@@ -50282,7 +50282,7 @@ QRect* QCPItemText_ClipRect(const QCPItemText* self) {
 }
 
 // Base class handler implementation
-QRect* QCPItemText_QBaseClipRect(const QCPItemText* self) {
+QRect* QCPItemText_SuperClipRect(const QCPItemText* self) {
     auto* vqcpitemtext = const_cast<VirtualQCPItemText*>(dynamic_cast<const VirtualQCPItemText*>(self));
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_ClipRect_IsBase(true);
@@ -50310,7 +50310,7 @@ void QCPItemText_ApplyDefaultAntialiasingHint(const QCPItemText* self, QCPPainte
 }
 
 // Base class handler implementation
-void QCPItemText_QBaseApplyDefaultAntialiasingHint(const QCPItemText* self, QCPPainter* painter) {
+void QCPItemText_SuperApplyDefaultAntialiasingHint(const QCPItemText* self, QCPPainter* painter) {
     auto* vqcpitemtext = const_cast<VirtualQCPItemText*>(dynamic_cast<const VirtualQCPItemText*>(self));
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -50339,7 +50339,7 @@ void QCPItemText_SelectEvent(QCPItemText* self, QMouseEvent* event, bool additiv
 }
 
 // Base class handler implementation
-void QCPItemText_QBaseSelectEvent(QCPItemText* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPItemText_SuperSelectEvent(QCPItemText* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_SelectEvent_IsBase(true);
@@ -50368,7 +50368,7 @@ void QCPItemText_DeselectEvent(QCPItemText* self, bool* selectionStateChanged) {
 }
 
 // Base class handler implementation
-void QCPItemText_QBaseDeselectEvent(QCPItemText* self, bool* selectionStateChanged) {
+void QCPItemText_SuperDeselectEvent(QCPItemText* self, bool* selectionStateChanged) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_DeselectEvent_IsBase(true);
@@ -50397,7 +50397,7 @@ void QCPItemText_ParentPlotInitialized(QCPItemText* self, QCustomPlot* parentPlo
 }
 
 // Base class handler implementation
-void QCPItemText_QBaseParentPlotInitialized(QCPItemText* self, QCustomPlot* parentPlot) {
+void QCPItemText_SuperParentPlotInitialized(QCPItemText* self, QCustomPlot* parentPlot) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_ParentPlotInitialized_IsBase(true);
@@ -50426,7 +50426,7 @@ void QCPItemText_MousePressEvent(QCPItemText* self, QMouseEvent* event, const QV
 }
 
 // Base class handler implementation
-void QCPItemText_QBaseMousePressEvent(QCPItemText* self, QMouseEvent* event, const QVariant* details) {
+void QCPItemText_SuperMousePressEvent(QCPItemText* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_MousePressEvent_IsBase(true);
@@ -50455,7 +50455,7 @@ void QCPItemText_MouseMoveEvent(QCPItemText* self, QMouseEvent* event, const QPo
 }
 
 // Base class handler implementation
-void QCPItemText_QBaseMouseMoveEvent(QCPItemText* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPItemText_SuperMouseMoveEvent(QCPItemText* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_MouseMoveEvent_IsBase(true);
@@ -50484,7 +50484,7 @@ void QCPItemText_MouseReleaseEvent(QCPItemText* self, QMouseEvent* event, const 
 }
 
 // Base class handler implementation
-void QCPItemText_QBaseMouseReleaseEvent(QCPItemText* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPItemText_SuperMouseReleaseEvent(QCPItemText* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_MouseReleaseEvent_IsBase(true);
@@ -50513,7 +50513,7 @@ void QCPItemText_MouseDoubleClickEvent(QCPItemText* self, QMouseEvent* event, co
 }
 
 // Base class handler implementation
-void QCPItemText_QBaseMouseDoubleClickEvent(QCPItemText* self, QMouseEvent* event, const QVariant* details) {
+void QCPItemText_SuperMouseDoubleClickEvent(QCPItemText* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_MouseDoubleClickEvent_IsBase(true);
@@ -50542,7 +50542,7 @@ void QCPItemText_WheelEvent(QCPItemText* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemText_QBaseWheelEvent(QCPItemText* self, QWheelEvent* event) {
+void QCPItemText_SuperWheelEvent(QCPItemText* self, QWheelEvent* event) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_WheelEvent_IsBase(true);
@@ -50571,7 +50571,7 @@ bool QCPItemText_Event(QCPItemText* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPItemText_QBaseEvent(QCPItemText* self, QEvent* event) {
+bool QCPItemText_SuperEvent(QCPItemText* self, QEvent* event) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_Event_IsBase(true);
@@ -50600,7 +50600,7 @@ bool QCPItemText_EventFilter(QCPItemText* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QCPItemText_QBaseEventFilter(QCPItemText* self, QObject* watched, QEvent* event) {
+bool QCPItemText_SuperEventFilter(QCPItemText* self, QObject* watched, QEvent* event) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_EventFilter_IsBase(true);
@@ -50629,7 +50629,7 @@ void QCPItemText_TimerEvent(QCPItemText* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemText_QBaseTimerEvent(QCPItemText* self, QTimerEvent* event) {
+void QCPItemText_SuperTimerEvent(QCPItemText* self, QTimerEvent* event) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_TimerEvent_IsBase(true);
@@ -50658,7 +50658,7 @@ void QCPItemText_ChildEvent(QCPItemText* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemText_QBaseChildEvent(QCPItemText* self, QChildEvent* event) {
+void QCPItemText_SuperChildEvent(QCPItemText* self, QChildEvent* event) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_ChildEvent_IsBase(true);
@@ -50687,7 +50687,7 @@ void QCPItemText_CustomEvent(QCPItemText* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemText_QBaseCustomEvent(QCPItemText* self, QEvent* event) {
+void QCPItemText_SuperCustomEvent(QCPItemText* self, QEvent* event) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_CustomEvent_IsBase(true);
@@ -50716,7 +50716,7 @@ void QCPItemText_ConnectNotify(QCPItemText* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPItemText_QBaseConnectNotify(QCPItemText* self, const QMetaMethod* signal) {
+void QCPItemText_SuperConnectNotify(QCPItemText* self, const QMetaMethod* signal) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_ConnectNotify_IsBase(true);
@@ -50745,7 +50745,7 @@ void QCPItemText_DisconnectNotify(QCPItemText* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QCPItemText_QBaseDisconnectNotify(QCPItemText* self, const QMetaMethod* signal) {
+void QCPItemText_SuperDisconnectNotify(QCPItemText* self, const QMetaMethod* signal) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_DisconnectNotify_IsBase(true);
@@ -50773,7 +50773,7 @@ QPointF* QCPItemText_GetTextDrawPoint(const QCPItemText* self, const QPointF* po
 }
 
 // Base class handler implementation
-QPointF* QCPItemText_QBaseGetTextDrawPoint(const QCPItemText* self, const QPointF* pos, const QRectF* rect, int positionAlignment) {
+QPointF* QCPItemText_SuperGetTextDrawPoint(const QCPItemText* self, const QPointF* pos, const QRectF* rect, int positionAlignment) {
     auto* vqcpitemtext = const_cast<VirtualQCPItemText*>(dynamic_cast<const VirtualQCPItemText*>(self));
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_GetTextDrawPoint_IsBase(true);
@@ -50800,7 +50800,7 @@ QFont* QCPItemText_MainFont(const QCPItemText* self) {
 }
 
 // Base class handler implementation
-QFont* QCPItemText_QBaseMainFont(const QCPItemText* self) {
+QFont* QCPItemText_SuperMainFont(const QCPItemText* self) {
     auto* vqcpitemtext = const_cast<VirtualQCPItemText*>(dynamic_cast<const VirtualQCPItemText*>(self));
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_MainFont_IsBase(true);
@@ -50827,7 +50827,7 @@ QColor* QCPItemText_MainColor(const QCPItemText* self) {
 }
 
 // Base class handler implementation
-QColor* QCPItemText_QBaseMainColor(const QCPItemText* self) {
+QColor* QCPItemText_SuperMainColor(const QCPItemText* self) {
     auto* vqcpitemtext = const_cast<VirtualQCPItemText*>(dynamic_cast<const VirtualQCPItemText*>(self));
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_MainColor_IsBase(true);
@@ -50854,7 +50854,7 @@ QPen* QCPItemText_MainPen(const QCPItemText* self) {
 }
 
 // Base class handler implementation
-QPen* QCPItemText_QBaseMainPen(const QCPItemText* self) {
+QPen* QCPItemText_SuperMainPen(const QCPItemText* self) {
     auto* vqcpitemtext = const_cast<VirtualQCPItemText*>(dynamic_cast<const VirtualQCPItemText*>(self));
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_MainPen_IsBase(true);
@@ -50881,7 +50881,7 @@ QBrush* QCPItemText_MainBrush(const QCPItemText* self) {
 }
 
 // Base class handler implementation
-QBrush* QCPItemText_QBaseMainBrush(const QCPItemText* self) {
+QBrush* QCPItemText_SuperMainBrush(const QCPItemText* self) {
     auto* vqcpitemtext = const_cast<VirtualQCPItemText*>(dynamic_cast<const VirtualQCPItemText*>(self));
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_MainBrush_IsBase(true);
@@ -50909,7 +50909,7 @@ double QCPItemText_RectDistance(const QCPItemText* self, const QRectF* rect, con
 }
 
 // Base class handler implementation
-double QCPItemText_QBaseRectDistance(const QCPItemText* self, const QRectF* rect, const QPointF* pos, bool filledRect) {
+double QCPItemText_SuperRectDistance(const QCPItemText* self, const QRectF* rect, const QPointF* pos, bool filledRect) {
     auto* vqcpitemtext = const_cast<VirtualQCPItemText*>(dynamic_cast<const VirtualQCPItemText*>(self));
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_RectDistance_IsBase(true);
@@ -50939,7 +50939,7 @@ QCPItemPosition* QCPItemText_CreatePosition(QCPItemText* self, const libqt_strin
 }
 
 // Base class handler implementation
-QCPItemPosition* QCPItemText_QBaseCreatePosition(QCPItemText* self, const libqt_string name) {
+QCPItemPosition* QCPItemText_SuperCreatePosition(QCPItemText* self, const libqt_string name) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
@@ -50970,7 +50970,7 @@ QCPItemAnchor* QCPItemText_CreateAnchor(QCPItemText* self, const libqt_string na
 }
 
 // Base class handler implementation
-QCPItemAnchor* QCPItemText_QBaseCreateAnchor(QCPItemText* self, const libqt_string name, int anchorId) {
+QCPItemAnchor* QCPItemText_SuperCreateAnchor(QCPItemText* self, const libqt_string name, int anchorId) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
@@ -51000,7 +51000,7 @@ void QCPItemText_InitializeParentPlot(QCPItemText* self, QCustomPlot* parentPlot
 }
 
 // Base class handler implementation
-void QCPItemText_QBaseInitializeParentPlot(QCPItemText* self, QCustomPlot* parentPlot) {
+void QCPItemText_SuperInitializeParentPlot(QCPItemText* self, QCustomPlot* parentPlot) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_InitializeParentPlot_IsBase(true);
@@ -51029,7 +51029,7 @@ void QCPItemText_SetParentLayerable(QCPItemText* self, QCPLayerable* parentLayer
 }
 
 // Base class handler implementation
-void QCPItemText_QBaseSetParentLayerable(QCPItemText* self, QCPLayerable* parentLayerable) {
+void QCPItemText_SuperSetParentLayerable(QCPItemText* self, QCPLayerable* parentLayerable) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_SetParentLayerable_IsBase(true);
@@ -51058,7 +51058,7 @@ bool QCPItemText_MoveToLayer(QCPItemText* self, QCPLayer* layer, bool prepend) {
 }
 
 // Base class handler implementation
-bool QCPItemText_QBaseMoveToLayer(QCPItemText* self, QCPLayer* layer, bool prepend) {
+bool QCPItemText_SuperMoveToLayer(QCPItemText* self, QCPLayer* layer, bool prepend) {
     auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_MoveToLayer_IsBase(true);
@@ -51087,7 +51087,7 @@ void QCPItemText_ApplyAntialiasingHint(const QCPItemText* self, QCPPainter* pain
 }
 
 // Base class handler implementation
-void QCPItemText_QBaseApplyAntialiasingHint(const QCPItemText* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPItemText_SuperApplyAntialiasingHint(const QCPItemText* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpitemtext = const_cast<VirtualQCPItemText*>(dynamic_cast<const VirtualQCPItemText*>(self));
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_ApplyAntialiasingHint_IsBase(true);
@@ -51116,7 +51116,7 @@ QObject* QCPItemText_Sender(const QCPItemText* self) {
 }
 
 // Base class handler implementation
-QObject* QCPItemText_QBaseSender(const QCPItemText* self) {
+QObject* QCPItemText_SuperSender(const QCPItemText* self) {
     auto* vqcpitemtext = const_cast<VirtualQCPItemText*>(dynamic_cast<const VirtualQCPItemText*>(self));
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_Sender_IsBase(true);
@@ -51145,7 +51145,7 @@ int QCPItemText_SenderSignalIndex(const QCPItemText* self) {
 }
 
 // Base class handler implementation
-int QCPItemText_QBaseSenderSignalIndex(const QCPItemText* self) {
+int QCPItemText_SuperSenderSignalIndex(const QCPItemText* self) {
     auto* vqcpitemtext = const_cast<VirtualQCPItemText*>(dynamic_cast<const VirtualQCPItemText*>(self));
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_SenderSignalIndex_IsBase(true);
@@ -51174,7 +51174,7 @@ int QCPItemText_Receivers(const QCPItemText* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPItemText_QBaseReceivers(const QCPItemText* self, const char* signal) {
+int QCPItemText_SuperReceivers(const QCPItemText* self, const char* signal) {
     auto* vqcpitemtext = const_cast<VirtualQCPItemText*>(dynamic_cast<const VirtualQCPItemText*>(self));
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_Receivers_IsBase(true);
@@ -51203,7 +51203,7 @@ bool QCPItemText_IsSignalConnected(const QCPItemText* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QCPItemText_QBaseIsSignalConnected(const QCPItemText* self, const QMetaMethod* signal) {
+bool QCPItemText_SuperIsSignalConnected(const QCPItemText* self, const QMetaMethod* signal) {
     auto* vqcpitemtext = const_cast<VirtualQCPItemText*>(dynamic_cast<const VirtualQCPItemText*>(self));
     if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
         vqcpitemtext->setQCPItemText_IsSignalConnected_IsBase(true);
@@ -51357,7 +51357,7 @@ QPointF* QCPItemEllipse_AnchorPixelPosition(const QCPItemEllipse* self, int anch
 }
 
 // Base class handler implementation
-QMetaObject* QCPItemEllipse_QBaseMetaObject(const QCPItemEllipse* self) {
+QMetaObject* QCPItemEllipse_SuperMetaObject(const QCPItemEllipse* self) {
     auto* vqcpitemellipse = const_cast<VirtualQCPItemEllipse*>(dynamic_cast<const VirtualQCPItemEllipse*>(self));
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_MetaObject_IsBase(true);
@@ -51376,7 +51376,7 @@ void QCPItemEllipse_OnMetaObject(const QCPItemEllipse* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPItemEllipse_QBaseMetacast(QCPItemEllipse* self, const char* param1) {
+void* QCPItemEllipse_SuperMetacast(QCPItemEllipse* self, const char* param1) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_Metacast_IsBase(true);
@@ -51395,7 +51395,7 @@ void QCPItemEllipse_OnMetacast(QCPItemEllipse* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPItemEllipse_QBaseMetacall(QCPItemEllipse* self, int param1, int param2, void** param3) {
+int QCPItemEllipse_SuperMetacall(QCPItemEllipse* self, int param1, int param2, void** param3) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_Metacall_IsBase(true);
@@ -51414,7 +51414,7 @@ void QCPItemEllipse_OnMetacall(QCPItemEllipse* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPItemEllipse_QBaseSelectTest(const QCPItemEllipse* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPItemEllipse_SuperSelectTest(const QCPItemEllipse* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpitemellipse = const_cast<VirtualQCPItemEllipse*>(dynamic_cast<const VirtualQCPItemEllipse*>(self));
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_SelectTest_IsBase(true);
@@ -51433,7 +51433,7 @@ void QCPItemEllipse_OnSelectTest(const QCPItemEllipse* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPItemEllipse_QBaseDraw(QCPItemEllipse* self, QCPPainter* painter) {
+void QCPItemEllipse_SuperDraw(QCPItemEllipse* self, QCPPainter* painter) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_Draw_IsBase(true);
@@ -51452,7 +51452,7 @@ void QCPItemEllipse_OnDraw(QCPItemEllipse* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPointF* QCPItemEllipse_QBaseAnchorPixelPosition(const QCPItemEllipse* self, int anchorId) {
+QPointF* QCPItemEllipse_SuperAnchorPixelPosition(const QCPItemEllipse* self, int anchorId) {
     auto* vqcpitemellipse = const_cast<VirtualQCPItemEllipse*>(dynamic_cast<const VirtualQCPItemEllipse*>(self));
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_AnchorPixelPosition_IsBase(true);
@@ -51480,7 +51480,7 @@ int QCPItemEllipse_SelectionCategory(const QCPItemEllipse* self) {
 }
 
 // Base class handler implementation
-int QCPItemEllipse_QBaseSelectionCategory(const QCPItemEllipse* self) {
+int QCPItemEllipse_SuperSelectionCategory(const QCPItemEllipse* self) {
     auto* vqcpitemellipse = const_cast<VirtualQCPItemEllipse*>(dynamic_cast<const VirtualQCPItemEllipse*>(self));
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_SelectionCategory_IsBase(true);
@@ -51508,7 +51508,7 @@ QRect* QCPItemEllipse_ClipRect(const QCPItemEllipse* self) {
 }
 
 // Base class handler implementation
-QRect* QCPItemEllipse_QBaseClipRect(const QCPItemEllipse* self) {
+QRect* QCPItemEllipse_SuperClipRect(const QCPItemEllipse* self) {
     auto* vqcpitemellipse = const_cast<VirtualQCPItemEllipse*>(dynamic_cast<const VirtualQCPItemEllipse*>(self));
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_ClipRect_IsBase(true);
@@ -51536,7 +51536,7 @@ void QCPItemEllipse_ApplyDefaultAntialiasingHint(const QCPItemEllipse* self, QCP
 }
 
 // Base class handler implementation
-void QCPItemEllipse_QBaseApplyDefaultAntialiasingHint(const QCPItemEllipse* self, QCPPainter* painter) {
+void QCPItemEllipse_SuperApplyDefaultAntialiasingHint(const QCPItemEllipse* self, QCPPainter* painter) {
     auto* vqcpitemellipse = const_cast<VirtualQCPItemEllipse*>(dynamic_cast<const VirtualQCPItemEllipse*>(self));
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -51565,7 +51565,7 @@ void QCPItemEllipse_SelectEvent(QCPItemEllipse* self, QMouseEvent* event, bool a
 }
 
 // Base class handler implementation
-void QCPItemEllipse_QBaseSelectEvent(QCPItemEllipse* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPItemEllipse_SuperSelectEvent(QCPItemEllipse* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_SelectEvent_IsBase(true);
@@ -51594,7 +51594,7 @@ void QCPItemEllipse_DeselectEvent(QCPItemEllipse* self, bool* selectionStateChan
 }
 
 // Base class handler implementation
-void QCPItemEllipse_QBaseDeselectEvent(QCPItemEllipse* self, bool* selectionStateChanged) {
+void QCPItemEllipse_SuperDeselectEvent(QCPItemEllipse* self, bool* selectionStateChanged) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_DeselectEvent_IsBase(true);
@@ -51623,7 +51623,7 @@ void QCPItemEllipse_ParentPlotInitialized(QCPItemEllipse* self, QCustomPlot* par
 }
 
 // Base class handler implementation
-void QCPItemEllipse_QBaseParentPlotInitialized(QCPItemEllipse* self, QCustomPlot* parentPlot) {
+void QCPItemEllipse_SuperParentPlotInitialized(QCPItemEllipse* self, QCustomPlot* parentPlot) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_ParentPlotInitialized_IsBase(true);
@@ -51652,7 +51652,7 @@ void QCPItemEllipse_MousePressEvent(QCPItemEllipse* self, QMouseEvent* event, co
 }
 
 // Base class handler implementation
-void QCPItemEllipse_QBaseMousePressEvent(QCPItemEllipse* self, QMouseEvent* event, const QVariant* details) {
+void QCPItemEllipse_SuperMousePressEvent(QCPItemEllipse* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_MousePressEvent_IsBase(true);
@@ -51681,7 +51681,7 @@ void QCPItemEllipse_MouseMoveEvent(QCPItemEllipse* self, QMouseEvent* event, con
 }
 
 // Base class handler implementation
-void QCPItemEllipse_QBaseMouseMoveEvent(QCPItemEllipse* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPItemEllipse_SuperMouseMoveEvent(QCPItemEllipse* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_MouseMoveEvent_IsBase(true);
@@ -51710,7 +51710,7 @@ void QCPItemEllipse_MouseReleaseEvent(QCPItemEllipse* self, QMouseEvent* event, 
 }
 
 // Base class handler implementation
-void QCPItemEllipse_QBaseMouseReleaseEvent(QCPItemEllipse* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPItemEllipse_SuperMouseReleaseEvent(QCPItemEllipse* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_MouseReleaseEvent_IsBase(true);
@@ -51739,7 +51739,7 @@ void QCPItemEllipse_MouseDoubleClickEvent(QCPItemEllipse* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void QCPItemEllipse_QBaseMouseDoubleClickEvent(QCPItemEllipse* self, QMouseEvent* event, const QVariant* details) {
+void QCPItemEllipse_SuperMouseDoubleClickEvent(QCPItemEllipse* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_MouseDoubleClickEvent_IsBase(true);
@@ -51768,7 +51768,7 @@ void QCPItemEllipse_WheelEvent(QCPItemEllipse* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemEllipse_QBaseWheelEvent(QCPItemEllipse* self, QWheelEvent* event) {
+void QCPItemEllipse_SuperWheelEvent(QCPItemEllipse* self, QWheelEvent* event) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_WheelEvent_IsBase(true);
@@ -51797,7 +51797,7 @@ bool QCPItemEllipse_Event(QCPItemEllipse* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPItemEllipse_QBaseEvent(QCPItemEllipse* self, QEvent* event) {
+bool QCPItemEllipse_SuperEvent(QCPItemEllipse* self, QEvent* event) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_Event_IsBase(true);
@@ -51826,7 +51826,7 @@ bool QCPItemEllipse_EventFilter(QCPItemEllipse* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QCPItemEllipse_QBaseEventFilter(QCPItemEllipse* self, QObject* watched, QEvent* event) {
+bool QCPItemEllipse_SuperEventFilter(QCPItemEllipse* self, QObject* watched, QEvent* event) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_EventFilter_IsBase(true);
@@ -51855,7 +51855,7 @@ void QCPItemEllipse_TimerEvent(QCPItemEllipse* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemEllipse_QBaseTimerEvent(QCPItemEllipse* self, QTimerEvent* event) {
+void QCPItemEllipse_SuperTimerEvent(QCPItemEllipse* self, QTimerEvent* event) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_TimerEvent_IsBase(true);
@@ -51884,7 +51884,7 @@ void QCPItemEllipse_ChildEvent(QCPItemEllipse* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemEllipse_QBaseChildEvent(QCPItemEllipse* self, QChildEvent* event) {
+void QCPItemEllipse_SuperChildEvent(QCPItemEllipse* self, QChildEvent* event) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_ChildEvent_IsBase(true);
@@ -51913,7 +51913,7 @@ void QCPItemEllipse_CustomEvent(QCPItemEllipse* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemEllipse_QBaseCustomEvent(QCPItemEllipse* self, QEvent* event) {
+void QCPItemEllipse_SuperCustomEvent(QCPItemEllipse* self, QEvent* event) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_CustomEvent_IsBase(true);
@@ -51942,7 +51942,7 @@ void QCPItemEllipse_ConnectNotify(QCPItemEllipse* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QCPItemEllipse_QBaseConnectNotify(QCPItemEllipse* self, const QMetaMethod* signal) {
+void QCPItemEllipse_SuperConnectNotify(QCPItemEllipse* self, const QMetaMethod* signal) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_ConnectNotify_IsBase(true);
@@ -51971,7 +51971,7 @@ void QCPItemEllipse_DisconnectNotify(QCPItemEllipse* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QCPItemEllipse_QBaseDisconnectNotify(QCPItemEllipse* self, const QMetaMethod* signal) {
+void QCPItemEllipse_SuperDisconnectNotify(QCPItemEllipse* self, const QMetaMethod* signal) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_DisconnectNotify_IsBase(true);
@@ -51999,7 +51999,7 @@ QPen* QCPItemEllipse_MainPen(const QCPItemEllipse* self) {
 }
 
 // Base class handler implementation
-QPen* QCPItemEllipse_QBaseMainPen(const QCPItemEllipse* self) {
+QPen* QCPItemEllipse_SuperMainPen(const QCPItemEllipse* self) {
     auto* vqcpitemellipse = const_cast<VirtualQCPItemEllipse*>(dynamic_cast<const VirtualQCPItemEllipse*>(self));
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_MainPen_IsBase(true);
@@ -52026,7 +52026,7 @@ QBrush* QCPItemEllipse_MainBrush(const QCPItemEllipse* self) {
 }
 
 // Base class handler implementation
-QBrush* QCPItemEllipse_QBaseMainBrush(const QCPItemEllipse* self) {
+QBrush* QCPItemEllipse_SuperMainBrush(const QCPItemEllipse* self) {
     auto* vqcpitemellipse = const_cast<VirtualQCPItemEllipse*>(dynamic_cast<const VirtualQCPItemEllipse*>(self));
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_MainBrush_IsBase(true);
@@ -52054,7 +52054,7 @@ double QCPItemEllipse_RectDistance(const QCPItemEllipse* self, const QRectF* rec
 }
 
 // Base class handler implementation
-double QCPItemEllipse_QBaseRectDistance(const QCPItemEllipse* self, const QRectF* rect, const QPointF* pos, bool filledRect) {
+double QCPItemEllipse_SuperRectDistance(const QCPItemEllipse* self, const QRectF* rect, const QPointF* pos, bool filledRect) {
     auto* vqcpitemellipse = const_cast<VirtualQCPItemEllipse*>(dynamic_cast<const VirtualQCPItemEllipse*>(self));
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_RectDistance_IsBase(true);
@@ -52084,7 +52084,7 @@ QCPItemPosition* QCPItemEllipse_CreatePosition(QCPItemEllipse* self, const libqt
 }
 
 // Base class handler implementation
-QCPItemPosition* QCPItemEllipse_QBaseCreatePosition(QCPItemEllipse* self, const libqt_string name) {
+QCPItemPosition* QCPItemEllipse_SuperCreatePosition(QCPItemEllipse* self, const libqt_string name) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
@@ -52115,7 +52115,7 @@ QCPItemAnchor* QCPItemEllipse_CreateAnchor(QCPItemEllipse* self, const libqt_str
 }
 
 // Base class handler implementation
-QCPItemAnchor* QCPItemEllipse_QBaseCreateAnchor(QCPItemEllipse* self, const libqt_string name, int anchorId) {
+QCPItemAnchor* QCPItemEllipse_SuperCreateAnchor(QCPItemEllipse* self, const libqt_string name, int anchorId) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
@@ -52145,7 +52145,7 @@ void QCPItemEllipse_InitializeParentPlot(QCPItemEllipse* self, QCustomPlot* pare
 }
 
 // Base class handler implementation
-void QCPItemEllipse_QBaseInitializeParentPlot(QCPItemEllipse* self, QCustomPlot* parentPlot) {
+void QCPItemEllipse_SuperInitializeParentPlot(QCPItemEllipse* self, QCustomPlot* parentPlot) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_InitializeParentPlot_IsBase(true);
@@ -52174,7 +52174,7 @@ void QCPItemEllipse_SetParentLayerable(QCPItemEllipse* self, QCPLayerable* paren
 }
 
 // Base class handler implementation
-void QCPItemEllipse_QBaseSetParentLayerable(QCPItemEllipse* self, QCPLayerable* parentLayerable) {
+void QCPItemEllipse_SuperSetParentLayerable(QCPItemEllipse* self, QCPLayerable* parentLayerable) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_SetParentLayerable_IsBase(true);
@@ -52203,7 +52203,7 @@ bool QCPItemEllipse_MoveToLayer(QCPItemEllipse* self, QCPLayer* layer, bool prep
 }
 
 // Base class handler implementation
-bool QCPItemEllipse_QBaseMoveToLayer(QCPItemEllipse* self, QCPLayer* layer, bool prepend) {
+bool QCPItemEllipse_SuperMoveToLayer(QCPItemEllipse* self, QCPLayer* layer, bool prepend) {
     auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_MoveToLayer_IsBase(true);
@@ -52232,7 +52232,7 @@ void QCPItemEllipse_ApplyAntialiasingHint(const QCPItemEllipse* self, QCPPainter
 }
 
 // Base class handler implementation
-void QCPItemEllipse_QBaseApplyAntialiasingHint(const QCPItemEllipse* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPItemEllipse_SuperApplyAntialiasingHint(const QCPItemEllipse* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpitemellipse = const_cast<VirtualQCPItemEllipse*>(dynamic_cast<const VirtualQCPItemEllipse*>(self));
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_ApplyAntialiasingHint_IsBase(true);
@@ -52261,7 +52261,7 @@ QObject* QCPItemEllipse_Sender(const QCPItemEllipse* self) {
 }
 
 // Base class handler implementation
-QObject* QCPItemEllipse_QBaseSender(const QCPItemEllipse* self) {
+QObject* QCPItemEllipse_SuperSender(const QCPItemEllipse* self) {
     auto* vqcpitemellipse = const_cast<VirtualQCPItemEllipse*>(dynamic_cast<const VirtualQCPItemEllipse*>(self));
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_Sender_IsBase(true);
@@ -52290,7 +52290,7 @@ int QCPItemEllipse_SenderSignalIndex(const QCPItemEllipse* self) {
 }
 
 // Base class handler implementation
-int QCPItemEllipse_QBaseSenderSignalIndex(const QCPItemEllipse* self) {
+int QCPItemEllipse_SuperSenderSignalIndex(const QCPItemEllipse* self) {
     auto* vqcpitemellipse = const_cast<VirtualQCPItemEllipse*>(dynamic_cast<const VirtualQCPItemEllipse*>(self));
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_SenderSignalIndex_IsBase(true);
@@ -52319,7 +52319,7 @@ int QCPItemEllipse_Receivers(const QCPItemEllipse* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPItemEllipse_QBaseReceivers(const QCPItemEllipse* self, const char* signal) {
+int QCPItemEllipse_SuperReceivers(const QCPItemEllipse* self, const char* signal) {
     auto* vqcpitemellipse = const_cast<VirtualQCPItemEllipse*>(dynamic_cast<const VirtualQCPItemEllipse*>(self));
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_Receivers_IsBase(true);
@@ -52348,7 +52348,7 @@ bool QCPItemEllipse_IsSignalConnected(const QCPItemEllipse* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QCPItemEllipse_QBaseIsSignalConnected(const QCPItemEllipse* self, const QMetaMethod* signal) {
+bool QCPItemEllipse_SuperIsSignalConnected(const QCPItemEllipse* self, const QMetaMethod* signal) {
     auto* vqcpitemellipse = const_cast<VirtualQCPItemEllipse*>(dynamic_cast<const VirtualQCPItemEllipse*>(self));
     if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
         vqcpitemellipse->setQCPItemEllipse_IsSignalConnected_IsBase(true);
@@ -52506,7 +52506,7 @@ void QCPItemPixmap_SetScaled3(QCPItemPixmap* self, bool scaled, int aspectRatioM
 }
 
 // Base class handler implementation
-QMetaObject* QCPItemPixmap_QBaseMetaObject(const QCPItemPixmap* self) {
+QMetaObject* QCPItemPixmap_SuperMetaObject(const QCPItemPixmap* self) {
     auto* vqcpitempixmap = const_cast<VirtualQCPItemPixmap*>(dynamic_cast<const VirtualQCPItemPixmap*>(self));
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_MetaObject_IsBase(true);
@@ -52525,7 +52525,7 @@ void QCPItemPixmap_OnMetaObject(const QCPItemPixmap* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPItemPixmap_QBaseMetacast(QCPItemPixmap* self, const char* param1) {
+void* QCPItemPixmap_SuperMetacast(QCPItemPixmap* self, const char* param1) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_Metacast_IsBase(true);
@@ -52544,7 +52544,7 @@ void QCPItemPixmap_OnMetacast(QCPItemPixmap* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPItemPixmap_QBaseMetacall(QCPItemPixmap* self, int param1, int param2, void** param3) {
+int QCPItemPixmap_SuperMetacall(QCPItemPixmap* self, int param1, int param2, void** param3) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_Metacall_IsBase(true);
@@ -52563,7 +52563,7 @@ void QCPItemPixmap_OnMetacall(QCPItemPixmap* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPItemPixmap_QBaseSelectTest(const QCPItemPixmap* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPItemPixmap_SuperSelectTest(const QCPItemPixmap* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpitempixmap = const_cast<VirtualQCPItemPixmap*>(dynamic_cast<const VirtualQCPItemPixmap*>(self));
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_SelectTest_IsBase(true);
@@ -52582,7 +52582,7 @@ void QCPItemPixmap_OnSelectTest(const QCPItemPixmap* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPItemPixmap_QBaseDraw(QCPItemPixmap* self, QCPPainter* painter) {
+void QCPItemPixmap_SuperDraw(QCPItemPixmap* self, QCPPainter* painter) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_Draw_IsBase(true);
@@ -52601,7 +52601,7 @@ void QCPItemPixmap_OnDraw(QCPItemPixmap* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPointF* QCPItemPixmap_QBaseAnchorPixelPosition(const QCPItemPixmap* self, int anchorId) {
+QPointF* QCPItemPixmap_SuperAnchorPixelPosition(const QCPItemPixmap* self, int anchorId) {
     auto* vqcpitempixmap = const_cast<VirtualQCPItemPixmap*>(dynamic_cast<const VirtualQCPItemPixmap*>(self));
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_AnchorPixelPosition_IsBase(true);
@@ -52629,7 +52629,7 @@ int QCPItemPixmap_SelectionCategory(const QCPItemPixmap* self) {
 }
 
 // Base class handler implementation
-int QCPItemPixmap_QBaseSelectionCategory(const QCPItemPixmap* self) {
+int QCPItemPixmap_SuperSelectionCategory(const QCPItemPixmap* self) {
     auto* vqcpitempixmap = const_cast<VirtualQCPItemPixmap*>(dynamic_cast<const VirtualQCPItemPixmap*>(self));
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_SelectionCategory_IsBase(true);
@@ -52657,7 +52657,7 @@ QRect* QCPItemPixmap_ClipRect(const QCPItemPixmap* self) {
 }
 
 // Base class handler implementation
-QRect* QCPItemPixmap_QBaseClipRect(const QCPItemPixmap* self) {
+QRect* QCPItemPixmap_SuperClipRect(const QCPItemPixmap* self) {
     auto* vqcpitempixmap = const_cast<VirtualQCPItemPixmap*>(dynamic_cast<const VirtualQCPItemPixmap*>(self));
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_ClipRect_IsBase(true);
@@ -52685,7 +52685,7 @@ void QCPItemPixmap_ApplyDefaultAntialiasingHint(const QCPItemPixmap* self, QCPPa
 }
 
 // Base class handler implementation
-void QCPItemPixmap_QBaseApplyDefaultAntialiasingHint(const QCPItemPixmap* self, QCPPainter* painter) {
+void QCPItemPixmap_SuperApplyDefaultAntialiasingHint(const QCPItemPixmap* self, QCPPainter* painter) {
     auto* vqcpitempixmap = const_cast<VirtualQCPItemPixmap*>(dynamic_cast<const VirtualQCPItemPixmap*>(self));
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -52714,7 +52714,7 @@ void QCPItemPixmap_SelectEvent(QCPItemPixmap* self, QMouseEvent* event, bool add
 }
 
 // Base class handler implementation
-void QCPItemPixmap_QBaseSelectEvent(QCPItemPixmap* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPItemPixmap_SuperSelectEvent(QCPItemPixmap* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_SelectEvent_IsBase(true);
@@ -52743,7 +52743,7 @@ void QCPItemPixmap_DeselectEvent(QCPItemPixmap* self, bool* selectionStateChange
 }
 
 // Base class handler implementation
-void QCPItemPixmap_QBaseDeselectEvent(QCPItemPixmap* self, bool* selectionStateChanged) {
+void QCPItemPixmap_SuperDeselectEvent(QCPItemPixmap* self, bool* selectionStateChanged) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_DeselectEvent_IsBase(true);
@@ -52772,7 +52772,7 @@ void QCPItemPixmap_ParentPlotInitialized(QCPItemPixmap* self, QCustomPlot* paren
 }
 
 // Base class handler implementation
-void QCPItemPixmap_QBaseParentPlotInitialized(QCPItemPixmap* self, QCustomPlot* parentPlot) {
+void QCPItemPixmap_SuperParentPlotInitialized(QCPItemPixmap* self, QCustomPlot* parentPlot) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_ParentPlotInitialized_IsBase(true);
@@ -52801,7 +52801,7 @@ void QCPItemPixmap_MousePressEvent(QCPItemPixmap* self, QMouseEvent* event, cons
 }
 
 // Base class handler implementation
-void QCPItemPixmap_QBaseMousePressEvent(QCPItemPixmap* self, QMouseEvent* event, const QVariant* details) {
+void QCPItemPixmap_SuperMousePressEvent(QCPItemPixmap* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_MousePressEvent_IsBase(true);
@@ -52830,7 +52830,7 @@ void QCPItemPixmap_MouseMoveEvent(QCPItemPixmap* self, QMouseEvent* event, const
 }
 
 // Base class handler implementation
-void QCPItemPixmap_QBaseMouseMoveEvent(QCPItemPixmap* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPItemPixmap_SuperMouseMoveEvent(QCPItemPixmap* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_MouseMoveEvent_IsBase(true);
@@ -52859,7 +52859,7 @@ void QCPItemPixmap_MouseReleaseEvent(QCPItemPixmap* self, QMouseEvent* event, co
 }
 
 // Base class handler implementation
-void QCPItemPixmap_QBaseMouseReleaseEvent(QCPItemPixmap* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPItemPixmap_SuperMouseReleaseEvent(QCPItemPixmap* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_MouseReleaseEvent_IsBase(true);
@@ -52888,7 +52888,7 @@ void QCPItemPixmap_MouseDoubleClickEvent(QCPItemPixmap* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void QCPItemPixmap_QBaseMouseDoubleClickEvent(QCPItemPixmap* self, QMouseEvent* event, const QVariant* details) {
+void QCPItemPixmap_SuperMouseDoubleClickEvent(QCPItemPixmap* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_MouseDoubleClickEvent_IsBase(true);
@@ -52917,7 +52917,7 @@ void QCPItemPixmap_WheelEvent(QCPItemPixmap* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemPixmap_QBaseWheelEvent(QCPItemPixmap* self, QWheelEvent* event) {
+void QCPItemPixmap_SuperWheelEvent(QCPItemPixmap* self, QWheelEvent* event) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_WheelEvent_IsBase(true);
@@ -52946,7 +52946,7 @@ bool QCPItemPixmap_Event(QCPItemPixmap* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPItemPixmap_QBaseEvent(QCPItemPixmap* self, QEvent* event) {
+bool QCPItemPixmap_SuperEvent(QCPItemPixmap* self, QEvent* event) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_Event_IsBase(true);
@@ -52975,7 +52975,7 @@ bool QCPItemPixmap_EventFilter(QCPItemPixmap* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QCPItemPixmap_QBaseEventFilter(QCPItemPixmap* self, QObject* watched, QEvent* event) {
+bool QCPItemPixmap_SuperEventFilter(QCPItemPixmap* self, QObject* watched, QEvent* event) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_EventFilter_IsBase(true);
@@ -53004,7 +53004,7 @@ void QCPItemPixmap_TimerEvent(QCPItemPixmap* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemPixmap_QBaseTimerEvent(QCPItemPixmap* self, QTimerEvent* event) {
+void QCPItemPixmap_SuperTimerEvent(QCPItemPixmap* self, QTimerEvent* event) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_TimerEvent_IsBase(true);
@@ -53033,7 +53033,7 @@ void QCPItemPixmap_ChildEvent(QCPItemPixmap* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemPixmap_QBaseChildEvent(QCPItemPixmap* self, QChildEvent* event) {
+void QCPItemPixmap_SuperChildEvent(QCPItemPixmap* self, QChildEvent* event) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_ChildEvent_IsBase(true);
@@ -53062,7 +53062,7 @@ void QCPItemPixmap_CustomEvent(QCPItemPixmap* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemPixmap_QBaseCustomEvent(QCPItemPixmap* self, QEvent* event) {
+void QCPItemPixmap_SuperCustomEvent(QCPItemPixmap* self, QEvent* event) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_CustomEvent_IsBase(true);
@@ -53091,7 +53091,7 @@ void QCPItemPixmap_ConnectNotify(QCPItemPixmap* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QCPItemPixmap_QBaseConnectNotify(QCPItemPixmap* self, const QMetaMethod* signal) {
+void QCPItemPixmap_SuperConnectNotify(QCPItemPixmap* self, const QMetaMethod* signal) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_ConnectNotify_IsBase(true);
@@ -53120,7 +53120,7 @@ void QCPItemPixmap_DisconnectNotify(QCPItemPixmap* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QCPItemPixmap_QBaseDisconnectNotify(QCPItemPixmap* self, const QMetaMethod* signal) {
+void QCPItemPixmap_SuperDisconnectNotify(QCPItemPixmap* self, const QMetaMethod* signal) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_DisconnectNotify_IsBase(true);
@@ -53149,7 +53149,7 @@ void QCPItemPixmap_UpdateScaledPixmap(QCPItemPixmap* self) {
 }
 
 // Base class handler implementation
-void QCPItemPixmap_QBaseUpdateScaledPixmap(QCPItemPixmap* self) {
+void QCPItemPixmap_SuperUpdateScaledPixmap(QCPItemPixmap* self) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_UpdateScaledPixmap_IsBase(true);
@@ -53177,7 +53177,7 @@ QRect* QCPItemPixmap_GetFinalRect(const QCPItemPixmap* self) {
 }
 
 // Base class handler implementation
-QRect* QCPItemPixmap_QBaseGetFinalRect(const QCPItemPixmap* self) {
+QRect* QCPItemPixmap_SuperGetFinalRect(const QCPItemPixmap* self) {
     auto* vqcpitempixmap = const_cast<VirtualQCPItemPixmap*>(dynamic_cast<const VirtualQCPItemPixmap*>(self));
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_GetFinalRect_IsBase(true);
@@ -53204,7 +53204,7 @@ QPen* QCPItemPixmap_MainPen(const QCPItemPixmap* self) {
 }
 
 // Base class handler implementation
-QPen* QCPItemPixmap_QBaseMainPen(const QCPItemPixmap* self) {
+QPen* QCPItemPixmap_SuperMainPen(const QCPItemPixmap* self) {
     auto* vqcpitempixmap = const_cast<VirtualQCPItemPixmap*>(dynamic_cast<const VirtualQCPItemPixmap*>(self));
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_MainPen_IsBase(true);
@@ -53232,7 +53232,7 @@ void QCPItemPixmap_UpdateScaledPixmap1(QCPItemPixmap* self, QRect* finalRect) {
 }
 
 // Base class handler implementation
-void QCPItemPixmap_QBaseUpdateScaledPixmap1(QCPItemPixmap* self, QRect* finalRect) {
+void QCPItemPixmap_SuperUpdateScaledPixmap1(QCPItemPixmap* self, QRect* finalRect) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_UpdateScaledPixmap1_IsBase(true);
@@ -53261,7 +53261,7 @@ void QCPItemPixmap_UpdateScaledPixmap2(QCPItemPixmap* self, QRect* finalRect, bo
 }
 
 // Base class handler implementation
-void QCPItemPixmap_QBaseUpdateScaledPixmap2(QCPItemPixmap* self, QRect* finalRect, bool flipHorz) {
+void QCPItemPixmap_SuperUpdateScaledPixmap2(QCPItemPixmap* self, QRect* finalRect, bool flipHorz) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_UpdateScaledPixmap2_IsBase(true);
@@ -53290,7 +53290,7 @@ void QCPItemPixmap_UpdateScaledPixmap3(QCPItemPixmap* self, QRect* finalRect, bo
 }
 
 // Base class handler implementation
-void QCPItemPixmap_QBaseUpdateScaledPixmap3(QCPItemPixmap* self, QRect* finalRect, bool flipHorz, bool flipVert) {
+void QCPItemPixmap_SuperUpdateScaledPixmap3(QCPItemPixmap* self, QRect* finalRect, bool flipHorz, bool flipVert) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_UpdateScaledPixmap3_IsBase(true);
@@ -53318,7 +53318,7 @@ QRect* QCPItemPixmap_GetFinalRect1(const QCPItemPixmap* self, bool* flippedHorz)
 }
 
 // Base class handler implementation
-QRect* QCPItemPixmap_QBaseGetFinalRect1(const QCPItemPixmap* self, bool* flippedHorz) {
+QRect* QCPItemPixmap_SuperGetFinalRect1(const QCPItemPixmap* self, bool* flippedHorz) {
     auto* vqcpitempixmap = const_cast<VirtualQCPItemPixmap*>(dynamic_cast<const VirtualQCPItemPixmap*>(self));
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_GetFinalRect1_IsBase(true);
@@ -53345,7 +53345,7 @@ QRect* QCPItemPixmap_GetFinalRect2(const QCPItemPixmap* self, bool* flippedHorz,
 }
 
 // Base class handler implementation
-QRect* QCPItemPixmap_QBaseGetFinalRect2(const QCPItemPixmap* self, bool* flippedHorz, bool* flippedVert) {
+QRect* QCPItemPixmap_SuperGetFinalRect2(const QCPItemPixmap* self, bool* flippedHorz, bool* flippedVert) {
     auto* vqcpitempixmap = const_cast<VirtualQCPItemPixmap*>(dynamic_cast<const VirtualQCPItemPixmap*>(self));
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_GetFinalRect2_IsBase(true);
@@ -53373,7 +53373,7 @@ double QCPItemPixmap_RectDistance(const QCPItemPixmap* self, const QRectF* rect,
 }
 
 // Base class handler implementation
-double QCPItemPixmap_QBaseRectDistance(const QCPItemPixmap* self, const QRectF* rect, const QPointF* pos, bool filledRect) {
+double QCPItemPixmap_SuperRectDistance(const QCPItemPixmap* self, const QRectF* rect, const QPointF* pos, bool filledRect) {
     auto* vqcpitempixmap = const_cast<VirtualQCPItemPixmap*>(dynamic_cast<const VirtualQCPItemPixmap*>(self));
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_RectDistance_IsBase(true);
@@ -53403,7 +53403,7 @@ QCPItemPosition* QCPItemPixmap_CreatePosition(QCPItemPixmap* self, const libqt_s
 }
 
 // Base class handler implementation
-QCPItemPosition* QCPItemPixmap_QBaseCreatePosition(QCPItemPixmap* self, const libqt_string name) {
+QCPItemPosition* QCPItemPixmap_SuperCreatePosition(QCPItemPixmap* self, const libqt_string name) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
@@ -53434,7 +53434,7 @@ QCPItemAnchor* QCPItemPixmap_CreateAnchor(QCPItemPixmap* self, const libqt_strin
 }
 
 // Base class handler implementation
-QCPItemAnchor* QCPItemPixmap_QBaseCreateAnchor(QCPItemPixmap* self, const libqt_string name, int anchorId) {
+QCPItemAnchor* QCPItemPixmap_SuperCreateAnchor(QCPItemPixmap* self, const libqt_string name, int anchorId) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
@@ -53464,7 +53464,7 @@ void QCPItemPixmap_InitializeParentPlot(QCPItemPixmap* self, QCustomPlot* parent
 }
 
 // Base class handler implementation
-void QCPItemPixmap_QBaseInitializeParentPlot(QCPItemPixmap* self, QCustomPlot* parentPlot) {
+void QCPItemPixmap_SuperInitializeParentPlot(QCPItemPixmap* self, QCustomPlot* parentPlot) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_InitializeParentPlot_IsBase(true);
@@ -53493,7 +53493,7 @@ void QCPItemPixmap_SetParentLayerable(QCPItemPixmap* self, QCPLayerable* parentL
 }
 
 // Base class handler implementation
-void QCPItemPixmap_QBaseSetParentLayerable(QCPItemPixmap* self, QCPLayerable* parentLayerable) {
+void QCPItemPixmap_SuperSetParentLayerable(QCPItemPixmap* self, QCPLayerable* parentLayerable) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_SetParentLayerable_IsBase(true);
@@ -53522,7 +53522,7 @@ bool QCPItemPixmap_MoveToLayer(QCPItemPixmap* self, QCPLayer* layer, bool prepen
 }
 
 // Base class handler implementation
-bool QCPItemPixmap_QBaseMoveToLayer(QCPItemPixmap* self, QCPLayer* layer, bool prepend) {
+bool QCPItemPixmap_SuperMoveToLayer(QCPItemPixmap* self, QCPLayer* layer, bool prepend) {
     auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_MoveToLayer_IsBase(true);
@@ -53551,7 +53551,7 @@ void QCPItemPixmap_ApplyAntialiasingHint(const QCPItemPixmap* self, QCPPainter* 
 }
 
 // Base class handler implementation
-void QCPItemPixmap_QBaseApplyAntialiasingHint(const QCPItemPixmap* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPItemPixmap_SuperApplyAntialiasingHint(const QCPItemPixmap* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpitempixmap = const_cast<VirtualQCPItemPixmap*>(dynamic_cast<const VirtualQCPItemPixmap*>(self));
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_ApplyAntialiasingHint_IsBase(true);
@@ -53580,7 +53580,7 @@ QObject* QCPItemPixmap_Sender(const QCPItemPixmap* self) {
 }
 
 // Base class handler implementation
-QObject* QCPItemPixmap_QBaseSender(const QCPItemPixmap* self) {
+QObject* QCPItemPixmap_SuperSender(const QCPItemPixmap* self) {
     auto* vqcpitempixmap = const_cast<VirtualQCPItemPixmap*>(dynamic_cast<const VirtualQCPItemPixmap*>(self));
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_Sender_IsBase(true);
@@ -53609,7 +53609,7 @@ int QCPItemPixmap_SenderSignalIndex(const QCPItemPixmap* self) {
 }
 
 // Base class handler implementation
-int QCPItemPixmap_QBaseSenderSignalIndex(const QCPItemPixmap* self) {
+int QCPItemPixmap_SuperSenderSignalIndex(const QCPItemPixmap* self) {
     auto* vqcpitempixmap = const_cast<VirtualQCPItemPixmap*>(dynamic_cast<const VirtualQCPItemPixmap*>(self));
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_SenderSignalIndex_IsBase(true);
@@ -53638,7 +53638,7 @@ int QCPItemPixmap_Receivers(const QCPItemPixmap* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPItemPixmap_QBaseReceivers(const QCPItemPixmap* self, const char* signal) {
+int QCPItemPixmap_SuperReceivers(const QCPItemPixmap* self, const char* signal) {
     auto* vqcpitempixmap = const_cast<VirtualQCPItemPixmap*>(dynamic_cast<const VirtualQCPItemPixmap*>(self));
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_Receivers_IsBase(true);
@@ -53667,7 +53667,7 @@ bool QCPItemPixmap_IsSignalConnected(const QCPItemPixmap* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QCPItemPixmap_QBaseIsSignalConnected(const QCPItemPixmap* self, const QMetaMethod* signal) {
+bool QCPItemPixmap_SuperIsSignalConnected(const QCPItemPixmap* self, const QMetaMethod* signal) {
     auto* vqcpitempixmap = const_cast<VirtualQCPItemPixmap*>(dynamic_cast<const VirtualQCPItemPixmap*>(self));
     if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
         vqcpitempixmap->setQCPItemPixmap_IsSignalConnected_IsBase(true);
@@ -53817,7 +53817,7 @@ void QCPItemTracer_Draw(QCPItemTracer* self, QCPPainter* painter) {
 }
 
 // Base class handler implementation
-QMetaObject* QCPItemTracer_QBaseMetaObject(const QCPItemTracer* self) {
+QMetaObject* QCPItemTracer_SuperMetaObject(const QCPItemTracer* self) {
     auto* vqcpitemtracer = const_cast<VirtualQCPItemTracer*>(dynamic_cast<const VirtualQCPItemTracer*>(self));
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_MetaObject_IsBase(true);
@@ -53836,7 +53836,7 @@ void QCPItemTracer_OnMetaObject(const QCPItemTracer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPItemTracer_QBaseMetacast(QCPItemTracer* self, const char* param1) {
+void* QCPItemTracer_SuperMetacast(QCPItemTracer* self, const char* param1) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_Metacast_IsBase(true);
@@ -53855,7 +53855,7 @@ void QCPItemTracer_OnMetacast(QCPItemTracer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPItemTracer_QBaseMetacall(QCPItemTracer* self, int param1, int param2, void** param3) {
+int QCPItemTracer_SuperMetacall(QCPItemTracer* self, int param1, int param2, void** param3) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_Metacall_IsBase(true);
@@ -53874,7 +53874,7 @@ void QCPItemTracer_OnMetacall(QCPItemTracer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPItemTracer_QBaseSelectTest(const QCPItemTracer* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPItemTracer_SuperSelectTest(const QCPItemTracer* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpitemtracer = const_cast<VirtualQCPItemTracer*>(dynamic_cast<const VirtualQCPItemTracer*>(self));
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_SelectTest_IsBase(true);
@@ -53893,7 +53893,7 @@ void QCPItemTracer_OnSelectTest(const QCPItemTracer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPItemTracer_QBaseDraw(QCPItemTracer* self, QCPPainter* painter) {
+void QCPItemTracer_SuperDraw(QCPItemTracer* self, QCPPainter* painter) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_Draw_IsBase(true);
@@ -53922,7 +53922,7 @@ int QCPItemTracer_SelectionCategory(const QCPItemTracer* self) {
 }
 
 // Base class handler implementation
-int QCPItemTracer_QBaseSelectionCategory(const QCPItemTracer* self) {
+int QCPItemTracer_SuperSelectionCategory(const QCPItemTracer* self) {
     auto* vqcpitemtracer = const_cast<VirtualQCPItemTracer*>(dynamic_cast<const VirtualQCPItemTracer*>(self));
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_SelectionCategory_IsBase(true);
@@ -53950,7 +53950,7 @@ QRect* QCPItemTracer_ClipRect(const QCPItemTracer* self) {
 }
 
 // Base class handler implementation
-QRect* QCPItemTracer_QBaseClipRect(const QCPItemTracer* self) {
+QRect* QCPItemTracer_SuperClipRect(const QCPItemTracer* self) {
     auto* vqcpitemtracer = const_cast<VirtualQCPItemTracer*>(dynamic_cast<const VirtualQCPItemTracer*>(self));
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_ClipRect_IsBase(true);
@@ -53978,7 +53978,7 @@ void QCPItemTracer_ApplyDefaultAntialiasingHint(const QCPItemTracer* self, QCPPa
 }
 
 // Base class handler implementation
-void QCPItemTracer_QBaseApplyDefaultAntialiasingHint(const QCPItemTracer* self, QCPPainter* painter) {
+void QCPItemTracer_SuperApplyDefaultAntialiasingHint(const QCPItemTracer* self, QCPPainter* painter) {
     auto* vqcpitemtracer = const_cast<VirtualQCPItemTracer*>(dynamic_cast<const VirtualQCPItemTracer*>(self));
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -54007,7 +54007,7 @@ void QCPItemTracer_SelectEvent(QCPItemTracer* self, QMouseEvent* event, bool add
 }
 
 // Base class handler implementation
-void QCPItemTracer_QBaseSelectEvent(QCPItemTracer* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPItemTracer_SuperSelectEvent(QCPItemTracer* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_SelectEvent_IsBase(true);
@@ -54036,7 +54036,7 @@ void QCPItemTracer_DeselectEvent(QCPItemTracer* self, bool* selectionStateChange
 }
 
 // Base class handler implementation
-void QCPItemTracer_QBaseDeselectEvent(QCPItemTracer* self, bool* selectionStateChanged) {
+void QCPItemTracer_SuperDeselectEvent(QCPItemTracer* self, bool* selectionStateChanged) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_DeselectEvent_IsBase(true);
@@ -54064,7 +54064,7 @@ QPointF* QCPItemTracer_AnchorPixelPosition(const QCPItemTracer* self, int anchor
 }
 
 // Base class handler implementation
-QPointF* QCPItemTracer_QBaseAnchorPixelPosition(const QCPItemTracer* self, int anchorId) {
+QPointF* QCPItemTracer_SuperAnchorPixelPosition(const QCPItemTracer* self, int anchorId) {
     auto* vqcpitemtracer = const_cast<VirtualQCPItemTracer*>(dynamic_cast<const VirtualQCPItemTracer*>(self));
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_AnchorPixelPosition_IsBase(true);
@@ -54092,7 +54092,7 @@ void QCPItemTracer_ParentPlotInitialized(QCPItemTracer* self, QCustomPlot* paren
 }
 
 // Base class handler implementation
-void QCPItemTracer_QBaseParentPlotInitialized(QCPItemTracer* self, QCustomPlot* parentPlot) {
+void QCPItemTracer_SuperParentPlotInitialized(QCPItemTracer* self, QCustomPlot* parentPlot) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_ParentPlotInitialized_IsBase(true);
@@ -54121,7 +54121,7 @@ void QCPItemTracer_MousePressEvent(QCPItemTracer* self, QMouseEvent* event, cons
 }
 
 // Base class handler implementation
-void QCPItemTracer_QBaseMousePressEvent(QCPItemTracer* self, QMouseEvent* event, const QVariant* details) {
+void QCPItemTracer_SuperMousePressEvent(QCPItemTracer* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_MousePressEvent_IsBase(true);
@@ -54150,7 +54150,7 @@ void QCPItemTracer_MouseMoveEvent(QCPItemTracer* self, QMouseEvent* event, const
 }
 
 // Base class handler implementation
-void QCPItemTracer_QBaseMouseMoveEvent(QCPItemTracer* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPItemTracer_SuperMouseMoveEvent(QCPItemTracer* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_MouseMoveEvent_IsBase(true);
@@ -54179,7 +54179,7 @@ void QCPItemTracer_MouseReleaseEvent(QCPItemTracer* self, QMouseEvent* event, co
 }
 
 // Base class handler implementation
-void QCPItemTracer_QBaseMouseReleaseEvent(QCPItemTracer* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPItemTracer_SuperMouseReleaseEvent(QCPItemTracer* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_MouseReleaseEvent_IsBase(true);
@@ -54208,7 +54208,7 @@ void QCPItemTracer_MouseDoubleClickEvent(QCPItemTracer* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void QCPItemTracer_QBaseMouseDoubleClickEvent(QCPItemTracer* self, QMouseEvent* event, const QVariant* details) {
+void QCPItemTracer_SuperMouseDoubleClickEvent(QCPItemTracer* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_MouseDoubleClickEvent_IsBase(true);
@@ -54237,7 +54237,7 @@ void QCPItemTracer_WheelEvent(QCPItemTracer* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemTracer_QBaseWheelEvent(QCPItemTracer* self, QWheelEvent* event) {
+void QCPItemTracer_SuperWheelEvent(QCPItemTracer* self, QWheelEvent* event) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_WheelEvent_IsBase(true);
@@ -54266,7 +54266,7 @@ bool QCPItemTracer_Event(QCPItemTracer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPItemTracer_QBaseEvent(QCPItemTracer* self, QEvent* event) {
+bool QCPItemTracer_SuperEvent(QCPItemTracer* self, QEvent* event) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_Event_IsBase(true);
@@ -54295,7 +54295,7 @@ bool QCPItemTracer_EventFilter(QCPItemTracer* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QCPItemTracer_QBaseEventFilter(QCPItemTracer* self, QObject* watched, QEvent* event) {
+bool QCPItemTracer_SuperEventFilter(QCPItemTracer* self, QObject* watched, QEvent* event) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_EventFilter_IsBase(true);
@@ -54324,7 +54324,7 @@ void QCPItemTracer_TimerEvent(QCPItemTracer* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemTracer_QBaseTimerEvent(QCPItemTracer* self, QTimerEvent* event) {
+void QCPItemTracer_SuperTimerEvent(QCPItemTracer* self, QTimerEvent* event) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_TimerEvent_IsBase(true);
@@ -54353,7 +54353,7 @@ void QCPItemTracer_ChildEvent(QCPItemTracer* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemTracer_QBaseChildEvent(QCPItemTracer* self, QChildEvent* event) {
+void QCPItemTracer_SuperChildEvent(QCPItemTracer* self, QChildEvent* event) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_ChildEvent_IsBase(true);
@@ -54382,7 +54382,7 @@ void QCPItemTracer_CustomEvent(QCPItemTracer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemTracer_QBaseCustomEvent(QCPItemTracer* self, QEvent* event) {
+void QCPItemTracer_SuperCustomEvent(QCPItemTracer* self, QEvent* event) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_CustomEvent_IsBase(true);
@@ -54411,7 +54411,7 @@ void QCPItemTracer_ConnectNotify(QCPItemTracer* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QCPItemTracer_QBaseConnectNotify(QCPItemTracer* self, const QMetaMethod* signal) {
+void QCPItemTracer_SuperConnectNotify(QCPItemTracer* self, const QMetaMethod* signal) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_ConnectNotify_IsBase(true);
@@ -54440,7 +54440,7 @@ void QCPItemTracer_DisconnectNotify(QCPItemTracer* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QCPItemTracer_QBaseDisconnectNotify(QCPItemTracer* self, const QMetaMethod* signal) {
+void QCPItemTracer_SuperDisconnectNotify(QCPItemTracer* self, const QMetaMethod* signal) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_DisconnectNotify_IsBase(true);
@@ -54468,7 +54468,7 @@ QPen* QCPItemTracer_MainPen(const QCPItemTracer* self) {
 }
 
 // Base class handler implementation
-QPen* QCPItemTracer_QBaseMainPen(const QCPItemTracer* self) {
+QPen* QCPItemTracer_SuperMainPen(const QCPItemTracer* self) {
     auto* vqcpitemtracer = const_cast<VirtualQCPItemTracer*>(dynamic_cast<const VirtualQCPItemTracer*>(self));
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_MainPen_IsBase(true);
@@ -54495,7 +54495,7 @@ QBrush* QCPItemTracer_MainBrush(const QCPItemTracer* self) {
 }
 
 // Base class handler implementation
-QBrush* QCPItemTracer_QBaseMainBrush(const QCPItemTracer* self) {
+QBrush* QCPItemTracer_SuperMainBrush(const QCPItemTracer* self) {
     auto* vqcpitemtracer = const_cast<VirtualQCPItemTracer*>(dynamic_cast<const VirtualQCPItemTracer*>(self));
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_MainBrush_IsBase(true);
@@ -54523,7 +54523,7 @@ double QCPItemTracer_RectDistance(const QCPItemTracer* self, const QRectF* rect,
 }
 
 // Base class handler implementation
-double QCPItemTracer_QBaseRectDistance(const QCPItemTracer* self, const QRectF* rect, const QPointF* pos, bool filledRect) {
+double QCPItemTracer_SuperRectDistance(const QCPItemTracer* self, const QRectF* rect, const QPointF* pos, bool filledRect) {
     auto* vqcpitemtracer = const_cast<VirtualQCPItemTracer*>(dynamic_cast<const VirtualQCPItemTracer*>(self));
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_RectDistance_IsBase(true);
@@ -54553,7 +54553,7 @@ QCPItemPosition* QCPItemTracer_CreatePosition(QCPItemTracer* self, const libqt_s
 }
 
 // Base class handler implementation
-QCPItemPosition* QCPItemTracer_QBaseCreatePosition(QCPItemTracer* self, const libqt_string name) {
+QCPItemPosition* QCPItemTracer_SuperCreatePosition(QCPItemTracer* self, const libqt_string name) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
@@ -54584,7 +54584,7 @@ QCPItemAnchor* QCPItemTracer_CreateAnchor(QCPItemTracer* self, const libqt_strin
 }
 
 // Base class handler implementation
-QCPItemAnchor* QCPItemTracer_QBaseCreateAnchor(QCPItemTracer* self, const libqt_string name, int anchorId) {
+QCPItemAnchor* QCPItemTracer_SuperCreateAnchor(QCPItemTracer* self, const libqt_string name, int anchorId) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
@@ -54614,7 +54614,7 @@ void QCPItemTracer_InitializeParentPlot(QCPItemTracer* self, QCustomPlot* parent
 }
 
 // Base class handler implementation
-void QCPItemTracer_QBaseInitializeParentPlot(QCPItemTracer* self, QCustomPlot* parentPlot) {
+void QCPItemTracer_SuperInitializeParentPlot(QCPItemTracer* self, QCustomPlot* parentPlot) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_InitializeParentPlot_IsBase(true);
@@ -54643,7 +54643,7 @@ void QCPItemTracer_SetParentLayerable(QCPItemTracer* self, QCPLayerable* parentL
 }
 
 // Base class handler implementation
-void QCPItemTracer_QBaseSetParentLayerable(QCPItemTracer* self, QCPLayerable* parentLayerable) {
+void QCPItemTracer_SuperSetParentLayerable(QCPItemTracer* self, QCPLayerable* parentLayerable) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_SetParentLayerable_IsBase(true);
@@ -54672,7 +54672,7 @@ bool QCPItemTracer_MoveToLayer(QCPItemTracer* self, QCPLayer* layer, bool prepen
 }
 
 // Base class handler implementation
-bool QCPItemTracer_QBaseMoveToLayer(QCPItemTracer* self, QCPLayer* layer, bool prepend) {
+bool QCPItemTracer_SuperMoveToLayer(QCPItemTracer* self, QCPLayer* layer, bool prepend) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_MoveToLayer_IsBase(true);
@@ -54701,7 +54701,7 @@ void QCPItemTracer_ApplyAntialiasingHint(const QCPItemTracer* self, QCPPainter* 
 }
 
 // Base class handler implementation
-void QCPItemTracer_QBaseApplyAntialiasingHint(const QCPItemTracer* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPItemTracer_SuperApplyAntialiasingHint(const QCPItemTracer* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpitemtracer = const_cast<VirtualQCPItemTracer*>(dynamic_cast<const VirtualQCPItemTracer*>(self));
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_ApplyAntialiasingHint_IsBase(true);
@@ -54730,7 +54730,7 @@ QObject* QCPItemTracer_Sender(const QCPItemTracer* self) {
 }
 
 // Base class handler implementation
-QObject* QCPItemTracer_QBaseSender(const QCPItemTracer* self) {
+QObject* QCPItemTracer_SuperSender(const QCPItemTracer* self) {
     auto* vqcpitemtracer = const_cast<VirtualQCPItemTracer*>(dynamic_cast<const VirtualQCPItemTracer*>(self));
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_Sender_IsBase(true);
@@ -54759,7 +54759,7 @@ int QCPItemTracer_SenderSignalIndex(const QCPItemTracer* self) {
 }
 
 // Base class handler implementation
-int QCPItemTracer_QBaseSenderSignalIndex(const QCPItemTracer* self) {
+int QCPItemTracer_SuperSenderSignalIndex(const QCPItemTracer* self) {
     auto* vqcpitemtracer = const_cast<VirtualQCPItemTracer*>(dynamic_cast<const VirtualQCPItemTracer*>(self));
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_SenderSignalIndex_IsBase(true);
@@ -54788,7 +54788,7 @@ int QCPItemTracer_Receivers(const QCPItemTracer* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPItemTracer_QBaseReceivers(const QCPItemTracer* self, const char* signal) {
+int QCPItemTracer_SuperReceivers(const QCPItemTracer* self, const char* signal) {
     auto* vqcpitemtracer = const_cast<VirtualQCPItemTracer*>(dynamic_cast<const VirtualQCPItemTracer*>(self));
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_Receivers_IsBase(true);
@@ -54817,7 +54817,7 @@ bool QCPItemTracer_IsSignalConnected(const QCPItemTracer* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QCPItemTracer_QBaseIsSignalConnected(const QCPItemTracer* self, const QMetaMethod* signal) {
+bool QCPItemTracer_SuperIsSignalConnected(const QCPItemTracer* self, const QMetaMethod* signal) {
     auto* vqcpitemtracer = const_cast<VirtualQCPItemTracer*>(dynamic_cast<const VirtualQCPItemTracer*>(self));
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->setQCPItemTracer_IsSignalConnected_IsBase(true);
@@ -54939,7 +54939,7 @@ QPointF* QCPItemBracket_AnchorPixelPosition(const QCPItemBracket* self, int anch
 }
 
 // Base class handler implementation
-QMetaObject* QCPItemBracket_QBaseMetaObject(const QCPItemBracket* self) {
+QMetaObject* QCPItemBracket_SuperMetaObject(const QCPItemBracket* self) {
     auto* vqcpitembracket = const_cast<VirtualQCPItemBracket*>(dynamic_cast<const VirtualQCPItemBracket*>(self));
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_MetaObject_IsBase(true);
@@ -54958,7 +54958,7 @@ void QCPItemBracket_OnMetaObject(const QCPItemBracket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPItemBracket_QBaseMetacast(QCPItemBracket* self, const char* param1) {
+void* QCPItemBracket_SuperMetacast(QCPItemBracket* self, const char* param1) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_Metacast_IsBase(true);
@@ -54977,7 +54977,7 @@ void QCPItemBracket_OnMetacast(QCPItemBracket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPItemBracket_QBaseMetacall(QCPItemBracket* self, int param1, int param2, void** param3) {
+int QCPItemBracket_SuperMetacall(QCPItemBracket* self, int param1, int param2, void** param3) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_Metacall_IsBase(true);
@@ -54996,7 +54996,7 @@ void QCPItemBracket_OnMetacall(QCPItemBracket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPItemBracket_QBaseSelectTest(const QCPItemBracket* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPItemBracket_SuperSelectTest(const QCPItemBracket* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcpitembracket = const_cast<VirtualQCPItemBracket*>(dynamic_cast<const VirtualQCPItemBracket*>(self));
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_SelectTest_IsBase(true);
@@ -55015,7 +55015,7 @@ void QCPItemBracket_OnSelectTest(const QCPItemBracket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPItemBracket_QBaseDraw(QCPItemBracket* self, QCPPainter* painter) {
+void QCPItemBracket_SuperDraw(QCPItemBracket* self, QCPPainter* painter) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_Draw_IsBase(true);
@@ -55034,7 +55034,7 @@ void QCPItemBracket_OnDraw(QCPItemBracket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPointF* QCPItemBracket_QBaseAnchorPixelPosition(const QCPItemBracket* self, int anchorId) {
+QPointF* QCPItemBracket_SuperAnchorPixelPosition(const QCPItemBracket* self, int anchorId) {
     auto* vqcpitembracket = const_cast<VirtualQCPItemBracket*>(dynamic_cast<const VirtualQCPItemBracket*>(self));
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_AnchorPixelPosition_IsBase(true);
@@ -55062,7 +55062,7 @@ int QCPItemBracket_SelectionCategory(const QCPItemBracket* self) {
 }
 
 // Base class handler implementation
-int QCPItemBracket_QBaseSelectionCategory(const QCPItemBracket* self) {
+int QCPItemBracket_SuperSelectionCategory(const QCPItemBracket* self) {
     auto* vqcpitembracket = const_cast<VirtualQCPItemBracket*>(dynamic_cast<const VirtualQCPItemBracket*>(self));
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_SelectionCategory_IsBase(true);
@@ -55090,7 +55090,7 @@ QRect* QCPItemBracket_ClipRect(const QCPItemBracket* self) {
 }
 
 // Base class handler implementation
-QRect* QCPItemBracket_QBaseClipRect(const QCPItemBracket* self) {
+QRect* QCPItemBracket_SuperClipRect(const QCPItemBracket* self) {
     auto* vqcpitembracket = const_cast<VirtualQCPItemBracket*>(dynamic_cast<const VirtualQCPItemBracket*>(self));
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_ClipRect_IsBase(true);
@@ -55118,7 +55118,7 @@ void QCPItemBracket_ApplyDefaultAntialiasingHint(const QCPItemBracket* self, QCP
 }
 
 // Base class handler implementation
-void QCPItemBracket_QBaseApplyDefaultAntialiasingHint(const QCPItemBracket* self, QCPPainter* painter) {
+void QCPItemBracket_SuperApplyDefaultAntialiasingHint(const QCPItemBracket* self, QCPPainter* painter) {
     auto* vqcpitembracket = const_cast<VirtualQCPItemBracket*>(dynamic_cast<const VirtualQCPItemBracket*>(self));
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -55147,7 +55147,7 @@ void QCPItemBracket_SelectEvent(QCPItemBracket* self, QMouseEvent* event, bool a
 }
 
 // Base class handler implementation
-void QCPItemBracket_QBaseSelectEvent(QCPItemBracket* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPItemBracket_SuperSelectEvent(QCPItemBracket* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_SelectEvent_IsBase(true);
@@ -55176,7 +55176,7 @@ void QCPItemBracket_DeselectEvent(QCPItemBracket* self, bool* selectionStateChan
 }
 
 // Base class handler implementation
-void QCPItemBracket_QBaseDeselectEvent(QCPItemBracket* self, bool* selectionStateChanged) {
+void QCPItemBracket_SuperDeselectEvent(QCPItemBracket* self, bool* selectionStateChanged) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_DeselectEvent_IsBase(true);
@@ -55205,7 +55205,7 @@ void QCPItemBracket_ParentPlotInitialized(QCPItemBracket* self, QCustomPlot* par
 }
 
 // Base class handler implementation
-void QCPItemBracket_QBaseParentPlotInitialized(QCPItemBracket* self, QCustomPlot* parentPlot) {
+void QCPItemBracket_SuperParentPlotInitialized(QCPItemBracket* self, QCustomPlot* parentPlot) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_ParentPlotInitialized_IsBase(true);
@@ -55234,7 +55234,7 @@ void QCPItemBracket_MousePressEvent(QCPItemBracket* self, QMouseEvent* event, co
 }
 
 // Base class handler implementation
-void QCPItemBracket_QBaseMousePressEvent(QCPItemBracket* self, QMouseEvent* event, const QVariant* details) {
+void QCPItemBracket_SuperMousePressEvent(QCPItemBracket* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_MousePressEvent_IsBase(true);
@@ -55263,7 +55263,7 @@ void QCPItemBracket_MouseMoveEvent(QCPItemBracket* self, QMouseEvent* event, con
 }
 
 // Base class handler implementation
-void QCPItemBracket_QBaseMouseMoveEvent(QCPItemBracket* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPItemBracket_SuperMouseMoveEvent(QCPItemBracket* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_MouseMoveEvent_IsBase(true);
@@ -55292,7 +55292,7 @@ void QCPItemBracket_MouseReleaseEvent(QCPItemBracket* self, QMouseEvent* event, 
 }
 
 // Base class handler implementation
-void QCPItemBracket_QBaseMouseReleaseEvent(QCPItemBracket* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPItemBracket_SuperMouseReleaseEvent(QCPItemBracket* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_MouseReleaseEvent_IsBase(true);
@@ -55321,7 +55321,7 @@ void QCPItemBracket_MouseDoubleClickEvent(QCPItemBracket* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void QCPItemBracket_QBaseMouseDoubleClickEvent(QCPItemBracket* self, QMouseEvent* event, const QVariant* details) {
+void QCPItemBracket_SuperMouseDoubleClickEvent(QCPItemBracket* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_MouseDoubleClickEvent_IsBase(true);
@@ -55350,7 +55350,7 @@ void QCPItemBracket_WheelEvent(QCPItemBracket* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemBracket_QBaseWheelEvent(QCPItemBracket* self, QWheelEvent* event) {
+void QCPItemBracket_SuperWheelEvent(QCPItemBracket* self, QWheelEvent* event) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_WheelEvent_IsBase(true);
@@ -55379,7 +55379,7 @@ bool QCPItemBracket_Event(QCPItemBracket* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPItemBracket_QBaseEvent(QCPItemBracket* self, QEvent* event) {
+bool QCPItemBracket_SuperEvent(QCPItemBracket* self, QEvent* event) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_Event_IsBase(true);
@@ -55408,7 +55408,7 @@ bool QCPItemBracket_EventFilter(QCPItemBracket* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QCPItemBracket_QBaseEventFilter(QCPItemBracket* self, QObject* watched, QEvent* event) {
+bool QCPItemBracket_SuperEventFilter(QCPItemBracket* self, QObject* watched, QEvent* event) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_EventFilter_IsBase(true);
@@ -55437,7 +55437,7 @@ void QCPItemBracket_TimerEvent(QCPItemBracket* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemBracket_QBaseTimerEvent(QCPItemBracket* self, QTimerEvent* event) {
+void QCPItemBracket_SuperTimerEvent(QCPItemBracket* self, QTimerEvent* event) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_TimerEvent_IsBase(true);
@@ -55466,7 +55466,7 @@ void QCPItemBracket_ChildEvent(QCPItemBracket* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemBracket_QBaseChildEvent(QCPItemBracket* self, QChildEvent* event) {
+void QCPItemBracket_SuperChildEvent(QCPItemBracket* self, QChildEvent* event) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_ChildEvent_IsBase(true);
@@ -55495,7 +55495,7 @@ void QCPItemBracket_CustomEvent(QCPItemBracket* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPItemBracket_QBaseCustomEvent(QCPItemBracket* self, QEvent* event) {
+void QCPItemBracket_SuperCustomEvent(QCPItemBracket* self, QEvent* event) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_CustomEvent_IsBase(true);
@@ -55524,7 +55524,7 @@ void QCPItemBracket_ConnectNotify(QCPItemBracket* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QCPItemBracket_QBaseConnectNotify(QCPItemBracket* self, const QMetaMethod* signal) {
+void QCPItemBracket_SuperConnectNotify(QCPItemBracket* self, const QMetaMethod* signal) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_ConnectNotify_IsBase(true);
@@ -55553,7 +55553,7 @@ void QCPItemBracket_DisconnectNotify(QCPItemBracket* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QCPItemBracket_QBaseDisconnectNotify(QCPItemBracket* self, const QMetaMethod* signal) {
+void QCPItemBracket_SuperDisconnectNotify(QCPItemBracket* self, const QMetaMethod* signal) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_DisconnectNotify_IsBase(true);
@@ -55581,7 +55581,7 @@ QPen* QCPItemBracket_MainPen(const QCPItemBracket* self) {
 }
 
 // Base class handler implementation
-QPen* QCPItemBracket_QBaseMainPen(const QCPItemBracket* self) {
+QPen* QCPItemBracket_SuperMainPen(const QCPItemBracket* self) {
     auto* vqcpitembracket = const_cast<VirtualQCPItemBracket*>(dynamic_cast<const VirtualQCPItemBracket*>(self));
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_MainPen_IsBase(true);
@@ -55609,7 +55609,7 @@ double QCPItemBracket_RectDistance(const QCPItemBracket* self, const QRectF* rec
 }
 
 // Base class handler implementation
-double QCPItemBracket_QBaseRectDistance(const QCPItemBracket* self, const QRectF* rect, const QPointF* pos, bool filledRect) {
+double QCPItemBracket_SuperRectDistance(const QCPItemBracket* self, const QRectF* rect, const QPointF* pos, bool filledRect) {
     auto* vqcpitembracket = const_cast<VirtualQCPItemBracket*>(dynamic_cast<const VirtualQCPItemBracket*>(self));
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_RectDistance_IsBase(true);
@@ -55639,7 +55639,7 @@ QCPItemPosition* QCPItemBracket_CreatePosition(QCPItemBracket* self, const libqt
 }
 
 // Base class handler implementation
-QCPItemPosition* QCPItemBracket_QBaseCreatePosition(QCPItemBracket* self, const libqt_string name) {
+QCPItemPosition* QCPItemBracket_SuperCreatePosition(QCPItemBracket* self, const libqt_string name) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
@@ -55670,7 +55670,7 @@ QCPItemAnchor* QCPItemBracket_CreateAnchor(QCPItemBracket* self, const libqt_str
 }
 
 // Base class handler implementation
-QCPItemAnchor* QCPItemBracket_QBaseCreateAnchor(QCPItemBracket* self, const libqt_string name, int anchorId) {
+QCPItemAnchor* QCPItemBracket_SuperCreateAnchor(QCPItemBracket* self, const libqt_string name, int anchorId) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
@@ -55700,7 +55700,7 @@ void QCPItemBracket_InitializeParentPlot(QCPItemBracket* self, QCustomPlot* pare
 }
 
 // Base class handler implementation
-void QCPItemBracket_QBaseInitializeParentPlot(QCPItemBracket* self, QCustomPlot* parentPlot) {
+void QCPItemBracket_SuperInitializeParentPlot(QCPItemBracket* self, QCustomPlot* parentPlot) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_InitializeParentPlot_IsBase(true);
@@ -55729,7 +55729,7 @@ void QCPItemBracket_SetParentLayerable(QCPItemBracket* self, QCPLayerable* paren
 }
 
 // Base class handler implementation
-void QCPItemBracket_QBaseSetParentLayerable(QCPItemBracket* self, QCPLayerable* parentLayerable) {
+void QCPItemBracket_SuperSetParentLayerable(QCPItemBracket* self, QCPLayerable* parentLayerable) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_SetParentLayerable_IsBase(true);
@@ -55758,7 +55758,7 @@ bool QCPItemBracket_MoveToLayer(QCPItemBracket* self, QCPLayer* layer, bool prep
 }
 
 // Base class handler implementation
-bool QCPItemBracket_QBaseMoveToLayer(QCPItemBracket* self, QCPLayer* layer, bool prepend) {
+bool QCPItemBracket_SuperMoveToLayer(QCPItemBracket* self, QCPLayer* layer, bool prepend) {
     auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_MoveToLayer_IsBase(true);
@@ -55787,7 +55787,7 @@ void QCPItemBracket_ApplyAntialiasingHint(const QCPItemBracket* self, QCPPainter
 }
 
 // Base class handler implementation
-void QCPItemBracket_QBaseApplyAntialiasingHint(const QCPItemBracket* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPItemBracket_SuperApplyAntialiasingHint(const QCPItemBracket* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcpitembracket = const_cast<VirtualQCPItemBracket*>(dynamic_cast<const VirtualQCPItemBracket*>(self));
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_ApplyAntialiasingHint_IsBase(true);
@@ -55816,7 +55816,7 @@ QObject* QCPItemBracket_Sender(const QCPItemBracket* self) {
 }
 
 // Base class handler implementation
-QObject* QCPItemBracket_QBaseSender(const QCPItemBracket* self) {
+QObject* QCPItemBracket_SuperSender(const QCPItemBracket* self) {
     auto* vqcpitembracket = const_cast<VirtualQCPItemBracket*>(dynamic_cast<const VirtualQCPItemBracket*>(self));
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_Sender_IsBase(true);
@@ -55845,7 +55845,7 @@ int QCPItemBracket_SenderSignalIndex(const QCPItemBracket* self) {
 }
 
 // Base class handler implementation
-int QCPItemBracket_QBaseSenderSignalIndex(const QCPItemBracket* self) {
+int QCPItemBracket_SuperSenderSignalIndex(const QCPItemBracket* self) {
     auto* vqcpitembracket = const_cast<VirtualQCPItemBracket*>(dynamic_cast<const VirtualQCPItemBracket*>(self));
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_SenderSignalIndex_IsBase(true);
@@ -55874,7 +55874,7 @@ int QCPItemBracket_Receivers(const QCPItemBracket* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPItemBracket_QBaseReceivers(const QCPItemBracket* self, const char* signal) {
+int QCPItemBracket_SuperReceivers(const QCPItemBracket* self, const char* signal) {
     auto* vqcpitembracket = const_cast<VirtualQCPItemBracket*>(dynamic_cast<const VirtualQCPItemBracket*>(self));
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_Receivers_IsBase(true);
@@ -55903,7 +55903,7 @@ bool QCPItemBracket_IsSignalConnected(const QCPItemBracket* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QCPItemBracket_QBaseIsSignalConnected(const QCPItemBracket* self, const QMetaMethod* signal) {
+bool QCPItemBracket_SuperIsSignalConnected(const QCPItemBracket* self, const QMetaMethod* signal) {
     auto* vqcpitembracket = const_cast<VirtualQCPItemBracket*>(dynamic_cast<const VirtualQCPItemBracket*>(self));
     if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
         vqcpitembracket->setQCPItemBracket_IsSignalConnected_IsBase(true);
@@ -56495,7 +56495,7 @@ void QCPPolarAxisRadial_Rescale1(QCPPolarAxisRadial* self, bool onlyVisiblePlott
 }
 
 // Base class handler implementation
-QMetaObject* QCPPolarAxisRadial_QBaseMetaObject(const QCPPolarAxisRadial* self) {
+QMetaObject* QCPPolarAxisRadial_SuperMetaObject(const QCPPolarAxisRadial* self) {
     auto* vqcppolaraxisradial = const_cast<VirtualQCPPolarAxisRadial*>(dynamic_cast<const VirtualQCPPolarAxisRadial*>(self));
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_MetaObject_IsBase(true);
@@ -56514,7 +56514,7 @@ void QCPPolarAxisRadial_OnMetaObject(const QCPPolarAxisRadial* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* QCPPolarAxisRadial_QBaseMetacast(QCPPolarAxisRadial* self, const char* param1) {
+void* QCPPolarAxisRadial_SuperMetacast(QCPPolarAxisRadial* self, const char* param1) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_Metacast_IsBase(true);
@@ -56533,7 +56533,7 @@ void QCPPolarAxisRadial_OnMetacast(QCPPolarAxisRadial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPPolarAxisRadial_QBaseMetacall(QCPPolarAxisRadial* self, int param1, int param2, void** param3) {
+int QCPPolarAxisRadial_SuperMetacall(QCPPolarAxisRadial* self, int param1, int param2, void** param3) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_Metacall_IsBase(true);
@@ -56552,7 +56552,7 @@ void QCPPolarAxisRadial_OnMetacall(QCPPolarAxisRadial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPPolarAxisRadial_QBaseSelectTest(const QCPPolarAxisRadial* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPPolarAxisRadial_SuperSelectTest(const QCPPolarAxisRadial* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcppolaraxisradial = const_cast<VirtualQCPPolarAxisRadial*>(dynamic_cast<const VirtualQCPPolarAxisRadial*>(self));
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_SelectTest_IsBase(true);
@@ -56571,7 +56571,7 @@ void QCPPolarAxisRadial_OnSelectTest(const QCPPolarAxisRadial* self, intptr_t sl
 }
 
 // Base class handler implementation
-void QCPPolarAxisRadial_QBaseApplyDefaultAntialiasingHint(const QCPPolarAxisRadial* self, QCPPainter* painter) {
+void QCPPolarAxisRadial_SuperApplyDefaultAntialiasingHint(const QCPPolarAxisRadial* self, QCPPainter* painter) {
     auto* vqcppolaraxisradial = const_cast<VirtualQCPPolarAxisRadial*>(dynamic_cast<const VirtualQCPPolarAxisRadial*>(self));
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -56590,7 +56590,7 @@ void QCPPolarAxisRadial_OnApplyDefaultAntialiasingHint(const QCPPolarAxisRadial*
 }
 
 // Base class handler implementation
-void QCPPolarAxisRadial_QBaseDraw(QCPPolarAxisRadial* self, QCPPainter* painter) {
+void QCPPolarAxisRadial_SuperDraw(QCPPolarAxisRadial* self, QCPPainter* painter) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_Draw_IsBase(true);
@@ -56609,7 +56609,7 @@ void QCPPolarAxisRadial_OnDraw(QCPPolarAxisRadial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPPolarAxisRadial_QBaseSelectionCategory(const QCPPolarAxisRadial* self) {
+int QCPPolarAxisRadial_SuperSelectionCategory(const QCPPolarAxisRadial* self) {
     auto* vqcppolaraxisradial = const_cast<VirtualQCPPolarAxisRadial*>(dynamic_cast<const VirtualQCPPolarAxisRadial*>(self));
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_SelectionCategory_IsBase(true);
@@ -56628,7 +56628,7 @@ void QCPPolarAxisRadial_OnSelectionCategory(const QCPPolarAxisRadial* self, intp
 }
 
 // Base class handler implementation
-void QCPPolarAxisRadial_QBaseSelectEvent(QCPPolarAxisRadial* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPPolarAxisRadial_SuperSelectEvent(QCPPolarAxisRadial* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_SelectEvent_IsBase(true);
@@ -56647,7 +56647,7 @@ void QCPPolarAxisRadial_OnSelectEvent(QCPPolarAxisRadial* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPPolarAxisRadial_QBaseDeselectEvent(QCPPolarAxisRadial* self, bool* selectionStateChanged) {
+void QCPPolarAxisRadial_SuperDeselectEvent(QCPPolarAxisRadial* self, bool* selectionStateChanged) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_DeselectEvent_IsBase(true);
@@ -56666,7 +56666,7 @@ void QCPPolarAxisRadial_OnDeselectEvent(QCPPolarAxisRadial* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void QCPPolarAxisRadial_QBaseMousePressEvent(QCPPolarAxisRadial* self, QMouseEvent* event, const QVariant* details) {
+void QCPPolarAxisRadial_SuperMousePressEvent(QCPPolarAxisRadial* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_MousePressEvent_IsBase(true);
@@ -56685,7 +56685,7 @@ void QCPPolarAxisRadial_OnMousePressEvent(QCPPolarAxisRadial* self, intptr_t slo
 }
 
 // Base class handler implementation
-void QCPPolarAxisRadial_QBaseMouseMoveEvent(QCPPolarAxisRadial* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPPolarAxisRadial_SuperMouseMoveEvent(QCPPolarAxisRadial* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_MouseMoveEvent_IsBase(true);
@@ -56704,7 +56704,7 @@ void QCPPolarAxisRadial_OnMouseMoveEvent(QCPPolarAxisRadial* self, intptr_t slot
 }
 
 // Base class handler implementation
-void QCPPolarAxisRadial_QBaseMouseReleaseEvent(QCPPolarAxisRadial* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPPolarAxisRadial_SuperMouseReleaseEvent(QCPPolarAxisRadial* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_MouseReleaseEvent_IsBase(true);
@@ -56723,7 +56723,7 @@ void QCPPolarAxisRadial_OnMouseReleaseEvent(QCPPolarAxisRadial* self, intptr_t s
 }
 
 // Base class handler implementation
-void QCPPolarAxisRadial_QBaseWheelEvent(QCPPolarAxisRadial* self, QWheelEvent* event) {
+void QCPPolarAxisRadial_SuperWheelEvent(QCPPolarAxisRadial* self, QWheelEvent* event) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_WheelEvent_IsBase(true);
@@ -56752,7 +56752,7 @@ void QCPPolarAxisRadial_ParentPlotInitialized(QCPPolarAxisRadial* self, QCustomP
 }
 
 // Base class handler implementation
-void QCPPolarAxisRadial_QBaseParentPlotInitialized(QCPPolarAxisRadial* self, QCustomPlot* parentPlot) {
+void QCPPolarAxisRadial_SuperParentPlotInitialized(QCPPolarAxisRadial* self, QCustomPlot* parentPlot) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_ParentPlotInitialized_IsBase(true);
@@ -56780,7 +56780,7 @@ QRect* QCPPolarAxisRadial_ClipRect(const QCPPolarAxisRadial* self) {
 }
 
 // Base class handler implementation
-QRect* QCPPolarAxisRadial_QBaseClipRect(const QCPPolarAxisRadial* self) {
+QRect* QCPPolarAxisRadial_SuperClipRect(const QCPPolarAxisRadial* self) {
     auto* vqcppolaraxisradial = const_cast<VirtualQCPPolarAxisRadial*>(dynamic_cast<const VirtualQCPPolarAxisRadial*>(self));
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_ClipRect_IsBase(true);
@@ -56808,7 +56808,7 @@ void QCPPolarAxisRadial_MouseDoubleClickEvent(QCPPolarAxisRadial* self, QMouseEv
 }
 
 // Base class handler implementation
-void QCPPolarAxisRadial_QBaseMouseDoubleClickEvent(QCPPolarAxisRadial* self, QMouseEvent* event, const QVariant* details) {
+void QCPPolarAxisRadial_SuperMouseDoubleClickEvent(QCPPolarAxisRadial* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_MouseDoubleClickEvent_IsBase(true);
@@ -56837,7 +56837,7 @@ bool QCPPolarAxisRadial_Event(QCPPolarAxisRadial* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPPolarAxisRadial_QBaseEvent(QCPPolarAxisRadial* self, QEvent* event) {
+bool QCPPolarAxisRadial_SuperEvent(QCPPolarAxisRadial* self, QEvent* event) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_Event_IsBase(true);
@@ -56866,7 +56866,7 @@ bool QCPPolarAxisRadial_EventFilter(QCPPolarAxisRadial* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool QCPPolarAxisRadial_QBaseEventFilter(QCPPolarAxisRadial* self, QObject* watched, QEvent* event) {
+bool QCPPolarAxisRadial_SuperEventFilter(QCPPolarAxisRadial* self, QObject* watched, QEvent* event) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_EventFilter_IsBase(true);
@@ -56895,7 +56895,7 @@ void QCPPolarAxisRadial_TimerEvent(QCPPolarAxisRadial* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void QCPPolarAxisRadial_QBaseTimerEvent(QCPPolarAxisRadial* self, QTimerEvent* event) {
+void QCPPolarAxisRadial_SuperTimerEvent(QCPPolarAxisRadial* self, QTimerEvent* event) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_TimerEvent_IsBase(true);
@@ -56924,7 +56924,7 @@ void QCPPolarAxisRadial_ChildEvent(QCPPolarAxisRadial* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void QCPPolarAxisRadial_QBaseChildEvent(QCPPolarAxisRadial* self, QChildEvent* event) {
+void QCPPolarAxisRadial_SuperChildEvent(QCPPolarAxisRadial* self, QChildEvent* event) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_ChildEvent_IsBase(true);
@@ -56953,7 +56953,7 @@ void QCPPolarAxisRadial_CustomEvent(QCPPolarAxisRadial* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPPolarAxisRadial_QBaseCustomEvent(QCPPolarAxisRadial* self, QEvent* event) {
+void QCPPolarAxisRadial_SuperCustomEvent(QCPPolarAxisRadial* self, QEvent* event) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_CustomEvent_IsBase(true);
@@ -56982,7 +56982,7 @@ void QCPPolarAxisRadial_ConnectNotify(QCPPolarAxisRadial* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void QCPPolarAxisRadial_QBaseConnectNotify(QCPPolarAxisRadial* self, const QMetaMethod* signal) {
+void QCPPolarAxisRadial_SuperConnectNotify(QCPPolarAxisRadial* self, const QMetaMethod* signal) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_ConnectNotify_IsBase(true);
@@ -57011,7 +57011,7 @@ void QCPPolarAxisRadial_DisconnectNotify(QCPPolarAxisRadial* self, const QMetaMe
 }
 
 // Base class handler implementation
-void QCPPolarAxisRadial_QBaseDisconnectNotify(QCPPolarAxisRadial* self, const QMetaMethod* signal) {
+void QCPPolarAxisRadial_SuperDisconnectNotify(QCPPolarAxisRadial* self, const QMetaMethod* signal) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_DisconnectNotify_IsBase(true);
@@ -57040,7 +57040,7 @@ void QCPPolarAxisRadial_UpdateGeometry(QCPPolarAxisRadial* self, const QPointF* 
 }
 
 // Base class handler implementation
-void QCPPolarAxisRadial_QBaseUpdateGeometry(QCPPolarAxisRadial* self, const QPointF* center, double radius) {
+void QCPPolarAxisRadial_SuperUpdateGeometry(QCPPolarAxisRadial* self, const QPointF* center, double radius) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_UpdateGeometry_IsBase(true);
@@ -57069,7 +57069,7 @@ void QCPPolarAxisRadial_SetupTickVectors(QCPPolarAxisRadial* self) {
 }
 
 // Base class handler implementation
-void QCPPolarAxisRadial_QBaseSetupTickVectors(QCPPolarAxisRadial* self) {
+void QCPPolarAxisRadial_SuperSetupTickVectors(QCPPolarAxisRadial* self) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_SetupTickVectors_IsBase(true);
@@ -57097,7 +57097,7 @@ QPen* QCPPolarAxisRadial_GetBasePen(const QCPPolarAxisRadial* self) {
 }
 
 // Base class handler implementation
-QPen* QCPPolarAxisRadial_QBaseGetBasePen(const QCPPolarAxisRadial* self) {
+QPen* QCPPolarAxisRadial_SuperGetBasePen(const QCPPolarAxisRadial* self) {
     auto* vqcppolaraxisradial = const_cast<VirtualQCPPolarAxisRadial*>(dynamic_cast<const VirtualQCPPolarAxisRadial*>(self));
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_GetBasePen_IsBase(true);
@@ -57124,7 +57124,7 @@ QPen* QCPPolarAxisRadial_GetTickPen(const QCPPolarAxisRadial* self) {
 }
 
 // Base class handler implementation
-QPen* QCPPolarAxisRadial_QBaseGetTickPen(const QCPPolarAxisRadial* self) {
+QPen* QCPPolarAxisRadial_SuperGetTickPen(const QCPPolarAxisRadial* self) {
     auto* vqcppolaraxisradial = const_cast<VirtualQCPPolarAxisRadial*>(dynamic_cast<const VirtualQCPPolarAxisRadial*>(self));
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_GetTickPen_IsBase(true);
@@ -57151,7 +57151,7 @@ QPen* QCPPolarAxisRadial_GetSubTickPen(const QCPPolarAxisRadial* self) {
 }
 
 // Base class handler implementation
-QPen* QCPPolarAxisRadial_QBaseGetSubTickPen(const QCPPolarAxisRadial* self) {
+QPen* QCPPolarAxisRadial_SuperGetSubTickPen(const QCPPolarAxisRadial* self) {
     auto* vqcppolaraxisradial = const_cast<VirtualQCPPolarAxisRadial*>(dynamic_cast<const VirtualQCPPolarAxisRadial*>(self));
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_GetSubTickPen_IsBase(true);
@@ -57178,7 +57178,7 @@ QFont* QCPPolarAxisRadial_GetTickLabelFont(const QCPPolarAxisRadial* self) {
 }
 
 // Base class handler implementation
-QFont* QCPPolarAxisRadial_QBaseGetTickLabelFont(const QCPPolarAxisRadial* self) {
+QFont* QCPPolarAxisRadial_SuperGetTickLabelFont(const QCPPolarAxisRadial* self) {
     auto* vqcppolaraxisradial = const_cast<VirtualQCPPolarAxisRadial*>(dynamic_cast<const VirtualQCPPolarAxisRadial*>(self));
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_GetTickLabelFont_IsBase(true);
@@ -57205,7 +57205,7 @@ QFont* QCPPolarAxisRadial_GetLabelFont(const QCPPolarAxisRadial* self) {
 }
 
 // Base class handler implementation
-QFont* QCPPolarAxisRadial_QBaseGetLabelFont(const QCPPolarAxisRadial* self) {
+QFont* QCPPolarAxisRadial_SuperGetLabelFont(const QCPPolarAxisRadial* self) {
     auto* vqcppolaraxisradial = const_cast<VirtualQCPPolarAxisRadial*>(dynamic_cast<const VirtualQCPPolarAxisRadial*>(self));
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_GetLabelFont_IsBase(true);
@@ -57232,7 +57232,7 @@ QColor* QCPPolarAxisRadial_GetTickLabelColor(const QCPPolarAxisRadial* self) {
 }
 
 // Base class handler implementation
-QColor* QCPPolarAxisRadial_QBaseGetTickLabelColor(const QCPPolarAxisRadial* self) {
+QColor* QCPPolarAxisRadial_SuperGetTickLabelColor(const QCPPolarAxisRadial* self) {
     auto* vqcppolaraxisradial = const_cast<VirtualQCPPolarAxisRadial*>(dynamic_cast<const VirtualQCPPolarAxisRadial*>(self));
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_GetTickLabelColor_IsBase(true);
@@ -57259,7 +57259,7 @@ QColor* QCPPolarAxisRadial_GetLabelColor(const QCPPolarAxisRadial* self) {
 }
 
 // Base class handler implementation
-QColor* QCPPolarAxisRadial_QBaseGetLabelColor(const QCPPolarAxisRadial* self) {
+QColor* QCPPolarAxisRadial_SuperGetLabelColor(const QCPPolarAxisRadial* self) {
     auto* vqcppolaraxisradial = const_cast<VirtualQCPPolarAxisRadial*>(dynamic_cast<const VirtualQCPPolarAxisRadial*>(self));
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_GetLabelColor_IsBase(true);
@@ -57287,7 +57287,7 @@ void QCPPolarAxisRadial_InitializeParentPlot(QCPPolarAxisRadial* self, QCustomPl
 }
 
 // Base class handler implementation
-void QCPPolarAxisRadial_QBaseInitializeParentPlot(QCPPolarAxisRadial* self, QCustomPlot* parentPlot) {
+void QCPPolarAxisRadial_SuperInitializeParentPlot(QCPPolarAxisRadial* self, QCustomPlot* parentPlot) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_InitializeParentPlot_IsBase(true);
@@ -57316,7 +57316,7 @@ void QCPPolarAxisRadial_SetParentLayerable(QCPPolarAxisRadial* self, QCPLayerabl
 }
 
 // Base class handler implementation
-void QCPPolarAxisRadial_QBaseSetParentLayerable(QCPPolarAxisRadial* self, QCPLayerable* parentLayerable) {
+void QCPPolarAxisRadial_SuperSetParentLayerable(QCPPolarAxisRadial* self, QCPLayerable* parentLayerable) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_SetParentLayerable_IsBase(true);
@@ -57345,7 +57345,7 @@ bool QCPPolarAxisRadial_MoveToLayer(QCPPolarAxisRadial* self, QCPLayer* layer, b
 }
 
 // Base class handler implementation
-bool QCPPolarAxisRadial_QBaseMoveToLayer(QCPPolarAxisRadial* self, QCPLayer* layer, bool prepend) {
+bool QCPPolarAxisRadial_SuperMoveToLayer(QCPPolarAxisRadial* self, QCPLayer* layer, bool prepend) {
     auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_MoveToLayer_IsBase(true);
@@ -57374,7 +57374,7 @@ void QCPPolarAxisRadial_ApplyAntialiasingHint(const QCPPolarAxisRadial* self, QC
 }
 
 // Base class handler implementation
-void QCPPolarAxisRadial_QBaseApplyAntialiasingHint(const QCPPolarAxisRadial* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPPolarAxisRadial_SuperApplyAntialiasingHint(const QCPPolarAxisRadial* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcppolaraxisradial = const_cast<VirtualQCPPolarAxisRadial*>(dynamic_cast<const VirtualQCPPolarAxisRadial*>(self));
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_ApplyAntialiasingHint_IsBase(true);
@@ -57403,7 +57403,7 @@ QObject* QCPPolarAxisRadial_Sender(const QCPPolarAxisRadial* self) {
 }
 
 // Base class handler implementation
-QObject* QCPPolarAxisRadial_QBaseSender(const QCPPolarAxisRadial* self) {
+QObject* QCPPolarAxisRadial_SuperSender(const QCPPolarAxisRadial* self) {
     auto* vqcppolaraxisradial = const_cast<VirtualQCPPolarAxisRadial*>(dynamic_cast<const VirtualQCPPolarAxisRadial*>(self));
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_Sender_IsBase(true);
@@ -57432,7 +57432,7 @@ int QCPPolarAxisRadial_SenderSignalIndex(const QCPPolarAxisRadial* self) {
 }
 
 // Base class handler implementation
-int QCPPolarAxisRadial_QBaseSenderSignalIndex(const QCPPolarAxisRadial* self) {
+int QCPPolarAxisRadial_SuperSenderSignalIndex(const QCPPolarAxisRadial* self) {
     auto* vqcppolaraxisradial = const_cast<VirtualQCPPolarAxisRadial*>(dynamic_cast<const VirtualQCPPolarAxisRadial*>(self));
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_SenderSignalIndex_IsBase(true);
@@ -57461,7 +57461,7 @@ int QCPPolarAxisRadial_Receivers(const QCPPolarAxisRadial* self, const char* sig
 }
 
 // Base class handler implementation
-int QCPPolarAxisRadial_QBaseReceivers(const QCPPolarAxisRadial* self, const char* signal) {
+int QCPPolarAxisRadial_SuperReceivers(const QCPPolarAxisRadial* self, const char* signal) {
     auto* vqcppolaraxisradial = const_cast<VirtualQCPPolarAxisRadial*>(dynamic_cast<const VirtualQCPPolarAxisRadial*>(self));
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_Receivers_IsBase(true);
@@ -57490,7 +57490,7 @@ bool QCPPolarAxisRadial_IsSignalConnected(const QCPPolarAxisRadial* self, const 
 }
 
 // Base class handler implementation
-bool QCPPolarAxisRadial_QBaseIsSignalConnected(const QCPPolarAxisRadial* self, const QMetaMethod* signal) {
+bool QCPPolarAxisRadial_SuperIsSignalConnected(const QCPPolarAxisRadial* self, const QMetaMethod* signal) {
     auto* vqcppolaraxisradial = const_cast<VirtualQCPPolarAxisRadial*>(dynamic_cast<const VirtualQCPPolarAxisRadial*>(self));
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->setQCPPolarAxisRadial_IsSignalConnected_IsBase(true);
@@ -58212,7 +58212,7 @@ void QCPPolarAxisAngular_Rescale1(QCPPolarAxisAngular* self, bool onlyVisiblePlo
 }
 
 // Base class handler implementation
-QMetaObject* QCPPolarAxisAngular_QBaseMetaObject(const QCPPolarAxisAngular* self) {
+QMetaObject* QCPPolarAxisAngular_SuperMetaObject(const QCPPolarAxisAngular* self) {
     auto* vqcppolaraxisangular = const_cast<VirtualQCPPolarAxisAngular*>(dynamic_cast<const VirtualQCPPolarAxisAngular*>(self));
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_MetaObject_IsBase(true);
@@ -58231,7 +58231,7 @@ void QCPPolarAxisAngular_OnMetaObject(const QCPPolarAxisAngular* self, intptr_t 
 }
 
 // Base class handler implementation
-void* QCPPolarAxisAngular_QBaseMetacast(QCPPolarAxisAngular* self, const char* param1) {
+void* QCPPolarAxisAngular_SuperMetacast(QCPPolarAxisAngular* self, const char* param1) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_Metacast_IsBase(true);
@@ -58250,7 +58250,7 @@ void QCPPolarAxisAngular_OnMetacast(QCPPolarAxisAngular* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPPolarAxisAngular_QBaseMetacall(QCPPolarAxisAngular* self, int param1, int param2, void** param3) {
+int QCPPolarAxisAngular_SuperMetacall(QCPPolarAxisAngular* self, int param1, int param2, void** param3) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_Metacall_IsBase(true);
@@ -58269,7 +58269,7 @@ void QCPPolarAxisAngular_OnMetacall(QCPPolarAxisAngular* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPPolarAxisAngular_QBaseSelectTest(const QCPPolarAxisAngular* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPPolarAxisAngular_SuperSelectTest(const QCPPolarAxisAngular* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcppolaraxisangular = const_cast<VirtualQCPPolarAxisAngular*>(dynamic_cast<const VirtualQCPPolarAxisAngular*>(self));
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_SelectTest_IsBase(true);
@@ -58288,7 +58288,7 @@ void QCPPolarAxisAngular_OnSelectTest(const QCPPolarAxisAngular* self, intptr_t 
 }
 
 // Base class handler implementation
-void QCPPolarAxisAngular_QBaseUpdate(QCPPolarAxisAngular* self, int phase) {
+void QCPPolarAxisAngular_SuperUpdate(QCPPolarAxisAngular* self, int phase) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_Update_IsBase(true);
@@ -58307,7 +58307,7 @@ void QCPPolarAxisAngular_OnUpdate(QCPPolarAxisAngular* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of QCPLayoutElement* */ QCPPolarAxisAngular_QBaseElements(const QCPPolarAxisAngular* self, bool recursive) {
+libqt_list /* of QCPLayoutElement* */ QCPPolarAxisAngular_SuperElements(const QCPPolarAxisAngular* self, bool recursive) {
     auto* vqcppolaraxisangular = const_cast<VirtualQCPPolarAxisAngular*>(dynamic_cast<const VirtualQCPPolarAxisAngular*>(self));
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_Elements_IsBase(true);
@@ -58344,7 +58344,7 @@ void QCPPolarAxisAngular_OnElements(const QCPPolarAxisAngular* self, intptr_t sl
 }
 
 // Base class handler implementation
-void QCPPolarAxisAngular_QBaseApplyDefaultAntialiasingHint(const QCPPolarAxisAngular* self, QCPPainter* painter) {
+void QCPPolarAxisAngular_SuperApplyDefaultAntialiasingHint(const QCPPolarAxisAngular* self, QCPPainter* painter) {
     auto* vqcppolaraxisangular = const_cast<VirtualQCPPolarAxisAngular*>(dynamic_cast<const VirtualQCPPolarAxisAngular*>(self));
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -58363,7 +58363,7 @@ void QCPPolarAxisAngular_OnApplyDefaultAntialiasingHint(const QCPPolarAxisAngula
 }
 
 // Base class handler implementation
-void QCPPolarAxisAngular_QBaseDraw(QCPPolarAxisAngular* self, QCPPainter* painter) {
+void QCPPolarAxisAngular_SuperDraw(QCPPolarAxisAngular* self, QCPPainter* painter) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_Draw_IsBase(true);
@@ -58382,7 +58382,7 @@ void QCPPolarAxisAngular_OnDraw(QCPPolarAxisAngular* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPPolarAxisAngular_QBaseSelectionCategory(const QCPPolarAxisAngular* self) {
+int QCPPolarAxisAngular_SuperSelectionCategory(const QCPPolarAxisAngular* self) {
     auto* vqcppolaraxisangular = const_cast<VirtualQCPPolarAxisAngular*>(dynamic_cast<const VirtualQCPPolarAxisAngular*>(self));
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_SelectionCategory_IsBase(true);
@@ -58401,7 +58401,7 @@ void QCPPolarAxisAngular_OnSelectionCategory(const QCPPolarAxisAngular* self, in
 }
 
 // Base class handler implementation
-void QCPPolarAxisAngular_QBaseMousePressEvent(QCPPolarAxisAngular* self, QMouseEvent* event, const QVariant* details) {
+void QCPPolarAxisAngular_SuperMousePressEvent(QCPPolarAxisAngular* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_MousePressEvent_IsBase(true);
@@ -58420,7 +58420,7 @@ void QCPPolarAxisAngular_OnMousePressEvent(QCPPolarAxisAngular* self, intptr_t s
 }
 
 // Base class handler implementation
-void QCPPolarAxisAngular_QBaseMouseMoveEvent(QCPPolarAxisAngular* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPPolarAxisAngular_SuperMouseMoveEvent(QCPPolarAxisAngular* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_MouseMoveEvent_IsBase(true);
@@ -58439,7 +58439,7 @@ void QCPPolarAxisAngular_OnMouseMoveEvent(QCPPolarAxisAngular* self, intptr_t sl
 }
 
 // Base class handler implementation
-void QCPPolarAxisAngular_QBaseMouseReleaseEvent(QCPPolarAxisAngular* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPPolarAxisAngular_SuperMouseReleaseEvent(QCPPolarAxisAngular* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_MouseReleaseEvent_IsBase(true);
@@ -58458,7 +58458,7 @@ void QCPPolarAxisAngular_OnMouseReleaseEvent(QCPPolarAxisAngular* self, intptr_t
 }
 
 // Base class handler implementation
-void QCPPolarAxisAngular_QBaseWheelEvent(QCPPolarAxisAngular* self, QWheelEvent* event) {
+void QCPPolarAxisAngular_SuperWheelEvent(QCPPolarAxisAngular* self, QWheelEvent* event) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_WheelEvent_IsBase(true);
@@ -58487,7 +58487,7 @@ QSize* QCPPolarAxisAngular_MinimumOuterSizeHint(const QCPPolarAxisAngular* self)
 }
 
 // Base class handler implementation
-QSize* QCPPolarAxisAngular_QBaseMinimumOuterSizeHint(const QCPPolarAxisAngular* self) {
+QSize* QCPPolarAxisAngular_SuperMinimumOuterSizeHint(const QCPPolarAxisAngular* self) {
     auto* vqcppolaraxisangular = const_cast<VirtualQCPPolarAxisAngular*>(dynamic_cast<const VirtualQCPPolarAxisAngular*>(self));
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_MinimumOuterSizeHint_IsBase(true);
@@ -58516,7 +58516,7 @@ QSize* QCPPolarAxisAngular_MaximumOuterSizeHint(const QCPPolarAxisAngular* self)
 }
 
 // Base class handler implementation
-QSize* QCPPolarAxisAngular_QBaseMaximumOuterSizeHint(const QCPPolarAxisAngular* self) {
+QSize* QCPPolarAxisAngular_SuperMaximumOuterSizeHint(const QCPPolarAxisAngular* self) {
     auto* vqcppolaraxisangular = const_cast<VirtualQCPPolarAxisAngular*>(dynamic_cast<const VirtualQCPPolarAxisAngular*>(self));
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_MaximumOuterSizeHint_IsBase(true);
@@ -58545,7 +58545,7 @@ int QCPPolarAxisAngular_CalculateAutoMargin(QCPPolarAxisAngular* self, int side)
 }
 
 // Base class handler implementation
-int QCPPolarAxisAngular_QBaseCalculateAutoMargin(QCPPolarAxisAngular* self, int side) {
+int QCPPolarAxisAngular_SuperCalculateAutoMargin(QCPPolarAxisAngular* self, int side) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_CalculateAutoMargin_IsBase(true);
@@ -58574,7 +58574,7 @@ void QCPPolarAxisAngular_LayoutChanged(QCPPolarAxisAngular* self) {
 }
 
 // Base class handler implementation
-void QCPPolarAxisAngular_QBaseLayoutChanged(QCPPolarAxisAngular* self) {
+void QCPPolarAxisAngular_SuperLayoutChanged(QCPPolarAxisAngular* self) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_LayoutChanged_IsBase(true);
@@ -58603,7 +58603,7 @@ void QCPPolarAxisAngular_ParentPlotInitialized(QCPPolarAxisAngular* self, QCusto
 }
 
 // Base class handler implementation
-void QCPPolarAxisAngular_QBaseParentPlotInitialized(QCPPolarAxisAngular* self, QCustomPlot* parentPlot) {
+void QCPPolarAxisAngular_SuperParentPlotInitialized(QCPPolarAxisAngular* self, QCustomPlot* parentPlot) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_ParentPlotInitialized_IsBase(true);
@@ -58631,7 +58631,7 @@ QRect* QCPPolarAxisAngular_ClipRect(const QCPPolarAxisAngular* self) {
 }
 
 // Base class handler implementation
-QRect* QCPPolarAxisAngular_QBaseClipRect(const QCPPolarAxisAngular* self) {
+QRect* QCPPolarAxisAngular_SuperClipRect(const QCPPolarAxisAngular* self) {
     auto* vqcppolaraxisangular = const_cast<VirtualQCPPolarAxisAngular*>(dynamic_cast<const VirtualQCPPolarAxisAngular*>(self));
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_ClipRect_IsBase(true);
@@ -58659,7 +58659,7 @@ void QCPPolarAxisAngular_SelectEvent(QCPPolarAxisAngular* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void QCPPolarAxisAngular_QBaseSelectEvent(QCPPolarAxisAngular* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPPolarAxisAngular_SuperSelectEvent(QCPPolarAxisAngular* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_SelectEvent_IsBase(true);
@@ -58688,7 +58688,7 @@ void QCPPolarAxisAngular_DeselectEvent(QCPPolarAxisAngular* self, bool* selectio
 }
 
 // Base class handler implementation
-void QCPPolarAxisAngular_QBaseDeselectEvent(QCPPolarAxisAngular* self, bool* selectionStateChanged) {
+void QCPPolarAxisAngular_SuperDeselectEvent(QCPPolarAxisAngular* self, bool* selectionStateChanged) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_DeselectEvent_IsBase(true);
@@ -58717,7 +58717,7 @@ void QCPPolarAxisAngular_MouseDoubleClickEvent(QCPPolarAxisAngular* self, QMouse
 }
 
 // Base class handler implementation
-void QCPPolarAxisAngular_QBaseMouseDoubleClickEvent(QCPPolarAxisAngular* self, QMouseEvent* event, const QVariant* details) {
+void QCPPolarAxisAngular_SuperMouseDoubleClickEvent(QCPPolarAxisAngular* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_MouseDoubleClickEvent_IsBase(true);
@@ -58746,7 +58746,7 @@ bool QCPPolarAxisAngular_Event(QCPPolarAxisAngular* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPPolarAxisAngular_QBaseEvent(QCPPolarAxisAngular* self, QEvent* event) {
+bool QCPPolarAxisAngular_SuperEvent(QCPPolarAxisAngular* self, QEvent* event) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_Event_IsBase(true);
@@ -58775,7 +58775,7 @@ bool QCPPolarAxisAngular_EventFilter(QCPPolarAxisAngular* self, QObject* watched
 }
 
 // Base class handler implementation
-bool QCPPolarAxisAngular_QBaseEventFilter(QCPPolarAxisAngular* self, QObject* watched, QEvent* event) {
+bool QCPPolarAxisAngular_SuperEventFilter(QCPPolarAxisAngular* self, QObject* watched, QEvent* event) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_EventFilter_IsBase(true);
@@ -58804,7 +58804,7 @@ void QCPPolarAxisAngular_TimerEvent(QCPPolarAxisAngular* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void QCPPolarAxisAngular_QBaseTimerEvent(QCPPolarAxisAngular* self, QTimerEvent* event) {
+void QCPPolarAxisAngular_SuperTimerEvent(QCPPolarAxisAngular* self, QTimerEvent* event) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_TimerEvent_IsBase(true);
@@ -58833,7 +58833,7 @@ void QCPPolarAxisAngular_ChildEvent(QCPPolarAxisAngular* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void QCPPolarAxisAngular_QBaseChildEvent(QCPPolarAxisAngular* self, QChildEvent* event) {
+void QCPPolarAxisAngular_SuperChildEvent(QCPPolarAxisAngular* self, QChildEvent* event) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_ChildEvent_IsBase(true);
@@ -58862,7 +58862,7 @@ void QCPPolarAxisAngular_CustomEvent(QCPPolarAxisAngular* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPPolarAxisAngular_QBaseCustomEvent(QCPPolarAxisAngular* self, QEvent* event) {
+void QCPPolarAxisAngular_SuperCustomEvent(QCPPolarAxisAngular* self, QEvent* event) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_CustomEvent_IsBase(true);
@@ -58891,7 +58891,7 @@ void QCPPolarAxisAngular_ConnectNotify(QCPPolarAxisAngular* self, const QMetaMet
 }
 
 // Base class handler implementation
-void QCPPolarAxisAngular_QBaseConnectNotify(QCPPolarAxisAngular* self, const QMetaMethod* signal) {
+void QCPPolarAxisAngular_SuperConnectNotify(QCPPolarAxisAngular* self, const QMetaMethod* signal) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_ConnectNotify_IsBase(true);
@@ -58920,7 +58920,7 @@ void QCPPolarAxisAngular_DisconnectNotify(QCPPolarAxisAngular* self, const QMeta
 }
 
 // Base class handler implementation
-void QCPPolarAxisAngular_QBaseDisconnectNotify(QCPPolarAxisAngular* self, const QMetaMethod* signal) {
+void QCPPolarAxisAngular_SuperDisconnectNotify(QCPPolarAxisAngular* self, const QMetaMethod* signal) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_DisconnectNotify_IsBase(true);
@@ -58949,7 +58949,7 @@ bool QCPPolarAxisAngular_RegisterPolarGraph(QCPPolarAxisAngular* self, QCPPolarG
 }
 
 // Base class handler implementation
-bool QCPPolarAxisAngular_QBaseRegisterPolarGraph(QCPPolarAxisAngular* self, QCPPolarGraph* graph) {
+bool QCPPolarAxisAngular_SuperRegisterPolarGraph(QCPPolarAxisAngular* self, QCPPolarGraph* graph) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_RegisterPolarGraph_IsBase(true);
@@ -58978,7 +58978,7 @@ void QCPPolarAxisAngular_DrawBackground(QCPPolarAxisAngular* self, QCPPainter* p
 }
 
 // Base class handler implementation
-void QCPPolarAxisAngular_QBaseDrawBackground(QCPPolarAxisAngular* self, QCPPainter* painter, const QPointF* center, double radius) {
+void QCPPolarAxisAngular_SuperDrawBackground(QCPPolarAxisAngular* self, QCPPainter* painter, const QPointF* center, double radius) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_DrawBackground_IsBase(true);
@@ -59007,7 +59007,7 @@ void QCPPolarAxisAngular_SetupTickVectors(QCPPolarAxisAngular* self) {
 }
 
 // Base class handler implementation
-void QCPPolarAxisAngular_QBaseSetupTickVectors(QCPPolarAxisAngular* self) {
+void QCPPolarAxisAngular_SuperSetupTickVectors(QCPPolarAxisAngular* self) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_SetupTickVectors_IsBase(true);
@@ -59035,7 +59035,7 @@ QPen* QCPPolarAxisAngular_GetBasePen(const QCPPolarAxisAngular* self) {
 }
 
 // Base class handler implementation
-QPen* QCPPolarAxisAngular_QBaseGetBasePen(const QCPPolarAxisAngular* self) {
+QPen* QCPPolarAxisAngular_SuperGetBasePen(const QCPPolarAxisAngular* self) {
     auto* vqcppolaraxisangular = const_cast<VirtualQCPPolarAxisAngular*>(dynamic_cast<const VirtualQCPPolarAxisAngular*>(self));
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_GetBasePen_IsBase(true);
@@ -59062,7 +59062,7 @@ QPen* QCPPolarAxisAngular_GetTickPen(const QCPPolarAxisAngular* self) {
 }
 
 // Base class handler implementation
-QPen* QCPPolarAxisAngular_QBaseGetTickPen(const QCPPolarAxisAngular* self) {
+QPen* QCPPolarAxisAngular_SuperGetTickPen(const QCPPolarAxisAngular* self) {
     auto* vqcppolaraxisangular = const_cast<VirtualQCPPolarAxisAngular*>(dynamic_cast<const VirtualQCPPolarAxisAngular*>(self));
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_GetTickPen_IsBase(true);
@@ -59089,7 +59089,7 @@ QPen* QCPPolarAxisAngular_GetSubTickPen(const QCPPolarAxisAngular* self) {
 }
 
 // Base class handler implementation
-QPen* QCPPolarAxisAngular_QBaseGetSubTickPen(const QCPPolarAxisAngular* self) {
+QPen* QCPPolarAxisAngular_SuperGetSubTickPen(const QCPPolarAxisAngular* self) {
     auto* vqcppolaraxisangular = const_cast<VirtualQCPPolarAxisAngular*>(dynamic_cast<const VirtualQCPPolarAxisAngular*>(self));
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_GetSubTickPen_IsBase(true);
@@ -59116,7 +59116,7 @@ QFont* QCPPolarAxisAngular_GetTickLabelFont(const QCPPolarAxisAngular* self) {
 }
 
 // Base class handler implementation
-QFont* QCPPolarAxisAngular_QBaseGetTickLabelFont(const QCPPolarAxisAngular* self) {
+QFont* QCPPolarAxisAngular_SuperGetTickLabelFont(const QCPPolarAxisAngular* self) {
     auto* vqcppolaraxisangular = const_cast<VirtualQCPPolarAxisAngular*>(dynamic_cast<const VirtualQCPPolarAxisAngular*>(self));
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_GetTickLabelFont_IsBase(true);
@@ -59143,7 +59143,7 @@ QFont* QCPPolarAxisAngular_GetLabelFont(const QCPPolarAxisAngular* self) {
 }
 
 // Base class handler implementation
-QFont* QCPPolarAxisAngular_QBaseGetLabelFont(const QCPPolarAxisAngular* self) {
+QFont* QCPPolarAxisAngular_SuperGetLabelFont(const QCPPolarAxisAngular* self) {
     auto* vqcppolaraxisangular = const_cast<VirtualQCPPolarAxisAngular*>(dynamic_cast<const VirtualQCPPolarAxisAngular*>(self));
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_GetLabelFont_IsBase(true);
@@ -59170,7 +59170,7 @@ QColor* QCPPolarAxisAngular_GetTickLabelColor(const QCPPolarAxisAngular* self) {
 }
 
 // Base class handler implementation
-QColor* QCPPolarAxisAngular_QBaseGetTickLabelColor(const QCPPolarAxisAngular* self) {
+QColor* QCPPolarAxisAngular_SuperGetTickLabelColor(const QCPPolarAxisAngular* self) {
     auto* vqcppolaraxisangular = const_cast<VirtualQCPPolarAxisAngular*>(dynamic_cast<const VirtualQCPPolarAxisAngular*>(self));
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_GetTickLabelColor_IsBase(true);
@@ -59197,7 +59197,7 @@ QColor* QCPPolarAxisAngular_GetLabelColor(const QCPPolarAxisAngular* self) {
 }
 
 // Base class handler implementation
-QColor* QCPPolarAxisAngular_QBaseGetLabelColor(const QCPPolarAxisAngular* self) {
+QColor* QCPPolarAxisAngular_SuperGetLabelColor(const QCPPolarAxisAngular* self) {
     auto* vqcppolaraxisangular = const_cast<VirtualQCPPolarAxisAngular*>(dynamic_cast<const VirtualQCPPolarAxisAngular*>(self));
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_GetLabelColor_IsBase(true);
@@ -59225,7 +59225,7 @@ void QCPPolarAxisAngular_InitializeParentPlot(QCPPolarAxisAngular* self, QCustom
 }
 
 // Base class handler implementation
-void QCPPolarAxisAngular_QBaseInitializeParentPlot(QCPPolarAxisAngular* self, QCustomPlot* parentPlot) {
+void QCPPolarAxisAngular_SuperInitializeParentPlot(QCPPolarAxisAngular* self, QCustomPlot* parentPlot) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_InitializeParentPlot_IsBase(true);
@@ -59254,7 +59254,7 @@ void QCPPolarAxisAngular_SetParentLayerable(QCPPolarAxisAngular* self, QCPLayera
 }
 
 // Base class handler implementation
-void QCPPolarAxisAngular_QBaseSetParentLayerable(QCPPolarAxisAngular* self, QCPLayerable* parentLayerable) {
+void QCPPolarAxisAngular_SuperSetParentLayerable(QCPPolarAxisAngular* self, QCPLayerable* parentLayerable) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_SetParentLayerable_IsBase(true);
@@ -59283,7 +59283,7 @@ bool QCPPolarAxisAngular_MoveToLayer(QCPPolarAxisAngular* self, QCPLayer* layer,
 }
 
 // Base class handler implementation
-bool QCPPolarAxisAngular_QBaseMoveToLayer(QCPPolarAxisAngular* self, QCPLayer* layer, bool prepend) {
+bool QCPPolarAxisAngular_SuperMoveToLayer(QCPPolarAxisAngular* self, QCPLayer* layer, bool prepend) {
     auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_MoveToLayer_IsBase(true);
@@ -59312,7 +59312,7 @@ void QCPPolarAxisAngular_ApplyAntialiasingHint(const QCPPolarAxisAngular* self, 
 }
 
 // Base class handler implementation
-void QCPPolarAxisAngular_QBaseApplyAntialiasingHint(const QCPPolarAxisAngular* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPPolarAxisAngular_SuperApplyAntialiasingHint(const QCPPolarAxisAngular* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcppolaraxisangular = const_cast<VirtualQCPPolarAxisAngular*>(dynamic_cast<const VirtualQCPPolarAxisAngular*>(self));
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_ApplyAntialiasingHint_IsBase(true);
@@ -59341,7 +59341,7 @@ QObject* QCPPolarAxisAngular_Sender(const QCPPolarAxisAngular* self) {
 }
 
 // Base class handler implementation
-QObject* QCPPolarAxisAngular_QBaseSender(const QCPPolarAxisAngular* self) {
+QObject* QCPPolarAxisAngular_SuperSender(const QCPPolarAxisAngular* self) {
     auto* vqcppolaraxisangular = const_cast<VirtualQCPPolarAxisAngular*>(dynamic_cast<const VirtualQCPPolarAxisAngular*>(self));
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_Sender_IsBase(true);
@@ -59370,7 +59370,7 @@ int QCPPolarAxisAngular_SenderSignalIndex(const QCPPolarAxisAngular* self) {
 }
 
 // Base class handler implementation
-int QCPPolarAxisAngular_QBaseSenderSignalIndex(const QCPPolarAxisAngular* self) {
+int QCPPolarAxisAngular_SuperSenderSignalIndex(const QCPPolarAxisAngular* self) {
     auto* vqcppolaraxisangular = const_cast<VirtualQCPPolarAxisAngular*>(dynamic_cast<const VirtualQCPPolarAxisAngular*>(self));
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_SenderSignalIndex_IsBase(true);
@@ -59399,7 +59399,7 @@ int QCPPolarAxisAngular_Receivers(const QCPPolarAxisAngular* self, const char* s
 }
 
 // Base class handler implementation
-int QCPPolarAxisAngular_QBaseReceivers(const QCPPolarAxisAngular* self, const char* signal) {
+int QCPPolarAxisAngular_SuperReceivers(const QCPPolarAxisAngular* self, const char* signal) {
     auto* vqcppolaraxisangular = const_cast<VirtualQCPPolarAxisAngular*>(dynamic_cast<const VirtualQCPPolarAxisAngular*>(self));
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_Receivers_IsBase(true);
@@ -59428,7 +59428,7 @@ bool QCPPolarAxisAngular_IsSignalConnected(const QCPPolarAxisAngular* self, cons
 }
 
 // Base class handler implementation
-bool QCPPolarAxisAngular_QBaseIsSignalConnected(const QCPPolarAxisAngular* self, const QMetaMethod* signal) {
+bool QCPPolarAxisAngular_SuperIsSignalConnected(const QCPPolarAxisAngular* self, const QMetaMethod* signal) {
     auto* vqcppolaraxisangular = const_cast<VirtualQCPPolarAxisAngular*>(dynamic_cast<const VirtualQCPPolarAxisAngular*>(self));
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->setQCPPolarAxisAngular_IsSignalConnected_IsBase(true);
@@ -59576,7 +59576,7 @@ void QCPPolarGrid_Draw(QCPPolarGrid* self, QCPPainter* painter) {
 }
 
 // Base class handler implementation
-QMetaObject* QCPPolarGrid_QBaseMetaObject(const QCPPolarGrid* self) {
+QMetaObject* QCPPolarGrid_SuperMetaObject(const QCPPolarGrid* self) {
     auto* vqcppolargrid = const_cast<VirtualQCPPolarGrid*>(dynamic_cast<const VirtualQCPPolarGrid*>(self));
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_MetaObject_IsBase(true);
@@ -59595,7 +59595,7 @@ void QCPPolarGrid_OnMetaObject(const QCPPolarGrid* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPPolarGrid_QBaseMetacast(QCPPolarGrid* self, const char* param1) {
+void* QCPPolarGrid_SuperMetacast(QCPPolarGrid* self, const char* param1) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_Metacast_IsBase(true);
@@ -59614,7 +59614,7 @@ void QCPPolarGrid_OnMetacast(QCPPolarGrid* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPPolarGrid_QBaseMetacall(QCPPolarGrid* self, int param1, int param2, void** param3) {
+int QCPPolarGrid_SuperMetacall(QCPPolarGrid* self, int param1, int param2, void** param3) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_Metacall_IsBase(true);
@@ -59633,7 +59633,7 @@ void QCPPolarGrid_OnMetacall(QCPPolarGrid* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPPolarGrid_QBaseApplyDefaultAntialiasingHint(const QCPPolarGrid* self, QCPPainter* painter) {
+void QCPPolarGrid_SuperApplyDefaultAntialiasingHint(const QCPPolarGrid* self, QCPPainter* painter) {
     auto* vqcppolargrid = const_cast<VirtualQCPPolarGrid*>(dynamic_cast<const VirtualQCPPolarGrid*>(self));
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -59652,7 +59652,7 @@ void QCPPolarGrid_OnApplyDefaultAntialiasingHint(const QCPPolarGrid* self, intpt
 }
 
 // Base class handler implementation
-void QCPPolarGrid_QBaseDraw(QCPPolarGrid* self, QCPPainter* painter) {
+void QCPPolarGrid_SuperDraw(QCPPolarGrid* self, QCPPainter* painter) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_Draw_IsBase(true);
@@ -59681,7 +59681,7 @@ double QCPPolarGrid_SelectTest(const QCPPolarGrid* self, const QPointF* pos, boo
 }
 
 // Base class handler implementation
-double QCPPolarGrid_QBaseSelectTest(const QCPPolarGrid* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPPolarGrid_SuperSelectTest(const QCPPolarGrid* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcppolargrid = const_cast<VirtualQCPPolarGrid*>(dynamic_cast<const VirtualQCPPolarGrid*>(self));
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_SelectTest_IsBase(true);
@@ -59710,7 +59710,7 @@ void QCPPolarGrid_ParentPlotInitialized(QCPPolarGrid* self, QCustomPlot* parentP
 }
 
 // Base class handler implementation
-void QCPPolarGrid_QBaseParentPlotInitialized(QCPPolarGrid* self, QCustomPlot* parentPlot) {
+void QCPPolarGrid_SuperParentPlotInitialized(QCPPolarGrid* self, QCustomPlot* parentPlot) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_ParentPlotInitialized_IsBase(true);
@@ -59739,7 +59739,7 @@ int QCPPolarGrid_SelectionCategory(const QCPPolarGrid* self) {
 }
 
 // Base class handler implementation
-int QCPPolarGrid_QBaseSelectionCategory(const QCPPolarGrid* self) {
+int QCPPolarGrid_SuperSelectionCategory(const QCPPolarGrid* self) {
     auto* vqcppolargrid = const_cast<VirtualQCPPolarGrid*>(dynamic_cast<const VirtualQCPPolarGrid*>(self));
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_SelectionCategory_IsBase(true);
@@ -59767,7 +59767,7 @@ QRect* QCPPolarGrid_ClipRect(const QCPPolarGrid* self) {
 }
 
 // Base class handler implementation
-QRect* QCPPolarGrid_QBaseClipRect(const QCPPolarGrid* self) {
+QRect* QCPPolarGrid_SuperClipRect(const QCPPolarGrid* self) {
     auto* vqcppolargrid = const_cast<VirtualQCPPolarGrid*>(dynamic_cast<const VirtualQCPPolarGrid*>(self));
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_ClipRect_IsBase(true);
@@ -59795,7 +59795,7 @@ void QCPPolarGrid_SelectEvent(QCPPolarGrid* self, QMouseEvent* event, bool addit
 }
 
 // Base class handler implementation
-void QCPPolarGrid_QBaseSelectEvent(QCPPolarGrid* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPPolarGrid_SuperSelectEvent(QCPPolarGrid* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_SelectEvent_IsBase(true);
@@ -59824,7 +59824,7 @@ void QCPPolarGrid_DeselectEvent(QCPPolarGrid* self, bool* selectionStateChanged)
 }
 
 // Base class handler implementation
-void QCPPolarGrid_QBaseDeselectEvent(QCPPolarGrid* self, bool* selectionStateChanged) {
+void QCPPolarGrid_SuperDeselectEvent(QCPPolarGrid* self, bool* selectionStateChanged) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_DeselectEvent_IsBase(true);
@@ -59853,7 +59853,7 @@ void QCPPolarGrid_MousePressEvent(QCPPolarGrid* self, QMouseEvent* event, const 
 }
 
 // Base class handler implementation
-void QCPPolarGrid_QBaseMousePressEvent(QCPPolarGrid* self, QMouseEvent* event, const QVariant* details) {
+void QCPPolarGrid_SuperMousePressEvent(QCPPolarGrid* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_MousePressEvent_IsBase(true);
@@ -59882,7 +59882,7 @@ void QCPPolarGrid_MouseMoveEvent(QCPPolarGrid* self, QMouseEvent* event, const Q
 }
 
 // Base class handler implementation
-void QCPPolarGrid_QBaseMouseMoveEvent(QCPPolarGrid* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPPolarGrid_SuperMouseMoveEvent(QCPPolarGrid* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_MouseMoveEvent_IsBase(true);
@@ -59911,7 +59911,7 @@ void QCPPolarGrid_MouseReleaseEvent(QCPPolarGrid* self, QMouseEvent* event, cons
 }
 
 // Base class handler implementation
-void QCPPolarGrid_QBaseMouseReleaseEvent(QCPPolarGrid* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPPolarGrid_SuperMouseReleaseEvent(QCPPolarGrid* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_MouseReleaseEvent_IsBase(true);
@@ -59940,7 +59940,7 @@ void QCPPolarGrid_MouseDoubleClickEvent(QCPPolarGrid* self, QMouseEvent* event, 
 }
 
 // Base class handler implementation
-void QCPPolarGrid_QBaseMouseDoubleClickEvent(QCPPolarGrid* self, QMouseEvent* event, const QVariant* details) {
+void QCPPolarGrid_SuperMouseDoubleClickEvent(QCPPolarGrid* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_MouseDoubleClickEvent_IsBase(true);
@@ -59969,7 +59969,7 @@ void QCPPolarGrid_WheelEvent(QCPPolarGrid* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPPolarGrid_QBaseWheelEvent(QCPPolarGrid* self, QWheelEvent* event) {
+void QCPPolarGrid_SuperWheelEvent(QCPPolarGrid* self, QWheelEvent* event) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_WheelEvent_IsBase(true);
@@ -59998,7 +59998,7 @@ bool QCPPolarGrid_Event(QCPPolarGrid* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPPolarGrid_QBaseEvent(QCPPolarGrid* self, QEvent* event) {
+bool QCPPolarGrid_SuperEvent(QCPPolarGrid* self, QEvent* event) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_Event_IsBase(true);
@@ -60027,7 +60027,7 @@ bool QCPPolarGrid_EventFilter(QCPPolarGrid* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool QCPPolarGrid_QBaseEventFilter(QCPPolarGrid* self, QObject* watched, QEvent* event) {
+bool QCPPolarGrid_SuperEventFilter(QCPPolarGrid* self, QObject* watched, QEvent* event) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_EventFilter_IsBase(true);
@@ -60056,7 +60056,7 @@ void QCPPolarGrid_TimerEvent(QCPPolarGrid* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPPolarGrid_QBaseTimerEvent(QCPPolarGrid* self, QTimerEvent* event) {
+void QCPPolarGrid_SuperTimerEvent(QCPPolarGrid* self, QTimerEvent* event) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_TimerEvent_IsBase(true);
@@ -60085,7 +60085,7 @@ void QCPPolarGrid_ChildEvent(QCPPolarGrid* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPPolarGrid_QBaseChildEvent(QCPPolarGrid* self, QChildEvent* event) {
+void QCPPolarGrid_SuperChildEvent(QCPPolarGrid* self, QChildEvent* event) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_ChildEvent_IsBase(true);
@@ -60114,7 +60114,7 @@ void QCPPolarGrid_CustomEvent(QCPPolarGrid* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPPolarGrid_QBaseCustomEvent(QCPPolarGrid* self, QEvent* event) {
+void QCPPolarGrid_SuperCustomEvent(QCPPolarGrid* self, QEvent* event) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_CustomEvent_IsBase(true);
@@ -60143,7 +60143,7 @@ void QCPPolarGrid_ConnectNotify(QCPPolarGrid* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCPPolarGrid_QBaseConnectNotify(QCPPolarGrid* self, const QMetaMethod* signal) {
+void QCPPolarGrid_SuperConnectNotify(QCPPolarGrid* self, const QMetaMethod* signal) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_ConnectNotify_IsBase(true);
@@ -60172,7 +60172,7 @@ void QCPPolarGrid_DisconnectNotify(QCPPolarGrid* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QCPPolarGrid_QBaseDisconnectNotify(QCPPolarGrid* self, const QMetaMethod* signal) {
+void QCPPolarGrid_SuperDisconnectNotify(QCPPolarGrid* self, const QMetaMethod* signal) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_DisconnectNotify_IsBase(true);
@@ -60207,7 +60207,7 @@ void QCPPolarGrid_DrawRadialGrid(QCPPolarGrid* self, QCPPainter* painter, const 
 }
 
 // Base class handler implementation
-void QCPPolarGrid_QBaseDrawRadialGrid(QCPPolarGrid* self, QCPPainter* painter, const QPointF* center, const libqt_list /* of double */ coords, const QPen* pen) {
+void QCPPolarGrid_SuperDrawRadialGrid(QCPPolarGrid* self, QCPPainter* painter, const QPointF* center, const libqt_list /* of double */ coords, const QPen* pen) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     QVector<double> coords_QVector;
     coords_QVector.reserve(coords.len);
@@ -60248,7 +60248,7 @@ void QCPPolarGrid_DrawAngularGrid(QCPPolarGrid* self, QCPPainter* painter, const
 }
 
 // Base class handler implementation
-void QCPPolarGrid_QBaseDrawAngularGrid(QCPPolarGrid* self, QCPPainter* painter, const QPointF* center, double radius, const libqt_list /* of QPointF* */ ticksCosSin, const QPen* pen) {
+void QCPPolarGrid_SuperDrawAngularGrid(QCPPolarGrid* self, QCPPainter* painter, const QPointF* center, double radius, const libqt_list /* of QPointF* */ ticksCosSin, const QPen* pen) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     QVector<QPointF> ticksCosSin_QVector;
     ticksCosSin_QVector.reserve(ticksCosSin.len);
@@ -60289,7 +60289,7 @@ void QCPPolarGrid_DrawRadialGrid5(QCPPolarGrid* self, QCPPainter* painter, const
 }
 
 // Base class handler implementation
-void QCPPolarGrid_QBaseDrawRadialGrid5(QCPPolarGrid* self, QCPPainter* painter, const QPointF* center, const libqt_list /* of double */ coords, const QPen* pen, const QPen* zeroPen) {
+void QCPPolarGrid_SuperDrawRadialGrid5(QCPPolarGrid* self, QCPPainter* painter, const QPointF* center, const libqt_list /* of double */ coords, const QPen* pen, const QPen* zeroPen) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     QVector<double> coords_QVector;
     coords_QVector.reserve(coords.len);
@@ -60324,7 +60324,7 @@ void QCPPolarGrid_InitializeParentPlot(QCPPolarGrid* self, QCustomPlot* parentPl
 }
 
 // Base class handler implementation
-void QCPPolarGrid_QBaseInitializeParentPlot(QCPPolarGrid* self, QCustomPlot* parentPlot) {
+void QCPPolarGrid_SuperInitializeParentPlot(QCPPolarGrid* self, QCustomPlot* parentPlot) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_InitializeParentPlot_IsBase(true);
@@ -60353,7 +60353,7 @@ void QCPPolarGrid_SetParentLayerable(QCPPolarGrid* self, QCPLayerable* parentLay
 }
 
 // Base class handler implementation
-void QCPPolarGrid_QBaseSetParentLayerable(QCPPolarGrid* self, QCPLayerable* parentLayerable) {
+void QCPPolarGrid_SuperSetParentLayerable(QCPPolarGrid* self, QCPLayerable* parentLayerable) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_SetParentLayerable_IsBase(true);
@@ -60382,7 +60382,7 @@ bool QCPPolarGrid_MoveToLayer(QCPPolarGrid* self, QCPLayer* layer, bool prepend)
 }
 
 // Base class handler implementation
-bool QCPPolarGrid_QBaseMoveToLayer(QCPPolarGrid* self, QCPLayer* layer, bool prepend) {
+bool QCPPolarGrid_SuperMoveToLayer(QCPPolarGrid* self, QCPLayer* layer, bool prepend) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_MoveToLayer_IsBase(true);
@@ -60411,7 +60411,7 @@ void QCPPolarGrid_ApplyAntialiasingHint(const QCPPolarGrid* self, QCPPainter* pa
 }
 
 // Base class handler implementation
-void QCPPolarGrid_QBaseApplyAntialiasingHint(const QCPPolarGrid* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPPolarGrid_SuperApplyAntialiasingHint(const QCPPolarGrid* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcppolargrid = const_cast<VirtualQCPPolarGrid*>(dynamic_cast<const VirtualQCPPolarGrid*>(self));
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_ApplyAntialiasingHint_IsBase(true);
@@ -60440,7 +60440,7 @@ QObject* QCPPolarGrid_Sender(const QCPPolarGrid* self) {
 }
 
 // Base class handler implementation
-QObject* QCPPolarGrid_QBaseSender(const QCPPolarGrid* self) {
+QObject* QCPPolarGrid_SuperSender(const QCPPolarGrid* self) {
     auto* vqcppolargrid = const_cast<VirtualQCPPolarGrid*>(dynamic_cast<const VirtualQCPPolarGrid*>(self));
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_Sender_IsBase(true);
@@ -60469,7 +60469,7 @@ int QCPPolarGrid_SenderSignalIndex(const QCPPolarGrid* self) {
 }
 
 // Base class handler implementation
-int QCPPolarGrid_QBaseSenderSignalIndex(const QCPPolarGrid* self) {
+int QCPPolarGrid_SuperSenderSignalIndex(const QCPPolarGrid* self) {
     auto* vqcppolargrid = const_cast<VirtualQCPPolarGrid*>(dynamic_cast<const VirtualQCPPolarGrid*>(self));
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_SenderSignalIndex_IsBase(true);
@@ -60498,7 +60498,7 @@ int QCPPolarGrid_Receivers(const QCPPolarGrid* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPPolarGrid_QBaseReceivers(const QCPPolarGrid* self, const char* signal) {
+int QCPPolarGrid_SuperReceivers(const QCPPolarGrid* self, const char* signal) {
     auto* vqcppolargrid = const_cast<VirtualQCPPolarGrid*>(dynamic_cast<const VirtualQCPPolarGrid*>(self));
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_Receivers_IsBase(true);
@@ -60527,7 +60527,7 @@ bool QCPPolarGrid_IsSignalConnected(const QCPPolarGrid* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QCPPolarGrid_QBaseIsSignalConnected(const QCPPolarGrid* self, const QMetaMethod* signal) {
+bool QCPPolarGrid_SuperIsSignalConnected(const QCPPolarGrid* self, const QMetaMethod* signal) {
     auto* vqcppolargrid = const_cast<VirtualQCPPolarGrid*>(dynamic_cast<const VirtualQCPPolarGrid*>(self));
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->setQCPPolarGrid_IsSignalConnected_IsBase(true);
@@ -60600,7 +60600,7 @@ QSize* QCPPolarLegendItem_MinimumOuterSizeHint(const QCPPolarLegendItem* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QCPPolarLegendItem_QBaseMetaObject(const QCPPolarLegendItem* self) {
+QMetaObject* QCPPolarLegendItem_SuperMetaObject(const QCPPolarLegendItem* self) {
     auto* vqcppolarlegenditem = const_cast<VirtualQCPPolarLegendItem*>(dynamic_cast<const VirtualQCPPolarLegendItem*>(self));
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_MetaObject_IsBase(true);
@@ -60619,7 +60619,7 @@ void QCPPolarLegendItem_OnMetaObject(const QCPPolarLegendItem* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* QCPPolarLegendItem_QBaseMetacast(QCPPolarLegendItem* self, const char* param1) {
+void* QCPPolarLegendItem_SuperMetacast(QCPPolarLegendItem* self, const char* param1) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_Metacast_IsBase(true);
@@ -60638,7 +60638,7 @@ void QCPPolarLegendItem_OnMetacast(QCPPolarLegendItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPPolarLegendItem_QBaseMetacall(QCPPolarLegendItem* self, int param1, int param2, void** param3) {
+int QCPPolarLegendItem_SuperMetacall(QCPPolarLegendItem* self, int param1, int param2, void** param3) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_Metacall_IsBase(true);
@@ -60657,7 +60657,7 @@ void QCPPolarLegendItem_OnMetacall(QCPPolarLegendItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPPolarLegendItem_QBaseDraw(QCPPolarLegendItem* self, QCPPainter* painter) {
+void QCPPolarLegendItem_SuperDraw(QCPPolarLegendItem* self, QCPPainter* painter) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_Draw_IsBase(true);
@@ -60676,7 +60676,7 @@ void QCPPolarLegendItem_OnDraw(QCPPolarLegendItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QCPPolarLegendItem_QBaseMinimumOuterSizeHint(const QCPPolarLegendItem* self) {
+QSize* QCPPolarLegendItem_SuperMinimumOuterSizeHint(const QCPPolarLegendItem* self) {
     auto* vqcppolarlegenditem = const_cast<VirtualQCPPolarLegendItem*>(dynamic_cast<const VirtualQCPPolarLegendItem*>(self));
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_MinimumOuterSizeHint_IsBase(true);
@@ -60704,7 +60704,7 @@ double QCPPolarLegendItem_SelectTest(const QCPPolarLegendItem* self, const QPoin
 }
 
 // Base class handler implementation
-double QCPPolarLegendItem_QBaseSelectTest(const QCPPolarLegendItem* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPPolarLegendItem_SuperSelectTest(const QCPPolarLegendItem* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcppolarlegenditem = const_cast<VirtualQCPPolarLegendItem*>(dynamic_cast<const VirtualQCPPolarLegendItem*>(self));
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_SelectTest_IsBase(true);
@@ -60733,7 +60733,7 @@ int QCPPolarLegendItem_SelectionCategory(const QCPPolarLegendItem* self) {
 }
 
 // Base class handler implementation
-int QCPPolarLegendItem_QBaseSelectionCategory(const QCPPolarLegendItem* self) {
+int QCPPolarLegendItem_SuperSelectionCategory(const QCPPolarLegendItem* self) {
     auto* vqcppolarlegenditem = const_cast<VirtualQCPPolarLegendItem*>(dynamic_cast<const VirtualQCPPolarLegendItem*>(self));
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_SelectionCategory_IsBase(true);
@@ -60762,7 +60762,7 @@ void QCPPolarLegendItem_ApplyDefaultAntialiasingHint(const QCPPolarLegendItem* s
 }
 
 // Base class handler implementation
-void QCPPolarLegendItem_QBaseApplyDefaultAntialiasingHint(const QCPPolarLegendItem* self, QCPPainter* painter) {
+void QCPPolarLegendItem_SuperApplyDefaultAntialiasingHint(const QCPPolarLegendItem* self, QCPPainter* painter) {
     auto* vqcppolarlegenditem = const_cast<VirtualQCPPolarLegendItem*>(dynamic_cast<const VirtualQCPPolarLegendItem*>(self));
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -60790,7 +60790,7 @@ QRect* QCPPolarLegendItem_ClipRect(const QCPPolarLegendItem* self) {
 }
 
 // Base class handler implementation
-QRect* QCPPolarLegendItem_QBaseClipRect(const QCPPolarLegendItem* self) {
+QRect* QCPPolarLegendItem_SuperClipRect(const QCPPolarLegendItem* self) {
     auto* vqcppolarlegenditem = const_cast<VirtualQCPPolarLegendItem*>(dynamic_cast<const VirtualQCPPolarLegendItem*>(self));
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_ClipRect_IsBase(true);
@@ -60818,7 +60818,7 @@ void QCPPolarLegendItem_SelectEvent(QCPPolarLegendItem* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void QCPPolarLegendItem_QBaseSelectEvent(QCPPolarLegendItem* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPPolarLegendItem_SuperSelectEvent(QCPPolarLegendItem* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_SelectEvent_IsBase(true);
@@ -60847,7 +60847,7 @@ void QCPPolarLegendItem_DeselectEvent(QCPPolarLegendItem* self, bool* selectionS
 }
 
 // Base class handler implementation
-void QCPPolarLegendItem_QBaseDeselectEvent(QCPPolarLegendItem* self, bool* selectionStateChanged) {
+void QCPPolarLegendItem_SuperDeselectEvent(QCPPolarLegendItem* self, bool* selectionStateChanged) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_DeselectEvent_IsBase(true);
@@ -60876,7 +60876,7 @@ void QCPPolarLegendItem_Update(QCPPolarLegendItem* self, int phase) {
 }
 
 // Base class handler implementation
-void QCPPolarLegendItem_QBaseUpdate(QCPPolarLegendItem* self, int phase) {
+void QCPPolarLegendItem_SuperUpdate(QCPPolarLegendItem* self, int phase) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_Update_IsBase(true);
@@ -60905,7 +60905,7 @@ QSize* QCPPolarLegendItem_MaximumOuterSizeHint(const QCPPolarLegendItem* self) {
 }
 
 // Base class handler implementation
-QSize* QCPPolarLegendItem_QBaseMaximumOuterSizeHint(const QCPPolarLegendItem* self) {
+QSize* QCPPolarLegendItem_SuperMaximumOuterSizeHint(const QCPPolarLegendItem* self) {
     auto* vqcppolarlegenditem = const_cast<VirtualQCPPolarLegendItem*>(dynamic_cast<const VirtualQCPPolarLegendItem*>(self));
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_MaximumOuterSizeHint_IsBase(true);
@@ -60952,7 +60952,7 @@ libqt_list /* of QCPLayoutElement* */ QCPPolarLegendItem_Elements(const QCPPolar
 }
 
 // Base class handler implementation
-libqt_list /* of QCPLayoutElement* */ QCPPolarLegendItem_QBaseElements(const QCPPolarLegendItem* self, bool recursive) {
+libqt_list /* of QCPLayoutElement* */ QCPPolarLegendItem_SuperElements(const QCPPolarLegendItem* self, bool recursive) {
     auto* vqcppolarlegenditem = const_cast<VirtualQCPPolarLegendItem*>(dynamic_cast<const VirtualQCPPolarLegendItem*>(self));
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_Elements_IsBase(true);
@@ -60999,7 +60999,7 @@ int QCPPolarLegendItem_CalculateAutoMargin(QCPPolarLegendItem* self, int side) {
 }
 
 // Base class handler implementation
-int QCPPolarLegendItem_QBaseCalculateAutoMargin(QCPPolarLegendItem* self, int side) {
+int QCPPolarLegendItem_SuperCalculateAutoMargin(QCPPolarLegendItem* self, int side) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_CalculateAutoMargin_IsBase(true);
@@ -61028,7 +61028,7 @@ void QCPPolarLegendItem_LayoutChanged(QCPPolarLegendItem* self) {
 }
 
 // Base class handler implementation
-void QCPPolarLegendItem_QBaseLayoutChanged(QCPPolarLegendItem* self) {
+void QCPPolarLegendItem_SuperLayoutChanged(QCPPolarLegendItem* self) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_LayoutChanged_IsBase(true);
@@ -61057,7 +61057,7 @@ void QCPPolarLegendItem_ParentPlotInitialized(QCPPolarLegendItem* self, QCustomP
 }
 
 // Base class handler implementation
-void QCPPolarLegendItem_QBaseParentPlotInitialized(QCPPolarLegendItem* self, QCustomPlot* parentPlot) {
+void QCPPolarLegendItem_SuperParentPlotInitialized(QCPPolarLegendItem* self, QCustomPlot* parentPlot) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_ParentPlotInitialized_IsBase(true);
@@ -61086,7 +61086,7 @@ void QCPPolarLegendItem_MousePressEvent(QCPPolarLegendItem* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void QCPPolarLegendItem_QBaseMousePressEvent(QCPPolarLegendItem* self, QMouseEvent* event, const QVariant* details) {
+void QCPPolarLegendItem_SuperMousePressEvent(QCPPolarLegendItem* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_MousePressEvent_IsBase(true);
@@ -61115,7 +61115,7 @@ void QCPPolarLegendItem_MouseMoveEvent(QCPPolarLegendItem* self, QMouseEvent* ev
 }
 
 // Base class handler implementation
-void QCPPolarLegendItem_QBaseMouseMoveEvent(QCPPolarLegendItem* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPPolarLegendItem_SuperMouseMoveEvent(QCPPolarLegendItem* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_MouseMoveEvent_IsBase(true);
@@ -61144,7 +61144,7 @@ void QCPPolarLegendItem_MouseReleaseEvent(QCPPolarLegendItem* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void QCPPolarLegendItem_QBaseMouseReleaseEvent(QCPPolarLegendItem* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPPolarLegendItem_SuperMouseReleaseEvent(QCPPolarLegendItem* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_MouseReleaseEvent_IsBase(true);
@@ -61173,7 +61173,7 @@ void QCPPolarLegendItem_MouseDoubleClickEvent(QCPPolarLegendItem* self, QMouseEv
 }
 
 // Base class handler implementation
-void QCPPolarLegendItem_QBaseMouseDoubleClickEvent(QCPPolarLegendItem* self, QMouseEvent* event, const QVariant* details) {
+void QCPPolarLegendItem_SuperMouseDoubleClickEvent(QCPPolarLegendItem* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_MouseDoubleClickEvent_IsBase(true);
@@ -61202,7 +61202,7 @@ void QCPPolarLegendItem_WheelEvent(QCPPolarLegendItem* self, QWheelEvent* event)
 }
 
 // Base class handler implementation
-void QCPPolarLegendItem_QBaseWheelEvent(QCPPolarLegendItem* self, QWheelEvent* event) {
+void QCPPolarLegendItem_SuperWheelEvent(QCPPolarLegendItem* self, QWheelEvent* event) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_WheelEvent_IsBase(true);
@@ -61231,7 +61231,7 @@ bool QCPPolarLegendItem_Event(QCPPolarLegendItem* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPPolarLegendItem_QBaseEvent(QCPPolarLegendItem* self, QEvent* event) {
+bool QCPPolarLegendItem_SuperEvent(QCPPolarLegendItem* self, QEvent* event) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_Event_IsBase(true);
@@ -61260,7 +61260,7 @@ bool QCPPolarLegendItem_EventFilter(QCPPolarLegendItem* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool QCPPolarLegendItem_QBaseEventFilter(QCPPolarLegendItem* self, QObject* watched, QEvent* event) {
+bool QCPPolarLegendItem_SuperEventFilter(QCPPolarLegendItem* self, QObject* watched, QEvent* event) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_EventFilter_IsBase(true);
@@ -61289,7 +61289,7 @@ void QCPPolarLegendItem_TimerEvent(QCPPolarLegendItem* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void QCPPolarLegendItem_QBaseTimerEvent(QCPPolarLegendItem* self, QTimerEvent* event) {
+void QCPPolarLegendItem_SuperTimerEvent(QCPPolarLegendItem* self, QTimerEvent* event) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_TimerEvent_IsBase(true);
@@ -61318,7 +61318,7 @@ void QCPPolarLegendItem_ChildEvent(QCPPolarLegendItem* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void QCPPolarLegendItem_QBaseChildEvent(QCPPolarLegendItem* self, QChildEvent* event) {
+void QCPPolarLegendItem_SuperChildEvent(QCPPolarLegendItem* self, QChildEvent* event) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_ChildEvent_IsBase(true);
@@ -61347,7 +61347,7 @@ void QCPPolarLegendItem_CustomEvent(QCPPolarLegendItem* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPPolarLegendItem_QBaseCustomEvent(QCPPolarLegendItem* self, QEvent* event) {
+void QCPPolarLegendItem_SuperCustomEvent(QCPPolarLegendItem* self, QEvent* event) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_CustomEvent_IsBase(true);
@@ -61376,7 +61376,7 @@ void QCPPolarLegendItem_ConnectNotify(QCPPolarLegendItem* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void QCPPolarLegendItem_QBaseConnectNotify(QCPPolarLegendItem* self, const QMetaMethod* signal) {
+void QCPPolarLegendItem_SuperConnectNotify(QCPPolarLegendItem* self, const QMetaMethod* signal) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_ConnectNotify_IsBase(true);
@@ -61405,7 +61405,7 @@ void QCPPolarLegendItem_DisconnectNotify(QCPPolarLegendItem* self, const QMetaMe
 }
 
 // Base class handler implementation
-void QCPPolarLegendItem_QBaseDisconnectNotify(QCPPolarLegendItem* self, const QMetaMethod* signal) {
+void QCPPolarLegendItem_SuperDisconnectNotify(QCPPolarLegendItem* self, const QMetaMethod* signal) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_DisconnectNotify_IsBase(true);
@@ -61433,7 +61433,7 @@ QPen* QCPPolarLegendItem_GetIconBorderPen(const QCPPolarLegendItem* self) {
 }
 
 // Base class handler implementation
-QPen* QCPPolarLegendItem_QBaseGetIconBorderPen(const QCPPolarLegendItem* self) {
+QPen* QCPPolarLegendItem_SuperGetIconBorderPen(const QCPPolarLegendItem* self) {
     auto* vqcppolarlegenditem = const_cast<VirtualQCPPolarLegendItem*>(dynamic_cast<const VirtualQCPPolarLegendItem*>(self));
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_GetIconBorderPen_IsBase(true);
@@ -61460,7 +61460,7 @@ QColor* QCPPolarLegendItem_GetTextColor(const QCPPolarLegendItem* self) {
 }
 
 // Base class handler implementation
-QColor* QCPPolarLegendItem_QBaseGetTextColor(const QCPPolarLegendItem* self) {
+QColor* QCPPolarLegendItem_SuperGetTextColor(const QCPPolarLegendItem* self) {
     auto* vqcppolarlegenditem = const_cast<VirtualQCPPolarLegendItem*>(dynamic_cast<const VirtualQCPPolarLegendItem*>(self));
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_GetTextColor_IsBase(true);
@@ -61487,7 +61487,7 @@ QFont* QCPPolarLegendItem_GetFont(const QCPPolarLegendItem* self) {
 }
 
 // Base class handler implementation
-QFont* QCPPolarLegendItem_QBaseGetFont(const QCPPolarLegendItem* self) {
+QFont* QCPPolarLegendItem_SuperGetFont(const QCPPolarLegendItem* self) {
     auto* vqcppolarlegenditem = const_cast<VirtualQCPPolarLegendItem*>(dynamic_cast<const VirtualQCPPolarLegendItem*>(self));
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_GetFont_IsBase(true);
@@ -61515,7 +61515,7 @@ void QCPPolarLegendItem_InitializeParentPlot(QCPPolarLegendItem* self, QCustomPl
 }
 
 // Base class handler implementation
-void QCPPolarLegendItem_QBaseInitializeParentPlot(QCPPolarLegendItem* self, QCustomPlot* parentPlot) {
+void QCPPolarLegendItem_SuperInitializeParentPlot(QCPPolarLegendItem* self, QCustomPlot* parentPlot) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_InitializeParentPlot_IsBase(true);
@@ -61544,7 +61544,7 @@ void QCPPolarLegendItem_SetParentLayerable(QCPPolarLegendItem* self, QCPLayerabl
 }
 
 // Base class handler implementation
-void QCPPolarLegendItem_QBaseSetParentLayerable(QCPPolarLegendItem* self, QCPLayerable* parentLayerable) {
+void QCPPolarLegendItem_SuperSetParentLayerable(QCPPolarLegendItem* self, QCPLayerable* parentLayerable) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_SetParentLayerable_IsBase(true);
@@ -61573,7 +61573,7 @@ bool QCPPolarLegendItem_MoveToLayer(QCPPolarLegendItem* self, QCPLayer* layer, b
 }
 
 // Base class handler implementation
-bool QCPPolarLegendItem_QBaseMoveToLayer(QCPPolarLegendItem* self, QCPLayer* layer, bool prepend) {
+bool QCPPolarLegendItem_SuperMoveToLayer(QCPPolarLegendItem* self, QCPLayer* layer, bool prepend) {
     auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_MoveToLayer_IsBase(true);
@@ -61602,7 +61602,7 @@ void QCPPolarLegendItem_ApplyAntialiasingHint(const QCPPolarLegendItem* self, QC
 }
 
 // Base class handler implementation
-void QCPPolarLegendItem_QBaseApplyAntialiasingHint(const QCPPolarLegendItem* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPPolarLegendItem_SuperApplyAntialiasingHint(const QCPPolarLegendItem* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcppolarlegenditem = const_cast<VirtualQCPPolarLegendItem*>(dynamic_cast<const VirtualQCPPolarLegendItem*>(self));
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_ApplyAntialiasingHint_IsBase(true);
@@ -61631,7 +61631,7 @@ QObject* QCPPolarLegendItem_Sender(const QCPPolarLegendItem* self) {
 }
 
 // Base class handler implementation
-QObject* QCPPolarLegendItem_QBaseSender(const QCPPolarLegendItem* self) {
+QObject* QCPPolarLegendItem_SuperSender(const QCPPolarLegendItem* self) {
     auto* vqcppolarlegenditem = const_cast<VirtualQCPPolarLegendItem*>(dynamic_cast<const VirtualQCPPolarLegendItem*>(self));
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_Sender_IsBase(true);
@@ -61660,7 +61660,7 @@ int QCPPolarLegendItem_SenderSignalIndex(const QCPPolarLegendItem* self) {
 }
 
 // Base class handler implementation
-int QCPPolarLegendItem_QBaseSenderSignalIndex(const QCPPolarLegendItem* self) {
+int QCPPolarLegendItem_SuperSenderSignalIndex(const QCPPolarLegendItem* self) {
     auto* vqcppolarlegenditem = const_cast<VirtualQCPPolarLegendItem*>(dynamic_cast<const VirtualQCPPolarLegendItem*>(self));
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_SenderSignalIndex_IsBase(true);
@@ -61689,7 +61689,7 @@ int QCPPolarLegendItem_Receivers(const QCPPolarLegendItem* self, const char* sig
 }
 
 // Base class handler implementation
-int QCPPolarLegendItem_QBaseReceivers(const QCPPolarLegendItem* self, const char* signal) {
+int QCPPolarLegendItem_SuperReceivers(const QCPPolarLegendItem* self, const char* signal) {
     auto* vqcppolarlegenditem = const_cast<VirtualQCPPolarLegendItem*>(dynamic_cast<const VirtualQCPPolarLegendItem*>(self));
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_Receivers_IsBase(true);
@@ -61718,7 +61718,7 @@ bool QCPPolarLegendItem_IsSignalConnected(const QCPPolarLegendItem* self, const 
 }
 
 // Base class handler implementation
-bool QCPPolarLegendItem_QBaseIsSignalConnected(const QCPPolarLegendItem* self, const QMetaMethod* signal) {
+bool QCPPolarLegendItem_SuperIsSignalConnected(const QCPPolarLegendItem* self, const QMetaMethod* signal) {
     auto* vqcppolarlegenditem = const_cast<VirtualQCPPolarLegendItem*>(dynamic_cast<const VirtualQCPPolarLegendItem*>(self));
     if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
         vqcppolarlegenditem->setQCPPolarLegendItem_IsSignalConnected_IsBase(true);
@@ -62148,7 +62148,7 @@ void QCPPolarGraph_RescaleValueAxis2(const QCPPolarGraph* self, bool onlyEnlarge
 }
 
 // Base class handler implementation
-QMetaObject* QCPPolarGraph_QBaseMetaObject(const QCPPolarGraph* self) {
+QMetaObject* QCPPolarGraph_SuperMetaObject(const QCPPolarGraph* self) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_MetaObject_IsBase(true);
@@ -62167,7 +62167,7 @@ void QCPPolarGraph_OnMetaObject(const QCPPolarGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCPPolarGraph_QBaseMetacast(QCPPolarGraph* self, const char* param1) {
+void* QCPPolarGraph_SuperMetacast(QCPPolarGraph* self, const char* param1) {
     auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_Metacast_IsBase(true);
@@ -62186,7 +62186,7 @@ void QCPPolarGraph_OnMetacast(QCPPolarGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPPolarGraph_QBaseMetacall(QCPPolarGraph* self, int param1, int param2, void** param3) {
+int QCPPolarGraph_SuperMetacall(QCPPolarGraph* self, int param1, int param2, void** param3) {
     auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_Metacall_IsBase(true);
@@ -62205,7 +62205,7 @@ void QCPPolarGraph_OnMetacall(QCPPolarGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QCPPolarGraph_QBaseSelectTest(const QCPPolarGraph* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
+double QCPPolarGraph_SuperSelectTest(const QCPPolarGraph* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_SelectTest_IsBase(true);
@@ -62224,7 +62224,7 @@ void QCPPolarGraph_OnSelectTest(const QCPPolarGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPPlottableInterface1D* QCPPolarGraph_QBaseInterface1D(QCPPolarGraph* self) {
+QCPPlottableInterface1D* QCPPolarGraph_SuperInterface1D(QCPPolarGraph* self) {
     auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_Interface1D_IsBase(true);
@@ -62243,7 +62243,7 @@ void QCPPolarGraph_OnInterface1D(QCPPolarGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPRange* QCPPolarGraph_QBaseGetKeyRange(const QCPPolarGraph* self, bool* foundRange, int inSignDomain) {
+QCPRange* QCPPolarGraph_SuperGetKeyRange(const QCPPolarGraph* self, bool* foundRange, int inSignDomain) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_GetKeyRange_IsBase(true);
@@ -62262,7 +62262,7 @@ void QCPPolarGraph_OnGetKeyRange(const QCPPolarGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QCPRange* QCPPolarGraph_QBaseGetValueRange(const QCPPolarGraph* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
+QCPRange* QCPPolarGraph_SuperGetValueRange(const QCPPolarGraph* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_GetValueRange_IsBase(true);
@@ -62281,7 +62281,7 @@ void QCPPolarGraph_OnGetValueRange(const QCPPolarGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QRect* QCPPolarGraph_QBaseClipRect(const QCPPolarGraph* self) {
+QRect* QCPPolarGraph_SuperClipRect(const QCPPolarGraph* self) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_ClipRect_IsBase(true);
@@ -62299,7 +62299,7 @@ void QCPPolarGraph_OnClipRect(const QCPPolarGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseDraw(QCPPolarGraph* self, QCPPainter* painter) {
+void QCPPolarGraph_SuperDraw(QCPPolarGraph* self, QCPPainter* painter) {
     auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_Draw_IsBase(true);
@@ -62318,7 +62318,7 @@ void QCPPolarGraph_OnDraw(QCPPolarGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPPolarGraph_QBaseSelectionCategory(const QCPPolarGraph* self) {
+int QCPPolarGraph_SuperSelectionCategory(const QCPPolarGraph* self) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_SelectionCategory_IsBase(true);
@@ -62337,7 +62337,7 @@ void QCPPolarGraph_OnSelectionCategory(const QCPPolarGraph* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseSelectEvent(QCPPolarGraph* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
+void QCPPolarGraph_SuperSelectEvent(QCPPolarGraph* self, QMouseEvent* event, bool additive, const QVariant* details, bool* selectionStateChanged) {
     auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_SelectEvent_IsBase(true);
@@ -62356,7 +62356,7 @@ void QCPPolarGraph_OnSelectEvent(QCPPolarGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseDeselectEvent(QCPPolarGraph* self, bool* selectionStateChanged) {
+void QCPPolarGraph_SuperDeselectEvent(QCPPolarGraph* self, bool* selectionStateChanged) {
     auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_DeselectEvent_IsBase(true);
@@ -62375,7 +62375,7 @@ void QCPPolarGraph_OnDeselectEvent(QCPPolarGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseDrawLinePlot(const QCPPolarGraph* self, QCPPainter* painter, const libqt_list /* of QPointF* */ lines) {
+void QCPPolarGraph_SuperDrawLinePlot(const QCPPolarGraph* self, QCPPainter* painter, const libqt_list /* of QPointF* */ lines) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     QVector<QPointF> lines_QVector;
     lines_QVector.reserve(lines.len);
@@ -62400,7 +62400,7 @@ void QCPPolarGraph_OnDrawLinePlot(const QCPPolarGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseDrawFill(const QCPPolarGraph* self, QCPPainter* painter, libqt_list /* of QPointF* */ lines) {
+void QCPPolarGraph_SuperDrawFill(const QCPPolarGraph* self, QCPPainter* painter, libqt_list /* of QPointF* */ lines) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     QVector<QPointF> lines_QVector;
     lines_QVector.reserve(lines.len);
@@ -62425,7 +62425,7 @@ void QCPPolarGraph_OnDrawFill(const QCPPolarGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseDrawScatterPlot(const QCPPolarGraph* self, QCPPainter* painter, const libqt_list /* of QPointF* */ scatters, const QCPScatterStyle* style) {
+void QCPPolarGraph_SuperDrawScatterPlot(const QCPPolarGraph* self, QCPPainter* painter, const libqt_list /* of QPointF* */ scatters, const QCPScatterStyle* style) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     QVector<QPointF> scatters_QVector;
     scatters_QVector.reserve(scatters.len);
@@ -62450,7 +62450,7 @@ void QCPPolarGraph_OnDrawScatterPlot(const QCPPolarGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseDrawLegendIcon(const QCPPolarGraph* self, QCPPainter* painter, const QRectF* rect) {
+void QCPPolarGraph_SuperDrawLegendIcon(const QCPPolarGraph* self, QCPPainter* painter, const QRectF* rect) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_DrawLegendIcon_IsBase(true);
@@ -62469,7 +62469,7 @@ void QCPPolarGraph_OnDrawLegendIcon(const QCPPolarGraph* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCPPolarGraph_QBaseDataCount(const QCPPolarGraph* self) {
+int QCPPolarGraph_SuperDataCount(const QCPPolarGraph* self) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_DataCount_IsBase(true);
@@ -62498,7 +62498,7 @@ void QCPPolarGraph_ParentPlotInitialized(QCPPolarGraph* self, QCustomPlot* paren
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseParentPlotInitialized(QCPPolarGraph* self, QCustomPlot* parentPlot) {
+void QCPPolarGraph_SuperParentPlotInitialized(QCPPolarGraph* self, QCustomPlot* parentPlot) {
     auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_ParentPlotInitialized_IsBase(true);
@@ -62527,7 +62527,7 @@ void QCPPolarGraph_ApplyDefaultAntialiasingHint(const QCPPolarGraph* self, QCPPa
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseApplyDefaultAntialiasingHint(const QCPPolarGraph* self, QCPPainter* painter) {
+void QCPPolarGraph_SuperApplyDefaultAntialiasingHint(const QCPPolarGraph* self, QCPPainter* painter) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_ApplyDefaultAntialiasingHint_IsBase(true);
@@ -62556,7 +62556,7 @@ void QCPPolarGraph_MousePressEvent(QCPPolarGraph* self, QMouseEvent* event, cons
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseMousePressEvent(QCPPolarGraph* self, QMouseEvent* event, const QVariant* details) {
+void QCPPolarGraph_SuperMousePressEvent(QCPPolarGraph* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_MousePressEvent_IsBase(true);
@@ -62585,7 +62585,7 @@ void QCPPolarGraph_MouseMoveEvent(QCPPolarGraph* self, QMouseEvent* event, const
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseMouseMoveEvent(QCPPolarGraph* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPPolarGraph_SuperMouseMoveEvent(QCPPolarGraph* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_MouseMoveEvent_IsBase(true);
@@ -62614,7 +62614,7 @@ void QCPPolarGraph_MouseReleaseEvent(QCPPolarGraph* self, QMouseEvent* event, co
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseMouseReleaseEvent(QCPPolarGraph* self, QMouseEvent* event, const QPointF* startPos) {
+void QCPPolarGraph_SuperMouseReleaseEvent(QCPPolarGraph* self, QMouseEvent* event, const QPointF* startPos) {
     auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_MouseReleaseEvent_IsBase(true);
@@ -62643,7 +62643,7 @@ void QCPPolarGraph_MouseDoubleClickEvent(QCPPolarGraph* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseMouseDoubleClickEvent(QCPPolarGraph* self, QMouseEvent* event, const QVariant* details) {
+void QCPPolarGraph_SuperMouseDoubleClickEvent(QCPPolarGraph* self, QMouseEvent* event, const QVariant* details) {
     auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_MouseDoubleClickEvent_IsBase(true);
@@ -62672,7 +62672,7 @@ void QCPPolarGraph_WheelEvent(QCPPolarGraph* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseWheelEvent(QCPPolarGraph* self, QWheelEvent* event) {
+void QCPPolarGraph_SuperWheelEvent(QCPPolarGraph* self, QWheelEvent* event) {
     auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_WheelEvent_IsBase(true);
@@ -62701,7 +62701,7 @@ bool QCPPolarGraph_Event(QCPPolarGraph* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCPPolarGraph_QBaseEvent(QCPPolarGraph* self, QEvent* event) {
+bool QCPPolarGraph_SuperEvent(QCPPolarGraph* self, QEvent* event) {
     auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_Event_IsBase(true);
@@ -62730,7 +62730,7 @@ bool QCPPolarGraph_EventFilter(QCPPolarGraph* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QCPPolarGraph_QBaseEventFilter(QCPPolarGraph* self, QObject* watched, QEvent* event) {
+bool QCPPolarGraph_SuperEventFilter(QCPPolarGraph* self, QObject* watched, QEvent* event) {
     auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_EventFilter_IsBase(true);
@@ -62759,7 +62759,7 @@ void QCPPolarGraph_TimerEvent(QCPPolarGraph* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseTimerEvent(QCPPolarGraph* self, QTimerEvent* event) {
+void QCPPolarGraph_SuperTimerEvent(QCPPolarGraph* self, QTimerEvent* event) {
     auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_TimerEvent_IsBase(true);
@@ -62788,7 +62788,7 @@ void QCPPolarGraph_ChildEvent(QCPPolarGraph* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseChildEvent(QCPPolarGraph* self, QChildEvent* event) {
+void QCPPolarGraph_SuperChildEvent(QCPPolarGraph* self, QChildEvent* event) {
     auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_ChildEvent_IsBase(true);
@@ -62817,7 +62817,7 @@ void QCPPolarGraph_CustomEvent(QCPPolarGraph* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseCustomEvent(QCPPolarGraph* self, QEvent* event) {
+void QCPPolarGraph_SuperCustomEvent(QCPPolarGraph* self, QEvent* event) {
     auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_CustomEvent_IsBase(true);
@@ -62846,7 +62846,7 @@ void QCPPolarGraph_ConnectNotify(QCPPolarGraph* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseConnectNotify(QCPPolarGraph* self, const QMetaMethod* signal) {
+void QCPPolarGraph_SuperConnectNotify(QCPPolarGraph* self, const QMetaMethod* signal) {
     auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_ConnectNotify_IsBase(true);
@@ -62875,7 +62875,7 @@ void QCPPolarGraph_DisconnectNotify(QCPPolarGraph* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseDisconnectNotify(QCPPolarGraph* self, const QMetaMethod* signal) {
+void QCPPolarGraph_SuperDisconnectNotify(QCPPolarGraph* self, const QMetaMethod* signal) {
     auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_DisconnectNotify_IsBase(true);
@@ -62904,7 +62904,7 @@ void QCPPolarGraph_ApplyFillAntialiasingHint(const QCPPolarGraph* self, QCPPaint
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseApplyFillAntialiasingHint(const QCPPolarGraph* self, QCPPainter* painter) {
+void QCPPolarGraph_SuperApplyFillAntialiasingHint(const QCPPolarGraph* self, QCPPainter* painter) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_ApplyFillAntialiasingHint_IsBase(true);
@@ -62933,7 +62933,7 @@ void QCPPolarGraph_ApplyScattersAntialiasingHint(const QCPPolarGraph* self, QCPP
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseApplyScattersAntialiasingHint(const QCPPolarGraph* self, QCPPainter* painter) {
+void QCPPolarGraph_SuperApplyScattersAntialiasingHint(const QCPPolarGraph* self, QCPPainter* painter) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_ApplyScattersAntialiasingHint_IsBase(true);
@@ -62974,7 +62974,7 @@ void QCPPolarGraph_GetDataSegments(const QCPPolarGraph* self, libqt_list /* of Q
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseGetDataSegments(const QCPPolarGraph* self, libqt_list /* of QCPDataRange* */ selectedSegments, libqt_list /* of QCPDataRange* */ unselectedSegments) {
+void QCPPolarGraph_SuperGetDataSegments(const QCPPolarGraph* self, libqt_list /* of QCPDataRange* */ selectedSegments, libqt_list /* of QCPDataRange* */ unselectedSegments) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     QList<QCPDataRange> selectedSegments_QList;
     selectedSegments_QList.reserve(selectedSegments.len);
@@ -63021,7 +63021,7 @@ void QCPPolarGraph_DrawPolyline(const QCPPolarGraph* self, QCPPainter* painter, 
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseDrawPolyline(const QCPPolarGraph* self, QCPPainter* painter, const libqt_list /* of QPointF* */ lineData) {
+void QCPPolarGraph_SuperDrawPolyline(const QCPPolarGraph* self, QCPPainter* painter, const libqt_list /* of QPointF* */ lineData) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     QVector<QPointF> lineData_QVector;
     lineData_QVector.reserve(lineData.len);
@@ -63062,7 +63062,7 @@ void QCPPolarGraph_GetLines(const QCPPolarGraph* self, libqt_list /* of QPointF*
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseGetLines(const QCPPolarGraph* self, libqt_list /* of QPointF* */ lines, const QCPDataRange* dataRange) {
+void QCPPolarGraph_SuperGetLines(const QCPPolarGraph* self, libqt_list /* of QPointF* */ lines, const QCPDataRange* dataRange) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     QVector<QPointF> lines_QVector;
     lines_QVector.reserve(lines.len);
@@ -63103,7 +63103,7 @@ void QCPPolarGraph_GetScatters(const QCPPolarGraph* self, libqt_list /* of QPoin
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseGetScatters(const QCPPolarGraph* self, libqt_list /* of QPointF* */ scatters, const QCPDataRange* dataRange) {
+void QCPPolarGraph_SuperGetScatters(const QCPPolarGraph* self, libqt_list /* of QPointF* */ scatters, const QCPDataRange* dataRange) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     QVector<QPointF> scatters_QVector;
     scatters_QVector.reserve(scatters.len);
@@ -63162,7 +63162,7 @@ libqt_list /* of QPointF* */ QCPPolarGraph_DataToLines(const QCPPolarGraph* self
 }
 
 // Base class handler implementation
-libqt_list /* of QPointF* */ QCPPolarGraph_QBaseDataToLines(const QCPPolarGraph* self, const libqt_list /* of QCPGraphData* */ data) {
+libqt_list /* of QPointF* */ QCPPolarGraph_SuperDataToLines(const QCPPolarGraph* self, const libqt_list /* of QCPGraphData* */ data) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     QVector<QCPGraphData> data_QVector;
     data_QVector.reserve(data.len);
@@ -63215,7 +63215,7 @@ void QCPPolarGraph_InitializeParentPlot(QCPPolarGraph* self, QCustomPlot* parent
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseInitializeParentPlot(QCPPolarGraph* self, QCustomPlot* parentPlot) {
+void QCPPolarGraph_SuperInitializeParentPlot(QCPPolarGraph* self, QCustomPlot* parentPlot) {
     auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_InitializeParentPlot_IsBase(true);
@@ -63244,7 +63244,7 @@ void QCPPolarGraph_SetParentLayerable(QCPPolarGraph* self, QCPLayerable* parentL
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseSetParentLayerable(QCPPolarGraph* self, QCPLayerable* parentLayerable) {
+void QCPPolarGraph_SuperSetParentLayerable(QCPPolarGraph* self, QCPLayerable* parentLayerable) {
     auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_SetParentLayerable_IsBase(true);
@@ -63273,7 +63273,7 @@ bool QCPPolarGraph_MoveToLayer(QCPPolarGraph* self, QCPLayer* layer, bool prepen
 }
 
 // Base class handler implementation
-bool QCPPolarGraph_QBaseMoveToLayer(QCPPolarGraph* self, QCPLayer* layer, bool prepend) {
+bool QCPPolarGraph_SuperMoveToLayer(QCPPolarGraph* self, QCPLayer* layer, bool prepend) {
     auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_MoveToLayer_IsBase(true);
@@ -63302,7 +63302,7 @@ void QCPPolarGraph_ApplyAntialiasingHint(const QCPPolarGraph* self, QCPPainter* 
 }
 
 // Base class handler implementation
-void QCPPolarGraph_QBaseApplyAntialiasingHint(const QCPPolarGraph* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
+void QCPPolarGraph_SuperApplyAntialiasingHint(const QCPPolarGraph* self, QCPPainter* painter, bool localAntialiased, int overrideElement) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_ApplyAntialiasingHint_IsBase(true);
@@ -63331,7 +63331,7 @@ QObject* QCPPolarGraph_Sender(const QCPPolarGraph* self) {
 }
 
 // Base class handler implementation
-QObject* QCPPolarGraph_QBaseSender(const QCPPolarGraph* self) {
+QObject* QCPPolarGraph_SuperSender(const QCPPolarGraph* self) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_Sender_IsBase(true);
@@ -63360,7 +63360,7 @@ int QCPPolarGraph_SenderSignalIndex(const QCPPolarGraph* self) {
 }
 
 // Base class handler implementation
-int QCPPolarGraph_QBaseSenderSignalIndex(const QCPPolarGraph* self) {
+int QCPPolarGraph_SuperSenderSignalIndex(const QCPPolarGraph* self) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_SenderSignalIndex_IsBase(true);
@@ -63389,7 +63389,7 @@ int QCPPolarGraph_Receivers(const QCPPolarGraph* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCPPolarGraph_QBaseReceivers(const QCPPolarGraph* self, const char* signal) {
+int QCPPolarGraph_SuperReceivers(const QCPPolarGraph* self, const char* signal) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_Receivers_IsBase(true);
@@ -63418,7 +63418,7 @@ bool QCPPolarGraph_IsSignalConnected(const QCPPolarGraph* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QCPPolarGraph_QBaseIsSignalConnected(const QCPPolarGraph* self, const QMetaMethod* signal) {
+bool QCPPolarGraph_SuperIsSignalConnected(const QCPPolarGraph* self, const QMetaMethod* signal) {
     auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
     if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
         vqcppolargraph->setQCPPolarGraph_IsSignalConnected_IsBase(true);

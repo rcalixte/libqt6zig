@@ -367,7 +367,7 @@ int QTableWidgetItem_Type(const QTableWidgetItem* self) {
 }
 
 // Base class handler implementation
-QTableWidgetItem* QTableWidgetItem_QBaseClone(const QTableWidgetItem* self) {
+QTableWidgetItem* QTableWidgetItem_SuperClone(const QTableWidgetItem* self) {
     auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
     if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
         vqtablewidgetitem->setQTableWidgetItem_Clone_IsBase(true);
@@ -386,7 +386,7 @@ void QTableWidgetItem_OnClone(const QTableWidgetItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QTableWidgetItem_QBaseData(const QTableWidgetItem* self, int role) {
+QVariant* QTableWidgetItem_SuperData(const QTableWidgetItem* self, int role) {
     auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
     if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
         vqtablewidgetitem->setQTableWidgetItem_Data_IsBase(true);
@@ -405,7 +405,7 @@ void QTableWidgetItem_OnData(const QTableWidgetItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTableWidgetItem_QBaseSetData(QTableWidgetItem* self, int role, const QVariant* value) {
+void QTableWidgetItem_SuperSetData(QTableWidgetItem* self, int role, const QVariant* value) {
     auto* vqtablewidgetitem = dynamic_cast<VirtualQTableWidgetItem*>(self);
     if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
         vqtablewidgetitem->setQTableWidgetItem_SetData_IsBase(true);
@@ -424,7 +424,7 @@ void QTableWidgetItem_OnSetData(QTableWidgetItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QTableWidgetItem_QBaseOperatorLesser(const QTableWidgetItem* self, const QTableWidgetItem* other) {
+bool QTableWidgetItem_SuperOperatorLesser(const QTableWidgetItem* self, const QTableWidgetItem* other) {
     auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
     if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
         vqtablewidgetitem->setQTableWidgetItem_OperatorLesser_IsBase(true);
@@ -443,7 +443,7 @@ void QTableWidgetItem_OnOperatorLesser(const QTableWidgetItem* self, intptr_t sl
 }
 
 // Base class handler implementation
-void QTableWidgetItem_QBaseRead(QTableWidgetItem* self, QDataStream* in) {
+void QTableWidgetItem_SuperRead(QTableWidgetItem* self, QDataStream* in) {
     auto* vqtablewidgetitem = dynamic_cast<VirtualQTableWidgetItem*>(self);
     if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
         vqtablewidgetitem->setQTableWidgetItem_Read_IsBase(true);
@@ -462,7 +462,7 @@ void QTableWidgetItem_OnRead(QTableWidgetItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTableWidgetItem_QBaseWrite(const QTableWidgetItem* self, QDataStream* out) {
+void QTableWidgetItem_SuperWrite(const QTableWidgetItem* self, QDataStream* out) {
     auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
     if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
         vqtablewidgetitem->setQTableWidgetItem_Write_IsBase(true);
@@ -1066,7 +1066,7 @@ void QTableWidget_ScrollToItem2(QTableWidget* self, const QTableWidgetItem* item
 }
 
 // Base class handler implementation
-QMetaObject* QTableWidget_QBaseMetaObject(const QTableWidget* self) {
+QMetaObject* QTableWidget_SuperMetaObject(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_MetaObject_IsBase(true);
@@ -1085,7 +1085,7 @@ void QTableWidget_OnMetaObject(const QTableWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QTableWidget_QBaseMetacast(QTableWidget* self, const char* param1) {
+void* QTableWidget_SuperMetacast(QTableWidget* self, const char* param1) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_Metacast_IsBase(true);
@@ -1104,7 +1104,7 @@ void QTableWidget_OnMetacast(QTableWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTableWidget_QBaseMetacall(QTableWidget* self, int param1, int param2, void** param3) {
+int QTableWidget_SuperMetacall(QTableWidget* self, int param1, int param2, void** param3) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_Metacall_IsBase(true);
@@ -1123,7 +1123,7 @@ void QTableWidget_OnMetacall(QTableWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QTableWidget_QBaseEvent(QTableWidget* self, QEvent* e) {
+bool QTableWidget_SuperEvent(QTableWidget* self, QEvent* e) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_Event_IsBase(true);
@@ -1142,7 +1142,7 @@ void QTableWidget_OnEvent(QTableWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QTableWidget_QBaseMimeTypes(const QTableWidget* self) {
+libqt_list /* of libqt_string */ QTableWidget_SuperMimeTypes(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_MimeTypes_IsBase(true);
@@ -1195,7 +1195,7 @@ void QTableWidget_OnMimeTypes(const QTableWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMimeData* QTableWidget_QBaseMimeData(const QTableWidget* self, const libqt_list /* of QTableWidgetItem* */ items) {
+QMimeData* QTableWidget_SuperMimeData(const QTableWidget* self, const libqt_list /* of QTableWidgetItem* */ items) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     QList<QTableWidgetItem*> items_QList;
     items_QList.reserve(items.len);
@@ -1220,7 +1220,7 @@ void QTableWidget_OnMimeData(const QTableWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QTableWidget_QBaseDropMimeData(QTableWidget* self, int row, int column, const QMimeData* data, int action) {
+bool QTableWidget_SuperDropMimeData(QTableWidget* self, int row, int column, const QMimeData* data, int action) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_DropMimeData_IsBase(true);
@@ -1239,7 +1239,7 @@ void QTableWidget_OnDropMimeData(QTableWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTableWidget_QBaseSupportedDropActions(const QTableWidget* self) {
+int QTableWidget_SuperSupportedDropActions(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_SupportedDropActions_IsBase(true);
@@ -1258,7 +1258,7 @@ void QTableWidget_OnSupportedDropActions(const QTableWidget* self, intptr_t slot
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseDropEvent(QTableWidget* self, QDropEvent* event) {
+void QTableWidget_SuperDropEvent(QTableWidget* self, QDropEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_DropEvent_IsBase(true);
@@ -1287,7 +1287,7 @@ void QTableWidget_SetRootIndex(QTableWidget* self, const QModelIndex* index) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseSetRootIndex(QTableWidget* self, const QModelIndex* index) {
+void QTableWidget_SuperSetRootIndex(QTableWidget* self, const QModelIndex* index) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_SetRootIndex_IsBase(true);
@@ -1316,7 +1316,7 @@ void QTableWidget_SetSelectionModel(QTableWidget* self, QItemSelectionModel* sel
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseSetSelectionModel(QTableWidget* self, QItemSelectionModel* selectionModel) {
+void QTableWidget_SuperSetSelectionModel(QTableWidget* self, QItemSelectionModel* selectionModel) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_SetSelectionModel_IsBase(true);
@@ -1345,7 +1345,7 @@ void QTableWidget_DoItemsLayout(QTableWidget* self) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseDoItemsLayout(QTableWidget* self) {
+void QTableWidget_SuperDoItemsLayout(QTableWidget* self) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_DoItemsLayout_IsBase(true);
@@ -1374,7 +1374,7 @@ QRect* QTableWidget_VisualRect(const QTableWidget* self, const QModelIndex* inde
 }
 
 // Base class handler implementation
-QRect* QTableWidget_QBaseVisualRect(const QTableWidget* self, const QModelIndex* index) {
+QRect* QTableWidget_SuperVisualRect(const QTableWidget* self, const QModelIndex* index) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_VisualRect_IsBase(true);
@@ -1403,7 +1403,7 @@ void QTableWidget_ScrollTo(QTableWidget* self, const QModelIndex* index, int hin
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseScrollTo(QTableWidget* self, const QModelIndex* index, int hint) {
+void QTableWidget_SuperScrollTo(QTableWidget* self, const QModelIndex* index, int hint) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_ScrollTo_IsBase(true);
@@ -1432,7 +1432,7 @@ QModelIndex* QTableWidget_IndexAt(const QTableWidget* self, const QPoint* p) {
 }
 
 // Base class handler implementation
-QModelIndex* QTableWidget_QBaseIndexAt(const QTableWidget* self, const QPoint* p) {
+QModelIndex* QTableWidget_SuperIndexAt(const QTableWidget* self, const QPoint* p) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_IndexAt_IsBase(true);
@@ -1461,7 +1461,7 @@ void QTableWidget_ScrollContentsBy(QTableWidget* self, int dx, int dy) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseScrollContentsBy(QTableWidget* self, int dx, int dy) {
+void QTableWidget_SuperScrollContentsBy(QTableWidget* self, int dx, int dy) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_ScrollContentsBy_IsBase(true);
@@ -1490,7 +1490,7 @@ void QTableWidget_InitViewItemOption(const QTableWidget* self, QStyleOptionViewI
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseInitViewItemOption(const QTableWidget* self, QStyleOptionViewItem* option) {
+void QTableWidget_SuperInitViewItemOption(const QTableWidget* self, QStyleOptionViewItem* option) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_InitViewItemOption_IsBase(true);
@@ -1519,7 +1519,7 @@ void QTableWidget_PaintEvent(QTableWidget* self, QPaintEvent* e) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBasePaintEvent(QTableWidget* self, QPaintEvent* e) {
+void QTableWidget_SuperPaintEvent(QTableWidget* self, QPaintEvent* e) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_PaintEvent_IsBase(true);
@@ -1548,7 +1548,7 @@ void QTableWidget_TimerEvent(QTableWidget* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseTimerEvent(QTableWidget* self, QTimerEvent* event) {
+void QTableWidget_SuperTimerEvent(QTableWidget* self, QTimerEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_TimerEvent_IsBase(true);
@@ -1577,7 +1577,7 @@ int QTableWidget_HorizontalOffset(const QTableWidget* self) {
 }
 
 // Base class handler implementation
-int QTableWidget_QBaseHorizontalOffset(const QTableWidget* self) {
+int QTableWidget_SuperHorizontalOffset(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_HorizontalOffset_IsBase(true);
@@ -1606,7 +1606,7 @@ int QTableWidget_VerticalOffset(const QTableWidget* self) {
 }
 
 // Base class handler implementation
-int QTableWidget_QBaseVerticalOffset(const QTableWidget* self) {
+int QTableWidget_SuperVerticalOffset(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_VerticalOffset_IsBase(true);
@@ -1634,7 +1634,7 @@ QModelIndex* QTableWidget_MoveCursor(QTableWidget* self, int cursorAction, int m
 }
 
 // Base class handler implementation
-QModelIndex* QTableWidget_QBaseMoveCursor(QTableWidget* self, int cursorAction, int modifiers) {
+QModelIndex* QTableWidget_SuperMoveCursor(QTableWidget* self, int cursorAction, int modifiers) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_MoveCursor_IsBase(true);
@@ -1662,7 +1662,7 @@ void QTableWidget_SetSelection(QTableWidget* self, const QRect* rect, int comman
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseSetSelection(QTableWidget* self, const QRect* rect, int command) {
+void QTableWidget_SuperSetSelection(QTableWidget* self, const QRect* rect, int command) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_SetSelection_IsBase(true);
@@ -1690,7 +1690,7 @@ QRegion* QTableWidget_VisualRegionForSelection(const QTableWidget* self, const Q
 }
 
 // Base class handler implementation
-QRegion* QTableWidget_QBaseVisualRegionForSelection(const QTableWidget* self, const QItemSelection* selection) {
+QRegion* QTableWidget_SuperVisualRegionForSelection(const QTableWidget* self, const QItemSelection* selection) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_VisualRegionForSelection_IsBase(true);
@@ -1736,7 +1736,7 @@ libqt_list /* of QModelIndex* */ QTableWidget_SelectedIndexes(const QTableWidget
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QTableWidget_QBaseSelectedIndexes(const QTableWidget* self) {
+libqt_list /* of QModelIndex* */ QTableWidget_SuperSelectedIndexes(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_SelectedIndexes_IsBase(true);
@@ -1783,7 +1783,7 @@ void QTableWidget_UpdateGeometries(QTableWidget* self) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseUpdateGeometries(QTableWidget* self) {
+void QTableWidget_SuperUpdateGeometries(QTableWidget* self) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_UpdateGeometries_IsBase(true);
@@ -1811,7 +1811,7 @@ QSize* QTableWidget_ViewportSizeHint(const QTableWidget* self) {
 }
 
 // Base class handler implementation
-QSize* QTableWidget_QBaseViewportSizeHint(const QTableWidget* self) {
+QSize* QTableWidget_SuperViewportSizeHint(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_ViewportSizeHint_IsBase(true);
@@ -1839,7 +1839,7 @@ int QTableWidget_SizeHintForRow(const QTableWidget* self, int row) {
 }
 
 // Base class handler implementation
-int QTableWidget_QBaseSizeHintForRow(const QTableWidget* self, int row) {
+int QTableWidget_SuperSizeHintForRow(const QTableWidget* self, int row) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_SizeHintForRow_IsBase(true);
@@ -1868,7 +1868,7 @@ int QTableWidget_SizeHintForColumn(const QTableWidget* self, int column) {
 }
 
 // Base class handler implementation
-int QTableWidget_QBaseSizeHintForColumn(const QTableWidget* self, int column) {
+int QTableWidget_SuperSizeHintForColumn(const QTableWidget* self, int column) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_SizeHintForColumn_IsBase(true);
@@ -1897,7 +1897,7 @@ void QTableWidget_VerticalScrollbarAction(QTableWidget* self, int action) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseVerticalScrollbarAction(QTableWidget* self, int action) {
+void QTableWidget_SuperVerticalScrollbarAction(QTableWidget* self, int action) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_VerticalScrollbarAction_IsBase(true);
@@ -1926,7 +1926,7 @@ void QTableWidget_HorizontalScrollbarAction(QTableWidget* self, int action) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseHorizontalScrollbarAction(QTableWidget* self, int action) {
+void QTableWidget_SuperHorizontalScrollbarAction(QTableWidget* self, int action) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_HorizontalScrollbarAction_IsBase(true);
@@ -1955,7 +1955,7 @@ bool QTableWidget_IsIndexHidden(const QTableWidget* self, const QModelIndex* ind
 }
 
 // Base class handler implementation
-bool QTableWidget_QBaseIsIndexHidden(const QTableWidget* self, const QModelIndex* index) {
+bool QTableWidget_SuperIsIndexHidden(const QTableWidget* self, const QModelIndex* index) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_IsIndexHidden_IsBase(true);
@@ -1984,7 +1984,7 @@ void QTableWidget_SelectionChanged(QTableWidget* self, const QItemSelection* sel
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseSelectionChanged(QTableWidget* self, const QItemSelection* selected, const QItemSelection* deselected) {
+void QTableWidget_SuperSelectionChanged(QTableWidget* self, const QItemSelection* selected, const QItemSelection* deselected) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_SelectionChanged_IsBase(true);
@@ -2013,7 +2013,7 @@ void QTableWidget_CurrentChanged(QTableWidget* self, const QModelIndex* current,
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseCurrentChanged(QTableWidget* self, const QModelIndex* current, const QModelIndex* previous) {
+void QTableWidget_SuperCurrentChanged(QTableWidget* self, const QModelIndex* current, const QModelIndex* previous) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_CurrentChanged_IsBase(true);
@@ -2043,7 +2043,7 @@ void QTableWidget_KeyboardSearch(QTableWidget* self, const libqt_string search) 
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseKeyboardSearch(QTableWidget* self, const libqt_string search) {
+void QTableWidget_SuperKeyboardSearch(QTableWidget* self, const libqt_string search) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     QString search_QString = QString::fromUtf8(search.data, search.len);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
@@ -2073,7 +2073,7 @@ QAbstractItemDelegate* QTableWidget_ItemDelegateForIndex(const QTableWidget* sel
 }
 
 // Base class handler implementation
-QAbstractItemDelegate* QTableWidget_QBaseItemDelegateForIndex(const QTableWidget* self, const QModelIndex* index) {
+QAbstractItemDelegate* QTableWidget_SuperItemDelegateForIndex(const QTableWidget* self, const QModelIndex* index) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_ItemDelegateForIndex_IsBase(true);
@@ -2102,7 +2102,7 @@ QVariant* QTableWidget_InputMethodQuery(const QTableWidget* self, int query) {
 }
 
 // Base class handler implementation
-QVariant* QTableWidget_QBaseInputMethodQuery(const QTableWidget* self, int query) {
+QVariant* QTableWidget_SuperInputMethodQuery(const QTableWidget* self, int query) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_InputMethodQuery_IsBase(true);
@@ -2131,7 +2131,7 @@ void QTableWidget_Reset(QTableWidget* self) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseReset(QTableWidget* self) {
+void QTableWidget_SuperReset(QTableWidget* self) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_Reset_IsBase(true);
@@ -2160,7 +2160,7 @@ void QTableWidget_SelectAll(QTableWidget* self) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseSelectAll(QTableWidget* self) {
+void QTableWidget_SuperSelectAll(QTableWidget* self) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_SelectAll_IsBase(true);
@@ -2195,7 +2195,7 @@ void QTableWidget_DataChanged(QTableWidget* self, const QModelIndex* topLeft, co
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseDataChanged(QTableWidget* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
+void QTableWidget_SuperDataChanged(QTableWidget* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     QList<int> roles_QList;
     roles_QList.reserve(roles.len);
@@ -2230,7 +2230,7 @@ void QTableWidget_RowsInserted(QTableWidget* self, const QModelIndex* parent, in
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseRowsInserted(QTableWidget* self, const QModelIndex* parent, int start, int end) {
+void QTableWidget_SuperRowsInserted(QTableWidget* self, const QModelIndex* parent, int start, int end) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_RowsInserted_IsBase(true);
@@ -2259,7 +2259,7 @@ void QTableWidget_RowsAboutToBeRemoved(QTableWidget* self, const QModelIndex* pa
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseRowsAboutToBeRemoved(QTableWidget* self, const QModelIndex* parent, int start, int end) {
+void QTableWidget_SuperRowsAboutToBeRemoved(QTableWidget* self, const QModelIndex* parent, int start, int end) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_RowsAboutToBeRemoved_IsBase(true);
@@ -2288,7 +2288,7 @@ void QTableWidget_UpdateEditorData(QTableWidget* self) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseUpdateEditorData(QTableWidget* self) {
+void QTableWidget_SuperUpdateEditorData(QTableWidget* self) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_UpdateEditorData_IsBase(true);
@@ -2317,7 +2317,7 @@ void QTableWidget_UpdateEditorGeometries(QTableWidget* self) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseUpdateEditorGeometries(QTableWidget* self) {
+void QTableWidget_SuperUpdateEditorGeometries(QTableWidget* self) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_UpdateEditorGeometries_IsBase(true);
@@ -2346,7 +2346,7 @@ void QTableWidget_VerticalScrollbarValueChanged(QTableWidget* self, int value) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseVerticalScrollbarValueChanged(QTableWidget* self, int value) {
+void QTableWidget_SuperVerticalScrollbarValueChanged(QTableWidget* self, int value) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_VerticalScrollbarValueChanged_IsBase(true);
@@ -2375,7 +2375,7 @@ void QTableWidget_HorizontalScrollbarValueChanged(QTableWidget* self, int value)
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseHorizontalScrollbarValueChanged(QTableWidget* self, int value) {
+void QTableWidget_SuperHorizontalScrollbarValueChanged(QTableWidget* self, int value) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_HorizontalScrollbarValueChanged_IsBase(true);
@@ -2404,7 +2404,7 @@ void QTableWidget_CloseEditor(QTableWidget* self, QWidget* editor, int hint) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseCloseEditor(QTableWidget* self, QWidget* editor, int hint) {
+void QTableWidget_SuperCloseEditor(QTableWidget* self, QWidget* editor, int hint) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_CloseEditor_IsBase(true);
@@ -2433,7 +2433,7 @@ void QTableWidget_CommitData(QTableWidget* self, QWidget* editor) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseCommitData(QTableWidget* self, QWidget* editor) {
+void QTableWidget_SuperCommitData(QTableWidget* self, QWidget* editor) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_CommitData_IsBase(true);
@@ -2462,7 +2462,7 @@ void QTableWidget_EditorDestroyed(QTableWidget* self, QObject* editor) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseEditorDestroyed(QTableWidget* self, QObject* editor) {
+void QTableWidget_SuperEditorDestroyed(QTableWidget* self, QObject* editor) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_EditorDestroyed_IsBase(true);
@@ -2491,7 +2491,7 @@ bool QTableWidget_Edit2(QTableWidget* self, const QModelIndex* index, int trigge
 }
 
 // Base class handler implementation
-bool QTableWidget_QBaseEdit2(QTableWidget* self, const QModelIndex* index, int trigger, QEvent* event) {
+bool QTableWidget_SuperEdit2(QTableWidget* self, const QModelIndex* index, int trigger, QEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_Edit2_IsBase(true);
@@ -2520,7 +2520,7 @@ int QTableWidget_SelectionCommand(const QTableWidget* self, const QModelIndex* i
 }
 
 // Base class handler implementation
-int QTableWidget_QBaseSelectionCommand(const QTableWidget* self, const QModelIndex* index, const QEvent* event) {
+int QTableWidget_SuperSelectionCommand(const QTableWidget* self, const QModelIndex* index, const QEvent* event) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_SelectionCommand_IsBase(true);
@@ -2549,7 +2549,7 @@ void QTableWidget_StartDrag(QTableWidget* self, int supportedActions) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseStartDrag(QTableWidget* self, int supportedActions) {
+void QTableWidget_SuperStartDrag(QTableWidget* self, int supportedActions) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_StartDrag_IsBase(true);
@@ -2578,7 +2578,7 @@ bool QTableWidget_FocusNextPrevChild(QTableWidget* self, bool next) {
 }
 
 // Base class handler implementation
-bool QTableWidget_QBaseFocusNextPrevChild(QTableWidget* self, bool next) {
+bool QTableWidget_SuperFocusNextPrevChild(QTableWidget* self, bool next) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_FocusNextPrevChild_IsBase(true);
@@ -2607,7 +2607,7 @@ bool QTableWidget_ViewportEvent(QTableWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTableWidget_QBaseViewportEvent(QTableWidget* self, QEvent* event) {
+bool QTableWidget_SuperViewportEvent(QTableWidget* self, QEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_ViewportEvent_IsBase(true);
@@ -2636,7 +2636,7 @@ void QTableWidget_MousePressEvent(QTableWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseMousePressEvent(QTableWidget* self, QMouseEvent* event) {
+void QTableWidget_SuperMousePressEvent(QTableWidget* self, QMouseEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_MousePressEvent_IsBase(true);
@@ -2665,7 +2665,7 @@ void QTableWidget_MouseMoveEvent(QTableWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseMouseMoveEvent(QTableWidget* self, QMouseEvent* event) {
+void QTableWidget_SuperMouseMoveEvent(QTableWidget* self, QMouseEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_MouseMoveEvent_IsBase(true);
@@ -2694,7 +2694,7 @@ void QTableWidget_MouseReleaseEvent(QTableWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseMouseReleaseEvent(QTableWidget* self, QMouseEvent* event) {
+void QTableWidget_SuperMouseReleaseEvent(QTableWidget* self, QMouseEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_MouseReleaseEvent_IsBase(true);
@@ -2723,7 +2723,7 @@ void QTableWidget_MouseDoubleClickEvent(QTableWidget* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseMouseDoubleClickEvent(QTableWidget* self, QMouseEvent* event) {
+void QTableWidget_SuperMouseDoubleClickEvent(QTableWidget* self, QMouseEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_MouseDoubleClickEvent_IsBase(true);
@@ -2752,7 +2752,7 @@ void QTableWidget_DragEnterEvent(QTableWidget* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseDragEnterEvent(QTableWidget* self, QDragEnterEvent* event) {
+void QTableWidget_SuperDragEnterEvent(QTableWidget* self, QDragEnterEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_DragEnterEvent_IsBase(true);
@@ -2781,7 +2781,7 @@ void QTableWidget_DragMoveEvent(QTableWidget* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseDragMoveEvent(QTableWidget* self, QDragMoveEvent* event) {
+void QTableWidget_SuperDragMoveEvent(QTableWidget* self, QDragMoveEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_DragMoveEvent_IsBase(true);
@@ -2810,7 +2810,7 @@ void QTableWidget_DragLeaveEvent(QTableWidget* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseDragLeaveEvent(QTableWidget* self, QDragLeaveEvent* event) {
+void QTableWidget_SuperDragLeaveEvent(QTableWidget* self, QDragLeaveEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_DragLeaveEvent_IsBase(true);
@@ -2839,7 +2839,7 @@ void QTableWidget_FocusInEvent(QTableWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseFocusInEvent(QTableWidget* self, QFocusEvent* event) {
+void QTableWidget_SuperFocusInEvent(QTableWidget* self, QFocusEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_FocusInEvent_IsBase(true);
@@ -2868,7 +2868,7 @@ void QTableWidget_FocusOutEvent(QTableWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseFocusOutEvent(QTableWidget* self, QFocusEvent* event) {
+void QTableWidget_SuperFocusOutEvent(QTableWidget* self, QFocusEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_FocusOutEvent_IsBase(true);
@@ -2897,7 +2897,7 @@ void QTableWidget_KeyPressEvent(QTableWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseKeyPressEvent(QTableWidget* self, QKeyEvent* event) {
+void QTableWidget_SuperKeyPressEvent(QTableWidget* self, QKeyEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_KeyPressEvent_IsBase(true);
@@ -2926,7 +2926,7 @@ void QTableWidget_ResizeEvent(QTableWidget* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseResizeEvent(QTableWidget* self, QResizeEvent* event) {
+void QTableWidget_SuperResizeEvent(QTableWidget* self, QResizeEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_ResizeEvent_IsBase(true);
@@ -2955,7 +2955,7 @@ void QTableWidget_InputMethodEvent(QTableWidget* self, QInputMethodEvent* event)
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseInputMethodEvent(QTableWidget* self, QInputMethodEvent* event) {
+void QTableWidget_SuperInputMethodEvent(QTableWidget* self, QInputMethodEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_InputMethodEvent_IsBase(true);
@@ -2984,7 +2984,7 @@ bool QTableWidget_EventFilter(QTableWidget* self, QObject* object, QEvent* event
 }
 
 // Base class handler implementation
-bool QTableWidget_QBaseEventFilter(QTableWidget* self, QObject* object, QEvent* event) {
+bool QTableWidget_SuperEventFilter(QTableWidget* self, QObject* object, QEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_EventFilter_IsBase(true);
@@ -3013,7 +3013,7 @@ QSize* QTableWidget_MinimumSizeHint(const QTableWidget* self) {
 }
 
 // Base class handler implementation
-QSize* QTableWidget_QBaseMinimumSizeHint(const QTableWidget* self) {
+QSize* QTableWidget_SuperMinimumSizeHint(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_MinimumSizeHint_IsBase(true);
@@ -3042,7 +3042,7 @@ QSize* QTableWidget_SizeHint(const QTableWidget* self) {
 }
 
 // Base class handler implementation
-QSize* QTableWidget_QBaseSizeHint(const QTableWidget* self) {
+QSize* QTableWidget_SuperSizeHint(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_SizeHint_IsBase(true);
@@ -3071,7 +3071,7 @@ void QTableWidget_SetupViewport(QTableWidget* self, QWidget* viewport) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseSetupViewport(QTableWidget* self, QWidget* viewport) {
+void QTableWidget_SuperSetupViewport(QTableWidget* self, QWidget* viewport) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_SetupViewport_IsBase(true);
@@ -3100,7 +3100,7 @@ void QTableWidget_WheelEvent(QTableWidget* self, QWheelEvent* param1) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseWheelEvent(QTableWidget* self, QWheelEvent* param1) {
+void QTableWidget_SuperWheelEvent(QTableWidget* self, QWheelEvent* param1) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_WheelEvent_IsBase(true);
@@ -3129,7 +3129,7 @@ void QTableWidget_ContextMenuEvent(QTableWidget* self, QContextMenuEvent* param1
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseContextMenuEvent(QTableWidget* self, QContextMenuEvent* param1) {
+void QTableWidget_SuperContextMenuEvent(QTableWidget* self, QContextMenuEvent* param1) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_ContextMenuEvent_IsBase(true);
@@ -3158,7 +3158,7 @@ void QTableWidget_ChangeEvent(QTableWidget* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseChangeEvent(QTableWidget* self, QEvent* param1) {
+void QTableWidget_SuperChangeEvent(QTableWidget* self, QEvent* param1) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_ChangeEvent_IsBase(true);
@@ -3187,7 +3187,7 @@ void QTableWidget_InitStyleOption(const QTableWidget* self, QStyleOptionFrame* o
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseInitStyleOption(const QTableWidget* self, QStyleOptionFrame* option) {
+void QTableWidget_SuperInitStyleOption(const QTableWidget* self, QStyleOptionFrame* option) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_InitStyleOption_IsBase(true);
@@ -3216,7 +3216,7 @@ int QTableWidget_DevType(const QTableWidget* self) {
 }
 
 // Base class handler implementation
-int QTableWidget_QBaseDevType(const QTableWidget* self) {
+int QTableWidget_SuperDevType(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_DevType_IsBase(true);
@@ -3245,7 +3245,7 @@ void QTableWidget_SetVisible(QTableWidget* self, bool visible) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseSetVisible(QTableWidget* self, bool visible) {
+void QTableWidget_SuperSetVisible(QTableWidget* self, bool visible) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_SetVisible_IsBase(true);
@@ -3274,7 +3274,7 @@ int QTableWidget_HeightForWidth(const QTableWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int QTableWidget_QBaseHeightForWidth(const QTableWidget* self, int param1) {
+int QTableWidget_SuperHeightForWidth(const QTableWidget* self, int param1) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_HeightForWidth_IsBase(true);
@@ -3303,7 +3303,7 @@ bool QTableWidget_HasHeightForWidth(const QTableWidget* self) {
 }
 
 // Base class handler implementation
-bool QTableWidget_QBaseHasHeightForWidth(const QTableWidget* self) {
+bool QTableWidget_SuperHasHeightForWidth(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_HasHeightForWidth_IsBase(true);
@@ -3332,7 +3332,7 @@ QPaintEngine* QTableWidget_PaintEngine(const QTableWidget* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QTableWidget_QBasePaintEngine(const QTableWidget* self) {
+QPaintEngine* QTableWidget_SuperPaintEngine(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_PaintEngine_IsBase(true);
@@ -3361,7 +3361,7 @@ void QTableWidget_KeyReleaseEvent(QTableWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseKeyReleaseEvent(QTableWidget* self, QKeyEvent* event) {
+void QTableWidget_SuperKeyReleaseEvent(QTableWidget* self, QKeyEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_KeyReleaseEvent_IsBase(true);
@@ -3390,7 +3390,7 @@ void QTableWidget_EnterEvent(QTableWidget* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseEnterEvent(QTableWidget* self, QEnterEvent* event) {
+void QTableWidget_SuperEnterEvent(QTableWidget* self, QEnterEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_EnterEvent_IsBase(true);
@@ -3419,7 +3419,7 @@ void QTableWidget_LeaveEvent(QTableWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseLeaveEvent(QTableWidget* self, QEvent* event) {
+void QTableWidget_SuperLeaveEvent(QTableWidget* self, QEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_LeaveEvent_IsBase(true);
@@ -3448,7 +3448,7 @@ void QTableWidget_MoveEvent(QTableWidget* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseMoveEvent(QTableWidget* self, QMoveEvent* event) {
+void QTableWidget_SuperMoveEvent(QTableWidget* self, QMoveEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_MoveEvent_IsBase(true);
@@ -3477,7 +3477,7 @@ void QTableWidget_CloseEvent(QTableWidget* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseCloseEvent(QTableWidget* self, QCloseEvent* event) {
+void QTableWidget_SuperCloseEvent(QTableWidget* self, QCloseEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_CloseEvent_IsBase(true);
@@ -3506,7 +3506,7 @@ void QTableWidget_TabletEvent(QTableWidget* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseTabletEvent(QTableWidget* self, QTabletEvent* event) {
+void QTableWidget_SuperTabletEvent(QTableWidget* self, QTabletEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_TabletEvent_IsBase(true);
@@ -3535,7 +3535,7 @@ void QTableWidget_ActionEvent(QTableWidget* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseActionEvent(QTableWidget* self, QActionEvent* event) {
+void QTableWidget_SuperActionEvent(QTableWidget* self, QActionEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_ActionEvent_IsBase(true);
@@ -3564,7 +3564,7 @@ void QTableWidget_ShowEvent(QTableWidget* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseShowEvent(QTableWidget* self, QShowEvent* event) {
+void QTableWidget_SuperShowEvent(QTableWidget* self, QShowEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_ShowEvent_IsBase(true);
@@ -3593,7 +3593,7 @@ void QTableWidget_HideEvent(QTableWidget* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseHideEvent(QTableWidget* self, QHideEvent* event) {
+void QTableWidget_SuperHideEvent(QTableWidget* self, QHideEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_HideEvent_IsBase(true);
@@ -3623,7 +3623,7 @@ bool QTableWidget_NativeEvent(QTableWidget* self, const libqt_string eventType, 
 }
 
 // Base class handler implementation
-bool QTableWidget_QBaseNativeEvent(QTableWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QTableWidget_SuperNativeEvent(QTableWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
@@ -3653,7 +3653,7 @@ int QTableWidget_Metric(const QTableWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int QTableWidget_QBaseMetric(const QTableWidget* self, int param1) {
+int QTableWidget_SuperMetric(const QTableWidget* self, int param1) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_Metric_IsBase(true);
@@ -3682,7 +3682,7 @@ void QTableWidget_InitPainter(const QTableWidget* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseInitPainter(const QTableWidget* self, QPainter* painter) {
+void QTableWidget_SuperInitPainter(const QTableWidget* self, QPainter* painter) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_InitPainter_IsBase(true);
@@ -3711,7 +3711,7 @@ QPaintDevice* QTableWidget_Redirected(const QTableWidget* self, QPoint* offset) 
 }
 
 // Base class handler implementation
-QPaintDevice* QTableWidget_QBaseRedirected(const QTableWidget* self, QPoint* offset) {
+QPaintDevice* QTableWidget_SuperRedirected(const QTableWidget* self, QPoint* offset) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_Redirected_IsBase(true);
@@ -3740,7 +3740,7 @@ QPainter* QTableWidget_SharedPainter(const QTableWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* QTableWidget_QBaseSharedPainter(const QTableWidget* self) {
+QPainter* QTableWidget_SuperSharedPainter(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_SharedPainter_IsBase(true);
@@ -3769,7 +3769,7 @@ void QTableWidget_ChildEvent(QTableWidget* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseChildEvent(QTableWidget* self, QChildEvent* event) {
+void QTableWidget_SuperChildEvent(QTableWidget* self, QChildEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_ChildEvent_IsBase(true);
@@ -3798,7 +3798,7 @@ void QTableWidget_CustomEvent(QTableWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseCustomEvent(QTableWidget* self, QEvent* event) {
+void QTableWidget_SuperCustomEvent(QTableWidget* self, QEvent* event) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_CustomEvent_IsBase(true);
@@ -3827,7 +3827,7 @@ void QTableWidget_ConnectNotify(QTableWidget* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseConnectNotify(QTableWidget* self, const QMetaMethod* signal) {
+void QTableWidget_SuperConnectNotify(QTableWidget* self, const QMetaMethod* signal) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_ConnectNotify_IsBase(true);
@@ -3856,7 +3856,7 @@ void QTableWidget_DisconnectNotify(QTableWidget* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseDisconnectNotify(QTableWidget* self, const QMetaMethod* signal) {
+void QTableWidget_SuperDisconnectNotify(QTableWidget* self, const QMetaMethod* signal) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_DisconnectNotify_IsBase(true);
@@ -3885,7 +3885,7 @@ void QTableWidget_RowMoved(QTableWidget* self, int row, int oldIndex, int newInd
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseRowMoved(QTableWidget* self, int row, int oldIndex, int newIndex) {
+void QTableWidget_SuperRowMoved(QTableWidget* self, int row, int oldIndex, int newIndex) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_RowMoved_IsBase(true);
@@ -3914,7 +3914,7 @@ void QTableWidget_ColumnMoved(QTableWidget* self, int column, int oldIndex, int 
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseColumnMoved(QTableWidget* self, int column, int oldIndex, int newIndex) {
+void QTableWidget_SuperColumnMoved(QTableWidget* self, int column, int oldIndex, int newIndex) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_ColumnMoved_IsBase(true);
@@ -3943,7 +3943,7 @@ void QTableWidget_RowResized(QTableWidget* self, int row, int oldHeight, int new
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseRowResized(QTableWidget* self, int row, int oldHeight, int newHeight) {
+void QTableWidget_SuperRowResized(QTableWidget* self, int row, int oldHeight, int newHeight) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_RowResized_IsBase(true);
@@ -3972,7 +3972,7 @@ void QTableWidget_ColumnResized(QTableWidget* self, int column, int oldWidth, in
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseColumnResized(QTableWidget* self, int column, int oldWidth, int newWidth) {
+void QTableWidget_SuperColumnResized(QTableWidget* self, int column, int oldWidth, int newWidth) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_ColumnResized_IsBase(true);
@@ -4001,7 +4001,7 @@ void QTableWidget_RowCountChanged(QTableWidget* self, int oldCount, int newCount
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseRowCountChanged(QTableWidget* self, int oldCount, int newCount) {
+void QTableWidget_SuperRowCountChanged(QTableWidget* self, int oldCount, int newCount) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_RowCountChanged_IsBase(true);
@@ -4030,7 +4030,7 @@ void QTableWidget_ColumnCountChanged(QTableWidget* self, int oldCount, int newCo
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseColumnCountChanged(QTableWidget* self, int oldCount, int newCount) {
+void QTableWidget_SuperColumnCountChanged(QTableWidget* self, int oldCount, int newCount) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_ColumnCountChanged_IsBase(true);
@@ -4059,7 +4059,7 @@ int QTableWidget_State(const QTableWidget* self) {
 }
 
 // Base class handler implementation
-int QTableWidget_QBaseState(const QTableWidget* self) {
+int QTableWidget_SuperState(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_State_IsBase(true);
@@ -4088,7 +4088,7 @@ void QTableWidget_SetState(QTableWidget* self, int state) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseSetState(QTableWidget* self, int state) {
+void QTableWidget_SuperSetState(QTableWidget* self, int state) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_SetState_IsBase(true);
@@ -4117,7 +4117,7 @@ void QTableWidget_ScheduleDelayedItemsLayout(QTableWidget* self) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseScheduleDelayedItemsLayout(QTableWidget* self) {
+void QTableWidget_SuperScheduleDelayedItemsLayout(QTableWidget* self) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_ScheduleDelayedItemsLayout_IsBase(true);
@@ -4146,7 +4146,7 @@ void QTableWidget_ExecuteDelayedItemsLayout(QTableWidget* self) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseExecuteDelayedItemsLayout(QTableWidget* self) {
+void QTableWidget_SuperExecuteDelayedItemsLayout(QTableWidget* self) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_ExecuteDelayedItemsLayout_IsBase(true);
@@ -4175,7 +4175,7 @@ void QTableWidget_SetDirtyRegion(QTableWidget* self, const QRegion* region) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseSetDirtyRegion(QTableWidget* self, const QRegion* region) {
+void QTableWidget_SuperSetDirtyRegion(QTableWidget* self, const QRegion* region) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_SetDirtyRegion_IsBase(true);
@@ -4204,7 +4204,7 @@ void QTableWidget_ScrollDirtyRegion(QTableWidget* self, int dx, int dy) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseScrollDirtyRegion(QTableWidget* self, int dx, int dy) {
+void QTableWidget_SuperScrollDirtyRegion(QTableWidget* self, int dx, int dy) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_ScrollDirtyRegion_IsBase(true);
@@ -4232,7 +4232,7 @@ QPoint* QTableWidget_DirtyRegionOffset(const QTableWidget* self) {
 }
 
 // Base class handler implementation
-QPoint* QTableWidget_QBaseDirtyRegionOffset(const QTableWidget* self) {
+QPoint* QTableWidget_SuperDirtyRegionOffset(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_DirtyRegionOffset_IsBase(true);
@@ -4260,7 +4260,7 @@ void QTableWidget_StartAutoScroll(QTableWidget* self) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseStartAutoScroll(QTableWidget* self) {
+void QTableWidget_SuperStartAutoScroll(QTableWidget* self) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_StartAutoScroll_IsBase(true);
@@ -4289,7 +4289,7 @@ void QTableWidget_StopAutoScroll(QTableWidget* self) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseStopAutoScroll(QTableWidget* self) {
+void QTableWidget_SuperStopAutoScroll(QTableWidget* self) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_StopAutoScroll_IsBase(true);
@@ -4318,7 +4318,7 @@ void QTableWidget_DoAutoScroll(QTableWidget* self) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseDoAutoScroll(QTableWidget* self) {
+void QTableWidget_SuperDoAutoScroll(QTableWidget* self) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_DoAutoScroll_IsBase(true);
@@ -4347,7 +4347,7 @@ int QTableWidget_DropIndicatorPosition(const QTableWidget* self) {
 }
 
 // Base class handler implementation
-int QTableWidget_QBaseDropIndicatorPosition(const QTableWidget* self) {
+int QTableWidget_SuperDropIndicatorPosition(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_DropIndicatorPosition_IsBase(true);
@@ -4376,7 +4376,7 @@ void QTableWidget_SetViewportMargins(QTableWidget* self, int left, int top, int 
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseSetViewportMargins(QTableWidget* self, int left, int top, int right, int bottom) {
+void QTableWidget_SuperSetViewportMargins(QTableWidget* self, int left, int top, int right, int bottom) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_SetViewportMargins_IsBase(true);
@@ -4404,7 +4404,7 @@ QMargins* QTableWidget_ViewportMargins(const QTableWidget* self) {
 }
 
 // Base class handler implementation
-QMargins* QTableWidget_QBaseViewportMargins(const QTableWidget* self) {
+QMargins* QTableWidget_SuperViewportMargins(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_ViewportMargins_IsBase(true);
@@ -4432,7 +4432,7 @@ void QTableWidget_DrawFrame(QTableWidget* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseDrawFrame(QTableWidget* self, QPainter* param1) {
+void QTableWidget_SuperDrawFrame(QTableWidget* self, QPainter* param1) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_DrawFrame_IsBase(true);
@@ -4461,7 +4461,7 @@ void QTableWidget_UpdateMicroFocus(QTableWidget* self) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseUpdateMicroFocus(QTableWidget* self) {
+void QTableWidget_SuperUpdateMicroFocus(QTableWidget* self) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_UpdateMicroFocus_IsBase(true);
@@ -4490,7 +4490,7 @@ void QTableWidget_Create(QTableWidget* self) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseCreate(QTableWidget* self) {
+void QTableWidget_SuperCreate(QTableWidget* self) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_Create_IsBase(true);
@@ -4519,7 +4519,7 @@ void QTableWidget_Destroy(QTableWidget* self) {
 }
 
 // Base class handler implementation
-void QTableWidget_QBaseDestroy(QTableWidget* self) {
+void QTableWidget_SuperDestroy(QTableWidget* self) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_Destroy_IsBase(true);
@@ -4548,7 +4548,7 @@ bool QTableWidget_FocusNextChild(QTableWidget* self) {
 }
 
 // Base class handler implementation
-bool QTableWidget_QBaseFocusNextChild(QTableWidget* self) {
+bool QTableWidget_SuperFocusNextChild(QTableWidget* self) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_FocusNextChild_IsBase(true);
@@ -4577,7 +4577,7 @@ bool QTableWidget_FocusPreviousChild(QTableWidget* self) {
 }
 
 // Base class handler implementation
-bool QTableWidget_QBaseFocusPreviousChild(QTableWidget* self) {
+bool QTableWidget_SuperFocusPreviousChild(QTableWidget* self) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_FocusPreviousChild_IsBase(true);
@@ -4606,7 +4606,7 @@ QObject* QTableWidget_Sender(const QTableWidget* self) {
 }
 
 // Base class handler implementation
-QObject* QTableWidget_QBaseSender(const QTableWidget* self) {
+QObject* QTableWidget_SuperSender(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_Sender_IsBase(true);
@@ -4635,7 +4635,7 @@ int QTableWidget_SenderSignalIndex(const QTableWidget* self) {
 }
 
 // Base class handler implementation
-int QTableWidget_QBaseSenderSignalIndex(const QTableWidget* self) {
+int QTableWidget_SuperSenderSignalIndex(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_SenderSignalIndex_IsBase(true);
@@ -4664,7 +4664,7 @@ int QTableWidget_Receivers(const QTableWidget* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QTableWidget_QBaseReceivers(const QTableWidget* self, const char* signal) {
+int QTableWidget_SuperReceivers(const QTableWidget* self, const char* signal) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_Receivers_IsBase(true);
@@ -4693,7 +4693,7 @@ bool QTableWidget_IsSignalConnected(const QTableWidget* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QTableWidget_QBaseIsSignalConnected(const QTableWidget* self, const QMetaMethod* signal) {
+bool QTableWidget_SuperIsSignalConnected(const QTableWidget* self, const QMetaMethod* signal) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_IsSignalConnected_IsBase(true);
@@ -4722,7 +4722,7 @@ double QTableWidget_GetDecodedMetricF(const QTableWidget* self, int metricA, int
 }
 
 // Base class handler implementation
-double QTableWidget_QBaseGetDecodedMetricF(const QTableWidget* self, int metricA, int metricB) {
+double QTableWidget_SuperGetDecodedMetricF(const QTableWidget* self, int metricA, int metricB) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_GetDecodedMetricF_IsBase(true);

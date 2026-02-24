@@ -142,7 +142,7 @@ void QActionGroup_Connect_Hovered(QActionGroup* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QActionGroup_QBaseMetaObject(const QActionGroup* self) {
+QMetaObject* QActionGroup_SuperMetaObject(const QActionGroup* self) {
     auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
     if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
         vqactiongroup->setQActionGroup_MetaObject_IsBase(true);
@@ -161,7 +161,7 @@ void QActionGroup_OnMetaObject(const QActionGroup* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QActionGroup_QBaseMetacast(QActionGroup* self, const char* param1) {
+void* QActionGroup_SuperMetacast(QActionGroup* self, const char* param1) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
     if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
         vqactiongroup->setQActionGroup_Metacast_IsBase(true);
@@ -180,7 +180,7 @@ void QActionGroup_OnMetacast(QActionGroup* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QActionGroup_QBaseMetacall(QActionGroup* self, int param1, int param2, void** param3) {
+int QActionGroup_SuperMetacall(QActionGroup* self, int param1, int param2, void** param3) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
     if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
         vqactiongroup->setQActionGroup_Metacall_IsBase(true);
@@ -209,7 +209,7 @@ bool QActionGroup_Event(QActionGroup* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QActionGroup_QBaseEvent(QActionGroup* self, QEvent* event) {
+bool QActionGroup_SuperEvent(QActionGroup* self, QEvent* event) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
     if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
         vqactiongroup->setQActionGroup_Event_IsBase(true);
@@ -238,7 +238,7 @@ bool QActionGroup_EventFilter(QActionGroup* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool QActionGroup_QBaseEventFilter(QActionGroup* self, QObject* watched, QEvent* event) {
+bool QActionGroup_SuperEventFilter(QActionGroup* self, QObject* watched, QEvent* event) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
     if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
         vqactiongroup->setQActionGroup_EventFilter_IsBase(true);
@@ -267,7 +267,7 @@ void QActionGroup_TimerEvent(QActionGroup* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QActionGroup_QBaseTimerEvent(QActionGroup* self, QTimerEvent* event) {
+void QActionGroup_SuperTimerEvent(QActionGroup* self, QTimerEvent* event) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
     if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
         vqactiongroup->setQActionGroup_TimerEvent_IsBase(true);
@@ -296,7 +296,7 @@ void QActionGroup_ChildEvent(QActionGroup* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QActionGroup_QBaseChildEvent(QActionGroup* self, QChildEvent* event) {
+void QActionGroup_SuperChildEvent(QActionGroup* self, QChildEvent* event) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
     if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
         vqactiongroup->setQActionGroup_ChildEvent_IsBase(true);
@@ -325,7 +325,7 @@ void QActionGroup_CustomEvent(QActionGroup* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QActionGroup_QBaseCustomEvent(QActionGroup* self, QEvent* event) {
+void QActionGroup_SuperCustomEvent(QActionGroup* self, QEvent* event) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
     if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
         vqactiongroup->setQActionGroup_CustomEvent_IsBase(true);
@@ -354,7 +354,7 @@ void QActionGroup_ConnectNotify(QActionGroup* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QActionGroup_QBaseConnectNotify(QActionGroup* self, const QMetaMethod* signal) {
+void QActionGroup_SuperConnectNotify(QActionGroup* self, const QMetaMethod* signal) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
     if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
         vqactiongroup->setQActionGroup_ConnectNotify_IsBase(true);
@@ -383,7 +383,7 @@ void QActionGroup_DisconnectNotify(QActionGroup* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QActionGroup_QBaseDisconnectNotify(QActionGroup* self, const QMetaMethod* signal) {
+void QActionGroup_SuperDisconnectNotify(QActionGroup* self, const QMetaMethod* signal) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
     if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
         vqactiongroup->setQActionGroup_DisconnectNotify_IsBase(true);
@@ -412,7 +412,7 @@ QObject* QActionGroup_Sender(const QActionGroup* self) {
 }
 
 // Base class handler implementation
-QObject* QActionGroup_QBaseSender(const QActionGroup* self) {
+QObject* QActionGroup_SuperSender(const QActionGroup* self) {
     auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
     if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
         vqactiongroup->setQActionGroup_Sender_IsBase(true);
@@ -441,7 +441,7 @@ int QActionGroup_SenderSignalIndex(const QActionGroup* self) {
 }
 
 // Base class handler implementation
-int QActionGroup_QBaseSenderSignalIndex(const QActionGroup* self) {
+int QActionGroup_SuperSenderSignalIndex(const QActionGroup* self) {
     auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
     if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
         vqactiongroup->setQActionGroup_SenderSignalIndex_IsBase(true);
@@ -470,7 +470,7 @@ int QActionGroup_Receivers(const QActionGroup* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QActionGroup_QBaseReceivers(const QActionGroup* self, const char* signal) {
+int QActionGroup_SuperReceivers(const QActionGroup* self, const char* signal) {
     auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
     if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
         vqactiongroup->setQActionGroup_Receivers_IsBase(true);
@@ -499,7 +499,7 @@ bool QActionGroup_IsSignalConnected(const QActionGroup* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QActionGroup_QBaseIsSignalConnected(const QActionGroup* self, const QMetaMethod* signal) {
+bool QActionGroup_SuperIsSignalConnected(const QActionGroup* self, const QMetaMethod* signal) {
     auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
     if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
         vqactiongroup->setQActionGroup_IsSignalConnected_IsBase(true);

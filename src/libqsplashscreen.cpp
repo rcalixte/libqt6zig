@@ -184,7 +184,7 @@ void QSplashScreen_ShowMessage3(QSplashScreen* self, const libqt_string message,
 }
 
 // Base class handler implementation
-QMetaObject* QSplashScreen_QBaseMetaObject(const QSplashScreen* self) {
+QMetaObject* QSplashScreen_SuperMetaObject(const QSplashScreen* self) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_MetaObject_IsBase(true);
@@ -203,7 +203,7 @@ void QSplashScreen_OnMetaObject(const QSplashScreen* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QSplashScreen_QBaseMetacast(QSplashScreen* self, const char* param1) {
+void* QSplashScreen_SuperMetacast(QSplashScreen* self, const char* param1) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_Metacast_IsBase(true);
@@ -222,7 +222,7 @@ void QSplashScreen_OnMetacast(QSplashScreen* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSplashScreen_QBaseMetacall(QSplashScreen* self, int param1, int param2, void** param3) {
+int QSplashScreen_SuperMetacall(QSplashScreen* self, int param1, int param2, void** param3) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_Metacall_IsBase(true);
@@ -241,7 +241,7 @@ void QSplashScreen_OnMetacall(QSplashScreen* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSplashScreen_QBaseEvent(QSplashScreen* self, QEvent* e) {
+bool QSplashScreen_SuperEvent(QSplashScreen* self, QEvent* e) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_Event_IsBase(true);
@@ -260,7 +260,7 @@ void QSplashScreen_OnEvent(QSplashScreen* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseDrawContents(QSplashScreen* self, QPainter* painter) {
+void QSplashScreen_SuperDrawContents(QSplashScreen* self, QPainter* painter) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_DrawContents_IsBase(true);
@@ -279,7 +279,7 @@ void QSplashScreen_OnDrawContents(QSplashScreen* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseMousePressEvent(QSplashScreen* self, QMouseEvent* param1) {
+void QSplashScreen_SuperMousePressEvent(QSplashScreen* self, QMouseEvent* param1) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_MousePressEvent_IsBase(true);
@@ -308,7 +308,7 @@ int QSplashScreen_DevType(const QSplashScreen* self) {
 }
 
 // Base class handler implementation
-int QSplashScreen_QBaseDevType(const QSplashScreen* self) {
+int QSplashScreen_SuperDevType(const QSplashScreen* self) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_DevType_IsBase(true);
@@ -337,7 +337,7 @@ void QSplashScreen_SetVisible(QSplashScreen* self, bool visible) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseSetVisible(QSplashScreen* self, bool visible) {
+void QSplashScreen_SuperSetVisible(QSplashScreen* self, bool visible) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_SetVisible_IsBase(true);
@@ -366,7 +366,7 @@ QSize* QSplashScreen_SizeHint(const QSplashScreen* self) {
 }
 
 // Base class handler implementation
-QSize* QSplashScreen_QBaseSizeHint(const QSplashScreen* self) {
+QSize* QSplashScreen_SuperSizeHint(const QSplashScreen* self) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_SizeHint_IsBase(true);
@@ -395,7 +395,7 @@ QSize* QSplashScreen_MinimumSizeHint(const QSplashScreen* self) {
 }
 
 // Base class handler implementation
-QSize* QSplashScreen_QBaseMinimumSizeHint(const QSplashScreen* self) {
+QSize* QSplashScreen_SuperMinimumSizeHint(const QSplashScreen* self) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_MinimumSizeHint_IsBase(true);
@@ -424,7 +424,7 @@ int QSplashScreen_HeightForWidth(const QSplashScreen* self, int param1) {
 }
 
 // Base class handler implementation
-int QSplashScreen_QBaseHeightForWidth(const QSplashScreen* self, int param1) {
+int QSplashScreen_SuperHeightForWidth(const QSplashScreen* self, int param1) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_HeightForWidth_IsBase(true);
@@ -453,7 +453,7 @@ bool QSplashScreen_HasHeightForWidth(const QSplashScreen* self) {
 }
 
 // Base class handler implementation
-bool QSplashScreen_QBaseHasHeightForWidth(const QSplashScreen* self) {
+bool QSplashScreen_SuperHasHeightForWidth(const QSplashScreen* self) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_HasHeightForWidth_IsBase(true);
@@ -482,7 +482,7 @@ QPaintEngine* QSplashScreen_PaintEngine(const QSplashScreen* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QSplashScreen_QBasePaintEngine(const QSplashScreen* self) {
+QPaintEngine* QSplashScreen_SuperPaintEngine(const QSplashScreen* self) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_PaintEngine_IsBase(true);
@@ -511,7 +511,7 @@ void QSplashScreen_MouseReleaseEvent(QSplashScreen* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseMouseReleaseEvent(QSplashScreen* self, QMouseEvent* event) {
+void QSplashScreen_SuperMouseReleaseEvent(QSplashScreen* self, QMouseEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_MouseReleaseEvent_IsBase(true);
@@ -540,7 +540,7 @@ void QSplashScreen_MouseDoubleClickEvent(QSplashScreen* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseMouseDoubleClickEvent(QSplashScreen* self, QMouseEvent* event) {
+void QSplashScreen_SuperMouseDoubleClickEvent(QSplashScreen* self, QMouseEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_MouseDoubleClickEvent_IsBase(true);
@@ -569,7 +569,7 @@ void QSplashScreen_MouseMoveEvent(QSplashScreen* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseMouseMoveEvent(QSplashScreen* self, QMouseEvent* event) {
+void QSplashScreen_SuperMouseMoveEvent(QSplashScreen* self, QMouseEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_MouseMoveEvent_IsBase(true);
@@ -598,7 +598,7 @@ void QSplashScreen_WheelEvent(QSplashScreen* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseWheelEvent(QSplashScreen* self, QWheelEvent* event) {
+void QSplashScreen_SuperWheelEvent(QSplashScreen* self, QWheelEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_WheelEvent_IsBase(true);
@@ -627,7 +627,7 @@ void QSplashScreen_KeyPressEvent(QSplashScreen* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseKeyPressEvent(QSplashScreen* self, QKeyEvent* event) {
+void QSplashScreen_SuperKeyPressEvent(QSplashScreen* self, QKeyEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_KeyPressEvent_IsBase(true);
@@ -656,7 +656,7 @@ void QSplashScreen_KeyReleaseEvent(QSplashScreen* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseKeyReleaseEvent(QSplashScreen* self, QKeyEvent* event) {
+void QSplashScreen_SuperKeyReleaseEvent(QSplashScreen* self, QKeyEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_KeyReleaseEvent_IsBase(true);
@@ -685,7 +685,7 @@ void QSplashScreen_FocusInEvent(QSplashScreen* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseFocusInEvent(QSplashScreen* self, QFocusEvent* event) {
+void QSplashScreen_SuperFocusInEvent(QSplashScreen* self, QFocusEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_FocusInEvent_IsBase(true);
@@ -714,7 +714,7 @@ void QSplashScreen_FocusOutEvent(QSplashScreen* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseFocusOutEvent(QSplashScreen* self, QFocusEvent* event) {
+void QSplashScreen_SuperFocusOutEvent(QSplashScreen* self, QFocusEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_FocusOutEvent_IsBase(true);
@@ -743,7 +743,7 @@ void QSplashScreen_EnterEvent(QSplashScreen* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseEnterEvent(QSplashScreen* self, QEnterEvent* event) {
+void QSplashScreen_SuperEnterEvent(QSplashScreen* self, QEnterEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_EnterEvent_IsBase(true);
@@ -772,7 +772,7 @@ void QSplashScreen_LeaveEvent(QSplashScreen* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseLeaveEvent(QSplashScreen* self, QEvent* event) {
+void QSplashScreen_SuperLeaveEvent(QSplashScreen* self, QEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_LeaveEvent_IsBase(true);
@@ -801,7 +801,7 @@ void QSplashScreen_PaintEvent(QSplashScreen* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBasePaintEvent(QSplashScreen* self, QPaintEvent* event) {
+void QSplashScreen_SuperPaintEvent(QSplashScreen* self, QPaintEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_PaintEvent_IsBase(true);
@@ -830,7 +830,7 @@ void QSplashScreen_MoveEvent(QSplashScreen* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseMoveEvent(QSplashScreen* self, QMoveEvent* event) {
+void QSplashScreen_SuperMoveEvent(QSplashScreen* self, QMoveEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_MoveEvent_IsBase(true);
@@ -859,7 +859,7 @@ void QSplashScreen_ResizeEvent(QSplashScreen* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseResizeEvent(QSplashScreen* self, QResizeEvent* event) {
+void QSplashScreen_SuperResizeEvent(QSplashScreen* self, QResizeEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_ResizeEvent_IsBase(true);
@@ -888,7 +888,7 @@ void QSplashScreen_CloseEvent(QSplashScreen* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseCloseEvent(QSplashScreen* self, QCloseEvent* event) {
+void QSplashScreen_SuperCloseEvent(QSplashScreen* self, QCloseEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_CloseEvent_IsBase(true);
@@ -917,7 +917,7 @@ void QSplashScreen_ContextMenuEvent(QSplashScreen* self, QContextMenuEvent* even
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseContextMenuEvent(QSplashScreen* self, QContextMenuEvent* event) {
+void QSplashScreen_SuperContextMenuEvent(QSplashScreen* self, QContextMenuEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_ContextMenuEvent_IsBase(true);
@@ -946,7 +946,7 @@ void QSplashScreen_TabletEvent(QSplashScreen* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseTabletEvent(QSplashScreen* self, QTabletEvent* event) {
+void QSplashScreen_SuperTabletEvent(QSplashScreen* self, QTabletEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_TabletEvent_IsBase(true);
@@ -975,7 +975,7 @@ void QSplashScreen_ActionEvent(QSplashScreen* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseActionEvent(QSplashScreen* self, QActionEvent* event) {
+void QSplashScreen_SuperActionEvent(QSplashScreen* self, QActionEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_ActionEvent_IsBase(true);
@@ -1004,7 +1004,7 @@ void QSplashScreen_DragEnterEvent(QSplashScreen* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseDragEnterEvent(QSplashScreen* self, QDragEnterEvent* event) {
+void QSplashScreen_SuperDragEnterEvent(QSplashScreen* self, QDragEnterEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_DragEnterEvent_IsBase(true);
@@ -1033,7 +1033,7 @@ void QSplashScreen_DragMoveEvent(QSplashScreen* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseDragMoveEvent(QSplashScreen* self, QDragMoveEvent* event) {
+void QSplashScreen_SuperDragMoveEvent(QSplashScreen* self, QDragMoveEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_DragMoveEvent_IsBase(true);
@@ -1062,7 +1062,7 @@ void QSplashScreen_DragLeaveEvent(QSplashScreen* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseDragLeaveEvent(QSplashScreen* self, QDragLeaveEvent* event) {
+void QSplashScreen_SuperDragLeaveEvent(QSplashScreen* self, QDragLeaveEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_DragLeaveEvent_IsBase(true);
@@ -1091,7 +1091,7 @@ void QSplashScreen_DropEvent(QSplashScreen* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseDropEvent(QSplashScreen* self, QDropEvent* event) {
+void QSplashScreen_SuperDropEvent(QSplashScreen* self, QDropEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_DropEvent_IsBase(true);
@@ -1120,7 +1120,7 @@ void QSplashScreen_ShowEvent(QSplashScreen* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseShowEvent(QSplashScreen* self, QShowEvent* event) {
+void QSplashScreen_SuperShowEvent(QSplashScreen* self, QShowEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_ShowEvent_IsBase(true);
@@ -1149,7 +1149,7 @@ void QSplashScreen_HideEvent(QSplashScreen* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseHideEvent(QSplashScreen* self, QHideEvent* event) {
+void QSplashScreen_SuperHideEvent(QSplashScreen* self, QHideEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_HideEvent_IsBase(true);
@@ -1179,7 +1179,7 @@ bool QSplashScreen_NativeEvent(QSplashScreen* self, const libqt_string eventType
 }
 
 // Base class handler implementation
-bool QSplashScreen_QBaseNativeEvent(QSplashScreen* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QSplashScreen_SuperNativeEvent(QSplashScreen* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
@@ -1209,7 +1209,7 @@ void QSplashScreen_ChangeEvent(QSplashScreen* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseChangeEvent(QSplashScreen* self, QEvent* param1) {
+void QSplashScreen_SuperChangeEvent(QSplashScreen* self, QEvent* param1) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_ChangeEvent_IsBase(true);
@@ -1238,7 +1238,7 @@ int QSplashScreen_Metric(const QSplashScreen* self, int param1) {
 }
 
 // Base class handler implementation
-int QSplashScreen_QBaseMetric(const QSplashScreen* self, int param1) {
+int QSplashScreen_SuperMetric(const QSplashScreen* self, int param1) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_Metric_IsBase(true);
@@ -1267,7 +1267,7 @@ void QSplashScreen_InitPainter(const QSplashScreen* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseInitPainter(const QSplashScreen* self, QPainter* painter) {
+void QSplashScreen_SuperInitPainter(const QSplashScreen* self, QPainter* painter) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_InitPainter_IsBase(true);
@@ -1296,7 +1296,7 @@ QPaintDevice* QSplashScreen_Redirected(const QSplashScreen* self, QPoint* offset
 }
 
 // Base class handler implementation
-QPaintDevice* QSplashScreen_QBaseRedirected(const QSplashScreen* self, QPoint* offset) {
+QPaintDevice* QSplashScreen_SuperRedirected(const QSplashScreen* self, QPoint* offset) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_Redirected_IsBase(true);
@@ -1325,7 +1325,7 @@ QPainter* QSplashScreen_SharedPainter(const QSplashScreen* self) {
 }
 
 // Base class handler implementation
-QPainter* QSplashScreen_QBaseSharedPainter(const QSplashScreen* self) {
+QPainter* QSplashScreen_SuperSharedPainter(const QSplashScreen* self) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_SharedPainter_IsBase(true);
@@ -1354,7 +1354,7 @@ void QSplashScreen_InputMethodEvent(QSplashScreen* self, QInputMethodEvent* para
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseInputMethodEvent(QSplashScreen* self, QInputMethodEvent* param1) {
+void QSplashScreen_SuperInputMethodEvent(QSplashScreen* self, QInputMethodEvent* param1) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_InputMethodEvent_IsBase(true);
@@ -1383,7 +1383,7 @@ QVariant* QSplashScreen_InputMethodQuery(const QSplashScreen* self, int param1) 
 }
 
 // Base class handler implementation
-QVariant* QSplashScreen_QBaseInputMethodQuery(const QSplashScreen* self, int param1) {
+QVariant* QSplashScreen_SuperInputMethodQuery(const QSplashScreen* self, int param1) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_InputMethodQuery_IsBase(true);
@@ -1412,7 +1412,7 @@ bool QSplashScreen_FocusNextPrevChild(QSplashScreen* self, bool next) {
 }
 
 // Base class handler implementation
-bool QSplashScreen_QBaseFocusNextPrevChild(QSplashScreen* self, bool next) {
+bool QSplashScreen_SuperFocusNextPrevChild(QSplashScreen* self, bool next) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_FocusNextPrevChild_IsBase(true);
@@ -1441,7 +1441,7 @@ bool QSplashScreen_EventFilter(QSplashScreen* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QSplashScreen_QBaseEventFilter(QSplashScreen* self, QObject* watched, QEvent* event) {
+bool QSplashScreen_SuperEventFilter(QSplashScreen* self, QObject* watched, QEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_EventFilter_IsBase(true);
@@ -1470,7 +1470,7 @@ void QSplashScreen_TimerEvent(QSplashScreen* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseTimerEvent(QSplashScreen* self, QTimerEvent* event) {
+void QSplashScreen_SuperTimerEvent(QSplashScreen* self, QTimerEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_TimerEvent_IsBase(true);
@@ -1499,7 +1499,7 @@ void QSplashScreen_ChildEvent(QSplashScreen* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseChildEvent(QSplashScreen* self, QChildEvent* event) {
+void QSplashScreen_SuperChildEvent(QSplashScreen* self, QChildEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_ChildEvent_IsBase(true);
@@ -1528,7 +1528,7 @@ void QSplashScreen_CustomEvent(QSplashScreen* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseCustomEvent(QSplashScreen* self, QEvent* event) {
+void QSplashScreen_SuperCustomEvent(QSplashScreen* self, QEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_CustomEvent_IsBase(true);
@@ -1557,7 +1557,7 @@ void QSplashScreen_ConnectNotify(QSplashScreen* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseConnectNotify(QSplashScreen* self, const QMetaMethod* signal) {
+void QSplashScreen_SuperConnectNotify(QSplashScreen* self, const QMetaMethod* signal) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_ConnectNotify_IsBase(true);
@@ -1586,7 +1586,7 @@ void QSplashScreen_DisconnectNotify(QSplashScreen* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseDisconnectNotify(QSplashScreen* self, const QMetaMethod* signal) {
+void QSplashScreen_SuperDisconnectNotify(QSplashScreen* self, const QMetaMethod* signal) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_DisconnectNotify_IsBase(true);
@@ -1615,7 +1615,7 @@ void QSplashScreen_UpdateMicroFocus(QSplashScreen* self) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseUpdateMicroFocus(QSplashScreen* self) {
+void QSplashScreen_SuperUpdateMicroFocus(QSplashScreen* self) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_UpdateMicroFocus_IsBase(true);
@@ -1644,7 +1644,7 @@ void QSplashScreen_Create(QSplashScreen* self) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseCreate(QSplashScreen* self) {
+void QSplashScreen_SuperCreate(QSplashScreen* self) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_Create_IsBase(true);
@@ -1673,7 +1673,7 @@ void QSplashScreen_Destroy(QSplashScreen* self) {
 }
 
 // Base class handler implementation
-void QSplashScreen_QBaseDestroy(QSplashScreen* self) {
+void QSplashScreen_SuperDestroy(QSplashScreen* self) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_Destroy_IsBase(true);
@@ -1702,7 +1702,7 @@ bool QSplashScreen_FocusNextChild(QSplashScreen* self) {
 }
 
 // Base class handler implementation
-bool QSplashScreen_QBaseFocusNextChild(QSplashScreen* self) {
+bool QSplashScreen_SuperFocusNextChild(QSplashScreen* self) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_FocusNextChild_IsBase(true);
@@ -1731,7 +1731,7 @@ bool QSplashScreen_FocusPreviousChild(QSplashScreen* self) {
 }
 
 // Base class handler implementation
-bool QSplashScreen_QBaseFocusPreviousChild(QSplashScreen* self) {
+bool QSplashScreen_SuperFocusPreviousChild(QSplashScreen* self) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_FocusPreviousChild_IsBase(true);
@@ -1760,7 +1760,7 @@ QObject* QSplashScreen_Sender(const QSplashScreen* self) {
 }
 
 // Base class handler implementation
-QObject* QSplashScreen_QBaseSender(const QSplashScreen* self) {
+QObject* QSplashScreen_SuperSender(const QSplashScreen* self) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_Sender_IsBase(true);
@@ -1789,7 +1789,7 @@ int QSplashScreen_SenderSignalIndex(const QSplashScreen* self) {
 }
 
 // Base class handler implementation
-int QSplashScreen_QBaseSenderSignalIndex(const QSplashScreen* self) {
+int QSplashScreen_SuperSenderSignalIndex(const QSplashScreen* self) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_SenderSignalIndex_IsBase(true);
@@ -1818,7 +1818,7 @@ int QSplashScreen_Receivers(const QSplashScreen* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QSplashScreen_QBaseReceivers(const QSplashScreen* self, const char* signal) {
+int QSplashScreen_SuperReceivers(const QSplashScreen* self, const char* signal) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_Receivers_IsBase(true);
@@ -1847,7 +1847,7 @@ bool QSplashScreen_IsSignalConnected(const QSplashScreen* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QSplashScreen_QBaseIsSignalConnected(const QSplashScreen* self, const QMetaMethod* signal) {
+bool QSplashScreen_SuperIsSignalConnected(const QSplashScreen* self, const QMetaMethod* signal) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_IsSignalConnected_IsBase(true);
@@ -1876,7 +1876,7 @@ double QSplashScreen_GetDecodedMetricF(const QSplashScreen* self, int metricA, i
 }
 
 // Base class handler implementation
-double QSplashScreen_QBaseGetDecodedMetricF(const QSplashScreen* self, int metricA, int metricB) {
+double QSplashScreen_SuperGetDecodedMetricF(const QSplashScreen* self, int metricA, int metricB) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
     if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
         vqsplashscreen->setQSplashScreen_GetDecodedMetricF_IsBase(true);

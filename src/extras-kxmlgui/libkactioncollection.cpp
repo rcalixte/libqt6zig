@@ -426,7 +426,7 @@ QAction* KActionCollection_AddAction34(KActionCollection* self, const libqt_stri
 }
 
 // Base class handler implementation
-QMetaObject* KActionCollection_QBaseMetaObject(const KActionCollection* self) {
+QMetaObject* KActionCollection_SuperMetaObject(const KActionCollection* self) {
     auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
     if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
         vkactioncollection->setKActionCollection_MetaObject_IsBase(true);
@@ -445,7 +445,7 @@ void KActionCollection_OnMetaObject(const KActionCollection* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* KActionCollection_QBaseMetacast(KActionCollection* self, const char* param1) {
+void* KActionCollection_SuperMetacast(KActionCollection* self, const char* param1) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
     if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
         vkactioncollection->setKActionCollection_Metacast_IsBase(true);
@@ -464,7 +464,7 @@ void KActionCollection_OnMetacast(KActionCollection* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KActionCollection_QBaseMetacall(KActionCollection* self, int param1, int param2, void** param3) {
+int KActionCollection_SuperMetacall(KActionCollection* self, int param1, int param2, void** param3) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
     if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
         vkactioncollection->setKActionCollection_Metacall_IsBase(true);
@@ -483,7 +483,7 @@ void KActionCollection_OnMetacall(KActionCollection* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KActionCollection_QBaseConnectNotify(KActionCollection* self, const QMetaMethod* signal) {
+void KActionCollection_SuperConnectNotify(KActionCollection* self, const QMetaMethod* signal) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
     if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
         vkactioncollection->setKActionCollection_ConnectNotify_IsBase(true);
@@ -502,7 +502,7 @@ void KActionCollection_OnConnectNotify(KActionCollection* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KActionCollection_QBaseSlotActionTriggered(KActionCollection* self) {
+void KActionCollection_SuperSlotActionTriggered(KActionCollection* self) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
     if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
         vkactioncollection->setKActionCollection_SlotActionTriggered_IsBase(true);
@@ -531,7 +531,7 @@ bool KActionCollection_Event(KActionCollection* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KActionCollection_QBaseEvent(KActionCollection* self, QEvent* event) {
+bool KActionCollection_SuperEvent(KActionCollection* self, QEvent* event) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
     if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
         vkactioncollection->setKActionCollection_Event_IsBase(true);
@@ -560,7 +560,7 @@ bool KActionCollection_EventFilter(KActionCollection* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool KActionCollection_QBaseEventFilter(KActionCollection* self, QObject* watched, QEvent* event) {
+bool KActionCollection_SuperEventFilter(KActionCollection* self, QObject* watched, QEvent* event) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
     if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
         vkactioncollection->setKActionCollection_EventFilter_IsBase(true);
@@ -589,7 +589,7 @@ void KActionCollection_TimerEvent(KActionCollection* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KActionCollection_QBaseTimerEvent(KActionCollection* self, QTimerEvent* event) {
+void KActionCollection_SuperTimerEvent(KActionCollection* self, QTimerEvent* event) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
     if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
         vkactioncollection->setKActionCollection_TimerEvent_IsBase(true);
@@ -618,7 +618,7 @@ void KActionCollection_ChildEvent(KActionCollection* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KActionCollection_QBaseChildEvent(KActionCollection* self, QChildEvent* event) {
+void KActionCollection_SuperChildEvent(KActionCollection* self, QChildEvent* event) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
     if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
         vkactioncollection->setKActionCollection_ChildEvent_IsBase(true);
@@ -647,7 +647,7 @@ void KActionCollection_CustomEvent(KActionCollection* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KActionCollection_QBaseCustomEvent(KActionCollection* self, QEvent* event) {
+void KActionCollection_SuperCustomEvent(KActionCollection* self, QEvent* event) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
     if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
         vkactioncollection->setKActionCollection_CustomEvent_IsBase(true);
@@ -676,7 +676,7 @@ void KActionCollection_DisconnectNotify(KActionCollection* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void KActionCollection_QBaseDisconnectNotify(KActionCollection* self, const QMetaMethod* signal) {
+void KActionCollection_SuperDisconnectNotify(KActionCollection* self, const QMetaMethod* signal) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
     if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
         vkactioncollection->setKActionCollection_DisconnectNotify_IsBase(true);
@@ -705,7 +705,7 @@ QObject* KActionCollection_Sender(const KActionCollection* self) {
 }
 
 // Base class handler implementation
-QObject* KActionCollection_QBaseSender(const KActionCollection* self) {
+QObject* KActionCollection_SuperSender(const KActionCollection* self) {
     auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
     if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
         vkactioncollection->setKActionCollection_Sender_IsBase(true);
@@ -734,7 +734,7 @@ int KActionCollection_SenderSignalIndex(const KActionCollection* self) {
 }
 
 // Base class handler implementation
-int KActionCollection_QBaseSenderSignalIndex(const KActionCollection* self) {
+int KActionCollection_SuperSenderSignalIndex(const KActionCollection* self) {
     auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
     if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
         vkactioncollection->setKActionCollection_SenderSignalIndex_IsBase(true);
@@ -763,7 +763,7 @@ int KActionCollection_Receivers(const KActionCollection* self, const char* signa
 }
 
 // Base class handler implementation
-int KActionCollection_QBaseReceivers(const KActionCollection* self, const char* signal) {
+int KActionCollection_SuperReceivers(const KActionCollection* self, const char* signal) {
     auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
     if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
         vkactioncollection->setKActionCollection_Receivers_IsBase(true);
@@ -792,7 +792,7 @@ bool KActionCollection_IsSignalConnected(const KActionCollection* self, const QM
 }
 
 // Base class handler implementation
-bool KActionCollection_QBaseIsSignalConnected(const KActionCollection* self, const QMetaMethod* signal) {
+bool KActionCollection_SuperIsSignalConnected(const KActionCollection* self, const QMetaMethod* signal) {
     auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
     if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
         vkactioncollection->setKActionCollection_IsSignalConnected_IsBase(true);

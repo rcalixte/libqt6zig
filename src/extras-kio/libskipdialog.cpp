@@ -73,7 +73,7 @@ int KIO__SkipDialog_Metacall(KIO__SkipDialog* self, int param1, int param2, void
 }
 
 // Base class handler implementation
-QMetaObject* KIO__SkipDialog_QBaseMetaObject(const KIO__SkipDialog* self) {
+QMetaObject* KIO__SkipDialog_SuperMetaObject(const KIO__SkipDialog* self) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_MetaObject_IsBase(true);
@@ -92,7 +92,7 @@ void KIO__SkipDialog_OnMetaObject(const KIO__SkipDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KIO__SkipDialog_QBaseMetacast(KIO__SkipDialog* self, const char* param1) {
+void* KIO__SkipDialog_SuperMetacast(KIO__SkipDialog* self, const char* param1) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_Metacast_IsBase(true);
@@ -111,7 +111,7 @@ void KIO__SkipDialog_OnMetacast(KIO__SkipDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KIO__SkipDialog_QBaseMetacall(KIO__SkipDialog* self, int param1, int param2, void** param3) {
+int KIO__SkipDialog_SuperMetacall(KIO__SkipDialog* self, int param1, int param2, void** param3) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_Metacall_IsBase(true);
@@ -140,7 +140,7 @@ void KIO__SkipDialog_SetVisible(KIO__SkipDialog* self, bool visible) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseSetVisible(KIO__SkipDialog* self, bool visible) {
+void KIO__SkipDialog_SuperSetVisible(KIO__SkipDialog* self, bool visible) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_SetVisible_IsBase(true);
@@ -169,7 +169,7 @@ QSize* KIO__SkipDialog_SizeHint(const KIO__SkipDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KIO__SkipDialog_QBaseSizeHint(const KIO__SkipDialog* self) {
+QSize* KIO__SkipDialog_SuperSizeHint(const KIO__SkipDialog* self) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_SizeHint_IsBase(true);
@@ -198,7 +198,7 @@ QSize* KIO__SkipDialog_MinimumSizeHint(const KIO__SkipDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KIO__SkipDialog_QBaseMinimumSizeHint(const KIO__SkipDialog* self) {
+QSize* KIO__SkipDialog_SuperMinimumSizeHint(const KIO__SkipDialog* self) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_MinimumSizeHint_IsBase(true);
@@ -227,7 +227,7 @@ void KIO__SkipDialog_Open(KIO__SkipDialog* self) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseOpen(KIO__SkipDialog* self) {
+void KIO__SkipDialog_SuperOpen(KIO__SkipDialog* self) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_Open_IsBase(true);
@@ -256,7 +256,7 @@ int KIO__SkipDialog_Exec(KIO__SkipDialog* self) {
 }
 
 // Base class handler implementation
-int KIO__SkipDialog_QBaseExec(KIO__SkipDialog* self) {
+int KIO__SkipDialog_SuperExec(KIO__SkipDialog* self) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_Exec_IsBase(true);
@@ -285,7 +285,7 @@ void KIO__SkipDialog_Done(KIO__SkipDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseDone(KIO__SkipDialog* self, int param1) {
+void KIO__SkipDialog_SuperDone(KIO__SkipDialog* self, int param1) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_Done_IsBase(true);
@@ -314,7 +314,7 @@ void KIO__SkipDialog_Accept(KIO__SkipDialog* self) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseAccept(KIO__SkipDialog* self) {
+void KIO__SkipDialog_SuperAccept(KIO__SkipDialog* self) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_Accept_IsBase(true);
@@ -343,7 +343,7 @@ void KIO__SkipDialog_Reject(KIO__SkipDialog* self) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseReject(KIO__SkipDialog* self) {
+void KIO__SkipDialog_SuperReject(KIO__SkipDialog* self) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_Reject_IsBase(true);
@@ -372,7 +372,7 @@ void KIO__SkipDialog_KeyPressEvent(KIO__SkipDialog* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseKeyPressEvent(KIO__SkipDialog* self, QKeyEvent* param1) {
+void KIO__SkipDialog_SuperKeyPressEvent(KIO__SkipDialog* self, QKeyEvent* param1) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_KeyPressEvent_IsBase(true);
@@ -401,7 +401,7 @@ void KIO__SkipDialog_CloseEvent(KIO__SkipDialog* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseCloseEvent(KIO__SkipDialog* self, QCloseEvent* param1) {
+void KIO__SkipDialog_SuperCloseEvent(KIO__SkipDialog* self, QCloseEvent* param1) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_CloseEvent_IsBase(true);
@@ -430,7 +430,7 @@ void KIO__SkipDialog_ShowEvent(KIO__SkipDialog* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseShowEvent(KIO__SkipDialog* self, QShowEvent* param1) {
+void KIO__SkipDialog_SuperShowEvent(KIO__SkipDialog* self, QShowEvent* param1) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_ShowEvent_IsBase(true);
@@ -459,7 +459,7 @@ void KIO__SkipDialog_ResizeEvent(KIO__SkipDialog* self, QResizeEvent* param1) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseResizeEvent(KIO__SkipDialog* self, QResizeEvent* param1) {
+void KIO__SkipDialog_SuperResizeEvent(KIO__SkipDialog* self, QResizeEvent* param1) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_ResizeEvent_IsBase(true);
@@ -488,7 +488,7 @@ void KIO__SkipDialog_ContextMenuEvent(KIO__SkipDialog* self, QContextMenuEvent* 
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseContextMenuEvent(KIO__SkipDialog* self, QContextMenuEvent* param1) {
+void KIO__SkipDialog_SuperContextMenuEvent(KIO__SkipDialog* self, QContextMenuEvent* param1) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_ContextMenuEvent_IsBase(true);
@@ -517,7 +517,7 @@ bool KIO__SkipDialog_EventFilter(KIO__SkipDialog* self, QObject* param1, QEvent*
 }
 
 // Base class handler implementation
-bool KIO__SkipDialog_QBaseEventFilter(KIO__SkipDialog* self, QObject* param1, QEvent* param2) {
+bool KIO__SkipDialog_SuperEventFilter(KIO__SkipDialog* self, QObject* param1, QEvent* param2) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_EventFilter_IsBase(true);
@@ -546,7 +546,7 @@ int KIO__SkipDialog_DevType(const KIO__SkipDialog* self) {
 }
 
 // Base class handler implementation
-int KIO__SkipDialog_QBaseDevType(const KIO__SkipDialog* self) {
+int KIO__SkipDialog_SuperDevType(const KIO__SkipDialog* self) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_DevType_IsBase(true);
@@ -575,7 +575,7 @@ int KIO__SkipDialog_HeightForWidth(const KIO__SkipDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KIO__SkipDialog_QBaseHeightForWidth(const KIO__SkipDialog* self, int param1) {
+int KIO__SkipDialog_SuperHeightForWidth(const KIO__SkipDialog* self, int param1) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_HeightForWidth_IsBase(true);
@@ -604,7 +604,7 @@ bool KIO__SkipDialog_HasHeightForWidth(const KIO__SkipDialog* self) {
 }
 
 // Base class handler implementation
-bool KIO__SkipDialog_QBaseHasHeightForWidth(const KIO__SkipDialog* self) {
+bool KIO__SkipDialog_SuperHasHeightForWidth(const KIO__SkipDialog* self) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_HasHeightForWidth_IsBase(true);
@@ -633,7 +633,7 @@ QPaintEngine* KIO__SkipDialog_PaintEngine(const KIO__SkipDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KIO__SkipDialog_QBasePaintEngine(const KIO__SkipDialog* self) {
+QPaintEngine* KIO__SkipDialog_SuperPaintEngine(const KIO__SkipDialog* self) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_PaintEngine_IsBase(true);
@@ -662,7 +662,7 @@ bool KIO__SkipDialog_Event(KIO__SkipDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KIO__SkipDialog_QBaseEvent(KIO__SkipDialog* self, QEvent* event) {
+bool KIO__SkipDialog_SuperEvent(KIO__SkipDialog* self, QEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_Event_IsBase(true);
@@ -691,7 +691,7 @@ void KIO__SkipDialog_MousePressEvent(KIO__SkipDialog* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseMousePressEvent(KIO__SkipDialog* self, QMouseEvent* event) {
+void KIO__SkipDialog_SuperMousePressEvent(KIO__SkipDialog* self, QMouseEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_MousePressEvent_IsBase(true);
@@ -720,7 +720,7 @@ void KIO__SkipDialog_MouseReleaseEvent(KIO__SkipDialog* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseMouseReleaseEvent(KIO__SkipDialog* self, QMouseEvent* event) {
+void KIO__SkipDialog_SuperMouseReleaseEvent(KIO__SkipDialog* self, QMouseEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_MouseReleaseEvent_IsBase(true);
@@ -749,7 +749,7 @@ void KIO__SkipDialog_MouseDoubleClickEvent(KIO__SkipDialog* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseMouseDoubleClickEvent(KIO__SkipDialog* self, QMouseEvent* event) {
+void KIO__SkipDialog_SuperMouseDoubleClickEvent(KIO__SkipDialog* self, QMouseEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_MouseDoubleClickEvent_IsBase(true);
@@ -778,7 +778,7 @@ void KIO__SkipDialog_MouseMoveEvent(KIO__SkipDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseMouseMoveEvent(KIO__SkipDialog* self, QMouseEvent* event) {
+void KIO__SkipDialog_SuperMouseMoveEvent(KIO__SkipDialog* self, QMouseEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_MouseMoveEvent_IsBase(true);
@@ -807,7 +807,7 @@ void KIO__SkipDialog_WheelEvent(KIO__SkipDialog* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseWheelEvent(KIO__SkipDialog* self, QWheelEvent* event) {
+void KIO__SkipDialog_SuperWheelEvent(KIO__SkipDialog* self, QWheelEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_WheelEvent_IsBase(true);
@@ -836,7 +836,7 @@ void KIO__SkipDialog_KeyReleaseEvent(KIO__SkipDialog* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseKeyReleaseEvent(KIO__SkipDialog* self, QKeyEvent* event) {
+void KIO__SkipDialog_SuperKeyReleaseEvent(KIO__SkipDialog* self, QKeyEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_KeyReleaseEvent_IsBase(true);
@@ -865,7 +865,7 @@ void KIO__SkipDialog_FocusInEvent(KIO__SkipDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseFocusInEvent(KIO__SkipDialog* self, QFocusEvent* event) {
+void KIO__SkipDialog_SuperFocusInEvent(KIO__SkipDialog* self, QFocusEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_FocusInEvent_IsBase(true);
@@ -894,7 +894,7 @@ void KIO__SkipDialog_FocusOutEvent(KIO__SkipDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseFocusOutEvent(KIO__SkipDialog* self, QFocusEvent* event) {
+void KIO__SkipDialog_SuperFocusOutEvent(KIO__SkipDialog* self, QFocusEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_FocusOutEvent_IsBase(true);
@@ -923,7 +923,7 @@ void KIO__SkipDialog_EnterEvent(KIO__SkipDialog* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseEnterEvent(KIO__SkipDialog* self, QEnterEvent* event) {
+void KIO__SkipDialog_SuperEnterEvent(KIO__SkipDialog* self, QEnterEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_EnterEvent_IsBase(true);
@@ -952,7 +952,7 @@ void KIO__SkipDialog_LeaveEvent(KIO__SkipDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseLeaveEvent(KIO__SkipDialog* self, QEvent* event) {
+void KIO__SkipDialog_SuperLeaveEvent(KIO__SkipDialog* self, QEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_LeaveEvent_IsBase(true);
@@ -981,7 +981,7 @@ void KIO__SkipDialog_PaintEvent(KIO__SkipDialog* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBasePaintEvent(KIO__SkipDialog* self, QPaintEvent* event) {
+void KIO__SkipDialog_SuperPaintEvent(KIO__SkipDialog* self, QPaintEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_PaintEvent_IsBase(true);
@@ -1010,7 +1010,7 @@ void KIO__SkipDialog_MoveEvent(KIO__SkipDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseMoveEvent(KIO__SkipDialog* self, QMoveEvent* event) {
+void KIO__SkipDialog_SuperMoveEvent(KIO__SkipDialog* self, QMoveEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_MoveEvent_IsBase(true);
@@ -1039,7 +1039,7 @@ void KIO__SkipDialog_TabletEvent(KIO__SkipDialog* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseTabletEvent(KIO__SkipDialog* self, QTabletEvent* event) {
+void KIO__SkipDialog_SuperTabletEvent(KIO__SkipDialog* self, QTabletEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_TabletEvent_IsBase(true);
@@ -1068,7 +1068,7 @@ void KIO__SkipDialog_ActionEvent(KIO__SkipDialog* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseActionEvent(KIO__SkipDialog* self, QActionEvent* event) {
+void KIO__SkipDialog_SuperActionEvent(KIO__SkipDialog* self, QActionEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_ActionEvent_IsBase(true);
@@ -1097,7 +1097,7 @@ void KIO__SkipDialog_DragEnterEvent(KIO__SkipDialog* self, QDragEnterEvent* even
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseDragEnterEvent(KIO__SkipDialog* self, QDragEnterEvent* event) {
+void KIO__SkipDialog_SuperDragEnterEvent(KIO__SkipDialog* self, QDragEnterEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_DragEnterEvent_IsBase(true);
@@ -1126,7 +1126,7 @@ void KIO__SkipDialog_DragMoveEvent(KIO__SkipDialog* self, QDragMoveEvent* event)
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseDragMoveEvent(KIO__SkipDialog* self, QDragMoveEvent* event) {
+void KIO__SkipDialog_SuperDragMoveEvent(KIO__SkipDialog* self, QDragMoveEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_DragMoveEvent_IsBase(true);
@@ -1155,7 +1155,7 @@ void KIO__SkipDialog_DragLeaveEvent(KIO__SkipDialog* self, QDragLeaveEvent* even
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseDragLeaveEvent(KIO__SkipDialog* self, QDragLeaveEvent* event) {
+void KIO__SkipDialog_SuperDragLeaveEvent(KIO__SkipDialog* self, QDragLeaveEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_DragLeaveEvent_IsBase(true);
@@ -1184,7 +1184,7 @@ void KIO__SkipDialog_DropEvent(KIO__SkipDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseDropEvent(KIO__SkipDialog* self, QDropEvent* event) {
+void KIO__SkipDialog_SuperDropEvent(KIO__SkipDialog* self, QDropEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_DropEvent_IsBase(true);
@@ -1213,7 +1213,7 @@ void KIO__SkipDialog_HideEvent(KIO__SkipDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseHideEvent(KIO__SkipDialog* self, QHideEvent* event) {
+void KIO__SkipDialog_SuperHideEvent(KIO__SkipDialog* self, QHideEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_HideEvent_IsBase(true);
@@ -1243,7 +1243,7 @@ bool KIO__SkipDialog_NativeEvent(KIO__SkipDialog* self, const libqt_string event
 }
 
 // Base class handler implementation
-bool KIO__SkipDialog_QBaseNativeEvent(KIO__SkipDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KIO__SkipDialog_SuperNativeEvent(KIO__SkipDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
@@ -1273,7 +1273,7 @@ void KIO__SkipDialog_ChangeEvent(KIO__SkipDialog* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseChangeEvent(KIO__SkipDialog* self, QEvent* param1) {
+void KIO__SkipDialog_SuperChangeEvent(KIO__SkipDialog* self, QEvent* param1) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_ChangeEvent_IsBase(true);
@@ -1302,7 +1302,7 @@ int KIO__SkipDialog_Metric(const KIO__SkipDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KIO__SkipDialog_QBaseMetric(const KIO__SkipDialog* self, int param1) {
+int KIO__SkipDialog_SuperMetric(const KIO__SkipDialog* self, int param1) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_Metric_IsBase(true);
@@ -1331,7 +1331,7 @@ void KIO__SkipDialog_InitPainter(const KIO__SkipDialog* self, QPainter* painter)
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseInitPainter(const KIO__SkipDialog* self, QPainter* painter) {
+void KIO__SkipDialog_SuperInitPainter(const KIO__SkipDialog* self, QPainter* painter) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_InitPainter_IsBase(true);
@@ -1360,7 +1360,7 @@ QPaintDevice* KIO__SkipDialog_Redirected(const KIO__SkipDialog* self, QPoint* of
 }
 
 // Base class handler implementation
-QPaintDevice* KIO__SkipDialog_QBaseRedirected(const KIO__SkipDialog* self, QPoint* offset) {
+QPaintDevice* KIO__SkipDialog_SuperRedirected(const KIO__SkipDialog* self, QPoint* offset) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_Redirected_IsBase(true);
@@ -1389,7 +1389,7 @@ QPainter* KIO__SkipDialog_SharedPainter(const KIO__SkipDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* KIO__SkipDialog_QBaseSharedPainter(const KIO__SkipDialog* self) {
+QPainter* KIO__SkipDialog_SuperSharedPainter(const KIO__SkipDialog* self) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_SharedPainter_IsBase(true);
@@ -1418,7 +1418,7 @@ void KIO__SkipDialog_InputMethodEvent(KIO__SkipDialog* self, QInputMethodEvent* 
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseInputMethodEvent(KIO__SkipDialog* self, QInputMethodEvent* param1) {
+void KIO__SkipDialog_SuperInputMethodEvent(KIO__SkipDialog* self, QInputMethodEvent* param1) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_InputMethodEvent_IsBase(true);
@@ -1447,7 +1447,7 @@ QVariant* KIO__SkipDialog_InputMethodQuery(const KIO__SkipDialog* self, int para
 }
 
 // Base class handler implementation
-QVariant* KIO__SkipDialog_QBaseInputMethodQuery(const KIO__SkipDialog* self, int param1) {
+QVariant* KIO__SkipDialog_SuperInputMethodQuery(const KIO__SkipDialog* self, int param1) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_InputMethodQuery_IsBase(true);
@@ -1476,7 +1476,7 @@ bool KIO__SkipDialog_FocusNextPrevChild(KIO__SkipDialog* self, bool next) {
 }
 
 // Base class handler implementation
-bool KIO__SkipDialog_QBaseFocusNextPrevChild(KIO__SkipDialog* self, bool next) {
+bool KIO__SkipDialog_SuperFocusNextPrevChild(KIO__SkipDialog* self, bool next) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_FocusNextPrevChild_IsBase(true);
@@ -1505,7 +1505,7 @@ void KIO__SkipDialog_TimerEvent(KIO__SkipDialog* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseTimerEvent(KIO__SkipDialog* self, QTimerEvent* event) {
+void KIO__SkipDialog_SuperTimerEvent(KIO__SkipDialog* self, QTimerEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_TimerEvent_IsBase(true);
@@ -1534,7 +1534,7 @@ void KIO__SkipDialog_ChildEvent(KIO__SkipDialog* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseChildEvent(KIO__SkipDialog* self, QChildEvent* event) {
+void KIO__SkipDialog_SuperChildEvent(KIO__SkipDialog* self, QChildEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_ChildEvent_IsBase(true);
@@ -1563,7 +1563,7 @@ void KIO__SkipDialog_CustomEvent(KIO__SkipDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseCustomEvent(KIO__SkipDialog* self, QEvent* event) {
+void KIO__SkipDialog_SuperCustomEvent(KIO__SkipDialog* self, QEvent* event) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_CustomEvent_IsBase(true);
@@ -1592,7 +1592,7 @@ void KIO__SkipDialog_ConnectNotify(KIO__SkipDialog* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseConnectNotify(KIO__SkipDialog* self, const QMetaMethod* signal) {
+void KIO__SkipDialog_SuperConnectNotify(KIO__SkipDialog* self, const QMetaMethod* signal) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_ConnectNotify_IsBase(true);
@@ -1621,7 +1621,7 @@ void KIO__SkipDialog_DisconnectNotify(KIO__SkipDialog* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseDisconnectNotify(KIO__SkipDialog* self, const QMetaMethod* signal) {
+void KIO__SkipDialog_SuperDisconnectNotify(KIO__SkipDialog* self, const QMetaMethod* signal) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_DisconnectNotify_IsBase(true);
@@ -1650,7 +1650,7 @@ void KIO__SkipDialog_AdjustPosition(KIO__SkipDialog* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseAdjustPosition(KIO__SkipDialog* self, QWidget* param1) {
+void KIO__SkipDialog_SuperAdjustPosition(KIO__SkipDialog* self, QWidget* param1) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_AdjustPosition_IsBase(true);
@@ -1679,7 +1679,7 @@ void KIO__SkipDialog_UpdateMicroFocus(KIO__SkipDialog* self) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseUpdateMicroFocus(KIO__SkipDialog* self) {
+void KIO__SkipDialog_SuperUpdateMicroFocus(KIO__SkipDialog* self) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_UpdateMicroFocus_IsBase(true);
@@ -1708,7 +1708,7 @@ void KIO__SkipDialog_Create(KIO__SkipDialog* self) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseCreate(KIO__SkipDialog* self) {
+void KIO__SkipDialog_SuperCreate(KIO__SkipDialog* self) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_Create_IsBase(true);
@@ -1737,7 +1737,7 @@ void KIO__SkipDialog_Destroy(KIO__SkipDialog* self) {
 }
 
 // Base class handler implementation
-void KIO__SkipDialog_QBaseDestroy(KIO__SkipDialog* self) {
+void KIO__SkipDialog_SuperDestroy(KIO__SkipDialog* self) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_Destroy_IsBase(true);
@@ -1766,7 +1766,7 @@ bool KIO__SkipDialog_FocusNextChild(KIO__SkipDialog* self) {
 }
 
 // Base class handler implementation
-bool KIO__SkipDialog_QBaseFocusNextChild(KIO__SkipDialog* self) {
+bool KIO__SkipDialog_SuperFocusNextChild(KIO__SkipDialog* self) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_FocusNextChild_IsBase(true);
@@ -1795,7 +1795,7 @@ bool KIO__SkipDialog_FocusPreviousChild(KIO__SkipDialog* self) {
 }
 
 // Base class handler implementation
-bool KIO__SkipDialog_QBaseFocusPreviousChild(KIO__SkipDialog* self) {
+bool KIO__SkipDialog_SuperFocusPreviousChild(KIO__SkipDialog* self) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_FocusPreviousChild_IsBase(true);
@@ -1824,7 +1824,7 @@ QObject* KIO__SkipDialog_Sender(const KIO__SkipDialog* self) {
 }
 
 // Base class handler implementation
-QObject* KIO__SkipDialog_QBaseSender(const KIO__SkipDialog* self) {
+QObject* KIO__SkipDialog_SuperSender(const KIO__SkipDialog* self) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_Sender_IsBase(true);
@@ -1853,7 +1853,7 @@ int KIO__SkipDialog_SenderSignalIndex(const KIO__SkipDialog* self) {
 }
 
 // Base class handler implementation
-int KIO__SkipDialog_QBaseSenderSignalIndex(const KIO__SkipDialog* self) {
+int KIO__SkipDialog_SuperSenderSignalIndex(const KIO__SkipDialog* self) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_SenderSignalIndex_IsBase(true);
@@ -1882,7 +1882,7 @@ int KIO__SkipDialog_Receivers(const KIO__SkipDialog* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KIO__SkipDialog_QBaseReceivers(const KIO__SkipDialog* self, const char* signal) {
+int KIO__SkipDialog_SuperReceivers(const KIO__SkipDialog* self, const char* signal) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_Receivers_IsBase(true);
@@ -1911,7 +1911,7 @@ bool KIO__SkipDialog_IsSignalConnected(const KIO__SkipDialog* self, const QMetaM
 }
 
 // Base class handler implementation
-bool KIO__SkipDialog_QBaseIsSignalConnected(const KIO__SkipDialog* self, const QMetaMethod* signal) {
+bool KIO__SkipDialog_SuperIsSignalConnected(const KIO__SkipDialog* self, const QMetaMethod* signal) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_IsSignalConnected_IsBase(true);
@@ -1940,7 +1940,7 @@ double KIO__SkipDialog_GetDecodedMetricF(const KIO__SkipDialog* self, int metric
 }
 
 // Base class handler implementation
-double KIO__SkipDialog_QBaseGetDecodedMetricF(const KIO__SkipDialog* self, int metricA, int metricB) {
+double KIO__SkipDialog_SuperGetDecodedMetricF(const KIO__SkipDialog* self, int metricA, int metricB) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
     if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
         vkioskipdialog->setKIO__SkipDialog_GetDecodedMetricF_IsBase(true);

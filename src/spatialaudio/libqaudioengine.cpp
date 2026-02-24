@@ -180,7 +180,7 @@ void QAudioEngine_Resume(QAudioEngine* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QAudioEngine_QBaseMetaObject(const QAudioEngine* self) {
+QMetaObject* QAudioEngine_SuperMetaObject(const QAudioEngine* self) {
     auto* vqaudioengine = const_cast<VirtualQAudioEngine*>(dynamic_cast<const VirtualQAudioEngine*>(self));
     if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
         vqaudioengine->setQAudioEngine_MetaObject_IsBase(true);
@@ -199,7 +199,7 @@ void QAudioEngine_OnMetaObject(const QAudioEngine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QAudioEngine_QBaseMetacast(QAudioEngine* self, const char* param1) {
+void* QAudioEngine_SuperMetacast(QAudioEngine* self, const char* param1) {
     auto* vqaudioengine = dynamic_cast<VirtualQAudioEngine*>(self);
     if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
         vqaudioengine->setQAudioEngine_Metacast_IsBase(true);
@@ -218,7 +218,7 @@ void QAudioEngine_OnMetacast(QAudioEngine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAudioEngine_QBaseMetacall(QAudioEngine* self, int param1, int param2, void** param3) {
+int QAudioEngine_SuperMetacall(QAudioEngine* self, int param1, int param2, void** param3) {
     auto* vqaudioengine = dynamic_cast<VirtualQAudioEngine*>(self);
     if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
         vqaudioengine->setQAudioEngine_Metacall_IsBase(true);
@@ -247,7 +247,7 @@ bool QAudioEngine_Event(QAudioEngine* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QAudioEngine_QBaseEvent(QAudioEngine* self, QEvent* event) {
+bool QAudioEngine_SuperEvent(QAudioEngine* self, QEvent* event) {
     auto* vqaudioengine = dynamic_cast<VirtualQAudioEngine*>(self);
     if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
         vqaudioengine->setQAudioEngine_Event_IsBase(true);
@@ -276,7 +276,7 @@ bool QAudioEngine_EventFilter(QAudioEngine* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool QAudioEngine_QBaseEventFilter(QAudioEngine* self, QObject* watched, QEvent* event) {
+bool QAudioEngine_SuperEventFilter(QAudioEngine* self, QObject* watched, QEvent* event) {
     auto* vqaudioengine = dynamic_cast<VirtualQAudioEngine*>(self);
     if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
         vqaudioengine->setQAudioEngine_EventFilter_IsBase(true);
@@ -305,7 +305,7 @@ void QAudioEngine_TimerEvent(QAudioEngine* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QAudioEngine_QBaseTimerEvent(QAudioEngine* self, QTimerEvent* event) {
+void QAudioEngine_SuperTimerEvent(QAudioEngine* self, QTimerEvent* event) {
     auto* vqaudioengine = dynamic_cast<VirtualQAudioEngine*>(self);
     if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
         vqaudioengine->setQAudioEngine_TimerEvent_IsBase(true);
@@ -334,7 +334,7 @@ void QAudioEngine_ChildEvent(QAudioEngine* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QAudioEngine_QBaseChildEvent(QAudioEngine* self, QChildEvent* event) {
+void QAudioEngine_SuperChildEvent(QAudioEngine* self, QChildEvent* event) {
     auto* vqaudioengine = dynamic_cast<VirtualQAudioEngine*>(self);
     if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
         vqaudioengine->setQAudioEngine_ChildEvent_IsBase(true);
@@ -363,7 +363,7 @@ void QAudioEngine_CustomEvent(QAudioEngine* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QAudioEngine_QBaseCustomEvent(QAudioEngine* self, QEvent* event) {
+void QAudioEngine_SuperCustomEvent(QAudioEngine* self, QEvent* event) {
     auto* vqaudioengine = dynamic_cast<VirtualQAudioEngine*>(self);
     if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
         vqaudioengine->setQAudioEngine_CustomEvent_IsBase(true);
@@ -392,7 +392,7 @@ void QAudioEngine_ConnectNotify(QAudioEngine* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QAudioEngine_QBaseConnectNotify(QAudioEngine* self, const QMetaMethod* signal) {
+void QAudioEngine_SuperConnectNotify(QAudioEngine* self, const QMetaMethod* signal) {
     auto* vqaudioengine = dynamic_cast<VirtualQAudioEngine*>(self);
     if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
         vqaudioengine->setQAudioEngine_ConnectNotify_IsBase(true);
@@ -421,7 +421,7 @@ void QAudioEngine_DisconnectNotify(QAudioEngine* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QAudioEngine_QBaseDisconnectNotify(QAudioEngine* self, const QMetaMethod* signal) {
+void QAudioEngine_SuperDisconnectNotify(QAudioEngine* self, const QMetaMethod* signal) {
     auto* vqaudioengine = dynamic_cast<VirtualQAudioEngine*>(self);
     if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
         vqaudioengine->setQAudioEngine_DisconnectNotify_IsBase(true);
@@ -450,7 +450,7 @@ QObject* QAudioEngine_Sender(const QAudioEngine* self) {
 }
 
 // Base class handler implementation
-QObject* QAudioEngine_QBaseSender(const QAudioEngine* self) {
+QObject* QAudioEngine_SuperSender(const QAudioEngine* self) {
     auto* vqaudioengine = const_cast<VirtualQAudioEngine*>(dynamic_cast<const VirtualQAudioEngine*>(self));
     if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
         vqaudioengine->setQAudioEngine_Sender_IsBase(true);
@@ -479,7 +479,7 @@ int QAudioEngine_SenderSignalIndex(const QAudioEngine* self) {
 }
 
 // Base class handler implementation
-int QAudioEngine_QBaseSenderSignalIndex(const QAudioEngine* self) {
+int QAudioEngine_SuperSenderSignalIndex(const QAudioEngine* self) {
     auto* vqaudioengine = const_cast<VirtualQAudioEngine*>(dynamic_cast<const VirtualQAudioEngine*>(self));
     if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
         vqaudioengine->setQAudioEngine_SenderSignalIndex_IsBase(true);
@@ -508,7 +508,7 @@ int QAudioEngine_Receivers(const QAudioEngine* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QAudioEngine_QBaseReceivers(const QAudioEngine* self, const char* signal) {
+int QAudioEngine_SuperReceivers(const QAudioEngine* self, const char* signal) {
     auto* vqaudioengine = const_cast<VirtualQAudioEngine*>(dynamic_cast<const VirtualQAudioEngine*>(self));
     if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
         vqaudioengine->setQAudioEngine_Receivers_IsBase(true);
@@ -537,7 +537,7 @@ bool QAudioEngine_IsSignalConnected(const QAudioEngine* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QAudioEngine_QBaseIsSignalConnected(const QAudioEngine* self, const QMetaMethod* signal) {
+bool QAudioEngine_SuperIsSignalConnected(const QAudioEngine* self, const QMetaMethod* signal) {
     auto* vqaudioengine = const_cast<VirtualQAudioEngine*>(dynamic_cast<const VirtualQAudioEngine*>(self));
     if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
         vqaudioengine->setQAudioEngine_IsSignalConnected_IsBase(true);

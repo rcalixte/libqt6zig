@@ -62,6 +62,10 @@ pub const qinputevent = struct {
         qtc.QInputEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputevent.html#clone)
     ///
     /// Base class method implementation
@@ -70,8 +74,8 @@ pub const qinputevent = struct {
     ///
     /// ` self: QtC.QInputEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QInputEvent {
-        return qtc.QInputEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QInputEvent {
+        return qtc.QInputEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputevent.html#device)
@@ -160,6 +164,10 @@ pub const qinputevent = struct {
         qtc.QInputEvent_OnSetTimestamp(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTimestamp` instead
+    ///
+    pub const QBaseSetTimestamp = SuperSetTimestamp;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputevent.html#setTimestamp)
     ///
     /// Base class method implementation
@@ -170,8 +178,8 @@ pub const qinputevent = struct {
     ///
     /// ` timestamp: u64 `
     ///
-    pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QInputEvent_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
+    pub fn SuperSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
+        qtc.QInputEvent_SuperSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QEvent
@@ -310,6 +318,10 @@ pub const qinputevent = struct {
         qtc.QInputEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -322,8 +334,8 @@ pub const qinputevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QInputEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QInputEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -341,6 +353,9 @@ pub const qinputevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QInputEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputevent.html#dtor.QInputEvent)
     ///
@@ -350,7 +365,7 @@ pub const qinputevent = struct {
     ///
     /// ` self: QtC.QInputEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QInputEvent_Delete(@ptrCast(self));
     }
 };
@@ -428,6 +443,10 @@ pub const qpointerevent = struct {
         qtc.QPointerEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#clone)
     ///
     /// Base class method implementation
@@ -436,8 +455,8 @@ pub const qpointerevent = struct {
     ///
     /// ` self: QtC.QPointerEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QPointerEvent {
-        return qtc.QPointerEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QPointerEvent {
+        return qtc.QPointerEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#pointingDevice)
@@ -490,6 +509,10 @@ pub const qpointerevent = struct {
         qtc.QPointerEvent_OnSetTimestamp(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTimestamp` instead
+    ///
+    pub const QBaseSetTimestamp = SuperSetTimestamp;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#setTimestamp)
     ///
     /// Base class method implementation
@@ -500,8 +523,8 @@ pub const qpointerevent = struct {
     ///
     /// ` timestamp: u64 `
     ///
-    pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QPointerEvent_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
+    pub fn SuperSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
+        qtc.QPointerEvent_SuperSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#pointCount)
@@ -589,6 +612,10 @@ pub const qpointerevent = struct {
         qtc.QPointerEvent_OnIsBeginEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsBeginEvent` instead
+    ///
+    pub const QBaseIsBeginEvent = SuperIsBeginEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#isBeginEvent)
     ///
     /// Base class method implementation
@@ -597,8 +624,8 @@ pub const qpointerevent = struct {
     ///
     /// ` self: QtC.QPointerEvent `
     ///
-    pub fn QBaseIsBeginEvent(self: ?*anyopaque) bool {
-        return qtc.QPointerEvent_QBaseIsBeginEvent(@ptrCast(self));
+    pub fn SuperIsBeginEvent(self: ?*anyopaque) bool {
+        return qtc.QPointerEvent_SuperIsBeginEvent(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#isUpdateEvent)
@@ -625,6 +652,10 @@ pub const qpointerevent = struct {
         qtc.QPointerEvent_OnIsUpdateEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsUpdateEvent` instead
+    ///
+    pub const QBaseIsUpdateEvent = SuperIsUpdateEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#isUpdateEvent)
     ///
     /// Base class method implementation
@@ -633,8 +664,8 @@ pub const qpointerevent = struct {
     ///
     /// ` self: QtC.QPointerEvent `
     ///
-    pub fn QBaseIsUpdateEvent(self: ?*anyopaque) bool {
-        return qtc.QPointerEvent_QBaseIsUpdateEvent(@ptrCast(self));
+    pub fn SuperIsUpdateEvent(self: ?*anyopaque) bool {
+        return qtc.QPointerEvent_SuperIsUpdateEvent(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#isEndEvent)
@@ -661,6 +692,10 @@ pub const qpointerevent = struct {
         qtc.QPointerEvent_OnIsEndEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsEndEvent` instead
+    ///
+    pub const QBaseIsEndEvent = SuperIsEndEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#isEndEvent)
     ///
     /// Base class method implementation
@@ -669,8 +704,8 @@ pub const qpointerevent = struct {
     ///
     /// ` self: QtC.QPointerEvent `
     ///
-    pub fn QBaseIsEndEvent(self: ?*anyopaque) bool {
-        return qtc.QPointerEvent_QBaseIsEndEvent(@ptrCast(self));
+    pub fn SuperIsEndEvent(self: ?*anyopaque) bool {
+        return qtc.QPointerEvent_SuperIsEndEvent(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#allPointsAccepted)
@@ -709,6 +744,10 @@ pub const qpointerevent = struct {
         qtc.QPointerEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#setAccepted)
     ///
     /// Base class method implementation
@@ -719,8 +758,8 @@ pub const qpointerevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QPointerEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QPointerEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#exclusiveGrabber)
@@ -979,6 +1018,10 @@ pub const qpointerevent = struct {
         return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#dtor.QPointerEvent)
     ///
     /// Delete this object from C++ memory.
@@ -987,7 +1030,7 @@ pub const qpointerevent = struct {
     ///
     /// ` self: QtC.QPointerEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPointerEvent_Delete(@ptrCast(self));
     }
 };
@@ -1519,6 +1562,10 @@ pub const qsinglepointevent = struct {
         return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsinglepointevent.html#dtor.QSinglePointEvent)
     ///
     /// Delete this object from C++ memory.
@@ -1527,7 +1574,7 @@ pub const qsinglepointevent = struct {
     ///
     /// ` self: QtC.QSinglePointEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSinglePointEvent_Delete(@ptrCast(self));
     }
 };
@@ -1588,6 +1635,10 @@ pub const qenterevent = struct {
         qtc.QEnterEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qenterevent.html#clone)
     ///
     /// Base class method implementation
@@ -1596,8 +1647,8 @@ pub const qenterevent = struct {
     ///
     /// ` self: QtC.QEnterEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QEnterEvent {
-        return qtc.QEnterEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QEnterEvent {
+        return qtc.QEnterEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qenterevent.html#pos)
@@ -2175,6 +2226,10 @@ pub const qenterevent = struct {
         return qtc.QEnterEvent_IsBeginEvent(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsBeginEvent` instead
+    ///
+    pub const QBaseIsBeginEvent = SuperIsBeginEvent;
+
     /// Inherited from QSinglePointEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsinglepointevent.html#isBeginEvent)
@@ -2185,8 +2240,8 @@ pub const qenterevent = struct {
     ///
     /// ` self: QtC.QEnterEvent `
     ///
-    pub fn QBaseIsBeginEvent(self: ?*anyopaque) bool {
-        return qtc.QEnterEvent_QBaseIsBeginEvent(@ptrCast(self));
+    pub fn SuperIsBeginEvent(self: ?*anyopaque) bool {
+        return qtc.QEnterEvent_SuperIsBeginEvent(@ptrCast(self));
     }
 
     /// Inherited from QSinglePointEvent
@@ -2219,6 +2274,10 @@ pub const qenterevent = struct {
         return qtc.QEnterEvent_IsUpdateEvent(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsUpdateEvent` instead
+    ///
+    pub const QBaseIsUpdateEvent = SuperIsUpdateEvent;
+
     /// Inherited from QSinglePointEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsinglepointevent.html#isUpdateEvent)
@@ -2229,8 +2288,8 @@ pub const qenterevent = struct {
     ///
     /// ` self: QtC.QEnterEvent `
     ///
-    pub fn QBaseIsUpdateEvent(self: ?*anyopaque) bool {
-        return qtc.QEnterEvent_QBaseIsUpdateEvent(@ptrCast(self));
+    pub fn SuperIsUpdateEvent(self: ?*anyopaque) bool {
+        return qtc.QEnterEvent_SuperIsUpdateEvent(@ptrCast(self));
     }
 
     /// Inherited from QSinglePointEvent
@@ -2263,6 +2322,10 @@ pub const qenterevent = struct {
         return qtc.QEnterEvent_IsEndEvent(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsEndEvent` instead
+    ///
+    pub const QBaseIsEndEvent = SuperIsEndEvent;
+
     /// Inherited from QSinglePointEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsinglepointevent.html#isEndEvent)
@@ -2273,8 +2336,8 @@ pub const qenterevent = struct {
     ///
     /// ` self: QtC.QEnterEvent `
     ///
-    pub fn QBaseIsEndEvent(self: ?*anyopaque) bool {
-        return qtc.QEnterEvent_QBaseIsEndEvent(@ptrCast(self));
+    pub fn SuperIsEndEvent(self: ?*anyopaque) bool {
+        return qtc.QEnterEvent_SuperIsEndEvent(@ptrCast(self));
     }
 
     /// Inherited from QSinglePointEvent
@@ -2309,6 +2372,10 @@ pub const qenterevent = struct {
         qtc.QEnterEvent_SetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTimestamp` instead
+    ///
+    pub const QBaseSetTimestamp = SuperSetTimestamp;
+
     /// Inherited from QPointerEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#setTimestamp)
@@ -2321,8 +2388,8 @@ pub const qenterevent = struct {
     ///
     /// ` timestamp: u64 `
     ///
-    pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QEnterEvent_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
+    pub fn SuperSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
+        qtc.QEnterEvent_SuperSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QPointerEvent
@@ -2357,6 +2424,10 @@ pub const qenterevent = struct {
         qtc.QEnterEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QPointerEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#setAccepted)
@@ -2369,8 +2440,8 @@ pub const qenterevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QEnterEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QEnterEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QPointerEvent
@@ -2388,6 +2459,9 @@ pub const qenterevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QEnterEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qenterevent.html#dtor.QEnterEvent)
     ///
@@ -2397,7 +2471,7 @@ pub const qenterevent = struct {
     ///
     /// ` self: QtC.QEnterEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QEnterEvent_Delete(@ptrCast(self));
     }
 };
@@ -2604,6 +2678,10 @@ pub const qmouseevent = struct {
         qtc.QMouseEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmouseevent.html#clone)
     ///
     /// Base class method implementation
@@ -2612,8 +2690,8 @@ pub const qmouseevent = struct {
     ///
     /// ` self: QtC.QMouseEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QMouseEvent {
-        return qtc.QMouseEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QMouseEvent {
+        return qtc.QMouseEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmouseevent.html#pos)
@@ -3219,6 +3297,10 @@ pub const qmouseevent = struct {
         return qtc.QMouseEvent_IsBeginEvent(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsBeginEvent` instead
+    ///
+    pub const QBaseIsBeginEvent = SuperIsBeginEvent;
+
     /// Inherited from QSinglePointEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsinglepointevent.html#isBeginEvent)
@@ -3229,8 +3311,8 @@ pub const qmouseevent = struct {
     ///
     /// ` self: QtC.QMouseEvent `
     ///
-    pub fn QBaseIsBeginEvent(self: ?*anyopaque) bool {
-        return qtc.QMouseEvent_QBaseIsBeginEvent(@ptrCast(self));
+    pub fn SuperIsBeginEvent(self: ?*anyopaque) bool {
+        return qtc.QMouseEvent_SuperIsBeginEvent(@ptrCast(self));
     }
 
     /// Inherited from QSinglePointEvent
@@ -3263,6 +3345,10 @@ pub const qmouseevent = struct {
         return qtc.QMouseEvent_IsUpdateEvent(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsUpdateEvent` instead
+    ///
+    pub const QBaseIsUpdateEvent = SuperIsUpdateEvent;
+
     /// Inherited from QSinglePointEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsinglepointevent.html#isUpdateEvent)
@@ -3273,8 +3359,8 @@ pub const qmouseevent = struct {
     ///
     /// ` self: QtC.QMouseEvent `
     ///
-    pub fn QBaseIsUpdateEvent(self: ?*anyopaque) bool {
-        return qtc.QMouseEvent_QBaseIsUpdateEvent(@ptrCast(self));
+    pub fn SuperIsUpdateEvent(self: ?*anyopaque) bool {
+        return qtc.QMouseEvent_SuperIsUpdateEvent(@ptrCast(self));
     }
 
     /// Inherited from QSinglePointEvent
@@ -3307,6 +3393,10 @@ pub const qmouseevent = struct {
         return qtc.QMouseEvent_IsEndEvent(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsEndEvent` instead
+    ///
+    pub const QBaseIsEndEvent = SuperIsEndEvent;
+
     /// Inherited from QSinglePointEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsinglepointevent.html#isEndEvent)
@@ -3317,8 +3407,8 @@ pub const qmouseevent = struct {
     ///
     /// ` self: QtC.QMouseEvent `
     ///
-    pub fn QBaseIsEndEvent(self: ?*anyopaque) bool {
-        return qtc.QMouseEvent_QBaseIsEndEvent(@ptrCast(self));
+    pub fn SuperIsEndEvent(self: ?*anyopaque) bool {
+        return qtc.QMouseEvent_SuperIsEndEvent(@ptrCast(self));
     }
 
     /// Inherited from QSinglePointEvent
@@ -3353,6 +3443,10 @@ pub const qmouseevent = struct {
         qtc.QMouseEvent_SetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTimestamp` instead
+    ///
+    pub const QBaseSetTimestamp = SuperSetTimestamp;
+
     /// Inherited from QPointerEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#setTimestamp)
@@ -3365,8 +3459,8 @@ pub const qmouseevent = struct {
     ///
     /// ` timestamp: u64 `
     ///
-    pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QMouseEvent_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
+    pub fn SuperSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
+        qtc.QMouseEvent_SuperSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QPointerEvent
@@ -3401,6 +3495,10 @@ pub const qmouseevent = struct {
         qtc.QMouseEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QPointerEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#setAccepted)
@@ -3413,8 +3511,8 @@ pub const qmouseevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QMouseEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QMouseEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QPointerEvent
@@ -3432,6 +3530,9 @@ pub const qmouseevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QMouseEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmouseevent.html#dtor.QMouseEvent)
     ///
@@ -3441,7 +3542,7 @@ pub const qmouseevent = struct {
     ///
     /// ` self: QtC.QMouseEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMouseEvent_Delete(@ptrCast(self));
     }
 };
@@ -3574,6 +3675,10 @@ pub const qhoverevent = struct {
         qtc.QHoverEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhoverevent.html#clone)
     ///
     /// Base class method implementation
@@ -3582,8 +3687,8 @@ pub const qhoverevent = struct {
     ///
     /// ` self: QtC.QHoverEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QHoverEvent {
-        return qtc.QHoverEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QHoverEvent {
+        return qtc.QHoverEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhoverevent.html#pos)
@@ -3630,6 +3735,10 @@ pub const qhoverevent = struct {
         qtc.QHoverEvent_OnIsUpdateEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsUpdateEvent` instead
+    ///
+    pub const QBaseIsUpdateEvent = SuperIsUpdateEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhoverevent.html#isUpdateEvent)
     ///
     /// Base class method implementation
@@ -3638,8 +3747,8 @@ pub const qhoverevent = struct {
     ///
     /// ` self: QtC.QHoverEvent `
     ///
-    pub fn QBaseIsUpdateEvent(self: ?*anyopaque) bool {
-        return qtc.QHoverEvent_QBaseIsUpdateEvent(@ptrCast(self));
+    pub fn SuperIsUpdateEvent(self: ?*anyopaque) bool {
+        return qtc.QHoverEvent_SuperIsUpdateEvent(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhoverevent.html#oldPos)
@@ -4147,6 +4256,10 @@ pub const qhoverevent = struct {
         return qtc.QHoverEvent_IsBeginEvent(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsBeginEvent` instead
+    ///
+    pub const QBaseIsBeginEvent = SuperIsBeginEvent;
+
     /// Inherited from QSinglePointEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsinglepointevent.html#isBeginEvent)
@@ -4157,8 +4270,8 @@ pub const qhoverevent = struct {
     ///
     /// ` self: QtC.QHoverEvent `
     ///
-    pub fn QBaseIsBeginEvent(self: ?*anyopaque) bool {
-        return qtc.QHoverEvent_QBaseIsBeginEvent(@ptrCast(self));
+    pub fn SuperIsBeginEvent(self: ?*anyopaque) bool {
+        return qtc.QHoverEvent_SuperIsBeginEvent(@ptrCast(self));
     }
 
     /// Inherited from QSinglePointEvent
@@ -4191,6 +4304,10 @@ pub const qhoverevent = struct {
         return qtc.QHoverEvent_IsEndEvent(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsEndEvent` instead
+    ///
+    pub const QBaseIsEndEvent = SuperIsEndEvent;
+
     /// Inherited from QSinglePointEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsinglepointevent.html#isEndEvent)
@@ -4201,8 +4318,8 @@ pub const qhoverevent = struct {
     ///
     /// ` self: QtC.QHoverEvent `
     ///
-    pub fn QBaseIsEndEvent(self: ?*anyopaque) bool {
-        return qtc.QHoverEvent_QBaseIsEndEvent(@ptrCast(self));
+    pub fn SuperIsEndEvent(self: ?*anyopaque) bool {
+        return qtc.QHoverEvent_SuperIsEndEvent(@ptrCast(self));
     }
 
     /// Inherited from QSinglePointEvent
@@ -4237,6 +4354,10 @@ pub const qhoverevent = struct {
         qtc.QHoverEvent_SetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTimestamp` instead
+    ///
+    pub const QBaseSetTimestamp = SuperSetTimestamp;
+
     /// Inherited from QPointerEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#setTimestamp)
@@ -4249,8 +4370,8 @@ pub const qhoverevent = struct {
     ///
     /// ` timestamp: u64 `
     ///
-    pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QHoverEvent_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
+    pub fn SuperSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
+        qtc.QHoverEvent_SuperSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QPointerEvent
@@ -4285,6 +4406,10 @@ pub const qhoverevent = struct {
         qtc.QHoverEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QPointerEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#setAccepted)
@@ -4297,8 +4422,8 @@ pub const qhoverevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QHoverEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QHoverEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QPointerEvent
@@ -4316,6 +4441,9 @@ pub const qhoverevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QHoverEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhoverevent.html#dtor.QHoverEvent)
     ///
@@ -4325,7 +4453,7 @@ pub const qhoverevent = struct {
     ///
     /// ` self: QtC.QHoverEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QHoverEvent_Delete(@ptrCast(self));
     }
 };
@@ -4434,6 +4562,10 @@ pub const qwheelevent = struct {
         qtc.QWheelEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwheelevent.html#clone)
     ///
     /// Base class method implementation
@@ -4442,8 +4574,8 @@ pub const qwheelevent = struct {
     ///
     /// ` self: QtC.QWheelEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QWheelEvent {
-        return qtc.QWheelEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QWheelEvent {
+        return qtc.QWheelEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwheelevent.html#pixelDelta)
@@ -4534,6 +4666,10 @@ pub const qwheelevent = struct {
         qtc.QWheelEvent_OnIsBeginEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsBeginEvent` instead
+    ///
+    pub const QBaseIsBeginEvent = SuperIsBeginEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwheelevent.html#isBeginEvent)
     ///
     /// Base class method implementation
@@ -4542,8 +4678,8 @@ pub const qwheelevent = struct {
     ///
     /// ` self: QtC.QWheelEvent `
     ///
-    pub fn QBaseIsBeginEvent(self: ?*anyopaque) bool {
-        return qtc.QWheelEvent_QBaseIsBeginEvent(@ptrCast(self));
+    pub fn SuperIsBeginEvent(self: ?*anyopaque) bool {
+        return qtc.QWheelEvent_SuperIsBeginEvent(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwheelevent.html#isUpdateEvent)
@@ -4570,6 +4706,10 @@ pub const qwheelevent = struct {
         qtc.QWheelEvent_OnIsUpdateEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsUpdateEvent` instead
+    ///
+    pub const QBaseIsUpdateEvent = SuperIsUpdateEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwheelevent.html#isUpdateEvent)
     ///
     /// Base class method implementation
@@ -4578,8 +4718,8 @@ pub const qwheelevent = struct {
     ///
     /// ` self: QtC.QWheelEvent `
     ///
-    pub fn QBaseIsUpdateEvent(self: ?*anyopaque) bool {
-        return qtc.QWheelEvent_QBaseIsUpdateEvent(@ptrCast(self));
+    pub fn SuperIsUpdateEvent(self: ?*anyopaque) bool {
+        return qtc.QWheelEvent_SuperIsUpdateEvent(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwheelevent.html#isEndEvent)
@@ -4606,6 +4746,10 @@ pub const qwheelevent = struct {
         qtc.QWheelEvent_OnIsEndEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsEndEvent` instead
+    ///
+    pub const QBaseIsEndEvent = SuperIsEndEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwheelevent.html#isEndEvent)
     ///
     /// Base class method implementation
@@ -4614,8 +4758,8 @@ pub const qwheelevent = struct {
     ///
     /// ` self: QtC.QWheelEvent `
     ///
-    pub fn QBaseIsEndEvent(self: ?*anyopaque) bool {
-        return qtc.QWheelEvent_QBaseIsEndEvent(@ptrCast(self));
+    pub fn SuperIsEndEvent(self: ?*anyopaque) bool {
+        return qtc.QWheelEvent_SuperIsEndEvent(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwheelevent.html#source)
@@ -5119,6 +5263,10 @@ pub const qwheelevent = struct {
         qtc.QWheelEvent_SetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTimestamp` instead
+    ///
+    pub const QBaseSetTimestamp = SuperSetTimestamp;
+
     /// Inherited from QPointerEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#setTimestamp)
@@ -5131,8 +5279,8 @@ pub const qwheelevent = struct {
     ///
     /// ` timestamp: u64 `
     ///
-    pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QWheelEvent_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
+    pub fn SuperSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
+        qtc.QWheelEvent_SuperSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QPointerEvent
@@ -5167,6 +5315,10 @@ pub const qwheelevent = struct {
         qtc.QWheelEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QPointerEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#setAccepted)
@@ -5179,8 +5331,8 @@ pub const qwheelevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QWheelEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QWheelEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QPointerEvent
@@ -5198,6 +5350,9 @@ pub const qwheelevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QWheelEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwheelevent.html#dtor.QWheelEvent)
     ///
@@ -5207,7 +5362,7 @@ pub const qwheelevent = struct {
     ///
     /// ` self: QtC.QWheelEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWheelEvent_Delete(@ptrCast(self));
     }
 };
@@ -5272,6 +5427,10 @@ pub const qtabletevent = struct {
         qtc.QTabletEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabletevent.html#clone)
     ///
     /// Base class method implementation
@@ -5280,8 +5439,8 @@ pub const qtabletevent = struct {
     ///
     /// ` self: QtC.QTabletEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QTabletEvent {
-        return qtc.QTabletEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QTabletEvent {
+        return qtc.QTabletEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabletevent.html#pos)
@@ -5939,6 +6098,10 @@ pub const qtabletevent = struct {
         return qtc.QTabletEvent_IsBeginEvent(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsBeginEvent` instead
+    ///
+    pub const QBaseIsBeginEvent = SuperIsBeginEvent;
+
     /// Inherited from QSinglePointEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsinglepointevent.html#isBeginEvent)
@@ -5949,8 +6112,8 @@ pub const qtabletevent = struct {
     ///
     /// ` self: QtC.QTabletEvent `
     ///
-    pub fn QBaseIsBeginEvent(self: ?*anyopaque) bool {
-        return qtc.QTabletEvent_QBaseIsBeginEvent(@ptrCast(self));
+    pub fn SuperIsBeginEvent(self: ?*anyopaque) bool {
+        return qtc.QTabletEvent_SuperIsBeginEvent(@ptrCast(self));
     }
 
     /// Inherited from QSinglePointEvent
@@ -5983,6 +6146,10 @@ pub const qtabletevent = struct {
         return qtc.QTabletEvent_IsUpdateEvent(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsUpdateEvent` instead
+    ///
+    pub const QBaseIsUpdateEvent = SuperIsUpdateEvent;
+
     /// Inherited from QSinglePointEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsinglepointevent.html#isUpdateEvent)
@@ -5993,8 +6160,8 @@ pub const qtabletevent = struct {
     ///
     /// ` self: QtC.QTabletEvent `
     ///
-    pub fn QBaseIsUpdateEvent(self: ?*anyopaque) bool {
-        return qtc.QTabletEvent_QBaseIsUpdateEvent(@ptrCast(self));
+    pub fn SuperIsUpdateEvent(self: ?*anyopaque) bool {
+        return qtc.QTabletEvent_SuperIsUpdateEvent(@ptrCast(self));
     }
 
     /// Inherited from QSinglePointEvent
@@ -6027,6 +6194,10 @@ pub const qtabletevent = struct {
         return qtc.QTabletEvent_IsEndEvent(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsEndEvent` instead
+    ///
+    pub const QBaseIsEndEvent = SuperIsEndEvent;
+
     /// Inherited from QSinglePointEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsinglepointevent.html#isEndEvent)
@@ -6037,8 +6208,8 @@ pub const qtabletevent = struct {
     ///
     /// ` self: QtC.QTabletEvent `
     ///
-    pub fn QBaseIsEndEvent(self: ?*anyopaque) bool {
-        return qtc.QTabletEvent_QBaseIsEndEvent(@ptrCast(self));
+    pub fn SuperIsEndEvent(self: ?*anyopaque) bool {
+        return qtc.QTabletEvent_SuperIsEndEvent(@ptrCast(self));
     }
 
     /// Inherited from QSinglePointEvent
@@ -6073,6 +6244,10 @@ pub const qtabletevent = struct {
         qtc.QTabletEvent_SetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTimestamp` instead
+    ///
+    pub const QBaseSetTimestamp = SuperSetTimestamp;
+
     /// Inherited from QPointerEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#setTimestamp)
@@ -6085,8 +6260,8 @@ pub const qtabletevent = struct {
     ///
     /// ` timestamp: u64 `
     ///
-    pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QTabletEvent_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
+    pub fn SuperSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
+        qtc.QTabletEvent_SuperSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QPointerEvent
@@ -6121,6 +6296,10 @@ pub const qtabletevent = struct {
         qtc.QTabletEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QPointerEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#setAccepted)
@@ -6133,8 +6312,8 @@ pub const qtabletevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QTabletEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QTabletEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QPointerEvent
@@ -6152,6 +6331,9 @@ pub const qtabletevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QTabletEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtabletevent.html#dtor.QTabletEvent)
     ///
@@ -6161,7 +6343,7 @@ pub const qtabletevent = struct {
     ///
     /// ` self: QtC.QTabletEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTabletEvent_Delete(@ptrCast(self));
     }
 };
@@ -6266,6 +6448,10 @@ pub const qnativegestureevent = struct {
         qtc.QNativeGestureEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativegestureevent.html#clone)
     ///
     /// Base class method implementation
@@ -6274,8 +6460,8 @@ pub const qnativegestureevent = struct {
     ///
     /// ` self: QtC.QNativeGestureEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QNativeGestureEvent {
-        return qtc.QNativeGestureEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QNativeGestureEvent {
+        return qtc.QNativeGestureEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativegestureevent.html#gestureType)
@@ -6857,6 +7043,10 @@ pub const qnativegestureevent = struct {
         return qtc.QNativeGestureEvent_IsBeginEvent(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsBeginEvent` instead
+    ///
+    pub const QBaseIsBeginEvent = SuperIsBeginEvent;
+
     /// Inherited from QSinglePointEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsinglepointevent.html#isBeginEvent)
@@ -6867,8 +7057,8 @@ pub const qnativegestureevent = struct {
     ///
     /// ` self: QtC.QNativeGestureEvent `
     ///
-    pub fn QBaseIsBeginEvent(self: ?*anyopaque) bool {
-        return qtc.QNativeGestureEvent_QBaseIsBeginEvent(@ptrCast(self));
+    pub fn SuperIsBeginEvent(self: ?*anyopaque) bool {
+        return qtc.QNativeGestureEvent_SuperIsBeginEvent(@ptrCast(self));
     }
 
     /// Inherited from QSinglePointEvent
@@ -6901,6 +7091,10 @@ pub const qnativegestureevent = struct {
         return qtc.QNativeGestureEvent_IsUpdateEvent(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsUpdateEvent` instead
+    ///
+    pub const QBaseIsUpdateEvent = SuperIsUpdateEvent;
+
     /// Inherited from QSinglePointEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsinglepointevent.html#isUpdateEvent)
@@ -6911,8 +7105,8 @@ pub const qnativegestureevent = struct {
     ///
     /// ` self: QtC.QNativeGestureEvent `
     ///
-    pub fn QBaseIsUpdateEvent(self: ?*anyopaque) bool {
-        return qtc.QNativeGestureEvent_QBaseIsUpdateEvent(@ptrCast(self));
+    pub fn SuperIsUpdateEvent(self: ?*anyopaque) bool {
+        return qtc.QNativeGestureEvent_SuperIsUpdateEvent(@ptrCast(self));
     }
 
     /// Inherited from QSinglePointEvent
@@ -6945,6 +7139,10 @@ pub const qnativegestureevent = struct {
         return qtc.QNativeGestureEvent_IsEndEvent(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsEndEvent` instead
+    ///
+    pub const QBaseIsEndEvent = SuperIsEndEvent;
+
     /// Inherited from QSinglePointEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsinglepointevent.html#isEndEvent)
@@ -6955,8 +7153,8 @@ pub const qnativegestureevent = struct {
     ///
     /// ` self: QtC.QNativeGestureEvent `
     ///
-    pub fn QBaseIsEndEvent(self: ?*anyopaque) bool {
-        return qtc.QNativeGestureEvent_QBaseIsEndEvent(@ptrCast(self));
+    pub fn SuperIsEndEvent(self: ?*anyopaque) bool {
+        return qtc.QNativeGestureEvent_SuperIsEndEvent(@ptrCast(self));
     }
 
     /// Inherited from QSinglePointEvent
@@ -6991,6 +7189,10 @@ pub const qnativegestureevent = struct {
         qtc.QNativeGestureEvent_SetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTimestamp` instead
+    ///
+    pub const QBaseSetTimestamp = SuperSetTimestamp;
+
     /// Inherited from QPointerEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#setTimestamp)
@@ -7003,8 +7205,8 @@ pub const qnativegestureevent = struct {
     ///
     /// ` timestamp: u64 `
     ///
-    pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QNativeGestureEvent_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
+    pub fn SuperSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
+        qtc.QNativeGestureEvent_SuperSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QPointerEvent
@@ -7039,6 +7241,10 @@ pub const qnativegestureevent = struct {
         qtc.QNativeGestureEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QPointerEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#setAccepted)
@@ -7051,8 +7257,8 @@ pub const qnativegestureevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QNativeGestureEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QNativeGestureEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QPointerEvent
@@ -7070,6 +7276,9 @@ pub const qnativegestureevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QNativeGestureEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativegestureevent.html#dtor.QNativeGestureEvent)
     ///
@@ -7079,7 +7288,7 @@ pub const qnativegestureevent = struct {
     ///
     /// ` self: QtC.QNativeGestureEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QNativeGestureEvent_Delete(@ptrCast(self));
     }
 };
@@ -7333,6 +7542,10 @@ pub const qkeyevent = struct {
         qtc.QKeyEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeyevent.html#clone)
     ///
     /// Base class method implementation
@@ -7341,8 +7554,8 @@ pub const qkeyevent = struct {
     ///
     /// ` self: QtC.QKeyEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QKeyEvent {
-        return qtc.QKeyEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QKeyEvent {
+        return qtc.QKeyEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeyevent.html#key)
@@ -7647,6 +7860,10 @@ pub const qkeyevent = struct {
         qtc.QKeyEvent_SetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTimestamp` instead
+    ///
+    pub const QBaseSetTimestamp = SuperSetTimestamp;
+
     /// Inherited from QInputEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputevent.html#setTimestamp)
@@ -7659,8 +7876,8 @@ pub const qkeyevent = struct {
     ///
     /// ` timestamp: u64 `
     ///
-    pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QKeyEvent_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
+    pub fn SuperSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
+        qtc.QKeyEvent_SuperSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QInputEvent
@@ -7695,6 +7912,10 @@ pub const qkeyevent = struct {
         qtc.QKeyEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -7707,8 +7928,8 @@ pub const qkeyevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QKeyEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QKeyEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -7726,6 +7947,9 @@ pub const qkeyevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QKeyEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeyevent.html#dtor.QKeyEvent)
     ///
@@ -7735,7 +7959,7 @@ pub const qkeyevent = struct {
     ///
     /// ` self: QtC.QKeyEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QKeyEvent_Delete(@ptrCast(self));
     }
 };
@@ -7788,6 +8012,10 @@ pub const qfocusevent = struct {
         qtc.QFocusEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfocusevent.html#clone)
     ///
     /// Base class method implementation
@@ -7796,8 +8024,8 @@ pub const qfocusevent = struct {
     ///
     /// ` self: QtC.QFocusEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QFocusEvent {
-        return qtc.QFocusEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QFocusEvent {
+        return qtc.QFocusEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfocusevent.html#gotFocus)
@@ -7970,6 +8198,10 @@ pub const qfocusevent = struct {
         qtc.QFocusEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -7982,8 +8214,8 @@ pub const qfocusevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QFocusEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QFocusEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -8001,6 +8233,9 @@ pub const qfocusevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QFocusEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfocusevent.html#dtor.QFocusEvent)
     ///
@@ -8010,7 +8245,7 @@ pub const qfocusevent = struct {
     ///
     /// ` self: QtC.QFocusEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QFocusEvent_Delete(@ptrCast(self));
     }
 };
@@ -8061,6 +8296,10 @@ pub const qpaintevent = struct {
         qtc.QPaintEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintevent.html#clone)
     ///
     /// Base class method implementation
@@ -8069,8 +8308,8 @@ pub const qpaintevent = struct {
     ///
     /// ` self: QtC.QPaintEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QPaintEvent {
-        return qtc.QPaintEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QPaintEvent {
+        return qtc.QPaintEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintevent.html#rect)
@@ -8229,6 +8468,10 @@ pub const qpaintevent = struct {
         qtc.QPaintEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -8241,8 +8484,8 @@ pub const qpaintevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QPaintEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QPaintEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -8260,6 +8503,9 @@ pub const qpaintevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QPaintEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintevent.html#dtor.QPaintEvent)
     ///
@@ -8269,7 +8515,7 @@ pub const qpaintevent = struct {
     ///
     /// ` self: QtC.QPaintEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPaintEvent_Delete(@ptrCast(self));
     }
 };
@@ -8312,6 +8558,10 @@ pub const qmoveevent = struct {
         qtc.QMoveEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmoveevent.html#clone)
     ///
     /// Base class method implementation
@@ -8320,8 +8570,8 @@ pub const qmoveevent = struct {
     ///
     /// ` self: QtC.QMoveEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QMoveEvent {
-        return qtc.QMoveEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QMoveEvent {
+        return qtc.QMoveEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmoveevent.html#pos)
@@ -8480,6 +8730,10 @@ pub const qmoveevent = struct {
         qtc.QMoveEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -8492,8 +8746,8 @@ pub const qmoveevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QMoveEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QMoveEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -8511,6 +8765,9 @@ pub const qmoveevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QMoveEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmoveevent.html#dtor.QMoveEvent)
     ///
@@ -8520,7 +8777,7 @@ pub const qmoveevent = struct {
     ///
     /// ` self: QtC.QMoveEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMoveEvent_Delete(@ptrCast(self));
     }
 };
@@ -8561,6 +8818,10 @@ pub const qexposeevent = struct {
         qtc.QExposeEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qexposeevent.html#clone)
     ///
     /// Base class method implementation
@@ -8569,8 +8830,8 @@ pub const qexposeevent = struct {
     ///
     /// ` self: QtC.QExposeEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QExposeEvent {
-        return qtc.QExposeEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QExposeEvent {
+        return qtc.QExposeEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qexposeevent.html#region)
@@ -8719,6 +8980,10 @@ pub const qexposeevent = struct {
         qtc.QExposeEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -8731,8 +8996,8 @@ pub const qexposeevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QExposeEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QExposeEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -8750,6 +9015,9 @@ pub const qexposeevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QExposeEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qexposeevent.html#dtor.QExposeEvent)
     ///
@@ -8759,7 +9027,7 @@ pub const qexposeevent = struct {
     ///
     /// ` self: QtC.QExposeEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QExposeEvent_Delete(@ptrCast(self));
     }
 };
@@ -8800,6 +9068,10 @@ pub const qplatformsurfaceevent = struct {
         qtc.QPlatformSurfaceEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplatformsurfaceevent.html#clone)
     ///
     /// Base class method implementation
@@ -8808,8 +9080,8 @@ pub const qplatformsurfaceevent = struct {
     ///
     /// ` self: QtC.QPlatformSurfaceEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QPlatformSurfaceEvent {
-        return qtc.QPlatformSurfaceEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QPlatformSurfaceEvent {
+        return qtc.QPlatformSurfaceEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplatformsurfaceevent.html#surfaceEventType)
@@ -8962,6 +9234,10 @@ pub const qplatformsurfaceevent = struct {
         qtc.QPlatformSurfaceEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -8974,8 +9250,8 @@ pub const qplatformsurfaceevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QPlatformSurfaceEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QPlatformSurfaceEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -8993,6 +9269,9 @@ pub const qplatformsurfaceevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QPlatformSurfaceEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplatformsurfaceevent.html#dtor.QPlatformSurfaceEvent)
     ///
@@ -9002,7 +9281,7 @@ pub const qplatformsurfaceevent = struct {
     ///
     /// ` self: QtC.QPlatformSurfaceEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPlatformSurfaceEvent_Delete(@ptrCast(self));
     }
 };
@@ -9045,6 +9324,10 @@ pub const qresizeevent = struct {
         qtc.QResizeEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresizeevent.html#clone)
     ///
     /// Base class method implementation
@@ -9053,8 +9336,8 @@ pub const qresizeevent = struct {
     ///
     /// ` self: QtC.QResizeEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QResizeEvent {
-        return qtc.QResizeEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QResizeEvent {
+        return qtc.QResizeEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresizeevent.html#size)
@@ -9213,6 +9496,10 @@ pub const qresizeevent = struct {
         qtc.QResizeEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -9225,8 +9512,8 @@ pub const qresizeevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QResizeEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QResizeEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -9244,6 +9531,9 @@ pub const qresizeevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QResizeEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresizeevent.html#dtor.QResizeEvent)
     ///
@@ -9253,7 +9543,7 @@ pub const qresizeevent = struct {
     ///
     /// ` self: QtC.QResizeEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QResizeEvent_Delete(@ptrCast(self));
     }
 };
@@ -9290,6 +9580,10 @@ pub const qcloseevent = struct {
         qtc.QCloseEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcloseevent.html#clone)
     ///
     /// Base class method implementation
@@ -9298,8 +9592,8 @@ pub const qcloseevent = struct {
     ///
     /// ` self: QtC.QCloseEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QCloseEvent {
-        return qtc.QCloseEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QCloseEvent {
+        return qtc.QCloseEvent_SuperClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -9438,6 +9732,10 @@ pub const qcloseevent = struct {
         qtc.QCloseEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -9450,8 +9748,8 @@ pub const qcloseevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QCloseEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QCloseEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -9469,6 +9767,9 @@ pub const qcloseevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QCloseEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcloseevent.html#dtor.QCloseEvent)
     ///
@@ -9478,7 +9779,7 @@ pub const qcloseevent = struct {
     ///
     /// ` self: QtC.QCloseEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCloseEvent_Delete(@ptrCast(self));
     }
 };
@@ -9515,6 +9816,10 @@ pub const qicondragevent = struct {
         qtc.QIconDragEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicondragevent.html#clone)
     ///
     /// Base class method implementation
@@ -9523,8 +9828,8 @@ pub const qicondragevent = struct {
     ///
     /// ` self: QtC.QIconDragEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QIconDragEvent {
-        return qtc.QIconDragEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QIconDragEvent {
+        return qtc.QIconDragEvent_SuperClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -9663,6 +9968,10 @@ pub const qicondragevent = struct {
         qtc.QIconDragEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -9675,8 +9984,8 @@ pub const qicondragevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QIconDragEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QIconDragEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -9694,6 +10003,9 @@ pub const qicondragevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QIconDragEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicondragevent.html#dtor.QIconDragEvent)
     ///
@@ -9703,7 +10015,7 @@ pub const qicondragevent = struct {
     ///
     /// ` self: QtC.QIconDragEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QIconDragEvent_Delete(@ptrCast(self));
     }
 };
@@ -9740,6 +10052,10 @@ pub const qshowevent = struct {
         qtc.QShowEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qshowevent.html#clone)
     ///
     /// Base class method implementation
@@ -9748,8 +10064,8 @@ pub const qshowevent = struct {
     ///
     /// ` self: QtC.QShowEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QShowEvent {
-        return qtc.QShowEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QShowEvent {
+        return qtc.QShowEvent_SuperClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -9888,6 +10204,10 @@ pub const qshowevent = struct {
         qtc.QShowEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -9900,8 +10220,8 @@ pub const qshowevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QShowEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QShowEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -9919,6 +10239,9 @@ pub const qshowevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QShowEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qshowevent.html#dtor.QShowEvent)
     ///
@@ -9928,7 +10251,7 @@ pub const qshowevent = struct {
     ///
     /// ` self: QtC.QShowEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QShowEvent_Delete(@ptrCast(self));
     }
 };
@@ -9965,6 +10288,10 @@ pub const qhideevent = struct {
         qtc.QHideEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhideevent.html#clone)
     ///
     /// Base class method implementation
@@ -9973,8 +10300,8 @@ pub const qhideevent = struct {
     ///
     /// ` self: QtC.QHideEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QHideEvent {
-        return qtc.QHideEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QHideEvent {
+        return qtc.QHideEvent_SuperClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -10113,6 +10440,10 @@ pub const qhideevent = struct {
         qtc.QHideEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -10125,8 +10456,8 @@ pub const qhideevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QHideEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QHideEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -10144,6 +10475,9 @@ pub const qhideevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QHideEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhideevent.html#dtor.QHideEvent)
     ///
@@ -10153,7 +10487,7 @@ pub const qhideevent = struct {
     ///
     /// ` self: QtC.QHideEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QHideEvent_Delete(@ptrCast(self));
     }
 };
@@ -10226,6 +10560,10 @@ pub const qcontextmenuevent = struct {
         qtc.QContextMenuEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcontextmenuevent.html#clone)
     ///
     /// Base class method implementation
@@ -10234,8 +10572,8 @@ pub const qcontextmenuevent = struct {
     ///
     /// ` self: QtC.QContextMenuEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QContextMenuEvent {
-        return qtc.QContextMenuEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QContextMenuEvent {
+        return qtc.QContextMenuEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcontextmenuevent.html#x)
@@ -10518,6 +10856,10 @@ pub const qcontextmenuevent = struct {
         qtc.QContextMenuEvent_SetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTimestamp` instead
+    ///
+    pub const QBaseSetTimestamp = SuperSetTimestamp;
+
     /// Inherited from QInputEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputevent.html#setTimestamp)
@@ -10530,8 +10872,8 @@ pub const qcontextmenuevent = struct {
     ///
     /// ` timestamp: u64 `
     ///
-    pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QContextMenuEvent_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
+    pub fn SuperSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
+        qtc.QContextMenuEvent_SuperSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QInputEvent
@@ -10566,6 +10908,10 @@ pub const qcontextmenuevent = struct {
         qtc.QContextMenuEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -10578,8 +10924,8 @@ pub const qcontextmenuevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QContextMenuEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QContextMenuEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -10597,6 +10943,9 @@ pub const qcontextmenuevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QContextMenuEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcontextmenuevent.html#dtor.QContextMenuEvent)
     ///
@@ -10606,7 +10955,7 @@ pub const qcontextmenuevent = struct {
     ///
     /// ` self: QtC.QContextMenuEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QContextMenuEvent_Delete(@ptrCast(self));
     }
 };
@@ -10664,6 +11013,10 @@ pub const qinputmethodevent = struct {
         qtc.QInputMethodEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputmethodevent.html#clone)
     ///
     /// Base class method implementation
@@ -10672,8 +11025,8 @@ pub const qinputmethodevent = struct {
     ///
     /// ` self: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QInputMethodEvent {
-        return qtc.QInputMethodEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QInputMethodEvent {
+        return qtc.QInputMethodEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputmethodevent.html#setCommitString)
@@ -10935,6 +11288,10 @@ pub const qinputmethodevent = struct {
         qtc.QInputMethodEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -10947,8 +11304,8 @@ pub const qinputmethodevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QInputMethodEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QInputMethodEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -10966,6 +11323,9 @@ pub const qinputmethodevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QInputMethodEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputmethodevent.html#dtor.QInputMethodEvent)
     ///
@@ -10975,7 +11335,7 @@ pub const qinputmethodevent = struct {
     ///
     /// ` self: QtC.QInputMethodEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QInputMethodEvent_Delete(@ptrCast(self));
     }
 };
@@ -11016,6 +11376,10 @@ pub const qinputmethodqueryevent = struct {
         qtc.QInputMethodQueryEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputmethodqueryevent.html#clone)
     ///
     /// Base class method implementation
@@ -11024,8 +11388,8 @@ pub const qinputmethodqueryevent = struct {
     ///
     /// ` self: QtC.QInputMethodQueryEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QInputMethodQueryEvent {
-        return qtc.QInputMethodQueryEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QInputMethodQueryEvent {
+        return qtc.QInputMethodQueryEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputmethodqueryevent.html#queries)
@@ -11204,6 +11568,10 @@ pub const qinputmethodqueryevent = struct {
         qtc.QInputMethodQueryEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -11216,8 +11584,8 @@ pub const qinputmethodqueryevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QInputMethodQueryEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QInputMethodQueryEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -11235,6 +11603,9 @@ pub const qinputmethodqueryevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QInputMethodQueryEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputmethodqueryevent.html#dtor.QInputMethodQueryEvent)
     ///
@@ -11244,7 +11615,7 @@ pub const qinputmethodqueryevent = struct {
     ///
     /// ` self: QtC.QInputMethodQueryEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QInputMethodQueryEvent_Delete(@ptrCast(self));
     }
 };
@@ -11313,6 +11684,10 @@ pub const qdropevent = struct {
         qtc.QDropEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdropevent.html#clone)
     ///
     /// Base class method implementation
@@ -11321,8 +11696,8 @@ pub const qdropevent = struct {
     ///
     /// ` self: QtC.QDropEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QDropEvent {
-        return qtc.QDropEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QDropEvent {
+        return qtc.QDropEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdropevent.html#pos)
@@ -11631,6 +12006,10 @@ pub const qdropevent = struct {
         qtc.QDropEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -11643,8 +12022,8 @@ pub const qdropevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QDropEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QDropEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -11662,6 +12041,9 @@ pub const qdropevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QDropEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdropevent.html#dtor.QDropEvent)
     ///
@@ -11671,7 +12053,7 @@ pub const qdropevent = struct {
     ///
     /// ` self: QtC.QDropEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDropEvent_Delete(@ptrCast(self));
     }
 };
@@ -11740,6 +12122,10 @@ pub const qdragmoveevent = struct {
         qtc.QDragMoveEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdragmoveevent.html#clone)
     ///
     /// Base class method implementation
@@ -11748,8 +12134,8 @@ pub const qdragmoveevent = struct {
     ///
     /// ` self: QtC.QDragMoveEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QDragMoveEvent {
-        return qtc.QDragMoveEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QDragMoveEvent {
+        return qtc.QDragMoveEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdragmoveevent.html#answerRect)
@@ -12116,6 +12502,10 @@ pub const qdragmoveevent = struct {
         qtc.QDragMoveEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -12128,8 +12518,8 @@ pub const qdragmoveevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QDragMoveEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QDragMoveEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -12147,6 +12537,9 @@ pub const qdragmoveevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QDragMoveEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdragmoveevent.html#dtor.QDragMoveEvent)
     ///
@@ -12156,7 +12549,7 @@ pub const qdragmoveevent = struct {
     ///
     /// ` self: QtC.QDragMoveEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDragMoveEvent_Delete(@ptrCast(self));
     }
 };
@@ -12205,6 +12598,10 @@ pub const qdragenterevent = struct {
         qtc.QDragEnterEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdragenterevent.html#clone)
     ///
     /// Base class method implementation
@@ -12213,8 +12610,8 @@ pub const qdragenterevent = struct {
     ///
     /// ` self: QtC.QDragEnterEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QDragEnterEvent {
-        return qtc.QDragEnterEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QDragEnterEvent {
+        return qtc.QDragEnterEvent_SuperClone(@ptrCast(self));
     }
 
     /// Inherited from QDragMoveEvent
@@ -12591,6 +12988,10 @@ pub const qdragenterevent = struct {
         qtc.QDragEnterEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -12603,8 +13004,8 @@ pub const qdragenterevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QDragEnterEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QDragEnterEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -12622,6 +13023,9 @@ pub const qdragenterevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QDragEnterEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdragenterevent.html#dtor.QDragEnterEvent)
     ///
@@ -12631,7 +13035,7 @@ pub const qdragenterevent = struct {
     ///
     /// ` self: QtC.QDragEnterEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDragEnterEvent_Delete(@ptrCast(self));
     }
 };
@@ -12668,6 +13072,10 @@ pub const qdragleaveevent = struct {
         qtc.QDragLeaveEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdragleaveevent.html#clone)
     ///
     /// Base class method implementation
@@ -12676,8 +13084,8 @@ pub const qdragleaveevent = struct {
     ///
     /// ` self: QtC.QDragLeaveEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QDragLeaveEvent {
-        return qtc.QDragLeaveEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QDragLeaveEvent {
+        return qtc.QDragLeaveEvent_SuperClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -12816,6 +13224,10 @@ pub const qdragleaveevent = struct {
         qtc.QDragLeaveEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -12828,8 +13240,8 @@ pub const qdragleaveevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QDragLeaveEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QDragLeaveEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -12847,6 +13259,9 @@ pub const qdragleaveevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QDragLeaveEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdragleaveevent.html#dtor.QDragLeaveEvent)
     ///
@@ -12856,7 +13271,7 @@ pub const qdragleaveevent = struct {
     ///
     /// ` self: QtC.QDragLeaveEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDragLeaveEvent_Delete(@ptrCast(self));
     }
 };
@@ -12901,6 +13316,10 @@ pub const qhelpevent = struct {
         qtc.QHelpEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhelpevent.html#clone)
     ///
     /// Base class method implementation
@@ -12909,8 +13328,8 @@ pub const qhelpevent = struct {
     ///
     /// ` self: QtC.QHelpEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QHelpEvent {
-        return qtc.QHelpEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QHelpEvent {
+        return qtc.QHelpEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhelpevent.html#x)
@@ -13109,6 +13528,10 @@ pub const qhelpevent = struct {
         qtc.QHelpEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -13121,8 +13544,8 @@ pub const qhelpevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QHelpEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QHelpEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -13140,6 +13563,9 @@ pub const qhelpevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QHelpEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhelpevent.html#dtor.QHelpEvent)
     ///
@@ -13149,7 +13575,7 @@ pub const qhelpevent = struct {
     ///
     /// ` self: QtC.QHelpEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QHelpEvent_Delete(@ptrCast(self));
     }
 };
@@ -13195,6 +13621,10 @@ pub const qstatustipevent = struct {
         qtc.QStatusTipEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatustipevent.html#clone)
     ///
     /// Base class method implementation
@@ -13203,8 +13633,8 @@ pub const qstatustipevent = struct {
     ///
     /// ` self: QtC.QStatusTipEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QStatusTipEvent {
-        return qtc.QStatusTipEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QStatusTipEvent {
+        return qtc.QStatusTipEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatustipevent.html#tip)
@@ -13359,6 +13789,10 @@ pub const qstatustipevent = struct {
         qtc.QStatusTipEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -13371,8 +13805,8 @@ pub const qstatustipevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QStatusTipEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QStatusTipEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -13390,6 +13824,9 @@ pub const qstatustipevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QStatusTipEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatustipevent.html#dtor.QStatusTipEvent)
     ///
@@ -13399,7 +13836,7 @@ pub const qstatustipevent = struct {
     ///
     /// ` self: QtC.QStatusTipEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStatusTipEvent_Delete(@ptrCast(self));
     }
 };
@@ -13445,6 +13882,10 @@ pub const qwhatsthisclickedevent = struct {
         qtc.QWhatsThisClickedEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthisclickedevent.html#clone)
     ///
     /// Base class method implementation
@@ -13453,8 +13894,8 @@ pub const qwhatsthisclickedevent = struct {
     ///
     /// ` self: QtC.QWhatsThisClickedEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QWhatsThisClickedEvent {
-        return qtc.QWhatsThisClickedEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QWhatsThisClickedEvent {
+        return qtc.QWhatsThisClickedEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthisclickedevent.html#href)
@@ -13609,6 +14050,10 @@ pub const qwhatsthisclickedevent = struct {
         qtc.QWhatsThisClickedEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -13621,8 +14066,8 @@ pub const qwhatsthisclickedevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QWhatsThisClickedEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QWhatsThisClickedEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -13640,6 +14085,9 @@ pub const qwhatsthisclickedevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QWhatsThisClickedEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthisclickedevent.html#dtor.QWhatsThisClickedEvent)
     ///
@@ -13649,7 +14097,7 @@ pub const qwhatsthisclickedevent = struct {
     ///
     /// ` self: QtC.QWhatsThisClickedEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWhatsThisClickedEvent_Delete(@ptrCast(self));
     }
 };
@@ -13706,6 +14154,10 @@ pub const qactionevent = struct {
         qtc.QActionEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qactionevent.html#clone)
     ///
     /// Base class method implementation
@@ -13714,8 +14166,8 @@ pub const qactionevent = struct {
     ///
     /// ` self: QtC.QActionEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QActionEvent {
-        return qtc.QActionEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QActionEvent {
+        return qtc.QActionEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qactionevent.html#action)
@@ -13874,6 +14326,10 @@ pub const qactionevent = struct {
         qtc.QActionEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -13886,8 +14342,8 @@ pub const qactionevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QActionEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QActionEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -13905,6 +14361,9 @@ pub const qactionevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QActionEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qactionevent.html#dtor.QActionEvent)
     ///
@@ -13914,7 +14373,7 @@ pub const qactionevent = struct {
     ///
     /// ` self: QtC.QActionEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QActionEvent_Delete(@ptrCast(self));
     }
 };
@@ -13970,6 +14429,10 @@ pub const qfileopenevent = struct {
         qtc.QFileOpenEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfileopenevent.html#clone)
     ///
     /// Base class method implementation
@@ -13978,8 +14441,8 @@ pub const qfileopenevent = struct {
     ///
     /// ` self: QtC.QFileOpenEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QFileOpenEvent {
-        return qtc.QFileOpenEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QFileOpenEvent {
+        return qtc.QFileOpenEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfileopenevent.html#file)
@@ -14158,6 +14621,10 @@ pub const qfileopenevent = struct {
         qtc.QFileOpenEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -14170,8 +14637,8 @@ pub const qfileopenevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QFileOpenEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QFileOpenEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -14189,6 +14656,9 @@ pub const qfileopenevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QFileOpenEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfileopenevent.html#dtor.QFileOpenEvent)
     ///
@@ -14198,7 +14668,7 @@ pub const qfileopenevent = struct {
     ///
     /// ` self: QtC.QFileOpenEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QFileOpenEvent_Delete(@ptrCast(self));
     }
 };
@@ -14239,6 +14709,10 @@ pub const qtoolbarchangeevent = struct {
         qtc.QToolBarChangeEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbarchangeevent.html#clone)
     ///
     /// Base class method implementation
@@ -14247,8 +14721,8 @@ pub const qtoolbarchangeevent = struct {
     ///
     /// ` self: QtC.QToolBarChangeEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QToolBarChangeEvent {
-        return qtc.QToolBarChangeEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QToolBarChangeEvent {
+        return qtc.QToolBarChangeEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbarchangeevent.html#toggle)
@@ -14397,6 +14871,10 @@ pub const qtoolbarchangeevent = struct {
         qtc.QToolBarChangeEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -14409,8 +14887,8 @@ pub const qtoolbarchangeevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QToolBarChangeEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QToolBarChangeEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -14428,6 +14906,9 @@ pub const qtoolbarchangeevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QToolBarChangeEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbarchangeevent.html#dtor.QToolBarChangeEvent)
     ///
@@ -14437,7 +14918,7 @@ pub const qtoolbarchangeevent = struct {
     ///
     /// ` self: QtC.QToolBarChangeEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QToolBarChangeEvent_Delete(@ptrCast(self));
     }
 };
@@ -14530,6 +15011,10 @@ pub const qshortcutevent = struct {
         qtc.QShortcutEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qshortcutevent.html#clone)
     ///
     /// Base class method implementation
@@ -14538,8 +15023,8 @@ pub const qshortcutevent = struct {
     ///
     /// ` self: QtC.QShortcutEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QShortcutEvent {
-        return qtc.QShortcutEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QShortcutEvent {
+        return qtc.QShortcutEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qshortcutevent.html#key)
@@ -14708,6 +15193,10 @@ pub const qshortcutevent = struct {
         qtc.QShortcutEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -14720,8 +15209,8 @@ pub const qshortcutevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QShortcutEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QShortcutEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -14739,6 +15228,9 @@ pub const qshortcutevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QShortcutEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qshortcutevent.html#dtor.QShortcutEvent)
     ///
@@ -14748,7 +15240,7 @@ pub const qshortcutevent = struct {
     ///
     /// ` self: QtC.QShortcutEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QShortcutEvent_Delete(@ptrCast(self));
     }
 };
@@ -14801,6 +15293,10 @@ pub const qwindowstatechangeevent = struct {
         qtc.QWindowStateChangeEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowstatechangeevent.html#clone)
     ///
     /// Base class method implementation
@@ -14809,8 +15305,8 @@ pub const qwindowstatechangeevent = struct {
     ///
     /// ` self: QtC.QWindowStateChangeEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QWindowStateChangeEvent {
-        return qtc.QWindowStateChangeEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QWindowStateChangeEvent {
+        return qtc.QWindowStateChangeEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowstatechangeevent.html#oldState)
@@ -14973,6 +15469,10 @@ pub const qwindowstatechangeevent = struct {
         qtc.QWindowStateChangeEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -14985,8 +15485,8 @@ pub const qwindowstatechangeevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QWindowStateChangeEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QWindowStateChangeEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -15004,6 +15504,9 @@ pub const qwindowstatechangeevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QWindowStateChangeEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowstatechangeevent.html#dtor.QWindowStateChangeEvent)
     ///
@@ -15013,7 +15516,7 @@ pub const qwindowstatechangeevent = struct {
     ///
     /// ` self: QtC.QWindowStateChangeEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWindowStateChangeEvent_Delete(@ptrCast(self));
     }
 };
@@ -15140,6 +15643,10 @@ pub const qtouchevent = struct {
         qtc.QTouchEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtouchevent.html#clone)
     ///
     /// Base class method implementation
@@ -15148,8 +15655,8 @@ pub const qtouchevent = struct {
     ///
     /// ` self: QtC.QTouchEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QTouchEvent {
-        return qtc.QTouchEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QTouchEvent {
+        return qtc.QTouchEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtouchevent.html#target)
@@ -15217,6 +15724,10 @@ pub const qtouchevent = struct {
         qtc.QTouchEvent_OnIsBeginEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsBeginEvent` instead
+    ///
+    pub const QBaseIsBeginEvent = SuperIsBeginEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtouchevent.html#isBeginEvent)
     ///
     /// Base class method implementation
@@ -15225,8 +15736,8 @@ pub const qtouchevent = struct {
     ///
     /// ` self: QtC.QTouchEvent `
     ///
-    pub fn QBaseIsBeginEvent(self: ?*anyopaque) bool {
-        return qtc.QTouchEvent_QBaseIsBeginEvent(@ptrCast(self));
+    pub fn SuperIsBeginEvent(self: ?*anyopaque) bool {
+        return qtc.QTouchEvent_SuperIsBeginEvent(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtouchevent.html#isUpdateEvent)
@@ -15253,6 +15764,10 @@ pub const qtouchevent = struct {
         qtc.QTouchEvent_OnIsUpdateEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsUpdateEvent` instead
+    ///
+    pub const QBaseIsUpdateEvent = SuperIsUpdateEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtouchevent.html#isUpdateEvent)
     ///
     /// Base class method implementation
@@ -15261,8 +15776,8 @@ pub const qtouchevent = struct {
     ///
     /// ` self: QtC.QTouchEvent `
     ///
-    pub fn QBaseIsUpdateEvent(self: ?*anyopaque) bool {
-        return qtc.QTouchEvent_QBaseIsUpdateEvent(@ptrCast(self));
+    pub fn SuperIsUpdateEvent(self: ?*anyopaque) bool {
+        return qtc.QTouchEvent_SuperIsUpdateEvent(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtouchevent.html#isEndEvent)
@@ -15289,6 +15804,10 @@ pub const qtouchevent = struct {
         qtc.QTouchEvent_OnIsEndEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsEndEvent` instead
+    ///
+    pub const QBaseIsEndEvent = SuperIsEndEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtouchevent.html#isEndEvent)
     ///
     /// Base class method implementation
@@ -15297,8 +15816,8 @@ pub const qtouchevent = struct {
     ///
     /// ` self: QtC.QTouchEvent `
     ///
-    pub fn QBaseIsEndEvent(self: ?*anyopaque) bool {
-        return qtc.QTouchEvent_QBaseIsEndEvent(@ptrCast(self));
+    pub fn SuperIsEndEvent(self: ?*anyopaque) bool {
+        return qtc.QTouchEvent_SuperIsEndEvent(@ptrCast(self));
     }
 
     /// Inherited from QPointerEvent
@@ -15694,6 +16213,10 @@ pub const qtouchevent = struct {
         qtc.QTouchEvent_SetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTimestamp` instead
+    ///
+    pub const QBaseSetTimestamp = SuperSetTimestamp;
+
     /// Inherited from QPointerEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#setTimestamp)
@@ -15706,8 +16229,8 @@ pub const qtouchevent = struct {
     ///
     /// ` timestamp: u64 `
     ///
-    pub fn QBaseSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
-        qtc.QTouchEvent_QBaseSetTimestamp(@ptrCast(self), @bitCast(timestamp));
+    pub fn SuperSetTimestamp(self: ?*anyopaque, timestamp: u64) void {
+        qtc.QTouchEvent_SuperSetTimestamp(@ptrCast(self), @bitCast(timestamp));
     }
 
     /// Inherited from QPointerEvent
@@ -15742,6 +16265,10 @@ pub const qtouchevent = struct {
         qtc.QTouchEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QPointerEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointerevent.html#setAccepted)
@@ -15754,8 +16281,8 @@ pub const qtouchevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QTouchEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QTouchEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QPointerEvent
@@ -15773,6 +16300,9 @@ pub const qtouchevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QTouchEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtouchevent.html#dtor.QTouchEvent)
     ///
@@ -15782,7 +16312,7 @@ pub const qtouchevent = struct {
     ///
     /// ` self: QtC.QTouchEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTouchEvent_Delete(@ptrCast(self));
     }
 };
@@ -15823,6 +16353,10 @@ pub const qscrollprepareevent = struct {
         qtc.QScrollPrepareEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollprepareevent.html#clone)
     ///
     /// Base class method implementation
@@ -15831,8 +16365,8 @@ pub const qscrollprepareevent = struct {
     ///
     /// ` self: QtC.QScrollPrepareEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QScrollPrepareEvent {
-        return qtc.QScrollPrepareEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QScrollPrepareEvent {
+        return qtc.QScrollPrepareEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollprepareevent.html#startPos)
@@ -16047,6 +16581,10 @@ pub const qscrollprepareevent = struct {
         qtc.QScrollPrepareEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -16059,8 +16597,8 @@ pub const qscrollprepareevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QScrollPrepareEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QScrollPrepareEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -16078,6 +16616,9 @@ pub const qscrollprepareevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QScrollPrepareEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollprepareevent.html#dtor.QScrollPrepareEvent)
     ///
@@ -16087,7 +16628,7 @@ pub const qscrollprepareevent = struct {
     ///
     /// ` self: QtC.QScrollPrepareEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QScrollPrepareEvent_Delete(@ptrCast(self));
     }
 };
@@ -16132,6 +16673,10 @@ pub const qscrollevent = struct {
         qtc.QScrollEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollevent.html#clone)
     ///
     /// Base class method implementation
@@ -16140,8 +16685,8 @@ pub const qscrollevent = struct {
     ///
     /// ` self: QtC.QScrollEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QScrollEvent {
-        return qtc.QScrollEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QScrollEvent {
+        return qtc.QScrollEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollevent.html#contentPos)
@@ -16314,6 +16859,10 @@ pub const qscrollevent = struct {
         qtc.QScrollEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -16326,8 +16875,8 @@ pub const qscrollevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QScrollEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QScrollEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -16345,6 +16894,9 @@ pub const qscrollevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QScrollEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollevent.html#dtor.QScrollEvent)
     ///
@@ -16354,7 +16906,7 @@ pub const qscrollevent = struct {
     ///
     /// ` self: QtC.QScrollEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QScrollEvent_Delete(@ptrCast(self));
     }
 };
@@ -16397,6 +16949,10 @@ pub const qscreenorientationchangeevent = struct {
         qtc.QScreenOrientationChangeEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscreenorientationchangeevent.html#clone)
     ///
     /// Base class method implementation
@@ -16405,8 +16961,8 @@ pub const qscreenorientationchangeevent = struct {
     ///
     /// ` self: QtC.QScreenOrientationChangeEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QScreenOrientationChangeEvent {
-        return qtc.QScreenOrientationChangeEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QScreenOrientationChangeEvent {
+        return qtc.QScreenOrientationChangeEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscreenorientationchangeevent.html#screen)
@@ -16569,6 +17125,10 @@ pub const qscreenorientationchangeevent = struct {
         qtc.QScreenOrientationChangeEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -16581,8 +17141,8 @@ pub const qscreenorientationchangeevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QScreenOrientationChangeEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QScreenOrientationChangeEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -16600,6 +17160,9 @@ pub const qscreenorientationchangeevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QScreenOrientationChangeEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscreenorientationchangeevent.html#dtor.QScreenOrientationChangeEvent)
     ///
@@ -16609,7 +17172,7 @@ pub const qscreenorientationchangeevent = struct {
     ///
     /// ` self: QtC.QScreenOrientationChangeEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QScreenOrientationChangeEvent_Delete(@ptrCast(self));
     }
 };
@@ -16650,6 +17213,10 @@ pub const qapplicationstatechangeevent = struct {
         qtc.QApplicationStateChangeEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplicationstatechangeevent.html#clone)
     ///
     /// Base class method implementation
@@ -16658,8 +17225,8 @@ pub const qapplicationstatechangeevent = struct {
     ///
     /// ` self: QtC.QApplicationStateChangeEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QApplicationStateChangeEvent {
-        return qtc.QApplicationStateChangeEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QApplicationStateChangeEvent {
+        return qtc.QApplicationStateChangeEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplicationstatechangeevent.html#applicationState)
@@ -16812,6 +17379,10 @@ pub const qapplicationstatechangeevent = struct {
         qtc.QApplicationStateChangeEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -16824,8 +17395,8 @@ pub const qapplicationstatechangeevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QApplicationStateChangeEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QApplicationStateChangeEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -16843,6 +17414,9 @@ pub const qapplicationstatechangeevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QApplicationStateChangeEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplicationstatechangeevent.html#dtor.QApplicationStateChangeEvent)
     ///
@@ -16852,7 +17426,7 @@ pub const qapplicationstatechangeevent = struct {
     ///
     /// ` self: QtC.QApplicationStateChangeEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QApplicationStateChangeEvent_Delete(@ptrCast(self));
     }
 };
@@ -16895,6 +17469,10 @@ pub const qchildwindowevent = struct {
         qtc.QChildWindowEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchildwindowevent.html#clone)
     ///
     /// Base class method implementation
@@ -16903,8 +17481,8 @@ pub const qchildwindowevent = struct {
     ///
     /// ` self: QtC.QChildWindowEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QChildWindowEvent {
-        return qtc.QChildWindowEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QChildWindowEvent {
+        return qtc.QChildWindowEvent_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchildwindowevent.html#child)
@@ -17053,6 +17631,10 @@ pub const qchildwindowevent = struct {
         qtc.QChildWindowEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -17065,8 +17647,8 @@ pub const qchildwindowevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.QChildWindowEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QChildWindowEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -17084,6 +17666,9 @@ pub const qchildwindowevent = struct {
     pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QChildWindowEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchildwindowevent.html#dtor.QChildWindowEvent)
     ///
@@ -17093,7 +17678,7 @@ pub const qchildwindowevent = struct {
     ///
     /// ` self: QtC.QChildWindowEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QChildWindowEvent_Delete(@ptrCast(self));
     }
 };
@@ -17244,13 +17829,17 @@ pub const qinputmethodevent__attribute = struct {
         qtc.QInputMethodEvent__Attribute_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QInputMethodEvent__Attribute `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QInputMethodEvent__Attribute_Delete(@ptrCast(self));
     }
 };

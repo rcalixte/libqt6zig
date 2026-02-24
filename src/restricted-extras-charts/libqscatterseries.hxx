@@ -432,23 +432,23 @@ class VirtualQScatterSeries final : public QScatterSeries {
 
     // Friend functions
     friend void QScatterSeries_TimerEvent(QScatterSeries* self, QTimerEvent* event);
-    friend void QScatterSeries_QBaseTimerEvent(QScatterSeries* self, QTimerEvent* event);
+    friend void QScatterSeries_SuperTimerEvent(QScatterSeries* self, QTimerEvent* event);
     friend void QScatterSeries_ChildEvent(QScatterSeries* self, QChildEvent* event);
-    friend void QScatterSeries_QBaseChildEvent(QScatterSeries* self, QChildEvent* event);
+    friend void QScatterSeries_SuperChildEvent(QScatterSeries* self, QChildEvent* event);
     friend void QScatterSeries_CustomEvent(QScatterSeries* self, QEvent* event);
-    friend void QScatterSeries_QBaseCustomEvent(QScatterSeries* self, QEvent* event);
+    friend void QScatterSeries_SuperCustomEvent(QScatterSeries* self, QEvent* event);
     friend void QScatterSeries_ConnectNotify(QScatterSeries* self, const QMetaMethod* signal);
-    friend void QScatterSeries_QBaseConnectNotify(QScatterSeries* self, const QMetaMethod* signal);
+    friend void QScatterSeries_SuperConnectNotify(QScatterSeries* self, const QMetaMethod* signal);
     friend void QScatterSeries_DisconnectNotify(QScatterSeries* self, const QMetaMethod* signal);
-    friend void QScatterSeries_QBaseDisconnectNotify(QScatterSeries* self, const QMetaMethod* signal);
+    friend void QScatterSeries_SuperDisconnectNotify(QScatterSeries* self, const QMetaMethod* signal);
     friend QObject* QScatterSeries_Sender(const QScatterSeries* self);
-    friend QObject* QScatterSeries_QBaseSender(const QScatterSeries* self);
+    friend QObject* QScatterSeries_SuperSender(const QScatterSeries* self);
     friend int QScatterSeries_SenderSignalIndex(const QScatterSeries* self);
-    friend int QScatterSeries_QBaseSenderSignalIndex(const QScatterSeries* self);
+    friend int QScatterSeries_SuperSenderSignalIndex(const QScatterSeries* self);
     friend int QScatterSeries_Receivers(const QScatterSeries* self, const char* signal);
-    friend int QScatterSeries_QBaseReceivers(const QScatterSeries* self, const char* signal);
+    friend int QScatterSeries_SuperReceivers(const QScatterSeries* self, const char* signal);
     friend bool QScatterSeries_IsSignalConnected(const QScatterSeries* self, const QMetaMethod* signal);
-    friend bool QScatterSeries_QBaseIsSignalConnected(const QScatterSeries* self, const QMetaMethod* signal);
+    friend bool QScatterSeries_SuperIsSignalConnected(const QScatterSeries* self, const QMetaMethod* signal);
 };
 
 #endif

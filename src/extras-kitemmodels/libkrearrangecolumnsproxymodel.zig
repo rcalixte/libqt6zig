@@ -49,6 +49,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -57,8 +61,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` self: QtC.KRearrangeColumnsProxyModel `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KRearrangeColumnsProxyModel_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KRearrangeColumnsProxyModel_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -84,6 +88,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -92,9 +100,9 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KRearrangeColumnsProxyModel_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KRearrangeColumnsProxyModel_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -123,6 +131,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -135,8 +147,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KRearrangeColumnsProxyModel_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KRearrangeColumnsProxyModel_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -198,6 +210,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_OnColumnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperColumnCount` instead
+    ///
+    pub const QBaseColumnCount = SuperColumnCount;
+
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#columnCount)
     ///
     /// Base class method implementation
@@ -208,8 +224,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KRearrangeColumnsProxyModel_QBaseColumnCount(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
+        return qtc.KRearrangeColumnsProxyModel_SuperColumnCount(@ptrCast(self), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#rowCount)
@@ -238,6 +254,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_OnRowCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRowCount` instead
+    ///
+    pub const QBaseRowCount = SuperRowCount;
+
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#rowCount)
     ///
     /// Base class method implementation
@@ -248,8 +268,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseRowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KRearrangeColumnsProxyModel_QBaseRowCount(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperRowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
+        return qtc.KRearrangeColumnsProxyModel_SuperRowCount(@ptrCast(self), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#index)
@@ -282,6 +302,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_OnIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIndex` instead
+    ///
+    pub const QBaseIndex = SuperIndex;
+
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#index)
     ///
     /// Base class method implementation
@@ -296,8 +320,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseIndex(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_QBaseIndex(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperIndex(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
+        return qtc.KRearrangeColumnsProxyModel_SuperIndex(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#parent)
@@ -326,6 +350,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_OnParent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperParent` instead
+    ///
+    pub const QBaseParent = SuperParent;
+
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#parent)
     ///
     /// Base class method implementation
@@ -336,8 +364,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` child: QtC.QModelIndex `
     ///
-    pub fn QBaseParent(self: ?*anyopaque, child: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_QBaseParent(@ptrCast(self), @ptrCast(child));
+    pub fn SuperParent(self: ?*anyopaque, child: ?*anyopaque) QtC.QModelIndex {
+        return qtc.KRearrangeColumnsProxyModel_SuperParent(@ptrCast(self), @ptrCast(child));
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#mapFromSource)
@@ -366,6 +394,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_OnMapFromSource(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMapFromSource` instead
+    ///
+    pub const QBaseMapFromSource = SuperMapFromSource;
+
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#mapFromSource)
     ///
     /// Base class method implementation
@@ -376,8 +408,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` sourceIndex: QtC.QModelIndex `
     ///
-    pub fn QBaseMapFromSource(self: ?*anyopaque, sourceIndex: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_QBaseMapFromSource(@ptrCast(self), @ptrCast(sourceIndex));
+    pub fn SuperMapFromSource(self: ?*anyopaque, sourceIndex: ?*anyopaque) QtC.QModelIndex {
+        return qtc.KRearrangeColumnsProxyModel_SuperMapFromSource(@ptrCast(self), @ptrCast(sourceIndex));
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#mapToSource)
@@ -406,6 +438,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_OnMapToSource(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMapToSource` instead
+    ///
+    pub const QBaseMapToSource = SuperMapToSource;
+
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#mapToSource)
     ///
     /// Base class method implementation
@@ -416,8 +452,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` proxyIndex: QtC.QModelIndex `
     ///
-    pub fn QBaseMapToSource(self: ?*anyopaque, proxyIndex: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_QBaseMapToSource(@ptrCast(self), @ptrCast(proxyIndex));
+    pub fn SuperMapToSource(self: ?*anyopaque, proxyIndex: ?*anyopaque) QtC.QModelIndex {
+        return qtc.KRearrangeColumnsProxyModel_SuperMapToSource(@ptrCast(self), @ptrCast(proxyIndex));
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#headerData)
@@ -450,6 +486,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_OnHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHeaderData` instead
+    ///
+    pub const QBaseHeaderData = SuperHeaderData;
+
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#headerData)
     ///
     /// Base class method implementation
@@ -464,8 +504,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn QBaseHeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.KRearrangeColumnsProxyModel_QBaseHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
+    pub fn SuperHeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
+        return qtc.KRearrangeColumnsProxyModel_SuperHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#hasChildren)
@@ -494,6 +534,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_OnHasChildren(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHasChildren` instead
+    ///
+    pub const QBaseHasChildren = SuperHasChildren;
+
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#hasChildren)
     ///
     /// Base class method implementation
@@ -504,8 +548,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseHasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_QBaseHasChildren(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperHasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
+        return qtc.KRearrangeColumnsProxyModel_SuperHasChildren(@ptrCast(self), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#sibling)
@@ -538,6 +582,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_OnSibling(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSibling` instead
+    ///
+    pub const QBaseSibling = SuperSibling;
+
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#sibling)
     ///
     /// Base class method implementation
@@ -552,8 +600,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` idx: QtC.QModelIndex `
     ///
-    pub fn QBaseSibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_QBaseSibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
+    pub fn SuperSibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
+        return qtc.KRearrangeColumnsProxyModel_SuperSibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#proxyColumnForSourceColumn)
@@ -1914,6 +1962,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_DropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperDropMimeData` instead
+    ///
+    pub const QBaseDropMimeData = SuperDropMimeData;
+
     /// Inherited from QIdentityProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qidentityproxymodel.html#dropMimeData)
@@ -1934,8 +1986,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_QBaseDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
+        return qtc.KRearrangeColumnsProxyModel_SuperDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -1970,6 +2022,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_MapSelectionFromSource(@ptrCast(self), @ptrCast(selection));
     }
 
+    /// ### DEPRECATED: Use `SuperMapSelectionFromSource` instead
+    ///
+    pub const QBaseMapSelectionFromSource = SuperMapSelectionFromSource;
+
     /// Inherited from QIdentityProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qidentityproxymodel.html#mapSelectionFromSource)
@@ -1982,8 +2038,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` selection: QtC.QItemSelection `
     ///
-    pub fn QBaseMapSelectionFromSource(self: ?*anyopaque, selection: ?*anyopaque) QtC.QItemSelection {
-        return qtc.KRearrangeColumnsProxyModel_QBaseMapSelectionFromSource(@ptrCast(self), @ptrCast(selection));
+    pub fn SuperMapSelectionFromSource(self: ?*anyopaque, selection: ?*anyopaque) QtC.QItemSelection {
+        return qtc.KRearrangeColumnsProxyModel_SuperMapSelectionFromSource(@ptrCast(self), @ptrCast(selection));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2018,6 +2074,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_MapSelectionToSource(@ptrCast(self), @ptrCast(selection));
     }
 
+    /// ### DEPRECATED: Use `SuperMapSelectionToSource` instead
+    ///
+    pub const QBaseMapSelectionToSource = SuperMapSelectionToSource;
+
     /// Inherited from QIdentityProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qidentityproxymodel.html#mapSelectionToSource)
@@ -2030,8 +2090,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` selection: QtC.QItemSelection `
     ///
-    pub fn QBaseMapSelectionToSource(self: ?*anyopaque, selection: ?*anyopaque) QtC.QItemSelection {
-        return qtc.KRearrangeColumnsProxyModel_QBaseMapSelectionToSource(@ptrCast(self), @ptrCast(selection));
+    pub fn SuperMapSelectionToSource(self: ?*anyopaque, selection: ?*anyopaque) QtC.QItemSelection {
+        return qtc.KRearrangeColumnsProxyModel_SuperMapSelectionToSource(@ptrCast(self), @ptrCast(selection));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2081,6 +2141,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperMatch` instead
+    ///
+    pub const QBaseMatch = SuperMatch;
+
     /// Inherited from QIdentityProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qidentityproxymodel.html#match)
@@ -2103,8 +2167,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KRearrangeColumnsProxyModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
+    pub fn SuperMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
+        const _arr: qtc.libqt_list = qtc.KRearrangeColumnsProxyModel_SuperMatch(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("krearrangecolumnsproxymodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -2150,6 +2214,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_SetSourceModel(@ptrCast(self), @ptrCast(sourceModel));
     }
 
+    /// ### DEPRECATED: Use `SuperSetSourceModel` instead
+    ///
+    pub const QBaseSetSourceModel = SuperSetSourceModel;
+
     /// Inherited from QIdentityProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qidentityproxymodel.html#setSourceModel)
@@ -2162,8 +2230,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` sourceModel: QtC.QAbstractItemModel `
     ///
-    pub fn QBaseSetSourceModel(self: ?*anyopaque, sourceModel: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseSetSourceModel(@ptrCast(self), @ptrCast(sourceModel));
+    pub fn SuperSetSourceModel(self: ?*anyopaque, sourceModel: ?*anyopaque) void {
+        qtc.KRearrangeColumnsProxyModel_SuperSetSourceModel(@ptrCast(self), @ptrCast(sourceModel));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2202,6 +2270,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_InsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperInsertColumns` instead
+    ///
+    pub const QBaseInsertColumns = SuperInsertColumns;
+
     /// Inherited from QIdentityProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qidentityproxymodel.html#insertColumns)
@@ -2218,8 +2290,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseInsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_QBaseInsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn SuperInsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
+        return qtc.KRearrangeColumnsProxyModel_SuperInsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2258,6 +2330,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_InsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperInsertRows` instead
+    ///
+    pub const QBaseInsertRows = SuperInsertRows;
+
     /// Inherited from QIdentityProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qidentityproxymodel.html#insertRows)
@@ -2274,8 +2350,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseInsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_QBaseInsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn SuperInsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
+        return qtc.KRearrangeColumnsProxyModel_SuperInsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2314,6 +2390,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_RemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperRemoveColumns` instead
+    ///
+    pub const QBaseRemoveColumns = SuperRemoveColumns;
+
     /// Inherited from QIdentityProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qidentityproxymodel.html#removeColumns)
@@ -2330,8 +2410,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseRemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_QBaseRemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn SuperRemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
+        return qtc.KRearrangeColumnsProxyModel_SuperRemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2370,6 +2450,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_RemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperRemoveRows` instead
+    ///
+    pub const QBaseRemoveRows = SuperRemoveRows;
+
     /// Inherited from QIdentityProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qidentityproxymodel.html#removeRows)
@@ -2386,8 +2470,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseRemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_QBaseRemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn SuperRemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
+        return qtc.KRearrangeColumnsProxyModel_SuperRemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2430,6 +2514,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_MoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveRows` instead
+    ///
+    pub const QBaseMoveRows = SuperMoveRows;
+
     /// Inherited from QIdentityProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qidentityproxymodel.html#moveRows)
@@ -2450,8 +2538,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn QBaseMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KRearrangeColumnsProxyModel_QBaseMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn SuperMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
+        return qtc.KRearrangeColumnsProxyModel_SuperMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2494,6 +2582,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveColumns` instead
+    ///
+    pub const QBaseMoveColumns = SuperMoveColumns;
+
     /// Inherited from QIdentityProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qidentityproxymodel.html#moveColumns)
@@ -2514,8 +2606,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn QBaseMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KRearrangeColumnsProxyModel_QBaseMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn SuperMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
+        return qtc.KRearrangeColumnsProxyModel_SuperMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2548,6 +2640,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_Submit(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSubmit` instead
+    ///
+    pub const QBaseSubmit = SuperSubmit;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#submit)
@@ -2558,8 +2654,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` self: QtC.KRearrangeColumnsProxyModel `
     ///
-    pub fn QBaseSubmit(self: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_QBaseSubmit(@ptrCast(self));
+    pub fn SuperSubmit(self: ?*anyopaque) bool {
+        return qtc.KRearrangeColumnsProxyModel_SuperSubmit(@ptrCast(self));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -2592,6 +2688,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_Revert(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperRevert` instead
+    ///
+    pub const QBaseRevert = SuperRevert;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#revert)
@@ -2602,8 +2702,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` self: QtC.KRearrangeColumnsProxyModel `
     ///
-    pub fn QBaseRevert(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseRevert(@ptrCast(self));
+    pub fn SuperRevert(self: ?*anyopaque) void {
+        qtc.KRearrangeColumnsProxyModel_SuperRevert(@ptrCast(self));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -2640,6 +2740,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_Data(@ptrCast(self), @ptrCast(proxyIndex), @bitCast(role));
     }
 
+    /// ### DEPRECATED: Use `SuperData` instead
+    ///
+    pub const QBaseData = SuperData;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#data)
@@ -2654,8 +2758,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn QBaseData(self: ?*anyopaque, proxyIndex: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.KRearrangeColumnsProxyModel_QBaseData(@ptrCast(self), @ptrCast(proxyIndex), @bitCast(role));
+    pub fn SuperData(self: ?*anyopaque, proxyIndex: ?*anyopaque, role: i32) QtC.QVariant {
+        return qtc.KRearrangeColumnsProxyModel_SuperData(@ptrCast(self), @ptrCast(proxyIndex), @bitCast(role));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -2706,6 +2810,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperItemData` instead
+    ///
+    pub const QBaseItemData = SuperItemData;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#itemData)
@@ -2720,8 +2828,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
-        const _map: qtc.libqt_map = qtc.KRearrangeColumnsProxyModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
+    pub fn SuperItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
+        const _map: qtc.libqt_map = qtc.KRearrangeColumnsProxyModel_SuperItemData(@ptrCast(self), @ptrCast(index));
         var _ret: arraymap_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -2778,6 +2886,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_Flags(@ptrCast(self), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperFlags` instead
+    ///
+    pub const QBaseFlags = SuperFlags;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#flags)
@@ -2794,8 +2906,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn QBaseFlags(self: ?*anyopaque, index: ?*anyopaque) i32 {
-        return qtc.KRearrangeColumnsProxyModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
+    pub fn SuperFlags(self: ?*anyopaque, index: ?*anyopaque) i32 {
+        return qtc.KRearrangeColumnsProxyModel_SuperFlags(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -2834,6 +2946,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
     }
 
+    /// ### DEPRECATED: Use `SuperSetData` instead
+    ///
+    pub const QBaseSetData = SuperSetData;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#setData)
@@ -2850,8 +2966,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn QBaseSetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.KRearrangeColumnsProxyModel_QBaseSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
+    pub fn SuperSetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
+        return qtc.KRearrangeColumnsProxyModel_SuperSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -2907,6 +3023,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_SetItemData(@ptrCast(self), @ptrCast(index), roles_map);
     }
 
+    /// ### DEPRECATED: Use `SuperSetItemData` instead
+    ///
+    pub const QBaseSetItemData = SuperSetItemData;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#setItemData)
@@ -2923,7 +3043,7 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+    pub fn SuperSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
         const roles_count = roles.count();
         const roles_keys = allocator.alloc(i32, roles_count) catch @panic("krearrangecolumnsproxymodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
@@ -2941,7 +3061,7 @@ pub const krearrangecolumnsproxymodel = struct {
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.KRearrangeColumnsProxyModel_QBaseSetItemData(@ptrCast(self), @ptrCast(index), roles_map);
+        return qtc.KRearrangeColumnsProxyModel_SuperSetItemData(@ptrCast(self), @ptrCast(index), roles_map);
     }
 
     /// Inherited from QAbstractProxyModel
@@ -2982,6 +3102,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_SetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
     }
 
+    /// ### DEPRECATED: Use `SuperSetHeaderData` instead
+    ///
+    pub const QBaseSetHeaderData = SuperSetHeaderData;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#setHeaderData)
@@ -3000,8 +3124,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn QBaseSetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.KRearrangeColumnsProxyModel_QBaseSetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
+    pub fn SuperSetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
+        return qtc.KRearrangeColumnsProxyModel_SuperSetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3036,6 +3160,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_ClearItemData(@ptrCast(self), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperClearItemData` instead
+    ///
+    pub const QBaseClearItemData = SuperClearItemData;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#clearItemData)
@@ -3048,8 +3176,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_QBaseClearItemData(@ptrCast(self), @ptrCast(index));
+    pub fn SuperClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
+        return qtc.KRearrangeColumnsProxyModel_SuperClearItemData(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3084,6 +3212,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_Buddy(@ptrCast(self), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperBuddy` instead
+    ///
+    pub const QBaseBuddy = SuperBuddy;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#buddy)
@@ -3096,8 +3228,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseBuddy(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_QBaseBuddy(@ptrCast(self), @ptrCast(index));
+    pub fn SuperBuddy(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
+        return qtc.KRearrangeColumnsProxyModel_SuperBuddy(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3132,6 +3264,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_CanFetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperCanFetchMore` instead
+    ///
+    pub const QBaseCanFetchMore = SuperCanFetchMore;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#canFetchMore)
@@ -3144,8 +3280,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseCanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_QBaseCanFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperCanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
+        return qtc.KRearrangeColumnsProxyModel_SuperCanFetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3180,6 +3316,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_FetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperFetchMore` instead
+    ///
+    pub const QBaseFetchMore = SuperFetchMore;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#fetchMore)
@@ -3192,8 +3332,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseFetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperFetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
+        qtc.KRearrangeColumnsProxyModel_SuperFetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3230,6 +3370,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_Sort(@ptrCast(self), @bitCast(column), @bitCast(order));
     }
 
+    /// ### DEPRECATED: Use `SuperSort` instead
+    ///
+    pub const QBaseSort = SuperSort;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#sort)
@@ -3244,8 +3388,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn QBaseSort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseSort(@ptrCast(self), @bitCast(column), @bitCast(order));
+    pub fn SuperSort(self: ?*anyopaque, column: i32, order: i32) void {
+        qtc.KRearrangeColumnsProxyModel_SuperSort(@ptrCast(self), @bitCast(column), @bitCast(order));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3280,6 +3424,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_Span(@ptrCast(self), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperSpan` instead
+    ///
+    pub const QBaseSpan = SuperSpan;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#span)
@@ -3292,8 +3440,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseSpan(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
-        return qtc.KRearrangeColumnsProxyModel_QBaseSpan(@ptrCast(self), @ptrCast(index));
+    pub fn SuperSpan(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
+        return qtc.KRearrangeColumnsProxyModel_SuperSpan(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3332,6 +3480,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_MimeData(@ptrCast(self), indexes_list);
     }
 
+    /// ### DEPRECATED: Use `SuperMimeData` instead
+    ///
+    pub const QBaseMimeData = SuperMimeData;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#mimeData)
@@ -3344,12 +3496,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` indexes: []QtC.QModelIndex `
     ///
-    pub fn QBaseMimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
+    pub fn SuperMimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        return qtc.KRearrangeColumnsProxyModel_QBaseMimeData(@ptrCast(self), indexes_list);
+        return qtc.KRearrangeColumnsProxyModel_SuperMimeData(@ptrCast(self), indexes_list);
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3392,6 +3544,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperCanDropMimeData` instead
+    ///
+    pub const QBaseCanDropMimeData = SuperCanDropMimeData;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#canDropMimeData)
@@ -3412,8 +3568,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseCanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_QBaseCanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperCanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
+        return qtc.KRearrangeColumnsProxyModel_SuperCanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3463,6 +3619,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperMimeTypes` instead
+    ///
+    pub const QBaseMimeTypes = SuperMimeTypes;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#mimeTypes)
@@ -3475,8 +3635,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KRearrangeColumnsProxyModel_QBaseMimeTypes(@ptrCast(self));
+    pub fn SuperMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KRearrangeColumnsProxyModel_SuperMimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -3530,6 +3690,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_SupportedDragActions(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSupportedDragActions` instead
+    ///
+    pub const QBaseSupportedDragActions = SuperSupportedDragActions;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#supportedDragActions)
@@ -3544,8 +3708,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn QBaseSupportedDragActions(self: ?*anyopaque) i32 {
-        return qtc.KRearrangeColumnsProxyModel_QBaseSupportedDragActions(@ptrCast(self));
+    pub fn SuperSupportedDragActions(self: ?*anyopaque) i32 {
+        return qtc.KRearrangeColumnsProxyModel_SuperSupportedDragActions(@ptrCast(self));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3582,6 +3746,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_SupportedDropActions(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSupportedDropActions` instead
+    ///
+    pub const QBaseSupportedDropActions = SuperSupportedDropActions;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#supportedDropActions)
@@ -3596,8 +3764,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn QBaseSupportedDropActions(self: ?*anyopaque) i32 {
-        return qtc.KRearrangeColumnsProxyModel_QBaseSupportedDropActions(@ptrCast(self));
+    pub fn SuperSupportedDropActions(self: ?*anyopaque) i32 {
+        return qtc.KRearrangeColumnsProxyModel_SuperSupportedDropActions(@ptrCast(self));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3652,6 +3820,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperRoleNames` instead
+    ///
+    pub const QBaseRoleNames = SuperRoleNames;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#roleNames)
@@ -3664,8 +3836,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.libqt_map = qtc.KRearrangeColumnsProxyModel_QBaseRoleNames(@ptrCast(self));
+    pub fn SuperRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
+        const _map: qtc.libqt_map = qtc.KRearrangeColumnsProxyModel_SuperRoleNames(@ptrCast(self));
         var _ret: map_i32_u8 = .empty;
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -3726,6 +3898,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_MultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
     }
 
+    /// ### DEPRECATED: Use `SuperMultiData` instead
+    ///
+    pub const QBaseMultiData = SuperMultiData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
@@ -3740,8 +3916,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` roleDataSpan: QtC.QModelRoleDataSpan `
     ///
-    pub fn QBaseMultiData(self: ?*anyopaque, index: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseMultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
+    pub fn SuperMultiData(self: ?*anyopaque, index: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
+        qtc.KRearrangeColumnsProxyModel_SuperMultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3774,6 +3950,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_ResetInternalData(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperResetInternalData` instead
+    ///
+    pub const QBaseResetInternalData = SuperResetInternalData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
@@ -3784,8 +3964,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` self: QtC.KRearrangeColumnsProxyModel `
     ///
-    pub fn QBaseResetInternalData(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseResetInternalData(@ptrCast(self));
+    pub fn SuperResetInternalData(self: ?*anyopaque) void {
+        qtc.KRearrangeColumnsProxyModel_SuperResetInternalData(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3820,6 +4000,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -3832,8 +4016,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KRearrangeColumnsProxyModel_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3870,6 +4054,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -3884,8 +4072,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KRearrangeColumnsProxyModel_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3920,6 +4108,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -3932,8 +4124,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KRearrangeColumnsProxyModel_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3968,6 +4160,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -3980,8 +4176,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KRearrangeColumnsProxyModel_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4016,6 +4212,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -4028,8 +4228,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KRearrangeColumnsProxyModel_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4064,6 +4264,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -4076,8 +4280,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KRearrangeColumnsProxyModel_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -4112,6 +4316,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -4124,8 +4332,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KRearrangeColumnsProxyModel_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -4160,6 +4368,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_SetHandleSourceLayoutChanges(@ptrCast(self), handleSourceLayoutChanges);
     }
 
+    /// ### DEPRECATED: Use `SuperSetHandleSourceLayoutChanges` instead
+    ///
+    pub const QBaseSetHandleSourceLayoutChanges = SuperSetHandleSourceLayoutChanges;
+
     /// Inherited from QIdentityProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qidentityproxymodel.html#setHandleSourceLayoutChanges)
@@ -4172,8 +4384,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` handleSourceLayoutChanges: bool `
     ///
-    pub fn QBaseSetHandleSourceLayoutChanges(self: ?*anyopaque, handleSourceLayoutChanges: bool) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseSetHandleSourceLayoutChanges(@ptrCast(self), handleSourceLayoutChanges);
+    pub fn SuperSetHandleSourceLayoutChanges(self: ?*anyopaque, handleSourceLayoutChanges: bool) void {
+        qtc.KRearrangeColumnsProxyModel_SuperSetHandleSourceLayoutChanges(@ptrCast(self), handleSourceLayoutChanges);
     }
 
     /// Inherited from QIdentityProxyModel
@@ -4208,6 +4420,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_SetHandleSourceDataChanges(@ptrCast(self), handleSourceDataChanges);
     }
 
+    /// ### DEPRECATED: Use `SuperSetHandleSourceDataChanges` instead
+    ///
+    pub const QBaseSetHandleSourceDataChanges = SuperSetHandleSourceDataChanges;
+
     /// Inherited from QIdentityProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qidentityproxymodel.html#setHandleSourceDataChanges)
@@ -4220,8 +4436,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` handleSourceDataChanges: bool `
     ///
-    pub fn QBaseSetHandleSourceDataChanges(self: ?*anyopaque, handleSourceDataChanges: bool) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseSetHandleSourceDataChanges(@ptrCast(self), handleSourceDataChanges);
+    pub fn SuperSetHandleSourceDataChanges(self: ?*anyopaque, handleSourceDataChanges: bool) void {
+        qtc.KRearrangeColumnsProxyModel_SuperSetHandleSourceDataChanges(@ptrCast(self), handleSourceDataChanges);
     }
 
     /// Inherited from QIdentityProxyModel
@@ -4260,6 +4476,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_CreateSourceIndex(@ptrCast(self), @bitCast(row), @bitCast(col), @ptrCast(internalPtr));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateSourceIndex` instead
+    ///
+    pub const QBaseCreateSourceIndex = SuperCreateSourceIndex;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#createSourceIndex)
@@ -4276,8 +4496,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` internalPtr: ?*anyopaque `
     ///
-    pub fn QBaseCreateSourceIndex(self: ?*anyopaque, row: i32, col: i32, internalPtr: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_QBaseCreateSourceIndex(@ptrCast(self), @bitCast(row), @bitCast(col), @ptrCast(internalPtr));
+    pub fn SuperCreateSourceIndex(self: ?*anyopaque, row: i32, col: i32, internalPtr: ?*anyopaque) QtC.QModelIndex {
+        return qtc.KRearrangeColumnsProxyModel_SuperCreateSourceIndex(@ptrCast(self), @bitCast(row), @bitCast(col), @ptrCast(internalPtr));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -4314,6 +4534,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_CreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateIndex` instead
+    ///
+    pub const QBaseCreateIndex = SuperCreateIndex;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
@@ -4328,8 +4552,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn QBaseCreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_QBaseCreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn SuperCreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
+        return qtc.KRearrangeColumnsProxyModel_SuperCreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4370,6 +4594,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_EncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
     }
 
+    /// ### DEPRECATED: Use `SuperEncodeData` instead
+    ///
+    pub const QBaseEncodeData = SuperEncodeData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
@@ -4384,12 +4612,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` stream: QtC.QDataStream `
     ///
-    pub fn QBaseEncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
+    pub fn SuperEncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        qtc.KRearrangeColumnsProxyModel_QBaseEncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
+        qtc.KRearrangeColumnsProxyModel_SuperEncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4430,6 +4658,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_DecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
     }
 
+    /// ### DEPRECATED: Use `SuperDecodeData` instead
+    ///
+    pub const QBaseDecodeData = SuperDecodeData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
@@ -4448,8 +4680,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` stream: QtC.QDataStream `
     ///
-    pub fn QBaseDecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_QBaseDecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
+    pub fn SuperDecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
+        return qtc.KRearrangeColumnsProxyModel_SuperDecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4488,6 +4720,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_BeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginInsertRows` instead
+    ///
+    pub const QBaseBeginInsertRows = SuperBeginInsertRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
@@ -4504,8 +4740,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn QBaseBeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseBeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
+        qtc.KRearrangeColumnsProxyModel_SuperBeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4538,6 +4774,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_EndInsertRows(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndInsertRows` instead
+    ///
+    pub const QBaseEndInsertRows = SuperEndInsertRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
@@ -4548,8 +4788,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` self: QtC.KRearrangeColumnsProxyModel `
     ///
-    pub fn QBaseEndInsertRows(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseEndInsertRows(@ptrCast(self));
+    pub fn SuperEndInsertRows(self: ?*anyopaque) void {
+        qtc.KRearrangeColumnsProxyModel_SuperEndInsertRows(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4588,6 +4828,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_BeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginRemoveRows` instead
+    ///
+    pub const QBaseBeginRemoveRows = SuperBeginRemoveRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
@@ -4604,8 +4848,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn QBaseBeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
+        qtc.KRearrangeColumnsProxyModel_SuperBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4638,6 +4882,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_EndRemoveRows(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndRemoveRows` instead
+    ///
+    pub const QBaseEndRemoveRows = SuperEndRemoveRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
@@ -4648,8 +4896,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` self: QtC.KRearrangeColumnsProxyModel `
     ///
-    pub fn QBaseEndRemoveRows(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseEndRemoveRows(@ptrCast(self));
+    pub fn SuperEndRemoveRows(self: ?*anyopaque) void {
+        qtc.KRearrangeColumnsProxyModel_SuperEndRemoveRows(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4692,6 +4940,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_BeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginMoveRows` instead
+    ///
+    pub const QBaseBeginMoveRows = SuperBeginMoveRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
@@ -4712,8 +4964,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn QBaseBeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.KRearrangeColumnsProxyModel_QBaseBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
+    pub fn SuperBeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
+        return qtc.KRearrangeColumnsProxyModel_SuperBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4746,6 +4998,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_EndMoveRows(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndMoveRows` instead
+    ///
+    pub const QBaseEndMoveRows = SuperEndMoveRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
@@ -4756,8 +5012,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` self: QtC.KRearrangeColumnsProxyModel `
     ///
-    pub fn QBaseEndMoveRows(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseEndMoveRows(@ptrCast(self));
+    pub fn SuperEndMoveRows(self: ?*anyopaque) void {
+        qtc.KRearrangeColumnsProxyModel_SuperEndMoveRows(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4796,6 +5052,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_BeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginInsertColumns` instead
+    ///
+    pub const QBaseBeginInsertColumns = SuperBeginInsertColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
@@ -4812,8 +5072,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn QBaseBeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
+        qtc.KRearrangeColumnsProxyModel_SuperBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4846,6 +5106,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_EndInsertColumns(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndInsertColumns` instead
+    ///
+    pub const QBaseEndInsertColumns = SuperEndInsertColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
@@ -4856,8 +5120,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` self: QtC.KRearrangeColumnsProxyModel `
     ///
-    pub fn QBaseEndInsertColumns(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseEndInsertColumns(@ptrCast(self));
+    pub fn SuperEndInsertColumns(self: ?*anyopaque) void {
+        qtc.KRearrangeColumnsProxyModel_SuperEndInsertColumns(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4896,6 +5160,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_BeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginRemoveColumns` instead
+    ///
+    pub const QBaseBeginRemoveColumns = SuperBeginRemoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
@@ -4912,8 +5180,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn QBaseBeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
+        qtc.KRearrangeColumnsProxyModel_SuperBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4946,6 +5214,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_EndRemoveColumns(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndRemoveColumns` instead
+    ///
+    pub const QBaseEndRemoveColumns = SuperEndRemoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
@@ -4956,8 +5228,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` self: QtC.KRearrangeColumnsProxyModel `
     ///
-    pub fn QBaseEndRemoveColumns(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseEndRemoveColumns(@ptrCast(self));
+    pub fn SuperEndRemoveColumns(self: ?*anyopaque) void {
+        qtc.KRearrangeColumnsProxyModel_SuperEndRemoveColumns(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5000,6 +5272,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_BeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginMoveColumns` instead
+    ///
+    pub const QBaseBeginMoveColumns = SuperBeginMoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
@@ -5020,8 +5296,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn QBaseBeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.KRearrangeColumnsProxyModel_QBaseBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
+    pub fn SuperBeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
+        return qtc.KRearrangeColumnsProxyModel_SuperBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5054,6 +5330,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_EndMoveColumns(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndMoveColumns` instead
+    ///
+    pub const QBaseEndMoveColumns = SuperEndMoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
@@ -5064,8 +5344,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` self: QtC.KRearrangeColumnsProxyModel `
     ///
-    pub fn QBaseEndMoveColumns(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseEndMoveColumns(@ptrCast(self));
+    pub fn SuperEndMoveColumns(self: ?*anyopaque) void {
+        qtc.KRearrangeColumnsProxyModel_SuperEndMoveColumns(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5098,6 +5378,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_BeginResetModel(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginResetModel` instead
+    ///
+    pub const QBaseBeginResetModel = SuperBeginResetModel;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
@@ -5108,8 +5392,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` self: QtC.KRearrangeColumnsProxyModel `
     ///
-    pub fn QBaseBeginResetModel(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseBeginResetModel(@ptrCast(self));
+    pub fn SuperBeginResetModel(self: ?*anyopaque) void {
+        qtc.KRearrangeColumnsProxyModel_SuperBeginResetModel(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5142,6 +5426,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_EndResetModel(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndResetModel` instead
+    ///
+    pub const QBaseEndResetModel = SuperEndResetModel;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
@@ -5152,8 +5440,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` self: QtC.KRearrangeColumnsProxyModel `
     ///
-    pub fn QBaseEndResetModel(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseEndResetModel(@ptrCast(self));
+    pub fn SuperEndResetModel(self: ?*anyopaque) void {
+        qtc.KRearrangeColumnsProxyModel_SuperEndResetModel(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5190,6 +5478,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_ChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
     }
 
+    /// ### DEPRECATED: Use `SuperChangePersistentIndex` instead
+    ///
+    pub const QBaseChangePersistentIndex = SuperChangePersistentIndex;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
@@ -5204,8 +5496,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` to: QtC.QModelIndex `
     ///
-    pub fn QBaseChangePersistentIndex(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_QBaseChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
+    pub fn SuperChangePersistentIndex(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
+        qtc.KRearrangeColumnsProxyModel_SuperChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5250,6 +5542,10 @@ pub const krearrangecolumnsproxymodel = struct {
         qtc.KRearrangeColumnsProxyModel_ChangePersistentIndexList(@ptrCast(self), from_list, to_list);
     }
 
+    /// ### DEPRECATED: Use `SuperChangePersistentIndexList` instead
+    ///
+    pub const QBaseChangePersistentIndexList = SuperChangePersistentIndexList;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
@@ -5264,7 +5560,7 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` to: []QtC.QModelIndex `
     ///
-    pub fn QBaseChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
+    pub fn SuperChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -5273,7 +5569,7 @@ pub const krearrangecolumnsproxymodel = struct {
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
-        qtc.KRearrangeColumnsProxyModel_QBaseChangePersistentIndexList(@ptrCast(self), from_list, to_list);
+        qtc.KRearrangeColumnsProxyModel_SuperChangePersistentIndexList(@ptrCast(self), from_list, to_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -5313,6 +5609,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperPersistentIndexList` instead
+    ///
+    pub const QBasePersistentIndexList = SuperPersistentIndexList;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
@@ -5325,8 +5625,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBasePersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KRearrangeColumnsProxyModel_QBasePersistentIndexList(@ptrCast(self));
+    pub fn SuperPersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
+        const _arr: qtc.libqt_list = qtc.KRearrangeColumnsProxyModel_SuperPersistentIndexList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("krearrangecolumnsproxymodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -5370,6 +5670,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -5380,8 +5684,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` self: QtC.KRearrangeColumnsProxyModel `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KRearrangeColumnsProxyModel_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KRearrangeColumnsProxyModel_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -5414,6 +5718,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -5424,8 +5732,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` self: QtC.KRearrangeColumnsProxyModel `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KRearrangeColumnsProxyModel_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KRearrangeColumnsProxyModel_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -5461,6 +5769,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -5473,9 +5785,9 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KRearrangeColumnsProxyModel_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KRearrangeColumnsProxyModel_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5510,6 +5822,10 @@ pub const krearrangecolumnsproxymodel = struct {
         return qtc.KRearrangeColumnsProxyModel_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -5522,8 +5838,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KRearrangeColumnsProxyModel_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -5797,6 +6113,9 @@ pub const krearrangecolumnsproxymodel = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#dtor.KRearrangeColumnsProxyModel)
     ///
@@ -5806,7 +6125,7 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` self: QtC.KRearrangeColumnsProxyModel `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KRearrangeColumnsProxyModel_Delete(@ptrCast(self));
     }
 };

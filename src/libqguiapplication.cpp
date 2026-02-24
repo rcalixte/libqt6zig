@@ -516,7 +516,7 @@ bool QGuiApplication_Event(QGuiApplication* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-QMetaObject* QGuiApplication_QBaseMetaObject(const QGuiApplication* self) {
+QMetaObject* QGuiApplication_SuperMetaObject(const QGuiApplication* self) {
     auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
     if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
         vqguiapplication->setQGuiApplication_MetaObject_IsBase(true);
@@ -535,7 +535,7 @@ void QGuiApplication_OnMetaObject(const QGuiApplication* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QGuiApplication_QBaseMetacast(QGuiApplication* self, const char* param1) {
+void* QGuiApplication_SuperMetacast(QGuiApplication* self, const char* param1) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
     if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
         vqguiapplication->setQGuiApplication_Metacast_IsBase(true);
@@ -554,7 +554,7 @@ void QGuiApplication_OnMetacast(QGuiApplication* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QGuiApplication_QBaseMetacall(QGuiApplication* self, int param1, int param2, void** param3) {
+int QGuiApplication_SuperMetacall(QGuiApplication* self, int param1, int param2, void** param3) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
     if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
         vqguiapplication->setQGuiApplication_Metacall_IsBase(true);
@@ -573,7 +573,7 @@ void QGuiApplication_OnMetacall(QGuiApplication* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGuiApplication_QBaseNotify(QGuiApplication* self, QObject* param1, QEvent* param2) {
+bool QGuiApplication_SuperNotify(QGuiApplication* self, QObject* param1, QEvent* param2) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
     if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
         vqguiapplication->setQGuiApplication_Notify_IsBase(true);
@@ -592,7 +592,7 @@ void QGuiApplication_OnNotify(QGuiApplication* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGuiApplication_QBaseEvent(QGuiApplication* self, QEvent* param1) {
+bool QGuiApplication_SuperEvent(QGuiApplication* self, QEvent* param1) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
     if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
         vqguiapplication->setQGuiApplication_Event_IsBase(true);
@@ -621,7 +621,7 @@ bool QGuiApplication_EventFilter(QGuiApplication* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool QGuiApplication_QBaseEventFilter(QGuiApplication* self, QObject* watched, QEvent* event) {
+bool QGuiApplication_SuperEventFilter(QGuiApplication* self, QObject* watched, QEvent* event) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
     if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
         vqguiapplication->setQGuiApplication_EventFilter_IsBase(true);
@@ -650,7 +650,7 @@ void QGuiApplication_TimerEvent(QGuiApplication* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QGuiApplication_QBaseTimerEvent(QGuiApplication* self, QTimerEvent* event) {
+void QGuiApplication_SuperTimerEvent(QGuiApplication* self, QTimerEvent* event) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
     if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
         vqguiapplication->setQGuiApplication_TimerEvent_IsBase(true);
@@ -679,7 +679,7 @@ void QGuiApplication_ChildEvent(QGuiApplication* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QGuiApplication_QBaseChildEvent(QGuiApplication* self, QChildEvent* event) {
+void QGuiApplication_SuperChildEvent(QGuiApplication* self, QChildEvent* event) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
     if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
         vqguiapplication->setQGuiApplication_ChildEvent_IsBase(true);
@@ -708,7 +708,7 @@ void QGuiApplication_CustomEvent(QGuiApplication* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QGuiApplication_QBaseCustomEvent(QGuiApplication* self, QEvent* event) {
+void QGuiApplication_SuperCustomEvent(QGuiApplication* self, QEvent* event) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
     if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
         vqguiapplication->setQGuiApplication_CustomEvent_IsBase(true);
@@ -737,7 +737,7 @@ void QGuiApplication_ConnectNotify(QGuiApplication* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void QGuiApplication_QBaseConnectNotify(QGuiApplication* self, const QMetaMethod* signal) {
+void QGuiApplication_SuperConnectNotify(QGuiApplication* self, const QMetaMethod* signal) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
     if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
         vqguiapplication->setQGuiApplication_ConnectNotify_IsBase(true);
@@ -766,7 +766,7 @@ void QGuiApplication_DisconnectNotify(QGuiApplication* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void QGuiApplication_QBaseDisconnectNotify(QGuiApplication* self, const QMetaMethod* signal) {
+void QGuiApplication_SuperDisconnectNotify(QGuiApplication* self, const QMetaMethod* signal) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
     if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
         vqguiapplication->setQGuiApplication_DisconnectNotify_IsBase(true);
@@ -795,7 +795,7 @@ void* QGuiApplication_ResolveInterface(const QGuiApplication* self, const char* 
 }
 
 // Base class handler implementation
-void* QGuiApplication_QBaseResolveInterface(const QGuiApplication* self, const char* name, int revision) {
+void* QGuiApplication_SuperResolveInterface(const QGuiApplication* self, const char* name, int revision) {
     auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
     if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
         vqguiapplication->setQGuiApplication_ResolveInterface_IsBase(true);
@@ -824,7 +824,7 @@ QObject* QGuiApplication_Sender(const QGuiApplication* self) {
 }
 
 // Base class handler implementation
-QObject* QGuiApplication_QBaseSender(const QGuiApplication* self) {
+QObject* QGuiApplication_SuperSender(const QGuiApplication* self) {
     auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
     if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
         vqguiapplication->setQGuiApplication_Sender_IsBase(true);
@@ -853,7 +853,7 @@ int QGuiApplication_SenderSignalIndex(const QGuiApplication* self) {
 }
 
 // Base class handler implementation
-int QGuiApplication_QBaseSenderSignalIndex(const QGuiApplication* self) {
+int QGuiApplication_SuperSenderSignalIndex(const QGuiApplication* self) {
     auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
     if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
         vqguiapplication->setQGuiApplication_SenderSignalIndex_IsBase(true);
@@ -882,7 +882,7 @@ int QGuiApplication_Receivers(const QGuiApplication* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QGuiApplication_QBaseReceivers(const QGuiApplication* self, const char* signal) {
+int QGuiApplication_SuperReceivers(const QGuiApplication* self, const char* signal) {
     auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
     if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
         vqguiapplication->setQGuiApplication_Receivers_IsBase(true);
@@ -911,7 +911,7 @@ bool QGuiApplication_IsSignalConnected(const QGuiApplication* self, const QMetaM
 }
 
 // Base class handler implementation
-bool QGuiApplication_QBaseIsSignalConnected(const QGuiApplication* self, const QMetaMethod* signal) {
+bool QGuiApplication_SuperIsSignalConnected(const QGuiApplication* self, const QMetaMethod* signal) {
     auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
     if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
         vqguiapplication->setQGuiApplication_IsSignalConnected_IsBase(true);

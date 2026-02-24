@@ -142,7 +142,7 @@ KCompletion* KCompletionBase_CompletionObject1(KCompletionBase* self, bool handl
 }
 
 // Base class handler implementation
-void KCompletionBase_QBaseSetCompletionObject(KCompletionBase* self, KCompletion* completionObject, bool handleSignals) {
+void KCompletionBase_SuperSetCompletionObject(KCompletionBase* self, KCompletion* completionObject, bool handleSignals) {
     auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
     if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
         vkcompletionbase->setKCompletionBase_SetCompletionObject_IsBase(true);
@@ -161,7 +161,7 @@ void KCompletionBase_OnSetCompletionObject(KCompletionBase* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void KCompletionBase_QBaseSetHandleSignals(KCompletionBase* self, bool handle) {
+void KCompletionBase_SuperSetHandleSignals(KCompletionBase* self, bool handle) {
     auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
     if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
         vkcompletionbase->setKCompletionBase_SetHandleSignals_IsBase(true);
@@ -180,7 +180,7 @@ void KCompletionBase_OnSetHandleSignals(KCompletionBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCompletionBase_QBaseSetCompletionMode(KCompletionBase* self, int mode) {
+void KCompletionBase_SuperSetCompletionMode(KCompletionBase* self, int mode) {
     auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
     if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
         vkcompletionbase->setKCompletionBase_SetCompletionMode_IsBase(true);
@@ -199,7 +199,7 @@ void KCompletionBase_OnSetCompletionMode(KCompletionBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCompletionBase_QBaseSetCompletedText(KCompletionBase* self, const libqt_string text) {
+void KCompletionBase_SuperSetCompletedText(KCompletionBase* self, const libqt_string text) {
     auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
@@ -219,7 +219,7 @@ void KCompletionBase_OnSetCompletedText(KCompletionBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCompletionBase_QBaseSetCompletedItems(KCompletionBase* self, const libqt_list /* of libqt_string */ items, bool autoSuggest) {
+void KCompletionBase_SuperSetCompletedItems(KCompletionBase* self, const libqt_list /* of libqt_string */ items, bool autoSuggest) {
     auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
     QList<QString> items_QList;
     items_QList.reserve(items.len);
@@ -245,7 +245,7 @@ void KCompletionBase_OnSetCompletedItems(KCompletionBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCompletionBase_QBaseVirtualHook(KCompletionBase* self, int id, void* data) {
+void KCompletionBase_SuperVirtualHook(KCompletionBase* self, int id, void* data) {
     auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
     if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
         vkcompletionbase->setKCompletionBase_VirtualHook_IsBase(true);
@@ -320,7 +320,7 @@ libqt_map /* of int to libqt_list of QKeySequence* */ KCompletionBase_KeyBinding
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_list of QKeySequence* */ KCompletionBase_QBaseKeyBindingMap(const KCompletionBase* self) {
+libqt_map /* of int to libqt_list of QKeySequence* */ KCompletionBase_SuperKeyBindingMap(const KCompletionBase* self) {
     auto* vkcompletionbase = const_cast<VirtualKCompletionBase*>(dynamic_cast<const VirtualKCompletionBase*>(self));
     if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
         vkcompletionbase->setKCompletionBase_KeyBindingMap_IsBase(true);
@@ -407,7 +407,7 @@ void KCompletionBase_SetKeyBindingMap(KCompletionBase* self, libqt_map /* of int
 }
 
 // Base class handler implementation
-void KCompletionBase_QBaseSetKeyBindingMap(KCompletionBase* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
+void KCompletionBase_SuperSetKeyBindingMap(KCompletionBase* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
     auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
     QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_QMap;
     int* keyBindingMap_karr = static_cast<int*>(keyBindingMap.keys);
@@ -448,7 +448,7 @@ void KCompletionBase_SetDelegate(KCompletionBase* self, KCompletionBase* delegat
 }
 
 // Base class handler implementation
-void KCompletionBase_QBaseSetDelegate(KCompletionBase* self, KCompletionBase* delegate) {
+void KCompletionBase_SuperSetDelegate(KCompletionBase* self, KCompletionBase* delegate) {
     auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
     if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
         vkcompletionbase->setKCompletionBase_SetDelegate_IsBase(true);
@@ -477,7 +477,7 @@ KCompletionBase* KCompletionBase_Delegate(const KCompletionBase* self) {
 }
 
 // Base class handler implementation
-KCompletionBase* KCompletionBase_QBaseDelegate(const KCompletionBase* self) {
+KCompletionBase* KCompletionBase_SuperDelegate(const KCompletionBase* self) {
     auto* vkcompletionbase = const_cast<VirtualKCompletionBase*>(dynamic_cast<const VirtualKCompletionBase*>(self));
     if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
         vkcompletionbase->setKCompletionBase_Delegate_IsBase(true);

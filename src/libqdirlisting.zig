@@ -231,6 +231,10 @@ pub const qdirlisting = struct {
         return qtc.QDirListing_ConstEnd(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdirlisting.html#dtor.QDirListing)
     ///
     /// Delete this object from C++ memory.
@@ -239,7 +243,7 @@ pub const qdirlisting = struct {
     ///
     /// ` self: QtC.QDirListing `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDirListing_Delete(@ptrCast(self));
     }
 };
@@ -640,13 +644,17 @@ pub const qdirlisting__direntry = struct {
         qtc.QDirListing__DirEntry_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QDirListing__DirEntry `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDirListing__DirEntry_Delete(@ptrCast(self));
     }
 };
@@ -713,13 +721,17 @@ pub const qdirlisting__sentinel = struct {
         qtc.QDirListing__sentinel_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QDirListing__sentinel `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDirListing__sentinel_Delete(@ptrCast(self));
     }
 };
@@ -780,13 +792,17 @@ pub const qdirlisting__const_iterator = struct {
         qtc.QDirListing__const_iterator_OperatorPlusPlus2(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QDirListing__const_iterator `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDirListing__const_iterator_Delete(@ptrCast(self));
     }
 };

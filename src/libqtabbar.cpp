@@ -554,7 +554,7 @@ void QTabBar_InitStyleOption(const QTabBar* self, QStyleOptionTab* option, int t
 }
 
 // Base class handler implementation
-QMetaObject* QTabBar_QBaseMetaObject(const QTabBar* self) {
+QMetaObject* QTabBar_SuperMetaObject(const QTabBar* self) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_MetaObject_IsBase(true);
@@ -573,7 +573,7 @@ void QTabBar_OnMetaObject(const QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QTabBar_QBaseMetacast(QTabBar* self, const char* param1) {
+void* QTabBar_SuperMetacast(QTabBar* self, const char* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_Metacast_IsBase(true);
@@ -592,7 +592,7 @@ void QTabBar_OnMetacast(QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTabBar_QBaseMetacall(QTabBar* self, int param1, int param2, void** param3) {
+int QTabBar_SuperMetacall(QTabBar* self, int param1, int param2, void** param3) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_Metacall_IsBase(true);
@@ -611,7 +611,7 @@ void QTabBar_OnMetacall(QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QTabBar_QBaseSizeHint(const QTabBar* self) {
+QSize* QTabBar_SuperSizeHint(const QTabBar* self) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_SizeHint_IsBase(true);
@@ -630,7 +630,7 @@ void QTabBar_OnSizeHint(const QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QTabBar_QBaseMinimumSizeHint(const QTabBar* self) {
+QSize* QTabBar_SuperMinimumSizeHint(const QTabBar* self) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_MinimumSizeHint_IsBase(true);
@@ -649,7 +649,7 @@ void QTabBar_OnMinimumSizeHint(const QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QTabBar_QBaseTabSizeHint(const QTabBar* self, int index) {
+QSize* QTabBar_SuperTabSizeHint(const QTabBar* self, int index) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_TabSizeHint_IsBase(true);
@@ -667,7 +667,7 @@ void QTabBar_OnTabSizeHint(const QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QTabBar_QBaseMinimumTabSizeHint(const QTabBar* self, int index) {
+QSize* QTabBar_SuperMinimumTabSizeHint(const QTabBar* self, int index) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_MinimumTabSizeHint_IsBase(true);
@@ -685,7 +685,7 @@ void QTabBar_OnMinimumTabSizeHint(const QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseTabInserted(QTabBar* self, int index) {
+void QTabBar_SuperTabInserted(QTabBar* self, int index) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_TabInserted_IsBase(true);
@@ -704,7 +704,7 @@ void QTabBar_OnTabInserted(QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseTabRemoved(QTabBar* self, int index) {
+void QTabBar_SuperTabRemoved(QTabBar* self, int index) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_TabRemoved_IsBase(true);
@@ -723,7 +723,7 @@ void QTabBar_OnTabRemoved(QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseTabLayoutChange(QTabBar* self) {
+void QTabBar_SuperTabLayoutChange(QTabBar* self) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_TabLayoutChange_IsBase(true);
@@ -742,7 +742,7 @@ void QTabBar_OnTabLayoutChange(QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QTabBar_QBaseEvent(QTabBar* self, QEvent* param1) {
+bool QTabBar_SuperEvent(QTabBar* self, QEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_Event_IsBase(true);
@@ -761,7 +761,7 @@ void QTabBar_OnEvent(QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseResizeEvent(QTabBar* self, QResizeEvent* param1) {
+void QTabBar_SuperResizeEvent(QTabBar* self, QResizeEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_ResizeEvent_IsBase(true);
@@ -780,7 +780,7 @@ void QTabBar_OnResizeEvent(QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseShowEvent(QTabBar* self, QShowEvent* param1) {
+void QTabBar_SuperShowEvent(QTabBar* self, QShowEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_ShowEvent_IsBase(true);
@@ -799,7 +799,7 @@ void QTabBar_OnShowEvent(QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseHideEvent(QTabBar* self, QHideEvent* param1) {
+void QTabBar_SuperHideEvent(QTabBar* self, QHideEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_HideEvent_IsBase(true);
@@ -818,7 +818,7 @@ void QTabBar_OnHideEvent(QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTabBar_QBasePaintEvent(QTabBar* self, QPaintEvent* param1) {
+void QTabBar_SuperPaintEvent(QTabBar* self, QPaintEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_PaintEvent_IsBase(true);
@@ -837,7 +837,7 @@ void QTabBar_OnPaintEvent(QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseMousePressEvent(QTabBar* self, QMouseEvent* param1) {
+void QTabBar_SuperMousePressEvent(QTabBar* self, QMouseEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_MousePressEvent_IsBase(true);
@@ -856,7 +856,7 @@ void QTabBar_OnMousePressEvent(QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseMouseMoveEvent(QTabBar* self, QMouseEvent* param1) {
+void QTabBar_SuperMouseMoveEvent(QTabBar* self, QMouseEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_MouseMoveEvent_IsBase(true);
@@ -875,7 +875,7 @@ void QTabBar_OnMouseMoveEvent(QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseMouseReleaseEvent(QTabBar* self, QMouseEvent* param1) {
+void QTabBar_SuperMouseReleaseEvent(QTabBar* self, QMouseEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_MouseReleaseEvent_IsBase(true);
@@ -894,7 +894,7 @@ void QTabBar_OnMouseReleaseEvent(QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseMouseDoubleClickEvent(QTabBar* self, QMouseEvent* param1) {
+void QTabBar_SuperMouseDoubleClickEvent(QTabBar* self, QMouseEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_MouseDoubleClickEvent_IsBase(true);
@@ -913,7 +913,7 @@ void QTabBar_OnMouseDoubleClickEvent(QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseWheelEvent(QTabBar* self, QWheelEvent* event) {
+void QTabBar_SuperWheelEvent(QTabBar* self, QWheelEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_WheelEvent_IsBase(true);
@@ -932,7 +932,7 @@ void QTabBar_OnWheelEvent(QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseKeyPressEvent(QTabBar* self, QKeyEvent* param1) {
+void QTabBar_SuperKeyPressEvent(QTabBar* self, QKeyEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_KeyPressEvent_IsBase(true);
@@ -951,7 +951,7 @@ void QTabBar_OnKeyPressEvent(QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseChangeEvent(QTabBar* self, QEvent* param1) {
+void QTabBar_SuperChangeEvent(QTabBar* self, QEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_ChangeEvent_IsBase(true);
@@ -970,7 +970,7 @@ void QTabBar_OnChangeEvent(QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseTimerEvent(QTabBar* self, QTimerEvent* event) {
+void QTabBar_SuperTimerEvent(QTabBar* self, QTimerEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_TimerEvent_IsBase(true);
@@ -989,7 +989,7 @@ void QTabBar_OnTimerEvent(QTabBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseInitStyleOption(const QTabBar* self, QStyleOptionTab* option, int tabIndex) {
+void QTabBar_SuperInitStyleOption(const QTabBar* self, QStyleOptionTab* option, int tabIndex) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_InitStyleOption_IsBase(true);
@@ -1018,7 +1018,7 @@ int QTabBar_DevType(const QTabBar* self) {
 }
 
 // Base class handler implementation
-int QTabBar_QBaseDevType(const QTabBar* self) {
+int QTabBar_SuperDevType(const QTabBar* self) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_DevType_IsBase(true);
@@ -1047,7 +1047,7 @@ void QTabBar_SetVisible(QTabBar* self, bool visible) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseSetVisible(QTabBar* self, bool visible) {
+void QTabBar_SuperSetVisible(QTabBar* self, bool visible) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_SetVisible_IsBase(true);
@@ -1076,7 +1076,7 @@ int QTabBar_HeightForWidth(const QTabBar* self, int param1) {
 }
 
 // Base class handler implementation
-int QTabBar_QBaseHeightForWidth(const QTabBar* self, int param1) {
+int QTabBar_SuperHeightForWidth(const QTabBar* self, int param1) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_HeightForWidth_IsBase(true);
@@ -1105,7 +1105,7 @@ bool QTabBar_HasHeightForWidth(const QTabBar* self) {
 }
 
 // Base class handler implementation
-bool QTabBar_QBaseHasHeightForWidth(const QTabBar* self) {
+bool QTabBar_SuperHasHeightForWidth(const QTabBar* self) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_HasHeightForWidth_IsBase(true);
@@ -1134,7 +1134,7 @@ QPaintEngine* QTabBar_PaintEngine(const QTabBar* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QTabBar_QBasePaintEngine(const QTabBar* self) {
+QPaintEngine* QTabBar_SuperPaintEngine(const QTabBar* self) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_PaintEngine_IsBase(true);
@@ -1163,7 +1163,7 @@ void QTabBar_KeyReleaseEvent(QTabBar* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseKeyReleaseEvent(QTabBar* self, QKeyEvent* event) {
+void QTabBar_SuperKeyReleaseEvent(QTabBar* self, QKeyEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_KeyReleaseEvent_IsBase(true);
@@ -1192,7 +1192,7 @@ void QTabBar_FocusInEvent(QTabBar* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseFocusInEvent(QTabBar* self, QFocusEvent* event) {
+void QTabBar_SuperFocusInEvent(QTabBar* self, QFocusEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_FocusInEvent_IsBase(true);
@@ -1221,7 +1221,7 @@ void QTabBar_FocusOutEvent(QTabBar* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseFocusOutEvent(QTabBar* self, QFocusEvent* event) {
+void QTabBar_SuperFocusOutEvent(QTabBar* self, QFocusEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_FocusOutEvent_IsBase(true);
@@ -1250,7 +1250,7 @@ void QTabBar_EnterEvent(QTabBar* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseEnterEvent(QTabBar* self, QEnterEvent* event) {
+void QTabBar_SuperEnterEvent(QTabBar* self, QEnterEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_EnterEvent_IsBase(true);
@@ -1279,7 +1279,7 @@ void QTabBar_LeaveEvent(QTabBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseLeaveEvent(QTabBar* self, QEvent* event) {
+void QTabBar_SuperLeaveEvent(QTabBar* self, QEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_LeaveEvent_IsBase(true);
@@ -1308,7 +1308,7 @@ void QTabBar_MoveEvent(QTabBar* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseMoveEvent(QTabBar* self, QMoveEvent* event) {
+void QTabBar_SuperMoveEvent(QTabBar* self, QMoveEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_MoveEvent_IsBase(true);
@@ -1337,7 +1337,7 @@ void QTabBar_CloseEvent(QTabBar* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseCloseEvent(QTabBar* self, QCloseEvent* event) {
+void QTabBar_SuperCloseEvent(QTabBar* self, QCloseEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_CloseEvent_IsBase(true);
@@ -1366,7 +1366,7 @@ void QTabBar_ContextMenuEvent(QTabBar* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseContextMenuEvent(QTabBar* self, QContextMenuEvent* event) {
+void QTabBar_SuperContextMenuEvent(QTabBar* self, QContextMenuEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_ContextMenuEvent_IsBase(true);
@@ -1395,7 +1395,7 @@ void QTabBar_TabletEvent(QTabBar* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseTabletEvent(QTabBar* self, QTabletEvent* event) {
+void QTabBar_SuperTabletEvent(QTabBar* self, QTabletEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_TabletEvent_IsBase(true);
@@ -1424,7 +1424,7 @@ void QTabBar_ActionEvent(QTabBar* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseActionEvent(QTabBar* self, QActionEvent* event) {
+void QTabBar_SuperActionEvent(QTabBar* self, QActionEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_ActionEvent_IsBase(true);
@@ -1453,7 +1453,7 @@ void QTabBar_DragEnterEvent(QTabBar* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseDragEnterEvent(QTabBar* self, QDragEnterEvent* event) {
+void QTabBar_SuperDragEnterEvent(QTabBar* self, QDragEnterEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_DragEnterEvent_IsBase(true);
@@ -1482,7 +1482,7 @@ void QTabBar_DragMoveEvent(QTabBar* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseDragMoveEvent(QTabBar* self, QDragMoveEvent* event) {
+void QTabBar_SuperDragMoveEvent(QTabBar* self, QDragMoveEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_DragMoveEvent_IsBase(true);
@@ -1511,7 +1511,7 @@ void QTabBar_DragLeaveEvent(QTabBar* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseDragLeaveEvent(QTabBar* self, QDragLeaveEvent* event) {
+void QTabBar_SuperDragLeaveEvent(QTabBar* self, QDragLeaveEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_DragLeaveEvent_IsBase(true);
@@ -1540,7 +1540,7 @@ void QTabBar_DropEvent(QTabBar* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseDropEvent(QTabBar* self, QDropEvent* event) {
+void QTabBar_SuperDropEvent(QTabBar* self, QDropEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_DropEvent_IsBase(true);
@@ -1570,7 +1570,7 @@ bool QTabBar_NativeEvent(QTabBar* self, const libqt_string eventType, void* mess
 }
 
 // Base class handler implementation
-bool QTabBar_QBaseNativeEvent(QTabBar* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QTabBar_SuperNativeEvent(QTabBar* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
@@ -1600,7 +1600,7 @@ int QTabBar_Metric(const QTabBar* self, int param1) {
 }
 
 // Base class handler implementation
-int QTabBar_QBaseMetric(const QTabBar* self, int param1) {
+int QTabBar_SuperMetric(const QTabBar* self, int param1) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_Metric_IsBase(true);
@@ -1629,7 +1629,7 @@ void QTabBar_InitPainter(const QTabBar* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseInitPainter(const QTabBar* self, QPainter* painter) {
+void QTabBar_SuperInitPainter(const QTabBar* self, QPainter* painter) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_InitPainter_IsBase(true);
@@ -1658,7 +1658,7 @@ QPaintDevice* QTabBar_Redirected(const QTabBar* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QTabBar_QBaseRedirected(const QTabBar* self, QPoint* offset) {
+QPaintDevice* QTabBar_SuperRedirected(const QTabBar* self, QPoint* offset) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_Redirected_IsBase(true);
@@ -1687,7 +1687,7 @@ QPainter* QTabBar_SharedPainter(const QTabBar* self) {
 }
 
 // Base class handler implementation
-QPainter* QTabBar_QBaseSharedPainter(const QTabBar* self) {
+QPainter* QTabBar_SuperSharedPainter(const QTabBar* self) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_SharedPainter_IsBase(true);
@@ -1716,7 +1716,7 @@ void QTabBar_InputMethodEvent(QTabBar* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseInputMethodEvent(QTabBar* self, QInputMethodEvent* param1) {
+void QTabBar_SuperInputMethodEvent(QTabBar* self, QInputMethodEvent* param1) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_InputMethodEvent_IsBase(true);
@@ -1745,7 +1745,7 @@ QVariant* QTabBar_InputMethodQuery(const QTabBar* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QTabBar_QBaseInputMethodQuery(const QTabBar* self, int param1) {
+QVariant* QTabBar_SuperInputMethodQuery(const QTabBar* self, int param1) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_InputMethodQuery_IsBase(true);
@@ -1774,7 +1774,7 @@ bool QTabBar_FocusNextPrevChild(QTabBar* self, bool next) {
 }
 
 // Base class handler implementation
-bool QTabBar_QBaseFocusNextPrevChild(QTabBar* self, bool next) {
+bool QTabBar_SuperFocusNextPrevChild(QTabBar* self, bool next) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_FocusNextPrevChild_IsBase(true);
@@ -1803,7 +1803,7 @@ bool QTabBar_EventFilter(QTabBar* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTabBar_QBaseEventFilter(QTabBar* self, QObject* watched, QEvent* event) {
+bool QTabBar_SuperEventFilter(QTabBar* self, QObject* watched, QEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_EventFilter_IsBase(true);
@@ -1832,7 +1832,7 @@ void QTabBar_ChildEvent(QTabBar* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseChildEvent(QTabBar* self, QChildEvent* event) {
+void QTabBar_SuperChildEvent(QTabBar* self, QChildEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_ChildEvent_IsBase(true);
@@ -1861,7 +1861,7 @@ void QTabBar_CustomEvent(QTabBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseCustomEvent(QTabBar* self, QEvent* event) {
+void QTabBar_SuperCustomEvent(QTabBar* self, QEvent* event) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_CustomEvent_IsBase(true);
@@ -1890,7 +1890,7 @@ void QTabBar_ConnectNotify(QTabBar* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseConnectNotify(QTabBar* self, const QMetaMethod* signal) {
+void QTabBar_SuperConnectNotify(QTabBar* self, const QMetaMethod* signal) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_ConnectNotify_IsBase(true);
@@ -1919,7 +1919,7 @@ void QTabBar_DisconnectNotify(QTabBar* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseDisconnectNotify(QTabBar* self, const QMetaMethod* signal) {
+void QTabBar_SuperDisconnectNotify(QTabBar* self, const QMetaMethod* signal) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_DisconnectNotify_IsBase(true);
@@ -1948,7 +1948,7 @@ void QTabBar_UpdateMicroFocus(QTabBar* self) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseUpdateMicroFocus(QTabBar* self) {
+void QTabBar_SuperUpdateMicroFocus(QTabBar* self) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_UpdateMicroFocus_IsBase(true);
@@ -1977,7 +1977,7 @@ void QTabBar_Create(QTabBar* self) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseCreate(QTabBar* self) {
+void QTabBar_SuperCreate(QTabBar* self) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_Create_IsBase(true);
@@ -2006,7 +2006,7 @@ void QTabBar_Destroy(QTabBar* self) {
 }
 
 // Base class handler implementation
-void QTabBar_QBaseDestroy(QTabBar* self) {
+void QTabBar_SuperDestroy(QTabBar* self) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_Destroy_IsBase(true);
@@ -2035,7 +2035,7 @@ bool QTabBar_FocusNextChild(QTabBar* self) {
 }
 
 // Base class handler implementation
-bool QTabBar_QBaseFocusNextChild(QTabBar* self) {
+bool QTabBar_SuperFocusNextChild(QTabBar* self) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_FocusNextChild_IsBase(true);
@@ -2064,7 +2064,7 @@ bool QTabBar_FocusPreviousChild(QTabBar* self) {
 }
 
 // Base class handler implementation
-bool QTabBar_QBaseFocusPreviousChild(QTabBar* self) {
+bool QTabBar_SuperFocusPreviousChild(QTabBar* self) {
     auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_FocusPreviousChild_IsBase(true);
@@ -2093,7 +2093,7 @@ QObject* QTabBar_Sender(const QTabBar* self) {
 }
 
 // Base class handler implementation
-QObject* QTabBar_QBaseSender(const QTabBar* self) {
+QObject* QTabBar_SuperSender(const QTabBar* self) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_Sender_IsBase(true);
@@ -2122,7 +2122,7 @@ int QTabBar_SenderSignalIndex(const QTabBar* self) {
 }
 
 // Base class handler implementation
-int QTabBar_QBaseSenderSignalIndex(const QTabBar* self) {
+int QTabBar_SuperSenderSignalIndex(const QTabBar* self) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_SenderSignalIndex_IsBase(true);
@@ -2151,7 +2151,7 @@ int QTabBar_Receivers(const QTabBar* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QTabBar_QBaseReceivers(const QTabBar* self, const char* signal) {
+int QTabBar_SuperReceivers(const QTabBar* self, const char* signal) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_Receivers_IsBase(true);
@@ -2180,7 +2180,7 @@ bool QTabBar_IsSignalConnected(const QTabBar* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QTabBar_QBaseIsSignalConnected(const QTabBar* self, const QMetaMethod* signal) {
+bool QTabBar_SuperIsSignalConnected(const QTabBar* self, const QMetaMethod* signal) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_IsSignalConnected_IsBase(true);
@@ -2209,7 +2209,7 @@ double QTabBar_GetDecodedMetricF(const QTabBar* self, int metricA, int metricB) 
 }
 
 // Base class handler implementation
-double QTabBar_QBaseGetDecodedMetricF(const QTabBar* self, int metricA, int metricB) {
+double QTabBar_SuperGetDecodedMetricF(const QTabBar* self, int metricA, int metricB) {
     auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->setQTabBar_GetDecodedMetricF_IsBase(true);

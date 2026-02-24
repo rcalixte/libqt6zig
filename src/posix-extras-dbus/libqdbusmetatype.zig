@@ -114,6 +114,10 @@ pub const qdbusmetatype = struct {
         return std.mem.span(_ret);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmetatype.html#dtor.QDBusMetaType)
     ///
     /// Delete this object from C++ memory.
@@ -122,7 +126,7 @@ pub const qdbusmetatype = struct {
     ///
     /// ` self: QtC.QDBusMetaType `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDBusMetaType_Delete(@ptrCast(self));
     }
 };

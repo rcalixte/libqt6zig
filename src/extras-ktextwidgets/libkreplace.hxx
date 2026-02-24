@@ -476,27 +476,27 @@ class VirtualKReplace final : public KReplace {
 
     // Friend functions
     friend void KReplace_TimerEvent(KReplace* self, QTimerEvent* event);
-    friend void KReplace_QBaseTimerEvent(KReplace* self, QTimerEvent* event);
+    friend void KReplace_SuperTimerEvent(KReplace* self, QTimerEvent* event);
     friend void KReplace_ChildEvent(KReplace* self, QChildEvent* event);
-    friend void KReplace_QBaseChildEvent(KReplace* self, QChildEvent* event);
+    friend void KReplace_SuperChildEvent(KReplace* self, QChildEvent* event);
     friend void KReplace_CustomEvent(KReplace* self, QEvent* event);
-    friend void KReplace_QBaseCustomEvent(KReplace* self, QEvent* event);
+    friend void KReplace_SuperCustomEvent(KReplace* self, QEvent* event);
     friend void KReplace_ConnectNotify(KReplace* self, const QMetaMethod* signal);
-    friend void KReplace_QBaseConnectNotify(KReplace* self, const QMetaMethod* signal);
+    friend void KReplace_SuperConnectNotify(KReplace* self, const QMetaMethod* signal);
     friend void KReplace_DisconnectNotify(KReplace* self, const QMetaMethod* signal);
-    friend void KReplace_QBaseDisconnectNotify(KReplace* self, const QMetaMethod* signal);
+    friend void KReplace_SuperDisconnectNotify(KReplace* self, const QMetaMethod* signal);
     friend QWidget* KReplace_ParentWidget(const KReplace* self);
-    friend QWidget* KReplace_QBaseParentWidget(const KReplace* self);
+    friend QWidget* KReplace_SuperParentWidget(const KReplace* self);
     friend QWidget* KReplace_DialogsParent(const KReplace* self);
-    friend QWidget* KReplace_QBaseDialogsParent(const KReplace* self);
+    friend QWidget* KReplace_SuperDialogsParent(const KReplace* self);
     friend QObject* KReplace_Sender(const KReplace* self);
-    friend QObject* KReplace_QBaseSender(const KReplace* self);
+    friend QObject* KReplace_SuperSender(const KReplace* self);
     friend int KReplace_SenderSignalIndex(const KReplace* self);
-    friend int KReplace_QBaseSenderSignalIndex(const KReplace* self);
+    friend int KReplace_SuperSenderSignalIndex(const KReplace* self);
     friend int KReplace_Receivers(const KReplace* self, const char* signal);
-    friend int KReplace_QBaseReceivers(const KReplace* self, const char* signal);
+    friend int KReplace_SuperReceivers(const KReplace* self, const char* signal);
     friend bool KReplace_IsSignalConnected(const KReplace* self, const QMetaMethod* signal);
-    friend bool KReplace_QBaseIsSignalConnected(const KReplace* self, const QMetaMethod* signal);
+    friend bool KReplace_SuperIsSignalConnected(const KReplace* self, const QMetaMethod* signal);
 };
 
 #endif

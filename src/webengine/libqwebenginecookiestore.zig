@@ -1013,6 +1013,9 @@ pub const qwebenginecookiestore = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecookiestore.html#dtor.QWebEngineCookieStore)
     ///
@@ -1022,7 +1025,7 @@ pub const qwebenginecookiestore = struct {
     ///
     /// ` self: QtC.QWebEngineCookieStore `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebEngineCookieStore_Delete(@ptrCast(self));
     }
 };
@@ -1161,13 +1164,17 @@ pub const qwebenginecookiestore__filterrequest = struct {
         qtc.QWebEngineCookieStore__FilterRequest_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QWebEngineCookieStore__FilterRequest `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebEngineCookieStore__FilterRequest_Delete(@ptrCast(self));
     }
 };

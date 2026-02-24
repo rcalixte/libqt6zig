@@ -75,7 +75,7 @@ int KDateValidator_Date(const KDateValidator* self, const libqt_string text, QDa
 }
 
 // Base class handler implementation
-QMetaObject* KDateValidator_QBaseMetaObject(const KDateValidator* self) {
+QMetaObject* KDateValidator_SuperMetaObject(const KDateValidator* self) {
     auto* vkdatevalidator = const_cast<VirtualKDateValidator*>(dynamic_cast<const VirtualKDateValidator*>(self));
     if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
         vkdatevalidator->setKDateValidator_MetaObject_IsBase(true);
@@ -94,7 +94,7 @@ void KDateValidator_OnMetaObject(const KDateValidator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KDateValidator_QBaseMetacast(KDateValidator* self, const char* param1) {
+void* KDateValidator_SuperMetacast(KDateValidator* self, const char* param1) {
     auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
     if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
         vkdatevalidator->setKDateValidator_Metacast_IsBase(true);
@@ -113,7 +113,7 @@ void KDateValidator_OnMetacast(KDateValidator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KDateValidator_QBaseMetacall(KDateValidator* self, int param1, int param2, void** param3) {
+int KDateValidator_SuperMetacall(KDateValidator* self, int param1, int param2, void** param3) {
     auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
     if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
         vkdatevalidator->setKDateValidator_Metacall_IsBase(true);
@@ -132,7 +132,7 @@ void KDateValidator_OnMetacall(KDateValidator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KDateValidator_QBaseValidate(const KDateValidator* self, libqt_string text, int* e) {
+int KDateValidator_SuperValidate(const KDateValidator* self, libqt_string text, int* e) {
     auto* vkdatevalidator = const_cast<VirtualKDateValidator*>(dynamic_cast<const VirtualKDateValidator*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
@@ -152,7 +152,7 @@ void KDateValidator_OnValidate(const KDateValidator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDateValidator_QBaseFixup(const KDateValidator* self, libqt_string input) {
+void KDateValidator_SuperFixup(const KDateValidator* self, libqt_string input) {
     auto* vkdatevalidator = const_cast<VirtualKDateValidator*>(dynamic_cast<const VirtualKDateValidator*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
     if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
@@ -182,7 +182,7 @@ bool KDateValidator_Event(KDateValidator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KDateValidator_QBaseEvent(KDateValidator* self, QEvent* event) {
+bool KDateValidator_SuperEvent(KDateValidator* self, QEvent* event) {
     auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
     if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
         vkdatevalidator->setKDateValidator_Event_IsBase(true);
@@ -211,7 +211,7 @@ bool KDateValidator_EventFilter(KDateValidator* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool KDateValidator_QBaseEventFilter(KDateValidator* self, QObject* watched, QEvent* event) {
+bool KDateValidator_SuperEventFilter(KDateValidator* self, QObject* watched, QEvent* event) {
     auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
     if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
         vkdatevalidator->setKDateValidator_EventFilter_IsBase(true);
@@ -240,7 +240,7 @@ void KDateValidator_TimerEvent(KDateValidator* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KDateValidator_QBaseTimerEvent(KDateValidator* self, QTimerEvent* event) {
+void KDateValidator_SuperTimerEvent(KDateValidator* self, QTimerEvent* event) {
     auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
     if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
         vkdatevalidator->setKDateValidator_TimerEvent_IsBase(true);
@@ -269,7 +269,7 @@ void KDateValidator_ChildEvent(KDateValidator* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KDateValidator_QBaseChildEvent(KDateValidator* self, QChildEvent* event) {
+void KDateValidator_SuperChildEvent(KDateValidator* self, QChildEvent* event) {
     auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
     if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
         vkdatevalidator->setKDateValidator_ChildEvent_IsBase(true);
@@ -298,7 +298,7 @@ void KDateValidator_CustomEvent(KDateValidator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KDateValidator_QBaseCustomEvent(KDateValidator* self, QEvent* event) {
+void KDateValidator_SuperCustomEvent(KDateValidator* self, QEvent* event) {
     auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
     if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
         vkdatevalidator->setKDateValidator_CustomEvent_IsBase(true);
@@ -327,7 +327,7 @@ void KDateValidator_ConnectNotify(KDateValidator* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void KDateValidator_QBaseConnectNotify(KDateValidator* self, const QMetaMethod* signal) {
+void KDateValidator_SuperConnectNotify(KDateValidator* self, const QMetaMethod* signal) {
     auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
     if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
         vkdatevalidator->setKDateValidator_ConnectNotify_IsBase(true);
@@ -356,7 +356,7 @@ void KDateValidator_DisconnectNotify(KDateValidator* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void KDateValidator_QBaseDisconnectNotify(KDateValidator* self, const QMetaMethod* signal) {
+void KDateValidator_SuperDisconnectNotify(KDateValidator* self, const QMetaMethod* signal) {
     auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
     if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
         vkdatevalidator->setKDateValidator_DisconnectNotify_IsBase(true);
@@ -385,7 +385,7 @@ QObject* KDateValidator_Sender(const KDateValidator* self) {
 }
 
 // Base class handler implementation
-QObject* KDateValidator_QBaseSender(const KDateValidator* self) {
+QObject* KDateValidator_SuperSender(const KDateValidator* self) {
     auto* vkdatevalidator = const_cast<VirtualKDateValidator*>(dynamic_cast<const VirtualKDateValidator*>(self));
     if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
         vkdatevalidator->setKDateValidator_Sender_IsBase(true);
@@ -414,7 +414,7 @@ int KDateValidator_SenderSignalIndex(const KDateValidator* self) {
 }
 
 // Base class handler implementation
-int KDateValidator_QBaseSenderSignalIndex(const KDateValidator* self) {
+int KDateValidator_SuperSenderSignalIndex(const KDateValidator* self) {
     auto* vkdatevalidator = const_cast<VirtualKDateValidator*>(dynamic_cast<const VirtualKDateValidator*>(self));
     if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
         vkdatevalidator->setKDateValidator_SenderSignalIndex_IsBase(true);
@@ -443,7 +443,7 @@ int KDateValidator_Receivers(const KDateValidator* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KDateValidator_QBaseReceivers(const KDateValidator* self, const char* signal) {
+int KDateValidator_SuperReceivers(const KDateValidator* self, const char* signal) {
     auto* vkdatevalidator = const_cast<VirtualKDateValidator*>(dynamic_cast<const VirtualKDateValidator*>(self));
     if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
         vkdatevalidator->setKDateValidator_Receivers_IsBase(true);
@@ -472,7 +472,7 @@ bool KDateValidator_IsSignalConnected(const KDateValidator* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool KDateValidator_QBaseIsSignalConnected(const KDateValidator* self, const QMetaMethod* signal) {
+bool KDateValidator_SuperIsSignalConnected(const KDateValidator* self, const QMetaMethod* signal) {
     auto* vkdatevalidator = const_cast<VirtualKDateValidator*>(dynamic_cast<const VirtualKDateValidator*>(self));
     if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
         vkdatevalidator->setKDateValidator_IsSignalConnected_IsBase(true);

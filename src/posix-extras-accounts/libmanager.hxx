@@ -332,23 +332,23 @@ class VirtualAccountsManager final : public Accounts::Manager {
 
     // Friend functions
     friend void Accounts__Manager_TimerEvent(Accounts::Manager* self, QTimerEvent* event);
-    friend void Accounts__Manager_QBaseTimerEvent(Accounts::Manager* self, QTimerEvent* event);
+    friend void Accounts__Manager_SuperTimerEvent(Accounts::Manager* self, QTimerEvent* event);
     friend void Accounts__Manager_ChildEvent(Accounts::Manager* self, QChildEvent* event);
-    friend void Accounts__Manager_QBaseChildEvent(Accounts::Manager* self, QChildEvent* event);
+    friend void Accounts__Manager_SuperChildEvent(Accounts::Manager* self, QChildEvent* event);
     friend void Accounts__Manager_CustomEvent(Accounts::Manager* self, QEvent* event);
-    friend void Accounts__Manager_QBaseCustomEvent(Accounts::Manager* self, QEvent* event);
+    friend void Accounts__Manager_SuperCustomEvent(Accounts::Manager* self, QEvent* event);
     friend void Accounts__Manager_ConnectNotify(Accounts::Manager* self, const QMetaMethod* signal);
-    friend void Accounts__Manager_QBaseConnectNotify(Accounts::Manager* self, const QMetaMethod* signal);
+    friend void Accounts__Manager_SuperConnectNotify(Accounts::Manager* self, const QMetaMethod* signal);
     friend void Accounts__Manager_DisconnectNotify(Accounts::Manager* self, const QMetaMethod* signal);
-    friend void Accounts__Manager_QBaseDisconnectNotify(Accounts::Manager* self, const QMetaMethod* signal);
+    friend void Accounts__Manager_SuperDisconnectNotify(Accounts::Manager* self, const QMetaMethod* signal);
     friend QObject* Accounts__Manager_Sender(const Accounts::Manager* self);
-    friend QObject* Accounts__Manager_QBaseSender(const Accounts::Manager* self);
+    friend QObject* Accounts__Manager_SuperSender(const Accounts::Manager* self);
     friend int Accounts__Manager_SenderSignalIndex(const Accounts::Manager* self);
-    friend int Accounts__Manager_QBaseSenderSignalIndex(const Accounts::Manager* self);
+    friend int Accounts__Manager_SuperSenderSignalIndex(const Accounts::Manager* self);
     friend int Accounts__Manager_Receivers(const Accounts::Manager* self, const char* signal);
-    friend int Accounts__Manager_QBaseReceivers(const Accounts::Manager* self, const char* signal);
+    friend int Accounts__Manager_SuperReceivers(const Accounts::Manager* self, const char* signal);
     friend bool Accounts__Manager_IsSignalConnected(const Accounts::Manager* self, const QMetaMethod* signal);
-    friend bool Accounts__Manager_QBaseIsSignalConnected(const Accounts::Manager* self, const QMetaMethod* signal);
+    friend bool Accounts__Manager_SuperIsSignalConnected(const Accounts::Manager* self, const QMetaMethod* signal);
 };
 
 #endif

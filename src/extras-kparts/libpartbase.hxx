@@ -370,21 +370,21 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
 
     // Friend functions
     friend void KParts__PartBase_SetComponentName(KParts::PartBase* self, const libqt_string componentName, const libqt_string componentDisplayName);
-    friend void KParts__PartBase_QBaseSetComponentName(KParts::PartBase* self, const libqt_string componentName, const libqt_string componentDisplayName);
+    friend void KParts__PartBase_SuperSetComponentName(KParts::PartBase* self, const libqt_string componentName, const libqt_string componentDisplayName);
     friend void KParts__PartBase_SetXMLFile(KParts::PartBase* self, const libqt_string file, bool merge, bool setXMLDoc);
-    friend void KParts__PartBase_QBaseSetXMLFile(KParts::PartBase* self, const libqt_string file, bool merge, bool setXMLDoc);
+    friend void KParts__PartBase_SuperSetXMLFile(KParts::PartBase* self, const libqt_string file, bool merge, bool setXMLDoc);
     friend void KParts__PartBase_SetLocalXMLFile(KParts::PartBase* self, const libqt_string file);
-    friend void KParts__PartBase_QBaseSetLocalXMLFile(KParts::PartBase* self, const libqt_string file);
+    friend void KParts__PartBase_SuperSetLocalXMLFile(KParts::PartBase* self, const libqt_string file);
     friend void KParts__PartBase_SetXML(KParts::PartBase* self, const libqt_string document, bool merge);
-    friend void KParts__PartBase_QBaseSetXML(KParts::PartBase* self, const libqt_string document, bool merge);
+    friend void KParts__PartBase_SuperSetXML(KParts::PartBase* self, const libqt_string document, bool merge);
     friend void KParts__PartBase_SetDOMDocument(KParts::PartBase* self, const QDomDocument* document, bool merge);
-    friend void KParts__PartBase_QBaseSetDOMDocument(KParts::PartBase* self, const QDomDocument* document, bool merge);
+    friend void KParts__PartBase_SuperSetDOMDocument(KParts::PartBase* self, const QDomDocument* document, bool merge);
     friend void KParts__PartBase_StateChanged(KParts::PartBase* self, const libqt_string newstate, int reverse);
-    friend void KParts__PartBase_QBaseStateChanged(KParts::PartBase* self, const libqt_string newstate, int reverse);
+    friend void KParts__PartBase_SuperStateChanged(KParts::PartBase* self, const libqt_string newstate, int reverse);
     friend libqt_string KParts__PartBase_StandardsXmlFileLocation(KParts::PartBase* self);
-    friend libqt_string KParts__PartBase_QBaseStandardsXmlFileLocation(KParts::PartBase* self);
+    friend libqt_string KParts__PartBase_SuperStandardsXmlFileLocation(KParts::PartBase* self);
     friend void KParts__PartBase_LoadStandardsXmlFile(KParts::PartBase* self);
-    friend void KParts__PartBase_QBaseLoadStandardsXmlFile(KParts::PartBase* self);
+    friend void KParts__PartBase_SuperLoadStandardsXmlFile(KParts::PartBase* self);
 };
 
 #endif

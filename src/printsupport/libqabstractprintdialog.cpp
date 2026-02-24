@@ -124,7 +124,7 @@ QPrinter* QAbstractPrintDialog_Printer(const QAbstractPrintDialog* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QAbstractPrintDialog_QBaseMetaObject(const QAbstractPrintDialog* self) {
+QMetaObject* QAbstractPrintDialog_SuperMetaObject(const QAbstractPrintDialog* self) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_MetaObject_IsBase(true);
@@ -143,7 +143,7 @@ void QAbstractPrintDialog_OnMetaObject(const QAbstractPrintDialog* self, intptr_
 }
 
 // Base class handler implementation
-void* QAbstractPrintDialog_QBaseMetacast(QAbstractPrintDialog* self, const char* param1) {
+void* QAbstractPrintDialog_SuperMetacast(QAbstractPrintDialog* self, const char* param1) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_Metacast_IsBase(true);
@@ -162,7 +162,7 @@ void QAbstractPrintDialog_OnMetacast(QAbstractPrintDialog* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int QAbstractPrintDialog_QBaseMetacall(QAbstractPrintDialog* self, int param1, int param2, void** param3) {
+int QAbstractPrintDialog_SuperMetacall(QAbstractPrintDialog* self, int param1, int param2, void** param3) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_Metacall_IsBase(true);
@@ -191,7 +191,7 @@ void QAbstractPrintDialog_SetVisible(QAbstractPrintDialog* self, bool visible) {
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseSetVisible(QAbstractPrintDialog* self, bool visible) {
+void QAbstractPrintDialog_SuperSetVisible(QAbstractPrintDialog* self, bool visible) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_SetVisible_IsBase(true);
@@ -220,7 +220,7 @@ QSize* QAbstractPrintDialog_SizeHint(const QAbstractPrintDialog* self) {
 }
 
 // Base class handler implementation
-QSize* QAbstractPrintDialog_QBaseSizeHint(const QAbstractPrintDialog* self) {
+QSize* QAbstractPrintDialog_SuperSizeHint(const QAbstractPrintDialog* self) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_SizeHint_IsBase(true);
@@ -249,7 +249,7 @@ QSize* QAbstractPrintDialog_MinimumSizeHint(const QAbstractPrintDialog* self) {
 }
 
 // Base class handler implementation
-QSize* QAbstractPrintDialog_QBaseMinimumSizeHint(const QAbstractPrintDialog* self) {
+QSize* QAbstractPrintDialog_SuperMinimumSizeHint(const QAbstractPrintDialog* self) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_MinimumSizeHint_IsBase(true);
@@ -278,7 +278,7 @@ void QAbstractPrintDialog_Open(QAbstractPrintDialog* self) {
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseOpen(QAbstractPrintDialog* self) {
+void QAbstractPrintDialog_SuperOpen(QAbstractPrintDialog* self) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_Open_IsBase(true);
@@ -307,7 +307,7 @@ int QAbstractPrintDialog_Exec(QAbstractPrintDialog* self) {
 }
 
 // Base class handler implementation
-int QAbstractPrintDialog_QBaseExec(QAbstractPrintDialog* self) {
+int QAbstractPrintDialog_SuperExec(QAbstractPrintDialog* self) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_Exec_IsBase(true);
@@ -336,7 +336,7 @@ void QAbstractPrintDialog_Done(QAbstractPrintDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseDone(QAbstractPrintDialog* self, int param1) {
+void QAbstractPrintDialog_SuperDone(QAbstractPrintDialog* self, int param1) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_Done_IsBase(true);
@@ -365,7 +365,7 @@ void QAbstractPrintDialog_Accept(QAbstractPrintDialog* self) {
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseAccept(QAbstractPrintDialog* self) {
+void QAbstractPrintDialog_SuperAccept(QAbstractPrintDialog* self) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_Accept_IsBase(true);
@@ -394,7 +394,7 @@ void QAbstractPrintDialog_Reject(QAbstractPrintDialog* self) {
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseReject(QAbstractPrintDialog* self) {
+void QAbstractPrintDialog_SuperReject(QAbstractPrintDialog* self) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_Reject_IsBase(true);
@@ -423,7 +423,7 @@ void QAbstractPrintDialog_KeyPressEvent(QAbstractPrintDialog* self, QKeyEvent* p
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseKeyPressEvent(QAbstractPrintDialog* self, QKeyEvent* param1) {
+void QAbstractPrintDialog_SuperKeyPressEvent(QAbstractPrintDialog* self, QKeyEvent* param1) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_KeyPressEvent_IsBase(true);
@@ -452,7 +452,7 @@ void QAbstractPrintDialog_CloseEvent(QAbstractPrintDialog* self, QCloseEvent* pa
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseCloseEvent(QAbstractPrintDialog* self, QCloseEvent* param1) {
+void QAbstractPrintDialog_SuperCloseEvent(QAbstractPrintDialog* self, QCloseEvent* param1) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_CloseEvent_IsBase(true);
@@ -481,7 +481,7 @@ void QAbstractPrintDialog_ShowEvent(QAbstractPrintDialog* self, QShowEvent* para
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseShowEvent(QAbstractPrintDialog* self, QShowEvent* param1) {
+void QAbstractPrintDialog_SuperShowEvent(QAbstractPrintDialog* self, QShowEvent* param1) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_ShowEvent_IsBase(true);
@@ -510,7 +510,7 @@ void QAbstractPrintDialog_ResizeEvent(QAbstractPrintDialog* self, QResizeEvent* 
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseResizeEvent(QAbstractPrintDialog* self, QResizeEvent* param1) {
+void QAbstractPrintDialog_SuperResizeEvent(QAbstractPrintDialog* self, QResizeEvent* param1) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_ResizeEvent_IsBase(true);
@@ -539,7 +539,7 @@ void QAbstractPrintDialog_ContextMenuEvent(QAbstractPrintDialog* self, QContextM
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseContextMenuEvent(QAbstractPrintDialog* self, QContextMenuEvent* param1) {
+void QAbstractPrintDialog_SuperContextMenuEvent(QAbstractPrintDialog* self, QContextMenuEvent* param1) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_ContextMenuEvent_IsBase(true);
@@ -568,7 +568,7 @@ bool QAbstractPrintDialog_EventFilter(QAbstractPrintDialog* self, QObject* param
 }
 
 // Base class handler implementation
-bool QAbstractPrintDialog_QBaseEventFilter(QAbstractPrintDialog* self, QObject* param1, QEvent* param2) {
+bool QAbstractPrintDialog_SuperEventFilter(QAbstractPrintDialog* self, QObject* param1, QEvent* param2) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_EventFilter_IsBase(true);
@@ -597,7 +597,7 @@ int QAbstractPrintDialog_DevType(const QAbstractPrintDialog* self) {
 }
 
 // Base class handler implementation
-int QAbstractPrintDialog_QBaseDevType(const QAbstractPrintDialog* self) {
+int QAbstractPrintDialog_SuperDevType(const QAbstractPrintDialog* self) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_DevType_IsBase(true);
@@ -626,7 +626,7 @@ int QAbstractPrintDialog_HeightForWidth(const QAbstractPrintDialog* self, int pa
 }
 
 // Base class handler implementation
-int QAbstractPrintDialog_QBaseHeightForWidth(const QAbstractPrintDialog* self, int param1) {
+int QAbstractPrintDialog_SuperHeightForWidth(const QAbstractPrintDialog* self, int param1) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_HeightForWidth_IsBase(true);
@@ -655,7 +655,7 @@ bool QAbstractPrintDialog_HasHeightForWidth(const QAbstractPrintDialog* self) {
 }
 
 // Base class handler implementation
-bool QAbstractPrintDialog_QBaseHasHeightForWidth(const QAbstractPrintDialog* self) {
+bool QAbstractPrintDialog_SuperHasHeightForWidth(const QAbstractPrintDialog* self) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_HasHeightForWidth_IsBase(true);
@@ -684,7 +684,7 @@ QPaintEngine* QAbstractPrintDialog_PaintEngine(const QAbstractPrintDialog* self)
 }
 
 // Base class handler implementation
-QPaintEngine* QAbstractPrintDialog_QBasePaintEngine(const QAbstractPrintDialog* self) {
+QPaintEngine* QAbstractPrintDialog_SuperPaintEngine(const QAbstractPrintDialog* self) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_PaintEngine_IsBase(true);
@@ -713,7 +713,7 @@ bool QAbstractPrintDialog_Event(QAbstractPrintDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QAbstractPrintDialog_QBaseEvent(QAbstractPrintDialog* self, QEvent* event) {
+bool QAbstractPrintDialog_SuperEvent(QAbstractPrintDialog* self, QEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_Event_IsBase(true);
@@ -742,7 +742,7 @@ void QAbstractPrintDialog_MousePressEvent(QAbstractPrintDialog* self, QMouseEven
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseMousePressEvent(QAbstractPrintDialog* self, QMouseEvent* event) {
+void QAbstractPrintDialog_SuperMousePressEvent(QAbstractPrintDialog* self, QMouseEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_MousePressEvent_IsBase(true);
@@ -771,7 +771,7 @@ void QAbstractPrintDialog_MouseReleaseEvent(QAbstractPrintDialog* self, QMouseEv
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseMouseReleaseEvent(QAbstractPrintDialog* self, QMouseEvent* event) {
+void QAbstractPrintDialog_SuperMouseReleaseEvent(QAbstractPrintDialog* self, QMouseEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_MouseReleaseEvent_IsBase(true);
@@ -800,7 +800,7 @@ void QAbstractPrintDialog_MouseDoubleClickEvent(QAbstractPrintDialog* self, QMou
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseMouseDoubleClickEvent(QAbstractPrintDialog* self, QMouseEvent* event) {
+void QAbstractPrintDialog_SuperMouseDoubleClickEvent(QAbstractPrintDialog* self, QMouseEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_MouseDoubleClickEvent_IsBase(true);
@@ -829,7 +829,7 @@ void QAbstractPrintDialog_MouseMoveEvent(QAbstractPrintDialog* self, QMouseEvent
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseMouseMoveEvent(QAbstractPrintDialog* self, QMouseEvent* event) {
+void QAbstractPrintDialog_SuperMouseMoveEvent(QAbstractPrintDialog* self, QMouseEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_MouseMoveEvent_IsBase(true);
@@ -858,7 +858,7 @@ void QAbstractPrintDialog_WheelEvent(QAbstractPrintDialog* self, QWheelEvent* ev
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseWheelEvent(QAbstractPrintDialog* self, QWheelEvent* event) {
+void QAbstractPrintDialog_SuperWheelEvent(QAbstractPrintDialog* self, QWheelEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_WheelEvent_IsBase(true);
@@ -887,7 +887,7 @@ void QAbstractPrintDialog_KeyReleaseEvent(QAbstractPrintDialog* self, QKeyEvent*
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseKeyReleaseEvent(QAbstractPrintDialog* self, QKeyEvent* event) {
+void QAbstractPrintDialog_SuperKeyReleaseEvent(QAbstractPrintDialog* self, QKeyEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_KeyReleaseEvent_IsBase(true);
@@ -916,7 +916,7 @@ void QAbstractPrintDialog_FocusInEvent(QAbstractPrintDialog* self, QFocusEvent* 
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseFocusInEvent(QAbstractPrintDialog* self, QFocusEvent* event) {
+void QAbstractPrintDialog_SuperFocusInEvent(QAbstractPrintDialog* self, QFocusEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_FocusInEvent_IsBase(true);
@@ -945,7 +945,7 @@ void QAbstractPrintDialog_FocusOutEvent(QAbstractPrintDialog* self, QFocusEvent*
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseFocusOutEvent(QAbstractPrintDialog* self, QFocusEvent* event) {
+void QAbstractPrintDialog_SuperFocusOutEvent(QAbstractPrintDialog* self, QFocusEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_FocusOutEvent_IsBase(true);
@@ -974,7 +974,7 @@ void QAbstractPrintDialog_EnterEvent(QAbstractPrintDialog* self, QEnterEvent* ev
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseEnterEvent(QAbstractPrintDialog* self, QEnterEvent* event) {
+void QAbstractPrintDialog_SuperEnterEvent(QAbstractPrintDialog* self, QEnterEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_EnterEvent_IsBase(true);
@@ -1003,7 +1003,7 @@ void QAbstractPrintDialog_LeaveEvent(QAbstractPrintDialog* self, QEvent* event) 
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseLeaveEvent(QAbstractPrintDialog* self, QEvent* event) {
+void QAbstractPrintDialog_SuperLeaveEvent(QAbstractPrintDialog* self, QEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_LeaveEvent_IsBase(true);
@@ -1032,7 +1032,7 @@ void QAbstractPrintDialog_PaintEvent(QAbstractPrintDialog* self, QPaintEvent* ev
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBasePaintEvent(QAbstractPrintDialog* self, QPaintEvent* event) {
+void QAbstractPrintDialog_SuperPaintEvent(QAbstractPrintDialog* self, QPaintEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_PaintEvent_IsBase(true);
@@ -1061,7 +1061,7 @@ void QAbstractPrintDialog_MoveEvent(QAbstractPrintDialog* self, QMoveEvent* even
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseMoveEvent(QAbstractPrintDialog* self, QMoveEvent* event) {
+void QAbstractPrintDialog_SuperMoveEvent(QAbstractPrintDialog* self, QMoveEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_MoveEvent_IsBase(true);
@@ -1090,7 +1090,7 @@ void QAbstractPrintDialog_TabletEvent(QAbstractPrintDialog* self, QTabletEvent* 
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseTabletEvent(QAbstractPrintDialog* self, QTabletEvent* event) {
+void QAbstractPrintDialog_SuperTabletEvent(QAbstractPrintDialog* self, QTabletEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_TabletEvent_IsBase(true);
@@ -1119,7 +1119,7 @@ void QAbstractPrintDialog_ActionEvent(QAbstractPrintDialog* self, QActionEvent* 
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseActionEvent(QAbstractPrintDialog* self, QActionEvent* event) {
+void QAbstractPrintDialog_SuperActionEvent(QAbstractPrintDialog* self, QActionEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_ActionEvent_IsBase(true);
@@ -1148,7 +1148,7 @@ void QAbstractPrintDialog_DragEnterEvent(QAbstractPrintDialog* self, QDragEnterE
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseDragEnterEvent(QAbstractPrintDialog* self, QDragEnterEvent* event) {
+void QAbstractPrintDialog_SuperDragEnterEvent(QAbstractPrintDialog* self, QDragEnterEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_DragEnterEvent_IsBase(true);
@@ -1177,7 +1177,7 @@ void QAbstractPrintDialog_DragMoveEvent(QAbstractPrintDialog* self, QDragMoveEve
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseDragMoveEvent(QAbstractPrintDialog* self, QDragMoveEvent* event) {
+void QAbstractPrintDialog_SuperDragMoveEvent(QAbstractPrintDialog* self, QDragMoveEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_DragMoveEvent_IsBase(true);
@@ -1206,7 +1206,7 @@ void QAbstractPrintDialog_DragLeaveEvent(QAbstractPrintDialog* self, QDragLeaveE
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseDragLeaveEvent(QAbstractPrintDialog* self, QDragLeaveEvent* event) {
+void QAbstractPrintDialog_SuperDragLeaveEvent(QAbstractPrintDialog* self, QDragLeaveEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_DragLeaveEvent_IsBase(true);
@@ -1235,7 +1235,7 @@ void QAbstractPrintDialog_DropEvent(QAbstractPrintDialog* self, QDropEvent* even
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseDropEvent(QAbstractPrintDialog* self, QDropEvent* event) {
+void QAbstractPrintDialog_SuperDropEvent(QAbstractPrintDialog* self, QDropEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_DropEvent_IsBase(true);
@@ -1264,7 +1264,7 @@ void QAbstractPrintDialog_HideEvent(QAbstractPrintDialog* self, QHideEvent* even
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseHideEvent(QAbstractPrintDialog* self, QHideEvent* event) {
+void QAbstractPrintDialog_SuperHideEvent(QAbstractPrintDialog* self, QHideEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_HideEvent_IsBase(true);
@@ -1294,7 +1294,7 @@ bool QAbstractPrintDialog_NativeEvent(QAbstractPrintDialog* self, const libqt_st
 }
 
 // Base class handler implementation
-bool QAbstractPrintDialog_QBaseNativeEvent(QAbstractPrintDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QAbstractPrintDialog_SuperNativeEvent(QAbstractPrintDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
@@ -1324,7 +1324,7 @@ void QAbstractPrintDialog_ChangeEvent(QAbstractPrintDialog* self, QEvent* param1
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseChangeEvent(QAbstractPrintDialog* self, QEvent* param1) {
+void QAbstractPrintDialog_SuperChangeEvent(QAbstractPrintDialog* self, QEvent* param1) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_ChangeEvent_IsBase(true);
@@ -1353,7 +1353,7 @@ int QAbstractPrintDialog_Metric(const QAbstractPrintDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int QAbstractPrintDialog_QBaseMetric(const QAbstractPrintDialog* self, int param1) {
+int QAbstractPrintDialog_SuperMetric(const QAbstractPrintDialog* self, int param1) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_Metric_IsBase(true);
@@ -1382,7 +1382,7 @@ void QAbstractPrintDialog_InitPainter(const QAbstractPrintDialog* self, QPainter
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseInitPainter(const QAbstractPrintDialog* self, QPainter* painter) {
+void QAbstractPrintDialog_SuperInitPainter(const QAbstractPrintDialog* self, QPainter* painter) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_InitPainter_IsBase(true);
@@ -1411,7 +1411,7 @@ QPaintDevice* QAbstractPrintDialog_Redirected(const QAbstractPrintDialog* self, 
 }
 
 // Base class handler implementation
-QPaintDevice* QAbstractPrintDialog_QBaseRedirected(const QAbstractPrintDialog* self, QPoint* offset) {
+QPaintDevice* QAbstractPrintDialog_SuperRedirected(const QAbstractPrintDialog* self, QPoint* offset) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_Redirected_IsBase(true);
@@ -1440,7 +1440,7 @@ QPainter* QAbstractPrintDialog_SharedPainter(const QAbstractPrintDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* QAbstractPrintDialog_QBaseSharedPainter(const QAbstractPrintDialog* self) {
+QPainter* QAbstractPrintDialog_SuperSharedPainter(const QAbstractPrintDialog* self) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_SharedPainter_IsBase(true);
@@ -1469,7 +1469,7 @@ void QAbstractPrintDialog_InputMethodEvent(QAbstractPrintDialog* self, QInputMet
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseInputMethodEvent(QAbstractPrintDialog* self, QInputMethodEvent* param1) {
+void QAbstractPrintDialog_SuperInputMethodEvent(QAbstractPrintDialog* self, QInputMethodEvent* param1) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_InputMethodEvent_IsBase(true);
@@ -1498,7 +1498,7 @@ QVariant* QAbstractPrintDialog_InputMethodQuery(const QAbstractPrintDialog* self
 }
 
 // Base class handler implementation
-QVariant* QAbstractPrintDialog_QBaseInputMethodQuery(const QAbstractPrintDialog* self, int param1) {
+QVariant* QAbstractPrintDialog_SuperInputMethodQuery(const QAbstractPrintDialog* self, int param1) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_InputMethodQuery_IsBase(true);
@@ -1527,7 +1527,7 @@ bool QAbstractPrintDialog_FocusNextPrevChild(QAbstractPrintDialog* self, bool ne
 }
 
 // Base class handler implementation
-bool QAbstractPrintDialog_QBaseFocusNextPrevChild(QAbstractPrintDialog* self, bool next) {
+bool QAbstractPrintDialog_SuperFocusNextPrevChild(QAbstractPrintDialog* self, bool next) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_FocusNextPrevChild_IsBase(true);
@@ -1556,7 +1556,7 @@ void QAbstractPrintDialog_TimerEvent(QAbstractPrintDialog* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseTimerEvent(QAbstractPrintDialog* self, QTimerEvent* event) {
+void QAbstractPrintDialog_SuperTimerEvent(QAbstractPrintDialog* self, QTimerEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_TimerEvent_IsBase(true);
@@ -1585,7 +1585,7 @@ void QAbstractPrintDialog_ChildEvent(QAbstractPrintDialog* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseChildEvent(QAbstractPrintDialog* self, QChildEvent* event) {
+void QAbstractPrintDialog_SuperChildEvent(QAbstractPrintDialog* self, QChildEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_ChildEvent_IsBase(true);
@@ -1614,7 +1614,7 @@ void QAbstractPrintDialog_CustomEvent(QAbstractPrintDialog* self, QEvent* event)
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseCustomEvent(QAbstractPrintDialog* self, QEvent* event) {
+void QAbstractPrintDialog_SuperCustomEvent(QAbstractPrintDialog* self, QEvent* event) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_CustomEvent_IsBase(true);
@@ -1643,7 +1643,7 @@ void QAbstractPrintDialog_ConnectNotify(QAbstractPrintDialog* self, const QMetaM
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseConnectNotify(QAbstractPrintDialog* self, const QMetaMethod* signal) {
+void QAbstractPrintDialog_SuperConnectNotify(QAbstractPrintDialog* self, const QMetaMethod* signal) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_ConnectNotify_IsBase(true);
@@ -1672,7 +1672,7 @@ void QAbstractPrintDialog_DisconnectNotify(QAbstractPrintDialog* self, const QMe
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseDisconnectNotify(QAbstractPrintDialog* self, const QMetaMethod* signal) {
+void QAbstractPrintDialog_SuperDisconnectNotify(QAbstractPrintDialog* self, const QMetaMethod* signal) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_DisconnectNotify_IsBase(true);
@@ -1701,7 +1701,7 @@ void QAbstractPrintDialog_AdjustPosition(QAbstractPrintDialog* self, QWidget* pa
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseAdjustPosition(QAbstractPrintDialog* self, QWidget* param1) {
+void QAbstractPrintDialog_SuperAdjustPosition(QAbstractPrintDialog* self, QWidget* param1) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_AdjustPosition_IsBase(true);
@@ -1730,7 +1730,7 @@ void QAbstractPrintDialog_UpdateMicroFocus(QAbstractPrintDialog* self) {
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseUpdateMicroFocus(QAbstractPrintDialog* self) {
+void QAbstractPrintDialog_SuperUpdateMicroFocus(QAbstractPrintDialog* self) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_UpdateMicroFocus_IsBase(true);
@@ -1759,7 +1759,7 @@ void QAbstractPrintDialog_Create(QAbstractPrintDialog* self) {
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseCreate(QAbstractPrintDialog* self) {
+void QAbstractPrintDialog_SuperCreate(QAbstractPrintDialog* self) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_Create_IsBase(true);
@@ -1788,7 +1788,7 @@ void QAbstractPrintDialog_Destroy(QAbstractPrintDialog* self) {
 }
 
 // Base class handler implementation
-void QAbstractPrintDialog_QBaseDestroy(QAbstractPrintDialog* self) {
+void QAbstractPrintDialog_SuperDestroy(QAbstractPrintDialog* self) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_Destroy_IsBase(true);
@@ -1817,7 +1817,7 @@ bool QAbstractPrintDialog_FocusNextChild(QAbstractPrintDialog* self) {
 }
 
 // Base class handler implementation
-bool QAbstractPrintDialog_QBaseFocusNextChild(QAbstractPrintDialog* self) {
+bool QAbstractPrintDialog_SuperFocusNextChild(QAbstractPrintDialog* self) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_FocusNextChild_IsBase(true);
@@ -1846,7 +1846,7 @@ bool QAbstractPrintDialog_FocusPreviousChild(QAbstractPrintDialog* self) {
 }
 
 // Base class handler implementation
-bool QAbstractPrintDialog_QBaseFocusPreviousChild(QAbstractPrintDialog* self) {
+bool QAbstractPrintDialog_SuperFocusPreviousChild(QAbstractPrintDialog* self) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_FocusPreviousChild_IsBase(true);
@@ -1875,7 +1875,7 @@ QObject* QAbstractPrintDialog_Sender(const QAbstractPrintDialog* self) {
 }
 
 // Base class handler implementation
-QObject* QAbstractPrintDialog_QBaseSender(const QAbstractPrintDialog* self) {
+QObject* QAbstractPrintDialog_SuperSender(const QAbstractPrintDialog* self) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_Sender_IsBase(true);
@@ -1904,7 +1904,7 @@ int QAbstractPrintDialog_SenderSignalIndex(const QAbstractPrintDialog* self) {
 }
 
 // Base class handler implementation
-int QAbstractPrintDialog_QBaseSenderSignalIndex(const QAbstractPrintDialog* self) {
+int QAbstractPrintDialog_SuperSenderSignalIndex(const QAbstractPrintDialog* self) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_SenderSignalIndex_IsBase(true);
@@ -1933,7 +1933,7 @@ int QAbstractPrintDialog_Receivers(const QAbstractPrintDialog* self, const char*
 }
 
 // Base class handler implementation
-int QAbstractPrintDialog_QBaseReceivers(const QAbstractPrintDialog* self, const char* signal) {
+int QAbstractPrintDialog_SuperReceivers(const QAbstractPrintDialog* self, const char* signal) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_Receivers_IsBase(true);
@@ -1962,7 +1962,7 @@ bool QAbstractPrintDialog_IsSignalConnected(const QAbstractPrintDialog* self, co
 }
 
 // Base class handler implementation
-bool QAbstractPrintDialog_QBaseIsSignalConnected(const QAbstractPrintDialog* self, const QMetaMethod* signal) {
+bool QAbstractPrintDialog_SuperIsSignalConnected(const QAbstractPrintDialog* self, const QMetaMethod* signal) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_IsSignalConnected_IsBase(true);
@@ -1991,7 +1991,7 @@ double QAbstractPrintDialog_GetDecodedMetricF(const QAbstractPrintDialog* self, 
 }
 
 // Base class handler implementation
-double QAbstractPrintDialog_QBaseGetDecodedMetricF(const QAbstractPrintDialog* self, int metricA, int metricB) {
+double QAbstractPrintDialog_SuperGetDecodedMetricF(const QAbstractPrintDialog* self, int metricA, int metricB) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
     if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
         vqabstractprintdialog->setQAbstractPrintDialog_GetDecodedMetricF_IsBase(true);

@@ -84,7 +84,7 @@ libqt_string QsciLexerMatlab_Description(const QsciLexerMatlab* self, int style)
 }
 
 // Base class handler implementation
-QMetaObject* QsciLexerMatlab_QBaseMetaObject(const QsciLexerMatlab* self) {
+QMetaObject* QsciLexerMatlab_SuperMetaObject(const QsciLexerMatlab* self) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_MetaObject_IsBase(true);
@@ -103,7 +103,7 @@ void QsciLexerMatlab_OnMetaObject(const QsciLexerMatlab* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QsciLexerMatlab_QBaseMetacast(QsciLexerMatlab* self, const char* param1) {
+void* QsciLexerMatlab_SuperMetacast(QsciLexerMatlab* self, const char* param1) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_Metacast_IsBase(true);
@@ -122,7 +122,7 @@ void QsciLexerMatlab_OnMetacast(QsciLexerMatlab* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QsciLexerMatlab_QBaseMetacall(QsciLexerMatlab* self, int param1, int param2, void** param3) {
+int QsciLexerMatlab_SuperMetacall(QsciLexerMatlab* self, int param1, int param2, void** param3) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_Metacall_IsBase(true);
@@ -151,7 +151,7 @@ int QsciLexerMatlab_LexerId(const QsciLexerMatlab* self) {
 }
 
 // Base class handler implementation
-int QsciLexerMatlab_QBaseLexerId(const QsciLexerMatlab* self) {
+int QsciLexerMatlab_SuperLexerId(const QsciLexerMatlab* self) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_LexerId_IsBase(true);
@@ -180,7 +180,7 @@ const char* QsciLexerMatlab_AutoCompletionFillups(const QsciLexerMatlab* self) {
 }
 
 // Base class handler implementation
-const char* QsciLexerMatlab_QBaseAutoCompletionFillups(const QsciLexerMatlab* self) {
+const char* QsciLexerMatlab_SuperAutoCompletionFillups(const QsciLexerMatlab* self) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_AutoCompletionFillups_IsBase(true);
@@ -243,7 +243,7 @@ libqt_list /* of libqt_string */ QsciLexerMatlab_AutoCompletionWordSeparators(co
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QsciLexerMatlab_QBaseAutoCompletionWordSeparators(const QsciLexerMatlab* self) {
+libqt_list /* of libqt_string */ QsciLexerMatlab_SuperAutoCompletionWordSeparators(const QsciLexerMatlab* self) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_AutoCompletionWordSeparators_IsBase(true);
@@ -306,7 +306,7 @@ const char* QsciLexerMatlab_BlockEnd(const QsciLexerMatlab* self, int* style) {
 }
 
 // Base class handler implementation
-const char* QsciLexerMatlab_QBaseBlockEnd(const QsciLexerMatlab* self, int* style) {
+const char* QsciLexerMatlab_SuperBlockEnd(const QsciLexerMatlab* self, int* style) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_BlockEnd_IsBase(true);
@@ -335,7 +335,7 @@ int QsciLexerMatlab_BlockLookback(const QsciLexerMatlab* self) {
 }
 
 // Base class handler implementation
-int QsciLexerMatlab_QBaseBlockLookback(const QsciLexerMatlab* self) {
+int QsciLexerMatlab_SuperBlockLookback(const QsciLexerMatlab* self) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_BlockLookback_IsBase(true);
@@ -364,7 +364,7 @@ const char* QsciLexerMatlab_BlockStart(const QsciLexerMatlab* self, int* style) 
 }
 
 // Base class handler implementation
-const char* QsciLexerMatlab_QBaseBlockStart(const QsciLexerMatlab* self, int* style) {
+const char* QsciLexerMatlab_SuperBlockStart(const QsciLexerMatlab* self, int* style) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_BlockStart_IsBase(true);
@@ -393,7 +393,7 @@ const char* QsciLexerMatlab_BlockStartKeyword(const QsciLexerMatlab* self, int* 
 }
 
 // Base class handler implementation
-const char* QsciLexerMatlab_QBaseBlockStartKeyword(const QsciLexerMatlab* self, int* style) {
+const char* QsciLexerMatlab_SuperBlockStartKeyword(const QsciLexerMatlab* self, int* style) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_BlockStartKeyword_IsBase(true);
@@ -422,7 +422,7 @@ int QsciLexerMatlab_BraceStyle(const QsciLexerMatlab* self) {
 }
 
 // Base class handler implementation
-int QsciLexerMatlab_QBaseBraceStyle(const QsciLexerMatlab* self) {
+int QsciLexerMatlab_SuperBraceStyle(const QsciLexerMatlab* self) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_BraceStyle_IsBase(true);
@@ -451,7 +451,7 @@ bool QsciLexerMatlab_CaseSensitive(const QsciLexerMatlab* self) {
 }
 
 // Base class handler implementation
-bool QsciLexerMatlab_QBaseCaseSensitive(const QsciLexerMatlab* self) {
+bool QsciLexerMatlab_SuperCaseSensitive(const QsciLexerMatlab* self) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_CaseSensitive_IsBase(true);
@@ -480,7 +480,7 @@ QColor* QsciLexerMatlab_Color(const QsciLexerMatlab* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerMatlab_QBaseColor(const QsciLexerMatlab* self, int style) {
+QColor* QsciLexerMatlab_SuperColor(const QsciLexerMatlab* self, int style) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_Color_IsBase(true);
@@ -509,7 +509,7 @@ bool QsciLexerMatlab_EolFill(const QsciLexerMatlab* self, int style) {
 }
 
 // Base class handler implementation
-bool QsciLexerMatlab_QBaseEolFill(const QsciLexerMatlab* self, int style) {
+bool QsciLexerMatlab_SuperEolFill(const QsciLexerMatlab* self, int style) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_EolFill_IsBase(true);
@@ -538,7 +538,7 @@ QFont* QsciLexerMatlab_Font(const QsciLexerMatlab* self, int style) {
 }
 
 // Base class handler implementation
-QFont* QsciLexerMatlab_QBaseFont(const QsciLexerMatlab* self, int style) {
+QFont* QsciLexerMatlab_SuperFont(const QsciLexerMatlab* self, int style) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_Font_IsBase(true);
@@ -567,7 +567,7 @@ int QsciLexerMatlab_IndentationGuideView(const QsciLexerMatlab* self) {
 }
 
 // Base class handler implementation
-int QsciLexerMatlab_QBaseIndentationGuideView(const QsciLexerMatlab* self) {
+int QsciLexerMatlab_SuperIndentationGuideView(const QsciLexerMatlab* self) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_IndentationGuideView_IsBase(true);
@@ -596,7 +596,7 @@ int QsciLexerMatlab_DefaultStyle(const QsciLexerMatlab* self) {
 }
 
 // Base class handler implementation
-int QsciLexerMatlab_QBaseDefaultStyle(const QsciLexerMatlab* self) {
+int QsciLexerMatlab_SuperDefaultStyle(const QsciLexerMatlab* self) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_DefaultStyle_IsBase(true);
@@ -625,7 +625,7 @@ QColor* QsciLexerMatlab_Paper(const QsciLexerMatlab* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerMatlab_QBasePaper(const QsciLexerMatlab* self, int style) {
+QColor* QsciLexerMatlab_SuperPaper(const QsciLexerMatlab* self, int style) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_Paper_IsBase(true);
@@ -654,7 +654,7 @@ QColor* QsciLexerMatlab_DefaultColor2(const QsciLexerMatlab* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerMatlab_QBaseDefaultColor2(const QsciLexerMatlab* self, int style) {
+QColor* QsciLexerMatlab_SuperDefaultColor2(const QsciLexerMatlab* self, int style) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_DefaultColor2_IsBase(true);
@@ -683,7 +683,7 @@ bool QsciLexerMatlab_DefaultEolFill(const QsciLexerMatlab* self, int style) {
 }
 
 // Base class handler implementation
-bool QsciLexerMatlab_QBaseDefaultEolFill(const QsciLexerMatlab* self, int style) {
+bool QsciLexerMatlab_SuperDefaultEolFill(const QsciLexerMatlab* self, int style) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_DefaultEolFill_IsBase(true);
@@ -712,7 +712,7 @@ QFont* QsciLexerMatlab_DefaultFont2(const QsciLexerMatlab* self, int style) {
 }
 
 // Base class handler implementation
-QFont* QsciLexerMatlab_QBaseDefaultFont2(const QsciLexerMatlab* self, int style) {
+QFont* QsciLexerMatlab_SuperDefaultFont2(const QsciLexerMatlab* self, int style) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_DefaultFont2_IsBase(true);
@@ -741,7 +741,7 @@ QColor* QsciLexerMatlab_DefaultPaper2(const QsciLexerMatlab* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerMatlab_QBaseDefaultPaper2(const QsciLexerMatlab* self, int style) {
+QColor* QsciLexerMatlab_SuperDefaultPaper2(const QsciLexerMatlab* self, int style) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_DefaultPaper2_IsBase(true);
@@ -770,7 +770,7 @@ void QsciLexerMatlab_SetEditor(QsciLexerMatlab* self, QsciScintilla* editor) {
 }
 
 // Base class handler implementation
-void QsciLexerMatlab_QBaseSetEditor(QsciLexerMatlab* self, QsciScintilla* editor) {
+void QsciLexerMatlab_SuperSetEditor(QsciLexerMatlab* self, QsciScintilla* editor) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_SetEditor_IsBase(true);
@@ -799,7 +799,7 @@ void QsciLexerMatlab_RefreshProperties(QsciLexerMatlab* self) {
 }
 
 // Base class handler implementation
-void QsciLexerMatlab_QBaseRefreshProperties(QsciLexerMatlab* self) {
+void QsciLexerMatlab_SuperRefreshProperties(QsciLexerMatlab* self) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_RefreshProperties_IsBase(true);
@@ -828,7 +828,7 @@ int QsciLexerMatlab_StyleBitsNeeded(const QsciLexerMatlab* self) {
 }
 
 // Base class handler implementation
-int QsciLexerMatlab_QBaseStyleBitsNeeded(const QsciLexerMatlab* self) {
+int QsciLexerMatlab_SuperStyleBitsNeeded(const QsciLexerMatlab* self) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_StyleBitsNeeded_IsBase(true);
@@ -857,7 +857,7 @@ const char* QsciLexerMatlab_WordCharacters(const QsciLexerMatlab* self) {
 }
 
 // Base class handler implementation
-const char* QsciLexerMatlab_QBaseWordCharacters(const QsciLexerMatlab* self) {
+const char* QsciLexerMatlab_SuperWordCharacters(const QsciLexerMatlab* self) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_WordCharacters_IsBase(true);
@@ -886,7 +886,7 @@ void QsciLexerMatlab_SetAutoIndentStyle(QsciLexerMatlab* self, int autoindentsty
 }
 
 // Base class handler implementation
-void QsciLexerMatlab_QBaseSetAutoIndentStyle(QsciLexerMatlab* self, int autoindentstyle) {
+void QsciLexerMatlab_SuperSetAutoIndentStyle(QsciLexerMatlab* self, int autoindentstyle) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_SetAutoIndentStyle_IsBase(true);
@@ -915,7 +915,7 @@ void QsciLexerMatlab_SetColor(QsciLexerMatlab* self, const QColor* c, int style)
 }
 
 // Base class handler implementation
-void QsciLexerMatlab_QBaseSetColor(QsciLexerMatlab* self, const QColor* c, int style) {
+void QsciLexerMatlab_SuperSetColor(QsciLexerMatlab* self, const QColor* c, int style) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_SetColor_IsBase(true);
@@ -944,7 +944,7 @@ void QsciLexerMatlab_SetEolFill(QsciLexerMatlab* self, bool eoffill, int style) 
 }
 
 // Base class handler implementation
-void QsciLexerMatlab_QBaseSetEolFill(QsciLexerMatlab* self, bool eoffill, int style) {
+void QsciLexerMatlab_SuperSetEolFill(QsciLexerMatlab* self, bool eoffill, int style) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_SetEolFill_IsBase(true);
@@ -973,7 +973,7 @@ void QsciLexerMatlab_SetFont(QsciLexerMatlab* self, const QFont* f, int style) {
 }
 
 // Base class handler implementation
-void QsciLexerMatlab_QBaseSetFont(QsciLexerMatlab* self, const QFont* f, int style) {
+void QsciLexerMatlab_SuperSetFont(QsciLexerMatlab* self, const QFont* f, int style) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_SetFont_IsBase(true);
@@ -1002,7 +1002,7 @@ void QsciLexerMatlab_SetPaper(QsciLexerMatlab* self, const QColor* c, int style)
 }
 
 // Base class handler implementation
-void QsciLexerMatlab_QBaseSetPaper(QsciLexerMatlab* self, const QColor* c, int style) {
+void QsciLexerMatlab_SuperSetPaper(QsciLexerMatlab* self, const QColor* c, int style) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_SetPaper_IsBase(true);
@@ -1032,7 +1032,7 @@ bool QsciLexerMatlab_ReadProperties(QsciLexerMatlab* self, QSettings* qs, const 
 }
 
 // Base class handler implementation
-bool QsciLexerMatlab_QBaseReadProperties(QsciLexerMatlab* self, QSettings* qs, const libqt_string prefix) {
+bool QsciLexerMatlab_SuperReadProperties(QsciLexerMatlab* self, QSettings* qs, const libqt_string prefix) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
@@ -1063,7 +1063,7 @@ bool QsciLexerMatlab_WriteProperties(const QsciLexerMatlab* self, QSettings* qs,
 }
 
 // Base class handler implementation
-bool QsciLexerMatlab_QBaseWriteProperties(const QsciLexerMatlab* self, QSettings* qs, const libqt_string prefix) {
+bool QsciLexerMatlab_SuperWriteProperties(const QsciLexerMatlab* self, QSettings* qs, const libqt_string prefix) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
@@ -1093,7 +1093,7 @@ bool QsciLexerMatlab_Event(QsciLexerMatlab* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QsciLexerMatlab_QBaseEvent(QsciLexerMatlab* self, QEvent* event) {
+bool QsciLexerMatlab_SuperEvent(QsciLexerMatlab* self, QEvent* event) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_Event_IsBase(true);
@@ -1122,7 +1122,7 @@ bool QsciLexerMatlab_EventFilter(QsciLexerMatlab* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool QsciLexerMatlab_QBaseEventFilter(QsciLexerMatlab* self, QObject* watched, QEvent* event) {
+bool QsciLexerMatlab_SuperEventFilter(QsciLexerMatlab* self, QObject* watched, QEvent* event) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_EventFilter_IsBase(true);
@@ -1151,7 +1151,7 @@ void QsciLexerMatlab_TimerEvent(QsciLexerMatlab* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerMatlab_QBaseTimerEvent(QsciLexerMatlab* self, QTimerEvent* event) {
+void QsciLexerMatlab_SuperTimerEvent(QsciLexerMatlab* self, QTimerEvent* event) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_TimerEvent_IsBase(true);
@@ -1180,7 +1180,7 @@ void QsciLexerMatlab_ChildEvent(QsciLexerMatlab* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerMatlab_QBaseChildEvent(QsciLexerMatlab* self, QChildEvent* event) {
+void QsciLexerMatlab_SuperChildEvent(QsciLexerMatlab* self, QChildEvent* event) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_ChildEvent_IsBase(true);
@@ -1209,7 +1209,7 @@ void QsciLexerMatlab_CustomEvent(QsciLexerMatlab* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerMatlab_QBaseCustomEvent(QsciLexerMatlab* self, QEvent* event) {
+void QsciLexerMatlab_SuperCustomEvent(QsciLexerMatlab* self, QEvent* event) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_CustomEvent_IsBase(true);
@@ -1238,7 +1238,7 @@ void QsciLexerMatlab_ConnectNotify(QsciLexerMatlab* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void QsciLexerMatlab_QBaseConnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal) {
+void QsciLexerMatlab_SuperConnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_ConnectNotify_IsBase(true);
@@ -1267,7 +1267,7 @@ void QsciLexerMatlab_DisconnectNotify(QsciLexerMatlab* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void QsciLexerMatlab_QBaseDisconnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal) {
+void QsciLexerMatlab_SuperDisconnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_DisconnectNotify_IsBase(true);
@@ -1307,7 +1307,7 @@ libqt_string QsciLexerMatlab_TextAsBytes(const QsciLexerMatlab* self, const libq
 }
 
 // Base class handler implementation
-libqt_string QsciLexerMatlab_QBaseTextAsBytes(const QsciLexerMatlab* self, const libqt_string text) {
+libqt_string QsciLexerMatlab_SuperTextAsBytes(const QsciLexerMatlab* self, const libqt_string text) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
@@ -1363,7 +1363,7 @@ libqt_string QsciLexerMatlab_BytesAsText(const QsciLexerMatlab* self, const char
 }
 
 // Base class handler implementation
-libqt_string QsciLexerMatlab_QBaseBytesAsText(const QsciLexerMatlab* self, const char* bytes, int size) {
+libqt_string QsciLexerMatlab_SuperBytesAsText(const QsciLexerMatlab* self, const char* bytes, int size) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_BytesAsText_IsBase(true);
@@ -1408,7 +1408,7 @@ QObject* QsciLexerMatlab_Sender(const QsciLexerMatlab* self) {
 }
 
 // Base class handler implementation
-QObject* QsciLexerMatlab_QBaseSender(const QsciLexerMatlab* self) {
+QObject* QsciLexerMatlab_SuperSender(const QsciLexerMatlab* self) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_Sender_IsBase(true);
@@ -1437,7 +1437,7 @@ int QsciLexerMatlab_SenderSignalIndex(const QsciLexerMatlab* self) {
 }
 
 // Base class handler implementation
-int QsciLexerMatlab_QBaseSenderSignalIndex(const QsciLexerMatlab* self) {
+int QsciLexerMatlab_SuperSenderSignalIndex(const QsciLexerMatlab* self) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_SenderSignalIndex_IsBase(true);
@@ -1466,7 +1466,7 @@ int QsciLexerMatlab_Receivers(const QsciLexerMatlab* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QsciLexerMatlab_QBaseReceivers(const QsciLexerMatlab* self, const char* signal) {
+int QsciLexerMatlab_SuperReceivers(const QsciLexerMatlab* self, const char* signal) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_Receivers_IsBase(true);
@@ -1495,7 +1495,7 @@ bool QsciLexerMatlab_IsSignalConnected(const QsciLexerMatlab* self, const QMetaM
 }
 
 // Base class handler implementation
-bool QsciLexerMatlab_QBaseIsSignalConnected(const QsciLexerMatlab* self, const QMetaMethod* signal) {
+bool QsciLexerMatlab_SuperIsSignalConnected(const QsciLexerMatlab* self, const QMetaMethod* signal) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
     if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
         vqscilexermatlab->setQsciLexerMatlab_IsSignalConnected_IsBase(true);

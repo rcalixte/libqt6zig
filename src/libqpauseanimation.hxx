@@ -410,31 +410,31 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
 
     // Friend functions
     friend bool QPauseAnimation_Event(QPauseAnimation* self, QEvent* e);
-    friend bool QPauseAnimation_QBaseEvent(QPauseAnimation* self, QEvent* e);
+    friend bool QPauseAnimation_SuperEvent(QPauseAnimation* self, QEvent* e);
     friend void QPauseAnimation_UpdateCurrentTime(QPauseAnimation* self, int param1);
-    friend void QPauseAnimation_QBaseUpdateCurrentTime(QPauseAnimation* self, int param1);
+    friend void QPauseAnimation_SuperUpdateCurrentTime(QPauseAnimation* self, int param1);
     friend void QPauseAnimation_UpdateState(QPauseAnimation* self, int newState, int oldState);
-    friend void QPauseAnimation_QBaseUpdateState(QPauseAnimation* self, int newState, int oldState);
+    friend void QPauseAnimation_SuperUpdateState(QPauseAnimation* self, int newState, int oldState);
     friend void QPauseAnimation_UpdateDirection(QPauseAnimation* self, int direction);
-    friend void QPauseAnimation_QBaseUpdateDirection(QPauseAnimation* self, int direction);
+    friend void QPauseAnimation_SuperUpdateDirection(QPauseAnimation* self, int direction);
     friend void QPauseAnimation_TimerEvent(QPauseAnimation* self, QTimerEvent* event);
-    friend void QPauseAnimation_QBaseTimerEvent(QPauseAnimation* self, QTimerEvent* event);
+    friend void QPauseAnimation_SuperTimerEvent(QPauseAnimation* self, QTimerEvent* event);
     friend void QPauseAnimation_ChildEvent(QPauseAnimation* self, QChildEvent* event);
-    friend void QPauseAnimation_QBaseChildEvent(QPauseAnimation* self, QChildEvent* event);
+    friend void QPauseAnimation_SuperChildEvent(QPauseAnimation* self, QChildEvent* event);
     friend void QPauseAnimation_CustomEvent(QPauseAnimation* self, QEvent* event);
-    friend void QPauseAnimation_QBaseCustomEvent(QPauseAnimation* self, QEvent* event);
+    friend void QPauseAnimation_SuperCustomEvent(QPauseAnimation* self, QEvent* event);
     friend void QPauseAnimation_ConnectNotify(QPauseAnimation* self, const QMetaMethod* signal);
-    friend void QPauseAnimation_QBaseConnectNotify(QPauseAnimation* self, const QMetaMethod* signal);
+    friend void QPauseAnimation_SuperConnectNotify(QPauseAnimation* self, const QMetaMethod* signal);
     friend void QPauseAnimation_DisconnectNotify(QPauseAnimation* self, const QMetaMethod* signal);
-    friend void QPauseAnimation_QBaseDisconnectNotify(QPauseAnimation* self, const QMetaMethod* signal);
+    friend void QPauseAnimation_SuperDisconnectNotify(QPauseAnimation* self, const QMetaMethod* signal);
     friend QObject* QPauseAnimation_Sender(const QPauseAnimation* self);
-    friend QObject* QPauseAnimation_QBaseSender(const QPauseAnimation* self);
+    friend QObject* QPauseAnimation_SuperSender(const QPauseAnimation* self);
     friend int QPauseAnimation_SenderSignalIndex(const QPauseAnimation* self);
-    friend int QPauseAnimation_QBaseSenderSignalIndex(const QPauseAnimation* self);
+    friend int QPauseAnimation_SuperSenderSignalIndex(const QPauseAnimation* self);
     friend int QPauseAnimation_Receivers(const QPauseAnimation* self, const char* signal);
-    friend int QPauseAnimation_QBaseReceivers(const QPauseAnimation* self, const char* signal);
+    friend int QPauseAnimation_SuperReceivers(const QPauseAnimation* self, const char* signal);
     friend bool QPauseAnimation_IsSignalConnected(const QPauseAnimation* self, const QMetaMethod* signal);
-    friend bool QPauseAnimation_QBaseIsSignalConnected(const QPauseAnimation* self, const QMetaMethod* signal);
+    friend bool QPauseAnimation_SuperIsSignalConnected(const QPauseAnimation* self, const QMetaMethod* signal);
 };
 
 #endif

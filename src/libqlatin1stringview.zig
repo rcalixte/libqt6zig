@@ -935,6 +935,10 @@ pub const qlatin1string = struct {
         return qtc.QLatin1String_ToDouble1(@ptrCast(self), @ptrCast(ok));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#dtor.QLatin1String)
     ///
     /// Delete this object from C++ memory.
@@ -943,7 +947,7 @@ pub const qlatin1string = struct {
     ///
     /// ` self: QtC.QLatin1String `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QLatin1String_Delete(@ptrCast(self));
     }
 };

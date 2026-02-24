@@ -328,7 +328,7 @@ int QListWidgetItem_Type(const QListWidgetItem* self) {
 }
 
 // Base class handler implementation
-QListWidgetItem* QListWidgetItem_QBaseClone(const QListWidgetItem* self) {
+QListWidgetItem* QListWidgetItem_SuperClone(const QListWidgetItem* self) {
     auto* vqlistwidgetitem = const_cast<VirtualQListWidgetItem*>(dynamic_cast<const VirtualQListWidgetItem*>(self));
     if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
         vqlistwidgetitem->setQListWidgetItem_Clone_IsBase(true);
@@ -347,7 +347,7 @@ void QListWidgetItem_OnClone(const QListWidgetItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QListWidgetItem_QBaseData(const QListWidgetItem* self, int role) {
+QVariant* QListWidgetItem_SuperData(const QListWidgetItem* self, int role) {
     auto* vqlistwidgetitem = const_cast<VirtualQListWidgetItem*>(dynamic_cast<const VirtualQListWidgetItem*>(self));
     if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
         vqlistwidgetitem->setQListWidgetItem_Data_IsBase(true);
@@ -366,7 +366,7 @@ void QListWidgetItem_OnData(const QListWidgetItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QListWidgetItem_QBaseSetData(QListWidgetItem* self, int role, const QVariant* value) {
+void QListWidgetItem_SuperSetData(QListWidgetItem* self, int role, const QVariant* value) {
     auto* vqlistwidgetitem = dynamic_cast<VirtualQListWidgetItem*>(self);
     if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
         vqlistwidgetitem->setQListWidgetItem_SetData_IsBase(true);
@@ -385,7 +385,7 @@ void QListWidgetItem_OnSetData(QListWidgetItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QListWidgetItem_QBaseOperatorLesser(const QListWidgetItem* self, const QListWidgetItem* other) {
+bool QListWidgetItem_SuperOperatorLesser(const QListWidgetItem* self, const QListWidgetItem* other) {
     auto* vqlistwidgetitem = const_cast<VirtualQListWidgetItem*>(dynamic_cast<const VirtualQListWidgetItem*>(self));
     if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
         vqlistwidgetitem->setQListWidgetItem_OperatorLesser_IsBase(true);
@@ -404,7 +404,7 @@ void QListWidgetItem_OnOperatorLesser(const QListWidgetItem* self, intptr_t slot
 }
 
 // Base class handler implementation
-void QListWidgetItem_QBaseRead(QListWidgetItem* self, QDataStream* in) {
+void QListWidgetItem_SuperRead(QListWidgetItem* self, QDataStream* in) {
     auto* vqlistwidgetitem = dynamic_cast<VirtualQListWidgetItem*>(self);
     if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
         vqlistwidgetitem->setQListWidgetItem_Read_IsBase(true);
@@ -423,7 +423,7 @@ void QListWidgetItem_OnRead(QListWidgetItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QListWidgetItem_QBaseWrite(const QListWidgetItem* self, QDataStream* out) {
+void QListWidgetItem_SuperWrite(const QListWidgetItem* self, QDataStream* out) {
     auto* vqlistwidgetitem = const_cast<VirtualQListWidgetItem*>(dynamic_cast<const VirtualQListWidgetItem*>(self));
     if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
         vqlistwidgetitem->setQListWidgetItem_Write_IsBase(true);
@@ -885,7 +885,7 @@ void QListWidget_ScrollToItem2(QListWidget* self, const QListWidgetItem* item, i
 }
 
 // Base class handler implementation
-QMetaObject* QListWidget_QBaseMetaObject(const QListWidget* self) {
+QMetaObject* QListWidget_SuperMetaObject(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_MetaObject_IsBase(true);
@@ -904,7 +904,7 @@ void QListWidget_OnMetaObject(const QListWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QListWidget_QBaseMetacast(QListWidget* self, const char* param1) {
+void* QListWidget_SuperMetacast(QListWidget* self, const char* param1) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_Metacast_IsBase(true);
@@ -923,7 +923,7 @@ void QListWidget_OnMetacast(QListWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QListWidget_QBaseMetacall(QListWidget* self, int param1, int param2, void** param3) {
+int QListWidget_SuperMetacall(QListWidget* self, int param1, int param2, void** param3) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_Metacall_IsBase(true);
@@ -942,7 +942,7 @@ void QListWidget_OnMetacall(QListWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseSetSelectionModel(QListWidget* self, QItemSelectionModel* selectionModel) {
+void QListWidget_SuperSetSelectionModel(QListWidget* self, QItemSelectionModel* selectionModel) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_SetSelectionModel_IsBase(true);
@@ -961,7 +961,7 @@ void QListWidget_OnSetSelectionModel(QListWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseDropEvent(QListWidget* self, QDropEvent* event) {
+void QListWidget_SuperDropEvent(QListWidget* self, QDropEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_DropEvent_IsBase(true);
@@ -980,7 +980,7 @@ void QListWidget_OnDropEvent(QListWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QListWidget_QBaseEvent(QListWidget* self, QEvent* e) {
+bool QListWidget_SuperEvent(QListWidget* self, QEvent* e) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_Event_IsBase(true);
@@ -999,7 +999,7 @@ void QListWidget_OnEvent(QListWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QListWidget_QBaseMimeTypes(const QListWidget* self) {
+libqt_list /* of libqt_string */ QListWidget_SuperMimeTypes(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_MimeTypes_IsBase(true);
@@ -1052,7 +1052,7 @@ void QListWidget_OnMimeTypes(const QListWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMimeData* QListWidget_QBaseMimeData(const QListWidget* self, const libqt_list /* of QListWidgetItem* */ items) {
+QMimeData* QListWidget_SuperMimeData(const QListWidget* self, const libqt_list /* of QListWidgetItem* */ items) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     QList<QListWidgetItem*> items_QList;
     items_QList.reserve(items.len);
@@ -1077,7 +1077,7 @@ void QListWidget_OnMimeData(const QListWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QListWidget_QBaseDropMimeData(QListWidget* self, int index, const QMimeData* data, int action) {
+bool QListWidget_SuperDropMimeData(QListWidget* self, int index, const QMimeData* data, int action) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_DropMimeData_IsBase(true);
@@ -1096,7 +1096,7 @@ void QListWidget_OnDropMimeData(QListWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QListWidget_QBaseSupportedDropActions(const QListWidget* self) {
+int QListWidget_SuperSupportedDropActions(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_SupportedDropActions_IsBase(true);
@@ -1125,7 +1125,7 @@ QRect* QListWidget_VisualRect(const QListWidget* self, const QModelIndex* index)
 }
 
 // Base class handler implementation
-QRect* QListWidget_QBaseVisualRect(const QListWidget* self, const QModelIndex* index) {
+QRect* QListWidget_SuperVisualRect(const QListWidget* self, const QModelIndex* index) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_VisualRect_IsBase(true);
@@ -1154,7 +1154,7 @@ void QListWidget_ScrollTo(QListWidget* self, const QModelIndex* index, int hint)
 }
 
 // Base class handler implementation
-void QListWidget_QBaseScrollTo(QListWidget* self, const QModelIndex* index, int hint) {
+void QListWidget_SuperScrollTo(QListWidget* self, const QModelIndex* index, int hint) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_ScrollTo_IsBase(true);
@@ -1183,7 +1183,7 @@ QModelIndex* QListWidget_IndexAt(const QListWidget* self, const QPoint* p) {
 }
 
 // Base class handler implementation
-QModelIndex* QListWidget_QBaseIndexAt(const QListWidget* self, const QPoint* p) {
+QModelIndex* QListWidget_SuperIndexAt(const QListWidget* self, const QPoint* p) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_IndexAt_IsBase(true);
@@ -1212,7 +1212,7 @@ void QListWidget_DoItemsLayout(QListWidget* self) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseDoItemsLayout(QListWidget* self) {
+void QListWidget_SuperDoItemsLayout(QListWidget* self) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_DoItemsLayout_IsBase(true);
@@ -1241,7 +1241,7 @@ void QListWidget_Reset(QListWidget* self) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseReset(QListWidget* self) {
+void QListWidget_SuperReset(QListWidget* self) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_Reset_IsBase(true);
@@ -1270,7 +1270,7 @@ void QListWidget_SetRootIndex(QListWidget* self, const QModelIndex* index) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseSetRootIndex(QListWidget* self, const QModelIndex* index) {
+void QListWidget_SuperSetRootIndex(QListWidget* self, const QModelIndex* index) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_SetRootIndex_IsBase(true);
@@ -1299,7 +1299,7 @@ void QListWidget_ScrollContentsBy(QListWidget* self, int dx, int dy) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseScrollContentsBy(QListWidget* self, int dx, int dy) {
+void QListWidget_SuperScrollContentsBy(QListWidget* self, int dx, int dy) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_ScrollContentsBy_IsBase(true);
@@ -1334,7 +1334,7 @@ void QListWidget_DataChanged(QListWidget* self, const QModelIndex* topLeft, cons
 }
 
 // Base class handler implementation
-void QListWidget_QBaseDataChanged(QListWidget* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
+void QListWidget_SuperDataChanged(QListWidget* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     QList<int> roles_QList;
     roles_QList.reserve(roles.len);
@@ -1369,7 +1369,7 @@ void QListWidget_RowsInserted(QListWidget* self, const QModelIndex* parent, int 
 }
 
 // Base class handler implementation
-void QListWidget_QBaseRowsInserted(QListWidget* self, const QModelIndex* parent, int start, int end) {
+void QListWidget_SuperRowsInserted(QListWidget* self, const QModelIndex* parent, int start, int end) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_RowsInserted_IsBase(true);
@@ -1398,7 +1398,7 @@ void QListWidget_RowsAboutToBeRemoved(QListWidget* self, const QModelIndex* pare
 }
 
 // Base class handler implementation
-void QListWidget_QBaseRowsAboutToBeRemoved(QListWidget* self, const QModelIndex* parent, int start, int end) {
+void QListWidget_SuperRowsAboutToBeRemoved(QListWidget* self, const QModelIndex* parent, int start, int end) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_RowsAboutToBeRemoved_IsBase(true);
@@ -1427,7 +1427,7 @@ void QListWidget_MouseMoveEvent(QListWidget* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseMouseMoveEvent(QListWidget* self, QMouseEvent* e) {
+void QListWidget_SuperMouseMoveEvent(QListWidget* self, QMouseEvent* e) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_MouseMoveEvent_IsBase(true);
@@ -1456,7 +1456,7 @@ void QListWidget_MouseReleaseEvent(QListWidget* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseMouseReleaseEvent(QListWidget* self, QMouseEvent* e) {
+void QListWidget_SuperMouseReleaseEvent(QListWidget* self, QMouseEvent* e) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_MouseReleaseEvent_IsBase(true);
@@ -1485,7 +1485,7 @@ void QListWidget_WheelEvent(QListWidget* self, QWheelEvent* e) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseWheelEvent(QListWidget* self, QWheelEvent* e) {
+void QListWidget_SuperWheelEvent(QListWidget* self, QWheelEvent* e) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_WheelEvent_IsBase(true);
@@ -1514,7 +1514,7 @@ void QListWidget_TimerEvent(QListWidget* self, QTimerEvent* e) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseTimerEvent(QListWidget* self, QTimerEvent* e) {
+void QListWidget_SuperTimerEvent(QListWidget* self, QTimerEvent* e) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_TimerEvent_IsBase(true);
@@ -1543,7 +1543,7 @@ void QListWidget_ResizeEvent(QListWidget* self, QResizeEvent* e) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseResizeEvent(QListWidget* self, QResizeEvent* e) {
+void QListWidget_SuperResizeEvent(QListWidget* self, QResizeEvent* e) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_ResizeEvent_IsBase(true);
@@ -1572,7 +1572,7 @@ void QListWidget_DragMoveEvent(QListWidget* self, QDragMoveEvent* e) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseDragMoveEvent(QListWidget* self, QDragMoveEvent* e) {
+void QListWidget_SuperDragMoveEvent(QListWidget* self, QDragMoveEvent* e) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_DragMoveEvent_IsBase(true);
@@ -1601,7 +1601,7 @@ void QListWidget_DragLeaveEvent(QListWidget* self, QDragLeaveEvent* e) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseDragLeaveEvent(QListWidget* self, QDragLeaveEvent* e) {
+void QListWidget_SuperDragLeaveEvent(QListWidget* self, QDragLeaveEvent* e) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_DragLeaveEvent_IsBase(true);
@@ -1630,7 +1630,7 @@ void QListWidget_StartDrag(QListWidget* self, int supportedActions) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseStartDrag(QListWidget* self, int supportedActions) {
+void QListWidget_SuperStartDrag(QListWidget* self, int supportedActions) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_StartDrag_IsBase(true);
@@ -1659,7 +1659,7 @@ void QListWidget_InitViewItemOption(const QListWidget* self, QStyleOptionViewIte
 }
 
 // Base class handler implementation
-void QListWidget_QBaseInitViewItemOption(const QListWidget* self, QStyleOptionViewItem* option) {
+void QListWidget_SuperInitViewItemOption(const QListWidget* self, QStyleOptionViewItem* option) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_InitViewItemOption_IsBase(true);
@@ -1688,7 +1688,7 @@ void QListWidget_PaintEvent(QListWidget* self, QPaintEvent* e) {
 }
 
 // Base class handler implementation
-void QListWidget_QBasePaintEvent(QListWidget* self, QPaintEvent* e) {
+void QListWidget_SuperPaintEvent(QListWidget* self, QPaintEvent* e) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_PaintEvent_IsBase(true);
@@ -1717,7 +1717,7 @@ int QListWidget_HorizontalOffset(const QListWidget* self) {
 }
 
 // Base class handler implementation
-int QListWidget_QBaseHorizontalOffset(const QListWidget* self) {
+int QListWidget_SuperHorizontalOffset(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_HorizontalOffset_IsBase(true);
@@ -1746,7 +1746,7 @@ int QListWidget_VerticalOffset(const QListWidget* self) {
 }
 
 // Base class handler implementation
-int QListWidget_QBaseVerticalOffset(const QListWidget* self) {
+int QListWidget_SuperVerticalOffset(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_VerticalOffset_IsBase(true);
@@ -1774,7 +1774,7 @@ QModelIndex* QListWidget_MoveCursor(QListWidget* self, int cursorAction, int mod
 }
 
 // Base class handler implementation
-QModelIndex* QListWidget_QBaseMoveCursor(QListWidget* self, int cursorAction, int modifiers) {
+QModelIndex* QListWidget_SuperMoveCursor(QListWidget* self, int cursorAction, int modifiers) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_MoveCursor_IsBase(true);
@@ -1802,7 +1802,7 @@ void QListWidget_SetSelection(QListWidget* self, const QRect* rect, int command)
 }
 
 // Base class handler implementation
-void QListWidget_QBaseSetSelection(QListWidget* self, const QRect* rect, int command) {
+void QListWidget_SuperSetSelection(QListWidget* self, const QRect* rect, int command) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_SetSelection_IsBase(true);
@@ -1830,7 +1830,7 @@ QRegion* QListWidget_VisualRegionForSelection(const QListWidget* self, const QIt
 }
 
 // Base class handler implementation
-QRegion* QListWidget_QBaseVisualRegionForSelection(const QListWidget* self, const QItemSelection* selection) {
+QRegion* QListWidget_SuperVisualRegionForSelection(const QListWidget* self, const QItemSelection* selection) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_VisualRegionForSelection_IsBase(true);
@@ -1876,7 +1876,7 @@ libqt_list /* of QModelIndex* */ QListWidget_SelectedIndexes(const QListWidget* 
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QListWidget_QBaseSelectedIndexes(const QListWidget* self) {
+libqt_list /* of QModelIndex* */ QListWidget_SuperSelectedIndexes(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_SelectedIndexes_IsBase(true);
@@ -1923,7 +1923,7 @@ void QListWidget_UpdateGeometries(QListWidget* self) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseUpdateGeometries(QListWidget* self) {
+void QListWidget_SuperUpdateGeometries(QListWidget* self) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_UpdateGeometries_IsBase(true);
@@ -1952,7 +1952,7 @@ bool QListWidget_IsIndexHidden(const QListWidget* self, const QModelIndex* index
 }
 
 // Base class handler implementation
-bool QListWidget_QBaseIsIndexHidden(const QListWidget* self, const QModelIndex* index) {
+bool QListWidget_SuperIsIndexHidden(const QListWidget* self, const QModelIndex* index) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_IsIndexHidden_IsBase(true);
@@ -1981,7 +1981,7 @@ void QListWidget_SelectionChanged(QListWidget* self, const QItemSelection* selec
 }
 
 // Base class handler implementation
-void QListWidget_QBaseSelectionChanged(QListWidget* self, const QItemSelection* selected, const QItemSelection* deselected) {
+void QListWidget_SuperSelectionChanged(QListWidget* self, const QItemSelection* selected, const QItemSelection* deselected) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_SelectionChanged_IsBase(true);
@@ -2010,7 +2010,7 @@ void QListWidget_CurrentChanged(QListWidget* self, const QModelIndex* current, c
 }
 
 // Base class handler implementation
-void QListWidget_QBaseCurrentChanged(QListWidget* self, const QModelIndex* current, const QModelIndex* previous) {
+void QListWidget_SuperCurrentChanged(QListWidget* self, const QModelIndex* current, const QModelIndex* previous) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_CurrentChanged_IsBase(true);
@@ -2038,7 +2038,7 @@ QSize* QListWidget_ViewportSizeHint(const QListWidget* self) {
 }
 
 // Base class handler implementation
-QSize* QListWidget_QBaseViewportSizeHint(const QListWidget* self) {
+QSize* QListWidget_SuperViewportSizeHint(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_ViewportSizeHint_IsBase(true);
@@ -2067,7 +2067,7 @@ void QListWidget_KeyboardSearch(QListWidget* self, const libqt_string search) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseKeyboardSearch(QListWidget* self, const libqt_string search) {
+void QListWidget_SuperKeyboardSearch(QListWidget* self, const libqt_string search) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     QString search_QString = QString::fromUtf8(search.data, search.len);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
@@ -2097,7 +2097,7 @@ int QListWidget_SizeHintForRow(const QListWidget* self, int row) {
 }
 
 // Base class handler implementation
-int QListWidget_QBaseSizeHintForRow(const QListWidget* self, int row) {
+int QListWidget_SuperSizeHintForRow(const QListWidget* self, int row) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_SizeHintForRow_IsBase(true);
@@ -2126,7 +2126,7 @@ int QListWidget_SizeHintForColumn(const QListWidget* self, int column) {
 }
 
 // Base class handler implementation
-int QListWidget_QBaseSizeHintForColumn(const QListWidget* self, int column) {
+int QListWidget_SuperSizeHintForColumn(const QListWidget* self, int column) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_SizeHintForColumn_IsBase(true);
@@ -2155,7 +2155,7 @@ QAbstractItemDelegate* QListWidget_ItemDelegateForIndex(const QListWidget* self,
 }
 
 // Base class handler implementation
-QAbstractItemDelegate* QListWidget_QBaseItemDelegateForIndex(const QListWidget* self, const QModelIndex* index) {
+QAbstractItemDelegate* QListWidget_SuperItemDelegateForIndex(const QListWidget* self, const QModelIndex* index) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_ItemDelegateForIndex_IsBase(true);
@@ -2184,7 +2184,7 @@ QVariant* QListWidget_InputMethodQuery(const QListWidget* self, int query) {
 }
 
 // Base class handler implementation
-QVariant* QListWidget_QBaseInputMethodQuery(const QListWidget* self, int query) {
+QVariant* QListWidget_SuperInputMethodQuery(const QListWidget* self, int query) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_InputMethodQuery_IsBase(true);
@@ -2213,7 +2213,7 @@ void QListWidget_SelectAll(QListWidget* self) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseSelectAll(QListWidget* self) {
+void QListWidget_SuperSelectAll(QListWidget* self) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_SelectAll_IsBase(true);
@@ -2242,7 +2242,7 @@ void QListWidget_UpdateEditorData(QListWidget* self) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseUpdateEditorData(QListWidget* self) {
+void QListWidget_SuperUpdateEditorData(QListWidget* self) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_UpdateEditorData_IsBase(true);
@@ -2271,7 +2271,7 @@ void QListWidget_UpdateEditorGeometries(QListWidget* self) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseUpdateEditorGeometries(QListWidget* self) {
+void QListWidget_SuperUpdateEditorGeometries(QListWidget* self) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_UpdateEditorGeometries_IsBase(true);
@@ -2300,7 +2300,7 @@ void QListWidget_VerticalScrollbarAction(QListWidget* self, int action) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseVerticalScrollbarAction(QListWidget* self, int action) {
+void QListWidget_SuperVerticalScrollbarAction(QListWidget* self, int action) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_VerticalScrollbarAction_IsBase(true);
@@ -2329,7 +2329,7 @@ void QListWidget_HorizontalScrollbarAction(QListWidget* self, int action) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseHorizontalScrollbarAction(QListWidget* self, int action) {
+void QListWidget_SuperHorizontalScrollbarAction(QListWidget* self, int action) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_HorizontalScrollbarAction_IsBase(true);
@@ -2358,7 +2358,7 @@ void QListWidget_VerticalScrollbarValueChanged(QListWidget* self, int value) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseVerticalScrollbarValueChanged(QListWidget* self, int value) {
+void QListWidget_SuperVerticalScrollbarValueChanged(QListWidget* self, int value) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_VerticalScrollbarValueChanged_IsBase(true);
@@ -2387,7 +2387,7 @@ void QListWidget_HorizontalScrollbarValueChanged(QListWidget* self, int value) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseHorizontalScrollbarValueChanged(QListWidget* self, int value) {
+void QListWidget_SuperHorizontalScrollbarValueChanged(QListWidget* self, int value) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_HorizontalScrollbarValueChanged_IsBase(true);
@@ -2416,7 +2416,7 @@ void QListWidget_CloseEditor(QListWidget* self, QWidget* editor, int hint) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseCloseEditor(QListWidget* self, QWidget* editor, int hint) {
+void QListWidget_SuperCloseEditor(QListWidget* self, QWidget* editor, int hint) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_CloseEditor_IsBase(true);
@@ -2445,7 +2445,7 @@ void QListWidget_CommitData(QListWidget* self, QWidget* editor) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseCommitData(QListWidget* self, QWidget* editor) {
+void QListWidget_SuperCommitData(QListWidget* self, QWidget* editor) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_CommitData_IsBase(true);
@@ -2474,7 +2474,7 @@ void QListWidget_EditorDestroyed(QListWidget* self, QObject* editor) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseEditorDestroyed(QListWidget* self, QObject* editor) {
+void QListWidget_SuperEditorDestroyed(QListWidget* self, QObject* editor) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_EditorDestroyed_IsBase(true);
@@ -2503,7 +2503,7 @@ bool QListWidget_Edit2(QListWidget* self, const QModelIndex* index, int trigger,
 }
 
 // Base class handler implementation
-bool QListWidget_QBaseEdit2(QListWidget* self, const QModelIndex* index, int trigger, QEvent* event) {
+bool QListWidget_SuperEdit2(QListWidget* self, const QModelIndex* index, int trigger, QEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_Edit2_IsBase(true);
@@ -2532,7 +2532,7 @@ int QListWidget_SelectionCommand(const QListWidget* self, const QModelIndex* ind
 }
 
 // Base class handler implementation
-int QListWidget_QBaseSelectionCommand(const QListWidget* self, const QModelIndex* index, const QEvent* event) {
+int QListWidget_SuperSelectionCommand(const QListWidget* self, const QModelIndex* index, const QEvent* event) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_SelectionCommand_IsBase(true);
@@ -2561,7 +2561,7 @@ bool QListWidget_FocusNextPrevChild(QListWidget* self, bool next) {
 }
 
 // Base class handler implementation
-bool QListWidget_QBaseFocusNextPrevChild(QListWidget* self, bool next) {
+bool QListWidget_SuperFocusNextPrevChild(QListWidget* self, bool next) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_FocusNextPrevChild_IsBase(true);
@@ -2590,7 +2590,7 @@ bool QListWidget_ViewportEvent(QListWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QListWidget_QBaseViewportEvent(QListWidget* self, QEvent* event) {
+bool QListWidget_SuperViewportEvent(QListWidget* self, QEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_ViewportEvent_IsBase(true);
@@ -2619,7 +2619,7 @@ void QListWidget_MousePressEvent(QListWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseMousePressEvent(QListWidget* self, QMouseEvent* event) {
+void QListWidget_SuperMousePressEvent(QListWidget* self, QMouseEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_MousePressEvent_IsBase(true);
@@ -2648,7 +2648,7 @@ void QListWidget_MouseDoubleClickEvent(QListWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseMouseDoubleClickEvent(QListWidget* self, QMouseEvent* event) {
+void QListWidget_SuperMouseDoubleClickEvent(QListWidget* self, QMouseEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_MouseDoubleClickEvent_IsBase(true);
@@ -2677,7 +2677,7 @@ void QListWidget_DragEnterEvent(QListWidget* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseDragEnterEvent(QListWidget* self, QDragEnterEvent* event) {
+void QListWidget_SuperDragEnterEvent(QListWidget* self, QDragEnterEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_DragEnterEvent_IsBase(true);
@@ -2706,7 +2706,7 @@ void QListWidget_FocusInEvent(QListWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseFocusInEvent(QListWidget* self, QFocusEvent* event) {
+void QListWidget_SuperFocusInEvent(QListWidget* self, QFocusEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_FocusInEvent_IsBase(true);
@@ -2735,7 +2735,7 @@ void QListWidget_FocusOutEvent(QListWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseFocusOutEvent(QListWidget* self, QFocusEvent* event) {
+void QListWidget_SuperFocusOutEvent(QListWidget* self, QFocusEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_FocusOutEvent_IsBase(true);
@@ -2764,7 +2764,7 @@ void QListWidget_KeyPressEvent(QListWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseKeyPressEvent(QListWidget* self, QKeyEvent* event) {
+void QListWidget_SuperKeyPressEvent(QListWidget* self, QKeyEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_KeyPressEvent_IsBase(true);
@@ -2793,7 +2793,7 @@ void QListWidget_InputMethodEvent(QListWidget* self, QInputMethodEvent* event) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseInputMethodEvent(QListWidget* self, QInputMethodEvent* event) {
+void QListWidget_SuperInputMethodEvent(QListWidget* self, QInputMethodEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_InputMethodEvent_IsBase(true);
@@ -2822,7 +2822,7 @@ bool QListWidget_EventFilter(QListWidget* self, QObject* object, QEvent* event) 
 }
 
 // Base class handler implementation
-bool QListWidget_QBaseEventFilter(QListWidget* self, QObject* object, QEvent* event) {
+bool QListWidget_SuperEventFilter(QListWidget* self, QObject* object, QEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_EventFilter_IsBase(true);
@@ -2851,7 +2851,7 @@ QSize* QListWidget_MinimumSizeHint(const QListWidget* self) {
 }
 
 // Base class handler implementation
-QSize* QListWidget_QBaseMinimumSizeHint(const QListWidget* self) {
+QSize* QListWidget_SuperMinimumSizeHint(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_MinimumSizeHint_IsBase(true);
@@ -2880,7 +2880,7 @@ QSize* QListWidget_SizeHint(const QListWidget* self) {
 }
 
 // Base class handler implementation
-QSize* QListWidget_QBaseSizeHint(const QListWidget* self) {
+QSize* QListWidget_SuperSizeHint(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_SizeHint_IsBase(true);
@@ -2909,7 +2909,7 @@ void QListWidget_SetupViewport(QListWidget* self, QWidget* viewport) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseSetupViewport(QListWidget* self, QWidget* viewport) {
+void QListWidget_SuperSetupViewport(QListWidget* self, QWidget* viewport) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_SetupViewport_IsBase(true);
@@ -2938,7 +2938,7 @@ void QListWidget_ContextMenuEvent(QListWidget* self, QContextMenuEvent* param1) 
 }
 
 // Base class handler implementation
-void QListWidget_QBaseContextMenuEvent(QListWidget* self, QContextMenuEvent* param1) {
+void QListWidget_SuperContextMenuEvent(QListWidget* self, QContextMenuEvent* param1) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_ContextMenuEvent_IsBase(true);
@@ -2967,7 +2967,7 @@ void QListWidget_ChangeEvent(QListWidget* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseChangeEvent(QListWidget* self, QEvent* param1) {
+void QListWidget_SuperChangeEvent(QListWidget* self, QEvent* param1) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_ChangeEvent_IsBase(true);
@@ -2996,7 +2996,7 @@ void QListWidget_InitStyleOption(const QListWidget* self, QStyleOptionFrame* opt
 }
 
 // Base class handler implementation
-void QListWidget_QBaseInitStyleOption(const QListWidget* self, QStyleOptionFrame* option) {
+void QListWidget_SuperInitStyleOption(const QListWidget* self, QStyleOptionFrame* option) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_InitStyleOption_IsBase(true);
@@ -3025,7 +3025,7 @@ int QListWidget_DevType(const QListWidget* self) {
 }
 
 // Base class handler implementation
-int QListWidget_QBaseDevType(const QListWidget* self) {
+int QListWidget_SuperDevType(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_DevType_IsBase(true);
@@ -3054,7 +3054,7 @@ void QListWidget_SetVisible(QListWidget* self, bool visible) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseSetVisible(QListWidget* self, bool visible) {
+void QListWidget_SuperSetVisible(QListWidget* self, bool visible) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_SetVisible_IsBase(true);
@@ -3083,7 +3083,7 @@ int QListWidget_HeightForWidth(const QListWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int QListWidget_QBaseHeightForWidth(const QListWidget* self, int param1) {
+int QListWidget_SuperHeightForWidth(const QListWidget* self, int param1) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_HeightForWidth_IsBase(true);
@@ -3112,7 +3112,7 @@ bool QListWidget_HasHeightForWidth(const QListWidget* self) {
 }
 
 // Base class handler implementation
-bool QListWidget_QBaseHasHeightForWidth(const QListWidget* self) {
+bool QListWidget_SuperHasHeightForWidth(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_HasHeightForWidth_IsBase(true);
@@ -3141,7 +3141,7 @@ QPaintEngine* QListWidget_PaintEngine(const QListWidget* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QListWidget_QBasePaintEngine(const QListWidget* self) {
+QPaintEngine* QListWidget_SuperPaintEngine(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_PaintEngine_IsBase(true);
@@ -3170,7 +3170,7 @@ void QListWidget_KeyReleaseEvent(QListWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseKeyReleaseEvent(QListWidget* self, QKeyEvent* event) {
+void QListWidget_SuperKeyReleaseEvent(QListWidget* self, QKeyEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_KeyReleaseEvent_IsBase(true);
@@ -3199,7 +3199,7 @@ void QListWidget_EnterEvent(QListWidget* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseEnterEvent(QListWidget* self, QEnterEvent* event) {
+void QListWidget_SuperEnterEvent(QListWidget* self, QEnterEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_EnterEvent_IsBase(true);
@@ -3228,7 +3228,7 @@ void QListWidget_LeaveEvent(QListWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseLeaveEvent(QListWidget* self, QEvent* event) {
+void QListWidget_SuperLeaveEvent(QListWidget* self, QEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_LeaveEvent_IsBase(true);
@@ -3257,7 +3257,7 @@ void QListWidget_MoveEvent(QListWidget* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseMoveEvent(QListWidget* self, QMoveEvent* event) {
+void QListWidget_SuperMoveEvent(QListWidget* self, QMoveEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_MoveEvent_IsBase(true);
@@ -3286,7 +3286,7 @@ void QListWidget_CloseEvent(QListWidget* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseCloseEvent(QListWidget* self, QCloseEvent* event) {
+void QListWidget_SuperCloseEvent(QListWidget* self, QCloseEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_CloseEvent_IsBase(true);
@@ -3315,7 +3315,7 @@ void QListWidget_TabletEvent(QListWidget* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseTabletEvent(QListWidget* self, QTabletEvent* event) {
+void QListWidget_SuperTabletEvent(QListWidget* self, QTabletEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_TabletEvent_IsBase(true);
@@ -3344,7 +3344,7 @@ void QListWidget_ActionEvent(QListWidget* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseActionEvent(QListWidget* self, QActionEvent* event) {
+void QListWidget_SuperActionEvent(QListWidget* self, QActionEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_ActionEvent_IsBase(true);
@@ -3373,7 +3373,7 @@ void QListWidget_ShowEvent(QListWidget* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseShowEvent(QListWidget* self, QShowEvent* event) {
+void QListWidget_SuperShowEvent(QListWidget* self, QShowEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_ShowEvent_IsBase(true);
@@ -3402,7 +3402,7 @@ void QListWidget_HideEvent(QListWidget* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseHideEvent(QListWidget* self, QHideEvent* event) {
+void QListWidget_SuperHideEvent(QListWidget* self, QHideEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_HideEvent_IsBase(true);
@@ -3432,7 +3432,7 @@ bool QListWidget_NativeEvent(QListWidget* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool QListWidget_QBaseNativeEvent(QListWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QListWidget_SuperNativeEvent(QListWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
@@ -3462,7 +3462,7 @@ int QListWidget_Metric(const QListWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int QListWidget_QBaseMetric(const QListWidget* self, int param1) {
+int QListWidget_SuperMetric(const QListWidget* self, int param1) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_Metric_IsBase(true);
@@ -3491,7 +3491,7 @@ void QListWidget_InitPainter(const QListWidget* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseInitPainter(const QListWidget* self, QPainter* painter) {
+void QListWidget_SuperInitPainter(const QListWidget* self, QPainter* painter) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_InitPainter_IsBase(true);
@@ -3520,7 +3520,7 @@ QPaintDevice* QListWidget_Redirected(const QListWidget* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QListWidget_QBaseRedirected(const QListWidget* self, QPoint* offset) {
+QPaintDevice* QListWidget_SuperRedirected(const QListWidget* self, QPoint* offset) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_Redirected_IsBase(true);
@@ -3549,7 +3549,7 @@ QPainter* QListWidget_SharedPainter(const QListWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* QListWidget_QBaseSharedPainter(const QListWidget* self) {
+QPainter* QListWidget_SuperSharedPainter(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_SharedPainter_IsBase(true);
@@ -3578,7 +3578,7 @@ void QListWidget_ChildEvent(QListWidget* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseChildEvent(QListWidget* self, QChildEvent* event) {
+void QListWidget_SuperChildEvent(QListWidget* self, QChildEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_ChildEvent_IsBase(true);
@@ -3607,7 +3607,7 @@ void QListWidget_CustomEvent(QListWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseCustomEvent(QListWidget* self, QEvent* event) {
+void QListWidget_SuperCustomEvent(QListWidget* self, QEvent* event) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_CustomEvent_IsBase(true);
@@ -3636,7 +3636,7 @@ void QListWidget_ConnectNotify(QListWidget* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseConnectNotify(QListWidget* self, const QMetaMethod* signal) {
+void QListWidget_SuperConnectNotify(QListWidget* self, const QMetaMethod* signal) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_ConnectNotify_IsBase(true);
@@ -3665,7 +3665,7 @@ void QListWidget_DisconnectNotify(QListWidget* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QListWidget_QBaseDisconnectNotify(QListWidget* self, const QMetaMethod* signal) {
+void QListWidget_SuperDisconnectNotify(QListWidget* self, const QMetaMethod* signal) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_DisconnectNotify_IsBase(true);
@@ -3694,7 +3694,7 @@ void QListWidget_ResizeContents(QListWidget* self, int width, int height) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseResizeContents(QListWidget* self, int width, int height) {
+void QListWidget_SuperResizeContents(QListWidget* self, int width, int height) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_ResizeContents_IsBase(true);
@@ -3722,7 +3722,7 @@ QSize* QListWidget_ContentsSize(const QListWidget* self) {
 }
 
 // Base class handler implementation
-QSize* QListWidget_QBaseContentsSize(const QListWidget* self) {
+QSize* QListWidget_SuperContentsSize(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_ContentsSize_IsBase(true);
@@ -3749,7 +3749,7 @@ QRect* QListWidget_RectForIndex(const QListWidget* self, const QModelIndex* inde
 }
 
 // Base class handler implementation
-QRect* QListWidget_QBaseRectForIndex(const QListWidget* self, const QModelIndex* index) {
+QRect* QListWidget_SuperRectForIndex(const QListWidget* self, const QModelIndex* index) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_RectForIndex_IsBase(true);
@@ -3777,7 +3777,7 @@ void QListWidget_SetPositionForIndex(QListWidget* self, const QPoint* position, 
 }
 
 // Base class handler implementation
-void QListWidget_QBaseSetPositionForIndex(QListWidget* self, const QPoint* position, const QModelIndex* index) {
+void QListWidget_SuperSetPositionForIndex(QListWidget* self, const QPoint* position, const QModelIndex* index) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_SetPositionForIndex_IsBase(true);
@@ -3806,7 +3806,7 @@ int QListWidget_State(const QListWidget* self) {
 }
 
 // Base class handler implementation
-int QListWidget_QBaseState(const QListWidget* self) {
+int QListWidget_SuperState(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_State_IsBase(true);
@@ -3835,7 +3835,7 @@ void QListWidget_SetState(QListWidget* self, int state) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseSetState(QListWidget* self, int state) {
+void QListWidget_SuperSetState(QListWidget* self, int state) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_SetState_IsBase(true);
@@ -3864,7 +3864,7 @@ void QListWidget_ScheduleDelayedItemsLayout(QListWidget* self) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseScheduleDelayedItemsLayout(QListWidget* self) {
+void QListWidget_SuperScheduleDelayedItemsLayout(QListWidget* self) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_ScheduleDelayedItemsLayout_IsBase(true);
@@ -3893,7 +3893,7 @@ void QListWidget_ExecuteDelayedItemsLayout(QListWidget* self) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseExecuteDelayedItemsLayout(QListWidget* self) {
+void QListWidget_SuperExecuteDelayedItemsLayout(QListWidget* self) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_ExecuteDelayedItemsLayout_IsBase(true);
@@ -3922,7 +3922,7 @@ void QListWidget_SetDirtyRegion(QListWidget* self, const QRegion* region) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseSetDirtyRegion(QListWidget* self, const QRegion* region) {
+void QListWidget_SuperSetDirtyRegion(QListWidget* self, const QRegion* region) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_SetDirtyRegion_IsBase(true);
@@ -3951,7 +3951,7 @@ void QListWidget_ScrollDirtyRegion(QListWidget* self, int dx, int dy) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseScrollDirtyRegion(QListWidget* self, int dx, int dy) {
+void QListWidget_SuperScrollDirtyRegion(QListWidget* self, int dx, int dy) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_ScrollDirtyRegion_IsBase(true);
@@ -3979,7 +3979,7 @@ QPoint* QListWidget_DirtyRegionOffset(const QListWidget* self) {
 }
 
 // Base class handler implementation
-QPoint* QListWidget_QBaseDirtyRegionOffset(const QListWidget* self) {
+QPoint* QListWidget_SuperDirtyRegionOffset(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_DirtyRegionOffset_IsBase(true);
@@ -4007,7 +4007,7 @@ void QListWidget_StartAutoScroll(QListWidget* self) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseStartAutoScroll(QListWidget* self) {
+void QListWidget_SuperStartAutoScroll(QListWidget* self) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_StartAutoScroll_IsBase(true);
@@ -4036,7 +4036,7 @@ void QListWidget_StopAutoScroll(QListWidget* self) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseStopAutoScroll(QListWidget* self) {
+void QListWidget_SuperStopAutoScroll(QListWidget* self) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_StopAutoScroll_IsBase(true);
@@ -4065,7 +4065,7 @@ void QListWidget_DoAutoScroll(QListWidget* self) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseDoAutoScroll(QListWidget* self) {
+void QListWidget_SuperDoAutoScroll(QListWidget* self) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_DoAutoScroll_IsBase(true);
@@ -4094,7 +4094,7 @@ int QListWidget_DropIndicatorPosition(const QListWidget* self) {
 }
 
 // Base class handler implementation
-int QListWidget_QBaseDropIndicatorPosition(const QListWidget* self) {
+int QListWidget_SuperDropIndicatorPosition(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_DropIndicatorPosition_IsBase(true);
@@ -4123,7 +4123,7 @@ void QListWidget_SetViewportMargins(QListWidget* self, int left, int top, int ri
 }
 
 // Base class handler implementation
-void QListWidget_QBaseSetViewportMargins(QListWidget* self, int left, int top, int right, int bottom) {
+void QListWidget_SuperSetViewportMargins(QListWidget* self, int left, int top, int right, int bottom) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_SetViewportMargins_IsBase(true);
@@ -4151,7 +4151,7 @@ QMargins* QListWidget_ViewportMargins(const QListWidget* self) {
 }
 
 // Base class handler implementation
-QMargins* QListWidget_QBaseViewportMargins(const QListWidget* self) {
+QMargins* QListWidget_SuperViewportMargins(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_ViewportMargins_IsBase(true);
@@ -4179,7 +4179,7 @@ void QListWidget_DrawFrame(QListWidget* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseDrawFrame(QListWidget* self, QPainter* param1) {
+void QListWidget_SuperDrawFrame(QListWidget* self, QPainter* param1) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_DrawFrame_IsBase(true);
@@ -4208,7 +4208,7 @@ void QListWidget_UpdateMicroFocus(QListWidget* self) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseUpdateMicroFocus(QListWidget* self) {
+void QListWidget_SuperUpdateMicroFocus(QListWidget* self) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_UpdateMicroFocus_IsBase(true);
@@ -4237,7 +4237,7 @@ void QListWidget_Create(QListWidget* self) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseCreate(QListWidget* self) {
+void QListWidget_SuperCreate(QListWidget* self) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_Create_IsBase(true);
@@ -4266,7 +4266,7 @@ void QListWidget_Destroy(QListWidget* self) {
 }
 
 // Base class handler implementation
-void QListWidget_QBaseDestroy(QListWidget* self) {
+void QListWidget_SuperDestroy(QListWidget* self) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_Destroy_IsBase(true);
@@ -4295,7 +4295,7 @@ bool QListWidget_FocusNextChild(QListWidget* self) {
 }
 
 // Base class handler implementation
-bool QListWidget_QBaseFocusNextChild(QListWidget* self) {
+bool QListWidget_SuperFocusNextChild(QListWidget* self) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_FocusNextChild_IsBase(true);
@@ -4324,7 +4324,7 @@ bool QListWidget_FocusPreviousChild(QListWidget* self) {
 }
 
 // Base class handler implementation
-bool QListWidget_QBaseFocusPreviousChild(QListWidget* self) {
+bool QListWidget_SuperFocusPreviousChild(QListWidget* self) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_FocusPreviousChild_IsBase(true);
@@ -4353,7 +4353,7 @@ QObject* QListWidget_Sender(const QListWidget* self) {
 }
 
 // Base class handler implementation
-QObject* QListWidget_QBaseSender(const QListWidget* self) {
+QObject* QListWidget_SuperSender(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_Sender_IsBase(true);
@@ -4382,7 +4382,7 @@ int QListWidget_SenderSignalIndex(const QListWidget* self) {
 }
 
 // Base class handler implementation
-int QListWidget_QBaseSenderSignalIndex(const QListWidget* self) {
+int QListWidget_SuperSenderSignalIndex(const QListWidget* self) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_SenderSignalIndex_IsBase(true);
@@ -4411,7 +4411,7 @@ int QListWidget_Receivers(const QListWidget* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QListWidget_QBaseReceivers(const QListWidget* self, const char* signal) {
+int QListWidget_SuperReceivers(const QListWidget* self, const char* signal) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_Receivers_IsBase(true);
@@ -4440,7 +4440,7 @@ bool QListWidget_IsSignalConnected(const QListWidget* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QListWidget_QBaseIsSignalConnected(const QListWidget* self, const QMetaMethod* signal) {
+bool QListWidget_SuperIsSignalConnected(const QListWidget* self, const QMetaMethod* signal) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_IsSignalConnected_IsBase(true);
@@ -4469,7 +4469,7 @@ double QListWidget_GetDecodedMetricF(const QListWidget* self, int metricA, int m
 }
 
 // Base class handler implementation
-double QListWidget_QBaseGetDecodedMetricF(const QListWidget* self, int metricA, int metricB) {
+double QListWidget_SuperGetDecodedMetricF(const QListWidget* self, int metricA, int metricB) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
     if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
         vqlistwidget->setQListWidget_GetDecodedMetricF_IsBase(true);

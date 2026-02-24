@@ -138,13 +138,17 @@ pub const attica__publisherfield = struct {
         return qtc.Attica__PublisherField_IsValid(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Attica__PublisherField `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Attica__PublisherField_Delete(@ptrCast(self));
     }
 };

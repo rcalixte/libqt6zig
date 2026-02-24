@@ -129,6 +129,10 @@ pub const qwaitcondition = struct {
         return qtc.QWaitCondition_Wait23(@ptrCast(self), @ptrCast(lockedReadWriteLock), @ptrCast(deadline));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwaitcondition.html#dtor.QWaitCondition)
     ///
     /// Delete this object from C++ memory.
@@ -137,7 +141,7 @@ pub const qwaitcondition = struct {
     ///
     /// ` self: QtC.QWaitCondition `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWaitCondition_Delete(@ptrCast(self));
     }
 };

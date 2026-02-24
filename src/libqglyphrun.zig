@@ -420,6 +420,10 @@ pub const qglyphrun = struct {
         qtc.QGlyphRun_SetFlag2(@ptrCast(self), @bitCast(flag), enabled);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#dtor.QGlyphRun)
     ///
     /// Delete this object from C++ memory.
@@ -428,7 +432,7 @@ pub const qglyphrun = struct {
     ///
     /// ` self: QtC.QGlyphRun `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGlyphRun_Delete(@ptrCast(self));
     }
 };

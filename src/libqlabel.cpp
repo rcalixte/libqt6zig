@@ -404,7 +404,7 @@ bool QLabel_FocusNextPrevChild(QLabel* self, bool next) {
 }
 
 // Base class handler implementation
-QMetaObject* QLabel_QBaseMetaObject(const QLabel* self) {
+QMetaObject* QLabel_SuperMetaObject(const QLabel* self) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_MetaObject_IsBase(true);
@@ -423,7 +423,7 @@ void QLabel_OnMetaObject(const QLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QLabel_QBaseMetacast(QLabel* self, const char* param1) {
+void* QLabel_SuperMetacast(QLabel* self, const char* param1) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_Metacast_IsBase(true);
@@ -442,7 +442,7 @@ void QLabel_OnMetacast(QLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QLabel_QBaseMetacall(QLabel* self, int param1, int param2, void** param3) {
+int QLabel_SuperMetacall(QLabel* self, int param1, int param2, void** param3) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_Metacall_IsBase(true);
@@ -461,7 +461,7 @@ void QLabel_OnMetacall(QLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QLabel_QBaseSizeHint(const QLabel* self) {
+QSize* QLabel_SuperSizeHint(const QLabel* self) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_SizeHint_IsBase(true);
@@ -480,7 +480,7 @@ void QLabel_OnSizeHint(const QLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QLabel_QBaseMinimumSizeHint(const QLabel* self) {
+QSize* QLabel_SuperMinimumSizeHint(const QLabel* self) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_MinimumSizeHint_IsBase(true);
@@ -499,7 +499,7 @@ void QLabel_OnMinimumSizeHint(const QLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QLabel_QBaseHeightForWidth(const QLabel* self, int param1) {
+int QLabel_SuperHeightForWidth(const QLabel* self, int param1) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_HeightForWidth_IsBase(true);
@@ -518,7 +518,7 @@ void QLabel_OnHeightForWidth(const QLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QLabel_QBaseEvent(QLabel* self, QEvent* e) {
+bool QLabel_SuperEvent(QLabel* self, QEvent* e) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_Event_IsBase(true);
@@ -537,7 +537,7 @@ void QLabel_OnEvent(QLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseKeyPressEvent(QLabel* self, QKeyEvent* ev) {
+void QLabel_SuperKeyPressEvent(QLabel* self, QKeyEvent* ev) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_KeyPressEvent_IsBase(true);
@@ -556,7 +556,7 @@ void QLabel_OnKeyPressEvent(QLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLabel_QBasePaintEvent(QLabel* self, QPaintEvent* param1) {
+void QLabel_SuperPaintEvent(QLabel* self, QPaintEvent* param1) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_PaintEvent_IsBase(true);
@@ -575,7 +575,7 @@ void QLabel_OnPaintEvent(QLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseChangeEvent(QLabel* self, QEvent* param1) {
+void QLabel_SuperChangeEvent(QLabel* self, QEvent* param1) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_ChangeEvent_IsBase(true);
@@ -594,7 +594,7 @@ void QLabel_OnChangeEvent(QLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseMousePressEvent(QLabel* self, QMouseEvent* ev) {
+void QLabel_SuperMousePressEvent(QLabel* self, QMouseEvent* ev) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_MousePressEvent_IsBase(true);
@@ -613,7 +613,7 @@ void QLabel_OnMousePressEvent(QLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseMouseMoveEvent(QLabel* self, QMouseEvent* ev) {
+void QLabel_SuperMouseMoveEvent(QLabel* self, QMouseEvent* ev) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_MouseMoveEvent_IsBase(true);
@@ -632,7 +632,7 @@ void QLabel_OnMouseMoveEvent(QLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseMouseReleaseEvent(QLabel* self, QMouseEvent* ev) {
+void QLabel_SuperMouseReleaseEvent(QLabel* self, QMouseEvent* ev) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_MouseReleaseEvent_IsBase(true);
@@ -651,7 +651,7 @@ void QLabel_OnMouseReleaseEvent(QLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseContextMenuEvent(QLabel* self, QContextMenuEvent* ev) {
+void QLabel_SuperContextMenuEvent(QLabel* self, QContextMenuEvent* ev) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_ContextMenuEvent_IsBase(true);
@@ -670,7 +670,7 @@ void QLabel_OnContextMenuEvent(QLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseFocusInEvent(QLabel* self, QFocusEvent* ev) {
+void QLabel_SuperFocusInEvent(QLabel* self, QFocusEvent* ev) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_FocusInEvent_IsBase(true);
@@ -689,7 +689,7 @@ void QLabel_OnFocusInEvent(QLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseFocusOutEvent(QLabel* self, QFocusEvent* ev) {
+void QLabel_SuperFocusOutEvent(QLabel* self, QFocusEvent* ev) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_FocusOutEvent_IsBase(true);
@@ -708,7 +708,7 @@ void QLabel_OnFocusOutEvent(QLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QLabel_QBaseFocusNextPrevChild(QLabel* self, bool next) {
+bool QLabel_SuperFocusNextPrevChild(QLabel* self, bool next) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_FocusNextPrevChild_IsBase(true);
@@ -737,7 +737,7 @@ void QLabel_InitStyleOption(const QLabel* self, QStyleOptionFrame* option) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseInitStyleOption(const QLabel* self, QStyleOptionFrame* option) {
+void QLabel_SuperInitStyleOption(const QLabel* self, QStyleOptionFrame* option) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_InitStyleOption_IsBase(true);
@@ -766,7 +766,7 @@ int QLabel_DevType(const QLabel* self) {
 }
 
 // Base class handler implementation
-int QLabel_QBaseDevType(const QLabel* self) {
+int QLabel_SuperDevType(const QLabel* self) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_DevType_IsBase(true);
@@ -795,7 +795,7 @@ void QLabel_SetVisible(QLabel* self, bool visible) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseSetVisible(QLabel* self, bool visible) {
+void QLabel_SuperSetVisible(QLabel* self, bool visible) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_SetVisible_IsBase(true);
@@ -824,7 +824,7 @@ bool QLabel_HasHeightForWidth(const QLabel* self) {
 }
 
 // Base class handler implementation
-bool QLabel_QBaseHasHeightForWidth(const QLabel* self) {
+bool QLabel_SuperHasHeightForWidth(const QLabel* self) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_HasHeightForWidth_IsBase(true);
@@ -853,7 +853,7 @@ QPaintEngine* QLabel_PaintEngine(const QLabel* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QLabel_QBasePaintEngine(const QLabel* self) {
+QPaintEngine* QLabel_SuperPaintEngine(const QLabel* self) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_PaintEngine_IsBase(true);
@@ -882,7 +882,7 @@ void QLabel_MouseDoubleClickEvent(QLabel* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseMouseDoubleClickEvent(QLabel* self, QMouseEvent* event) {
+void QLabel_SuperMouseDoubleClickEvent(QLabel* self, QMouseEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_MouseDoubleClickEvent_IsBase(true);
@@ -911,7 +911,7 @@ void QLabel_WheelEvent(QLabel* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseWheelEvent(QLabel* self, QWheelEvent* event) {
+void QLabel_SuperWheelEvent(QLabel* self, QWheelEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_WheelEvent_IsBase(true);
@@ -940,7 +940,7 @@ void QLabel_KeyReleaseEvent(QLabel* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseKeyReleaseEvent(QLabel* self, QKeyEvent* event) {
+void QLabel_SuperKeyReleaseEvent(QLabel* self, QKeyEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_KeyReleaseEvent_IsBase(true);
@@ -969,7 +969,7 @@ void QLabel_EnterEvent(QLabel* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseEnterEvent(QLabel* self, QEnterEvent* event) {
+void QLabel_SuperEnterEvent(QLabel* self, QEnterEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_EnterEvent_IsBase(true);
@@ -998,7 +998,7 @@ void QLabel_LeaveEvent(QLabel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseLeaveEvent(QLabel* self, QEvent* event) {
+void QLabel_SuperLeaveEvent(QLabel* self, QEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_LeaveEvent_IsBase(true);
@@ -1027,7 +1027,7 @@ void QLabel_MoveEvent(QLabel* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseMoveEvent(QLabel* self, QMoveEvent* event) {
+void QLabel_SuperMoveEvent(QLabel* self, QMoveEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_MoveEvent_IsBase(true);
@@ -1056,7 +1056,7 @@ void QLabel_ResizeEvent(QLabel* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseResizeEvent(QLabel* self, QResizeEvent* event) {
+void QLabel_SuperResizeEvent(QLabel* self, QResizeEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_ResizeEvent_IsBase(true);
@@ -1085,7 +1085,7 @@ void QLabel_CloseEvent(QLabel* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseCloseEvent(QLabel* self, QCloseEvent* event) {
+void QLabel_SuperCloseEvent(QLabel* self, QCloseEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_CloseEvent_IsBase(true);
@@ -1114,7 +1114,7 @@ void QLabel_TabletEvent(QLabel* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseTabletEvent(QLabel* self, QTabletEvent* event) {
+void QLabel_SuperTabletEvent(QLabel* self, QTabletEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_TabletEvent_IsBase(true);
@@ -1143,7 +1143,7 @@ void QLabel_ActionEvent(QLabel* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseActionEvent(QLabel* self, QActionEvent* event) {
+void QLabel_SuperActionEvent(QLabel* self, QActionEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_ActionEvent_IsBase(true);
@@ -1172,7 +1172,7 @@ void QLabel_DragEnterEvent(QLabel* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseDragEnterEvent(QLabel* self, QDragEnterEvent* event) {
+void QLabel_SuperDragEnterEvent(QLabel* self, QDragEnterEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_DragEnterEvent_IsBase(true);
@@ -1201,7 +1201,7 @@ void QLabel_DragMoveEvent(QLabel* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseDragMoveEvent(QLabel* self, QDragMoveEvent* event) {
+void QLabel_SuperDragMoveEvent(QLabel* self, QDragMoveEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_DragMoveEvent_IsBase(true);
@@ -1230,7 +1230,7 @@ void QLabel_DragLeaveEvent(QLabel* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseDragLeaveEvent(QLabel* self, QDragLeaveEvent* event) {
+void QLabel_SuperDragLeaveEvent(QLabel* self, QDragLeaveEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_DragLeaveEvent_IsBase(true);
@@ -1259,7 +1259,7 @@ void QLabel_DropEvent(QLabel* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseDropEvent(QLabel* self, QDropEvent* event) {
+void QLabel_SuperDropEvent(QLabel* self, QDropEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_DropEvent_IsBase(true);
@@ -1288,7 +1288,7 @@ void QLabel_ShowEvent(QLabel* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseShowEvent(QLabel* self, QShowEvent* event) {
+void QLabel_SuperShowEvent(QLabel* self, QShowEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_ShowEvent_IsBase(true);
@@ -1317,7 +1317,7 @@ void QLabel_HideEvent(QLabel* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseHideEvent(QLabel* self, QHideEvent* event) {
+void QLabel_SuperHideEvent(QLabel* self, QHideEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_HideEvent_IsBase(true);
@@ -1347,7 +1347,7 @@ bool QLabel_NativeEvent(QLabel* self, const libqt_string eventType, void* messag
 }
 
 // Base class handler implementation
-bool QLabel_QBaseNativeEvent(QLabel* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QLabel_SuperNativeEvent(QLabel* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqlabel && vqlabel->isVirtualQLabel) {
@@ -1377,7 +1377,7 @@ int QLabel_Metric(const QLabel* self, int param1) {
 }
 
 // Base class handler implementation
-int QLabel_QBaseMetric(const QLabel* self, int param1) {
+int QLabel_SuperMetric(const QLabel* self, int param1) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_Metric_IsBase(true);
@@ -1406,7 +1406,7 @@ void QLabel_InitPainter(const QLabel* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseInitPainter(const QLabel* self, QPainter* painter) {
+void QLabel_SuperInitPainter(const QLabel* self, QPainter* painter) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_InitPainter_IsBase(true);
@@ -1435,7 +1435,7 @@ QPaintDevice* QLabel_Redirected(const QLabel* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QLabel_QBaseRedirected(const QLabel* self, QPoint* offset) {
+QPaintDevice* QLabel_SuperRedirected(const QLabel* self, QPoint* offset) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_Redirected_IsBase(true);
@@ -1464,7 +1464,7 @@ QPainter* QLabel_SharedPainter(const QLabel* self) {
 }
 
 // Base class handler implementation
-QPainter* QLabel_QBaseSharedPainter(const QLabel* self) {
+QPainter* QLabel_SuperSharedPainter(const QLabel* self) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_SharedPainter_IsBase(true);
@@ -1493,7 +1493,7 @@ void QLabel_InputMethodEvent(QLabel* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseInputMethodEvent(QLabel* self, QInputMethodEvent* param1) {
+void QLabel_SuperInputMethodEvent(QLabel* self, QInputMethodEvent* param1) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_InputMethodEvent_IsBase(true);
@@ -1522,7 +1522,7 @@ QVariant* QLabel_InputMethodQuery(const QLabel* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QLabel_QBaseInputMethodQuery(const QLabel* self, int param1) {
+QVariant* QLabel_SuperInputMethodQuery(const QLabel* self, int param1) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_InputMethodQuery_IsBase(true);
@@ -1551,7 +1551,7 @@ bool QLabel_EventFilter(QLabel* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QLabel_QBaseEventFilter(QLabel* self, QObject* watched, QEvent* event) {
+bool QLabel_SuperEventFilter(QLabel* self, QObject* watched, QEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_EventFilter_IsBase(true);
@@ -1580,7 +1580,7 @@ void QLabel_TimerEvent(QLabel* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseTimerEvent(QLabel* self, QTimerEvent* event) {
+void QLabel_SuperTimerEvent(QLabel* self, QTimerEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_TimerEvent_IsBase(true);
@@ -1609,7 +1609,7 @@ void QLabel_ChildEvent(QLabel* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseChildEvent(QLabel* self, QChildEvent* event) {
+void QLabel_SuperChildEvent(QLabel* self, QChildEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_ChildEvent_IsBase(true);
@@ -1638,7 +1638,7 @@ void QLabel_CustomEvent(QLabel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseCustomEvent(QLabel* self, QEvent* event) {
+void QLabel_SuperCustomEvent(QLabel* self, QEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_CustomEvent_IsBase(true);
@@ -1667,7 +1667,7 @@ void QLabel_ConnectNotify(QLabel* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseConnectNotify(QLabel* self, const QMetaMethod* signal) {
+void QLabel_SuperConnectNotify(QLabel* self, const QMetaMethod* signal) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_ConnectNotify_IsBase(true);
@@ -1696,7 +1696,7 @@ void QLabel_DisconnectNotify(QLabel* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseDisconnectNotify(QLabel* self, const QMetaMethod* signal) {
+void QLabel_SuperDisconnectNotify(QLabel* self, const QMetaMethod* signal) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_DisconnectNotify_IsBase(true);
@@ -1725,7 +1725,7 @@ void QLabel_DrawFrame(QLabel* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseDrawFrame(QLabel* self, QPainter* param1) {
+void QLabel_SuperDrawFrame(QLabel* self, QPainter* param1) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_DrawFrame_IsBase(true);
@@ -1754,7 +1754,7 @@ void QLabel_UpdateMicroFocus(QLabel* self) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseUpdateMicroFocus(QLabel* self) {
+void QLabel_SuperUpdateMicroFocus(QLabel* self) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_UpdateMicroFocus_IsBase(true);
@@ -1783,7 +1783,7 @@ void QLabel_Create(QLabel* self) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseCreate(QLabel* self) {
+void QLabel_SuperCreate(QLabel* self) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_Create_IsBase(true);
@@ -1812,7 +1812,7 @@ void QLabel_Destroy(QLabel* self) {
 }
 
 // Base class handler implementation
-void QLabel_QBaseDestroy(QLabel* self) {
+void QLabel_SuperDestroy(QLabel* self) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_Destroy_IsBase(true);
@@ -1841,7 +1841,7 @@ bool QLabel_FocusNextChild(QLabel* self) {
 }
 
 // Base class handler implementation
-bool QLabel_QBaseFocusNextChild(QLabel* self) {
+bool QLabel_SuperFocusNextChild(QLabel* self) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_FocusNextChild_IsBase(true);
@@ -1870,7 +1870,7 @@ bool QLabel_FocusPreviousChild(QLabel* self) {
 }
 
 // Base class handler implementation
-bool QLabel_QBaseFocusPreviousChild(QLabel* self) {
+bool QLabel_SuperFocusPreviousChild(QLabel* self) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_FocusPreviousChild_IsBase(true);
@@ -1899,7 +1899,7 @@ QObject* QLabel_Sender(const QLabel* self) {
 }
 
 // Base class handler implementation
-QObject* QLabel_QBaseSender(const QLabel* self) {
+QObject* QLabel_SuperSender(const QLabel* self) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_Sender_IsBase(true);
@@ -1928,7 +1928,7 @@ int QLabel_SenderSignalIndex(const QLabel* self) {
 }
 
 // Base class handler implementation
-int QLabel_QBaseSenderSignalIndex(const QLabel* self) {
+int QLabel_SuperSenderSignalIndex(const QLabel* self) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_SenderSignalIndex_IsBase(true);
@@ -1957,7 +1957,7 @@ int QLabel_Receivers(const QLabel* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QLabel_QBaseReceivers(const QLabel* self, const char* signal) {
+int QLabel_SuperReceivers(const QLabel* self, const char* signal) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_Receivers_IsBase(true);
@@ -1986,7 +1986,7 @@ bool QLabel_IsSignalConnected(const QLabel* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QLabel_QBaseIsSignalConnected(const QLabel* self, const QMetaMethod* signal) {
+bool QLabel_SuperIsSignalConnected(const QLabel* self, const QMetaMethod* signal) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_IsSignalConnected_IsBase(true);
@@ -2015,7 +2015,7 @@ double QLabel_GetDecodedMetricF(const QLabel* self, int metricA, int metricB) {
 }
 
 // Base class handler implementation
-double QLabel_QBaseGetDecodedMetricF(const QLabel* self, int metricA, int metricB) {
+double QLabel_SuperGetDecodedMetricF(const QLabel* self, int metricA, int metricB) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
     if (vqlabel && vqlabel->isVirtualQLabel) {
         vqlabel->setQLabel_GetDecodedMetricF_IsBase(true);

@@ -164,7 +164,7 @@ void QWaveDecoder_Connect_ParsingError(QWaveDecoder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QWaveDecoder_QBaseMetaObject(const QWaveDecoder* self) {
+QMetaObject* QWaveDecoder_SuperMetaObject(const QWaveDecoder* self) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_MetaObject_IsBase(true);
@@ -183,7 +183,7 @@ void QWaveDecoder_OnMetaObject(const QWaveDecoder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QWaveDecoder_QBaseMetacast(QWaveDecoder* self, const char* param1) {
+void* QWaveDecoder_SuperMetacast(QWaveDecoder* self, const char* param1) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_Metacast_IsBase(true);
@@ -202,7 +202,7 @@ void QWaveDecoder_OnMetacast(QWaveDecoder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QWaveDecoder_QBaseMetacall(QWaveDecoder* self, int param1, int param2, void** param3) {
+int QWaveDecoder_SuperMetacall(QWaveDecoder* self, int param1, int param2, void** param3) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_Metacall_IsBase(true);
@@ -221,7 +221,7 @@ void QWaveDecoder_OnMetacall(QWaveDecoder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QWaveDecoder_QBaseOpen(QWaveDecoder* self, int mode) {
+bool QWaveDecoder_SuperOpen(QWaveDecoder* self, int mode) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_Open_IsBase(true);
@@ -240,7 +240,7 @@ void QWaveDecoder_OnOpen(QWaveDecoder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QWaveDecoder_QBaseClose(QWaveDecoder* self) {
+void QWaveDecoder_SuperClose(QWaveDecoder* self) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_Close_IsBase(true);
@@ -259,7 +259,7 @@ void QWaveDecoder_OnClose(QWaveDecoder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QWaveDecoder_QBaseSeek(QWaveDecoder* self, long long pos) {
+bool QWaveDecoder_SuperSeek(QWaveDecoder* self, long long pos) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_Seek_IsBase(true);
@@ -278,7 +278,7 @@ void QWaveDecoder_OnSeek(QWaveDecoder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QWaveDecoder_QBasePos(const QWaveDecoder* self) {
+long long QWaveDecoder_SuperPos(const QWaveDecoder* self) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_Pos_IsBase(true);
@@ -297,7 +297,7 @@ void QWaveDecoder_OnPos(const QWaveDecoder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QWaveDecoder_QBaseSize(const QWaveDecoder* self) {
+long long QWaveDecoder_SuperSize(const QWaveDecoder* self) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_Size_IsBase(true);
@@ -316,7 +316,7 @@ void QWaveDecoder_OnSize(const QWaveDecoder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QWaveDecoder_QBaseIsSequential(const QWaveDecoder* self) {
+bool QWaveDecoder_SuperIsSequential(const QWaveDecoder* self) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_IsSequential_IsBase(true);
@@ -335,7 +335,7 @@ void QWaveDecoder_OnIsSequential(const QWaveDecoder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QWaveDecoder_QBaseBytesAvailable(const QWaveDecoder* self) {
+long long QWaveDecoder_SuperBytesAvailable(const QWaveDecoder* self) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_BytesAvailable_IsBase(true);
@@ -364,7 +364,7 @@ bool QWaveDecoder_AtEnd(const QWaveDecoder* self) {
 }
 
 // Base class handler implementation
-bool QWaveDecoder_QBaseAtEnd(const QWaveDecoder* self) {
+bool QWaveDecoder_SuperAtEnd(const QWaveDecoder* self) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_AtEnd_IsBase(true);
@@ -393,7 +393,7 @@ bool QWaveDecoder_Reset(QWaveDecoder* self) {
 }
 
 // Base class handler implementation
-bool QWaveDecoder_QBaseReset(QWaveDecoder* self) {
+bool QWaveDecoder_SuperReset(QWaveDecoder* self) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_Reset_IsBase(true);
@@ -422,7 +422,7 @@ long long QWaveDecoder_BytesToWrite(const QWaveDecoder* self) {
 }
 
 // Base class handler implementation
-long long QWaveDecoder_QBaseBytesToWrite(const QWaveDecoder* self) {
+long long QWaveDecoder_SuperBytesToWrite(const QWaveDecoder* self) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_BytesToWrite_IsBase(true);
@@ -451,7 +451,7 @@ bool QWaveDecoder_CanReadLine(const QWaveDecoder* self) {
 }
 
 // Base class handler implementation
-bool QWaveDecoder_QBaseCanReadLine(const QWaveDecoder* self) {
+bool QWaveDecoder_SuperCanReadLine(const QWaveDecoder* self) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_CanReadLine_IsBase(true);
@@ -480,7 +480,7 @@ bool QWaveDecoder_WaitForReadyRead(QWaveDecoder* self, int msecs) {
 }
 
 // Base class handler implementation
-bool QWaveDecoder_QBaseWaitForReadyRead(QWaveDecoder* self, int msecs) {
+bool QWaveDecoder_SuperWaitForReadyRead(QWaveDecoder* self, int msecs) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_WaitForReadyRead_IsBase(true);
@@ -509,7 +509,7 @@ bool QWaveDecoder_WaitForBytesWritten(QWaveDecoder* self, int msecs) {
 }
 
 // Base class handler implementation
-bool QWaveDecoder_QBaseWaitForBytesWritten(QWaveDecoder* self, int msecs) {
+bool QWaveDecoder_SuperWaitForBytesWritten(QWaveDecoder* self, int msecs) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_WaitForBytesWritten_IsBase(true);
@@ -538,7 +538,7 @@ long long QWaveDecoder_ReadLineData(QWaveDecoder* self, char* data, long long ma
 }
 
 // Base class handler implementation
-long long QWaveDecoder_QBaseReadLineData(QWaveDecoder* self, char* data, long long maxlen) {
+long long QWaveDecoder_SuperReadLineData(QWaveDecoder* self, char* data, long long maxlen) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_ReadLineData_IsBase(true);
@@ -567,7 +567,7 @@ long long QWaveDecoder_SkipData(QWaveDecoder* self, long long maxSize) {
 }
 
 // Base class handler implementation
-long long QWaveDecoder_QBaseSkipData(QWaveDecoder* self, long long maxSize) {
+long long QWaveDecoder_SuperSkipData(QWaveDecoder* self, long long maxSize) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_SkipData_IsBase(true);
@@ -596,7 +596,7 @@ bool QWaveDecoder_Event(QWaveDecoder* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QWaveDecoder_QBaseEvent(QWaveDecoder* self, QEvent* event) {
+bool QWaveDecoder_SuperEvent(QWaveDecoder* self, QEvent* event) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_Event_IsBase(true);
@@ -625,7 +625,7 @@ bool QWaveDecoder_EventFilter(QWaveDecoder* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool QWaveDecoder_QBaseEventFilter(QWaveDecoder* self, QObject* watched, QEvent* event) {
+bool QWaveDecoder_SuperEventFilter(QWaveDecoder* self, QObject* watched, QEvent* event) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_EventFilter_IsBase(true);
@@ -654,7 +654,7 @@ void QWaveDecoder_TimerEvent(QWaveDecoder* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QWaveDecoder_QBaseTimerEvent(QWaveDecoder* self, QTimerEvent* event) {
+void QWaveDecoder_SuperTimerEvent(QWaveDecoder* self, QTimerEvent* event) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_TimerEvent_IsBase(true);
@@ -683,7 +683,7 @@ void QWaveDecoder_ChildEvent(QWaveDecoder* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QWaveDecoder_QBaseChildEvent(QWaveDecoder* self, QChildEvent* event) {
+void QWaveDecoder_SuperChildEvent(QWaveDecoder* self, QChildEvent* event) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_ChildEvent_IsBase(true);
@@ -712,7 +712,7 @@ void QWaveDecoder_CustomEvent(QWaveDecoder* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QWaveDecoder_QBaseCustomEvent(QWaveDecoder* self, QEvent* event) {
+void QWaveDecoder_SuperCustomEvent(QWaveDecoder* self, QEvent* event) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_CustomEvent_IsBase(true);
@@ -741,7 +741,7 @@ void QWaveDecoder_ConnectNotify(QWaveDecoder* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QWaveDecoder_QBaseConnectNotify(QWaveDecoder* self, const QMetaMethod* signal) {
+void QWaveDecoder_SuperConnectNotify(QWaveDecoder* self, const QMetaMethod* signal) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_ConnectNotify_IsBase(true);
@@ -770,7 +770,7 @@ void QWaveDecoder_DisconnectNotify(QWaveDecoder* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QWaveDecoder_QBaseDisconnectNotify(QWaveDecoder* self, const QMetaMethod* signal) {
+void QWaveDecoder_SuperDisconnectNotify(QWaveDecoder* self, const QMetaMethod* signal) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_DisconnectNotify_IsBase(true);
@@ -799,7 +799,7 @@ void QWaveDecoder_SetOpenMode(QWaveDecoder* self, int openMode) {
 }
 
 // Base class handler implementation
-void QWaveDecoder_QBaseSetOpenMode(QWaveDecoder* self, int openMode) {
+void QWaveDecoder_SuperSetOpenMode(QWaveDecoder* self, int openMode) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_SetOpenMode_IsBase(true);
@@ -829,7 +829,7 @@ void QWaveDecoder_SetErrorString(QWaveDecoder* self, const libqt_string errorStr
 }
 
 // Base class handler implementation
-void QWaveDecoder_QBaseSetErrorString(QWaveDecoder* self, const libqt_string errorString) {
+void QWaveDecoder_SuperSetErrorString(QWaveDecoder* self, const libqt_string errorString) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
@@ -859,7 +859,7 @@ QObject* QWaveDecoder_Sender(const QWaveDecoder* self) {
 }
 
 // Base class handler implementation
-QObject* QWaveDecoder_QBaseSender(const QWaveDecoder* self) {
+QObject* QWaveDecoder_SuperSender(const QWaveDecoder* self) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_Sender_IsBase(true);
@@ -888,7 +888,7 @@ int QWaveDecoder_SenderSignalIndex(const QWaveDecoder* self) {
 }
 
 // Base class handler implementation
-int QWaveDecoder_QBaseSenderSignalIndex(const QWaveDecoder* self) {
+int QWaveDecoder_SuperSenderSignalIndex(const QWaveDecoder* self) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_SenderSignalIndex_IsBase(true);
@@ -917,7 +917,7 @@ int QWaveDecoder_Receivers(const QWaveDecoder* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QWaveDecoder_QBaseReceivers(const QWaveDecoder* self, const char* signal) {
+int QWaveDecoder_SuperReceivers(const QWaveDecoder* self, const char* signal) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_Receivers_IsBase(true);
@@ -946,7 +946,7 @@ bool QWaveDecoder_IsSignalConnected(const QWaveDecoder* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QWaveDecoder_QBaseIsSignalConnected(const QWaveDecoder* self, const QMetaMethod* signal) {
+bool QWaveDecoder_SuperIsSignalConnected(const QWaveDecoder* self, const QMetaMethod* signal) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
     if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
         vqwavedecoder->setQWaveDecoder_IsSignalConnected_IsBase(true);

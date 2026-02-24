@@ -75,7 +75,7 @@ void KTwoFingerTap_SetScenePos(KTwoFingerTap* self, QPointF* scenePos) {
 }
 
 // Base class handler implementation
-QMetaObject* KTwoFingerTap_QBaseMetaObject(const KTwoFingerTap* self) {
+QMetaObject* KTwoFingerTap_SuperMetaObject(const KTwoFingerTap* self) {
     auto* vktwofingertap = const_cast<VirtualKTwoFingerTap*>(dynamic_cast<const VirtualKTwoFingerTap*>(self));
     if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
         vktwofingertap->setKTwoFingerTap_MetaObject_IsBase(true);
@@ -94,7 +94,7 @@ void KTwoFingerTap_OnMetaObject(const KTwoFingerTap* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KTwoFingerTap_QBaseMetacast(KTwoFingerTap* self, const char* param1) {
+void* KTwoFingerTap_SuperMetacast(KTwoFingerTap* self, const char* param1) {
     auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
     if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
         vktwofingertap->setKTwoFingerTap_Metacast_IsBase(true);
@@ -113,7 +113,7 @@ void KTwoFingerTap_OnMetacast(KTwoFingerTap* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KTwoFingerTap_QBaseMetacall(KTwoFingerTap* self, int param1, int param2, void** param3) {
+int KTwoFingerTap_SuperMetacall(KTwoFingerTap* self, int param1, int param2, void** param3) {
     auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
     if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
         vktwofingertap->setKTwoFingerTap_Metacall_IsBase(true);
@@ -142,7 +142,7 @@ bool KTwoFingerTap_Event(KTwoFingerTap* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KTwoFingerTap_QBaseEvent(KTwoFingerTap* self, QEvent* event) {
+bool KTwoFingerTap_SuperEvent(KTwoFingerTap* self, QEvent* event) {
     auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
     if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
         vktwofingertap->setKTwoFingerTap_Event_IsBase(true);
@@ -171,7 +171,7 @@ bool KTwoFingerTap_EventFilter(KTwoFingerTap* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool KTwoFingerTap_QBaseEventFilter(KTwoFingerTap* self, QObject* watched, QEvent* event) {
+bool KTwoFingerTap_SuperEventFilter(KTwoFingerTap* self, QObject* watched, QEvent* event) {
     auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
     if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
         vktwofingertap->setKTwoFingerTap_EventFilter_IsBase(true);
@@ -200,7 +200,7 @@ void KTwoFingerTap_TimerEvent(KTwoFingerTap* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KTwoFingerTap_QBaseTimerEvent(KTwoFingerTap* self, QTimerEvent* event) {
+void KTwoFingerTap_SuperTimerEvent(KTwoFingerTap* self, QTimerEvent* event) {
     auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
     if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
         vktwofingertap->setKTwoFingerTap_TimerEvent_IsBase(true);
@@ -229,7 +229,7 @@ void KTwoFingerTap_ChildEvent(KTwoFingerTap* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KTwoFingerTap_QBaseChildEvent(KTwoFingerTap* self, QChildEvent* event) {
+void KTwoFingerTap_SuperChildEvent(KTwoFingerTap* self, QChildEvent* event) {
     auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
     if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
         vktwofingertap->setKTwoFingerTap_ChildEvent_IsBase(true);
@@ -258,7 +258,7 @@ void KTwoFingerTap_CustomEvent(KTwoFingerTap* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KTwoFingerTap_QBaseCustomEvent(KTwoFingerTap* self, QEvent* event) {
+void KTwoFingerTap_SuperCustomEvent(KTwoFingerTap* self, QEvent* event) {
     auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
     if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
         vktwofingertap->setKTwoFingerTap_CustomEvent_IsBase(true);
@@ -287,7 +287,7 @@ void KTwoFingerTap_ConnectNotify(KTwoFingerTap* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void KTwoFingerTap_QBaseConnectNotify(KTwoFingerTap* self, const QMetaMethod* signal) {
+void KTwoFingerTap_SuperConnectNotify(KTwoFingerTap* self, const QMetaMethod* signal) {
     auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
     if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
         vktwofingertap->setKTwoFingerTap_ConnectNotify_IsBase(true);
@@ -316,7 +316,7 @@ void KTwoFingerTap_DisconnectNotify(KTwoFingerTap* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void KTwoFingerTap_QBaseDisconnectNotify(KTwoFingerTap* self, const QMetaMethod* signal) {
+void KTwoFingerTap_SuperDisconnectNotify(KTwoFingerTap* self, const QMetaMethod* signal) {
     auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
     if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
         vktwofingertap->setKTwoFingerTap_DisconnectNotify_IsBase(true);
@@ -345,7 +345,7 @@ QObject* KTwoFingerTap_Sender(const KTwoFingerTap* self) {
 }
 
 // Base class handler implementation
-QObject* KTwoFingerTap_QBaseSender(const KTwoFingerTap* self) {
+QObject* KTwoFingerTap_SuperSender(const KTwoFingerTap* self) {
     auto* vktwofingertap = const_cast<VirtualKTwoFingerTap*>(dynamic_cast<const VirtualKTwoFingerTap*>(self));
     if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
         vktwofingertap->setKTwoFingerTap_Sender_IsBase(true);
@@ -374,7 +374,7 @@ int KTwoFingerTap_SenderSignalIndex(const KTwoFingerTap* self) {
 }
 
 // Base class handler implementation
-int KTwoFingerTap_QBaseSenderSignalIndex(const KTwoFingerTap* self) {
+int KTwoFingerTap_SuperSenderSignalIndex(const KTwoFingerTap* self) {
     auto* vktwofingertap = const_cast<VirtualKTwoFingerTap*>(dynamic_cast<const VirtualKTwoFingerTap*>(self));
     if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
         vktwofingertap->setKTwoFingerTap_SenderSignalIndex_IsBase(true);
@@ -403,7 +403,7 @@ int KTwoFingerTap_Receivers(const KTwoFingerTap* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KTwoFingerTap_QBaseReceivers(const KTwoFingerTap* self, const char* signal) {
+int KTwoFingerTap_SuperReceivers(const KTwoFingerTap* self, const char* signal) {
     auto* vktwofingertap = const_cast<VirtualKTwoFingerTap*>(dynamic_cast<const VirtualKTwoFingerTap*>(self));
     if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
         vktwofingertap->setKTwoFingerTap_Receivers_IsBase(true);
@@ -432,7 +432,7 @@ bool KTwoFingerTap_IsSignalConnected(const KTwoFingerTap* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool KTwoFingerTap_QBaseIsSignalConnected(const KTwoFingerTap* self, const QMetaMethod* signal) {
+bool KTwoFingerTap_SuperIsSignalConnected(const KTwoFingerTap* self, const QMetaMethod* signal) {
     auto* vktwofingertap = const_cast<VirtualKTwoFingerTap*>(dynamic_cast<const VirtualKTwoFingerTap*>(self));
     if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
         vktwofingertap->setKTwoFingerTap_IsSignalConnected_IsBase(true);
@@ -485,7 +485,7 @@ void KTwoFingerTapRecognizer_SetTapRadius(KTwoFingerTapRecognizer* self, int i) 
 }
 
 // Base class handler implementation
-QGesture* KTwoFingerTapRecognizer_QBaseCreate(KTwoFingerTapRecognizer* self, QObject* target) {
+QGesture* KTwoFingerTapRecognizer_SuperCreate(KTwoFingerTapRecognizer* self, QObject* target) {
     auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
     if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
         vktwofingertaprecognizer->setKTwoFingerTapRecognizer_Create_IsBase(true);
@@ -504,7 +504,7 @@ void KTwoFingerTapRecognizer_OnCreate(KTwoFingerTapRecognizer* self, intptr_t sl
 }
 
 // Base class handler implementation
-int KTwoFingerTapRecognizer_QBaseRecognize(KTwoFingerTapRecognizer* self, QGesture* gesture, QObject* watched, QEvent* event) {
+int KTwoFingerTapRecognizer_SuperRecognize(KTwoFingerTapRecognizer* self, QGesture* gesture, QObject* watched, QEvent* event) {
     auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
     if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
         vktwofingertaprecognizer->setKTwoFingerTapRecognizer_Recognize_IsBase(true);
@@ -533,7 +533,7 @@ void KTwoFingerTapRecognizer_Reset(KTwoFingerTapRecognizer* self, QGesture* stat
 }
 
 // Base class handler implementation
-void KTwoFingerTapRecognizer_QBaseReset(KTwoFingerTapRecognizer* self, QGesture* state) {
+void KTwoFingerTapRecognizer_SuperReset(KTwoFingerTapRecognizer* self, QGesture* state) {
     auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
     if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
         vktwofingertaprecognizer->setKTwoFingerTapRecognizer_Reset_IsBase(true);

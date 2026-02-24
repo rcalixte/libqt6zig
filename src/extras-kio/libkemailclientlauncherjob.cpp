@@ -119,7 +119,7 @@ void KEMailClientLauncherJob_Start(KEMailClientLauncherJob* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KEMailClientLauncherJob_QBaseMetaObject(const KEMailClientLauncherJob* self) {
+QMetaObject* KEMailClientLauncherJob_SuperMetaObject(const KEMailClientLauncherJob* self) {
     auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_MetaObject_IsBase(true);
@@ -138,7 +138,7 @@ void KEMailClientLauncherJob_OnMetaObject(const KEMailClientLauncherJob* self, i
 }
 
 // Base class handler implementation
-void* KEMailClientLauncherJob_QBaseMetacast(KEMailClientLauncherJob* self, const char* param1) {
+void* KEMailClientLauncherJob_SuperMetacast(KEMailClientLauncherJob* self, const char* param1) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_Metacast_IsBase(true);
@@ -157,7 +157,7 @@ void KEMailClientLauncherJob_OnMetacast(KEMailClientLauncherJob* self, intptr_t 
 }
 
 // Base class handler implementation
-int KEMailClientLauncherJob_QBaseMetacall(KEMailClientLauncherJob* self, int param1, int param2, void** param3) {
+int KEMailClientLauncherJob_SuperMetacall(KEMailClientLauncherJob* self, int param1, int param2, void** param3) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_Metacall_IsBase(true);
@@ -176,7 +176,7 @@ void KEMailClientLauncherJob_OnMetacall(KEMailClientLauncherJob* self, intptr_t 
 }
 
 // Base class handler implementation
-void KEMailClientLauncherJob_QBaseStart(KEMailClientLauncherJob* self) {
+void KEMailClientLauncherJob_SuperStart(KEMailClientLauncherJob* self) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_Start_IsBase(true);
@@ -205,7 +205,7 @@ bool KEMailClientLauncherJob_DoKill(KEMailClientLauncherJob* self) {
 }
 
 // Base class handler implementation
-bool KEMailClientLauncherJob_QBaseDoKill(KEMailClientLauncherJob* self) {
+bool KEMailClientLauncherJob_SuperDoKill(KEMailClientLauncherJob* self) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_DoKill_IsBase(true);
@@ -234,7 +234,7 @@ bool KEMailClientLauncherJob_DoSuspend(KEMailClientLauncherJob* self) {
 }
 
 // Base class handler implementation
-bool KEMailClientLauncherJob_QBaseDoSuspend(KEMailClientLauncherJob* self) {
+bool KEMailClientLauncherJob_SuperDoSuspend(KEMailClientLauncherJob* self) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_DoSuspend_IsBase(true);
@@ -263,7 +263,7 @@ bool KEMailClientLauncherJob_DoResume(KEMailClientLauncherJob* self) {
 }
 
 // Base class handler implementation
-bool KEMailClientLauncherJob_QBaseDoResume(KEMailClientLauncherJob* self) {
+bool KEMailClientLauncherJob_SuperDoResume(KEMailClientLauncherJob* self) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_DoResume_IsBase(true);
@@ -308,7 +308,7 @@ libqt_string KEMailClientLauncherJob_ErrorString(const KEMailClientLauncherJob* 
 }
 
 // Base class handler implementation
-libqt_string KEMailClientLauncherJob_QBaseErrorString(const KEMailClientLauncherJob* self) {
+libqt_string KEMailClientLauncherJob_SuperErrorString(const KEMailClientLauncherJob* self) {
     auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_ErrorString_IsBase(true);
@@ -353,7 +353,7 @@ bool KEMailClientLauncherJob_Event(KEMailClientLauncherJob* self, QEvent* event)
 }
 
 // Base class handler implementation
-bool KEMailClientLauncherJob_QBaseEvent(KEMailClientLauncherJob* self, QEvent* event) {
+bool KEMailClientLauncherJob_SuperEvent(KEMailClientLauncherJob* self, QEvent* event) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_Event_IsBase(true);
@@ -382,7 +382,7 @@ bool KEMailClientLauncherJob_EventFilter(KEMailClientLauncherJob* self, QObject*
 }
 
 // Base class handler implementation
-bool KEMailClientLauncherJob_QBaseEventFilter(KEMailClientLauncherJob* self, QObject* watched, QEvent* event) {
+bool KEMailClientLauncherJob_SuperEventFilter(KEMailClientLauncherJob* self, QObject* watched, QEvent* event) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_EventFilter_IsBase(true);
@@ -411,7 +411,7 @@ void KEMailClientLauncherJob_TimerEvent(KEMailClientLauncherJob* self, QTimerEve
 }
 
 // Base class handler implementation
-void KEMailClientLauncherJob_QBaseTimerEvent(KEMailClientLauncherJob* self, QTimerEvent* event) {
+void KEMailClientLauncherJob_SuperTimerEvent(KEMailClientLauncherJob* self, QTimerEvent* event) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_TimerEvent_IsBase(true);
@@ -440,7 +440,7 @@ void KEMailClientLauncherJob_ChildEvent(KEMailClientLauncherJob* self, QChildEve
 }
 
 // Base class handler implementation
-void KEMailClientLauncherJob_QBaseChildEvent(KEMailClientLauncherJob* self, QChildEvent* event) {
+void KEMailClientLauncherJob_SuperChildEvent(KEMailClientLauncherJob* self, QChildEvent* event) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_ChildEvent_IsBase(true);
@@ -469,7 +469,7 @@ void KEMailClientLauncherJob_CustomEvent(KEMailClientLauncherJob* self, QEvent* 
 }
 
 // Base class handler implementation
-void KEMailClientLauncherJob_QBaseCustomEvent(KEMailClientLauncherJob* self, QEvent* event) {
+void KEMailClientLauncherJob_SuperCustomEvent(KEMailClientLauncherJob* self, QEvent* event) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_CustomEvent_IsBase(true);
@@ -498,7 +498,7 @@ void KEMailClientLauncherJob_ConnectNotify(KEMailClientLauncherJob* self, const 
 }
 
 // Base class handler implementation
-void KEMailClientLauncherJob_QBaseConnectNotify(KEMailClientLauncherJob* self, const QMetaMethod* signal) {
+void KEMailClientLauncherJob_SuperConnectNotify(KEMailClientLauncherJob* self, const QMetaMethod* signal) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_ConnectNotify_IsBase(true);
@@ -527,7 +527,7 @@ void KEMailClientLauncherJob_DisconnectNotify(KEMailClientLauncherJob* self, con
 }
 
 // Base class handler implementation
-void KEMailClientLauncherJob_QBaseDisconnectNotify(KEMailClientLauncherJob* self, const QMetaMethod* signal) {
+void KEMailClientLauncherJob_SuperDisconnectNotify(KEMailClientLauncherJob* self, const QMetaMethod* signal) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_DisconnectNotify_IsBase(true);
@@ -556,7 +556,7 @@ void KEMailClientLauncherJob_SetCapabilities(KEMailClientLauncherJob* self, int 
 }
 
 // Base class handler implementation
-void KEMailClientLauncherJob_QBaseSetCapabilities(KEMailClientLauncherJob* self, int capabilities) {
+void KEMailClientLauncherJob_SuperSetCapabilities(KEMailClientLauncherJob* self, int capabilities) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_SetCapabilities_IsBase(true);
@@ -585,7 +585,7 @@ bool KEMailClientLauncherJob_IsFinished(const KEMailClientLauncherJob* self) {
 }
 
 // Base class handler implementation
-bool KEMailClientLauncherJob_QBaseIsFinished(const KEMailClientLauncherJob* self) {
+bool KEMailClientLauncherJob_SuperIsFinished(const KEMailClientLauncherJob* self) {
     auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_IsFinished_IsBase(true);
@@ -614,7 +614,7 @@ void KEMailClientLauncherJob_SetError(KEMailClientLauncherJob* self, int errorCo
 }
 
 // Base class handler implementation
-void KEMailClientLauncherJob_QBaseSetError(KEMailClientLauncherJob* self, int errorCode) {
+void KEMailClientLauncherJob_SuperSetError(KEMailClientLauncherJob* self, int errorCode) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_SetError_IsBase(true);
@@ -644,7 +644,7 @@ void KEMailClientLauncherJob_SetErrorText(KEMailClientLauncherJob* self, const l
 }
 
 // Base class handler implementation
-void KEMailClientLauncherJob_QBaseSetErrorText(KEMailClientLauncherJob* self, const libqt_string errorText) {
+void KEMailClientLauncherJob_SuperSetErrorText(KEMailClientLauncherJob* self, const libqt_string errorText) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
@@ -674,7 +674,7 @@ void KEMailClientLauncherJob_SetProcessedAmount(KEMailClientLauncherJob* self, i
 }
 
 // Base class handler implementation
-void KEMailClientLauncherJob_QBaseSetProcessedAmount(KEMailClientLauncherJob* self, int unit, unsigned long long amount) {
+void KEMailClientLauncherJob_SuperSetProcessedAmount(KEMailClientLauncherJob* self, int unit, unsigned long long amount) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_SetProcessedAmount_IsBase(true);
@@ -703,7 +703,7 @@ void KEMailClientLauncherJob_SetTotalAmount(KEMailClientLauncherJob* self, int u
 }
 
 // Base class handler implementation
-void KEMailClientLauncherJob_QBaseSetTotalAmount(KEMailClientLauncherJob* self, int unit, unsigned long long amount) {
+void KEMailClientLauncherJob_SuperSetTotalAmount(KEMailClientLauncherJob* self, int unit, unsigned long long amount) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_SetTotalAmount_IsBase(true);
@@ -732,7 +732,7 @@ void KEMailClientLauncherJob_SetProgressUnit(KEMailClientLauncherJob* self, int 
 }
 
 // Base class handler implementation
-void KEMailClientLauncherJob_QBaseSetProgressUnit(KEMailClientLauncherJob* self, int unit) {
+void KEMailClientLauncherJob_SuperSetProgressUnit(KEMailClientLauncherJob* self, int unit) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_SetProgressUnit_IsBase(true);
@@ -761,7 +761,7 @@ void KEMailClientLauncherJob_SetPercent(KEMailClientLauncherJob* self, unsigned 
 }
 
 // Base class handler implementation
-void KEMailClientLauncherJob_QBaseSetPercent(KEMailClientLauncherJob* self, unsigned long percentage) {
+void KEMailClientLauncherJob_SuperSetPercent(KEMailClientLauncherJob* self, unsigned long percentage) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_SetPercent_IsBase(true);
@@ -790,7 +790,7 @@ void KEMailClientLauncherJob_EmitResult(KEMailClientLauncherJob* self) {
 }
 
 // Base class handler implementation
-void KEMailClientLauncherJob_QBaseEmitResult(KEMailClientLauncherJob* self) {
+void KEMailClientLauncherJob_SuperEmitResult(KEMailClientLauncherJob* self) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_EmitResult_IsBase(true);
@@ -819,7 +819,7 @@ void KEMailClientLauncherJob_EmitPercent(KEMailClientLauncherJob* self, unsigned
 }
 
 // Base class handler implementation
-void KEMailClientLauncherJob_QBaseEmitPercent(KEMailClientLauncherJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
+void KEMailClientLauncherJob_SuperEmitPercent(KEMailClientLauncherJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_EmitPercent_IsBase(true);
@@ -848,7 +848,7 @@ void KEMailClientLauncherJob_EmitSpeed(KEMailClientLauncherJob* self, unsigned l
 }
 
 // Base class handler implementation
-void KEMailClientLauncherJob_QBaseEmitSpeed(KEMailClientLauncherJob* self, unsigned long speed) {
+void KEMailClientLauncherJob_SuperEmitSpeed(KEMailClientLauncherJob* self, unsigned long speed) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_EmitSpeed_IsBase(true);
@@ -877,7 +877,7 @@ void KEMailClientLauncherJob_StartElapsedTimer(KEMailClientLauncherJob* self) {
 }
 
 // Base class handler implementation
-void KEMailClientLauncherJob_QBaseStartElapsedTimer(KEMailClientLauncherJob* self) {
+void KEMailClientLauncherJob_SuperStartElapsedTimer(KEMailClientLauncherJob* self) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_StartElapsedTimer_IsBase(true);
@@ -906,7 +906,7 @@ QObject* KEMailClientLauncherJob_Sender(const KEMailClientLauncherJob* self) {
 }
 
 // Base class handler implementation
-QObject* KEMailClientLauncherJob_QBaseSender(const KEMailClientLauncherJob* self) {
+QObject* KEMailClientLauncherJob_SuperSender(const KEMailClientLauncherJob* self) {
     auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_Sender_IsBase(true);
@@ -935,7 +935,7 @@ int KEMailClientLauncherJob_SenderSignalIndex(const KEMailClientLauncherJob* sel
 }
 
 // Base class handler implementation
-int KEMailClientLauncherJob_QBaseSenderSignalIndex(const KEMailClientLauncherJob* self) {
+int KEMailClientLauncherJob_SuperSenderSignalIndex(const KEMailClientLauncherJob* self) {
     auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_SenderSignalIndex_IsBase(true);
@@ -964,7 +964,7 @@ int KEMailClientLauncherJob_Receivers(const KEMailClientLauncherJob* self, const
 }
 
 // Base class handler implementation
-int KEMailClientLauncherJob_QBaseReceivers(const KEMailClientLauncherJob* self, const char* signal) {
+int KEMailClientLauncherJob_SuperReceivers(const KEMailClientLauncherJob* self, const char* signal) {
     auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_Receivers_IsBase(true);
@@ -993,7 +993,7 @@ bool KEMailClientLauncherJob_IsSignalConnected(const KEMailClientLauncherJob* se
 }
 
 // Base class handler implementation
-bool KEMailClientLauncherJob_QBaseIsSignalConnected(const KEMailClientLauncherJob* self, const QMetaMethod* signal) {
+bool KEMailClientLauncherJob_SuperIsSignalConnected(const KEMailClientLauncherJob* self, const QMetaMethod* signal) {
     auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_IsSignalConnected_IsBase(true);

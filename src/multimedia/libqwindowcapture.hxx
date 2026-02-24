@@ -328,23 +328,23 @@ class VirtualQWindowCapture final : public QWindowCapture {
 
     // Friend functions
     friend void QWindowCapture_TimerEvent(QWindowCapture* self, QTimerEvent* event);
-    friend void QWindowCapture_QBaseTimerEvent(QWindowCapture* self, QTimerEvent* event);
+    friend void QWindowCapture_SuperTimerEvent(QWindowCapture* self, QTimerEvent* event);
     friend void QWindowCapture_ChildEvent(QWindowCapture* self, QChildEvent* event);
-    friend void QWindowCapture_QBaseChildEvent(QWindowCapture* self, QChildEvent* event);
+    friend void QWindowCapture_SuperChildEvent(QWindowCapture* self, QChildEvent* event);
     friend void QWindowCapture_CustomEvent(QWindowCapture* self, QEvent* event);
-    friend void QWindowCapture_QBaseCustomEvent(QWindowCapture* self, QEvent* event);
+    friend void QWindowCapture_SuperCustomEvent(QWindowCapture* self, QEvent* event);
     friend void QWindowCapture_ConnectNotify(QWindowCapture* self, const QMetaMethod* signal);
-    friend void QWindowCapture_QBaseConnectNotify(QWindowCapture* self, const QMetaMethod* signal);
+    friend void QWindowCapture_SuperConnectNotify(QWindowCapture* self, const QMetaMethod* signal);
     friend void QWindowCapture_DisconnectNotify(QWindowCapture* self, const QMetaMethod* signal);
-    friend void QWindowCapture_QBaseDisconnectNotify(QWindowCapture* self, const QMetaMethod* signal);
+    friend void QWindowCapture_SuperDisconnectNotify(QWindowCapture* self, const QMetaMethod* signal);
     friend QObject* QWindowCapture_Sender(const QWindowCapture* self);
-    friend QObject* QWindowCapture_QBaseSender(const QWindowCapture* self);
+    friend QObject* QWindowCapture_SuperSender(const QWindowCapture* self);
     friend int QWindowCapture_SenderSignalIndex(const QWindowCapture* self);
-    friend int QWindowCapture_QBaseSenderSignalIndex(const QWindowCapture* self);
+    friend int QWindowCapture_SuperSenderSignalIndex(const QWindowCapture* self);
     friend int QWindowCapture_Receivers(const QWindowCapture* self, const char* signal);
-    friend int QWindowCapture_QBaseReceivers(const QWindowCapture* self, const char* signal);
+    friend int QWindowCapture_SuperReceivers(const QWindowCapture* self, const char* signal);
     friend bool QWindowCapture_IsSignalConnected(const QWindowCapture* self, const QMetaMethod* signal);
-    friend bool QWindowCapture_QBaseIsSignalConnected(const QWindowCapture* self, const QMetaMethod* signal);
+    friend bool QWindowCapture_SuperIsSignalConnected(const QWindowCapture* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -63,6 +63,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -71,8 +75,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` self: QtC.kColorPicker__KColorPicker `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.kColorPicker__KColorPicker_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.kColorPicker__KColorPicker_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -98,6 +102,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -106,9 +114,9 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.kColorPicker__KColorPicker_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.kColorPicker__KColorPicker_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -137,6 +145,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -149,8 +161,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.kColorPicker__KColorPicker_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.kColorPicker__KColorPicker_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -5699,6 +5711,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         return qtc.kColorPicker__KColorPicker_SizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// Inherited from QToolButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbutton.html#sizeHint)
@@ -5709,8 +5725,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` self: QtC.kColorPicker__KColorPicker `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.kColorPicker__KColorPicker_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.kColorPicker__KColorPicker_SuperSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QToolButton
@@ -5743,6 +5759,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         return qtc.kColorPicker__KColorPicker_MinimumSizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    ///
+    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+
     /// Inherited from QToolButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbutton.html#minimumSizeHint)
@@ -5753,8 +5773,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` self: QtC.kColorPicker__KColorPicker `
     ///
-    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.kColorPicker__KColorPicker_QBaseMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.kColorPicker__KColorPicker_SuperMinimumSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QToolButton
@@ -5789,6 +5809,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         return qtc.kColorPicker__KColorPicker_Event(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QToolButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbutton.html#event)
@@ -5801,8 +5825,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` e: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.kColorPicker__KColorPicker_QBaseEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
+        return qtc.kColorPicker__KColorPicker_SuperEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QToolButton
@@ -5837,6 +5861,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_MousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// Inherited from QToolButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbutton.html#mousePressEvent)
@@ -5849,8 +5877,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseMousePressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperMousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QToolButton
@@ -5885,6 +5913,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_MouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// Inherited from QToolButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbutton.html#mouseReleaseEvent)
@@ -5897,8 +5929,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QToolButton
@@ -5933,6 +5965,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_PaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    ///
+    pub const QBasePaintEvent = SuperPaintEvent;
+
     /// Inherited from QToolButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbutton.html#paintEvent)
@@ -5945,8 +5981,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` param1: QtC.QPaintEvent `
     ///
-    pub fn QBasePaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBasePaintEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperPaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperPaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QToolButton
@@ -5981,6 +6017,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_ActionEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    ///
+    pub const QBaseActionEvent = SuperActionEvent;
+
     /// Inherited from QToolButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbutton.html#actionEvent)
@@ -5993,8 +6033,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` param1: QtC.QActionEvent `
     ///
-    pub fn QBaseActionEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseActionEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperActionEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperActionEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QToolButton
@@ -6029,6 +6069,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_EnterEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    ///
+    pub const QBaseEnterEvent = SuperEnterEvent;
+
     /// Inherited from QToolButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbutton.html#enterEvent)
@@ -6041,8 +6085,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` param1: QtC.QEnterEvent `
     ///
-    pub fn QBaseEnterEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseEnterEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperEnterEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperEnterEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QToolButton
@@ -6077,6 +6121,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_LeaveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    ///
+    pub const QBaseLeaveEvent = SuperLeaveEvent;
+
     /// Inherited from QToolButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbutton.html#leaveEvent)
@@ -6089,8 +6137,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseLeaveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseLeaveEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperLeaveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperLeaveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QToolButton
@@ -6125,6 +6173,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_TimerEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QToolButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbutton.html#timerEvent)
@@ -6137,8 +6189,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` param1: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseTimerEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperTimerEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperTimerEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QToolButton
@@ -6173,6 +6225,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_ChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    ///
+    pub const QBaseChangeEvent = SuperChangeEvent;
+
     /// Inherited from QToolButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbutton.html#changeEvent)
@@ -6185,8 +6241,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QToolButton
@@ -6221,6 +6277,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         return qtc.kColorPicker__KColorPicker_HitButton(@ptrCast(self), @ptrCast(pos));
     }
 
+    /// ### DEPRECATED: Use `SuperHitButton` instead
+    ///
+    pub const QBaseHitButton = SuperHitButton;
+
     /// Inherited from QToolButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbutton.html#hitButton)
@@ -6233,8 +6293,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` pos: QtC.QPoint `
     ///
-    pub fn QBaseHitButton(self: ?*anyopaque, pos: ?*anyopaque) bool {
-        return qtc.kColorPicker__KColorPicker_QBaseHitButton(@ptrCast(self), @ptrCast(pos));
+    pub fn SuperHitButton(self: ?*anyopaque, pos: ?*anyopaque) bool {
+        return qtc.kColorPicker__KColorPicker_SuperHitButton(@ptrCast(self), @ptrCast(pos));
     }
 
     /// Inherited from QToolButton
@@ -6267,6 +6327,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_CheckStateSet(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCheckStateSet` instead
+    ///
+    pub const QBaseCheckStateSet = SuperCheckStateSet;
+
     /// Inherited from QToolButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbutton.html#checkStateSet)
@@ -6277,8 +6341,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` self: QtC.kColorPicker__KColorPicker `
     ///
-    pub fn QBaseCheckStateSet(self: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseCheckStateSet(@ptrCast(self));
+    pub fn SuperCheckStateSet(self: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperCheckStateSet(@ptrCast(self));
     }
 
     /// Inherited from QToolButton
@@ -6311,6 +6375,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_NextCheckState(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperNextCheckState` instead
+    ///
+    pub const QBaseNextCheckState = SuperNextCheckState;
+
     /// Inherited from QToolButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbutton.html#nextCheckState)
@@ -6321,8 +6389,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` self: QtC.kColorPicker__KColorPicker `
     ///
-    pub fn QBaseNextCheckState(self: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseNextCheckState(@ptrCast(self));
+    pub fn SuperNextCheckState(self: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperNextCheckState(@ptrCast(self));
     }
 
     /// Inherited from QToolButton
@@ -6357,6 +6425,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_InitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
+    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    ///
+    pub const QBaseInitStyleOption = SuperInitStyleOption;
+
     /// Inherited from QToolButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbutton.html#initStyleOption)
@@ -6369,8 +6441,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` option: QtC.QStyleOptionToolButton `
     ///
-    pub fn QBaseInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// Inherited from QToolButton
@@ -6405,6 +6477,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_KeyPressEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#keyPressEvent)
@@ -6417,8 +6493,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` e: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperKeyPressEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QAbstractButton
@@ -6453,6 +6529,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_KeyReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#keyReleaseEvent)
@@ -6465,8 +6545,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` e: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QAbstractButton
@@ -6501,6 +6581,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_MouseMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#mouseMoveEvent)
@@ -6513,8 +6597,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` e: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QAbstractButton
@@ -6549,6 +6633,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_FocusInEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#focusInEvent)
@@ -6561,8 +6649,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` e: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseFocusInEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperFocusInEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QAbstractButton
@@ -6597,6 +6685,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_FocusOutEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#focusOutEvent)
@@ -6609,8 +6701,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` e: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperFocusOutEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QAbstractButton
@@ -6643,6 +6735,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         return qtc.kColorPicker__KColorPicker_DevType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
@@ -6653,8 +6749,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` self: QtC.kColorPicker__KColorPicker `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.kColorPicker__KColorPicker_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.kColorPicker__KColorPicker_SuperDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -6689,6 +6785,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_SetVisible(@ptrCast(self), visible);
     }
 
+    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    ///
+    pub const QBaseSetVisible = SuperSetVisible;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
@@ -6701,8 +6801,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.kColorPicker__KColorPicker_QBaseSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
+        qtc.kColorPicker__KColorPicker_SuperSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
@@ -6737,6 +6837,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         return qtc.kColorPicker__KColorPicker_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
@@ -6749,8 +6853,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.kColorPicker__KColorPicker_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.kColorPicker__KColorPicker_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6783,6 +6887,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         return qtc.kColorPicker__KColorPicker_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
@@ -6793,8 +6901,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` self: QtC.kColorPicker__KColorPicker `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.kColorPicker__KColorPicker_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.kColorPicker__KColorPicker_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -6827,6 +6935,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         return qtc.kColorPicker__KColorPicker_PaintEngine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    ///
+    pub const QBasePaintEngine = SuperPaintEngine;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
@@ -6837,8 +6949,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` self: QtC.kColorPicker__KColorPicker `
     ///
-    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.kColorPicker__KColorPicker_QBasePaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.kColorPicker__KColorPicker_SuperPaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -6873,6 +6985,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6885,8 +7001,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6921,6 +7037,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_WheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
@@ -6933,8 +7053,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` event: QtC.QWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6969,6 +7089,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
@@ -6981,8 +7105,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` event: QtC.QMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7017,6 +7141,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_ResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resizeEvent)
@@ -7029,8 +7157,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` event: QtC.QResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7065,6 +7193,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
@@ -7077,8 +7209,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` event: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7113,6 +7245,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_ContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    ///
+    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuEvent)
@@ -7125,8 +7261,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` event: QtC.QContextMenuEvent `
     ///
-    pub fn QBaseContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7161,6 +7297,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    ///
+    pub const QBaseTabletEvent = SuperTabletEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
@@ -7173,8 +7313,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` event: QtC.QTabletEvent `
     ///
-    pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7209,6 +7349,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_DragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    ///
+    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
@@ -7221,8 +7365,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` event: QtC.QDragEnterEvent `
     ///
-    pub fn QBaseDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7257,6 +7401,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_DragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    ///
+    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
@@ -7269,8 +7417,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` event: QtC.QDragMoveEvent `
     ///
-    pub fn QBaseDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7305,6 +7453,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    ///
+    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
@@ -7317,8 +7469,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` event: QtC.QDragLeaveEvent `
     ///
-    pub fn QBaseDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7353,6 +7505,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_DropEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    ///
+    pub const QBaseDropEvent = SuperDropEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
@@ -7365,8 +7521,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` event: QtC.QDropEvent `
     ///
-    pub fn QBaseDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7401,6 +7557,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
@@ -7413,8 +7573,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` event: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7449,6 +7609,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
@@ -7461,8 +7625,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` event: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7505,6 +7669,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         return qtc.kColorPicker__KColorPicker_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
+    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    ///
+    pub const QBaseNativeEvent = SuperNativeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
@@ -7521,12 +7689,12 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.kColorPicker__KColorPicker_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.kColorPicker__KColorPicker_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -7561,6 +7729,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         return qtc.kColorPicker__KColorPicker_Metric(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
@@ -7573,8 +7745,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.kColorPicker__KColorPicker_QBaseMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.kColorPicker__KColorPicker_SuperMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7609,6 +7781,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
@@ -7621,8 +7797,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
@@ -7657,6 +7833,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         return qtc.kColorPicker__KColorPicker_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
@@ -7669,8 +7849,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.kColorPicker__KColorPicker_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.kColorPicker__KColorPicker_SuperRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
@@ -7703,6 +7883,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         return qtc.kColorPicker__KColorPicker_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
@@ -7713,8 +7897,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` self: QtC.kColorPicker__KColorPicker `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.kColorPicker__KColorPicker_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.kColorPicker__KColorPicker_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7749,6 +7933,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    ///
+    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
@@ -7761,8 +7949,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` param1: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7797,6 +7985,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         return qtc.kColorPicker__KColorPicker_InputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    ///
+    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
@@ -7809,8 +8001,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.kColorPicker__KColorPicker_QBaseInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
+        return qtc.kColorPicker__KColorPicker_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7845,6 +8037,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         return qtc.kColorPicker__KColorPicker_FocusNextPrevChild(@ptrCast(self), next);
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    ///
+    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
@@ -7857,8 +8053,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` next: bool `
     ///
-    pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.kColorPicker__KColorPicker_QBaseFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
+        return qtc.kColorPicker__KColorPicker_SuperFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QWidget
@@ -7895,6 +8091,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         return qtc.kColorPicker__KColorPicker_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -7909,8 +8109,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.kColorPicker__KColorPicker_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.kColorPicker__KColorPicker_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7945,6 +8145,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -7957,8 +8161,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7993,6 +8197,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -8005,8 +8213,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -8041,6 +8249,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8053,8 +8265,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -8089,6 +8301,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -8101,8 +8317,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -8135,6 +8351,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_UpdateMicroFocus(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    ///
+    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8145,8 +8365,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` self: QtC.kColorPicker__KColorPicker `
     ///
-    pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8179,6 +8399,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_Create(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCreate` instead
+    ///
+    pub const QBaseCreate = SuperCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8189,8 +8413,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` self: QtC.kColorPicker__KColorPicker `
     ///
-    pub fn QBaseCreate(self: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseCreate(@ptrCast(self));
+    pub fn SuperCreate(self: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8223,6 +8447,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         qtc.kColorPicker__KColorPicker_Destroy(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDestroy` instead
+    ///
+    pub const QBaseDestroy = SuperDestroy;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
@@ -8233,8 +8461,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` self: QtC.kColorPicker__KColorPicker `
     ///
-    pub fn QBaseDestroy(self: ?*anyopaque) void {
-        qtc.kColorPicker__KColorPicker_QBaseDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: ?*anyopaque) void {
+        qtc.kColorPicker__KColorPicker_SuperDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8267,6 +8495,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         return qtc.kColorPicker__KColorPicker_FocusNextChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    ///
+    pub const QBaseFocusNextChild = SuperFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8277,8 +8509,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` self: QtC.kColorPicker__KColorPicker `
     ///
-    pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.kColorPicker__KColorPicker_QBaseFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
+        return qtc.kColorPicker__KColorPicker_SuperFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8311,6 +8543,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         return qtc.kColorPicker__KColorPicker_FocusPreviousChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    ///
+    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
@@ -8321,8 +8557,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` self: QtC.kColorPicker__KColorPicker `
     ///
-    pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.kColorPicker__KColorPicker_QBaseFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
+        return qtc.kColorPicker__KColorPicker_SuperFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8355,6 +8591,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         return qtc.kColorPicker__KColorPicker_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -8365,8 +8605,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` self: QtC.kColorPicker__KColorPicker `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.kColorPicker__KColorPicker_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.kColorPicker__KColorPicker_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -8399,6 +8639,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         return qtc.kColorPicker__KColorPicker_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -8409,8 +8653,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` self: QtC.kColorPicker__KColorPicker `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.kColorPicker__KColorPicker_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.kColorPicker__KColorPicker_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -8446,6 +8690,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         return qtc.kColorPicker__KColorPicker_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -8458,9 +8706,9 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.kColorPicker__KColorPicker_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.kColorPicker__KColorPicker_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -8495,6 +8743,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         return qtc.kColorPicker__KColorPicker_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -8507,8 +8759,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.kColorPicker__KColorPicker_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.kColorPicker__KColorPicker_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -8545,6 +8797,10 @@ pub const kcolorpicker__kcolorpicker = struct {
         return qtc.kColorPicker__KColorPicker_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -8559,8 +8815,8 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.kColorPicker__KColorPicker_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.kColorPicker__KColorPicker_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -8594,6 +8850,9 @@ pub const kcolorpicker__kcolorpicker = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://github.com/ksnip/kcolorpicker)
     ///
@@ -8603,7 +8862,7 @@ pub const kcolorpicker__kcolorpicker = struct {
     ///
     /// ` self: QtC.kColorPicker__KColorPicker `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.kColorPicker__KColorPicker_Delete(@ptrCast(self));
     }
 };

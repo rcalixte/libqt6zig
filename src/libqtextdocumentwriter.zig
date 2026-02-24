@@ -198,6 +198,10 @@ pub const qtextdocumentwriter = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentwriter.html#dtor.QTextDocumentWriter)
     ///
     /// Delete this object from C++ memory.
@@ -206,7 +210,7 @@ pub const qtextdocumentwriter = struct {
     ///
     /// ` self: QtC.QTextDocumentWriter `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTextDocumentWriter_Delete(@ptrCast(self));
     }
 };

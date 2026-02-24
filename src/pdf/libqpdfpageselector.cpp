@@ -149,7 +149,7 @@ void QPdfPageSelector_Connect_CurrentPageLabelChanged(QPdfPageSelector* self, in
 }
 
 // Base class handler implementation
-QMetaObject* QPdfPageSelector_QBaseMetaObject(const QPdfPageSelector* self) {
+QMetaObject* QPdfPageSelector_SuperMetaObject(const QPdfPageSelector* self) {
     auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_MetaObject_IsBase(true);
@@ -168,7 +168,7 @@ void QPdfPageSelector_OnMetaObject(const QPdfPageSelector* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* QPdfPageSelector_QBaseMetacast(QPdfPageSelector* self, const char* param1) {
+void* QPdfPageSelector_SuperMetacast(QPdfPageSelector* self, const char* param1) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_Metacast_IsBase(true);
@@ -187,7 +187,7 @@ void QPdfPageSelector_OnMetacast(QPdfPageSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPdfPageSelector_QBaseMetacall(QPdfPageSelector* self, int param1, int param2, void** param3) {
+int QPdfPageSelector_SuperMetacall(QPdfPageSelector* self, int param1, int param2, void** param3) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_Metacall_IsBase(true);
@@ -216,7 +216,7 @@ int QPdfPageSelector_DevType(const QPdfPageSelector* self) {
 }
 
 // Base class handler implementation
-int QPdfPageSelector_QBaseDevType(const QPdfPageSelector* self) {
+int QPdfPageSelector_SuperDevType(const QPdfPageSelector* self) {
     auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_DevType_IsBase(true);
@@ -245,7 +245,7 @@ void QPdfPageSelector_SetVisible(QPdfPageSelector* self, bool visible) {
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseSetVisible(QPdfPageSelector* self, bool visible) {
+void QPdfPageSelector_SuperSetVisible(QPdfPageSelector* self, bool visible) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_SetVisible_IsBase(true);
@@ -274,7 +274,7 @@ QSize* QPdfPageSelector_SizeHint(const QPdfPageSelector* self) {
 }
 
 // Base class handler implementation
-QSize* QPdfPageSelector_QBaseSizeHint(const QPdfPageSelector* self) {
+QSize* QPdfPageSelector_SuperSizeHint(const QPdfPageSelector* self) {
     auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_SizeHint_IsBase(true);
@@ -303,7 +303,7 @@ QSize* QPdfPageSelector_MinimumSizeHint(const QPdfPageSelector* self) {
 }
 
 // Base class handler implementation
-QSize* QPdfPageSelector_QBaseMinimumSizeHint(const QPdfPageSelector* self) {
+QSize* QPdfPageSelector_SuperMinimumSizeHint(const QPdfPageSelector* self) {
     auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_MinimumSizeHint_IsBase(true);
@@ -332,7 +332,7 @@ int QPdfPageSelector_HeightForWidth(const QPdfPageSelector* self, int param1) {
 }
 
 // Base class handler implementation
-int QPdfPageSelector_QBaseHeightForWidth(const QPdfPageSelector* self, int param1) {
+int QPdfPageSelector_SuperHeightForWidth(const QPdfPageSelector* self, int param1) {
     auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_HeightForWidth_IsBase(true);
@@ -361,7 +361,7 @@ bool QPdfPageSelector_HasHeightForWidth(const QPdfPageSelector* self) {
 }
 
 // Base class handler implementation
-bool QPdfPageSelector_QBaseHasHeightForWidth(const QPdfPageSelector* self) {
+bool QPdfPageSelector_SuperHasHeightForWidth(const QPdfPageSelector* self) {
     auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_HasHeightForWidth_IsBase(true);
@@ -390,7 +390,7 @@ QPaintEngine* QPdfPageSelector_PaintEngine(const QPdfPageSelector* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QPdfPageSelector_QBasePaintEngine(const QPdfPageSelector* self) {
+QPaintEngine* QPdfPageSelector_SuperPaintEngine(const QPdfPageSelector* self) {
     auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_PaintEngine_IsBase(true);
@@ -419,7 +419,7 @@ bool QPdfPageSelector_Event(QPdfPageSelector* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QPdfPageSelector_QBaseEvent(QPdfPageSelector* self, QEvent* event) {
+bool QPdfPageSelector_SuperEvent(QPdfPageSelector* self, QEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_Event_IsBase(true);
@@ -448,7 +448,7 @@ void QPdfPageSelector_MousePressEvent(QPdfPageSelector* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseMousePressEvent(QPdfPageSelector* self, QMouseEvent* event) {
+void QPdfPageSelector_SuperMousePressEvent(QPdfPageSelector* self, QMouseEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_MousePressEvent_IsBase(true);
@@ -477,7 +477,7 @@ void QPdfPageSelector_MouseReleaseEvent(QPdfPageSelector* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseMouseReleaseEvent(QPdfPageSelector* self, QMouseEvent* event) {
+void QPdfPageSelector_SuperMouseReleaseEvent(QPdfPageSelector* self, QMouseEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_MouseReleaseEvent_IsBase(true);
@@ -506,7 +506,7 @@ void QPdfPageSelector_MouseDoubleClickEvent(QPdfPageSelector* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseMouseDoubleClickEvent(QPdfPageSelector* self, QMouseEvent* event) {
+void QPdfPageSelector_SuperMouseDoubleClickEvent(QPdfPageSelector* self, QMouseEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_MouseDoubleClickEvent_IsBase(true);
@@ -535,7 +535,7 @@ void QPdfPageSelector_MouseMoveEvent(QPdfPageSelector* self, QMouseEvent* event)
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseMouseMoveEvent(QPdfPageSelector* self, QMouseEvent* event) {
+void QPdfPageSelector_SuperMouseMoveEvent(QPdfPageSelector* self, QMouseEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_MouseMoveEvent_IsBase(true);
@@ -564,7 +564,7 @@ void QPdfPageSelector_WheelEvent(QPdfPageSelector* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseWheelEvent(QPdfPageSelector* self, QWheelEvent* event) {
+void QPdfPageSelector_SuperWheelEvent(QPdfPageSelector* self, QWheelEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_WheelEvent_IsBase(true);
@@ -593,7 +593,7 @@ void QPdfPageSelector_KeyPressEvent(QPdfPageSelector* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseKeyPressEvent(QPdfPageSelector* self, QKeyEvent* event) {
+void QPdfPageSelector_SuperKeyPressEvent(QPdfPageSelector* self, QKeyEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_KeyPressEvent_IsBase(true);
@@ -622,7 +622,7 @@ void QPdfPageSelector_KeyReleaseEvent(QPdfPageSelector* self, QKeyEvent* event) 
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseKeyReleaseEvent(QPdfPageSelector* self, QKeyEvent* event) {
+void QPdfPageSelector_SuperKeyReleaseEvent(QPdfPageSelector* self, QKeyEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_KeyReleaseEvent_IsBase(true);
@@ -651,7 +651,7 @@ void QPdfPageSelector_FocusInEvent(QPdfPageSelector* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseFocusInEvent(QPdfPageSelector* self, QFocusEvent* event) {
+void QPdfPageSelector_SuperFocusInEvent(QPdfPageSelector* self, QFocusEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_FocusInEvent_IsBase(true);
@@ -680,7 +680,7 @@ void QPdfPageSelector_FocusOutEvent(QPdfPageSelector* self, QFocusEvent* event) 
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseFocusOutEvent(QPdfPageSelector* self, QFocusEvent* event) {
+void QPdfPageSelector_SuperFocusOutEvent(QPdfPageSelector* self, QFocusEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_FocusOutEvent_IsBase(true);
@@ -709,7 +709,7 @@ void QPdfPageSelector_EnterEvent(QPdfPageSelector* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseEnterEvent(QPdfPageSelector* self, QEnterEvent* event) {
+void QPdfPageSelector_SuperEnterEvent(QPdfPageSelector* self, QEnterEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_EnterEvent_IsBase(true);
@@ -738,7 +738,7 @@ void QPdfPageSelector_LeaveEvent(QPdfPageSelector* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseLeaveEvent(QPdfPageSelector* self, QEvent* event) {
+void QPdfPageSelector_SuperLeaveEvent(QPdfPageSelector* self, QEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_LeaveEvent_IsBase(true);
@@ -767,7 +767,7 @@ void QPdfPageSelector_PaintEvent(QPdfPageSelector* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBasePaintEvent(QPdfPageSelector* self, QPaintEvent* event) {
+void QPdfPageSelector_SuperPaintEvent(QPdfPageSelector* self, QPaintEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_PaintEvent_IsBase(true);
@@ -796,7 +796,7 @@ void QPdfPageSelector_MoveEvent(QPdfPageSelector* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseMoveEvent(QPdfPageSelector* self, QMoveEvent* event) {
+void QPdfPageSelector_SuperMoveEvent(QPdfPageSelector* self, QMoveEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_MoveEvent_IsBase(true);
@@ -825,7 +825,7 @@ void QPdfPageSelector_ResizeEvent(QPdfPageSelector* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseResizeEvent(QPdfPageSelector* self, QResizeEvent* event) {
+void QPdfPageSelector_SuperResizeEvent(QPdfPageSelector* self, QResizeEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_ResizeEvent_IsBase(true);
@@ -854,7 +854,7 @@ void QPdfPageSelector_CloseEvent(QPdfPageSelector* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseCloseEvent(QPdfPageSelector* self, QCloseEvent* event) {
+void QPdfPageSelector_SuperCloseEvent(QPdfPageSelector* self, QCloseEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_CloseEvent_IsBase(true);
@@ -883,7 +883,7 @@ void QPdfPageSelector_ContextMenuEvent(QPdfPageSelector* self, QContextMenuEvent
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseContextMenuEvent(QPdfPageSelector* self, QContextMenuEvent* event) {
+void QPdfPageSelector_SuperContextMenuEvent(QPdfPageSelector* self, QContextMenuEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_ContextMenuEvent_IsBase(true);
@@ -912,7 +912,7 @@ void QPdfPageSelector_TabletEvent(QPdfPageSelector* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseTabletEvent(QPdfPageSelector* self, QTabletEvent* event) {
+void QPdfPageSelector_SuperTabletEvent(QPdfPageSelector* self, QTabletEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_TabletEvent_IsBase(true);
@@ -941,7 +941,7 @@ void QPdfPageSelector_ActionEvent(QPdfPageSelector* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseActionEvent(QPdfPageSelector* self, QActionEvent* event) {
+void QPdfPageSelector_SuperActionEvent(QPdfPageSelector* self, QActionEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_ActionEvent_IsBase(true);
@@ -970,7 +970,7 @@ void QPdfPageSelector_DragEnterEvent(QPdfPageSelector* self, QDragEnterEvent* ev
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseDragEnterEvent(QPdfPageSelector* self, QDragEnterEvent* event) {
+void QPdfPageSelector_SuperDragEnterEvent(QPdfPageSelector* self, QDragEnterEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_DragEnterEvent_IsBase(true);
@@ -999,7 +999,7 @@ void QPdfPageSelector_DragMoveEvent(QPdfPageSelector* self, QDragMoveEvent* even
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseDragMoveEvent(QPdfPageSelector* self, QDragMoveEvent* event) {
+void QPdfPageSelector_SuperDragMoveEvent(QPdfPageSelector* self, QDragMoveEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_DragMoveEvent_IsBase(true);
@@ -1028,7 +1028,7 @@ void QPdfPageSelector_DragLeaveEvent(QPdfPageSelector* self, QDragLeaveEvent* ev
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseDragLeaveEvent(QPdfPageSelector* self, QDragLeaveEvent* event) {
+void QPdfPageSelector_SuperDragLeaveEvent(QPdfPageSelector* self, QDragLeaveEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_DragLeaveEvent_IsBase(true);
@@ -1057,7 +1057,7 @@ void QPdfPageSelector_DropEvent(QPdfPageSelector* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseDropEvent(QPdfPageSelector* self, QDropEvent* event) {
+void QPdfPageSelector_SuperDropEvent(QPdfPageSelector* self, QDropEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_DropEvent_IsBase(true);
@@ -1086,7 +1086,7 @@ void QPdfPageSelector_ShowEvent(QPdfPageSelector* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseShowEvent(QPdfPageSelector* self, QShowEvent* event) {
+void QPdfPageSelector_SuperShowEvent(QPdfPageSelector* self, QShowEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_ShowEvent_IsBase(true);
@@ -1115,7 +1115,7 @@ void QPdfPageSelector_HideEvent(QPdfPageSelector* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseHideEvent(QPdfPageSelector* self, QHideEvent* event) {
+void QPdfPageSelector_SuperHideEvent(QPdfPageSelector* self, QHideEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_HideEvent_IsBase(true);
@@ -1145,7 +1145,7 @@ bool QPdfPageSelector_NativeEvent(QPdfPageSelector* self, const libqt_string eve
 }
 
 // Base class handler implementation
-bool QPdfPageSelector_QBaseNativeEvent(QPdfPageSelector* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QPdfPageSelector_SuperNativeEvent(QPdfPageSelector* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
@@ -1175,7 +1175,7 @@ void QPdfPageSelector_ChangeEvent(QPdfPageSelector* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseChangeEvent(QPdfPageSelector* self, QEvent* param1) {
+void QPdfPageSelector_SuperChangeEvent(QPdfPageSelector* self, QEvent* param1) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_ChangeEvent_IsBase(true);
@@ -1204,7 +1204,7 @@ int QPdfPageSelector_Metric(const QPdfPageSelector* self, int param1) {
 }
 
 // Base class handler implementation
-int QPdfPageSelector_QBaseMetric(const QPdfPageSelector* self, int param1) {
+int QPdfPageSelector_SuperMetric(const QPdfPageSelector* self, int param1) {
     auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_Metric_IsBase(true);
@@ -1233,7 +1233,7 @@ void QPdfPageSelector_InitPainter(const QPdfPageSelector* self, QPainter* painte
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseInitPainter(const QPdfPageSelector* self, QPainter* painter) {
+void QPdfPageSelector_SuperInitPainter(const QPdfPageSelector* self, QPainter* painter) {
     auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_InitPainter_IsBase(true);
@@ -1262,7 +1262,7 @@ QPaintDevice* QPdfPageSelector_Redirected(const QPdfPageSelector* self, QPoint* 
 }
 
 // Base class handler implementation
-QPaintDevice* QPdfPageSelector_QBaseRedirected(const QPdfPageSelector* self, QPoint* offset) {
+QPaintDevice* QPdfPageSelector_SuperRedirected(const QPdfPageSelector* self, QPoint* offset) {
     auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_Redirected_IsBase(true);
@@ -1291,7 +1291,7 @@ QPainter* QPdfPageSelector_SharedPainter(const QPdfPageSelector* self) {
 }
 
 // Base class handler implementation
-QPainter* QPdfPageSelector_QBaseSharedPainter(const QPdfPageSelector* self) {
+QPainter* QPdfPageSelector_SuperSharedPainter(const QPdfPageSelector* self) {
     auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_SharedPainter_IsBase(true);
@@ -1320,7 +1320,7 @@ void QPdfPageSelector_InputMethodEvent(QPdfPageSelector* self, QInputMethodEvent
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseInputMethodEvent(QPdfPageSelector* self, QInputMethodEvent* param1) {
+void QPdfPageSelector_SuperInputMethodEvent(QPdfPageSelector* self, QInputMethodEvent* param1) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_InputMethodEvent_IsBase(true);
@@ -1349,7 +1349,7 @@ QVariant* QPdfPageSelector_InputMethodQuery(const QPdfPageSelector* self, int pa
 }
 
 // Base class handler implementation
-QVariant* QPdfPageSelector_QBaseInputMethodQuery(const QPdfPageSelector* self, int param1) {
+QVariant* QPdfPageSelector_SuperInputMethodQuery(const QPdfPageSelector* self, int param1) {
     auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_InputMethodQuery_IsBase(true);
@@ -1378,7 +1378,7 @@ bool QPdfPageSelector_FocusNextPrevChild(QPdfPageSelector* self, bool next) {
 }
 
 // Base class handler implementation
-bool QPdfPageSelector_QBaseFocusNextPrevChild(QPdfPageSelector* self, bool next) {
+bool QPdfPageSelector_SuperFocusNextPrevChild(QPdfPageSelector* self, bool next) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_FocusNextPrevChild_IsBase(true);
@@ -1407,7 +1407,7 @@ bool QPdfPageSelector_EventFilter(QPdfPageSelector* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool QPdfPageSelector_QBaseEventFilter(QPdfPageSelector* self, QObject* watched, QEvent* event) {
+bool QPdfPageSelector_SuperEventFilter(QPdfPageSelector* self, QObject* watched, QEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_EventFilter_IsBase(true);
@@ -1436,7 +1436,7 @@ void QPdfPageSelector_TimerEvent(QPdfPageSelector* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseTimerEvent(QPdfPageSelector* self, QTimerEvent* event) {
+void QPdfPageSelector_SuperTimerEvent(QPdfPageSelector* self, QTimerEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_TimerEvent_IsBase(true);
@@ -1465,7 +1465,7 @@ void QPdfPageSelector_ChildEvent(QPdfPageSelector* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseChildEvent(QPdfPageSelector* self, QChildEvent* event) {
+void QPdfPageSelector_SuperChildEvent(QPdfPageSelector* self, QChildEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_ChildEvent_IsBase(true);
@@ -1494,7 +1494,7 @@ void QPdfPageSelector_CustomEvent(QPdfPageSelector* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseCustomEvent(QPdfPageSelector* self, QEvent* event) {
+void QPdfPageSelector_SuperCustomEvent(QPdfPageSelector* self, QEvent* event) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_CustomEvent_IsBase(true);
@@ -1523,7 +1523,7 @@ void QPdfPageSelector_ConnectNotify(QPdfPageSelector* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseConnectNotify(QPdfPageSelector* self, const QMetaMethod* signal) {
+void QPdfPageSelector_SuperConnectNotify(QPdfPageSelector* self, const QMetaMethod* signal) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_ConnectNotify_IsBase(true);
@@ -1552,7 +1552,7 @@ void QPdfPageSelector_DisconnectNotify(QPdfPageSelector* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseDisconnectNotify(QPdfPageSelector* self, const QMetaMethod* signal) {
+void QPdfPageSelector_SuperDisconnectNotify(QPdfPageSelector* self, const QMetaMethod* signal) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_DisconnectNotify_IsBase(true);
@@ -1581,7 +1581,7 @@ void QPdfPageSelector_UpdateMicroFocus(QPdfPageSelector* self) {
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseUpdateMicroFocus(QPdfPageSelector* self) {
+void QPdfPageSelector_SuperUpdateMicroFocus(QPdfPageSelector* self) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_UpdateMicroFocus_IsBase(true);
@@ -1610,7 +1610,7 @@ void QPdfPageSelector_Create(QPdfPageSelector* self) {
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseCreate(QPdfPageSelector* self) {
+void QPdfPageSelector_SuperCreate(QPdfPageSelector* self) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_Create_IsBase(true);
@@ -1639,7 +1639,7 @@ void QPdfPageSelector_Destroy(QPdfPageSelector* self) {
 }
 
 // Base class handler implementation
-void QPdfPageSelector_QBaseDestroy(QPdfPageSelector* self) {
+void QPdfPageSelector_SuperDestroy(QPdfPageSelector* self) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_Destroy_IsBase(true);
@@ -1668,7 +1668,7 @@ bool QPdfPageSelector_FocusNextChild(QPdfPageSelector* self) {
 }
 
 // Base class handler implementation
-bool QPdfPageSelector_QBaseFocusNextChild(QPdfPageSelector* self) {
+bool QPdfPageSelector_SuperFocusNextChild(QPdfPageSelector* self) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_FocusNextChild_IsBase(true);
@@ -1697,7 +1697,7 @@ bool QPdfPageSelector_FocusPreviousChild(QPdfPageSelector* self) {
 }
 
 // Base class handler implementation
-bool QPdfPageSelector_QBaseFocusPreviousChild(QPdfPageSelector* self) {
+bool QPdfPageSelector_SuperFocusPreviousChild(QPdfPageSelector* self) {
     auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_FocusPreviousChild_IsBase(true);
@@ -1726,7 +1726,7 @@ QObject* QPdfPageSelector_Sender(const QPdfPageSelector* self) {
 }
 
 // Base class handler implementation
-QObject* QPdfPageSelector_QBaseSender(const QPdfPageSelector* self) {
+QObject* QPdfPageSelector_SuperSender(const QPdfPageSelector* self) {
     auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_Sender_IsBase(true);
@@ -1755,7 +1755,7 @@ int QPdfPageSelector_SenderSignalIndex(const QPdfPageSelector* self) {
 }
 
 // Base class handler implementation
-int QPdfPageSelector_QBaseSenderSignalIndex(const QPdfPageSelector* self) {
+int QPdfPageSelector_SuperSenderSignalIndex(const QPdfPageSelector* self) {
     auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_SenderSignalIndex_IsBase(true);
@@ -1784,7 +1784,7 @@ int QPdfPageSelector_Receivers(const QPdfPageSelector* self, const char* signal)
 }
 
 // Base class handler implementation
-int QPdfPageSelector_QBaseReceivers(const QPdfPageSelector* self, const char* signal) {
+int QPdfPageSelector_SuperReceivers(const QPdfPageSelector* self, const char* signal) {
     auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_Receivers_IsBase(true);
@@ -1813,7 +1813,7 @@ bool QPdfPageSelector_IsSignalConnected(const QPdfPageSelector* self, const QMet
 }
 
 // Base class handler implementation
-bool QPdfPageSelector_QBaseIsSignalConnected(const QPdfPageSelector* self, const QMetaMethod* signal) {
+bool QPdfPageSelector_SuperIsSignalConnected(const QPdfPageSelector* self, const QMetaMethod* signal) {
     auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_IsSignalConnected_IsBase(true);
@@ -1842,7 +1842,7 @@ double QPdfPageSelector_GetDecodedMetricF(const QPdfPageSelector* self, int metr
 }
 
 // Base class handler implementation
-double QPdfPageSelector_QBaseGetDecodedMetricF(const QPdfPageSelector* self, int metricA, int metricB) {
+double QPdfPageSelector_SuperGetDecodedMetricF(const QPdfPageSelector* self, int metricA, int metricB) {
     auto* vqpdfpageselector = const_cast<VirtualQPdfPageSelector*>(dynamic_cast<const VirtualQPdfPageSelector*>(self));
     if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
         vqpdfpageselector->setQPdfPageSelector_GetDecodedMetricF_IsBase(true);

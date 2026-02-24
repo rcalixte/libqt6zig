@@ -136,7 +136,7 @@ bool KIO__OpenUrlJob_DoKill(KIO__OpenUrlJob* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KIO__OpenUrlJob_QBaseMetaObject(const KIO__OpenUrlJob* self) {
+QMetaObject* KIO__OpenUrlJob_SuperMetaObject(const KIO__OpenUrlJob* self) {
     auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_MetaObject_IsBase(true);
@@ -155,7 +155,7 @@ void KIO__OpenUrlJob_OnMetaObject(const KIO__OpenUrlJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KIO__OpenUrlJob_QBaseMetacast(KIO__OpenUrlJob* self, const char* param1) {
+void* KIO__OpenUrlJob_SuperMetacast(KIO__OpenUrlJob* self, const char* param1) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_Metacast_IsBase(true);
@@ -174,7 +174,7 @@ void KIO__OpenUrlJob_OnMetacast(KIO__OpenUrlJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KIO__OpenUrlJob_QBaseMetacall(KIO__OpenUrlJob* self, int param1, int param2, void** param3) {
+int KIO__OpenUrlJob_SuperMetacall(KIO__OpenUrlJob* self, int param1, int param2, void** param3) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_Metacall_IsBase(true);
@@ -193,7 +193,7 @@ void KIO__OpenUrlJob_OnMetacall(KIO__OpenUrlJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KIO__OpenUrlJob_QBaseStart(KIO__OpenUrlJob* self) {
+void KIO__OpenUrlJob_SuperStart(KIO__OpenUrlJob* self) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_Start_IsBase(true);
@@ -212,7 +212,7 @@ void KIO__OpenUrlJob_OnStart(KIO__OpenUrlJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KIO__OpenUrlJob_QBaseDoKill(KIO__OpenUrlJob* self) {
+bool KIO__OpenUrlJob_SuperDoKill(KIO__OpenUrlJob* self) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_DoKill_IsBase(true);
@@ -241,7 +241,7 @@ bool KIO__OpenUrlJob_AddSubjob(KIO__OpenUrlJob* self, KJob* job) {
 }
 
 // Base class handler implementation
-bool KIO__OpenUrlJob_QBaseAddSubjob(KIO__OpenUrlJob* self, KJob* job) {
+bool KIO__OpenUrlJob_SuperAddSubjob(KIO__OpenUrlJob* self, KJob* job) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_AddSubjob_IsBase(true);
@@ -270,7 +270,7 @@ bool KIO__OpenUrlJob_RemoveSubjob(KIO__OpenUrlJob* self, KJob* job) {
 }
 
 // Base class handler implementation
-bool KIO__OpenUrlJob_QBaseRemoveSubjob(KIO__OpenUrlJob* self, KJob* job) {
+bool KIO__OpenUrlJob_SuperRemoveSubjob(KIO__OpenUrlJob* self, KJob* job) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_RemoveSubjob_IsBase(true);
@@ -300,7 +300,7 @@ void KIO__OpenUrlJob_SlotInfoMessage(KIO__OpenUrlJob* self, KJob* job, const lib
 }
 
 // Base class handler implementation
-void KIO__OpenUrlJob_QBaseSlotInfoMessage(KIO__OpenUrlJob* self, KJob* job, const libqt_string message) {
+void KIO__OpenUrlJob_SuperSlotInfoMessage(KIO__OpenUrlJob* self, KJob* job, const libqt_string message) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     QString message_QString = QString::fromUtf8(message.data, message.len);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
@@ -330,7 +330,7 @@ bool KIO__OpenUrlJob_DoSuspend(KIO__OpenUrlJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__OpenUrlJob_QBaseDoSuspend(KIO__OpenUrlJob* self) {
+bool KIO__OpenUrlJob_SuperDoSuspend(KIO__OpenUrlJob* self) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_DoSuspend_IsBase(true);
@@ -359,7 +359,7 @@ bool KIO__OpenUrlJob_DoResume(KIO__OpenUrlJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__OpenUrlJob_QBaseDoResume(KIO__OpenUrlJob* self) {
+bool KIO__OpenUrlJob_SuperDoResume(KIO__OpenUrlJob* self) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_DoResume_IsBase(true);
@@ -404,7 +404,7 @@ libqt_string KIO__OpenUrlJob_ErrorString(const KIO__OpenUrlJob* self) {
 }
 
 // Base class handler implementation
-libqt_string KIO__OpenUrlJob_QBaseErrorString(const KIO__OpenUrlJob* self) {
+libqt_string KIO__OpenUrlJob_SuperErrorString(const KIO__OpenUrlJob* self) {
     auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_ErrorString_IsBase(true);
@@ -449,7 +449,7 @@ bool KIO__OpenUrlJob_Event(KIO__OpenUrlJob* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KIO__OpenUrlJob_QBaseEvent(KIO__OpenUrlJob* self, QEvent* event) {
+bool KIO__OpenUrlJob_SuperEvent(KIO__OpenUrlJob* self, QEvent* event) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_Event_IsBase(true);
@@ -478,7 +478,7 @@ bool KIO__OpenUrlJob_EventFilter(KIO__OpenUrlJob* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool KIO__OpenUrlJob_QBaseEventFilter(KIO__OpenUrlJob* self, QObject* watched, QEvent* event) {
+bool KIO__OpenUrlJob_SuperEventFilter(KIO__OpenUrlJob* self, QObject* watched, QEvent* event) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_EventFilter_IsBase(true);
@@ -507,7 +507,7 @@ void KIO__OpenUrlJob_TimerEvent(KIO__OpenUrlJob* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__OpenUrlJob_QBaseTimerEvent(KIO__OpenUrlJob* self, QTimerEvent* event) {
+void KIO__OpenUrlJob_SuperTimerEvent(KIO__OpenUrlJob* self, QTimerEvent* event) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_TimerEvent_IsBase(true);
@@ -536,7 +536,7 @@ void KIO__OpenUrlJob_ChildEvent(KIO__OpenUrlJob* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__OpenUrlJob_QBaseChildEvent(KIO__OpenUrlJob* self, QChildEvent* event) {
+void KIO__OpenUrlJob_SuperChildEvent(KIO__OpenUrlJob* self, QChildEvent* event) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_ChildEvent_IsBase(true);
@@ -565,7 +565,7 @@ void KIO__OpenUrlJob_CustomEvent(KIO__OpenUrlJob* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__OpenUrlJob_QBaseCustomEvent(KIO__OpenUrlJob* self, QEvent* event) {
+void KIO__OpenUrlJob_SuperCustomEvent(KIO__OpenUrlJob* self, QEvent* event) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_CustomEvent_IsBase(true);
@@ -594,7 +594,7 @@ void KIO__OpenUrlJob_ConnectNotify(KIO__OpenUrlJob* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void KIO__OpenUrlJob_QBaseConnectNotify(KIO__OpenUrlJob* self, const QMetaMethod* signal) {
+void KIO__OpenUrlJob_SuperConnectNotify(KIO__OpenUrlJob* self, const QMetaMethod* signal) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_ConnectNotify_IsBase(true);
@@ -623,7 +623,7 @@ void KIO__OpenUrlJob_DisconnectNotify(KIO__OpenUrlJob* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void KIO__OpenUrlJob_QBaseDisconnectNotify(KIO__OpenUrlJob* self, const QMetaMethod* signal) {
+void KIO__OpenUrlJob_SuperDisconnectNotify(KIO__OpenUrlJob* self, const QMetaMethod* signal) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_DisconnectNotify_IsBase(true);
@@ -652,7 +652,7 @@ bool KIO__OpenUrlJob_HasSubjobs(const KIO__OpenUrlJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__OpenUrlJob_QBaseHasSubjobs(const KIO__OpenUrlJob* self) {
+bool KIO__OpenUrlJob_SuperHasSubjobs(const KIO__OpenUrlJob* self) {
     auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_HasSubjobs_IsBase(true);
@@ -699,7 +699,7 @@ libqt_list /* of KJob* */ KIO__OpenUrlJob_Subjobs(const KIO__OpenUrlJob* self) {
 }
 
 // Base class handler implementation
-libqt_list /* of KJob* */ KIO__OpenUrlJob_QBaseSubjobs(const KIO__OpenUrlJob* self) {
+libqt_list /* of KJob* */ KIO__OpenUrlJob_SuperSubjobs(const KIO__OpenUrlJob* self) {
     auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_Subjobs_IsBase(true);
@@ -746,7 +746,7 @@ void KIO__OpenUrlJob_ClearSubjobs(KIO__OpenUrlJob* self) {
 }
 
 // Base class handler implementation
-void KIO__OpenUrlJob_QBaseClearSubjobs(KIO__OpenUrlJob* self) {
+void KIO__OpenUrlJob_SuperClearSubjobs(KIO__OpenUrlJob* self) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_ClearSubjobs_IsBase(true);
@@ -775,7 +775,7 @@ void KIO__OpenUrlJob_SetCapabilities(KIO__OpenUrlJob* self, int capabilities) {
 }
 
 // Base class handler implementation
-void KIO__OpenUrlJob_QBaseSetCapabilities(KIO__OpenUrlJob* self, int capabilities) {
+void KIO__OpenUrlJob_SuperSetCapabilities(KIO__OpenUrlJob* self, int capabilities) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_SetCapabilities_IsBase(true);
@@ -804,7 +804,7 @@ bool KIO__OpenUrlJob_IsFinished(const KIO__OpenUrlJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__OpenUrlJob_QBaseIsFinished(const KIO__OpenUrlJob* self) {
+bool KIO__OpenUrlJob_SuperIsFinished(const KIO__OpenUrlJob* self) {
     auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_IsFinished_IsBase(true);
@@ -833,7 +833,7 @@ void KIO__OpenUrlJob_SetError(KIO__OpenUrlJob* self, int errorCode) {
 }
 
 // Base class handler implementation
-void KIO__OpenUrlJob_QBaseSetError(KIO__OpenUrlJob* self, int errorCode) {
+void KIO__OpenUrlJob_SuperSetError(KIO__OpenUrlJob* self, int errorCode) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_SetError_IsBase(true);
@@ -863,7 +863,7 @@ void KIO__OpenUrlJob_SetErrorText(KIO__OpenUrlJob* self, const libqt_string erro
 }
 
 // Base class handler implementation
-void KIO__OpenUrlJob_QBaseSetErrorText(KIO__OpenUrlJob* self, const libqt_string errorText) {
+void KIO__OpenUrlJob_SuperSetErrorText(KIO__OpenUrlJob* self, const libqt_string errorText) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
@@ -893,7 +893,7 @@ void KIO__OpenUrlJob_SetProcessedAmount(KIO__OpenUrlJob* self, int unit, unsigne
 }
 
 // Base class handler implementation
-void KIO__OpenUrlJob_QBaseSetProcessedAmount(KIO__OpenUrlJob* self, int unit, unsigned long long amount) {
+void KIO__OpenUrlJob_SuperSetProcessedAmount(KIO__OpenUrlJob* self, int unit, unsigned long long amount) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_SetProcessedAmount_IsBase(true);
@@ -922,7 +922,7 @@ void KIO__OpenUrlJob_SetTotalAmount(KIO__OpenUrlJob* self, int unit, unsigned lo
 }
 
 // Base class handler implementation
-void KIO__OpenUrlJob_QBaseSetTotalAmount(KIO__OpenUrlJob* self, int unit, unsigned long long amount) {
+void KIO__OpenUrlJob_SuperSetTotalAmount(KIO__OpenUrlJob* self, int unit, unsigned long long amount) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_SetTotalAmount_IsBase(true);
@@ -951,7 +951,7 @@ void KIO__OpenUrlJob_SetProgressUnit(KIO__OpenUrlJob* self, int unit) {
 }
 
 // Base class handler implementation
-void KIO__OpenUrlJob_QBaseSetProgressUnit(KIO__OpenUrlJob* self, int unit) {
+void KIO__OpenUrlJob_SuperSetProgressUnit(KIO__OpenUrlJob* self, int unit) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_SetProgressUnit_IsBase(true);
@@ -980,7 +980,7 @@ void KIO__OpenUrlJob_SetPercent(KIO__OpenUrlJob* self, unsigned long percentage)
 }
 
 // Base class handler implementation
-void KIO__OpenUrlJob_QBaseSetPercent(KIO__OpenUrlJob* self, unsigned long percentage) {
+void KIO__OpenUrlJob_SuperSetPercent(KIO__OpenUrlJob* self, unsigned long percentage) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_SetPercent_IsBase(true);
@@ -1009,7 +1009,7 @@ void KIO__OpenUrlJob_EmitResult(KIO__OpenUrlJob* self) {
 }
 
 // Base class handler implementation
-void KIO__OpenUrlJob_QBaseEmitResult(KIO__OpenUrlJob* self) {
+void KIO__OpenUrlJob_SuperEmitResult(KIO__OpenUrlJob* self) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_EmitResult_IsBase(true);
@@ -1038,7 +1038,7 @@ void KIO__OpenUrlJob_EmitPercent(KIO__OpenUrlJob* self, unsigned long long proce
 }
 
 // Base class handler implementation
-void KIO__OpenUrlJob_QBaseEmitPercent(KIO__OpenUrlJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
+void KIO__OpenUrlJob_SuperEmitPercent(KIO__OpenUrlJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_EmitPercent_IsBase(true);
@@ -1067,7 +1067,7 @@ void KIO__OpenUrlJob_EmitSpeed(KIO__OpenUrlJob* self, unsigned long speed) {
 }
 
 // Base class handler implementation
-void KIO__OpenUrlJob_QBaseEmitSpeed(KIO__OpenUrlJob* self, unsigned long speed) {
+void KIO__OpenUrlJob_SuperEmitSpeed(KIO__OpenUrlJob* self, unsigned long speed) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_EmitSpeed_IsBase(true);
@@ -1096,7 +1096,7 @@ void KIO__OpenUrlJob_StartElapsedTimer(KIO__OpenUrlJob* self) {
 }
 
 // Base class handler implementation
-void KIO__OpenUrlJob_QBaseStartElapsedTimer(KIO__OpenUrlJob* self) {
+void KIO__OpenUrlJob_SuperStartElapsedTimer(KIO__OpenUrlJob* self) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_StartElapsedTimer_IsBase(true);
@@ -1125,7 +1125,7 @@ QObject* KIO__OpenUrlJob_Sender(const KIO__OpenUrlJob* self) {
 }
 
 // Base class handler implementation
-QObject* KIO__OpenUrlJob_QBaseSender(const KIO__OpenUrlJob* self) {
+QObject* KIO__OpenUrlJob_SuperSender(const KIO__OpenUrlJob* self) {
     auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_Sender_IsBase(true);
@@ -1154,7 +1154,7 @@ int KIO__OpenUrlJob_SenderSignalIndex(const KIO__OpenUrlJob* self) {
 }
 
 // Base class handler implementation
-int KIO__OpenUrlJob_QBaseSenderSignalIndex(const KIO__OpenUrlJob* self) {
+int KIO__OpenUrlJob_SuperSenderSignalIndex(const KIO__OpenUrlJob* self) {
     auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_SenderSignalIndex_IsBase(true);
@@ -1183,7 +1183,7 @@ int KIO__OpenUrlJob_Receivers(const KIO__OpenUrlJob* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KIO__OpenUrlJob_QBaseReceivers(const KIO__OpenUrlJob* self, const char* signal) {
+int KIO__OpenUrlJob_SuperReceivers(const KIO__OpenUrlJob* self, const char* signal) {
     auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_Receivers_IsBase(true);
@@ -1212,7 +1212,7 @@ bool KIO__OpenUrlJob_IsSignalConnected(const KIO__OpenUrlJob* self, const QMetaM
 }
 
 // Base class handler implementation
-bool KIO__OpenUrlJob_QBaseIsSignalConnected(const KIO__OpenUrlJob* self, const QMetaMethod* signal) {
+bool KIO__OpenUrlJob_SuperIsSignalConnected(const KIO__OpenUrlJob* self, const QMetaMethod* signal) {
     auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_IsSignalConnected_IsBase(true);

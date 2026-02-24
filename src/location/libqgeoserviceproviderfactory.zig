@@ -15,6 +15,10 @@ pub const qgeoserviceproviderfactory = struct {
         qtc.QGeoServiceProviderFactory_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoserviceproviderfactory.html#dtor.QGeoServiceProviderFactory)
     ///
     /// Delete this object from C++ memory.
@@ -23,7 +27,7 @@ pub const qgeoserviceproviderfactory = struct {
     ///
     /// ` self: QtC.QGeoServiceProviderFactory `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGeoServiceProviderFactory_Delete(@ptrCast(self));
     }
 };

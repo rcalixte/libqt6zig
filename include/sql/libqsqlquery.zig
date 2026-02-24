@@ -702,6 +702,10 @@ pub const qsqlquery = struct {
         qtc.QSqlQuery_AddBindValue2(@ptrCast(self), @ptrCast(val), @bitCast(typeVal));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#dtor.QSqlQuery)
     ///
     /// Delete this object from C++ memory.
@@ -710,7 +714,7 @@ pub const qsqlquery = struct {
     ///
     /// ` self: QtC.QSqlQuery `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSqlQuery_Delete(@ptrCast(self));
     }
 };

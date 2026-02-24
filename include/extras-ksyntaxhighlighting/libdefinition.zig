@@ -595,13 +595,17 @@ pub const ksyntaxhighlighting__definition = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KSyntaxHighlighting__Definition `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KSyntaxHighlighting__Definition_Delete(@ptrCast(self));
     }
 };

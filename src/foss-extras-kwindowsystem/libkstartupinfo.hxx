@@ -328,23 +328,23 @@ class VirtualKStartupInfo final : public KStartupInfo {
 
     // Friend functions
     friend void KStartupInfo_CustomEvent(KStartupInfo* self, QEvent* e_P);
-    friend void KStartupInfo_QBaseCustomEvent(KStartupInfo* self, QEvent* e_P);
+    friend void KStartupInfo_SuperCustomEvent(KStartupInfo* self, QEvent* e_P);
     friend void KStartupInfo_TimerEvent(KStartupInfo* self, QTimerEvent* event);
-    friend void KStartupInfo_QBaseTimerEvent(KStartupInfo* self, QTimerEvent* event);
+    friend void KStartupInfo_SuperTimerEvent(KStartupInfo* self, QTimerEvent* event);
     friend void KStartupInfo_ChildEvent(KStartupInfo* self, QChildEvent* event);
-    friend void KStartupInfo_QBaseChildEvent(KStartupInfo* self, QChildEvent* event);
+    friend void KStartupInfo_SuperChildEvent(KStartupInfo* self, QChildEvent* event);
     friend void KStartupInfo_ConnectNotify(KStartupInfo* self, const QMetaMethod* signal);
-    friend void KStartupInfo_QBaseConnectNotify(KStartupInfo* self, const QMetaMethod* signal);
+    friend void KStartupInfo_SuperConnectNotify(KStartupInfo* self, const QMetaMethod* signal);
     friend void KStartupInfo_DisconnectNotify(KStartupInfo* self, const QMetaMethod* signal);
-    friend void KStartupInfo_QBaseDisconnectNotify(KStartupInfo* self, const QMetaMethod* signal);
+    friend void KStartupInfo_SuperDisconnectNotify(KStartupInfo* self, const QMetaMethod* signal);
     friend QObject* KStartupInfo_Sender(const KStartupInfo* self);
-    friend QObject* KStartupInfo_QBaseSender(const KStartupInfo* self);
+    friend QObject* KStartupInfo_SuperSender(const KStartupInfo* self);
     friend int KStartupInfo_SenderSignalIndex(const KStartupInfo* self);
-    friend int KStartupInfo_QBaseSenderSignalIndex(const KStartupInfo* self);
+    friend int KStartupInfo_SuperSenderSignalIndex(const KStartupInfo* self);
     friend int KStartupInfo_Receivers(const KStartupInfo* self, const char* signal);
-    friend int KStartupInfo_QBaseReceivers(const KStartupInfo* self, const char* signal);
+    friend int KStartupInfo_SuperReceivers(const KStartupInfo* self, const char* signal);
     friend bool KStartupInfo_IsSignalConnected(const KStartupInfo* self, const QMetaMethod* signal);
-    friend bool KStartupInfo_QBaseIsSignalConnected(const KStartupInfo* self, const QMetaMethod* signal);
+    friend bool KStartupInfo_SuperIsSignalConnected(const KStartupInfo* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -137,7 +137,7 @@ libqt_list /* of libqt_string */ QsciAbstractAPIs_CallTips(QsciAbstractAPIs* sel
 }
 
 // Base class handler implementation
-QMetaObject* QsciAbstractAPIs_QBaseMetaObject(const QsciAbstractAPIs* self) {
+QMetaObject* QsciAbstractAPIs_SuperMetaObject(const QsciAbstractAPIs* self) {
     auto* vqsciabstractapis = const_cast<VirtualQsciAbstractAPIs*>(dynamic_cast<const VirtualQsciAbstractAPIs*>(self));
     if (vqsciabstractapis && vqsciabstractapis->isVirtualQsciAbstractAPIs) {
         vqsciabstractapis->setQsciAbstractAPIs_MetaObject_IsBase(true);
@@ -156,7 +156,7 @@ void QsciAbstractAPIs_OnMetaObject(const QsciAbstractAPIs* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* QsciAbstractAPIs_QBaseMetacast(QsciAbstractAPIs* self, const char* param1) {
+void* QsciAbstractAPIs_SuperMetacast(QsciAbstractAPIs* self, const char* param1) {
     auto* vqsciabstractapis = dynamic_cast<VirtualQsciAbstractAPIs*>(self);
     if (vqsciabstractapis && vqsciabstractapis->isVirtualQsciAbstractAPIs) {
         vqsciabstractapis->setQsciAbstractAPIs_Metacast_IsBase(true);
@@ -175,7 +175,7 @@ void QsciAbstractAPIs_OnMetacast(QsciAbstractAPIs* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QsciAbstractAPIs_QBaseMetacall(QsciAbstractAPIs* self, int param1, int param2, void** param3) {
+int QsciAbstractAPIs_SuperMetacall(QsciAbstractAPIs* self, int param1, int param2, void** param3) {
     auto* vqsciabstractapis = dynamic_cast<VirtualQsciAbstractAPIs*>(self);
     if (vqsciabstractapis && vqsciabstractapis->isVirtualQsciAbstractAPIs) {
         vqsciabstractapis->setQsciAbstractAPIs_Metacall_IsBase(true);
@@ -194,7 +194,7 @@ void QsciAbstractAPIs_OnMetacall(QsciAbstractAPIs* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciAbstractAPIs_QBaseUpdateAutoCompletionList(QsciAbstractAPIs* self, const libqt_list /* of libqt_string */ context, libqt_list /* of libqt_string */ list) {
+void QsciAbstractAPIs_SuperUpdateAutoCompletionList(QsciAbstractAPIs* self, const libqt_list /* of libqt_string */ context, libqt_list /* of libqt_string */ list) {
     auto* vqsciabstractapis = dynamic_cast<VirtualQsciAbstractAPIs*>(self);
     QList<QString> context_QList;
     context_QList.reserve(context.len);
@@ -227,7 +227,7 @@ void QsciAbstractAPIs_OnUpdateAutoCompletionList(QsciAbstractAPIs* self, intptr_
 }
 
 // Base class handler implementation
-void QsciAbstractAPIs_QBaseAutoCompletionSelected(QsciAbstractAPIs* self, const libqt_string selection) {
+void QsciAbstractAPIs_SuperAutoCompletionSelected(QsciAbstractAPIs* self, const libqt_string selection) {
     auto* vqsciabstractapis = dynamic_cast<VirtualQsciAbstractAPIs*>(self);
     QString selection_QString = QString::fromUtf8(selection.data, selection.len);
     if (vqsciabstractapis && vqsciabstractapis->isVirtualQsciAbstractAPIs) {
@@ -247,7 +247,7 @@ void QsciAbstractAPIs_OnAutoCompletionSelected(QsciAbstractAPIs* self, intptr_t 
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QsciAbstractAPIs_QBaseCallTips(QsciAbstractAPIs* self, const libqt_list /* of libqt_string */ context, int commas, int style, libqt_list /* of int */ shifts) {
+libqt_list /* of libqt_string */ QsciAbstractAPIs_SuperCallTips(QsciAbstractAPIs* self, const libqt_list /* of libqt_string */ context, int commas, int style, libqt_list /* of int */ shifts) {
     auto* vqsciabstractapis = dynamic_cast<VirtualQsciAbstractAPIs*>(self);
     QList<QString> context_QList;
     context_QList.reserve(context.len);
@@ -323,7 +323,7 @@ bool QsciAbstractAPIs_Event(QsciAbstractAPIs* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QsciAbstractAPIs_QBaseEvent(QsciAbstractAPIs* self, QEvent* event) {
+bool QsciAbstractAPIs_SuperEvent(QsciAbstractAPIs* self, QEvent* event) {
     auto* vqsciabstractapis = dynamic_cast<VirtualQsciAbstractAPIs*>(self);
     if (vqsciabstractapis && vqsciabstractapis->isVirtualQsciAbstractAPIs) {
         vqsciabstractapis->setQsciAbstractAPIs_Event_IsBase(true);
@@ -352,7 +352,7 @@ bool QsciAbstractAPIs_EventFilter(QsciAbstractAPIs* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool QsciAbstractAPIs_QBaseEventFilter(QsciAbstractAPIs* self, QObject* watched, QEvent* event) {
+bool QsciAbstractAPIs_SuperEventFilter(QsciAbstractAPIs* self, QObject* watched, QEvent* event) {
     auto* vqsciabstractapis = dynamic_cast<VirtualQsciAbstractAPIs*>(self);
     if (vqsciabstractapis && vqsciabstractapis->isVirtualQsciAbstractAPIs) {
         vqsciabstractapis->setQsciAbstractAPIs_EventFilter_IsBase(true);
@@ -381,7 +381,7 @@ void QsciAbstractAPIs_TimerEvent(QsciAbstractAPIs* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QsciAbstractAPIs_QBaseTimerEvent(QsciAbstractAPIs* self, QTimerEvent* event) {
+void QsciAbstractAPIs_SuperTimerEvent(QsciAbstractAPIs* self, QTimerEvent* event) {
     auto* vqsciabstractapis = dynamic_cast<VirtualQsciAbstractAPIs*>(self);
     if (vqsciabstractapis && vqsciabstractapis->isVirtualQsciAbstractAPIs) {
         vqsciabstractapis->setQsciAbstractAPIs_TimerEvent_IsBase(true);
@@ -410,7 +410,7 @@ void QsciAbstractAPIs_ChildEvent(QsciAbstractAPIs* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QsciAbstractAPIs_QBaseChildEvent(QsciAbstractAPIs* self, QChildEvent* event) {
+void QsciAbstractAPIs_SuperChildEvent(QsciAbstractAPIs* self, QChildEvent* event) {
     auto* vqsciabstractapis = dynamic_cast<VirtualQsciAbstractAPIs*>(self);
     if (vqsciabstractapis && vqsciabstractapis->isVirtualQsciAbstractAPIs) {
         vqsciabstractapis->setQsciAbstractAPIs_ChildEvent_IsBase(true);
@@ -439,7 +439,7 @@ void QsciAbstractAPIs_CustomEvent(QsciAbstractAPIs* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QsciAbstractAPIs_QBaseCustomEvent(QsciAbstractAPIs* self, QEvent* event) {
+void QsciAbstractAPIs_SuperCustomEvent(QsciAbstractAPIs* self, QEvent* event) {
     auto* vqsciabstractapis = dynamic_cast<VirtualQsciAbstractAPIs*>(self);
     if (vqsciabstractapis && vqsciabstractapis->isVirtualQsciAbstractAPIs) {
         vqsciabstractapis->setQsciAbstractAPIs_CustomEvent_IsBase(true);
@@ -468,7 +468,7 @@ void QsciAbstractAPIs_ConnectNotify(QsciAbstractAPIs* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void QsciAbstractAPIs_QBaseConnectNotify(QsciAbstractAPIs* self, const QMetaMethod* signal) {
+void QsciAbstractAPIs_SuperConnectNotify(QsciAbstractAPIs* self, const QMetaMethod* signal) {
     auto* vqsciabstractapis = dynamic_cast<VirtualQsciAbstractAPIs*>(self);
     if (vqsciabstractapis && vqsciabstractapis->isVirtualQsciAbstractAPIs) {
         vqsciabstractapis->setQsciAbstractAPIs_ConnectNotify_IsBase(true);
@@ -497,7 +497,7 @@ void QsciAbstractAPIs_DisconnectNotify(QsciAbstractAPIs* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void QsciAbstractAPIs_QBaseDisconnectNotify(QsciAbstractAPIs* self, const QMetaMethod* signal) {
+void QsciAbstractAPIs_SuperDisconnectNotify(QsciAbstractAPIs* self, const QMetaMethod* signal) {
     auto* vqsciabstractapis = dynamic_cast<VirtualQsciAbstractAPIs*>(self);
     if (vqsciabstractapis && vqsciabstractapis->isVirtualQsciAbstractAPIs) {
         vqsciabstractapis->setQsciAbstractAPIs_DisconnectNotify_IsBase(true);
@@ -526,7 +526,7 @@ QObject* QsciAbstractAPIs_Sender(const QsciAbstractAPIs* self) {
 }
 
 // Base class handler implementation
-QObject* QsciAbstractAPIs_QBaseSender(const QsciAbstractAPIs* self) {
+QObject* QsciAbstractAPIs_SuperSender(const QsciAbstractAPIs* self) {
     auto* vqsciabstractapis = const_cast<VirtualQsciAbstractAPIs*>(dynamic_cast<const VirtualQsciAbstractAPIs*>(self));
     if (vqsciabstractapis && vqsciabstractapis->isVirtualQsciAbstractAPIs) {
         vqsciabstractapis->setQsciAbstractAPIs_Sender_IsBase(true);
@@ -555,7 +555,7 @@ int QsciAbstractAPIs_SenderSignalIndex(const QsciAbstractAPIs* self) {
 }
 
 // Base class handler implementation
-int QsciAbstractAPIs_QBaseSenderSignalIndex(const QsciAbstractAPIs* self) {
+int QsciAbstractAPIs_SuperSenderSignalIndex(const QsciAbstractAPIs* self) {
     auto* vqsciabstractapis = const_cast<VirtualQsciAbstractAPIs*>(dynamic_cast<const VirtualQsciAbstractAPIs*>(self));
     if (vqsciabstractapis && vqsciabstractapis->isVirtualQsciAbstractAPIs) {
         vqsciabstractapis->setQsciAbstractAPIs_SenderSignalIndex_IsBase(true);
@@ -584,7 +584,7 @@ int QsciAbstractAPIs_Receivers(const QsciAbstractAPIs* self, const char* signal)
 }
 
 // Base class handler implementation
-int QsciAbstractAPIs_QBaseReceivers(const QsciAbstractAPIs* self, const char* signal) {
+int QsciAbstractAPIs_SuperReceivers(const QsciAbstractAPIs* self, const char* signal) {
     auto* vqsciabstractapis = const_cast<VirtualQsciAbstractAPIs*>(dynamic_cast<const VirtualQsciAbstractAPIs*>(self));
     if (vqsciabstractapis && vqsciabstractapis->isVirtualQsciAbstractAPIs) {
         vqsciabstractapis->setQsciAbstractAPIs_Receivers_IsBase(true);
@@ -613,7 +613,7 @@ bool QsciAbstractAPIs_IsSignalConnected(const QsciAbstractAPIs* self, const QMet
 }
 
 // Base class handler implementation
-bool QsciAbstractAPIs_QBaseIsSignalConnected(const QsciAbstractAPIs* self, const QMetaMethod* signal) {
+bool QsciAbstractAPIs_SuperIsSignalConnected(const QsciAbstractAPIs* self, const QMetaMethod* signal) {
     auto* vqsciabstractapis = const_cast<VirtualQsciAbstractAPIs*>(dynamic_cast<const VirtualQsciAbstractAPIs*>(self));
     if (vqsciabstractapis && vqsciabstractapis->isVirtualQsciAbstractAPIs) {
         vqsciabstractapis->setQsciAbstractAPIs_IsSignalConnected_IsBase(true);

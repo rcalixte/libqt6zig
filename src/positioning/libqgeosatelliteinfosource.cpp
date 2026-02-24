@@ -259,7 +259,7 @@ void QGeoSatelliteInfoSource_Connect_ErrorOccurred(QGeoSatelliteInfoSource* self
 }
 
 // Base class handler implementation
-QMetaObject* QGeoSatelliteInfoSource_QBaseMetaObject(const QGeoSatelliteInfoSource* self) {
+QMetaObject* QGeoSatelliteInfoSource_SuperMetaObject(const QGeoSatelliteInfoSource* self) {
     auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
     if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
         vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_MetaObject_IsBase(true);
@@ -278,7 +278,7 @@ void QGeoSatelliteInfoSource_OnMetaObject(const QGeoSatelliteInfoSource* self, i
 }
 
 // Base class handler implementation
-void* QGeoSatelliteInfoSource_QBaseMetacast(QGeoSatelliteInfoSource* self, const char* param1) {
+void* QGeoSatelliteInfoSource_SuperMetacast(QGeoSatelliteInfoSource* self, const char* param1) {
     auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
     if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
         vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_Metacast_IsBase(true);
@@ -297,7 +297,7 @@ void QGeoSatelliteInfoSource_OnMetacast(QGeoSatelliteInfoSource* self, intptr_t 
 }
 
 // Base class handler implementation
-int QGeoSatelliteInfoSource_QBaseMetacall(QGeoSatelliteInfoSource* self, int param1, int param2, void** param3) {
+int QGeoSatelliteInfoSource_SuperMetacall(QGeoSatelliteInfoSource* self, int param1, int param2, void** param3) {
     auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
     if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
         vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_Metacall_IsBase(true);
@@ -316,7 +316,7 @@ void QGeoSatelliteInfoSource_OnMetacall(QGeoSatelliteInfoSource* self, intptr_t 
 }
 
 // Base class handler implementation
-void QGeoSatelliteInfoSource_QBaseSetUpdateInterval(QGeoSatelliteInfoSource* self, int msec) {
+void QGeoSatelliteInfoSource_SuperSetUpdateInterval(QGeoSatelliteInfoSource* self, int msec) {
     auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
     if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
         vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_SetUpdateInterval_IsBase(true);
@@ -335,7 +335,7 @@ void QGeoSatelliteInfoSource_OnSetUpdateInterval(QGeoSatelliteInfoSource* self, 
 }
 
 // Base class handler implementation
-int QGeoSatelliteInfoSource_QBaseMinimumUpdateInterval(const QGeoSatelliteInfoSource* self) {
+int QGeoSatelliteInfoSource_SuperMinimumUpdateInterval(const QGeoSatelliteInfoSource* self) {
     auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
     if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
         vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_MinimumUpdateInterval_IsBase(true);
@@ -354,7 +354,7 @@ void QGeoSatelliteInfoSource_OnMinimumUpdateInterval(const QGeoSatelliteInfoSour
 }
 
 // Base class handler implementation
-int QGeoSatelliteInfoSource_QBaseError(const QGeoSatelliteInfoSource* self) {
+int QGeoSatelliteInfoSource_SuperError(const QGeoSatelliteInfoSource* self) {
     auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
     if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
         vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_Error_IsBase(true);
@@ -373,7 +373,7 @@ void QGeoSatelliteInfoSource_OnError(const QGeoSatelliteInfoSource* self, intptr
 }
 
 // Base class handler implementation
-bool QGeoSatelliteInfoSource_QBaseSetBackendProperty(QGeoSatelliteInfoSource* self, const libqt_string name, const QVariant* value) {
+bool QGeoSatelliteInfoSource_SuperSetBackendProperty(QGeoSatelliteInfoSource* self, const libqt_string name, const QVariant* value) {
     auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
@@ -393,7 +393,7 @@ void QGeoSatelliteInfoSource_OnSetBackendProperty(QGeoSatelliteInfoSource* self,
 }
 
 // Base class handler implementation
-QVariant* QGeoSatelliteInfoSource_QBaseBackendProperty(const QGeoSatelliteInfoSource* self, const libqt_string name) {
+QVariant* QGeoSatelliteInfoSource_SuperBackendProperty(const QGeoSatelliteInfoSource* self, const libqt_string name) {
     auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
@@ -413,7 +413,7 @@ void QGeoSatelliteInfoSource_OnBackendProperty(const QGeoSatelliteInfoSource* se
 }
 
 // Base class handler implementation
-void QGeoSatelliteInfoSource_QBaseStartUpdates(QGeoSatelliteInfoSource* self) {
+void QGeoSatelliteInfoSource_SuperStartUpdates(QGeoSatelliteInfoSource* self) {
     auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
     if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
         vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_StartUpdates_IsBase(true);
@@ -432,7 +432,7 @@ void QGeoSatelliteInfoSource_OnStartUpdates(QGeoSatelliteInfoSource* self, intpt
 }
 
 // Base class handler implementation
-void QGeoSatelliteInfoSource_QBaseStopUpdates(QGeoSatelliteInfoSource* self) {
+void QGeoSatelliteInfoSource_SuperStopUpdates(QGeoSatelliteInfoSource* self) {
     auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
     if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
         vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_StopUpdates_IsBase(true);
@@ -451,7 +451,7 @@ void QGeoSatelliteInfoSource_OnStopUpdates(QGeoSatelliteInfoSource* self, intptr
 }
 
 // Base class handler implementation
-void QGeoSatelliteInfoSource_QBaseRequestUpdate(QGeoSatelliteInfoSource* self, int timeout) {
+void QGeoSatelliteInfoSource_SuperRequestUpdate(QGeoSatelliteInfoSource* self, int timeout) {
     auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
     if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
         vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_RequestUpdate_IsBase(true);
@@ -480,7 +480,7 @@ bool QGeoSatelliteInfoSource_Event(QGeoSatelliteInfoSource* self, QEvent* event)
 }
 
 // Base class handler implementation
-bool QGeoSatelliteInfoSource_QBaseEvent(QGeoSatelliteInfoSource* self, QEvent* event) {
+bool QGeoSatelliteInfoSource_SuperEvent(QGeoSatelliteInfoSource* self, QEvent* event) {
     auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
     if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
         vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_Event_IsBase(true);
@@ -509,7 +509,7 @@ bool QGeoSatelliteInfoSource_EventFilter(QGeoSatelliteInfoSource* self, QObject*
 }
 
 // Base class handler implementation
-bool QGeoSatelliteInfoSource_QBaseEventFilter(QGeoSatelliteInfoSource* self, QObject* watched, QEvent* event) {
+bool QGeoSatelliteInfoSource_SuperEventFilter(QGeoSatelliteInfoSource* self, QObject* watched, QEvent* event) {
     auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
     if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
         vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_EventFilter_IsBase(true);
@@ -538,7 +538,7 @@ void QGeoSatelliteInfoSource_TimerEvent(QGeoSatelliteInfoSource* self, QTimerEve
 }
 
 // Base class handler implementation
-void QGeoSatelliteInfoSource_QBaseTimerEvent(QGeoSatelliteInfoSource* self, QTimerEvent* event) {
+void QGeoSatelliteInfoSource_SuperTimerEvent(QGeoSatelliteInfoSource* self, QTimerEvent* event) {
     auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
     if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
         vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_TimerEvent_IsBase(true);
@@ -567,7 +567,7 @@ void QGeoSatelliteInfoSource_ChildEvent(QGeoSatelliteInfoSource* self, QChildEve
 }
 
 // Base class handler implementation
-void QGeoSatelliteInfoSource_QBaseChildEvent(QGeoSatelliteInfoSource* self, QChildEvent* event) {
+void QGeoSatelliteInfoSource_SuperChildEvent(QGeoSatelliteInfoSource* self, QChildEvent* event) {
     auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
     if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
         vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_ChildEvent_IsBase(true);
@@ -596,7 +596,7 @@ void QGeoSatelliteInfoSource_CustomEvent(QGeoSatelliteInfoSource* self, QEvent* 
 }
 
 // Base class handler implementation
-void QGeoSatelliteInfoSource_QBaseCustomEvent(QGeoSatelliteInfoSource* self, QEvent* event) {
+void QGeoSatelliteInfoSource_SuperCustomEvent(QGeoSatelliteInfoSource* self, QEvent* event) {
     auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
     if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
         vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_CustomEvent_IsBase(true);
@@ -625,7 +625,7 @@ void QGeoSatelliteInfoSource_ConnectNotify(QGeoSatelliteInfoSource* self, const 
 }
 
 // Base class handler implementation
-void QGeoSatelliteInfoSource_QBaseConnectNotify(QGeoSatelliteInfoSource* self, const QMetaMethod* signal) {
+void QGeoSatelliteInfoSource_SuperConnectNotify(QGeoSatelliteInfoSource* self, const QMetaMethod* signal) {
     auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
     if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
         vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_ConnectNotify_IsBase(true);
@@ -654,7 +654,7 @@ void QGeoSatelliteInfoSource_DisconnectNotify(QGeoSatelliteInfoSource* self, con
 }
 
 // Base class handler implementation
-void QGeoSatelliteInfoSource_QBaseDisconnectNotify(QGeoSatelliteInfoSource* self, const QMetaMethod* signal) {
+void QGeoSatelliteInfoSource_SuperDisconnectNotify(QGeoSatelliteInfoSource* self, const QMetaMethod* signal) {
     auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
     if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
         vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_DisconnectNotify_IsBase(true);
@@ -683,7 +683,7 @@ QObject* QGeoSatelliteInfoSource_Sender(const QGeoSatelliteInfoSource* self) {
 }
 
 // Base class handler implementation
-QObject* QGeoSatelliteInfoSource_QBaseSender(const QGeoSatelliteInfoSource* self) {
+QObject* QGeoSatelliteInfoSource_SuperSender(const QGeoSatelliteInfoSource* self) {
     auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
     if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
         vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_Sender_IsBase(true);
@@ -712,7 +712,7 @@ int QGeoSatelliteInfoSource_SenderSignalIndex(const QGeoSatelliteInfoSource* sel
 }
 
 // Base class handler implementation
-int QGeoSatelliteInfoSource_QBaseSenderSignalIndex(const QGeoSatelliteInfoSource* self) {
+int QGeoSatelliteInfoSource_SuperSenderSignalIndex(const QGeoSatelliteInfoSource* self) {
     auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
     if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
         vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_SenderSignalIndex_IsBase(true);
@@ -741,7 +741,7 @@ int QGeoSatelliteInfoSource_Receivers(const QGeoSatelliteInfoSource* self, const
 }
 
 // Base class handler implementation
-int QGeoSatelliteInfoSource_QBaseReceivers(const QGeoSatelliteInfoSource* self, const char* signal) {
+int QGeoSatelliteInfoSource_SuperReceivers(const QGeoSatelliteInfoSource* self, const char* signal) {
     auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
     if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
         vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_Receivers_IsBase(true);
@@ -770,7 +770,7 @@ bool QGeoSatelliteInfoSource_IsSignalConnected(const QGeoSatelliteInfoSource* se
 }
 
 // Base class handler implementation
-bool QGeoSatelliteInfoSource_QBaseIsSignalConnected(const QGeoSatelliteInfoSource* self, const QMetaMethod* signal) {
+bool QGeoSatelliteInfoSource_SuperIsSignalConnected(const QGeoSatelliteInfoSource* self, const QMetaMethod* signal) {
     auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
     if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
         vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_IsSignalConnected_IsBase(true);

@@ -336,23 +336,23 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
 
     // Friend functions
     friend void QAbstractFormBuilder_AddMenuAction(QAbstractFormBuilder* self, QAction* action);
-    friend void QAbstractFormBuilder_QBaseAddMenuAction(QAbstractFormBuilder* self, QAction* action);
+    friend void QAbstractFormBuilder_SuperAddMenuAction(QAbstractFormBuilder* self, QAction* action);
     friend QWidget* QAbstractFormBuilder_CreateWidget(QAbstractFormBuilder* self, const libqt_string widgetName, QWidget* parentWidget, const libqt_string name);
-    friend QWidget* QAbstractFormBuilder_QBaseCreateWidget(QAbstractFormBuilder* self, const libqt_string widgetName, QWidget* parentWidget, const libqt_string name);
+    friend QWidget* QAbstractFormBuilder_SuperCreateWidget(QAbstractFormBuilder* self, const libqt_string widgetName, QWidget* parentWidget, const libqt_string name);
     friend QLayout* QAbstractFormBuilder_CreateLayout(QAbstractFormBuilder* self, const libqt_string layoutName, QObject* parent, const libqt_string name);
-    friend QLayout* QAbstractFormBuilder_QBaseCreateLayout(QAbstractFormBuilder* self, const libqt_string layoutName, QObject* parent, const libqt_string name);
+    friend QLayout* QAbstractFormBuilder_SuperCreateLayout(QAbstractFormBuilder* self, const libqt_string layoutName, QObject* parent, const libqt_string name);
     friend QAction* QAbstractFormBuilder_CreateAction(QAbstractFormBuilder* self, QObject* parent, const libqt_string name);
-    friend QAction* QAbstractFormBuilder_QBaseCreateAction(QAbstractFormBuilder* self, QObject* parent, const libqt_string name);
+    friend QAction* QAbstractFormBuilder_SuperCreateAction(QAbstractFormBuilder* self, QObject* parent, const libqt_string name);
     friend QActionGroup* QAbstractFormBuilder_CreateActionGroup(QAbstractFormBuilder* self, QObject* parent, const libqt_string name);
-    friend QActionGroup* QAbstractFormBuilder_QBaseCreateActionGroup(QAbstractFormBuilder* self, QObject* parent, const libqt_string name);
+    friend QActionGroup* QAbstractFormBuilder_SuperCreateActionGroup(QAbstractFormBuilder* self, QObject* parent, const libqt_string name);
     friend bool QAbstractFormBuilder_CheckProperty(const QAbstractFormBuilder* self, QObject* obj, const libqt_string prop);
-    friend bool QAbstractFormBuilder_QBaseCheckProperty(const QAbstractFormBuilder* self, QObject* obj, const libqt_string prop);
+    friend bool QAbstractFormBuilder_SuperCheckProperty(const QAbstractFormBuilder* self, QObject* obj, const libqt_string prop);
     friend bool QAbstractFormBuilder_ApplyPropertyInternally(QAbstractFormBuilder* self, QObject* o, const libqt_string propertyName, const QVariant* value);
-    friend bool QAbstractFormBuilder_QBaseApplyPropertyInternally(QAbstractFormBuilder* self, QObject* o, const libqt_string propertyName, const QVariant* value);
+    friend bool QAbstractFormBuilder_SuperApplyPropertyInternally(QAbstractFormBuilder* self, QObject* o, const libqt_string propertyName, const QVariant* value);
     friend void QAbstractFormBuilder_Reset(QAbstractFormBuilder* self);
-    friend void QAbstractFormBuilder_QBaseReset(QAbstractFormBuilder* self);
+    friend void QAbstractFormBuilder_SuperReset(QAbstractFormBuilder* self);
     friend QMetaEnum* QAbstractFormBuilder_ToolBarAreaMetaEnum(QAbstractFormBuilder* self);
-    friend QMetaEnum* QAbstractFormBuilder_QBaseToolBarAreaMetaEnum(QAbstractFormBuilder* self);
+    friend QMetaEnum* QAbstractFormBuilder_SuperToolBarAreaMetaEnum(QAbstractFormBuilder* self);
 };
 
 #endif

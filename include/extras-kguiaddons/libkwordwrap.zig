@@ -206,6 +206,10 @@ pub const kwordwrap = struct {
         qtc.KWordWrap_DrawText4(@ptrCast(self), @ptrCast(painter), @bitCast(x), @bitCast(y), @bitCast(flags));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kwordwrap.html#dtor.KWordWrap)
     ///
     /// Delete this object from C++ memory.
@@ -214,7 +218,7 @@ pub const kwordwrap = struct {
     ///
     /// ` self: QtC.KWordWrap `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KWordWrap_Delete(@ptrCast(self));
     }
 };

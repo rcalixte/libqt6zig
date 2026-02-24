@@ -63,6 +63,10 @@ pub const kterminallauncherjob = struct {
         qtc.KTerminalLauncherJob_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -71,8 +75,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` self: QtC.KTerminalLauncherJob `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KTerminalLauncherJob_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KTerminalLauncherJob_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -98,6 +102,10 @@ pub const kterminallauncherjob = struct {
         qtc.KTerminalLauncherJob_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -106,9 +114,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KTerminalLauncherJob_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KTerminalLauncherJob_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -137,6 +145,10 @@ pub const kterminallauncherjob = struct {
         qtc.KTerminalLauncherJob_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -149,8 +161,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KTerminalLauncherJob_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KTerminalLauncherJob_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -238,6 +250,10 @@ pub const kterminallauncherjob = struct {
         qtc.KTerminalLauncherJob_OnStart(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperStart` instead
+    ///
+    pub const QBaseStart = SuperStart;
+
     /// ### [Upstream resources](https://api.kde.org/kterminallauncherjob.html#start)
     ///
     /// Base class method implementation
@@ -246,8 +262,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` self: QtC.KTerminalLauncherJob `
     ///
-    pub fn QBaseStart(self: ?*anyopaque) void {
-        qtc.KTerminalLauncherJob_QBaseStart(@ptrCast(self));
+    pub fn SuperStart(self: ?*anyopaque) void {
+        qtc.KTerminalLauncherJob_SuperStart(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1476,6 +1492,10 @@ pub const kterminallauncherjob = struct {
         return qtc.KTerminalLauncherJob_DoKill(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDoKill` instead
+    ///
+    pub const QBaseDoKill = SuperDoKill;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#doKill)
@@ -1486,8 +1506,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` self: QtC.KTerminalLauncherJob `
     ///
-    pub fn QBaseDoKill(self: ?*anyopaque) bool {
-        return qtc.KTerminalLauncherJob_QBaseDoKill(@ptrCast(self));
+    pub fn SuperDoKill(self: ?*anyopaque) bool {
+        return qtc.KTerminalLauncherJob_SuperDoKill(@ptrCast(self));
     }
 
     /// Inherited from KJob
@@ -1520,6 +1540,10 @@ pub const kterminallauncherjob = struct {
         return qtc.KTerminalLauncherJob_DoSuspend(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDoSuspend` instead
+    ///
+    pub const QBaseDoSuspend = SuperDoSuspend;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#doSuspend)
@@ -1530,8 +1554,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` self: QtC.KTerminalLauncherJob `
     ///
-    pub fn QBaseDoSuspend(self: ?*anyopaque) bool {
-        return qtc.KTerminalLauncherJob_QBaseDoSuspend(@ptrCast(self));
+    pub fn SuperDoSuspend(self: ?*anyopaque) bool {
+        return qtc.KTerminalLauncherJob_SuperDoSuspend(@ptrCast(self));
     }
 
     /// Inherited from KJob
@@ -1564,6 +1588,10 @@ pub const kterminallauncherjob = struct {
         return qtc.KTerminalLauncherJob_DoResume(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDoResume` instead
+    ///
+    pub const QBaseDoResume = SuperDoResume;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#doResume)
@@ -1574,8 +1602,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` self: QtC.KTerminalLauncherJob `
     ///
-    pub fn QBaseDoResume(self: ?*anyopaque) bool {
-        return qtc.KTerminalLauncherJob_QBaseDoResume(@ptrCast(self));
+    pub fn SuperDoResume(self: ?*anyopaque) bool {
+        return qtc.KTerminalLauncherJob_SuperDoResume(@ptrCast(self));
     }
 
     /// Inherited from KJob
@@ -1614,6 +1642,10 @@ pub const kterminallauncherjob = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperErrorString` instead
+    ///
+    pub const QBaseErrorString = SuperErrorString;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#errorString)
@@ -1626,8 +1658,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KTerminalLauncherJob_QBaseErrorString(@ptrCast(self));
+    pub fn SuperErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KTerminalLauncherJob_SuperErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kterminallauncherjob.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1668,6 +1700,10 @@ pub const kterminallauncherjob = struct {
         return qtc.KTerminalLauncherJob_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1680,8 +1716,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KTerminalLauncherJob_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KTerminalLauncherJob_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1718,6 +1754,10 @@ pub const kterminallauncherjob = struct {
         return qtc.KTerminalLauncherJob_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1732,8 +1772,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KTerminalLauncherJob_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KTerminalLauncherJob_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1768,6 +1808,10 @@ pub const kterminallauncherjob = struct {
         qtc.KTerminalLauncherJob_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1780,8 +1824,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTerminalLauncherJob_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KTerminalLauncherJob_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1816,6 +1860,10 @@ pub const kterminallauncherjob = struct {
         qtc.KTerminalLauncherJob_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1828,8 +1876,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTerminalLauncherJob_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KTerminalLauncherJob_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1864,6 +1912,10 @@ pub const kterminallauncherjob = struct {
         qtc.KTerminalLauncherJob_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1876,8 +1928,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTerminalLauncherJob_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KTerminalLauncherJob_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1912,6 +1964,10 @@ pub const kterminallauncherjob = struct {
         qtc.KTerminalLauncherJob_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1924,8 +1980,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KTerminalLauncherJob_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KTerminalLauncherJob_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1960,6 +2016,10 @@ pub const kterminallauncherjob = struct {
         qtc.KTerminalLauncherJob_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1972,8 +2032,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KTerminalLauncherJob_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KTerminalLauncherJob_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2008,6 +2068,10 @@ pub const kterminallauncherjob = struct {
         qtc.KTerminalLauncherJob_SetCapabilities(@ptrCast(self), @bitCast(capabilities));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCapabilities` instead
+    ///
+    pub const QBaseSetCapabilities = SuperSetCapabilities;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setCapabilities)
@@ -2020,8 +2084,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` capabilities: flag of kjob_enums.Capability `
     ///
-    pub fn QBaseSetCapabilities(self: ?*anyopaque, capabilities: i32) void {
-        qtc.KTerminalLauncherJob_QBaseSetCapabilities(@ptrCast(self), @bitCast(capabilities));
+    pub fn SuperSetCapabilities(self: ?*anyopaque, capabilities: i32) void {
+        qtc.KTerminalLauncherJob_SuperSetCapabilities(@ptrCast(self), @bitCast(capabilities));
     }
 
     /// Inherited from KJob
@@ -2054,6 +2118,10 @@ pub const kterminallauncherjob = struct {
         return qtc.KTerminalLauncherJob_IsFinished(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsFinished` instead
+    ///
+    pub const QBaseIsFinished = SuperIsFinished;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#isFinished)
@@ -2064,8 +2132,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` self: QtC.KTerminalLauncherJob `
     ///
-    pub fn QBaseIsFinished(self: ?*anyopaque) bool {
-        return qtc.KTerminalLauncherJob_QBaseIsFinished(@ptrCast(self));
+    pub fn SuperIsFinished(self: ?*anyopaque) bool {
+        return qtc.KTerminalLauncherJob_SuperIsFinished(@ptrCast(self));
     }
 
     /// Inherited from KJob
@@ -2100,6 +2168,10 @@ pub const kterminallauncherjob = struct {
         qtc.KTerminalLauncherJob_SetError(@ptrCast(self), @bitCast(errorCode));
     }
 
+    /// ### DEPRECATED: Use `SuperSetError` instead
+    ///
+    pub const QBaseSetError = SuperSetError;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setError)
@@ -2112,8 +2184,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` errorCode: i32 `
     ///
-    pub fn QBaseSetError(self: ?*anyopaque, errorCode: i32) void {
-        qtc.KTerminalLauncherJob_QBaseSetError(@ptrCast(self), @bitCast(errorCode));
+    pub fn SuperSetError(self: ?*anyopaque, errorCode: i32) void {
+        qtc.KTerminalLauncherJob_SuperSetError(@ptrCast(self), @bitCast(errorCode));
     }
 
     /// Inherited from KJob
@@ -2152,6 +2224,10 @@ pub const kterminallauncherjob = struct {
         qtc.KTerminalLauncherJob_SetErrorText(@ptrCast(self), errorText_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSetErrorText` instead
+    ///
+    pub const QBaseSetErrorText = SuperSetErrorText;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setErrorText)
@@ -2164,12 +2240,12 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` errorText: []const u8 `
     ///
-    pub fn QBaseSetErrorText(self: ?*anyopaque, errorText: []const u8) void {
+    pub fn SuperSetErrorText(self: ?*anyopaque, errorText: []const u8) void {
         const errorText_str = qtc.libqt_string{
             .len = errorText.len,
             .data = errorText.ptr,
         };
-        qtc.KTerminalLauncherJob_QBaseSetErrorText(@ptrCast(self), errorText_str);
+        qtc.KTerminalLauncherJob_SuperSetErrorText(@ptrCast(self), errorText_str);
     }
 
     /// Inherited from KJob
@@ -2206,6 +2282,10 @@ pub const kterminallauncherjob = struct {
         qtc.KTerminalLauncherJob_SetProcessedAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
+    /// ### DEPRECATED: Use `SuperSetProcessedAmount` instead
+    ///
+    pub const QBaseSetProcessedAmount = SuperSetProcessedAmount;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
@@ -2220,8 +2300,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` amount: u64 `
     ///
-    pub fn QBaseSetProcessedAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
-        qtc.KTerminalLauncherJob_QBaseSetProcessedAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
+    pub fn SuperSetProcessedAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
+        qtc.KTerminalLauncherJob_SuperSetProcessedAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
     /// Inherited from KJob
@@ -2258,6 +2338,10 @@ pub const kterminallauncherjob = struct {
         qtc.KTerminalLauncherJob_SetTotalAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTotalAmount` instead
+    ///
+    pub const QBaseSetTotalAmount = SuperSetTotalAmount;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setTotalAmount)
@@ -2272,8 +2356,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` amount: u64 `
     ///
-    pub fn QBaseSetTotalAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
-        qtc.KTerminalLauncherJob_QBaseSetTotalAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
+    pub fn SuperSetTotalAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
+        qtc.KTerminalLauncherJob_SuperSetTotalAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
     /// Inherited from KJob
@@ -2308,6 +2392,10 @@ pub const kterminallauncherjob = struct {
         qtc.KTerminalLauncherJob_SetProgressUnit(@ptrCast(self), @bitCast(unit));
     }
 
+    /// ### DEPRECATED: Use `SuperSetProgressUnit` instead
+    ///
+    pub const QBaseSetProgressUnit = SuperSetProgressUnit;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setProgressUnit)
@@ -2320,8 +2408,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn QBaseSetProgressUnit(self: ?*anyopaque, unit: i32) void {
-        qtc.KTerminalLauncherJob_QBaseSetProgressUnit(@ptrCast(self), @bitCast(unit));
+    pub fn SuperSetProgressUnit(self: ?*anyopaque, unit: i32) void {
+        qtc.KTerminalLauncherJob_SuperSetProgressUnit(@ptrCast(self), @bitCast(unit));
     }
 
     /// Inherited from KJob
@@ -2356,6 +2444,10 @@ pub const kterminallauncherjob = struct {
         qtc.KTerminalLauncherJob_SetPercent(@ptrCast(self), @bitCast(percentage));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPercent` instead
+    ///
+    pub const QBaseSetPercent = SuperSetPercent;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setPercent)
@@ -2368,8 +2460,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` percentage: u64 `
     ///
-    pub fn QBaseSetPercent(self: ?*anyopaque, percentage: u64) void {
-        qtc.KTerminalLauncherJob_QBaseSetPercent(@ptrCast(self), @bitCast(percentage));
+    pub fn SuperSetPercent(self: ?*anyopaque, percentage: u64) void {
+        qtc.KTerminalLauncherJob_SuperSetPercent(@ptrCast(self), @bitCast(percentage));
     }
 
     /// Inherited from KJob
@@ -2402,6 +2494,10 @@ pub const kterminallauncherjob = struct {
         qtc.KTerminalLauncherJob_EmitResult(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEmitResult` instead
+    ///
+    pub const QBaseEmitResult = SuperEmitResult;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#emitResult)
@@ -2412,8 +2508,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` self: QtC.KTerminalLauncherJob `
     ///
-    pub fn QBaseEmitResult(self: ?*anyopaque) void {
-        qtc.KTerminalLauncherJob_QBaseEmitResult(@ptrCast(self));
+    pub fn SuperEmitResult(self: ?*anyopaque) void {
+        qtc.KTerminalLauncherJob_SuperEmitResult(@ptrCast(self));
     }
 
     /// Inherited from KJob
@@ -2450,6 +2546,10 @@ pub const kterminallauncherjob = struct {
         qtc.KTerminalLauncherJob_EmitPercent(@ptrCast(self), @bitCast(processedAmount), @bitCast(totalAmount));
     }
 
+    /// ### DEPRECATED: Use `SuperEmitPercent` instead
+    ///
+    pub const QBaseEmitPercent = SuperEmitPercent;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#emitPercent)
@@ -2464,8 +2564,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` totalAmount: u64 `
     ///
-    pub fn QBaseEmitPercent(self: ?*anyopaque, processedAmount: u64, totalAmount: u64) void {
-        qtc.KTerminalLauncherJob_QBaseEmitPercent(@ptrCast(self), @bitCast(processedAmount), @bitCast(totalAmount));
+    pub fn SuperEmitPercent(self: ?*anyopaque, processedAmount: u64, totalAmount: u64) void {
+        qtc.KTerminalLauncherJob_SuperEmitPercent(@ptrCast(self), @bitCast(processedAmount), @bitCast(totalAmount));
     }
 
     /// Inherited from KJob
@@ -2500,6 +2600,10 @@ pub const kterminallauncherjob = struct {
         qtc.KTerminalLauncherJob_EmitSpeed(@ptrCast(self), @bitCast(speed));
     }
 
+    /// ### DEPRECATED: Use `SuperEmitSpeed` instead
+    ///
+    pub const QBaseEmitSpeed = SuperEmitSpeed;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#emitSpeed)
@@ -2512,8 +2616,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` speed: u64 `
     ///
-    pub fn QBaseEmitSpeed(self: ?*anyopaque, speed: u64) void {
-        qtc.KTerminalLauncherJob_QBaseEmitSpeed(@ptrCast(self), @bitCast(speed));
+    pub fn SuperEmitSpeed(self: ?*anyopaque, speed: u64) void {
+        qtc.KTerminalLauncherJob_SuperEmitSpeed(@ptrCast(self), @bitCast(speed));
     }
 
     /// Inherited from KJob
@@ -2546,6 +2650,10 @@ pub const kterminallauncherjob = struct {
         qtc.KTerminalLauncherJob_StartElapsedTimer(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperStartElapsedTimer` instead
+    ///
+    pub const QBaseStartElapsedTimer = SuperStartElapsedTimer;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#startElapsedTimer)
@@ -2556,8 +2664,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` self: QtC.KTerminalLauncherJob `
     ///
-    pub fn QBaseStartElapsedTimer(self: ?*anyopaque) void {
-        qtc.KTerminalLauncherJob_QBaseStartElapsedTimer(@ptrCast(self));
+    pub fn SuperStartElapsedTimer(self: ?*anyopaque) void {
+        qtc.KTerminalLauncherJob_SuperStartElapsedTimer(@ptrCast(self));
     }
 
     /// Inherited from KJob
@@ -2590,6 +2698,10 @@ pub const kterminallauncherjob = struct {
         return qtc.KTerminalLauncherJob_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2600,8 +2712,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` self: QtC.KTerminalLauncherJob `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KTerminalLauncherJob_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KTerminalLauncherJob_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2634,6 +2746,10 @@ pub const kterminallauncherjob = struct {
         return qtc.KTerminalLauncherJob_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2644,8 +2760,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` self: QtC.KTerminalLauncherJob `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KTerminalLauncherJob_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KTerminalLauncherJob_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2681,6 +2797,10 @@ pub const kterminallauncherjob = struct {
         return qtc.KTerminalLauncherJob_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2693,9 +2813,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KTerminalLauncherJob_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KTerminalLauncherJob_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2730,6 +2850,10 @@ pub const kterminallauncherjob = struct {
         return qtc.KTerminalLauncherJob_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2742,8 +2866,8 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KTerminalLauncherJob_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KTerminalLauncherJob_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2889,6 +3013,9 @@ pub const kterminallauncherjob = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kterminallauncherjob.html#dtor.KTerminalLauncherJob)
     ///
@@ -2898,7 +3025,7 @@ pub const kterminallauncherjob = struct {
     ///
     /// ` self: QtC.KTerminalLauncherJob `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KTerminalLauncherJob_Delete(@ptrCast(self));
     }
 };

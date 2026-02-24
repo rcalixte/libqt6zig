@@ -46,6 +46,10 @@ pub const qnetworkcookiejar = struct {
         qtc.QNetworkCookieJar_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -54,8 +58,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` self: QtC.QNetworkCookieJar `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QNetworkCookieJar_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QNetworkCookieJar_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -81,6 +85,10 @@ pub const qnetworkcookiejar = struct {
         qtc.QNetworkCookieJar_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -89,9 +97,9 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QNetworkCookieJar_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QNetworkCookieJar_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -120,6 +128,10 @@ pub const qnetworkcookiejar = struct {
         qtc.QNetworkCookieJar_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -132,8 +144,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QNetworkCookieJar_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QNetworkCookieJar_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -192,6 +204,10 @@ pub const qnetworkcookiejar = struct {
         qtc.QNetworkCookieJar_OnCookiesForUrl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCookiesForUrl` instead
+    ///
+    pub const QBaseCookiesForUrl = SuperCookiesForUrl;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookiejar.html#cookiesForUrl)
     ///
     /// Base class method implementation
@@ -204,8 +220,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseCookiesForUrl(self: ?*anyopaque, url: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QNetworkCookie {
-        const _arr: qtc.libqt_list = qtc.QNetworkCookieJar_QBaseCookiesForUrl(@ptrCast(self), @ptrCast(url));
+    pub fn SuperCookiesForUrl(self: ?*anyopaque, url: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QNetworkCookie {
+        const _arr: qtc.libqt_list = qtc.QNetworkCookieJar_SuperCookiesForUrl(@ptrCast(self), @ptrCast(url));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QNetworkCookie, _arr.len) catch @panic("qnetworkcookiejar.CookiesForUrl: Memory allocation failed");
         const _data: [*]QtC.QNetworkCookie = @ptrCast(@alignCast(_arr.data));
@@ -245,6 +261,10 @@ pub const qnetworkcookiejar = struct {
         qtc.QNetworkCookieJar_OnSetCookiesFromUrl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCookiesFromUrl` instead
+    ///
+    pub const QBaseSetCookiesFromUrl = SuperSetCookiesFromUrl;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookiejar.html#setCookiesFromUrl)
     ///
     /// Base class method implementation
@@ -257,12 +277,12 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` url: QtC.QUrl `
     ///
-    pub fn QBaseSetCookiesFromUrl(self: ?*anyopaque, cookieList: []QtC.QNetworkCookie, url: ?*anyopaque) bool {
+    pub fn SuperSetCookiesFromUrl(self: ?*anyopaque, cookieList: []QtC.QNetworkCookie, url: ?*anyopaque) bool {
         const cookieList_list = qtc.libqt_list{
             .len = cookieList.len,
             .data = @ptrCast(cookieList.ptr),
         };
-        return qtc.QNetworkCookieJar_QBaseSetCookiesFromUrl(@ptrCast(self), cookieList_list, @ptrCast(url));
+        return qtc.QNetworkCookieJar_SuperSetCookiesFromUrl(@ptrCast(self), cookieList_list, @ptrCast(url));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookiejar.html#insertCookie)
@@ -291,6 +311,10 @@ pub const qnetworkcookiejar = struct {
         qtc.QNetworkCookieJar_OnInsertCookie(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInsertCookie` instead
+    ///
+    pub const QBaseInsertCookie = SuperInsertCookie;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookiejar.html#insertCookie)
     ///
     /// Base class method implementation
@@ -301,8 +325,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` cookie: QtC.QNetworkCookie `
     ///
-    pub fn QBaseInsertCookie(self: ?*anyopaque, cookie: ?*anyopaque) bool {
-        return qtc.QNetworkCookieJar_QBaseInsertCookie(@ptrCast(self), @ptrCast(cookie));
+    pub fn SuperInsertCookie(self: ?*anyopaque, cookie: ?*anyopaque) bool {
+        return qtc.QNetworkCookieJar_SuperInsertCookie(@ptrCast(self), @ptrCast(cookie));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookiejar.html#updateCookie)
@@ -331,6 +355,10 @@ pub const qnetworkcookiejar = struct {
         qtc.QNetworkCookieJar_OnUpdateCookie(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateCookie` instead
+    ///
+    pub const QBaseUpdateCookie = SuperUpdateCookie;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookiejar.html#updateCookie)
     ///
     /// Base class method implementation
@@ -341,8 +369,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` cookie: QtC.QNetworkCookie `
     ///
-    pub fn QBaseUpdateCookie(self: ?*anyopaque, cookie: ?*anyopaque) bool {
-        return qtc.QNetworkCookieJar_QBaseUpdateCookie(@ptrCast(self), @ptrCast(cookie));
+    pub fn SuperUpdateCookie(self: ?*anyopaque, cookie: ?*anyopaque) bool {
+        return qtc.QNetworkCookieJar_SuperUpdateCookie(@ptrCast(self), @ptrCast(cookie));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookiejar.html#deleteCookie)
@@ -371,6 +399,10 @@ pub const qnetworkcookiejar = struct {
         qtc.QNetworkCookieJar_OnDeleteCookie(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDeleteCookie` instead
+    ///
+    pub const QBaseDeleteCookie = SuperDeleteCookie;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookiejar.html#deleteCookie)
     ///
     /// Base class method implementation
@@ -381,8 +413,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` cookie: QtC.QNetworkCookie `
     ///
-    pub fn QBaseDeleteCookie(self: ?*anyopaque, cookie: ?*anyopaque) bool {
-        return qtc.QNetworkCookieJar_QBaseDeleteCookie(@ptrCast(self), @ptrCast(cookie));
+    pub fn SuperDeleteCookie(self: ?*anyopaque, cookie: ?*anyopaque) bool {
+        return qtc.QNetworkCookieJar_SuperDeleteCookie(@ptrCast(self), @ptrCast(cookie));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookiejar.html#allCookies)
@@ -422,6 +454,10 @@ pub const qnetworkcookiejar = struct {
         qtc.QNetworkCookieJar_OnAllCookies(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAllCookies` instead
+    ///
+    pub const QBaseAllCookies = SuperAllCookies;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookiejar.html#allCookies)
     ///
     /// Base class method implementation
@@ -432,8 +468,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseAllCookies(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QNetworkCookie {
-        const _arr: qtc.libqt_list = qtc.QNetworkCookieJar_QBaseAllCookies(@ptrCast(self));
+    pub fn SuperAllCookies(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QNetworkCookie {
+        const _arr: qtc.libqt_list = qtc.QNetworkCookieJar_SuperAllCookies(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QNetworkCookie, _arr.len) catch @panic("qnetworkcookiejar.AllCookies: Memory allocation failed");
         const _data: [*]QtC.QNetworkCookie = @ptrCast(@alignCast(_arr.data));
@@ -471,6 +507,10 @@ pub const qnetworkcookiejar = struct {
         qtc.QNetworkCookieJar_OnSetAllCookies(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetAllCookies` instead
+    ///
+    pub const QBaseSetAllCookies = SuperSetAllCookies;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookiejar.html#setAllCookies)
     ///
     /// Base class method implementation
@@ -481,12 +521,12 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` cookieList: []QtC.QNetworkCookie `
     ///
-    pub fn QBaseSetAllCookies(self: ?*anyopaque, cookieList: []QtC.QNetworkCookie) void {
+    pub fn SuperSetAllCookies(self: ?*anyopaque, cookieList: []QtC.QNetworkCookie) void {
         const cookieList_list = qtc.libqt_list{
             .len = cookieList.len,
             .data = @ptrCast(cookieList.ptr),
         };
-        qtc.QNetworkCookieJar_QBaseSetAllCookies(@ptrCast(self), cookieList_list);
+        qtc.QNetworkCookieJar_SuperSetAllCookies(@ptrCast(self), cookieList_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookiejar.html#validateCookie)
@@ -517,6 +557,10 @@ pub const qnetworkcookiejar = struct {
         qtc.QNetworkCookieJar_OnValidateCookie(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperValidateCookie` instead
+    ///
+    pub const QBaseValidateCookie = SuperValidateCookie;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookiejar.html#validateCookie)
     ///
     /// Base class method implementation
@@ -529,8 +573,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` url: QtC.QUrl `
     ///
-    pub fn QBaseValidateCookie(self: ?*anyopaque, cookie: ?*anyopaque, url: ?*anyopaque) bool {
-        return qtc.QNetworkCookieJar_QBaseValidateCookie(@ptrCast(self), @ptrCast(cookie), @ptrCast(url));
+    pub fn SuperValidateCookie(self: ?*anyopaque, cookie: ?*anyopaque, url: ?*anyopaque) bool {
+        return qtc.QNetworkCookieJar_SuperValidateCookie(@ptrCast(self), @ptrCast(cookie), @ptrCast(url));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1329,6 +1373,10 @@ pub const qnetworkcookiejar = struct {
         return qtc.QNetworkCookieJar_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1341,8 +1389,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QNetworkCookieJar_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QNetworkCookieJar_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1379,6 +1427,10 @@ pub const qnetworkcookiejar = struct {
         return qtc.QNetworkCookieJar_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1393,8 +1445,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QNetworkCookieJar_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QNetworkCookieJar_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1429,6 +1481,10 @@ pub const qnetworkcookiejar = struct {
         qtc.QNetworkCookieJar_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1441,8 +1497,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QNetworkCookieJar_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QNetworkCookieJar_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1477,6 +1533,10 @@ pub const qnetworkcookiejar = struct {
         qtc.QNetworkCookieJar_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1489,8 +1549,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QNetworkCookieJar_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QNetworkCookieJar_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1525,6 +1585,10 @@ pub const qnetworkcookiejar = struct {
         qtc.QNetworkCookieJar_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1537,8 +1601,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QNetworkCookieJar_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QNetworkCookieJar_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1573,6 +1637,10 @@ pub const qnetworkcookiejar = struct {
         qtc.QNetworkCookieJar_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1585,8 +1653,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QNetworkCookieJar_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QNetworkCookieJar_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1621,6 +1689,10 @@ pub const qnetworkcookiejar = struct {
         qtc.QNetworkCookieJar_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1633,8 +1705,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QNetworkCookieJar_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QNetworkCookieJar_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1667,6 +1739,10 @@ pub const qnetworkcookiejar = struct {
         return qtc.QNetworkCookieJar_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1677,8 +1753,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` self: QtC.QNetworkCookieJar `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QNetworkCookieJar_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QNetworkCookieJar_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1711,6 +1787,10 @@ pub const qnetworkcookiejar = struct {
         return qtc.QNetworkCookieJar_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1721,8 +1801,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` self: QtC.QNetworkCookieJar `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QNetworkCookieJar_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QNetworkCookieJar_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1758,6 +1838,10 @@ pub const qnetworkcookiejar = struct {
         return qtc.QNetworkCookieJar_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1770,9 +1854,9 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QNetworkCookieJar_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QNetworkCookieJar_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1807,6 +1891,10 @@ pub const qnetworkcookiejar = struct {
         return qtc.QNetworkCookieJar_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -1819,8 +1907,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QNetworkCookieJar_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QNetworkCookieJar_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1854,6 +1942,9 @@ pub const qnetworkcookiejar = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookiejar.html#dtor.QNetworkCookieJar)
     ///
@@ -1863,7 +1954,7 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` self: QtC.QNetworkCookieJar `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QNetworkCookieJar_Delete(@ptrCast(self));
     }
 };

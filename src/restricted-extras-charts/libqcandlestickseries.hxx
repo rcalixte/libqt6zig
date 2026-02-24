@@ -347,23 +347,23 @@ class VirtualQCandlestickSeries final : public QCandlestickSeries {
 
     // Friend functions
     friend void QCandlestickSeries_TimerEvent(QCandlestickSeries* self, QTimerEvent* event);
-    friend void QCandlestickSeries_QBaseTimerEvent(QCandlestickSeries* self, QTimerEvent* event);
+    friend void QCandlestickSeries_SuperTimerEvent(QCandlestickSeries* self, QTimerEvent* event);
     friend void QCandlestickSeries_ChildEvent(QCandlestickSeries* self, QChildEvent* event);
-    friend void QCandlestickSeries_QBaseChildEvent(QCandlestickSeries* self, QChildEvent* event);
+    friend void QCandlestickSeries_SuperChildEvent(QCandlestickSeries* self, QChildEvent* event);
     friend void QCandlestickSeries_CustomEvent(QCandlestickSeries* self, QEvent* event);
-    friend void QCandlestickSeries_QBaseCustomEvent(QCandlestickSeries* self, QEvent* event);
+    friend void QCandlestickSeries_SuperCustomEvent(QCandlestickSeries* self, QEvent* event);
     friend void QCandlestickSeries_ConnectNotify(QCandlestickSeries* self, const QMetaMethod* signal);
-    friend void QCandlestickSeries_QBaseConnectNotify(QCandlestickSeries* self, const QMetaMethod* signal);
+    friend void QCandlestickSeries_SuperConnectNotify(QCandlestickSeries* self, const QMetaMethod* signal);
     friend void QCandlestickSeries_DisconnectNotify(QCandlestickSeries* self, const QMetaMethod* signal);
-    friend void QCandlestickSeries_QBaseDisconnectNotify(QCandlestickSeries* self, const QMetaMethod* signal);
+    friend void QCandlestickSeries_SuperDisconnectNotify(QCandlestickSeries* self, const QMetaMethod* signal);
     friend QObject* QCandlestickSeries_Sender(const QCandlestickSeries* self);
-    friend QObject* QCandlestickSeries_QBaseSender(const QCandlestickSeries* self);
+    friend QObject* QCandlestickSeries_SuperSender(const QCandlestickSeries* self);
     friend int QCandlestickSeries_SenderSignalIndex(const QCandlestickSeries* self);
-    friend int QCandlestickSeries_QBaseSenderSignalIndex(const QCandlestickSeries* self);
+    friend int QCandlestickSeries_SuperSenderSignalIndex(const QCandlestickSeries* self);
     friend int QCandlestickSeries_Receivers(const QCandlestickSeries* self, const char* signal);
-    friend int QCandlestickSeries_QBaseReceivers(const QCandlestickSeries* self, const char* signal);
+    friend int QCandlestickSeries_SuperReceivers(const QCandlestickSeries* self, const char* signal);
     friend bool QCandlestickSeries_IsSignalConnected(const QCandlestickSeries* self, const QMetaMethod* signal);
-    friend bool QCandlestickSeries_QBaseIsSignalConnected(const QCandlestickSeries* self, const QMetaMethod* signal);
+    friend bool QCandlestickSeries_SuperIsSignalConnected(const QCandlestickSeries* self, const QMetaMethod* signal);
 };
 
 #endif

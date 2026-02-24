@@ -371,7 +371,7 @@ void QTextBrowser_SetSource2(QTextBrowser* self, const QUrl* name, int typeVal) 
 }
 
 // Base class handler implementation
-QMetaObject* QTextBrowser_QBaseMetaObject(const QTextBrowser* self) {
+QMetaObject* QTextBrowser_SuperMetaObject(const QTextBrowser* self) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_MetaObject_IsBase(true);
@@ -390,7 +390,7 @@ void QTextBrowser_OnMetaObject(const QTextBrowser* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QTextBrowser_QBaseMetacast(QTextBrowser* self, const char* param1) {
+void* QTextBrowser_SuperMetacast(QTextBrowser* self, const char* param1) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_Metacast_IsBase(true);
@@ -409,7 +409,7 @@ void QTextBrowser_OnMetacast(QTextBrowser* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTextBrowser_QBaseMetacall(QTextBrowser* self, int param1, int param2, void** param3) {
+int QTextBrowser_SuperMetacall(QTextBrowser* self, int param1, int param2, void** param3) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_Metacall_IsBase(true);
@@ -428,7 +428,7 @@ void QTextBrowser_OnMetacall(QTextBrowser* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QTextBrowser_QBaseLoadResource(QTextBrowser* self, int typeVal, const QUrl* name) {
+QVariant* QTextBrowser_SuperLoadResource(QTextBrowser* self, int typeVal, const QUrl* name) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_LoadResource_IsBase(true);
@@ -447,7 +447,7 @@ void QTextBrowser_OnLoadResource(QTextBrowser* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseBackward(QTextBrowser* self) {
+void QTextBrowser_SuperBackward(QTextBrowser* self) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_Backward_IsBase(true);
@@ -466,7 +466,7 @@ void QTextBrowser_OnBackward(QTextBrowser* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseForward(QTextBrowser* self) {
+void QTextBrowser_SuperForward(QTextBrowser* self) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_Forward_IsBase(true);
@@ -485,7 +485,7 @@ void QTextBrowser_OnForward(QTextBrowser* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseHome(QTextBrowser* self) {
+void QTextBrowser_SuperHome(QTextBrowser* self) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_Home_IsBase(true);
@@ -504,7 +504,7 @@ void QTextBrowser_OnHome(QTextBrowser* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseReload(QTextBrowser* self) {
+void QTextBrowser_SuperReload(QTextBrowser* self) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_Reload_IsBase(true);
@@ -523,7 +523,7 @@ void QTextBrowser_OnReload(QTextBrowser* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QTextBrowser_QBaseEvent(QTextBrowser* self, QEvent* e) {
+bool QTextBrowser_SuperEvent(QTextBrowser* self, QEvent* e) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_Event_IsBase(true);
@@ -542,7 +542,7 @@ void QTextBrowser_OnEvent(QTextBrowser* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseKeyPressEvent(QTextBrowser* self, QKeyEvent* ev) {
+void QTextBrowser_SuperKeyPressEvent(QTextBrowser* self, QKeyEvent* ev) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_KeyPressEvent_IsBase(true);
@@ -561,7 +561,7 @@ void QTextBrowser_OnKeyPressEvent(QTextBrowser* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseMouseMoveEvent(QTextBrowser* self, QMouseEvent* ev) {
+void QTextBrowser_SuperMouseMoveEvent(QTextBrowser* self, QMouseEvent* ev) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_MouseMoveEvent_IsBase(true);
@@ -580,7 +580,7 @@ void QTextBrowser_OnMouseMoveEvent(QTextBrowser* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseMousePressEvent(QTextBrowser* self, QMouseEvent* ev) {
+void QTextBrowser_SuperMousePressEvent(QTextBrowser* self, QMouseEvent* ev) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_MousePressEvent_IsBase(true);
@@ -599,7 +599,7 @@ void QTextBrowser_OnMousePressEvent(QTextBrowser* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseMouseReleaseEvent(QTextBrowser* self, QMouseEvent* ev) {
+void QTextBrowser_SuperMouseReleaseEvent(QTextBrowser* self, QMouseEvent* ev) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_MouseReleaseEvent_IsBase(true);
@@ -618,7 +618,7 @@ void QTextBrowser_OnMouseReleaseEvent(QTextBrowser* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseFocusOutEvent(QTextBrowser* self, QFocusEvent* ev) {
+void QTextBrowser_SuperFocusOutEvent(QTextBrowser* self, QFocusEvent* ev) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_FocusOutEvent_IsBase(true);
@@ -637,7 +637,7 @@ void QTextBrowser_OnFocusOutEvent(QTextBrowser* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QTextBrowser_QBaseFocusNextPrevChild(QTextBrowser* self, bool next) {
+bool QTextBrowser_SuperFocusNextPrevChild(QTextBrowser* self, bool next) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_FocusNextPrevChild_IsBase(true);
@@ -656,7 +656,7 @@ void QTextBrowser_OnFocusNextPrevChild(QTextBrowser* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBasePaintEvent(QTextBrowser* self, QPaintEvent* e) {
+void QTextBrowser_SuperPaintEvent(QTextBrowser* self, QPaintEvent* e) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_PaintEvent_IsBase(true);
@@ -675,7 +675,7 @@ void QTextBrowser_OnPaintEvent(QTextBrowser* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseDoSetSource(QTextBrowser* self, const QUrl* name, int typeVal) {
+void QTextBrowser_SuperDoSetSource(QTextBrowser* self, const QUrl* name, int typeVal) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_DoSetSource_IsBase(true);
@@ -704,7 +704,7 @@ QVariant* QTextBrowser_InputMethodQuery(const QTextBrowser* self, int property) 
 }
 
 // Base class handler implementation
-QVariant* QTextBrowser_QBaseInputMethodQuery(const QTextBrowser* self, int property) {
+QVariant* QTextBrowser_SuperInputMethodQuery(const QTextBrowser* self, int property) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_InputMethodQuery_IsBase(true);
@@ -733,7 +733,7 @@ void QTextBrowser_TimerEvent(QTextBrowser* self, QTimerEvent* e) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseTimerEvent(QTextBrowser* self, QTimerEvent* e) {
+void QTextBrowser_SuperTimerEvent(QTextBrowser* self, QTimerEvent* e) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_TimerEvent_IsBase(true);
@@ -762,7 +762,7 @@ void QTextBrowser_KeyReleaseEvent(QTextBrowser* self, QKeyEvent* e) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseKeyReleaseEvent(QTextBrowser* self, QKeyEvent* e) {
+void QTextBrowser_SuperKeyReleaseEvent(QTextBrowser* self, QKeyEvent* e) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_KeyReleaseEvent_IsBase(true);
@@ -791,7 +791,7 @@ void QTextBrowser_ResizeEvent(QTextBrowser* self, QResizeEvent* e) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseResizeEvent(QTextBrowser* self, QResizeEvent* e) {
+void QTextBrowser_SuperResizeEvent(QTextBrowser* self, QResizeEvent* e) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_ResizeEvent_IsBase(true);
@@ -820,7 +820,7 @@ void QTextBrowser_MouseDoubleClickEvent(QTextBrowser* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseMouseDoubleClickEvent(QTextBrowser* self, QMouseEvent* e) {
+void QTextBrowser_SuperMouseDoubleClickEvent(QTextBrowser* self, QMouseEvent* e) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_MouseDoubleClickEvent_IsBase(true);
@@ -849,7 +849,7 @@ void QTextBrowser_ContextMenuEvent(QTextBrowser* self, QContextMenuEvent* e) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseContextMenuEvent(QTextBrowser* self, QContextMenuEvent* e) {
+void QTextBrowser_SuperContextMenuEvent(QTextBrowser* self, QContextMenuEvent* e) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_ContextMenuEvent_IsBase(true);
@@ -878,7 +878,7 @@ void QTextBrowser_DragEnterEvent(QTextBrowser* self, QDragEnterEvent* e) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseDragEnterEvent(QTextBrowser* self, QDragEnterEvent* e) {
+void QTextBrowser_SuperDragEnterEvent(QTextBrowser* self, QDragEnterEvent* e) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_DragEnterEvent_IsBase(true);
@@ -907,7 +907,7 @@ void QTextBrowser_DragLeaveEvent(QTextBrowser* self, QDragLeaveEvent* e) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseDragLeaveEvent(QTextBrowser* self, QDragLeaveEvent* e) {
+void QTextBrowser_SuperDragLeaveEvent(QTextBrowser* self, QDragLeaveEvent* e) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_DragLeaveEvent_IsBase(true);
@@ -936,7 +936,7 @@ void QTextBrowser_DragMoveEvent(QTextBrowser* self, QDragMoveEvent* e) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseDragMoveEvent(QTextBrowser* self, QDragMoveEvent* e) {
+void QTextBrowser_SuperDragMoveEvent(QTextBrowser* self, QDragMoveEvent* e) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_DragMoveEvent_IsBase(true);
@@ -965,7 +965,7 @@ void QTextBrowser_DropEvent(QTextBrowser* self, QDropEvent* e) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseDropEvent(QTextBrowser* self, QDropEvent* e) {
+void QTextBrowser_SuperDropEvent(QTextBrowser* self, QDropEvent* e) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_DropEvent_IsBase(true);
@@ -994,7 +994,7 @@ void QTextBrowser_FocusInEvent(QTextBrowser* self, QFocusEvent* e) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseFocusInEvent(QTextBrowser* self, QFocusEvent* e) {
+void QTextBrowser_SuperFocusInEvent(QTextBrowser* self, QFocusEvent* e) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_FocusInEvent_IsBase(true);
@@ -1023,7 +1023,7 @@ void QTextBrowser_ShowEvent(QTextBrowser* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseShowEvent(QTextBrowser* self, QShowEvent* param1) {
+void QTextBrowser_SuperShowEvent(QTextBrowser* self, QShowEvent* param1) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_ShowEvent_IsBase(true);
@@ -1052,7 +1052,7 @@ void QTextBrowser_ChangeEvent(QTextBrowser* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseChangeEvent(QTextBrowser* self, QEvent* e) {
+void QTextBrowser_SuperChangeEvent(QTextBrowser* self, QEvent* e) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_ChangeEvent_IsBase(true);
@@ -1081,7 +1081,7 @@ void QTextBrowser_WheelEvent(QTextBrowser* self, QWheelEvent* e) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseWheelEvent(QTextBrowser* self, QWheelEvent* e) {
+void QTextBrowser_SuperWheelEvent(QTextBrowser* self, QWheelEvent* e) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_WheelEvent_IsBase(true);
@@ -1110,7 +1110,7 @@ QMimeData* QTextBrowser_CreateMimeDataFromSelection(const QTextBrowser* self) {
 }
 
 // Base class handler implementation
-QMimeData* QTextBrowser_QBaseCreateMimeDataFromSelection(const QTextBrowser* self) {
+QMimeData* QTextBrowser_SuperCreateMimeDataFromSelection(const QTextBrowser* self) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_CreateMimeDataFromSelection_IsBase(true);
@@ -1139,7 +1139,7 @@ bool QTextBrowser_CanInsertFromMimeData(const QTextBrowser* self, const QMimeDat
 }
 
 // Base class handler implementation
-bool QTextBrowser_QBaseCanInsertFromMimeData(const QTextBrowser* self, const QMimeData* source) {
+bool QTextBrowser_SuperCanInsertFromMimeData(const QTextBrowser* self, const QMimeData* source) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_CanInsertFromMimeData_IsBase(true);
@@ -1168,7 +1168,7 @@ void QTextBrowser_InsertFromMimeData(QTextBrowser* self, const QMimeData* source
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseInsertFromMimeData(QTextBrowser* self, const QMimeData* source) {
+void QTextBrowser_SuperInsertFromMimeData(QTextBrowser* self, const QMimeData* source) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_InsertFromMimeData_IsBase(true);
@@ -1197,7 +1197,7 @@ void QTextBrowser_InputMethodEvent(QTextBrowser* self, QInputMethodEvent* param1
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseInputMethodEvent(QTextBrowser* self, QInputMethodEvent* param1) {
+void QTextBrowser_SuperInputMethodEvent(QTextBrowser* self, QInputMethodEvent* param1) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_InputMethodEvent_IsBase(true);
@@ -1226,7 +1226,7 @@ void QTextBrowser_ScrollContentsBy(QTextBrowser* self, int dx, int dy) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseScrollContentsBy(QTextBrowser* self, int dx, int dy) {
+void QTextBrowser_SuperScrollContentsBy(QTextBrowser* self, int dx, int dy) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_ScrollContentsBy_IsBase(true);
@@ -1255,7 +1255,7 @@ void QTextBrowser_DoSetTextCursor(QTextBrowser* self, const QTextCursor* cursor)
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseDoSetTextCursor(QTextBrowser* self, const QTextCursor* cursor) {
+void QTextBrowser_SuperDoSetTextCursor(QTextBrowser* self, const QTextCursor* cursor) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_DoSetTextCursor_IsBase(true);
@@ -1284,7 +1284,7 @@ QSize* QTextBrowser_MinimumSizeHint(const QTextBrowser* self) {
 }
 
 // Base class handler implementation
-QSize* QTextBrowser_QBaseMinimumSizeHint(const QTextBrowser* self) {
+QSize* QTextBrowser_SuperMinimumSizeHint(const QTextBrowser* self) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_MinimumSizeHint_IsBase(true);
@@ -1313,7 +1313,7 @@ QSize* QTextBrowser_SizeHint(const QTextBrowser* self) {
 }
 
 // Base class handler implementation
-QSize* QTextBrowser_QBaseSizeHint(const QTextBrowser* self) {
+QSize* QTextBrowser_SuperSizeHint(const QTextBrowser* self) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_SizeHint_IsBase(true);
@@ -1342,7 +1342,7 @@ void QTextBrowser_SetupViewport(QTextBrowser* self, QWidget* viewport) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseSetupViewport(QTextBrowser* self, QWidget* viewport) {
+void QTextBrowser_SuperSetupViewport(QTextBrowser* self, QWidget* viewport) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_SetupViewport_IsBase(true);
@@ -1371,7 +1371,7 @@ bool QTextBrowser_EventFilter(QTextBrowser* self, QObject* param1, QEvent* param
 }
 
 // Base class handler implementation
-bool QTextBrowser_QBaseEventFilter(QTextBrowser* self, QObject* param1, QEvent* param2) {
+bool QTextBrowser_SuperEventFilter(QTextBrowser* self, QObject* param1, QEvent* param2) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_EventFilter_IsBase(true);
@@ -1400,7 +1400,7 @@ bool QTextBrowser_ViewportEvent(QTextBrowser* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-bool QTextBrowser_QBaseViewportEvent(QTextBrowser* self, QEvent* param1) {
+bool QTextBrowser_SuperViewportEvent(QTextBrowser* self, QEvent* param1) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_ViewportEvent_IsBase(true);
@@ -1428,7 +1428,7 @@ QSize* QTextBrowser_ViewportSizeHint(const QTextBrowser* self) {
 }
 
 // Base class handler implementation
-QSize* QTextBrowser_QBaseViewportSizeHint(const QTextBrowser* self) {
+QSize* QTextBrowser_SuperViewportSizeHint(const QTextBrowser* self) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_ViewportSizeHint_IsBase(true);
@@ -1456,7 +1456,7 @@ void QTextBrowser_InitStyleOption(const QTextBrowser* self, QStyleOptionFrame* o
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseInitStyleOption(const QTextBrowser* self, QStyleOptionFrame* option) {
+void QTextBrowser_SuperInitStyleOption(const QTextBrowser* self, QStyleOptionFrame* option) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_InitStyleOption_IsBase(true);
@@ -1485,7 +1485,7 @@ int QTextBrowser_DevType(const QTextBrowser* self) {
 }
 
 // Base class handler implementation
-int QTextBrowser_QBaseDevType(const QTextBrowser* self) {
+int QTextBrowser_SuperDevType(const QTextBrowser* self) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_DevType_IsBase(true);
@@ -1514,7 +1514,7 @@ void QTextBrowser_SetVisible(QTextBrowser* self, bool visible) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseSetVisible(QTextBrowser* self, bool visible) {
+void QTextBrowser_SuperSetVisible(QTextBrowser* self, bool visible) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_SetVisible_IsBase(true);
@@ -1543,7 +1543,7 @@ int QTextBrowser_HeightForWidth(const QTextBrowser* self, int param1) {
 }
 
 // Base class handler implementation
-int QTextBrowser_QBaseHeightForWidth(const QTextBrowser* self, int param1) {
+int QTextBrowser_SuperHeightForWidth(const QTextBrowser* self, int param1) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_HeightForWidth_IsBase(true);
@@ -1572,7 +1572,7 @@ bool QTextBrowser_HasHeightForWidth(const QTextBrowser* self) {
 }
 
 // Base class handler implementation
-bool QTextBrowser_QBaseHasHeightForWidth(const QTextBrowser* self) {
+bool QTextBrowser_SuperHasHeightForWidth(const QTextBrowser* self) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_HasHeightForWidth_IsBase(true);
@@ -1601,7 +1601,7 @@ QPaintEngine* QTextBrowser_PaintEngine(const QTextBrowser* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QTextBrowser_QBasePaintEngine(const QTextBrowser* self) {
+QPaintEngine* QTextBrowser_SuperPaintEngine(const QTextBrowser* self) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_PaintEngine_IsBase(true);
@@ -1630,7 +1630,7 @@ void QTextBrowser_EnterEvent(QTextBrowser* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseEnterEvent(QTextBrowser* self, QEnterEvent* event) {
+void QTextBrowser_SuperEnterEvent(QTextBrowser* self, QEnterEvent* event) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_EnterEvent_IsBase(true);
@@ -1659,7 +1659,7 @@ void QTextBrowser_LeaveEvent(QTextBrowser* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseLeaveEvent(QTextBrowser* self, QEvent* event) {
+void QTextBrowser_SuperLeaveEvent(QTextBrowser* self, QEvent* event) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_LeaveEvent_IsBase(true);
@@ -1688,7 +1688,7 @@ void QTextBrowser_MoveEvent(QTextBrowser* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseMoveEvent(QTextBrowser* self, QMoveEvent* event) {
+void QTextBrowser_SuperMoveEvent(QTextBrowser* self, QMoveEvent* event) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_MoveEvent_IsBase(true);
@@ -1717,7 +1717,7 @@ void QTextBrowser_CloseEvent(QTextBrowser* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseCloseEvent(QTextBrowser* self, QCloseEvent* event) {
+void QTextBrowser_SuperCloseEvent(QTextBrowser* self, QCloseEvent* event) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_CloseEvent_IsBase(true);
@@ -1746,7 +1746,7 @@ void QTextBrowser_TabletEvent(QTextBrowser* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseTabletEvent(QTextBrowser* self, QTabletEvent* event) {
+void QTextBrowser_SuperTabletEvent(QTextBrowser* self, QTabletEvent* event) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_TabletEvent_IsBase(true);
@@ -1775,7 +1775,7 @@ void QTextBrowser_ActionEvent(QTextBrowser* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseActionEvent(QTextBrowser* self, QActionEvent* event) {
+void QTextBrowser_SuperActionEvent(QTextBrowser* self, QActionEvent* event) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_ActionEvent_IsBase(true);
@@ -1804,7 +1804,7 @@ void QTextBrowser_HideEvent(QTextBrowser* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseHideEvent(QTextBrowser* self, QHideEvent* event) {
+void QTextBrowser_SuperHideEvent(QTextBrowser* self, QHideEvent* event) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_HideEvent_IsBase(true);
@@ -1834,7 +1834,7 @@ bool QTextBrowser_NativeEvent(QTextBrowser* self, const libqt_string eventType, 
 }
 
 // Base class handler implementation
-bool QTextBrowser_QBaseNativeEvent(QTextBrowser* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QTextBrowser_SuperNativeEvent(QTextBrowser* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
@@ -1864,7 +1864,7 @@ int QTextBrowser_Metric(const QTextBrowser* self, int param1) {
 }
 
 // Base class handler implementation
-int QTextBrowser_QBaseMetric(const QTextBrowser* self, int param1) {
+int QTextBrowser_SuperMetric(const QTextBrowser* self, int param1) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_Metric_IsBase(true);
@@ -1893,7 +1893,7 @@ void QTextBrowser_InitPainter(const QTextBrowser* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseInitPainter(const QTextBrowser* self, QPainter* painter) {
+void QTextBrowser_SuperInitPainter(const QTextBrowser* self, QPainter* painter) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_InitPainter_IsBase(true);
@@ -1922,7 +1922,7 @@ QPaintDevice* QTextBrowser_Redirected(const QTextBrowser* self, QPoint* offset) 
 }
 
 // Base class handler implementation
-QPaintDevice* QTextBrowser_QBaseRedirected(const QTextBrowser* self, QPoint* offset) {
+QPaintDevice* QTextBrowser_SuperRedirected(const QTextBrowser* self, QPoint* offset) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_Redirected_IsBase(true);
@@ -1951,7 +1951,7 @@ QPainter* QTextBrowser_SharedPainter(const QTextBrowser* self) {
 }
 
 // Base class handler implementation
-QPainter* QTextBrowser_QBaseSharedPainter(const QTextBrowser* self) {
+QPainter* QTextBrowser_SuperSharedPainter(const QTextBrowser* self) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_SharedPainter_IsBase(true);
@@ -1980,7 +1980,7 @@ void QTextBrowser_ChildEvent(QTextBrowser* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseChildEvent(QTextBrowser* self, QChildEvent* event) {
+void QTextBrowser_SuperChildEvent(QTextBrowser* self, QChildEvent* event) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_ChildEvent_IsBase(true);
@@ -2009,7 +2009,7 @@ void QTextBrowser_CustomEvent(QTextBrowser* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseCustomEvent(QTextBrowser* self, QEvent* event) {
+void QTextBrowser_SuperCustomEvent(QTextBrowser* self, QEvent* event) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_CustomEvent_IsBase(true);
@@ -2038,7 +2038,7 @@ void QTextBrowser_ConnectNotify(QTextBrowser* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseConnectNotify(QTextBrowser* self, const QMetaMethod* signal) {
+void QTextBrowser_SuperConnectNotify(QTextBrowser* self, const QMetaMethod* signal) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_ConnectNotify_IsBase(true);
@@ -2067,7 +2067,7 @@ void QTextBrowser_DisconnectNotify(QTextBrowser* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseDisconnectNotify(QTextBrowser* self, const QMetaMethod* signal) {
+void QTextBrowser_SuperDisconnectNotify(QTextBrowser* self, const QMetaMethod* signal) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_DisconnectNotify_IsBase(true);
@@ -2096,7 +2096,7 @@ void QTextBrowser_ZoomInF(QTextBrowser* self, float range) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseZoomInF(QTextBrowser* self, float range) {
+void QTextBrowser_SuperZoomInF(QTextBrowser* self, float range) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_ZoomInF_IsBase(true);
@@ -2125,7 +2125,7 @@ void QTextBrowser_SetViewportMargins(QTextBrowser* self, int left, int top, int 
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseSetViewportMargins(QTextBrowser* self, int left, int top, int right, int bottom) {
+void QTextBrowser_SuperSetViewportMargins(QTextBrowser* self, int left, int top, int right, int bottom) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_SetViewportMargins_IsBase(true);
@@ -2153,7 +2153,7 @@ QMargins* QTextBrowser_ViewportMargins(const QTextBrowser* self) {
 }
 
 // Base class handler implementation
-QMargins* QTextBrowser_QBaseViewportMargins(const QTextBrowser* self) {
+QMargins* QTextBrowser_SuperViewportMargins(const QTextBrowser* self) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_ViewportMargins_IsBase(true);
@@ -2181,7 +2181,7 @@ void QTextBrowser_DrawFrame(QTextBrowser* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseDrawFrame(QTextBrowser* self, QPainter* param1) {
+void QTextBrowser_SuperDrawFrame(QTextBrowser* self, QPainter* param1) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_DrawFrame_IsBase(true);
@@ -2210,7 +2210,7 @@ void QTextBrowser_UpdateMicroFocus(QTextBrowser* self) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseUpdateMicroFocus(QTextBrowser* self) {
+void QTextBrowser_SuperUpdateMicroFocus(QTextBrowser* self) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_UpdateMicroFocus_IsBase(true);
@@ -2239,7 +2239,7 @@ void QTextBrowser_Create(QTextBrowser* self) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseCreate(QTextBrowser* self) {
+void QTextBrowser_SuperCreate(QTextBrowser* self) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_Create_IsBase(true);
@@ -2268,7 +2268,7 @@ void QTextBrowser_Destroy(QTextBrowser* self) {
 }
 
 // Base class handler implementation
-void QTextBrowser_QBaseDestroy(QTextBrowser* self) {
+void QTextBrowser_SuperDestroy(QTextBrowser* self) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_Destroy_IsBase(true);
@@ -2297,7 +2297,7 @@ bool QTextBrowser_FocusNextChild(QTextBrowser* self) {
 }
 
 // Base class handler implementation
-bool QTextBrowser_QBaseFocusNextChild(QTextBrowser* self) {
+bool QTextBrowser_SuperFocusNextChild(QTextBrowser* self) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_FocusNextChild_IsBase(true);
@@ -2326,7 +2326,7 @@ bool QTextBrowser_FocusPreviousChild(QTextBrowser* self) {
 }
 
 // Base class handler implementation
-bool QTextBrowser_QBaseFocusPreviousChild(QTextBrowser* self) {
+bool QTextBrowser_SuperFocusPreviousChild(QTextBrowser* self) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_FocusPreviousChild_IsBase(true);
@@ -2355,7 +2355,7 @@ QObject* QTextBrowser_Sender(const QTextBrowser* self) {
 }
 
 // Base class handler implementation
-QObject* QTextBrowser_QBaseSender(const QTextBrowser* self) {
+QObject* QTextBrowser_SuperSender(const QTextBrowser* self) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_Sender_IsBase(true);
@@ -2384,7 +2384,7 @@ int QTextBrowser_SenderSignalIndex(const QTextBrowser* self) {
 }
 
 // Base class handler implementation
-int QTextBrowser_QBaseSenderSignalIndex(const QTextBrowser* self) {
+int QTextBrowser_SuperSenderSignalIndex(const QTextBrowser* self) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_SenderSignalIndex_IsBase(true);
@@ -2413,7 +2413,7 @@ int QTextBrowser_Receivers(const QTextBrowser* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QTextBrowser_QBaseReceivers(const QTextBrowser* self, const char* signal) {
+int QTextBrowser_SuperReceivers(const QTextBrowser* self, const char* signal) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_Receivers_IsBase(true);
@@ -2442,7 +2442,7 @@ bool QTextBrowser_IsSignalConnected(const QTextBrowser* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QTextBrowser_QBaseIsSignalConnected(const QTextBrowser* self, const QMetaMethod* signal) {
+bool QTextBrowser_SuperIsSignalConnected(const QTextBrowser* self, const QMetaMethod* signal) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_IsSignalConnected_IsBase(true);
@@ -2471,7 +2471,7 @@ double QTextBrowser_GetDecodedMetricF(const QTextBrowser* self, int metricA, int
 }
 
 // Base class handler implementation
-double QTextBrowser_QBaseGetDecodedMetricF(const QTextBrowser* self, int metricA, int metricB) {
+double QTextBrowser_SuperGetDecodedMetricF(const QTextBrowser* self, int metricA, int metricB) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
     if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
         vqtextbrowser->setQTextBrowser_GetDecodedMetricF_IsBase(true);

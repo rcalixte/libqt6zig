@@ -354,23 +354,23 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
 
     // Friend functions
     friend void QAccessibleBridgePlugin_TimerEvent(QAccessibleBridgePlugin* self, QTimerEvent* event);
-    friend void QAccessibleBridgePlugin_QBaseTimerEvent(QAccessibleBridgePlugin* self, QTimerEvent* event);
+    friend void QAccessibleBridgePlugin_SuperTimerEvent(QAccessibleBridgePlugin* self, QTimerEvent* event);
     friend void QAccessibleBridgePlugin_ChildEvent(QAccessibleBridgePlugin* self, QChildEvent* event);
-    friend void QAccessibleBridgePlugin_QBaseChildEvent(QAccessibleBridgePlugin* self, QChildEvent* event);
+    friend void QAccessibleBridgePlugin_SuperChildEvent(QAccessibleBridgePlugin* self, QChildEvent* event);
     friend void QAccessibleBridgePlugin_CustomEvent(QAccessibleBridgePlugin* self, QEvent* event);
-    friend void QAccessibleBridgePlugin_QBaseCustomEvent(QAccessibleBridgePlugin* self, QEvent* event);
+    friend void QAccessibleBridgePlugin_SuperCustomEvent(QAccessibleBridgePlugin* self, QEvent* event);
     friend void QAccessibleBridgePlugin_ConnectNotify(QAccessibleBridgePlugin* self, const QMetaMethod* signal);
-    friend void QAccessibleBridgePlugin_QBaseConnectNotify(QAccessibleBridgePlugin* self, const QMetaMethod* signal);
+    friend void QAccessibleBridgePlugin_SuperConnectNotify(QAccessibleBridgePlugin* self, const QMetaMethod* signal);
     friend void QAccessibleBridgePlugin_DisconnectNotify(QAccessibleBridgePlugin* self, const QMetaMethod* signal);
-    friend void QAccessibleBridgePlugin_QBaseDisconnectNotify(QAccessibleBridgePlugin* self, const QMetaMethod* signal);
+    friend void QAccessibleBridgePlugin_SuperDisconnectNotify(QAccessibleBridgePlugin* self, const QMetaMethod* signal);
     friend QObject* QAccessibleBridgePlugin_Sender(const QAccessibleBridgePlugin* self);
-    friend QObject* QAccessibleBridgePlugin_QBaseSender(const QAccessibleBridgePlugin* self);
+    friend QObject* QAccessibleBridgePlugin_SuperSender(const QAccessibleBridgePlugin* self);
     friend int QAccessibleBridgePlugin_SenderSignalIndex(const QAccessibleBridgePlugin* self);
-    friend int QAccessibleBridgePlugin_QBaseSenderSignalIndex(const QAccessibleBridgePlugin* self);
+    friend int QAccessibleBridgePlugin_SuperSenderSignalIndex(const QAccessibleBridgePlugin* self);
     friend int QAccessibleBridgePlugin_Receivers(const QAccessibleBridgePlugin* self, const char* signal);
-    friend int QAccessibleBridgePlugin_QBaseReceivers(const QAccessibleBridgePlugin* self, const char* signal);
+    friend int QAccessibleBridgePlugin_SuperReceivers(const QAccessibleBridgePlugin* self, const char* signal);
     friend bool QAccessibleBridgePlugin_IsSignalConnected(const QAccessibleBridgePlugin* self, const QMetaMethod* signal);
-    friend bool QAccessibleBridgePlugin_QBaseIsSignalConnected(const QAccessibleBridgePlugin* self, const QMetaMethod* signal);
+    friend bool QAccessibleBridgePlugin_SuperIsSignalConnected(const QAccessibleBridgePlugin* self, const QMetaMethod* signal);
 };
 
 #endif

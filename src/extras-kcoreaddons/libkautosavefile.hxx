@@ -818,35 +818,35 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
 
     // Friend functions
     friend long long KAutoSaveFile_ReadData(KAutoSaveFile* self, char* data, long long maxlen);
-    friend long long KAutoSaveFile_QBaseReadData(KAutoSaveFile* self, char* data, long long maxlen);
+    friend long long KAutoSaveFile_SuperReadData(KAutoSaveFile* self, char* data, long long maxlen);
     friend long long KAutoSaveFile_WriteData(KAutoSaveFile* self, const char* data, long long lenVal);
-    friend long long KAutoSaveFile_QBaseWriteData(KAutoSaveFile* self, const char* data, long long lenVal);
+    friend long long KAutoSaveFile_SuperWriteData(KAutoSaveFile* self, const char* data, long long lenVal);
     friend long long KAutoSaveFile_ReadLineData(KAutoSaveFile* self, char* data, long long maxlen);
-    friend long long KAutoSaveFile_QBaseReadLineData(KAutoSaveFile* self, char* data, long long maxlen);
+    friend long long KAutoSaveFile_SuperReadLineData(KAutoSaveFile* self, char* data, long long maxlen);
     friend long long KAutoSaveFile_SkipData(KAutoSaveFile* self, long long maxSize);
-    friend long long KAutoSaveFile_QBaseSkipData(KAutoSaveFile* self, long long maxSize);
+    friend long long KAutoSaveFile_SuperSkipData(KAutoSaveFile* self, long long maxSize);
     friend void KAutoSaveFile_TimerEvent(KAutoSaveFile* self, QTimerEvent* event);
-    friend void KAutoSaveFile_QBaseTimerEvent(KAutoSaveFile* self, QTimerEvent* event);
+    friend void KAutoSaveFile_SuperTimerEvent(KAutoSaveFile* self, QTimerEvent* event);
     friend void KAutoSaveFile_ChildEvent(KAutoSaveFile* self, QChildEvent* event);
-    friend void KAutoSaveFile_QBaseChildEvent(KAutoSaveFile* self, QChildEvent* event);
+    friend void KAutoSaveFile_SuperChildEvent(KAutoSaveFile* self, QChildEvent* event);
     friend void KAutoSaveFile_CustomEvent(KAutoSaveFile* self, QEvent* event);
-    friend void KAutoSaveFile_QBaseCustomEvent(KAutoSaveFile* self, QEvent* event);
+    friend void KAutoSaveFile_SuperCustomEvent(KAutoSaveFile* self, QEvent* event);
     friend void KAutoSaveFile_ConnectNotify(KAutoSaveFile* self, const QMetaMethod* signal);
-    friend void KAutoSaveFile_QBaseConnectNotify(KAutoSaveFile* self, const QMetaMethod* signal);
+    friend void KAutoSaveFile_SuperConnectNotify(KAutoSaveFile* self, const QMetaMethod* signal);
     friend void KAutoSaveFile_DisconnectNotify(KAutoSaveFile* self, const QMetaMethod* signal);
-    friend void KAutoSaveFile_QBaseDisconnectNotify(KAutoSaveFile* self, const QMetaMethod* signal);
+    friend void KAutoSaveFile_SuperDisconnectNotify(KAutoSaveFile* self, const QMetaMethod* signal);
     friend void KAutoSaveFile_SetOpenMode(KAutoSaveFile* self, int openMode);
-    friend void KAutoSaveFile_QBaseSetOpenMode(KAutoSaveFile* self, int openMode);
+    friend void KAutoSaveFile_SuperSetOpenMode(KAutoSaveFile* self, int openMode);
     friend void KAutoSaveFile_SetErrorString(KAutoSaveFile* self, const libqt_string errorString);
-    friend void KAutoSaveFile_QBaseSetErrorString(KAutoSaveFile* self, const libqt_string errorString);
+    friend void KAutoSaveFile_SuperSetErrorString(KAutoSaveFile* self, const libqt_string errorString);
     friend QObject* KAutoSaveFile_Sender(const KAutoSaveFile* self);
-    friend QObject* KAutoSaveFile_QBaseSender(const KAutoSaveFile* self);
+    friend QObject* KAutoSaveFile_SuperSender(const KAutoSaveFile* self);
     friend int KAutoSaveFile_SenderSignalIndex(const KAutoSaveFile* self);
-    friend int KAutoSaveFile_QBaseSenderSignalIndex(const KAutoSaveFile* self);
+    friend int KAutoSaveFile_SuperSenderSignalIndex(const KAutoSaveFile* self);
     friend int KAutoSaveFile_Receivers(const KAutoSaveFile* self, const char* signal);
-    friend int KAutoSaveFile_QBaseReceivers(const KAutoSaveFile* self, const char* signal);
+    friend int KAutoSaveFile_SuperReceivers(const KAutoSaveFile* self, const char* signal);
     friend bool KAutoSaveFile_IsSignalConnected(const KAutoSaveFile* self, const QMetaMethod* signal);
-    friend bool KAutoSaveFile_QBaseIsSignalConnected(const KAutoSaveFile* self, const QMetaMethod* signal);
+    friend bool KAutoSaveFile_SuperIsSignalConnected(const KAutoSaveFile* self, const QMetaMethod* signal);
 };
 
 #endif

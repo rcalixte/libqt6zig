@@ -373,7 +373,7 @@ void QPixmap_Scroll4(QPixmap* self, int dx, int dy, const QRect* rect, QRegion* 
 }
 
 // Base class handler implementation
-int QPixmap_QBaseDevType(const QPixmap* self) {
+int QPixmap_SuperDevType(const QPixmap* self) {
     auto* vqpixmap = const_cast<VirtualQPixmap*>(dynamic_cast<const VirtualQPixmap*>(self));
     if (vqpixmap && vqpixmap->isVirtualQPixmap) {
         vqpixmap->setQPixmap_DevType_IsBase(true);
@@ -392,7 +392,7 @@ void QPixmap_OnDevType(const QPixmap* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPaintEngine* QPixmap_QBasePaintEngine(const QPixmap* self) {
+QPaintEngine* QPixmap_SuperPaintEngine(const QPixmap* self) {
     auto* vqpixmap = const_cast<VirtualQPixmap*>(dynamic_cast<const VirtualQPixmap*>(self));
     if (vqpixmap && vqpixmap->isVirtualQPixmap) {
         vqpixmap->setQPixmap_PaintEngine_IsBase(true);
@@ -411,7 +411,7 @@ void QPixmap_OnPaintEngine(const QPixmap* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPixmap_QBaseMetric(const QPixmap* self, int param1) {
+int QPixmap_SuperMetric(const QPixmap* self, int param1) {
     auto* vqpixmap = const_cast<VirtualQPixmap*>(dynamic_cast<const VirtualQPixmap*>(self));
     if (vqpixmap && vqpixmap->isVirtualQPixmap) {
         vqpixmap->setQPixmap_Metric_IsBase(true);
@@ -440,7 +440,7 @@ void QPixmap_InitPainter(const QPixmap* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QPixmap_QBaseInitPainter(const QPixmap* self, QPainter* painter) {
+void QPixmap_SuperInitPainter(const QPixmap* self, QPainter* painter) {
     auto* vqpixmap = const_cast<VirtualQPixmap*>(dynamic_cast<const VirtualQPixmap*>(self));
     if (vqpixmap && vqpixmap->isVirtualQPixmap) {
         vqpixmap->setQPixmap_InitPainter_IsBase(true);
@@ -469,7 +469,7 @@ QPaintDevice* QPixmap_Redirected(const QPixmap* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QPixmap_QBaseRedirected(const QPixmap* self, QPoint* offset) {
+QPaintDevice* QPixmap_SuperRedirected(const QPixmap* self, QPoint* offset) {
     auto* vqpixmap = const_cast<VirtualQPixmap*>(dynamic_cast<const VirtualQPixmap*>(self));
     if (vqpixmap && vqpixmap->isVirtualQPixmap) {
         vqpixmap->setQPixmap_Redirected_IsBase(true);
@@ -498,7 +498,7 @@ QPainter* QPixmap_SharedPainter(const QPixmap* self) {
 }
 
 // Base class handler implementation
-QPainter* QPixmap_QBaseSharedPainter(const QPixmap* self) {
+QPainter* QPixmap_SuperSharedPainter(const QPixmap* self) {
     auto* vqpixmap = const_cast<VirtualQPixmap*>(dynamic_cast<const VirtualQPixmap*>(self));
     if (vqpixmap && vqpixmap->isVirtualQPixmap) {
         vqpixmap->setQPixmap_SharedPainter_IsBase(true);
@@ -527,7 +527,7 @@ double QPixmap_GetDecodedMetricF(const QPixmap* self, int metricA, int metricB) 
 }
 
 // Base class handler implementation
-double QPixmap_QBaseGetDecodedMetricF(const QPixmap* self, int metricA, int metricB) {
+double QPixmap_SuperGetDecodedMetricF(const QPixmap* self, int metricA, int metricB) {
     auto* vqpixmap = const_cast<VirtualQPixmap*>(dynamic_cast<const VirtualQPixmap*>(self));
     if (vqpixmap && vqpixmap->isVirtualQPixmap) {
         vqpixmap->setQPixmap_GetDecodedMetricF_IsBase(true);

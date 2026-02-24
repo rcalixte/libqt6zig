@@ -155,7 +155,7 @@ void KPageWidget_Connect_PageRemoved(KPageWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* KPageWidget_QBaseMetaObject(const KPageWidget* self) {
+QMetaObject* KPageWidget_SuperMetaObject(const KPageWidget* self) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_MetaObject_IsBase(true);
@@ -174,7 +174,7 @@ void KPageWidget_OnMetaObject(const KPageWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KPageWidget_QBaseMetacast(KPageWidget* self, const char* param1) {
+void* KPageWidget_SuperMetacast(KPageWidget* self, const char* param1) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_Metacast_IsBase(true);
@@ -193,7 +193,7 @@ void KPageWidget_OnMetacast(KPageWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KPageWidget_QBaseMetacall(KPageWidget* self, int param1, int param2, void** param3) {
+int KPageWidget_SuperMetacall(KPageWidget* self, int param1, int param2, void** param3) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_Metacall_IsBase(true);
@@ -222,7 +222,7 @@ QAbstractItemView* KPageWidget_CreateView(KPageWidget* self) {
 }
 
 // Base class handler implementation
-QAbstractItemView* KPageWidget_QBaseCreateView(KPageWidget* self) {
+QAbstractItemView* KPageWidget_SuperCreateView(KPageWidget* self) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_CreateView_IsBase(true);
@@ -251,7 +251,7 @@ bool KPageWidget_ShowPageHeader(const KPageWidget* self) {
 }
 
 // Base class handler implementation
-bool KPageWidget_QBaseShowPageHeader(const KPageWidget* self) {
+bool KPageWidget_SuperShowPageHeader(const KPageWidget* self) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_ShowPageHeader_IsBase(true);
@@ -280,7 +280,7 @@ int KPageWidget_ViewPosition(const KPageWidget* self) {
 }
 
 // Base class handler implementation
-int KPageWidget_QBaseViewPosition(const KPageWidget* self) {
+int KPageWidget_SuperViewPosition(const KPageWidget* self) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_ViewPosition_IsBase(true);
@@ -309,7 +309,7 @@ int KPageWidget_DevType(const KPageWidget* self) {
 }
 
 // Base class handler implementation
-int KPageWidget_QBaseDevType(const KPageWidget* self) {
+int KPageWidget_SuperDevType(const KPageWidget* self) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_DevType_IsBase(true);
@@ -338,7 +338,7 @@ void KPageWidget_SetVisible(KPageWidget* self, bool visible) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseSetVisible(KPageWidget* self, bool visible) {
+void KPageWidget_SuperSetVisible(KPageWidget* self, bool visible) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_SetVisible_IsBase(true);
@@ -367,7 +367,7 @@ QSize* KPageWidget_SizeHint(const KPageWidget* self) {
 }
 
 // Base class handler implementation
-QSize* KPageWidget_QBaseSizeHint(const KPageWidget* self) {
+QSize* KPageWidget_SuperSizeHint(const KPageWidget* self) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_SizeHint_IsBase(true);
@@ -396,7 +396,7 @@ QSize* KPageWidget_MinimumSizeHint(const KPageWidget* self) {
 }
 
 // Base class handler implementation
-QSize* KPageWidget_QBaseMinimumSizeHint(const KPageWidget* self) {
+QSize* KPageWidget_SuperMinimumSizeHint(const KPageWidget* self) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_MinimumSizeHint_IsBase(true);
@@ -425,7 +425,7 @@ int KPageWidget_HeightForWidth(const KPageWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int KPageWidget_QBaseHeightForWidth(const KPageWidget* self, int param1) {
+int KPageWidget_SuperHeightForWidth(const KPageWidget* self, int param1) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_HeightForWidth_IsBase(true);
@@ -454,7 +454,7 @@ bool KPageWidget_HasHeightForWidth(const KPageWidget* self) {
 }
 
 // Base class handler implementation
-bool KPageWidget_QBaseHasHeightForWidth(const KPageWidget* self) {
+bool KPageWidget_SuperHasHeightForWidth(const KPageWidget* self) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_HasHeightForWidth_IsBase(true);
@@ -483,7 +483,7 @@ QPaintEngine* KPageWidget_PaintEngine(const KPageWidget* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KPageWidget_QBasePaintEngine(const KPageWidget* self) {
+QPaintEngine* KPageWidget_SuperPaintEngine(const KPageWidget* self) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_PaintEngine_IsBase(true);
@@ -512,7 +512,7 @@ bool KPageWidget_Event(KPageWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KPageWidget_QBaseEvent(KPageWidget* self, QEvent* event) {
+bool KPageWidget_SuperEvent(KPageWidget* self, QEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_Event_IsBase(true);
@@ -541,7 +541,7 @@ void KPageWidget_MousePressEvent(KPageWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseMousePressEvent(KPageWidget* self, QMouseEvent* event) {
+void KPageWidget_SuperMousePressEvent(KPageWidget* self, QMouseEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_MousePressEvent_IsBase(true);
@@ -570,7 +570,7 @@ void KPageWidget_MouseReleaseEvent(KPageWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseMouseReleaseEvent(KPageWidget* self, QMouseEvent* event) {
+void KPageWidget_SuperMouseReleaseEvent(KPageWidget* self, QMouseEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_MouseReleaseEvent_IsBase(true);
@@ -599,7 +599,7 @@ void KPageWidget_MouseDoubleClickEvent(KPageWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseMouseDoubleClickEvent(KPageWidget* self, QMouseEvent* event) {
+void KPageWidget_SuperMouseDoubleClickEvent(KPageWidget* self, QMouseEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_MouseDoubleClickEvent_IsBase(true);
@@ -628,7 +628,7 @@ void KPageWidget_MouseMoveEvent(KPageWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseMouseMoveEvent(KPageWidget* self, QMouseEvent* event) {
+void KPageWidget_SuperMouseMoveEvent(KPageWidget* self, QMouseEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_MouseMoveEvent_IsBase(true);
@@ -657,7 +657,7 @@ void KPageWidget_WheelEvent(KPageWidget* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseWheelEvent(KPageWidget* self, QWheelEvent* event) {
+void KPageWidget_SuperWheelEvent(KPageWidget* self, QWheelEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_WheelEvent_IsBase(true);
@@ -686,7 +686,7 @@ void KPageWidget_KeyPressEvent(KPageWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseKeyPressEvent(KPageWidget* self, QKeyEvent* event) {
+void KPageWidget_SuperKeyPressEvent(KPageWidget* self, QKeyEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_KeyPressEvent_IsBase(true);
@@ -715,7 +715,7 @@ void KPageWidget_KeyReleaseEvent(KPageWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseKeyReleaseEvent(KPageWidget* self, QKeyEvent* event) {
+void KPageWidget_SuperKeyReleaseEvent(KPageWidget* self, QKeyEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_KeyReleaseEvent_IsBase(true);
@@ -744,7 +744,7 @@ void KPageWidget_FocusInEvent(KPageWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseFocusInEvent(KPageWidget* self, QFocusEvent* event) {
+void KPageWidget_SuperFocusInEvent(KPageWidget* self, QFocusEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_FocusInEvent_IsBase(true);
@@ -773,7 +773,7 @@ void KPageWidget_FocusOutEvent(KPageWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseFocusOutEvent(KPageWidget* self, QFocusEvent* event) {
+void KPageWidget_SuperFocusOutEvent(KPageWidget* self, QFocusEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_FocusOutEvent_IsBase(true);
@@ -802,7 +802,7 @@ void KPageWidget_EnterEvent(KPageWidget* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseEnterEvent(KPageWidget* self, QEnterEvent* event) {
+void KPageWidget_SuperEnterEvent(KPageWidget* self, QEnterEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_EnterEvent_IsBase(true);
@@ -831,7 +831,7 @@ void KPageWidget_LeaveEvent(KPageWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseLeaveEvent(KPageWidget* self, QEvent* event) {
+void KPageWidget_SuperLeaveEvent(KPageWidget* self, QEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_LeaveEvent_IsBase(true);
@@ -860,7 +860,7 @@ void KPageWidget_PaintEvent(KPageWidget* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBasePaintEvent(KPageWidget* self, QPaintEvent* event) {
+void KPageWidget_SuperPaintEvent(KPageWidget* self, QPaintEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_PaintEvent_IsBase(true);
@@ -889,7 +889,7 @@ void KPageWidget_MoveEvent(KPageWidget* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseMoveEvent(KPageWidget* self, QMoveEvent* event) {
+void KPageWidget_SuperMoveEvent(KPageWidget* self, QMoveEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_MoveEvent_IsBase(true);
@@ -918,7 +918,7 @@ void KPageWidget_ResizeEvent(KPageWidget* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseResizeEvent(KPageWidget* self, QResizeEvent* event) {
+void KPageWidget_SuperResizeEvent(KPageWidget* self, QResizeEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_ResizeEvent_IsBase(true);
@@ -947,7 +947,7 @@ void KPageWidget_CloseEvent(KPageWidget* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseCloseEvent(KPageWidget* self, QCloseEvent* event) {
+void KPageWidget_SuperCloseEvent(KPageWidget* self, QCloseEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_CloseEvent_IsBase(true);
@@ -976,7 +976,7 @@ void KPageWidget_ContextMenuEvent(KPageWidget* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseContextMenuEvent(KPageWidget* self, QContextMenuEvent* event) {
+void KPageWidget_SuperContextMenuEvent(KPageWidget* self, QContextMenuEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_ContextMenuEvent_IsBase(true);
@@ -1005,7 +1005,7 @@ void KPageWidget_TabletEvent(KPageWidget* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseTabletEvent(KPageWidget* self, QTabletEvent* event) {
+void KPageWidget_SuperTabletEvent(KPageWidget* self, QTabletEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_TabletEvent_IsBase(true);
@@ -1034,7 +1034,7 @@ void KPageWidget_ActionEvent(KPageWidget* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseActionEvent(KPageWidget* self, QActionEvent* event) {
+void KPageWidget_SuperActionEvent(KPageWidget* self, QActionEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_ActionEvent_IsBase(true);
@@ -1063,7 +1063,7 @@ void KPageWidget_DragEnterEvent(KPageWidget* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseDragEnterEvent(KPageWidget* self, QDragEnterEvent* event) {
+void KPageWidget_SuperDragEnterEvent(KPageWidget* self, QDragEnterEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_DragEnterEvent_IsBase(true);
@@ -1092,7 +1092,7 @@ void KPageWidget_DragMoveEvent(KPageWidget* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseDragMoveEvent(KPageWidget* self, QDragMoveEvent* event) {
+void KPageWidget_SuperDragMoveEvent(KPageWidget* self, QDragMoveEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_DragMoveEvent_IsBase(true);
@@ -1121,7 +1121,7 @@ void KPageWidget_DragLeaveEvent(KPageWidget* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseDragLeaveEvent(KPageWidget* self, QDragLeaveEvent* event) {
+void KPageWidget_SuperDragLeaveEvent(KPageWidget* self, QDragLeaveEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_DragLeaveEvent_IsBase(true);
@@ -1150,7 +1150,7 @@ void KPageWidget_DropEvent(KPageWidget* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseDropEvent(KPageWidget* self, QDropEvent* event) {
+void KPageWidget_SuperDropEvent(KPageWidget* self, QDropEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_DropEvent_IsBase(true);
@@ -1179,7 +1179,7 @@ void KPageWidget_ShowEvent(KPageWidget* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseShowEvent(KPageWidget* self, QShowEvent* event) {
+void KPageWidget_SuperShowEvent(KPageWidget* self, QShowEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_ShowEvent_IsBase(true);
@@ -1208,7 +1208,7 @@ void KPageWidget_HideEvent(KPageWidget* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseHideEvent(KPageWidget* self, QHideEvent* event) {
+void KPageWidget_SuperHideEvent(KPageWidget* self, QHideEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_HideEvent_IsBase(true);
@@ -1238,7 +1238,7 @@ bool KPageWidget_NativeEvent(KPageWidget* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool KPageWidget_QBaseNativeEvent(KPageWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KPageWidget_SuperNativeEvent(KPageWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
@@ -1268,7 +1268,7 @@ void KPageWidget_ChangeEvent(KPageWidget* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseChangeEvent(KPageWidget* self, QEvent* param1) {
+void KPageWidget_SuperChangeEvent(KPageWidget* self, QEvent* param1) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_ChangeEvent_IsBase(true);
@@ -1297,7 +1297,7 @@ int KPageWidget_Metric(const KPageWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int KPageWidget_QBaseMetric(const KPageWidget* self, int param1) {
+int KPageWidget_SuperMetric(const KPageWidget* self, int param1) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_Metric_IsBase(true);
@@ -1326,7 +1326,7 @@ void KPageWidget_InitPainter(const KPageWidget* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseInitPainter(const KPageWidget* self, QPainter* painter) {
+void KPageWidget_SuperInitPainter(const KPageWidget* self, QPainter* painter) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_InitPainter_IsBase(true);
@@ -1355,7 +1355,7 @@ QPaintDevice* KPageWidget_Redirected(const KPageWidget* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KPageWidget_QBaseRedirected(const KPageWidget* self, QPoint* offset) {
+QPaintDevice* KPageWidget_SuperRedirected(const KPageWidget* self, QPoint* offset) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_Redirected_IsBase(true);
@@ -1384,7 +1384,7 @@ QPainter* KPageWidget_SharedPainter(const KPageWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* KPageWidget_QBaseSharedPainter(const KPageWidget* self) {
+QPainter* KPageWidget_SuperSharedPainter(const KPageWidget* self) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_SharedPainter_IsBase(true);
@@ -1413,7 +1413,7 @@ void KPageWidget_InputMethodEvent(KPageWidget* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseInputMethodEvent(KPageWidget* self, QInputMethodEvent* param1) {
+void KPageWidget_SuperInputMethodEvent(KPageWidget* self, QInputMethodEvent* param1) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_InputMethodEvent_IsBase(true);
@@ -1442,7 +1442,7 @@ QVariant* KPageWidget_InputMethodQuery(const KPageWidget* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KPageWidget_QBaseInputMethodQuery(const KPageWidget* self, int param1) {
+QVariant* KPageWidget_SuperInputMethodQuery(const KPageWidget* self, int param1) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_InputMethodQuery_IsBase(true);
@@ -1471,7 +1471,7 @@ bool KPageWidget_FocusNextPrevChild(KPageWidget* self, bool next) {
 }
 
 // Base class handler implementation
-bool KPageWidget_QBaseFocusNextPrevChild(KPageWidget* self, bool next) {
+bool KPageWidget_SuperFocusNextPrevChild(KPageWidget* self, bool next) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_FocusNextPrevChild_IsBase(true);
@@ -1500,7 +1500,7 @@ bool KPageWidget_EventFilter(KPageWidget* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool KPageWidget_QBaseEventFilter(KPageWidget* self, QObject* watched, QEvent* event) {
+bool KPageWidget_SuperEventFilter(KPageWidget* self, QObject* watched, QEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_EventFilter_IsBase(true);
@@ -1529,7 +1529,7 @@ void KPageWidget_TimerEvent(KPageWidget* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseTimerEvent(KPageWidget* self, QTimerEvent* event) {
+void KPageWidget_SuperTimerEvent(KPageWidget* self, QTimerEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_TimerEvent_IsBase(true);
@@ -1558,7 +1558,7 @@ void KPageWidget_ChildEvent(KPageWidget* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseChildEvent(KPageWidget* self, QChildEvent* event) {
+void KPageWidget_SuperChildEvent(KPageWidget* self, QChildEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_ChildEvent_IsBase(true);
@@ -1587,7 +1587,7 @@ void KPageWidget_CustomEvent(KPageWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseCustomEvent(KPageWidget* self, QEvent* event) {
+void KPageWidget_SuperCustomEvent(KPageWidget* self, QEvent* event) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_CustomEvent_IsBase(true);
@@ -1616,7 +1616,7 @@ void KPageWidget_ConnectNotify(KPageWidget* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseConnectNotify(KPageWidget* self, const QMetaMethod* signal) {
+void KPageWidget_SuperConnectNotify(KPageWidget* self, const QMetaMethod* signal) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_ConnectNotify_IsBase(true);
@@ -1645,7 +1645,7 @@ void KPageWidget_DisconnectNotify(KPageWidget* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseDisconnectNotify(KPageWidget* self, const QMetaMethod* signal) {
+void KPageWidget_SuperDisconnectNotify(KPageWidget* self, const QMetaMethod* signal) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_DisconnectNotify_IsBase(true);
@@ -1674,7 +1674,7 @@ void KPageWidget_UpdateMicroFocus(KPageWidget* self) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseUpdateMicroFocus(KPageWidget* self) {
+void KPageWidget_SuperUpdateMicroFocus(KPageWidget* self) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_UpdateMicroFocus_IsBase(true);
@@ -1703,7 +1703,7 @@ void KPageWidget_Create(KPageWidget* self) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseCreate(KPageWidget* self) {
+void KPageWidget_SuperCreate(KPageWidget* self) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_Create_IsBase(true);
@@ -1732,7 +1732,7 @@ void KPageWidget_Destroy(KPageWidget* self) {
 }
 
 // Base class handler implementation
-void KPageWidget_QBaseDestroy(KPageWidget* self) {
+void KPageWidget_SuperDestroy(KPageWidget* self) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_Destroy_IsBase(true);
@@ -1761,7 +1761,7 @@ bool KPageWidget_FocusNextChild(KPageWidget* self) {
 }
 
 // Base class handler implementation
-bool KPageWidget_QBaseFocusNextChild(KPageWidget* self) {
+bool KPageWidget_SuperFocusNextChild(KPageWidget* self) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_FocusNextChild_IsBase(true);
@@ -1790,7 +1790,7 @@ bool KPageWidget_FocusPreviousChild(KPageWidget* self) {
 }
 
 // Base class handler implementation
-bool KPageWidget_QBaseFocusPreviousChild(KPageWidget* self) {
+bool KPageWidget_SuperFocusPreviousChild(KPageWidget* self) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_FocusPreviousChild_IsBase(true);
@@ -1819,7 +1819,7 @@ QObject* KPageWidget_Sender(const KPageWidget* self) {
 }
 
 // Base class handler implementation
-QObject* KPageWidget_QBaseSender(const KPageWidget* self) {
+QObject* KPageWidget_SuperSender(const KPageWidget* self) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_Sender_IsBase(true);
@@ -1848,7 +1848,7 @@ int KPageWidget_SenderSignalIndex(const KPageWidget* self) {
 }
 
 // Base class handler implementation
-int KPageWidget_QBaseSenderSignalIndex(const KPageWidget* self) {
+int KPageWidget_SuperSenderSignalIndex(const KPageWidget* self) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_SenderSignalIndex_IsBase(true);
@@ -1877,7 +1877,7 @@ int KPageWidget_Receivers(const KPageWidget* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KPageWidget_QBaseReceivers(const KPageWidget* self, const char* signal) {
+int KPageWidget_SuperReceivers(const KPageWidget* self, const char* signal) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_Receivers_IsBase(true);
@@ -1906,7 +1906,7 @@ bool KPageWidget_IsSignalConnected(const KPageWidget* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool KPageWidget_QBaseIsSignalConnected(const KPageWidget* self, const QMetaMethod* signal) {
+bool KPageWidget_SuperIsSignalConnected(const KPageWidget* self, const QMetaMethod* signal) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_IsSignalConnected_IsBase(true);
@@ -1935,7 +1935,7 @@ double KPageWidget_GetDecodedMetricF(const KPageWidget* self, int metricA, int m
 }
 
 // Base class handler implementation
-double KPageWidget_QBaseGetDecodedMetricF(const KPageWidget* self, int metricA, int metricB) {
+double KPageWidget_SuperGetDecodedMetricF(const KPageWidget* self, int metricA, int metricB) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
     if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
         vkpagewidget->setKPageWidget_GetDecodedMetricF_IsBase(true);

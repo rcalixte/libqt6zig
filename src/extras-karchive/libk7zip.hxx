@@ -499,33 +499,33 @@ class VirtualK7Zip final : public K7Zip {
 
     // Friend functions
     friend bool K7Zip_DoWriteSymLink(K7Zip* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
-    friend bool K7Zip_QBaseDoWriteSymLink(K7Zip* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
+    friend bool K7Zip_SuperDoWriteSymLink(K7Zip* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
     friend bool K7Zip_DoWriteDir(K7Zip* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
-    friend bool K7Zip_QBaseDoWriteDir(K7Zip* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
+    friend bool K7Zip_SuperDoWriteDir(K7Zip* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
     friend bool K7Zip_DoPrepareWriting(K7Zip* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
-    friend bool K7Zip_QBaseDoPrepareWriting(K7Zip* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
+    friend bool K7Zip_SuperDoPrepareWriting(K7Zip* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
     friend bool K7Zip_DoFinishWriting(K7Zip* self, long long size);
-    friend bool K7Zip_QBaseDoFinishWriting(K7Zip* self, long long size);
+    friend bool K7Zip_SuperDoFinishWriting(K7Zip* self, long long size);
     friend bool K7Zip_DoWriteData(K7Zip* self, const char* data, long long size);
-    friend bool K7Zip_QBaseDoWriteData(K7Zip* self, const char* data, long long size);
+    friend bool K7Zip_SuperDoWriteData(K7Zip* self, const char* data, long long size);
     friend bool K7Zip_OpenArchive(K7Zip* self, int mode);
-    friend bool K7Zip_QBaseOpenArchive(K7Zip* self, int mode);
+    friend bool K7Zip_SuperOpenArchive(K7Zip* self, int mode);
     friend bool K7Zip_CloseArchive(K7Zip* self);
-    friend bool K7Zip_QBaseCloseArchive(K7Zip* self);
+    friend bool K7Zip_SuperCloseArchive(K7Zip* self);
     friend void K7Zip_VirtualHook(K7Zip* self, int id, void* data);
-    friend void K7Zip_QBaseVirtualHook(K7Zip* self, int id, void* data);
+    friend void K7Zip_SuperVirtualHook(K7Zip* self, int id, void* data);
     friend KArchiveDirectory* K7Zip_RootDir(K7Zip* self);
-    friend KArchiveDirectory* K7Zip_QBaseRootDir(K7Zip* self);
+    friend KArchiveDirectory* K7Zip_SuperRootDir(K7Zip* self);
     friend bool K7Zip_CreateDevice(K7Zip* self, int mode);
-    friend bool K7Zip_QBaseCreateDevice(K7Zip* self, int mode);
+    friend bool K7Zip_SuperCreateDevice(K7Zip* self, int mode);
     friend void K7Zip_SetErrorString(K7Zip* self, const libqt_string errorStr);
-    friend void K7Zip_QBaseSetErrorString(K7Zip* self, const libqt_string errorStr);
+    friend void K7Zip_SuperSetErrorString(K7Zip* self, const libqt_string errorStr);
     friend KArchiveDirectory* K7Zip_FindOrCreate(K7Zip* self, const libqt_string path);
-    friend KArchiveDirectory* K7Zip_QBaseFindOrCreate(K7Zip* self, const libqt_string path);
+    friend KArchiveDirectory* K7Zip_SuperFindOrCreate(K7Zip* self, const libqt_string path);
     friend void K7Zip_SetDevice(K7Zip* self, QIODevice* dev);
-    friend void K7Zip_QBaseSetDevice(K7Zip* self, QIODevice* dev);
+    friend void K7Zip_SuperSetDevice(K7Zip* self, QIODevice* dev);
     friend void K7Zip_SetRootDir(K7Zip* self, KArchiveDirectory* rootDir);
-    friend void K7Zip_QBaseSetRootDir(K7Zip* self, KArchiveDirectory* rootDir);
+    friend void K7Zip_SuperSetRootDir(K7Zip* self, KArchiveDirectory* rootDir);
 };
 
 #endif

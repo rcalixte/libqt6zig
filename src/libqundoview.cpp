@@ -150,7 +150,7 @@ void QUndoView_SetGroup(QUndoView* self, QUndoGroup* group) {
 }
 
 // Base class handler implementation
-QMetaObject* QUndoView_QBaseMetaObject(const QUndoView* self) {
+QMetaObject* QUndoView_SuperMetaObject(const QUndoView* self) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_MetaObject_IsBase(true);
@@ -169,7 +169,7 @@ void QUndoView_OnMetaObject(const QUndoView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QUndoView_QBaseMetacast(QUndoView* self, const char* param1) {
+void* QUndoView_SuperMetacast(QUndoView* self, const char* param1) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_Metacast_IsBase(true);
@@ -188,7 +188,7 @@ void QUndoView_OnMetacast(QUndoView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QUndoView_QBaseMetacall(QUndoView* self, int param1, int param2, void** param3) {
+int QUndoView_SuperMetacall(QUndoView* self, int param1, int param2, void** param3) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_Metacall_IsBase(true);
@@ -217,7 +217,7 @@ QRect* QUndoView_VisualRect(const QUndoView* self, const QModelIndex* index) {
 }
 
 // Base class handler implementation
-QRect* QUndoView_QBaseVisualRect(const QUndoView* self, const QModelIndex* index) {
+QRect* QUndoView_SuperVisualRect(const QUndoView* self, const QModelIndex* index) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_VisualRect_IsBase(true);
@@ -246,7 +246,7 @@ void QUndoView_ScrollTo(QUndoView* self, const QModelIndex* index, int hint) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseScrollTo(QUndoView* self, const QModelIndex* index, int hint) {
+void QUndoView_SuperScrollTo(QUndoView* self, const QModelIndex* index, int hint) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_ScrollTo_IsBase(true);
@@ -275,7 +275,7 @@ QModelIndex* QUndoView_IndexAt(const QUndoView* self, const QPoint* p) {
 }
 
 // Base class handler implementation
-QModelIndex* QUndoView_QBaseIndexAt(const QUndoView* self, const QPoint* p) {
+QModelIndex* QUndoView_SuperIndexAt(const QUndoView* self, const QPoint* p) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_IndexAt_IsBase(true);
@@ -304,7 +304,7 @@ void QUndoView_DoItemsLayout(QUndoView* self) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseDoItemsLayout(QUndoView* self) {
+void QUndoView_SuperDoItemsLayout(QUndoView* self) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_DoItemsLayout_IsBase(true);
@@ -333,7 +333,7 @@ void QUndoView_Reset(QUndoView* self) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseReset(QUndoView* self) {
+void QUndoView_SuperReset(QUndoView* self) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_Reset_IsBase(true);
@@ -362,7 +362,7 @@ void QUndoView_SetRootIndex(QUndoView* self, const QModelIndex* index) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseSetRootIndex(QUndoView* self, const QModelIndex* index) {
+void QUndoView_SuperSetRootIndex(QUndoView* self, const QModelIndex* index) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_SetRootIndex_IsBase(true);
@@ -391,7 +391,7 @@ bool QUndoView_Event(QUndoView* self, QEvent* e) {
 }
 
 // Base class handler implementation
-bool QUndoView_QBaseEvent(QUndoView* self, QEvent* e) {
+bool QUndoView_SuperEvent(QUndoView* self, QEvent* e) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_Event_IsBase(true);
@@ -420,7 +420,7 @@ void QUndoView_ScrollContentsBy(QUndoView* self, int dx, int dy) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseScrollContentsBy(QUndoView* self, int dx, int dy) {
+void QUndoView_SuperScrollContentsBy(QUndoView* self, int dx, int dy) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_ScrollContentsBy_IsBase(true);
@@ -455,7 +455,7 @@ void QUndoView_DataChanged(QUndoView* self, const QModelIndex* topLeft, const QM
 }
 
 // Base class handler implementation
-void QUndoView_QBaseDataChanged(QUndoView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
+void QUndoView_SuperDataChanged(QUndoView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     QList<int> roles_QList;
     roles_QList.reserve(roles.len);
@@ -490,7 +490,7 @@ void QUndoView_RowsInserted(QUndoView* self, const QModelIndex* parent, int star
 }
 
 // Base class handler implementation
-void QUndoView_QBaseRowsInserted(QUndoView* self, const QModelIndex* parent, int start, int end) {
+void QUndoView_SuperRowsInserted(QUndoView* self, const QModelIndex* parent, int start, int end) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_RowsInserted_IsBase(true);
@@ -519,7 +519,7 @@ void QUndoView_RowsAboutToBeRemoved(QUndoView* self, const QModelIndex* parent, 
 }
 
 // Base class handler implementation
-void QUndoView_QBaseRowsAboutToBeRemoved(QUndoView* self, const QModelIndex* parent, int start, int end) {
+void QUndoView_SuperRowsAboutToBeRemoved(QUndoView* self, const QModelIndex* parent, int start, int end) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_RowsAboutToBeRemoved_IsBase(true);
@@ -548,7 +548,7 @@ void QUndoView_MouseMoveEvent(QUndoView* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseMouseMoveEvent(QUndoView* self, QMouseEvent* e) {
+void QUndoView_SuperMouseMoveEvent(QUndoView* self, QMouseEvent* e) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_MouseMoveEvent_IsBase(true);
@@ -577,7 +577,7 @@ void QUndoView_MouseReleaseEvent(QUndoView* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseMouseReleaseEvent(QUndoView* self, QMouseEvent* e) {
+void QUndoView_SuperMouseReleaseEvent(QUndoView* self, QMouseEvent* e) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_MouseReleaseEvent_IsBase(true);
@@ -606,7 +606,7 @@ void QUndoView_WheelEvent(QUndoView* self, QWheelEvent* e) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseWheelEvent(QUndoView* self, QWheelEvent* e) {
+void QUndoView_SuperWheelEvent(QUndoView* self, QWheelEvent* e) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_WheelEvent_IsBase(true);
@@ -635,7 +635,7 @@ void QUndoView_TimerEvent(QUndoView* self, QTimerEvent* e) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseTimerEvent(QUndoView* self, QTimerEvent* e) {
+void QUndoView_SuperTimerEvent(QUndoView* self, QTimerEvent* e) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_TimerEvent_IsBase(true);
@@ -664,7 +664,7 @@ void QUndoView_ResizeEvent(QUndoView* self, QResizeEvent* e) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseResizeEvent(QUndoView* self, QResizeEvent* e) {
+void QUndoView_SuperResizeEvent(QUndoView* self, QResizeEvent* e) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_ResizeEvent_IsBase(true);
@@ -693,7 +693,7 @@ void QUndoView_DragMoveEvent(QUndoView* self, QDragMoveEvent* e) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseDragMoveEvent(QUndoView* self, QDragMoveEvent* e) {
+void QUndoView_SuperDragMoveEvent(QUndoView* self, QDragMoveEvent* e) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_DragMoveEvent_IsBase(true);
@@ -722,7 +722,7 @@ void QUndoView_DragLeaveEvent(QUndoView* self, QDragLeaveEvent* e) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseDragLeaveEvent(QUndoView* self, QDragLeaveEvent* e) {
+void QUndoView_SuperDragLeaveEvent(QUndoView* self, QDragLeaveEvent* e) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_DragLeaveEvent_IsBase(true);
@@ -751,7 +751,7 @@ void QUndoView_DropEvent(QUndoView* self, QDropEvent* e) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseDropEvent(QUndoView* self, QDropEvent* e) {
+void QUndoView_SuperDropEvent(QUndoView* self, QDropEvent* e) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_DropEvent_IsBase(true);
@@ -780,7 +780,7 @@ void QUndoView_StartDrag(QUndoView* self, int supportedActions) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseStartDrag(QUndoView* self, int supportedActions) {
+void QUndoView_SuperStartDrag(QUndoView* self, int supportedActions) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_StartDrag_IsBase(true);
@@ -809,7 +809,7 @@ void QUndoView_InitViewItemOption(const QUndoView* self, QStyleOptionViewItem* o
 }
 
 // Base class handler implementation
-void QUndoView_QBaseInitViewItemOption(const QUndoView* self, QStyleOptionViewItem* option) {
+void QUndoView_SuperInitViewItemOption(const QUndoView* self, QStyleOptionViewItem* option) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_InitViewItemOption_IsBase(true);
@@ -838,7 +838,7 @@ void QUndoView_PaintEvent(QUndoView* self, QPaintEvent* e) {
 }
 
 // Base class handler implementation
-void QUndoView_QBasePaintEvent(QUndoView* self, QPaintEvent* e) {
+void QUndoView_SuperPaintEvent(QUndoView* self, QPaintEvent* e) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_PaintEvent_IsBase(true);
@@ -867,7 +867,7 @@ int QUndoView_HorizontalOffset(const QUndoView* self) {
 }
 
 // Base class handler implementation
-int QUndoView_QBaseHorizontalOffset(const QUndoView* self) {
+int QUndoView_SuperHorizontalOffset(const QUndoView* self) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_HorizontalOffset_IsBase(true);
@@ -896,7 +896,7 @@ int QUndoView_VerticalOffset(const QUndoView* self) {
 }
 
 // Base class handler implementation
-int QUndoView_QBaseVerticalOffset(const QUndoView* self) {
+int QUndoView_SuperVerticalOffset(const QUndoView* self) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_VerticalOffset_IsBase(true);
@@ -924,7 +924,7 @@ QModelIndex* QUndoView_MoveCursor(QUndoView* self, int cursorAction, int modifie
 }
 
 // Base class handler implementation
-QModelIndex* QUndoView_QBaseMoveCursor(QUndoView* self, int cursorAction, int modifiers) {
+QModelIndex* QUndoView_SuperMoveCursor(QUndoView* self, int cursorAction, int modifiers) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_MoveCursor_IsBase(true);
@@ -952,7 +952,7 @@ void QUndoView_SetSelection(QUndoView* self, const QRect* rect, int command) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseSetSelection(QUndoView* self, const QRect* rect, int command) {
+void QUndoView_SuperSetSelection(QUndoView* self, const QRect* rect, int command) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_SetSelection_IsBase(true);
@@ -980,7 +980,7 @@ QRegion* QUndoView_VisualRegionForSelection(const QUndoView* self, const QItemSe
 }
 
 // Base class handler implementation
-QRegion* QUndoView_QBaseVisualRegionForSelection(const QUndoView* self, const QItemSelection* selection) {
+QRegion* QUndoView_SuperVisualRegionForSelection(const QUndoView* self, const QItemSelection* selection) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_VisualRegionForSelection_IsBase(true);
@@ -1026,7 +1026,7 @@ libqt_list /* of QModelIndex* */ QUndoView_SelectedIndexes(const QUndoView* self
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QUndoView_QBaseSelectedIndexes(const QUndoView* self) {
+libqt_list /* of QModelIndex* */ QUndoView_SuperSelectedIndexes(const QUndoView* self) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_SelectedIndexes_IsBase(true);
@@ -1073,7 +1073,7 @@ void QUndoView_UpdateGeometries(QUndoView* self) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseUpdateGeometries(QUndoView* self) {
+void QUndoView_SuperUpdateGeometries(QUndoView* self) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_UpdateGeometries_IsBase(true);
@@ -1102,7 +1102,7 @@ bool QUndoView_IsIndexHidden(const QUndoView* self, const QModelIndex* index) {
 }
 
 // Base class handler implementation
-bool QUndoView_QBaseIsIndexHidden(const QUndoView* self, const QModelIndex* index) {
+bool QUndoView_SuperIsIndexHidden(const QUndoView* self, const QModelIndex* index) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_IsIndexHidden_IsBase(true);
@@ -1131,7 +1131,7 @@ void QUndoView_SelectionChanged(QUndoView* self, const QItemSelection* selected,
 }
 
 // Base class handler implementation
-void QUndoView_QBaseSelectionChanged(QUndoView* self, const QItemSelection* selected, const QItemSelection* deselected) {
+void QUndoView_SuperSelectionChanged(QUndoView* self, const QItemSelection* selected, const QItemSelection* deselected) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_SelectionChanged_IsBase(true);
@@ -1160,7 +1160,7 @@ void QUndoView_CurrentChanged(QUndoView* self, const QModelIndex* current, const
 }
 
 // Base class handler implementation
-void QUndoView_QBaseCurrentChanged(QUndoView* self, const QModelIndex* current, const QModelIndex* previous) {
+void QUndoView_SuperCurrentChanged(QUndoView* self, const QModelIndex* current, const QModelIndex* previous) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_CurrentChanged_IsBase(true);
@@ -1188,7 +1188,7 @@ QSize* QUndoView_ViewportSizeHint(const QUndoView* self) {
 }
 
 // Base class handler implementation
-QSize* QUndoView_QBaseViewportSizeHint(const QUndoView* self) {
+QSize* QUndoView_SuperViewportSizeHint(const QUndoView* self) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_ViewportSizeHint_IsBase(true);
@@ -1216,7 +1216,7 @@ void QUndoView_SetModel(QUndoView* self, QAbstractItemModel* model) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseSetModel(QUndoView* self, QAbstractItemModel* model) {
+void QUndoView_SuperSetModel(QUndoView* self, QAbstractItemModel* model) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_SetModel_IsBase(true);
@@ -1245,7 +1245,7 @@ void QUndoView_SetSelectionModel(QUndoView* self, QItemSelectionModel* selection
 }
 
 // Base class handler implementation
-void QUndoView_QBaseSetSelectionModel(QUndoView* self, QItemSelectionModel* selectionModel) {
+void QUndoView_SuperSetSelectionModel(QUndoView* self, QItemSelectionModel* selectionModel) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_SetSelectionModel_IsBase(true);
@@ -1275,7 +1275,7 @@ void QUndoView_KeyboardSearch(QUndoView* self, const libqt_string search) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseKeyboardSearch(QUndoView* self, const libqt_string search) {
+void QUndoView_SuperKeyboardSearch(QUndoView* self, const libqt_string search) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     QString search_QString = QString::fromUtf8(search.data, search.len);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
@@ -1305,7 +1305,7 @@ int QUndoView_SizeHintForRow(const QUndoView* self, int row) {
 }
 
 // Base class handler implementation
-int QUndoView_QBaseSizeHintForRow(const QUndoView* self, int row) {
+int QUndoView_SuperSizeHintForRow(const QUndoView* self, int row) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_SizeHintForRow_IsBase(true);
@@ -1334,7 +1334,7 @@ int QUndoView_SizeHintForColumn(const QUndoView* self, int column) {
 }
 
 // Base class handler implementation
-int QUndoView_QBaseSizeHintForColumn(const QUndoView* self, int column) {
+int QUndoView_SuperSizeHintForColumn(const QUndoView* self, int column) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_SizeHintForColumn_IsBase(true);
@@ -1363,7 +1363,7 @@ QAbstractItemDelegate* QUndoView_ItemDelegateForIndex(const QUndoView* self, con
 }
 
 // Base class handler implementation
-QAbstractItemDelegate* QUndoView_QBaseItemDelegateForIndex(const QUndoView* self, const QModelIndex* index) {
+QAbstractItemDelegate* QUndoView_SuperItemDelegateForIndex(const QUndoView* self, const QModelIndex* index) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_ItemDelegateForIndex_IsBase(true);
@@ -1392,7 +1392,7 @@ QVariant* QUndoView_InputMethodQuery(const QUndoView* self, int query) {
 }
 
 // Base class handler implementation
-QVariant* QUndoView_QBaseInputMethodQuery(const QUndoView* self, int query) {
+QVariant* QUndoView_SuperInputMethodQuery(const QUndoView* self, int query) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_InputMethodQuery_IsBase(true);
@@ -1421,7 +1421,7 @@ void QUndoView_SelectAll(QUndoView* self) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseSelectAll(QUndoView* self) {
+void QUndoView_SuperSelectAll(QUndoView* self) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_SelectAll_IsBase(true);
@@ -1450,7 +1450,7 @@ void QUndoView_UpdateEditorData(QUndoView* self) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseUpdateEditorData(QUndoView* self) {
+void QUndoView_SuperUpdateEditorData(QUndoView* self) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_UpdateEditorData_IsBase(true);
@@ -1479,7 +1479,7 @@ void QUndoView_UpdateEditorGeometries(QUndoView* self) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseUpdateEditorGeometries(QUndoView* self) {
+void QUndoView_SuperUpdateEditorGeometries(QUndoView* self) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_UpdateEditorGeometries_IsBase(true);
@@ -1508,7 +1508,7 @@ void QUndoView_VerticalScrollbarAction(QUndoView* self, int action) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseVerticalScrollbarAction(QUndoView* self, int action) {
+void QUndoView_SuperVerticalScrollbarAction(QUndoView* self, int action) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_VerticalScrollbarAction_IsBase(true);
@@ -1537,7 +1537,7 @@ void QUndoView_HorizontalScrollbarAction(QUndoView* self, int action) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseHorizontalScrollbarAction(QUndoView* self, int action) {
+void QUndoView_SuperHorizontalScrollbarAction(QUndoView* self, int action) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_HorizontalScrollbarAction_IsBase(true);
@@ -1566,7 +1566,7 @@ void QUndoView_VerticalScrollbarValueChanged(QUndoView* self, int value) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseVerticalScrollbarValueChanged(QUndoView* self, int value) {
+void QUndoView_SuperVerticalScrollbarValueChanged(QUndoView* self, int value) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_VerticalScrollbarValueChanged_IsBase(true);
@@ -1595,7 +1595,7 @@ void QUndoView_HorizontalScrollbarValueChanged(QUndoView* self, int value) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseHorizontalScrollbarValueChanged(QUndoView* self, int value) {
+void QUndoView_SuperHorizontalScrollbarValueChanged(QUndoView* self, int value) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_HorizontalScrollbarValueChanged_IsBase(true);
@@ -1624,7 +1624,7 @@ void QUndoView_CloseEditor(QUndoView* self, QWidget* editor, int hint) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseCloseEditor(QUndoView* self, QWidget* editor, int hint) {
+void QUndoView_SuperCloseEditor(QUndoView* self, QWidget* editor, int hint) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_CloseEditor_IsBase(true);
@@ -1653,7 +1653,7 @@ void QUndoView_CommitData(QUndoView* self, QWidget* editor) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseCommitData(QUndoView* self, QWidget* editor) {
+void QUndoView_SuperCommitData(QUndoView* self, QWidget* editor) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_CommitData_IsBase(true);
@@ -1682,7 +1682,7 @@ void QUndoView_EditorDestroyed(QUndoView* self, QObject* editor) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseEditorDestroyed(QUndoView* self, QObject* editor) {
+void QUndoView_SuperEditorDestroyed(QUndoView* self, QObject* editor) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_EditorDestroyed_IsBase(true);
@@ -1711,7 +1711,7 @@ bool QUndoView_Edit2(QUndoView* self, const QModelIndex* index, int trigger, QEv
 }
 
 // Base class handler implementation
-bool QUndoView_QBaseEdit2(QUndoView* self, const QModelIndex* index, int trigger, QEvent* event) {
+bool QUndoView_SuperEdit2(QUndoView* self, const QModelIndex* index, int trigger, QEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_Edit2_IsBase(true);
@@ -1740,7 +1740,7 @@ int QUndoView_SelectionCommand(const QUndoView* self, const QModelIndex* index, 
 }
 
 // Base class handler implementation
-int QUndoView_QBaseSelectionCommand(const QUndoView* self, const QModelIndex* index, const QEvent* event) {
+int QUndoView_SuperSelectionCommand(const QUndoView* self, const QModelIndex* index, const QEvent* event) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_SelectionCommand_IsBase(true);
@@ -1769,7 +1769,7 @@ bool QUndoView_FocusNextPrevChild(QUndoView* self, bool next) {
 }
 
 // Base class handler implementation
-bool QUndoView_QBaseFocusNextPrevChild(QUndoView* self, bool next) {
+bool QUndoView_SuperFocusNextPrevChild(QUndoView* self, bool next) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_FocusNextPrevChild_IsBase(true);
@@ -1798,7 +1798,7 @@ bool QUndoView_ViewportEvent(QUndoView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QUndoView_QBaseViewportEvent(QUndoView* self, QEvent* event) {
+bool QUndoView_SuperViewportEvent(QUndoView* self, QEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_ViewportEvent_IsBase(true);
@@ -1827,7 +1827,7 @@ void QUndoView_MousePressEvent(QUndoView* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseMousePressEvent(QUndoView* self, QMouseEvent* event) {
+void QUndoView_SuperMousePressEvent(QUndoView* self, QMouseEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_MousePressEvent_IsBase(true);
@@ -1856,7 +1856,7 @@ void QUndoView_MouseDoubleClickEvent(QUndoView* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseMouseDoubleClickEvent(QUndoView* self, QMouseEvent* event) {
+void QUndoView_SuperMouseDoubleClickEvent(QUndoView* self, QMouseEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_MouseDoubleClickEvent_IsBase(true);
@@ -1885,7 +1885,7 @@ void QUndoView_DragEnterEvent(QUndoView* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseDragEnterEvent(QUndoView* self, QDragEnterEvent* event) {
+void QUndoView_SuperDragEnterEvent(QUndoView* self, QDragEnterEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_DragEnterEvent_IsBase(true);
@@ -1914,7 +1914,7 @@ void QUndoView_FocusInEvent(QUndoView* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseFocusInEvent(QUndoView* self, QFocusEvent* event) {
+void QUndoView_SuperFocusInEvent(QUndoView* self, QFocusEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_FocusInEvent_IsBase(true);
@@ -1943,7 +1943,7 @@ void QUndoView_FocusOutEvent(QUndoView* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseFocusOutEvent(QUndoView* self, QFocusEvent* event) {
+void QUndoView_SuperFocusOutEvent(QUndoView* self, QFocusEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_FocusOutEvent_IsBase(true);
@@ -1972,7 +1972,7 @@ void QUndoView_KeyPressEvent(QUndoView* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseKeyPressEvent(QUndoView* self, QKeyEvent* event) {
+void QUndoView_SuperKeyPressEvent(QUndoView* self, QKeyEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_KeyPressEvent_IsBase(true);
@@ -2001,7 +2001,7 @@ void QUndoView_InputMethodEvent(QUndoView* self, QInputMethodEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseInputMethodEvent(QUndoView* self, QInputMethodEvent* event) {
+void QUndoView_SuperInputMethodEvent(QUndoView* self, QInputMethodEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_InputMethodEvent_IsBase(true);
@@ -2030,7 +2030,7 @@ bool QUndoView_EventFilter(QUndoView* self, QObject* object, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QUndoView_QBaseEventFilter(QUndoView* self, QObject* object, QEvent* event) {
+bool QUndoView_SuperEventFilter(QUndoView* self, QObject* object, QEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_EventFilter_IsBase(true);
@@ -2059,7 +2059,7 @@ QSize* QUndoView_MinimumSizeHint(const QUndoView* self) {
 }
 
 // Base class handler implementation
-QSize* QUndoView_QBaseMinimumSizeHint(const QUndoView* self) {
+QSize* QUndoView_SuperMinimumSizeHint(const QUndoView* self) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_MinimumSizeHint_IsBase(true);
@@ -2088,7 +2088,7 @@ QSize* QUndoView_SizeHint(const QUndoView* self) {
 }
 
 // Base class handler implementation
-QSize* QUndoView_QBaseSizeHint(const QUndoView* self) {
+QSize* QUndoView_SuperSizeHint(const QUndoView* self) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_SizeHint_IsBase(true);
@@ -2117,7 +2117,7 @@ void QUndoView_SetupViewport(QUndoView* self, QWidget* viewport) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseSetupViewport(QUndoView* self, QWidget* viewport) {
+void QUndoView_SuperSetupViewport(QUndoView* self, QWidget* viewport) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_SetupViewport_IsBase(true);
@@ -2146,7 +2146,7 @@ void QUndoView_ContextMenuEvent(QUndoView* self, QContextMenuEvent* param1) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseContextMenuEvent(QUndoView* self, QContextMenuEvent* param1) {
+void QUndoView_SuperContextMenuEvent(QUndoView* self, QContextMenuEvent* param1) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_ContextMenuEvent_IsBase(true);
@@ -2175,7 +2175,7 @@ void QUndoView_ChangeEvent(QUndoView* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseChangeEvent(QUndoView* self, QEvent* param1) {
+void QUndoView_SuperChangeEvent(QUndoView* self, QEvent* param1) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_ChangeEvent_IsBase(true);
@@ -2204,7 +2204,7 @@ void QUndoView_InitStyleOption(const QUndoView* self, QStyleOptionFrame* option)
 }
 
 // Base class handler implementation
-void QUndoView_QBaseInitStyleOption(const QUndoView* self, QStyleOptionFrame* option) {
+void QUndoView_SuperInitStyleOption(const QUndoView* self, QStyleOptionFrame* option) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_InitStyleOption_IsBase(true);
@@ -2233,7 +2233,7 @@ int QUndoView_DevType(const QUndoView* self) {
 }
 
 // Base class handler implementation
-int QUndoView_QBaseDevType(const QUndoView* self) {
+int QUndoView_SuperDevType(const QUndoView* self) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_DevType_IsBase(true);
@@ -2262,7 +2262,7 @@ void QUndoView_SetVisible(QUndoView* self, bool visible) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseSetVisible(QUndoView* self, bool visible) {
+void QUndoView_SuperSetVisible(QUndoView* self, bool visible) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_SetVisible_IsBase(true);
@@ -2291,7 +2291,7 @@ int QUndoView_HeightForWidth(const QUndoView* self, int param1) {
 }
 
 // Base class handler implementation
-int QUndoView_QBaseHeightForWidth(const QUndoView* self, int param1) {
+int QUndoView_SuperHeightForWidth(const QUndoView* self, int param1) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_HeightForWidth_IsBase(true);
@@ -2320,7 +2320,7 @@ bool QUndoView_HasHeightForWidth(const QUndoView* self) {
 }
 
 // Base class handler implementation
-bool QUndoView_QBaseHasHeightForWidth(const QUndoView* self) {
+bool QUndoView_SuperHasHeightForWidth(const QUndoView* self) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_HasHeightForWidth_IsBase(true);
@@ -2349,7 +2349,7 @@ QPaintEngine* QUndoView_PaintEngine(const QUndoView* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QUndoView_QBasePaintEngine(const QUndoView* self) {
+QPaintEngine* QUndoView_SuperPaintEngine(const QUndoView* self) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_PaintEngine_IsBase(true);
@@ -2378,7 +2378,7 @@ void QUndoView_KeyReleaseEvent(QUndoView* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseKeyReleaseEvent(QUndoView* self, QKeyEvent* event) {
+void QUndoView_SuperKeyReleaseEvent(QUndoView* self, QKeyEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_KeyReleaseEvent_IsBase(true);
@@ -2407,7 +2407,7 @@ void QUndoView_EnterEvent(QUndoView* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseEnterEvent(QUndoView* self, QEnterEvent* event) {
+void QUndoView_SuperEnterEvent(QUndoView* self, QEnterEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_EnterEvent_IsBase(true);
@@ -2436,7 +2436,7 @@ void QUndoView_LeaveEvent(QUndoView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseLeaveEvent(QUndoView* self, QEvent* event) {
+void QUndoView_SuperLeaveEvent(QUndoView* self, QEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_LeaveEvent_IsBase(true);
@@ -2465,7 +2465,7 @@ void QUndoView_MoveEvent(QUndoView* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseMoveEvent(QUndoView* self, QMoveEvent* event) {
+void QUndoView_SuperMoveEvent(QUndoView* self, QMoveEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_MoveEvent_IsBase(true);
@@ -2494,7 +2494,7 @@ void QUndoView_CloseEvent(QUndoView* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseCloseEvent(QUndoView* self, QCloseEvent* event) {
+void QUndoView_SuperCloseEvent(QUndoView* self, QCloseEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_CloseEvent_IsBase(true);
@@ -2523,7 +2523,7 @@ void QUndoView_TabletEvent(QUndoView* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseTabletEvent(QUndoView* self, QTabletEvent* event) {
+void QUndoView_SuperTabletEvent(QUndoView* self, QTabletEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_TabletEvent_IsBase(true);
@@ -2552,7 +2552,7 @@ void QUndoView_ActionEvent(QUndoView* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseActionEvent(QUndoView* self, QActionEvent* event) {
+void QUndoView_SuperActionEvent(QUndoView* self, QActionEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_ActionEvent_IsBase(true);
@@ -2581,7 +2581,7 @@ void QUndoView_ShowEvent(QUndoView* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseShowEvent(QUndoView* self, QShowEvent* event) {
+void QUndoView_SuperShowEvent(QUndoView* self, QShowEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_ShowEvent_IsBase(true);
@@ -2610,7 +2610,7 @@ void QUndoView_HideEvent(QUndoView* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseHideEvent(QUndoView* self, QHideEvent* event) {
+void QUndoView_SuperHideEvent(QUndoView* self, QHideEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_HideEvent_IsBase(true);
@@ -2640,7 +2640,7 @@ bool QUndoView_NativeEvent(QUndoView* self, const libqt_string eventType, void* 
 }
 
 // Base class handler implementation
-bool QUndoView_QBaseNativeEvent(QUndoView* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QUndoView_SuperNativeEvent(QUndoView* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
@@ -2670,7 +2670,7 @@ int QUndoView_Metric(const QUndoView* self, int param1) {
 }
 
 // Base class handler implementation
-int QUndoView_QBaseMetric(const QUndoView* self, int param1) {
+int QUndoView_SuperMetric(const QUndoView* self, int param1) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_Metric_IsBase(true);
@@ -2699,7 +2699,7 @@ void QUndoView_InitPainter(const QUndoView* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseInitPainter(const QUndoView* self, QPainter* painter) {
+void QUndoView_SuperInitPainter(const QUndoView* self, QPainter* painter) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_InitPainter_IsBase(true);
@@ -2728,7 +2728,7 @@ QPaintDevice* QUndoView_Redirected(const QUndoView* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QUndoView_QBaseRedirected(const QUndoView* self, QPoint* offset) {
+QPaintDevice* QUndoView_SuperRedirected(const QUndoView* self, QPoint* offset) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_Redirected_IsBase(true);
@@ -2757,7 +2757,7 @@ QPainter* QUndoView_SharedPainter(const QUndoView* self) {
 }
 
 // Base class handler implementation
-QPainter* QUndoView_QBaseSharedPainter(const QUndoView* self) {
+QPainter* QUndoView_SuperSharedPainter(const QUndoView* self) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_SharedPainter_IsBase(true);
@@ -2786,7 +2786,7 @@ void QUndoView_ChildEvent(QUndoView* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseChildEvent(QUndoView* self, QChildEvent* event) {
+void QUndoView_SuperChildEvent(QUndoView* self, QChildEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_ChildEvent_IsBase(true);
@@ -2815,7 +2815,7 @@ void QUndoView_CustomEvent(QUndoView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseCustomEvent(QUndoView* self, QEvent* event) {
+void QUndoView_SuperCustomEvent(QUndoView* self, QEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_CustomEvent_IsBase(true);
@@ -2844,7 +2844,7 @@ void QUndoView_ConnectNotify(QUndoView* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseConnectNotify(QUndoView* self, const QMetaMethod* signal) {
+void QUndoView_SuperConnectNotify(QUndoView* self, const QMetaMethod* signal) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_ConnectNotify_IsBase(true);
@@ -2873,7 +2873,7 @@ void QUndoView_DisconnectNotify(QUndoView* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseDisconnectNotify(QUndoView* self, const QMetaMethod* signal) {
+void QUndoView_SuperDisconnectNotify(QUndoView* self, const QMetaMethod* signal) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_DisconnectNotify_IsBase(true);
@@ -2902,7 +2902,7 @@ void QUndoView_ResizeContents(QUndoView* self, int width, int height) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseResizeContents(QUndoView* self, int width, int height) {
+void QUndoView_SuperResizeContents(QUndoView* self, int width, int height) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_ResizeContents_IsBase(true);
@@ -2930,7 +2930,7 @@ QSize* QUndoView_ContentsSize(const QUndoView* self) {
 }
 
 // Base class handler implementation
-QSize* QUndoView_QBaseContentsSize(const QUndoView* self) {
+QSize* QUndoView_SuperContentsSize(const QUndoView* self) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_ContentsSize_IsBase(true);
@@ -2957,7 +2957,7 @@ QRect* QUndoView_RectForIndex(const QUndoView* self, const QModelIndex* index) {
 }
 
 // Base class handler implementation
-QRect* QUndoView_QBaseRectForIndex(const QUndoView* self, const QModelIndex* index) {
+QRect* QUndoView_SuperRectForIndex(const QUndoView* self, const QModelIndex* index) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_RectForIndex_IsBase(true);
@@ -2985,7 +2985,7 @@ void QUndoView_SetPositionForIndex(QUndoView* self, const QPoint* position, cons
 }
 
 // Base class handler implementation
-void QUndoView_QBaseSetPositionForIndex(QUndoView* self, const QPoint* position, const QModelIndex* index) {
+void QUndoView_SuperSetPositionForIndex(QUndoView* self, const QPoint* position, const QModelIndex* index) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_SetPositionForIndex_IsBase(true);
@@ -3014,7 +3014,7 @@ int QUndoView_State(const QUndoView* self) {
 }
 
 // Base class handler implementation
-int QUndoView_QBaseState(const QUndoView* self) {
+int QUndoView_SuperState(const QUndoView* self) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_State_IsBase(true);
@@ -3043,7 +3043,7 @@ void QUndoView_SetState(QUndoView* self, int state) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseSetState(QUndoView* self, int state) {
+void QUndoView_SuperSetState(QUndoView* self, int state) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_SetState_IsBase(true);
@@ -3072,7 +3072,7 @@ void QUndoView_ScheduleDelayedItemsLayout(QUndoView* self) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseScheduleDelayedItemsLayout(QUndoView* self) {
+void QUndoView_SuperScheduleDelayedItemsLayout(QUndoView* self) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_ScheduleDelayedItemsLayout_IsBase(true);
@@ -3101,7 +3101,7 @@ void QUndoView_ExecuteDelayedItemsLayout(QUndoView* self) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseExecuteDelayedItemsLayout(QUndoView* self) {
+void QUndoView_SuperExecuteDelayedItemsLayout(QUndoView* self) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_ExecuteDelayedItemsLayout_IsBase(true);
@@ -3130,7 +3130,7 @@ void QUndoView_SetDirtyRegion(QUndoView* self, const QRegion* region) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseSetDirtyRegion(QUndoView* self, const QRegion* region) {
+void QUndoView_SuperSetDirtyRegion(QUndoView* self, const QRegion* region) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_SetDirtyRegion_IsBase(true);
@@ -3159,7 +3159,7 @@ void QUndoView_ScrollDirtyRegion(QUndoView* self, int dx, int dy) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseScrollDirtyRegion(QUndoView* self, int dx, int dy) {
+void QUndoView_SuperScrollDirtyRegion(QUndoView* self, int dx, int dy) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_ScrollDirtyRegion_IsBase(true);
@@ -3187,7 +3187,7 @@ QPoint* QUndoView_DirtyRegionOffset(const QUndoView* self) {
 }
 
 // Base class handler implementation
-QPoint* QUndoView_QBaseDirtyRegionOffset(const QUndoView* self) {
+QPoint* QUndoView_SuperDirtyRegionOffset(const QUndoView* self) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_DirtyRegionOffset_IsBase(true);
@@ -3215,7 +3215,7 @@ void QUndoView_StartAutoScroll(QUndoView* self) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseStartAutoScroll(QUndoView* self) {
+void QUndoView_SuperStartAutoScroll(QUndoView* self) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_StartAutoScroll_IsBase(true);
@@ -3244,7 +3244,7 @@ void QUndoView_StopAutoScroll(QUndoView* self) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseStopAutoScroll(QUndoView* self) {
+void QUndoView_SuperStopAutoScroll(QUndoView* self) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_StopAutoScroll_IsBase(true);
@@ -3273,7 +3273,7 @@ void QUndoView_DoAutoScroll(QUndoView* self) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseDoAutoScroll(QUndoView* self) {
+void QUndoView_SuperDoAutoScroll(QUndoView* self) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_DoAutoScroll_IsBase(true);
@@ -3302,7 +3302,7 @@ int QUndoView_DropIndicatorPosition(const QUndoView* self) {
 }
 
 // Base class handler implementation
-int QUndoView_QBaseDropIndicatorPosition(const QUndoView* self) {
+int QUndoView_SuperDropIndicatorPosition(const QUndoView* self) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_DropIndicatorPosition_IsBase(true);
@@ -3331,7 +3331,7 @@ void QUndoView_SetViewportMargins(QUndoView* self, int left, int top, int right,
 }
 
 // Base class handler implementation
-void QUndoView_QBaseSetViewportMargins(QUndoView* self, int left, int top, int right, int bottom) {
+void QUndoView_SuperSetViewportMargins(QUndoView* self, int left, int top, int right, int bottom) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_SetViewportMargins_IsBase(true);
@@ -3359,7 +3359,7 @@ QMargins* QUndoView_ViewportMargins(const QUndoView* self) {
 }
 
 // Base class handler implementation
-QMargins* QUndoView_QBaseViewportMargins(const QUndoView* self) {
+QMargins* QUndoView_SuperViewportMargins(const QUndoView* self) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_ViewportMargins_IsBase(true);
@@ -3387,7 +3387,7 @@ void QUndoView_DrawFrame(QUndoView* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseDrawFrame(QUndoView* self, QPainter* param1) {
+void QUndoView_SuperDrawFrame(QUndoView* self, QPainter* param1) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_DrawFrame_IsBase(true);
@@ -3416,7 +3416,7 @@ void QUndoView_UpdateMicroFocus(QUndoView* self) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseUpdateMicroFocus(QUndoView* self) {
+void QUndoView_SuperUpdateMicroFocus(QUndoView* self) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_UpdateMicroFocus_IsBase(true);
@@ -3445,7 +3445,7 @@ void QUndoView_Create(QUndoView* self) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseCreate(QUndoView* self) {
+void QUndoView_SuperCreate(QUndoView* self) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_Create_IsBase(true);
@@ -3474,7 +3474,7 @@ void QUndoView_Destroy(QUndoView* self) {
 }
 
 // Base class handler implementation
-void QUndoView_QBaseDestroy(QUndoView* self) {
+void QUndoView_SuperDestroy(QUndoView* self) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_Destroy_IsBase(true);
@@ -3503,7 +3503,7 @@ bool QUndoView_FocusNextChild(QUndoView* self) {
 }
 
 // Base class handler implementation
-bool QUndoView_QBaseFocusNextChild(QUndoView* self) {
+bool QUndoView_SuperFocusNextChild(QUndoView* self) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_FocusNextChild_IsBase(true);
@@ -3532,7 +3532,7 @@ bool QUndoView_FocusPreviousChild(QUndoView* self) {
 }
 
 // Base class handler implementation
-bool QUndoView_QBaseFocusPreviousChild(QUndoView* self) {
+bool QUndoView_SuperFocusPreviousChild(QUndoView* self) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_FocusPreviousChild_IsBase(true);
@@ -3561,7 +3561,7 @@ QObject* QUndoView_Sender(const QUndoView* self) {
 }
 
 // Base class handler implementation
-QObject* QUndoView_QBaseSender(const QUndoView* self) {
+QObject* QUndoView_SuperSender(const QUndoView* self) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_Sender_IsBase(true);
@@ -3590,7 +3590,7 @@ int QUndoView_SenderSignalIndex(const QUndoView* self) {
 }
 
 // Base class handler implementation
-int QUndoView_QBaseSenderSignalIndex(const QUndoView* self) {
+int QUndoView_SuperSenderSignalIndex(const QUndoView* self) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_SenderSignalIndex_IsBase(true);
@@ -3619,7 +3619,7 @@ int QUndoView_Receivers(const QUndoView* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QUndoView_QBaseReceivers(const QUndoView* self, const char* signal) {
+int QUndoView_SuperReceivers(const QUndoView* self, const char* signal) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_Receivers_IsBase(true);
@@ -3648,7 +3648,7 @@ bool QUndoView_IsSignalConnected(const QUndoView* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool QUndoView_QBaseIsSignalConnected(const QUndoView* self, const QMetaMethod* signal) {
+bool QUndoView_SuperIsSignalConnected(const QUndoView* self, const QMetaMethod* signal) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_IsSignalConnected_IsBase(true);
@@ -3677,7 +3677,7 @@ double QUndoView_GetDecodedMetricF(const QUndoView* self, int metricA, int metri
 }
 
 // Base class handler implementation
-double QUndoView_QBaseGetDecodedMetricF(const QUndoView* self, int metricA, int metricB) {
+double QUndoView_SuperGetDecodedMetricF(const QUndoView* self, int metricA, int metricB) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
     if (vqundoview && vqundoview->isVirtualQUndoView) {
         vqundoview->setQUndoView_GetDecodedMetricF_IsBase(true);

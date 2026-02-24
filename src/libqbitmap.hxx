@@ -182,15 +182,15 @@ class VirtualQBitmap final : public QBitmap {
 
     // Friend functions
     friend int QBitmap_Metric(const QBitmap* self, int param1);
-    friend int QBitmap_QBaseMetric(const QBitmap* self, int param1);
+    friend int QBitmap_SuperMetric(const QBitmap* self, int param1);
     friend void QBitmap_InitPainter(const QBitmap* self, QPainter* painter);
-    friend void QBitmap_QBaseInitPainter(const QBitmap* self, QPainter* painter);
+    friend void QBitmap_SuperInitPainter(const QBitmap* self, QPainter* painter);
     friend QPaintDevice* QBitmap_Redirected(const QBitmap* self, QPoint* offset);
-    friend QPaintDevice* QBitmap_QBaseRedirected(const QBitmap* self, QPoint* offset);
+    friend QPaintDevice* QBitmap_SuperRedirected(const QBitmap* self, QPoint* offset);
     friend QPainter* QBitmap_SharedPainter(const QBitmap* self);
-    friend QPainter* QBitmap_QBaseSharedPainter(const QBitmap* self);
+    friend QPainter* QBitmap_SuperSharedPainter(const QBitmap* self);
     friend double QBitmap_GetDecodedMetricF(const QBitmap* self, int metricA, int metricB);
-    friend double QBitmap_QBaseGetDecodedMetricF(const QBitmap* self, int metricA, int metricB);
+    friend double QBitmap_SuperGetDecodedMetricF(const QBitmap* self, int metricA, int metricB);
 };
 
 #endif

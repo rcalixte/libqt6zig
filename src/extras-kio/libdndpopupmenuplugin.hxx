@@ -357,23 +357,23 @@ class VirtualKIODndPopupMenuPlugin : public KIO::DndPopupMenuPlugin {
 
     // Friend functions
     friend void KIO__DndPopupMenuPlugin_TimerEvent(KIO::DndPopupMenuPlugin* self, QTimerEvent* event);
-    friend void KIO__DndPopupMenuPlugin_QBaseTimerEvent(KIO::DndPopupMenuPlugin* self, QTimerEvent* event);
+    friend void KIO__DndPopupMenuPlugin_SuperTimerEvent(KIO::DndPopupMenuPlugin* self, QTimerEvent* event);
     friend void KIO__DndPopupMenuPlugin_ChildEvent(KIO::DndPopupMenuPlugin* self, QChildEvent* event);
-    friend void KIO__DndPopupMenuPlugin_QBaseChildEvent(KIO::DndPopupMenuPlugin* self, QChildEvent* event);
+    friend void KIO__DndPopupMenuPlugin_SuperChildEvent(KIO::DndPopupMenuPlugin* self, QChildEvent* event);
     friend void KIO__DndPopupMenuPlugin_CustomEvent(KIO::DndPopupMenuPlugin* self, QEvent* event);
-    friend void KIO__DndPopupMenuPlugin_QBaseCustomEvent(KIO::DndPopupMenuPlugin* self, QEvent* event);
+    friend void KIO__DndPopupMenuPlugin_SuperCustomEvent(KIO::DndPopupMenuPlugin* self, QEvent* event);
     friend void KIO__DndPopupMenuPlugin_ConnectNotify(KIO::DndPopupMenuPlugin* self, const QMetaMethod* signal);
-    friend void KIO__DndPopupMenuPlugin_QBaseConnectNotify(KIO::DndPopupMenuPlugin* self, const QMetaMethod* signal);
+    friend void KIO__DndPopupMenuPlugin_SuperConnectNotify(KIO::DndPopupMenuPlugin* self, const QMetaMethod* signal);
     friend void KIO__DndPopupMenuPlugin_DisconnectNotify(KIO::DndPopupMenuPlugin* self, const QMetaMethod* signal);
-    friend void KIO__DndPopupMenuPlugin_QBaseDisconnectNotify(KIO::DndPopupMenuPlugin* self, const QMetaMethod* signal);
+    friend void KIO__DndPopupMenuPlugin_SuperDisconnectNotify(KIO::DndPopupMenuPlugin* self, const QMetaMethod* signal);
     friend QObject* KIO__DndPopupMenuPlugin_Sender(const KIO::DndPopupMenuPlugin* self);
-    friend QObject* KIO__DndPopupMenuPlugin_QBaseSender(const KIO::DndPopupMenuPlugin* self);
+    friend QObject* KIO__DndPopupMenuPlugin_SuperSender(const KIO::DndPopupMenuPlugin* self);
     friend int KIO__DndPopupMenuPlugin_SenderSignalIndex(const KIO::DndPopupMenuPlugin* self);
-    friend int KIO__DndPopupMenuPlugin_QBaseSenderSignalIndex(const KIO::DndPopupMenuPlugin* self);
+    friend int KIO__DndPopupMenuPlugin_SuperSenderSignalIndex(const KIO::DndPopupMenuPlugin* self);
     friend int KIO__DndPopupMenuPlugin_Receivers(const KIO::DndPopupMenuPlugin* self, const char* signal);
-    friend int KIO__DndPopupMenuPlugin_QBaseReceivers(const KIO::DndPopupMenuPlugin* self, const char* signal);
+    friend int KIO__DndPopupMenuPlugin_SuperReceivers(const KIO::DndPopupMenuPlugin* self, const char* signal);
     friend bool KIO__DndPopupMenuPlugin_IsSignalConnected(const KIO::DndPopupMenuPlugin* self, const QMetaMethod* signal);
-    friend bool KIO__DndPopupMenuPlugin_QBaseIsSignalConnected(const KIO::DndPopupMenuPlugin* self, const QMetaMethod* signal);
+    friend bool KIO__DndPopupMenuPlugin_SuperIsSignalConnected(const KIO::DndPopupMenuPlugin* self, const QMetaMethod* signal);
 };
 
 #endif

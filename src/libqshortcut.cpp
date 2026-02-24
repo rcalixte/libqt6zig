@@ -188,7 +188,7 @@ bool QShortcut_Event(QShortcut* self, QEvent* e) {
 }
 
 // Base class handler implementation
-QMetaObject* QShortcut_QBaseMetaObject(const QShortcut* self) {
+QMetaObject* QShortcut_SuperMetaObject(const QShortcut* self) {
     auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
     if (vqshortcut && vqshortcut->isVirtualQShortcut) {
         vqshortcut->setQShortcut_MetaObject_IsBase(true);
@@ -207,7 +207,7 @@ void QShortcut_OnMetaObject(const QShortcut* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QShortcut_QBaseMetacast(QShortcut* self, const char* param1) {
+void* QShortcut_SuperMetacast(QShortcut* self, const char* param1) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
     if (vqshortcut && vqshortcut->isVirtualQShortcut) {
         vqshortcut->setQShortcut_Metacast_IsBase(true);
@@ -226,7 +226,7 @@ void QShortcut_OnMetacast(QShortcut* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QShortcut_QBaseMetacall(QShortcut* self, int param1, int param2, void** param3) {
+int QShortcut_SuperMetacall(QShortcut* self, int param1, int param2, void** param3) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
     if (vqshortcut && vqshortcut->isVirtualQShortcut) {
         vqshortcut->setQShortcut_Metacall_IsBase(true);
@@ -245,7 +245,7 @@ void QShortcut_OnMetacall(QShortcut* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QShortcut_QBaseEvent(QShortcut* self, QEvent* e) {
+bool QShortcut_SuperEvent(QShortcut* self, QEvent* e) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
     if (vqshortcut && vqshortcut->isVirtualQShortcut) {
         vqshortcut->setQShortcut_Event_IsBase(true);
@@ -274,7 +274,7 @@ bool QShortcut_EventFilter(QShortcut* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QShortcut_QBaseEventFilter(QShortcut* self, QObject* watched, QEvent* event) {
+bool QShortcut_SuperEventFilter(QShortcut* self, QObject* watched, QEvent* event) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
     if (vqshortcut && vqshortcut->isVirtualQShortcut) {
         vqshortcut->setQShortcut_EventFilter_IsBase(true);
@@ -303,7 +303,7 @@ void QShortcut_TimerEvent(QShortcut* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QShortcut_QBaseTimerEvent(QShortcut* self, QTimerEvent* event) {
+void QShortcut_SuperTimerEvent(QShortcut* self, QTimerEvent* event) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
     if (vqshortcut && vqshortcut->isVirtualQShortcut) {
         vqshortcut->setQShortcut_TimerEvent_IsBase(true);
@@ -332,7 +332,7 @@ void QShortcut_ChildEvent(QShortcut* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QShortcut_QBaseChildEvent(QShortcut* self, QChildEvent* event) {
+void QShortcut_SuperChildEvent(QShortcut* self, QChildEvent* event) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
     if (vqshortcut && vqshortcut->isVirtualQShortcut) {
         vqshortcut->setQShortcut_ChildEvent_IsBase(true);
@@ -361,7 +361,7 @@ void QShortcut_CustomEvent(QShortcut* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QShortcut_QBaseCustomEvent(QShortcut* self, QEvent* event) {
+void QShortcut_SuperCustomEvent(QShortcut* self, QEvent* event) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
     if (vqshortcut && vqshortcut->isVirtualQShortcut) {
         vqshortcut->setQShortcut_CustomEvent_IsBase(true);
@@ -390,7 +390,7 @@ void QShortcut_ConnectNotify(QShortcut* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QShortcut_QBaseConnectNotify(QShortcut* self, const QMetaMethod* signal) {
+void QShortcut_SuperConnectNotify(QShortcut* self, const QMetaMethod* signal) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
     if (vqshortcut && vqshortcut->isVirtualQShortcut) {
         vqshortcut->setQShortcut_ConnectNotify_IsBase(true);
@@ -419,7 +419,7 @@ void QShortcut_DisconnectNotify(QShortcut* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QShortcut_QBaseDisconnectNotify(QShortcut* self, const QMetaMethod* signal) {
+void QShortcut_SuperDisconnectNotify(QShortcut* self, const QMetaMethod* signal) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
     if (vqshortcut && vqshortcut->isVirtualQShortcut) {
         vqshortcut->setQShortcut_DisconnectNotify_IsBase(true);
@@ -448,7 +448,7 @@ QObject* QShortcut_Sender(const QShortcut* self) {
 }
 
 // Base class handler implementation
-QObject* QShortcut_QBaseSender(const QShortcut* self) {
+QObject* QShortcut_SuperSender(const QShortcut* self) {
     auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
     if (vqshortcut && vqshortcut->isVirtualQShortcut) {
         vqshortcut->setQShortcut_Sender_IsBase(true);
@@ -477,7 +477,7 @@ int QShortcut_SenderSignalIndex(const QShortcut* self) {
 }
 
 // Base class handler implementation
-int QShortcut_QBaseSenderSignalIndex(const QShortcut* self) {
+int QShortcut_SuperSenderSignalIndex(const QShortcut* self) {
     auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
     if (vqshortcut && vqshortcut->isVirtualQShortcut) {
         vqshortcut->setQShortcut_SenderSignalIndex_IsBase(true);
@@ -506,7 +506,7 @@ int QShortcut_Receivers(const QShortcut* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QShortcut_QBaseReceivers(const QShortcut* self, const char* signal) {
+int QShortcut_SuperReceivers(const QShortcut* self, const char* signal) {
     auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
     if (vqshortcut && vqshortcut->isVirtualQShortcut) {
         vqshortcut->setQShortcut_Receivers_IsBase(true);
@@ -535,7 +535,7 @@ bool QShortcut_IsSignalConnected(const QShortcut* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool QShortcut_QBaseIsSignalConnected(const QShortcut* self, const QMetaMethod* signal) {
+bool QShortcut_SuperIsSignalConnected(const QShortcut* self, const QMetaMethod* signal) {
     auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
     if (vqshortcut && vqshortcut->isVirtualQShortcut) {
         vqshortcut->setQShortcut_IsSignalConnected_IsBase(true);

@@ -328,23 +328,23 @@ class VirtualKDirWatch final : public KDirWatch {
 
     // Friend functions
     friend void KDirWatch_TimerEvent(KDirWatch* self, QTimerEvent* event);
-    friend void KDirWatch_QBaseTimerEvent(KDirWatch* self, QTimerEvent* event);
+    friend void KDirWatch_SuperTimerEvent(KDirWatch* self, QTimerEvent* event);
     friend void KDirWatch_ChildEvent(KDirWatch* self, QChildEvent* event);
-    friend void KDirWatch_QBaseChildEvent(KDirWatch* self, QChildEvent* event);
+    friend void KDirWatch_SuperChildEvent(KDirWatch* self, QChildEvent* event);
     friend void KDirWatch_CustomEvent(KDirWatch* self, QEvent* event);
-    friend void KDirWatch_QBaseCustomEvent(KDirWatch* self, QEvent* event);
+    friend void KDirWatch_SuperCustomEvent(KDirWatch* self, QEvent* event);
     friend void KDirWatch_ConnectNotify(KDirWatch* self, const QMetaMethod* signal);
-    friend void KDirWatch_QBaseConnectNotify(KDirWatch* self, const QMetaMethod* signal);
+    friend void KDirWatch_SuperConnectNotify(KDirWatch* self, const QMetaMethod* signal);
     friend void KDirWatch_DisconnectNotify(KDirWatch* self, const QMetaMethod* signal);
-    friend void KDirWatch_QBaseDisconnectNotify(KDirWatch* self, const QMetaMethod* signal);
+    friend void KDirWatch_SuperDisconnectNotify(KDirWatch* self, const QMetaMethod* signal);
     friend QObject* KDirWatch_Sender(const KDirWatch* self);
-    friend QObject* KDirWatch_QBaseSender(const KDirWatch* self);
+    friend QObject* KDirWatch_SuperSender(const KDirWatch* self);
     friend int KDirWatch_SenderSignalIndex(const KDirWatch* self);
-    friend int KDirWatch_QBaseSenderSignalIndex(const KDirWatch* self);
+    friend int KDirWatch_SuperSenderSignalIndex(const KDirWatch* self);
     friend int KDirWatch_Receivers(const KDirWatch* self, const char* signal);
-    friend int KDirWatch_QBaseReceivers(const KDirWatch* self, const char* signal);
+    friend int KDirWatch_SuperReceivers(const KDirWatch* self, const char* signal);
     friend bool KDirWatch_IsSignalConnected(const KDirWatch* self, const QMetaMethod* signal);
-    friend bool KDirWatch_QBaseIsSignalConnected(const KDirWatch* self, const QMetaMethod* signal);
+    friend bool KDirWatch_SuperIsSignalConnected(const KDirWatch* self, const QMetaMethod* signal);
 };
 
 #endif

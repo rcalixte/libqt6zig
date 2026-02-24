@@ -414,6 +414,10 @@ pub const qnetworkcookie = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#dtor.QNetworkCookie)
     ///
     /// Delete this object from C++ memory.
@@ -422,7 +426,7 @@ pub const qnetworkcookie = struct {
     ///
     /// ` self: QtC.QNetworkCookie `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QNetworkCookie_Delete(@ptrCast(self));
     }
 };

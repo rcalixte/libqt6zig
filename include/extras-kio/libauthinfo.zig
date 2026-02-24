@@ -477,13 +477,17 @@ pub const kio__authinfo = struct {
         qtc.KIO__AuthInfo_RegisterMetaTypes();
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KIO__AuthInfo `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KIO__AuthInfo_Delete(@ptrCast(self));
     }
 };

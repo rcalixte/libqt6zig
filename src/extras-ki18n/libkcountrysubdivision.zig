@@ -185,6 +185,10 @@ pub const kcountrysubdivision = struct {
         return qtc.KCountrySubdivision_FromLocation(@bitCast(latitude), @bitCast(longitude));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kcountrysubdivision.html#dtor.KCountrySubdivision)
     ///
     /// Delete this object from C++ memory.
@@ -193,7 +197,7 @@ pub const kcountrysubdivision = struct {
     ///
     /// ` self: QtC.KCountrySubdivision `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KCountrySubdivision_Delete(@ptrCast(self));
     }
 };

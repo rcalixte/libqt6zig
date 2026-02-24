@@ -54,6 +54,10 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -62,8 +66,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` self: QtC.KWidgetItemDelegate `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KWidgetItemDelegate_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KWidgetItemDelegate_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -89,6 +93,10 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -97,9 +105,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KWidgetItemDelegate_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KWidgetItemDelegate_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -128,6 +136,10 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -140,8 +152,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KWidgetItemDelegate_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KWidgetItemDelegate_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -230,6 +242,10 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_OnCreateItemWidgets(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateItemWidgets` instead
+    ///
+    pub const QBaseCreateItemWidgets = SuperCreateItemWidgets;
+
     /// ### [Upstream resources](https://api.kde.org/kwidgetitemdelegate.html#createItemWidgets)
     ///
     /// Base class method implementation
@@ -242,8 +258,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseCreateItemWidgets(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWidget {
-        const _arr: qtc.libqt_list = qtc.KWidgetItemDelegate_QBaseCreateItemWidgets(@ptrCast(self), @ptrCast(index));
+    pub fn SuperCreateItemWidgets(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWidget {
+        const _arr: qtc.libqt_list = qtc.KWidgetItemDelegate_SuperCreateItemWidgets(@ptrCast(self), @ptrCast(index));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("kwidgetitemdelegate.CreateItemWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
@@ -285,6 +301,10 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_OnUpdateItemWidgets(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateItemWidgets` instead
+    ///
+    pub const QBaseUpdateItemWidgets = SuperUpdateItemWidgets;
+
     /// ### [Upstream resources](https://api.kde.org/kwidgetitemdelegate.html#updateItemWidgets)
     ///
     /// Base class method implementation
@@ -299,12 +319,12 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` index: QtC.QPersistentModelIndex `
     ///
-    pub fn QBaseUpdateItemWidgets(self: ?*anyopaque, widgets: []?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
+    pub fn SuperUpdateItemWidgets(self: ?*anyopaque, widgets: []?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
         const widgets_list = qtc.libqt_list{
             .len = widgets.len,
             .data = @ptrCast(widgets.ptr),
         };
-        qtc.KWidgetItemDelegate_QBaseUpdateItemWidgets(@ptrCast(self), widgets_list, @ptrCast(option), @ptrCast(index));
+        qtc.KWidgetItemDelegate_SuperUpdateItemWidgets(@ptrCast(self), widgets_list, @ptrCast(option), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwidgetitemdelegate.html#setBlockedEventTypes)
@@ -339,6 +359,10 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_OnSetBlockedEventTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetBlockedEventTypes` instead
+    ///
+    pub const QBaseSetBlockedEventTypes = SuperSetBlockedEventTypes;
+
     /// ### [Upstream resources](https://api.kde.org/kwidgetitemdelegate.html#setBlockedEventTypes)
     ///
     /// Base class method implementation
@@ -351,12 +375,12 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` types: []qcoreevent_enums.Type `
     ///
-    pub fn QBaseSetBlockedEventTypes(self: ?*anyopaque, widget: ?*anyopaque, types: []i32) void {
+    pub fn SuperSetBlockedEventTypes(self: ?*anyopaque, widget: ?*anyopaque, types: []i32) void {
         const types_list = qtc.libqt_list{
             .len = types.len,
             .data = types.ptr,
         };
-        qtc.KWidgetItemDelegate_QBaseSetBlockedEventTypes(@ptrCast(self), @ptrCast(widget), types_list);
+        qtc.KWidgetItemDelegate_SuperSetBlockedEventTypes(@ptrCast(self), @ptrCast(widget), types_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwidgetitemdelegate.html#blockedEventTypes)
@@ -402,6 +426,10 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_OnBlockedEventTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBlockedEventTypes` instead
+    ///
+    pub const QBaseBlockedEventTypes = SuperBlockedEventTypes;
+
     /// ### [Upstream resources](https://api.kde.org/kwidgetitemdelegate.html#blockedEventTypes)
     ///
     /// Base class method implementation
@@ -418,8 +446,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` []qcoreevent_enums.Type `
     ///
-    pub fn QBaseBlockedEventTypes(self: ?*anyopaque, widget: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.libqt_list = qtc.KWidgetItemDelegate_QBaseBlockedEventTypes(@ptrCast(self), @ptrCast(widget));
+    pub fn SuperBlockedEventTypes(self: ?*anyopaque, widget: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
+        const _arr: qtc.libqt_list = qtc.KWidgetItemDelegate_SuperBlockedEventTypes(@ptrCast(self), @ptrCast(widget));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("kwidgetitemdelegate.BlockedEventTypes: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -1341,6 +1369,10 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_Paint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperPaint` instead
+    ///
+    pub const QBasePaint = SuperPaint;
+
     /// Inherited from QAbstractItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paint)
@@ -1357,8 +1389,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBasePaint(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.KWidgetItemDelegate_QBasePaint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(index));
+    pub fn SuperPaint(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
+        qtc.KWidgetItemDelegate_SuperPaint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -1395,6 +1427,10 @@ pub const kwidgetitemdelegate = struct {
         return qtc.KWidgetItemDelegate_SizeHint(@ptrCast(self), @ptrCast(option), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// Inherited from QAbstractItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#sizeHint)
@@ -1409,8 +1445,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
-        return qtc.KWidgetItemDelegate_QBaseSizeHint(@ptrCast(self), @ptrCast(option), @ptrCast(index));
+    pub fn SuperSizeHint(self: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
+        return qtc.KWidgetItemDelegate_SuperSizeHint(@ptrCast(self), @ptrCast(option), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -1449,6 +1485,10 @@ pub const kwidgetitemdelegate = struct {
         return qtc.KWidgetItemDelegate_CreateEditor(@ptrCast(self), @ptrCast(parent), @ptrCast(option), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateEditor` instead
+    ///
+    pub const QBaseCreateEditor = SuperCreateEditor;
+
     /// Inherited from QAbstractItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#createEditor)
@@ -1465,8 +1505,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseCreateEditor(self: ?*anyopaque, parent: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QWidget {
-        return qtc.KWidgetItemDelegate_QBaseCreateEditor(@ptrCast(self), @ptrCast(parent), @ptrCast(option), @ptrCast(index));
+    pub fn SuperCreateEditor(self: ?*anyopaque, parent: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QWidget {
+        return qtc.KWidgetItemDelegate_SuperCreateEditor(@ptrCast(self), @ptrCast(parent), @ptrCast(option), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -1503,6 +1543,10 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_DestroyEditor(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperDestroyEditor` instead
+    ///
+    pub const QBaseDestroyEditor = SuperDestroyEditor;
+
     /// Inherited from QAbstractItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#destroyEditor)
@@ -1517,8 +1561,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseDestroyEditor(self: ?*anyopaque, editor: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.KWidgetItemDelegate_QBaseDestroyEditor(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
+    pub fn SuperDestroyEditor(self: ?*anyopaque, editor: ?*anyopaque, index: ?*anyopaque) void {
+        qtc.KWidgetItemDelegate_SuperDestroyEditor(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -1555,6 +1599,10 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_SetEditorData(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperSetEditorData` instead
+    ///
+    pub const QBaseSetEditorData = SuperSetEditorData;
+
     /// Inherited from QAbstractItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#setEditorData)
@@ -1569,8 +1617,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseSetEditorData(self: ?*anyopaque, editor: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.KWidgetItemDelegate_QBaseSetEditorData(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
+    pub fn SuperSetEditorData(self: ?*anyopaque, editor: ?*anyopaque, index: ?*anyopaque) void {
+        qtc.KWidgetItemDelegate_SuperSetEditorData(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -1609,6 +1657,10 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_SetModelData(@ptrCast(self), @ptrCast(editor), @ptrCast(model), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperSetModelData` instead
+    ///
+    pub const QBaseSetModelData = SuperSetModelData;
+
     /// Inherited from QAbstractItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#setModelData)
@@ -1625,8 +1677,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseSetModelData(self: ?*anyopaque, editor: ?*anyopaque, model: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.KWidgetItemDelegate_QBaseSetModelData(@ptrCast(self), @ptrCast(editor), @ptrCast(model), @ptrCast(index));
+    pub fn SuperSetModelData(self: ?*anyopaque, editor: ?*anyopaque, model: ?*anyopaque, index: ?*anyopaque) void {
+        qtc.KWidgetItemDelegate_SuperSetModelData(@ptrCast(self), @ptrCast(editor), @ptrCast(model), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -1665,6 +1717,10 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_UpdateEditorGeometry(@ptrCast(self), @ptrCast(editor), @ptrCast(option), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateEditorGeometry` instead
+    ///
+    pub const QBaseUpdateEditorGeometry = SuperUpdateEditorGeometry;
+
     /// Inherited from QAbstractItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#updateEditorGeometry)
@@ -1681,8 +1737,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseUpdateEditorGeometry(self: ?*anyopaque, editor: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.KWidgetItemDelegate_QBaseUpdateEditorGeometry(@ptrCast(self), @ptrCast(editor), @ptrCast(option), @ptrCast(index));
+    pub fn SuperUpdateEditorGeometry(self: ?*anyopaque, editor: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
+        qtc.KWidgetItemDelegate_SuperUpdateEditorGeometry(@ptrCast(self), @ptrCast(editor), @ptrCast(option), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -1723,6 +1779,10 @@ pub const kwidgetitemdelegate = struct {
         return qtc.KWidgetItemDelegate_EditorEvent(@ptrCast(self), @ptrCast(event), @ptrCast(model), @ptrCast(option), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperEditorEvent` instead
+    ///
+    pub const QBaseEditorEvent = SuperEditorEvent;
+
     /// Inherited from QAbstractItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#editorEvent)
@@ -1741,8 +1801,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseEditorEvent(self: ?*anyopaque, event: ?*anyopaque, model: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.KWidgetItemDelegate_QBaseEditorEvent(@ptrCast(self), @ptrCast(event), @ptrCast(model), @ptrCast(option), @ptrCast(index));
+    pub fn SuperEditorEvent(self: ?*anyopaque, event: ?*anyopaque, model: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) bool {
+        return qtc.KWidgetItemDelegate_SuperEditorEvent(@ptrCast(self), @ptrCast(event), @ptrCast(model), @ptrCast(option), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -1783,6 +1843,10 @@ pub const kwidgetitemdelegate = struct {
         return qtc.KWidgetItemDelegate_HelpEvent(@ptrCast(self), @ptrCast(event), @ptrCast(view), @ptrCast(option), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperHelpEvent` instead
+    ///
+    pub const QBaseHelpEvent = SuperHelpEvent;
+
     /// Inherited from QAbstractItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#helpEvent)
@@ -1801,8 +1865,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseHelpEvent(self: ?*anyopaque, event: ?*anyopaque, view: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.KWidgetItemDelegate_QBaseHelpEvent(@ptrCast(self), @ptrCast(event), @ptrCast(view), @ptrCast(option), @ptrCast(index));
+    pub fn SuperHelpEvent(self: ?*anyopaque, event: ?*anyopaque, view: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) bool {
+        return qtc.KWidgetItemDelegate_SuperHelpEvent(@ptrCast(self), @ptrCast(event), @ptrCast(view), @ptrCast(option), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -1842,6 +1906,10 @@ pub const kwidgetitemdelegate = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperPaintingRoles` instead
+    ///
+    pub const QBasePaintingRoles = SuperPaintingRoles;
+
     /// Inherited from QAbstractItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paintingRoles)
@@ -1854,8 +1922,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBasePaintingRoles(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.libqt_list = qtc.KWidgetItemDelegate_QBasePaintingRoles(@ptrCast(self));
+    pub fn SuperPaintingRoles(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
+        const _arr: qtc.libqt_list = qtc.KWidgetItemDelegate_SuperPaintingRoles(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("kwidgetitemdelegate.PaintingRoles: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -1901,6 +1969,10 @@ pub const kwidgetitemdelegate = struct {
         return qtc.KWidgetItemDelegate_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1913,8 +1985,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KWidgetItemDelegate_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KWidgetItemDelegate_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1951,6 +2023,10 @@ pub const kwidgetitemdelegate = struct {
         return qtc.KWidgetItemDelegate_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1965,8 +2041,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KWidgetItemDelegate_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KWidgetItemDelegate_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2001,6 +2077,10 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -2013,8 +2093,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KWidgetItemDelegate_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KWidgetItemDelegate_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2049,6 +2129,10 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -2061,8 +2145,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KWidgetItemDelegate_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KWidgetItemDelegate_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2097,6 +2181,10 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -2109,8 +2197,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KWidgetItemDelegate_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KWidgetItemDelegate_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2145,6 +2233,10 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2157,8 +2249,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KWidgetItemDelegate_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KWidgetItemDelegate_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2193,6 +2285,10 @@ pub const kwidgetitemdelegate = struct {
         qtc.KWidgetItemDelegate_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -2205,8 +2301,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KWidgetItemDelegate_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KWidgetItemDelegate_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2239,6 +2335,10 @@ pub const kwidgetitemdelegate = struct {
         return qtc.KWidgetItemDelegate_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2249,8 +2349,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` self: QtC.KWidgetItemDelegate `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KWidgetItemDelegate_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KWidgetItemDelegate_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2283,6 +2383,10 @@ pub const kwidgetitemdelegate = struct {
         return qtc.KWidgetItemDelegate_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2293,8 +2397,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` self: QtC.KWidgetItemDelegate `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KWidgetItemDelegate_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KWidgetItemDelegate_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2330,6 +2434,10 @@ pub const kwidgetitemdelegate = struct {
         return qtc.KWidgetItemDelegate_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2342,9 +2450,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KWidgetItemDelegate_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KWidgetItemDelegate_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2379,6 +2487,10 @@ pub const kwidgetitemdelegate = struct {
         return qtc.KWidgetItemDelegate_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2391,8 +2503,8 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KWidgetItemDelegate_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KWidgetItemDelegate_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2426,6 +2538,9 @@ pub const kwidgetitemdelegate = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kwidgetitemdelegate.html#dtor.KWidgetItemDelegate)
     ///
@@ -2435,7 +2550,7 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` self: QtC.KWidgetItemDelegate `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KWidgetItemDelegate_Delete(@ptrCast(self));
     }
 };

@@ -237,7 +237,7 @@ void KXMLGUIFactory_ResetContainer2(KXMLGUIFactory* self, const libqt_string con
 }
 
 // Base class handler implementation
-QMetaObject* KXMLGUIFactory_QBaseMetaObject(const KXMLGUIFactory* self) {
+QMetaObject* KXMLGUIFactory_SuperMetaObject(const KXMLGUIFactory* self) {
     auto* vkxmlguifactory = const_cast<VirtualKXMLGUIFactory*>(dynamic_cast<const VirtualKXMLGUIFactory*>(self));
     if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
         vkxmlguifactory->setKXMLGUIFactory_MetaObject_IsBase(true);
@@ -256,7 +256,7 @@ void KXMLGUIFactory_OnMetaObject(const KXMLGUIFactory* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KXMLGUIFactory_QBaseMetacast(KXMLGUIFactory* self, const char* param1) {
+void* KXMLGUIFactory_SuperMetacast(KXMLGUIFactory* self, const char* param1) {
     auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
     if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
         vkxmlguifactory->setKXMLGUIFactory_Metacast_IsBase(true);
@@ -275,7 +275,7 @@ void KXMLGUIFactory_OnMetacast(KXMLGUIFactory* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KXMLGUIFactory_QBaseMetacall(KXMLGUIFactory* self, int param1, int param2, void** param3) {
+int KXMLGUIFactory_SuperMetacall(KXMLGUIFactory* self, int param1, int param2, void** param3) {
     auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
     if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
         vkxmlguifactory->setKXMLGUIFactory_Metacall_IsBase(true);
@@ -304,7 +304,7 @@ bool KXMLGUIFactory_Event(KXMLGUIFactory* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KXMLGUIFactory_QBaseEvent(KXMLGUIFactory* self, QEvent* event) {
+bool KXMLGUIFactory_SuperEvent(KXMLGUIFactory* self, QEvent* event) {
     auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
     if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
         vkxmlguifactory->setKXMLGUIFactory_Event_IsBase(true);
@@ -333,7 +333,7 @@ bool KXMLGUIFactory_EventFilter(KXMLGUIFactory* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool KXMLGUIFactory_QBaseEventFilter(KXMLGUIFactory* self, QObject* watched, QEvent* event) {
+bool KXMLGUIFactory_SuperEventFilter(KXMLGUIFactory* self, QObject* watched, QEvent* event) {
     auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
     if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
         vkxmlguifactory->setKXMLGUIFactory_EventFilter_IsBase(true);
@@ -362,7 +362,7 @@ void KXMLGUIFactory_TimerEvent(KXMLGUIFactory* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KXMLGUIFactory_QBaseTimerEvent(KXMLGUIFactory* self, QTimerEvent* event) {
+void KXMLGUIFactory_SuperTimerEvent(KXMLGUIFactory* self, QTimerEvent* event) {
     auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
     if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
         vkxmlguifactory->setKXMLGUIFactory_TimerEvent_IsBase(true);
@@ -391,7 +391,7 @@ void KXMLGUIFactory_ChildEvent(KXMLGUIFactory* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KXMLGUIFactory_QBaseChildEvent(KXMLGUIFactory* self, QChildEvent* event) {
+void KXMLGUIFactory_SuperChildEvent(KXMLGUIFactory* self, QChildEvent* event) {
     auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
     if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
         vkxmlguifactory->setKXMLGUIFactory_ChildEvent_IsBase(true);
@@ -420,7 +420,7 @@ void KXMLGUIFactory_CustomEvent(KXMLGUIFactory* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KXMLGUIFactory_QBaseCustomEvent(KXMLGUIFactory* self, QEvent* event) {
+void KXMLGUIFactory_SuperCustomEvent(KXMLGUIFactory* self, QEvent* event) {
     auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
     if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
         vkxmlguifactory->setKXMLGUIFactory_CustomEvent_IsBase(true);
@@ -449,7 +449,7 @@ void KXMLGUIFactory_ConnectNotify(KXMLGUIFactory* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void KXMLGUIFactory_QBaseConnectNotify(KXMLGUIFactory* self, const QMetaMethod* signal) {
+void KXMLGUIFactory_SuperConnectNotify(KXMLGUIFactory* self, const QMetaMethod* signal) {
     auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
     if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
         vkxmlguifactory->setKXMLGUIFactory_ConnectNotify_IsBase(true);
@@ -478,7 +478,7 @@ void KXMLGUIFactory_DisconnectNotify(KXMLGUIFactory* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void KXMLGUIFactory_QBaseDisconnectNotify(KXMLGUIFactory* self, const QMetaMethod* signal) {
+void KXMLGUIFactory_SuperDisconnectNotify(KXMLGUIFactory* self, const QMetaMethod* signal) {
     auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
     if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
         vkxmlguifactory->setKXMLGUIFactory_DisconnectNotify_IsBase(true);
@@ -507,7 +507,7 @@ QObject* KXMLGUIFactory_Sender(const KXMLGUIFactory* self) {
 }
 
 // Base class handler implementation
-QObject* KXMLGUIFactory_QBaseSender(const KXMLGUIFactory* self) {
+QObject* KXMLGUIFactory_SuperSender(const KXMLGUIFactory* self) {
     auto* vkxmlguifactory = const_cast<VirtualKXMLGUIFactory*>(dynamic_cast<const VirtualKXMLGUIFactory*>(self));
     if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
         vkxmlguifactory->setKXMLGUIFactory_Sender_IsBase(true);
@@ -536,7 +536,7 @@ int KXMLGUIFactory_SenderSignalIndex(const KXMLGUIFactory* self) {
 }
 
 // Base class handler implementation
-int KXMLGUIFactory_QBaseSenderSignalIndex(const KXMLGUIFactory* self) {
+int KXMLGUIFactory_SuperSenderSignalIndex(const KXMLGUIFactory* self) {
     auto* vkxmlguifactory = const_cast<VirtualKXMLGUIFactory*>(dynamic_cast<const VirtualKXMLGUIFactory*>(self));
     if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
         vkxmlguifactory->setKXMLGUIFactory_SenderSignalIndex_IsBase(true);
@@ -565,7 +565,7 @@ int KXMLGUIFactory_Receivers(const KXMLGUIFactory* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KXMLGUIFactory_QBaseReceivers(const KXMLGUIFactory* self, const char* signal) {
+int KXMLGUIFactory_SuperReceivers(const KXMLGUIFactory* self, const char* signal) {
     auto* vkxmlguifactory = const_cast<VirtualKXMLGUIFactory*>(dynamic_cast<const VirtualKXMLGUIFactory*>(self));
     if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
         vkxmlguifactory->setKXMLGUIFactory_Receivers_IsBase(true);
@@ -594,7 +594,7 @@ bool KXMLGUIFactory_IsSignalConnected(const KXMLGUIFactory* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool KXMLGUIFactory_QBaseIsSignalConnected(const KXMLGUIFactory* self, const QMetaMethod* signal) {
+bool KXMLGUIFactory_SuperIsSignalConnected(const KXMLGUIFactory* self, const QMetaMethod* signal) {
     auto* vkxmlguifactory = const_cast<VirtualKXMLGUIFactory*>(dynamic_cast<const VirtualKXMLGUIFactory*>(self));
     if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
         vkxmlguifactory->setKXMLGUIFactory_IsSignalConnected_IsBase(true);

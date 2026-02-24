@@ -626,7 +626,7 @@ void QCamera_Connect_HueChanged(QCamera* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QCamera_QBaseMetaObject(const QCamera* self) {
+QMetaObject* QCamera_SuperMetaObject(const QCamera* self) {
     auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self));
     if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_MetaObject_IsBase(true);
@@ -645,7 +645,7 @@ void QCamera_OnMetaObject(const QCamera* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCamera_QBaseMetacast(QCamera* self, const char* param1) {
+void* QCamera_SuperMetacast(QCamera* self, const char* param1) {
     auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
     if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_Metacast_IsBase(true);
@@ -664,7 +664,7 @@ void QCamera_OnMetacast(QCamera* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCamera_QBaseMetacall(QCamera* self, int param1, int param2, void** param3) {
+int QCamera_SuperMetacall(QCamera* self, int param1, int param2, void** param3) {
     auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
     if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_Metacall_IsBase(true);
@@ -693,7 +693,7 @@ bool QCamera_Event(QCamera* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCamera_QBaseEvent(QCamera* self, QEvent* event) {
+bool QCamera_SuperEvent(QCamera* self, QEvent* event) {
     auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
     if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_Event_IsBase(true);
@@ -722,7 +722,7 @@ bool QCamera_EventFilter(QCamera* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCamera_QBaseEventFilter(QCamera* self, QObject* watched, QEvent* event) {
+bool QCamera_SuperEventFilter(QCamera* self, QObject* watched, QEvent* event) {
     auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
     if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_EventFilter_IsBase(true);
@@ -751,7 +751,7 @@ void QCamera_TimerEvent(QCamera* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCamera_QBaseTimerEvent(QCamera* self, QTimerEvent* event) {
+void QCamera_SuperTimerEvent(QCamera* self, QTimerEvent* event) {
     auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
     if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_TimerEvent_IsBase(true);
@@ -780,7 +780,7 @@ void QCamera_ChildEvent(QCamera* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCamera_QBaseChildEvent(QCamera* self, QChildEvent* event) {
+void QCamera_SuperChildEvent(QCamera* self, QChildEvent* event) {
     auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
     if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_ChildEvent_IsBase(true);
@@ -809,7 +809,7 @@ void QCamera_CustomEvent(QCamera* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCamera_QBaseCustomEvent(QCamera* self, QEvent* event) {
+void QCamera_SuperCustomEvent(QCamera* self, QEvent* event) {
     auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
     if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_CustomEvent_IsBase(true);
@@ -838,7 +838,7 @@ void QCamera_ConnectNotify(QCamera* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCamera_QBaseConnectNotify(QCamera* self, const QMetaMethod* signal) {
+void QCamera_SuperConnectNotify(QCamera* self, const QMetaMethod* signal) {
     auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
     if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_ConnectNotify_IsBase(true);
@@ -867,7 +867,7 @@ void QCamera_DisconnectNotify(QCamera* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCamera_QBaseDisconnectNotify(QCamera* self, const QMetaMethod* signal) {
+void QCamera_SuperDisconnectNotify(QCamera* self, const QMetaMethod* signal) {
     auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
     if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_DisconnectNotify_IsBase(true);
@@ -896,7 +896,7 @@ QObject* QCamera_Sender(const QCamera* self) {
 }
 
 // Base class handler implementation
-QObject* QCamera_QBaseSender(const QCamera* self) {
+QObject* QCamera_SuperSender(const QCamera* self) {
     auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self));
     if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_Sender_IsBase(true);
@@ -925,7 +925,7 @@ int QCamera_SenderSignalIndex(const QCamera* self) {
 }
 
 // Base class handler implementation
-int QCamera_QBaseSenderSignalIndex(const QCamera* self) {
+int QCamera_SuperSenderSignalIndex(const QCamera* self) {
     auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self));
     if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_SenderSignalIndex_IsBase(true);
@@ -954,7 +954,7 @@ int QCamera_Receivers(const QCamera* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCamera_QBaseReceivers(const QCamera* self, const char* signal) {
+int QCamera_SuperReceivers(const QCamera* self, const char* signal) {
     auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self));
     if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_Receivers_IsBase(true);
@@ -983,7 +983,7 @@ bool QCamera_IsSignalConnected(const QCamera* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QCamera_QBaseIsSignalConnected(const QCamera* self, const QMetaMethod* signal) {
+bool QCamera_SuperIsSignalConnected(const QCamera* self, const QMetaMethod* signal) {
     auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self));
     if (vqcamera && vqcamera->isVirtualQCamera) {
         vqcamera->setQCamera_IsSignalConnected_IsBase(true);

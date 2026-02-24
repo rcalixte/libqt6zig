@@ -332,7 +332,7 @@ void QCompleter_Complete1(QCompleter* self, const QRect* rect) {
 }
 
 // Base class handler implementation
-QMetaObject* QCompleter_QBaseMetaObject(const QCompleter* self) {
+QMetaObject* QCompleter_SuperMetaObject(const QCompleter* self) {
     auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
     if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_MetaObject_IsBase(true);
@@ -351,7 +351,7 @@ void QCompleter_OnMetaObject(const QCompleter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCompleter_QBaseMetacast(QCompleter* self, const char* param1) {
+void* QCompleter_SuperMetacast(QCompleter* self, const char* param1) {
     auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
     if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_Metacast_IsBase(true);
@@ -370,7 +370,7 @@ void QCompleter_OnMetacast(QCompleter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCompleter_QBaseMetacall(QCompleter* self, int param1, int param2, void** param3) {
+int QCompleter_SuperMetacall(QCompleter* self, int param1, int param2, void** param3) {
     auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
     if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_Metacall_IsBase(true);
@@ -389,7 +389,7 @@ void QCompleter_OnMetacall(QCompleter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string QCompleter_QBasePathFromIndex(const QCompleter* self, const QModelIndex* index) {
+libqt_string QCompleter_SuperPathFromIndex(const QCompleter* self, const QModelIndex* index) {
     auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
     if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_PathFromIndex_IsBase(true);
@@ -424,7 +424,7 @@ void QCompleter_OnPathFromIndex(const QCompleter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QCompleter_QBaseSplitPath(const QCompleter* self, const libqt_string path) {
+libqt_list /* of libqt_string */ QCompleter_SuperSplitPath(const QCompleter* self, const libqt_string path) {
     auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
     QString path_QString = QString::fromUtf8(path.data, path.len);
     if (vqcompleter && vqcompleter->isVirtualQCompleter) {
@@ -478,7 +478,7 @@ void QCompleter_OnSplitPath(const QCompleter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QCompleter_QBaseEventFilter(QCompleter* self, QObject* o, QEvent* e) {
+bool QCompleter_SuperEventFilter(QCompleter* self, QObject* o, QEvent* e) {
     auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
     if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_EventFilter_IsBase(true);
@@ -497,7 +497,7 @@ void QCompleter_OnEventFilter(QCompleter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QCompleter_QBaseEvent(QCompleter* self, QEvent* param1) {
+bool QCompleter_SuperEvent(QCompleter* self, QEvent* param1) {
     auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
     if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_Event_IsBase(true);
@@ -526,7 +526,7 @@ void QCompleter_TimerEvent(QCompleter* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCompleter_QBaseTimerEvent(QCompleter* self, QTimerEvent* event) {
+void QCompleter_SuperTimerEvent(QCompleter* self, QTimerEvent* event) {
     auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
     if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_TimerEvent_IsBase(true);
@@ -555,7 +555,7 @@ void QCompleter_ChildEvent(QCompleter* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCompleter_QBaseChildEvent(QCompleter* self, QChildEvent* event) {
+void QCompleter_SuperChildEvent(QCompleter* self, QChildEvent* event) {
     auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
     if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_ChildEvent_IsBase(true);
@@ -584,7 +584,7 @@ void QCompleter_CustomEvent(QCompleter* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCompleter_QBaseCustomEvent(QCompleter* self, QEvent* event) {
+void QCompleter_SuperCustomEvent(QCompleter* self, QEvent* event) {
     auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
     if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_CustomEvent_IsBase(true);
@@ -613,7 +613,7 @@ void QCompleter_ConnectNotify(QCompleter* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCompleter_QBaseConnectNotify(QCompleter* self, const QMetaMethod* signal) {
+void QCompleter_SuperConnectNotify(QCompleter* self, const QMetaMethod* signal) {
     auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
     if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_ConnectNotify_IsBase(true);
@@ -642,7 +642,7 @@ void QCompleter_DisconnectNotify(QCompleter* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCompleter_QBaseDisconnectNotify(QCompleter* self, const QMetaMethod* signal) {
+void QCompleter_SuperDisconnectNotify(QCompleter* self, const QMetaMethod* signal) {
     auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
     if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_DisconnectNotify_IsBase(true);
@@ -671,7 +671,7 @@ QObject* QCompleter_Sender(const QCompleter* self) {
 }
 
 // Base class handler implementation
-QObject* QCompleter_QBaseSender(const QCompleter* self) {
+QObject* QCompleter_SuperSender(const QCompleter* self) {
     auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
     if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_Sender_IsBase(true);
@@ -700,7 +700,7 @@ int QCompleter_SenderSignalIndex(const QCompleter* self) {
 }
 
 // Base class handler implementation
-int QCompleter_QBaseSenderSignalIndex(const QCompleter* self) {
+int QCompleter_SuperSenderSignalIndex(const QCompleter* self) {
     auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
     if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_SenderSignalIndex_IsBase(true);
@@ -729,7 +729,7 @@ int QCompleter_Receivers(const QCompleter* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCompleter_QBaseReceivers(const QCompleter* self, const char* signal) {
+int QCompleter_SuperReceivers(const QCompleter* self, const char* signal) {
     auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
     if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_Receivers_IsBase(true);
@@ -758,7 +758,7 @@ bool QCompleter_IsSignalConnected(const QCompleter* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QCompleter_QBaseIsSignalConnected(const QCompleter* self, const QMetaMethod* signal) {
+bool QCompleter_SuperIsSignalConnected(const QCompleter* self, const QMetaMethod* signal) {
     auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
     if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_IsSignalConnected_IsBase(true);

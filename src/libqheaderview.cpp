@@ -728,7 +728,7 @@ void QHeaderView_InitStyleOption(const QHeaderView* self, QStyleOptionHeader* op
 }
 
 // Base class handler implementation
-QMetaObject* QHeaderView_QBaseMetaObject(const QHeaderView* self) {
+QMetaObject* QHeaderView_SuperMetaObject(const QHeaderView* self) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_MetaObject_IsBase(true);
@@ -747,7 +747,7 @@ void QHeaderView_OnMetaObject(const QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QHeaderView_QBaseMetacast(QHeaderView* self, const char* param1) {
+void* QHeaderView_SuperMetacast(QHeaderView* self, const char* param1) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_Metacast_IsBase(true);
@@ -766,7 +766,7 @@ void QHeaderView_OnMetacast(QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QHeaderView_QBaseMetacall(QHeaderView* self, int param1, int param2, void** param3) {
+int QHeaderView_SuperMetacall(QHeaderView* self, int param1, int param2, void** param3) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_Metacall_IsBase(true);
@@ -785,7 +785,7 @@ void QHeaderView_OnMetacall(QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseSetModel(QHeaderView* self, QAbstractItemModel* model) {
+void QHeaderView_SuperSetModel(QHeaderView* self, QAbstractItemModel* model) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_SetModel_IsBase(true);
@@ -804,7 +804,7 @@ void QHeaderView_OnSetModel(QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QHeaderView_QBaseSizeHint(const QHeaderView* self) {
+QSize* QHeaderView_SuperSizeHint(const QHeaderView* self) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_SizeHint_IsBase(true);
@@ -823,7 +823,7 @@ void QHeaderView_OnSizeHint(const QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseSetVisible(QHeaderView* self, bool v) {
+void QHeaderView_SuperSetVisible(QHeaderView* self, bool v) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_SetVisible_IsBase(true);
@@ -842,7 +842,7 @@ void QHeaderView_OnSetVisible(QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseDoItemsLayout(QHeaderView* self) {
+void QHeaderView_SuperDoItemsLayout(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_DoItemsLayout_IsBase(true);
@@ -861,7 +861,7 @@ void QHeaderView_OnDoItemsLayout(QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseReset(QHeaderView* self) {
+void QHeaderView_SuperReset(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_Reset_IsBase(true);
@@ -880,7 +880,7 @@ void QHeaderView_OnReset(QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseCurrentChanged(QHeaderView* self, const QModelIndex* current, const QModelIndex* old) {
+void QHeaderView_SuperCurrentChanged(QHeaderView* self, const QModelIndex* current, const QModelIndex* old) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_CurrentChanged_IsBase(true);
@@ -899,7 +899,7 @@ void QHeaderView_OnCurrentChanged(QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QHeaderView_QBaseEvent(QHeaderView* self, QEvent* e) {
+bool QHeaderView_SuperEvent(QHeaderView* self, QEvent* e) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_Event_IsBase(true);
@@ -918,7 +918,7 @@ void QHeaderView_OnEvent(QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBasePaintEvent(QHeaderView* self, QPaintEvent* e) {
+void QHeaderView_SuperPaintEvent(QHeaderView* self, QPaintEvent* e) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_PaintEvent_IsBase(true);
@@ -937,7 +937,7 @@ void QHeaderView_OnPaintEvent(QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseMousePressEvent(QHeaderView* self, QMouseEvent* e) {
+void QHeaderView_SuperMousePressEvent(QHeaderView* self, QMouseEvent* e) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_MousePressEvent_IsBase(true);
@@ -956,7 +956,7 @@ void QHeaderView_OnMousePressEvent(QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseMouseMoveEvent(QHeaderView* self, QMouseEvent* e) {
+void QHeaderView_SuperMouseMoveEvent(QHeaderView* self, QMouseEvent* e) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_MouseMoveEvent_IsBase(true);
@@ -975,7 +975,7 @@ void QHeaderView_OnMouseMoveEvent(QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseMouseReleaseEvent(QHeaderView* self, QMouseEvent* e) {
+void QHeaderView_SuperMouseReleaseEvent(QHeaderView* self, QMouseEvent* e) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_MouseReleaseEvent_IsBase(true);
@@ -994,7 +994,7 @@ void QHeaderView_OnMouseReleaseEvent(QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseMouseDoubleClickEvent(QHeaderView* self, QMouseEvent* e) {
+void QHeaderView_SuperMouseDoubleClickEvent(QHeaderView* self, QMouseEvent* e) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_MouseDoubleClickEvent_IsBase(true);
@@ -1013,7 +1013,7 @@ void QHeaderView_OnMouseDoubleClickEvent(QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QHeaderView_QBaseViewportEvent(QHeaderView* self, QEvent* e) {
+bool QHeaderView_SuperViewportEvent(QHeaderView* self, QEvent* e) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_ViewportEvent_IsBase(true);
@@ -1032,7 +1032,7 @@ void QHeaderView_OnViewportEvent(QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBasePaintSection(const QHeaderView* self, QPainter* painter, const QRect* rect, int logicalIndex) {
+void QHeaderView_SuperPaintSection(const QHeaderView* self, QPainter* painter, const QRect* rect, int logicalIndex) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_PaintSection_IsBase(true);
@@ -1051,7 +1051,7 @@ void QHeaderView_OnPaintSection(const QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QHeaderView_QBaseSectionSizeFromContents(const QHeaderView* self, int logicalIndex) {
+QSize* QHeaderView_SuperSectionSizeFromContents(const QHeaderView* self, int logicalIndex) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_SectionSizeFromContents_IsBase(true);
@@ -1069,7 +1069,7 @@ void QHeaderView_OnSectionSizeFromContents(const QHeaderView* self, intptr_t slo
 }
 
 // Base class handler implementation
-int QHeaderView_QBaseHorizontalOffset(const QHeaderView* self) {
+int QHeaderView_SuperHorizontalOffset(const QHeaderView* self) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_HorizontalOffset_IsBase(true);
@@ -1088,7 +1088,7 @@ void QHeaderView_OnHorizontalOffset(const QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QHeaderView_QBaseVerticalOffset(const QHeaderView* self) {
+int QHeaderView_SuperVerticalOffset(const QHeaderView* self) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_VerticalOffset_IsBase(true);
@@ -1107,7 +1107,7 @@ void QHeaderView_OnVerticalOffset(const QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseUpdateGeometries(QHeaderView* self) {
+void QHeaderView_SuperUpdateGeometries(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_UpdateGeometries_IsBase(true);
@@ -1126,7 +1126,7 @@ void QHeaderView_OnUpdateGeometries(QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseScrollContentsBy(QHeaderView* self, int dx, int dy) {
+void QHeaderView_SuperScrollContentsBy(QHeaderView* self, int dx, int dy) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_ScrollContentsBy_IsBase(true);
@@ -1145,7 +1145,7 @@ void QHeaderView_OnScrollContentsBy(QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseDataChanged(QHeaderView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
+void QHeaderView_SuperDataChanged(QHeaderView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     QList<int> roles_QList;
     roles_QList.reserve(roles.len);
@@ -1170,7 +1170,7 @@ void QHeaderView_OnDataChanged(QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseRowsInserted(QHeaderView* self, const QModelIndex* parent, int start, int end) {
+void QHeaderView_SuperRowsInserted(QHeaderView* self, const QModelIndex* parent, int start, int end) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_RowsInserted_IsBase(true);
@@ -1189,7 +1189,7 @@ void QHeaderView_OnRowsInserted(QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QRect* QHeaderView_QBaseVisualRect(const QHeaderView* self, const QModelIndex* index) {
+QRect* QHeaderView_SuperVisualRect(const QHeaderView* self, const QModelIndex* index) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_VisualRect_IsBase(true);
@@ -1207,7 +1207,7 @@ void QHeaderView_OnVisualRect(const QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseScrollTo(QHeaderView* self, const QModelIndex* index, int hint) {
+void QHeaderView_SuperScrollTo(QHeaderView* self, const QModelIndex* index, int hint) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_ScrollTo_IsBase(true);
@@ -1226,7 +1226,7 @@ void QHeaderView_OnScrollTo(QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QModelIndex* QHeaderView_QBaseIndexAt(const QHeaderView* self, const QPoint* p) {
+QModelIndex* QHeaderView_SuperIndexAt(const QHeaderView* self, const QPoint* p) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_IndexAt_IsBase(true);
@@ -1244,7 +1244,7 @@ void QHeaderView_OnIndexAt(const QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QHeaderView_QBaseIsIndexHidden(const QHeaderView* self, const QModelIndex* index) {
+bool QHeaderView_SuperIsIndexHidden(const QHeaderView* self, const QModelIndex* index) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_IsIndexHidden_IsBase(true);
@@ -1263,7 +1263,7 @@ void QHeaderView_OnIsIndexHidden(const QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QModelIndex* QHeaderView_QBaseMoveCursor(QHeaderView* self, int param1, int param2) {
+QModelIndex* QHeaderView_SuperMoveCursor(QHeaderView* self, int param1, int param2) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_MoveCursor_IsBase(true);
@@ -1281,7 +1281,7 @@ void QHeaderView_OnMoveCursor(QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseSetSelection(QHeaderView* self, const QRect* rect, int flags) {
+void QHeaderView_SuperSetSelection(QHeaderView* self, const QRect* rect, int flags) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_SetSelection_IsBase(true);
@@ -1300,7 +1300,7 @@ void QHeaderView_OnSetSelection(QHeaderView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QRegion* QHeaderView_QBaseVisualRegionForSelection(const QHeaderView* self, const QItemSelection* selection) {
+QRegion* QHeaderView_SuperVisualRegionForSelection(const QHeaderView* self, const QItemSelection* selection) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_VisualRegionForSelection_IsBase(true);
@@ -1318,7 +1318,7 @@ void QHeaderView_OnVisualRegionForSelection(const QHeaderView* self, intptr_t sl
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseInitStyleOptionForIndex(const QHeaderView* self, QStyleOptionHeader* option, int logicalIndex) {
+void QHeaderView_SuperInitStyleOptionForIndex(const QHeaderView* self, QStyleOptionHeader* option, int logicalIndex) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_InitStyleOptionForIndex_IsBase(true);
@@ -1337,7 +1337,7 @@ void QHeaderView_OnInitStyleOptionForIndex(const QHeaderView* self, intptr_t slo
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseInitStyleOption(const QHeaderView* self, QStyleOptionHeader* option) {
+void QHeaderView_SuperInitStyleOption(const QHeaderView* self, QStyleOptionHeader* option) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_InitStyleOption_IsBase(true);
@@ -1366,7 +1366,7 @@ void QHeaderView_SetSelectionModel(QHeaderView* self, QItemSelectionModel* selec
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseSetSelectionModel(QHeaderView* self, QItemSelectionModel* selectionModel) {
+void QHeaderView_SuperSetSelectionModel(QHeaderView* self, QItemSelectionModel* selectionModel) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_SetSelectionModel_IsBase(true);
@@ -1396,7 +1396,7 @@ void QHeaderView_KeyboardSearch(QHeaderView* self, const libqt_string search) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseKeyboardSearch(QHeaderView* self, const libqt_string search) {
+void QHeaderView_SuperKeyboardSearch(QHeaderView* self, const libqt_string search) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     QString search_QString = QString::fromUtf8(search.data, search.len);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
@@ -1426,7 +1426,7 @@ int QHeaderView_SizeHintForRow(const QHeaderView* self, int row) {
 }
 
 // Base class handler implementation
-int QHeaderView_QBaseSizeHintForRow(const QHeaderView* self, int row) {
+int QHeaderView_SuperSizeHintForRow(const QHeaderView* self, int row) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_SizeHintForRow_IsBase(true);
@@ -1455,7 +1455,7 @@ int QHeaderView_SizeHintForColumn(const QHeaderView* self, int column) {
 }
 
 // Base class handler implementation
-int QHeaderView_QBaseSizeHintForColumn(const QHeaderView* self, int column) {
+int QHeaderView_SuperSizeHintForColumn(const QHeaderView* self, int column) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_SizeHintForColumn_IsBase(true);
@@ -1484,7 +1484,7 @@ QAbstractItemDelegate* QHeaderView_ItemDelegateForIndex(const QHeaderView* self,
 }
 
 // Base class handler implementation
-QAbstractItemDelegate* QHeaderView_QBaseItemDelegateForIndex(const QHeaderView* self, const QModelIndex* index) {
+QAbstractItemDelegate* QHeaderView_SuperItemDelegateForIndex(const QHeaderView* self, const QModelIndex* index) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_ItemDelegateForIndex_IsBase(true);
@@ -1513,7 +1513,7 @@ QVariant* QHeaderView_InputMethodQuery(const QHeaderView* self, int query) {
 }
 
 // Base class handler implementation
-QVariant* QHeaderView_QBaseInputMethodQuery(const QHeaderView* self, int query) {
+QVariant* QHeaderView_SuperInputMethodQuery(const QHeaderView* self, int query) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_InputMethodQuery_IsBase(true);
@@ -1542,7 +1542,7 @@ void QHeaderView_SetRootIndex(QHeaderView* self, const QModelIndex* index) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseSetRootIndex(QHeaderView* self, const QModelIndex* index) {
+void QHeaderView_SuperSetRootIndex(QHeaderView* self, const QModelIndex* index) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_SetRootIndex_IsBase(true);
@@ -1571,7 +1571,7 @@ void QHeaderView_SelectAll(QHeaderView* self) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseSelectAll(QHeaderView* self) {
+void QHeaderView_SuperSelectAll(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_SelectAll_IsBase(true);
@@ -1600,7 +1600,7 @@ void QHeaderView_RowsAboutToBeRemoved(QHeaderView* self, const QModelIndex* pare
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseRowsAboutToBeRemoved(QHeaderView* self, const QModelIndex* parent, int start, int end) {
+void QHeaderView_SuperRowsAboutToBeRemoved(QHeaderView* self, const QModelIndex* parent, int start, int end) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_RowsAboutToBeRemoved_IsBase(true);
@@ -1629,7 +1629,7 @@ void QHeaderView_SelectionChanged(QHeaderView* self, const QItemSelection* selec
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseSelectionChanged(QHeaderView* self, const QItemSelection* selected, const QItemSelection* deselected) {
+void QHeaderView_SuperSelectionChanged(QHeaderView* self, const QItemSelection* selected, const QItemSelection* deselected) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_SelectionChanged_IsBase(true);
@@ -1658,7 +1658,7 @@ void QHeaderView_UpdateEditorData(QHeaderView* self) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseUpdateEditorData(QHeaderView* self) {
+void QHeaderView_SuperUpdateEditorData(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_UpdateEditorData_IsBase(true);
@@ -1687,7 +1687,7 @@ void QHeaderView_UpdateEditorGeometries(QHeaderView* self) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseUpdateEditorGeometries(QHeaderView* self) {
+void QHeaderView_SuperUpdateEditorGeometries(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_UpdateEditorGeometries_IsBase(true);
@@ -1716,7 +1716,7 @@ void QHeaderView_VerticalScrollbarAction(QHeaderView* self, int action) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseVerticalScrollbarAction(QHeaderView* self, int action) {
+void QHeaderView_SuperVerticalScrollbarAction(QHeaderView* self, int action) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_VerticalScrollbarAction_IsBase(true);
@@ -1745,7 +1745,7 @@ void QHeaderView_HorizontalScrollbarAction(QHeaderView* self, int action) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseHorizontalScrollbarAction(QHeaderView* self, int action) {
+void QHeaderView_SuperHorizontalScrollbarAction(QHeaderView* self, int action) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_HorizontalScrollbarAction_IsBase(true);
@@ -1774,7 +1774,7 @@ void QHeaderView_VerticalScrollbarValueChanged(QHeaderView* self, int value) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseVerticalScrollbarValueChanged(QHeaderView* self, int value) {
+void QHeaderView_SuperVerticalScrollbarValueChanged(QHeaderView* self, int value) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_VerticalScrollbarValueChanged_IsBase(true);
@@ -1803,7 +1803,7 @@ void QHeaderView_HorizontalScrollbarValueChanged(QHeaderView* self, int value) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseHorizontalScrollbarValueChanged(QHeaderView* self, int value) {
+void QHeaderView_SuperHorizontalScrollbarValueChanged(QHeaderView* self, int value) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_HorizontalScrollbarValueChanged_IsBase(true);
@@ -1832,7 +1832,7 @@ void QHeaderView_CloseEditor(QHeaderView* self, QWidget* editor, int hint) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseCloseEditor(QHeaderView* self, QWidget* editor, int hint) {
+void QHeaderView_SuperCloseEditor(QHeaderView* self, QWidget* editor, int hint) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_CloseEditor_IsBase(true);
@@ -1861,7 +1861,7 @@ void QHeaderView_CommitData(QHeaderView* self, QWidget* editor) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseCommitData(QHeaderView* self, QWidget* editor) {
+void QHeaderView_SuperCommitData(QHeaderView* self, QWidget* editor) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_CommitData_IsBase(true);
@@ -1890,7 +1890,7 @@ void QHeaderView_EditorDestroyed(QHeaderView* self, QObject* editor) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseEditorDestroyed(QHeaderView* self, QObject* editor) {
+void QHeaderView_SuperEditorDestroyed(QHeaderView* self, QObject* editor) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_EditorDestroyed_IsBase(true);
@@ -1937,7 +1937,7 @@ libqt_list /* of QModelIndex* */ QHeaderView_SelectedIndexes(const QHeaderView* 
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QHeaderView_QBaseSelectedIndexes(const QHeaderView* self) {
+libqt_list /* of QModelIndex* */ QHeaderView_SuperSelectedIndexes(const QHeaderView* self) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_SelectedIndexes_IsBase(true);
@@ -1984,7 +1984,7 @@ bool QHeaderView_Edit2(QHeaderView* self, const QModelIndex* index, int trigger,
 }
 
 // Base class handler implementation
-bool QHeaderView_QBaseEdit2(QHeaderView* self, const QModelIndex* index, int trigger, QEvent* event) {
+bool QHeaderView_SuperEdit2(QHeaderView* self, const QModelIndex* index, int trigger, QEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_Edit2_IsBase(true);
@@ -2013,7 +2013,7 @@ int QHeaderView_SelectionCommand(const QHeaderView* self, const QModelIndex* ind
 }
 
 // Base class handler implementation
-int QHeaderView_QBaseSelectionCommand(const QHeaderView* self, const QModelIndex* index, const QEvent* event) {
+int QHeaderView_SuperSelectionCommand(const QHeaderView* self, const QModelIndex* index, const QEvent* event) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_SelectionCommand_IsBase(true);
@@ -2042,7 +2042,7 @@ void QHeaderView_StartDrag(QHeaderView* self, int supportedActions) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseStartDrag(QHeaderView* self, int supportedActions) {
+void QHeaderView_SuperStartDrag(QHeaderView* self, int supportedActions) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_StartDrag_IsBase(true);
@@ -2071,7 +2071,7 @@ void QHeaderView_InitViewItemOption(const QHeaderView* self, QStyleOptionViewIte
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseInitViewItemOption(const QHeaderView* self, QStyleOptionViewItem* option) {
+void QHeaderView_SuperInitViewItemOption(const QHeaderView* self, QStyleOptionViewItem* option) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_InitViewItemOption_IsBase(true);
@@ -2100,7 +2100,7 @@ bool QHeaderView_FocusNextPrevChild(QHeaderView* self, bool next) {
 }
 
 // Base class handler implementation
-bool QHeaderView_QBaseFocusNextPrevChild(QHeaderView* self, bool next) {
+bool QHeaderView_SuperFocusNextPrevChild(QHeaderView* self, bool next) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_FocusNextPrevChild_IsBase(true);
@@ -2129,7 +2129,7 @@ void QHeaderView_DragEnterEvent(QHeaderView* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseDragEnterEvent(QHeaderView* self, QDragEnterEvent* event) {
+void QHeaderView_SuperDragEnterEvent(QHeaderView* self, QDragEnterEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_DragEnterEvent_IsBase(true);
@@ -2158,7 +2158,7 @@ void QHeaderView_DragMoveEvent(QHeaderView* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseDragMoveEvent(QHeaderView* self, QDragMoveEvent* event) {
+void QHeaderView_SuperDragMoveEvent(QHeaderView* self, QDragMoveEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_DragMoveEvent_IsBase(true);
@@ -2187,7 +2187,7 @@ void QHeaderView_DragLeaveEvent(QHeaderView* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseDragLeaveEvent(QHeaderView* self, QDragLeaveEvent* event) {
+void QHeaderView_SuperDragLeaveEvent(QHeaderView* self, QDragLeaveEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_DragLeaveEvent_IsBase(true);
@@ -2216,7 +2216,7 @@ void QHeaderView_DropEvent(QHeaderView* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseDropEvent(QHeaderView* self, QDropEvent* event) {
+void QHeaderView_SuperDropEvent(QHeaderView* self, QDropEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_DropEvent_IsBase(true);
@@ -2245,7 +2245,7 @@ void QHeaderView_FocusInEvent(QHeaderView* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseFocusInEvent(QHeaderView* self, QFocusEvent* event) {
+void QHeaderView_SuperFocusInEvent(QHeaderView* self, QFocusEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_FocusInEvent_IsBase(true);
@@ -2274,7 +2274,7 @@ void QHeaderView_FocusOutEvent(QHeaderView* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseFocusOutEvent(QHeaderView* self, QFocusEvent* event) {
+void QHeaderView_SuperFocusOutEvent(QHeaderView* self, QFocusEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_FocusOutEvent_IsBase(true);
@@ -2303,7 +2303,7 @@ void QHeaderView_KeyPressEvent(QHeaderView* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseKeyPressEvent(QHeaderView* self, QKeyEvent* event) {
+void QHeaderView_SuperKeyPressEvent(QHeaderView* self, QKeyEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_KeyPressEvent_IsBase(true);
@@ -2332,7 +2332,7 @@ void QHeaderView_ResizeEvent(QHeaderView* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseResizeEvent(QHeaderView* self, QResizeEvent* event) {
+void QHeaderView_SuperResizeEvent(QHeaderView* self, QResizeEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_ResizeEvent_IsBase(true);
@@ -2361,7 +2361,7 @@ void QHeaderView_TimerEvent(QHeaderView* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseTimerEvent(QHeaderView* self, QTimerEvent* event) {
+void QHeaderView_SuperTimerEvent(QHeaderView* self, QTimerEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_TimerEvent_IsBase(true);
@@ -2390,7 +2390,7 @@ void QHeaderView_InputMethodEvent(QHeaderView* self, QInputMethodEvent* event) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseInputMethodEvent(QHeaderView* self, QInputMethodEvent* event) {
+void QHeaderView_SuperInputMethodEvent(QHeaderView* self, QInputMethodEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_InputMethodEvent_IsBase(true);
@@ -2419,7 +2419,7 @@ bool QHeaderView_EventFilter(QHeaderView* self, QObject* object, QEvent* event) 
 }
 
 // Base class handler implementation
-bool QHeaderView_QBaseEventFilter(QHeaderView* self, QObject* object, QEvent* event) {
+bool QHeaderView_SuperEventFilter(QHeaderView* self, QObject* object, QEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_EventFilter_IsBase(true);
@@ -2447,7 +2447,7 @@ QSize* QHeaderView_ViewportSizeHint(const QHeaderView* self) {
 }
 
 // Base class handler implementation
-QSize* QHeaderView_QBaseViewportSizeHint(const QHeaderView* self) {
+QSize* QHeaderView_SuperViewportSizeHint(const QHeaderView* self) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_ViewportSizeHint_IsBase(true);
@@ -2475,7 +2475,7 @@ QSize* QHeaderView_MinimumSizeHint(const QHeaderView* self) {
 }
 
 // Base class handler implementation
-QSize* QHeaderView_QBaseMinimumSizeHint(const QHeaderView* self) {
+QSize* QHeaderView_SuperMinimumSizeHint(const QHeaderView* self) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_MinimumSizeHint_IsBase(true);
@@ -2504,7 +2504,7 @@ void QHeaderView_SetupViewport(QHeaderView* self, QWidget* viewport) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseSetupViewport(QHeaderView* self, QWidget* viewport) {
+void QHeaderView_SuperSetupViewport(QHeaderView* self, QWidget* viewport) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_SetupViewport_IsBase(true);
@@ -2533,7 +2533,7 @@ void QHeaderView_WheelEvent(QHeaderView* self, QWheelEvent* param1) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseWheelEvent(QHeaderView* self, QWheelEvent* param1) {
+void QHeaderView_SuperWheelEvent(QHeaderView* self, QWheelEvent* param1) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_WheelEvent_IsBase(true);
@@ -2562,7 +2562,7 @@ void QHeaderView_ContextMenuEvent(QHeaderView* self, QContextMenuEvent* param1) 
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseContextMenuEvent(QHeaderView* self, QContextMenuEvent* param1) {
+void QHeaderView_SuperContextMenuEvent(QHeaderView* self, QContextMenuEvent* param1) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_ContextMenuEvent_IsBase(true);
@@ -2591,7 +2591,7 @@ void QHeaderView_ChangeEvent(QHeaderView* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseChangeEvent(QHeaderView* self, QEvent* param1) {
+void QHeaderView_SuperChangeEvent(QHeaderView* self, QEvent* param1) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_ChangeEvent_IsBase(true);
@@ -2620,7 +2620,7 @@ int QHeaderView_DevType(const QHeaderView* self) {
 }
 
 // Base class handler implementation
-int QHeaderView_QBaseDevType(const QHeaderView* self) {
+int QHeaderView_SuperDevType(const QHeaderView* self) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_DevType_IsBase(true);
@@ -2649,7 +2649,7 @@ int QHeaderView_HeightForWidth(const QHeaderView* self, int param1) {
 }
 
 // Base class handler implementation
-int QHeaderView_QBaseHeightForWidth(const QHeaderView* self, int param1) {
+int QHeaderView_SuperHeightForWidth(const QHeaderView* self, int param1) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_HeightForWidth_IsBase(true);
@@ -2678,7 +2678,7 @@ bool QHeaderView_HasHeightForWidth(const QHeaderView* self) {
 }
 
 // Base class handler implementation
-bool QHeaderView_QBaseHasHeightForWidth(const QHeaderView* self) {
+bool QHeaderView_SuperHasHeightForWidth(const QHeaderView* self) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_HasHeightForWidth_IsBase(true);
@@ -2707,7 +2707,7 @@ QPaintEngine* QHeaderView_PaintEngine(const QHeaderView* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QHeaderView_QBasePaintEngine(const QHeaderView* self) {
+QPaintEngine* QHeaderView_SuperPaintEngine(const QHeaderView* self) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_PaintEngine_IsBase(true);
@@ -2736,7 +2736,7 @@ void QHeaderView_KeyReleaseEvent(QHeaderView* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseKeyReleaseEvent(QHeaderView* self, QKeyEvent* event) {
+void QHeaderView_SuperKeyReleaseEvent(QHeaderView* self, QKeyEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_KeyReleaseEvent_IsBase(true);
@@ -2765,7 +2765,7 @@ void QHeaderView_EnterEvent(QHeaderView* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseEnterEvent(QHeaderView* self, QEnterEvent* event) {
+void QHeaderView_SuperEnterEvent(QHeaderView* self, QEnterEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_EnterEvent_IsBase(true);
@@ -2794,7 +2794,7 @@ void QHeaderView_LeaveEvent(QHeaderView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseLeaveEvent(QHeaderView* self, QEvent* event) {
+void QHeaderView_SuperLeaveEvent(QHeaderView* self, QEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_LeaveEvent_IsBase(true);
@@ -2823,7 +2823,7 @@ void QHeaderView_MoveEvent(QHeaderView* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseMoveEvent(QHeaderView* self, QMoveEvent* event) {
+void QHeaderView_SuperMoveEvent(QHeaderView* self, QMoveEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_MoveEvent_IsBase(true);
@@ -2852,7 +2852,7 @@ void QHeaderView_CloseEvent(QHeaderView* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseCloseEvent(QHeaderView* self, QCloseEvent* event) {
+void QHeaderView_SuperCloseEvent(QHeaderView* self, QCloseEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_CloseEvent_IsBase(true);
@@ -2881,7 +2881,7 @@ void QHeaderView_TabletEvent(QHeaderView* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseTabletEvent(QHeaderView* self, QTabletEvent* event) {
+void QHeaderView_SuperTabletEvent(QHeaderView* self, QTabletEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_TabletEvent_IsBase(true);
@@ -2910,7 +2910,7 @@ void QHeaderView_ActionEvent(QHeaderView* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseActionEvent(QHeaderView* self, QActionEvent* event) {
+void QHeaderView_SuperActionEvent(QHeaderView* self, QActionEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_ActionEvent_IsBase(true);
@@ -2939,7 +2939,7 @@ void QHeaderView_ShowEvent(QHeaderView* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseShowEvent(QHeaderView* self, QShowEvent* event) {
+void QHeaderView_SuperShowEvent(QHeaderView* self, QShowEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_ShowEvent_IsBase(true);
@@ -2968,7 +2968,7 @@ void QHeaderView_HideEvent(QHeaderView* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseHideEvent(QHeaderView* self, QHideEvent* event) {
+void QHeaderView_SuperHideEvent(QHeaderView* self, QHideEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_HideEvent_IsBase(true);
@@ -2998,7 +2998,7 @@ bool QHeaderView_NativeEvent(QHeaderView* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool QHeaderView_QBaseNativeEvent(QHeaderView* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QHeaderView_SuperNativeEvent(QHeaderView* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
@@ -3028,7 +3028,7 @@ int QHeaderView_Metric(const QHeaderView* self, int param1) {
 }
 
 // Base class handler implementation
-int QHeaderView_QBaseMetric(const QHeaderView* self, int param1) {
+int QHeaderView_SuperMetric(const QHeaderView* self, int param1) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_Metric_IsBase(true);
@@ -3057,7 +3057,7 @@ void QHeaderView_InitPainter(const QHeaderView* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseInitPainter(const QHeaderView* self, QPainter* painter) {
+void QHeaderView_SuperInitPainter(const QHeaderView* self, QPainter* painter) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_InitPainter_IsBase(true);
@@ -3086,7 +3086,7 @@ QPaintDevice* QHeaderView_Redirected(const QHeaderView* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QHeaderView_QBaseRedirected(const QHeaderView* self, QPoint* offset) {
+QPaintDevice* QHeaderView_SuperRedirected(const QHeaderView* self, QPoint* offset) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_Redirected_IsBase(true);
@@ -3115,7 +3115,7 @@ QPainter* QHeaderView_SharedPainter(const QHeaderView* self) {
 }
 
 // Base class handler implementation
-QPainter* QHeaderView_QBaseSharedPainter(const QHeaderView* self) {
+QPainter* QHeaderView_SuperSharedPainter(const QHeaderView* self) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_SharedPainter_IsBase(true);
@@ -3144,7 +3144,7 @@ void QHeaderView_ChildEvent(QHeaderView* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseChildEvent(QHeaderView* self, QChildEvent* event) {
+void QHeaderView_SuperChildEvent(QHeaderView* self, QChildEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_ChildEvent_IsBase(true);
@@ -3173,7 +3173,7 @@ void QHeaderView_CustomEvent(QHeaderView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseCustomEvent(QHeaderView* self, QEvent* event) {
+void QHeaderView_SuperCustomEvent(QHeaderView* self, QEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_CustomEvent_IsBase(true);
@@ -3202,7 +3202,7 @@ void QHeaderView_ConnectNotify(QHeaderView* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseConnectNotify(QHeaderView* self, const QMetaMethod* signal) {
+void QHeaderView_SuperConnectNotify(QHeaderView* self, const QMetaMethod* signal) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_ConnectNotify_IsBase(true);
@@ -3231,7 +3231,7 @@ void QHeaderView_DisconnectNotify(QHeaderView* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseDisconnectNotify(QHeaderView* self, const QMetaMethod* signal) {
+void QHeaderView_SuperDisconnectNotify(QHeaderView* self, const QMetaMethod* signal) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_DisconnectNotify_IsBase(true);
@@ -3260,7 +3260,7 @@ void QHeaderView_UpdateSection(QHeaderView* self, int logicalIndex) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseUpdateSection(QHeaderView* self, int logicalIndex) {
+void QHeaderView_SuperUpdateSection(QHeaderView* self, int logicalIndex) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_UpdateSection_IsBase(true);
@@ -3289,7 +3289,7 @@ void QHeaderView_ResizeSections2(QHeaderView* self) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseResizeSections2(QHeaderView* self) {
+void QHeaderView_SuperResizeSections2(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_ResizeSections2_IsBase(true);
@@ -3318,7 +3318,7 @@ void QHeaderView_SectionsInserted(QHeaderView* self, const QModelIndex* parent, 
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseSectionsInserted(QHeaderView* self, const QModelIndex* parent, int logicalFirst, int logicalLast) {
+void QHeaderView_SuperSectionsInserted(QHeaderView* self, const QModelIndex* parent, int logicalFirst, int logicalLast) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_SectionsInserted_IsBase(true);
@@ -3347,7 +3347,7 @@ void QHeaderView_SectionsAboutToBeRemoved(QHeaderView* self, const QModelIndex* 
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseSectionsAboutToBeRemoved(QHeaderView* self, const QModelIndex* parent, int logicalFirst, int logicalLast) {
+void QHeaderView_SuperSectionsAboutToBeRemoved(QHeaderView* self, const QModelIndex* parent, int logicalFirst, int logicalLast) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_SectionsAboutToBeRemoved_IsBase(true);
@@ -3376,7 +3376,7 @@ void QHeaderView_Initialize(QHeaderView* self) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseInitialize(QHeaderView* self) {
+void QHeaderView_SuperInitialize(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_Initialize_IsBase(true);
@@ -3405,7 +3405,7 @@ void QHeaderView_InitializeSections(QHeaderView* self) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseInitializeSections(QHeaderView* self) {
+void QHeaderView_SuperInitializeSections(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_InitializeSections_IsBase(true);
@@ -3434,7 +3434,7 @@ void QHeaderView_InitializeSections2(QHeaderView* self, int start, int end) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseInitializeSections2(QHeaderView* self, int start, int end) {
+void QHeaderView_SuperInitializeSections2(QHeaderView* self, int start, int end) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_InitializeSections2_IsBase(true);
@@ -3463,7 +3463,7 @@ int QHeaderView_State(const QHeaderView* self) {
 }
 
 // Base class handler implementation
-int QHeaderView_QBaseState(const QHeaderView* self) {
+int QHeaderView_SuperState(const QHeaderView* self) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_State_IsBase(true);
@@ -3492,7 +3492,7 @@ void QHeaderView_SetState(QHeaderView* self, int state) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseSetState(QHeaderView* self, int state) {
+void QHeaderView_SuperSetState(QHeaderView* self, int state) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_SetState_IsBase(true);
@@ -3521,7 +3521,7 @@ void QHeaderView_ScheduleDelayedItemsLayout(QHeaderView* self) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseScheduleDelayedItemsLayout(QHeaderView* self) {
+void QHeaderView_SuperScheduleDelayedItemsLayout(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_ScheduleDelayedItemsLayout_IsBase(true);
@@ -3550,7 +3550,7 @@ void QHeaderView_ExecuteDelayedItemsLayout(QHeaderView* self) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseExecuteDelayedItemsLayout(QHeaderView* self) {
+void QHeaderView_SuperExecuteDelayedItemsLayout(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_ExecuteDelayedItemsLayout_IsBase(true);
@@ -3579,7 +3579,7 @@ void QHeaderView_SetDirtyRegion(QHeaderView* self, const QRegion* region) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseSetDirtyRegion(QHeaderView* self, const QRegion* region) {
+void QHeaderView_SuperSetDirtyRegion(QHeaderView* self, const QRegion* region) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_SetDirtyRegion_IsBase(true);
@@ -3608,7 +3608,7 @@ void QHeaderView_ScrollDirtyRegion(QHeaderView* self, int dx, int dy) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseScrollDirtyRegion(QHeaderView* self, int dx, int dy) {
+void QHeaderView_SuperScrollDirtyRegion(QHeaderView* self, int dx, int dy) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_ScrollDirtyRegion_IsBase(true);
@@ -3636,7 +3636,7 @@ QPoint* QHeaderView_DirtyRegionOffset(const QHeaderView* self) {
 }
 
 // Base class handler implementation
-QPoint* QHeaderView_QBaseDirtyRegionOffset(const QHeaderView* self) {
+QPoint* QHeaderView_SuperDirtyRegionOffset(const QHeaderView* self) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_DirtyRegionOffset_IsBase(true);
@@ -3664,7 +3664,7 @@ void QHeaderView_StartAutoScroll(QHeaderView* self) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseStartAutoScroll(QHeaderView* self) {
+void QHeaderView_SuperStartAutoScroll(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_StartAutoScroll_IsBase(true);
@@ -3693,7 +3693,7 @@ void QHeaderView_StopAutoScroll(QHeaderView* self) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseStopAutoScroll(QHeaderView* self) {
+void QHeaderView_SuperStopAutoScroll(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_StopAutoScroll_IsBase(true);
@@ -3722,7 +3722,7 @@ void QHeaderView_DoAutoScroll(QHeaderView* self) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseDoAutoScroll(QHeaderView* self) {
+void QHeaderView_SuperDoAutoScroll(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_DoAutoScroll_IsBase(true);
@@ -3751,7 +3751,7 @@ int QHeaderView_DropIndicatorPosition(const QHeaderView* self) {
 }
 
 // Base class handler implementation
-int QHeaderView_QBaseDropIndicatorPosition(const QHeaderView* self) {
+int QHeaderView_SuperDropIndicatorPosition(const QHeaderView* self) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_DropIndicatorPosition_IsBase(true);
@@ -3780,7 +3780,7 @@ void QHeaderView_SetViewportMargins(QHeaderView* self, int left, int top, int ri
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseSetViewportMargins(QHeaderView* self, int left, int top, int right, int bottom) {
+void QHeaderView_SuperSetViewportMargins(QHeaderView* self, int left, int top, int right, int bottom) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_SetViewportMargins_IsBase(true);
@@ -3808,7 +3808,7 @@ QMargins* QHeaderView_ViewportMargins(const QHeaderView* self) {
 }
 
 // Base class handler implementation
-QMargins* QHeaderView_QBaseViewportMargins(const QHeaderView* self) {
+QMargins* QHeaderView_SuperViewportMargins(const QHeaderView* self) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_ViewportMargins_IsBase(true);
@@ -3836,7 +3836,7 @@ void QHeaderView_DrawFrame(QHeaderView* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseDrawFrame(QHeaderView* self, QPainter* param1) {
+void QHeaderView_SuperDrawFrame(QHeaderView* self, QPainter* param1) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_DrawFrame_IsBase(true);
@@ -3865,7 +3865,7 @@ void QHeaderView_UpdateMicroFocus(QHeaderView* self) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseUpdateMicroFocus(QHeaderView* self) {
+void QHeaderView_SuperUpdateMicroFocus(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_UpdateMicroFocus_IsBase(true);
@@ -3894,7 +3894,7 @@ void QHeaderView_Create(QHeaderView* self) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseCreate(QHeaderView* self) {
+void QHeaderView_SuperCreate(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_Create_IsBase(true);
@@ -3923,7 +3923,7 @@ void QHeaderView_Destroy(QHeaderView* self) {
 }
 
 // Base class handler implementation
-void QHeaderView_QBaseDestroy(QHeaderView* self) {
+void QHeaderView_SuperDestroy(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_Destroy_IsBase(true);
@@ -3952,7 +3952,7 @@ bool QHeaderView_FocusNextChild(QHeaderView* self) {
 }
 
 // Base class handler implementation
-bool QHeaderView_QBaseFocusNextChild(QHeaderView* self) {
+bool QHeaderView_SuperFocusNextChild(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_FocusNextChild_IsBase(true);
@@ -3981,7 +3981,7 @@ bool QHeaderView_FocusPreviousChild(QHeaderView* self) {
 }
 
 // Base class handler implementation
-bool QHeaderView_QBaseFocusPreviousChild(QHeaderView* self) {
+bool QHeaderView_SuperFocusPreviousChild(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_FocusPreviousChild_IsBase(true);
@@ -4010,7 +4010,7 @@ QObject* QHeaderView_Sender(const QHeaderView* self) {
 }
 
 // Base class handler implementation
-QObject* QHeaderView_QBaseSender(const QHeaderView* self) {
+QObject* QHeaderView_SuperSender(const QHeaderView* self) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_Sender_IsBase(true);
@@ -4039,7 +4039,7 @@ int QHeaderView_SenderSignalIndex(const QHeaderView* self) {
 }
 
 // Base class handler implementation
-int QHeaderView_QBaseSenderSignalIndex(const QHeaderView* self) {
+int QHeaderView_SuperSenderSignalIndex(const QHeaderView* self) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_SenderSignalIndex_IsBase(true);
@@ -4068,7 +4068,7 @@ int QHeaderView_Receivers(const QHeaderView* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QHeaderView_QBaseReceivers(const QHeaderView* self, const char* signal) {
+int QHeaderView_SuperReceivers(const QHeaderView* self, const char* signal) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_Receivers_IsBase(true);
@@ -4097,7 +4097,7 @@ bool QHeaderView_IsSignalConnected(const QHeaderView* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QHeaderView_QBaseIsSignalConnected(const QHeaderView* self, const QMetaMethod* signal) {
+bool QHeaderView_SuperIsSignalConnected(const QHeaderView* self, const QMetaMethod* signal) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_IsSignalConnected_IsBase(true);
@@ -4126,7 +4126,7 @@ double QHeaderView_GetDecodedMetricF(const QHeaderView* self, int metricA, int m
 }
 
 // Base class handler implementation
-double QHeaderView_QBaseGetDecodedMetricF(const QHeaderView* self, int metricA, int metricB) {
+double QHeaderView_SuperGetDecodedMetricF(const QHeaderView* self, int metricA, int metricB) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_GetDecodedMetricF_IsBase(true);

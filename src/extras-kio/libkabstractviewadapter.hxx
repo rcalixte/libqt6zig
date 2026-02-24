@@ -428,23 +428,23 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
 
     // Friend functions
     friend void KAbstractViewAdapter_TimerEvent(KAbstractViewAdapter* self, QTimerEvent* event);
-    friend void KAbstractViewAdapter_QBaseTimerEvent(KAbstractViewAdapter* self, QTimerEvent* event);
+    friend void KAbstractViewAdapter_SuperTimerEvent(KAbstractViewAdapter* self, QTimerEvent* event);
     friend void KAbstractViewAdapter_ChildEvent(KAbstractViewAdapter* self, QChildEvent* event);
-    friend void KAbstractViewAdapter_QBaseChildEvent(KAbstractViewAdapter* self, QChildEvent* event);
+    friend void KAbstractViewAdapter_SuperChildEvent(KAbstractViewAdapter* self, QChildEvent* event);
     friend void KAbstractViewAdapter_CustomEvent(KAbstractViewAdapter* self, QEvent* event);
-    friend void KAbstractViewAdapter_QBaseCustomEvent(KAbstractViewAdapter* self, QEvent* event);
+    friend void KAbstractViewAdapter_SuperCustomEvent(KAbstractViewAdapter* self, QEvent* event);
     friend void KAbstractViewAdapter_ConnectNotify(KAbstractViewAdapter* self, const QMetaMethod* signal);
-    friend void KAbstractViewAdapter_QBaseConnectNotify(KAbstractViewAdapter* self, const QMetaMethod* signal);
+    friend void KAbstractViewAdapter_SuperConnectNotify(KAbstractViewAdapter* self, const QMetaMethod* signal);
     friend void KAbstractViewAdapter_DisconnectNotify(KAbstractViewAdapter* self, const QMetaMethod* signal);
-    friend void KAbstractViewAdapter_QBaseDisconnectNotify(KAbstractViewAdapter* self, const QMetaMethod* signal);
+    friend void KAbstractViewAdapter_SuperDisconnectNotify(KAbstractViewAdapter* self, const QMetaMethod* signal);
     friend QObject* KAbstractViewAdapter_Sender(const KAbstractViewAdapter* self);
-    friend QObject* KAbstractViewAdapter_QBaseSender(const KAbstractViewAdapter* self);
+    friend QObject* KAbstractViewAdapter_SuperSender(const KAbstractViewAdapter* self);
     friend int KAbstractViewAdapter_SenderSignalIndex(const KAbstractViewAdapter* self);
-    friend int KAbstractViewAdapter_QBaseSenderSignalIndex(const KAbstractViewAdapter* self);
+    friend int KAbstractViewAdapter_SuperSenderSignalIndex(const KAbstractViewAdapter* self);
     friend int KAbstractViewAdapter_Receivers(const KAbstractViewAdapter* self, const char* signal);
-    friend int KAbstractViewAdapter_QBaseReceivers(const KAbstractViewAdapter* self, const char* signal);
+    friend int KAbstractViewAdapter_SuperReceivers(const KAbstractViewAdapter* self, const char* signal);
     friend bool KAbstractViewAdapter_IsSignalConnected(const KAbstractViewAdapter* self, const QMetaMethod* signal);
-    friend bool KAbstractViewAdapter_QBaseIsSignalConnected(const KAbstractViewAdapter* self, const QMetaMethod* signal);
+    friend bool KAbstractViewAdapter_SuperIsSignalConnected(const KAbstractViewAdapter* self, const QMetaMethod* signal);
 };
 
 #endif

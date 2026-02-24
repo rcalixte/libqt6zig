@@ -105,13 +105,17 @@ pub const kio__workerresult = struct {
         return qtc.KIO__WorkerResult_Fail2(@bitCast(_error), _errorString_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KIO__WorkerResult `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KIO__WorkerResult_Delete(@ptrCast(self));
     }
 };
@@ -675,6 +679,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnAppConnectionMade(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAppConnectionMade` instead
+    ///
+    pub const QBaseAppConnectionMade = SuperAppConnectionMade;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#appConnectionMade)
     ///
     /// Base class method implementation
@@ -683,8 +691,8 @@ pub const kio__workerbase = struct {
     ///
     /// ` self: QtC.KIO__WorkerBase `
     ///
-    pub fn QBaseAppConnectionMade(self: ?*anyopaque) void {
-        qtc.KIO__WorkerBase_QBaseAppConnectionMade(@ptrCast(self));
+    pub fn SuperAppConnectionMade(self: ?*anyopaque) void {
+        qtc.KIO__WorkerBase_SuperAppConnectionMade(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#setHost)
@@ -731,6 +739,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnSetHost(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetHost` instead
+    ///
+    pub const QBaseSetHost = SuperSetHost;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#setHost)
     ///
     /// Base class method implementation
@@ -747,7 +759,7 @@ pub const kio__workerbase = struct {
     ///
     /// ` pass: []const u8 `
     ///
-    pub fn QBaseSetHost(self: ?*anyopaque, host: []const u8, port: u16, user: []const u8, pass: []const u8) void {
+    pub fn SuperSetHost(self: ?*anyopaque, host: []const u8, port: u16, user: []const u8, pass: []const u8) void {
         const host_str = qtc.libqt_string{
             .len = host.len,
             .data = host.ptr,
@@ -760,7 +772,7 @@ pub const kio__workerbase = struct {
             .len = pass.len,
             .data = pass.ptr,
         };
-        qtc.KIO__WorkerBase_QBaseSetHost(@ptrCast(self), host_str, @bitCast(port), user_str, pass_str);
+        qtc.KIO__WorkerBase_SuperSetHost(@ptrCast(self), host_str, @bitCast(port), user_str, pass_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#openConnection)
@@ -787,6 +799,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnOpenConnection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperOpenConnection` instead
+    ///
+    pub const QBaseOpenConnection = SuperOpenConnection;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#openConnection)
     ///
     /// Base class method implementation
@@ -795,8 +811,8 @@ pub const kio__workerbase = struct {
     ///
     /// ` self: QtC.KIO__WorkerBase `
     ///
-    pub fn QBaseOpenConnection(self: ?*anyopaque) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseOpenConnection(@ptrCast(self));
+    pub fn SuperOpenConnection(self: ?*anyopaque) QtC.KIO__WorkerResult {
+        return qtc.KIO__WorkerBase_SuperOpenConnection(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#closeConnection)
@@ -823,6 +839,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnCloseConnection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseConnection` instead
+    ///
+    pub const QBaseCloseConnection = SuperCloseConnection;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#closeConnection)
     ///
     /// Base class method implementation
@@ -831,8 +851,8 @@ pub const kio__workerbase = struct {
     ///
     /// ` self: QtC.KIO__WorkerBase `
     ///
-    pub fn QBaseCloseConnection(self: ?*anyopaque) void {
-        qtc.KIO__WorkerBase_QBaseCloseConnection(@ptrCast(self));
+    pub fn SuperCloseConnection(self: ?*anyopaque) void {
+        qtc.KIO__WorkerBase_SuperCloseConnection(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#get)
@@ -861,6 +881,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnGet(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGet` instead
+    ///
+    pub const QBaseGet = SuperGet;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#get)
     ///
     /// Base class method implementation
@@ -871,8 +895,8 @@ pub const kio__workerbase = struct {
     ///
     /// ` url: QtC.QUrl `
     ///
-    pub fn QBaseGet(self: ?*anyopaque, url: ?*anyopaque) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseGet(@ptrCast(self), @ptrCast(url));
+    pub fn SuperGet(self: ?*anyopaque, url: ?*anyopaque) QtC.KIO__WorkerResult {
+        return qtc.KIO__WorkerBase_SuperGet(@ptrCast(self), @ptrCast(url));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#open)
@@ -903,6 +927,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperOpen` instead
+    ///
+    pub const QBaseOpen = SuperOpen;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#open)
     ///
     /// Base class method implementation
@@ -915,8 +943,8 @@ pub const kio__workerbase = struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn QBaseOpen(self: ?*anyopaque, url: ?*anyopaque, mode: i32) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseOpen(@ptrCast(self), @ptrCast(url), @bitCast(mode));
+    pub fn SuperOpen(self: ?*anyopaque, url: ?*anyopaque, mode: i32) QtC.KIO__WorkerResult {
+        return qtc.KIO__WorkerBase_SuperOpen(@ptrCast(self), @ptrCast(url), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#read)
@@ -945,6 +973,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRead` instead
+    ///
+    pub const QBaseRead = SuperRead;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#read)
     ///
     /// Base class method implementation
@@ -955,8 +987,8 @@ pub const kio__workerbase = struct {
     ///
     /// ` size: u64 `
     ///
-    pub fn QBaseRead(self: ?*anyopaque, size: u64) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseRead(@ptrCast(self), @bitCast(size));
+    pub fn SuperRead(self: ?*anyopaque, size: u64) QtC.KIO__WorkerResult {
+        return qtc.KIO__WorkerBase_SuperRead(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#write)
@@ -989,6 +1021,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnWrite(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWrite` instead
+    ///
+    pub const QBaseWrite = SuperWrite;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#write)
     ///
     /// Base class method implementation
@@ -999,12 +1035,12 @@ pub const kio__workerbase = struct {
     ///
     /// ` data: []u8 `
     ///
-    pub fn QBaseWrite(self: ?*anyopaque, data: []u8) QtC.KIO__WorkerResult {
+    pub fn SuperWrite(self: ?*anyopaque, data: []u8) QtC.KIO__WorkerResult {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.KIO__WorkerBase_QBaseWrite(@ptrCast(self), data_str);
+        return qtc.KIO__WorkerBase_SuperWrite(@ptrCast(self), data_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#seek)
@@ -1033,6 +1069,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnSeek(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSeek` instead
+    ///
+    pub const QBaseSeek = SuperSeek;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#seek)
     ///
     /// Base class method implementation
@@ -1043,8 +1083,8 @@ pub const kio__workerbase = struct {
     ///
     /// ` offset: u64 `
     ///
-    pub fn QBaseSeek(self: ?*anyopaque, offset: u64) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseSeek(@ptrCast(self), @bitCast(offset));
+    pub fn SuperSeek(self: ?*anyopaque, offset: u64) QtC.KIO__WorkerResult {
+        return qtc.KIO__WorkerBase_SuperSeek(@ptrCast(self), @bitCast(offset));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#truncate)
@@ -1073,6 +1113,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnTruncate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperTruncate` instead
+    ///
+    pub const QBaseTruncate = SuperTruncate;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#truncate)
     ///
     /// Base class method implementation
@@ -1083,8 +1127,8 @@ pub const kio__workerbase = struct {
     ///
     /// ` size: u64 `
     ///
-    pub fn QBaseTruncate(self: ?*anyopaque, size: u64) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseTruncate(@ptrCast(self), @bitCast(size));
+    pub fn SuperTruncate(self: ?*anyopaque, size: u64) QtC.KIO__WorkerResult {
+        return qtc.KIO__WorkerBase_SuperTruncate(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#close)
@@ -1111,6 +1155,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClose` instead
+    ///
+    pub const QBaseClose = SuperClose;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#close)
     ///
     /// Base class method implementation
@@ -1119,8 +1167,8 @@ pub const kio__workerbase = struct {
     ///
     /// ` self: QtC.KIO__WorkerBase `
     ///
-    pub fn QBaseClose(self: ?*anyopaque) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseClose(@ptrCast(self));
+    pub fn SuperClose(self: ?*anyopaque) QtC.KIO__WorkerResult {
+        return qtc.KIO__WorkerBase_SuperClose(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#put)
@@ -1153,6 +1201,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnPut(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPut` instead
+    ///
+    pub const QBasePut = SuperPut;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#put)
     ///
     /// Base class method implementation
@@ -1167,8 +1219,8 @@ pub const kio__workerbase = struct {
     ///
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn QBasePut(self: ?*anyopaque, url: ?*anyopaque, permissions: i32, flags: i32) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBasePut(@ptrCast(self), @ptrCast(url), @bitCast(permissions), @bitCast(flags));
+    pub fn SuperPut(self: ?*anyopaque, url: ?*anyopaque, permissions: i32, flags: i32) QtC.KIO__WorkerResult {
+        return qtc.KIO__WorkerBase_SuperPut(@ptrCast(self), @ptrCast(url), @bitCast(permissions), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#stat)
@@ -1197,6 +1249,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnStat(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperStat` instead
+    ///
+    pub const QBaseStat = SuperStat;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#stat)
     ///
     /// Base class method implementation
@@ -1207,8 +1263,8 @@ pub const kio__workerbase = struct {
     ///
     /// ` url: QtC.QUrl `
     ///
-    pub fn QBaseStat(self: ?*anyopaque, url: ?*anyopaque) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseStat(@ptrCast(self), @ptrCast(url));
+    pub fn SuperStat(self: ?*anyopaque, url: ?*anyopaque) QtC.KIO__WorkerResult {
+        return qtc.KIO__WorkerBase_SuperStat(@ptrCast(self), @ptrCast(url));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#mimetype)
@@ -1237,6 +1293,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnMimetype(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMimetype` instead
+    ///
+    pub const QBaseMimetype = SuperMimetype;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#mimetype)
     ///
     /// Base class method implementation
@@ -1247,8 +1307,8 @@ pub const kio__workerbase = struct {
     ///
     /// ` url: QtC.QUrl `
     ///
-    pub fn QBaseMimetype(self: ?*anyopaque, url: ?*anyopaque) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseMimetype(@ptrCast(self), @ptrCast(url));
+    pub fn SuperMimetype(self: ?*anyopaque, url: ?*anyopaque) QtC.KIO__WorkerResult {
+        return qtc.KIO__WorkerBase_SuperMimetype(@ptrCast(self), @ptrCast(url));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#listDir)
@@ -1277,6 +1337,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnListDir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperListDir` instead
+    ///
+    pub const QBaseListDir = SuperListDir;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#listDir)
     ///
     /// Base class method implementation
@@ -1287,8 +1351,8 @@ pub const kio__workerbase = struct {
     ///
     /// ` url: QtC.QUrl `
     ///
-    pub fn QBaseListDir(self: ?*anyopaque, url: ?*anyopaque) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseListDir(@ptrCast(self), @ptrCast(url));
+    pub fn SuperListDir(self: ?*anyopaque, url: ?*anyopaque) QtC.KIO__WorkerResult {
+        return qtc.KIO__WorkerBase_SuperListDir(@ptrCast(self), @ptrCast(url));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#mkdir)
@@ -1319,6 +1383,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnMkdir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMkdir` instead
+    ///
+    pub const QBaseMkdir = SuperMkdir;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#mkdir)
     ///
     /// Base class method implementation
@@ -1331,8 +1399,8 @@ pub const kio__workerbase = struct {
     ///
     /// ` permissions: i32 `
     ///
-    pub fn QBaseMkdir(self: ?*anyopaque, url: ?*anyopaque, permissions: i32) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseMkdir(@ptrCast(self), @ptrCast(url), @bitCast(permissions));
+    pub fn SuperMkdir(self: ?*anyopaque, url: ?*anyopaque, permissions: i32) QtC.KIO__WorkerResult {
+        return qtc.KIO__WorkerBase_SuperMkdir(@ptrCast(self), @ptrCast(url), @bitCast(permissions));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#rename)
@@ -1365,6 +1433,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnRename(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRename` instead
+    ///
+    pub const QBaseRename = SuperRename;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#rename)
     ///
     /// Base class method implementation
@@ -1379,8 +1451,8 @@ pub const kio__workerbase = struct {
     ///
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn QBaseRename(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque, flags: i32) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseRename(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @bitCast(flags));
+    pub fn SuperRename(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque, flags: i32) QtC.KIO__WorkerResult {
+        return qtc.KIO__WorkerBase_SuperRename(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#symlink)
@@ -1417,6 +1489,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnSymlink(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSymlink` instead
+    ///
+    pub const QBaseSymlink = SuperSymlink;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#symlink)
     ///
     /// Base class method implementation
@@ -1431,12 +1507,12 @@ pub const kio__workerbase = struct {
     ///
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn QBaseSymlink(self: ?*anyopaque, target: []const u8, dest: ?*anyopaque, flags: i32) QtC.KIO__WorkerResult {
+    pub fn SuperSymlink(self: ?*anyopaque, target: []const u8, dest: ?*anyopaque, flags: i32) QtC.KIO__WorkerResult {
         const target_str = qtc.libqt_string{
             .len = target.len,
             .data = target.ptr,
         };
-        return qtc.KIO__WorkerBase_QBaseSymlink(@ptrCast(self), target_str, @ptrCast(dest), @bitCast(flags));
+        return qtc.KIO__WorkerBase_SuperSymlink(@ptrCast(self), target_str, @ptrCast(dest), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#chmod)
@@ -1467,6 +1543,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnChmod(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperChmod` instead
+    ///
+    pub const QBaseChmod = SuperChmod;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#chmod)
     ///
     /// Base class method implementation
@@ -1479,8 +1559,8 @@ pub const kio__workerbase = struct {
     ///
     /// ` permissions: i32 `
     ///
-    pub fn QBaseChmod(self: ?*anyopaque, url: ?*anyopaque, permissions: i32) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseChmod(@ptrCast(self), @ptrCast(url), @bitCast(permissions));
+    pub fn SuperChmod(self: ?*anyopaque, url: ?*anyopaque, permissions: i32) QtC.KIO__WorkerResult {
+        return qtc.KIO__WorkerBase_SuperChmod(@ptrCast(self), @ptrCast(url), @bitCast(permissions));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#chown)
@@ -1521,6 +1601,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnChown(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperChown` instead
+    ///
+    pub const QBaseChown = SuperChown;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#chown)
     ///
     /// Base class method implementation
@@ -1535,7 +1619,7 @@ pub const kio__workerbase = struct {
     ///
     /// ` group: []const u8 `
     ///
-    pub fn QBaseChown(self: ?*anyopaque, url: ?*anyopaque, owner: []const u8, group: []const u8) QtC.KIO__WorkerResult {
+    pub fn SuperChown(self: ?*anyopaque, url: ?*anyopaque, owner: []const u8, group: []const u8) QtC.KIO__WorkerResult {
         const owner_str = qtc.libqt_string{
             .len = owner.len,
             .data = owner.ptr,
@@ -1544,7 +1628,7 @@ pub const kio__workerbase = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.KIO__WorkerBase_QBaseChown(@ptrCast(self), @ptrCast(url), owner_str, group_str);
+        return qtc.KIO__WorkerBase_SuperChown(@ptrCast(self), @ptrCast(url), owner_str, group_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#setModificationTime)
@@ -1575,6 +1659,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnSetModificationTime(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetModificationTime` instead
+    ///
+    pub const QBaseSetModificationTime = SuperSetModificationTime;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#setModificationTime)
     ///
     /// Base class method implementation
@@ -1587,8 +1675,8 @@ pub const kio__workerbase = struct {
     ///
     /// ` mtime: QtC.QDateTime `
     ///
-    pub fn QBaseSetModificationTime(self: ?*anyopaque, url: ?*anyopaque, mtime: ?*anyopaque) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseSetModificationTime(@ptrCast(self), @ptrCast(url), @ptrCast(mtime));
+    pub fn SuperSetModificationTime(self: ?*anyopaque, url: ?*anyopaque, mtime: ?*anyopaque) QtC.KIO__WorkerResult {
+        return qtc.KIO__WorkerBase_SuperSetModificationTime(@ptrCast(self), @ptrCast(url), @ptrCast(mtime));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#copy)
@@ -1623,6 +1711,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnCopy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCopy` instead
+    ///
+    pub const QBaseCopy = SuperCopy;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#copy)
     ///
     /// Base class method implementation
@@ -1639,8 +1731,8 @@ pub const kio__workerbase = struct {
     ///
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn QBaseCopy(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque, permissions: i32, flags: i32) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseCopy(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @bitCast(permissions), @bitCast(flags));
+    pub fn SuperCopy(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque, permissions: i32, flags: i32) QtC.KIO__WorkerResult {
+        return qtc.KIO__WorkerBase_SuperCopy(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @bitCast(permissions), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#del)
@@ -1671,6 +1763,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnDel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDel` instead
+    ///
+    pub const QBaseDel = SuperDel;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#del)
     ///
     /// Base class method implementation
@@ -1683,8 +1779,8 @@ pub const kio__workerbase = struct {
     ///
     /// ` isfile: bool `
     ///
-    pub fn QBaseDel(self: ?*anyopaque, url: ?*anyopaque, isfile: bool) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseDel(@ptrCast(self), @ptrCast(url), isfile);
+    pub fn SuperDel(self: ?*anyopaque, url: ?*anyopaque, isfile: bool) QtC.KIO__WorkerResult {
+        return qtc.KIO__WorkerBase_SuperDel(@ptrCast(self), @ptrCast(url), isfile);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#special)
@@ -1717,6 +1813,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnSpecial(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSpecial` instead
+    ///
+    pub const QBaseSpecial = SuperSpecial;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#special)
     ///
     /// Base class method implementation
@@ -1727,12 +1827,12 @@ pub const kio__workerbase = struct {
     ///
     /// ` data: []u8 `
     ///
-    pub fn QBaseSpecial(self: ?*anyopaque, data: []u8) QtC.KIO__WorkerResult {
+    pub fn SuperSpecial(self: ?*anyopaque, data: []u8) QtC.KIO__WorkerResult {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.KIO__WorkerBase_QBaseSpecial(@ptrCast(self), data_str);
+        return qtc.KIO__WorkerBase_SuperSpecial(@ptrCast(self), data_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#fileSystemFreeSpace)
@@ -1761,6 +1861,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnFileSystemFreeSpace(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFileSystemFreeSpace` instead
+    ///
+    pub const QBaseFileSystemFreeSpace = SuperFileSystemFreeSpace;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#fileSystemFreeSpace)
     ///
     /// Base class method implementation
@@ -1771,8 +1875,8 @@ pub const kio__workerbase = struct {
     ///
     /// ` url: QtC.QUrl `
     ///
-    pub fn QBaseFileSystemFreeSpace(self: ?*anyopaque, url: ?*anyopaque) QtC.KIO__WorkerResult {
-        return qtc.KIO__WorkerBase_QBaseFileSystemFreeSpace(@ptrCast(self), @ptrCast(url));
+    pub fn SuperFileSystemFreeSpace(self: ?*anyopaque, url: ?*anyopaque) QtC.KIO__WorkerResult {
+        return qtc.KIO__WorkerBase_SuperFileSystemFreeSpace(@ptrCast(self), @ptrCast(url));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#worker_status)
@@ -1799,6 +1903,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnWorkerStatus2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWorkerStatus2` instead
+    ///
+    pub const QBaseWorkerStatus2 = SuperWorkerStatus2;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#worker_status)
     ///
     /// Base class method implementation
@@ -1807,8 +1915,8 @@ pub const kio__workerbase = struct {
     ///
     /// ` self: QtC.KIO__WorkerBase `
     ///
-    pub fn QBaseWorkerStatus2(self: ?*anyopaque) void {
-        qtc.KIO__WorkerBase_QBaseWorkerStatus2(@ptrCast(self));
+    pub fn SuperWorkerStatus2(self: ?*anyopaque) void {
+        qtc.KIO__WorkerBase_SuperWorkerStatus2(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#reparseConfiguration)
@@ -1835,6 +1943,10 @@ pub const kio__workerbase = struct {
         qtc.KIO__WorkerBase_OnReparseConfiguration(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperReparseConfiguration` instead
+    ///
+    pub const QBaseReparseConfiguration = SuperReparseConfiguration;
+
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#reparseConfiguration)
     ///
     /// Base class method implementation
@@ -1843,8 +1955,8 @@ pub const kio__workerbase = struct {
     ///
     /// ` self: QtC.KIO__WorkerBase `
     ///
-    pub fn QBaseReparseConfiguration(self: ?*anyopaque) void {
-        qtc.KIO__WorkerBase_QBaseReparseConfiguration(@ptrCast(self));
+    pub fn SuperReparseConfiguration(self: ?*anyopaque) void {
+        qtc.KIO__WorkerBase_SuperReparseConfiguration(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#connectTimeout)
@@ -2423,13 +2535,17 @@ pub const kio__workerbase = struct {
         return qtc.KIO__WorkerBase_WaitForAnswer4(@ptrCast(self), @bitCast(expected1), @bitCast(expected2), data_str, @ptrCast(pCmd));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KIO__WorkerBase `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KIO__WorkerBase_Delete(@ptrCast(self));
     }
 };

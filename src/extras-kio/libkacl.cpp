@@ -186,7 +186,7 @@ void KACL_VirtualHook(KACL* self, int id, void* data) {
 }
 
 // Base class handler implementation
-void KACL_QBaseVirtualHook(KACL* self, int id, void* data) {
+void KACL_SuperVirtualHook(KACL* self, int id, void* data) {
     auto* vkacl = dynamic_cast<VirtualKACL*>(self);
     if (vkacl && vkacl->isVirtualKACL) {
         vkacl->setKACL_VirtualHook_IsBase(true);

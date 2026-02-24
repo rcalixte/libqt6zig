@@ -206,7 +206,7 @@ void QDBusServiceWatcher_Connect_ServiceOwnerChanged(QDBusServiceWatcher* self, 
 }
 
 // Base class handler implementation
-QMetaObject* QDBusServiceWatcher_QBaseMetaObject(const QDBusServiceWatcher* self) {
+QMetaObject* QDBusServiceWatcher_SuperMetaObject(const QDBusServiceWatcher* self) {
     auto* vqdbusservicewatcher = const_cast<VirtualQDBusServiceWatcher*>(dynamic_cast<const VirtualQDBusServiceWatcher*>(self));
     if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
         vqdbusservicewatcher->setQDBusServiceWatcher_MetaObject_IsBase(true);
@@ -225,7 +225,7 @@ void QDBusServiceWatcher_OnMetaObject(const QDBusServiceWatcher* self, intptr_t 
 }
 
 // Base class handler implementation
-void* QDBusServiceWatcher_QBaseMetacast(QDBusServiceWatcher* self, const char* param1) {
+void* QDBusServiceWatcher_SuperMetacast(QDBusServiceWatcher* self, const char* param1) {
     auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
     if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
         vqdbusservicewatcher->setQDBusServiceWatcher_Metacast_IsBase(true);
@@ -244,7 +244,7 @@ void QDBusServiceWatcher_OnMetacast(QDBusServiceWatcher* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QDBusServiceWatcher_QBaseMetacall(QDBusServiceWatcher* self, int param1, int param2, void** param3) {
+int QDBusServiceWatcher_SuperMetacall(QDBusServiceWatcher* self, int param1, int param2, void** param3) {
     auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
     if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
         vqdbusservicewatcher->setQDBusServiceWatcher_Metacall_IsBase(true);
@@ -273,7 +273,7 @@ bool QDBusServiceWatcher_Event(QDBusServiceWatcher* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QDBusServiceWatcher_QBaseEvent(QDBusServiceWatcher* self, QEvent* event) {
+bool QDBusServiceWatcher_SuperEvent(QDBusServiceWatcher* self, QEvent* event) {
     auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
     if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
         vqdbusservicewatcher->setQDBusServiceWatcher_Event_IsBase(true);
@@ -302,7 +302,7 @@ bool QDBusServiceWatcher_EventFilter(QDBusServiceWatcher* self, QObject* watched
 }
 
 // Base class handler implementation
-bool QDBusServiceWatcher_QBaseEventFilter(QDBusServiceWatcher* self, QObject* watched, QEvent* event) {
+bool QDBusServiceWatcher_SuperEventFilter(QDBusServiceWatcher* self, QObject* watched, QEvent* event) {
     auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
     if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
         vqdbusservicewatcher->setQDBusServiceWatcher_EventFilter_IsBase(true);
@@ -331,7 +331,7 @@ void QDBusServiceWatcher_TimerEvent(QDBusServiceWatcher* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void QDBusServiceWatcher_QBaseTimerEvent(QDBusServiceWatcher* self, QTimerEvent* event) {
+void QDBusServiceWatcher_SuperTimerEvent(QDBusServiceWatcher* self, QTimerEvent* event) {
     auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
     if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
         vqdbusservicewatcher->setQDBusServiceWatcher_TimerEvent_IsBase(true);
@@ -360,7 +360,7 @@ void QDBusServiceWatcher_ChildEvent(QDBusServiceWatcher* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void QDBusServiceWatcher_QBaseChildEvent(QDBusServiceWatcher* self, QChildEvent* event) {
+void QDBusServiceWatcher_SuperChildEvent(QDBusServiceWatcher* self, QChildEvent* event) {
     auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
     if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
         vqdbusservicewatcher->setQDBusServiceWatcher_ChildEvent_IsBase(true);
@@ -389,7 +389,7 @@ void QDBusServiceWatcher_CustomEvent(QDBusServiceWatcher* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QDBusServiceWatcher_QBaseCustomEvent(QDBusServiceWatcher* self, QEvent* event) {
+void QDBusServiceWatcher_SuperCustomEvent(QDBusServiceWatcher* self, QEvent* event) {
     auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
     if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
         vqdbusservicewatcher->setQDBusServiceWatcher_CustomEvent_IsBase(true);
@@ -418,7 +418,7 @@ void QDBusServiceWatcher_ConnectNotify(QDBusServiceWatcher* self, const QMetaMet
 }
 
 // Base class handler implementation
-void QDBusServiceWatcher_QBaseConnectNotify(QDBusServiceWatcher* self, const QMetaMethod* signal) {
+void QDBusServiceWatcher_SuperConnectNotify(QDBusServiceWatcher* self, const QMetaMethod* signal) {
     auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
     if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
         vqdbusservicewatcher->setQDBusServiceWatcher_ConnectNotify_IsBase(true);
@@ -447,7 +447,7 @@ void QDBusServiceWatcher_DisconnectNotify(QDBusServiceWatcher* self, const QMeta
 }
 
 // Base class handler implementation
-void QDBusServiceWatcher_QBaseDisconnectNotify(QDBusServiceWatcher* self, const QMetaMethod* signal) {
+void QDBusServiceWatcher_SuperDisconnectNotify(QDBusServiceWatcher* self, const QMetaMethod* signal) {
     auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
     if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
         vqdbusservicewatcher->setQDBusServiceWatcher_DisconnectNotify_IsBase(true);
@@ -476,7 +476,7 @@ QObject* QDBusServiceWatcher_Sender(const QDBusServiceWatcher* self) {
 }
 
 // Base class handler implementation
-QObject* QDBusServiceWatcher_QBaseSender(const QDBusServiceWatcher* self) {
+QObject* QDBusServiceWatcher_SuperSender(const QDBusServiceWatcher* self) {
     auto* vqdbusservicewatcher = const_cast<VirtualQDBusServiceWatcher*>(dynamic_cast<const VirtualQDBusServiceWatcher*>(self));
     if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
         vqdbusservicewatcher->setQDBusServiceWatcher_Sender_IsBase(true);
@@ -505,7 +505,7 @@ int QDBusServiceWatcher_SenderSignalIndex(const QDBusServiceWatcher* self) {
 }
 
 // Base class handler implementation
-int QDBusServiceWatcher_QBaseSenderSignalIndex(const QDBusServiceWatcher* self) {
+int QDBusServiceWatcher_SuperSenderSignalIndex(const QDBusServiceWatcher* self) {
     auto* vqdbusservicewatcher = const_cast<VirtualQDBusServiceWatcher*>(dynamic_cast<const VirtualQDBusServiceWatcher*>(self));
     if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
         vqdbusservicewatcher->setQDBusServiceWatcher_SenderSignalIndex_IsBase(true);
@@ -534,7 +534,7 @@ int QDBusServiceWatcher_Receivers(const QDBusServiceWatcher* self, const char* s
 }
 
 // Base class handler implementation
-int QDBusServiceWatcher_QBaseReceivers(const QDBusServiceWatcher* self, const char* signal) {
+int QDBusServiceWatcher_SuperReceivers(const QDBusServiceWatcher* self, const char* signal) {
     auto* vqdbusservicewatcher = const_cast<VirtualQDBusServiceWatcher*>(dynamic_cast<const VirtualQDBusServiceWatcher*>(self));
     if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
         vqdbusservicewatcher->setQDBusServiceWatcher_Receivers_IsBase(true);
@@ -563,7 +563,7 @@ bool QDBusServiceWatcher_IsSignalConnected(const QDBusServiceWatcher* self, cons
 }
 
 // Base class handler implementation
-bool QDBusServiceWatcher_QBaseIsSignalConnected(const QDBusServiceWatcher* self, const QMetaMethod* signal) {
+bool QDBusServiceWatcher_SuperIsSignalConnected(const QDBusServiceWatcher* self, const QMetaMethod* signal) {
     auto* vqdbusservicewatcher = const_cast<VirtualQDBusServiceWatcher*>(dynamic_cast<const VirtualQDBusServiceWatcher*>(self));
     if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
         vqdbusservicewatcher->setQDBusServiceWatcher_IsSignalConnected_IsBase(true);

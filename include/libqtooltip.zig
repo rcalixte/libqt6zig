@@ -182,6 +182,10 @@ pub const qtooltip = struct {
         qtc.QToolTip_ShowText5(@ptrCast(pos), text_str, @ptrCast(w), @ptrCast(rect), @bitCast(msecShowTime));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtooltip.html#dtor.QToolTip)
     ///
     /// Delete this object from C++ memory.
@@ -190,7 +194,7 @@ pub const qtooltip = struct {
     ///
     /// ` self: QtC.QToolTip `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QToolTip_Delete(@ptrCast(self));
     }
 };

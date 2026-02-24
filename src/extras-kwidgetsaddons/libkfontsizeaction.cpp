@@ -87,7 +87,7 @@ void KFontSizeAction_SlotActionTriggered(KFontSizeAction* self, QAction* action)
 }
 
 // Base class handler implementation
-QMetaObject* KFontSizeAction_QBaseMetaObject(const KFontSizeAction* self) {
+QMetaObject* KFontSizeAction_SuperMetaObject(const KFontSizeAction* self) {
     auto* vkfontsizeaction = const_cast<VirtualKFontSizeAction*>(dynamic_cast<const VirtualKFontSizeAction*>(self));
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         vkfontsizeaction->setKFontSizeAction_MetaObject_IsBase(true);
@@ -106,7 +106,7 @@ void KFontSizeAction_OnMetaObject(const KFontSizeAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KFontSizeAction_QBaseMetacast(KFontSizeAction* self, const char* param1) {
+void* KFontSizeAction_SuperMetacast(KFontSizeAction* self, const char* param1) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         vkfontsizeaction->setKFontSizeAction_Metacast_IsBase(true);
@@ -125,7 +125,7 @@ void KFontSizeAction_OnMetacast(KFontSizeAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KFontSizeAction_QBaseMetacall(KFontSizeAction* self, int param1, int param2, void** param3) {
+int KFontSizeAction_SuperMetacall(KFontSizeAction* self, int param1, int param2, void** param3) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         vkfontsizeaction->setKFontSizeAction_Metacall_IsBase(true);
@@ -144,7 +144,7 @@ void KFontSizeAction_OnMetacall(KFontSizeAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFontSizeAction_QBaseSlotActionTriggered(KFontSizeAction* self, QAction* action) {
+void KFontSizeAction_SuperSlotActionTriggered(KFontSizeAction* self, QAction* action) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         vkfontsizeaction->setKFontSizeAction_SlotActionTriggered_IsBase(true);
@@ -173,7 +173,7 @@ QAction* KFontSizeAction_RemoveAction(KFontSizeAction* self, QAction* action) {
 }
 
 // Base class handler implementation
-QAction* KFontSizeAction_QBaseRemoveAction(KFontSizeAction* self, QAction* action) {
+QAction* KFontSizeAction_SuperRemoveAction(KFontSizeAction* self, QAction* action) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         vkfontsizeaction->setKFontSizeAction_RemoveAction_IsBase(true);
@@ -202,7 +202,7 @@ void KFontSizeAction_InsertAction(KFontSizeAction* self, QAction* before, QActio
 }
 
 // Base class handler implementation
-void KFontSizeAction_QBaseInsertAction(KFontSizeAction* self, QAction* before, QAction* action) {
+void KFontSizeAction_SuperInsertAction(KFontSizeAction* self, QAction* before, QAction* action) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         vkfontsizeaction->setKFontSizeAction_InsertAction_IsBase(true);
@@ -231,7 +231,7 @@ QWidget* KFontSizeAction_CreateWidget(KFontSizeAction* self, QWidget* parent) {
 }
 
 // Base class handler implementation
-QWidget* KFontSizeAction_QBaseCreateWidget(KFontSizeAction* self, QWidget* parent) {
+QWidget* KFontSizeAction_SuperCreateWidget(KFontSizeAction* self, QWidget* parent) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         vkfontsizeaction->setKFontSizeAction_CreateWidget_IsBase(true);
@@ -260,7 +260,7 @@ void KFontSizeAction_DeleteWidget(KFontSizeAction* self, QWidget* widget) {
 }
 
 // Base class handler implementation
-void KFontSizeAction_QBaseDeleteWidget(KFontSizeAction* self, QWidget* widget) {
+void KFontSizeAction_SuperDeleteWidget(KFontSizeAction* self, QWidget* widget) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         vkfontsizeaction->setKFontSizeAction_DeleteWidget_IsBase(true);
@@ -289,7 +289,7 @@ bool KFontSizeAction_Event(KFontSizeAction* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KFontSizeAction_QBaseEvent(KFontSizeAction* self, QEvent* event) {
+bool KFontSizeAction_SuperEvent(KFontSizeAction* self, QEvent* event) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         vkfontsizeaction->setKFontSizeAction_Event_IsBase(true);
@@ -318,7 +318,7 @@ bool KFontSizeAction_EventFilter(KFontSizeAction* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool KFontSizeAction_QBaseEventFilter(KFontSizeAction* self, QObject* watched, QEvent* event) {
+bool KFontSizeAction_SuperEventFilter(KFontSizeAction* self, QObject* watched, QEvent* event) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         vkfontsizeaction->setKFontSizeAction_EventFilter_IsBase(true);
@@ -347,7 +347,7 @@ void KFontSizeAction_TimerEvent(KFontSizeAction* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KFontSizeAction_QBaseTimerEvent(KFontSizeAction* self, QTimerEvent* event) {
+void KFontSizeAction_SuperTimerEvent(KFontSizeAction* self, QTimerEvent* event) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         vkfontsizeaction->setKFontSizeAction_TimerEvent_IsBase(true);
@@ -376,7 +376,7 @@ void KFontSizeAction_ChildEvent(KFontSizeAction* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KFontSizeAction_QBaseChildEvent(KFontSizeAction* self, QChildEvent* event) {
+void KFontSizeAction_SuperChildEvent(KFontSizeAction* self, QChildEvent* event) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         vkfontsizeaction->setKFontSizeAction_ChildEvent_IsBase(true);
@@ -405,7 +405,7 @@ void KFontSizeAction_CustomEvent(KFontSizeAction* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFontSizeAction_QBaseCustomEvent(KFontSizeAction* self, QEvent* event) {
+void KFontSizeAction_SuperCustomEvent(KFontSizeAction* self, QEvent* event) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         vkfontsizeaction->setKFontSizeAction_CustomEvent_IsBase(true);
@@ -434,7 +434,7 @@ void KFontSizeAction_ConnectNotify(KFontSizeAction* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void KFontSizeAction_QBaseConnectNotify(KFontSizeAction* self, const QMetaMethod* signal) {
+void KFontSizeAction_SuperConnectNotify(KFontSizeAction* self, const QMetaMethod* signal) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         vkfontsizeaction->setKFontSizeAction_ConnectNotify_IsBase(true);
@@ -463,7 +463,7 @@ void KFontSizeAction_DisconnectNotify(KFontSizeAction* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void KFontSizeAction_QBaseDisconnectNotify(KFontSizeAction* self, const QMetaMethod* signal) {
+void KFontSizeAction_SuperDisconnectNotify(KFontSizeAction* self, const QMetaMethod* signal) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         vkfontsizeaction->setKFontSizeAction_DisconnectNotify_IsBase(true);
@@ -492,7 +492,7 @@ void KFontSizeAction_SlotToggled(KFontSizeAction* self, bool param1) {
 }
 
 // Base class handler implementation
-void KFontSizeAction_QBaseSlotToggled(KFontSizeAction* self, bool param1) {
+void KFontSizeAction_SuperSlotToggled(KFontSizeAction* self, bool param1) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         vkfontsizeaction->setKFontSizeAction_SlotToggled_IsBase(true);
@@ -539,7 +539,7 @@ libqt_list /* of QWidget* */ KFontSizeAction_CreatedWidgets(const KFontSizeActio
 }
 
 // Base class handler implementation
-libqt_list /* of QWidget* */ KFontSizeAction_QBaseCreatedWidgets(const KFontSizeAction* self) {
+libqt_list /* of QWidget* */ KFontSizeAction_SuperCreatedWidgets(const KFontSizeAction* self) {
     auto* vkfontsizeaction = const_cast<VirtualKFontSizeAction*>(dynamic_cast<const VirtualKFontSizeAction*>(self));
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         vkfontsizeaction->setKFontSizeAction_CreatedWidgets_IsBase(true);
@@ -586,7 +586,7 @@ QObject* KFontSizeAction_Sender(const KFontSizeAction* self) {
 }
 
 // Base class handler implementation
-QObject* KFontSizeAction_QBaseSender(const KFontSizeAction* self) {
+QObject* KFontSizeAction_SuperSender(const KFontSizeAction* self) {
     auto* vkfontsizeaction = const_cast<VirtualKFontSizeAction*>(dynamic_cast<const VirtualKFontSizeAction*>(self));
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         vkfontsizeaction->setKFontSizeAction_Sender_IsBase(true);
@@ -615,7 +615,7 @@ int KFontSizeAction_SenderSignalIndex(const KFontSizeAction* self) {
 }
 
 // Base class handler implementation
-int KFontSizeAction_QBaseSenderSignalIndex(const KFontSizeAction* self) {
+int KFontSizeAction_SuperSenderSignalIndex(const KFontSizeAction* self) {
     auto* vkfontsizeaction = const_cast<VirtualKFontSizeAction*>(dynamic_cast<const VirtualKFontSizeAction*>(self));
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         vkfontsizeaction->setKFontSizeAction_SenderSignalIndex_IsBase(true);
@@ -644,7 +644,7 @@ int KFontSizeAction_Receivers(const KFontSizeAction* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KFontSizeAction_QBaseReceivers(const KFontSizeAction* self, const char* signal) {
+int KFontSizeAction_SuperReceivers(const KFontSizeAction* self, const char* signal) {
     auto* vkfontsizeaction = const_cast<VirtualKFontSizeAction*>(dynamic_cast<const VirtualKFontSizeAction*>(self));
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         vkfontsizeaction->setKFontSizeAction_Receivers_IsBase(true);
@@ -673,7 +673,7 @@ bool KFontSizeAction_IsSignalConnected(const KFontSizeAction* self, const QMetaM
 }
 
 // Base class handler implementation
-bool KFontSizeAction_QBaseIsSignalConnected(const KFontSizeAction* self, const QMetaMethod* signal) {
+bool KFontSizeAction_SuperIsSignalConnected(const KFontSizeAction* self, const QMetaMethod* signal) {
     auto* vkfontsizeaction = const_cast<VirtualKFontSizeAction*>(dynamic_cast<const VirtualKFontSizeAction*>(self));
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         vkfontsizeaction->setKFontSizeAction_IsSignalConnected_IsBase(true);

@@ -46,6 +46,10 @@ pub const qhboxplotmodelmapper = struct {
         qtc.QHBoxPlotModelMapper_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -54,8 +58,8 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` self: QtC.QHBoxPlotModelMapper `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QHBoxPlotModelMapper_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QHBoxPlotModelMapper_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -81,6 +85,10 @@ pub const qhboxplotmodelmapper = struct {
         qtc.QHBoxPlotModelMapper_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -89,9 +97,9 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QHBoxPlotModelMapper_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QHBoxPlotModelMapper_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -120,6 +128,10 @@ pub const qhboxplotmodelmapper = struct {
         qtc.QHBoxPlotModelMapper_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -132,8 +144,8 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QHBoxPlotModelMapper_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QHBoxPlotModelMapper_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1213,6 +1225,10 @@ pub const qhboxplotmodelmapper = struct {
         return qtc.QHBoxPlotModelMapper_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1225,8 +1241,8 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QHBoxPlotModelMapper_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QHBoxPlotModelMapper_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1263,6 +1279,10 @@ pub const qhboxplotmodelmapper = struct {
         return qtc.QHBoxPlotModelMapper_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1277,8 +1297,8 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QHBoxPlotModelMapper_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QHBoxPlotModelMapper_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1313,6 +1333,10 @@ pub const qhboxplotmodelmapper = struct {
         qtc.QHBoxPlotModelMapper_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1325,8 +1349,8 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QHBoxPlotModelMapper_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QHBoxPlotModelMapper_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1361,6 +1385,10 @@ pub const qhboxplotmodelmapper = struct {
         qtc.QHBoxPlotModelMapper_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1373,8 +1401,8 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QHBoxPlotModelMapper_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QHBoxPlotModelMapper_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1409,6 +1437,10 @@ pub const qhboxplotmodelmapper = struct {
         qtc.QHBoxPlotModelMapper_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1421,8 +1453,8 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QHBoxPlotModelMapper_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QHBoxPlotModelMapper_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1457,6 +1489,10 @@ pub const qhboxplotmodelmapper = struct {
         qtc.QHBoxPlotModelMapper_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1469,8 +1505,8 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QHBoxPlotModelMapper_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QHBoxPlotModelMapper_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1505,6 +1541,10 @@ pub const qhboxplotmodelmapper = struct {
         qtc.QHBoxPlotModelMapper_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1517,8 +1557,8 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QHBoxPlotModelMapper_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QHBoxPlotModelMapper_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1551,6 +1591,10 @@ pub const qhboxplotmodelmapper = struct {
         return qtc.QHBoxPlotModelMapper_First(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFirst` instead
+    ///
+    pub const QBaseFirst = SuperFirst;
+
     /// Inherited from QBoxPlotModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#first)
@@ -1561,8 +1605,8 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` self: QtC.QHBoxPlotModelMapper `
     ///
-    pub fn QBaseFirst(self: ?*anyopaque) i32 {
-        return qtc.QHBoxPlotModelMapper_QBaseFirst(@ptrCast(self));
+    pub fn SuperFirst(self: ?*anyopaque) i32 {
+        return qtc.QHBoxPlotModelMapper_SuperFirst(@ptrCast(self));
     }
 
     /// Inherited from QBoxPlotModelMapper
@@ -1597,6 +1641,10 @@ pub const qhboxplotmodelmapper = struct {
         qtc.QHBoxPlotModelMapper_SetFirst(@ptrCast(self), @bitCast(first));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFirst` instead
+    ///
+    pub const QBaseSetFirst = SuperSetFirst;
+
     /// Inherited from QBoxPlotModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#setFirst)
@@ -1609,8 +1657,8 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` first: i32 `
     ///
-    pub fn QBaseSetFirst(self: ?*anyopaque, first: i32) void {
-        qtc.QHBoxPlotModelMapper_QBaseSetFirst(@ptrCast(self), @bitCast(first));
+    pub fn SuperSetFirst(self: ?*anyopaque, first: i32) void {
+        qtc.QHBoxPlotModelMapper_SuperSetFirst(@ptrCast(self), @bitCast(first));
     }
 
     /// Inherited from QBoxPlotModelMapper
@@ -1643,6 +1691,10 @@ pub const qhboxplotmodelmapper = struct {
         return qtc.QHBoxPlotModelMapper_Count(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCount` instead
+    ///
+    pub const QBaseCount = SuperCount;
+
     /// Inherited from QBoxPlotModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#count)
@@ -1653,8 +1705,8 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` self: QtC.QHBoxPlotModelMapper `
     ///
-    pub fn QBaseCount(self: ?*anyopaque) i32 {
-        return qtc.QHBoxPlotModelMapper_QBaseCount(@ptrCast(self));
+    pub fn SuperCount(self: ?*anyopaque) i32 {
+        return qtc.QHBoxPlotModelMapper_SuperCount(@ptrCast(self));
     }
 
     /// Inherited from QBoxPlotModelMapper
@@ -1689,6 +1741,10 @@ pub const qhboxplotmodelmapper = struct {
         qtc.QHBoxPlotModelMapper_SetCount(@ptrCast(self), @bitCast(count));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCount` instead
+    ///
+    pub const QBaseSetCount = SuperSetCount;
+
     /// Inherited from QBoxPlotModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#setCount)
@@ -1701,8 +1757,8 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn QBaseSetCount(self: ?*anyopaque, count: i32) void {
-        qtc.QHBoxPlotModelMapper_QBaseSetCount(@ptrCast(self), @bitCast(count));
+    pub fn SuperSetCount(self: ?*anyopaque, count: i32) void {
+        qtc.QHBoxPlotModelMapper_SuperSetCount(@ptrCast(self), @bitCast(count));
     }
 
     /// Inherited from QBoxPlotModelMapper
@@ -1735,6 +1791,10 @@ pub const qhboxplotmodelmapper = struct {
         return qtc.QHBoxPlotModelMapper_FirstBoxSetSection(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFirstBoxSetSection` instead
+    ///
+    pub const QBaseFirstBoxSetSection = SuperFirstBoxSetSection;
+
     /// Inherited from QBoxPlotModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#firstBoxSetSection)
@@ -1745,8 +1805,8 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` self: QtC.QHBoxPlotModelMapper `
     ///
-    pub fn QBaseFirstBoxSetSection(self: ?*anyopaque) i32 {
-        return qtc.QHBoxPlotModelMapper_QBaseFirstBoxSetSection(@ptrCast(self));
+    pub fn SuperFirstBoxSetSection(self: ?*anyopaque) i32 {
+        return qtc.QHBoxPlotModelMapper_SuperFirstBoxSetSection(@ptrCast(self));
     }
 
     /// Inherited from QBoxPlotModelMapper
@@ -1781,6 +1841,10 @@ pub const qhboxplotmodelmapper = struct {
         qtc.QHBoxPlotModelMapper_SetFirstBoxSetSection(@ptrCast(self), @bitCast(firstBoxSetSection));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFirstBoxSetSection` instead
+    ///
+    pub const QBaseSetFirstBoxSetSection = SuperSetFirstBoxSetSection;
+
     /// Inherited from QBoxPlotModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#setFirstBoxSetSection)
@@ -1793,8 +1857,8 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` firstBoxSetSection: i32 `
     ///
-    pub fn QBaseSetFirstBoxSetSection(self: ?*anyopaque, firstBoxSetSection: i32) void {
-        qtc.QHBoxPlotModelMapper_QBaseSetFirstBoxSetSection(@ptrCast(self), @bitCast(firstBoxSetSection));
+    pub fn SuperSetFirstBoxSetSection(self: ?*anyopaque, firstBoxSetSection: i32) void {
+        qtc.QHBoxPlotModelMapper_SuperSetFirstBoxSetSection(@ptrCast(self), @bitCast(firstBoxSetSection));
     }
 
     /// Inherited from QBoxPlotModelMapper
@@ -1827,6 +1891,10 @@ pub const qhboxplotmodelmapper = struct {
         return qtc.QHBoxPlotModelMapper_LastBoxSetSection(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperLastBoxSetSection` instead
+    ///
+    pub const QBaseLastBoxSetSection = SuperLastBoxSetSection;
+
     /// Inherited from QBoxPlotModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#lastBoxSetSection)
@@ -1837,8 +1905,8 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` self: QtC.QHBoxPlotModelMapper `
     ///
-    pub fn QBaseLastBoxSetSection(self: ?*anyopaque) i32 {
-        return qtc.QHBoxPlotModelMapper_QBaseLastBoxSetSection(@ptrCast(self));
+    pub fn SuperLastBoxSetSection(self: ?*anyopaque) i32 {
+        return qtc.QHBoxPlotModelMapper_SuperLastBoxSetSection(@ptrCast(self));
     }
 
     /// Inherited from QBoxPlotModelMapper
@@ -1873,6 +1941,10 @@ pub const qhboxplotmodelmapper = struct {
         qtc.QHBoxPlotModelMapper_SetLastBoxSetSection(@ptrCast(self), @bitCast(lastBoxSetSection));
     }
 
+    /// ### DEPRECATED: Use `SuperSetLastBoxSetSection` instead
+    ///
+    pub const QBaseSetLastBoxSetSection = SuperSetLastBoxSetSection;
+
     /// Inherited from QBoxPlotModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#setLastBoxSetSection)
@@ -1885,8 +1957,8 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` lastBoxSetSection: i32 `
     ///
-    pub fn QBaseSetLastBoxSetSection(self: ?*anyopaque, lastBoxSetSection: i32) void {
-        qtc.QHBoxPlotModelMapper_QBaseSetLastBoxSetSection(@ptrCast(self), @bitCast(lastBoxSetSection));
+    pub fn SuperSetLastBoxSetSection(self: ?*anyopaque, lastBoxSetSection: i32) void {
+        qtc.QHBoxPlotModelMapper_SuperSetLastBoxSetSection(@ptrCast(self), @bitCast(lastBoxSetSection));
     }
 
     /// Inherited from QBoxPlotModelMapper
@@ -1923,6 +1995,10 @@ pub const qhboxplotmodelmapper = struct {
         return qtc.QHBoxPlotModelMapper_Orientation(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperOrientation` instead
+    ///
+    pub const QBaseOrientation = SuperOrientation;
+
     /// Inherited from QBoxPlotModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#orientation)
@@ -1937,8 +2013,8 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn QBaseOrientation(self: ?*anyopaque) i32 {
-        return qtc.QHBoxPlotModelMapper_QBaseOrientation(@ptrCast(self));
+    pub fn SuperOrientation(self: ?*anyopaque) i32 {
+        return qtc.QHBoxPlotModelMapper_SuperOrientation(@ptrCast(self));
     }
 
     /// Inherited from QBoxPlotModelMapper
@@ -1973,6 +2049,10 @@ pub const qhboxplotmodelmapper = struct {
         qtc.QHBoxPlotModelMapper_SetOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
+    /// ### DEPRECATED: Use `SuperSetOrientation` instead
+    ///
+    pub const QBaseSetOrientation = SuperSetOrientation;
+
     /// Inherited from QBoxPlotModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper.html#setOrientation)
@@ -1985,8 +2065,8 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    pub fn QBaseSetOrientation(self: ?*anyopaque, orientation: i32) void {
-        qtc.QHBoxPlotModelMapper_QBaseSetOrientation(@ptrCast(self), @bitCast(orientation));
+    pub fn SuperSetOrientation(self: ?*anyopaque, orientation: i32) void {
+        qtc.QHBoxPlotModelMapper_SuperSetOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
     /// Inherited from QBoxPlotModelMapper
@@ -2019,6 +2099,10 @@ pub const qhboxplotmodelmapper = struct {
         return qtc.QHBoxPlotModelMapper_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2029,8 +2113,8 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` self: QtC.QHBoxPlotModelMapper `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QHBoxPlotModelMapper_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QHBoxPlotModelMapper_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2063,6 +2147,10 @@ pub const qhboxplotmodelmapper = struct {
         return qtc.QHBoxPlotModelMapper_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2073,8 +2161,8 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` self: QtC.QHBoxPlotModelMapper `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QHBoxPlotModelMapper_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QHBoxPlotModelMapper_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2110,6 +2198,10 @@ pub const qhboxplotmodelmapper = struct {
         return qtc.QHBoxPlotModelMapper_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2122,9 +2214,9 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QHBoxPlotModelMapper_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QHBoxPlotModelMapper_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2159,6 +2251,10 @@ pub const qhboxplotmodelmapper = struct {
         return qtc.QHBoxPlotModelMapper_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2171,8 +2267,8 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QHBoxPlotModelMapper_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QHBoxPlotModelMapper_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2206,6 +2302,9 @@ pub const qhboxplotmodelmapper = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhboxplotmodelmapper-qtcharts.html#dtor.QHBoxPlotModelMapper)
     ///
@@ -2215,7 +2314,7 @@ pub const qhboxplotmodelmapper = struct {
     ///
     /// ` self: QtC.QHBoxPlotModelMapper `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QHBoxPlotModelMapper_Delete(@ptrCast(self));
     }
 };

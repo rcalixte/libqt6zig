@@ -840,6 +840,10 @@ pub const klazylocalizedstring = struct {
         return qtc.KLazyLocalizedString_Subs311(@ptrCast(self), @ptrCast(a), @bitCast(fieldWidth), @ptrCast(fillChar));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/klazylocalizedstring.html#dtor.KLazyLocalizedString)
     ///
     /// Delete this object from C++ memory.
@@ -848,7 +852,7 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` self: QtC.KLazyLocalizedString `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KLazyLocalizedString_Delete(@ptrCast(self));
     }
 };

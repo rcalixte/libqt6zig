@@ -273,6 +273,10 @@ pub const ksambasharedata = struct {
         return qtc.KSambaShareData_SetGuestPermission1(@ptrCast(self), @ptrCast(permission));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/ksambasharedata.html#dtor.KSambaShareData)
     ///
     /// Delete this object from C++ memory.
@@ -281,7 +285,7 @@ pub const ksambasharedata = struct {
     ///
     /// ` self: QtC.KSambaShareData `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KSambaShareData_Delete(@ptrCast(self));
     }
 };

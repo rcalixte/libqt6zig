@@ -25,13 +25,13 @@ QWidget* QDesignerOptionsPageInterface_CreatePage(QDesignerOptionsPageInterface*
 void QDesignerOptionsPageInterface_Apply(QDesignerOptionsPageInterface* self);
 void QDesignerOptionsPageInterface_Finish(QDesignerOptionsPageInterface* self);
 void QDesignerOptionsPageInterface_OnName(const QDesignerOptionsPageInterface* self, intptr_t slot);
-libqt_string QDesignerOptionsPageInterface_QBaseName(const QDesignerOptionsPageInterface* self);
+libqt_string QDesignerOptionsPageInterface_SuperName(const QDesignerOptionsPageInterface* self);
 void QDesignerOptionsPageInterface_OnCreatePage(QDesignerOptionsPageInterface* self, intptr_t slot);
-QWidget* QDesignerOptionsPageInterface_QBaseCreatePage(QDesignerOptionsPageInterface* self, QWidget* parent);
+QWidget* QDesignerOptionsPageInterface_SuperCreatePage(QDesignerOptionsPageInterface* self, QWidget* parent);
 void QDesignerOptionsPageInterface_OnApply(QDesignerOptionsPageInterface* self, intptr_t slot);
-void QDesignerOptionsPageInterface_QBaseApply(QDesignerOptionsPageInterface* self);
+void QDesignerOptionsPageInterface_SuperApply(QDesignerOptionsPageInterface* self);
 void QDesignerOptionsPageInterface_OnFinish(QDesignerOptionsPageInterface* self, intptr_t slot);
-void QDesignerOptionsPageInterface_QBaseFinish(QDesignerOptionsPageInterface* self);
+void QDesignerOptionsPageInterface_SuperFinish(QDesignerOptionsPageInterface* self);
 void QDesignerOptionsPageInterface_Delete(QDesignerOptionsPageInterface* self);
 
 #ifdef __cplusplus

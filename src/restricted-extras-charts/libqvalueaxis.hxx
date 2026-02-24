@@ -347,23 +347,23 @@ class VirtualQValueAxis final : public QValueAxis {
 
     // Friend functions
     friend void QValueAxis_TimerEvent(QValueAxis* self, QTimerEvent* event);
-    friend void QValueAxis_QBaseTimerEvent(QValueAxis* self, QTimerEvent* event);
+    friend void QValueAxis_SuperTimerEvent(QValueAxis* self, QTimerEvent* event);
     friend void QValueAxis_ChildEvent(QValueAxis* self, QChildEvent* event);
-    friend void QValueAxis_QBaseChildEvent(QValueAxis* self, QChildEvent* event);
+    friend void QValueAxis_SuperChildEvent(QValueAxis* self, QChildEvent* event);
     friend void QValueAxis_CustomEvent(QValueAxis* self, QEvent* event);
-    friend void QValueAxis_QBaseCustomEvent(QValueAxis* self, QEvent* event);
+    friend void QValueAxis_SuperCustomEvent(QValueAxis* self, QEvent* event);
     friend void QValueAxis_ConnectNotify(QValueAxis* self, const QMetaMethod* signal);
-    friend void QValueAxis_QBaseConnectNotify(QValueAxis* self, const QMetaMethod* signal);
+    friend void QValueAxis_SuperConnectNotify(QValueAxis* self, const QMetaMethod* signal);
     friend void QValueAxis_DisconnectNotify(QValueAxis* self, const QMetaMethod* signal);
-    friend void QValueAxis_QBaseDisconnectNotify(QValueAxis* self, const QMetaMethod* signal);
+    friend void QValueAxis_SuperDisconnectNotify(QValueAxis* self, const QMetaMethod* signal);
     friend QObject* QValueAxis_Sender(const QValueAxis* self);
-    friend QObject* QValueAxis_QBaseSender(const QValueAxis* self);
+    friend QObject* QValueAxis_SuperSender(const QValueAxis* self);
     friend int QValueAxis_SenderSignalIndex(const QValueAxis* self);
-    friend int QValueAxis_QBaseSenderSignalIndex(const QValueAxis* self);
+    friend int QValueAxis_SuperSenderSignalIndex(const QValueAxis* self);
     friend int QValueAxis_Receivers(const QValueAxis* self, const char* signal);
-    friend int QValueAxis_QBaseReceivers(const QValueAxis* self, const char* signal);
+    friend int QValueAxis_SuperReceivers(const QValueAxis* self, const char* signal);
     friend bool QValueAxis_IsSignalConnected(const QValueAxis* self, const QMetaMethod* signal);
-    friend bool QValueAxis_QBaseIsSignalConnected(const QValueAxis* self, const QMetaMethod* signal);
+    friend bool QValueAxis_SuperIsSignalConnected(const QValueAxis* self, const QMetaMethod* signal);
 };
 
 #endif

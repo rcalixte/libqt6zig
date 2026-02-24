@@ -202,6 +202,10 @@ pub const qwebengineurlscheme = struct {
         return qtc.QWebEngineUrlScheme_SchemeByName(name_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#dtor.QWebEngineUrlScheme)
     ///
     /// Delete this object from C++ memory.
@@ -210,7 +214,7 @@ pub const qwebengineurlscheme = struct {
     ///
     /// ` self: QtC.QWebEngineUrlScheme `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebEngineUrlScheme_Delete(@ptrCast(self));
     }
 };

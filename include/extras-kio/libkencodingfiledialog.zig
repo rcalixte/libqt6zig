@@ -5907,13 +5907,17 @@ pub const kencodingfiledialog__result = struct {
         qtc.KEncodingFileDialog__Result_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KEncodingFileDialog__Result `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KEncodingFileDialog__Result_Delete(@ptrCast(self));
     }
 };

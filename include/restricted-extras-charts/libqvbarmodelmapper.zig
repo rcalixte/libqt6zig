@@ -46,6 +46,10 @@ pub const qvbarmodelmapper = struct {
         qtc.QVBarModelMapper_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -54,8 +58,8 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` self: QtC.QVBarModelMapper `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QVBarModelMapper_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QVBarModelMapper_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -81,6 +85,10 @@ pub const qvbarmodelmapper = struct {
         qtc.QVBarModelMapper_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -89,9 +97,9 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QVBarModelMapper_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QVBarModelMapper_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -120,6 +128,10 @@ pub const qvbarmodelmapper = struct {
         qtc.QVBarModelMapper_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -132,8 +144,8 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QVBarModelMapper_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QVBarModelMapper_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1213,6 +1225,10 @@ pub const qvbarmodelmapper = struct {
         return qtc.QVBarModelMapper_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1225,8 +1241,8 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QVBarModelMapper_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QVBarModelMapper_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1263,6 +1279,10 @@ pub const qvbarmodelmapper = struct {
         return qtc.QVBarModelMapper_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1277,8 +1297,8 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QVBarModelMapper_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QVBarModelMapper_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1313,6 +1333,10 @@ pub const qvbarmodelmapper = struct {
         qtc.QVBarModelMapper_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1325,8 +1349,8 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVBarModelMapper_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QVBarModelMapper_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1361,6 +1385,10 @@ pub const qvbarmodelmapper = struct {
         qtc.QVBarModelMapper_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1373,8 +1401,8 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVBarModelMapper_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QVBarModelMapper_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1409,6 +1437,10 @@ pub const qvbarmodelmapper = struct {
         qtc.QVBarModelMapper_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1421,8 +1453,8 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVBarModelMapper_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QVBarModelMapper_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1457,6 +1489,10 @@ pub const qvbarmodelmapper = struct {
         qtc.QVBarModelMapper_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1469,8 +1505,8 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QVBarModelMapper_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QVBarModelMapper_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1505,6 +1541,10 @@ pub const qvbarmodelmapper = struct {
         qtc.QVBarModelMapper_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1517,8 +1557,8 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QVBarModelMapper_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QVBarModelMapper_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1551,6 +1591,10 @@ pub const qvbarmodelmapper = struct {
         return qtc.QVBarModelMapper_First(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFirst` instead
+    ///
+    pub const QBaseFirst = SuperFirst;
+
     /// Inherited from QBarModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#first)
@@ -1561,8 +1605,8 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` self: QtC.QVBarModelMapper `
     ///
-    pub fn QBaseFirst(self: ?*anyopaque) i32 {
-        return qtc.QVBarModelMapper_QBaseFirst(@ptrCast(self));
+    pub fn SuperFirst(self: ?*anyopaque) i32 {
+        return qtc.QVBarModelMapper_SuperFirst(@ptrCast(self));
     }
 
     /// Inherited from QBarModelMapper
@@ -1597,6 +1641,10 @@ pub const qvbarmodelmapper = struct {
         qtc.QVBarModelMapper_SetFirst(@ptrCast(self), @bitCast(first));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFirst` instead
+    ///
+    pub const QBaseSetFirst = SuperSetFirst;
+
     /// Inherited from QBarModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#setFirst)
@@ -1609,8 +1657,8 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` first: i32 `
     ///
-    pub fn QBaseSetFirst(self: ?*anyopaque, first: i32) void {
-        qtc.QVBarModelMapper_QBaseSetFirst(@ptrCast(self), @bitCast(first));
+    pub fn SuperSetFirst(self: ?*anyopaque, first: i32) void {
+        qtc.QVBarModelMapper_SuperSetFirst(@ptrCast(self), @bitCast(first));
     }
 
     /// Inherited from QBarModelMapper
@@ -1643,6 +1691,10 @@ pub const qvbarmodelmapper = struct {
         return qtc.QVBarModelMapper_Count(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCount` instead
+    ///
+    pub const QBaseCount = SuperCount;
+
     /// Inherited from QBarModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#count)
@@ -1653,8 +1705,8 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` self: QtC.QVBarModelMapper `
     ///
-    pub fn QBaseCount(self: ?*anyopaque) i32 {
-        return qtc.QVBarModelMapper_QBaseCount(@ptrCast(self));
+    pub fn SuperCount(self: ?*anyopaque) i32 {
+        return qtc.QVBarModelMapper_SuperCount(@ptrCast(self));
     }
 
     /// Inherited from QBarModelMapper
@@ -1689,6 +1741,10 @@ pub const qvbarmodelmapper = struct {
         qtc.QVBarModelMapper_SetCount(@ptrCast(self), @bitCast(count));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCount` instead
+    ///
+    pub const QBaseSetCount = SuperSetCount;
+
     /// Inherited from QBarModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#setCount)
@@ -1701,8 +1757,8 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn QBaseSetCount(self: ?*anyopaque, count: i32) void {
-        qtc.QVBarModelMapper_QBaseSetCount(@ptrCast(self), @bitCast(count));
+    pub fn SuperSetCount(self: ?*anyopaque, count: i32) void {
+        qtc.QVBarModelMapper_SuperSetCount(@ptrCast(self), @bitCast(count));
     }
 
     /// Inherited from QBarModelMapper
@@ -1735,6 +1791,10 @@ pub const qvbarmodelmapper = struct {
         return qtc.QVBarModelMapper_FirstBarSetSection(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFirstBarSetSection` instead
+    ///
+    pub const QBaseFirstBarSetSection = SuperFirstBarSetSection;
+
     /// Inherited from QBarModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#firstBarSetSection)
@@ -1745,8 +1805,8 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` self: QtC.QVBarModelMapper `
     ///
-    pub fn QBaseFirstBarSetSection(self: ?*anyopaque) i32 {
-        return qtc.QVBarModelMapper_QBaseFirstBarSetSection(@ptrCast(self));
+    pub fn SuperFirstBarSetSection(self: ?*anyopaque) i32 {
+        return qtc.QVBarModelMapper_SuperFirstBarSetSection(@ptrCast(self));
     }
 
     /// Inherited from QBarModelMapper
@@ -1781,6 +1841,10 @@ pub const qvbarmodelmapper = struct {
         qtc.QVBarModelMapper_SetFirstBarSetSection(@ptrCast(self), @bitCast(firstBarSetSection));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFirstBarSetSection` instead
+    ///
+    pub const QBaseSetFirstBarSetSection = SuperSetFirstBarSetSection;
+
     /// Inherited from QBarModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#setFirstBarSetSection)
@@ -1793,8 +1857,8 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` firstBarSetSection: i32 `
     ///
-    pub fn QBaseSetFirstBarSetSection(self: ?*anyopaque, firstBarSetSection: i32) void {
-        qtc.QVBarModelMapper_QBaseSetFirstBarSetSection(@ptrCast(self), @bitCast(firstBarSetSection));
+    pub fn SuperSetFirstBarSetSection(self: ?*anyopaque, firstBarSetSection: i32) void {
+        qtc.QVBarModelMapper_SuperSetFirstBarSetSection(@ptrCast(self), @bitCast(firstBarSetSection));
     }
 
     /// Inherited from QBarModelMapper
@@ -1827,6 +1891,10 @@ pub const qvbarmodelmapper = struct {
         return qtc.QVBarModelMapper_LastBarSetSection(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperLastBarSetSection` instead
+    ///
+    pub const QBaseLastBarSetSection = SuperLastBarSetSection;
+
     /// Inherited from QBarModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#lastBarSetSection)
@@ -1837,8 +1905,8 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` self: QtC.QVBarModelMapper `
     ///
-    pub fn QBaseLastBarSetSection(self: ?*anyopaque) i32 {
-        return qtc.QVBarModelMapper_QBaseLastBarSetSection(@ptrCast(self));
+    pub fn SuperLastBarSetSection(self: ?*anyopaque) i32 {
+        return qtc.QVBarModelMapper_SuperLastBarSetSection(@ptrCast(self));
     }
 
     /// Inherited from QBarModelMapper
@@ -1873,6 +1941,10 @@ pub const qvbarmodelmapper = struct {
         qtc.QVBarModelMapper_SetLastBarSetSection(@ptrCast(self), @bitCast(lastBarSetSection));
     }
 
+    /// ### DEPRECATED: Use `SuperSetLastBarSetSection` instead
+    ///
+    pub const QBaseSetLastBarSetSection = SuperSetLastBarSetSection;
+
     /// Inherited from QBarModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#setLastBarSetSection)
@@ -1885,8 +1957,8 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` lastBarSetSection: i32 `
     ///
-    pub fn QBaseSetLastBarSetSection(self: ?*anyopaque, lastBarSetSection: i32) void {
-        qtc.QVBarModelMapper_QBaseSetLastBarSetSection(@ptrCast(self), @bitCast(lastBarSetSection));
+    pub fn SuperSetLastBarSetSection(self: ?*anyopaque, lastBarSetSection: i32) void {
+        qtc.QVBarModelMapper_SuperSetLastBarSetSection(@ptrCast(self), @bitCast(lastBarSetSection));
     }
 
     /// Inherited from QBarModelMapper
@@ -1923,6 +1995,10 @@ pub const qvbarmodelmapper = struct {
         return qtc.QVBarModelMapper_Orientation(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperOrientation` instead
+    ///
+    pub const QBaseOrientation = SuperOrientation;
+
     /// Inherited from QBarModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#orientation)
@@ -1937,8 +2013,8 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn QBaseOrientation(self: ?*anyopaque) i32 {
-        return qtc.QVBarModelMapper_QBaseOrientation(@ptrCast(self));
+    pub fn SuperOrientation(self: ?*anyopaque) i32 {
+        return qtc.QVBarModelMapper_SuperOrientation(@ptrCast(self));
     }
 
     /// Inherited from QBarModelMapper
@@ -1973,6 +2049,10 @@ pub const qvbarmodelmapper = struct {
         qtc.QVBarModelMapper_SetOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
+    /// ### DEPRECATED: Use `SuperSetOrientation` instead
+    ///
+    pub const QBaseSetOrientation = SuperSetOrientation;
+
     /// Inherited from QBarModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarmodelmapper.html#setOrientation)
@@ -1985,8 +2065,8 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    pub fn QBaseSetOrientation(self: ?*anyopaque, orientation: i32) void {
-        qtc.QVBarModelMapper_QBaseSetOrientation(@ptrCast(self), @bitCast(orientation));
+    pub fn SuperSetOrientation(self: ?*anyopaque, orientation: i32) void {
+        qtc.QVBarModelMapper_SuperSetOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
     /// Inherited from QBarModelMapper
@@ -2019,6 +2099,10 @@ pub const qvbarmodelmapper = struct {
         return qtc.QVBarModelMapper_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2029,8 +2113,8 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` self: QtC.QVBarModelMapper `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QVBarModelMapper_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QVBarModelMapper_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2063,6 +2147,10 @@ pub const qvbarmodelmapper = struct {
         return qtc.QVBarModelMapper_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2073,8 +2161,8 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` self: QtC.QVBarModelMapper `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QVBarModelMapper_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QVBarModelMapper_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2110,6 +2198,10 @@ pub const qvbarmodelmapper = struct {
         return qtc.QVBarModelMapper_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2122,9 +2214,9 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QVBarModelMapper_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QVBarModelMapper_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2159,6 +2251,10 @@ pub const qvbarmodelmapper = struct {
         return qtc.QVBarModelMapper_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2171,8 +2267,8 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QVBarModelMapper_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QVBarModelMapper_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2206,6 +2302,9 @@ pub const qvbarmodelmapper = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvbarmodelmapper-qtcharts.html#dtor.QVBarModelMapper)
     ///
@@ -2215,7 +2314,7 @@ pub const qvbarmodelmapper = struct {
     ///
     /// ` self: QtC.QVBarModelMapper `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QVBarModelMapper_Delete(@ptrCast(self));
     }
 };

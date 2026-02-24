@@ -37,10 +37,10 @@ KParts__OpenUrlArguments* KParts__OpenUrlEvent_Arguments(const KParts__OpenUrlEv
 bool KParts__OpenUrlEvent_Test(const QEvent* event);
 void KParts__OpenUrlEvent_SetAccepted(KParts__OpenUrlEvent* self, bool accepted);
 void KParts__OpenUrlEvent_OnSetAccepted(KParts__OpenUrlEvent* self, intptr_t slot);
-void KParts__OpenUrlEvent_QBaseSetAccepted(KParts__OpenUrlEvent* self, bool accepted);
+void KParts__OpenUrlEvent_SuperSetAccepted(KParts__OpenUrlEvent* self, bool accepted);
 QEvent* KParts__OpenUrlEvent_Clone(const KParts__OpenUrlEvent* self);
 void KParts__OpenUrlEvent_OnClone(const KParts__OpenUrlEvent* self, intptr_t slot);
-QEvent* KParts__OpenUrlEvent_QBaseClone(const KParts__OpenUrlEvent* self);
+QEvent* KParts__OpenUrlEvent_SuperClone(const KParts__OpenUrlEvent* self);
 void KParts__OpenUrlEvent_Delete(KParts__OpenUrlEvent* self);
 
 #ifdef __cplusplus

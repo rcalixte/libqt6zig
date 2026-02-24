@@ -1198,31 +1198,31 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
 
     // Friend functions
     friend bool QsciLexerJavaScript_ReadProperties(QsciLexerJavaScript* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerJavaScript_QBaseReadProperties(QsciLexerJavaScript* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerJavaScript_SuperReadProperties(QsciLexerJavaScript* self, QSettings* qs, const libqt_string prefix);
     friend bool QsciLexerJavaScript_WriteProperties(const QsciLexerJavaScript* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerJavaScript_QBaseWriteProperties(const QsciLexerJavaScript* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerJavaScript_SuperWriteProperties(const QsciLexerJavaScript* self, QSettings* qs, const libqt_string prefix);
     friend void QsciLexerJavaScript_TimerEvent(QsciLexerJavaScript* self, QTimerEvent* event);
-    friend void QsciLexerJavaScript_QBaseTimerEvent(QsciLexerJavaScript* self, QTimerEvent* event);
+    friend void QsciLexerJavaScript_SuperTimerEvent(QsciLexerJavaScript* self, QTimerEvent* event);
     friend void QsciLexerJavaScript_ChildEvent(QsciLexerJavaScript* self, QChildEvent* event);
-    friend void QsciLexerJavaScript_QBaseChildEvent(QsciLexerJavaScript* self, QChildEvent* event);
+    friend void QsciLexerJavaScript_SuperChildEvent(QsciLexerJavaScript* self, QChildEvent* event);
     friend void QsciLexerJavaScript_CustomEvent(QsciLexerJavaScript* self, QEvent* event);
-    friend void QsciLexerJavaScript_QBaseCustomEvent(QsciLexerJavaScript* self, QEvent* event);
+    friend void QsciLexerJavaScript_SuperCustomEvent(QsciLexerJavaScript* self, QEvent* event);
     friend void QsciLexerJavaScript_ConnectNotify(QsciLexerJavaScript* self, const QMetaMethod* signal);
-    friend void QsciLexerJavaScript_QBaseConnectNotify(QsciLexerJavaScript* self, const QMetaMethod* signal);
+    friend void QsciLexerJavaScript_SuperConnectNotify(QsciLexerJavaScript* self, const QMetaMethod* signal);
     friend void QsciLexerJavaScript_DisconnectNotify(QsciLexerJavaScript* self, const QMetaMethod* signal);
-    friend void QsciLexerJavaScript_QBaseDisconnectNotify(QsciLexerJavaScript* self, const QMetaMethod* signal);
+    friend void QsciLexerJavaScript_SuperDisconnectNotify(QsciLexerJavaScript* self, const QMetaMethod* signal);
     friend libqt_string QsciLexerJavaScript_TextAsBytes(const QsciLexerJavaScript* self, const libqt_string text);
-    friend libqt_string QsciLexerJavaScript_QBaseTextAsBytes(const QsciLexerJavaScript* self, const libqt_string text);
+    friend libqt_string QsciLexerJavaScript_SuperTextAsBytes(const QsciLexerJavaScript* self, const libqt_string text);
     friend libqt_string QsciLexerJavaScript_BytesAsText(const QsciLexerJavaScript* self, const char* bytes, int size);
-    friend libqt_string QsciLexerJavaScript_QBaseBytesAsText(const QsciLexerJavaScript* self, const char* bytes, int size);
+    friend libqt_string QsciLexerJavaScript_SuperBytesAsText(const QsciLexerJavaScript* self, const char* bytes, int size);
     friend QObject* QsciLexerJavaScript_Sender(const QsciLexerJavaScript* self);
-    friend QObject* QsciLexerJavaScript_QBaseSender(const QsciLexerJavaScript* self);
+    friend QObject* QsciLexerJavaScript_SuperSender(const QsciLexerJavaScript* self);
     friend int QsciLexerJavaScript_SenderSignalIndex(const QsciLexerJavaScript* self);
-    friend int QsciLexerJavaScript_QBaseSenderSignalIndex(const QsciLexerJavaScript* self);
+    friend int QsciLexerJavaScript_SuperSenderSignalIndex(const QsciLexerJavaScript* self);
     friend int QsciLexerJavaScript_Receivers(const QsciLexerJavaScript* self, const char* signal);
-    friend int QsciLexerJavaScript_QBaseReceivers(const QsciLexerJavaScript* self, const char* signal);
+    friend int QsciLexerJavaScript_SuperReceivers(const QsciLexerJavaScript* self, const char* signal);
     friend bool QsciLexerJavaScript_IsSignalConnected(const QsciLexerJavaScript* self, const QMetaMethod* signal);
-    friend bool QsciLexerJavaScript_QBaseIsSignalConnected(const QsciLexerJavaScript* self, const QMetaMethod* signal);
+    friend bool QsciLexerJavaScript_SuperIsSignalConnected(const QsciLexerJavaScript* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -883,6 +883,9 @@ pub const qboxplotmodelmapper = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxplotmodelmapper-qtcharts.html#dtor.QBoxPlotModelMapper)
     ///
@@ -892,7 +895,7 @@ pub const qboxplotmodelmapper = struct {
     ///
     /// ` self: QtC.QBoxPlotModelMapper `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QBoxPlotModelMapper_Delete(@ptrCast(self));
     }
 };

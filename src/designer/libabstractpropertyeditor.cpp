@@ -180,7 +180,7 @@ void QDesignerPropertyEditorInterface_SetReadOnly(QDesignerPropertyEditorInterfa
 }
 
 // Base class handler implementation
-QMetaObject* QDesignerPropertyEditorInterface_QBaseMetaObject(const QDesignerPropertyEditorInterface* self) {
+QMetaObject* QDesignerPropertyEditorInterface_SuperMetaObject(const QDesignerPropertyEditorInterface* self) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_MetaObject_IsBase(true);
@@ -199,7 +199,7 @@ void QDesignerPropertyEditorInterface_OnMetaObject(const QDesignerPropertyEditor
 }
 
 // Base class handler implementation
-void* QDesignerPropertyEditorInterface_QBaseMetacast(QDesignerPropertyEditorInterface* self, const char* param1) {
+void* QDesignerPropertyEditorInterface_SuperMetacast(QDesignerPropertyEditorInterface* self, const char* param1) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Metacast_IsBase(true);
@@ -218,7 +218,7 @@ void QDesignerPropertyEditorInterface_OnMetacast(QDesignerPropertyEditorInterfac
 }
 
 // Base class handler implementation
-int QDesignerPropertyEditorInterface_QBaseMetacall(QDesignerPropertyEditorInterface* self, int param1, int param2, void** param3) {
+int QDesignerPropertyEditorInterface_SuperMetacall(QDesignerPropertyEditorInterface* self, int param1, int param2, void** param3) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Metacall_IsBase(true);
@@ -237,7 +237,7 @@ void QDesignerPropertyEditorInterface_OnMetacall(QDesignerPropertyEditorInterfac
 }
 
 // Base class handler implementation
-QDesignerFormEditorInterface* QDesignerPropertyEditorInterface_QBaseCore(const QDesignerPropertyEditorInterface* self) {
+QDesignerFormEditorInterface* QDesignerPropertyEditorInterface_SuperCore(const QDesignerPropertyEditorInterface* self) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Core_IsBase(true);
@@ -256,7 +256,7 @@ void QDesignerPropertyEditorInterface_OnCore(const QDesignerPropertyEditorInterf
 }
 
 // Base class handler implementation
-bool QDesignerPropertyEditorInterface_QBaseIsReadOnly(const QDesignerPropertyEditorInterface* self) {
+bool QDesignerPropertyEditorInterface_SuperIsReadOnly(const QDesignerPropertyEditorInterface* self) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_IsReadOnly_IsBase(true);
@@ -275,7 +275,7 @@ void QDesignerPropertyEditorInterface_OnIsReadOnly(const QDesignerPropertyEditor
 }
 
 // Base class handler implementation
-QObject* QDesignerPropertyEditorInterface_QBaseObject(const QDesignerPropertyEditorInterface* self) {
+QObject* QDesignerPropertyEditorInterface_SuperObject(const QDesignerPropertyEditorInterface* self) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Object_IsBase(true);
@@ -294,7 +294,7 @@ void QDesignerPropertyEditorInterface_OnObject(const QDesignerPropertyEditorInte
 }
 
 // Base class handler implementation
-libqt_string QDesignerPropertyEditorInterface_QBaseCurrentPropertyName(const QDesignerPropertyEditorInterface* self) {
+libqt_string QDesignerPropertyEditorInterface_SuperCurrentPropertyName(const QDesignerPropertyEditorInterface* self) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_CurrentPropertyName_IsBase(true);
@@ -329,7 +329,7 @@ void QDesignerPropertyEditorInterface_OnCurrentPropertyName(const QDesignerPrope
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseSetObject(QDesignerPropertyEditorInterface* self, QObject* object) {
+void QDesignerPropertyEditorInterface_SuperSetObject(QDesignerPropertyEditorInterface* self, QObject* object) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_SetObject_IsBase(true);
@@ -348,7 +348,7 @@ void QDesignerPropertyEditorInterface_OnSetObject(QDesignerPropertyEditorInterfa
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseSetPropertyValue(QDesignerPropertyEditorInterface* self, const libqt_string name, const QVariant* value, bool changed) {
+void QDesignerPropertyEditorInterface_SuperSetPropertyValue(QDesignerPropertyEditorInterface* self, const libqt_string name, const QVariant* value, bool changed) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
@@ -368,7 +368,7 @@ void QDesignerPropertyEditorInterface_OnSetPropertyValue(QDesignerPropertyEditor
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseSetReadOnly(QDesignerPropertyEditorInterface* self, bool readOnly) {
+void QDesignerPropertyEditorInterface_SuperSetReadOnly(QDesignerPropertyEditorInterface* self, bool readOnly) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_SetReadOnly_IsBase(true);
@@ -397,7 +397,7 @@ int QDesignerPropertyEditorInterface_DevType(const QDesignerPropertyEditorInterf
 }
 
 // Base class handler implementation
-int QDesignerPropertyEditorInterface_QBaseDevType(const QDesignerPropertyEditorInterface* self) {
+int QDesignerPropertyEditorInterface_SuperDevType(const QDesignerPropertyEditorInterface* self) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_DevType_IsBase(true);
@@ -426,7 +426,7 @@ void QDesignerPropertyEditorInterface_SetVisible(QDesignerPropertyEditorInterfac
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseSetVisible(QDesignerPropertyEditorInterface* self, bool visible) {
+void QDesignerPropertyEditorInterface_SuperSetVisible(QDesignerPropertyEditorInterface* self, bool visible) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_SetVisible_IsBase(true);
@@ -455,7 +455,7 @@ QSize* QDesignerPropertyEditorInterface_SizeHint(const QDesignerPropertyEditorIn
 }
 
 // Base class handler implementation
-QSize* QDesignerPropertyEditorInterface_QBaseSizeHint(const QDesignerPropertyEditorInterface* self) {
+QSize* QDesignerPropertyEditorInterface_SuperSizeHint(const QDesignerPropertyEditorInterface* self) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_SizeHint_IsBase(true);
@@ -484,7 +484,7 @@ QSize* QDesignerPropertyEditorInterface_MinimumSizeHint(const QDesignerPropertyE
 }
 
 // Base class handler implementation
-QSize* QDesignerPropertyEditorInterface_QBaseMinimumSizeHint(const QDesignerPropertyEditorInterface* self) {
+QSize* QDesignerPropertyEditorInterface_SuperMinimumSizeHint(const QDesignerPropertyEditorInterface* self) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_MinimumSizeHint_IsBase(true);
@@ -513,7 +513,7 @@ int QDesignerPropertyEditorInterface_HeightForWidth(const QDesignerPropertyEdito
 }
 
 // Base class handler implementation
-int QDesignerPropertyEditorInterface_QBaseHeightForWidth(const QDesignerPropertyEditorInterface* self, int param1) {
+int QDesignerPropertyEditorInterface_SuperHeightForWidth(const QDesignerPropertyEditorInterface* self, int param1) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_HeightForWidth_IsBase(true);
@@ -542,7 +542,7 @@ bool QDesignerPropertyEditorInterface_HasHeightForWidth(const QDesignerPropertyE
 }
 
 // Base class handler implementation
-bool QDesignerPropertyEditorInterface_QBaseHasHeightForWidth(const QDesignerPropertyEditorInterface* self) {
+bool QDesignerPropertyEditorInterface_SuperHasHeightForWidth(const QDesignerPropertyEditorInterface* self) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_HasHeightForWidth_IsBase(true);
@@ -571,7 +571,7 @@ QPaintEngine* QDesignerPropertyEditorInterface_PaintEngine(const QDesignerProper
 }
 
 // Base class handler implementation
-QPaintEngine* QDesignerPropertyEditorInterface_QBasePaintEngine(const QDesignerPropertyEditorInterface* self) {
+QPaintEngine* QDesignerPropertyEditorInterface_SuperPaintEngine(const QDesignerPropertyEditorInterface* self) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_PaintEngine_IsBase(true);
@@ -600,7 +600,7 @@ bool QDesignerPropertyEditorInterface_Event(QDesignerPropertyEditorInterface* se
 }
 
 // Base class handler implementation
-bool QDesignerPropertyEditorInterface_QBaseEvent(QDesignerPropertyEditorInterface* self, QEvent* event) {
+bool QDesignerPropertyEditorInterface_SuperEvent(QDesignerPropertyEditorInterface* self, QEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Event_IsBase(true);
@@ -629,7 +629,7 @@ void QDesignerPropertyEditorInterface_MousePressEvent(QDesignerPropertyEditorInt
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseMousePressEvent(QDesignerPropertyEditorInterface* self, QMouseEvent* event) {
+void QDesignerPropertyEditorInterface_SuperMousePressEvent(QDesignerPropertyEditorInterface* self, QMouseEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_MousePressEvent_IsBase(true);
@@ -658,7 +658,7 @@ void QDesignerPropertyEditorInterface_MouseReleaseEvent(QDesignerPropertyEditorI
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseMouseReleaseEvent(QDesignerPropertyEditorInterface* self, QMouseEvent* event) {
+void QDesignerPropertyEditorInterface_SuperMouseReleaseEvent(QDesignerPropertyEditorInterface* self, QMouseEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_MouseReleaseEvent_IsBase(true);
@@ -687,7 +687,7 @@ void QDesignerPropertyEditorInterface_MouseDoubleClickEvent(QDesignerPropertyEdi
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseMouseDoubleClickEvent(QDesignerPropertyEditorInterface* self, QMouseEvent* event) {
+void QDesignerPropertyEditorInterface_SuperMouseDoubleClickEvent(QDesignerPropertyEditorInterface* self, QMouseEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_MouseDoubleClickEvent_IsBase(true);
@@ -716,7 +716,7 @@ void QDesignerPropertyEditorInterface_MouseMoveEvent(QDesignerPropertyEditorInte
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseMouseMoveEvent(QDesignerPropertyEditorInterface* self, QMouseEvent* event) {
+void QDesignerPropertyEditorInterface_SuperMouseMoveEvent(QDesignerPropertyEditorInterface* self, QMouseEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_MouseMoveEvent_IsBase(true);
@@ -745,7 +745,7 @@ void QDesignerPropertyEditorInterface_WheelEvent(QDesignerPropertyEditorInterfac
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseWheelEvent(QDesignerPropertyEditorInterface* self, QWheelEvent* event) {
+void QDesignerPropertyEditorInterface_SuperWheelEvent(QDesignerPropertyEditorInterface* self, QWheelEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_WheelEvent_IsBase(true);
@@ -774,7 +774,7 @@ void QDesignerPropertyEditorInterface_KeyPressEvent(QDesignerPropertyEditorInter
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseKeyPressEvent(QDesignerPropertyEditorInterface* self, QKeyEvent* event) {
+void QDesignerPropertyEditorInterface_SuperKeyPressEvent(QDesignerPropertyEditorInterface* self, QKeyEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_KeyPressEvent_IsBase(true);
@@ -803,7 +803,7 @@ void QDesignerPropertyEditorInterface_KeyReleaseEvent(QDesignerPropertyEditorInt
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseKeyReleaseEvent(QDesignerPropertyEditorInterface* self, QKeyEvent* event) {
+void QDesignerPropertyEditorInterface_SuperKeyReleaseEvent(QDesignerPropertyEditorInterface* self, QKeyEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_KeyReleaseEvent_IsBase(true);
@@ -832,7 +832,7 @@ void QDesignerPropertyEditorInterface_FocusInEvent(QDesignerPropertyEditorInterf
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseFocusInEvent(QDesignerPropertyEditorInterface* self, QFocusEvent* event) {
+void QDesignerPropertyEditorInterface_SuperFocusInEvent(QDesignerPropertyEditorInterface* self, QFocusEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_FocusInEvent_IsBase(true);
@@ -861,7 +861,7 @@ void QDesignerPropertyEditorInterface_FocusOutEvent(QDesignerPropertyEditorInter
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseFocusOutEvent(QDesignerPropertyEditorInterface* self, QFocusEvent* event) {
+void QDesignerPropertyEditorInterface_SuperFocusOutEvent(QDesignerPropertyEditorInterface* self, QFocusEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_FocusOutEvent_IsBase(true);
@@ -890,7 +890,7 @@ void QDesignerPropertyEditorInterface_EnterEvent(QDesignerPropertyEditorInterfac
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseEnterEvent(QDesignerPropertyEditorInterface* self, QEnterEvent* event) {
+void QDesignerPropertyEditorInterface_SuperEnterEvent(QDesignerPropertyEditorInterface* self, QEnterEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_EnterEvent_IsBase(true);
@@ -919,7 +919,7 @@ void QDesignerPropertyEditorInterface_LeaveEvent(QDesignerPropertyEditorInterfac
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseLeaveEvent(QDesignerPropertyEditorInterface* self, QEvent* event) {
+void QDesignerPropertyEditorInterface_SuperLeaveEvent(QDesignerPropertyEditorInterface* self, QEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_LeaveEvent_IsBase(true);
@@ -948,7 +948,7 @@ void QDesignerPropertyEditorInterface_PaintEvent(QDesignerPropertyEditorInterfac
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBasePaintEvent(QDesignerPropertyEditorInterface* self, QPaintEvent* event) {
+void QDesignerPropertyEditorInterface_SuperPaintEvent(QDesignerPropertyEditorInterface* self, QPaintEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_PaintEvent_IsBase(true);
@@ -977,7 +977,7 @@ void QDesignerPropertyEditorInterface_MoveEvent(QDesignerPropertyEditorInterface
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseMoveEvent(QDesignerPropertyEditorInterface* self, QMoveEvent* event) {
+void QDesignerPropertyEditorInterface_SuperMoveEvent(QDesignerPropertyEditorInterface* self, QMoveEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_MoveEvent_IsBase(true);
@@ -1006,7 +1006,7 @@ void QDesignerPropertyEditorInterface_ResizeEvent(QDesignerPropertyEditorInterfa
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseResizeEvent(QDesignerPropertyEditorInterface* self, QResizeEvent* event) {
+void QDesignerPropertyEditorInterface_SuperResizeEvent(QDesignerPropertyEditorInterface* self, QResizeEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_ResizeEvent_IsBase(true);
@@ -1035,7 +1035,7 @@ void QDesignerPropertyEditorInterface_CloseEvent(QDesignerPropertyEditorInterfac
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseCloseEvent(QDesignerPropertyEditorInterface* self, QCloseEvent* event) {
+void QDesignerPropertyEditorInterface_SuperCloseEvent(QDesignerPropertyEditorInterface* self, QCloseEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_CloseEvent_IsBase(true);
@@ -1064,7 +1064,7 @@ void QDesignerPropertyEditorInterface_ContextMenuEvent(QDesignerPropertyEditorIn
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseContextMenuEvent(QDesignerPropertyEditorInterface* self, QContextMenuEvent* event) {
+void QDesignerPropertyEditorInterface_SuperContextMenuEvent(QDesignerPropertyEditorInterface* self, QContextMenuEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_ContextMenuEvent_IsBase(true);
@@ -1093,7 +1093,7 @@ void QDesignerPropertyEditorInterface_TabletEvent(QDesignerPropertyEditorInterfa
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseTabletEvent(QDesignerPropertyEditorInterface* self, QTabletEvent* event) {
+void QDesignerPropertyEditorInterface_SuperTabletEvent(QDesignerPropertyEditorInterface* self, QTabletEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_TabletEvent_IsBase(true);
@@ -1122,7 +1122,7 @@ void QDesignerPropertyEditorInterface_ActionEvent(QDesignerPropertyEditorInterfa
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseActionEvent(QDesignerPropertyEditorInterface* self, QActionEvent* event) {
+void QDesignerPropertyEditorInterface_SuperActionEvent(QDesignerPropertyEditorInterface* self, QActionEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_ActionEvent_IsBase(true);
@@ -1151,7 +1151,7 @@ void QDesignerPropertyEditorInterface_DragEnterEvent(QDesignerPropertyEditorInte
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseDragEnterEvent(QDesignerPropertyEditorInterface* self, QDragEnterEvent* event) {
+void QDesignerPropertyEditorInterface_SuperDragEnterEvent(QDesignerPropertyEditorInterface* self, QDragEnterEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_DragEnterEvent_IsBase(true);
@@ -1180,7 +1180,7 @@ void QDesignerPropertyEditorInterface_DragMoveEvent(QDesignerPropertyEditorInter
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseDragMoveEvent(QDesignerPropertyEditorInterface* self, QDragMoveEvent* event) {
+void QDesignerPropertyEditorInterface_SuperDragMoveEvent(QDesignerPropertyEditorInterface* self, QDragMoveEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_DragMoveEvent_IsBase(true);
@@ -1209,7 +1209,7 @@ void QDesignerPropertyEditorInterface_DragLeaveEvent(QDesignerPropertyEditorInte
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseDragLeaveEvent(QDesignerPropertyEditorInterface* self, QDragLeaveEvent* event) {
+void QDesignerPropertyEditorInterface_SuperDragLeaveEvent(QDesignerPropertyEditorInterface* self, QDragLeaveEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_DragLeaveEvent_IsBase(true);
@@ -1238,7 +1238,7 @@ void QDesignerPropertyEditorInterface_DropEvent(QDesignerPropertyEditorInterface
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseDropEvent(QDesignerPropertyEditorInterface* self, QDropEvent* event) {
+void QDesignerPropertyEditorInterface_SuperDropEvent(QDesignerPropertyEditorInterface* self, QDropEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_DropEvent_IsBase(true);
@@ -1267,7 +1267,7 @@ void QDesignerPropertyEditorInterface_ShowEvent(QDesignerPropertyEditorInterface
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseShowEvent(QDesignerPropertyEditorInterface* self, QShowEvent* event) {
+void QDesignerPropertyEditorInterface_SuperShowEvent(QDesignerPropertyEditorInterface* self, QShowEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_ShowEvent_IsBase(true);
@@ -1296,7 +1296,7 @@ void QDesignerPropertyEditorInterface_HideEvent(QDesignerPropertyEditorInterface
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseHideEvent(QDesignerPropertyEditorInterface* self, QHideEvent* event) {
+void QDesignerPropertyEditorInterface_SuperHideEvent(QDesignerPropertyEditorInterface* self, QHideEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_HideEvent_IsBase(true);
@@ -1326,7 +1326,7 @@ bool QDesignerPropertyEditorInterface_NativeEvent(QDesignerPropertyEditorInterfa
 }
 
 // Base class handler implementation
-bool QDesignerPropertyEditorInterface_QBaseNativeEvent(QDesignerPropertyEditorInterface* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QDesignerPropertyEditorInterface_SuperNativeEvent(QDesignerPropertyEditorInterface* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
@@ -1356,7 +1356,7 @@ void QDesignerPropertyEditorInterface_ChangeEvent(QDesignerPropertyEditorInterfa
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseChangeEvent(QDesignerPropertyEditorInterface* self, QEvent* param1) {
+void QDesignerPropertyEditorInterface_SuperChangeEvent(QDesignerPropertyEditorInterface* self, QEvent* param1) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_ChangeEvent_IsBase(true);
@@ -1385,7 +1385,7 @@ int QDesignerPropertyEditorInterface_Metric(const QDesignerPropertyEditorInterfa
 }
 
 // Base class handler implementation
-int QDesignerPropertyEditorInterface_QBaseMetric(const QDesignerPropertyEditorInterface* self, int param1) {
+int QDesignerPropertyEditorInterface_SuperMetric(const QDesignerPropertyEditorInterface* self, int param1) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Metric_IsBase(true);
@@ -1414,7 +1414,7 @@ void QDesignerPropertyEditorInterface_InitPainter(const QDesignerPropertyEditorI
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseInitPainter(const QDesignerPropertyEditorInterface* self, QPainter* painter) {
+void QDesignerPropertyEditorInterface_SuperInitPainter(const QDesignerPropertyEditorInterface* self, QPainter* painter) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_InitPainter_IsBase(true);
@@ -1443,7 +1443,7 @@ QPaintDevice* QDesignerPropertyEditorInterface_Redirected(const QDesignerPropert
 }
 
 // Base class handler implementation
-QPaintDevice* QDesignerPropertyEditorInterface_QBaseRedirected(const QDesignerPropertyEditorInterface* self, QPoint* offset) {
+QPaintDevice* QDesignerPropertyEditorInterface_SuperRedirected(const QDesignerPropertyEditorInterface* self, QPoint* offset) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Redirected_IsBase(true);
@@ -1472,7 +1472,7 @@ QPainter* QDesignerPropertyEditorInterface_SharedPainter(const QDesignerProperty
 }
 
 // Base class handler implementation
-QPainter* QDesignerPropertyEditorInterface_QBaseSharedPainter(const QDesignerPropertyEditorInterface* self) {
+QPainter* QDesignerPropertyEditorInterface_SuperSharedPainter(const QDesignerPropertyEditorInterface* self) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_SharedPainter_IsBase(true);
@@ -1501,7 +1501,7 @@ void QDesignerPropertyEditorInterface_InputMethodEvent(QDesignerPropertyEditorIn
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseInputMethodEvent(QDesignerPropertyEditorInterface* self, QInputMethodEvent* param1) {
+void QDesignerPropertyEditorInterface_SuperInputMethodEvent(QDesignerPropertyEditorInterface* self, QInputMethodEvent* param1) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_InputMethodEvent_IsBase(true);
@@ -1530,7 +1530,7 @@ QVariant* QDesignerPropertyEditorInterface_InputMethodQuery(const QDesignerPrope
 }
 
 // Base class handler implementation
-QVariant* QDesignerPropertyEditorInterface_QBaseInputMethodQuery(const QDesignerPropertyEditorInterface* self, int param1) {
+QVariant* QDesignerPropertyEditorInterface_SuperInputMethodQuery(const QDesignerPropertyEditorInterface* self, int param1) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_InputMethodQuery_IsBase(true);
@@ -1559,7 +1559,7 @@ bool QDesignerPropertyEditorInterface_FocusNextPrevChild(QDesignerPropertyEditor
 }
 
 // Base class handler implementation
-bool QDesignerPropertyEditorInterface_QBaseFocusNextPrevChild(QDesignerPropertyEditorInterface* self, bool next) {
+bool QDesignerPropertyEditorInterface_SuperFocusNextPrevChild(QDesignerPropertyEditorInterface* self, bool next) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_FocusNextPrevChild_IsBase(true);
@@ -1588,7 +1588,7 @@ bool QDesignerPropertyEditorInterface_EventFilter(QDesignerPropertyEditorInterfa
 }
 
 // Base class handler implementation
-bool QDesignerPropertyEditorInterface_QBaseEventFilter(QDesignerPropertyEditorInterface* self, QObject* watched, QEvent* event) {
+bool QDesignerPropertyEditorInterface_SuperEventFilter(QDesignerPropertyEditorInterface* self, QObject* watched, QEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_EventFilter_IsBase(true);
@@ -1617,7 +1617,7 @@ void QDesignerPropertyEditorInterface_TimerEvent(QDesignerPropertyEditorInterfac
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseTimerEvent(QDesignerPropertyEditorInterface* self, QTimerEvent* event) {
+void QDesignerPropertyEditorInterface_SuperTimerEvent(QDesignerPropertyEditorInterface* self, QTimerEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_TimerEvent_IsBase(true);
@@ -1646,7 +1646,7 @@ void QDesignerPropertyEditorInterface_ChildEvent(QDesignerPropertyEditorInterfac
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseChildEvent(QDesignerPropertyEditorInterface* self, QChildEvent* event) {
+void QDesignerPropertyEditorInterface_SuperChildEvent(QDesignerPropertyEditorInterface* self, QChildEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_ChildEvent_IsBase(true);
@@ -1675,7 +1675,7 @@ void QDesignerPropertyEditorInterface_CustomEvent(QDesignerPropertyEditorInterfa
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseCustomEvent(QDesignerPropertyEditorInterface* self, QEvent* event) {
+void QDesignerPropertyEditorInterface_SuperCustomEvent(QDesignerPropertyEditorInterface* self, QEvent* event) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_CustomEvent_IsBase(true);
@@ -1704,7 +1704,7 @@ void QDesignerPropertyEditorInterface_ConnectNotify(QDesignerPropertyEditorInter
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseConnectNotify(QDesignerPropertyEditorInterface* self, const QMetaMethod* signal) {
+void QDesignerPropertyEditorInterface_SuperConnectNotify(QDesignerPropertyEditorInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_ConnectNotify_IsBase(true);
@@ -1733,7 +1733,7 @@ void QDesignerPropertyEditorInterface_DisconnectNotify(QDesignerPropertyEditorIn
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseDisconnectNotify(QDesignerPropertyEditorInterface* self, const QMetaMethod* signal) {
+void QDesignerPropertyEditorInterface_SuperDisconnectNotify(QDesignerPropertyEditorInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_DisconnectNotify_IsBase(true);
@@ -1762,7 +1762,7 @@ void QDesignerPropertyEditorInterface_UpdateMicroFocus(QDesignerPropertyEditorIn
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseUpdateMicroFocus(QDesignerPropertyEditorInterface* self) {
+void QDesignerPropertyEditorInterface_SuperUpdateMicroFocus(QDesignerPropertyEditorInterface* self) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_UpdateMicroFocus_IsBase(true);
@@ -1791,7 +1791,7 @@ void QDesignerPropertyEditorInterface_Create(QDesignerPropertyEditorInterface* s
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseCreate(QDesignerPropertyEditorInterface* self) {
+void QDesignerPropertyEditorInterface_SuperCreate(QDesignerPropertyEditorInterface* self) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Create_IsBase(true);
@@ -1820,7 +1820,7 @@ void QDesignerPropertyEditorInterface_Destroy(QDesignerPropertyEditorInterface* 
 }
 
 // Base class handler implementation
-void QDesignerPropertyEditorInterface_QBaseDestroy(QDesignerPropertyEditorInterface* self) {
+void QDesignerPropertyEditorInterface_SuperDestroy(QDesignerPropertyEditorInterface* self) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Destroy_IsBase(true);
@@ -1849,7 +1849,7 @@ bool QDesignerPropertyEditorInterface_FocusNextChild(QDesignerPropertyEditorInte
 }
 
 // Base class handler implementation
-bool QDesignerPropertyEditorInterface_QBaseFocusNextChild(QDesignerPropertyEditorInterface* self) {
+bool QDesignerPropertyEditorInterface_SuperFocusNextChild(QDesignerPropertyEditorInterface* self) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_FocusNextChild_IsBase(true);
@@ -1878,7 +1878,7 @@ bool QDesignerPropertyEditorInterface_FocusPreviousChild(QDesignerPropertyEditor
 }
 
 // Base class handler implementation
-bool QDesignerPropertyEditorInterface_QBaseFocusPreviousChild(QDesignerPropertyEditorInterface* self) {
+bool QDesignerPropertyEditorInterface_SuperFocusPreviousChild(QDesignerPropertyEditorInterface* self) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_FocusPreviousChild_IsBase(true);
@@ -1907,7 +1907,7 @@ QObject* QDesignerPropertyEditorInterface_Sender(const QDesignerPropertyEditorIn
 }
 
 // Base class handler implementation
-QObject* QDesignerPropertyEditorInterface_QBaseSender(const QDesignerPropertyEditorInterface* self) {
+QObject* QDesignerPropertyEditorInterface_SuperSender(const QDesignerPropertyEditorInterface* self) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Sender_IsBase(true);
@@ -1936,7 +1936,7 @@ int QDesignerPropertyEditorInterface_SenderSignalIndex(const QDesignerPropertyEd
 }
 
 // Base class handler implementation
-int QDesignerPropertyEditorInterface_QBaseSenderSignalIndex(const QDesignerPropertyEditorInterface* self) {
+int QDesignerPropertyEditorInterface_SuperSenderSignalIndex(const QDesignerPropertyEditorInterface* self) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_SenderSignalIndex_IsBase(true);
@@ -1965,7 +1965,7 @@ int QDesignerPropertyEditorInterface_Receivers(const QDesignerPropertyEditorInte
 }
 
 // Base class handler implementation
-int QDesignerPropertyEditorInterface_QBaseReceivers(const QDesignerPropertyEditorInterface* self, const char* signal) {
+int QDesignerPropertyEditorInterface_SuperReceivers(const QDesignerPropertyEditorInterface* self, const char* signal) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Receivers_IsBase(true);
@@ -1994,7 +1994,7 @@ bool QDesignerPropertyEditorInterface_IsSignalConnected(const QDesignerPropertyE
 }
 
 // Base class handler implementation
-bool QDesignerPropertyEditorInterface_QBaseIsSignalConnected(const QDesignerPropertyEditorInterface* self, const QMetaMethod* signal) {
+bool QDesignerPropertyEditorInterface_SuperIsSignalConnected(const QDesignerPropertyEditorInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_IsSignalConnected_IsBase(true);
@@ -2023,7 +2023,7 @@ double QDesignerPropertyEditorInterface_GetDecodedMetricF(const QDesignerPropert
 }
 
 // Base class handler implementation
-double QDesignerPropertyEditorInterface_QBaseGetDecodedMetricF(const QDesignerPropertyEditorInterface* self, int metricA, int metricB) {
+double QDesignerPropertyEditorInterface_SuperGetDecodedMetricF(const QDesignerPropertyEditorInterface* self, int metricA, int metricB) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_GetDecodedMetricF_IsBase(true);

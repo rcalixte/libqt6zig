@@ -83,7 +83,7 @@ void KTwoFingerSwipe_SetSwipeAngle(KTwoFingerSwipe* self, double swipeAngle) {
 }
 
 // Base class handler implementation
-QMetaObject* KTwoFingerSwipe_QBaseMetaObject(const KTwoFingerSwipe* self) {
+QMetaObject* KTwoFingerSwipe_SuperMetaObject(const KTwoFingerSwipe* self) {
     auto* vktwofingerswipe = const_cast<VirtualKTwoFingerSwipe*>(dynamic_cast<const VirtualKTwoFingerSwipe*>(self));
     if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
         vktwofingerswipe->setKTwoFingerSwipe_MetaObject_IsBase(true);
@@ -102,7 +102,7 @@ void KTwoFingerSwipe_OnMetaObject(const KTwoFingerSwipe* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KTwoFingerSwipe_QBaseMetacast(KTwoFingerSwipe* self, const char* param1) {
+void* KTwoFingerSwipe_SuperMetacast(KTwoFingerSwipe* self, const char* param1) {
     auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
     if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
         vktwofingerswipe->setKTwoFingerSwipe_Metacast_IsBase(true);
@@ -121,7 +121,7 @@ void KTwoFingerSwipe_OnMetacast(KTwoFingerSwipe* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KTwoFingerSwipe_QBaseMetacall(KTwoFingerSwipe* self, int param1, int param2, void** param3) {
+int KTwoFingerSwipe_SuperMetacall(KTwoFingerSwipe* self, int param1, int param2, void** param3) {
     auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
     if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
         vktwofingerswipe->setKTwoFingerSwipe_Metacall_IsBase(true);
@@ -150,7 +150,7 @@ bool KTwoFingerSwipe_Event(KTwoFingerSwipe* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KTwoFingerSwipe_QBaseEvent(KTwoFingerSwipe* self, QEvent* event) {
+bool KTwoFingerSwipe_SuperEvent(KTwoFingerSwipe* self, QEvent* event) {
     auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
     if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
         vktwofingerswipe->setKTwoFingerSwipe_Event_IsBase(true);
@@ -179,7 +179,7 @@ bool KTwoFingerSwipe_EventFilter(KTwoFingerSwipe* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool KTwoFingerSwipe_QBaseEventFilter(KTwoFingerSwipe* self, QObject* watched, QEvent* event) {
+bool KTwoFingerSwipe_SuperEventFilter(KTwoFingerSwipe* self, QObject* watched, QEvent* event) {
     auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
     if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
         vktwofingerswipe->setKTwoFingerSwipe_EventFilter_IsBase(true);
@@ -208,7 +208,7 @@ void KTwoFingerSwipe_TimerEvent(KTwoFingerSwipe* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KTwoFingerSwipe_QBaseTimerEvent(KTwoFingerSwipe* self, QTimerEvent* event) {
+void KTwoFingerSwipe_SuperTimerEvent(KTwoFingerSwipe* self, QTimerEvent* event) {
     auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
     if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
         vktwofingerswipe->setKTwoFingerSwipe_TimerEvent_IsBase(true);
@@ -237,7 +237,7 @@ void KTwoFingerSwipe_ChildEvent(KTwoFingerSwipe* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KTwoFingerSwipe_QBaseChildEvent(KTwoFingerSwipe* self, QChildEvent* event) {
+void KTwoFingerSwipe_SuperChildEvent(KTwoFingerSwipe* self, QChildEvent* event) {
     auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
     if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
         vktwofingerswipe->setKTwoFingerSwipe_ChildEvent_IsBase(true);
@@ -266,7 +266,7 @@ void KTwoFingerSwipe_CustomEvent(KTwoFingerSwipe* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KTwoFingerSwipe_QBaseCustomEvent(KTwoFingerSwipe* self, QEvent* event) {
+void KTwoFingerSwipe_SuperCustomEvent(KTwoFingerSwipe* self, QEvent* event) {
     auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
     if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
         vktwofingerswipe->setKTwoFingerSwipe_CustomEvent_IsBase(true);
@@ -295,7 +295,7 @@ void KTwoFingerSwipe_ConnectNotify(KTwoFingerSwipe* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void KTwoFingerSwipe_QBaseConnectNotify(KTwoFingerSwipe* self, const QMetaMethod* signal) {
+void KTwoFingerSwipe_SuperConnectNotify(KTwoFingerSwipe* self, const QMetaMethod* signal) {
     auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
     if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
         vktwofingerswipe->setKTwoFingerSwipe_ConnectNotify_IsBase(true);
@@ -324,7 +324,7 @@ void KTwoFingerSwipe_DisconnectNotify(KTwoFingerSwipe* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void KTwoFingerSwipe_QBaseDisconnectNotify(KTwoFingerSwipe* self, const QMetaMethod* signal) {
+void KTwoFingerSwipe_SuperDisconnectNotify(KTwoFingerSwipe* self, const QMetaMethod* signal) {
     auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
     if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
         vktwofingerswipe->setKTwoFingerSwipe_DisconnectNotify_IsBase(true);
@@ -353,7 +353,7 @@ QObject* KTwoFingerSwipe_Sender(const KTwoFingerSwipe* self) {
 }
 
 // Base class handler implementation
-QObject* KTwoFingerSwipe_QBaseSender(const KTwoFingerSwipe* self) {
+QObject* KTwoFingerSwipe_SuperSender(const KTwoFingerSwipe* self) {
     auto* vktwofingerswipe = const_cast<VirtualKTwoFingerSwipe*>(dynamic_cast<const VirtualKTwoFingerSwipe*>(self));
     if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
         vktwofingerswipe->setKTwoFingerSwipe_Sender_IsBase(true);
@@ -382,7 +382,7 @@ int KTwoFingerSwipe_SenderSignalIndex(const KTwoFingerSwipe* self) {
 }
 
 // Base class handler implementation
-int KTwoFingerSwipe_QBaseSenderSignalIndex(const KTwoFingerSwipe* self) {
+int KTwoFingerSwipe_SuperSenderSignalIndex(const KTwoFingerSwipe* self) {
     auto* vktwofingerswipe = const_cast<VirtualKTwoFingerSwipe*>(dynamic_cast<const VirtualKTwoFingerSwipe*>(self));
     if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
         vktwofingerswipe->setKTwoFingerSwipe_SenderSignalIndex_IsBase(true);
@@ -411,7 +411,7 @@ int KTwoFingerSwipe_Receivers(const KTwoFingerSwipe* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KTwoFingerSwipe_QBaseReceivers(const KTwoFingerSwipe* self, const char* signal) {
+int KTwoFingerSwipe_SuperReceivers(const KTwoFingerSwipe* self, const char* signal) {
     auto* vktwofingerswipe = const_cast<VirtualKTwoFingerSwipe*>(dynamic_cast<const VirtualKTwoFingerSwipe*>(self));
     if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
         vktwofingerswipe->setKTwoFingerSwipe_Receivers_IsBase(true);
@@ -440,7 +440,7 @@ bool KTwoFingerSwipe_IsSignalConnected(const KTwoFingerSwipe* self, const QMetaM
 }
 
 // Base class handler implementation
-bool KTwoFingerSwipe_QBaseIsSignalConnected(const KTwoFingerSwipe* self, const QMetaMethod* signal) {
+bool KTwoFingerSwipe_SuperIsSignalConnected(const KTwoFingerSwipe* self, const QMetaMethod* signal) {
     auto* vktwofingerswipe = const_cast<VirtualKTwoFingerSwipe*>(dynamic_cast<const VirtualKTwoFingerSwipe*>(self));
     if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
         vktwofingerswipe->setKTwoFingerSwipe_IsSignalConnected_IsBase(true);
@@ -501,7 +501,7 @@ void KTwoFingerSwipeRecognizer_SetSwipeDistance(KTwoFingerSwipeRecognizer* self,
 }
 
 // Base class handler implementation
-QGesture* KTwoFingerSwipeRecognizer_QBaseCreate(KTwoFingerSwipeRecognizer* self, QObject* target) {
+QGesture* KTwoFingerSwipeRecognizer_SuperCreate(KTwoFingerSwipeRecognizer* self, QObject* target) {
     auto* vktwofingerswiperecognizer = dynamic_cast<VirtualKTwoFingerSwipeRecognizer*>(self);
     if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer) {
         vktwofingerswiperecognizer->setKTwoFingerSwipeRecognizer_Create_IsBase(true);
@@ -520,7 +520,7 @@ void KTwoFingerSwipeRecognizer_OnCreate(KTwoFingerSwipeRecognizer* self, intptr_
 }
 
 // Base class handler implementation
-int KTwoFingerSwipeRecognizer_QBaseRecognize(KTwoFingerSwipeRecognizer* self, QGesture* gesture, QObject* watched, QEvent* event) {
+int KTwoFingerSwipeRecognizer_SuperRecognize(KTwoFingerSwipeRecognizer* self, QGesture* gesture, QObject* watched, QEvent* event) {
     auto* vktwofingerswiperecognizer = dynamic_cast<VirtualKTwoFingerSwipeRecognizer*>(self);
     if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer) {
         vktwofingerswiperecognizer->setKTwoFingerSwipeRecognizer_Recognize_IsBase(true);
@@ -549,7 +549,7 @@ void KTwoFingerSwipeRecognizer_Reset(KTwoFingerSwipeRecognizer* self, QGesture* 
 }
 
 // Base class handler implementation
-void KTwoFingerSwipeRecognizer_QBaseReset(KTwoFingerSwipeRecognizer* self, QGesture* state) {
+void KTwoFingerSwipeRecognizer_SuperReset(KTwoFingerSwipeRecognizer* self, QGesture* state) {
     auto* vktwofingerswiperecognizer = dynamic_cast<VirtualKTwoFingerSwipeRecognizer*>(self);
     if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer) {
         vktwofingerswiperecognizer->setKTwoFingerSwipeRecognizer_Reset_IsBase(true);

@@ -64,7 +64,7 @@ void QDesignerOptionsPageInterface_Finish(QDesignerOptionsPageInterface* self) {
 }
 
 // Base class handler implementation
-libqt_string QDesignerOptionsPageInterface_QBaseName(const QDesignerOptionsPageInterface* self) {
+libqt_string QDesignerOptionsPageInterface_SuperName(const QDesignerOptionsPageInterface* self) {
     auto* vqdesigneroptionspageinterface = const_cast<VirtualQDesignerOptionsPageInterface*>(dynamic_cast<const VirtualQDesignerOptionsPageInterface*>(self));
     if (vqdesigneroptionspageinterface && vqdesigneroptionspageinterface->isVirtualQDesignerOptionsPageInterface) {
         vqdesigneroptionspageinterface->setQDesignerOptionsPageInterface_Name_IsBase(true);
@@ -99,7 +99,7 @@ void QDesignerOptionsPageInterface_OnName(const QDesignerOptionsPageInterface* s
 }
 
 // Base class handler implementation
-QWidget* QDesignerOptionsPageInterface_QBaseCreatePage(QDesignerOptionsPageInterface* self, QWidget* parent) {
+QWidget* QDesignerOptionsPageInterface_SuperCreatePage(QDesignerOptionsPageInterface* self, QWidget* parent) {
     auto* vqdesigneroptionspageinterface = dynamic_cast<VirtualQDesignerOptionsPageInterface*>(self);
     if (vqdesigneroptionspageinterface && vqdesigneroptionspageinterface->isVirtualQDesignerOptionsPageInterface) {
         vqdesigneroptionspageinterface->setQDesignerOptionsPageInterface_CreatePage_IsBase(true);
@@ -118,7 +118,7 @@ void QDesignerOptionsPageInterface_OnCreatePage(QDesignerOptionsPageInterface* s
 }
 
 // Base class handler implementation
-void QDesignerOptionsPageInterface_QBaseApply(QDesignerOptionsPageInterface* self) {
+void QDesignerOptionsPageInterface_SuperApply(QDesignerOptionsPageInterface* self) {
     auto* vqdesigneroptionspageinterface = dynamic_cast<VirtualQDesignerOptionsPageInterface*>(self);
     if (vqdesigneroptionspageinterface && vqdesigneroptionspageinterface->isVirtualQDesignerOptionsPageInterface) {
         vqdesigneroptionspageinterface->setQDesignerOptionsPageInterface_Apply_IsBase(true);
@@ -137,7 +137,7 @@ void QDesignerOptionsPageInterface_OnApply(QDesignerOptionsPageInterface* self, 
 }
 
 // Base class handler implementation
-void QDesignerOptionsPageInterface_QBaseFinish(QDesignerOptionsPageInterface* self) {
+void QDesignerOptionsPageInterface_SuperFinish(QDesignerOptionsPageInterface* self) {
     auto* vqdesigneroptionspageinterface = dynamic_cast<VirtualQDesignerOptionsPageInterface*>(self);
     if (vqdesigneroptionspageinterface && vqdesigneroptionspageinterface->isVirtualQDesignerOptionsPageInterface) {
         vqdesigneroptionspageinterface->setQDesignerOptionsPageInterface_Finish_IsBase(true);

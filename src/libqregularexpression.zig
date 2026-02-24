@@ -452,6 +452,10 @@ pub const qregularexpression = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpression.html#dtor.QRegularExpression)
     ///
     /// Delete this object from C++ memory.
@@ -460,7 +464,7 @@ pub const qregularexpression = struct {
     ///
     /// ` self: QtC.QRegularExpression `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QRegularExpression_Delete(@ptrCast(self));
     }
 };
@@ -790,6 +794,10 @@ pub const qregularexpressionmatch = struct {
         return qtc.QRegularExpressionMatch_CapturedEnd1(@ptrCast(self), @bitCast(nth));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionmatch.html#dtor.QRegularExpressionMatch)
     ///
     /// Delete this object from C++ memory.
@@ -798,7 +806,7 @@ pub const qregularexpressionmatch = struct {
     ///
     /// ` self: QtC.QRegularExpressionMatch `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QRegularExpressionMatch_Delete(@ptrCast(self));
     }
 };
@@ -923,6 +931,10 @@ pub const qregularexpressionmatchiterator = struct {
         return qtc.QRegularExpressionMatchIterator_MatchOptions(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionmatchiterator.html#dtor.QRegularExpressionMatchIterator)
     ///
     /// Delete this object from C++ memory.
@@ -931,7 +943,7 @@ pub const qregularexpressionmatchiterator = struct {
     ///
     /// ` self: QtC.QRegularExpressionMatchIterator `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QRegularExpressionMatchIterator_Delete(@ptrCast(self));
     }
 };

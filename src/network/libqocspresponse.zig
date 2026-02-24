@@ -92,6 +92,10 @@ pub const qocspresponse = struct {
         qtc.QOcspResponse_Swap(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#dtor.QOcspResponse)
     ///
     /// Delete this object from C++ memory.
@@ -100,7 +104,7 @@ pub const qocspresponse = struct {
     ///
     /// ` self: QtC.QOcspResponse `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QOcspResponse_Delete(@ptrCast(self));
     }
 };

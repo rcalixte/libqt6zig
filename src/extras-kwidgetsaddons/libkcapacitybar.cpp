@@ -180,7 +180,7 @@ void KCapacityBar_ChangeEvent(KCapacityBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-QMetaObject* KCapacityBar_QBaseMetaObject(const KCapacityBar* self) {
+QMetaObject* KCapacityBar_SuperMetaObject(const KCapacityBar* self) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_MetaObject_IsBase(true);
@@ -199,7 +199,7 @@ void KCapacityBar_OnMetaObject(const KCapacityBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KCapacityBar_QBaseMetacast(KCapacityBar* self, const char* param1) {
+void* KCapacityBar_SuperMetacast(KCapacityBar* self, const char* param1) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_Metacast_IsBase(true);
@@ -218,7 +218,7 @@ void KCapacityBar_OnMetacast(KCapacityBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KCapacityBar_QBaseMetacall(KCapacityBar* self, int param1, int param2, void** param3) {
+int KCapacityBar_SuperMetacall(KCapacityBar* self, int param1, int param2, void** param3) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_Metacall_IsBase(true);
@@ -237,7 +237,7 @@ void KCapacityBar_OnMetacall(KCapacityBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* KCapacityBar_QBaseMinimumSizeHint(const KCapacityBar* self) {
+QSize* KCapacityBar_SuperMinimumSizeHint(const KCapacityBar* self) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_MinimumSizeHint_IsBase(true);
@@ -256,7 +256,7 @@ void KCapacityBar_OnMinimumSizeHint(const KCapacityBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBasePaintEvent(KCapacityBar* self, QPaintEvent* event) {
+void KCapacityBar_SuperPaintEvent(KCapacityBar* self, QPaintEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_PaintEvent_IsBase(true);
@@ -275,7 +275,7 @@ void KCapacityBar_OnPaintEvent(KCapacityBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseChangeEvent(KCapacityBar* self, QEvent* event) {
+void KCapacityBar_SuperChangeEvent(KCapacityBar* self, QEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_ChangeEvent_IsBase(true);
@@ -304,7 +304,7 @@ int KCapacityBar_DevType(const KCapacityBar* self) {
 }
 
 // Base class handler implementation
-int KCapacityBar_QBaseDevType(const KCapacityBar* self) {
+int KCapacityBar_SuperDevType(const KCapacityBar* self) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_DevType_IsBase(true);
@@ -333,7 +333,7 @@ void KCapacityBar_SetVisible(KCapacityBar* self, bool visible) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseSetVisible(KCapacityBar* self, bool visible) {
+void KCapacityBar_SuperSetVisible(KCapacityBar* self, bool visible) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_SetVisible_IsBase(true);
@@ -362,7 +362,7 @@ QSize* KCapacityBar_SizeHint(const KCapacityBar* self) {
 }
 
 // Base class handler implementation
-QSize* KCapacityBar_QBaseSizeHint(const KCapacityBar* self) {
+QSize* KCapacityBar_SuperSizeHint(const KCapacityBar* self) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_SizeHint_IsBase(true);
@@ -391,7 +391,7 @@ int KCapacityBar_HeightForWidth(const KCapacityBar* self, int param1) {
 }
 
 // Base class handler implementation
-int KCapacityBar_QBaseHeightForWidth(const KCapacityBar* self, int param1) {
+int KCapacityBar_SuperHeightForWidth(const KCapacityBar* self, int param1) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_HeightForWidth_IsBase(true);
@@ -420,7 +420,7 @@ bool KCapacityBar_HasHeightForWidth(const KCapacityBar* self) {
 }
 
 // Base class handler implementation
-bool KCapacityBar_QBaseHasHeightForWidth(const KCapacityBar* self) {
+bool KCapacityBar_SuperHasHeightForWidth(const KCapacityBar* self) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_HasHeightForWidth_IsBase(true);
@@ -449,7 +449,7 @@ QPaintEngine* KCapacityBar_PaintEngine(const KCapacityBar* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KCapacityBar_QBasePaintEngine(const KCapacityBar* self) {
+QPaintEngine* KCapacityBar_SuperPaintEngine(const KCapacityBar* self) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_PaintEngine_IsBase(true);
@@ -478,7 +478,7 @@ bool KCapacityBar_Event(KCapacityBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KCapacityBar_QBaseEvent(KCapacityBar* self, QEvent* event) {
+bool KCapacityBar_SuperEvent(KCapacityBar* self, QEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_Event_IsBase(true);
@@ -507,7 +507,7 @@ void KCapacityBar_MousePressEvent(KCapacityBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseMousePressEvent(KCapacityBar* self, QMouseEvent* event) {
+void KCapacityBar_SuperMousePressEvent(KCapacityBar* self, QMouseEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_MousePressEvent_IsBase(true);
@@ -536,7 +536,7 @@ void KCapacityBar_MouseReleaseEvent(KCapacityBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseMouseReleaseEvent(KCapacityBar* self, QMouseEvent* event) {
+void KCapacityBar_SuperMouseReleaseEvent(KCapacityBar* self, QMouseEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_MouseReleaseEvent_IsBase(true);
@@ -565,7 +565,7 @@ void KCapacityBar_MouseDoubleClickEvent(KCapacityBar* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseMouseDoubleClickEvent(KCapacityBar* self, QMouseEvent* event) {
+void KCapacityBar_SuperMouseDoubleClickEvent(KCapacityBar* self, QMouseEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_MouseDoubleClickEvent_IsBase(true);
@@ -594,7 +594,7 @@ void KCapacityBar_MouseMoveEvent(KCapacityBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseMouseMoveEvent(KCapacityBar* self, QMouseEvent* event) {
+void KCapacityBar_SuperMouseMoveEvent(KCapacityBar* self, QMouseEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_MouseMoveEvent_IsBase(true);
@@ -623,7 +623,7 @@ void KCapacityBar_WheelEvent(KCapacityBar* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseWheelEvent(KCapacityBar* self, QWheelEvent* event) {
+void KCapacityBar_SuperWheelEvent(KCapacityBar* self, QWheelEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_WheelEvent_IsBase(true);
@@ -652,7 +652,7 @@ void KCapacityBar_KeyPressEvent(KCapacityBar* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseKeyPressEvent(KCapacityBar* self, QKeyEvent* event) {
+void KCapacityBar_SuperKeyPressEvent(KCapacityBar* self, QKeyEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_KeyPressEvent_IsBase(true);
@@ -681,7 +681,7 @@ void KCapacityBar_KeyReleaseEvent(KCapacityBar* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseKeyReleaseEvent(KCapacityBar* self, QKeyEvent* event) {
+void KCapacityBar_SuperKeyReleaseEvent(KCapacityBar* self, QKeyEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_KeyReleaseEvent_IsBase(true);
@@ -710,7 +710,7 @@ void KCapacityBar_FocusInEvent(KCapacityBar* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseFocusInEvent(KCapacityBar* self, QFocusEvent* event) {
+void KCapacityBar_SuperFocusInEvent(KCapacityBar* self, QFocusEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_FocusInEvent_IsBase(true);
@@ -739,7 +739,7 @@ void KCapacityBar_FocusOutEvent(KCapacityBar* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseFocusOutEvent(KCapacityBar* self, QFocusEvent* event) {
+void KCapacityBar_SuperFocusOutEvent(KCapacityBar* self, QFocusEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_FocusOutEvent_IsBase(true);
@@ -768,7 +768,7 @@ void KCapacityBar_EnterEvent(KCapacityBar* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseEnterEvent(KCapacityBar* self, QEnterEvent* event) {
+void KCapacityBar_SuperEnterEvent(KCapacityBar* self, QEnterEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_EnterEvent_IsBase(true);
@@ -797,7 +797,7 @@ void KCapacityBar_LeaveEvent(KCapacityBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseLeaveEvent(KCapacityBar* self, QEvent* event) {
+void KCapacityBar_SuperLeaveEvent(KCapacityBar* self, QEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_LeaveEvent_IsBase(true);
@@ -826,7 +826,7 @@ void KCapacityBar_MoveEvent(KCapacityBar* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseMoveEvent(KCapacityBar* self, QMoveEvent* event) {
+void KCapacityBar_SuperMoveEvent(KCapacityBar* self, QMoveEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_MoveEvent_IsBase(true);
@@ -855,7 +855,7 @@ void KCapacityBar_ResizeEvent(KCapacityBar* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseResizeEvent(KCapacityBar* self, QResizeEvent* event) {
+void KCapacityBar_SuperResizeEvent(KCapacityBar* self, QResizeEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_ResizeEvent_IsBase(true);
@@ -884,7 +884,7 @@ void KCapacityBar_CloseEvent(KCapacityBar* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseCloseEvent(KCapacityBar* self, QCloseEvent* event) {
+void KCapacityBar_SuperCloseEvent(KCapacityBar* self, QCloseEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_CloseEvent_IsBase(true);
@@ -913,7 +913,7 @@ void KCapacityBar_ContextMenuEvent(KCapacityBar* self, QContextMenuEvent* event)
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseContextMenuEvent(KCapacityBar* self, QContextMenuEvent* event) {
+void KCapacityBar_SuperContextMenuEvent(KCapacityBar* self, QContextMenuEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_ContextMenuEvent_IsBase(true);
@@ -942,7 +942,7 @@ void KCapacityBar_TabletEvent(KCapacityBar* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseTabletEvent(KCapacityBar* self, QTabletEvent* event) {
+void KCapacityBar_SuperTabletEvent(KCapacityBar* self, QTabletEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_TabletEvent_IsBase(true);
@@ -971,7 +971,7 @@ void KCapacityBar_ActionEvent(KCapacityBar* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseActionEvent(KCapacityBar* self, QActionEvent* event) {
+void KCapacityBar_SuperActionEvent(KCapacityBar* self, QActionEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_ActionEvent_IsBase(true);
@@ -1000,7 +1000,7 @@ void KCapacityBar_DragEnterEvent(KCapacityBar* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseDragEnterEvent(KCapacityBar* self, QDragEnterEvent* event) {
+void KCapacityBar_SuperDragEnterEvent(KCapacityBar* self, QDragEnterEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_DragEnterEvent_IsBase(true);
@@ -1029,7 +1029,7 @@ void KCapacityBar_DragMoveEvent(KCapacityBar* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseDragMoveEvent(KCapacityBar* self, QDragMoveEvent* event) {
+void KCapacityBar_SuperDragMoveEvent(KCapacityBar* self, QDragMoveEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_DragMoveEvent_IsBase(true);
@@ -1058,7 +1058,7 @@ void KCapacityBar_DragLeaveEvent(KCapacityBar* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseDragLeaveEvent(KCapacityBar* self, QDragLeaveEvent* event) {
+void KCapacityBar_SuperDragLeaveEvent(KCapacityBar* self, QDragLeaveEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_DragLeaveEvent_IsBase(true);
@@ -1087,7 +1087,7 @@ void KCapacityBar_DropEvent(KCapacityBar* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseDropEvent(KCapacityBar* self, QDropEvent* event) {
+void KCapacityBar_SuperDropEvent(KCapacityBar* self, QDropEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_DropEvent_IsBase(true);
@@ -1116,7 +1116,7 @@ void KCapacityBar_ShowEvent(KCapacityBar* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseShowEvent(KCapacityBar* self, QShowEvent* event) {
+void KCapacityBar_SuperShowEvent(KCapacityBar* self, QShowEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_ShowEvent_IsBase(true);
@@ -1145,7 +1145,7 @@ void KCapacityBar_HideEvent(KCapacityBar* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseHideEvent(KCapacityBar* self, QHideEvent* event) {
+void KCapacityBar_SuperHideEvent(KCapacityBar* self, QHideEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_HideEvent_IsBase(true);
@@ -1175,7 +1175,7 @@ bool KCapacityBar_NativeEvent(KCapacityBar* self, const libqt_string eventType, 
 }
 
 // Base class handler implementation
-bool KCapacityBar_QBaseNativeEvent(KCapacityBar* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KCapacityBar_SuperNativeEvent(KCapacityBar* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
@@ -1205,7 +1205,7 @@ int KCapacityBar_Metric(const KCapacityBar* self, int param1) {
 }
 
 // Base class handler implementation
-int KCapacityBar_QBaseMetric(const KCapacityBar* self, int param1) {
+int KCapacityBar_SuperMetric(const KCapacityBar* self, int param1) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_Metric_IsBase(true);
@@ -1234,7 +1234,7 @@ void KCapacityBar_InitPainter(const KCapacityBar* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseInitPainter(const KCapacityBar* self, QPainter* painter) {
+void KCapacityBar_SuperInitPainter(const KCapacityBar* self, QPainter* painter) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_InitPainter_IsBase(true);
@@ -1263,7 +1263,7 @@ QPaintDevice* KCapacityBar_Redirected(const KCapacityBar* self, QPoint* offset) 
 }
 
 // Base class handler implementation
-QPaintDevice* KCapacityBar_QBaseRedirected(const KCapacityBar* self, QPoint* offset) {
+QPaintDevice* KCapacityBar_SuperRedirected(const KCapacityBar* self, QPoint* offset) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_Redirected_IsBase(true);
@@ -1292,7 +1292,7 @@ QPainter* KCapacityBar_SharedPainter(const KCapacityBar* self) {
 }
 
 // Base class handler implementation
-QPainter* KCapacityBar_QBaseSharedPainter(const KCapacityBar* self) {
+QPainter* KCapacityBar_SuperSharedPainter(const KCapacityBar* self) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_SharedPainter_IsBase(true);
@@ -1321,7 +1321,7 @@ void KCapacityBar_InputMethodEvent(KCapacityBar* self, QInputMethodEvent* param1
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseInputMethodEvent(KCapacityBar* self, QInputMethodEvent* param1) {
+void KCapacityBar_SuperInputMethodEvent(KCapacityBar* self, QInputMethodEvent* param1) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_InputMethodEvent_IsBase(true);
@@ -1350,7 +1350,7 @@ QVariant* KCapacityBar_InputMethodQuery(const KCapacityBar* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KCapacityBar_QBaseInputMethodQuery(const KCapacityBar* self, int param1) {
+QVariant* KCapacityBar_SuperInputMethodQuery(const KCapacityBar* self, int param1) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_InputMethodQuery_IsBase(true);
@@ -1379,7 +1379,7 @@ bool KCapacityBar_FocusNextPrevChild(KCapacityBar* self, bool next) {
 }
 
 // Base class handler implementation
-bool KCapacityBar_QBaseFocusNextPrevChild(KCapacityBar* self, bool next) {
+bool KCapacityBar_SuperFocusNextPrevChild(KCapacityBar* self, bool next) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_FocusNextPrevChild_IsBase(true);
@@ -1408,7 +1408,7 @@ bool KCapacityBar_EventFilter(KCapacityBar* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool KCapacityBar_QBaseEventFilter(KCapacityBar* self, QObject* watched, QEvent* event) {
+bool KCapacityBar_SuperEventFilter(KCapacityBar* self, QObject* watched, QEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_EventFilter_IsBase(true);
@@ -1437,7 +1437,7 @@ void KCapacityBar_TimerEvent(KCapacityBar* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseTimerEvent(KCapacityBar* self, QTimerEvent* event) {
+void KCapacityBar_SuperTimerEvent(KCapacityBar* self, QTimerEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_TimerEvent_IsBase(true);
@@ -1466,7 +1466,7 @@ void KCapacityBar_ChildEvent(KCapacityBar* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseChildEvent(KCapacityBar* self, QChildEvent* event) {
+void KCapacityBar_SuperChildEvent(KCapacityBar* self, QChildEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_ChildEvent_IsBase(true);
@@ -1495,7 +1495,7 @@ void KCapacityBar_CustomEvent(KCapacityBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseCustomEvent(KCapacityBar* self, QEvent* event) {
+void KCapacityBar_SuperCustomEvent(KCapacityBar* self, QEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_CustomEvent_IsBase(true);
@@ -1524,7 +1524,7 @@ void KCapacityBar_ConnectNotify(KCapacityBar* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseConnectNotify(KCapacityBar* self, const QMetaMethod* signal) {
+void KCapacityBar_SuperConnectNotify(KCapacityBar* self, const QMetaMethod* signal) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_ConnectNotify_IsBase(true);
@@ -1553,7 +1553,7 @@ void KCapacityBar_DisconnectNotify(KCapacityBar* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseDisconnectNotify(KCapacityBar* self, const QMetaMethod* signal) {
+void KCapacityBar_SuperDisconnectNotify(KCapacityBar* self, const QMetaMethod* signal) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_DisconnectNotify_IsBase(true);
@@ -1582,7 +1582,7 @@ void KCapacityBar_UpdateMicroFocus(KCapacityBar* self) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseUpdateMicroFocus(KCapacityBar* self) {
+void KCapacityBar_SuperUpdateMicroFocus(KCapacityBar* self) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_UpdateMicroFocus_IsBase(true);
@@ -1611,7 +1611,7 @@ void KCapacityBar_Create(KCapacityBar* self) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseCreate(KCapacityBar* self) {
+void KCapacityBar_SuperCreate(KCapacityBar* self) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_Create_IsBase(true);
@@ -1640,7 +1640,7 @@ void KCapacityBar_Destroy(KCapacityBar* self) {
 }
 
 // Base class handler implementation
-void KCapacityBar_QBaseDestroy(KCapacityBar* self) {
+void KCapacityBar_SuperDestroy(KCapacityBar* self) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_Destroy_IsBase(true);
@@ -1669,7 +1669,7 @@ bool KCapacityBar_FocusNextChild(KCapacityBar* self) {
 }
 
 // Base class handler implementation
-bool KCapacityBar_QBaseFocusNextChild(KCapacityBar* self) {
+bool KCapacityBar_SuperFocusNextChild(KCapacityBar* self) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_FocusNextChild_IsBase(true);
@@ -1698,7 +1698,7 @@ bool KCapacityBar_FocusPreviousChild(KCapacityBar* self) {
 }
 
 // Base class handler implementation
-bool KCapacityBar_QBaseFocusPreviousChild(KCapacityBar* self) {
+bool KCapacityBar_SuperFocusPreviousChild(KCapacityBar* self) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_FocusPreviousChild_IsBase(true);
@@ -1727,7 +1727,7 @@ QObject* KCapacityBar_Sender(const KCapacityBar* self) {
 }
 
 // Base class handler implementation
-QObject* KCapacityBar_QBaseSender(const KCapacityBar* self) {
+QObject* KCapacityBar_SuperSender(const KCapacityBar* self) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_Sender_IsBase(true);
@@ -1756,7 +1756,7 @@ int KCapacityBar_SenderSignalIndex(const KCapacityBar* self) {
 }
 
 // Base class handler implementation
-int KCapacityBar_QBaseSenderSignalIndex(const KCapacityBar* self) {
+int KCapacityBar_SuperSenderSignalIndex(const KCapacityBar* self) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_SenderSignalIndex_IsBase(true);
@@ -1785,7 +1785,7 @@ int KCapacityBar_Receivers(const KCapacityBar* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KCapacityBar_QBaseReceivers(const KCapacityBar* self, const char* signal) {
+int KCapacityBar_SuperReceivers(const KCapacityBar* self, const char* signal) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_Receivers_IsBase(true);
@@ -1814,7 +1814,7 @@ bool KCapacityBar_IsSignalConnected(const KCapacityBar* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool KCapacityBar_QBaseIsSignalConnected(const KCapacityBar* self, const QMetaMethod* signal) {
+bool KCapacityBar_SuperIsSignalConnected(const KCapacityBar* self, const QMetaMethod* signal) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_IsSignalConnected_IsBase(true);
@@ -1843,7 +1843,7 @@ double KCapacityBar_GetDecodedMetricF(const KCapacityBar* self, int metricA, int
 }
 
 // Base class handler implementation
-double KCapacityBar_QBaseGetDecodedMetricF(const KCapacityBar* self, int metricA, int metricB) {
+double KCapacityBar_SuperGetDecodedMetricF(const KCapacityBar* self, int metricA, int metricB) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->setKCapacityBar_GetDecodedMetricF_IsBase(true);

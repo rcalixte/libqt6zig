@@ -144,6 +144,10 @@ pub const qopengltextureblitter = struct {
         qtc.QOpenGLTextureBlitter_Bind1(@ptrCast(self), @bitCast(target));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltextureblitter.html#dtor.QOpenGLTextureBlitter)
     ///
     /// Delete this object from C++ memory.
@@ -152,7 +156,7 @@ pub const qopengltextureblitter = struct {
     ///
     /// ` self: QtC.QOpenGLTextureBlitter `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QOpenGLTextureBlitter_Delete(@ptrCast(self));
     }
 };

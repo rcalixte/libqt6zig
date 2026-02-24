@@ -106,6 +106,10 @@ pub const qwebenginefilesystemaccessrequest = struct {
         return qtc.QWebEngineFileSystemAccessRequest_AccessFlags(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#dtor.QWebEngineFileSystemAccessRequest)
     ///
     /// Delete this object from C++ memory.
@@ -114,7 +118,7 @@ pub const qwebenginefilesystemaccessrequest = struct {
     ///
     /// ` self: QtC.QWebEngineFileSystemAccessRequest `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebEngineFileSystemAccessRequest_Delete(@ptrCast(self));
     }
 };

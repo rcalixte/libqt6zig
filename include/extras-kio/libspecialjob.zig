@@ -59,6 +59,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -67,8 +71,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` self: QtC.KIO__SpecialJob `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KIO__SpecialJob_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KIO__SpecialJob_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -94,6 +98,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -102,9 +110,9 @@ pub const kio__specialjob = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KIO__SpecialJob_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KIO__SpecialJob_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -133,6 +141,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -145,8 +157,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KIO__SpecialJob_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KIO__SpecialJob_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2125,6 +2137,10 @@ pub const kio__specialjob = struct {
         return qtc.KIO__SpecialJob_DoResume(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDoResume` instead
+    ///
+    pub const QBaseDoResume = SuperDoResume;
+
     /// Inherited from KIO::TransferJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-transferjob.html#doResume)
@@ -2135,8 +2151,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` self: QtC.KIO__SpecialJob `
     ///
-    pub fn QBaseDoResume(self: ?*anyopaque) bool {
-        return qtc.KIO__SpecialJob_QBaseDoResume(@ptrCast(self));
+    pub fn SuperDoResume(self: ?*anyopaque) bool {
+        return qtc.KIO__SpecialJob_SuperDoResume(@ptrCast(self));
     }
 
     /// Inherited from KIO::TransferJob
@@ -2171,6 +2187,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_SlotRedirection(@ptrCast(self), @ptrCast(url));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotRedirection` instead
+    ///
+    pub const QBaseSlotRedirection = SuperSlotRedirection;
+
     /// Inherited from KIO::TransferJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-transferjob.html#slotRedirection)
@@ -2183,8 +2203,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` url: QtC.QUrl `
     ///
-    pub fn QBaseSlotRedirection(self: ?*anyopaque, url: ?*anyopaque) void {
-        qtc.KIO__SpecialJob_QBaseSlotRedirection(@ptrCast(self), @ptrCast(url));
+    pub fn SuperSlotRedirection(self: ?*anyopaque, url: ?*anyopaque) void {
+        qtc.KIO__SpecialJob_SuperSlotRedirection(@ptrCast(self), @ptrCast(url));
     }
 
     /// Inherited from KIO::TransferJob
@@ -2217,6 +2237,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_SlotFinished(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotFinished` instead
+    ///
+    pub const QBaseSlotFinished = SuperSlotFinished;
+
     /// Inherited from KIO::TransferJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-transferjob.html#slotFinished)
@@ -2227,8 +2251,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` self: QtC.KIO__SpecialJob `
     ///
-    pub fn QBaseSlotFinished(self: ?*anyopaque) void {
-        qtc.KIO__SpecialJob_QBaseSlotFinished(@ptrCast(self));
+    pub fn SuperSlotFinished(self: ?*anyopaque) void {
+        qtc.KIO__SpecialJob_SuperSlotFinished(@ptrCast(self));
     }
 
     /// Inherited from KIO::TransferJob
@@ -2267,6 +2291,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_SlotData(@ptrCast(self), data_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSlotData` instead
+    ///
+    pub const QBaseSlotData = SuperSlotData;
+
     /// Inherited from KIO::TransferJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-transferjob.html#slotData)
@@ -2279,12 +2307,12 @@ pub const kio__specialjob = struct {
     ///
     /// ` data: []u8 `
     ///
-    pub fn QBaseSlotData(self: ?*anyopaque, data: []u8) void {
+    pub fn SuperSlotData(self: ?*anyopaque, data: []u8) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        qtc.KIO__SpecialJob_QBaseSlotData(@ptrCast(self), data_str);
+        qtc.KIO__SpecialJob_SuperSlotData(@ptrCast(self), data_str);
     }
 
     /// Inherited from KIO::TransferJob
@@ -2317,6 +2345,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_SlotDataReq(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotDataReq` instead
+    ///
+    pub const QBaseSlotDataReq = SuperSlotDataReq;
+
     /// Inherited from KIO::TransferJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-transferjob.html#slotDataReq)
@@ -2327,8 +2359,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` self: QtC.KIO__SpecialJob `
     ///
-    pub fn QBaseSlotDataReq(self: ?*anyopaque) void {
-        qtc.KIO__SpecialJob_QBaseSlotDataReq(@ptrCast(self));
+    pub fn SuperSlotDataReq(self: ?*anyopaque) void {
+        qtc.KIO__SpecialJob_SuperSlotDataReq(@ptrCast(self));
     }
 
     /// Inherited from KIO::TransferJob
@@ -2367,6 +2399,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_SlotMimetype(@ptrCast(self), mimetype_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSlotMimetype` instead
+    ///
+    pub const QBaseSlotMimetype = SuperSlotMimetype;
+
     /// Inherited from KIO::TransferJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-transferjob.html#slotMimetype)
@@ -2379,12 +2415,12 @@ pub const kio__specialjob = struct {
     ///
     /// ` mimetype: []const u8 `
     ///
-    pub fn QBaseSlotMimetype(self: ?*anyopaque, mimetype: []const u8) void {
+    pub fn SuperSlotMimetype(self: ?*anyopaque, mimetype: []const u8) void {
         const mimetype_str = qtc.libqt_string{
             .len = mimetype.len,
             .data = mimetype.ptr,
         };
-        qtc.KIO__SpecialJob_QBaseSlotMimetype(@ptrCast(self), mimetype_str);
+        qtc.KIO__SpecialJob_SuperSlotMimetype(@ptrCast(self), mimetype_str);
     }
 
     /// Inherited from KIO::TransferJob
@@ -2417,6 +2453,10 @@ pub const kio__specialjob = struct {
         return qtc.KIO__SpecialJob_DoSuspend(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDoSuspend` instead
+    ///
+    pub const QBaseDoSuspend = SuperDoSuspend;
+
     /// Inherited from KIO::SimpleJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-simplejob.html#doSuspend)
@@ -2427,8 +2467,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` self: QtC.KIO__SpecialJob `
     ///
-    pub fn QBaseDoSuspend(self: ?*anyopaque) bool {
-        return qtc.KIO__SpecialJob_QBaseDoSuspend(@ptrCast(self));
+    pub fn SuperDoSuspend(self: ?*anyopaque) bool {
+        return qtc.KIO__SpecialJob_SuperDoSuspend(@ptrCast(self));
     }
 
     /// Inherited from KIO::SimpleJob
@@ -2461,6 +2501,10 @@ pub const kio__specialjob = struct {
         return qtc.KIO__SpecialJob_DoKill(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDoKill` instead
+    ///
+    pub const QBaseDoKill = SuperDoKill;
+
     /// Inherited from KIO::SimpleJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-simplejob.html#doKill)
@@ -2471,8 +2515,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` self: QtC.KIO__SpecialJob `
     ///
-    pub fn QBaseDoKill(self: ?*anyopaque) bool {
-        return qtc.KIO__SpecialJob_QBaseDoKill(@ptrCast(self));
+    pub fn SuperDoKill(self: ?*anyopaque) bool {
+        return qtc.KIO__SpecialJob_SuperDoKill(@ptrCast(self));
     }
 
     /// Inherited from KIO::SimpleJob
@@ -2505,6 +2549,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_PutOnHold(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPutOnHold` instead
+    ///
+    pub const QBasePutOnHold = SuperPutOnHold;
+
     /// Inherited from KIO::SimpleJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-simplejob.html#putOnHold)
@@ -2515,8 +2563,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` self: QtC.KIO__SpecialJob `
     ///
-    pub fn QBasePutOnHold(self: ?*anyopaque) void {
-        qtc.KIO__SpecialJob_QBasePutOnHold(@ptrCast(self));
+    pub fn SuperPutOnHold(self: ?*anyopaque) void {
+        qtc.KIO__SpecialJob_SuperPutOnHold(@ptrCast(self));
     }
 
     /// Inherited from KIO::SimpleJob
@@ -2555,6 +2603,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_SlotWarning(@ptrCast(self), param1_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSlotWarning` instead
+    ///
+    pub const QBaseSlotWarning = SuperSlotWarning;
+
     /// Inherited from KIO::SimpleJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-simplejob.html#slotWarning)
@@ -2567,12 +2619,12 @@ pub const kio__specialjob = struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn QBaseSlotWarning(self: ?*anyopaque, param1: []const u8) void {
+    pub fn SuperSlotWarning(self: ?*anyopaque, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        qtc.KIO__SpecialJob_QBaseSlotWarning(@ptrCast(self), param1_str);
+        qtc.KIO__SpecialJob_SuperSlotWarning(@ptrCast(self), param1_str);
     }
 
     /// Inherited from KIO::SimpleJob
@@ -2607,6 +2659,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_SlotMetaData(@ptrCast(self), @ptrCast(_metaData));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotMetaData` instead
+    ///
+    pub const QBaseSlotMetaData = SuperSlotMetaData;
+
     /// Inherited from KIO::SimpleJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-simplejob.html#slotMetaData)
@@ -2619,8 +2675,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` _metaData: QtC.KIO__MetaData `
     ///
-    pub fn QBaseSlotMetaData(self: ?*anyopaque, _metaData: ?*anyopaque) void {
-        qtc.KIO__SpecialJob_QBaseSlotMetaData(@ptrCast(self), @ptrCast(_metaData));
+    pub fn SuperSlotMetaData(self: ?*anyopaque, _metaData: ?*anyopaque) void {
+        qtc.KIO__SpecialJob_SuperSlotMetaData(@ptrCast(self), @ptrCast(_metaData));
     }
 
     /// Inherited from KIO::SimpleJob
@@ -2653,6 +2709,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_Start(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperStart` instead
+    ///
+    pub const QBaseStart = SuperStart;
+
     /// Inherited from KIO::Job
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-job.html#start)
@@ -2663,8 +2723,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` self: QtC.KIO__SpecialJob `
     ///
-    pub fn QBaseStart(self: ?*anyopaque) void {
-        qtc.KIO__SpecialJob_QBaseStart(@ptrCast(self));
+    pub fn SuperStart(self: ?*anyopaque) void {
+        qtc.KIO__SpecialJob_SuperStart(@ptrCast(self));
     }
 
     /// Inherited from KIO::Job
@@ -2703,6 +2763,10 @@ pub const kio__specialjob = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperErrorString` instead
+    ///
+    pub const QBaseErrorString = SuperErrorString;
+
     /// Inherited from KIO::Job
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-job.html#errorString)
@@ -2715,8 +2779,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KIO__SpecialJob_QBaseErrorString(@ptrCast(self));
+    pub fn SuperErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KIO__SpecialJob_SuperErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__specialjob.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2757,6 +2821,10 @@ pub const kio__specialjob = struct {
         return qtc.KIO__SpecialJob_AddSubjob(@ptrCast(self), @ptrCast(job));
     }
 
+    /// ### DEPRECATED: Use `SuperAddSubjob` instead
+    ///
+    pub const QBaseAddSubjob = SuperAddSubjob;
+
     /// Inherited from KIO::Job
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-job.html#addSubjob)
@@ -2769,8 +2837,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` job: QtC.KJob `
     ///
-    pub fn QBaseAddSubjob(self: ?*anyopaque, job: ?*anyopaque) bool {
-        return qtc.KIO__SpecialJob_QBaseAddSubjob(@ptrCast(self), @ptrCast(job));
+    pub fn SuperAddSubjob(self: ?*anyopaque, job: ?*anyopaque) bool {
+        return qtc.KIO__SpecialJob_SuperAddSubjob(@ptrCast(self), @ptrCast(job));
     }
 
     /// Inherited from KIO::Job
@@ -2805,6 +2873,10 @@ pub const kio__specialjob = struct {
         return qtc.KIO__SpecialJob_RemoveSubjob(@ptrCast(self), @ptrCast(job));
     }
 
+    /// ### DEPRECATED: Use `SuperRemoveSubjob` instead
+    ///
+    pub const QBaseRemoveSubjob = SuperRemoveSubjob;
+
     /// Inherited from KIO::Job
     ///
     /// ### [Upstream resources](https://api.kde.org/kio-job.html#removeSubjob)
@@ -2817,8 +2889,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` job: QtC.KJob `
     ///
-    pub fn QBaseRemoveSubjob(self: ?*anyopaque, job: ?*anyopaque) bool {
-        return qtc.KIO__SpecialJob_QBaseRemoveSubjob(@ptrCast(self), @ptrCast(job));
+    pub fn SuperRemoveSubjob(self: ?*anyopaque, job: ?*anyopaque) bool {
+        return qtc.KIO__SpecialJob_SuperRemoveSubjob(@ptrCast(self), @ptrCast(job));
     }
 
     /// Inherited from KIO::Job
@@ -2853,6 +2925,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_SlotResult(@ptrCast(self), @ptrCast(job));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotResult` instead
+    ///
+    pub const QBaseSlotResult = SuperSlotResult;
+
     /// Inherited from KCompositeJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompositejob.html#slotResult)
@@ -2865,8 +2941,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` job: QtC.KJob `
     ///
-    pub fn QBaseSlotResult(self: ?*anyopaque, job: ?*anyopaque) void {
-        qtc.KIO__SpecialJob_QBaseSlotResult(@ptrCast(self), @ptrCast(job));
+    pub fn SuperSlotResult(self: ?*anyopaque, job: ?*anyopaque) void {
+        qtc.KIO__SpecialJob_SuperSlotResult(@ptrCast(self), @ptrCast(job));
     }
 
     /// Inherited from KCompositeJob
@@ -2907,6 +2983,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_SlotInfoMessage(@ptrCast(self), @ptrCast(job), message_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSlotInfoMessage` instead
+    ///
+    pub const QBaseSlotInfoMessage = SuperSlotInfoMessage;
+
     /// Inherited from KCompositeJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompositejob.html#slotInfoMessage)
@@ -2921,12 +3001,12 @@ pub const kio__specialjob = struct {
     ///
     /// ` message: []const u8 `
     ///
-    pub fn QBaseSlotInfoMessage(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
+    pub fn SuperSlotInfoMessage(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-        qtc.KIO__SpecialJob_QBaseSlotInfoMessage(@ptrCast(self), @ptrCast(job), message_str);
+        qtc.KIO__SpecialJob_SuperSlotInfoMessage(@ptrCast(self), @ptrCast(job), message_str);
     }
 
     /// Inherited from KCompositeJob
@@ -2961,6 +3041,10 @@ pub const kio__specialjob = struct {
         return qtc.KIO__SpecialJob_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -2973,8 +3057,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KIO__SpecialJob_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KIO__SpecialJob_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3011,6 +3095,10 @@ pub const kio__specialjob = struct {
         return qtc.KIO__SpecialJob_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -3025,8 +3113,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KIO__SpecialJob_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KIO__SpecialJob_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3061,6 +3149,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -3073,8 +3165,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIO__SpecialJob_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KIO__SpecialJob_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3109,6 +3201,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -3121,8 +3217,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIO__SpecialJob_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KIO__SpecialJob_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3157,6 +3253,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -3169,8 +3269,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIO__SpecialJob_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KIO__SpecialJob_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3205,6 +3305,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3217,8 +3321,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KIO__SpecialJob_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KIO__SpecialJob_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3253,6 +3357,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -3265,8 +3373,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KIO__SpecialJob_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KIO__SpecialJob_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3299,6 +3407,10 @@ pub const kio__specialjob = struct {
         return qtc.KIO__SpecialJob_HasSubjobs(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasSubjobs` instead
+    ///
+    pub const QBaseHasSubjobs = SuperHasSubjobs;
+
     /// Inherited from KCompositeJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompositejob.html#hasSubjobs)
@@ -3309,8 +3421,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` self: QtC.KIO__SpecialJob `
     ///
-    pub fn QBaseHasSubjobs(self: ?*anyopaque) bool {
-        return qtc.KIO__SpecialJob_QBaseHasSubjobs(@ptrCast(self));
+    pub fn SuperHasSubjobs(self: ?*anyopaque) bool {
+        return qtc.KIO__SpecialJob_SuperHasSubjobs(@ptrCast(self));
     }
 
     /// Inherited from KCompositeJob
@@ -3350,6 +3462,10 @@ pub const kio__specialjob = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperSubjobs` instead
+    ///
+    pub const QBaseSubjobs = SuperSubjobs;
+
     /// Inherited from KCompositeJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompositejob.html#subjobs)
@@ -3362,8 +3478,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSubjobs(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KJob {
-        const _arr: qtc.libqt_list = qtc.KIO__SpecialJob_QBaseSubjobs(@ptrCast(self));
+    pub fn SuperSubjobs(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KJob {
+        const _arr: qtc.libqt_list = qtc.KIO__SpecialJob_SuperSubjobs(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.KJob, _arr.len) catch @panic("kio__specialjob.Subjobs: Memory allocation failed");
         const _data: [*]QtC.KJob = @ptrCast(@alignCast(_arr.data));
@@ -3407,6 +3523,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_ClearSubjobs(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperClearSubjobs` instead
+    ///
+    pub const QBaseClearSubjobs = SuperClearSubjobs;
+
     /// Inherited from KCompositeJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompositejob.html#clearSubjobs)
@@ -3417,8 +3537,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` self: QtC.KIO__SpecialJob `
     ///
-    pub fn QBaseClearSubjobs(self: ?*anyopaque) void {
-        qtc.KIO__SpecialJob_QBaseClearSubjobs(@ptrCast(self));
+    pub fn SuperClearSubjobs(self: ?*anyopaque) void {
+        qtc.KIO__SpecialJob_SuperClearSubjobs(@ptrCast(self));
     }
 
     /// Inherited from KCompositeJob
@@ -3453,6 +3573,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_SetCapabilities(@ptrCast(self), @bitCast(capabilities));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCapabilities` instead
+    ///
+    pub const QBaseSetCapabilities = SuperSetCapabilities;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setCapabilities)
@@ -3465,8 +3589,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` capabilities: flag of kjob_enums.Capability `
     ///
-    pub fn QBaseSetCapabilities(self: ?*anyopaque, capabilities: i32) void {
-        qtc.KIO__SpecialJob_QBaseSetCapabilities(@ptrCast(self), @bitCast(capabilities));
+    pub fn SuperSetCapabilities(self: ?*anyopaque, capabilities: i32) void {
+        qtc.KIO__SpecialJob_SuperSetCapabilities(@ptrCast(self), @bitCast(capabilities));
     }
 
     /// Inherited from KJob
@@ -3499,6 +3623,10 @@ pub const kio__specialjob = struct {
         return qtc.KIO__SpecialJob_IsFinished(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsFinished` instead
+    ///
+    pub const QBaseIsFinished = SuperIsFinished;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#isFinished)
@@ -3509,8 +3637,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` self: QtC.KIO__SpecialJob `
     ///
-    pub fn QBaseIsFinished(self: ?*anyopaque) bool {
-        return qtc.KIO__SpecialJob_QBaseIsFinished(@ptrCast(self));
+    pub fn SuperIsFinished(self: ?*anyopaque) bool {
+        return qtc.KIO__SpecialJob_SuperIsFinished(@ptrCast(self));
     }
 
     /// Inherited from KJob
@@ -3545,6 +3673,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_SetError(@ptrCast(self), @bitCast(errorCode));
     }
 
+    /// ### DEPRECATED: Use `SuperSetError` instead
+    ///
+    pub const QBaseSetError = SuperSetError;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setError)
@@ -3557,8 +3689,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` errorCode: i32 `
     ///
-    pub fn QBaseSetError(self: ?*anyopaque, errorCode: i32) void {
-        qtc.KIO__SpecialJob_QBaseSetError(@ptrCast(self), @bitCast(errorCode));
+    pub fn SuperSetError(self: ?*anyopaque, errorCode: i32) void {
+        qtc.KIO__SpecialJob_SuperSetError(@ptrCast(self), @bitCast(errorCode));
     }
 
     /// Inherited from KJob
@@ -3597,6 +3729,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_SetErrorText(@ptrCast(self), errorText_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSetErrorText` instead
+    ///
+    pub const QBaseSetErrorText = SuperSetErrorText;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setErrorText)
@@ -3609,12 +3745,12 @@ pub const kio__specialjob = struct {
     ///
     /// ` errorText: []const u8 `
     ///
-    pub fn QBaseSetErrorText(self: ?*anyopaque, errorText: []const u8) void {
+    pub fn SuperSetErrorText(self: ?*anyopaque, errorText: []const u8) void {
         const errorText_str = qtc.libqt_string{
             .len = errorText.len,
             .data = errorText.ptr,
         };
-        qtc.KIO__SpecialJob_QBaseSetErrorText(@ptrCast(self), errorText_str);
+        qtc.KIO__SpecialJob_SuperSetErrorText(@ptrCast(self), errorText_str);
     }
 
     /// Inherited from KJob
@@ -3651,6 +3787,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_SetProcessedAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
+    /// ### DEPRECATED: Use `SuperSetProcessedAmount` instead
+    ///
+    pub const QBaseSetProcessedAmount = SuperSetProcessedAmount;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
@@ -3665,8 +3805,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` amount: u64 `
     ///
-    pub fn QBaseSetProcessedAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
-        qtc.KIO__SpecialJob_QBaseSetProcessedAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
+    pub fn SuperSetProcessedAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
+        qtc.KIO__SpecialJob_SuperSetProcessedAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
     /// Inherited from KJob
@@ -3703,6 +3843,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_SetTotalAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTotalAmount` instead
+    ///
+    pub const QBaseSetTotalAmount = SuperSetTotalAmount;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setTotalAmount)
@@ -3717,8 +3861,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` amount: u64 `
     ///
-    pub fn QBaseSetTotalAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
-        qtc.KIO__SpecialJob_QBaseSetTotalAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
+    pub fn SuperSetTotalAmount(self: ?*anyopaque, unit: i32, amount: u64) void {
+        qtc.KIO__SpecialJob_SuperSetTotalAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
     }
 
     /// Inherited from KJob
@@ -3753,6 +3897,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_SetProgressUnit(@ptrCast(self), @bitCast(unit));
     }
 
+    /// ### DEPRECATED: Use `SuperSetProgressUnit` instead
+    ///
+    pub const QBaseSetProgressUnit = SuperSetProgressUnit;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setProgressUnit)
@@ -3765,8 +3913,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn QBaseSetProgressUnit(self: ?*anyopaque, unit: i32) void {
-        qtc.KIO__SpecialJob_QBaseSetProgressUnit(@ptrCast(self), @bitCast(unit));
+    pub fn SuperSetProgressUnit(self: ?*anyopaque, unit: i32) void {
+        qtc.KIO__SpecialJob_SuperSetProgressUnit(@ptrCast(self), @bitCast(unit));
     }
 
     /// Inherited from KJob
@@ -3801,6 +3949,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_SetPercent(@ptrCast(self), @bitCast(percentage));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPercent` instead
+    ///
+    pub const QBaseSetPercent = SuperSetPercent;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setPercent)
@@ -3813,8 +3965,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` percentage: u64 `
     ///
-    pub fn QBaseSetPercent(self: ?*anyopaque, percentage: u64) void {
-        qtc.KIO__SpecialJob_QBaseSetPercent(@ptrCast(self), @bitCast(percentage));
+    pub fn SuperSetPercent(self: ?*anyopaque, percentage: u64) void {
+        qtc.KIO__SpecialJob_SuperSetPercent(@ptrCast(self), @bitCast(percentage));
     }
 
     /// Inherited from KJob
@@ -3847,6 +3999,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_EmitResult(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEmitResult` instead
+    ///
+    pub const QBaseEmitResult = SuperEmitResult;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#emitResult)
@@ -3857,8 +4013,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` self: QtC.KIO__SpecialJob `
     ///
-    pub fn QBaseEmitResult(self: ?*anyopaque) void {
-        qtc.KIO__SpecialJob_QBaseEmitResult(@ptrCast(self));
+    pub fn SuperEmitResult(self: ?*anyopaque) void {
+        qtc.KIO__SpecialJob_SuperEmitResult(@ptrCast(self));
     }
 
     /// Inherited from KJob
@@ -3895,6 +4051,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_EmitPercent(@ptrCast(self), @bitCast(processedAmount), @bitCast(totalAmount));
     }
 
+    /// ### DEPRECATED: Use `SuperEmitPercent` instead
+    ///
+    pub const QBaseEmitPercent = SuperEmitPercent;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#emitPercent)
@@ -3909,8 +4069,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` totalAmount: u64 `
     ///
-    pub fn QBaseEmitPercent(self: ?*anyopaque, processedAmount: u64, totalAmount: u64) void {
-        qtc.KIO__SpecialJob_QBaseEmitPercent(@ptrCast(self), @bitCast(processedAmount), @bitCast(totalAmount));
+    pub fn SuperEmitPercent(self: ?*anyopaque, processedAmount: u64, totalAmount: u64) void {
+        qtc.KIO__SpecialJob_SuperEmitPercent(@ptrCast(self), @bitCast(processedAmount), @bitCast(totalAmount));
     }
 
     /// Inherited from KJob
@@ -3945,6 +4105,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_EmitSpeed(@ptrCast(self), @bitCast(speed));
     }
 
+    /// ### DEPRECATED: Use `SuperEmitSpeed` instead
+    ///
+    pub const QBaseEmitSpeed = SuperEmitSpeed;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#emitSpeed)
@@ -3957,8 +4121,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` speed: u64 `
     ///
-    pub fn QBaseEmitSpeed(self: ?*anyopaque, speed: u64) void {
-        qtc.KIO__SpecialJob_QBaseEmitSpeed(@ptrCast(self), @bitCast(speed));
+    pub fn SuperEmitSpeed(self: ?*anyopaque, speed: u64) void {
+        qtc.KIO__SpecialJob_SuperEmitSpeed(@ptrCast(self), @bitCast(speed));
     }
 
     /// Inherited from KJob
@@ -3991,6 +4155,10 @@ pub const kio__specialjob = struct {
         qtc.KIO__SpecialJob_StartElapsedTimer(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperStartElapsedTimer` instead
+    ///
+    pub const QBaseStartElapsedTimer = SuperStartElapsedTimer;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#startElapsedTimer)
@@ -4001,8 +4169,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` self: QtC.KIO__SpecialJob `
     ///
-    pub fn QBaseStartElapsedTimer(self: ?*anyopaque) void {
-        qtc.KIO__SpecialJob_QBaseStartElapsedTimer(@ptrCast(self));
+    pub fn SuperStartElapsedTimer(self: ?*anyopaque) void {
+        qtc.KIO__SpecialJob_SuperStartElapsedTimer(@ptrCast(self));
     }
 
     /// Inherited from KJob
@@ -4035,6 +4203,10 @@ pub const kio__specialjob = struct {
         return qtc.KIO__SpecialJob_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -4045,8 +4217,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` self: QtC.KIO__SpecialJob `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KIO__SpecialJob_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KIO__SpecialJob_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -4079,6 +4251,10 @@ pub const kio__specialjob = struct {
         return qtc.KIO__SpecialJob_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -4089,8 +4265,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` self: QtC.KIO__SpecialJob `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KIO__SpecialJob_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KIO__SpecialJob_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -4126,6 +4302,10 @@ pub const kio__specialjob = struct {
         return qtc.KIO__SpecialJob_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -4138,9 +4318,9 @@ pub const kio__specialjob = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KIO__SpecialJob_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KIO__SpecialJob_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -4175,6 +4355,10 @@ pub const kio__specialjob = struct {
         return qtc.KIO__SpecialJob_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -4187,8 +4371,8 @@ pub const kio__specialjob = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KIO__SpecialJob_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KIO__SpecialJob_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -4334,6 +4518,9 @@ pub const kio__specialjob = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -4341,7 +4528,7 @@ pub const kio__specialjob = struct {
     ///
     /// ` self: QtC.KIO__SpecialJob `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KIO__SpecialJob_Delete(@ptrCast(self));
     }
 };

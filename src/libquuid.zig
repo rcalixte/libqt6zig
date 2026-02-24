@@ -422,6 +422,10 @@ pub const quuid = struct {
         return qtc.QUuid_FromBytes2(@ptrCast(bytes), @bitCast(order));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quuid.html#dtor.QUuid)
     ///
     /// Delete this object from C++ memory.
@@ -430,7 +434,7 @@ pub const quuid = struct {
     ///
     /// ` self: QtC.QUuid `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QUuid_Delete(@ptrCast(self));
     }
 };
@@ -469,13 +473,17 @@ pub const quuid__id128bytes = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QUuid__Id128Bytes `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QUuid__Id128Bytes_Delete(@ptrCast(self));
     }
 };

@@ -67,6 +67,10 @@ pub const qstaticplugin = struct {
         return qtc.QStaticPlugin_MetaData(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstaticplugin.html#dtor.QStaticPlugin)
     ///
     /// Delete this object from C++ memory.
@@ -75,7 +79,7 @@ pub const qstaticplugin = struct {
     ///
     /// ` self: QtC.QStaticPlugin `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStaticPlugin_Delete(@ptrCast(self));
     }
 };

@@ -89,6 +89,10 @@ pub const kpasswdserverclient = struct {
         qtc.KPasswdServerClient_RemoveAuthInfo(@ptrCast(self), host_str, protocol_str, user_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kpasswdserverclient.html#dtor.KPasswdServerClient)
     ///
     /// Delete this object from C++ memory.
@@ -97,7 +101,7 @@ pub const kpasswdserverclient = struct {
     ///
     /// ` self: QtC.KPasswdServerClient `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KPasswdServerClient_Delete(@ptrCast(self));
     }
 };

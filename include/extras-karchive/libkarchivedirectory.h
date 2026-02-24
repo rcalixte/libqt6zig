@@ -36,15 +36,15 @@ bool KArchiveDirectory_CopyTo(const KArchiveDirectory* self, const libqt_string 
 void KArchiveDirectory_VirtualHook(KArchiveDirectory* self, int id, void* data);
 bool KArchiveDirectory_CopyTo2(const KArchiveDirectory* self, const libqt_string dest, bool recursive);
 void KArchiveDirectory_OnIsDirectory(const KArchiveDirectory* self, intptr_t slot);
-bool KArchiveDirectory_QBaseIsDirectory(const KArchiveDirectory* self);
+bool KArchiveDirectory_SuperIsDirectory(const KArchiveDirectory* self);
 void KArchiveDirectory_OnVirtualHook(KArchiveDirectory* self, intptr_t slot);
-void KArchiveDirectory_QBaseVirtualHook(KArchiveDirectory* self, int id, void* data);
+void KArchiveDirectory_SuperVirtualHook(KArchiveDirectory* self, int id, void* data);
 bool KArchiveDirectory_IsFile(const KArchiveDirectory* self);
 void KArchiveDirectory_OnIsFile(const KArchiveDirectory* self, intptr_t slot);
-bool KArchiveDirectory_QBaseIsFile(const KArchiveDirectory* self);
+bool KArchiveDirectory_SuperIsFile(const KArchiveDirectory* self);
 KArchive* KArchiveDirectory_Archive(const KArchiveDirectory* self);
 void KArchiveDirectory_OnArchive(const KArchiveDirectory* self, intptr_t slot);
-KArchive* KArchiveDirectory_QBaseArchive(const KArchiveDirectory* self);
+KArchive* KArchiveDirectory_SuperArchive(const KArchiveDirectory* self);
 void KArchiveDirectory_Delete(KArchiveDirectory* self);
 
 #ifdef __cplusplus

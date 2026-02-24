@@ -325,7 +325,7 @@ void QPieSeries_SetLabelsVisible1(QPieSeries* self, bool visible) {
 }
 
 // Base class handler implementation
-QMetaObject* QPieSeries_QBaseMetaObject(const QPieSeries* self) {
+QMetaObject* QPieSeries_SuperMetaObject(const QPieSeries* self) {
     auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
     if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_MetaObject_IsBase(true);
@@ -344,7 +344,7 @@ void QPieSeries_OnMetaObject(const QPieSeries* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QPieSeries_QBaseMetacast(QPieSeries* self, const char* param1) {
+void* QPieSeries_SuperMetacast(QPieSeries* self, const char* param1) {
     auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
     if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_Metacast_IsBase(true);
@@ -363,7 +363,7 @@ void QPieSeries_OnMetacast(QPieSeries* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPieSeries_QBaseMetacall(QPieSeries* self, int param1, int param2, void** param3) {
+int QPieSeries_SuperMetacall(QPieSeries* self, int param1, int param2, void** param3) {
     auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
     if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_Metacall_IsBase(true);
@@ -382,7 +382,7 @@ void QPieSeries_OnMetacall(QPieSeries* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPieSeries_QBaseType(const QPieSeries* self) {
+int QPieSeries_SuperType(const QPieSeries* self) {
     auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
     if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_Type_IsBase(true);
@@ -411,7 +411,7 @@ bool QPieSeries_Event(QPieSeries* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QPieSeries_QBaseEvent(QPieSeries* self, QEvent* event) {
+bool QPieSeries_SuperEvent(QPieSeries* self, QEvent* event) {
     auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
     if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_Event_IsBase(true);
@@ -440,7 +440,7 @@ bool QPieSeries_EventFilter(QPieSeries* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QPieSeries_QBaseEventFilter(QPieSeries* self, QObject* watched, QEvent* event) {
+bool QPieSeries_SuperEventFilter(QPieSeries* self, QObject* watched, QEvent* event) {
     auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
     if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_EventFilter_IsBase(true);
@@ -469,7 +469,7 @@ void QPieSeries_TimerEvent(QPieSeries* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QPieSeries_QBaseTimerEvent(QPieSeries* self, QTimerEvent* event) {
+void QPieSeries_SuperTimerEvent(QPieSeries* self, QTimerEvent* event) {
     auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
     if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_TimerEvent_IsBase(true);
@@ -498,7 +498,7 @@ void QPieSeries_ChildEvent(QPieSeries* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QPieSeries_QBaseChildEvent(QPieSeries* self, QChildEvent* event) {
+void QPieSeries_SuperChildEvent(QPieSeries* self, QChildEvent* event) {
     auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
     if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_ChildEvent_IsBase(true);
@@ -527,7 +527,7 @@ void QPieSeries_CustomEvent(QPieSeries* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPieSeries_QBaseCustomEvent(QPieSeries* self, QEvent* event) {
+void QPieSeries_SuperCustomEvent(QPieSeries* self, QEvent* event) {
     auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
     if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_CustomEvent_IsBase(true);
@@ -556,7 +556,7 @@ void QPieSeries_ConnectNotify(QPieSeries* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QPieSeries_QBaseConnectNotify(QPieSeries* self, const QMetaMethod* signal) {
+void QPieSeries_SuperConnectNotify(QPieSeries* self, const QMetaMethod* signal) {
     auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
     if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_ConnectNotify_IsBase(true);
@@ -585,7 +585,7 @@ void QPieSeries_DisconnectNotify(QPieSeries* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QPieSeries_QBaseDisconnectNotify(QPieSeries* self, const QMetaMethod* signal) {
+void QPieSeries_SuperDisconnectNotify(QPieSeries* self, const QMetaMethod* signal) {
     auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
     if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_DisconnectNotify_IsBase(true);
@@ -614,7 +614,7 @@ QObject* QPieSeries_Sender(const QPieSeries* self) {
 }
 
 // Base class handler implementation
-QObject* QPieSeries_QBaseSender(const QPieSeries* self) {
+QObject* QPieSeries_SuperSender(const QPieSeries* self) {
     auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
     if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_Sender_IsBase(true);
@@ -643,7 +643,7 @@ int QPieSeries_SenderSignalIndex(const QPieSeries* self) {
 }
 
 // Base class handler implementation
-int QPieSeries_QBaseSenderSignalIndex(const QPieSeries* self) {
+int QPieSeries_SuperSenderSignalIndex(const QPieSeries* self) {
     auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
     if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_SenderSignalIndex_IsBase(true);
@@ -672,7 +672,7 @@ int QPieSeries_Receivers(const QPieSeries* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QPieSeries_QBaseReceivers(const QPieSeries* self, const char* signal) {
+int QPieSeries_SuperReceivers(const QPieSeries* self, const char* signal) {
     auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
     if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_Receivers_IsBase(true);
@@ -701,7 +701,7 @@ bool QPieSeries_IsSignalConnected(const QPieSeries* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QPieSeries_QBaseIsSignalConnected(const QPieSeries* self, const QMetaMethod* signal) {
+bool QPieSeries_SuperIsSignalConnected(const QPieSeries* self, const QMetaMethod* signal) {
     auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
     if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
         vqpieseries->setQPieSeries_IsSignalConnected_IsBase(true);

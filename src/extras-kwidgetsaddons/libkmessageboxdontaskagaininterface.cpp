@@ -84,7 +84,7 @@ void KMessageBoxDontAskAgainInterface_OperatorAssign(KMessageBoxDontAskAgainInte
 }
 
 // Base class handler implementation
-bool KMessageBoxDontAskAgainInterface_QBaseShouldBeShownTwoActions(KMessageBoxDontAskAgainInterface* self, const libqt_string dontShowAgainName, int* result) {
+bool KMessageBoxDontAskAgainInterface_SuperShouldBeShownTwoActions(KMessageBoxDontAskAgainInterface* self, const libqt_string dontShowAgainName, int* result) {
     auto* vkmessageboxdontaskagaininterface = dynamic_cast<VirtualKMessageBoxDontAskAgainInterface*>(self);
     QString dontShowAgainName_QString = QString::fromUtf8(dontShowAgainName.data, dontShowAgainName.len);
     if (vkmessageboxdontaskagaininterface && vkmessageboxdontaskagaininterface->isVirtualKMessageBoxDontAskAgainInterface) {
@@ -104,7 +104,7 @@ void KMessageBoxDontAskAgainInterface_OnShouldBeShownTwoActions(KMessageBoxDontA
 }
 
 // Base class handler implementation
-bool KMessageBoxDontAskAgainInterface_QBaseShouldBeShownContinue(KMessageBoxDontAskAgainInterface* self, const libqt_string dontShowAgainName) {
+bool KMessageBoxDontAskAgainInterface_SuperShouldBeShownContinue(KMessageBoxDontAskAgainInterface* self, const libqt_string dontShowAgainName) {
     auto* vkmessageboxdontaskagaininterface = dynamic_cast<VirtualKMessageBoxDontAskAgainInterface*>(self);
     QString dontShowAgainName_QString = QString::fromUtf8(dontShowAgainName.data, dontShowAgainName.len);
     if (vkmessageboxdontaskagaininterface && vkmessageboxdontaskagaininterface->isVirtualKMessageBoxDontAskAgainInterface) {
@@ -124,7 +124,7 @@ void KMessageBoxDontAskAgainInterface_OnShouldBeShownContinue(KMessageBoxDontAsk
 }
 
 // Base class handler implementation
-void KMessageBoxDontAskAgainInterface_QBaseSaveDontShowAgainTwoActions(KMessageBoxDontAskAgainInterface* self, const libqt_string dontShowAgainName, int result) {
+void KMessageBoxDontAskAgainInterface_SuperSaveDontShowAgainTwoActions(KMessageBoxDontAskAgainInterface* self, const libqt_string dontShowAgainName, int result) {
     auto* vkmessageboxdontaskagaininterface = dynamic_cast<VirtualKMessageBoxDontAskAgainInterface*>(self);
     QString dontShowAgainName_QString = QString::fromUtf8(dontShowAgainName.data, dontShowAgainName.len);
     if (vkmessageboxdontaskagaininterface && vkmessageboxdontaskagaininterface->isVirtualKMessageBoxDontAskAgainInterface) {
@@ -144,7 +144,7 @@ void KMessageBoxDontAskAgainInterface_OnSaveDontShowAgainTwoActions(KMessageBoxD
 }
 
 // Base class handler implementation
-void KMessageBoxDontAskAgainInterface_QBaseSaveDontShowAgainContinue(KMessageBoxDontAskAgainInterface* self, const libqt_string dontShowAgainName) {
+void KMessageBoxDontAskAgainInterface_SuperSaveDontShowAgainContinue(KMessageBoxDontAskAgainInterface* self, const libqt_string dontShowAgainName) {
     auto* vkmessageboxdontaskagaininterface = dynamic_cast<VirtualKMessageBoxDontAskAgainInterface*>(self);
     QString dontShowAgainName_QString = QString::fromUtf8(dontShowAgainName.data, dontShowAgainName.len);
     if (vkmessageboxdontaskagaininterface && vkmessageboxdontaskagaininterface->isVirtualKMessageBoxDontAskAgainInterface) {
@@ -164,7 +164,7 @@ void KMessageBoxDontAskAgainInterface_OnSaveDontShowAgainContinue(KMessageBoxDon
 }
 
 // Base class handler implementation
-void KMessageBoxDontAskAgainInterface_QBaseEnableAllMessages(KMessageBoxDontAskAgainInterface* self) {
+void KMessageBoxDontAskAgainInterface_SuperEnableAllMessages(KMessageBoxDontAskAgainInterface* self) {
     auto* vkmessageboxdontaskagaininterface = dynamic_cast<VirtualKMessageBoxDontAskAgainInterface*>(self);
     if (vkmessageboxdontaskagaininterface && vkmessageboxdontaskagaininterface->isVirtualKMessageBoxDontAskAgainInterface) {
         vkmessageboxdontaskagaininterface->setKMessageBoxDontAskAgainInterface_EnableAllMessages_IsBase(true);
@@ -183,7 +183,7 @@ void KMessageBoxDontAskAgainInterface_OnEnableAllMessages(KMessageBoxDontAskAgai
 }
 
 // Base class handler implementation
-void KMessageBoxDontAskAgainInterface_QBaseEnableMessage(KMessageBoxDontAskAgainInterface* self, const libqt_string dontShowAgainName) {
+void KMessageBoxDontAskAgainInterface_SuperEnableMessage(KMessageBoxDontAskAgainInterface* self, const libqt_string dontShowAgainName) {
     auto* vkmessageboxdontaskagaininterface = dynamic_cast<VirtualKMessageBoxDontAskAgainInterface*>(self);
     QString dontShowAgainName_QString = QString::fromUtf8(dontShowAgainName.data, dontShowAgainName.len);
     if (vkmessageboxdontaskagaininterface && vkmessageboxdontaskagaininterface->isVirtualKMessageBoxDontAskAgainInterface) {
@@ -203,7 +203,7 @@ void KMessageBoxDontAskAgainInterface_OnEnableMessage(KMessageBoxDontAskAgainInt
 }
 
 // Base class handler implementation
-void KMessageBoxDontAskAgainInterface_QBaseSetConfig(KMessageBoxDontAskAgainInterface* self, KConfig* config) {
+void KMessageBoxDontAskAgainInterface_SuperSetConfig(KMessageBoxDontAskAgainInterface* self, KConfig* config) {
     auto* vkmessageboxdontaskagaininterface = dynamic_cast<VirtualKMessageBoxDontAskAgainInterface*>(self);
     if (vkmessageboxdontaskagaininterface && vkmessageboxdontaskagaininterface->isVirtualKMessageBoxDontAskAgainInterface) {
         vkmessageboxdontaskagaininterface->setKMessageBoxDontAskAgainInterface_SetConfig_IsBase(true);

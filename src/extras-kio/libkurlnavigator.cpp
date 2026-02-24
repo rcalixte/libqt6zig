@@ -485,7 +485,7 @@ libqt_string KUrlNavigator_LocationState1(const KUrlNavigator* self, int history
 }
 
 // Base class handler implementation
-QMetaObject* KUrlNavigator_QBaseMetaObject(const KUrlNavigator* self) {
+QMetaObject* KUrlNavigator_SuperMetaObject(const KUrlNavigator* self) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_MetaObject_IsBase(true);
@@ -504,7 +504,7 @@ void KUrlNavigator_OnMetaObject(const KUrlNavigator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KUrlNavigator_QBaseMetacast(KUrlNavigator* self, const char* param1) {
+void* KUrlNavigator_SuperMetacast(KUrlNavigator* self, const char* param1) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_Metacast_IsBase(true);
@@ -523,7 +523,7 @@ void KUrlNavigator_OnMetacast(KUrlNavigator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KUrlNavigator_QBaseMetacall(KUrlNavigator* self, int param1, int param2, void** param3) {
+int KUrlNavigator_SuperMetacall(KUrlNavigator* self, int param1, int param2, void** param3) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_Metacall_IsBase(true);
@@ -542,7 +542,7 @@ void KUrlNavigator_OnMetacall(KUrlNavigator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseKeyPressEvent(KUrlNavigator* self, QKeyEvent* event) {
+void KUrlNavigator_SuperKeyPressEvent(KUrlNavigator* self, QKeyEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_KeyPressEvent_IsBase(true);
@@ -561,7 +561,7 @@ void KUrlNavigator_OnKeyPressEvent(KUrlNavigator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseKeyReleaseEvent(KUrlNavigator* self, QKeyEvent* event) {
+void KUrlNavigator_SuperKeyReleaseEvent(KUrlNavigator* self, QKeyEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_KeyReleaseEvent_IsBase(true);
@@ -580,7 +580,7 @@ void KUrlNavigator_OnKeyReleaseEvent(KUrlNavigator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseMouseReleaseEvent(KUrlNavigator* self, QMouseEvent* event) {
+void KUrlNavigator_SuperMouseReleaseEvent(KUrlNavigator* self, QMouseEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_MouseReleaseEvent_IsBase(true);
@@ -599,7 +599,7 @@ void KUrlNavigator_OnMouseReleaseEvent(KUrlNavigator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseMousePressEvent(KUrlNavigator* self, QMouseEvent* event) {
+void KUrlNavigator_SuperMousePressEvent(KUrlNavigator* self, QMouseEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_MousePressEvent_IsBase(true);
@@ -618,7 +618,7 @@ void KUrlNavigator_OnMousePressEvent(KUrlNavigator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseResizeEvent(KUrlNavigator* self, QResizeEvent* event) {
+void KUrlNavigator_SuperResizeEvent(KUrlNavigator* self, QResizeEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_ResizeEvent_IsBase(true);
@@ -637,7 +637,7 @@ void KUrlNavigator_OnResizeEvent(KUrlNavigator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseWheelEvent(KUrlNavigator* self, QWheelEvent* event) {
+void KUrlNavigator_SuperWheelEvent(KUrlNavigator* self, QWheelEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_WheelEvent_IsBase(true);
@@ -656,7 +656,7 @@ void KUrlNavigator_OnWheelEvent(KUrlNavigator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseShowEvent(KUrlNavigator* self, QShowEvent* event) {
+void KUrlNavigator_SuperShowEvent(KUrlNavigator* self, QShowEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_ShowEvent_IsBase(true);
@@ -675,7 +675,7 @@ void KUrlNavigator_OnShowEvent(KUrlNavigator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KUrlNavigator_QBaseEventFilter(KUrlNavigator* self, QObject* watched, QEvent* event) {
+bool KUrlNavigator_SuperEventFilter(KUrlNavigator* self, QObject* watched, QEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_EventFilter_IsBase(true);
@@ -694,7 +694,7 @@ void KUrlNavigator_OnEventFilter(KUrlNavigator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBasePaintEvent(KUrlNavigator* self, QPaintEvent* event) {
+void KUrlNavigator_SuperPaintEvent(KUrlNavigator* self, QPaintEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_PaintEvent_IsBase(true);
@@ -723,7 +723,7 @@ int KUrlNavigator_DevType(const KUrlNavigator* self) {
 }
 
 // Base class handler implementation
-int KUrlNavigator_QBaseDevType(const KUrlNavigator* self) {
+int KUrlNavigator_SuperDevType(const KUrlNavigator* self) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_DevType_IsBase(true);
@@ -752,7 +752,7 @@ void KUrlNavigator_SetVisible(KUrlNavigator* self, bool visible) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseSetVisible(KUrlNavigator* self, bool visible) {
+void KUrlNavigator_SuperSetVisible(KUrlNavigator* self, bool visible) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_SetVisible_IsBase(true);
@@ -781,7 +781,7 @@ QSize* KUrlNavigator_SizeHint(const KUrlNavigator* self) {
 }
 
 // Base class handler implementation
-QSize* KUrlNavigator_QBaseSizeHint(const KUrlNavigator* self) {
+QSize* KUrlNavigator_SuperSizeHint(const KUrlNavigator* self) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_SizeHint_IsBase(true);
@@ -810,7 +810,7 @@ QSize* KUrlNavigator_MinimumSizeHint(const KUrlNavigator* self) {
 }
 
 // Base class handler implementation
-QSize* KUrlNavigator_QBaseMinimumSizeHint(const KUrlNavigator* self) {
+QSize* KUrlNavigator_SuperMinimumSizeHint(const KUrlNavigator* self) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_MinimumSizeHint_IsBase(true);
@@ -839,7 +839,7 @@ int KUrlNavigator_HeightForWidth(const KUrlNavigator* self, int param1) {
 }
 
 // Base class handler implementation
-int KUrlNavigator_QBaseHeightForWidth(const KUrlNavigator* self, int param1) {
+int KUrlNavigator_SuperHeightForWidth(const KUrlNavigator* self, int param1) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_HeightForWidth_IsBase(true);
@@ -868,7 +868,7 @@ bool KUrlNavigator_HasHeightForWidth(const KUrlNavigator* self) {
 }
 
 // Base class handler implementation
-bool KUrlNavigator_QBaseHasHeightForWidth(const KUrlNavigator* self) {
+bool KUrlNavigator_SuperHasHeightForWidth(const KUrlNavigator* self) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_HasHeightForWidth_IsBase(true);
@@ -897,7 +897,7 @@ QPaintEngine* KUrlNavigator_PaintEngine(const KUrlNavigator* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KUrlNavigator_QBasePaintEngine(const KUrlNavigator* self) {
+QPaintEngine* KUrlNavigator_SuperPaintEngine(const KUrlNavigator* self) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_PaintEngine_IsBase(true);
@@ -926,7 +926,7 @@ bool KUrlNavigator_Event(KUrlNavigator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KUrlNavigator_QBaseEvent(KUrlNavigator* self, QEvent* event) {
+bool KUrlNavigator_SuperEvent(KUrlNavigator* self, QEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_Event_IsBase(true);
@@ -955,7 +955,7 @@ void KUrlNavigator_MouseDoubleClickEvent(KUrlNavigator* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseMouseDoubleClickEvent(KUrlNavigator* self, QMouseEvent* event) {
+void KUrlNavigator_SuperMouseDoubleClickEvent(KUrlNavigator* self, QMouseEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_MouseDoubleClickEvent_IsBase(true);
@@ -984,7 +984,7 @@ void KUrlNavigator_MouseMoveEvent(KUrlNavigator* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseMouseMoveEvent(KUrlNavigator* self, QMouseEvent* event) {
+void KUrlNavigator_SuperMouseMoveEvent(KUrlNavigator* self, QMouseEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_MouseMoveEvent_IsBase(true);
@@ -1013,7 +1013,7 @@ void KUrlNavigator_FocusInEvent(KUrlNavigator* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseFocusInEvent(KUrlNavigator* self, QFocusEvent* event) {
+void KUrlNavigator_SuperFocusInEvent(KUrlNavigator* self, QFocusEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_FocusInEvent_IsBase(true);
@@ -1042,7 +1042,7 @@ void KUrlNavigator_FocusOutEvent(KUrlNavigator* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseFocusOutEvent(KUrlNavigator* self, QFocusEvent* event) {
+void KUrlNavigator_SuperFocusOutEvent(KUrlNavigator* self, QFocusEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_FocusOutEvent_IsBase(true);
@@ -1071,7 +1071,7 @@ void KUrlNavigator_EnterEvent(KUrlNavigator* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseEnterEvent(KUrlNavigator* self, QEnterEvent* event) {
+void KUrlNavigator_SuperEnterEvent(KUrlNavigator* self, QEnterEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_EnterEvent_IsBase(true);
@@ -1100,7 +1100,7 @@ void KUrlNavigator_LeaveEvent(KUrlNavigator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseLeaveEvent(KUrlNavigator* self, QEvent* event) {
+void KUrlNavigator_SuperLeaveEvent(KUrlNavigator* self, QEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_LeaveEvent_IsBase(true);
@@ -1129,7 +1129,7 @@ void KUrlNavigator_MoveEvent(KUrlNavigator* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseMoveEvent(KUrlNavigator* self, QMoveEvent* event) {
+void KUrlNavigator_SuperMoveEvent(KUrlNavigator* self, QMoveEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_MoveEvent_IsBase(true);
@@ -1158,7 +1158,7 @@ void KUrlNavigator_CloseEvent(KUrlNavigator* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseCloseEvent(KUrlNavigator* self, QCloseEvent* event) {
+void KUrlNavigator_SuperCloseEvent(KUrlNavigator* self, QCloseEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_CloseEvent_IsBase(true);
@@ -1187,7 +1187,7 @@ void KUrlNavigator_ContextMenuEvent(KUrlNavigator* self, QContextMenuEvent* even
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseContextMenuEvent(KUrlNavigator* self, QContextMenuEvent* event) {
+void KUrlNavigator_SuperContextMenuEvent(KUrlNavigator* self, QContextMenuEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_ContextMenuEvent_IsBase(true);
@@ -1216,7 +1216,7 @@ void KUrlNavigator_TabletEvent(KUrlNavigator* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseTabletEvent(KUrlNavigator* self, QTabletEvent* event) {
+void KUrlNavigator_SuperTabletEvent(KUrlNavigator* self, QTabletEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_TabletEvent_IsBase(true);
@@ -1245,7 +1245,7 @@ void KUrlNavigator_ActionEvent(KUrlNavigator* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseActionEvent(KUrlNavigator* self, QActionEvent* event) {
+void KUrlNavigator_SuperActionEvent(KUrlNavigator* self, QActionEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_ActionEvent_IsBase(true);
@@ -1274,7 +1274,7 @@ void KUrlNavigator_DragEnterEvent(KUrlNavigator* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseDragEnterEvent(KUrlNavigator* self, QDragEnterEvent* event) {
+void KUrlNavigator_SuperDragEnterEvent(KUrlNavigator* self, QDragEnterEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_DragEnterEvent_IsBase(true);
@@ -1303,7 +1303,7 @@ void KUrlNavigator_DragMoveEvent(KUrlNavigator* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseDragMoveEvent(KUrlNavigator* self, QDragMoveEvent* event) {
+void KUrlNavigator_SuperDragMoveEvent(KUrlNavigator* self, QDragMoveEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_DragMoveEvent_IsBase(true);
@@ -1332,7 +1332,7 @@ void KUrlNavigator_DragLeaveEvent(KUrlNavigator* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseDragLeaveEvent(KUrlNavigator* self, QDragLeaveEvent* event) {
+void KUrlNavigator_SuperDragLeaveEvent(KUrlNavigator* self, QDragLeaveEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_DragLeaveEvent_IsBase(true);
@@ -1361,7 +1361,7 @@ void KUrlNavigator_DropEvent(KUrlNavigator* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseDropEvent(KUrlNavigator* self, QDropEvent* event) {
+void KUrlNavigator_SuperDropEvent(KUrlNavigator* self, QDropEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_DropEvent_IsBase(true);
@@ -1390,7 +1390,7 @@ void KUrlNavigator_HideEvent(KUrlNavigator* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseHideEvent(KUrlNavigator* self, QHideEvent* event) {
+void KUrlNavigator_SuperHideEvent(KUrlNavigator* self, QHideEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_HideEvent_IsBase(true);
@@ -1420,7 +1420,7 @@ bool KUrlNavigator_NativeEvent(KUrlNavigator* self, const libqt_string eventType
 }
 
 // Base class handler implementation
-bool KUrlNavigator_QBaseNativeEvent(KUrlNavigator* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KUrlNavigator_SuperNativeEvent(KUrlNavigator* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
@@ -1450,7 +1450,7 @@ void KUrlNavigator_ChangeEvent(KUrlNavigator* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseChangeEvent(KUrlNavigator* self, QEvent* param1) {
+void KUrlNavigator_SuperChangeEvent(KUrlNavigator* self, QEvent* param1) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_ChangeEvent_IsBase(true);
@@ -1479,7 +1479,7 @@ int KUrlNavigator_Metric(const KUrlNavigator* self, int param1) {
 }
 
 // Base class handler implementation
-int KUrlNavigator_QBaseMetric(const KUrlNavigator* self, int param1) {
+int KUrlNavigator_SuperMetric(const KUrlNavigator* self, int param1) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_Metric_IsBase(true);
@@ -1508,7 +1508,7 @@ void KUrlNavigator_InitPainter(const KUrlNavigator* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseInitPainter(const KUrlNavigator* self, QPainter* painter) {
+void KUrlNavigator_SuperInitPainter(const KUrlNavigator* self, QPainter* painter) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_InitPainter_IsBase(true);
@@ -1537,7 +1537,7 @@ QPaintDevice* KUrlNavigator_Redirected(const KUrlNavigator* self, QPoint* offset
 }
 
 // Base class handler implementation
-QPaintDevice* KUrlNavigator_QBaseRedirected(const KUrlNavigator* self, QPoint* offset) {
+QPaintDevice* KUrlNavigator_SuperRedirected(const KUrlNavigator* self, QPoint* offset) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_Redirected_IsBase(true);
@@ -1566,7 +1566,7 @@ QPainter* KUrlNavigator_SharedPainter(const KUrlNavigator* self) {
 }
 
 // Base class handler implementation
-QPainter* KUrlNavigator_QBaseSharedPainter(const KUrlNavigator* self) {
+QPainter* KUrlNavigator_SuperSharedPainter(const KUrlNavigator* self) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_SharedPainter_IsBase(true);
@@ -1595,7 +1595,7 @@ void KUrlNavigator_InputMethodEvent(KUrlNavigator* self, QInputMethodEvent* para
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseInputMethodEvent(KUrlNavigator* self, QInputMethodEvent* param1) {
+void KUrlNavigator_SuperInputMethodEvent(KUrlNavigator* self, QInputMethodEvent* param1) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_InputMethodEvent_IsBase(true);
@@ -1624,7 +1624,7 @@ QVariant* KUrlNavigator_InputMethodQuery(const KUrlNavigator* self, int param1) 
 }
 
 // Base class handler implementation
-QVariant* KUrlNavigator_QBaseInputMethodQuery(const KUrlNavigator* self, int param1) {
+QVariant* KUrlNavigator_SuperInputMethodQuery(const KUrlNavigator* self, int param1) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_InputMethodQuery_IsBase(true);
@@ -1653,7 +1653,7 @@ bool KUrlNavigator_FocusNextPrevChild(KUrlNavigator* self, bool next) {
 }
 
 // Base class handler implementation
-bool KUrlNavigator_QBaseFocusNextPrevChild(KUrlNavigator* self, bool next) {
+bool KUrlNavigator_SuperFocusNextPrevChild(KUrlNavigator* self, bool next) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_FocusNextPrevChild_IsBase(true);
@@ -1682,7 +1682,7 @@ void KUrlNavigator_TimerEvent(KUrlNavigator* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseTimerEvent(KUrlNavigator* self, QTimerEvent* event) {
+void KUrlNavigator_SuperTimerEvent(KUrlNavigator* self, QTimerEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_TimerEvent_IsBase(true);
@@ -1711,7 +1711,7 @@ void KUrlNavigator_ChildEvent(KUrlNavigator* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseChildEvent(KUrlNavigator* self, QChildEvent* event) {
+void KUrlNavigator_SuperChildEvent(KUrlNavigator* self, QChildEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_ChildEvent_IsBase(true);
@@ -1740,7 +1740,7 @@ void KUrlNavigator_CustomEvent(KUrlNavigator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseCustomEvent(KUrlNavigator* self, QEvent* event) {
+void KUrlNavigator_SuperCustomEvent(KUrlNavigator* self, QEvent* event) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_CustomEvent_IsBase(true);
@@ -1769,7 +1769,7 @@ void KUrlNavigator_ConnectNotify(KUrlNavigator* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseConnectNotify(KUrlNavigator* self, const QMetaMethod* signal) {
+void KUrlNavigator_SuperConnectNotify(KUrlNavigator* self, const QMetaMethod* signal) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_ConnectNotify_IsBase(true);
@@ -1798,7 +1798,7 @@ void KUrlNavigator_DisconnectNotify(KUrlNavigator* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseDisconnectNotify(KUrlNavigator* self, const QMetaMethod* signal) {
+void KUrlNavigator_SuperDisconnectNotify(KUrlNavigator* self, const QMetaMethod* signal) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_DisconnectNotify_IsBase(true);
@@ -1827,7 +1827,7 @@ void KUrlNavigator_UpdateMicroFocus(KUrlNavigator* self) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseUpdateMicroFocus(KUrlNavigator* self) {
+void KUrlNavigator_SuperUpdateMicroFocus(KUrlNavigator* self) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_UpdateMicroFocus_IsBase(true);
@@ -1856,7 +1856,7 @@ void KUrlNavigator_Create(KUrlNavigator* self) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseCreate(KUrlNavigator* self) {
+void KUrlNavigator_SuperCreate(KUrlNavigator* self) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_Create_IsBase(true);
@@ -1885,7 +1885,7 @@ void KUrlNavigator_Destroy(KUrlNavigator* self) {
 }
 
 // Base class handler implementation
-void KUrlNavigator_QBaseDestroy(KUrlNavigator* self) {
+void KUrlNavigator_SuperDestroy(KUrlNavigator* self) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_Destroy_IsBase(true);
@@ -1914,7 +1914,7 @@ bool KUrlNavigator_FocusNextChild(KUrlNavigator* self) {
 }
 
 // Base class handler implementation
-bool KUrlNavigator_QBaseFocusNextChild(KUrlNavigator* self) {
+bool KUrlNavigator_SuperFocusNextChild(KUrlNavigator* self) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_FocusNextChild_IsBase(true);
@@ -1943,7 +1943,7 @@ bool KUrlNavigator_FocusPreviousChild(KUrlNavigator* self) {
 }
 
 // Base class handler implementation
-bool KUrlNavigator_QBaseFocusPreviousChild(KUrlNavigator* self) {
+bool KUrlNavigator_SuperFocusPreviousChild(KUrlNavigator* self) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_FocusPreviousChild_IsBase(true);
@@ -1972,7 +1972,7 @@ QObject* KUrlNavigator_Sender(const KUrlNavigator* self) {
 }
 
 // Base class handler implementation
-QObject* KUrlNavigator_QBaseSender(const KUrlNavigator* self) {
+QObject* KUrlNavigator_SuperSender(const KUrlNavigator* self) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_Sender_IsBase(true);
@@ -2001,7 +2001,7 @@ int KUrlNavigator_SenderSignalIndex(const KUrlNavigator* self) {
 }
 
 // Base class handler implementation
-int KUrlNavigator_QBaseSenderSignalIndex(const KUrlNavigator* self) {
+int KUrlNavigator_SuperSenderSignalIndex(const KUrlNavigator* self) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_SenderSignalIndex_IsBase(true);
@@ -2030,7 +2030,7 @@ int KUrlNavigator_Receivers(const KUrlNavigator* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KUrlNavigator_QBaseReceivers(const KUrlNavigator* self, const char* signal) {
+int KUrlNavigator_SuperReceivers(const KUrlNavigator* self, const char* signal) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_Receivers_IsBase(true);
@@ -2059,7 +2059,7 @@ bool KUrlNavigator_IsSignalConnected(const KUrlNavigator* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool KUrlNavigator_QBaseIsSignalConnected(const KUrlNavigator* self, const QMetaMethod* signal) {
+bool KUrlNavigator_SuperIsSignalConnected(const KUrlNavigator* self, const QMetaMethod* signal) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_IsSignalConnected_IsBase(true);
@@ -2088,7 +2088,7 @@ double KUrlNavigator_GetDecodedMetricF(const KUrlNavigator* self, int metricA, i
 }
 
 // Base class handler implementation
-double KUrlNavigator_QBaseGetDecodedMetricF(const KUrlNavigator* self, int metricA, int metricB) {
+double KUrlNavigator_SuperGetDecodedMetricF(const KUrlNavigator* self, int metricA, int metricB) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
     if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
         vkurlnavigator->setKUrlNavigator_GetDecodedMetricF_IsBase(true);

@@ -263,6 +263,10 @@ pub const qpoint = struct {
         return qtc.QPoint_ToPointF(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#dtor.QPoint)
     ///
     /// Delete this object from C++ memory.
@@ -271,7 +275,7 @@ pub const qpoint = struct {
     ///
     /// ` self: QtC.QPoint `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPoint_Delete(@ptrCast(self));
     }
 };
@@ -524,6 +528,10 @@ pub const qpointf = struct {
         return qtc.QPointF_ToPoint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html#dtor.QPointF)
     ///
     /// Delete this object from C++ memory.
@@ -532,7 +540,7 @@ pub const qpointf = struct {
     ///
     /// ` self: QtC.QPointF `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPointF_Delete(@ptrCast(self));
     }
 };

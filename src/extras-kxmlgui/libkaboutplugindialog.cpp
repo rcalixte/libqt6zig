@@ -85,7 +85,7 @@ int KAboutPluginDialog_Metacall(KAboutPluginDialog* self, int param1, int param2
 }
 
 // Base class handler implementation
-QMetaObject* KAboutPluginDialog_QBaseMetaObject(const KAboutPluginDialog* self) {
+QMetaObject* KAboutPluginDialog_SuperMetaObject(const KAboutPluginDialog* self) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_MetaObject_IsBase(true);
@@ -104,7 +104,7 @@ void KAboutPluginDialog_OnMetaObject(const KAboutPluginDialog* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* KAboutPluginDialog_QBaseMetacast(KAboutPluginDialog* self, const char* param1) {
+void* KAboutPluginDialog_SuperMetacast(KAboutPluginDialog* self, const char* param1) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_Metacast_IsBase(true);
@@ -123,7 +123,7 @@ void KAboutPluginDialog_OnMetacast(KAboutPluginDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KAboutPluginDialog_QBaseMetacall(KAboutPluginDialog* self, int param1, int param2, void** param3) {
+int KAboutPluginDialog_SuperMetacall(KAboutPluginDialog* self, int param1, int param2, void** param3) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_Metacall_IsBase(true);
@@ -152,7 +152,7 @@ void KAboutPluginDialog_SetVisible(KAboutPluginDialog* self, bool visible) {
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseSetVisible(KAboutPluginDialog* self, bool visible) {
+void KAboutPluginDialog_SuperSetVisible(KAboutPluginDialog* self, bool visible) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_SetVisible_IsBase(true);
@@ -181,7 +181,7 @@ QSize* KAboutPluginDialog_SizeHint(const KAboutPluginDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KAboutPluginDialog_QBaseSizeHint(const KAboutPluginDialog* self) {
+QSize* KAboutPluginDialog_SuperSizeHint(const KAboutPluginDialog* self) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_SizeHint_IsBase(true);
@@ -210,7 +210,7 @@ QSize* KAboutPluginDialog_MinimumSizeHint(const KAboutPluginDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KAboutPluginDialog_QBaseMinimumSizeHint(const KAboutPluginDialog* self) {
+QSize* KAboutPluginDialog_SuperMinimumSizeHint(const KAboutPluginDialog* self) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_MinimumSizeHint_IsBase(true);
@@ -239,7 +239,7 @@ void KAboutPluginDialog_Open(KAboutPluginDialog* self) {
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseOpen(KAboutPluginDialog* self) {
+void KAboutPluginDialog_SuperOpen(KAboutPluginDialog* self) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_Open_IsBase(true);
@@ -268,7 +268,7 @@ int KAboutPluginDialog_Exec(KAboutPluginDialog* self) {
 }
 
 // Base class handler implementation
-int KAboutPluginDialog_QBaseExec(KAboutPluginDialog* self) {
+int KAboutPluginDialog_SuperExec(KAboutPluginDialog* self) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_Exec_IsBase(true);
@@ -297,7 +297,7 @@ void KAboutPluginDialog_Done(KAboutPluginDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseDone(KAboutPluginDialog* self, int param1) {
+void KAboutPluginDialog_SuperDone(KAboutPluginDialog* self, int param1) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_Done_IsBase(true);
@@ -326,7 +326,7 @@ void KAboutPluginDialog_Accept(KAboutPluginDialog* self) {
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseAccept(KAboutPluginDialog* self) {
+void KAboutPluginDialog_SuperAccept(KAboutPluginDialog* self) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_Accept_IsBase(true);
@@ -355,7 +355,7 @@ void KAboutPluginDialog_Reject(KAboutPluginDialog* self) {
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseReject(KAboutPluginDialog* self) {
+void KAboutPluginDialog_SuperReject(KAboutPluginDialog* self) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_Reject_IsBase(true);
@@ -384,7 +384,7 @@ void KAboutPluginDialog_KeyPressEvent(KAboutPluginDialog* self, QKeyEvent* param
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseKeyPressEvent(KAboutPluginDialog* self, QKeyEvent* param1) {
+void KAboutPluginDialog_SuperKeyPressEvent(KAboutPluginDialog* self, QKeyEvent* param1) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_KeyPressEvent_IsBase(true);
@@ -413,7 +413,7 @@ void KAboutPluginDialog_CloseEvent(KAboutPluginDialog* self, QCloseEvent* param1
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseCloseEvent(KAboutPluginDialog* self, QCloseEvent* param1) {
+void KAboutPluginDialog_SuperCloseEvent(KAboutPluginDialog* self, QCloseEvent* param1) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_CloseEvent_IsBase(true);
@@ -442,7 +442,7 @@ void KAboutPluginDialog_ShowEvent(KAboutPluginDialog* self, QShowEvent* param1) 
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseShowEvent(KAboutPluginDialog* self, QShowEvent* param1) {
+void KAboutPluginDialog_SuperShowEvent(KAboutPluginDialog* self, QShowEvent* param1) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_ShowEvent_IsBase(true);
@@ -471,7 +471,7 @@ void KAboutPluginDialog_ResizeEvent(KAboutPluginDialog* self, QResizeEvent* para
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseResizeEvent(KAboutPluginDialog* self, QResizeEvent* param1) {
+void KAboutPluginDialog_SuperResizeEvent(KAboutPluginDialog* self, QResizeEvent* param1) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_ResizeEvent_IsBase(true);
@@ -500,7 +500,7 @@ void KAboutPluginDialog_ContextMenuEvent(KAboutPluginDialog* self, QContextMenuE
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseContextMenuEvent(KAboutPluginDialog* self, QContextMenuEvent* param1) {
+void KAboutPluginDialog_SuperContextMenuEvent(KAboutPluginDialog* self, QContextMenuEvent* param1) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_ContextMenuEvent_IsBase(true);
@@ -529,7 +529,7 @@ bool KAboutPluginDialog_EventFilter(KAboutPluginDialog* self, QObject* param1, Q
 }
 
 // Base class handler implementation
-bool KAboutPluginDialog_QBaseEventFilter(KAboutPluginDialog* self, QObject* param1, QEvent* param2) {
+bool KAboutPluginDialog_SuperEventFilter(KAboutPluginDialog* self, QObject* param1, QEvent* param2) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_EventFilter_IsBase(true);
@@ -558,7 +558,7 @@ int KAboutPluginDialog_DevType(const KAboutPluginDialog* self) {
 }
 
 // Base class handler implementation
-int KAboutPluginDialog_QBaseDevType(const KAboutPluginDialog* self) {
+int KAboutPluginDialog_SuperDevType(const KAboutPluginDialog* self) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_DevType_IsBase(true);
@@ -587,7 +587,7 @@ int KAboutPluginDialog_HeightForWidth(const KAboutPluginDialog* self, int param1
 }
 
 // Base class handler implementation
-int KAboutPluginDialog_QBaseHeightForWidth(const KAboutPluginDialog* self, int param1) {
+int KAboutPluginDialog_SuperHeightForWidth(const KAboutPluginDialog* self, int param1) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_HeightForWidth_IsBase(true);
@@ -616,7 +616,7 @@ bool KAboutPluginDialog_HasHeightForWidth(const KAboutPluginDialog* self) {
 }
 
 // Base class handler implementation
-bool KAboutPluginDialog_QBaseHasHeightForWidth(const KAboutPluginDialog* self) {
+bool KAboutPluginDialog_SuperHasHeightForWidth(const KAboutPluginDialog* self) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_HasHeightForWidth_IsBase(true);
@@ -645,7 +645,7 @@ QPaintEngine* KAboutPluginDialog_PaintEngine(const KAboutPluginDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KAboutPluginDialog_QBasePaintEngine(const KAboutPluginDialog* self) {
+QPaintEngine* KAboutPluginDialog_SuperPaintEngine(const KAboutPluginDialog* self) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_PaintEngine_IsBase(true);
@@ -674,7 +674,7 @@ bool KAboutPluginDialog_Event(KAboutPluginDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KAboutPluginDialog_QBaseEvent(KAboutPluginDialog* self, QEvent* event) {
+bool KAboutPluginDialog_SuperEvent(KAboutPluginDialog* self, QEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_Event_IsBase(true);
@@ -703,7 +703,7 @@ void KAboutPluginDialog_MousePressEvent(KAboutPluginDialog* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseMousePressEvent(KAboutPluginDialog* self, QMouseEvent* event) {
+void KAboutPluginDialog_SuperMousePressEvent(KAboutPluginDialog* self, QMouseEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_MousePressEvent_IsBase(true);
@@ -732,7 +732,7 @@ void KAboutPluginDialog_MouseReleaseEvent(KAboutPluginDialog* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseMouseReleaseEvent(KAboutPluginDialog* self, QMouseEvent* event) {
+void KAboutPluginDialog_SuperMouseReleaseEvent(KAboutPluginDialog* self, QMouseEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_MouseReleaseEvent_IsBase(true);
@@ -761,7 +761,7 @@ void KAboutPluginDialog_MouseDoubleClickEvent(KAboutPluginDialog* self, QMouseEv
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseMouseDoubleClickEvent(KAboutPluginDialog* self, QMouseEvent* event) {
+void KAboutPluginDialog_SuperMouseDoubleClickEvent(KAboutPluginDialog* self, QMouseEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_MouseDoubleClickEvent_IsBase(true);
@@ -790,7 +790,7 @@ void KAboutPluginDialog_MouseMoveEvent(KAboutPluginDialog* self, QMouseEvent* ev
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseMouseMoveEvent(KAboutPluginDialog* self, QMouseEvent* event) {
+void KAboutPluginDialog_SuperMouseMoveEvent(KAboutPluginDialog* self, QMouseEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_MouseMoveEvent_IsBase(true);
@@ -819,7 +819,7 @@ void KAboutPluginDialog_WheelEvent(KAboutPluginDialog* self, QWheelEvent* event)
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseWheelEvent(KAboutPluginDialog* self, QWheelEvent* event) {
+void KAboutPluginDialog_SuperWheelEvent(KAboutPluginDialog* self, QWheelEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_WheelEvent_IsBase(true);
@@ -848,7 +848,7 @@ void KAboutPluginDialog_KeyReleaseEvent(KAboutPluginDialog* self, QKeyEvent* eve
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseKeyReleaseEvent(KAboutPluginDialog* self, QKeyEvent* event) {
+void KAboutPluginDialog_SuperKeyReleaseEvent(KAboutPluginDialog* self, QKeyEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_KeyReleaseEvent_IsBase(true);
@@ -877,7 +877,7 @@ void KAboutPluginDialog_FocusInEvent(KAboutPluginDialog* self, QFocusEvent* even
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseFocusInEvent(KAboutPluginDialog* self, QFocusEvent* event) {
+void KAboutPluginDialog_SuperFocusInEvent(KAboutPluginDialog* self, QFocusEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_FocusInEvent_IsBase(true);
@@ -906,7 +906,7 @@ void KAboutPluginDialog_FocusOutEvent(KAboutPluginDialog* self, QFocusEvent* eve
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseFocusOutEvent(KAboutPluginDialog* self, QFocusEvent* event) {
+void KAboutPluginDialog_SuperFocusOutEvent(KAboutPluginDialog* self, QFocusEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_FocusOutEvent_IsBase(true);
@@ -935,7 +935,7 @@ void KAboutPluginDialog_EnterEvent(KAboutPluginDialog* self, QEnterEvent* event)
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseEnterEvent(KAboutPluginDialog* self, QEnterEvent* event) {
+void KAboutPluginDialog_SuperEnterEvent(KAboutPluginDialog* self, QEnterEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_EnterEvent_IsBase(true);
@@ -964,7 +964,7 @@ void KAboutPluginDialog_LeaveEvent(KAboutPluginDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseLeaveEvent(KAboutPluginDialog* self, QEvent* event) {
+void KAboutPluginDialog_SuperLeaveEvent(KAboutPluginDialog* self, QEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_LeaveEvent_IsBase(true);
@@ -993,7 +993,7 @@ void KAboutPluginDialog_PaintEvent(KAboutPluginDialog* self, QPaintEvent* event)
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBasePaintEvent(KAboutPluginDialog* self, QPaintEvent* event) {
+void KAboutPluginDialog_SuperPaintEvent(KAboutPluginDialog* self, QPaintEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_PaintEvent_IsBase(true);
@@ -1022,7 +1022,7 @@ void KAboutPluginDialog_MoveEvent(KAboutPluginDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseMoveEvent(KAboutPluginDialog* self, QMoveEvent* event) {
+void KAboutPluginDialog_SuperMoveEvent(KAboutPluginDialog* self, QMoveEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_MoveEvent_IsBase(true);
@@ -1051,7 +1051,7 @@ void KAboutPluginDialog_TabletEvent(KAboutPluginDialog* self, QTabletEvent* even
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseTabletEvent(KAboutPluginDialog* self, QTabletEvent* event) {
+void KAboutPluginDialog_SuperTabletEvent(KAboutPluginDialog* self, QTabletEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_TabletEvent_IsBase(true);
@@ -1080,7 +1080,7 @@ void KAboutPluginDialog_ActionEvent(KAboutPluginDialog* self, QActionEvent* even
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseActionEvent(KAboutPluginDialog* self, QActionEvent* event) {
+void KAboutPluginDialog_SuperActionEvent(KAboutPluginDialog* self, QActionEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_ActionEvent_IsBase(true);
@@ -1109,7 +1109,7 @@ void KAboutPluginDialog_DragEnterEvent(KAboutPluginDialog* self, QDragEnterEvent
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseDragEnterEvent(KAboutPluginDialog* self, QDragEnterEvent* event) {
+void KAboutPluginDialog_SuperDragEnterEvent(KAboutPluginDialog* self, QDragEnterEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_DragEnterEvent_IsBase(true);
@@ -1138,7 +1138,7 @@ void KAboutPluginDialog_DragMoveEvent(KAboutPluginDialog* self, QDragMoveEvent* 
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseDragMoveEvent(KAboutPluginDialog* self, QDragMoveEvent* event) {
+void KAboutPluginDialog_SuperDragMoveEvent(KAboutPluginDialog* self, QDragMoveEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_DragMoveEvent_IsBase(true);
@@ -1167,7 +1167,7 @@ void KAboutPluginDialog_DragLeaveEvent(KAboutPluginDialog* self, QDragLeaveEvent
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseDragLeaveEvent(KAboutPluginDialog* self, QDragLeaveEvent* event) {
+void KAboutPluginDialog_SuperDragLeaveEvent(KAboutPluginDialog* self, QDragLeaveEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_DragLeaveEvent_IsBase(true);
@@ -1196,7 +1196,7 @@ void KAboutPluginDialog_DropEvent(KAboutPluginDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseDropEvent(KAboutPluginDialog* self, QDropEvent* event) {
+void KAboutPluginDialog_SuperDropEvent(KAboutPluginDialog* self, QDropEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_DropEvent_IsBase(true);
@@ -1225,7 +1225,7 @@ void KAboutPluginDialog_HideEvent(KAboutPluginDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseHideEvent(KAboutPluginDialog* self, QHideEvent* event) {
+void KAboutPluginDialog_SuperHideEvent(KAboutPluginDialog* self, QHideEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_HideEvent_IsBase(true);
@@ -1255,7 +1255,7 @@ bool KAboutPluginDialog_NativeEvent(KAboutPluginDialog* self, const libqt_string
 }
 
 // Base class handler implementation
-bool KAboutPluginDialog_QBaseNativeEvent(KAboutPluginDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KAboutPluginDialog_SuperNativeEvent(KAboutPluginDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
@@ -1285,7 +1285,7 @@ void KAboutPluginDialog_ChangeEvent(KAboutPluginDialog* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseChangeEvent(KAboutPluginDialog* self, QEvent* param1) {
+void KAboutPluginDialog_SuperChangeEvent(KAboutPluginDialog* self, QEvent* param1) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_ChangeEvent_IsBase(true);
@@ -1314,7 +1314,7 @@ int KAboutPluginDialog_Metric(const KAboutPluginDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KAboutPluginDialog_QBaseMetric(const KAboutPluginDialog* self, int param1) {
+int KAboutPluginDialog_SuperMetric(const KAboutPluginDialog* self, int param1) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_Metric_IsBase(true);
@@ -1343,7 +1343,7 @@ void KAboutPluginDialog_InitPainter(const KAboutPluginDialog* self, QPainter* pa
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseInitPainter(const KAboutPluginDialog* self, QPainter* painter) {
+void KAboutPluginDialog_SuperInitPainter(const KAboutPluginDialog* self, QPainter* painter) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_InitPainter_IsBase(true);
@@ -1372,7 +1372,7 @@ QPaintDevice* KAboutPluginDialog_Redirected(const KAboutPluginDialog* self, QPoi
 }
 
 // Base class handler implementation
-QPaintDevice* KAboutPluginDialog_QBaseRedirected(const KAboutPluginDialog* self, QPoint* offset) {
+QPaintDevice* KAboutPluginDialog_SuperRedirected(const KAboutPluginDialog* self, QPoint* offset) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_Redirected_IsBase(true);
@@ -1401,7 +1401,7 @@ QPainter* KAboutPluginDialog_SharedPainter(const KAboutPluginDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* KAboutPluginDialog_QBaseSharedPainter(const KAboutPluginDialog* self) {
+QPainter* KAboutPluginDialog_SuperSharedPainter(const KAboutPluginDialog* self) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_SharedPainter_IsBase(true);
@@ -1430,7 +1430,7 @@ void KAboutPluginDialog_InputMethodEvent(KAboutPluginDialog* self, QInputMethodE
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseInputMethodEvent(KAboutPluginDialog* self, QInputMethodEvent* param1) {
+void KAboutPluginDialog_SuperInputMethodEvent(KAboutPluginDialog* self, QInputMethodEvent* param1) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_InputMethodEvent_IsBase(true);
@@ -1459,7 +1459,7 @@ QVariant* KAboutPluginDialog_InputMethodQuery(const KAboutPluginDialog* self, in
 }
 
 // Base class handler implementation
-QVariant* KAboutPluginDialog_QBaseInputMethodQuery(const KAboutPluginDialog* self, int param1) {
+QVariant* KAboutPluginDialog_SuperInputMethodQuery(const KAboutPluginDialog* self, int param1) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_InputMethodQuery_IsBase(true);
@@ -1488,7 +1488,7 @@ bool KAboutPluginDialog_FocusNextPrevChild(KAboutPluginDialog* self, bool next) 
 }
 
 // Base class handler implementation
-bool KAboutPluginDialog_QBaseFocusNextPrevChild(KAboutPluginDialog* self, bool next) {
+bool KAboutPluginDialog_SuperFocusNextPrevChild(KAboutPluginDialog* self, bool next) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_FocusNextPrevChild_IsBase(true);
@@ -1517,7 +1517,7 @@ void KAboutPluginDialog_TimerEvent(KAboutPluginDialog* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseTimerEvent(KAboutPluginDialog* self, QTimerEvent* event) {
+void KAboutPluginDialog_SuperTimerEvent(KAboutPluginDialog* self, QTimerEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_TimerEvent_IsBase(true);
@@ -1546,7 +1546,7 @@ void KAboutPluginDialog_ChildEvent(KAboutPluginDialog* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseChildEvent(KAboutPluginDialog* self, QChildEvent* event) {
+void KAboutPluginDialog_SuperChildEvent(KAboutPluginDialog* self, QChildEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_ChildEvent_IsBase(true);
@@ -1575,7 +1575,7 @@ void KAboutPluginDialog_CustomEvent(KAboutPluginDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseCustomEvent(KAboutPluginDialog* self, QEvent* event) {
+void KAboutPluginDialog_SuperCustomEvent(KAboutPluginDialog* self, QEvent* event) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_CustomEvent_IsBase(true);
@@ -1604,7 +1604,7 @@ void KAboutPluginDialog_ConnectNotify(KAboutPluginDialog* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseConnectNotify(KAboutPluginDialog* self, const QMetaMethod* signal) {
+void KAboutPluginDialog_SuperConnectNotify(KAboutPluginDialog* self, const QMetaMethod* signal) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_ConnectNotify_IsBase(true);
@@ -1633,7 +1633,7 @@ void KAboutPluginDialog_DisconnectNotify(KAboutPluginDialog* self, const QMetaMe
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseDisconnectNotify(KAboutPluginDialog* self, const QMetaMethod* signal) {
+void KAboutPluginDialog_SuperDisconnectNotify(KAboutPluginDialog* self, const QMetaMethod* signal) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_DisconnectNotify_IsBase(true);
@@ -1662,7 +1662,7 @@ void KAboutPluginDialog_AdjustPosition(KAboutPluginDialog* self, QWidget* param1
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseAdjustPosition(KAboutPluginDialog* self, QWidget* param1) {
+void KAboutPluginDialog_SuperAdjustPosition(KAboutPluginDialog* self, QWidget* param1) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_AdjustPosition_IsBase(true);
@@ -1691,7 +1691,7 @@ void KAboutPluginDialog_UpdateMicroFocus(KAboutPluginDialog* self) {
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseUpdateMicroFocus(KAboutPluginDialog* self) {
+void KAboutPluginDialog_SuperUpdateMicroFocus(KAboutPluginDialog* self) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_UpdateMicroFocus_IsBase(true);
@@ -1720,7 +1720,7 @@ void KAboutPluginDialog_Create(KAboutPluginDialog* self) {
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseCreate(KAboutPluginDialog* self) {
+void KAboutPluginDialog_SuperCreate(KAboutPluginDialog* self) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_Create_IsBase(true);
@@ -1749,7 +1749,7 @@ void KAboutPluginDialog_Destroy(KAboutPluginDialog* self) {
 }
 
 // Base class handler implementation
-void KAboutPluginDialog_QBaseDestroy(KAboutPluginDialog* self) {
+void KAboutPluginDialog_SuperDestroy(KAboutPluginDialog* self) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_Destroy_IsBase(true);
@@ -1778,7 +1778,7 @@ bool KAboutPluginDialog_FocusNextChild(KAboutPluginDialog* self) {
 }
 
 // Base class handler implementation
-bool KAboutPluginDialog_QBaseFocusNextChild(KAboutPluginDialog* self) {
+bool KAboutPluginDialog_SuperFocusNextChild(KAboutPluginDialog* self) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_FocusNextChild_IsBase(true);
@@ -1807,7 +1807,7 @@ bool KAboutPluginDialog_FocusPreviousChild(KAboutPluginDialog* self) {
 }
 
 // Base class handler implementation
-bool KAboutPluginDialog_QBaseFocusPreviousChild(KAboutPluginDialog* self) {
+bool KAboutPluginDialog_SuperFocusPreviousChild(KAboutPluginDialog* self) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_FocusPreviousChild_IsBase(true);
@@ -1836,7 +1836,7 @@ QObject* KAboutPluginDialog_Sender(const KAboutPluginDialog* self) {
 }
 
 // Base class handler implementation
-QObject* KAboutPluginDialog_QBaseSender(const KAboutPluginDialog* self) {
+QObject* KAboutPluginDialog_SuperSender(const KAboutPluginDialog* self) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_Sender_IsBase(true);
@@ -1865,7 +1865,7 @@ int KAboutPluginDialog_SenderSignalIndex(const KAboutPluginDialog* self) {
 }
 
 // Base class handler implementation
-int KAboutPluginDialog_QBaseSenderSignalIndex(const KAboutPluginDialog* self) {
+int KAboutPluginDialog_SuperSenderSignalIndex(const KAboutPluginDialog* self) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_SenderSignalIndex_IsBase(true);
@@ -1894,7 +1894,7 @@ int KAboutPluginDialog_Receivers(const KAboutPluginDialog* self, const char* sig
 }
 
 // Base class handler implementation
-int KAboutPluginDialog_QBaseReceivers(const KAboutPluginDialog* self, const char* signal) {
+int KAboutPluginDialog_SuperReceivers(const KAboutPluginDialog* self, const char* signal) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_Receivers_IsBase(true);
@@ -1923,7 +1923,7 @@ bool KAboutPluginDialog_IsSignalConnected(const KAboutPluginDialog* self, const 
 }
 
 // Base class handler implementation
-bool KAboutPluginDialog_QBaseIsSignalConnected(const KAboutPluginDialog* self, const QMetaMethod* signal) {
+bool KAboutPluginDialog_SuperIsSignalConnected(const KAboutPluginDialog* self, const QMetaMethod* signal) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_IsSignalConnected_IsBase(true);
@@ -1952,7 +1952,7 @@ double KAboutPluginDialog_GetDecodedMetricF(const KAboutPluginDialog* self, int 
 }
 
 // Base class handler implementation
-double KAboutPluginDialog_QBaseGetDecodedMetricF(const KAboutPluginDialog* self, int metricA, int metricB) {
+double KAboutPluginDialog_SuperGetDecodedMetricF(const KAboutPluginDialog* self, int metricA, int metricB) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
     if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
         vkaboutplugindialog->setKAboutPluginDialog_GetDecodedMetricF_IsBase(true);

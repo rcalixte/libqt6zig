@@ -712,7 +712,7 @@ void QTextDocument_SetModified1(QTextDocument* self, bool m) {
 }
 
 // Base class handler implementation
-QMetaObject* QTextDocument_QBaseMetaObject(const QTextDocument* self) {
+QMetaObject* QTextDocument_SuperMetaObject(const QTextDocument* self) {
     auto* vqtextdocument = const_cast<VirtualQTextDocument*>(dynamic_cast<const VirtualQTextDocument*>(self));
     if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
         vqtextdocument->setQTextDocument_MetaObject_IsBase(true);
@@ -731,7 +731,7 @@ void QTextDocument_OnMetaObject(const QTextDocument* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QTextDocument_QBaseMetacast(QTextDocument* self, const char* param1) {
+void* QTextDocument_SuperMetacast(QTextDocument* self, const char* param1) {
     auto* vqtextdocument = dynamic_cast<VirtualQTextDocument*>(self);
     if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
         vqtextdocument->setQTextDocument_Metacast_IsBase(true);
@@ -750,7 +750,7 @@ void QTextDocument_OnMetacast(QTextDocument* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTextDocument_QBaseMetacall(QTextDocument* self, int param1, int param2, void** param3) {
+int QTextDocument_SuperMetacall(QTextDocument* self, int param1, int param2, void** param3) {
     auto* vqtextdocument = dynamic_cast<VirtualQTextDocument*>(self);
     if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
         vqtextdocument->setQTextDocument_Metacall_IsBase(true);
@@ -769,7 +769,7 @@ void QTextDocument_OnMetacall(QTextDocument* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTextDocument_QBaseClear(QTextDocument* self) {
+void QTextDocument_SuperClear(QTextDocument* self) {
     auto* vqtextdocument = dynamic_cast<VirtualQTextDocument*>(self);
     if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
         vqtextdocument->setQTextDocument_Clear_IsBase(true);
@@ -788,7 +788,7 @@ void QTextDocument_OnClear(QTextDocument* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QTextObject* QTextDocument_QBaseCreateObject(QTextDocument* self, const QTextFormat* f) {
+QTextObject* QTextDocument_SuperCreateObject(QTextDocument* self, const QTextFormat* f) {
     auto* vqtextdocument = dynamic_cast<VirtualQTextDocument*>(self);
     if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
         vqtextdocument->setQTextDocument_CreateObject_IsBase(true);
@@ -807,7 +807,7 @@ void QTextDocument_OnCreateObject(QTextDocument* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QTextDocument_QBaseLoadResource(QTextDocument* self, int typeVal, const QUrl* name) {
+QVariant* QTextDocument_SuperLoadResource(QTextDocument* self, int typeVal, const QUrl* name) {
     auto* vqtextdocument = dynamic_cast<VirtualQTextDocument*>(self);
     if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
         vqtextdocument->setQTextDocument_LoadResource_IsBase(true);
@@ -835,7 +835,7 @@ bool QTextDocument_Event(QTextDocument* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTextDocument_QBaseEvent(QTextDocument* self, QEvent* event) {
+bool QTextDocument_SuperEvent(QTextDocument* self, QEvent* event) {
     auto* vqtextdocument = dynamic_cast<VirtualQTextDocument*>(self);
     if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
         vqtextdocument->setQTextDocument_Event_IsBase(true);
@@ -864,7 +864,7 @@ bool QTextDocument_EventFilter(QTextDocument* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QTextDocument_QBaseEventFilter(QTextDocument* self, QObject* watched, QEvent* event) {
+bool QTextDocument_SuperEventFilter(QTextDocument* self, QObject* watched, QEvent* event) {
     auto* vqtextdocument = dynamic_cast<VirtualQTextDocument*>(self);
     if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
         vqtextdocument->setQTextDocument_EventFilter_IsBase(true);
@@ -893,7 +893,7 @@ void QTextDocument_TimerEvent(QTextDocument* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QTextDocument_QBaseTimerEvent(QTextDocument* self, QTimerEvent* event) {
+void QTextDocument_SuperTimerEvent(QTextDocument* self, QTimerEvent* event) {
     auto* vqtextdocument = dynamic_cast<VirtualQTextDocument*>(self);
     if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
         vqtextdocument->setQTextDocument_TimerEvent_IsBase(true);
@@ -922,7 +922,7 @@ void QTextDocument_ChildEvent(QTextDocument* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QTextDocument_QBaseChildEvent(QTextDocument* self, QChildEvent* event) {
+void QTextDocument_SuperChildEvent(QTextDocument* self, QChildEvent* event) {
     auto* vqtextdocument = dynamic_cast<VirtualQTextDocument*>(self);
     if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
         vqtextdocument->setQTextDocument_ChildEvent_IsBase(true);
@@ -951,7 +951,7 @@ void QTextDocument_CustomEvent(QTextDocument* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTextDocument_QBaseCustomEvent(QTextDocument* self, QEvent* event) {
+void QTextDocument_SuperCustomEvent(QTextDocument* self, QEvent* event) {
     auto* vqtextdocument = dynamic_cast<VirtualQTextDocument*>(self);
     if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
         vqtextdocument->setQTextDocument_CustomEvent_IsBase(true);
@@ -980,7 +980,7 @@ void QTextDocument_ConnectNotify(QTextDocument* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QTextDocument_QBaseConnectNotify(QTextDocument* self, const QMetaMethod* signal) {
+void QTextDocument_SuperConnectNotify(QTextDocument* self, const QMetaMethod* signal) {
     auto* vqtextdocument = dynamic_cast<VirtualQTextDocument*>(self);
     if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
         vqtextdocument->setQTextDocument_ConnectNotify_IsBase(true);
@@ -1009,7 +1009,7 @@ void QTextDocument_DisconnectNotify(QTextDocument* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QTextDocument_QBaseDisconnectNotify(QTextDocument* self, const QMetaMethod* signal) {
+void QTextDocument_SuperDisconnectNotify(QTextDocument* self, const QMetaMethod* signal) {
     auto* vqtextdocument = dynamic_cast<VirtualQTextDocument*>(self);
     if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
         vqtextdocument->setQTextDocument_DisconnectNotify_IsBase(true);
@@ -1038,7 +1038,7 @@ QObject* QTextDocument_Sender(const QTextDocument* self) {
 }
 
 // Base class handler implementation
-QObject* QTextDocument_QBaseSender(const QTextDocument* self) {
+QObject* QTextDocument_SuperSender(const QTextDocument* self) {
     auto* vqtextdocument = const_cast<VirtualQTextDocument*>(dynamic_cast<const VirtualQTextDocument*>(self));
     if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
         vqtextdocument->setQTextDocument_Sender_IsBase(true);
@@ -1067,7 +1067,7 @@ int QTextDocument_SenderSignalIndex(const QTextDocument* self) {
 }
 
 // Base class handler implementation
-int QTextDocument_QBaseSenderSignalIndex(const QTextDocument* self) {
+int QTextDocument_SuperSenderSignalIndex(const QTextDocument* self) {
     auto* vqtextdocument = const_cast<VirtualQTextDocument*>(dynamic_cast<const VirtualQTextDocument*>(self));
     if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
         vqtextdocument->setQTextDocument_SenderSignalIndex_IsBase(true);
@@ -1096,7 +1096,7 @@ int QTextDocument_Receivers(const QTextDocument* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QTextDocument_QBaseReceivers(const QTextDocument* self, const char* signal) {
+int QTextDocument_SuperReceivers(const QTextDocument* self, const char* signal) {
     auto* vqtextdocument = const_cast<VirtualQTextDocument*>(dynamic_cast<const VirtualQTextDocument*>(self));
     if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
         vqtextdocument->setQTextDocument_Receivers_IsBase(true);
@@ -1125,7 +1125,7 @@ bool QTextDocument_IsSignalConnected(const QTextDocument* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QTextDocument_QBaseIsSignalConnected(const QTextDocument* self, const QMetaMethod* signal) {
+bool QTextDocument_SuperIsSignalConnected(const QTextDocument* self, const QMetaMethod* signal) {
     auto* vqtextdocument = const_cast<VirtualQTextDocument*>(dynamic_cast<const VirtualQTextDocument*>(self));
     if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
         vqtextdocument->setQTextDocument_IsSignalConnected_IsBase(true);

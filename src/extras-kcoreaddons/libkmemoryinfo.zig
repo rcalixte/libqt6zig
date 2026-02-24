@@ -135,6 +135,10 @@ pub const kmemoryinfo = struct {
         return qtc.KMemoryInfo_FreeSwapFile(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kmemoryinfo.html#dtor.KMemoryInfo)
     ///
     /// Delete this object from C++ memory.
@@ -143,7 +147,7 @@ pub const kmemoryinfo = struct {
     ///
     /// ` self: QtC.KMemoryInfo `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KMemoryInfo_Delete(@ptrCast(self));
     }
 };

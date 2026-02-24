@@ -127,6 +127,10 @@ pub const ksycocaentry = struct {
         return qtc.KSycocaEntry_IsSeparator(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/ksycocaentry.html#dtor.KSycocaEntry)
     ///
     /// Delete this object from C++ memory.
@@ -135,7 +139,7 @@ pub const ksycocaentry = struct {
     ///
     /// ` self: QtC.KSycocaEntry `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KSycocaEntry_Delete(@ptrCast(self));
     }
 };

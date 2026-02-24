@@ -432,23 +432,23 @@ class VirtualQLineSeries final : public QLineSeries {
 
     // Friend functions
     friend void QLineSeries_TimerEvent(QLineSeries* self, QTimerEvent* event);
-    friend void QLineSeries_QBaseTimerEvent(QLineSeries* self, QTimerEvent* event);
+    friend void QLineSeries_SuperTimerEvent(QLineSeries* self, QTimerEvent* event);
     friend void QLineSeries_ChildEvent(QLineSeries* self, QChildEvent* event);
-    friend void QLineSeries_QBaseChildEvent(QLineSeries* self, QChildEvent* event);
+    friend void QLineSeries_SuperChildEvent(QLineSeries* self, QChildEvent* event);
     friend void QLineSeries_CustomEvent(QLineSeries* self, QEvent* event);
-    friend void QLineSeries_QBaseCustomEvent(QLineSeries* self, QEvent* event);
+    friend void QLineSeries_SuperCustomEvent(QLineSeries* self, QEvent* event);
     friend void QLineSeries_ConnectNotify(QLineSeries* self, const QMetaMethod* signal);
-    friend void QLineSeries_QBaseConnectNotify(QLineSeries* self, const QMetaMethod* signal);
+    friend void QLineSeries_SuperConnectNotify(QLineSeries* self, const QMetaMethod* signal);
     friend void QLineSeries_DisconnectNotify(QLineSeries* self, const QMetaMethod* signal);
-    friend void QLineSeries_QBaseDisconnectNotify(QLineSeries* self, const QMetaMethod* signal);
+    friend void QLineSeries_SuperDisconnectNotify(QLineSeries* self, const QMetaMethod* signal);
     friend QObject* QLineSeries_Sender(const QLineSeries* self);
-    friend QObject* QLineSeries_QBaseSender(const QLineSeries* self);
+    friend QObject* QLineSeries_SuperSender(const QLineSeries* self);
     friend int QLineSeries_SenderSignalIndex(const QLineSeries* self);
-    friend int QLineSeries_QBaseSenderSignalIndex(const QLineSeries* self);
+    friend int QLineSeries_SuperSenderSignalIndex(const QLineSeries* self);
     friend int QLineSeries_Receivers(const QLineSeries* self, const char* signal);
-    friend int QLineSeries_QBaseReceivers(const QLineSeries* self, const char* signal);
+    friend int QLineSeries_SuperReceivers(const QLineSeries* self, const char* signal);
     friend bool QLineSeries_IsSignalConnected(const QLineSeries* self, const QMetaMethod* signal);
-    friend bool QLineSeries_QBaseIsSignalConnected(const QLineSeries* self, const QMetaMethod* signal);
+    friend bool QLineSeries_SuperIsSignalConnected(const QLineSeries* self, const QMetaMethod* signal);
 };
 
 #endif

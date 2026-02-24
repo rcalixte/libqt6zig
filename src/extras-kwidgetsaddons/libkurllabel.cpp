@@ -308,7 +308,7 @@ void KUrlLabel_SetFloatEnabled1(KUrlLabel* self, bool do_float) {
 }
 
 // Base class handler implementation
-QMetaObject* KUrlLabel_QBaseMetaObject(const KUrlLabel* self) {
+QMetaObject* KUrlLabel_SuperMetaObject(const KUrlLabel* self) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_MetaObject_IsBase(true);
@@ -327,7 +327,7 @@ void KUrlLabel_OnMetaObject(const KUrlLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KUrlLabel_QBaseMetacast(KUrlLabel* self, const char* param1) {
+void* KUrlLabel_SuperMetacast(KUrlLabel* self, const char* param1) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_Metacast_IsBase(true);
@@ -346,7 +346,7 @@ void KUrlLabel_OnMetacast(KUrlLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KUrlLabel_QBaseMetacall(KUrlLabel* self, int param1, int param2, void** param3) {
+int KUrlLabel_SuperMetacall(KUrlLabel* self, int param1, int param2, void** param3) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_Metacall_IsBase(true);
@@ -365,7 +365,7 @@ void KUrlLabel_OnMetacall(KUrlLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseSetFont(KUrlLabel* self, const QFont* font) {
+void KUrlLabel_SuperSetFont(KUrlLabel* self, const QFont* font) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_SetFont_IsBase(true);
@@ -384,7 +384,7 @@ void KUrlLabel_OnSetFont(KUrlLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseMouseReleaseEvent(KUrlLabel* self, QMouseEvent* param1) {
+void KUrlLabel_SuperMouseReleaseEvent(KUrlLabel* self, QMouseEvent* param1) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_MouseReleaseEvent_IsBase(true);
@@ -403,7 +403,7 @@ void KUrlLabel_OnMouseReleaseEvent(KUrlLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseEnterEvent(KUrlLabel* self, QEnterEvent* event) {
+void KUrlLabel_SuperEnterEvent(KUrlLabel* self, QEnterEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_EnterEvent_IsBase(true);
@@ -422,7 +422,7 @@ void KUrlLabel_OnEnterEvent(KUrlLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseLeaveEvent(KUrlLabel* self, QEvent* param1) {
+void KUrlLabel_SuperLeaveEvent(KUrlLabel* self, QEvent* param1) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_LeaveEvent_IsBase(true);
@@ -441,7 +441,7 @@ void KUrlLabel_OnLeaveEvent(KUrlLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KUrlLabel_QBaseEvent(KUrlLabel* self, QEvent* param1) {
+bool KUrlLabel_SuperEvent(KUrlLabel* self, QEvent* param1) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_Event_IsBase(true);
@@ -470,7 +470,7 @@ QSize* KUrlLabel_SizeHint(const KUrlLabel* self) {
 }
 
 // Base class handler implementation
-QSize* KUrlLabel_QBaseSizeHint(const KUrlLabel* self) {
+QSize* KUrlLabel_SuperSizeHint(const KUrlLabel* self) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_SizeHint_IsBase(true);
@@ -499,7 +499,7 @@ QSize* KUrlLabel_MinimumSizeHint(const KUrlLabel* self) {
 }
 
 // Base class handler implementation
-QSize* KUrlLabel_QBaseMinimumSizeHint(const KUrlLabel* self) {
+QSize* KUrlLabel_SuperMinimumSizeHint(const KUrlLabel* self) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_MinimumSizeHint_IsBase(true);
@@ -528,7 +528,7 @@ int KUrlLabel_HeightForWidth(const KUrlLabel* self, int param1) {
 }
 
 // Base class handler implementation
-int KUrlLabel_QBaseHeightForWidth(const KUrlLabel* self, int param1) {
+int KUrlLabel_SuperHeightForWidth(const KUrlLabel* self, int param1) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_HeightForWidth_IsBase(true);
@@ -557,7 +557,7 @@ void KUrlLabel_KeyPressEvent(KUrlLabel* self, QKeyEvent* ev) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseKeyPressEvent(KUrlLabel* self, QKeyEvent* ev) {
+void KUrlLabel_SuperKeyPressEvent(KUrlLabel* self, QKeyEvent* ev) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_KeyPressEvent_IsBase(true);
@@ -586,7 +586,7 @@ void KUrlLabel_PaintEvent(KUrlLabel* self, QPaintEvent* param1) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBasePaintEvent(KUrlLabel* self, QPaintEvent* param1) {
+void KUrlLabel_SuperPaintEvent(KUrlLabel* self, QPaintEvent* param1) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_PaintEvent_IsBase(true);
@@ -615,7 +615,7 @@ void KUrlLabel_ChangeEvent(KUrlLabel* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseChangeEvent(KUrlLabel* self, QEvent* param1) {
+void KUrlLabel_SuperChangeEvent(KUrlLabel* self, QEvent* param1) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_ChangeEvent_IsBase(true);
@@ -644,7 +644,7 @@ void KUrlLabel_MousePressEvent(KUrlLabel* self, QMouseEvent* ev) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseMousePressEvent(KUrlLabel* self, QMouseEvent* ev) {
+void KUrlLabel_SuperMousePressEvent(KUrlLabel* self, QMouseEvent* ev) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_MousePressEvent_IsBase(true);
@@ -673,7 +673,7 @@ void KUrlLabel_MouseMoveEvent(KUrlLabel* self, QMouseEvent* ev) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseMouseMoveEvent(KUrlLabel* self, QMouseEvent* ev) {
+void KUrlLabel_SuperMouseMoveEvent(KUrlLabel* self, QMouseEvent* ev) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_MouseMoveEvent_IsBase(true);
@@ -702,7 +702,7 @@ void KUrlLabel_ContextMenuEvent(KUrlLabel* self, QContextMenuEvent* ev) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseContextMenuEvent(KUrlLabel* self, QContextMenuEvent* ev) {
+void KUrlLabel_SuperContextMenuEvent(KUrlLabel* self, QContextMenuEvent* ev) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_ContextMenuEvent_IsBase(true);
@@ -731,7 +731,7 @@ void KUrlLabel_FocusInEvent(KUrlLabel* self, QFocusEvent* ev) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseFocusInEvent(KUrlLabel* self, QFocusEvent* ev) {
+void KUrlLabel_SuperFocusInEvent(KUrlLabel* self, QFocusEvent* ev) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_FocusInEvent_IsBase(true);
@@ -760,7 +760,7 @@ void KUrlLabel_FocusOutEvent(KUrlLabel* self, QFocusEvent* ev) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseFocusOutEvent(KUrlLabel* self, QFocusEvent* ev) {
+void KUrlLabel_SuperFocusOutEvent(KUrlLabel* self, QFocusEvent* ev) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_FocusOutEvent_IsBase(true);
@@ -789,7 +789,7 @@ bool KUrlLabel_FocusNextPrevChild(KUrlLabel* self, bool next) {
 }
 
 // Base class handler implementation
-bool KUrlLabel_QBaseFocusNextPrevChild(KUrlLabel* self, bool next) {
+bool KUrlLabel_SuperFocusNextPrevChild(KUrlLabel* self, bool next) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_FocusNextPrevChild_IsBase(true);
@@ -818,7 +818,7 @@ void KUrlLabel_InitStyleOption(const KUrlLabel* self, QStyleOptionFrame* option)
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseInitStyleOption(const KUrlLabel* self, QStyleOptionFrame* option) {
+void KUrlLabel_SuperInitStyleOption(const KUrlLabel* self, QStyleOptionFrame* option) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_InitStyleOption_IsBase(true);
@@ -847,7 +847,7 @@ int KUrlLabel_DevType(const KUrlLabel* self) {
 }
 
 // Base class handler implementation
-int KUrlLabel_QBaseDevType(const KUrlLabel* self) {
+int KUrlLabel_SuperDevType(const KUrlLabel* self) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_DevType_IsBase(true);
@@ -876,7 +876,7 @@ void KUrlLabel_SetVisible(KUrlLabel* self, bool visible) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseSetVisible(KUrlLabel* self, bool visible) {
+void KUrlLabel_SuperSetVisible(KUrlLabel* self, bool visible) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_SetVisible_IsBase(true);
@@ -905,7 +905,7 @@ bool KUrlLabel_HasHeightForWidth(const KUrlLabel* self) {
 }
 
 // Base class handler implementation
-bool KUrlLabel_QBaseHasHeightForWidth(const KUrlLabel* self) {
+bool KUrlLabel_SuperHasHeightForWidth(const KUrlLabel* self) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_HasHeightForWidth_IsBase(true);
@@ -934,7 +934,7 @@ QPaintEngine* KUrlLabel_PaintEngine(const KUrlLabel* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KUrlLabel_QBasePaintEngine(const KUrlLabel* self) {
+QPaintEngine* KUrlLabel_SuperPaintEngine(const KUrlLabel* self) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_PaintEngine_IsBase(true);
@@ -963,7 +963,7 @@ void KUrlLabel_MouseDoubleClickEvent(KUrlLabel* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseMouseDoubleClickEvent(KUrlLabel* self, QMouseEvent* event) {
+void KUrlLabel_SuperMouseDoubleClickEvent(KUrlLabel* self, QMouseEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_MouseDoubleClickEvent_IsBase(true);
@@ -992,7 +992,7 @@ void KUrlLabel_WheelEvent(KUrlLabel* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseWheelEvent(KUrlLabel* self, QWheelEvent* event) {
+void KUrlLabel_SuperWheelEvent(KUrlLabel* self, QWheelEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_WheelEvent_IsBase(true);
@@ -1021,7 +1021,7 @@ void KUrlLabel_KeyReleaseEvent(KUrlLabel* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseKeyReleaseEvent(KUrlLabel* self, QKeyEvent* event) {
+void KUrlLabel_SuperKeyReleaseEvent(KUrlLabel* self, QKeyEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_KeyReleaseEvent_IsBase(true);
@@ -1050,7 +1050,7 @@ void KUrlLabel_MoveEvent(KUrlLabel* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseMoveEvent(KUrlLabel* self, QMoveEvent* event) {
+void KUrlLabel_SuperMoveEvent(KUrlLabel* self, QMoveEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_MoveEvent_IsBase(true);
@@ -1079,7 +1079,7 @@ void KUrlLabel_ResizeEvent(KUrlLabel* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseResizeEvent(KUrlLabel* self, QResizeEvent* event) {
+void KUrlLabel_SuperResizeEvent(KUrlLabel* self, QResizeEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_ResizeEvent_IsBase(true);
@@ -1108,7 +1108,7 @@ void KUrlLabel_CloseEvent(KUrlLabel* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseCloseEvent(KUrlLabel* self, QCloseEvent* event) {
+void KUrlLabel_SuperCloseEvent(KUrlLabel* self, QCloseEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_CloseEvent_IsBase(true);
@@ -1137,7 +1137,7 @@ void KUrlLabel_TabletEvent(KUrlLabel* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseTabletEvent(KUrlLabel* self, QTabletEvent* event) {
+void KUrlLabel_SuperTabletEvent(KUrlLabel* self, QTabletEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_TabletEvent_IsBase(true);
@@ -1166,7 +1166,7 @@ void KUrlLabel_ActionEvent(KUrlLabel* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseActionEvent(KUrlLabel* self, QActionEvent* event) {
+void KUrlLabel_SuperActionEvent(KUrlLabel* self, QActionEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_ActionEvent_IsBase(true);
@@ -1195,7 +1195,7 @@ void KUrlLabel_DragEnterEvent(KUrlLabel* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseDragEnterEvent(KUrlLabel* self, QDragEnterEvent* event) {
+void KUrlLabel_SuperDragEnterEvent(KUrlLabel* self, QDragEnterEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_DragEnterEvent_IsBase(true);
@@ -1224,7 +1224,7 @@ void KUrlLabel_DragMoveEvent(KUrlLabel* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseDragMoveEvent(KUrlLabel* self, QDragMoveEvent* event) {
+void KUrlLabel_SuperDragMoveEvent(KUrlLabel* self, QDragMoveEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_DragMoveEvent_IsBase(true);
@@ -1253,7 +1253,7 @@ void KUrlLabel_DragLeaveEvent(KUrlLabel* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseDragLeaveEvent(KUrlLabel* self, QDragLeaveEvent* event) {
+void KUrlLabel_SuperDragLeaveEvent(KUrlLabel* self, QDragLeaveEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_DragLeaveEvent_IsBase(true);
@@ -1282,7 +1282,7 @@ void KUrlLabel_DropEvent(KUrlLabel* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseDropEvent(KUrlLabel* self, QDropEvent* event) {
+void KUrlLabel_SuperDropEvent(KUrlLabel* self, QDropEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_DropEvent_IsBase(true);
@@ -1311,7 +1311,7 @@ void KUrlLabel_ShowEvent(KUrlLabel* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseShowEvent(KUrlLabel* self, QShowEvent* event) {
+void KUrlLabel_SuperShowEvent(KUrlLabel* self, QShowEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_ShowEvent_IsBase(true);
@@ -1340,7 +1340,7 @@ void KUrlLabel_HideEvent(KUrlLabel* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseHideEvent(KUrlLabel* self, QHideEvent* event) {
+void KUrlLabel_SuperHideEvent(KUrlLabel* self, QHideEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_HideEvent_IsBase(true);
@@ -1370,7 +1370,7 @@ bool KUrlLabel_NativeEvent(KUrlLabel* self, const libqt_string eventType, void* 
 }
 
 // Base class handler implementation
-bool KUrlLabel_QBaseNativeEvent(KUrlLabel* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KUrlLabel_SuperNativeEvent(KUrlLabel* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
@@ -1400,7 +1400,7 @@ int KUrlLabel_Metric(const KUrlLabel* self, int param1) {
 }
 
 // Base class handler implementation
-int KUrlLabel_QBaseMetric(const KUrlLabel* self, int param1) {
+int KUrlLabel_SuperMetric(const KUrlLabel* self, int param1) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_Metric_IsBase(true);
@@ -1429,7 +1429,7 @@ void KUrlLabel_InitPainter(const KUrlLabel* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseInitPainter(const KUrlLabel* self, QPainter* painter) {
+void KUrlLabel_SuperInitPainter(const KUrlLabel* self, QPainter* painter) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_InitPainter_IsBase(true);
@@ -1458,7 +1458,7 @@ QPaintDevice* KUrlLabel_Redirected(const KUrlLabel* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KUrlLabel_QBaseRedirected(const KUrlLabel* self, QPoint* offset) {
+QPaintDevice* KUrlLabel_SuperRedirected(const KUrlLabel* self, QPoint* offset) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_Redirected_IsBase(true);
@@ -1487,7 +1487,7 @@ QPainter* KUrlLabel_SharedPainter(const KUrlLabel* self) {
 }
 
 // Base class handler implementation
-QPainter* KUrlLabel_QBaseSharedPainter(const KUrlLabel* self) {
+QPainter* KUrlLabel_SuperSharedPainter(const KUrlLabel* self) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_SharedPainter_IsBase(true);
@@ -1516,7 +1516,7 @@ void KUrlLabel_InputMethodEvent(KUrlLabel* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseInputMethodEvent(KUrlLabel* self, QInputMethodEvent* param1) {
+void KUrlLabel_SuperInputMethodEvent(KUrlLabel* self, QInputMethodEvent* param1) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_InputMethodEvent_IsBase(true);
@@ -1545,7 +1545,7 @@ QVariant* KUrlLabel_InputMethodQuery(const KUrlLabel* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KUrlLabel_QBaseInputMethodQuery(const KUrlLabel* self, int param1) {
+QVariant* KUrlLabel_SuperInputMethodQuery(const KUrlLabel* self, int param1) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_InputMethodQuery_IsBase(true);
@@ -1574,7 +1574,7 @@ bool KUrlLabel_EventFilter(KUrlLabel* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KUrlLabel_QBaseEventFilter(KUrlLabel* self, QObject* watched, QEvent* event) {
+bool KUrlLabel_SuperEventFilter(KUrlLabel* self, QObject* watched, QEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_EventFilter_IsBase(true);
@@ -1603,7 +1603,7 @@ void KUrlLabel_TimerEvent(KUrlLabel* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseTimerEvent(KUrlLabel* self, QTimerEvent* event) {
+void KUrlLabel_SuperTimerEvent(KUrlLabel* self, QTimerEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_TimerEvent_IsBase(true);
@@ -1632,7 +1632,7 @@ void KUrlLabel_ChildEvent(KUrlLabel* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseChildEvent(KUrlLabel* self, QChildEvent* event) {
+void KUrlLabel_SuperChildEvent(KUrlLabel* self, QChildEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_ChildEvent_IsBase(true);
@@ -1661,7 +1661,7 @@ void KUrlLabel_CustomEvent(KUrlLabel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseCustomEvent(KUrlLabel* self, QEvent* event) {
+void KUrlLabel_SuperCustomEvent(KUrlLabel* self, QEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_CustomEvent_IsBase(true);
@@ -1690,7 +1690,7 @@ void KUrlLabel_ConnectNotify(KUrlLabel* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseConnectNotify(KUrlLabel* self, const QMetaMethod* signal) {
+void KUrlLabel_SuperConnectNotify(KUrlLabel* self, const QMetaMethod* signal) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_ConnectNotify_IsBase(true);
@@ -1719,7 +1719,7 @@ void KUrlLabel_DisconnectNotify(KUrlLabel* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseDisconnectNotify(KUrlLabel* self, const QMetaMethod* signal) {
+void KUrlLabel_SuperDisconnectNotify(KUrlLabel* self, const QMetaMethod* signal) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_DisconnectNotify_IsBase(true);
@@ -1748,7 +1748,7 @@ void KUrlLabel_DrawFrame(KUrlLabel* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseDrawFrame(KUrlLabel* self, QPainter* param1) {
+void KUrlLabel_SuperDrawFrame(KUrlLabel* self, QPainter* param1) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_DrawFrame_IsBase(true);
@@ -1777,7 +1777,7 @@ void KUrlLabel_UpdateMicroFocus(KUrlLabel* self) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseUpdateMicroFocus(KUrlLabel* self) {
+void KUrlLabel_SuperUpdateMicroFocus(KUrlLabel* self) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_UpdateMicroFocus_IsBase(true);
@@ -1806,7 +1806,7 @@ void KUrlLabel_Create(KUrlLabel* self) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseCreate(KUrlLabel* self) {
+void KUrlLabel_SuperCreate(KUrlLabel* self) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_Create_IsBase(true);
@@ -1835,7 +1835,7 @@ void KUrlLabel_Destroy(KUrlLabel* self) {
 }
 
 // Base class handler implementation
-void KUrlLabel_QBaseDestroy(KUrlLabel* self) {
+void KUrlLabel_SuperDestroy(KUrlLabel* self) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_Destroy_IsBase(true);
@@ -1864,7 +1864,7 @@ bool KUrlLabel_FocusNextChild(KUrlLabel* self) {
 }
 
 // Base class handler implementation
-bool KUrlLabel_QBaseFocusNextChild(KUrlLabel* self) {
+bool KUrlLabel_SuperFocusNextChild(KUrlLabel* self) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_FocusNextChild_IsBase(true);
@@ -1893,7 +1893,7 @@ bool KUrlLabel_FocusPreviousChild(KUrlLabel* self) {
 }
 
 // Base class handler implementation
-bool KUrlLabel_QBaseFocusPreviousChild(KUrlLabel* self) {
+bool KUrlLabel_SuperFocusPreviousChild(KUrlLabel* self) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_FocusPreviousChild_IsBase(true);
@@ -1922,7 +1922,7 @@ QObject* KUrlLabel_Sender(const KUrlLabel* self) {
 }
 
 // Base class handler implementation
-QObject* KUrlLabel_QBaseSender(const KUrlLabel* self) {
+QObject* KUrlLabel_SuperSender(const KUrlLabel* self) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_Sender_IsBase(true);
@@ -1951,7 +1951,7 @@ int KUrlLabel_SenderSignalIndex(const KUrlLabel* self) {
 }
 
 // Base class handler implementation
-int KUrlLabel_QBaseSenderSignalIndex(const KUrlLabel* self) {
+int KUrlLabel_SuperSenderSignalIndex(const KUrlLabel* self) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_SenderSignalIndex_IsBase(true);
@@ -1980,7 +1980,7 @@ int KUrlLabel_Receivers(const KUrlLabel* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KUrlLabel_QBaseReceivers(const KUrlLabel* self, const char* signal) {
+int KUrlLabel_SuperReceivers(const KUrlLabel* self, const char* signal) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_Receivers_IsBase(true);
@@ -2009,7 +2009,7 @@ bool KUrlLabel_IsSignalConnected(const KUrlLabel* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool KUrlLabel_QBaseIsSignalConnected(const KUrlLabel* self, const QMetaMethod* signal) {
+bool KUrlLabel_SuperIsSignalConnected(const KUrlLabel* self, const QMetaMethod* signal) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_IsSignalConnected_IsBase(true);
@@ -2038,7 +2038,7 @@ double KUrlLabel_GetDecodedMetricF(const KUrlLabel* self, int metricA, int metri
 }
 
 // Base class handler implementation
-double KUrlLabel_QBaseGetDecodedMetricF(const KUrlLabel* self, int metricA, int metricB) {
+double KUrlLabel_SuperGetDecodedMetricF(const KUrlLabel* self, int metricA, int metricB) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
     if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
         vkurllabel->setKUrlLabel_GetDecodedMetricF_IsBase(true);

@@ -105,7 +105,7 @@ bool QHistoryState_Event(QHistoryState* self, QEvent* e) {
 }
 
 // Base class handler implementation
-QMetaObject* QHistoryState_QBaseMetaObject(const QHistoryState* self) {
+QMetaObject* QHistoryState_SuperMetaObject(const QHistoryState* self) {
     auto* vqhistorystate = const_cast<VirtualQHistoryState*>(dynamic_cast<const VirtualQHistoryState*>(self));
     if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
         vqhistorystate->setQHistoryState_MetaObject_IsBase(true);
@@ -124,7 +124,7 @@ void QHistoryState_OnMetaObject(const QHistoryState* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QHistoryState_QBaseMetacast(QHistoryState* self, const char* param1) {
+void* QHistoryState_SuperMetacast(QHistoryState* self, const char* param1) {
     auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
     if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
         vqhistorystate->setQHistoryState_Metacast_IsBase(true);
@@ -143,7 +143,7 @@ void QHistoryState_OnMetacast(QHistoryState* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QHistoryState_QBaseMetacall(QHistoryState* self, int param1, int param2, void** param3) {
+int QHistoryState_SuperMetacall(QHistoryState* self, int param1, int param2, void** param3) {
     auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
     if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
         vqhistorystate->setQHistoryState_Metacall_IsBase(true);
@@ -162,7 +162,7 @@ void QHistoryState_OnMetacall(QHistoryState* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QHistoryState_QBaseOnEntry(QHistoryState* self, QEvent* event) {
+void QHistoryState_SuperOnEntry(QHistoryState* self, QEvent* event) {
     auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
     if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
         vqhistorystate->setQHistoryState_OnEntry_IsBase(true);
@@ -181,7 +181,7 @@ void QHistoryState_OnOnEntry(QHistoryState* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QHistoryState_QBaseOnExit(QHistoryState* self, QEvent* event) {
+void QHistoryState_SuperOnExit(QHistoryState* self, QEvent* event) {
     auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
     if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
         vqhistorystate->setQHistoryState_OnExit_IsBase(true);
@@ -200,7 +200,7 @@ void QHistoryState_OnOnExit(QHistoryState* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QHistoryState_QBaseEvent(QHistoryState* self, QEvent* e) {
+bool QHistoryState_SuperEvent(QHistoryState* self, QEvent* e) {
     auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
     if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
         vqhistorystate->setQHistoryState_Event_IsBase(true);
@@ -229,7 +229,7 @@ bool QHistoryState_EventFilter(QHistoryState* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QHistoryState_QBaseEventFilter(QHistoryState* self, QObject* watched, QEvent* event) {
+bool QHistoryState_SuperEventFilter(QHistoryState* self, QObject* watched, QEvent* event) {
     auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
     if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
         vqhistorystate->setQHistoryState_EventFilter_IsBase(true);
@@ -258,7 +258,7 @@ void QHistoryState_TimerEvent(QHistoryState* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QHistoryState_QBaseTimerEvent(QHistoryState* self, QTimerEvent* event) {
+void QHistoryState_SuperTimerEvent(QHistoryState* self, QTimerEvent* event) {
     auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
     if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
         vqhistorystate->setQHistoryState_TimerEvent_IsBase(true);
@@ -287,7 +287,7 @@ void QHistoryState_ChildEvent(QHistoryState* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QHistoryState_QBaseChildEvent(QHistoryState* self, QChildEvent* event) {
+void QHistoryState_SuperChildEvent(QHistoryState* self, QChildEvent* event) {
     auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
     if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
         vqhistorystate->setQHistoryState_ChildEvent_IsBase(true);
@@ -316,7 +316,7 @@ void QHistoryState_CustomEvent(QHistoryState* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QHistoryState_QBaseCustomEvent(QHistoryState* self, QEvent* event) {
+void QHistoryState_SuperCustomEvent(QHistoryState* self, QEvent* event) {
     auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
     if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
         vqhistorystate->setQHistoryState_CustomEvent_IsBase(true);
@@ -345,7 +345,7 @@ void QHistoryState_ConnectNotify(QHistoryState* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QHistoryState_QBaseConnectNotify(QHistoryState* self, const QMetaMethod* signal) {
+void QHistoryState_SuperConnectNotify(QHistoryState* self, const QMetaMethod* signal) {
     auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
     if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
         vqhistorystate->setQHistoryState_ConnectNotify_IsBase(true);
@@ -374,7 +374,7 @@ void QHistoryState_DisconnectNotify(QHistoryState* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QHistoryState_QBaseDisconnectNotify(QHistoryState* self, const QMetaMethod* signal) {
+void QHistoryState_SuperDisconnectNotify(QHistoryState* self, const QMetaMethod* signal) {
     auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
     if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
         vqhistorystate->setQHistoryState_DisconnectNotify_IsBase(true);
@@ -403,7 +403,7 @@ QObject* QHistoryState_Sender(const QHistoryState* self) {
 }
 
 // Base class handler implementation
-QObject* QHistoryState_QBaseSender(const QHistoryState* self) {
+QObject* QHistoryState_SuperSender(const QHistoryState* self) {
     auto* vqhistorystate = const_cast<VirtualQHistoryState*>(dynamic_cast<const VirtualQHistoryState*>(self));
     if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
         vqhistorystate->setQHistoryState_Sender_IsBase(true);
@@ -432,7 +432,7 @@ int QHistoryState_SenderSignalIndex(const QHistoryState* self) {
 }
 
 // Base class handler implementation
-int QHistoryState_QBaseSenderSignalIndex(const QHistoryState* self) {
+int QHistoryState_SuperSenderSignalIndex(const QHistoryState* self) {
     auto* vqhistorystate = const_cast<VirtualQHistoryState*>(dynamic_cast<const VirtualQHistoryState*>(self));
     if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
         vqhistorystate->setQHistoryState_SenderSignalIndex_IsBase(true);
@@ -461,7 +461,7 @@ int QHistoryState_Receivers(const QHistoryState* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QHistoryState_QBaseReceivers(const QHistoryState* self, const char* signal) {
+int QHistoryState_SuperReceivers(const QHistoryState* self, const char* signal) {
     auto* vqhistorystate = const_cast<VirtualQHistoryState*>(dynamic_cast<const VirtualQHistoryState*>(self));
     if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
         vqhistorystate->setQHistoryState_Receivers_IsBase(true);
@@ -490,7 +490,7 @@ bool QHistoryState_IsSignalConnected(const QHistoryState* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QHistoryState_QBaseIsSignalConnected(const QHistoryState* self, const QMetaMethod* signal) {
+bool QHistoryState_SuperIsSignalConnected(const QHistoryState* self, const QMetaMethod* signal) {
     auto* vqhistorystate = const_cast<VirtualQHistoryState*>(dynamic_cast<const VirtualQHistoryState*>(self));
     if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
         vqhistorystate->setQHistoryState_IsSignalConnected_IsBase(true);

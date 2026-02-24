@@ -717,35 +717,35 @@ class VirtualQBuffer final : public QBuffer {
 
     // Friend functions
     friend void QBuffer_ConnectNotify(QBuffer* self, const QMetaMethod* param1);
-    friend void QBuffer_QBaseConnectNotify(QBuffer* self, const QMetaMethod* param1);
+    friend void QBuffer_SuperConnectNotify(QBuffer* self, const QMetaMethod* param1);
     friend void QBuffer_DisconnectNotify(QBuffer* self, const QMetaMethod* param1);
-    friend void QBuffer_QBaseDisconnectNotify(QBuffer* self, const QMetaMethod* param1);
+    friend void QBuffer_SuperDisconnectNotify(QBuffer* self, const QMetaMethod* param1);
     friend long long QBuffer_ReadData(QBuffer* self, char* data, long long maxlen);
-    friend long long QBuffer_QBaseReadData(QBuffer* self, char* data, long long maxlen);
+    friend long long QBuffer_SuperReadData(QBuffer* self, char* data, long long maxlen);
     friend long long QBuffer_WriteData(QBuffer* self, const char* data, long long lenVal);
-    friend long long QBuffer_QBaseWriteData(QBuffer* self, const char* data, long long lenVal);
+    friend long long QBuffer_SuperWriteData(QBuffer* self, const char* data, long long lenVal);
     friend long long QBuffer_ReadLineData(QBuffer* self, char* data, long long maxlen);
-    friend long long QBuffer_QBaseReadLineData(QBuffer* self, char* data, long long maxlen);
+    friend long long QBuffer_SuperReadLineData(QBuffer* self, char* data, long long maxlen);
     friend long long QBuffer_SkipData(QBuffer* self, long long maxSize);
-    friend long long QBuffer_QBaseSkipData(QBuffer* self, long long maxSize);
+    friend long long QBuffer_SuperSkipData(QBuffer* self, long long maxSize);
     friend void QBuffer_TimerEvent(QBuffer* self, QTimerEvent* event);
-    friend void QBuffer_QBaseTimerEvent(QBuffer* self, QTimerEvent* event);
+    friend void QBuffer_SuperTimerEvent(QBuffer* self, QTimerEvent* event);
     friend void QBuffer_ChildEvent(QBuffer* self, QChildEvent* event);
-    friend void QBuffer_QBaseChildEvent(QBuffer* self, QChildEvent* event);
+    friend void QBuffer_SuperChildEvent(QBuffer* self, QChildEvent* event);
     friend void QBuffer_CustomEvent(QBuffer* self, QEvent* event);
-    friend void QBuffer_QBaseCustomEvent(QBuffer* self, QEvent* event);
+    friend void QBuffer_SuperCustomEvent(QBuffer* self, QEvent* event);
     friend void QBuffer_SetOpenMode(QBuffer* self, int openMode);
-    friend void QBuffer_QBaseSetOpenMode(QBuffer* self, int openMode);
+    friend void QBuffer_SuperSetOpenMode(QBuffer* self, int openMode);
     friend void QBuffer_SetErrorString(QBuffer* self, const libqt_string errorString);
-    friend void QBuffer_QBaseSetErrorString(QBuffer* self, const libqt_string errorString);
+    friend void QBuffer_SuperSetErrorString(QBuffer* self, const libqt_string errorString);
     friend QObject* QBuffer_Sender(const QBuffer* self);
-    friend QObject* QBuffer_QBaseSender(const QBuffer* self);
+    friend QObject* QBuffer_SuperSender(const QBuffer* self);
     friend int QBuffer_SenderSignalIndex(const QBuffer* self);
-    friend int QBuffer_QBaseSenderSignalIndex(const QBuffer* self);
+    friend int QBuffer_SuperSenderSignalIndex(const QBuffer* self);
     friend int QBuffer_Receivers(const QBuffer* self, const char* signal);
-    friend int QBuffer_QBaseReceivers(const QBuffer* self, const char* signal);
+    friend int QBuffer_SuperReceivers(const QBuffer* self, const char* signal);
     friend bool QBuffer_IsSignalConnected(const QBuffer* self, const QMetaMethod* signal);
-    friend bool QBuffer_QBaseIsSignalConnected(const QBuffer* self, const QMetaMethod* signal);
+    friend bool QBuffer_SuperIsSignalConnected(const QBuffer* self, const QMetaMethod* signal);
 };
 
 #endif

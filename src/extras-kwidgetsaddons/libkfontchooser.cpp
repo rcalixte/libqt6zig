@@ -202,7 +202,7 @@ void KFontChooser_SetFont2(KFontChooser* self, const QFont* font, bool onlyFixed
 }
 
 // Base class handler implementation
-QMetaObject* KFontChooser_QBaseMetaObject(const KFontChooser* self) {
+QMetaObject* KFontChooser_SuperMetaObject(const KFontChooser* self) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_MetaObject_IsBase(true);
@@ -221,7 +221,7 @@ void KFontChooser_OnMetaObject(const KFontChooser* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KFontChooser_QBaseMetacast(KFontChooser* self, const char* param1) {
+void* KFontChooser_SuperMetacast(KFontChooser* self, const char* param1) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_Metacast_IsBase(true);
@@ -240,7 +240,7 @@ void KFontChooser_OnMetacast(KFontChooser* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KFontChooser_QBaseMetacall(KFontChooser* self, int param1, int param2, void** param3) {
+int KFontChooser_SuperMetacall(KFontChooser* self, int param1, int param2, void** param3) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_Metacall_IsBase(true);
@@ -259,7 +259,7 @@ void KFontChooser_OnMetacall(KFontChooser* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* KFontChooser_QBaseSizeHint(const KFontChooser* self) {
+QSize* KFontChooser_SuperSizeHint(const KFontChooser* self) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_SizeHint_IsBase(true);
@@ -288,7 +288,7 @@ int KFontChooser_DevType(const KFontChooser* self) {
 }
 
 // Base class handler implementation
-int KFontChooser_QBaseDevType(const KFontChooser* self) {
+int KFontChooser_SuperDevType(const KFontChooser* self) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_DevType_IsBase(true);
@@ -317,7 +317,7 @@ void KFontChooser_SetVisible(KFontChooser* self, bool visible) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseSetVisible(KFontChooser* self, bool visible) {
+void KFontChooser_SuperSetVisible(KFontChooser* self, bool visible) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_SetVisible_IsBase(true);
@@ -346,7 +346,7 @@ QSize* KFontChooser_MinimumSizeHint(const KFontChooser* self) {
 }
 
 // Base class handler implementation
-QSize* KFontChooser_QBaseMinimumSizeHint(const KFontChooser* self) {
+QSize* KFontChooser_SuperMinimumSizeHint(const KFontChooser* self) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_MinimumSizeHint_IsBase(true);
@@ -375,7 +375,7 @@ int KFontChooser_HeightForWidth(const KFontChooser* self, int param1) {
 }
 
 // Base class handler implementation
-int KFontChooser_QBaseHeightForWidth(const KFontChooser* self, int param1) {
+int KFontChooser_SuperHeightForWidth(const KFontChooser* self, int param1) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_HeightForWidth_IsBase(true);
@@ -404,7 +404,7 @@ bool KFontChooser_HasHeightForWidth(const KFontChooser* self) {
 }
 
 // Base class handler implementation
-bool KFontChooser_QBaseHasHeightForWidth(const KFontChooser* self) {
+bool KFontChooser_SuperHasHeightForWidth(const KFontChooser* self) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_HasHeightForWidth_IsBase(true);
@@ -433,7 +433,7 @@ QPaintEngine* KFontChooser_PaintEngine(const KFontChooser* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KFontChooser_QBasePaintEngine(const KFontChooser* self) {
+QPaintEngine* KFontChooser_SuperPaintEngine(const KFontChooser* self) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_PaintEngine_IsBase(true);
@@ -462,7 +462,7 @@ bool KFontChooser_Event(KFontChooser* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KFontChooser_QBaseEvent(KFontChooser* self, QEvent* event) {
+bool KFontChooser_SuperEvent(KFontChooser* self, QEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_Event_IsBase(true);
@@ -491,7 +491,7 @@ void KFontChooser_MousePressEvent(KFontChooser* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseMousePressEvent(KFontChooser* self, QMouseEvent* event) {
+void KFontChooser_SuperMousePressEvent(KFontChooser* self, QMouseEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_MousePressEvent_IsBase(true);
@@ -520,7 +520,7 @@ void KFontChooser_MouseReleaseEvent(KFontChooser* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseMouseReleaseEvent(KFontChooser* self, QMouseEvent* event) {
+void KFontChooser_SuperMouseReleaseEvent(KFontChooser* self, QMouseEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_MouseReleaseEvent_IsBase(true);
@@ -549,7 +549,7 @@ void KFontChooser_MouseDoubleClickEvent(KFontChooser* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseMouseDoubleClickEvent(KFontChooser* self, QMouseEvent* event) {
+void KFontChooser_SuperMouseDoubleClickEvent(KFontChooser* self, QMouseEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_MouseDoubleClickEvent_IsBase(true);
@@ -578,7 +578,7 @@ void KFontChooser_MouseMoveEvent(KFontChooser* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseMouseMoveEvent(KFontChooser* self, QMouseEvent* event) {
+void KFontChooser_SuperMouseMoveEvent(KFontChooser* self, QMouseEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_MouseMoveEvent_IsBase(true);
@@ -607,7 +607,7 @@ void KFontChooser_WheelEvent(KFontChooser* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseWheelEvent(KFontChooser* self, QWheelEvent* event) {
+void KFontChooser_SuperWheelEvent(KFontChooser* self, QWheelEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_WheelEvent_IsBase(true);
@@ -636,7 +636,7 @@ void KFontChooser_KeyPressEvent(KFontChooser* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseKeyPressEvent(KFontChooser* self, QKeyEvent* event) {
+void KFontChooser_SuperKeyPressEvent(KFontChooser* self, QKeyEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_KeyPressEvent_IsBase(true);
@@ -665,7 +665,7 @@ void KFontChooser_KeyReleaseEvent(KFontChooser* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseKeyReleaseEvent(KFontChooser* self, QKeyEvent* event) {
+void KFontChooser_SuperKeyReleaseEvent(KFontChooser* self, QKeyEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_KeyReleaseEvent_IsBase(true);
@@ -694,7 +694,7 @@ void KFontChooser_FocusInEvent(KFontChooser* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseFocusInEvent(KFontChooser* self, QFocusEvent* event) {
+void KFontChooser_SuperFocusInEvent(KFontChooser* self, QFocusEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_FocusInEvent_IsBase(true);
@@ -723,7 +723,7 @@ void KFontChooser_FocusOutEvent(KFontChooser* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseFocusOutEvent(KFontChooser* self, QFocusEvent* event) {
+void KFontChooser_SuperFocusOutEvent(KFontChooser* self, QFocusEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_FocusOutEvent_IsBase(true);
@@ -752,7 +752,7 @@ void KFontChooser_EnterEvent(KFontChooser* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseEnterEvent(KFontChooser* self, QEnterEvent* event) {
+void KFontChooser_SuperEnterEvent(KFontChooser* self, QEnterEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_EnterEvent_IsBase(true);
@@ -781,7 +781,7 @@ void KFontChooser_LeaveEvent(KFontChooser* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseLeaveEvent(KFontChooser* self, QEvent* event) {
+void KFontChooser_SuperLeaveEvent(KFontChooser* self, QEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_LeaveEvent_IsBase(true);
@@ -810,7 +810,7 @@ void KFontChooser_PaintEvent(KFontChooser* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBasePaintEvent(KFontChooser* self, QPaintEvent* event) {
+void KFontChooser_SuperPaintEvent(KFontChooser* self, QPaintEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_PaintEvent_IsBase(true);
@@ -839,7 +839,7 @@ void KFontChooser_MoveEvent(KFontChooser* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseMoveEvent(KFontChooser* self, QMoveEvent* event) {
+void KFontChooser_SuperMoveEvent(KFontChooser* self, QMoveEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_MoveEvent_IsBase(true);
@@ -868,7 +868,7 @@ void KFontChooser_ResizeEvent(KFontChooser* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseResizeEvent(KFontChooser* self, QResizeEvent* event) {
+void KFontChooser_SuperResizeEvent(KFontChooser* self, QResizeEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_ResizeEvent_IsBase(true);
@@ -897,7 +897,7 @@ void KFontChooser_CloseEvent(KFontChooser* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseCloseEvent(KFontChooser* self, QCloseEvent* event) {
+void KFontChooser_SuperCloseEvent(KFontChooser* self, QCloseEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_CloseEvent_IsBase(true);
@@ -926,7 +926,7 @@ void KFontChooser_ContextMenuEvent(KFontChooser* self, QContextMenuEvent* event)
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseContextMenuEvent(KFontChooser* self, QContextMenuEvent* event) {
+void KFontChooser_SuperContextMenuEvent(KFontChooser* self, QContextMenuEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_ContextMenuEvent_IsBase(true);
@@ -955,7 +955,7 @@ void KFontChooser_TabletEvent(KFontChooser* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseTabletEvent(KFontChooser* self, QTabletEvent* event) {
+void KFontChooser_SuperTabletEvent(KFontChooser* self, QTabletEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_TabletEvent_IsBase(true);
@@ -984,7 +984,7 @@ void KFontChooser_ActionEvent(KFontChooser* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseActionEvent(KFontChooser* self, QActionEvent* event) {
+void KFontChooser_SuperActionEvent(KFontChooser* self, QActionEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_ActionEvent_IsBase(true);
@@ -1013,7 +1013,7 @@ void KFontChooser_DragEnterEvent(KFontChooser* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseDragEnterEvent(KFontChooser* self, QDragEnterEvent* event) {
+void KFontChooser_SuperDragEnterEvent(KFontChooser* self, QDragEnterEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_DragEnterEvent_IsBase(true);
@@ -1042,7 +1042,7 @@ void KFontChooser_DragMoveEvent(KFontChooser* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseDragMoveEvent(KFontChooser* self, QDragMoveEvent* event) {
+void KFontChooser_SuperDragMoveEvent(KFontChooser* self, QDragMoveEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_DragMoveEvent_IsBase(true);
@@ -1071,7 +1071,7 @@ void KFontChooser_DragLeaveEvent(KFontChooser* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseDragLeaveEvent(KFontChooser* self, QDragLeaveEvent* event) {
+void KFontChooser_SuperDragLeaveEvent(KFontChooser* self, QDragLeaveEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_DragLeaveEvent_IsBase(true);
@@ -1100,7 +1100,7 @@ void KFontChooser_DropEvent(KFontChooser* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseDropEvent(KFontChooser* self, QDropEvent* event) {
+void KFontChooser_SuperDropEvent(KFontChooser* self, QDropEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_DropEvent_IsBase(true);
@@ -1129,7 +1129,7 @@ void KFontChooser_ShowEvent(KFontChooser* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseShowEvent(KFontChooser* self, QShowEvent* event) {
+void KFontChooser_SuperShowEvent(KFontChooser* self, QShowEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_ShowEvent_IsBase(true);
@@ -1158,7 +1158,7 @@ void KFontChooser_HideEvent(KFontChooser* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseHideEvent(KFontChooser* self, QHideEvent* event) {
+void KFontChooser_SuperHideEvent(KFontChooser* self, QHideEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_HideEvent_IsBase(true);
@@ -1188,7 +1188,7 @@ bool KFontChooser_NativeEvent(KFontChooser* self, const libqt_string eventType, 
 }
 
 // Base class handler implementation
-bool KFontChooser_QBaseNativeEvent(KFontChooser* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KFontChooser_SuperNativeEvent(KFontChooser* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
@@ -1218,7 +1218,7 @@ void KFontChooser_ChangeEvent(KFontChooser* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseChangeEvent(KFontChooser* self, QEvent* param1) {
+void KFontChooser_SuperChangeEvent(KFontChooser* self, QEvent* param1) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_ChangeEvent_IsBase(true);
@@ -1247,7 +1247,7 @@ int KFontChooser_Metric(const KFontChooser* self, int param1) {
 }
 
 // Base class handler implementation
-int KFontChooser_QBaseMetric(const KFontChooser* self, int param1) {
+int KFontChooser_SuperMetric(const KFontChooser* self, int param1) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_Metric_IsBase(true);
@@ -1276,7 +1276,7 @@ void KFontChooser_InitPainter(const KFontChooser* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseInitPainter(const KFontChooser* self, QPainter* painter) {
+void KFontChooser_SuperInitPainter(const KFontChooser* self, QPainter* painter) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_InitPainter_IsBase(true);
@@ -1305,7 +1305,7 @@ QPaintDevice* KFontChooser_Redirected(const KFontChooser* self, QPoint* offset) 
 }
 
 // Base class handler implementation
-QPaintDevice* KFontChooser_QBaseRedirected(const KFontChooser* self, QPoint* offset) {
+QPaintDevice* KFontChooser_SuperRedirected(const KFontChooser* self, QPoint* offset) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_Redirected_IsBase(true);
@@ -1334,7 +1334,7 @@ QPainter* KFontChooser_SharedPainter(const KFontChooser* self) {
 }
 
 // Base class handler implementation
-QPainter* KFontChooser_QBaseSharedPainter(const KFontChooser* self) {
+QPainter* KFontChooser_SuperSharedPainter(const KFontChooser* self) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_SharedPainter_IsBase(true);
@@ -1363,7 +1363,7 @@ void KFontChooser_InputMethodEvent(KFontChooser* self, QInputMethodEvent* param1
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseInputMethodEvent(KFontChooser* self, QInputMethodEvent* param1) {
+void KFontChooser_SuperInputMethodEvent(KFontChooser* self, QInputMethodEvent* param1) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_InputMethodEvent_IsBase(true);
@@ -1392,7 +1392,7 @@ QVariant* KFontChooser_InputMethodQuery(const KFontChooser* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KFontChooser_QBaseInputMethodQuery(const KFontChooser* self, int param1) {
+QVariant* KFontChooser_SuperInputMethodQuery(const KFontChooser* self, int param1) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_InputMethodQuery_IsBase(true);
@@ -1421,7 +1421,7 @@ bool KFontChooser_FocusNextPrevChild(KFontChooser* self, bool next) {
 }
 
 // Base class handler implementation
-bool KFontChooser_QBaseFocusNextPrevChild(KFontChooser* self, bool next) {
+bool KFontChooser_SuperFocusNextPrevChild(KFontChooser* self, bool next) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_FocusNextPrevChild_IsBase(true);
@@ -1450,7 +1450,7 @@ bool KFontChooser_EventFilter(KFontChooser* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool KFontChooser_QBaseEventFilter(KFontChooser* self, QObject* watched, QEvent* event) {
+bool KFontChooser_SuperEventFilter(KFontChooser* self, QObject* watched, QEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_EventFilter_IsBase(true);
@@ -1479,7 +1479,7 @@ void KFontChooser_TimerEvent(KFontChooser* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseTimerEvent(KFontChooser* self, QTimerEvent* event) {
+void KFontChooser_SuperTimerEvent(KFontChooser* self, QTimerEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_TimerEvent_IsBase(true);
@@ -1508,7 +1508,7 @@ void KFontChooser_ChildEvent(KFontChooser* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseChildEvent(KFontChooser* self, QChildEvent* event) {
+void KFontChooser_SuperChildEvent(KFontChooser* self, QChildEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_ChildEvent_IsBase(true);
@@ -1537,7 +1537,7 @@ void KFontChooser_CustomEvent(KFontChooser* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseCustomEvent(KFontChooser* self, QEvent* event) {
+void KFontChooser_SuperCustomEvent(KFontChooser* self, QEvent* event) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_CustomEvent_IsBase(true);
@@ -1566,7 +1566,7 @@ void KFontChooser_ConnectNotify(KFontChooser* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseConnectNotify(KFontChooser* self, const QMetaMethod* signal) {
+void KFontChooser_SuperConnectNotify(KFontChooser* self, const QMetaMethod* signal) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_ConnectNotify_IsBase(true);
@@ -1595,7 +1595,7 @@ void KFontChooser_DisconnectNotify(KFontChooser* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseDisconnectNotify(KFontChooser* self, const QMetaMethod* signal) {
+void KFontChooser_SuperDisconnectNotify(KFontChooser* self, const QMetaMethod* signal) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_DisconnectNotify_IsBase(true);
@@ -1624,7 +1624,7 @@ void KFontChooser_UpdateMicroFocus(KFontChooser* self) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseUpdateMicroFocus(KFontChooser* self) {
+void KFontChooser_SuperUpdateMicroFocus(KFontChooser* self) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_UpdateMicroFocus_IsBase(true);
@@ -1653,7 +1653,7 @@ void KFontChooser_Create(KFontChooser* self) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseCreate(KFontChooser* self) {
+void KFontChooser_SuperCreate(KFontChooser* self) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_Create_IsBase(true);
@@ -1682,7 +1682,7 @@ void KFontChooser_Destroy(KFontChooser* self) {
 }
 
 // Base class handler implementation
-void KFontChooser_QBaseDestroy(KFontChooser* self) {
+void KFontChooser_SuperDestroy(KFontChooser* self) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_Destroy_IsBase(true);
@@ -1711,7 +1711,7 @@ bool KFontChooser_FocusNextChild(KFontChooser* self) {
 }
 
 // Base class handler implementation
-bool KFontChooser_QBaseFocusNextChild(KFontChooser* self) {
+bool KFontChooser_SuperFocusNextChild(KFontChooser* self) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_FocusNextChild_IsBase(true);
@@ -1740,7 +1740,7 @@ bool KFontChooser_FocusPreviousChild(KFontChooser* self) {
 }
 
 // Base class handler implementation
-bool KFontChooser_QBaseFocusPreviousChild(KFontChooser* self) {
+bool KFontChooser_SuperFocusPreviousChild(KFontChooser* self) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_FocusPreviousChild_IsBase(true);
@@ -1769,7 +1769,7 @@ QObject* KFontChooser_Sender(const KFontChooser* self) {
 }
 
 // Base class handler implementation
-QObject* KFontChooser_QBaseSender(const KFontChooser* self) {
+QObject* KFontChooser_SuperSender(const KFontChooser* self) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_Sender_IsBase(true);
@@ -1798,7 +1798,7 @@ int KFontChooser_SenderSignalIndex(const KFontChooser* self) {
 }
 
 // Base class handler implementation
-int KFontChooser_QBaseSenderSignalIndex(const KFontChooser* self) {
+int KFontChooser_SuperSenderSignalIndex(const KFontChooser* self) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_SenderSignalIndex_IsBase(true);
@@ -1827,7 +1827,7 @@ int KFontChooser_Receivers(const KFontChooser* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KFontChooser_QBaseReceivers(const KFontChooser* self, const char* signal) {
+int KFontChooser_SuperReceivers(const KFontChooser* self, const char* signal) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_Receivers_IsBase(true);
@@ -1856,7 +1856,7 @@ bool KFontChooser_IsSignalConnected(const KFontChooser* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool KFontChooser_QBaseIsSignalConnected(const KFontChooser* self, const QMetaMethod* signal) {
+bool KFontChooser_SuperIsSignalConnected(const KFontChooser* self, const QMetaMethod* signal) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_IsSignalConnected_IsBase(true);
@@ -1885,7 +1885,7 @@ double KFontChooser_GetDecodedMetricF(const KFontChooser* self, int metricA, int
 }
 
 // Base class handler implementation
-double KFontChooser_QBaseGetDecodedMetricF(const KFontChooser* self, int metricA, int metricB) {
+double KFontChooser_SuperGetDecodedMetricF(const KFontChooser* self, int metricA, int metricB) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
     if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
         vkfontchooser->setKFontChooser_GetDecodedMetricF_IsBase(true);

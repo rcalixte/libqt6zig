@@ -1054,7 +1054,7 @@ void QAbstractItemModel_Connect_LayoutAboutToBeChanged2(QAbstractItemModel* self
 }
 
 // Base class handler implementation
-QMetaObject* QAbstractItemModel_QBaseMetaObject(const QAbstractItemModel* self) {
+QMetaObject* QAbstractItemModel_SuperMetaObject(const QAbstractItemModel* self) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_MetaObject_IsBase(true);
@@ -1073,7 +1073,7 @@ void QAbstractItemModel_OnMetaObject(const QAbstractItemModel* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* QAbstractItemModel_QBaseMetacast(QAbstractItemModel* self, const char* param1) {
+void* QAbstractItemModel_SuperMetacast(QAbstractItemModel* self, const char* param1) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_Metacast_IsBase(true);
@@ -1092,7 +1092,7 @@ void QAbstractItemModel_OnMetacast(QAbstractItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAbstractItemModel_QBaseMetacall(QAbstractItemModel* self, int param1, int param2, void** param3) {
+int QAbstractItemModel_SuperMetacall(QAbstractItemModel* self, int param1, int param2, void** param3) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_Metacall_IsBase(true);
@@ -1111,7 +1111,7 @@ void QAbstractItemModel_OnMetacall(QAbstractItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QModelIndex* QAbstractItemModel_QBaseIndex(const QAbstractItemModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* QAbstractItemModel_SuperIndex(const QAbstractItemModel* self, int row, int column, const QModelIndex* parent) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_Index_IsBase(true);
@@ -1130,7 +1130,7 @@ void QAbstractItemModel_OnIndex(const QAbstractItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QModelIndex* QAbstractItemModel_QBaseParent(const QAbstractItemModel* self, const QModelIndex* child) {
+QModelIndex* QAbstractItemModel_SuperParent(const QAbstractItemModel* self, const QModelIndex* child) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_Parent_IsBase(true);
@@ -1149,7 +1149,7 @@ void QAbstractItemModel_OnParent(const QAbstractItemModel* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-QModelIndex* QAbstractItemModel_QBaseSibling(const QAbstractItemModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* QAbstractItemModel_SuperSibling(const QAbstractItemModel* self, int row, int column, const QModelIndex* idx) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_Sibling_IsBase(true);
@@ -1168,7 +1168,7 @@ void QAbstractItemModel_OnSibling(const QAbstractItemModel* self, intptr_t slot)
 }
 
 // Base class handler implementation
-int QAbstractItemModel_QBaseRowCount(const QAbstractItemModel* self, const QModelIndex* parent) {
+int QAbstractItemModel_SuperRowCount(const QAbstractItemModel* self, const QModelIndex* parent) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_RowCount_IsBase(true);
@@ -1187,7 +1187,7 @@ void QAbstractItemModel_OnRowCount(const QAbstractItemModel* self, intptr_t slot
 }
 
 // Base class handler implementation
-int QAbstractItemModel_QBaseColumnCount(const QAbstractItemModel* self, const QModelIndex* parent) {
+int QAbstractItemModel_SuperColumnCount(const QAbstractItemModel* self, const QModelIndex* parent) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_ColumnCount_IsBase(true);
@@ -1206,7 +1206,7 @@ void QAbstractItemModel_OnColumnCount(const QAbstractItemModel* self, intptr_t s
 }
 
 // Base class handler implementation
-bool QAbstractItemModel_QBaseHasChildren(const QAbstractItemModel* self, const QModelIndex* parent) {
+bool QAbstractItemModel_SuperHasChildren(const QAbstractItemModel* self, const QModelIndex* parent) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_HasChildren_IsBase(true);
@@ -1225,7 +1225,7 @@ void QAbstractItemModel_OnHasChildren(const QAbstractItemModel* self, intptr_t s
 }
 
 // Base class handler implementation
-QVariant* QAbstractItemModel_QBaseData(const QAbstractItemModel* self, const QModelIndex* index, int role) {
+QVariant* QAbstractItemModel_SuperData(const QAbstractItemModel* self, const QModelIndex* index, int role) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_Data_IsBase(true);
@@ -1244,7 +1244,7 @@ void QAbstractItemModel_OnData(const QAbstractItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QAbstractItemModel_QBaseSetData(QAbstractItemModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool QAbstractItemModel_SuperSetData(QAbstractItemModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_SetData_IsBase(true);
@@ -1263,7 +1263,7 @@ void QAbstractItemModel_OnSetData(QAbstractItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QAbstractItemModel_QBaseHeaderData(const QAbstractItemModel* self, int section, int orientation, int role) {
+QVariant* QAbstractItemModel_SuperHeaderData(const QAbstractItemModel* self, int section, int orientation, int role) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_HeaderData_IsBase(true);
@@ -1282,7 +1282,7 @@ void QAbstractItemModel_OnHeaderData(const QAbstractItemModel* self, intptr_t sl
 }
 
 // Base class handler implementation
-bool QAbstractItemModel_QBaseSetHeaderData(QAbstractItemModel* self, int section, int orientation, const QVariant* value, int role) {
+bool QAbstractItemModel_SuperSetHeaderData(QAbstractItemModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_SetHeaderData_IsBase(true);
@@ -1301,7 +1301,7 @@ void QAbstractItemModel_OnSetHeaderData(QAbstractItemModel* self, intptr_t slot)
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ QAbstractItemModel_QBaseItemData(const QAbstractItemModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ QAbstractItemModel_SuperItemData(const QAbstractItemModel* self, const QModelIndex* index) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_ItemData_IsBase(true);
@@ -1348,7 +1348,7 @@ void QAbstractItemModel_OnItemData(const QAbstractItemModel* self, intptr_t slot
 }
 
 // Base class handler implementation
-bool QAbstractItemModel_QBaseSetItemData(QAbstractItemModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool QAbstractItemModel_SuperSetItemData(QAbstractItemModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -1373,7 +1373,7 @@ void QAbstractItemModel_OnSetItemData(QAbstractItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QAbstractItemModel_QBaseClearItemData(QAbstractItemModel* self, const QModelIndex* index) {
+bool QAbstractItemModel_SuperClearItemData(QAbstractItemModel* self, const QModelIndex* index) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_ClearItemData_IsBase(true);
@@ -1392,7 +1392,7 @@ void QAbstractItemModel_OnClearItemData(QAbstractItemModel* self, intptr_t slot)
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QAbstractItemModel_QBaseMimeTypes(const QAbstractItemModel* self) {
+libqt_list /* of libqt_string */ QAbstractItemModel_SuperMimeTypes(const QAbstractItemModel* self) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_MimeTypes_IsBase(true);
@@ -1445,7 +1445,7 @@ void QAbstractItemModel_OnMimeTypes(const QAbstractItemModel* self, intptr_t slo
 }
 
 // Base class handler implementation
-QMimeData* QAbstractItemModel_QBaseMimeData(const QAbstractItemModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* QAbstractItemModel_SuperMimeData(const QAbstractItemModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -1470,7 +1470,7 @@ void QAbstractItemModel_OnMimeData(const QAbstractItemModel* self, intptr_t slot
 }
 
 // Base class handler implementation
-bool QAbstractItemModel_QBaseCanDropMimeData(const QAbstractItemModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QAbstractItemModel_SuperCanDropMimeData(const QAbstractItemModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_CanDropMimeData_IsBase(true);
@@ -1489,7 +1489,7 @@ void QAbstractItemModel_OnCanDropMimeData(const QAbstractItemModel* self, intptr
 }
 
 // Base class handler implementation
-bool QAbstractItemModel_QBaseDropMimeData(QAbstractItemModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QAbstractItemModel_SuperDropMimeData(QAbstractItemModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_DropMimeData_IsBase(true);
@@ -1508,7 +1508,7 @@ void QAbstractItemModel_OnDropMimeData(QAbstractItemModel* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int QAbstractItemModel_QBaseSupportedDropActions(const QAbstractItemModel* self) {
+int QAbstractItemModel_SuperSupportedDropActions(const QAbstractItemModel* self) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_SupportedDropActions_IsBase(true);
@@ -1527,7 +1527,7 @@ void QAbstractItemModel_OnSupportedDropActions(const QAbstractItemModel* self, i
 }
 
 // Base class handler implementation
-int QAbstractItemModel_QBaseSupportedDragActions(const QAbstractItemModel* self) {
+int QAbstractItemModel_SuperSupportedDragActions(const QAbstractItemModel* self) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_SupportedDragActions_IsBase(true);
@@ -1546,7 +1546,7 @@ void QAbstractItemModel_OnSupportedDragActions(const QAbstractItemModel* self, i
 }
 
 // Base class handler implementation
-bool QAbstractItemModel_QBaseInsertRows(QAbstractItemModel* self, int row, int count, const QModelIndex* parent) {
+bool QAbstractItemModel_SuperInsertRows(QAbstractItemModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_InsertRows_IsBase(true);
@@ -1565,7 +1565,7 @@ void QAbstractItemModel_OnInsertRows(QAbstractItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QAbstractItemModel_QBaseInsertColumns(QAbstractItemModel* self, int column, int count, const QModelIndex* parent) {
+bool QAbstractItemModel_SuperInsertColumns(QAbstractItemModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_InsertColumns_IsBase(true);
@@ -1584,7 +1584,7 @@ void QAbstractItemModel_OnInsertColumns(QAbstractItemModel* self, intptr_t slot)
 }
 
 // Base class handler implementation
-bool QAbstractItemModel_QBaseRemoveRows(QAbstractItemModel* self, int row, int count, const QModelIndex* parent) {
+bool QAbstractItemModel_SuperRemoveRows(QAbstractItemModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_RemoveRows_IsBase(true);
@@ -1603,7 +1603,7 @@ void QAbstractItemModel_OnRemoveRows(QAbstractItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QAbstractItemModel_QBaseRemoveColumns(QAbstractItemModel* self, int column, int count, const QModelIndex* parent) {
+bool QAbstractItemModel_SuperRemoveColumns(QAbstractItemModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_RemoveColumns_IsBase(true);
@@ -1622,7 +1622,7 @@ void QAbstractItemModel_OnRemoveColumns(QAbstractItemModel* self, intptr_t slot)
 }
 
 // Base class handler implementation
-bool QAbstractItemModel_QBaseMoveRows(QAbstractItemModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QAbstractItemModel_SuperMoveRows(QAbstractItemModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_MoveRows_IsBase(true);
@@ -1641,7 +1641,7 @@ void QAbstractItemModel_OnMoveRows(QAbstractItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QAbstractItemModel_QBaseMoveColumns(QAbstractItemModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QAbstractItemModel_SuperMoveColumns(QAbstractItemModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_MoveColumns_IsBase(true);
@@ -1660,7 +1660,7 @@ void QAbstractItemModel_OnMoveColumns(QAbstractItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseFetchMore(QAbstractItemModel* self, const QModelIndex* parent) {
+void QAbstractItemModel_SuperFetchMore(QAbstractItemModel* self, const QModelIndex* parent) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_FetchMore_IsBase(true);
@@ -1679,7 +1679,7 @@ void QAbstractItemModel_OnFetchMore(QAbstractItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QAbstractItemModel_QBaseCanFetchMore(const QAbstractItemModel* self, const QModelIndex* parent) {
+bool QAbstractItemModel_SuperCanFetchMore(const QAbstractItemModel* self, const QModelIndex* parent) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_CanFetchMore_IsBase(true);
@@ -1698,7 +1698,7 @@ void QAbstractItemModel_OnCanFetchMore(const QAbstractItemModel* self, intptr_t 
 }
 
 // Base class handler implementation
-int QAbstractItemModel_QBaseFlags(const QAbstractItemModel* self, const QModelIndex* index) {
+int QAbstractItemModel_SuperFlags(const QAbstractItemModel* self, const QModelIndex* index) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_Flags_IsBase(true);
@@ -1717,7 +1717,7 @@ void QAbstractItemModel_OnFlags(const QAbstractItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseSort(QAbstractItemModel* self, int column, int order) {
+void QAbstractItemModel_SuperSort(QAbstractItemModel* self, int column, int order) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_Sort_IsBase(true);
@@ -1736,7 +1736,7 @@ void QAbstractItemModel_OnSort(QAbstractItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QModelIndex* QAbstractItemModel_QBaseBuddy(const QAbstractItemModel* self, const QModelIndex* index) {
+QModelIndex* QAbstractItemModel_SuperBuddy(const QAbstractItemModel* self, const QModelIndex* index) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_Buddy_IsBase(true);
@@ -1755,7 +1755,7 @@ void QAbstractItemModel_OnBuddy(const QAbstractItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QAbstractItemModel_QBaseMatch(const QAbstractItemModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ QAbstractItemModel_SuperMatch(const QAbstractItemModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_Match_IsBase(true);
@@ -1792,7 +1792,7 @@ void QAbstractItemModel_OnMatch(const QAbstractItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QAbstractItemModel_QBaseSpan(const QAbstractItemModel* self, const QModelIndex* index) {
+QSize* QAbstractItemModel_SuperSpan(const QAbstractItemModel* self, const QModelIndex* index) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_Span_IsBase(true);
@@ -1811,7 +1811,7 @@ void QAbstractItemModel_OnSpan(const QAbstractItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ QAbstractItemModel_QBaseRoleNames(const QAbstractItemModel* self) {
+libqt_map /* of int to libqt_string */ QAbstractItemModel_SuperRoleNames(const QAbstractItemModel* self) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_RoleNames_IsBase(true);
@@ -1868,7 +1868,7 @@ void QAbstractItemModel_OnRoleNames(const QAbstractItemModel* self, intptr_t slo
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseMultiData(const QAbstractItemModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void QAbstractItemModel_SuperMultiData(const QAbstractItemModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_MultiData_IsBase(true);
@@ -1887,7 +1887,7 @@ void QAbstractItemModel_OnMultiData(const QAbstractItemModel* self, intptr_t slo
 }
 
 // Base class handler implementation
-bool QAbstractItemModel_QBaseSubmit(QAbstractItemModel* self) {
+bool QAbstractItemModel_SuperSubmit(QAbstractItemModel* self) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_Submit_IsBase(true);
@@ -1906,7 +1906,7 @@ void QAbstractItemModel_OnSubmit(QAbstractItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseRevert(QAbstractItemModel* self) {
+void QAbstractItemModel_SuperRevert(QAbstractItemModel* self) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_Revert_IsBase(true);
@@ -1925,7 +1925,7 @@ void QAbstractItemModel_OnRevert(QAbstractItemModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseResetInternalData(QAbstractItemModel* self) {
+void QAbstractItemModel_SuperResetInternalData(QAbstractItemModel* self) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_ResetInternalData_IsBase(true);
@@ -1954,7 +1954,7 @@ bool QAbstractItemModel_Event(QAbstractItemModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QAbstractItemModel_QBaseEvent(QAbstractItemModel* self, QEvent* event) {
+bool QAbstractItemModel_SuperEvent(QAbstractItemModel* self, QEvent* event) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_Event_IsBase(true);
@@ -1983,7 +1983,7 @@ bool QAbstractItemModel_EventFilter(QAbstractItemModel* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool QAbstractItemModel_QBaseEventFilter(QAbstractItemModel* self, QObject* watched, QEvent* event) {
+bool QAbstractItemModel_SuperEventFilter(QAbstractItemModel* self, QObject* watched, QEvent* event) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_EventFilter_IsBase(true);
@@ -2012,7 +2012,7 @@ void QAbstractItemModel_TimerEvent(QAbstractItemModel* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseTimerEvent(QAbstractItemModel* self, QTimerEvent* event) {
+void QAbstractItemModel_SuperTimerEvent(QAbstractItemModel* self, QTimerEvent* event) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_TimerEvent_IsBase(true);
@@ -2041,7 +2041,7 @@ void QAbstractItemModel_ChildEvent(QAbstractItemModel* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseChildEvent(QAbstractItemModel* self, QChildEvent* event) {
+void QAbstractItemModel_SuperChildEvent(QAbstractItemModel* self, QChildEvent* event) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_ChildEvent_IsBase(true);
@@ -2070,7 +2070,7 @@ void QAbstractItemModel_CustomEvent(QAbstractItemModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseCustomEvent(QAbstractItemModel* self, QEvent* event) {
+void QAbstractItemModel_SuperCustomEvent(QAbstractItemModel* self, QEvent* event) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_CustomEvent_IsBase(true);
@@ -2099,7 +2099,7 @@ void QAbstractItemModel_ConnectNotify(QAbstractItemModel* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseConnectNotify(QAbstractItemModel* self, const QMetaMethod* signal) {
+void QAbstractItemModel_SuperConnectNotify(QAbstractItemModel* self, const QMetaMethod* signal) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_ConnectNotify_IsBase(true);
@@ -2128,7 +2128,7 @@ void QAbstractItemModel_DisconnectNotify(QAbstractItemModel* self, const QMetaMe
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseDisconnectNotify(QAbstractItemModel* self, const QMetaMethod* signal) {
+void QAbstractItemModel_SuperDisconnectNotify(QAbstractItemModel* self, const QMetaMethod* signal) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_DisconnectNotify_IsBase(true);
@@ -2156,7 +2156,7 @@ QModelIndex* QAbstractItemModel_CreateIndex(const QAbstractItemModel* self, int 
 }
 
 // Base class handler implementation
-QModelIndex* QAbstractItemModel_QBaseCreateIndex(const QAbstractItemModel* self, int row, int column) {
+QModelIndex* QAbstractItemModel_SuperCreateIndex(const QAbstractItemModel* self, int row, int column) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_CreateIndex_IsBase(true);
@@ -2183,7 +2183,7 @@ QModelIndex* QAbstractItemModel_CreateIndex2(const QAbstractItemModel* self, int
 }
 
 // Base class handler implementation
-QModelIndex* QAbstractItemModel_QBaseCreateIndex2(const QAbstractItemModel* self, int row, int column, uintptr_t id) {
+QModelIndex* QAbstractItemModel_SuperCreateIndex2(const QAbstractItemModel* self, int row, int column, uintptr_t id) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_CreateIndex2_IsBase(true);
@@ -2217,7 +2217,7 @@ void QAbstractItemModel_EncodeData(const QAbstractItemModel* self, const libqt_l
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseEncodeData(const QAbstractItemModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void QAbstractItemModel_SuperEncodeData(const QAbstractItemModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -2252,7 +2252,7 @@ bool QAbstractItemModel_DecodeData(QAbstractItemModel* self, int row, int column
 }
 
 // Base class handler implementation
-bool QAbstractItemModel_QBaseDecodeData(QAbstractItemModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool QAbstractItemModel_SuperDecodeData(QAbstractItemModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_DecodeData_IsBase(true);
@@ -2281,7 +2281,7 @@ void QAbstractItemModel_BeginInsertRows(QAbstractItemModel* self, const QModelIn
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseBeginInsertRows(QAbstractItemModel* self, const QModelIndex* parent, int first, int last) {
+void QAbstractItemModel_SuperBeginInsertRows(QAbstractItemModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_BeginInsertRows_IsBase(true);
@@ -2310,7 +2310,7 @@ void QAbstractItemModel_EndInsertRows(QAbstractItemModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseEndInsertRows(QAbstractItemModel* self) {
+void QAbstractItemModel_SuperEndInsertRows(QAbstractItemModel* self) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_EndInsertRows_IsBase(true);
@@ -2339,7 +2339,7 @@ void QAbstractItemModel_BeginRemoveRows(QAbstractItemModel* self, const QModelIn
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseBeginRemoveRows(QAbstractItemModel* self, const QModelIndex* parent, int first, int last) {
+void QAbstractItemModel_SuperBeginRemoveRows(QAbstractItemModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_BeginRemoveRows_IsBase(true);
@@ -2368,7 +2368,7 @@ void QAbstractItemModel_EndRemoveRows(QAbstractItemModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseEndRemoveRows(QAbstractItemModel* self) {
+void QAbstractItemModel_SuperEndRemoveRows(QAbstractItemModel* self) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_EndRemoveRows_IsBase(true);
@@ -2397,7 +2397,7 @@ bool QAbstractItemModel_BeginMoveRows(QAbstractItemModel* self, const QModelInde
 }
 
 // Base class handler implementation
-bool QAbstractItemModel_QBaseBeginMoveRows(QAbstractItemModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool QAbstractItemModel_SuperBeginMoveRows(QAbstractItemModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_BeginMoveRows_IsBase(true);
@@ -2426,7 +2426,7 @@ void QAbstractItemModel_EndMoveRows(QAbstractItemModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseEndMoveRows(QAbstractItemModel* self) {
+void QAbstractItemModel_SuperEndMoveRows(QAbstractItemModel* self) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_EndMoveRows_IsBase(true);
@@ -2455,7 +2455,7 @@ void QAbstractItemModel_BeginInsertColumns(QAbstractItemModel* self, const QMode
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseBeginInsertColumns(QAbstractItemModel* self, const QModelIndex* parent, int first, int last) {
+void QAbstractItemModel_SuperBeginInsertColumns(QAbstractItemModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_BeginInsertColumns_IsBase(true);
@@ -2484,7 +2484,7 @@ void QAbstractItemModel_EndInsertColumns(QAbstractItemModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseEndInsertColumns(QAbstractItemModel* self) {
+void QAbstractItemModel_SuperEndInsertColumns(QAbstractItemModel* self) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_EndInsertColumns_IsBase(true);
@@ -2513,7 +2513,7 @@ void QAbstractItemModel_BeginRemoveColumns(QAbstractItemModel* self, const QMode
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseBeginRemoveColumns(QAbstractItemModel* self, const QModelIndex* parent, int first, int last) {
+void QAbstractItemModel_SuperBeginRemoveColumns(QAbstractItemModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_BeginRemoveColumns_IsBase(true);
@@ -2542,7 +2542,7 @@ void QAbstractItemModel_EndRemoveColumns(QAbstractItemModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseEndRemoveColumns(QAbstractItemModel* self) {
+void QAbstractItemModel_SuperEndRemoveColumns(QAbstractItemModel* self) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_EndRemoveColumns_IsBase(true);
@@ -2571,7 +2571,7 @@ bool QAbstractItemModel_BeginMoveColumns(QAbstractItemModel* self, const QModelI
 }
 
 // Base class handler implementation
-bool QAbstractItemModel_QBaseBeginMoveColumns(QAbstractItemModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool QAbstractItemModel_SuperBeginMoveColumns(QAbstractItemModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_BeginMoveColumns_IsBase(true);
@@ -2600,7 +2600,7 @@ void QAbstractItemModel_EndMoveColumns(QAbstractItemModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseEndMoveColumns(QAbstractItemModel* self) {
+void QAbstractItemModel_SuperEndMoveColumns(QAbstractItemModel* self) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_EndMoveColumns_IsBase(true);
@@ -2629,7 +2629,7 @@ void QAbstractItemModel_BeginResetModel(QAbstractItemModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseBeginResetModel(QAbstractItemModel* self) {
+void QAbstractItemModel_SuperBeginResetModel(QAbstractItemModel* self) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_BeginResetModel_IsBase(true);
@@ -2658,7 +2658,7 @@ void QAbstractItemModel_EndResetModel(QAbstractItemModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseEndResetModel(QAbstractItemModel* self) {
+void QAbstractItemModel_SuperEndResetModel(QAbstractItemModel* self) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_EndResetModel_IsBase(true);
@@ -2687,7 +2687,7 @@ void QAbstractItemModel_ChangePersistentIndex(QAbstractItemModel* self, const QM
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseChangePersistentIndex(QAbstractItemModel* self, const QModelIndex* from, const QModelIndex* to) {
+void QAbstractItemModel_SuperChangePersistentIndex(QAbstractItemModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_ChangePersistentIndex_IsBase(true);
@@ -2728,7 +2728,7 @@ void QAbstractItemModel_ChangePersistentIndexList(QAbstractItemModel* self, cons
 }
 
 // Base class handler implementation
-void QAbstractItemModel_QBaseChangePersistentIndexList(QAbstractItemModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void QAbstractItemModel_SuperChangePersistentIndexList(QAbstractItemModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -2787,7 +2787,7 @@ libqt_list /* of QModelIndex* */ QAbstractItemModel_PersistentIndexList(const QA
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QAbstractItemModel_QBasePersistentIndexList(const QAbstractItemModel* self) {
+libqt_list /* of QModelIndex* */ QAbstractItemModel_SuperPersistentIndexList(const QAbstractItemModel* self) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_PersistentIndexList_IsBase(true);
@@ -2833,7 +2833,7 @@ QModelIndex* QAbstractItemModel_CreateIndex3(const QAbstractItemModel* self, int
 }
 
 // Base class handler implementation
-QModelIndex* QAbstractItemModel_QBaseCreateIndex3(const QAbstractItemModel* self, int row, int column, const void* data) {
+QModelIndex* QAbstractItemModel_SuperCreateIndex3(const QAbstractItemModel* self, int row, int column, const void* data) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_CreateIndex3_IsBase(true);
@@ -2861,7 +2861,7 @@ QObject* QAbstractItemModel_Sender(const QAbstractItemModel* self) {
 }
 
 // Base class handler implementation
-QObject* QAbstractItemModel_QBaseSender(const QAbstractItemModel* self) {
+QObject* QAbstractItemModel_SuperSender(const QAbstractItemModel* self) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_Sender_IsBase(true);
@@ -2890,7 +2890,7 @@ int QAbstractItemModel_SenderSignalIndex(const QAbstractItemModel* self) {
 }
 
 // Base class handler implementation
-int QAbstractItemModel_QBaseSenderSignalIndex(const QAbstractItemModel* self) {
+int QAbstractItemModel_SuperSenderSignalIndex(const QAbstractItemModel* self) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_SenderSignalIndex_IsBase(true);
@@ -2919,7 +2919,7 @@ int QAbstractItemModel_Receivers(const QAbstractItemModel* self, const char* sig
 }
 
 // Base class handler implementation
-int QAbstractItemModel_QBaseReceivers(const QAbstractItemModel* self, const char* signal) {
+int QAbstractItemModel_SuperReceivers(const QAbstractItemModel* self, const char* signal) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_Receivers_IsBase(true);
@@ -2948,7 +2948,7 @@ bool QAbstractItemModel_IsSignalConnected(const QAbstractItemModel* self, const 
 }
 
 // Base class handler implementation
-bool QAbstractItemModel_QBaseIsSignalConnected(const QAbstractItemModel* self, const QMetaMethod* signal) {
+bool QAbstractItemModel_SuperIsSignalConnected(const QAbstractItemModel* self, const QMetaMethod* signal) {
     auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_IsSignalConnected_IsBase(true);
@@ -3216,7 +3216,7 @@ int QAbstractTableModel_Flags(const QAbstractTableModel* self, const QModelIndex
 }
 
 // Base class handler implementation
-QMetaObject* QAbstractTableModel_QBaseMetaObject(const QAbstractTableModel* self) {
+QMetaObject* QAbstractTableModel_SuperMetaObject(const QAbstractTableModel* self) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_MetaObject_IsBase(true);
@@ -3235,7 +3235,7 @@ void QAbstractTableModel_OnMetaObject(const QAbstractTableModel* self, intptr_t 
 }
 
 // Base class handler implementation
-void* QAbstractTableModel_QBaseMetacast(QAbstractTableModel* self, const char* param1) {
+void* QAbstractTableModel_SuperMetacast(QAbstractTableModel* self, const char* param1) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_Metacast_IsBase(true);
@@ -3254,7 +3254,7 @@ void QAbstractTableModel_OnMetacast(QAbstractTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAbstractTableModel_QBaseMetacall(QAbstractTableModel* self, int param1, int param2, void** param3) {
+int QAbstractTableModel_SuperMetacall(QAbstractTableModel* self, int param1, int param2, void** param3) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_Metacall_IsBase(true);
@@ -3273,7 +3273,7 @@ void QAbstractTableModel_OnMetacall(QAbstractTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QModelIndex* QAbstractTableModel_QBaseIndex(const QAbstractTableModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* QAbstractTableModel_SuperIndex(const QAbstractTableModel* self, int row, int column, const QModelIndex* parent) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_Index_IsBase(true);
@@ -3292,7 +3292,7 @@ void QAbstractTableModel_OnIndex(const QAbstractTableModel* self, intptr_t slot)
 }
 
 // Base class handler implementation
-QModelIndex* QAbstractTableModel_QBaseSibling(const QAbstractTableModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* QAbstractTableModel_SuperSibling(const QAbstractTableModel* self, int row, int column, const QModelIndex* idx) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_Sibling_IsBase(true);
@@ -3311,7 +3311,7 @@ void QAbstractTableModel_OnSibling(const QAbstractTableModel* self, intptr_t slo
 }
 
 // Base class handler implementation
-bool QAbstractTableModel_QBaseDropMimeData(QAbstractTableModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QAbstractTableModel_SuperDropMimeData(QAbstractTableModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_DropMimeData_IsBase(true);
@@ -3330,7 +3330,7 @@ void QAbstractTableModel_OnDropMimeData(QAbstractTableModel* self, intptr_t slot
 }
 
 // Base class handler implementation
-int QAbstractTableModel_QBaseFlags(const QAbstractTableModel* self, const QModelIndex* index) {
+int QAbstractTableModel_SuperFlags(const QAbstractTableModel* self, const QModelIndex* index) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_Flags_IsBase(true);
@@ -3359,7 +3359,7 @@ int QAbstractTableModel_RowCount(const QAbstractTableModel* self, const QModelIn
 }
 
 // Base class handler implementation
-int QAbstractTableModel_QBaseRowCount(const QAbstractTableModel* self, const QModelIndex* parent) {
+int QAbstractTableModel_SuperRowCount(const QAbstractTableModel* self, const QModelIndex* parent) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_RowCount_IsBase(true);
@@ -3388,7 +3388,7 @@ int QAbstractTableModel_ColumnCount(const QAbstractTableModel* self, const QMode
 }
 
 // Base class handler implementation
-int QAbstractTableModel_QBaseColumnCount(const QAbstractTableModel* self, const QModelIndex* parent) {
+int QAbstractTableModel_SuperColumnCount(const QAbstractTableModel* self, const QModelIndex* parent) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_ColumnCount_IsBase(true);
@@ -3417,7 +3417,7 @@ QVariant* QAbstractTableModel_Data(const QAbstractTableModel* self, const QModel
 }
 
 // Base class handler implementation
-QVariant* QAbstractTableModel_QBaseData(const QAbstractTableModel* self, const QModelIndex* index, int role) {
+QVariant* QAbstractTableModel_SuperData(const QAbstractTableModel* self, const QModelIndex* index, int role) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_Data_IsBase(true);
@@ -3446,7 +3446,7 @@ bool QAbstractTableModel_SetData(QAbstractTableModel* self, const QModelIndex* i
 }
 
 // Base class handler implementation
-bool QAbstractTableModel_QBaseSetData(QAbstractTableModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool QAbstractTableModel_SuperSetData(QAbstractTableModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_SetData_IsBase(true);
@@ -3475,7 +3475,7 @@ QVariant* QAbstractTableModel_HeaderData(const QAbstractTableModel* self, int se
 }
 
 // Base class handler implementation
-QVariant* QAbstractTableModel_QBaseHeaderData(const QAbstractTableModel* self, int section, int orientation, int role) {
+QVariant* QAbstractTableModel_SuperHeaderData(const QAbstractTableModel* self, int section, int orientation, int role) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_HeaderData_IsBase(true);
@@ -3504,7 +3504,7 @@ bool QAbstractTableModel_SetHeaderData(QAbstractTableModel* self, int section, i
 }
 
 // Base class handler implementation
-bool QAbstractTableModel_QBaseSetHeaderData(QAbstractTableModel* self, int section, int orientation, const QVariant* value, int role) {
+bool QAbstractTableModel_SuperSetHeaderData(QAbstractTableModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_SetHeaderData_IsBase(true);
@@ -3561,7 +3561,7 @@ libqt_map /* of int to QVariant* */ QAbstractTableModel_ItemData(const QAbstract
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ QAbstractTableModel_QBaseItemData(const QAbstractTableModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ QAbstractTableModel_SuperItemData(const QAbstractTableModel* self, const QModelIndex* index) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_ItemData_IsBase(true);
@@ -3624,7 +3624,7 @@ bool QAbstractTableModel_SetItemData(QAbstractTableModel* self, const QModelInde
 }
 
 // Base class handler implementation
-bool QAbstractTableModel_QBaseSetItemData(QAbstractTableModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool QAbstractTableModel_SuperSetItemData(QAbstractTableModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -3659,7 +3659,7 @@ bool QAbstractTableModel_ClearItemData(QAbstractTableModel* self, const QModelIn
 }
 
 // Base class handler implementation
-bool QAbstractTableModel_QBaseClearItemData(QAbstractTableModel* self, const QModelIndex* index) {
+bool QAbstractTableModel_SuperClearItemData(QAbstractTableModel* self, const QModelIndex* index) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_ClearItemData_IsBase(true);
@@ -3722,7 +3722,7 @@ libqt_list /* of libqt_string */ QAbstractTableModel_MimeTypes(const QAbstractTa
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QAbstractTableModel_QBaseMimeTypes(const QAbstractTableModel* self) {
+libqt_list /* of libqt_string */ QAbstractTableModel_SuperMimeTypes(const QAbstractTableModel* self) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_MimeTypes_IsBase(true);
@@ -3791,7 +3791,7 @@ QMimeData* QAbstractTableModel_MimeData(const QAbstractTableModel* self, const l
 }
 
 // Base class handler implementation
-QMimeData* QAbstractTableModel_QBaseMimeData(const QAbstractTableModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* QAbstractTableModel_SuperMimeData(const QAbstractTableModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -3826,7 +3826,7 @@ bool QAbstractTableModel_CanDropMimeData(const QAbstractTableModel* self, const 
 }
 
 // Base class handler implementation
-bool QAbstractTableModel_QBaseCanDropMimeData(const QAbstractTableModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QAbstractTableModel_SuperCanDropMimeData(const QAbstractTableModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_CanDropMimeData_IsBase(true);
@@ -3855,7 +3855,7 @@ int QAbstractTableModel_SupportedDropActions(const QAbstractTableModel* self) {
 }
 
 // Base class handler implementation
-int QAbstractTableModel_QBaseSupportedDropActions(const QAbstractTableModel* self) {
+int QAbstractTableModel_SuperSupportedDropActions(const QAbstractTableModel* self) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_SupportedDropActions_IsBase(true);
@@ -3884,7 +3884,7 @@ int QAbstractTableModel_SupportedDragActions(const QAbstractTableModel* self) {
 }
 
 // Base class handler implementation
-int QAbstractTableModel_QBaseSupportedDragActions(const QAbstractTableModel* self) {
+int QAbstractTableModel_SuperSupportedDragActions(const QAbstractTableModel* self) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_SupportedDragActions_IsBase(true);
@@ -3913,7 +3913,7 @@ bool QAbstractTableModel_InsertRows(QAbstractTableModel* self, int row, int coun
 }
 
 // Base class handler implementation
-bool QAbstractTableModel_QBaseInsertRows(QAbstractTableModel* self, int row, int count, const QModelIndex* parent) {
+bool QAbstractTableModel_SuperInsertRows(QAbstractTableModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_InsertRows_IsBase(true);
@@ -3942,7 +3942,7 @@ bool QAbstractTableModel_InsertColumns(QAbstractTableModel* self, int column, in
 }
 
 // Base class handler implementation
-bool QAbstractTableModel_QBaseInsertColumns(QAbstractTableModel* self, int column, int count, const QModelIndex* parent) {
+bool QAbstractTableModel_SuperInsertColumns(QAbstractTableModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_InsertColumns_IsBase(true);
@@ -3971,7 +3971,7 @@ bool QAbstractTableModel_RemoveRows(QAbstractTableModel* self, int row, int coun
 }
 
 // Base class handler implementation
-bool QAbstractTableModel_QBaseRemoveRows(QAbstractTableModel* self, int row, int count, const QModelIndex* parent) {
+bool QAbstractTableModel_SuperRemoveRows(QAbstractTableModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_RemoveRows_IsBase(true);
@@ -4000,7 +4000,7 @@ bool QAbstractTableModel_RemoveColumns(QAbstractTableModel* self, int column, in
 }
 
 // Base class handler implementation
-bool QAbstractTableModel_QBaseRemoveColumns(QAbstractTableModel* self, int column, int count, const QModelIndex* parent) {
+bool QAbstractTableModel_SuperRemoveColumns(QAbstractTableModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_RemoveColumns_IsBase(true);
@@ -4029,7 +4029,7 @@ bool QAbstractTableModel_MoveRows(QAbstractTableModel* self, const QModelIndex* 
 }
 
 // Base class handler implementation
-bool QAbstractTableModel_QBaseMoveRows(QAbstractTableModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QAbstractTableModel_SuperMoveRows(QAbstractTableModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_MoveRows_IsBase(true);
@@ -4058,7 +4058,7 @@ bool QAbstractTableModel_MoveColumns(QAbstractTableModel* self, const QModelInde
 }
 
 // Base class handler implementation
-bool QAbstractTableModel_QBaseMoveColumns(QAbstractTableModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QAbstractTableModel_SuperMoveColumns(QAbstractTableModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_MoveColumns_IsBase(true);
@@ -4087,7 +4087,7 @@ void QAbstractTableModel_FetchMore(QAbstractTableModel* self, const QModelIndex*
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseFetchMore(QAbstractTableModel* self, const QModelIndex* parent) {
+void QAbstractTableModel_SuperFetchMore(QAbstractTableModel* self, const QModelIndex* parent) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_FetchMore_IsBase(true);
@@ -4116,7 +4116,7 @@ bool QAbstractTableModel_CanFetchMore(const QAbstractTableModel* self, const QMo
 }
 
 // Base class handler implementation
-bool QAbstractTableModel_QBaseCanFetchMore(const QAbstractTableModel* self, const QModelIndex* parent) {
+bool QAbstractTableModel_SuperCanFetchMore(const QAbstractTableModel* self, const QModelIndex* parent) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_CanFetchMore_IsBase(true);
@@ -4145,7 +4145,7 @@ void QAbstractTableModel_Sort(QAbstractTableModel* self, int column, int order) 
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseSort(QAbstractTableModel* self, int column, int order) {
+void QAbstractTableModel_SuperSort(QAbstractTableModel* self, int column, int order) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_Sort_IsBase(true);
@@ -4174,7 +4174,7 @@ QModelIndex* QAbstractTableModel_Buddy(const QAbstractTableModel* self, const QM
 }
 
 // Base class handler implementation
-QModelIndex* QAbstractTableModel_QBaseBuddy(const QAbstractTableModel* self, const QModelIndex* index) {
+QModelIndex* QAbstractTableModel_SuperBuddy(const QAbstractTableModel* self, const QModelIndex* index) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_Buddy_IsBase(true);
@@ -4221,7 +4221,7 @@ libqt_list /* of QModelIndex* */ QAbstractTableModel_Match(const QAbstractTableM
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QAbstractTableModel_QBaseMatch(const QAbstractTableModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ QAbstractTableModel_SuperMatch(const QAbstractTableModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_Match_IsBase(true);
@@ -4268,7 +4268,7 @@ QSize* QAbstractTableModel_Span(const QAbstractTableModel* self, const QModelInd
 }
 
 // Base class handler implementation
-QSize* QAbstractTableModel_QBaseSpan(const QAbstractTableModel* self, const QModelIndex* index) {
+QSize* QAbstractTableModel_SuperSpan(const QAbstractTableModel* self, const QModelIndex* index) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_Span_IsBase(true);
@@ -4335,7 +4335,7 @@ libqt_map /* of int to libqt_string */ QAbstractTableModel_RoleNames(const QAbst
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ QAbstractTableModel_QBaseRoleNames(const QAbstractTableModel* self) {
+libqt_map /* of int to libqt_string */ QAbstractTableModel_SuperRoleNames(const QAbstractTableModel* self) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_RoleNames_IsBase(true);
@@ -4402,7 +4402,7 @@ void QAbstractTableModel_MultiData(const QAbstractTableModel* self, const QModel
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseMultiData(const QAbstractTableModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void QAbstractTableModel_SuperMultiData(const QAbstractTableModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_MultiData_IsBase(true);
@@ -4431,7 +4431,7 @@ bool QAbstractTableModel_Submit(QAbstractTableModel* self) {
 }
 
 // Base class handler implementation
-bool QAbstractTableModel_QBaseSubmit(QAbstractTableModel* self) {
+bool QAbstractTableModel_SuperSubmit(QAbstractTableModel* self) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_Submit_IsBase(true);
@@ -4460,7 +4460,7 @@ void QAbstractTableModel_Revert(QAbstractTableModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseRevert(QAbstractTableModel* self) {
+void QAbstractTableModel_SuperRevert(QAbstractTableModel* self) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_Revert_IsBase(true);
@@ -4489,7 +4489,7 @@ void QAbstractTableModel_ResetInternalData(QAbstractTableModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseResetInternalData(QAbstractTableModel* self) {
+void QAbstractTableModel_SuperResetInternalData(QAbstractTableModel* self) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_ResetInternalData_IsBase(true);
@@ -4518,7 +4518,7 @@ bool QAbstractTableModel_Event(QAbstractTableModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QAbstractTableModel_QBaseEvent(QAbstractTableModel* self, QEvent* event) {
+bool QAbstractTableModel_SuperEvent(QAbstractTableModel* self, QEvent* event) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_Event_IsBase(true);
@@ -4547,7 +4547,7 @@ bool QAbstractTableModel_EventFilter(QAbstractTableModel* self, QObject* watched
 }
 
 // Base class handler implementation
-bool QAbstractTableModel_QBaseEventFilter(QAbstractTableModel* self, QObject* watched, QEvent* event) {
+bool QAbstractTableModel_SuperEventFilter(QAbstractTableModel* self, QObject* watched, QEvent* event) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_EventFilter_IsBase(true);
@@ -4576,7 +4576,7 @@ void QAbstractTableModel_TimerEvent(QAbstractTableModel* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseTimerEvent(QAbstractTableModel* self, QTimerEvent* event) {
+void QAbstractTableModel_SuperTimerEvent(QAbstractTableModel* self, QTimerEvent* event) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_TimerEvent_IsBase(true);
@@ -4605,7 +4605,7 @@ void QAbstractTableModel_ChildEvent(QAbstractTableModel* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseChildEvent(QAbstractTableModel* self, QChildEvent* event) {
+void QAbstractTableModel_SuperChildEvent(QAbstractTableModel* self, QChildEvent* event) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_ChildEvent_IsBase(true);
@@ -4634,7 +4634,7 @@ void QAbstractTableModel_CustomEvent(QAbstractTableModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseCustomEvent(QAbstractTableModel* self, QEvent* event) {
+void QAbstractTableModel_SuperCustomEvent(QAbstractTableModel* self, QEvent* event) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_CustomEvent_IsBase(true);
@@ -4663,7 +4663,7 @@ void QAbstractTableModel_ConnectNotify(QAbstractTableModel* self, const QMetaMet
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseConnectNotify(QAbstractTableModel* self, const QMetaMethod* signal) {
+void QAbstractTableModel_SuperConnectNotify(QAbstractTableModel* self, const QMetaMethod* signal) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_ConnectNotify_IsBase(true);
@@ -4692,7 +4692,7 @@ void QAbstractTableModel_DisconnectNotify(QAbstractTableModel* self, const QMeta
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseDisconnectNotify(QAbstractTableModel* self, const QMetaMethod* signal) {
+void QAbstractTableModel_SuperDisconnectNotify(QAbstractTableModel* self, const QMetaMethod* signal) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_DisconnectNotify_IsBase(true);
@@ -4720,7 +4720,7 @@ QModelIndex* QAbstractTableModel_CreateIndex(const QAbstractTableModel* self, in
 }
 
 // Base class handler implementation
-QModelIndex* QAbstractTableModel_QBaseCreateIndex(const QAbstractTableModel* self, int row, int column) {
+QModelIndex* QAbstractTableModel_SuperCreateIndex(const QAbstractTableModel* self, int row, int column) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_CreateIndex_IsBase(true);
@@ -4754,7 +4754,7 @@ void QAbstractTableModel_EncodeData(const QAbstractTableModel* self, const libqt
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseEncodeData(const QAbstractTableModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void QAbstractTableModel_SuperEncodeData(const QAbstractTableModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -4789,7 +4789,7 @@ bool QAbstractTableModel_DecodeData(QAbstractTableModel* self, int row, int colu
 }
 
 // Base class handler implementation
-bool QAbstractTableModel_QBaseDecodeData(QAbstractTableModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool QAbstractTableModel_SuperDecodeData(QAbstractTableModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_DecodeData_IsBase(true);
@@ -4818,7 +4818,7 @@ void QAbstractTableModel_BeginInsertRows(QAbstractTableModel* self, const QModel
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseBeginInsertRows(QAbstractTableModel* self, const QModelIndex* parent, int first, int last) {
+void QAbstractTableModel_SuperBeginInsertRows(QAbstractTableModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_BeginInsertRows_IsBase(true);
@@ -4847,7 +4847,7 @@ void QAbstractTableModel_EndInsertRows(QAbstractTableModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseEndInsertRows(QAbstractTableModel* self) {
+void QAbstractTableModel_SuperEndInsertRows(QAbstractTableModel* self) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_EndInsertRows_IsBase(true);
@@ -4876,7 +4876,7 @@ void QAbstractTableModel_BeginRemoveRows(QAbstractTableModel* self, const QModel
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseBeginRemoveRows(QAbstractTableModel* self, const QModelIndex* parent, int first, int last) {
+void QAbstractTableModel_SuperBeginRemoveRows(QAbstractTableModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_BeginRemoveRows_IsBase(true);
@@ -4905,7 +4905,7 @@ void QAbstractTableModel_EndRemoveRows(QAbstractTableModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseEndRemoveRows(QAbstractTableModel* self) {
+void QAbstractTableModel_SuperEndRemoveRows(QAbstractTableModel* self) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_EndRemoveRows_IsBase(true);
@@ -4934,7 +4934,7 @@ bool QAbstractTableModel_BeginMoveRows(QAbstractTableModel* self, const QModelIn
 }
 
 // Base class handler implementation
-bool QAbstractTableModel_QBaseBeginMoveRows(QAbstractTableModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool QAbstractTableModel_SuperBeginMoveRows(QAbstractTableModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_BeginMoveRows_IsBase(true);
@@ -4963,7 +4963,7 @@ void QAbstractTableModel_EndMoveRows(QAbstractTableModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseEndMoveRows(QAbstractTableModel* self) {
+void QAbstractTableModel_SuperEndMoveRows(QAbstractTableModel* self) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_EndMoveRows_IsBase(true);
@@ -4992,7 +4992,7 @@ void QAbstractTableModel_BeginInsertColumns(QAbstractTableModel* self, const QMo
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseBeginInsertColumns(QAbstractTableModel* self, const QModelIndex* parent, int first, int last) {
+void QAbstractTableModel_SuperBeginInsertColumns(QAbstractTableModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_BeginInsertColumns_IsBase(true);
@@ -5021,7 +5021,7 @@ void QAbstractTableModel_EndInsertColumns(QAbstractTableModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseEndInsertColumns(QAbstractTableModel* self) {
+void QAbstractTableModel_SuperEndInsertColumns(QAbstractTableModel* self) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_EndInsertColumns_IsBase(true);
@@ -5050,7 +5050,7 @@ void QAbstractTableModel_BeginRemoveColumns(QAbstractTableModel* self, const QMo
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseBeginRemoveColumns(QAbstractTableModel* self, const QModelIndex* parent, int first, int last) {
+void QAbstractTableModel_SuperBeginRemoveColumns(QAbstractTableModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_BeginRemoveColumns_IsBase(true);
@@ -5079,7 +5079,7 @@ void QAbstractTableModel_EndRemoveColumns(QAbstractTableModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseEndRemoveColumns(QAbstractTableModel* self) {
+void QAbstractTableModel_SuperEndRemoveColumns(QAbstractTableModel* self) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_EndRemoveColumns_IsBase(true);
@@ -5108,7 +5108,7 @@ bool QAbstractTableModel_BeginMoveColumns(QAbstractTableModel* self, const QMode
 }
 
 // Base class handler implementation
-bool QAbstractTableModel_QBaseBeginMoveColumns(QAbstractTableModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool QAbstractTableModel_SuperBeginMoveColumns(QAbstractTableModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_BeginMoveColumns_IsBase(true);
@@ -5137,7 +5137,7 @@ void QAbstractTableModel_EndMoveColumns(QAbstractTableModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseEndMoveColumns(QAbstractTableModel* self) {
+void QAbstractTableModel_SuperEndMoveColumns(QAbstractTableModel* self) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_EndMoveColumns_IsBase(true);
@@ -5166,7 +5166,7 @@ void QAbstractTableModel_BeginResetModel(QAbstractTableModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseBeginResetModel(QAbstractTableModel* self) {
+void QAbstractTableModel_SuperBeginResetModel(QAbstractTableModel* self) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_BeginResetModel_IsBase(true);
@@ -5195,7 +5195,7 @@ void QAbstractTableModel_EndResetModel(QAbstractTableModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseEndResetModel(QAbstractTableModel* self) {
+void QAbstractTableModel_SuperEndResetModel(QAbstractTableModel* self) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_EndResetModel_IsBase(true);
@@ -5224,7 +5224,7 @@ void QAbstractTableModel_ChangePersistentIndex(QAbstractTableModel* self, const 
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseChangePersistentIndex(QAbstractTableModel* self, const QModelIndex* from, const QModelIndex* to) {
+void QAbstractTableModel_SuperChangePersistentIndex(QAbstractTableModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_ChangePersistentIndex_IsBase(true);
@@ -5265,7 +5265,7 @@ void QAbstractTableModel_ChangePersistentIndexList(QAbstractTableModel* self, co
 }
 
 // Base class handler implementation
-void QAbstractTableModel_QBaseChangePersistentIndexList(QAbstractTableModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void QAbstractTableModel_SuperChangePersistentIndexList(QAbstractTableModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -5324,7 +5324,7 @@ libqt_list /* of QModelIndex* */ QAbstractTableModel_PersistentIndexList(const Q
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QAbstractTableModel_QBasePersistentIndexList(const QAbstractTableModel* self) {
+libqt_list /* of QModelIndex* */ QAbstractTableModel_SuperPersistentIndexList(const QAbstractTableModel* self) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_PersistentIndexList_IsBase(true);
@@ -5371,7 +5371,7 @@ QObject* QAbstractTableModel_Sender(const QAbstractTableModel* self) {
 }
 
 // Base class handler implementation
-QObject* QAbstractTableModel_QBaseSender(const QAbstractTableModel* self) {
+QObject* QAbstractTableModel_SuperSender(const QAbstractTableModel* self) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_Sender_IsBase(true);
@@ -5400,7 +5400,7 @@ int QAbstractTableModel_SenderSignalIndex(const QAbstractTableModel* self) {
 }
 
 // Base class handler implementation
-int QAbstractTableModel_QBaseSenderSignalIndex(const QAbstractTableModel* self) {
+int QAbstractTableModel_SuperSenderSignalIndex(const QAbstractTableModel* self) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_SenderSignalIndex_IsBase(true);
@@ -5429,7 +5429,7 @@ int QAbstractTableModel_Receivers(const QAbstractTableModel* self, const char* s
 }
 
 // Base class handler implementation
-int QAbstractTableModel_QBaseReceivers(const QAbstractTableModel* self, const char* signal) {
+int QAbstractTableModel_SuperReceivers(const QAbstractTableModel* self, const char* signal) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_Receivers_IsBase(true);
@@ -5458,7 +5458,7 @@ bool QAbstractTableModel_IsSignalConnected(const QAbstractTableModel* self, cons
 }
 
 // Base class handler implementation
-bool QAbstractTableModel_QBaseIsSignalConnected(const QAbstractTableModel* self, const QMetaMethod* signal) {
+bool QAbstractTableModel_SuperIsSignalConnected(const QAbstractTableModel* self, const QMetaMethod* signal) {
     auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_IsSignalConnected_IsBase(true);
@@ -5552,7 +5552,7 @@ int QAbstractListModel_Flags(const QAbstractListModel* self, const QModelIndex* 
 }
 
 // Base class handler implementation
-QMetaObject* QAbstractListModel_QBaseMetaObject(const QAbstractListModel* self) {
+QMetaObject* QAbstractListModel_SuperMetaObject(const QAbstractListModel* self) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_MetaObject_IsBase(true);
@@ -5571,7 +5571,7 @@ void QAbstractListModel_OnMetaObject(const QAbstractListModel* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* QAbstractListModel_QBaseMetacast(QAbstractListModel* self, const char* param1) {
+void* QAbstractListModel_SuperMetacast(QAbstractListModel* self, const char* param1) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_Metacast_IsBase(true);
@@ -5590,7 +5590,7 @@ void QAbstractListModel_OnMetacast(QAbstractListModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAbstractListModel_QBaseMetacall(QAbstractListModel* self, int param1, int param2, void** param3) {
+int QAbstractListModel_SuperMetacall(QAbstractListModel* self, int param1, int param2, void** param3) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_Metacall_IsBase(true);
@@ -5609,7 +5609,7 @@ void QAbstractListModel_OnMetacall(QAbstractListModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QModelIndex* QAbstractListModel_QBaseIndex(const QAbstractListModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* QAbstractListModel_SuperIndex(const QAbstractListModel* self, int row, int column, const QModelIndex* parent) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_Index_IsBase(true);
@@ -5628,7 +5628,7 @@ void QAbstractListModel_OnIndex(const QAbstractListModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QModelIndex* QAbstractListModel_QBaseSibling(const QAbstractListModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* QAbstractListModel_SuperSibling(const QAbstractListModel* self, int row, int column, const QModelIndex* idx) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_Sibling_IsBase(true);
@@ -5647,7 +5647,7 @@ void QAbstractListModel_OnSibling(const QAbstractListModel* self, intptr_t slot)
 }
 
 // Base class handler implementation
-bool QAbstractListModel_QBaseDropMimeData(QAbstractListModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QAbstractListModel_SuperDropMimeData(QAbstractListModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_DropMimeData_IsBase(true);
@@ -5666,7 +5666,7 @@ void QAbstractListModel_OnDropMimeData(QAbstractListModel* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int QAbstractListModel_QBaseFlags(const QAbstractListModel* self, const QModelIndex* index) {
+int QAbstractListModel_SuperFlags(const QAbstractListModel* self, const QModelIndex* index) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_Flags_IsBase(true);
@@ -5695,7 +5695,7 @@ int QAbstractListModel_RowCount(const QAbstractListModel* self, const QModelInde
 }
 
 // Base class handler implementation
-int QAbstractListModel_QBaseRowCount(const QAbstractListModel* self, const QModelIndex* parent) {
+int QAbstractListModel_SuperRowCount(const QAbstractListModel* self, const QModelIndex* parent) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_RowCount_IsBase(true);
@@ -5724,7 +5724,7 @@ QVariant* QAbstractListModel_Data(const QAbstractListModel* self, const QModelIn
 }
 
 // Base class handler implementation
-QVariant* QAbstractListModel_QBaseData(const QAbstractListModel* self, const QModelIndex* index, int role) {
+QVariant* QAbstractListModel_SuperData(const QAbstractListModel* self, const QModelIndex* index, int role) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_Data_IsBase(true);
@@ -5753,7 +5753,7 @@ bool QAbstractListModel_SetData(QAbstractListModel* self, const QModelIndex* ind
 }
 
 // Base class handler implementation
-bool QAbstractListModel_QBaseSetData(QAbstractListModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool QAbstractListModel_SuperSetData(QAbstractListModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_SetData_IsBase(true);
@@ -5782,7 +5782,7 @@ QVariant* QAbstractListModel_HeaderData(const QAbstractListModel* self, int sect
 }
 
 // Base class handler implementation
-QVariant* QAbstractListModel_QBaseHeaderData(const QAbstractListModel* self, int section, int orientation, int role) {
+QVariant* QAbstractListModel_SuperHeaderData(const QAbstractListModel* self, int section, int orientation, int role) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_HeaderData_IsBase(true);
@@ -5811,7 +5811,7 @@ bool QAbstractListModel_SetHeaderData(QAbstractListModel* self, int section, int
 }
 
 // Base class handler implementation
-bool QAbstractListModel_QBaseSetHeaderData(QAbstractListModel* self, int section, int orientation, const QVariant* value, int role) {
+bool QAbstractListModel_SuperSetHeaderData(QAbstractListModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_SetHeaderData_IsBase(true);
@@ -5868,7 +5868,7 @@ libqt_map /* of int to QVariant* */ QAbstractListModel_ItemData(const QAbstractL
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ QAbstractListModel_QBaseItemData(const QAbstractListModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ QAbstractListModel_SuperItemData(const QAbstractListModel* self, const QModelIndex* index) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_ItemData_IsBase(true);
@@ -5931,7 +5931,7 @@ bool QAbstractListModel_SetItemData(QAbstractListModel* self, const QModelIndex*
 }
 
 // Base class handler implementation
-bool QAbstractListModel_QBaseSetItemData(QAbstractListModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool QAbstractListModel_SuperSetItemData(QAbstractListModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -5966,7 +5966,7 @@ bool QAbstractListModel_ClearItemData(QAbstractListModel* self, const QModelInde
 }
 
 // Base class handler implementation
-bool QAbstractListModel_QBaseClearItemData(QAbstractListModel* self, const QModelIndex* index) {
+bool QAbstractListModel_SuperClearItemData(QAbstractListModel* self, const QModelIndex* index) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_ClearItemData_IsBase(true);
@@ -6029,7 +6029,7 @@ libqt_list /* of libqt_string */ QAbstractListModel_MimeTypes(const QAbstractLis
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QAbstractListModel_QBaseMimeTypes(const QAbstractListModel* self) {
+libqt_list /* of libqt_string */ QAbstractListModel_SuperMimeTypes(const QAbstractListModel* self) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_MimeTypes_IsBase(true);
@@ -6098,7 +6098,7 @@ QMimeData* QAbstractListModel_MimeData(const QAbstractListModel* self, const lib
 }
 
 // Base class handler implementation
-QMimeData* QAbstractListModel_QBaseMimeData(const QAbstractListModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* QAbstractListModel_SuperMimeData(const QAbstractListModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -6133,7 +6133,7 @@ bool QAbstractListModel_CanDropMimeData(const QAbstractListModel* self, const QM
 }
 
 // Base class handler implementation
-bool QAbstractListModel_QBaseCanDropMimeData(const QAbstractListModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QAbstractListModel_SuperCanDropMimeData(const QAbstractListModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_CanDropMimeData_IsBase(true);
@@ -6162,7 +6162,7 @@ int QAbstractListModel_SupportedDropActions(const QAbstractListModel* self) {
 }
 
 // Base class handler implementation
-int QAbstractListModel_QBaseSupportedDropActions(const QAbstractListModel* self) {
+int QAbstractListModel_SuperSupportedDropActions(const QAbstractListModel* self) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_SupportedDropActions_IsBase(true);
@@ -6191,7 +6191,7 @@ int QAbstractListModel_SupportedDragActions(const QAbstractListModel* self) {
 }
 
 // Base class handler implementation
-int QAbstractListModel_QBaseSupportedDragActions(const QAbstractListModel* self) {
+int QAbstractListModel_SuperSupportedDragActions(const QAbstractListModel* self) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_SupportedDragActions_IsBase(true);
@@ -6220,7 +6220,7 @@ bool QAbstractListModel_InsertRows(QAbstractListModel* self, int row, int count,
 }
 
 // Base class handler implementation
-bool QAbstractListModel_QBaseInsertRows(QAbstractListModel* self, int row, int count, const QModelIndex* parent) {
+bool QAbstractListModel_SuperInsertRows(QAbstractListModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_InsertRows_IsBase(true);
@@ -6249,7 +6249,7 @@ bool QAbstractListModel_InsertColumns(QAbstractListModel* self, int column, int 
 }
 
 // Base class handler implementation
-bool QAbstractListModel_QBaseInsertColumns(QAbstractListModel* self, int column, int count, const QModelIndex* parent) {
+bool QAbstractListModel_SuperInsertColumns(QAbstractListModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_InsertColumns_IsBase(true);
@@ -6278,7 +6278,7 @@ bool QAbstractListModel_RemoveRows(QAbstractListModel* self, int row, int count,
 }
 
 // Base class handler implementation
-bool QAbstractListModel_QBaseRemoveRows(QAbstractListModel* self, int row, int count, const QModelIndex* parent) {
+bool QAbstractListModel_SuperRemoveRows(QAbstractListModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_RemoveRows_IsBase(true);
@@ -6307,7 +6307,7 @@ bool QAbstractListModel_RemoveColumns(QAbstractListModel* self, int column, int 
 }
 
 // Base class handler implementation
-bool QAbstractListModel_QBaseRemoveColumns(QAbstractListModel* self, int column, int count, const QModelIndex* parent) {
+bool QAbstractListModel_SuperRemoveColumns(QAbstractListModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_RemoveColumns_IsBase(true);
@@ -6336,7 +6336,7 @@ bool QAbstractListModel_MoveRows(QAbstractListModel* self, const QModelIndex* so
 }
 
 // Base class handler implementation
-bool QAbstractListModel_QBaseMoveRows(QAbstractListModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QAbstractListModel_SuperMoveRows(QAbstractListModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_MoveRows_IsBase(true);
@@ -6365,7 +6365,7 @@ bool QAbstractListModel_MoveColumns(QAbstractListModel* self, const QModelIndex*
 }
 
 // Base class handler implementation
-bool QAbstractListModel_QBaseMoveColumns(QAbstractListModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QAbstractListModel_SuperMoveColumns(QAbstractListModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_MoveColumns_IsBase(true);
@@ -6394,7 +6394,7 @@ void QAbstractListModel_FetchMore(QAbstractListModel* self, const QModelIndex* p
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseFetchMore(QAbstractListModel* self, const QModelIndex* parent) {
+void QAbstractListModel_SuperFetchMore(QAbstractListModel* self, const QModelIndex* parent) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_FetchMore_IsBase(true);
@@ -6423,7 +6423,7 @@ bool QAbstractListModel_CanFetchMore(const QAbstractListModel* self, const QMode
 }
 
 // Base class handler implementation
-bool QAbstractListModel_QBaseCanFetchMore(const QAbstractListModel* self, const QModelIndex* parent) {
+bool QAbstractListModel_SuperCanFetchMore(const QAbstractListModel* self, const QModelIndex* parent) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_CanFetchMore_IsBase(true);
@@ -6452,7 +6452,7 @@ void QAbstractListModel_Sort(QAbstractListModel* self, int column, int order) {
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseSort(QAbstractListModel* self, int column, int order) {
+void QAbstractListModel_SuperSort(QAbstractListModel* self, int column, int order) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_Sort_IsBase(true);
@@ -6481,7 +6481,7 @@ QModelIndex* QAbstractListModel_Buddy(const QAbstractListModel* self, const QMod
 }
 
 // Base class handler implementation
-QModelIndex* QAbstractListModel_QBaseBuddy(const QAbstractListModel* self, const QModelIndex* index) {
+QModelIndex* QAbstractListModel_SuperBuddy(const QAbstractListModel* self, const QModelIndex* index) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_Buddy_IsBase(true);
@@ -6528,7 +6528,7 @@ libqt_list /* of QModelIndex* */ QAbstractListModel_Match(const QAbstractListMod
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QAbstractListModel_QBaseMatch(const QAbstractListModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ QAbstractListModel_SuperMatch(const QAbstractListModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_Match_IsBase(true);
@@ -6575,7 +6575,7 @@ QSize* QAbstractListModel_Span(const QAbstractListModel* self, const QModelIndex
 }
 
 // Base class handler implementation
-QSize* QAbstractListModel_QBaseSpan(const QAbstractListModel* self, const QModelIndex* index) {
+QSize* QAbstractListModel_SuperSpan(const QAbstractListModel* self, const QModelIndex* index) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_Span_IsBase(true);
@@ -6642,7 +6642,7 @@ libqt_map /* of int to libqt_string */ QAbstractListModel_RoleNames(const QAbstr
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ QAbstractListModel_QBaseRoleNames(const QAbstractListModel* self) {
+libqt_map /* of int to libqt_string */ QAbstractListModel_SuperRoleNames(const QAbstractListModel* self) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_RoleNames_IsBase(true);
@@ -6709,7 +6709,7 @@ void QAbstractListModel_MultiData(const QAbstractListModel* self, const QModelIn
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseMultiData(const QAbstractListModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void QAbstractListModel_SuperMultiData(const QAbstractListModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_MultiData_IsBase(true);
@@ -6738,7 +6738,7 @@ bool QAbstractListModel_Submit(QAbstractListModel* self) {
 }
 
 // Base class handler implementation
-bool QAbstractListModel_QBaseSubmit(QAbstractListModel* self) {
+bool QAbstractListModel_SuperSubmit(QAbstractListModel* self) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_Submit_IsBase(true);
@@ -6767,7 +6767,7 @@ void QAbstractListModel_Revert(QAbstractListModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseRevert(QAbstractListModel* self) {
+void QAbstractListModel_SuperRevert(QAbstractListModel* self) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_Revert_IsBase(true);
@@ -6796,7 +6796,7 @@ void QAbstractListModel_ResetInternalData(QAbstractListModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseResetInternalData(QAbstractListModel* self) {
+void QAbstractListModel_SuperResetInternalData(QAbstractListModel* self) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_ResetInternalData_IsBase(true);
@@ -6825,7 +6825,7 @@ bool QAbstractListModel_Event(QAbstractListModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QAbstractListModel_QBaseEvent(QAbstractListModel* self, QEvent* event) {
+bool QAbstractListModel_SuperEvent(QAbstractListModel* self, QEvent* event) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_Event_IsBase(true);
@@ -6854,7 +6854,7 @@ bool QAbstractListModel_EventFilter(QAbstractListModel* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool QAbstractListModel_QBaseEventFilter(QAbstractListModel* self, QObject* watched, QEvent* event) {
+bool QAbstractListModel_SuperEventFilter(QAbstractListModel* self, QObject* watched, QEvent* event) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_EventFilter_IsBase(true);
@@ -6883,7 +6883,7 @@ void QAbstractListModel_TimerEvent(QAbstractListModel* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseTimerEvent(QAbstractListModel* self, QTimerEvent* event) {
+void QAbstractListModel_SuperTimerEvent(QAbstractListModel* self, QTimerEvent* event) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_TimerEvent_IsBase(true);
@@ -6912,7 +6912,7 @@ void QAbstractListModel_ChildEvent(QAbstractListModel* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseChildEvent(QAbstractListModel* self, QChildEvent* event) {
+void QAbstractListModel_SuperChildEvent(QAbstractListModel* self, QChildEvent* event) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_ChildEvent_IsBase(true);
@@ -6941,7 +6941,7 @@ void QAbstractListModel_CustomEvent(QAbstractListModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseCustomEvent(QAbstractListModel* self, QEvent* event) {
+void QAbstractListModel_SuperCustomEvent(QAbstractListModel* self, QEvent* event) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_CustomEvent_IsBase(true);
@@ -6970,7 +6970,7 @@ void QAbstractListModel_ConnectNotify(QAbstractListModel* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseConnectNotify(QAbstractListModel* self, const QMetaMethod* signal) {
+void QAbstractListModel_SuperConnectNotify(QAbstractListModel* self, const QMetaMethod* signal) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_ConnectNotify_IsBase(true);
@@ -6999,7 +6999,7 @@ void QAbstractListModel_DisconnectNotify(QAbstractListModel* self, const QMetaMe
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseDisconnectNotify(QAbstractListModel* self, const QMetaMethod* signal) {
+void QAbstractListModel_SuperDisconnectNotify(QAbstractListModel* self, const QMetaMethod* signal) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_DisconnectNotify_IsBase(true);
@@ -7027,7 +7027,7 @@ QModelIndex* QAbstractListModel_CreateIndex(const QAbstractListModel* self, int 
 }
 
 // Base class handler implementation
-QModelIndex* QAbstractListModel_QBaseCreateIndex(const QAbstractListModel* self, int row, int column) {
+QModelIndex* QAbstractListModel_SuperCreateIndex(const QAbstractListModel* self, int row, int column) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_CreateIndex_IsBase(true);
@@ -7061,7 +7061,7 @@ void QAbstractListModel_EncodeData(const QAbstractListModel* self, const libqt_l
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseEncodeData(const QAbstractListModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void QAbstractListModel_SuperEncodeData(const QAbstractListModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -7096,7 +7096,7 @@ bool QAbstractListModel_DecodeData(QAbstractListModel* self, int row, int column
 }
 
 // Base class handler implementation
-bool QAbstractListModel_QBaseDecodeData(QAbstractListModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool QAbstractListModel_SuperDecodeData(QAbstractListModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_DecodeData_IsBase(true);
@@ -7125,7 +7125,7 @@ void QAbstractListModel_BeginInsertRows(QAbstractListModel* self, const QModelIn
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseBeginInsertRows(QAbstractListModel* self, const QModelIndex* parent, int first, int last) {
+void QAbstractListModel_SuperBeginInsertRows(QAbstractListModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_BeginInsertRows_IsBase(true);
@@ -7154,7 +7154,7 @@ void QAbstractListModel_EndInsertRows(QAbstractListModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseEndInsertRows(QAbstractListModel* self) {
+void QAbstractListModel_SuperEndInsertRows(QAbstractListModel* self) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_EndInsertRows_IsBase(true);
@@ -7183,7 +7183,7 @@ void QAbstractListModel_BeginRemoveRows(QAbstractListModel* self, const QModelIn
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseBeginRemoveRows(QAbstractListModel* self, const QModelIndex* parent, int first, int last) {
+void QAbstractListModel_SuperBeginRemoveRows(QAbstractListModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_BeginRemoveRows_IsBase(true);
@@ -7212,7 +7212,7 @@ void QAbstractListModel_EndRemoveRows(QAbstractListModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseEndRemoveRows(QAbstractListModel* self) {
+void QAbstractListModel_SuperEndRemoveRows(QAbstractListModel* self) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_EndRemoveRows_IsBase(true);
@@ -7241,7 +7241,7 @@ bool QAbstractListModel_BeginMoveRows(QAbstractListModel* self, const QModelInde
 }
 
 // Base class handler implementation
-bool QAbstractListModel_QBaseBeginMoveRows(QAbstractListModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool QAbstractListModel_SuperBeginMoveRows(QAbstractListModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_BeginMoveRows_IsBase(true);
@@ -7270,7 +7270,7 @@ void QAbstractListModel_EndMoveRows(QAbstractListModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseEndMoveRows(QAbstractListModel* self) {
+void QAbstractListModel_SuperEndMoveRows(QAbstractListModel* self) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_EndMoveRows_IsBase(true);
@@ -7299,7 +7299,7 @@ void QAbstractListModel_BeginInsertColumns(QAbstractListModel* self, const QMode
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseBeginInsertColumns(QAbstractListModel* self, const QModelIndex* parent, int first, int last) {
+void QAbstractListModel_SuperBeginInsertColumns(QAbstractListModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_BeginInsertColumns_IsBase(true);
@@ -7328,7 +7328,7 @@ void QAbstractListModel_EndInsertColumns(QAbstractListModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseEndInsertColumns(QAbstractListModel* self) {
+void QAbstractListModel_SuperEndInsertColumns(QAbstractListModel* self) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_EndInsertColumns_IsBase(true);
@@ -7357,7 +7357,7 @@ void QAbstractListModel_BeginRemoveColumns(QAbstractListModel* self, const QMode
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseBeginRemoveColumns(QAbstractListModel* self, const QModelIndex* parent, int first, int last) {
+void QAbstractListModel_SuperBeginRemoveColumns(QAbstractListModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_BeginRemoveColumns_IsBase(true);
@@ -7386,7 +7386,7 @@ void QAbstractListModel_EndRemoveColumns(QAbstractListModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseEndRemoveColumns(QAbstractListModel* self) {
+void QAbstractListModel_SuperEndRemoveColumns(QAbstractListModel* self) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_EndRemoveColumns_IsBase(true);
@@ -7415,7 +7415,7 @@ bool QAbstractListModel_BeginMoveColumns(QAbstractListModel* self, const QModelI
 }
 
 // Base class handler implementation
-bool QAbstractListModel_QBaseBeginMoveColumns(QAbstractListModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool QAbstractListModel_SuperBeginMoveColumns(QAbstractListModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_BeginMoveColumns_IsBase(true);
@@ -7444,7 +7444,7 @@ void QAbstractListModel_EndMoveColumns(QAbstractListModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseEndMoveColumns(QAbstractListModel* self) {
+void QAbstractListModel_SuperEndMoveColumns(QAbstractListModel* self) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_EndMoveColumns_IsBase(true);
@@ -7473,7 +7473,7 @@ void QAbstractListModel_BeginResetModel(QAbstractListModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseBeginResetModel(QAbstractListModel* self) {
+void QAbstractListModel_SuperBeginResetModel(QAbstractListModel* self) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_BeginResetModel_IsBase(true);
@@ -7502,7 +7502,7 @@ void QAbstractListModel_EndResetModel(QAbstractListModel* self) {
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseEndResetModel(QAbstractListModel* self) {
+void QAbstractListModel_SuperEndResetModel(QAbstractListModel* self) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_EndResetModel_IsBase(true);
@@ -7531,7 +7531,7 @@ void QAbstractListModel_ChangePersistentIndex(QAbstractListModel* self, const QM
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseChangePersistentIndex(QAbstractListModel* self, const QModelIndex* from, const QModelIndex* to) {
+void QAbstractListModel_SuperChangePersistentIndex(QAbstractListModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_ChangePersistentIndex_IsBase(true);
@@ -7572,7 +7572,7 @@ void QAbstractListModel_ChangePersistentIndexList(QAbstractListModel* self, cons
 }
 
 // Base class handler implementation
-void QAbstractListModel_QBaseChangePersistentIndexList(QAbstractListModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void QAbstractListModel_SuperChangePersistentIndexList(QAbstractListModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -7631,7 +7631,7 @@ libqt_list /* of QModelIndex* */ QAbstractListModel_PersistentIndexList(const QA
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QAbstractListModel_QBasePersistentIndexList(const QAbstractListModel* self) {
+libqt_list /* of QModelIndex* */ QAbstractListModel_SuperPersistentIndexList(const QAbstractListModel* self) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_PersistentIndexList_IsBase(true);
@@ -7678,7 +7678,7 @@ QObject* QAbstractListModel_Sender(const QAbstractListModel* self) {
 }
 
 // Base class handler implementation
-QObject* QAbstractListModel_QBaseSender(const QAbstractListModel* self) {
+QObject* QAbstractListModel_SuperSender(const QAbstractListModel* self) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_Sender_IsBase(true);
@@ -7707,7 +7707,7 @@ int QAbstractListModel_SenderSignalIndex(const QAbstractListModel* self) {
 }
 
 // Base class handler implementation
-int QAbstractListModel_QBaseSenderSignalIndex(const QAbstractListModel* self) {
+int QAbstractListModel_SuperSenderSignalIndex(const QAbstractListModel* self) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_SenderSignalIndex_IsBase(true);
@@ -7736,7 +7736,7 @@ int QAbstractListModel_Receivers(const QAbstractListModel* self, const char* sig
 }
 
 // Base class handler implementation
-int QAbstractListModel_QBaseReceivers(const QAbstractListModel* self, const char* signal) {
+int QAbstractListModel_SuperReceivers(const QAbstractListModel* self, const char* signal) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_Receivers_IsBase(true);
@@ -7765,7 +7765,7 @@ bool QAbstractListModel_IsSignalConnected(const QAbstractListModel* self, const 
 }
 
 // Base class handler implementation
-bool QAbstractListModel_QBaseIsSignalConnected(const QAbstractListModel* self, const QMetaMethod* signal) {
+bool QAbstractListModel_SuperIsSignalConnected(const QAbstractListModel* self, const QMetaMethod* signal) {
     auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_IsSignalConnected_IsBase(true);

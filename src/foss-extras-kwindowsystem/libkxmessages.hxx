@@ -329,23 +329,23 @@ class VirtualKXMessages final : public KXMessages {
 
     // Friend functions
     friend void KXMessages_TimerEvent(KXMessages* self, QTimerEvent* event);
-    friend void KXMessages_QBaseTimerEvent(KXMessages* self, QTimerEvent* event);
+    friend void KXMessages_SuperTimerEvent(KXMessages* self, QTimerEvent* event);
     friend void KXMessages_ChildEvent(KXMessages* self, QChildEvent* event);
-    friend void KXMessages_QBaseChildEvent(KXMessages* self, QChildEvent* event);
+    friend void KXMessages_SuperChildEvent(KXMessages* self, QChildEvent* event);
     friend void KXMessages_CustomEvent(KXMessages* self, QEvent* event);
-    friend void KXMessages_QBaseCustomEvent(KXMessages* self, QEvent* event);
+    friend void KXMessages_SuperCustomEvent(KXMessages* self, QEvent* event);
     friend void KXMessages_ConnectNotify(KXMessages* self, const QMetaMethod* signal);
-    friend void KXMessages_QBaseConnectNotify(KXMessages* self, const QMetaMethod* signal);
+    friend void KXMessages_SuperConnectNotify(KXMessages* self, const QMetaMethod* signal);
     friend void KXMessages_DisconnectNotify(KXMessages* self, const QMetaMethod* signal);
-    friend void KXMessages_QBaseDisconnectNotify(KXMessages* self, const QMetaMethod* signal);
+    friend void KXMessages_SuperDisconnectNotify(KXMessages* self, const QMetaMethod* signal);
     friend QObject* KXMessages_Sender(const KXMessages* self);
-    friend QObject* KXMessages_QBaseSender(const KXMessages* self);
+    friend QObject* KXMessages_SuperSender(const KXMessages* self);
     friend int KXMessages_SenderSignalIndex(const KXMessages* self);
-    friend int KXMessages_QBaseSenderSignalIndex(const KXMessages* self);
+    friend int KXMessages_SuperSenderSignalIndex(const KXMessages* self);
     friend int KXMessages_Receivers(const KXMessages* self, const char* signal);
-    friend int KXMessages_QBaseReceivers(const KXMessages* self, const char* signal);
+    friend int KXMessages_SuperReceivers(const KXMessages* self, const char* signal);
     friend bool KXMessages_IsSignalConnected(const KXMessages* self, const QMetaMethod* signal);
-    friend bool KXMessages_QBaseIsSignalConnected(const KXMessages* self, const QMetaMethod* signal);
+    friend bool KXMessages_SuperIsSignalConnected(const KXMessages* self, const QMetaMethod* signal);
 };
 
 #endif

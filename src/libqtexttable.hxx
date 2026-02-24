@@ -327,23 +327,23 @@ class VirtualQTextTable final : public QTextTable {
 
     // Friend functions
     friend void QTextTable_TimerEvent(QTextTable* self, QTimerEvent* event);
-    friend void QTextTable_QBaseTimerEvent(QTextTable* self, QTimerEvent* event);
+    friend void QTextTable_SuperTimerEvent(QTextTable* self, QTimerEvent* event);
     friend void QTextTable_ChildEvent(QTextTable* self, QChildEvent* event);
-    friend void QTextTable_QBaseChildEvent(QTextTable* self, QChildEvent* event);
+    friend void QTextTable_SuperChildEvent(QTextTable* self, QChildEvent* event);
     friend void QTextTable_CustomEvent(QTextTable* self, QEvent* event);
-    friend void QTextTable_QBaseCustomEvent(QTextTable* self, QEvent* event);
+    friend void QTextTable_SuperCustomEvent(QTextTable* self, QEvent* event);
     friend void QTextTable_ConnectNotify(QTextTable* self, const QMetaMethod* signal);
-    friend void QTextTable_QBaseConnectNotify(QTextTable* self, const QMetaMethod* signal);
+    friend void QTextTable_SuperConnectNotify(QTextTable* self, const QMetaMethod* signal);
     friend void QTextTable_DisconnectNotify(QTextTable* self, const QMetaMethod* signal);
-    friend void QTextTable_QBaseDisconnectNotify(QTextTable* self, const QMetaMethod* signal);
+    friend void QTextTable_SuperDisconnectNotify(QTextTable* self, const QMetaMethod* signal);
     friend QObject* QTextTable_Sender(const QTextTable* self);
-    friend QObject* QTextTable_QBaseSender(const QTextTable* self);
+    friend QObject* QTextTable_SuperSender(const QTextTable* self);
     friend int QTextTable_SenderSignalIndex(const QTextTable* self);
-    friend int QTextTable_QBaseSenderSignalIndex(const QTextTable* self);
+    friend int QTextTable_SuperSenderSignalIndex(const QTextTable* self);
     friend int QTextTable_Receivers(const QTextTable* self, const char* signal);
-    friend int QTextTable_QBaseReceivers(const QTextTable* self, const char* signal);
+    friend int QTextTable_SuperReceivers(const QTextTable* self, const char* signal);
     friend bool QTextTable_IsSignalConnected(const QTextTable* self, const QMetaMethod* signal);
-    friend bool QTextTable_QBaseIsSignalConnected(const QTextTable* self, const QMetaMethod* signal);
+    friend bool QTextTable_SuperIsSignalConnected(const QTextTable* self, const QMetaMethod* signal);
 };
 
 #endif

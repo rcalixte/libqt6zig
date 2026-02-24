@@ -113,6 +113,10 @@ pub const qgenericargument = struct {
         return std.mem.span(_ret);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgenericargument.html#dtor.QGenericArgument)
     ///
     /// Delete this object from C++ memory.
@@ -121,7 +125,7 @@ pub const qgenericargument = struct {
     ///
     /// ` self: QtC.QGenericArgument `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGenericArgument_Delete(@ptrCast(self));
     }
 };
@@ -239,6 +243,10 @@ pub const qgenericreturnargument = struct {
         return std.mem.span(_ret);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgenericreturnargument.html#dtor.QGenericReturnArgument)
     ///
     /// Delete this object from C++ memory.
@@ -247,7 +255,7 @@ pub const qgenericreturnargument = struct {
     ///
     /// ` self: QtC.QGenericReturnArgument `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGenericReturnArgument_Delete(@ptrCast(self));
     }
 };
@@ -278,6 +286,10 @@ pub const qmetamethodargument = struct {
         qtc.QMetaMethodArgument_SetName(@ptrCast(self), name_Cstring);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethodargument.html#dtor.QMetaMethodArgument)
     ///
     /// Delete this object from C++ memory.
@@ -286,7 +298,7 @@ pub const qmetamethodargument = struct {
     ///
     /// ` self: QtC.QMetaMethodArgument `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMetaMethodArgument_Delete(@ptrCast(self));
     }
 };
@@ -317,6 +329,10 @@ pub const qmetamethodreturnargument = struct {
         qtc.QMetaMethodReturnArgument_SetName(@ptrCast(self), name_Cstring);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethodreturnargument.html#dtor.QMetaMethodReturnArgument)
     ///
     /// Delete this object from C++ memory.
@@ -325,7 +341,7 @@ pub const qmetamethodreturnargument = struct {
     ///
     /// ` self: QtC.QMetaMethodReturnArgument `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMetaMethodReturnArgument_Delete(@ptrCast(self));
     }
 };
@@ -2250,6 +2266,10 @@ pub const qmetaobject = struct {
         return qtc.QMetaObject_NewInstance10(@ptrCast(self), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8), @ptrCast(val9));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#dtor.QMetaObject)
     ///
     /// Delete this object from C++ memory.
@@ -2258,7 +2278,7 @@ pub const qmetaobject = struct {
     ///
     /// ` self: QtC.QMetaObject `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMetaObject_Delete(@ptrCast(self));
     }
 };
@@ -2305,13 +2325,17 @@ pub const qmetaobject__connection = struct {
         qtc.QMetaObject__Connection_Swap(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QMetaObject__Connection `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMetaObject__Connection_Delete(@ptrCast(self));
     }
 };
@@ -2398,13 +2422,17 @@ pub const qmetaobject__superdata = struct {
         qtc.QMetaObject__SuperData_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QMetaObject__SuperData `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMetaObject__SuperData_Delete(@ptrCast(self));
     }
 };
@@ -2527,13 +2555,17 @@ pub const qmetaobject__data = struct {
         qtc.QMetaObject__Data_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QMetaObject__Data `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMetaObject__Data_Delete(@ptrCast(self));
     }
 };

@@ -107,6 +107,10 @@ pub const qloggingcategory = struct {
         qtc.QLoggingCategory_SetFilterRules(rules_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#dtor.QLoggingCategory)
     ///
     /// Delete this object from C++ memory.
@@ -115,7 +119,7 @@ pub const qloggingcategory = struct {
     ///
     /// ` self: QtC.QLoggingCategory `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QLoggingCategory_Delete(@ptrCast(self));
     }
 };

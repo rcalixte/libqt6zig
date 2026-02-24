@@ -117,7 +117,7 @@ long long KIO__CommandLauncherJob_Pid(const KIO__CommandLauncherJob* self) {
 }
 
 // Base class handler implementation
-void KIO__CommandLauncherJob_QBaseStart(KIO__CommandLauncherJob* self) {
+void KIO__CommandLauncherJob_SuperStart(KIO__CommandLauncherJob* self) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_Start_IsBase(true);
@@ -146,7 +146,7 @@ QMetaObject* KIO__CommandLauncherJob_MetaObject(const KIO__CommandLauncherJob* s
 }
 
 // Base class handler implementation
-QMetaObject* KIO__CommandLauncherJob_QBaseMetaObject(const KIO__CommandLauncherJob* self) {
+QMetaObject* KIO__CommandLauncherJob_SuperMetaObject(const KIO__CommandLauncherJob* self) {
     auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_MetaObject_IsBase(true);
@@ -175,7 +175,7 @@ void* KIO__CommandLauncherJob_Metacast(KIO__CommandLauncherJob* self, const char
 }
 
 // Base class handler implementation
-void* KIO__CommandLauncherJob_QBaseMetacast(KIO__CommandLauncherJob* self, const char* param1) {
+void* KIO__CommandLauncherJob_SuperMetacast(KIO__CommandLauncherJob* self, const char* param1) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_Metacast_IsBase(true);
@@ -204,7 +204,7 @@ int KIO__CommandLauncherJob_Metacall(KIO__CommandLauncherJob* self, int param1, 
 }
 
 // Base class handler implementation
-int KIO__CommandLauncherJob_QBaseMetacall(KIO__CommandLauncherJob* self, int param1, int param2, void** param3) {
+int KIO__CommandLauncherJob_SuperMetacall(KIO__CommandLauncherJob* self, int param1, int param2, void** param3) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_Metacall_IsBase(true);
@@ -233,7 +233,7 @@ bool KIO__CommandLauncherJob_DoKill(KIO__CommandLauncherJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__CommandLauncherJob_QBaseDoKill(KIO__CommandLauncherJob* self) {
+bool KIO__CommandLauncherJob_SuperDoKill(KIO__CommandLauncherJob* self) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_DoKill_IsBase(true);
@@ -262,7 +262,7 @@ bool KIO__CommandLauncherJob_DoSuspend(KIO__CommandLauncherJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__CommandLauncherJob_QBaseDoSuspend(KIO__CommandLauncherJob* self) {
+bool KIO__CommandLauncherJob_SuperDoSuspend(KIO__CommandLauncherJob* self) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_DoSuspend_IsBase(true);
@@ -291,7 +291,7 @@ bool KIO__CommandLauncherJob_DoResume(KIO__CommandLauncherJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__CommandLauncherJob_QBaseDoResume(KIO__CommandLauncherJob* self) {
+bool KIO__CommandLauncherJob_SuperDoResume(KIO__CommandLauncherJob* self) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_DoResume_IsBase(true);
@@ -336,7 +336,7 @@ libqt_string KIO__CommandLauncherJob_ErrorString(const KIO__CommandLauncherJob* 
 }
 
 // Base class handler implementation
-libqt_string KIO__CommandLauncherJob_QBaseErrorString(const KIO__CommandLauncherJob* self) {
+libqt_string KIO__CommandLauncherJob_SuperErrorString(const KIO__CommandLauncherJob* self) {
     auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_ErrorString_IsBase(true);
@@ -381,7 +381,7 @@ bool KIO__CommandLauncherJob_Event(KIO__CommandLauncherJob* self, QEvent* event)
 }
 
 // Base class handler implementation
-bool KIO__CommandLauncherJob_QBaseEvent(KIO__CommandLauncherJob* self, QEvent* event) {
+bool KIO__CommandLauncherJob_SuperEvent(KIO__CommandLauncherJob* self, QEvent* event) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_Event_IsBase(true);
@@ -410,7 +410,7 @@ bool KIO__CommandLauncherJob_EventFilter(KIO__CommandLauncherJob* self, QObject*
 }
 
 // Base class handler implementation
-bool KIO__CommandLauncherJob_QBaseEventFilter(KIO__CommandLauncherJob* self, QObject* watched, QEvent* event) {
+bool KIO__CommandLauncherJob_SuperEventFilter(KIO__CommandLauncherJob* self, QObject* watched, QEvent* event) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_EventFilter_IsBase(true);
@@ -439,7 +439,7 @@ void KIO__CommandLauncherJob_TimerEvent(KIO__CommandLauncherJob* self, QTimerEve
 }
 
 // Base class handler implementation
-void KIO__CommandLauncherJob_QBaseTimerEvent(KIO__CommandLauncherJob* self, QTimerEvent* event) {
+void KIO__CommandLauncherJob_SuperTimerEvent(KIO__CommandLauncherJob* self, QTimerEvent* event) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_TimerEvent_IsBase(true);
@@ -468,7 +468,7 @@ void KIO__CommandLauncherJob_ChildEvent(KIO__CommandLauncherJob* self, QChildEve
 }
 
 // Base class handler implementation
-void KIO__CommandLauncherJob_QBaseChildEvent(KIO__CommandLauncherJob* self, QChildEvent* event) {
+void KIO__CommandLauncherJob_SuperChildEvent(KIO__CommandLauncherJob* self, QChildEvent* event) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_ChildEvent_IsBase(true);
@@ -497,7 +497,7 @@ void KIO__CommandLauncherJob_CustomEvent(KIO__CommandLauncherJob* self, QEvent* 
 }
 
 // Base class handler implementation
-void KIO__CommandLauncherJob_QBaseCustomEvent(KIO__CommandLauncherJob* self, QEvent* event) {
+void KIO__CommandLauncherJob_SuperCustomEvent(KIO__CommandLauncherJob* self, QEvent* event) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_CustomEvent_IsBase(true);
@@ -526,7 +526,7 @@ void KIO__CommandLauncherJob_ConnectNotify(KIO__CommandLauncherJob* self, const 
 }
 
 // Base class handler implementation
-void KIO__CommandLauncherJob_QBaseConnectNotify(KIO__CommandLauncherJob* self, const QMetaMethod* signal) {
+void KIO__CommandLauncherJob_SuperConnectNotify(KIO__CommandLauncherJob* self, const QMetaMethod* signal) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_ConnectNotify_IsBase(true);
@@ -555,7 +555,7 @@ void KIO__CommandLauncherJob_DisconnectNotify(KIO__CommandLauncherJob* self, con
 }
 
 // Base class handler implementation
-void KIO__CommandLauncherJob_QBaseDisconnectNotify(KIO__CommandLauncherJob* self, const QMetaMethod* signal) {
+void KIO__CommandLauncherJob_SuperDisconnectNotify(KIO__CommandLauncherJob* self, const QMetaMethod* signal) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_DisconnectNotify_IsBase(true);
@@ -584,7 +584,7 @@ void KIO__CommandLauncherJob_SetCapabilities(KIO__CommandLauncherJob* self, int 
 }
 
 // Base class handler implementation
-void KIO__CommandLauncherJob_QBaseSetCapabilities(KIO__CommandLauncherJob* self, int capabilities) {
+void KIO__CommandLauncherJob_SuperSetCapabilities(KIO__CommandLauncherJob* self, int capabilities) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetCapabilities_IsBase(true);
@@ -613,7 +613,7 @@ bool KIO__CommandLauncherJob_IsFinished(const KIO__CommandLauncherJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__CommandLauncherJob_QBaseIsFinished(const KIO__CommandLauncherJob* self) {
+bool KIO__CommandLauncherJob_SuperIsFinished(const KIO__CommandLauncherJob* self) {
     auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_IsFinished_IsBase(true);
@@ -642,7 +642,7 @@ void KIO__CommandLauncherJob_SetError(KIO__CommandLauncherJob* self, int errorCo
 }
 
 // Base class handler implementation
-void KIO__CommandLauncherJob_QBaseSetError(KIO__CommandLauncherJob* self, int errorCode) {
+void KIO__CommandLauncherJob_SuperSetError(KIO__CommandLauncherJob* self, int errorCode) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetError_IsBase(true);
@@ -672,7 +672,7 @@ void KIO__CommandLauncherJob_SetErrorText(KIO__CommandLauncherJob* self, const l
 }
 
 // Base class handler implementation
-void KIO__CommandLauncherJob_QBaseSetErrorText(KIO__CommandLauncherJob* self, const libqt_string errorText) {
+void KIO__CommandLauncherJob_SuperSetErrorText(KIO__CommandLauncherJob* self, const libqt_string errorText) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
@@ -702,7 +702,7 @@ void KIO__CommandLauncherJob_SetProcessedAmount(KIO__CommandLauncherJob* self, i
 }
 
 // Base class handler implementation
-void KIO__CommandLauncherJob_QBaseSetProcessedAmount(KIO__CommandLauncherJob* self, int unit, unsigned long long amount) {
+void KIO__CommandLauncherJob_SuperSetProcessedAmount(KIO__CommandLauncherJob* self, int unit, unsigned long long amount) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetProcessedAmount_IsBase(true);
@@ -731,7 +731,7 @@ void KIO__CommandLauncherJob_SetTotalAmount(KIO__CommandLauncherJob* self, int u
 }
 
 // Base class handler implementation
-void KIO__CommandLauncherJob_QBaseSetTotalAmount(KIO__CommandLauncherJob* self, int unit, unsigned long long amount) {
+void KIO__CommandLauncherJob_SuperSetTotalAmount(KIO__CommandLauncherJob* self, int unit, unsigned long long amount) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetTotalAmount_IsBase(true);
@@ -760,7 +760,7 @@ void KIO__CommandLauncherJob_SetProgressUnit(KIO__CommandLauncherJob* self, int 
 }
 
 // Base class handler implementation
-void KIO__CommandLauncherJob_QBaseSetProgressUnit(KIO__CommandLauncherJob* self, int unit) {
+void KIO__CommandLauncherJob_SuperSetProgressUnit(KIO__CommandLauncherJob* self, int unit) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetProgressUnit_IsBase(true);
@@ -789,7 +789,7 @@ void KIO__CommandLauncherJob_SetPercent(KIO__CommandLauncherJob* self, unsigned 
 }
 
 // Base class handler implementation
-void KIO__CommandLauncherJob_QBaseSetPercent(KIO__CommandLauncherJob* self, unsigned long percentage) {
+void KIO__CommandLauncherJob_SuperSetPercent(KIO__CommandLauncherJob* self, unsigned long percentage) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetPercent_IsBase(true);
@@ -818,7 +818,7 @@ void KIO__CommandLauncherJob_EmitResult(KIO__CommandLauncherJob* self) {
 }
 
 // Base class handler implementation
-void KIO__CommandLauncherJob_QBaseEmitResult(KIO__CommandLauncherJob* self) {
+void KIO__CommandLauncherJob_SuperEmitResult(KIO__CommandLauncherJob* self) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_EmitResult_IsBase(true);
@@ -847,7 +847,7 @@ void KIO__CommandLauncherJob_EmitPercent(KIO__CommandLauncherJob* self, unsigned
 }
 
 // Base class handler implementation
-void KIO__CommandLauncherJob_QBaseEmitPercent(KIO__CommandLauncherJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
+void KIO__CommandLauncherJob_SuperEmitPercent(KIO__CommandLauncherJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_EmitPercent_IsBase(true);
@@ -876,7 +876,7 @@ void KIO__CommandLauncherJob_EmitSpeed(KIO__CommandLauncherJob* self, unsigned l
 }
 
 // Base class handler implementation
-void KIO__CommandLauncherJob_QBaseEmitSpeed(KIO__CommandLauncherJob* self, unsigned long speed) {
+void KIO__CommandLauncherJob_SuperEmitSpeed(KIO__CommandLauncherJob* self, unsigned long speed) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_EmitSpeed_IsBase(true);
@@ -905,7 +905,7 @@ void KIO__CommandLauncherJob_StartElapsedTimer(KIO__CommandLauncherJob* self) {
 }
 
 // Base class handler implementation
-void KIO__CommandLauncherJob_QBaseStartElapsedTimer(KIO__CommandLauncherJob* self) {
+void KIO__CommandLauncherJob_SuperStartElapsedTimer(KIO__CommandLauncherJob* self) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_StartElapsedTimer_IsBase(true);
@@ -934,7 +934,7 @@ QObject* KIO__CommandLauncherJob_Sender(const KIO__CommandLauncherJob* self) {
 }
 
 // Base class handler implementation
-QObject* KIO__CommandLauncherJob_QBaseSender(const KIO__CommandLauncherJob* self) {
+QObject* KIO__CommandLauncherJob_SuperSender(const KIO__CommandLauncherJob* self) {
     auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_Sender_IsBase(true);
@@ -963,7 +963,7 @@ int KIO__CommandLauncherJob_SenderSignalIndex(const KIO__CommandLauncherJob* sel
 }
 
 // Base class handler implementation
-int KIO__CommandLauncherJob_QBaseSenderSignalIndex(const KIO__CommandLauncherJob* self) {
+int KIO__CommandLauncherJob_SuperSenderSignalIndex(const KIO__CommandLauncherJob* self) {
     auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_SenderSignalIndex_IsBase(true);
@@ -992,7 +992,7 @@ int KIO__CommandLauncherJob_Receivers(const KIO__CommandLauncherJob* self, const
 }
 
 // Base class handler implementation
-int KIO__CommandLauncherJob_QBaseReceivers(const KIO__CommandLauncherJob* self, const char* signal) {
+int KIO__CommandLauncherJob_SuperReceivers(const KIO__CommandLauncherJob* self, const char* signal) {
     auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_Receivers_IsBase(true);
@@ -1021,7 +1021,7 @@ bool KIO__CommandLauncherJob_IsSignalConnected(const KIO__CommandLauncherJob* se
 }
 
 // Base class handler implementation
-bool KIO__CommandLauncherJob_QBaseIsSignalConnected(const KIO__CommandLauncherJob* self, const QMetaMethod* signal) {
+bool KIO__CommandLauncherJob_SuperIsSignalConnected(const KIO__CommandLauncherJob* self, const QMetaMethod* signal) {
     auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_IsSignalConnected_IsBase(true);

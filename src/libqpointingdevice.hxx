@@ -332,23 +332,23 @@ class VirtualQPointingDevice final : public QPointingDevice {
 
     // Friend functions
     friend void QPointingDevice_TimerEvent(QPointingDevice* self, QTimerEvent* event);
-    friend void QPointingDevice_QBaseTimerEvent(QPointingDevice* self, QTimerEvent* event);
+    friend void QPointingDevice_SuperTimerEvent(QPointingDevice* self, QTimerEvent* event);
     friend void QPointingDevice_ChildEvent(QPointingDevice* self, QChildEvent* event);
-    friend void QPointingDevice_QBaseChildEvent(QPointingDevice* self, QChildEvent* event);
+    friend void QPointingDevice_SuperChildEvent(QPointingDevice* self, QChildEvent* event);
     friend void QPointingDevice_CustomEvent(QPointingDevice* self, QEvent* event);
-    friend void QPointingDevice_QBaseCustomEvent(QPointingDevice* self, QEvent* event);
+    friend void QPointingDevice_SuperCustomEvent(QPointingDevice* self, QEvent* event);
     friend void QPointingDevice_ConnectNotify(QPointingDevice* self, const QMetaMethod* signal);
-    friend void QPointingDevice_QBaseConnectNotify(QPointingDevice* self, const QMetaMethod* signal);
+    friend void QPointingDevice_SuperConnectNotify(QPointingDevice* self, const QMetaMethod* signal);
     friend void QPointingDevice_DisconnectNotify(QPointingDevice* self, const QMetaMethod* signal);
-    friend void QPointingDevice_QBaseDisconnectNotify(QPointingDevice* self, const QMetaMethod* signal);
+    friend void QPointingDevice_SuperDisconnectNotify(QPointingDevice* self, const QMetaMethod* signal);
     friend QObject* QPointingDevice_Sender(const QPointingDevice* self);
-    friend QObject* QPointingDevice_QBaseSender(const QPointingDevice* self);
+    friend QObject* QPointingDevice_SuperSender(const QPointingDevice* self);
     friend int QPointingDevice_SenderSignalIndex(const QPointingDevice* self);
-    friend int QPointingDevice_QBaseSenderSignalIndex(const QPointingDevice* self);
+    friend int QPointingDevice_SuperSenderSignalIndex(const QPointingDevice* self);
     friend int QPointingDevice_Receivers(const QPointingDevice* self, const char* signal);
-    friend int QPointingDevice_QBaseReceivers(const QPointingDevice* self, const char* signal);
+    friend int QPointingDevice_SuperReceivers(const QPointingDevice* self, const char* signal);
     friend bool QPointingDevice_IsSignalConnected(const QPointingDevice* self, const QMetaMethod* signal);
-    friend bool QPointingDevice_QBaseIsSignalConnected(const QPointingDevice* self, const QMetaMethod* signal);
+    friend bool QPointingDevice_SuperIsSignalConnected(const QPointingDevice* self, const QMetaMethod* signal);
 };
 
 #endif

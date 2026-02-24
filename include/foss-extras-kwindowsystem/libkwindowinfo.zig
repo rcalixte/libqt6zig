@@ -421,6 +421,10 @@ pub const kwindowinfo = struct {
         return qtc.KWindowInfo_Valid1(@ptrCast(self), withdrawn_is_valid);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kwindowinfo.html#dtor.KWindowInfo)
     ///
     /// Delete this object from C++ memory.
@@ -429,7 +433,7 @@ pub const kwindowinfo = struct {
     ///
     /// ` self: QtC.KWindowInfo `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KWindowInfo_Delete(@ptrCast(self));
     }
 };

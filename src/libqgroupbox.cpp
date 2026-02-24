@@ -250,7 +250,7 @@ void QGroupBox_Connect_Clicked1(QGroupBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QGroupBox_QBaseMetaObject(const QGroupBox* self) {
+QMetaObject* QGroupBox_SuperMetaObject(const QGroupBox* self) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_MetaObject_IsBase(true);
@@ -269,7 +269,7 @@ void QGroupBox_OnMetaObject(const QGroupBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QGroupBox_QBaseMetacast(QGroupBox* self, const char* param1) {
+void* QGroupBox_SuperMetacast(QGroupBox* self, const char* param1) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_Metacast_IsBase(true);
@@ -288,7 +288,7 @@ void QGroupBox_OnMetacast(QGroupBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QGroupBox_QBaseMetacall(QGroupBox* self, int param1, int param2, void** param3) {
+int QGroupBox_SuperMetacall(QGroupBox* self, int param1, int param2, void** param3) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_Metacall_IsBase(true);
@@ -307,7 +307,7 @@ void QGroupBox_OnMetacall(QGroupBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QGroupBox_QBaseMinimumSizeHint(const QGroupBox* self) {
+QSize* QGroupBox_SuperMinimumSizeHint(const QGroupBox* self) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_MinimumSizeHint_IsBase(true);
@@ -326,7 +326,7 @@ void QGroupBox_OnMinimumSizeHint(const QGroupBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGroupBox_QBaseEvent(QGroupBox* self, QEvent* event) {
+bool QGroupBox_SuperEvent(QGroupBox* self, QEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_Event_IsBase(true);
@@ -345,7 +345,7 @@ void QGroupBox_OnEvent(QGroupBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseChildEvent(QGroupBox* self, QChildEvent* event) {
+void QGroupBox_SuperChildEvent(QGroupBox* self, QChildEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_ChildEvent_IsBase(true);
@@ -364,7 +364,7 @@ void QGroupBox_OnChildEvent(QGroupBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseResizeEvent(QGroupBox* self, QResizeEvent* event) {
+void QGroupBox_SuperResizeEvent(QGroupBox* self, QResizeEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_ResizeEvent_IsBase(true);
@@ -383,7 +383,7 @@ void QGroupBox_OnResizeEvent(QGroupBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBasePaintEvent(QGroupBox* self, QPaintEvent* event) {
+void QGroupBox_SuperPaintEvent(QGroupBox* self, QPaintEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_PaintEvent_IsBase(true);
@@ -402,7 +402,7 @@ void QGroupBox_OnPaintEvent(QGroupBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseFocusInEvent(QGroupBox* self, QFocusEvent* event) {
+void QGroupBox_SuperFocusInEvent(QGroupBox* self, QFocusEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_FocusInEvent_IsBase(true);
@@ -421,7 +421,7 @@ void QGroupBox_OnFocusInEvent(QGroupBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseChangeEvent(QGroupBox* self, QEvent* event) {
+void QGroupBox_SuperChangeEvent(QGroupBox* self, QEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_ChangeEvent_IsBase(true);
@@ -440,7 +440,7 @@ void QGroupBox_OnChangeEvent(QGroupBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseMousePressEvent(QGroupBox* self, QMouseEvent* event) {
+void QGroupBox_SuperMousePressEvent(QGroupBox* self, QMouseEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_MousePressEvent_IsBase(true);
@@ -459,7 +459,7 @@ void QGroupBox_OnMousePressEvent(QGroupBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseMouseMoveEvent(QGroupBox* self, QMouseEvent* event) {
+void QGroupBox_SuperMouseMoveEvent(QGroupBox* self, QMouseEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_MouseMoveEvent_IsBase(true);
@@ -478,7 +478,7 @@ void QGroupBox_OnMouseMoveEvent(QGroupBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseMouseReleaseEvent(QGroupBox* self, QMouseEvent* event) {
+void QGroupBox_SuperMouseReleaseEvent(QGroupBox* self, QMouseEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_MouseReleaseEvent_IsBase(true);
@@ -497,7 +497,7 @@ void QGroupBox_OnMouseReleaseEvent(QGroupBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseInitStyleOption(const QGroupBox* self, QStyleOptionGroupBox* option) {
+void QGroupBox_SuperInitStyleOption(const QGroupBox* self, QStyleOptionGroupBox* option) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_InitStyleOption_IsBase(true);
@@ -526,7 +526,7 @@ int QGroupBox_DevType(const QGroupBox* self) {
 }
 
 // Base class handler implementation
-int QGroupBox_QBaseDevType(const QGroupBox* self) {
+int QGroupBox_SuperDevType(const QGroupBox* self) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_DevType_IsBase(true);
@@ -555,7 +555,7 @@ void QGroupBox_SetVisible(QGroupBox* self, bool visible) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseSetVisible(QGroupBox* self, bool visible) {
+void QGroupBox_SuperSetVisible(QGroupBox* self, bool visible) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_SetVisible_IsBase(true);
@@ -584,7 +584,7 @@ QSize* QGroupBox_SizeHint(const QGroupBox* self) {
 }
 
 // Base class handler implementation
-QSize* QGroupBox_QBaseSizeHint(const QGroupBox* self) {
+QSize* QGroupBox_SuperSizeHint(const QGroupBox* self) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_SizeHint_IsBase(true);
@@ -613,7 +613,7 @@ int QGroupBox_HeightForWidth(const QGroupBox* self, int param1) {
 }
 
 // Base class handler implementation
-int QGroupBox_QBaseHeightForWidth(const QGroupBox* self, int param1) {
+int QGroupBox_SuperHeightForWidth(const QGroupBox* self, int param1) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_HeightForWidth_IsBase(true);
@@ -642,7 +642,7 @@ bool QGroupBox_HasHeightForWidth(const QGroupBox* self) {
 }
 
 // Base class handler implementation
-bool QGroupBox_QBaseHasHeightForWidth(const QGroupBox* self) {
+bool QGroupBox_SuperHasHeightForWidth(const QGroupBox* self) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_HasHeightForWidth_IsBase(true);
@@ -671,7 +671,7 @@ QPaintEngine* QGroupBox_PaintEngine(const QGroupBox* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QGroupBox_QBasePaintEngine(const QGroupBox* self) {
+QPaintEngine* QGroupBox_SuperPaintEngine(const QGroupBox* self) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_PaintEngine_IsBase(true);
@@ -700,7 +700,7 @@ void QGroupBox_MouseDoubleClickEvent(QGroupBox* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseMouseDoubleClickEvent(QGroupBox* self, QMouseEvent* event) {
+void QGroupBox_SuperMouseDoubleClickEvent(QGroupBox* self, QMouseEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_MouseDoubleClickEvent_IsBase(true);
@@ -729,7 +729,7 @@ void QGroupBox_WheelEvent(QGroupBox* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseWheelEvent(QGroupBox* self, QWheelEvent* event) {
+void QGroupBox_SuperWheelEvent(QGroupBox* self, QWheelEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_WheelEvent_IsBase(true);
@@ -758,7 +758,7 @@ void QGroupBox_KeyPressEvent(QGroupBox* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseKeyPressEvent(QGroupBox* self, QKeyEvent* event) {
+void QGroupBox_SuperKeyPressEvent(QGroupBox* self, QKeyEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_KeyPressEvent_IsBase(true);
@@ -787,7 +787,7 @@ void QGroupBox_KeyReleaseEvent(QGroupBox* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseKeyReleaseEvent(QGroupBox* self, QKeyEvent* event) {
+void QGroupBox_SuperKeyReleaseEvent(QGroupBox* self, QKeyEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_KeyReleaseEvent_IsBase(true);
@@ -816,7 +816,7 @@ void QGroupBox_FocusOutEvent(QGroupBox* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseFocusOutEvent(QGroupBox* self, QFocusEvent* event) {
+void QGroupBox_SuperFocusOutEvent(QGroupBox* self, QFocusEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_FocusOutEvent_IsBase(true);
@@ -845,7 +845,7 @@ void QGroupBox_EnterEvent(QGroupBox* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseEnterEvent(QGroupBox* self, QEnterEvent* event) {
+void QGroupBox_SuperEnterEvent(QGroupBox* self, QEnterEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_EnterEvent_IsBase(true);
@@ -874,7 +874,7 @@ void QGroupBox_LeaveEvent(QGroupBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseLeaveEvent(QGroupBox* self, QEvent* event) {
+void QGroupBox_SuperLeaveEvent(QGroupBox* self, QEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_LeaveEvent_IsBase(true);
@@ -903,7 +903,7 @@ void QGroupBox_MoveEvent(QGroupBox* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseMoveEvent(QGroupBox* self, QMoveEvent* event) {
+void QGroupBox_SuperMoveEvent(QGroupBox* self, QMoveEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_MoveEvent_IsBase(true);
@@ -932,7 +932,7 @@ void QGroupBox_CloseEvent(QGroupBox* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseCloseEvent(QGroupBox* self, QCloseEvent* event) {
+void QGroupBox_SuperCloseEvent(QGroupBox* self, QCloseEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_CloseEvent_IsBase(true);
@@ -961,7 +961,7 @@ void QGroupBox_ContextMenuEvent(QGroupBox* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseContextMenuEvent(QGroupBox* self, QContextMenuEvent* event) {
+void QGroupBox_SuperContextMenuEvent(QGroupBox* self, QContextMenuEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_ContextMenuEvent_IsBase(true);
@@ -990,7 +990,7 @@ void QGroupBox_TabletEvent(QGroupBox* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseTabletEvent(QGroupBox* self, QTabletEvent* event) {
+void QGroupBox_SuperTabletEvent(QGroupBox* self, QTabletEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_TabletEvent_IsBase(true);
@@ -1019,7 +1019,7 @@ void QGroupBox_ActionEvent(QGroupBox* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseActionEvent(QGroupBox* self, QActionEvent* event) {
+void QGroupBox_SuperActionEvent(QGroupBox* self, QActionEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_ActionEvent_IsBase(true);
@@ -1048,7 +1048,7 @@ void QGroupBox_DragEnterEvent(QGroupBox* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseDragEnterEvent(QGroupBox* self, QDragEnterEvent* event) {
+void QGroupBox_SuperDragEnterEvent(QGroupBox* self, QDragEnterEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_DragEnterEvent_IsBase(true);
@@ -1077,7 +1077,7 @@ void QGroupBox_DragMoveEvent(QGroupBox* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseDragMoveEvent(QGroupBox* self, QDragMoveEvent* event) {
+void QGroupBox_SuperDragMoveEvent(QGroupBox* self, QDragMoveEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_DragMoveEvent_IsBase(true);
@@ -1106,7 +1106,7 @@ void QGroupBox_DragLeaveEvent(QGroupBox* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseDragLeaveEvent(QGroupBox* self, QDragLeaveEvent* event) {
+void QGroupBox_SuperDragLeaveEvent(QGroupBox* self, QDragLeaveEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_DragLeaveEvent_IsBase(true);
@@ -1135,7 +1135,7 @@ void QGroupBox_DropEvent(QGroupBox* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseDropEvent(QGroupBox* self, QDropEvent* event) {
+void QGroupBox_SuperDropEvent(QGroupBox* self, QDropEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_DropEvent_IsBase(true);
@@ -1164,7 +1164,7 @@ void QGroupBox_ShowEvent(QGroupBox* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseShowEvent(QGroupBox* self, QShowEvent* event) {
+void QGroupBox_SuperShowEvent(QGroupBox* self, QShowEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_ShowEvent_IsBase(true);
@@ -1193,7 +1193,7 @@ void QGroupBox_HideEvent(QGroupBox* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseHideEvent(QGroupBox* self, QHideEvent* event) {
+void QGroupBox_SuperHideEvent(QGroupBox* self, QHideEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_HideEvent_IsBase(true);
@@ -1223,7 +1223,7 @@ bool QGroupBox_NativeEvent(QGroupBox* self, const libqt_string eventType, void* 
 }
 
 // Base class handler implementation
-bool QGroupBox_QBaseNativeEvent(QGroupBox* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QGroupBox_SuperNativeEvent(QGroupBox* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
@@ -1253,7 +1253,7 @@ int QGroupBox_Metric(const QGroupBox* self, int param1) {
 }
 
 // Base class handler implementation
-int QGroupBox_QBaseMetric(const QGroupBox* self, int param1) {
+int QGroupBox_SuperMetric(const QGroupBox* self, int param1) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_Metric_IsBase(true);
@@ -1282,7 +1282,7 @@ void QGroupBox_InitPainter(const QGroupBox* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseInitPainter(const QGroupBox* self, QPainter* painter) {
+void QGroupBox_SuperInitPainter(const QGroupBox* self, QPainter* painter) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_InitPainter_IsBase(true);
@@ -1311,7 +1311,7 @@ QPaintDevice* QGroupBox_Redirected(const QGroupBox* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QGroupBox_QBaseRedirected(const QGroupBox* self, QPoint* offset) {
+QPaintDevice* QGroupBox_SuperRedirected(const QGroupBox* self, QPoint* offset) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_Redirected_IsBase(true);
@@ -1340,7 +1340,7 @@ QPainter* QGroupBox_SharedPainter(const QGroupBox* self) {
 }
 
 // Base class handler implementation
-QPainter* QGroupBox_QBaseSharedPainter(const QGroupBox* self) {
+QPainter* QGroupBox_SuperSharedPainter(const QGroupBox* self) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_SharedPainter_IsBase(true);
@@ -1369,7 +1369,7 @@ void QGroupBox_InputMethodEvent(QGroupBox* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseInputMethodEvent(QGroupBox* self, QInputMethodEvent* param1) {
+void QGroupBox_SuperInputMethodEvent(QGroupBox* self, QInputMethodEvent* param1) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_InputMethodEvent_IsBase(true);
@@ -1398,7 +1398,7 @@ QVariant* QGroupBox_InputMethodQuery(const QGroupBox* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QGroupBox_QBaseInputMethodQuery(const QGroupBox* self, int param1) {
+QVariant* QGroupBox_SuperInputMethodQuery(const QGroupBox* self, int param1) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_InputMethodQuery_IsBase(true);
@@ -1427,7 +1427,7 @@ bool QGroupBox_FocusNextPrevChild(QGroupBox* self, bool next) {
 }
 
 // Base class handler implementation
-bool QGroupBox_QBaseFocusNextPrevChild(QGroupBox* self, bool next) {
+bool QGroupBox_SuperFocusNextPrevChild(QGroupBox* self, bool next) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_FocusNextPrevChild_IsBase(true);
@@ -1456,7 +1456,7 @@ bool QGroupBox_EventFilter(QGroupBox* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QGroupBox_QBaseEventFilter(QGroupBox* self, QObject* watched, QEvent* event) {
+bool QGroupBox_SuperEventFilter(QGroupBox* self, QObject* watched, QEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_EventFilter_IsBase(true);
@@ -1485,7 +1485,7 @@ void QGroupBox_TimerEvent(QGroupBox* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseTimerEvent(QGroupBox* self, QTimerEvent* event) {
+void QGroupBox_SuperTimerEvent(QGroupBox* self, QTimerEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_TimerEvent_IsBase(true);
@@ -1514,7 +1514,7 @@ void QGroupBox_CustomEvent(QGroupBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseCustomEvent(QGroupBox* self, QEvent* event) {
+void QGroupBox_SuperCustomEvent(QGroupBox* self, QEvent* event) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_CustomEvent_IsBase(true);
@@ -1543,7 +1543,7 @@ void QGroupBox_ConnectNotify(QGroupBox* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseConnectNotify(QGroupBox* self, const QMetaMethod* signal) {
+void QGroupBox_SuperConnectNotify(QGroupBox* self, const QMetaMethod* signal) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_ConnectNotify_IsBase(true);
@@ -1572,7 +1572,7 @@ void QGroupBox_DisconnectNotify(QGroupBox* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseDisconnectNotify(QGroupBox* self, const QMetaMethod* signal) {
+void QGroupBox_SuperDisconnectNotify(QGroupBox* self, const QMetaMethod* signal) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_DisconnectNotify_IsBase(true);
@@ -1601,7 +1601,7 @@ void QGroupBox_UpdateMicroFocus(QGroupBox* self) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseUpdateMicroFocus(QGroupBox* self) {
+void QGroupBox_SuperUpdateMicroFocus(QGroupBox* self) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_UpdateMicroFocus_IsBase(true);
@@ -1630,7 +1630,7 @@ void QGroupBox_Create(QGroupBox* self) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseCreate(QGroupBox* self) {
+void QGroupBox_SuperCreate(QGroupBox* self) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_Create_IsBase(true);
@@ -1659,7 +1659,7 @@ void QGroupBox_Destroy(QGroupBox* self) {
 }
 
 // Base class handler implementation
-void QGroupBox_QBaseDestroy(QGroupBox* self) {
+void QGroupBox_SuperDestroy(QGroupBox* self) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_Destroy_IsBase(true);
@@ -1688,7 +1688,7 @@ bool QGroupBox_FocusNextChild(QGroupBox* self) {
 }
 
 // Base class handler implementation
-bool QGroupBox_QBaseFocusNextChild(QGroupBox* self) {
+bool QGroupBox_SuperFocusNextChild(QGroupBox* self) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_FocusNextChild_IsBase(true);
@@ -1717,7 +1717,7 @@ bool QGroupBox_FocusPreviousChild(QGroupBox* self) {
 }
 
 // Base class handler implementation
-bool QGroupBox_QBaseFocusPreviousChild(QGroupBox* self) {
+bool QGroupBox_SuperFocusPreviousChild(QGroupBox* self) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_FocusPreviousChild_IsBase(true);
@@ -1746,7 +1746,7 @@ QObject* QGroupBox_Sender(const QGroupBox* self) {
 }
 
 // Base class handler implementation
-QObject* QGroupBox_QBaseSender(const QGroupBox* self) {
+QObject* QGroupBox_SuperSender(const QGroupBox* self) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_Sender_IsBase(true);
@@ -1775,7 +1775,7 @@ int QGroupBox_SenderSignalIndex(const QGroupBox* self) {
 }
 
 // Base class handler implementation
-int QGroupBox_QBaseSenderSignalIndex(const QGroupBox* self) {
+int QGroupBox_SuperSenderSignalIndex(const QGroupBox* self) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_SenderSignalIndex_IsBase(true);
@@ -1804,7 +1804,7 @@ int QGroupBox_Receivers(const QGroupBox* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QGroupBox_QBaseReceivers(const QGroupBox* self, const char* signal) {
+int QGroupBox_SuperReceivers(const QGroupBox* self, const char* signal) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_Receivers_IsBase(true);
@@ -1833,7 +1833,7 @@ bool QGroupBox_IsSignalConnected(const QGroupBox* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool QGroupBox_QBaseIsSignalConnected(const QGroupBox* self, const QMetaMethod* signal) {
+bool QGroupBox_SuperIsSignalConnected(const QGroupBox* self, const QMetaMethod* signal) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_IsSignalConnected_IsBase(true);
@@ -1862,7 +1862,7 @@ double QGroupBox_GetDecodedMetricF(const QGroupBox* self, int metricA, int metri
 }
 
 // Base class handler implementation
-double QGroupBox_QBaseGetDecodedMetricF(const QGroupBox* self, int metricA, int metricB) {
+double QGroupBox_SuperGetDecodedMetricF(const QGroupBox* self, int metricA, int metricB) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
     if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
         vqgroupbox->setQGroupBox_GetDecodedMetricF_IsBase(true);

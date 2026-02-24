@@ -384,31 +384,31 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
 
     // Friend functions
     friend QDrag* KDragWidgetDecoratorBase_DragObject(KDragWidgetDecoratorBase* self);
-    friend QDrag* KDragWidgetDecoratorBase_QBaseDragObject(KDragWidgetDecoratorBase* self);
+    friend QDrag* KDragWidgetDecoratorBase_SuperDragObject(KDragWidgetDecoratorBase* self);
     friend bool KDragWidgetDecoratorBase_EventFilter(KDragWidgetDecoratorBase* self, QObject* watched, QEvent* event);
-    friend bool KDragWidgetDecoratorBase_QBaseEventFilter(KDragWidgetDecoratorBase* self, QObject* watched, QEvent* event);
+    friend bool KDragWidgetDecoratorBase_SuperEventFilter(KDragWidgetDecoratorBase* self, QObject* watched, QEvent* event);
     friend void KDragWidgetDecoratorBase_StartDrag(KDragWidgetDecoratorBase* self);
-    friend void KDragWidgetDecoratorBase_QBaseStartDrag(KDragWidgetDecoratorBase* self);
+    friend void KDragWidgetDecoratorBase_SuperStartDrag(KDragWidgetDecoratorBase* self);
     friend void KDragWidgetDecoratorBase_TimerEvent(KDragWidgetDecoratorBase* self, QTimerEvent* event);
-    friend void KDragWidgetDecoratorBase_QBaseTimerEvent(KDragWidgetDecoratorBase* self, QTimerEvent* event);
+    friend void KDragWidgetDecoratorBase_SuperTimerEvent(KDragWidgetDecoratorBase* self, QTimerEvent* event);
     friend void KDragWidgetDecoratorBase_ChildEvent(KDragWidgetDecoratorBase* self, QChildEvent* event);
-    friend void KDragWidgetDecoratorBase_QBaseChildEvent(KDragWidgetDecoratorBase* self, QChildEvent* event);
+    friend void KDragWidgetDecoratorBase_SuperChildEvent(KDragWidgetDecoratorBase* self, QChildEvent* event);
     friend void KDragWidgetDecoratorBase_CustomEvent(KDragWidgetDecoratorBase* self, QEvent* event);
-    friend void KDragWidgetDecoratorBase_QBaseCustomEvent(KDragWidgetDecoratorBase* self, QEvent* event);
+    friend void KDragWidgetDecoratorBase_SuperCustomEvent(KDragWidgetDecoratorBase* self, QEvent* event);
     friend void KDragWidgetDecoratorBase_ConnectNotify(KDragWidgetDecoratorBase* self, const QMetaMethod* signal);
-    friend void KDragWidgetDecoratorBase_QBaseConnectNotify(KDragWidgetDecoratorBase* self, const QMetaMethod* signal);
+    friend void KDragWidgetDecoratorBase_SuperConnectNotify(KDragWidgetDecoratorBase* self, const QMetaMethod* signal);
     friend void KDragWidgetDecoratorBase_DisconnectNotify(KDragWidgetDecoratorBase* self, const QMetaMethod* signal);
-    friend void KDragWidgetDecoratorBase_QBaseDisconnectNotify(KDragWidgetDecoratorBase* self, const QMetaMethod* signal);
+    friend void KDragWidgetDecoratorBase_SuperDisconnectNotify(KDragWidgetDecoratorBase* self, const QMetaMethod* signal);
     friend QWidget* KDragWidgetDecoratorBase_DecoratedWidget(const KDragWidgetDecoratorBase* self);
-    friend QWidget* KDragWidgetDecoratorBase_QBaseDecoratedWidget(const KDragWidgetDecoratorBase* self);
+    friend QWidget* KDragWidgetDecoratorBase_SuperDecoratedWidget(const KDragWidgetDecoratorBase* self);
     friend QObject* KDragWidgetDecoratorBase_Sender(const KDragWidgetDecoratorBase* self);
-    friend QObject* KDragWidgetDecoratorBase_QBaseSender(const KDragWidgetDecoratorBase* self);
+    friend QObject* KDragWidgetDecoratorBase_SuperSender(const KDragWidgetDecoratorBase* self);
     friend int KDragWidgetDecoratorBase_SenderSignalIndex(const KDragWidgetDecoratorBase* self);
-    friend int KDragWidgetDecoratorBase_QBaseSenderSignalIndex(const KDragWidgetDecoratorBase* self);
+    friend int KDragWidgetDecoratorBase_SuperSenderSignalIndex(const KDragWidgetDecoratorBase* self);
     friend int KDragWidgetDecoratorBase_Receivers(const KDragWidgetDecoratorBase* self, const char* signal);
-    friend int KDragWidgetDecoratorBase_QBaseReceivers(const KDragWidgetDecoratorBase* self, const char* signal);
+    friend int KDragWidgetDecoratorBase_SuperReceivers(const KDragWidgetDecoratorBase* self, const char* signal);
     friend bool KDragWidgetDecoratorBase_IsSignalConnected(const KDragWidgetDecoratorBase* self, const QMetaMethod* signal);
-    friend bool KDragWidgetDecoratorBase_QBaseIsSignalConnected(const KDragWidgetDecoratorBase* self, const QMetaMethod* signal);
+    friend bool KDragWidgetDecoratorBase_SuperIsSignalConnected(const KDragWidgetDecoratorBase* self, const QMetaMethod* signal);
 };
 
 #endif

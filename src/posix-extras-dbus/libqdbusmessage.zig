@@ -519,6 +519,10 @@ pub const qdbusmessage = struct {
         return qtc.QDBusMessage_CreateReply1(@ptrCast(self), arguments_list);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#dtor.QDBusMessage)
     ///
     /// Delete this object from C++ memory.
@@ -527,7 +531,7 @@ pub const qdbusmessage = struct {
     ///
     /// ` self: QtC.QDBusMessage `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDBusMessage_Delete(@ptrCast(self));
     }
 };

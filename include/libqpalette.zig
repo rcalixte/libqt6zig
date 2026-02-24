@@ -621,6 +621,10 @@ pub const qpalette = struct {
         qtc.QPalette_SetResolveMask(@ptrCast(self), @bitCast(mask));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#dtor.QPalette)
     ///
     /// Delete this object from C++ memory.
@@ -629,7 +633,7 @@ pub const qpalette = struct {
     ///
     /// ` self: QtC.QPalette `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPalette_Delete(@ptrCast(self));
     }
 };

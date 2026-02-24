@@ -499,33 +499,33 @@ class VirtualKAr final : public KAr {
 
     // Friend functions
     friend bool KAr_DoPrepareWriting(KAr* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
-    friend bool KAr_QBaseDoPrepareWriting(KAr* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
+    friend bool KAr_SuperDoPrepareWriting(KAr* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
     friend bool KAr_DoFinishWriting(KAr* self, long long size);
-    friend bool KAr_QBaseDoFinishWriting(KAr* self, long long size);
+    friend bool KAr_SuperDoFinishWriting(KAr* self, long long size);
     friend bool KAr_DoWriteDir(KAr* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
-    friend bool KAr_QBaseDoWriteDir(KAr* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
+    friend bool KAr_SuperDoWriteDir(KAr* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
     friend bool KAr_DoWriteSymLink(KAr* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
-    friend bool KAr_QBaseDoWriteSymLink(KAr* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
+    friend bool KAr_SuperDoWriteSymLink(KAr* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
     friend bool KAr_OpenArchive(KAr* self, int mode);
-    friend bool KAr_QBaseOpenArchive(KAr* self, int mode);
+    friend bool KAr_SuperOpenArchive(KAr* self, int mode);
     friend bool KAr_CloseArchive(KAr* self);
-    friend bool KAr_QBaseCloseArchive(KAr* self);
+    friend bool KAr_SuperCloseArchive(KAr* self);
     friend void KAr_VirtualHook(KAr* self, int id, void* data);
-    friend void KAr_QBaseVirtualHook(KAr* self, int id, void* data);
+    friend void KAr_SuperVirtualHook(KAr* self, int id, void* data);
     friend KArchiveDirectory* KAr_RootDir(KAr* self);
-    friend KArchiveDirectory* KAr_QBaseRootDir(KAr* self);
+    friend KArchiveDirectory* KAr_SuperRootDir(KAr* self);
     friend bool KAr_DoWriteData(KAr* self, const char* data, long long size);
-    friend bool KAr_QBaseDoWriteData(KAr* self, const char* data, long long size);
+    friend bool KAr_SuperDoWriteData(KAr* self, const char* data, long long size);
     friend bool KAr_CreateDevice(KAr* self, int mode);
-    friend bool KAr_QBaseCreateDevice(KAr* self, int mode);
+    friend bool KAr_SuperCreateDevice(KAr* self, int mode);
     friend void KAr_SetErrorString(KAr* self, const libqt_string errorStr);
-    friend void KAr_QBaseSetErrorString(KAr* self, const libqt_string errorStr);
+    friend void KAr_SuperSetErrorString(KAr* self, const libqt_string errorStr);
     friend KArchiveDirectory* KAr_FindOrCreate(KAr* self, const libqt_string path);
-    friend KArchiveDirectory* KAr_QBaseFindOrCreate(KAr* self, const libqt_string path);
+    friend KArchiveDirectory* KAr_SuperFindOrCreate(KAr* self, const libqt_string path);
     friend void KAr_SetDevice(KAr* self, QIODevice* dev);
-    friend void KAr_QBaseSetDevice(KAr* self, QIODevice* dev);
+    friend void KAr_SuperSetDevice(KAr* self, QIODevice* dev);
     friend void KAr_SetRootDir(KAr* self, KArchiveDirectory* rootDir);
-    friend void KAr_QBaseSetRootDir(KAr* self, KArchiveDirectory* rootDir);
+    friend void KAr_SuperSetRootDir(KAr* self, KArchiveDirectory* rootDir);
 };
 
 #endif

@@ -276,15 +276,15 @@ class VirtualKDesktopFile final : public KDesktopFile {
 
     // Friend functions
     friend bool KDesktopFile_HasGroupImpl(const KDesktopFile* self, const libqt_string groupName);
-    friend bool KDesktopFile_QBaseHasGroupImpl(const KDesktopFile* self, const libqt_string groupName);
+    friend bool KDesktopFile_SuperHasGroupImpl(const KDesktopFile* self, const libqt_string groupName);
     friend KConfigGroup* KDesktopFile_GroupImpl(KDesktopFile* self, const libqt_string groupName);
-    friend KConfigGroup* KDesktopFile_QBaseGroupImpl(KDesktopFile* self, const libqt_string groupName);
+    friend KConfigGroup* KDesktopFile_SuperGroupImpl(KDesktopFile* self, const libqt_string groupName);
     friend void KDesktopFile_DeleteGroupImpl(KDesktopFile* self, const libqt_string groupName, int flags);
-    friend void KDesktopFile_QBaseDeleteGroupImpl(KDesktopFile* self, const libqt_string groupName, int flags);
+    friend void KDesktopFile_SuperDeleteGroupImpl(KDesktopFile* self, const libqt_string groupName, int flags);
     friend bool KDesktopFile_IsGroupImmutableImpl(const KDesktopFile* self, const libqt_string groupName);
-    friend bool KDesktopFile_QBaseIsGroupImmutableImpl(const KDesktopFile* self, const libqt_string groupName);
+    friend bool KDesktopFile_SuperIsGroupImmutableImpl(const KDesktopFile* self, const libqt_string groupName);
     friend void KDesktopFile_VirtualHook(KDesktopFile* self, int id, void* data);
-    friend void KDesktopFile_QBaseVirtualHook(KDesktopFile* self, int id, void* data);
+    friend void KDesktopFile_SuperVirtualHook(KDesktopFile* self, int id, void* data);
 };
 
 #endif

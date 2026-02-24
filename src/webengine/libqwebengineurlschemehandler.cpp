@@ -58,7 +58,7 @@ void QWebEngineUrlSchemeHandler_RequestStarted(QWebEngineUrlSchemeHandler* self,
 }
 
 // Base class handler implementation
-QMetaObject* QWebEngineUrlSchemeHandler_QBaseMetaObject(const QWebEngineUrlSchemeHandler* self) {
+QMetaObject* QWebEngineUrlSchemeHandler_SuperMetaObject(const QWebEngineUrlSchemeHandler* self) {
     auto* vqwebengineurlschemehandler = const_cast<VirtualQWebEngineUrlSchemeHandler*>(dynamic_cast<const VirtualQWebEngineUrlSchemeHandler*>(self));
     if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
         vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_MetaObject_IsBase(true);
@@ -77,7 +77,7 @@ void QWebEngineUrlSchemeHandler_OnMetaObject(const QWebEngineUrlSchemeHandler* s
 }
 
 // Base class handler implementation
-void* QWebEngineUrlSchemeHandler_QBaseMetacast(QWebEngineUrlSchemeHandler* self, const char* param1) {
+void* QWebEngineUrlSchemeHandler_SuperMetacast(QWebEngineUrlSchemeHandler* self, const char* param1) {
     auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
     if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
         vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_Metacast_IsBase(true);
@@ -96,7 +96,7 @@ void QWebEngineUrlSchemeHandler_OnMetacast(QWebEngineUrlSchemeHandler* self, int
 }
 
 // Base class handler implementation
-int QWebEngineUrlSchemeHandler_QBaseMetacall(QWebEngineUrlSchemeHandler* self, int param1, int param2, void** param3) {
+int QWebEngineUrlSchemeHandler_SuperMetacall(QWebEngineUrlSchemeHandler* self, int param1, int param2, void** param3) {
     auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
     if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
         vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_Metacall_IsBase(true);
@@ -115,7 +115,7 @@ void QWebEngineUrlSchemeHandler_OnMetacall(QWebEngineUrlSchemeHandler* self, int
 }
 
 // Base class handler implementation
-void QWebEngineUrlSchemeHandler_QBaseRequestStarted(QWebEngineUrlSchemeHandler* self, QWebEngineUrlRequestJob* param1) {
+void QWebEngineUrlSchemeHandler_SuperRequestStarted(QWebEngineUrlSchemeHandler* self, QWebEngineUrlRequestJob* param1) {
     auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
     if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
         vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_RequestStarted_IsBase(true);
@@ -144,7 +144,7 @@ bool QWebEngineUrlSchemeHandler_Event(QWebEngineUrlSchemeHandler* self, QEvent* 
 }
 
 // Base class handler implementation
-bool QWebEngineUrlSchemeHandler_QBaseEvent(QWebEngineUrlSchemeHandler* self, QEvent* event) {
+bool QWebEngineUrlSchemeHandler_SuperEvent(QWebEngineUrlSchemeHandler* self, QEvent* event) {
     auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
     if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
         vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_Event_IsBase(true);
@@ -173,7 +173,7 @@ bool QWebEngineUrlSchemeHandler_EventFilter(QWebEngineUrlSchemeHandler* self, QO
 }
 
 // Base class handler implementation
-bool QWebEngineUrlSchemeHandler_QBaseEventFilter(QWebEngineUrlSchemeHandler* self, QObject* watched, QEvent* event) {
+bool QWebEngineUrlSchemeHandler_SuperEventFilter(QWebEngineUrlSchemeHandler* self, QObject* watched, QEvent* event) {
     auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
     if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
         vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_EventFilter_IsBase(true);
@@ -202,7 +202,7 @@ void QWebEngineUrlSchemeHandler_TimerEvent(QWebEngineUrlSchemeHandler* self, QTi
 }
 
 // Base class handler implementation
-void QWebEngineUrlSchemeHandler_QBaseTimerEvent(QWebEngineUrlSchemeHandler* self, QTimerEvent* event) {
+void QWebEngineUrlSchemeHandler_SuperTimerEvent(QWebEngineUrlSchemeHandler* self, QTimerEvent* event) {
     auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
     if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
         vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_TimerEvent_IsBase(true);
@@ -231,7 +231,7 @@ void QWebEngineUrlSchemeHandler_ChildEvent(QWebEngineUrlSchemeHandler* self, QCh
 }
 
 // Base class handler implementation
-void QWebEngineUrlSchemeHandler_QBaseChildEvent(QWebEngineUrlSchemeHandler* self, QChildEvent* event) {
+void QWebEngineUrlSchemeHandler_SuperChildEvent(QWebEngineUrlSchemeHandler* self, QChildEvent* event) {
     auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
     if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
         vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_ChildEvent_IsBase(true);
@@ -260,7 +260,7 @@ void QWebEngineUrlSchemeHandler_CustomEvent(QWebEngineUrlSchemeHandler* self, QE
 }
 
 // Base class handler implementation
-void QWebEngineUrlSchemeHandler_QBaseCustomEvent(QWebEngineUrlSchemeHandler* self, QEvent* event) {
+void QWebEngineUrlSchemeHandler_SuperCustomEvent(QWebEngineUrlSchemeHandler* self, QEvent* event) {
     auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
     if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
         vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_CustomEvent_IsBase(true);
@@ -289,7 +289,7 @@ void QWebEngineUrlSchemeHandler_ConnectNotify(QWebEngineUrlSchemeHandler* self, 
 }
 
 // Base class handler implementation
-void QWebEngineUrlSchemeHandler_QBaseConnectNotify(QWebEngineUrlSchemeHandler* self, const QMetaMethod* signal) {
+void QWebEngineUrlSchemeHandler_SuperConnectNotify(QWebEngineUrlSchemeHandler* self, const QMetaMethod* signal) {
     auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
     if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
         vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_ConnectNotify_IsBase(true);
@@ -318,7 +318,7 @@ void QWebEngineUrlSchemeHandler_DisconnectNotify(QWebEngineUrlSchemeHandler* sel
 }
 
 // Base class handler implementation
-void QWebEngineUrlSchemeHandler_QBaseDisconnectNotify(QWebEngineUrlSchemeHandler* self, const QMetaMethod* signal) {
+void QWebEngineUrlSchemeHandler_SuperDisconnectNotify(QWebEngineUrlSchemeHandler* self, const QMetaMethod* signal) {
     auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
     if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
         vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_DisconnectNotify_IsBase(true);
@@ -347,7 +347,7 @@ QObject* QWebEngineUrlSchemeHandler_Sender(const QWebEngineUrlSchemeHandler* sel
 }
 
 // Base class handler implementation
-QObject* QWebEngineUrlSchemeHandler_QBaseSender(const QWebEngineUrlSchemeHandler* self) {
+QObject* QWebEngineUrlSchemeHandler_SuperSender(const QWebEngineUrlSchemeHandler* self) {
     auto* vqwebengineurlschemehandler = const_cast<VirtualQWebEngineUrlSchemeHandler*>(dynamic_cast<const VirtualQWebEngineUrlSchemeHandler*>(self));
     if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
         vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_Sender_IsBase(true);
@@ -376,7 +376,7 @@ int QWebEngineUrlSchemeHandler_SenderSignalIndex(const QWebEngineUrlSchemeHandle
 }
 
 // Base class handler implementation
-int QWebEngineUrlSchemeHandler_QBaseSenderSignalIndex(const QWebEngineUrlSchemeHandler* self) {
+int QWebEngineUrlSchemeHandler_SuperSenderSignalIndex(const QWebEngineUrlSchemeHandler* self) {
     auto* vqwebengineurlschemehandler = const_cast<VirtualQWebEngineUrlSchemeHandler*>(dynamic_cast<const VirtualQWebEngineUrlSchemeHandler*>(self));
     if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
         vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_SenderSignalIndex_IsBase(true);
@@ -405,7 +405,7 @@ int QWebEngineUrlSchemeHandler_Receivers(const QWebEngineUrlSchemeHandler* self,
 }
 
 // Base class handler implementation
-int QWebEngineUrlSchemeHandler_QBaseReceivers(const QWebEngineUrlSchemeHandler* self, const char* signal) {
+int QWebEngineUrlSchemeHandler_SuperReceivers(const QWebEngineUrlSchemeHandler* self, const char* signal) {
     auto* vqwebengineurlschemehandler = const_cast<VirtualQWebEngineUrlSchemeHandler*>(dynamic_cast<const VirtualQWebEngineUrlSchemeHandler*>(self));
     if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
         vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_Receivers_IsBase(true);
@@ -434,7 +434,7 @@ bool QWebEngineUrlSchemeHandler_IsSignalConnected(const QWebEngineUrlSchemeHandl
 }
 
 // Base class handler implementation
-bool QWebEngineUrlSchemeHandler_QBaseIsSignalConnected(const QWebEngineUrlSchemeHandler* self, const QMetaMethod* signal) {
+bool QWebEngineUrlSchemeHandler_SuperIsSignalConnected(const QWebEngineUrlSchemeHandler* self, const QMetaMethod* signal) {
     auto* vqwebengineurlschemehandler = const_cast<VirtualQWebEngineUrlSchemeHandler*>(dynamic_cast<const VirtualQWebEngineUrlSchemeHandler*>(self));
     if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
         vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_IsSignalConnected_IsBase(true);

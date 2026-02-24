@@ -403,13 +403,17 @@ pub const attica__knowledgebaseentry = struct {
         return qtc.Attica__KnowledgeBaseEntry_IsValid(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Attica__KnowledgeBaseEntry `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Attica__KnowledgeBaseEntry_Delete(@ptrCast(self));
     }
 };

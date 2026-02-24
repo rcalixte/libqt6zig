@@ -295,7 +295,7 @@ void KMessageWidget_ResizeEvent(KMessageWidget* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-QMetaObject* KMessageWidget_QBaseMetaObject(const KMessageWidget* self) {
+QMetaObject* KMessageWidget_SuperMetaObject(const KMessageWidget* self) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_MetaObject_IsBase(true);
@@ -314,7 +314,7 @@ void KMessageWidget_OnMetaObject(const KMessageWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KMessageWidget_QBaseMetacast(KMessageWidget* self, const char* param1) {
+void* KMessageWidget_SuperMetacast(KMessageWidget* self, const char* param1) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_Metacast_IsBase(true);
@@ -333,7 +333,7 @@ void KMessageWidget_OnMetacast(KMessageWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KMessageWidget_QBaseMetacall(KMessageWidget* self, int param1, int param2, void** param3) {
+int KMessageWidget_SuperMetacall(KMessageWidget* self, int param1, int param2, void** param3) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_Metacall_IsBase(true);
@@ -352,7 +352,7 @@ void KMessageWidget_OnMetacall(KMessageWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* KMessageWidget_QBaseSizeHint(const KMessageWidget* self) {
+QSize* KMessageWidget_SuperSizeHint(const KMessageWidget* self) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_SizeHint_IsBase(true);
@@ -371,7 +371,7 @@ void KMessageWidget_OnSizeHint(const KMessageWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* KMessageWidget_QBaseMinimumSizeHint(const KMessageWidget* self) {
+QSize* KMessageWidget_SuperMinimumSizeHint(const KMessageWidget* self) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_MinimumSizeHint_IsBase(true);
@@ -390,7 +390,7 @@ void KMessageWidget_OnMinimumSizeHint(const KMessageWidget* self, intptr_t slot)
 }
 
 // Base class handler implementation
-int KMessageWidget_QBaseHeightForWidth(const KMessageWidget* self, int width) {
+int KMessageWidget_SuperHeightForWidth(const KMessageWidget* self, int width) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_HeightForWidth_IsBase(true);
@@ -409,7 +409,7 @@ void KMessageWidget_OnHeightForWidth(const KMessageWidget* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void KMessageWidget_QBasePaintEvent(KMessageWidget* self, QPaintEvent* event) {
+void KMessageWidget_SuperPaintEvent(KMessageWidget* self, QPaintEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_PaintEvent_IsBase(true);
@@ -428,7 +428,7 @@ void KMessageWidget_OnPaintEvent(KMessageWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KMessageWidget_QBaseEvent(KMessageWidget* self, QEvent* event) {
+bool KMessageWidget_SuperEvent(KMessageWidget* self, QEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_Event_IsBase(true);
@@ -447,7 +447,7 @@ void KMessageWidget_OnEvent(KMessageWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseResizeEvent(KMessageWidget* self, QResizeEvent* event) {
+void KMessageWidget_SuperResizeEvent(KMessageWidget* self, QResizeEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_ResizeEvent_IsBase(true);
@@ -476,7 +476,7 @@ void KMessageWidget_ChangeEvent(KMessageWidget* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseChangeEvent(KMessageWidget* self, QEvent* param1) {
+void KMessageWidget_SuperChangeEvent(KMessageWidget* self, QEvent* param1) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_ChangeEvent_IsBase(true);
@@ -505,7 +505,7 @@ void KMessageWidget_InitStyleOption(const KMessageWidget* self, QStyleOptionFram
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseInitStyleOption(const KMessageWidget* self, QStyleOptionFrame* option) {
+void KMessageWidget_SuperInitStyleOption(const KMessageWidget* self, QStyleOptionFrame* option) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_InitStyleOption_IsBase(true);
@@ -534,7 +534,7 @@ int KMessageWidget_DevType(const KMessageWidget* self) {
 }
 
 // Base class handler implementation
-int KMessageWidget_QBaseDevType(const KMessageWidget* self) {
+int KMessageWidget_SuperDevType(const KMessageWidget* self) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_DevType_IsBase(true);
@@ -563,7 +563,7 @@ void KMessageWidget_SetVisible(KMessageWidget* self, bool visible) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseSetVisible(KMessageWidget* self, bool visible) {
+void KMessageWidget_SuperSetVisible(KMessageWidget* self, bool visible) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_SetVisible_IsBase(true);
@@ -592,7 +592,7 @@ bool KMessageWidget_HasHeightForWidth(const KMessageWidget* self) {
 }
 
 // Base class handler implementation
-bool KMessageWidget_QBaseHasHeightForWidth(const KMessageWidget* self) {
+bool KMessageWidget_SuperHasHeightForWidth(const KMessageWidget* self) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_HasHeightForWidth_IsBase(true);
@@ -621,7 +621,7 @@ QPaintEngine* KMessageWidget_PaintEngine(const KMessageWidget* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KMessageWidget_QBasePaintEngine(const KMessageWidget* self) {
+QPaintEngine* KMessageWidget_SuperPaintEngine(const KMessageWidget* self) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_PaintEngine_IsBase(true);
@@ -650,7 +650,7 @@ void KMessageWidget_MousePressEvent(KMessageWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseMousePressEvent(KMessageWidget* self, QMouseEvent* event) {
+void KMessageWidget_SuperMousePressEvent(KMessageWidget* self, QMouseEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_MousePressEvent_IsBase(true);
@@ -679,7 +679,7 @@ void KMessageWidget_MouseReleaseEvent(KMessageWidget* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseMouseReleaseEvent(KMessageWidget* self, QMouseEvent* event) {
+void KMessageWidget_SuperMouseReleaseEvent(KMessageWidget* self, QMouseEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_MouseReleaseEvent_IsBase(true);
@@ -708,7 +708,7 @@ void KMessageWidget_MouseDoubleClickEvent(KMessageWidget* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseMouseDoubleClickEvent(KMessageWidget* self, QMouseEvent* event) {
+void KMessageWidget_SuperMouseDoubleClickEvent(KMessageWidget* self, QMouseEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_MouseDoubleClickEvent_IsBase(true);
@@ -737,7 +737,7 @@ void KMessageWidget_MouseMoveEvent(KMessageWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseMouseMoveEvent(KMessageWidget* self, QMouseEvent* event) {
+void KMessageWidget_SuperMouseMoveEvent(KMessageWidget* self, QMouseEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_MouseMoveEvent_IsBase(true);
@@ -766,7 +766,7 @@ void KMessageWidget_WheelEvent(KMessageWidget* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseWheelEvent(KMessageWidget* self, QWheelEvent* event) {
+void KMessageWidget_SuperWheelEvent(KMessageWidget* self, QWheelEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_WheelEvent_IsBase(true);
@@ -795,7 +795,7 @@ void KMessageWidget_KeyPressEvent(KMessageWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseKeyPressEvent(KMessageWidget* self, QKeyEvent* event) {
+void KMessageWidget_SuperKeyPressEvent(KMessageWidget* self, QKeyEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_KeyPressEvent_IsBase(true);
@@ -824,7 +824,7 @@ void KMessageWidget_KeyReleaseEvent(KMessageWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseKeyReleaseEvent(KMessageWidget* self, QKeyEvent* event) {
+void KMessageWidget_SuperKeyReleaseEvent(KMessageWidget* self, QKeyEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_KeyReleaseEvent_IsBase(true);
@@ -853,7 +853,7 @@ void KMessageWidget_FocusInEvent(KMessageWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseFocusInEvent(KMessageWidget* self, QFocusEvent* event) {
+void KMessageWidget_SuperFocusInEvent(KMessageWidget* self, QFocusEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_FocusInEvent_IsBase(true);
@@ -882,7 +882,7 @@ void KMessageWidget_FocusOutEvent(KMessageWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseFocusOutEvent(KMessageWidget* self, QFocusEvent* event) {
+void KMessageWidget_SuperFocusOutEvent(KMessageWidget* self, QFocusEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_FocusOutEvent_IsBase(true);
@@ -911,7 +911,7 @@ void KMessageWidget_EnterEvent(KMessageWidget* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseEnterEvent(KMessageWidget* self, QEnterEvent* event) {
+void KMessageWidget_SuperEnterEvent(KMessageWidget* self, QEnterEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_EnterEvent_IsBase(true);
@@ -940,7 +940,7 @@ void KMessageWidget_LeaveEvent(KMessageWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseLeaveEvent(KMessageWidget* self, QEvent* event) {
+void KMessageWidget_SuperLeaveEvent(KMessageWidget* self, QEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_LeaveEvent_IsBase(true);
@@ -969,7 +969,7 @@ void KMessageWidget_MoveEvent(KMessageWidget* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseMoveEvent(KMessageWidget* self, QMoveEvent* event) {
+void KMessageWidget_SuperMoveEvent(KMessageWidget* self, QMoveEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_MoveEvent_IsBase(true);
@@ -998,7 +998,7 @@ void KMessageWidget_CloseEvent(KMessageWidget* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseCloseEvent(KMessageWidget* self, QCloseEvent* event) {
+void KMessageWidget_SuperCloseEvent(KMessageWidget* self, QCloseEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_CloseEvent_IsBase(true);
@@ -1027,7 +1027,7 @@ void KMessageWidget_ContextMenuEvent(KMessageWidget* self, QContextMenuEvent* ev
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseContextMenuEvent(KMessageWidget* self, QContextMenuEvent* event) {
+void KMessageWidget_SuperContextMenuEvent(KMessageWidget* self, QContextMenuEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_ContextMenuEvent_IsBase(true);
@@ -1056,7 +1056,7 @@ void KMessageWidget_TabletEvent(KMessageWidget* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseTabletEvent(KMessageWidget* self, QTabletEvent* event) {
+void KMessageWidget_SuperTabletEvent(KMessageWidget* self, QTabletEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_TabletEvent_IsBase(true);
@@ -1085,7 +1085,7 @@ void KMessageWidget_ActionEvent(KMessageWidget* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseActionEvent(KMessageWidget* self, QActionEvent* event) {
+void KMessageWidget_SuperActionEvent(KMessageWidget* self, QActionEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_ActionEvent_IsBase(true);
@@ -1114,7 +1114,7 @@ void KMessageWidget_DragEnterEvent(KMessageWidget* self, QDragEnterEvent* event)
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseDragEnterEvent(KMessageWidget* self, QDragEnterEvent* event) {
+void KMessageWidget_SuperDragEnterEvent(KMessageWidget* self, QDragEnterEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_DragEnterEvent_IsBase(true);
@@ -1143,7 +1143,7 @@ void KMessageWidget_DragMoveEvent(KMessageWidget* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseDragMoveEvent(KMessageWidget* self, QDragMoveEvent* event) {
+void KMessageWidget_SuperDragMoveEvent(KMessageWidget* self, QDragMoveEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_DragMoveEvent_IsBase(true);
@@ -1172,7 +1172,7 @@ void KMessageWidget_DragLeaveEvent(KMessageWidget* self, QDragLeaveEvent* event)
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseDragLeaveEvent(KMessageWidget* self, QDragLeaveEvent* event) {
+void KMessageWidget_SuperDragLeaveEvent(KMessageWidget* self, QDragLeaveEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_DragLeaveEvent_IsBase(true);
@@ -1201,7 +1201,7 @@ void KMessageWidget_DropEvent(KMessageWidget* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseDropEvent(KMessageWidget* self, QDropEvent* event) {
+void KMessageWidget_SuperDropEvent(KMessageWidget* self, QDropEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_DropEvent_IsBase(true);
@@ -1230,7 +1230,7 @@ void KMessageWidget_ShowEvent(KMessageWidget* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseShowEvent(KMessageWidget* self, QShowEvent* event) {
+void KMessageWidget_SuperShowEvent(KMessageWidget* self, QShowEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_ShowEvent_IsBase(true);
@@ -1259,7 +1259,7 @@ void KMessageWidget_HideEvent(KMessageWidget* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseHideEvent(KMessageWidget* self, QHideEvent* event) {
+void KMessageWidget_SuperHideEvent(KMessageWidget* self, QHideEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_HideEvent_IsBase(true);
@@ -1289,7 +1289,7 @@ bool KMessageWidget_NativeEvent(KMessageWidget* self, const libqt_string eventTy
 }
 
 // Base class handler implementation
-bool KMessageWidget_QBaseNativeEvent(KMessageWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KMessageWidget_SuperNativeEvent(KMessageWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
@@ -1319,7 +1319,7 @@ int KMessageWidget_Metric(const KMessageWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int KMessageWidget_QBaseMetric(const KMessageWidget* self, int param1) {
+int KMessageWidget_SuperMetric(const KMessageWidget* self, int param1) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_Metric_IsBase(true);
@@ -1348,7 +1348,7 @@ void KMessageWidget_InitPainter(const KMessageWidget* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseInitPainter(const KMessageWidget* self, QPainter* painter) {
+void KMessageWidget_SuperInitPainter(const KMessageWidget* self, QPainter* painter) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_InitPainter_IsBase(true);
@@ -1377,7 +1377,7 @@ QPaintDevice* KMessageWidget_Redirected(const KMessageWidget* self, QPoint* offs
 }
 
 // Base class handler implementation
-QPaintDevice* KMessageWidget_QBaseRedirected(const KMessageWidget* self, QPoint* offset) {
+QPaintDevice* KMessageWidget_SuperRedirected(const KMessageWidget* self, QPoint* offset) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_Redirected_IsBase(true);
@@ -1406,7 +1406,7 @@ QPainter* KMessageWidget_SharedPainter(const KMessageWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* KMessageWidget_QBaseSharedPainter(const KMessageWidget* self) {
+QPainter* KMessageWidget_SuperSharedPainter(const KMessageWidget* self) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_SharedPainter_IsBase(true);
@@ -1435,7 +1435,7 @@ void KMessageWidget_InputMethodEvent(KMessageWidget* self, QInputMethodEvent* pa
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseInputMethodEvent(KMessageWidget* self, QInputMethodEvent* param1) {
+void KMessageWidget_SuperInputMethodEvent(KMessageWidget* self, QInputMethodEvent* param1) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_InputMethodEvent_IsBase(true);
@@ -1464,7 +1464,7 @@ QVariant* KMessageWidget_InputMethodQuery(const KMessageWidget* self, int param1
 }
 
 // Base class handler implementation
-QVariant* KMessageWidget_QBaseInputMethodQuery(const KMessageWidget* self, int param1) {
+QVariant* KMessageWidget_SuperInputMethodQuery(const KMessageWidget* self, int param1) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_InputMethodQuery_IsBase(true);
@@ -1493,7 +1493,7 @@ bool KMessageWidget_FocusNextPrevChild(KMessageWidget* self, bool next) {
 }
 
 // Base class handler implementation
-bool KMessageWidget_QBaseFocusNextPrevChild(KMessageWidget* self, bool next) {
+bool KMessageWidget_SuperFocusNextPrevChild(KMessageWidget* self, bool next) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_FocusNextPrevChild_IsBase(true);
@@ -1522,7 +1522,7 @@ bool KMessageWidget_EventFilter(KMessageWidget* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool KMessageWidget_QBaseEventFilter(KMessageWidget* self, QObject* watched, QEvent* event) {
+bool KMessageWidget_SuperEventFilter(KMessageWidget* self, QObject* watched, QEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_EventFilter_IsBase(true);
@@ -1551,7 +1551,7 @@ void KMessageWidget_TimerEvent(KMessageWidget* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseTimerEvent(KMessageWidget* self, QTimerEvent* event) {
+void KMessageWidget_SuperTimerEvent(KMessageWidget* self, QTimerEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_TimerEvent_IsBase(true);
@@ -1580,7 +1580,7 @@ void KMessageWidget_ChildEvent(KMessageWidget* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseChildEvent(KMessageWidget* self, QChildEvent* event) {
+void KMessageWidget_SuperChildEvent(KMessageWidget* self, QChildEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_ChildEvent_IsBase(true);
@@ -1609,7 +1609,7 @@ void KMessageWidget_CustomEvent(KMessageWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseCustomEvent(KMessageWidget* self, QEvent* event) {
+void KMessageWidget_SuperCustomEvent(KMessageWidget* self, QEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_CustomEvent_IsBase(true);
@@ -1638,7 +1638,7 @@ void KMessageWidget_ConnectNotify(KMessageWidget* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseConnectNotify(KMessageWidget* self, const QMetaMethod* signal) {
+void KMessageWidget_SuperConnectNotify(KMessageWidget* self, const QMetaMethod* signal) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_ConnectNotify_IsBase(true);
@@ -1667,7 +1667,7 @@ void KMessageWidget_DisconnectNotify(KMessageWidget* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseDisconnectNotify(KMessageWidget* self, const QMetaMethod* signal) {
+void KMessageWidget_SuperDisconnectNotify(KMessageWidget* self, const QMetaMethod* signal) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_DisconnectNotify_IsBase(true);
@@ -1696,7 +1696,7 @@ void KMessageWidget_DrawFrame(KMessageWidget* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseDrawFrame(KMessageWidget* self, QPainter* param1) {
+void KMessageWidget_SuperDrawFrame(KMessageWidget* self, QPainter* param1) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_DrawFrame_IsBase(true);
@@ -1725,7 +1725,7 @@ void KMessageWidget_UpdateMicroFocus(KMessageWidget* self) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseUpdateMicroFocus(KMessageWidget* self) {
+void KMessageWidget_SuperUpdateMicroFocus(KMessageWidget* self) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_UpdateMicroFocus_IsBase(true);
@@ -1754,7 +1754,7 @@ void KMessageWidget_Create(KMessageWidget* self) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseCreate(KMessageWidget* self) {
+void KMessageWidget_SuperCreate(KMessageWidget* self) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_Create_IsBase(true);
@@ -1783,7 +1783,7 @@ void KMessageWidget_Destroy(KMessageWidget* self) {
 }
 
 // Base class handler implementation
-void KMessageWidget_QBaseDestroy(KMessageWidget* self) {
+void KMessageWidget_SuperDestroy(KMessageWidget* self) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_Destroy_IsBase(true);
@@ -1812,7 +1812,7 @@ bool KMessageWidget_FocusNextChild(KMessageWidget* self) {
 }
 
 // Base class handler implementation
-bool KMessageWidget_QBaseFocusNextChild(KMessageWidget* self) {
+bool KMessageWidget_SuperFocusNextChild(KMessageWidget* self) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_FocusNextChild_IsBase(true);
@@ -1841,7 +1841,7 @@ bool KMessageWidget_FocusPreviousChild(KMessageWidget* self) {
 }
 
 // Base class handler implementation
-bool KMessageWidget_QBaseFocusPreviousChild(KMessageWidget* self) {
+bool KMessageWidget_SuperFocusPreviousChild(KMessageWidget* self) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_FocusPreviousChild_IsBase(true);
@@ -1870,7 +1870,7 @@ QObject* KMessageWidget_Sender(const KMessageWidget* self) {
 }
 
 // Base class handler implementation
-QObject* KMessageWidget_QBaseSender(const KMessageWidget* self) {
+QObject* KMessageWidget_SuperSender(const KMessageWidget* self) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_Sender_IsBase(true);
@@ -1899,7 +1899,7 @@ int KMessageWidget_SenderSignalIndex(const KMessageWidget* self) {
 }
 
 // Base class handler implementation
-int KMessageWidget_QBaseSenderSignalIndex(const KMessageWidget* self) {
+int KMessageWidget_SuperSenderSignalIndex(const KMessageWidget* self) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_SenderSignalIndex_IsBase(true);
@@ -1928,7 +1928,7 @@ int KMessageWidget_Receivers(const KMessageWidget* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KMessageWidget_QBaseReceivers(const KMessageWidget* self, const char* signal) {
+int KMessageWidget_SuperReceivers(const KMessageWidget* self, const char* signal) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_Receivers_IsBase(true);
@@ -1957,7 +1957,7 @@ bool KMessageWidget_IsSignalConnected(const KMessageWidget* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool KMessageWidget_QBaseIsSignalConnected(const KMessageWidget* self, const QMetaMethod* signal) {
+bool KMessageWidget_SuperIsSignalConnected(const KMessageWidget* self, const QMetaMethod* signal) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_IsSignalConnected_IsBase(true);
@@ -1986,7 +1986,7 @@ double KMessageWidget_GetDecodedMetricF(const KMessageWidget* self, int metricA,
 }
 
 // Base class handler implementation
-double KMessageWidget_QBaseGetDecodedMetricF(const KMessageWidget* self, int metricA, int metricB) {
+double KMessageWidget_SuperGetDecodedMetricF(const KMessageWidget* self, int metricA, int metricB) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->setKMessageWidget_GetDecodedMetricF_IsBase(true);

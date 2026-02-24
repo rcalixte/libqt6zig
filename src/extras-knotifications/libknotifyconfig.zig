@@ -175,6 +175,10 @@ pub const knotifyconfig = struct {
         qtc.KNotifyConfig_ReparseSingleConfiguration(app_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/knotifyconfig.html#dtor.KNotifyConfig)
     ///
     /// Delete this object from C++ memory.
@@ -183,7 +187,7 @@ pub const knotifyconfig = struct {
     ///
     /// ` self: QtC.KNotifyConfig `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KNotifyConfig_Delete(@ptrCast(self));
     }
 };

@@ -461,23 +461,23 @@ class VirtualQsciAPIs final : public QsciAPIs {
 
     // Friend functions
     friend void QsciAPIs_TimerEvent(QsciAPIs* self, QTimerEvent* event);
-    friend void QsciAPIs_QBaseTimerEvent(QsciAPIs* self, QTimerEvent* event);
+    friend void QsciAPIs_SuperTimerEvent(QsciAPIs* self, QTimerEvent* event);
     friend void QsciAPIs_ChildEvent(QsciAPIs* self, QChildEvent* event);
-    friend void QsciAPIs_QBaseChildEvent(QsciAPIs* self, QChildEvent* event);
+    friend void QsciAPIs_SuperChildEvent(QsciAPIs* self, QChildEvent* event);
     friend void QsciAPIs_CustomEvent(QsciAPIs* self, QEvent* event);
-    friend void QsciAPIs_QBaseCustomEvent(QsciAPIs* self, QEvent* event);
+    friend void QsciAPIs_SuperCustomEvent(QsciAPIs* self, QEvent* event);
     friend void QsciAPIs_ConnectNotify(QsciAPIs* self, const QMetaMethod* signal);
-    friend void QsciAPIs_QBaseConnectNotify(QsciAPIs* self, const QMetaMethod* signal);
+    friend void QsciAPIs_SuperConnectNotify(QsciAPIs* self, const QMetaMethod* signal);
     friend void QsciAPIs_DisconnectNotify(QsciAPIs* self, const QMetaMethod* signal);
-    friend void QsciAPIs_QBaseDisconnectNotify(QsciAPIs* self, const QMetaMethod* signal);
+    friend void QsciAPIs_SuperDisconnectNotify(QsciAPIs* self, const QMetaMethod* signal);
     friend QObject* QsciAPIs_Sender(const QsciAPIs* self);
-    friend QObject* QsciAPIs_QBaseSender(const QsciAPIs* self);
+    friend QObject* QsciAPIs_SuperSender(const QsciAPIs* self);
     friend int QsciAPIs_SenderSignalIndex(const QsciAPIs* self);
-    friend int QsciAPIs_QBaseSenderSignalIndex(const QsciAPIs* self);
+    friend int QsciAPIs_SuperSenderSignalIndex(const QsciAPIs* self);
     friend int QsciAPIs_Receivers(const QsciAPIs* self, const char* signal);
-    friend int QsciAPIs_QBaseReceivers(const QsciAPIs* self, const char* signal);
+    friend int QsciAPIs_SuperReceivers(const QsciAPIs* self, const char* signal);
     friend bool QsciAPIs_IsSignalConnected(const QsciAPIs* self, const QMetaMethod* signal);
-    friend bool QsciAPIs_QBaseIsSignalConnected(const QsciAPIs* self, const QMetaMethod* signal);
+    friend bool QsciAPIs_SuperIsSignalConnected(const QsciAPIs* self, const QMetaMethod* signal);
 };
 
 #endif

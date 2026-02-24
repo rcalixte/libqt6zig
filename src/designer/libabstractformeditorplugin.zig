@@ -33,6 +33,10 @@ pub const qdesignerformeditorplugininterface = struct {
         qtc.QDesignerFormEditorPluginInterface_OnIsInitialized(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsInitialized` instead
+    ///
+    pub const QBaseIsInitialized = SuperIsInitialized;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#isInitialized)
     ///
     /// Base class method implementation
@@ -41,8 +45,8 @@ pub const qdesignerformeditorplugininterface = struct {
     ///
     /// ` self: QtC.QDesignerFormEditorPluginInterface `
     ///
-    pub fn QBaseIsInitialized(self: ?*anyopaque) bool {
-        return qtc.QDesignerFormEditorPluginInterface_QBaseIsInitialized(@ptrCast(self));
+    pub fn SuperIsInitialized(self: ?*anyopaque) bool {
+        return qtc.QDesignerFormEditorPluginInterface_SuperIsInitialized(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#initialize)
@@ -71,6 +75,10 @@ pub const qdesignerformeditorplugininterface = struct {
         qtc.QDesignerFormEditorPluginInterface_OnInitialize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInitialize` instead
+    ///
+    pub const QBaseInitialize = SuperInitialize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#initialize)
     ///
     /// Base class method implementation
@@ -81,8 +89,8 @@ pub const qdesignerformeditorplugininterface = struct {
     ///
     /// ` core: QtC.QDesignerFormEditorInterface `
     ///
-    pub fn QBaseInitialize(self: ?*anyopaque, core: ?*anyopaque) void {
-        qtc.QDesignerFormEditorPluginInterface_QBaseInitialize(@ptrCast(self), @ptrCast(core));
+    pub fn SuperInitialize(self: ?*anyopaque, core: ?*anyopaque) void {
+        qtc.QDesignerFormEditorPluginInterface_SuperInitialize(@ptrCast(self), @ptrCast(core));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#action)
@@ -109,6 +117,10 @@ pub const qdesignerformeditorplugininterface = struct {
         qtc.QDesignerFormEditorPluginInterface_OnAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAction` instead
+    ///
+    pub const QBaseAction = SuperAction;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#action)
     ///
     /// Base class method implementation
@@ -117,8 +129,8 @@ pub const qdesignerformeditorplugininterface = struct {
     ///
     /// ` self: QtC.QDesignerFormEditorPluginInterface `
     ///
-    pub fn QBaseAction(self: ?*anyopaque) QtC.QAction {
-        return qtc.QDesignerFormEditorPluginInterface_QBaseAction(@ptrCast(self));
+    pub fn SuperAction(self: ?*anyopaque) QtC.QAction {
+        return qtc.QDesignerFormEditorPluginInterface_SuperAction(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#core)
@@ -145,6 +157,10 @@ pub const qdesignerformeditorplugininterface = struct {
         qtc.QDesignerFormEditorPluginInterface_OnCore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCore` instead
+    ///
+    pub const QBaseCore = SuperCore;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#core)
     ///
     /// Base class method implementation
@@ -153,9 +169,12 @@ pub const qdesignerformeditorplugininterface = struct {
     ///
     /// ` self: QtC.QDesignerFormEditorPluginInterface `
     ///
-    pub fn QBaseCore(self: ?*anyopaque) QtC.QDesignerFormEditorInterface {
-        return qtc.QDesignerFormEditorPluginInterface_QBaseCore(@ptrCast(self));
+    pub fn SuperCore(self: ?*anyopaque) QtC.QDesignerFormEditorInterface {
+        return qtc.QDesignerFormEditorPluginInterface_SuperCore(@ptrCast(self));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorplugininterface.html#dtor.QDesignerFormEditorPluginInterface)
     ///
@@ -165,7 +184,7 @@ pub const qdesignerformeditorplugininterface = struct {
     ///
     /// ` self: QtC.QDesignerFormEditorPluginInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDesignerFormEditorPluginInterface_Delete(@ptrCast(self));
     }
 };

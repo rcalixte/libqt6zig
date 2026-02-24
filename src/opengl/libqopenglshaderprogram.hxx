@@ -328,23 +328,23 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
 
     // Friend functions
     friend void QOpenGLShader_TimerEvent(QOpenGLShader* self, QTimerEvent* event);
-    friend void QOpenGLShader_QBaseTimerEvent(QOpenGLShader* self, QTimerEvent* event);
+    friend void QOpenGLShader_SuperTimerEvent(QOpenGLShader* self, QTimerEvent* event);
     friend void QOpenGLShader_ChildEvent(QOpenGLShader* self, QChildEvent* event);
-    friend void QOpenGLShader_QBaseChildEvent(QOpenGLShader* self, QChildEvent* event);
+    friend void QOpenGLShader_SuperChildEvent(QOpenGLShader* self, QChildEvent* event);
     friend void QOpenGLShader_CustomEvent(QOpenGLShader* self, QEvent* event);
-    friend void QOpenGLShader_QBaseCustomEvent(QOpenGLShader* self, QEvent* event);
+    friend void QOpenGLShader_SuperCustomEvent(QOpenGLShader* self, QEvent* event);
     friend void QOpenGLShader_ConnectNotify(QOpenGLShader* self, const QMetaMethod* signal);
-    friend void QOpenGLShader_QBaseConnectNotify(QOpenGLShader* self, const QMetaMethod* signal);
+    friend void QOpenGLShader_SuperConnectNotify(QOpenGLShader* self, const QMetaMethod* signal);
     friend void QOpenGLShader_DisconnectNotify(QOpenGLShader* self, const QMetaMethod* signal);
-    friend void QOpenGLShader_QBaseDisconnectNotify(QOpenGLShader* self, const QMetaMethod* signal);
+    friend void QOpenGLShader_SuperDisconnectNotify(QOpenGLShader* self, const QMetaMethod* signal);
     friend QObject* QOpenGLShader_Sender(const QOpenGLShader* self);
-    friend QObject* QOpenGLShader_QBaseSender(const QOpenGLShader* self);
+    friend QObject* QOpenGLShader_SuperSender(const QOpenGLShader* self);
     friend int QOpenGLShader_SenderSignalIndex(const QOpenGLShader* self);
-    friend int QOpenGLShader_QBaseSenderSignalIndex(const QOpenGLShader* self);
+    friend int QOpenGLShader_SuperSenderSignalIndex(const QOpenGLShader* self);
     friend int QOpenGLShader_Receivers(const QOpenGLShader* self, const char* signal);
-    friend int QOpenGLShader_QBaseReceivers(const QOpenGLShader* self, const char* signal);
+    friend int QOpenGLShader_SuperReceivers(const QOpenGLShader* self, const char* signal);
     friend bool QOpenGLShader_IsSignalConnected(const QOpenGLShader* self, const QMetaMethod* signal);
-    friend bool QOpenGLShader_QBaseIsSignalConnected(const QOpenGLShader* self, const QMetaMethod* signal);
+    friend bool QOpenGLShader_SuperIsSignalConnected(const QOpenGLShader* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QOpenGLShaderProgram so that we can call protected methods
@@ -685,23 +685,23 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
 
     // Friend functions
     friend void QOpenGLShaderProgram_TimerEvent(QOpenGLShaderProgram* self, QTimerEvent* event);
-    friend void QOpenGLShaderProgram_QBaseTimerEvent(QOpenGLShaderProgram* self, QTimerEvent* event);
+    friend void QOpenGLShaderProgram_SuperTimerEvent(QOpenGLShaderProgram* self, QTimerEvent* event);
     friend void QOpenGLShaderProgram_ChildEvent(QOpenGLShaderProgram* self, QChildEvent* event);
-    friend void QOpenGLShaderProgram_QBaseChildEvent(QOpenGLShaderProgram* self, QChildEvent* event);
+    friend void QOpenGLShaderProgram_SuperChildEvent(QOpenGLShaderProgram* self, QChildEvent* event);
     friend void QOpenGLShaderProgram_CustomEvent(QOpenGLShaderProgram* self, QEvent* event);
-    friend void QOpenGLShaderProgram_QBaseCustomEvent(QOpenGLShaderProgram* self, QEvent* event);
+    friend void QOpenGLShaderProgram_SuperCustomEvent(QOpenGLShaderProgram* self, QEvent* event);
     friend void QOpenGLShaderProgram_ConnectNotify(QOpenGLShaderProgram* self, const QMetaMethod* signal);
-    friend void QOpenGLShaderProgram_QBaseConnectNotify(QOpenGLShaderProgram* self, const QMetaMethod* signal);
+    friend void QOpenGLShaderProgram_SuperConnectNotify(QOpenGLShaderProgram* self, const QMetaMethod* signal);
     friend void QOpenGLShaderProgram_DisconnectNotify(QOpenGLShaderProgram* self, const QMetaMethod* signal);
-    friend void QOpenGLShaderProgram_QBaseDisconnectNotify(QOpenGLShaderProgram* self, const QMetaMethod* signal);
+    friend void QOpenGLShaderProgram_SuperDisconnectNotify(QOpenGLShaderProgram* self, const QMetaMethod* signal);
     friend QObject* QOpenGLShaderProgram_Sender(const QOpenGLShaderProgram* self);
-    friend QObject* QOpenGLShaderProgram_QBaseSender(const QOpenGLShaderProgram* self);
+    friend QObject* QOpenGLShaderProgram_SuperSender(const QOpenGLShaderProgram* self);
     friend int QOpenGLShaderProgram_SenderSignalIndex(const QOpenGLShaderProgram* self);
-    friend int QOpenGLShaderProgram_QBaseSenderSignalIndex(const QOpenGLShaderProgram* self);
+    friend int QOpenGLShaderProgram_SuperSenderSignalIndex(const QOpenGLShaderProgram* self);
     friend int QOpenGLShaderProgram_Receivers(const QOpenGLShaderProgram* self, const char* signal);
-    friend int QOpenGLShaderProgram_QBaseReceivers(const QOpenGLShaderProgram* self, const char* signal);
+    friend int QOpenGLShaderProgram_SuperReceivers(const QOpenGLShaderProgram* self, const char* signal);
     friend bool QOpenGLShaderProgram_IsSignalConnected(const QOpenGLShaderProgram* self, const QMetaMethod* signal);
-    friend bool QOpenGLShaderProgram_QBaseIsSignalConnected(const QOpenGLShaderProgram* self, const QMetaMethod* signal);
+    friend bool QOpenGLShaderProgram_SuperIsSignalConnected(const QOpenGLShaderProgram* self, const QMetaMethod* signal);
 };
 
 #endif

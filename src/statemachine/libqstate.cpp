@@ -140,7 +140,7 @@ bool QState_Event(QState* self, QEvent* e) {
 }
 
 // Base class handler implementation
-QMetaObject* QState_QBaseMetaObject(const QState* self) {
+QMetaObject* QState_SuperMetaObject(const QState* self) {
     auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
     if (vqstate && vqstate->isVirtualQState) {
         vqstate->setQState_MetaObject_IsBase(true);
@@ -159,7 +159,7 @@ void QState_OnMetaObject(const QState* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QState_QBaseMetacast(QState* self, const char* param1) {
+void* QState_SuperMetacast(QState* self, const char* param1) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
     if (vqstate && vqstate->isVirtualQState) {
         vqstate->setQState_Metacast_IsBase(true);
@@ -178,7 +178,7 @@ void QState_OnMetacast(QState* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QState_QBaseMetacall(QState* self, int param1, int param2, void** param3) {
+int QState_SuperMetacall(QState* self, int param1, int param2, void** param3) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
     if (vqstate && vqstate->isVirtualQState) {
         vqstate->setQState_Metacall_IsBase(true);
@@ -197,7 +197,7 @@ void QState_OnMetacall(QState* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QState_QBaseOnEntry(QState* self, QEvent* event) {
+void QState_SuperOnEntry(QState* self, QEvent* event) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
     if (vqstate && vqstate->isVirtualQState) {
         vqstate->setQState_OnEntry_IsBase(true);
@@ -216,7 +216,7 @@ void QState_OnOnEntry(QState* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QState_QBaseOnExit(QState* self, QEvent* event) {
+void QState_SuperOnExit(QState* self, QEvent* event) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
     if (vqstate && vqstate->isVirtualQState) {
         vqstate->setQState_OnExit_IsBase(true);
@@ -235,7 +235,7 @@ void QState_OnOnExit(QState* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QState_QBaseEvent(QState* self, QEvent* e) {
+bool QState_SuperEvent(QState* self, QEvent* e) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
     if (vqstate && vqstate->isVirtualQState) {
         vqstate->setQState_Event_IsBase(true);
@@ -264,7 +264,7 @@ bool QState_EventFilter(QState* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QState_QBaseEventFilter(QState* self, QObject* watched, QEvent* event) {
+bool QState_SuperEventFilter(QState* self, QObject* watched, QEvent* event) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
     if (vqstate && vqstate->isVirtualQState) {
         vqstate->setQState_EventFilter_IsBase(true);
@@ -293,7 +293,7 @@ void QState_TimerEvent(QState* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QState_QBaseTimerEvent(QState* self, QTimerEvent* event) {
+void QState_SuperTimerEvent(QState* self, QTimerEvent* event) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
     if (vqstate && vqstate->isVirtualQState) {
         vqstate->setQState_TimerEvent_IsBase(true);
@@ -322,7 +322,7 @@ void QState_ChildEvent(QState* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QState_QBaseChildEvent(QState* self, QChildEvent* event) {
+void QState_SuperChildEvent(QState* self, QChildEvent* event) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
     if (vqstate && vqstate->isVirtualQState) {
         vqstate->setQState_ChildEvent_IsBase(true);
@@ -351,7 +351,7 @@ void QState_CustomEvent(QState* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QState_QBaseCustomEvent(QState* self, QEvent* event) {
+void QState_SuperCustomEvent(QState* self, QEvent* event) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
     if (vqstate && vqstate->isVirtualQState) {
         vqstate->setQState_CustomEvent_IsBase(true);
@@ -380,7 +380,7 @@ void QState_ConnectNotify(QState* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QState_QBaseConnectNotify(QState* self, const QMetaMethod* signal) {
+void QState_SuperConnectNotify(QState* self, const QMetaMethod* signal) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
     if (vqstate && vqstate->isVirtualQState) {
         vqstate->setQState_ConnectNotify_IsBase(true);
@@ -409,7 +409,7 @@ void QState_DisconnectNotify(QState* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QState_QBaseDisconnectNotify(QState* self, const QMetaMethod* signal) {
+void QState_SuperDisconnectNotify(QState* self, const QMetaMethod* signal) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
     if (vqstate && vqstate->isVirtualQState) {
         vqstate->setQState_DisconnectNotify_IsBase(true);
@@ -438,7 +438,7 @@ QObject* QState_Sender(const QState* self) {
 }
 
 // Base class handler implementation
-QObject* QState_QBaseSender(const QState* self) {
+QObject* QState_SuperSender(const QState* self) {
     auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
     if (vqstate && vqstate->isVirtualQState) {
         vqstate->setQState_Sender_IsBase(true);
@@ -467,7 +467,7 @@ int QState_SenderSignalIndex(const QState* self) {
 }
 
 // Base class handler implementation
-int QState_QBaseSenderSignalIndex(const QState* self) {
+int QState_SuperSenderSignalIndex(const QState* self) {
     auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
     if (vqstate && vqstate->isVirtualQState) {
         vqstate->setQState_SenderSignalIndex_IsBase(true);
@@ -496,7 +496,7 @@ int QState_Receivers(const QState* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QState_QBaseReceivers(const QState* self, const char* signal) {
+int QState_SuperReceivers(const QState* self, const char* signal) {
     auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
     if (vqstate && vqstate->isVirtualQState) {
         vqstate->setQState_Receivers_IsBase(true);
@@ -525,7 +525,7 @@ bool QState_IsSignalConnected(const QState* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QState_QBaseIsSignalConnected(const QState* self, const QMetaMethod* signal) {
+bool QState_SuperIsSignalConnected(const QState* self, const QMetaMethod* signal) {
     auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
     if (vqstate && vqstate->isVirtualQState) {
         vqstate->setQState_IsSignalConnected_IsBase(true);

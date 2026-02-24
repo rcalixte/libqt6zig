@@ -153,7 +153,7 @@ void KTextEditor__InlineNoteProvider_Connect_InlineNotesChanged(KTextEditor__Inl
 }
 
 // Base class handler implementation
-QMetaObject* KTextEditor__InlineNoteProvider_QBaseMetaObject(const KTextEditor__InlineNoteProvider* self) {
+QMetaObject* KTextEditor__InlineNoteProvider_SuperMetaObject(const KTextEditor__InlineNoteProvider* self) {
     auto* vktexteditorinlinenoteprovider = const_cast<VirtualKTextEditorInlineNoteProvider*>(dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self));
     if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_MetaObject_IsBase(true);
@@ -172,7 +172,7 @@ void KTextEditor__InlineNoteProvider_OnMetaObject(const KTextEditor__InlineNoteP
 }
 
 // Base class handler implementation
-void* KTextEditor__InlineNoteProvider_QBaseMetacast(KTextEditor__InlineNoteProvider* self, const char* param1) {
+void* KTextEditor__InlineNoteProvider_SuperMetacast(KTextEditor__InlineNoteProvider* self, const char* param1) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
     if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_Metacast_IsBase(true);
@@ -191,7 +191,7 @@ void KTextEditor__InlineNoteProvider_OnMetacast(KTextEditor__InlineNoteProvider*
 }
 
 // Base class handler implementation
-int KTextEditor__InlineNoteProvider_QBaseMetacall(KTextEditor__InlineNoteProvider* self, int param1, int param2, void** param3) {
+int KTextEditor__InlineNoteProvider_SuperMetacall(KTextEditor__InlineNoteProvider* self, int param1, int param2, void** param3) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
     if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_Metacall_IsBase(true);
@@ -210,7 +210,7 @@ void KTextEditor__InlineNoteProvider_OnMetacall(KTextEditor__InlineNoteProvider*
 }
 
 // Base class handler implementation
-libqt_list /* of int */ KTextEditor__InlineNoteProvider_QBaseInlineNotes(const KTextEditor__InlineNoteProvider* self, int line) {
+libqt_list /* of int */ KTextEditor__InlineNoteProvider_SuperInlineNotes(const KTextEditor__InlineNoteProvider* self, int line) {
     auto* vktexteditorinlinenoteprovider = const_cast<VirtualKTextEditorInlineNoteProvider*>(dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self));
     if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_InlineNotes_IsBase(true);
@@ -247,7 +247,7 @@ void KTextEditor__InlineNoteProvider_OnInlineNotes(const KTextEditor__InlineNote
 }
 
 // Base class handler implementation
-QSize* KTextEditor__InlineNoteProvider_QBaseInlineNoteSize(const KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note) {
+QSize* KTextEditor__InlineNoteProvider_SuperInlineNoteSize(const KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note) {
     auto* vktexteditorinlinenoteprovider = const_cast<VirtualKTextEditorInlineNoteProvider*>(dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self));
     if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_InlineNoteSize_IsBase(true);
@@ -266,7 +266,7 @@ void KTextEditor__InlineNoteProvider_OnInlineNoteSize(const KTextEditor__InlineN
 }
 
 // Base class handler implementation
-void KTextEditor__InlineNoteProvider_QBasePaintInlineNote(const KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note, QPainter* painter, int direction) {
+void KTextEditor__InlineNoteProvider_SuperPaintInlineNote(const KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note, QPainter* painter, int direction) {
     auto* vktexteditorinlinenoteprovider = const_cast<VirtualKTextEditorInlineNoteProvider*>(dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self));
     if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_PaintInlineNote_IsBase(true);
@@ -285,7 +285,7 @@ void KTextEditor__InlineNoteProvider_OnPaintInlineNote(const KTextEditor__Inline
 }
 
 // Base class handler implementation
-void KTextEditor__InlineNoteProvider_QBaseInlineNoteActivated(KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note, int buttons, const QPoint* globalPos) {
+void KTextEditor__InlineNoteProvider_SuperInlineNoteActivated(KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note, int buttons, const QPoint* globalPos) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
     if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_InlineNoteActivated_IsBase(true);
@@ -304,7 +304,7 @@ void KTextEditor__InlineNoteProvider_OnInlineNoteActivated(KTextEditor__InlineNo
 }
 
 // Base class handler implementation
-void KTextEditor__InlineNoteProvider_QBaseInlineNoteFocusInEvent(KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note, const QPoint* globalPos) {
+void KTextEditor__InlineNoteProvider_SuperInlineNoteFocusInEvent(KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note, const QPoint* globalPos) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
     if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_InlineNoteFocusInEvent_IsBase(true);
@@ -323,7 +323,7 @@ void KTextEditor__InlineNoteProvider_OnInlineNoteFocusInEvent(KTextEditor__Inlin
 }
 
 // Base class handler implementation
-void KTextEditor__InlineNoteProvider_QBaseInlineNoteFocusOutEvent(KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note) {
+void KTextEditor__InlineNoteProvider_SuperInlineNoteFocusOutEvent(KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
     if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_InlineNoteFocusOutEvent_IsBase(true);
@@ -342,7 +342,7 @@ void KTextEditor__InlineNoteProvider_OnInlineNoteFocusOutEvent(KTextEditor__Inli
 }
 
 // Base class handler implementation
-void KTextEditor__InlineNoteProvider_QBaseInlineNoteMouseMoveEvent(KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note, const QPoint* globalPos) {
+void KTextEditor__InlineNoteProvider_SuperInlineNoteMouseMoveEvent(KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note, const QPoint* globalPos) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
     if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_InlineNoteMouseMoveEvent_IsBase(true);
@@ -371,7 +371,7 @@ bool KTextEditor__InlineNoteProvider_Event(KTextEditor__InlineNoteProvider* self
 }
 
 // Base class handler implementation
-bool KTextEditor__InlineNoteProvider_QBaseEvent(KTextEditor__InlineNoteProvider* self, QEvent* event) {
+bool KTextEditor__InlineNoteProvider_SuperEvent(KTextEditor__InlineNoteProvider* self, QEvent* event) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
     if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_Event_IsBase(true);
@@ -400,7 +400,7 @@ bool KTextEditor__InlineNoteProvider_EventFilter(KTextEditor__InlineNoteProvider
 }
 
 // Base class handler implementation
-bool KTextEditor__InlineNoteProvider_QBaseEventFilter(KTextEditor__InlineNoteProvider* self, QObject* watched, QEvent* event) {
+bool KTextEditor__InlineNoteProvider_SuperEventFilter(KTextEditor__InlineNoteProvider* self, QObject* watched, QEvent* event) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
     if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_EventFilter_IsBase(true);
@@ -429,7 +429,7 @@ void KTextEditor__InlineNoteProvider_TimerEvent(KTextEditor__InlineNoteProvider*
 }
 
 // Base class handler implementation
-void KTextEditor__InlineNoteProvider_QBaseTimerEvent(KTextEditor__InlineNoteProvider* self, QTimerEvent* event) {
+void KTextEditor__InlineNoteProvider_SuperTimerEvent(KTextEditor__InlineNoteProvider* self, QTimerEvent* event) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
     if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_TimerEvent_IsBase(true);
@@ -458,7 +458,7 @@ void KTextEditor__InlineNoteProvider_ChildEvent(KTextEditor__InlineNoteProvider*
 }
 
 // Base class handler implementation
-void KTextEditor__InlineNoteProvider_QBaseChildEvent(KTextEditor__InlineNoteProvider* self, QChildEvent* event) {
+void KTextEditor__InlineNoteProvider_SuperChildEvent(KTextEditor__InlineNoteProvider* self, QChildEvent* event) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
     if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_ChildEvent_IsBase(true);
@@ -487,7 +487,7 @@ void KTextEditor__InlineNoteProvider_CustomEvent(KTextEditor__InlineNoteProvider
 }
 
 // Base class handler implementation
-void KTextEditor__InlineNoteProvider_QBaseCustomEvent(KTextEditor__InlineNoteProvider* self, QEvent* event) {
+void KTextEditor__InlineNoteProvider_SuperCustomEvent(KTextEditor__InlineNoteProvider* self, QEvent* event) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
     if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_CustomEvent_IsBase(true);
@@ -516,7 +516,7 @@ void KTextEditor__InlineNoteProvider_ConnectNotify(KTextEditor__InlineNoteProvid
 }
 
 // Base class handler implementation
-void KTextEditor__InlineNoteProvider_QBaseConnectNotify(KTextEditor__InlineNoteProvider* self, const QMetaMethod* signal) {
+void KTextEditor__InlineNoteProvider_SuperConnectNotify(KTextEditor__InlineNoteProvider* self, const QMetaMethod* signal) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
     if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_ConnectNotify_IsBase(true);
@@ -545,7 +545,7 @@ void KTextEditor__InlineNoteProvider_DisconnectNotify(KTextEditor__InlineNotePro
 }
 
 // Base class handler implementation
-void KTextEditor__InlineNoteProvider_QBaseDisconnectNotify(KTextEditor__InlineNoteProvider* self, const QMetaMethod* signal) {
+void KTextEditor__InlineNoteProvider_SuperDisconnectNotify(KTextEditor__InlineNoteProvider* self, const QMetaMethod* signal) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
     if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_DisconnectNotify_IsBase(true);
@@ -574,7 +574,7 @@ QObject* KTextEditor__InlineNoteProvider_Sender(const KTextEditor__InlineNotePro
 }
 
 // Base class handler implementation
-QObject* KTextEditor__InlineNoteProvider_QBaseSender(const KTextEditor__InlineNoteProvider* self) {
+QObject* KTextEditor__InlineNoteProvider_SuperSender(const KTextEditor__InlineNoteProvider* self) {
     auto* vktexteditorinlinenoteprovider = const_cast<VirtualKTextEditorInlineNoteProvider*>(dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self));
     if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_Sender_IsBase(true);
@@ -603,7 +603,7 @@ int KTextEditor__InlineNoteProvider_SenderSignalIndex(const KTextEditor__InlineN
 }
 
 // Base class handler implementation
-int KTextEditor__InlineNoteProvider_QBaseSenderSignalIndex(const KTextEditor__InlineNoteProvider* self) {
+int KTextEditor__InlineNoteProvider_SuperSenderSignalIndex(const KTextEditor__InlineNoteProvider* self) {
     auto* vktexteditorinlinenoteprovider = const_cast<VirtualKTextEditorInlineNoteProvider*>(dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self));
     if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_SenderSignalIndex_IsBase(true);
@@ -632,7 +632,7 @@ int KTextEditor__InlineNoteProvider_Receivers(const KTextEditor__InlineNoteProvi
 }
 
 // Base class handler implementation
-int KTextEditor__InlineNoteProvider_QBaseReceivers(const KTextEditor__InlineNoteProvider* self, const char* signal) {
+int KTextEditor__InlineNoteProvider_SuperReceivers(const KTextEditor__InlineNoteProvider* self, const char* signal) {
     auto* vktexteditorinlinenoteprovider = const_cast<VirtualKTextEditorInlineNoteProvider*>(dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self));
     if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_Receivers_IsBase(true);
@@ -661,7 +661,7 @@ bool KTextEditor__InlineNoteProvider_IsSignalConnected(const KTextEditor__Inline
 }
 
 // Base class handler implementation
-bool KTextEditor__InlineNoteProvider_QBaseIsSignalConnected(const KTextEditor__InlineNoteProvider* self, const QMetaMethod* signal) {
+bool KTextEditor__InlineNoteProvider_SuperIsSignalConnected(const KTextEditor__InlineNoteProvider* self, const QMetaMethod* signal) {
     auto* vktexteditorinlinenoteprovider = const_cast<VirtualKTextEditorInlineNoteProvider*>(dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self));
     if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_IsSignalConnected_IsBase(true);

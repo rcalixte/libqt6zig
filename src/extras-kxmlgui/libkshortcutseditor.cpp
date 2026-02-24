@@ -140,7 +140,7 @@ void KShortcutsEditor_AddCollection2(KShortcutsEditor* self, KActionCollection* 
 }
 
 // Base class handler implementation
-QMetaObject* KShortcutsEditor_QBaseMetaObject(const KShortcutsEditor* self) {
+QMetaObject* KShortcutsEditor_SuperMetaObject(const KShortcutsEditor* self) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_MetaObject_IsBase(true);
@@ -159,7 +159,7 @@ void KShortcutsEditor_OnMetaObject(const KShortcutsEditor* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* KShortcutsEditor_QBaseMetacast(KShortcutsEditor* self, const char* param1) {
+void* KShortcutsEditor_SuperMetacast(KShortcutsEditor* self, const char* param1) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_Metacast_IsBase(true);
@@ -178,7 +178,7 @@ void KShortcutsEditor_OnMetacast(KShortcutsEditor* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KShortcutsEditor_QBaseMetacall(KShortcutsEditor* self, int param1, int param2, void** param3) {
+int KShortcutsEditor_SuperMetacall(KShortcutsEditor* self, int param1, int param2, void** param3) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_Metacall_IsBase(true);
@@ -207,7 +207,7 @@ int KShortcutsEditor_DevType(const KShortcutsEditor* self) {
 }
 
 // Base class handler implementation
-int KShortcutsEditor_QBaseDevType(const KShortcutsEditor* self) {
+int KShortcutsEditor_SuperDevType(const KShortcutsEditor* self) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_DevType_IsBase(true);
@@ -236,7 +236,7 @@ void KShortcutsEditor_SetVisible(KShortcutsEditor* self, bool visible) {
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseSetVisible(KShortcutsEditor* self, bool visible) {
+void KShortcutsEditor_SuperSetVisible(KShortcutsEditor* self, bool visible) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_SetVisible_IsBase(true);
@@ -265,7 +265,7 @@ QSize* KShortcutsEditor_SizeHint(const KShortcutsEditor* self) {
 }
 
 // Base class handler implementation
-QSize* KShortcutsEditor_QBaseSizeHint(const KShortcutsEditor* self) {
+QSize* KShortcutsEditor_SuperSizeHint(const KShortcutsEditor* self) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_SizeHint_IsBase(true);
@@ -294,7 +294,7 @@ QSize* KShortcutsEditor_MinimumSizeHint(const KShortcutsEditor* self) {
 }
 
 // Base class handler implementation
-QSize* KShortcutsEditor_QBaseMinimumSizeHint(const KShortcutsEditor* self) {
+QSize* KShortcutsEditor_SuperMinimumSizeHint(const KShortcutsEditor* self) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_MinimumSizeHint_IsBase(true);
@@ -323,7 +323,7 @@ int KShortcutsEditor_HeightForWidth(const KShortcutsEditor* self, int param1) {
 }
 
 // Base class handler implementation
-int KShortcutsEditor_QBaseHeightForWidth(const KShortcutsEditor* self, int param1) {
+int KShortcutsEditor_SuperHeightForWidth(const KShortcutsEditor* self, int param1) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_HeightForWidth_IsBase(true);
@@ -352,7 +352,7 @@ bool KShortcutsEditor_HasHeightForWidth(const KShortcutsEditor* self) {
 }
 
 // Base class handler implementation
-bool KShortcutsEditor_QBaseHasHeightForWidth(const KShortcutsEditor* self) {
+bool KShortcutsEditor_SuperHasHeightForWidth(const KShortcutsEditor* self) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_HasHeightForWidth_IsBase(true);
@@ -381,7 +381,7 @@ QPaintEngine* KShortcutsEditor_PaintEngine(const KShortcutsEditor* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KShortcutsEditor_QBasePaintEngine(const KShortcutsEditor* self) {
+QPaintEngine* KShortcutsEditor_SuperPaintEngine(const KShortcutsEditor* self) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_PaintEngine_IsBase(true);
@@ -410,7 +410,7 @@ bool KShortcutsEditor_Event(KShortcutsEditor* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KShortcutsEditor_QBaseEvent(KShortcutsEditor* self, QEvent* event) {
+bool KShortcutsEditor_SuperEvent(KShortcutsEditor* self, QEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_Event_IsBase(true);
@@ -439,7 +439,7 @@ void KShortcutsEditor_MousePressEvent(KShortcutsEditor* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseMousePressEvent(KShortcutsEditor* self, QMouseEvent* event) {
+void KShortcutsEditor_SuperMousePressEvent(KShortcutsEditor* self, QMouseEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_MousePressEvent_IsBase(true);
@@ -468,7 +468,7 @@ void KShortcutsEditor_MouseReleaseEvent(KShortcutsEditor* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseMouseReleaseEvent(KShortcutsEditor* self, QMouseEvent* event) {
+void KShortcutsEditor_SuperMouseReleaseEvent(KShortcutsEditor* self, QMouseEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_MouseReleaseEvent_IsBase(true);
@@ -497,7 +497,7 @@ void KShortcutsEditor_MouseDoubleClickEvent(KShortcutsEditor* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseMouseDoubleClickEvent(KShortcutsEditor* self, QMouseEvent* event) {
+void KShortcutsEditor_SuperMouseDoubleClickEvent(KShortcutsEditor* self, QMouseEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_MouseDoubleClickEvent_IsBase(true);
@@ -526,7 +526,7 @@ void KShortcutsEditor_MouseMoveEvent(KShortcutsEditor* self, QMouseEvent* event)
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseMouseMoveEvent(KShortcutsEditor* self, QMouseEvent* event) {
+void KShortcutsEditor_SuperMouseMoveEvent(KShortcutsEditor* self, QMouseEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_MouseMoveEvent_IsBase(true);
@@ -555,7 +555,7 @@ void KShortcutsEditor_WheelEvent(KShortcutsEditor* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseWheelEvent(KShortcutsEditor* self, QWheelEvent* event) {
+void KShortcutsEditor_SuperWheelEvent(KShortcutsEditor* self, QWheelEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_WheelEvent_IsBase(true);
@@ -584,7 +584,7 @@ void KShortcutsEditor_KeyPressEvent(KShortcutsEditor* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseKeyPressEvent(KShortcutsEditor* self, QKeyEvent* event) {
+void KShortcutsEditor_SuperKeyPressEvent(KShortcutsEditor* self, QKeyEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_KeyPressEvent_IsBase(true);
@@ -613,7 +613,7 @@ void KShortcutsEditor_KeyReleaseEvent(KShortcutsEditor* self, QKeyEvent* event) 
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseKeyReleaseEvent(KShortcutsEditor* self, QKeyEvent* event) {
+void KShortcutsEditor_SuperKeyReleaseEvent(KShortcutsEditor* self, QKeyEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_KeyReleaseEvent_IsBase(true);
@@ -642,7 +642,7 @@ void KShortcutsEditor_FocusInEvent(KShortcutsEditor* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseFocusInEvent(KShortcutsEditor* self, QFocusEvent* event) {
+void KShortcutsEditor_SuperFocusInEvent(KShortcutsEditor* self, QFocusEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_FocusInEvent_IsBase(true);
@@ -671,7 +671,7 @@ void KShortcutsEditor_FocusOutEvent(KShortcutsEditor* self, QFocusEvent* event) 
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseFocusOutEvent(KShortcutsEditor* self, QFocusEvent* event) {
+void KShortcutsEditor_SuperFocusOutEvent(KShortcutsEditor* self, QFocusEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_FocusOutEvent_IsBase(true);
@@ -700,7 +700,7 @@ void KShortcutsEditor_EnterEvent(KShortcutsEditor* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseEnterEvent(KShortcutsEditor* self, QEnterEvent* event) {
+void KShortcutsEditor_SuperEnterEvent(KShortcutsEditor* self, QEnterEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_EnterEvent_IsBase(true);
@@ -729,7 +729,7 @@ void KShortcutsEditor_LeaveEvent(KShortcutsEditor* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseLeaveEvent(KShortcutsEditor* self, QEvent* event) {
+void KShortcutsEditor_SuperLeaveEvent(KShortcutsEditor* self, QEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_LeaveEvent_IsBase(true);
@@ -758,7 +758,7 @@ void KShortcutsEditor_PaintEvent(KShortcutsEditor* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBasePaintEvent(KShortcutsEditor* self, QPaintEvent* event) {
+void KShortcutsEditor_SuperPaintEvent(KShortcutsEditor* self, QPaintEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_PaintEvent_IsBase(true);
@@ -787,7 +787,7 @@ void KShortcutsEditor_MoveEvent(KShortcutsEditor* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseMoveEvent(KShortcutsEditor* self, QMoveEvent* event) {
+void KShortcutsEditor_SuperMoveEvent(KShortcutsEditor* self, QMoveEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_MoveEvent_IsBase(true);
@@ -816,7 +816,7 @@ void KShortcutsEditor_ResizeEvent(KShortcutsEditor* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseResizeEvent(KShortcutsEditor* self, QResizeEvent* event) {
+void KShortcutsEditor_SuperResizeEvent(KShortcutsEditor* self, QResizeEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_ResizeEvent_IsBase(true);
@@ -845,7 +845,7 @@ void KShortcutsEditor_CloseEvent(KShortcutsEditor* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseCloseEvent(KShortcutsEditor* self, QCloseEvent* event) {
+void KShortcutsEditor_SuperCloseEvent(KShortcutsEditor* self, QCloseEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_CloseEvent_IsBase(true);
@@ -874,7 +874,7 @@ void KShortcutsEditor_ContextMenuEvent(KShortcutsEditor* self, QContextMenuEvent
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseContextMenuEvent(KShortcutsEditor* self, QContextMenuEvent* event) {
+void KShortcutsEditor_SuperContextMenuEvent(KShortcutsEditor* self, QContextMenuEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_ContextMenuEvent_IsBase(true);
@@ -903,7 +903,7 @@ void KShortcutsEditor_TabletEvent(KShortcutsEditor* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseTabletEvent(KShortcutsEditor* self, QTabletEvent* event) {
+void KShortcutsEditor_SuperTabletEvent(KShortcutsEditor* self, QTabletEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_TabletEvent_IsBase(true);
@@ -932,7 +932,7 @@ void KShortcutsEditor_ActionEvent(KShortcutsEditor* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseActionEvent(KShortcutsEditor* self, QActionEvent* event) {
+void KShortcutsEditor_SuperActionEvent(KShortcutsEditor* self, QActionEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_ActionEvent_IsBase(true);
@@ -961,7 +961,7 @@ void KShortcutsEditor_DragEnterEvent(KShortcutsEditor* self, QDragEnterEvent* ev
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseDragEnterEvent(KShortcutsEditor* self, QDragEnterEvent* event) {
+void KShortcutsEditor_SuperDragEnterEvent(KShortcutsEditor* self, QDragEnterEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_DragEnterEvent_IsBase(true);
@@ -990,7 +990,7 @@ void KShortcutsEditor_DragMoveEvent(KShortcutsEditor* self, QDragMoveEvent* even
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseDragMoveEvent(KShortcutsEditor* self, QDragMoveEvent* event) {
+void KShortcutsEditor_SuperDragMoveEvent(KShortcutsEditor* self, QDragMoveEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_DragMoveEvent_IsBase(true);
@@ -1019,7 +1019,7 @@ void KShortcutsEditor_DragLeaveEvent(KShortcutsEditor* self, QDragLeaveEvent* ev
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseDragLeaveEvent(KShortcutsEditor* self, QDragLeaveEvent* event) {
+void KShortcutsEditor_SuperDragLeaveEvent(KShortcutsEditor* self, QDragLeaveEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_DragLeaveEvent_IsBase(true);
@@ -1048,7 +1048,7 @@ void KShortcutsEditor_DropEvent(KShortcutsEditor* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseDropEvent(KShortcutsEditor* self, QDropEvent* event) {
+void KShortcutsEditor_SuperDropEvent(KShortcutsEditor* self, QDropEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_DropEvent_IsBase(true);
@@ -1077,7 +1077,7 @@ void KShortcutsEditor_ShowEvent(KShortcutsEditor* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseShowEvent(KShortcutsEditor* self, QShowEvent* event) {
+void KShortcutsEditor_SuperShowEvent(KShortcutsEditor* self, QShowEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_ShowEvent_IsBase(true);
@@ -1106,7 +1106,7 @@ void KShortcutsEditor_HideEvent(KShortcutsEditor* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseHideEvent(KShortcutsEditor* self, QHideEvent* event) {
+void KShortcutsEditor_SuperHideEvent(KShortcutsEditor* self, QHideEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_HideEvent_IsBase(true);
@@ -1136,7 +1136,7 @@ bool KShortcutsEditor_NativeEvent(KShortcutsEditor* self, const libqt_string eve
 }
 
 // Base class handler implementation
-bool KShortcutsEditor_QBaseNativeEvent(KShortcutsEditor* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KShortcutsEditor_SuperNativeEvent(KShortcutsEditor* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
@@ -1166,7 +1166,7 @@ void KShortcutsEditor_ChangeEvent(KShortcutsEditor* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseChangeEvent(KShortcutsEditor* self, QEvent* param1) {
+void KShortcutsEditor_SuperChangeEvent(KShortcutsEditor* self, QEvent* param1) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_ChangeEvent_IsBase(true);
@@ -1195,7 +1195,7 @@ int KShortcutsEditor_Metric(const KShortcutsEditor* self, int param1) {
 }
 
 // Base class handler implementation
-int KShortcutsEditor_QBaseMetric(const KShortcutsEditor* self, int param1) {
+int KShortcutsEditor_SuperMetric(const KShortcutsEditor* self, int param1) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_Metric_IsBase(true);
@@ -1224,7 +1224,7 @@ void KShortcutsEditor_InitPainter(const KShortcutsEditor* self, QPainter* painte
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseInitPainter(const KShortcutsEditor* self, QPainter* painter) {
+void KShortcutsEditor_SuperInitPainter(const KShortcutsEditor* self, QPainter* painter) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_InitPainter_IsBase(true);
@@ -1253,7 +1253,7 @@ QPaintDevice* KShortcutsEditor_Redirected(const KShortcutsEditor* self, QPoint* 
 }
 
 // Base class handler implementation
-QPaintDevice* KShortcutsEditor_QBaseRedirected(const KShortcutsEditor* self, QPoint* offset) {
+QPaintDevice* KShortcutsEditor_SuperRedirected(const KShortcutsEditor* self, QPoint* offset) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_Redirected_IsBase(true);
@@ -1282,7 +1282,7 @@ QPainter* KShortcutsEditor_SharedPainter(const KShortcutsEditor* self) {
 }
 
 // Base class handler implementation
-QPainter* KShortcutsEditor_QBaseSharedPainter(const KShortcutsEditor* self) {
+QPainter* KShortcutsEditor_SuperSharedPainter(const KShortcutsEditor* self) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_SharedPainter_IsBase(true);
@@ -1311,7 +1311,7 @@ void KShortcutsEditor_InputMethodEvent(KShortcutsEditor* self, QInputMethodEvent
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseInputMethodEvent(KShortcutsEditor* self, QInputMethodEvent* param1) {
+void KShortcutsEditor_SuperInputMethodEvent(KShortcutsEditor* self, QInputMethodEvent* param1) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_InputMethodEvent_IsBase(true);
@@ -1340,7 +1340,7 @@ QVariant* KShortcutsEditor_InputMethodQuery(const KShortcutsEditor* self, int pa
 }
 
 // Base class handler implementation
-QVariant* KShortcutsEditor_QBaseInputMethodQuery(const KShortcutsEditor* self, int param1) {
+QVariant* KShortcutsEditor_SuperInputMethodQuery(const KShortcutsEditor* self, int param1) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_InputMethodQuery_IsBase(true);
@@ -1369,7 +1369,7 @@ bool KShortcutsEditor_FocusNextPrevChild(KShortcutsEditor* self, bool next) {
 }
 
 // Base class handler implementation
-bool KShortcutsEditor_QBaseFocusNextPrevChild(KShortcutsEditor* self, bool next) {
+bool KShortcutsEditor_SuperFocusNextPrevChild(KShortcutsEditor* self, bool next) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_FocusNextPrevChild_IsBase(true);
@@ -1398,7 +1398,7 @@ bool KShortcutsEditor_EventFilter(KShortcutsEditor* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool KShortcutsEditor_QBaseEventFilter(KShortcutsEditor* self, QObject* watched, QEvent* event) {
+bool KShortcutsEditor_SuperEventFilter(KShortcutsEditor* self, QObject* watched, QEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_EventFilter_IsBase(true);
@@ -1427,7 +1427,7 @@ void KShortcutsEditor_TimerEvent(KShortcutsEditor* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseTimerEvent(KShortcutsEditor* self, QTimerEvent* event) {
+void KShortcutsEditor_SuperTimerEvent(KShortcutsEditor* self, QTimerEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_TimerEvent_IsBase(true);
@@ -1456,7 +1456,7 @@ void KShortcutsEditor_ChildEvent(KShortcutsEditor* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseChildEvent(KShortcutsEditor* self, QChildEvent* event) {
+void KShortcutsEditor_SuperChildEvent(KShortcutsEditor* self, QChildEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_ChildEvent_IsBase(true);
@@ -1485,7 +1485,7 @@ void KShortcutsEditor_CustomEvent(KShortcutsEditor* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseCustomEvent(KShortcutsEditor* self, QEvent* event) {
+void KShortcutsEditor_SuperCustomEvent(KShortcutsEditor* self, QEvent* event) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_CustomEvent_IsBase(true);
@@ -1514,7 +1514,7 @@ void KShortcutsEditor_ConnectNotify(KShortcutsEditor* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseConnectNotify(KShortcutsEditor* self, const QMetaMethod* signal) {
+void KShortcutsEditor_SuperConnectNotify(KShortcutsEditor* self, const QMetaMethod* signal) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_ConnectNotify_IsBase(true);
@@ -1543,7 +1543,7 @@ void KShortcutsEditor_DisconnectNotify(KShortcutsEditor* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseDisconnectNotify(KShortcutsEditor* self, const QMetaMethod* signal) {
+void KShortcutsEditor_SuperDisconnectNotify(KShortcutsEditor* self, const QMetaMethod* signal) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_DisconnectNotify_IsBase(true);
@@ -1572,7 +1572,7 @@ void KShortcutsEditor_UpdateMicroFocus(KShortcutsEditor* self) {
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseUpdateMicroFocus(KShortcutsEditor* self) {
+void KShortcutsEditor_SuperUpdateMicroFocus(KShortcutsEditor* self) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_UpdateMicroFocus_IsBase(true);
@@ -1601,7 +1601,7 @@ void KShortcutsEditor_Create(KShortcutsEditor* self) {
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseCreate(KShortcutsEditor* self) {
+void KShortcutsEditor_SuperCreate(KShortcutsEditor* self) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_Create_IsBase(true);
@@ -1630,7 +1630,7 @@ void KShortcutsEditor_Destroy(KShortcutsEditor* self) {
 }
 
 // Base class handler implementation
-void KShortcutsEditor_QBaseDestroy(KShortcutsEditor* self) {
+void KShortcutsEditor_SuperDestroy(KShortcutsEditor* self) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_Destroy_IsBase(true);
@@ -1659,7 +1659,7 @@ bool KShortcutsEditor_FocusNextChild(KShortcutsEditor* self) {
 }
 
 // Base class handler implementation
-bool KShortcutsEditor_QBaseFocusNextChild(KShortcutsEditor* self) {
+bool KShortcutsEditor_SuperFocusNextChild(KShortcutsEditor* self) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_FocusNextChild_IsBase(true);
@@ -1688,7 +1688,7 @@ bool KShortcutsEditor_FocusPreviousChild(KShortcutsEditor* self) {
 }
 
 // Base class handler implementation
-bool KShortcutsEditor_QBaseFocusPreviousChild(KShortcutsEditor* self) {
+bool KShortcutsEditor_SuperFocusPreviousChild(KShortcutsEditor* self) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_FocusPreviousChild_IsBase(true);
@@ -1717,7 +1717,7 @@ QObject* KShortcutsEditor_Sender(const KShortcutsEditor* self) {
 }
 
 // Base class handler implementation
-QObject* KShortcutsEditor_QBaseSender(const KShortcutsEditor* self) {
+QObject* KShortcutsEditor_SuperSender(const KShortcutsEditor* self) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_Sender_IsBase(true);
@@ -1746,7 +1746,7 @@ int KShortcutsEditor_SenderSignalIndex(const KShortcutsEditor* self) {
 }
 
 // Base class handler implementation
-int KShortcutsEditor_QBaseSenderSignalIndex(const KShortcutsEditor* self) {
+int KShortcutsEditor_SuperSenderSignalIndex(const KShortcutsEditor* self) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_SenderSignalIndex_IsBase(true);
@@ -1775,7 +1775,7 @@ int KShortcutsEditor_Receivers(const KShortcutsEditor* self, const char* signal)
 }
 
 // Base class handler implementation
-int KShortcutsEditor_QBaseReceivers(const KShortcutsEditor* self, const char* signal) {
+int KShortcutsEditor_SuperReceivers(const KShortcutsEditor* self, const char* signal) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_Receivers_IsBase(true);
@@ -1804,7 +1804,7 @@ bool KShortcutsEditor_IsSignalConnected(const KShortcutsEditor* self, const QMet
 }
 
 // Base class handler implementation
-bool KShortcutsEditor_QBaseIsSignalConnected(const KShortcutsEditor* self, const QMetaMethod* signal) {
+bool KShortcutsEditor_SuperIsSignalConnected(const KShortcutsEditor* self, const QMetaMethod* signal) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_IsSignalConnected_IsBase(true);
@@ -1833,7 +1833,7 @@ double KShortcutsEditor_GetDecodedMetricF(const KShortcutsEditor* self, int metr
 }
 
 // Base class handler implementation
-double KShortcutsEditor_QBaseGetDecodedMetricF(const KShortcutsEditor* self, int metricA, int metricB) {
+double KShortcutsEditor_SuperGetDecodedMetricF(const KShortcutsEditor* self, int metricA, int metricB) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
     if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
         vkshortcutseditor->setKShortcutsEditor_GetDecodedMetricF_IsBase(true);

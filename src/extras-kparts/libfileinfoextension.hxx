@@ -383,23 +383,23 @@ class VirtualKPartsFileInfoExtension : public KParts::FileInfoExtension {
 
     // Friend functions
     friend void KParts__FileInfoExtension_TimerEvent(KParts::FileInfoExtension* self, QTimerEvent* event);
-    friend void KParts__FileInfoExtension_QBaseTimerEvent(KParts::FileInfoExtension* self, QTimerEvent* event);
+    friend void KParts__FileInfoExtension_SuperTimerEvent(KParts::FileInfoExtension* self, QTimerEvent* event);
     friend void KParts__FileInfoExtension_ChildEvent(KParts::FileInfoExtension* self, QChildEvent* event);
-    friend void KParts__FileInfoExtension_QBaseChildEvent(KParts::FileInfoExtension* self, QChildEvent* event);
+    friend void KParts__FileInfoExtension_SuperChildEvent(KParts::FileInfoExtension* self, QChildEvent* event);
     friend void KParts__FileInfoExtension_CustomEvent(KParts::FileInfoExtension* self, QEvent* event);
-    friend void KParts__FileInfoExtension_QBaseCustomEvent(KParts::FileInfoExtension* self, QEvent* event);
+    friend void KParts__FileInfoExtension_SuperCustomEvent(KParts::FileInfoExtension* self, QEvent* event);
     friend void KParts__FileInfoExtension_ConnectNotify(KParts::FileInfoExtension* self, const QMetaMethod* signal);
-    friend void KParts__FileInfoExtension_QBaseConnectNotify(KParts::FileInfoExtension* self, const QMetaMethod* signal);
+    friend void KParts__FileInfoExtension_SuperConnectNotify(KParts::FileInfoExtension* self, const QMetaMethod* signal);
     friend void KParts__FileInfoExtension_DisconnectNotify(KParts::FileInfoExtension* self, const QMetaMethod* signal);
-    friend void KParts__FileInfoExtension_QBaseDisconnectNotify(KParts::FileInfoExtension* self, const QMetaMethod* signal);
+    friend void KParts__FileInfoExtension_SuperDisconnectNotify(KParts::FileInfoExtension* self, const QMetaMethod* signal);
     friend QObject* KParts__FileInfoExtension_Sender(const KParts::FileInfoExtension* self);
-    friend QObject* KParts__FileInfoExtension_QBaseSender(const KParts::FileInfoExtension* self);
+    friend QObject* KParts__FileInfoExtension_SuperSender(const KParts::FileInfoExtension* self);
     friend int KParts__FileInfoExtension_SenderSignalIndex(const KParts::FileInfoExtension* self);
-    friend int KParts__FileInfoExtension_QBaseSenderSignalIndex(const KParts::FileInfoExtension* self);
+    friend int KParts__FileInfoExtension_SuperSenderSignalIndex(const KParts::FileInfoExtension* self);
     friend int KParts__FileInfoExtension_Receivers(const KParts::FileInfoExtension* self, const char* signal);
-    friend int KParts__FileInfoExtension_QBaseReceivers(const KParts::FileInfoExtension* self, const char* signal);
+    friend int KParts__FileInfoExtension_SuperReceivers(const KParts::FileInfoExtension* self, const char* signal);
     friend bool KParts__FileInfoExtension_IsSignalConnected(const KParts::FileInfoExtension* self, const QMetaMethod* signal);
-    friend bool KParts__FileInfoExtension_QBaseIsSignalConnected(const KParts::FileInfoExtension* self, const QMetaMethod* signal);
+    friend bool KParts__FileInfoExtension_SuperIsSignalConnected(const KParts::FileInfoExtension* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -1011,23 +1011,23 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
 
     // Friend functions
     friend void QDesignerWidgetDataBaseInterface_TimerEvent(QDesignerWidgetDataBaseInterface* self, QTimerEvent* event);
-    friend void QDesignerWidgetDataBaseInterface_QBaseTimerEvent(QDesignerWidgetDataBaseInterface* self, QTimerEvent* event);
+    friend void QDesignerWidgetDataBaseInterface_SuperTimerEvent(QDesignerWidgetDataBaseInterface* self, QTimerEvent* event);
     friend void QDesignerWidgetDataBaseInterface_ChildEvent(QDesignerWidgetDataBaseInterface* self, QChildEvent* event);
-    friend void QDesignerWidgetDataBaseInterface_QBaseChildEvent(QDesignerWidgetDataBaseInterface* self, QChildEvent* event);
+    friend void QDesignerWidgetDataBaseInterface_SuperChildEvent(QDesignerWidgetDataBaseInterface* self, QChildEvent* event);
     friend void QDesignerWidgetDataBaseInterface_CustomEvent(QDesignerWidgetDataBaseInterface* self, QEvent* event);
-    friend void QDesignerWidgetDataBaseInterface_QBaseCustomEvent(QDesignerWidgetDataBaseInterface* self, QEvent* event);
+    friend void QDesignerWidgetDataBaseInterface_SuperCustomEvent(QDesignerWidgetDataBaseInterface* self, QEvent* event);
     friend void QDesignerWidgetDataBaseInterface_ConnectNotify(QDesignerWidgetDataBaseInterface* self, const QMetaMethod* signal);
-    friend void QDesignerWidgetDataBaseInterface_QBaseConnectNotify(QDesignerWidgetDataBaseInterface* self, const QMetaMethod* signal);
+    friend void QDesignerWidgetDataBaseInterface_SuperConnectNotify(QDesignerWidgetDataBaseInterface* self, const QMetaMethod* signal);
     friend void QDesignerWidgetDataBaseInterface_DisconnectNotify(QDesignerWidgetDataBaseInterface* self, const QMetaMethod* signal);
-    friend void QDesignerWidgetDataBaseInterface_QBaseDisconnectNotify(QDesignerWidgetDataBaseInterface* self, const QMetaMethod* signal);
+    friend void QDesignerWidgetDataBaseInterface_SuperDisconnectNotify(QDesignerWidgetDataBaseInterface* self, const QMetaMethod* signal);
     friend QObject* QDesignerWidgetDataBaseInterface_Sender(const QDesignerWidgetDataBaseInterface* self);
-    friend QObject* QDesignerWidgetDataBaseInterface_QBaseSender(const QDesignerWidgetDataBaseInterface* self);
+    friend QObject* QDesignerWidgetDataBaseInterface_SuperSender(const QDesignerWidgetDataBaseInterface* self);
     friend int QDesignerWidgetDataBaseInterface_SenderSignalIndex(const QDesignerWidgetDataBaseInterface* self);
-    friend int QDesignerWidgetDataBaseInterface_QBaseSenderSignalIndex(const QDesignerWidgetDataBaseInterface* self);
+    friend int QDesignerWidgetDataBaseInterface_SuperSenderSignalIndex(const QDesignerWidgetDataBaseInterface* self);
     friend int QDesignerWidgetDataBaseInterface_Receivers(const QDesignerWidgetDataBaseInterface* self, const char* signal);
-    friend int QDesignerWidgetDataBaseInterface_QBaseReceivers(const QDesignerWidgetDataBaseInterface* self, const char* signal);
+    friend int QDesignerWidgetDataBaseInterface_SuperReceivers(const QDesignerWidgetDataBaseInterface* self, const char* signal);
     friend bool QDesignerWidgetDataBaseInterface_IsSignalConnected(const QDesignerWidgetDataBaseInterface* self, const QMetaMethod* signal);
-    friend bool QDesignerWidgetDataBaseInterface_QBaseIsSignalConnected(const QDesignerWidgetDataBaseInterface* self, const QMetaMethod* signal);
+    friend bool QDesignerWidgetDataBaseInterface_SuperIsSignalConnected(const QDesignerWidgetDataBaseInterface* self, const QMetaMethod* signal);
 };
 
 #endif

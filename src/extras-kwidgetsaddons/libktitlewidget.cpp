@@ -199,7 +199,7 @@ void KTitleWidget_SetIcon23(KTitleWidget* self, int typeVal, int alignment) {
 }
 
 // Base class handler implementation
-QMetaObject* KTitleWidget_QBaseMetaObject(const KTitleWidget* self) {
+QMetaObject* KTitleWidget_SuperMetaObject(const KTitleWidget* self) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_MetaObject_IsBase(true);
@@ -218,7 +218,7 @@ void KTitleWidget_OnMetaObject(const KTitleWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KTitleWidget_QBaseMetacast(KTitleWidget* self, const char* param1) {
+void* KTitleWidget_SuperMetacast(KTitleWidget* self, const char* param1) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_Metacast_IsBase(true);
@@ -237,7 +237,7 @@ void KTitleWidget_OnMetacast(KTitleWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KTitleWidget_QBaseMetacall(KTitleWidget* self, int param1, int param2, void** param3) {
+int KTitleWidget_SuperMetacall(KTitleWidget* self, int param1, int param2, void** param3) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_Metacall_IsBase(true);
@@ -256,7 +256,7 @@ void KTitleWidget_OnMetacall(KTitleWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseChangeEvent(KTitleWidget* self, QEvent* e) {
+void KTitleWidget_SuperChangeEvent(KTitleWidget* self, QEvent* e) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_ChangeEvent_IsBase(true);
@@ -275,7 +275,7 @@ void KTitleWidget_OnChangeEvent(KTitleWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseShowEvent(KTitleWidget* self, QShowEvent* event) {
+void KTitleWidget_SuperShowEvent(KTitleWidget* self, QShowEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_ShowEvent_IsBase(true);
@@ -294,7 +294,7 @@ void KTitleWidget_OnShowEvent(KTitleWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KTitleWidget_QBaseEventFilter(KTitleWidget* self, QObject* object, QEvent* event) {
+bool KTitleWidget_SuperEventFilter(KTitleWidget* self, QObject* object, QEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_EventFilter_IsBase(true);
@@ -323,7 +323,7 @@ int KTitleWidget_DevType(const KTitleWidget* self) {
 }
 
 // Base class handler implementation
-int KTitleWidget_QBaseDevType(const KTitleWidget* self) {
+int KTitleWidget_SuperDevType(const KTitleWidget* self) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_DevType_IsBase(true);
@@ -352,7 +352,7 @@ void KTitleWidget_SetVisible(KTitleWidget* self, bool visible) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseSetVisible(KTitleWidget* self, bool visible) {
+void KTitleWidget_SuperSetVisible(KTitleWidget* self, bool visible) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_SetVisible_IsBase(true);
@@ -381,7 +381,7 @@ QSize* KTitleWidget_SizeHint(const KTitleWidget* self) {
 }
 
 // Base class handler implementation
-QSize* KTitleWidget_QBaseSizeHint(const KTitleWidget* self) {
+QSize* KTitleWidget_SuperSizeHint(const KTitleWidget* self) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_SizeHint_IsBase(true);
@@ -410,7 +410,7 @@ QSize* KTitleWidget_MinimumSizeHint(const KTitleWidget* self) {
 }
 
 // Base class handler implementation
-QSize* KTitleWidget_QBaseMinimumSizeHint(const KTitleWidget* self) {
+QSize* KTitleWidget_SuperMinimumSizeHint(const KTitleWidget* self) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_MinimumSizeHint_IsBase(true);
@@ -439,7 +439,7 @@ int KTitleWidget_HeightForWidth(const KTitleWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int KTitleWidget_QBaseHeightForWidth(const KTitleWidget* self, int param1) {
+int KTitleWidget_SuperHeightForWidth(const KTitleWidget* self, int param1) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_HeightForWidth_IsBase(true);
@@ -468,7 +468,7 @@ bool KTitleWidget_HasHeightForWidth(const KTitleWidget* self) {
 }
 
 // Base class handler implementation
-bool KTitleWidget_QBaseHasHeightForWidth(const KTitleWidget* self) {
+bool KTitleWidget_SuperHasHeightForWidth(const KTitleWidget* self) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_HasHeightForWidth_IsBase(true);
@@ -497,7 +497,7 @@ QPaintEngine* KTitleWidget_PaintEngine(const KTitleWidget* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KTitleWidget_QBasePaintEngine(const KTitleWidget* self) {
+QPaintEngine* KTitleWidget_SuperPaintEngine(const KTitleWidget* self) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_PaintEngine_IsBase(true);
@@ -526,7 +526,7 @@ bool KTitleWidget_Event(KTitleWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KTitleWidget_QBaseEvent(KTitleWidget* self, QEvent* event) {
+bool KTitleWidget_SuperEvent(KTitleWidget* self, QEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_Event_IsBase(true);
@@ -555,7 +555,7 @@ void KTitleWidget_MousePressEvent(KTitleWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseMousePressEvent(KTitleWidget* self, QMouseEvent* event) {
+void KTitleWidget_SuperMousePressEvent(KTitleWidget* self, QMouseEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_MousePressEvent_IsBase(true);
@@ -584,7 +584,7 @@ void KTitleWidget_MouseReleaseEvent(KTitleWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseMouseReleaseEvent(KTitleWidget* self, QMouseEvent* event) {
+void KTitleWidget_SuperMouseReleaseEvent(KTitleWidget* self, QMouseEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_MouseReleaseEvent_IsBase(true);
@@ -613,7 +613,7 @@ void KTitleWidget_MouseDoubleClickEvent(KTitleWidget* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseMouseDoubleClickEvent(KTitleWidget* self, QMouseEvent* event) {
+void KTitleWidget_SuperMouseDoubleClickEvent(KTitleWidget* self, QMouseEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_MouseDoubleClickEvent_IsBase(true);
@@ -642,7 +642,7 @@ void KTitleWidget_MouseMoveEvent(KTitleWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseMouseMoveEvent(KTitleWidget* self, QMouseEvent* event) {
+void KTitleWidget_SuperMouseMoveEvent(KTitleWidget* self, QMouseEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_MouseMoveEvent_IsBase(true);
@@ -671,7 +671,7 @@ void KTitleWidget_WheelEvent(KTitleWidget* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseWheelEvent(KTitleWidget* self, QWheelEvent* event) {
+void KTitleWidget_SuperWheelEvent(KTitleWidget* self, QWheelEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_WheelEvent_IsBase(true);
@@ -700,7 +700,7 @@ void KTitleWidget_KeyPressEvent(KTitleWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseKeyPressEvent(KTitleWidget* self, QKeyEvent* event) {
+void KTitleWidget_SuperKeyPressEvent(KTitleWidget* self, QKeyEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_KeyPressEvent_IsBase(true);
@@ -729,7 +729,7 @@ void KTitleWidget_KeyReleaseEvent(KTitleWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseKeyReleaseEvent(KTitleWidget* self, QKeyEvent* event) {
+void KTitleWidget_SuperKeyReleaseEvent(KTitleWidget* self, QKeyEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_KeyReleaseEvent_IsBase(true);
@@ -758,7 +758,7 @@ void KTitleWidget_FocusInEvent(KTitleWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseFocusInEvent(KTitleWidget* self, QFocusEvent* event) {
+void KTitleWidget_SuperFocusInEvent(KTitleWidget* self, QFocusEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_FocusInEvent_IsBase(true);
@@ -787,7 +787,7 @@ void KTitleWidget_FocusOutEvent(KTitleWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseFocusOutEvent(KTitleWidget* self, QFocusEvent* event) {
+void KTitleWidget_SuperFocusOutEvent(KTitleWidget* self, QFocusEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_FocusOutEvent_IsBase(true);
@@ -816,7 +816,7 @@ void KTitleWidget_EnterEvent(KTitleWidget* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseEnterEvent(KTitleWidget* self, QEnterEvent* event) {
+void KTitleWidget_SuperEnterEvent(KTitleWidget* self, QEnterEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_EnterEvent_IsBase(true);
@@ -845,7 +845,7 @@ void KTitleWidget_LeaveEvent(KTitleWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseLeaveEvent(KTitleWidget* self, QEvent* event) {
+void KTitleWidget_SuperLeaveEvent(KTitleWidget* self, QEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_LeaveEvent_IsBase(true);
@@ -874,7 +874,7 @@ void KTitleWidget_PaintEvent(KTitleWidget* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBasePaintEvent(KTitleWidget* self, QPaintEvent* event) {
+void KTitleWidget_SuperPaintEvent(KTitleWidget* self, QPaintEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_PaintEvent_IsBase(true);
@@ -903,7 +903,7 @@ void KTitleWidget_MoveEvent(KTitleWidget* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseMoveEvent(KTitleWidget* self, QMoveEvent* event) {
+void KTitleWidget_SuperMoveEvent(KTitleWidget* self, QMoveEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_MoveEvent_IsBase(true);
@@ -932,7 +932,7 @@ void KTitleWidget_ResizeEvent(KTitleWidget* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseResizeEvent(KTitleWidget* self, QResizeEvent* event) {
+void KTitleWidget_SuperResizeEvent(KTitleWidget* self, QResizeEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_ResizeEvent_IsBase(true);
@@ -961,7 +961,7 @@ void KTitleWidget_CloseEvent(KTitleWidget* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseCloseEvent(KTitleWidget* self, QCloseEvent* event) {
+void KTitleWidget_SuperCloseEvent(KTitleWidget* self, QCloseEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_CloseEvent_IsBase(true);
@@ -990,7 +990,7 @@ void KTitleWidget_ContextMenuEvent(KTitleWidget* self, QContextMenuEvent* event)
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseContextMenuEvent(KTitleWidget* self, QContextMenuEvent* event) {
+void KTitleWidget_SuperContextMenuEvent(KTitleWidget* self, QContextMenuEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_ContextMenuEvent_IsBase(true);
@@ -1019,7 +1019,7 @@ void KTitleWidget_TabletEvent(KTitleWidget* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseTabletEvent(KTitleWidget* self, QTabletEvent* event) {
+void KTitleWidget_SuperTabletEvent(KTitleWidget* self, QTabletEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_TabletEvent_IsBase(true);
@@ -1048,7 +1048,7 @@ void KTitleWidget_ActionEvent(KTitleWidget* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseActionEvent(KTitleWidget* self, QActionEvent* event) {
+void KTitleWidget_SuperActionEvent(KTitleWidget* self, QActionEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_ActionEvent_IsBase(true);
@@ -1077,7 +1077,7 @@ void KTitleWidget_DragEnterEvent(KTitleWidget* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseDragEnterEvent(KTitleWidget* self, QDragEnterEvent* event) {
+void KTitleWidget_SuperDragEnterEvent(KTitleWidget* self, QDragEnterEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_DragEnterEvent_IsBase(true);
@@ -1106,7 +1106,7 @@ void KTitleWidget_DragMoveEvent(KTitleWidget* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseDragMoveEvent(KTitleWidget* self, QDragMoveEvent* event) {
+void KTitleWidget_SuperDragMoveEvent(KTitleWidget* self, QDragMoveEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_DragMoveEvent_IsBase(true);
@@ -1135,7 +1135,7 @@ void KTitleWidget_DragLeaveEvent(KTitleWidget* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseDragLeaveEvent(KTitleWidget* self, QDragLeaveEvent* event) {
+void KTitleWidget_SuperDragLeaveEvent(KTitleWidget* self, QDragLeaveEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_DragLeaveEvent_IsBase(true);
@@ -1164,7 +1164,7 @@ void KTitleWidget_DropEvent(KTitleWidget* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseDropEvent(KTitleWidget* self, QDropEvent* event) {
+void KTitleWidget_SuperDropEvent(KTitleWidget* self, QDropEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_DropEvent_IsBase(true);
@@ -1193,7 +1193,7 @@ void KTitleWidget_HideEvent(KTitleWidget* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseHideEvent(KTitleWidget* self, QHideEvent* event) {
+void KTitleWidget_SuperHideEvent(KTitleWidget* self, QHideEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_HideEvent_IsBase(true);
@@ -1223,7 +1223,7 @@ bool KTitleWidget_NativeEvent(KTitleWidget* self, const libqt_string eventType, 
 }
 
 // Base class handler implementation
-bool KTitleWidget_QBaseNativeEvent(KTitleWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KTitleWidget_SuperNativeEvent(KTitleWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
@@ -1253,7 +1253,7 @@ int KTitleWidget_Metric(const KTitleWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int KTitleWidget_QBaseMetric(const KTitleWidget* self, int param1) {
+int KTitleWidget_SuperMetric(const KTitleWidget* self, int param1) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_Metric_IsBase(true);
@@ -1282,7 +1282,7 @@ void KTitleWidget_InitPainter(const KTitleWidget* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseInitPainter(const KTitleWidget* self, QPainter* painter) {
+void KTitleWidget_SuperInitPainter(const KTitleWidget* self, QPainter* painter) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_InitPainter_IsBase(true);
@@ -1311,7 +1311,7 @@ QPaintDevice* KTitleWidget_Redirected(const KTitleWidget* self, QPoint* offset) 
 }
 
 // Base class handler implementation
-QPaintDevice* KTitleWidget_QBaseRedirected(const KTitleWidget* self, QPoint* offset) {
+QPaintDevice* KTitleWidget_SuperRedirected(const KTitleWidget* self, QPoint* offset) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_Redirected_IsBase(true);
@@ -1340,7 +1340,7 @@ QPainter* KTitleWidget_SharedPainter(const KTitleWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* KTitleWidget_QBaseSharedPainter(const KTitleWidget* self) {
+QPainter* KTitleWidget_SuperSharedPainter(const KTitleWidget* self) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_SharedPainter_IsBase(true);
@@ -1369,7 +1369,7 @@ void KTitleWidget_InputMethodEvent(KTitleWidget* self, QInputMethodEvent* param1
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseInputMethodEvent(KTitleWidget* self, QInputMethodEvent* param1) {
+void KTitleWidget_SuperInputMethodEvent(KTitleWidget* self, QInputMethodEvent* param1) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_InputMethodEvent_IsBase(true);
@@ -1398,7 +1398,7 @@ QVariant* KTitleWidget_InputMethodQuery(const KTitleWidget* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KTitleWidget_QBaseInputMethodQuery(const KTitleWidget* self, int param1) {
+QVariant* KTitleWidget_SuperInputMethodQuery(const KTitleWidget* self, int param1) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_InputMethodQuery_IsBase(true);
@@ -1427,7 +1427,7 @@ bool KTitleWidget_FocusNextPrevChild(KTitleWidget* self, bool next) {
 }
 
 // Base class handler implementation
-bool KTitleWidget_QBaseFocusNextPrevChild(KTitleWidget* self, bool next) {
+bool KTitleWidget_SuperFocusNextPrevChild(KTitleWidget* self, bool next) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_FocusNextPrevChild_IsBase(true);
@@ -1456,7 +1456,7 @@ void KTitleWidget_TimerEvent(KTitleWidget* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseTimerEvent(KTitleWidget* self, QTimerEvent* event) {
+void KTitleWidget_SuperTimerEvent(KTitleWidget* self, QTimerEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_TimerEvent_IsBase(true);
@@ -1485,7 +1485,7 @@ void KTitleWidget_ChildEvent(KTitleWidget* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseChildEvent(KTitleWidget* self, QChildEvent* event) {
+void KTitleWidget_SuperChildEvent(KTitleWidget* self, QChildEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_ChildEvent_IsBase(true);
@@ -1514,7 +1514,7 @@ void KTitleWidget_CustomEvent(KTitleWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseCustomEvent(KTitleWidget* self, QEvent* event) {
+void KTitleWidget_SuperCustomEvent(KTitleWidget* self, QEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_CustomEvent_IsBase(true);
@@ -1543,7 +1543,7 @@ void KTitleWidget_ConnectNotify(KTitleWidget* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseConnectNotify(KTitleWidget* self, const QMetaMethod* signal) {
+void KTitleWidget_SuperConnectNotify(KTitleWidget* self, const QMetaMethod* signal) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_ConnectNotify_IsBase(true);
@@ -1572,7 +1572,7 @@ void KTitleWidget_DisconnectNotify(KTitleWidget* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseDisconnectNotify(KTitleWidget* self, const QMetaMethod* signal) {
+void KTitleWidget_SuperDisconnectNotify(KTitleWidget* self, const QMetaMethod* signal) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_DisconnectNotify_IsBase(true);
@@ -1601,7 +1601,7 @@ void KTitleWidget_UpdateMicroFocus(KTitleWidget* self) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseUpdateMicroFocus(KTitleWidget* self) {
+void KTitleWidget_SuperUpdateMicroFocus(KTitleWidget* self) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_UpdateMicroFocus_IsBase(true);
@@ -1630,7 +1630,7 @@ void KTitleWidget_Create(KTitleWidget* self) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseCreate(KTitleWidget* self) {
+void KTitleWidget_SuperCreate(KTitleWidget* self) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_Create_IsBase(true);
@@ -1659,7 +1659,7 @@ void KTitleWidget_Destroy(KTitleWidget* self) {
 }
 
 // Base class handler implementation
-void KTitleWidget_QBaseDestroy(KTitleWidget* self) {
+void KTitleWidget_SuperDestroy(KTitleWidget* self) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_Destroy_IsBase(true);
@@ -1688,7 +1688,7 @@ bool KTitleWidget_FocusNextChild(KTitleWidget* self) {
 }
 
 // Base class handler implementation
-bool KTitleWidget_QBaseFocusNextChild(KTitleWidget* self) {
+bool KTitleWidget_SuperFocusNextChild(KTitleWidget* self) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_FocusNextChild_IsBase(true);
@@ -1717,7 +1717,7 @@ bool KTitleWidget_FocusPreviousChild(KTitleWidget* self) {
 }
 
 // Base class handler implementation
-bool KTitleWidget_QBaseFocusPreviousChild(KTitleWidget* self) {
+bool KTitleWidget_SuperFocusPreviousChild(KTitleWidget* self) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_FocusPreviousChild_IsBase(true);
@@ -1746,7 +1746,7 @@ QObject* KTitleWidget_Sender(const KTitleWidget* self) {
 }
 
 // Base class handler implementation
-QObject* KTitleWidget_QBaseSender(const KTitleWidget* self) {
+QObject* KTitleWidget_SuperSender(const KTitleWidget* self) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_Sender_IsBase(true);
@@ -1775,7 +1775,7 @@ int KTitleWidget_SenderSignalIndex(const KTitleWidget* self) {
 }
 
 // Base class handler implementation
-int KTitleWidget_QBaseSenderSignalIndex(const KTitleWidget* self) {
+int KTitleWidget_SuperSenderSignalIndex(const KTitleWidget* self) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_SenderSignalIndex_IsBase(true);
@@ -1804,7 +1804,7 @@ int KTitleWidget_Receivers(const KTitleWidget* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KTitleWidget_QBaseReceivers(const KTitleWidget* self, const char* signal) {
+int KTitleWidget_SuperReceivers(const KTitleWidget* self, const char* signal) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_Receivers_IsBase(true);
@@ -1833,7 +1833,7 @@ bool KTitleWidget_IsSignalConnected(const KTitleWidget* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool KTitleWidget_QBaseIsSignalConnected(const KTitleWidget* self, const QMetaMethod* signal) {
+bool KTitleWidget_SuperIsSignalConnected(const KTitleWidget* self, const QMetaMethod* signal) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_IsSignalConnected_IsBase(true);
@@ -1862,7 +1862,7 @@ double KTitleWidget_GetDecodedMetricF(const KTitleWidget* self, int metricA, int
 }
 
 // Base class handler implementation
-double KTitleWidget_QBaseGetDecodedMetricF(const KTitleWidget* self, int metricA, int metricB) {
+double KTitleWidget_SuperGetDecodedMetricF(const KTitleWidget* self, int metricA, int metricB) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
     if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
         vktitlewidget->setKTitleWidget_GetDecodedMetricF_IsBase(true);

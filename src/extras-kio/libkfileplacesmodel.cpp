@@ -546,7 +546,7 @@ void KFilePlacesModel_EditPlace5(KFilePlacesModel* self, const QModelIndex* inde
 }
 
 // Base class handler implementation
-QMetaObject* KFilePlacesModel_QBaseMetaObject(const KFilePlacesModel* self) {
+QMetaObject* KFilePlacesModel_SuperMetaObject(const KFilePlacesModel* self) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_MetaObject_IsBase(true);
@@ -565,7 +565,7 @@ void KFilePlacesModel_OnMetaObject(const KFilePlacesModel* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* KFilePlacesModel_QBaseMetacast(KFilePlacesModel* self, const char* param1) {
+void* KFilePlacesModel_SuperMetacast(KFilePlacesModel* self, const char* param1) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_Metacast_IsBase(true);
@@ -584,7 +584,7 @@ void KFilePlacesModel_OnMetacast(KFilePlacesModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KFilePlacesModel_QBaseMetacall(KFilePlacesModel* self, int param1, int param2, void** param3) {
+int KFilePlacesModel_SuperMetacall(KFilePlacesModel* self, int param1, int param2, void** param3) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_Metacall_IsBase(true);
@@ -603,7 +603,7 @@ void KFilePlacesModel_OnMetacall(KFilePlacesModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* KFilePlacesModel_QBaseData(const KFilePlacesModel* self, const QModelIndex* index, int role) {
+QVariant* KFilePlacesModel_SuperData(const KFilePlacesModel* self, const QModelIndex* index, int role) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_Data_IsBase(true);
@@ -622,7 +622,7 @@ void KFilePlacesModel_OnData(const KFilePlacesModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QModelIndex* KFilePlacesModel_QBaseIndex(const KFilePlacesModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* KFilePlacesModel_SuperIndex(const KFilePlacesModel* self, int row, int column, const QModelIndex* parent) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_Index_IsBase(true);
@@ -641,7 +641,7 @@ void KFilePlacesModel_OnIndex(const KFilePlacesModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QModelIndex* KFilePlacesModel_QBaseParent(const KFilePlacesModel* self, const QModelIndex* child) {
+QModelIndex* KFilePlacesModel_SuperParent(const KFilePlacesModel* self, const QModelIndex* child) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_Parent_IsBase(true);
@@ -660,7 +660,7 @@ void KFilePlacesModel_OnParent(const KFilePlacesModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ KFilePlacesModel_QBaseRoleNames(const KFilePlacesModel* self) {
+libqt_map /* of int to libqt_string */ KFilePlacesModel_SuperRoleNames(const KFilePlacesModel* self) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_RoleNames_IsBase(true);
@@ -717,7 +717,7 @@ void KFilePlacesModel_OnRoleNames(const KFilePlacesModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KFilePlacesModel_QBaseRowCount(const KFilePlacesModel* self, const QModelIndex* parent) {
+int KFilePlacesModel_SuperRowCount(const KFilePlacesModel* self, const QModelIndex* parent) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_RowCount_IsBase(true);
@@ -736,7 +736,7 @@ void KFilePlacesModel_OnRowCount(const KFilePlacesModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KFilePlacesModel_QBaseColumnCount(const KFilePlacesModel* self, const QModelIndex* parent) {
+int KFilePlacesModel_SuperColumnCount(const KFilePlacesModel* self, const QModelIndex* parent) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_ColumnCount_IsBase(true);
@@ -755,7 +755,7 @@ void KFilePlacesModel_OnColumnCount(const KFilePlacesModel* self, intptr_t slot)
 }
 
 // Base class handler implementation
-int KFilePlacesModel_QBaseSupportedDropActions(const KFilePlacesModel* self) {
+int KFilePlacesModel_SuperSupportedDropActions(const KFilePlacesModel* self) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_SupportedDropActions_IsBase(true);
@@ -774,7 +774,7 @@ void KFilePlacesModel_OnSupportedDropActions(const KFilePlacesModel* self, intpt
 }
 
 // Base class handler implementation
-int KFilePlacesModel_QBaseFlags(const KFilePlacesModel* self, const QModelIndex* index) {
+int KFilePlacesModel_SuperFlags(const KFilePlacesModel* self, const QModelIndex* index) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_Flags_IsBase(true);
@@ -793,7 +793,7 @@ void KFilePlacesModel_OnFlags(const KFilePlacesModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KFilePlacesModel_QBaseMimeTypes(const KFilePlacesModel* self) {
+libqt_list /* of libqt_string */ KFilePlacesModel_SuperMimeTypes(const KFilePlacesModel* self) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_MimeTypes_IsBase(true);
@@ -846,7 +846,7 @@ void KFilePlacesModel_OnMimeTypes(const KFilePlacesModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMimeData* KFilePlacesModel_QBaseMimeData(const KFilePlacesModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* KFilePlacesModel_SuperMimeData(const KFilePlacesModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -871,7 +871,7 @@ void KFilePlacesModel_OnMimeData(const KFilePlacesModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KFilePlacesModel_QBaseDropMimeData(KFilePlacesModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KFilePlacesModel_SuperDropMimeData(KFilePlacesModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_DropMimeData_IsBase(true);
@@ -900,7 +900,7 @@ QModelIndex* KFilePlacesModel_Sibling(const KFilePlacesModel* self, int row, int
 }
 
 // Base class handler implementation
-QModelIndex* KFilePlacesModel_QBaseSibling(const KFilePlacesModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* KFilePlacesModel_SuperSibling(const KFilePlacesModel* self, int row, int column, const QModelIndex* idx) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_Sibling_IsBase(true);
@@ -929,7 +929,7 @@ bool KFilePlacesModel_HasChildren(const KFilePlacesModel* self, const QModelInde
 }
 
 // Base class handler implementation
-bool KFilePlacesModel_QBaseHasChildren(const KFilePlacesModel* self, const QModelIndex* parent) {
+bool KFilePlacesModel_SuperHasChildren(const KFilePlacesModel* self, const QModelIndex* parent) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_HasChildren_IsBase(true);
@@ -958,7 +958,7 @@ bool KFilePlacesModel_SetData(KFilePlacesModel* self, const QModelIndex* index, 
 }
 
 // Base class handler implementation
-bool KFilePlacesModel_QBaseSetData(KFilePlacesModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool KFilePlacesModel_SuperSetData(KFilePlacesModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_SetData_IsBase(true);
@@ -987,7 +987,7 @@ QVariant* KFilePlacesModel_HeaderData(const KFilePlacesModel* self, int section,
 }
 
 // Base class handler implementation
-QVariant* KFilePlacesModel_QBaseHeaderData(const KFilePlacesModel* self, int section, int orientation, int role) {
+QVariant* KFilePlacesModel_SuperHeaderData(const KFilePlacesModel* self, int section, int orientation, int role) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_HeaderData_IsBase(true);
@@ -1016,7 +1016,7 @@ bool KFilePlacesModel_SetHeaderData(KFilePlacesModel* self, int section, int ori
 }
 
 // Base class handler implementation
-bool KFilePlacesModel_QBaseSetHeaderData(KFilePlacesModel* self, int section, int orientation, const QVariant* value, int role) {
+bool KFilePlacesModel_SuperSetHeaderData(KFilePlacesModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_SetHeaderData_IsBase(true);
@@ -1073,7 +1073,7 @@ libqt_map /* of int to QVariant* */ KFilePlacesModel_ItemData(const KFilePlacesM
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ KFilePlacesModel_QBaseItemData(const KFilePlacesModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ KFilePlacesModel_SuperItemData(const KFilePlacesModel* self, const QModelIndex* index) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_ItemData_IsBase(true);
@@ -1136,7 +1136,7 @@ bool KFilePlacesModel_SetItemData(KFilePlacesModel* self, const QModelIndex* ind
 }
 
 // Base class handler implementation
-bool KFilePlacesModel_QBaseSetItemData(KFilePlacesModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool KFilePlacesModel_SuperSetItemData(KFilePlacesModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -1171,7 +1171,7 @@ bool KFilePlacesModel_ClearItemData(KFilePlacesModel* self, const QModelIndex* i
 }
 
 // Base class handler implementation
-bool KFilePlacesModel_QBaseClearItemData(KFilePlacesModel* self, const QModelIndex* index) {
+bool KFilePlacesModel_SuperClearItemData(KFilePlacesModel* self, const QModelIndex* index) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_ClearItemData_IsBase(true);
@@ -1200,7 +1200,7 @@ bool KFilePlacesModel_CanDropMimeData(const KFilePlacesModel* self, const QMimeD
 }
 
 // Base class handler implementation
-bool KFilePlacesModel_QBaseCanDropMimeData(const KFilePlacesModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KFilePlacesModel_SuperCanDropMimeData(const KFilePlacesModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_CanDropMimeData_IsBase(true);
@@ -1229,7 +1229,7 @@ int KFilePlacesModel_SupportedDragActions(const KFilePlacesModel* self) {
 }
 
 // Base class handler implementation
-int KFilePlacesModel_QBaseSupportedDragActions(const KFilePlacesModel* self) {
+int KFilePlacesModel_SuperSupportedDragActions(const KFilePlacesModel* self) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_SupportedDragActions_IsBase(true);
@@ -1258,7 +1258,7 @@ bool KFilePlacesModel_InsertRows(KFilePlacesModel* self, int row, int count, con
 }
 
 // Base class handler implementation
-bool KFilePlacesModel_QBaseInsertRows(KFilePlacesModel* self, int row, int count, const QModelIndex* parent) {
+bool KFilePlacesModel_SuperInsertRows(KFilePlacesModel* self, int row, int count, const QModelIndex* parent) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_InsertRows_IsBase(true);
@@ -1287,7 +1287,7 @@ bool KFilePlacesModel_InsertColumns(KFilePlacesModel* self, int column, int coun
 }
 
 // Base class handler implementation
-bool KFilePlacesModel_QBaseInsertColumns(KFilePlacesModel* self, int column, int count, const QModelIndex* parent) {
+bool KFilePlacesModel_SuperInsertColumns(KFilePlacesModel* self, int column, int count, const QModelIndex* parent) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_InsertColumns_IsBase(true);
@@ -1316,7 +1316,7 @@ bool KFilePlacesModel_RemoveRows(KFilePlacesModel* self, int row, int count, con
 }
 
 // Base class handler implementation
-bool KFilePlacesModel_QBaseRemoveRows(KFilePlacesModel* self, int row, int count, const QModelIndex* parent) {
+bool KFilePlacesModel_SuperRemoveRows(KFilePlacesModel* self, int row, int count, const QModelIndex* parent) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_RemoveRows_IsBase(true);
@@ -1345,7 +1345,7 @@ bool KFilePlacesModel_RemoveColumns(KFilePlacesModel* self, int column, int coun
 }
 
 // Base class handler implementation
-bool KFilePlacesModel_QBaseRemoveColumns(KFilePlacesModel* self, int column, int count, const QModelIndex* parent) {
+bool KFilePlacesModel_SuperRemoveColumns(KFilePlacesModel* self, int column, int count, const QModelIndex* parent) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_RemoveColumns_IsBase(true);
@@ -1374,7 +1374,7 @@ bool KFilePlacesModel_MoveRows(KFilePlacesModel* self, const QModelIndex* source
 }
 
 // Base class handler implementation
-bool KFilePlacesModel_QBaseMoveRows(KFilePlacesModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KFilePlacesModel_SuperMoveRows(KFilePlacesModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_MoveRows_IsBase(true);
@@ -1403,7 +1403,7 @@ bool KFilePlacesModel_MoveColumns(KFilePlacesModel* self, const QModelIndex* sou
 }
 
 // Base class handler implementation
-bool KFilePlacesModel_QBaseMoveColumns(KFilePlacesModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KFilePlacesModel_SuperMoveColumns(KFilePlacesModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_MoveColumns_IsBase(true);
@@ -1432,7 +1432,7 @@ void KFilePlacesModel_FetchMore(KFilePlacesModel* self, const QModelIndex* paren
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseFetchMore(KFilePlacesModel* self, const QModelIndex* parent) {
+void KFilePlacesModel_SuperFetchMore(KFilePlacesModel* self, const QModelIndex* parent) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_FetchMore_IsBase(true);
@@ -1461,7 +1461,7 @@ bool KFilePlacesModel_CanFetchMore(const KFilePlacesModel* self, const QModelInd
 }
 
 // Base class handler implementation
-bool KFilePlacesModel_QBaseCanFetchMore(const KFilePlacesModel* self, const QModelIndex* parent) {
+bool KFilePlacesModel_SuperCanFetchMore(const KFilePlacesModel* self, const QModelIndex* parent) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_CanFetchMore_IsBase(true);
@@ -1490,7 +1490,7 @@ void KFilePlacesModel_Sort(KFilePlacesModel* self, int column, int order) {
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseSort(KFilePlacesModel* self, int column, int order) {
+void KFilePlacesModel_SuperSort(KFilePlacesModel* self, int column, int order) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_Sort_IsBase(true);
@@ -1519,7 +1519,7 @@ QModelIndex* KFilePlacesModel_Buddy(const KFilePlacesModel* self, const QModelIn
 }
 
 // Base class handler implementation
-QModelIndex* KFilePlacesModel_QBaseBuddy(const KFilePlacesModel* self, const QModelIndex* index) {
+QModelIndex* KFilePlacesModel_SuperBuddy(const KFilePlacesModel* self, const QModelIndex* index) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_Buddy_IsBase(true);
@@ -1566,7 +1566,7 @@ libqt_list /* of QModelIndex* */ KFilePlacesModel_Match(const KFilePlacesModel* 
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KFilePlacesModel_QBaseMatch(const KFilePlacesModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ KFilePlacesModel_SuperMatch(const KFilePlacesModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_Match_IsBase(true);
@@ -1613,7 +1613,7 @@ QSize* KFilePlacesModel_Span(const KFilePlacesModel* self, const QModelIndex* in
 }
 
 // Base class handler implementation
-QSize* KFilePlacesModel_QBaseSpan(const KFilePlacesModel* self, const QModelIndex* index) {
+QSize* KFilePlacesModel_SuperSpan(const KFilePlacesModel* self, const QModelIndex* index) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_Span_IsBase(true);
@@ -1642,7 +1642,7 @@ void KFilePlacesModel_MultiData(const KFilePlacesModel* self, const QModelIndex*
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseMultiData(const KFilePlacesModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void KFilePlacesModel_SuperMultiData(const KFilePlacesModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_MultiData_IsBase(true);
@@ -1671,7 +1671,7 @@ bool KFilePlacesModel_Submit(KFilePlacesModel* self) {
 }
 
 // Base class handler implementation
-bool KFilePlacesModel_QBaseSubmit(KFilePlacesModel* self) {
+bool KFilePlacesModel_SuperSubmit(KFilePlacesModel* self) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_Submit_IsBase(true);
@@ -1700,7 +1700,7 @@ void KFilePlacesModel_Revert(KFilePlacesModel* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseRevert(KFilePlacesModel* self) {
+void KFilePlacesModel_SuperRevert(KFilePlacesModel* self) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_Revert_IsBase(true);
@@ -1729,7 +1729,7 @@ void KFilePlacesModel_ResetInternalData(KFilePlacesModel* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseResetInternalData(KFilePlacesModel* self) {
+void KFilePlacesModel_SuperResetInternalData(KFilePlacesModel* self) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_ResetInternalData_IsBase(true);
@@ -1758,7 +1758,7 @@ bool KFilePlacesModel_Event(KFilePlacesModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KFilePlacesModel_QBaseEvent(KFilePlacesModel* self, QEvent* event) {
+bool KFilePlacesModel_SuperEvent(KFilePlacesModel* self, QEvent* event) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_Event_IsBase(true);
@@ -1787,7 +1787,7 @@ bool KFilePlacesModel_EventFilter(KFilePlacesModel* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool KFilePlacesModel_QBaseEventFilter(KFilePlacesModel* self, QObject* watched, QEvent* event) {
+bool KFilePlacesModel_SuperEventFilter(KFilePlacesModel* self, QObject* watched, QEvent* event) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_EventFilter_IsBase(true);
@@ -1816,7 +1816,7 @@ void KFilePlacesModel_TimerEvent(KFilePlacesModel* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseTimerEvent(KFilePlacesModel* self, QTimerEvent* event) {
+void KFilePlacesModel_SuperTimerEvent(KFilePlacesModel* self, QTimerEvent* event) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_TimerEvent_IsBase(true);
@@ -1845,7 +1845,7 @@ void KFilePlacesModel_ChildEvent(KFilePlacesModel* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseChildEvent(KFilePlacesModel* self, QChildEvent* event) {
+void KFilePlacesModel_SuperChildEvent(KFilePlacesModel* self, QChildEvent* event) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_ChildEvent_IsBase(true);
@@ -1874,7 +1874,7 @@ void KFilePlacesModel_CustomEvent(KFilePlacesModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseCustomEvent(KFilePlacesModel* self, QEvent* event) {
+void KFilePlacesModel_SuperCustomEvent(KFilePlacesModel* self, QEvent* event) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_CustomEvent_IsBase(true);
@@ -1903,7 +1903,7 @@ void KFilePlacesModel_ConnectNotify(KFilePlacesModel* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseConnectNotify(KFilePlacesModel* self, const QMetaMethod* signal) {
+void KFilePlacesModel_SuperConnectNotify(KFilePlacesModel* self, const QMetaMethod* signal) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_ConnectNotify_IsBase(true);
@@ -1932,7 +1932,7 @@ void KFilePlacesModel_DisconnectNotify(KFilePlacesModel* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseDisconnectNotify(KFilePlacesModel* self, const QMetaMethod* signal) {
+void KFilePlacesModel_SuperDisconnectNotify(KFilePlacesModel* self, const QMetaMethod* signal) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_DisconnectNotify_IsBase(true);
@@ -1960,7 +1960,7 @@ QModelIndex* KFilePlacesModel_CreateIndex(const KFilePlacesModel* self, int row,
 }
 
 // Base class handler implementation
-QModelIndex* KFilePlacesModel_QBaseCreateIndex(const KFilePlacesModel* self, int row, int column) {
+QModelIndex* KFilePlacesModel_SuperCreateIndex(const KFilePlacesModel* self, int row, int column) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_CreateIndex_IsBase(true);
@@ -1994,7 +1994,7 @@ void KFilePlacesModel_EncodeData(const KFilePlacesModel* self, const libqt_list 
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseEncodeData(const KFilePlacesModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void KFilePlacesModel_SuperEncodeData(const KFilePlacesModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -2029,7 +2029,7 @@ bool KFilePlacesModel_DecodeData(KFilePlacesModel* self, int row, int column, co
 }
 
 // Base class handler implementation
-bool KFilePlacesModel_QBaseDecodeData(KFilePlacesModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool KFilePlacesModel_SuperDecodeData(KFilePlacesModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_DecodeData_IsBase(true);
@@ -2058,7 +2058,7 @@ void KFilePlacesModel_BeginInsertRows(KFilePlacesModel* self, const QModelIndex*
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseBeginInsertRows(KFilePlacesModel* self, const QModelIndex* parent, int first, int last) {
+void KFilePlacesModel_SuperBeginInsertRows(KFilePlacesModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_BeginInsertRows_IsBase(true);
@@ -2087,7 +2087,7 @@ void KFilePlacesModel_EndInsertRows(KFilePlacesModel* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseEndInsertRows(KFilePlacesModel* self) {
+void KFilePlacesModel_SuperEndInsertRows(KFilePlacesModel* self) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_EndInsertRows_IsBase(true);
@@ -2116,7 +2116,7 @@ void KFilePlacesModel_BeginRemoveRows(KFilePlacesModel* self, const QModelIndex*
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseBeginRemoveRows(KFilePlacesModel* self, const QModelIndex* parent, int first, int last) {
+void KFilePlacesModel_SuperBeginRemoveRows(KFilePlacesModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_BeginRemoveRows_IsBase(true);
@@ -2145,7 +2145,7 @@ void KFilePlacesModel_EndRemoveRows(KFilePlacesModel* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseEndRemoveRows(KFilePlacesModel* self) {
+void KFilePlacesModel_SuperEndRemoveRows(KFilePlacesModel* self) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_EndRemoveRows_IsBase(true);
@@ -2174,7 +2174,7 @@ bool KFilePlacesModel_BeginMoveRows(KFilePlacesModel* self, const QModelIndex* s
 }
 
 // Base class handler implementation
-bool KFilePlacesModel_QBaseBeginMoveRows(KFilePlacesModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool KFilePlacesModel_SuperBeginMoveRows(KFilePlacesModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_BeginMoveRows_IsBase(true);
@@ -2203,7 +2203,7 @@ void KFilePlacesModel_EndMoveRows(KFilePlacesModel* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseEndMoveRows(KFilePlacesModel* self) {
+void KFilePlacesModel_SuperEndMoveRows(KFilePlacesModel* self) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_EndMoveRows_IsBase(true);
@@ -2232,7 +2232,7 @@ void KFilePlacesModel_BeginInsertColumns(KFilePlacesModel* self, const QModelInd
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseBeginInsertColumns(KFilePlacesModel* self, const QModelIndex* parent, int first, int last) {
+void KFilePlacesModel_SuperBeginInsertColumns(KFilePlacesModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_BeginInsertColumns_IsBase(true);
@@ -2261,7 +2261,7 @@ void KFilePlacesModel_EndInsertColumns(KFilePlacesModel* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseEndInsertColumns(KFilePlacesModel* self) {
+void KFilePlacesModel_SuperEndInsertColumns(KFilePlacesModel* self) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_EndInsertColumns_IsBase(true);
@@ -2290,7 +2290,7 @@ void KFilePlacesModel_BeginRemoveColumns(KFilePlacesModel* self, const QModelInd
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseBeginRemoveColumns(KFilePlacesModel* self, const QModelIndex* parent, int first, int last) {
+void KFilePlacesModel_SuperBeginRemoveColumns(KFilePlacesModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_BeginRemoveColumns_IsBase(true);
@@ -2319,7 +2319,7 @@ void KFilePlacesModel_EndRemoveColumns(KFilePlacesModel* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseEndRemoveColumns(KFilePlacesModel* self) {
+void KFilePlacesModel_SuperEndRemoveColumns(KFilePlacesModel* self) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_EndRemoveColumns_IsBase(true);
@@ -2348,7 +2348,7 @@ bool KFilePlacesModel_BeginMoveColumns(KFilePlacesModel* self, const QModelIndex
 }
 
 // Base class handler implementation
-bool KFilePlacesModel_QBaseBeginMoveColumns(KFilePlacesModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool KFilePlacesModel_SuperBeginMoveColumns(KFilePlacesModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_BeginMoveColumns_IsBase(true);
@@ -2377,7 +2377,7 @@ void KFilePlacesModel_EndMoveColumns(KFilePlacesModel* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseEndMoveColumns(KFilePlacesModel* self) {
+void KFilePlacesModel_SuperEndMoveColumns(KFilePlacesModel* self) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_EndMoveColumns_IsBase(true);
@@ -2406,7 +2406,7 @@ void KFilePlacesModel_BeginResetModel(KFilePlacesModel* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseBeginResetModel(KFilePlacesModel* self) {
+void KFilePlacesModel_SuperBeginResetModel(KFilePlacesModel* self) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_BeginResetModel_IsBase(true);
@@ -2435,7 +2435,7 @@ void KFilePlacesModel_EndResetModel(KFilePlacesModel* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseEndResetModel(KFilePlacesModel* self) {
+void KFilePlacesModel_SuperEndResetModel(KFilePlacesModel* self) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_EndResetModel_IsBase(true);
@@ -2464,7 +2464,7 @@ void KFilePlacesModel_ChangePersistentIndex(KFilePlacesModel* self, const QModel
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseChangePersistentIndex(KFilePlacesModel* self, const QModelIndex* from, const QModelIndex* to) {
+void KFilePlacesModel_SuperChangePersistentIndex(KFilePlacesModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_ChangePersistentIndex_IsBase(true);
@@ -2505,7 +2505,7 @@ void KFilePlacesModel_ChangePersistentIndexList(KFilePlacesModel* self, const li
 }
 
 // Base class handler implementation
-void KFilePlacesModel_QBaseChangePersistentIndexList(KFilePlacesModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void KFilePlacesModel_SuperChangePersistentIndexList(KFilePlacesModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -2564,7 +2564,7 @@ libqt_list /* of QModelIndex* */ KFilePlacesModel_PersistentIndexList(const KFil
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KFilePlacesModel_QBasePersistentIndexList(const KFilePlacesModel* self) {
+libqt_list /* of QModelIndex* */ KFilePlacesModel_SuperPersistentIndexList(const KFilePlacesModel* self) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_PersistentIndexList_IsBase(true);
@@ -2611,7 +2611,7 @@ QObject* KFilePlacesModel_Sender(const KFilePlacesModel* self) {
 }
 
 // Base class handler implementation
-QObject* KFilePlacesModel_QBaseSender(const KFilePlacesModel* self) {
+QObject* KFilePlacesModel_SuperSender(const KFilePlacesModel* self) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_Sender_IsBase(true);
@@ -2640,7 +2640,7 @@ int KFilePlacesModel_SenderSignalIndex(const KFilePlacesModel* self) {
 }
 
 // Base class handler implementation
-int KFilePlacesModel_QBaseSenderSignalIndex(const KFilePlacesModel* self) {
+int KFilePlacesModel_SuperSenderSignalIndex(const KFilePlacesModel* self) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_SenderSignalIndex_IsBase(true);
@@ -2669,7 +2669,7 @@ int KFilePlacesModel_Receivers(const KFilePlacesModel* self, const char* signal)
 }
 
 // Base class handler implementation
-int KFilePlacesModel_QBaseReceivers(const KFilePlacesModel* self, const char* signal) {
+int KFilePlacesModel_SuperReceivers(const KFilePlacesModel* self, const char* signal) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_Receivers_IsBase(true);
@@ -2698,7 +2698,7 @@ bool KFilePlacesModel_IsSignalConnected(const KFilePlacesModel* self, const QMet
 }
 
 // Base class handler implementation
-bool KFilePlacesModel_QBaseIsSignalConnected(const KFilePlacesModel* self, const QMetaMethod* signal) {
+bool KFilePlacesModel_SuperIsSignalConnected(const KFilePlacesModel* self, const QMetaMethod* signal) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         vkfileplacesmodel->setKFilePlacesModel_IsSignalConnected_IsBase(true);

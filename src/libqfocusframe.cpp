@@ -114,7 +114,7 @@ void QFocusFrame_InitStyleOption(const QFocusFrame* self, QStyleOption* option) 
 }
 
 // Base class handler implementation
-QMetaObject* QFocusFrame_QBaseMetaObject(const QFocusFrame* self) {
+QMetaObject* QFocusFrame_SuperMetaObject(const QFocusFrame* self) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_MetaObject_IsBase(true);
@@ -133,7 +133,7 @@ void QFocusFrame_OnMetaObject(const QFocusFrame* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QFocusFrame_QBaseMetacast(QFocusFrame* self, const char* param1) {
+void* QFocusFrame_SuperMetacast(QFocusFrame* self, const char* param1) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_Metacast_IsBase(true);
@@ -152,7 +152,7 @@ void QFocusFrame_OnMetacast(QFocusFrame* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QFocusFrame_QBaseMetacall(QFocusFrame* self, int param1, int param2, void** param3) {
+int QFocusFrame_SuperMetacall(QFocusFrame* self, int param1, int param2, void** param3) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_Metacall_IsBase(true);
@@ -171,7 +171,7 @@ void QFocusFrame_OnMetacall(QFocusFrame* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QFocusFrame_QBaseEvent(QFocusFrame* self, QEvent* e) {
+bool QFocusFrame_SuperEvent(QFocusFrame* self, QEvent* e) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_Event_IsBase(true);
@@ -190,7 +190,7 @@ void QFocusFrame_OnEvent(QFocusFrame* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QFocusFrame_QBaseEventFilter(QFocusFrame* self, QObject* param1, QEvent* param2) {
+bool QFocusFrame_SuperEventFilter(QFocusFrame* self, QObject* param1, QEvent* param2) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_EventFilter_IsBase(true);
@@ -209,7 +209,7 @@ void QFocusFrame_OnEventFilter(QFocusFrame* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBasePaintEvent(QFocusFrame* self, QPaintEvent* param1) {
+void QFocusFrame_SuperPaintEvent(QFocusFrame* self, QPaintEvent* param1) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_PaintEvent_IsBase(true);
@@ -228,7 +228,7 @@ void QFocusFrame_OnPaintEvent(QFocusFrame* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseInitStyleOption(const QFocusFrame* self, QStyleOption* option) {
+void QFocusFrame_SuperInitStyleOption(const QFocusFrame* self, QStyleOption* option) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_InitStyleOption_IsBase(true);
@@ -257,7 +257,7 @@ int QFocusFrame_DevType(const QFocusFrame* self) {
 }
 
 // Base class handler implementation
-int QFocusFrame_QBaseDevType(const QFocusFrame* self) {
+int QFocusFrame_SuperDevType(const QFocusFrame* self) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_DevType_IsBase(true);
@@ -286,7 +286,7 @@ void QFocusFrame_SetVisible(QFocusFrame* self, bool visible) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseSetVisible(QFocusFrame* self, bool visible) {
+void QFocusFrame_SuperSetVisible(QFocusFrame* self, bool visible) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_SetVisible_IsBase(true);
@@ -315,7 +315,7 @@ QSize* QFocusFrame_SizeHint(const QFocusFrame* self) {
 }
 
 // Base class handler implementation
-QSize* QFocusFrame_QBaseSizeHint(const QFocusFrame* self) {
+QSize* QFocusFrame_SuperSizeHint(const QFocusFrame* self) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_SizeHint_IsBase(true);
@@ -344,7 +344,7 @@ QSize* QFocusFrame_MinimumSizeHint(const QFocusFrame* self) {
 }
 
 // Base class handler implementation
-QSize* QFocusFrame_QBaseMinimumSizeHint(const QFocusFrame* self) {
+QSize* QFocusFrame_SuperMinimumSizeHint(const QFocusFrame* self) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_MinimumSizeHint_IsBase(true);
@@ -373,7 +373,7 @@ int QFocusFrame_HeightForWidth(const QFocusFrame* self, int param1) {
 }
 
 // Base class handler implementation
-int QFocusFrame_QBaseHeightForWidth(const QFocusFrame* self, int param1) {
+int QFocusFrame_SuperHeightForWidth(const QFocusFrame* self, int param1) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_HeightForWidth_IsBase(true);
@@ -402,7 +402,7 @@ bool QFocusFrame_HasHeightForWidth(const QFocusFrame* self) {
 }
 
 // Base class handler implementation
-bool QFocusFrame_QBaseHasHeightForWidth(const QFocusFrame* self) {
+bool QFocusFrame_SuperHasHeightForWidth(const QFocusFrame* self) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_HasHeightForWidth_IsBase(true);
@@ -431,7 +431,7 @@ QPaintEngine* QFocusFrame_PaintEngine(const QFocusFrame* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QFocusFrame_QBasePaintEngine(const QFocusFrame* self) {
+QPaintEngine* QFocusFrame_SuperPaintEngine(const QFocusFrame* self) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_PaintEngine_IsBase(true);
@@ -460,7 +460,7 @@ void QFocusFrame_MousePressEvent(QFocusFrame* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseMousePressEvent(QFocusFrame* self, QMouseEvent* event) {
+void QFocusFrame_SuperMousePressEvent(QFocusFrame* self, QMouseEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_MousePressEvent_IsBase(true);
@@ -489,7 +489,7 @@ void QFocusFrame_MouseReleaseEvent(QFocusFrame* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseMouseReleaseEvent(QFocusFrame* self, QMouseEvent* event) {
+void QFocusFrame_SuperMouseReleaseEvent(QFocusFrame* self, QMouseEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_MouseReleaseEvent_IsBase(true);
@@ -518,7 +518,7 @@ void QFocusFrame_MouseDoubleClickEvent(QFocusFrame* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseMouseDoubleClickEvent(QFocusFrame* self, QMouseEvent* event) {
+void QFocusFrame_SuperMouseDoubleClickEvent(QFocusFrame* self, QMouseEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_MouseDoubleClickEvent_IsBase(true);
@@ -547,7 +547,7 @@ void QFocusFrame_MouseMoveEvent(QFocusFrame* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseMouseMoveEvent(QFocusFrame* self, QMouseEvent* event) {
+void QFocusFrame_SuperMouseMoveEvent(QFocusFrame* self, QMouseEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_MouseMoveEvent_IsBase(true);
@@ -576,7 +576,7 @@ void QFocusFrame_WheelEvent(QFocusFrame* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseWheelEvent(QFocusFrame* self, QWheelEvent* event) {
+void QFocusFrame_SuperWheelEvent(QFocusFrame* self, QWheelEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_WheelEvent_IsBase(true);
@@ -605,7 +605,7 @@ void QFocusFrame_KeyPressEvent(QFocusFrame* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseKeyPressEvent(QFocusFrame* self, QKeyEvent* event) {
+void QFocusFrame_SuperKeyPressEvent(QFocusFrame* self, QKeyEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_KeyPressEvent_IsBase(true);
@@ -634,7 +634,7 @@ void QFocusFrame_KeyReleaseEvent(QFocusFrame* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseKeyReleaseEvent(QFocusFrame* self, QKeyEvent* event) {
+void QFocusFrame_SuperKeyReleaseEvent(QFocusFrame* self, QKeyEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_KeyReleaseEvent_IsBase(true);
@@ -663,7 +663,7 @@ void QFocusFrame_FocusInEvent(QFocusFrame* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseFocusInEvent(QFocusFrame* self, QFocusEvent* event) {
+void QFocusFrame_SuperFocusInEvent(QFocusFrame* self, QFocusEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_FocusInEvent_IsBase(true);
@@ -692,7 +692,7 @@ void QFocusFrame_FocusOutEvent(QFocusFrame* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseFocusOutEvent(QFocusFrame* self, QFocusEvent* event) {
+void QFocusFrame_SuperFocusOutEvent(QFocusFrame* self, QFocusEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_FocusOutEvent_IsBase(true);
@@ -721,7 +721,7 @@ void QFocusFrame_EnterEvent(QFocusFrame* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseEnterEvent(QFocusFrame* self, QEnterEvent* event) {
+void QFocusFrame_SuperEnterEvent(QFocusFrame* self, QEnterEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_EnterEvent_IsBase(true);
@@ -750,7 +750,7 @@ void QFocusFrame_LeaveEvent(QFocusFrame* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseLeaveEvent(QFocusFrame* self, QEvent* event) {
+void QFocusFrame_SuperLeaveEvent(QFocusFrame* self, QEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_LeaveEvent_IsBase(true);
@@ -779,7 +779,7 @@ void QFocusFrame_MoveEvent(QFocusFrame* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseMoveEvent(QFocusFrame* self, QMoveEvent* event) {
+void QFocusFrame_SuperMoveEvent(QFocusFrame* self, QMoveEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_MoveEvent_IsBase(true);
@@ -808,7 +808,7 @@ void QFocusFrame_ResizeEvent(QFocusFrame* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseResizeEvent(QFocusFrame* self, QResizeEvent* event) {
+void QFocusFrame_SuperResizeEvent(QFocusFrame* self, QResizeEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_ResizeEvent_IsBase(true);
@@ -837,7 +837,7 @@ void QFocusFrame_CloseEvent(QFocusFrame* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseCloseEvent(QFocusFrame* self, QCloseEvent* event) {
+void QFocusFrame_SuperCloseEvent(QFocusFrame* self, QCloseEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_CloseEvent_IsBase(true);
@@ -866,7 +866,7 @@ void QFocusFrame_ContextMenuEvent(QFocusFrame* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseContextMenuEvent(QFocusFrame* self, QContextMenuEvent* event) {
+void QFocusFrame_SuperContextMenuEvent(QFocusFrame* self, QContextMenuEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_ContextMenuEvent_IsBase(true);
@@ -895,7 +895,7 @@ void QFocusFrame_TabletEvent(QFocusFrame* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseTabletEvent(QFocusFrame* self, QTabletEvent* event) {
+void QFocusFrame_SuperTabletEvent(QFocusFrame* self, QTabletEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_TabletEvent_IsBase(true);
@@ -924,7 +924,7 @@ void QFocusFrame_ActionEvent(QFocusFrame* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseActionEvent(QFocusFrame* self, QActionEvent* event) {
+void QFocusFrame_SuperActionEvent(QFocusFrame* self, QActionEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_ActionEvent_IsBase(true);
@@ -953,7 +953,7 @@ void QFocusFrame_DragEnterEvent(QFocusFrame* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseDragEnterEvent(QFocusFrame* self, QDragEnterEvent* event) {
+void QFocusFrame_SuperDragEnterEvent(QFocusFrame* self, QDragEnterEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_DragEnterEvent_IsBase(true);
@@ -982,7 +982,7 @@ void QFocusFrame_DragMoveEvent(QFocusFrame* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseDragMoveEvent(QFocusFrame* self, QDragMoveEvent* event) {
+void QFocusFrame_SuperDragMoveEvent(QFocusFrame* self, QDragMoveEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_DragMoveEvent_IsBase(true);
@@ -1011,7 +1011,7 @@ void QFocusFrame_DragLeaveEvent(QFocusFrame* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseDragLeaveEvent(QFocusFrame* self, QDragLeaveEvent* event) {
+void QFocusFrame_SuperDragLeaveEvent(QFocusFrame* self, QDragLeaveEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_DragLeaveEvent_IsBase(true);
@@ -1040,7 +1040,7 @@ void QFocusFrame_DropEvent(QFocusFrame* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseDropEvent(QFocusFrame* self, QDropEvent* event) {
+void QFocusFrame_SuperDropEvent(QFocusFrame* self, QDropEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_DropEvent_IsBase(true);
@@ -1069,7 +1069,7 @@ void QFocusFrame_ShowEvent(QFocusFrame* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseShowEvent(QFocusFrame* self, QShowEvent* event) {
+void QFocusFrame_SuperShowEvent(QFocusFrame* self, QShowEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_ShowEvent_IsBase(true);
@@ -1098,7 +1098,7 @@ void QFocusFrame_HideEvent(QFocusFrame* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseHideEvent(QFocusFrame* self, QHideEvent* event) {
+void QFocusFrame_SuperHideEvent(QFocusFrame* self, QHideEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_HideEvent_IsBase(true);
@@ -1128,7 +1128,7 @@ bool QFocusFrame_NativeEvent(QFocusFrame* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool QFocusFrame_QBaseNativeEvent(QFocusFrame* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QFocusFrame_SuperNativeEvent(QFocusFrame* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
@@ -1158,7 +1158,7 @@ void QFocusFrame_ChangeEvent(QFocusFrame* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseChangeEvent(QFocusFrame* self, QEvent* param1) {
+void QFocusFrame_SuperChangeEvent(QFocusFrame* self, QEvent* param1) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_ChangeEvent_IsBase(true);
@@ -1187,7 +1187,7 @@ int QFocusFrame_Metric(const QFocusFrame* self, int param1) {
 }
 
 // Base class handler implementation
-int QFocusFrame_QBaseMetric(const QFocusFrame* self, int param1) {
+int QFocusFrame_SuperMetric(const QFocusFrame* self, int param1) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_Metric_IsBase(true);
@@ -1216,7 +1216,7 @@ void QFocusFrame_InitPainter(const QFocusFrame* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseInitPainter(const QFocusFrame* self, QPainter* painter) {
+void QFocusFrame_SuperInitPainter(const QFocusFrame* self, QPainter* painter) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_InitPainter_IsBase(true);
@@ -1245,7 +1245,7 @@ QPaintDevice* QFocusFrame_Redirected(const QFocusFrame* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QFocusFrame_QBaseRedirected(const QFocusFrame* self, QPoint* offset) {
+QPaintDevice* QFocusFrame_SuperRedirected(const QFocusFrame* self, QPoint* offset) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_Redirected_IsBase(true);
@@ -1274,7 +1274,7 @@ QPainter* QFocusFrame_SharedPainter(const QFocusFrame* self) {
 }
 
 // Base class handler implementation
-QPainter* QFocusFrame_QBaseSharedPainter(const QFocusFrame* self) {
+QPainter* QFocusFrame_SuperSharedPainter(const QFocusFrame* self) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_SharedPainter_IsBase(true);
@@ -1303,7 +1303,7 @@ void QFocusFrame_InputMethodEvent(QFocusFrame* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseInputMethodEvent(QFocusFrame* self, QInputMethodEvent* param1) {
+void QFocusFrame_SuperInputMethodEvent(QFocusFrame* self, QInputMethodEvent* param1) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_InputMethodEvent_IsBase(true);
@@ -1332,7 +1332,7 @@ QVariant* QFocusFrame_InputMethodQuery(const QFocusFrame* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QFocusFrame_QBaseInputMethodQuery(const QFocusFrame* self, int param1) {
+QVariant* QFocusFrame_SuperInputMethodQuery(const QFocusFrame* self, int param1) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_InputMethodQuery_IsBase(true);
@@ -1361,7 +1361,7 @@ bool QFocusFrame_FocusNextPrevChild(QFocusFrame* self, bool next) {
 }
 
 // Base class handler implementation
-bool QFocusFrame_QBaseFocusNextPrevChild(QFocusFrame* self, bool next) {
+bool QFocusFrame_SuperFocusNextPrevChild(QFocusFrame* self, bool next) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_FocusNextPrevChild_IsBase(true);
@@ -1390,7 +1390,7 @@ void QFocusFrame_TimerEvent(QFocusFrame* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseTimerEvent(QFocusFrame* self, QTimerEvent* event) {
+void QFocusFrame_SuperTimerEvent(QFocusFrame* self, QTimerEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_TimerEvent_IsBase(true);
@@ -1419,7 +1419,7 @@ void QFocusFrame_ChildEvent(QFocusFrame* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseChildEvent(QFocusFrame* self, QChildEvent* event) {
+void QFocusFrame_SuperChildEvent(QFocusFrame* self, QChildEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_ChildEvent_IsBase(true);
@@ -1448,7 +1448,7 @@ void QFocusFrame_CustomEvent(QFocusFrame* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseCustomEvent(QFocusFrame* self, QEvent* event) {
+void QFocusFrame_SuperCustomEvent(QFocusFrame* self, QEvent* event) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_CustomEvent_IsBase(true);
@@ -1477,7 +1477,7 @@ void QFocusFrame_ConnectNotify(QFocusFrame* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseConnectNotify(QFocusFrame* self, const QMetaMethod* signal) {
+void QFocusFrame_SuperConnectNotify(QFocusFrame* self, const QMetaMethod* signal) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_ConnectNotify_IsBase(true);
@@ -1506,7 +1506,7 @@ void QFocusFrame_DisconnectNotify(QFocusFrame* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseDisconnectNotify(QFocusFrame* self, const QMetaMethod* signal) {
+void QFocusFrame_SuperDisconnectNotify(QFocusFrame* self, const QMetaMethod* signal) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_DisconnectNotify_IsBase(true);
@@ -1535,7 +1535,7 @@ void QFocusFrame_UpdateMicroFocus(QFocusFrame* self) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseUpdateMicroFocus(QFocusFrame* self) {
+void QFocusFrame_SuperUpdateMicroFocus(QFocusFrame* self) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_UpdateMicroFocus_IsBase(true);
@@ -1564,7 +1564,7 @@ void QFocusFrame_Create(QFocusFrame* self) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseCreate(QFocusFrame* self) {
+void QFocusFrame_SuperCreate(QFocusFrame* self) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_Create_IsBase(true);
@@ -1593,7 +1593,7 @@ void QFocusFrame_Destroy(QFocusFrame* self) {
 }
 
 // Base class handler implementation
-void QFocusFrame_QBaseDestroy(QFocusFrame* self) {
+void QFocusFrame_SuperDestroy(QFocusFrame* self) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_Destroy_IsBase(true);
@@ -1622,7 +1622,7 @@ bool QFocusFrame_FocusNextChild(QFocusFrame* self) {
 }
 
 // Base class handler implementation
-bool QFocusFrame_QBaseFocusNextChild(QFocusFrame* self) {
+bool QFocusFrame_SuperFocusNextChild(QFocusFrame* self) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_FocusNextChild_IsBase(true);
@@ -1651,7 +1651,7 @@ bool QFocusFrame_FocusPreviousChild(QFocusFrame* self) {
 }
 
 // Base class handler implementation
-bool QFocusFrame_QBaseFocusPreviousChild(QFocusFrame* self) {
+bool QFocusFrame_SuperFocusPreviousChild(QFocusFrame* self) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_FocusPreviousChild_IsBase(true);
@@ -1680,7 +1680,7 @@ QObject* QFocusFrame_Sender(const QFocusFrame* self) {
 }
 
 // Base class handler implementation
-QObject* QFocusFrame_QBaseSender(const QFocusFrame* self) {
+QObject* QFocusFrame_SuperSender(const QFocusFrame* self) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_Sender_IsBase(true);
@@ -1709,7 +1709,7 @@ int QFocusFrame_SenderSignalIndex(const QFocusFrame* self) {
 }
 
 // Base class handler implementation
-int QFocusFrame_QBaseSenderSignalIndex(const QFocusFrame* self) {
+int QFocusFrame_SuperSenderSignalIndex(const QFocusFrame* self) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_SenderSignalIndex_IsBase(true);
@@ -1738,7 +1738,7 @@ int QFocusFrame_Receivers(const QFocusFrame* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QFocusFrame_QBaseReceivers(const QFocusFrame* self, const char* signal) {
+int QFocusFrame_SuperReceivers(const QFocusFrame* self, const char* signal) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_Receivers_IsBase(true);
@@ -1767,7 +1767,7 @@ bool QFocusFrame_IsSignalConnected(const QFocusFrame* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QFocusFrame_QBaseIsSignalConnected(const QFocusFrame* self, const QMetaMethod* signal) {
+bool QFocusFrame_SuperIsSignalConnected(const QFocusFrame* self, const QMetaMethod* signal) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_IsSignalConnected_IsBase(true);
@@ -1796,7 +1796,7 @@ double QFocusFrame_GetDecodedMetricF(const QFocusFrame* self, int metricA, int m
 }
 
 // Base class handler implementation
-double QFocusFrame_QBaseGetDecodedMetricF(const QFocusFrame* self, int metricA, int metricB) {
+double QFocusFrame_SuperGetDecodedMetricF(const QFocusFrame* self, int metricA, int metricB) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->setQFocusFrame_GetDecodedMetricF_IsBase(true);

@@ -393,6 +393,10 @@ pub const kprotocolinfo = struct {
         return qtc.KProtocolInfo_IsKnownProtocol22(protocol_str, updateCacheIfNotfound);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#dtor.KProtocolInfo)
     ///
     /// Delete this object from C++ memory.
@@ -401,7 +405,7 @@ pub const kprotocolinfo = struct {
     ///
     /// ` self: QtC.KProtocolInfo `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KProtocolInfo_Delete(@ptrCast(self));
     }
 };
@@ -511,13 +515,17 @@ pub const kprotocolinfo__extrafield = struct {
         qtc.KProtocolInfo__ExtraField_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KProtocolInfo__ExtraField `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KProtocolInfo__ExtraField_Delete(@ptrCast(self));
     }
 };

@@ -173,7 +173,7 @@ void QTimeLine_TimerEvent(QTimeLine* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-QMetaObject* QTimeLine_QBaseMetaObject(const QTimeLine* self) {
+QMetaObject* QTimeLine_SuperMetaObject(const QTimeLine* self) {
     auto* vqtimeline = const_cast<VirtualQTimeLine*>(dynamic_cast<const VirtualQTimeLine*>(self));
     if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
         vqtimeline->setQTimeLine_MetaObject_IsBase(true);
@@ -192,7 +192,7 @@ void QTimeLine_OnMetaObject(const QTimeLine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QTimeLine_QBaseMetacast(QTimeLine* self, const char* param1) {
+void* QTimeLine_SuperMetacast(QTimeLine* self, const char* param1) {
     auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
     if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
         vqtimeline->setQTimeLine_Metacast_IsBase(true);
@@ -211,7 +211,7 @@ void QTimeLine_OnMetacast(QTimeLine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTimeLine_QBaseMetacall(QTimeLine* self, int param1, int param2, void** param3) {
+int QTimeLine_SuperMetacall(QTimeLine* self, int param1, int param2, void** param3) {
     auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
     if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
         vqtimeline->setQTimeLine_Metacall_IsBase(true);
@@ -230,7 +230,7 @@ void QTimeLine_OnMetacall(QTimeLine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QTimeLine_QBaseValueForTime(const QTimeLine* self, int msec) {
+double QTimeLine_SuperValueForTime(const QTimeLine* self, int msec) {
     auto* vqtimeline = const_cast<VirtualQTimeLine*>(dynamic_cast<const VirtualQTimeLine*>(self));
     if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
         vqtimeline->setQTimeLine_ValueForTime_IsBase(true);
@@ -249,7 +249,7 @@ void QTimeLine_OnValueForTime(const QTimeLine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTimeLine_QBaseTimerEvent(QTimeLine* self, QTimerEvent* event) {
+void QTimeLine_SuperTimerEvent(QTimeLine* self, QTimerEvent* event) {
     auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
     if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
         vqtimeline->setQTimeLine_TimerEvent_IsBase(true);
@@ -278,7 +278,7 @@ bool QTimeLine_Event(QTimeLine* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTimeLine_QBaseEvent(QTimeLine* self, QEvent* event) {
+bool QTimeLine_SuperEvent(QTimeLine* self, QEvent* event) {
     auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
     if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
         vqtimeline->setQTimeLine_Event_IsBase(true);
@@ -307,7 +307,7 @@ bool QTimeLine_EventFilter(QTimeLine* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTimeLine_QBaseEventFilter(QTimeLine* self, QObject* watched, QEvent* event) {
+bool QTimeLine_SuperEventFilter(QTimeLine* self, QObject* watched, QEvent* event) {
     auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
     if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
         vqtimeline->setQTimeLine_EventFilter_IsBase(true);
@@ -336,7 +336,7 @@ void QTimeLine_ChildEvent(QTimeLine* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeLine_QBaseChildEvent(QTimeLine* self, QChildEvent* event) {
+void QTimeLine_SuperChildEvent(QTimeLine* self, QChildEvent* event) {
     auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
     if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
         vqtimeline->setQTimeLine_ChildEvent_IsBase(true);
@@ -365,7 +365,7 @@ void QTimeLine_CustomEvent(QTimeLine* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeLine_QBaseCustomEvent(QTimeLine* self, QEvent* event) {
+void QTimeLine_SuperCustomEvent(QTimeLine* self, QEvent* event) {
     auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
     if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
         vqtimeline->setQTimeLine_CustomEvent_IsBase(true);
@@ -394,7 +394,7 @@ void QTimeLine_ConnectNotify(QTimeLine* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTimeLine_QBaseConnectNotify(QTimeLine* self, const QMetaMethod* signal) {
+void QTimeLine_SuperConnectNotify(QTimeLine* self, const QMetaMethod* signal) {
     auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
     if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
         vqtimeline->setQTimeLine_ConnectNotify_IsBase(true);
@@ -423,7 +423,7 @@ void QTimeLine_DisconnectNotify(QTimeLine* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTimeLine_QBaseDisconnectNotify(QTimeLine* self, const QMetaMethod* signal) {
+void QTimeLine_SuperDisconnectNotify(QTimeLine* self, const QMetaMethod* signal) {
     auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
     if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
         vqtimeline->setQTimeLine_DisconnectNotify_IsBase(true);
@@ -452,7 +452,7 @@ QObject* QTimeLine_Sender(const QTimeLine* self) {
 }
 
 // Base class handler implementation
-QObject* QTimeLine_QBaseSender(const QTimeLine* self) {
+QObject* QTimeLine_SuperSender(const QTimeLine* self) {
     auto* vqtimeline = const_cast<VirtualQTimeLine*>(dynamic_cast<const VirtualQTimeLine*>(self));
     if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
         vqtimeline->setQTimeLine_Sender_IsBase(true);
@@ -481,7 +481,7 @@ int QTimeLine_SenderSignalIndex(const QTimeLine* self) {
 }
 
 // Base class handler implementation
-int QTimeLine_QBaseSenderSignalIndex(const QTimeLine* self) {
+int QTimeLine_SuperSenderSignalIndex(const QTimeLine* self) {
     auto* vqtimeline = const_cast<VirtualQTimeLine*>(dynamic_cast<const VirtualQTimeLine*>(self));
     if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
         vqtimeline->setQTimeLine_SenderSignalIndex_IsBase(true);
@@ -510,7 +510,7 @@ int QTimeLine_Receivers(const QTimeLine* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QTimeLine_QBaseReceivers(const QTimeLine* self, const char* signal) {
+int QTimeLine_SuperReceivers(const QTimeLine* self, const char* signal) {
     auto* vqtimeline = const_cast<VirtualQTimeLine*>(dynamic_cast<const VirtualQTimeLine*>(self));
     if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
         vqtimeline->setQTimeLine_Receivers_IsBase(true);
@@ -539,7 +539,7 @@ bool QTimeLine_IsSignalConnected(const QTimeLine* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool QTimeLine_QBaseIsSignalConnected(const QTimeLine* self, const QMetaMethod* signal) {
+bool QTimeLine_SuperIsSignalConnected(const QTimeLine* self, const QMetaMethod* signal) {
     auto* vqtimeline = const_cast<VirtualQTimeLine*>(dynamic_cast<const VirtualQTimeLine*>(self));
     if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
         vqtimeline->setQTimeLine_IsSignalConnected_IsBase(true);

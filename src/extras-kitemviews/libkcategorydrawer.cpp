@@ -154,7 +154,7 @@ void KCategoryDrawer_MouseLeft(KCategoryDrawer* self, const QModelIndex* index, 
 }
 
 // Base class handler implementation
-QMetaObject* KCategoryDrawer_QBaseMetaObject(const KCategoryDrawer* self) {
+QMetaObject* KCategoryDrawer_SuperMetaObject(const KCategoryDrawer* self) {
     auto* vkcategorydrawer = const_cast<VirtualKCategoryDrawer*>(dynamic_cast<const VirtualKCategoryDrawer*>(self));
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_MetaObject_IsBase(true);
@@ -173,7 +173,7 @@ void KCategoryDrawer_OnMetaObject(const KCategoryDrawer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KCategoryDrawer_QBaseMetacast(KCategoryDrawer* self, const char* param1) {
+void* KCategoryDrawer_SuperMetacast(KCategoryDrawer* self, const char* param1) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_Metacast_IsBase(true);
@@ -192,7 +192,7 @@ void KCategoryDrawer_OnMetacast(KCategoryDrawer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KCategoryDrawer_QBaseMetacall(KCategoryDrawer* self, int param1, int param2, void** param3) {
+int KCategoryDrawer_SuperMetacall(KCategoryDrawer* self, int param1, int param2, void** param3) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_Metacall_IsBase(true);
@@ -211,7 +211,7 @@ void KCategoryDrawer_OnMetacall(KCategoryDrawer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCategoryDrawer_QBaseDrawCategory(const KCategoryDrawer* self, const QModelIndex* index, int sortRole, const QStyleOption* option, QPainter* painter) {
+void KCategoryDrawer_SuperDrawCategory(const KCategoryDrawer* self, const QModelIndex* index, int sortRole, const QStyleOption* option, QPainter* painter) {
     auto* vkcategorydrawer = const_cast<VirtualKCategoryDrawer*>(dynamic_cast<const VirtualKCategoryDrawer*>(self));
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_DrawCategory_IsBase(true);
@@ -230,7 +230,7 @@ void KCategoryDrawer_OnDrawCategory(const KCategoryDrawer* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int KCategoryDrawer_QBaseCategoryHeight(const KCategoryDrawer* self, const QModelIndex* index, const QStyleOption* option) {
+int KCategoryDrawer_SuperCategoryHeight(const KCategoryDrawer* self, const QModelIndex* index, const QStyleOption* option) {
     auto* vkcategorydrawer = const_cast<VirtualKCategoryDrawer*>(dynamic_cast<const VirtualKCategoryDrawer*>(self));
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_CategoryHeight_IsBase(true);
@@ -249,7 +249,7 @@ void KCategoryDrawer_OnCategoryHeight(const KCategoryDrawer* self, intptr_t slot
 }
 
 // Base class handler implementation
-int KCategoryDrawer_QBaseLeftMargin(const KCategoryDrawer* self) {
+int KCategoryDrawer_SuperLeftMargin(const KCategoryDrawer* self) {
     auto* vkcategorydrawer = const_cast<VirtualKCategoryDrawer*>(dynamic_cast<const VirtualKCategoryDrawer*>(self));
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_LeftMargin_IsBase(true);
@@ -268,7 +268,7 @@ void KCategoryDrawer_OnLeftMargin(const KCategoryDrawer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KCategoryDrawer_QBaseRightMargin(const KCategoryDrawer* self) {
+int KCategoryDrawer_SuperRightMargin(const KCategoryDrawer* self) {
     auto* vkcategorydrawer = const_cast<VirtualKCategoryDrawer*>(dynamic_cast<const VirtualKCategoryDrawer*>(self));
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_RightMargin_IsBase(true);
@@ -287,7 +287,7 @@ void KCategoryDrawer_OnRightMargin(const KCategoryDrawer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCategoryDrawer_QBaseMouseButtonPressed(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event) {
+void KCategoryDrawer_SuperMouseButtonPressed(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_MouseButtonPressed_IsBase(true);
@@ -306,7 +306,7 @@ void KCategoryDrawer_OnMouseButtonPressed(KCategoryDrawer* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void KCategoryDrawer_QBaseMouseButtonReleased(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event) {
+void KCategoryDrawer_SuperMouseButtonReleased(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_MouseButtonReleased_IsBase(true);
@@ -325,7 +325,7 @@ void KCategoryDrawer_OnMouseButtonReleased(KCategoryDrawer* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void KCategoryDrawer_QBaseMouseMoved(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event) {
+void KCategoryDrawer_SuperMouseMoved(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_MouseMoved_IsBase(true);
@@ -344,7 +344,7 @@ void KCategoryDrawer_OnMouseMoved(KCategoryDrawer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCategoryDrawer_QBaseMouseButtonDoubleClicked(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event) {
+void KCategoryDrawer_SuperMouseButtonDoubleClicked(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_MouseButtonDoubleClicked_IsBase(true);
@@ -363,7 +363,7 @@ void KCategoryDrawer_OnMouseButtonDoubleClicked(KCategoryDrawer* self, intptr_t 
 }
 
 // Base class handler implementation
-void KCategoryDrawer_QBaseMouseLeft(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect) {
+void KCategoryDrawer_SuperMouseLeft(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_MouseLeft_IsBase(true);
@@ -392,7 +392,7 @@ bool KCategoryDrawer_Event(KCategoryDrawer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KCategoryDrawer_QBaseEvent(KCategoryDrawer* self, QEvent* event) {
+bool KCategoryDrawer_SuperEvent(KCategoryDrawer* self, QEvent* event) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_Event_IsBase(true);
@@ -421,7 +421,7 @@ bool KCategoryDrawer_EventFilter(KCategoryDrawer* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool KCategoryDrawer_QBaseEventFilter(KCategoryDrawer* self, QObject* watched, QEvent* event) {
+bool KCategoryDrawer_SuperEventFilter(KCategoryDrawer* self, QObject* watched, QEvent* event) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_EventFilter_IsBase(true);
@@ -450,7 +450,7 @@ void KCategoryDrawer_TimerEvent(KCategoryDrawer* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KCategoryDrawer_QBaseTimerEvent(KCategoryDrawer* self, QTimerEvent* event) {
+void KCategoryDrawer_SuperTimerEvent(KCategoryDrawer* self, QTimerEvent* event) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_TimerEvent_IsBase(true);
@@ -479,7 +479,7 @@ void KCategoryDrawer_ChildEvent(KCategoryDrawer* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KCategoryDrawer_QBaseChildEvent(KCategoryDrawer* self, QChildEvent* event) {
+void KCategoryDrawer_SuperChildEvent(KCategoryDrawer* self, QChildEvent* event) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_ChildEvent_IsBase(true);
@@ -508,7 +508,7 @@ void KCategoryDrawer_CustomEvent(KCategoryDrawer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KCategoryDrawer_QBaseCustomEvent(KCategoryDrawer* self, QEvent* event) {
+void KCategoryDrawer_SuperCustomEvent(KCategoryDrawer* self, QEvent* event) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_CustomEvent_IsBase(true);
@@ -537,7 +537,7 @@ void KCategoryDrawer_ConnectNotify(KCategoryDrawer* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void KCategoryDrawer_QBaseConnectNotify(KCategoryDrawer* self, const QMetaMethod* signal) {
+void KCategoryDrawer_SuperConnectNotify(KCategoryDrawer* self, const QMetaMethod* signal) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_ConnectNotify_IsBase(true);
@@ -566,7 +566,7 @@ void KCategoryDrawer_DisconnectNotify(KCategoryDrawer* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void KCategoryDrawer_QBaseDisconnectNotify(KCategoryDrawer* self, const QMetaMethod* signal) {
+void KCategoryDrawer_SuperDisconnectNotify(KCategoryDrawer* self, const QMetaMethod* signal) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_DisconnectNotify_IsBase(true);
@@ -595,7 +595,7 @@ QObject* KCategoryDrawer_Sender(const KCategoryDrawer* self) {
 }
 
 // Base class handler implementation
-QObject* KCategoryDrawer_QBaseSender(const KCategoryDrawer* self) {
+QObject* KCategoryDrawer_SuperSender(const KCategoryDrawer* self) {
     auto* vkcategorydrawer = const_cast<VirtualKCategoryDrawer*>(dynamic_cast<const VirtualKCategoryDrawer*>(self));
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_Sender_IsBase(true);
@@ -624,7 +624,7 @@ int KCategoryDrawer_SenderSignalIndex(const KCategoryDrawer* self) {
 }
 
 // Base class handler implementation
-int KCategoryDrawer_QBaseSenderSignalIndex(const KCategoryDrawer* self) {
+int KCategoryDrawer_SuperSenderSignalIndex(const KCategoryDrawer* self) {
     auto* vkcategorydrawer = const_cast<VirtualKCategoryDrawer*>(dynamic_cast<const VirtualKCategoryDrawer*>(self));
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_SenderSignalIndex_IsBase(true);
@@ -653,7 +653,7 @@ int KCategoryDrawer_Receivers(const KCategoryDrawer* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KCategoryDrawer_QBaseReceivers(const KCategoryDrawer* self, const char* signal) {
+int KCategoryDrawer_SuperReceivers(const KCategoryDrawer* self, const char* signal) {
     auto* vkcategorydrawer = const_cast<VirtualKCategoryDrawer*>(dynamic_cast<const VirtualKCategoryDrawer*>(self));
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_Receivers_IsBase(true);
@@ -682,7 +682,7 @@ bool KCategoryDrawer_IsSignalConnected(const KCategoryDrawer* self, const QMetaM
 }
 
 // Base class handler implementation
-bool KCategoryDrawer_QBaseIsSignalConnected(const KCategoryDrawer* self, const QMetaMethod* signal) {
+bool KCategoryDrawer_SuperIsSignalConnected(const KCategoryDrawer* self, const QMetaMethod* signal) {
     auto* vkcategorydrawer = const_cast<VirtualKCategoryDrawer*>(dynamic_cast<const VirtualKCategoryDrawer*>(self));
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->setKCategoryDrawer_IsSignalConnected_IsBase(true);

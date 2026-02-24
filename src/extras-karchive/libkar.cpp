@@ -89,7 +89,7 @@ void KAr_VirtualHook(KAr* self, int id, void* data) {
 }
 
 // Base class handler implementation
-bool KAr_QBaseDoPrepareWriting(KAr* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
+bool KAr_SuperDoPrepareWriting(KAr* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString user_QString = QString::fromUtf8(user.data, user.len);
@@ -111,7 +111,7 @@ void KAr_OnDoPrepareWriting(KAr* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KAr_QBaseDoFinishWriting(KAr* self, long long size) {
+bool KAr_SuperDoFinishWriting(KAr* self, long long size) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
     if (vkar && vkar->isVirtualKAr) {
         vkar->setKAr_DoFinishWriting_IsBase(true);
@@ -130,7 +130,7 @@ void KAr_OnDoFinishWriting(KAr* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KAr_QBaseDoWriteDir(KAr* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
+bool KAr_SuperDoWriteDir(KAr* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString user_QString = QString::fromUtf8(user.data, user.len);
@@ -152,7 +152,7 @@ void KAr_OnDoWriteDir(KAr* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KAr_QBaseDoWriteSymLink(KAr* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
+bool KAr_SuperDoWriteSymLink(KAr* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString target_QString = QString::fromUtf8(target.data, target.len);
@@ -175,7 +175,7 @@ void KAr_OnDoWriteSymLink(KAr* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KAr_QBaseOpenArchive(KAr* self, int mode) {
+bool KAr_SuperOpenArchive(KAr* self, int mode) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
     if (vkar && vkar->isVirtualKAr) {
         vkar->setKAr_OpenArchive_IsBase(true);
@@ -194,7 +194,7 @@ void KAr_OnOpenArchive(KAr* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KAr_QBaseCloseArchive(KAr* self) {
+bool KAr_SuperCloseArchive(KAr* self) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
     if (vkar && vkar->isVirtualKAr) {
         vkar->setKAr_CloseArchive_IsBase(true);
@@ -213,7 +213,7 @@ void KAr_OnCloseArchive(KAr* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KAr_QBaseVirtualHook(KAr* self, int id, void* data) {
+void KAr_SuperVirtualHook(KAr* self, int id, void* data) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
     if (vkar && vkar->isVirtualKAr) {
         vkar->setKAr_VirtualHook_IsBase(true);
@@ -242,7 +242,7 @@ bool KAr_Open(KAr* self, int mode) {
 }
 
 // Base class handler implementation
-bool KAr_QBaseOpen(KAr* self, int mode) {
+bool KAr_SuperOpen(KAr* self, int mode) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
     if (vkar && vkar->isVirtualKAr) {
         vkar->setKAr_Open_IsBase(true);
@@ -271,7 +271,7 @@ bool KAr_Close(KAr* self) {
 }
 
 // Base class handler implementation
-bool KAr_QBaseClose(KAr* self) {
+bool KAr_SuperClose(KAr* self) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
     if (vkar && vkar->isVirtualKAr) {
         vkar->setKAr_Close_IsBase(true);
@@ -300,7 +300,7 @@ KArchiveDirectory* KAr_RootDir(KAr* self) {
 }
 
 // Base class handler implementation
-KArchiveDirectory* KAr_QBaseRootDir(KAr* self) {
+KArchiveDirectory* KAr_SuperRootDir(KAr* self) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
     if (vkar && vkar->isVirtualKAr) {
         vkar->setKAr_RootDir_IsBase(true);
@@ -329,7 +329,7 @@ bool KAr_DoWriteData(KAr* self, const char* data, long long size) {
 }
 
 // Base class handler implementation
-bool KAr_QBaseDoWriteData(KAr* self, const char* data, long long size) {
+bool KAr_SuperDoWriteData(KAr* self, const char* data, long long size) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
     if (vkar && vkar->isVirtualKAr) {
         vkar->setKAr_DoWriteData_IsBase(true);
@@ -358,7 +358,7 @@ bool KAr_CreateDevice(KAr* self, int mode) {
 }
 
 // Base class handler implementation
-bool KAr_QBaseCreateDevice(KAr* self, int mode) {
+bool KAr_SuperCreateDevice(KAr* self, int mode) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
     if (vkar && vkar->isVirtualKAr) {
         vkar->setKAr_CreateDevice_IsBase(true);
@@ -388,7 +388,7 @@ void KAr_SetErrorString(KAr* self, const libqt_string errorStr) {
 }
 
 // Base class handler implementation
-void KAr_QBaseSetErrorString(KAr* self, const libqt_string errorStr) {
+void KAr_SuperSetErrorString(KAr* self, const libqt_string errorStr) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
     QString errorStr_QString = QString::fromUtf8(errorStr.data, errorStr.len);
     if (vkar && vkar->isVirtualKAr) {
@@ -419,7 +419,7 @@ KArchiveDirectory* KAr_FindOrCreate(KAr* self, const libqt_string path) {
 }
 
 // Base class handler implementation
-KArchiveDirectory* KAr_QBaseFindOrCreate(KAr* self, const libqt_string path) {
+KArchiveDirectory* KAr_SuperFindOrCreate(KAr* self, const libqt_string path) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
     QString path_QString = QString::fromUtf8(path.data, path.len);
     if (vkar && vkar->isVirtualKAr) {
@@ -449,7 +449,7 @@ void KAr_SetDevice(KAr* self, QIODevice* dev) {
 }
 
 // Base class handler implementation
-void KAr_QBaseSetDevice(KAr* self, QIODevice* dev) {
+void KAr_SuperSetDevice(KAr* self, QIODevice* dev) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
     if (vkar && vkar->isVirtualKAr) {
         vkar->setKAr_SetDevice_IsBase(true);
@@ -478,7 +478,7 @@ void KAr_SetRootDir(KAr* self, KArchiveDirectory* rootDir) {
 }
 
 // Base class handler implementation
-void KAr_QBaseSetRootDir(KAr* self, KArchiveDirectory* rootDir) {
+void KAr_SuperSetRootDir(KAr* self, KArchiveDirectory* rootDir) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
     if (vkar && vkar->isVirtualKAr) {
         vkar->setKAr_SetRootDir_IsBase(true);

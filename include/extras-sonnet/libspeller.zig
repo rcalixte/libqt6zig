@@ -517,13 +517,17 @@ pub const sonnet__speller = struct {
         qtc.Sonnet__Speller_SetAttribute2(@ptrCast(self), @bitCast(attr), b);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Sonnet__Speller `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Sonnet__Speller_Delete(@ptrCast(self));
     }
 };

@@ -170,7 +170,7 @@ QInputDevice* QInputDevice_PrimaryKeyboard1(const libqt_string seatName) {
 }
 
 // Base class handler implementation
-QMetaObject* QInputDevice_QBaseMetaObject(const QInputDevice* self) {
+QMetaObject* QInputDevice_SuperMetaObject(const QInputDevice* self) {
     auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
     if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_MetaObject_IsBase(true);
@@ -189,7 +189,7 @@ void QInputDevice_OnMetaObject(const QInputDevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QInputDevice_QBaseMetacast(QInputDevice* self, const char* param1) {
+void* QInputDevice_SuperMetacast(QInputDevice* self, const char* param1) {
     auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
     if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_Metacast_IsBase(true);
@@ -208,7 +208,7 @@ void QInputDevice_OnMetacast(QInputDevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QInputDevice_QBaseMetacall(QInputDevice* self, int param1, int param2, void** param3) {
+int QInputDevice_SuperMetacall(QInputDevice* self, int param1, int param2, void** param3) {
     auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
     if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_Metacall_IsBase(true);
@@ -237,7 +237,7 @@ bool QInputDevice_Event(QInputDevice* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QInputDevice_QBaseEvent(QInputDevice* self, QEvent* event) {
+bool QInputDevice_SuperEvent(QInputDevice* self, QEvent* event) {
     auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
     if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_Event_IsBase(true);
@@ -266,7 +266,7 @@ bool QInputDevice_EventFilter(QInputDevice* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool QInputDevice_QBaseEventFilter(QInputDevice* self, QObject* watched, QEvent* event) {
+bool QInputDevice_SuperEventFilter(QInputDevice* self, QObject* watched, QEvent* event) {
     auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
     if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_EventFilter_IsBase(true);
@@ -295,7 +295,7 @@ void QInputDevice_TimerEvent(QInputDevice* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDevice_QBaseTimerEvent(QInputDevice* self, QTimerEvent* event) {
+void QInputDevice_SuperTimerEvent(QInputDevice* self, QTimerEvent* event) {
     auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
     if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_TimerEvent_IsBase(true);
@@ -324,7 +324,7 @@ void QInputDevice_ChildEvent(QInputDevice* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDevice_QBaseChildEvent(QInputDevice* self, QChildEvent* event) {
+void QInputDevice_SuperChildEvent(QInputDevice* self, QChildEvent* event) {
     auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
     if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_ChildEvent_IsBase(true);
@@ -353,7 +353,7 @@ void QInputDevice_CustomEvent(QInputDevice* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QInputDevice_QBaseCustomEvent(QInputDevice* self, QEvent* event) {
+void QInputDevice_SuperCustomEvent(QInputDevice* self, QEvent* event) {
     auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
     if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_CustomEvent_IsBase(true);
@@ -382,7 +382,7 @@ void QInputDevice_ConnectNotify(QInputDevice* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QInputDevice_QBaseConnectNotify(QInputDevice* self, const QMetaMethod* signal) {
+void QInputDevice_SuperConnectNotify(QInputDevice* self, const QMetaMethod* signal) {
     auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
     if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_ConnectNotify_IsBase(true);
@@ -411,7 +411,7 @@ void QInputDevice_DisconnectNotify(QInputDevice* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QInputDevice_QBaseDisconnectNotify(QInputDevice* self, const QMetaMethod* signal) {
+void QInputDevice_SuperDisconnectNotify(QInputDevice* self, const QMetaMethod* signal) {
     auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
     if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_DisconnectNotify_IsBase(true);
@@ -440,7 +440,7 @@ QObject* QInputDevice_Sender(const QInputDevice* self) {
 }
 
 // Base class handler implementation
-QObject* QInputDevice_QBaseSender(const QInputDevice* self) {
+QObject* QInputDevice_SuperSender(const QInputDevice* self) {
     auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
     if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_Sender_IsBase(true);
@@ -469,7 +469,7 @@ int QInputDevice_SenderSignalIndex(const QInputDevice* self) {
 }
 
 // Base class handler implementation
-int QInputDevice_QBaseSenderSignalIndex(const QInputDevice* self) {
+int QInputDevice_SuperSenderSignalIndex(const QInputDevice* self) {
     auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
     if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_SenderSignalIndex_IsBase(true);
@@ -498,7 +498,7 @@ int QInputDevice_Receivers(const QInputDevice* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QInputDevice_QBaseReceivers(const QInputDevice* self, const char* signal) {
+int QInputDevice_SuperReceivers(const QInputDevice* self, const char* signal) {
     auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
     if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_Receivers_IsBase(true);
@@ -527,7 +527,7 @@ bool QInputDevice_IsSignalConnected(const QInputDevice* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QInputDevice_QBaseIsSignalConnected(const QInputDevice* self, const QMetaMethod* signal) {
+bool QInputDevice_SuperIsSignalConnected(const QInputDevice* self, const QMetaMethod* signal) {
     auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
     if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
         vqinputdevice->setQInputDevice_IsSignalConnected_IsBase(true);

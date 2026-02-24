@@ -324,6 +324,10 @@ pub const qnetworkcachemetadata = struct {
         qtc.QNetworkCacheMetaData_SetAttributes(@ptrCast(self), attributes_map);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#dtor.QNetworkCacheMetaData)
     ///
     /// Delete this object from C++ memory.
@@ -332,7 +336,7 @@ pub const qnetworkcachemetadata = struct {
     ///
     /// ` self: QtC.QNetworkCacheMetaData `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QNetworkCacheMetaData_Delete(@ptrCast(self));
     }
 };
@@ -1308,6 +1312,9 @@ pub const qabstractnetworkcache = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnetworkcache.html#dtor.QAbstractNetworkCache)
     ///
@@ -1317,7 +1324,7 @@ pub const qabstractnetworkcache = struct {
     ///
     /// ` self: QtC.QAbstractNetworkCache `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAbstractNetworkCache_Delete(@ptrCast(self));
     }
 };

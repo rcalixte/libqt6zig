@@ -112,6 +112,10 @@ pub const kcompletionmatches = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kcompletionmatches.html#dtor.KCompletionMatches)
     ///
     /// Delete this object from C++ memory.
@@ -120,7 +124,7 @@ pub const kcompletionmatches = struct {
     ///
     /// ` self: QtC.KCompletionMatches `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KCompletionMatches_Delete(@ptrCast(self));
     }
 };

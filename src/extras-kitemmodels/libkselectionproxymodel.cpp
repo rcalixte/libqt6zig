@@ -303,7 +303,7 @@ libqt_list /* of QModelIndex* */ KSelectionProxyModel_Match(const KSelectionProx
 }
 
 // Base class handler implementation
-QMetaObject* KSelectionProxyModel_QBaseMetaObject(const KSelectionProxyModel* self) {
+QMetaObject* KSelectionProxyModel_SuperMetaObject(const KSelectionProxyModel* self) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_MetaObject_IsBase(true);
@@ -322,7 +322,7 @@ void KSelectionProxyModel_OnMetaObject(const KSelectionProxyModel* self, intptr_
 }
 
 // Base class handler implementation
-void* KSelectionProxyModel_QBaseMetacast(KSelectionProxyModel* self, const char* param1) {
+void* KSelectionProxyModel_SuperMetacast(KSelectionProxyModel* self, const char* param1) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_Metacast_IsBase(true);
@@ -341,7 +341,7 @@ void KSelectionProxyModel_OnMetacast(KSelectionProxyModel* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int KSelectionProxyModel_QBaseMetacall(KSelectionProxyModel* self, int param1, int param2, void** param3) {
+int KSelectionProxyModel_SuperMetacall(KSelectionProxyModel* self, int param1, int param2, void** param3) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_Metacall_IsBase(true);
@@ -360,7 +360,7 @@ void KSelectionProxyModel_OnMetacall(KSelectionProxyModel* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseSetSourceModel(KSelectionProxyModel* self, QAbstractItemModel* sourceModel) {
+void KSelectionProxyModel_SuperSetSourceModel(KSelectionProxyModel* self, QAbstractItemModel* sourceModel) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_SetSourceModel_IsBase(true);
@@ -379,7 +379,7 @@ void KSelectionProxyModel_OnSetSourceModel(KSelectionProxyModel* self, intptr_t 
 }
 
 // Base class handler implementation
-QModelIndex* KSelectionProxyModel_QBaseMapFromSource(const KSelectionProxyModel* self, const QModelIndex* sourceIndex) {
+QModelIndex* KSelectionProxyModel_SuperMapFromSource(const KSelectionProxyModel* self, const QModelIndex* sourceIndex) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_MapFromSource_IsBase(true);
@@ -398,7 +398,7 @@ void KSelectionProxyModel_OnMapFromSource(const KSelectionProxyModel* self, intp
 }
 
 // Base class handler implementation
-QModelIndex* KSelectionProxyModel_QBaseMapToSource(const KSelectionProxyModel* self, const QModelIndex* proxyIndex) {
+QModelIndex* KSelectionProxyModel_SuperMapToSource(const KSelectionProxyModel* self, const QModelIndex* proxyIndex) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_MapToSource_IsBase(true);
@@ -417,7 +417,7 @@ void KSelectionProxyModel_OnMapToSource(const KSelectionProxyModel* self, intptr
 }
 
 // Base class handler implementation
-QItemSelection* KSelectionProxyModel_QBaseMapSelectionFromSource(const KSelectionProxyModel* self, const QItemSelection* selection) {
+QItemSelection* KSelectionProxyModel_SuperMapSelectionFromSource(const KSelectionProxyModel* self, const QItemSelection* selection) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_MapSelectionFromSource_IsBase(true);
@@ -436,7 +436,7 @@ void KSelectionProxyModel_OnMapSelectionFromSource(const KSelectionProxyModel* s
 }
 
 // Base class handler implementation
-QItemSelection* KSelectionProxyModel_QBaseMapSelectionToSource(const KSelectionProxyModel* self, const QItemSelection* selection) {
+QItemSelection* KSelectionProxyModel_SuperMapSelectionToSource(const KSelectionProxyModel* self, const QItemSelection* selection) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_MapSelectionToSource_IsBase(true);
@@ -455,7 +455,7 @@ void KSelectionProxyModel_OnMapSelectionToSource(const KSelectionProxyModel* sel
 }
 
 // Base class handler implementation
-int KSelectionProxyModel_QBaseFlags(const KSelectionProxyModel* self, const QModelIndex* index) {
+int KSelectionProxyModel_SuperFlags(const KSelectionProxyModel* self, const QModelIndex* index) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_Flags_IsBase(true);
@@ -474,7 +474,7 @@ void KSelectionProxyModel_OnFlags(const KSelectionProxyModel* self, intptr_t slo
 }
 
 // Base class handler implementation
-QVariant* KSelectionProxyModel_QBaseData(const KSelectionProxyModel* self, const QModelIndex* index, int role) {
+QVariant* KSelectionProxyModel_SuperData(const KSelectionProxyModel* self, const QModelIndex* index, int role) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_Data_IsBase(true);
@@ -493,7 +493,7 @@ void KSelectionProxyModel_OnData(const KSelectionProxyModel* self, intptr_t slot
 }
 
 // Base class handler implementation
-int KSelectionProxyModel_QBaseRowCount(const KSelectionProxyModel* self, const QModelIndex* parent) {
+int KSelectionProxyModel_SuperRowCount(const KSelectionProxyModel* self, const QModelIndex* parent) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_RowCount_IsBase(true);
@@ -512,7 +512,7 @@ void KSelectionProxyModel_OnRowCount(const KSelectionProxyModel* self, intptr_t 
 }
 
 // Base class handler implementation
-QVariant* KSelectionProxyModel_QBaseHeaderData(const KSelectionProxyModel* self, int section, int orientation, int role) {
+QVariant* KSelectionProxyModel_SuperHeaderData(const KSelectionProxyModel* self, int section, int orientation, int role) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_HeaderData_IsBase(true);
@@ -531,7 +531,7 @@ void KSelectionProxyModel_OnHeaderData(const KSelectionProxyModel* self, intptr_
 }
 
 // Base class handler implementation
-QMimeData* KSelectionProxyModel_QBaseMimeData(const KSelectionProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* KSelectionProxyModel_SuperMimeData(const KSelectionProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -556,7 +556,7 @@ void KSelectionProxyModel_OnMimeData(const KSelectionProxyModel* self, intptr_t 
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KSelectionProxyModel_QBaseMimeTypes(const KSelectionProxyModel* self) {
+libqt_list /* of libqt_string */ KSelectionProxyModel_SuperMimeTypes(const KSelectionProxyModel* self) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_MimeTypes_IsBase(true);
@@ -609,7 +609,7 @@ void KSelectionProxyModel_OnMimeTypes(const KSelectionProxyModel* self, intptr_t
 }
 
 // Base class handler implementation
-int KSelectionProxyModel_QBaseSupportedDropActions(const KSelectionProxyModel* self) {
+int KSelectionProxyModel_SuperSupportedDropActions(const KSelectionProxyModel* self) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_SupportedDropActions_IsBase(true);
@@ -628,7 +628,7 @@ void KSelectionProxyModel_OnSupportedDropActions(const KSelectionProxyModel* sel
 }
 
 // Base class handler implementation
-bool KSelectionProxyModel_QBaseDropMimeData(KSelectionProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KSelectionProxyModel_SuperDropMimeData(KSelectionProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_DropMimeData_IsBase(true);
@@ -647,7 +647,7 @@ void KSelectionProxyModel_OnDropMimeData(KSelectionProxyModel* self, intptr_t sl
 }
 
 // Base class handler implementation
-bool KSelectionProxyModel_QBaseHasChildren(const KSelectionProxyModel* self, const QModelIndex* parent) {
+bool KSelectionProxyModel_SuperHasChildren(const KSelectionProxyModel* self, const QModelIndex* parent) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_HasChildren_IsBase(true);
@@ -666,7 +666,7 @@ void KSelectionProxyModel_OnHasChildren(const KSelectionProxyModel* self, intptr
 }
 
 // Base class handler implementation
-QModelIndex* KSelectionProxyModel_QBaseIndex(const KSelectionProxyModel* self, int param1, int param2, const QModelIndex* param3) {
+QModelIndex* KSelectionProxyModel_SuperIndex(const KSelectionProxyModel* self, int param1, int param2, const QModelIndex* param3) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_Index_IsBase(true);
@@ -685,7 +685,7 @@ void KSelectionProxyModel_OnIndex(const KSelectionProxyModel* self, intptr_t slo
 }
 
 // Base class handler implementation
-QModelIndex* KSelectionProxyModel_QBaseParent(const KSelectionProxyModel* self, const QModelIndex* param1) {
+QModelIndex* KSelectionProxyModel_SuperParent(const KSelectionProxyModel* self, const QModelIndex* param1) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_Parent_IsBase(true);
@@ -704,7 +704,7 @@ void KSelectionProxyModel_OnParent(const KSelectionProxyModel* self, intptr_t sl
 }
 
 // Base class handler implementation
-int KSelectionProxyModel_QBaseColumnCount(const KSelectionProxyModel* self, const QModelIndex* param1) {
+int KSelectionProxyModel_SuperColumnCount(const KSelectionProxyModel* self, const QModelIndex* param1) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_ColumnCount_IsBase(true);
@@ -723,7 +723,7 @@ void KSelectionProxyModel_OnColumnCount(const KSelectionProxyModel* self, intptr
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KSelectionProxyModel_QBaseMatch(const KSelectionProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ KSelectionProxyModel_SuperMatch(const KSelectionProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_Match_IsBase(true);
@@ -770,7 +770,7 @@ bool KSelectionProxyModel_Submit(KSelectionProxyModel* self) {
 }
 
 // Base class handler implementation
-bool KSelectionProxyModel_QBaseSubmit(KSelectionProxyModel* self) {
+bool KSelectionProxyModel_SuperSubmit(KSelectionProxyModel* self) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_Submit_IsBase(true);
@@ -799,7 +799,7 @@ void KSelectionProxyModel_Revert(KSelectionProxyModel* self) {
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseRevert(KSelectionProxyModel* self) {
+void KSelectionProxyModel_SuperRevert(KSelectionProxyModel* self) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_Revert_IsBase(true);
@@ -856,7 +856,7 @@ libqt_map /* of int to QVariant* */ KSelectionProxyModel_ItemData(const KSelecti
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ KSelectionProxyModel_QBaseItemData(const KSelectionProxyModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ KSelectionProxyModel_SuperItemData(const KSelectionProxyModel* self, const QModelIndex* index) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_ItemData_IsBase(true);
@@ -913,7 +913,7 @@ bool KSelectionProxyModel_SetData(KSelectionProxyModel* self, const QModelIndex*
 }
 
 // Base class handler implementation
-bool KSelectionProxyModel_QBaseSetData(KSelectionProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool KSelectionProxyModel_SuperSetData(KSelectionProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_SetData_IsBase(true);
@@ -948,7 +948,7 @@ bool KSelectionProxyModel_SetItemData(KSelectionProxyModel* self, const QModelIn
 }
 
 // Base class handler implementation
-bool KSelectionProxyModel_QBaseSetItemData(KSelectionProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool KSelectionProxyModel_SuperSetItemData(KSelectionProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -983,7 +983,7 @@ bool KSelectionProxyModel_SetHeaderData(KSelectionProxyModel* self, int section,
 }
 
 // Base class handler implementation
-bool KSelectionProxyModel_QBaseSetHeaderData(KSelectionProxyModel* self, int section, int orientation, const QVariant* value, int role) {
+bool KSelectionProxyModel_SuperSetHeaderData(KSelectionProxyModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_SetHeaderData_IsBase(true);
@@ -1012,7 +1012,7 @@ bool KSelectionProxyModel_ClearItemData(KSelectionProxyModel* self, const QModel
 }
 
 // Base class handler implementation
-bool KSelectionProxyModel_QBaseClearItemData(KSelectionProxyModel* self, const QModelIndex* index) {
+bool KSelectionProxyModel_SuperClearItemData(KSelectionProxyModel* self, const QModelIndex* index) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_ClearItemData_IsBase(true);
@@ -1041,7 +1041,7 @@ QModelIndex* KSelectionProxyModel_Buddy(const KSelectionProxyModel* self, const 
 }
 
 // Base class handler implementation
-QModelIndex* KSelectionProxyModel_QBaseBuddy(const KSelectionProxyModel* self, const QModelIndex* index) {
+QModelIndex* KSelectionProxyModel_SuperBuddy(const KSelectionProxyModel* self, const QModelIndex* index) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_Buddy_IsBase(true);
@@ -1070,7 +1070,7 @@ bool KSelectionProxyModel_CanFetchMore(const KSelectionProxyModel* self, const Q
 }
 
 // Base class handler implementation
-bool KSelectionProxyModel_QBaseCanFetchMore(const KSelectionProxyModel* self, const QModelIndex* parent) {
+bool KSelectionProxyModel_SuperCanFetchMore(const KSelectionProxyModel* self, const QModelIndex* parent) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_CanFetchMore_IsBase(true);
@@ -1099,7 +1099,7 @@ void KSelectionProxyModel_FetchMore(KSelectionProxyModel* self, const QModelInde
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseFetchMore(KSelectionProxyModel* self, const QModelIndex* parent) {
+void KSelectionProxyModel_SuperFetchMore(KSelectionProxyModel* self, const QModelIndex* parent) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_FetchMore_IsBase(true);
@@ -1128,7 +1128,7 @@ void KSelectionProxyModel_Sort(KSelectionProxyModel* self, int column, int order
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseSort(KSelectionProxyModel* self, int column, int order) {
+void KSelectionProxyModel_SuperSort(KSelectionProxyModel* self, int column, int order) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_Sort_IsBase(true);
@@ -1157,7 +1157,7 @@ QSize* KSelectionProxyModel_Span(const KSelectionProxyModel* self, const QModelI
 }
 
 // Base class handler implementation
-QSize* KSelectionProxyModel_QBaseSpan(const KSelectionProxyModel* self, const QModelIndex* index) {
+QSize* KSelectionProxyModel_SuperSpan(const KSelectionProxyModel* self, const QModelIndex* index) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_Span_IsBase(true);
@@ -1186,7 +1186,7 @@ QModelIndex* KSelectionProxyModel_Sibling(const KSelectionProxyModel* self, int 
 }
 
 // Base class handler implementation
-QModelIndex* KSelectionProxyModel_QBaseSibling(const KSelectionProxyModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* KSelectionProxyModel_SuperSibling(const KSelectionProxyModel* self, int row, int column, const QModelIndex* idx) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_Sibling_IsBase(true);
@@ -1215,7 +1215,7 @@ bool KSelectionProxyModel_CanDropMimeData(const KSelectionProxyModel* self, cons
 }
 
 // Base class handler implementation
-bool KSelectionProxyModel_QBaseCanDropMimeData(const KSelectionProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KSelectionProxyModel_SuperCanDropMimeData(const KSelectionProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_CanDropMimeData_IsBase(true);
@@ -1244,7 +1244,7 @@ int KSelectionProxyModel_SupportedDragActions(const KSelectionProxyModel* self) 
 }
 
 // Base class handler implementation
-int KSelectionProxyModel_QBaseSupportedDragActions(const KSelectionProxyModel* self) {
+int KSelectionProxyModel_SuperSupportedDragActions(const KSelectionProxyModel* self) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_SupportedDragActions_IsBase(true);
@@ -1311,7 +1311,7 @@ libqt_map /* of int to libqt_string */ KSelectionProxyModel_RoleNames(const KSel
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ KSelectionProxyModel_QBaseRoleNames(const KSelectionProxyModel* self) {
+libqt_map /* of int to libqt_string */ KSelectionProxyModel_SuperRoleNames(const KSelectionProxyModel* self) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_RoleNames_IsBase(true);
@@ -1378,7 +1378,7 @@ bool KSelectionProxyModel_InsertRows(KSelectionProxyModel* self, int row, int co
 }
 
 // Base class handler implementation
-bool KSelectionProxyModel_QBaseInsertRows(KSelectionProxyModel* self, int row, int count, const QModelIndex* parent) {
+bool KSelectionProxyModel_SuperInsertRows(KSelectionProxyModel* self, int row, int count, const QModelIndex* parent) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_InsertRows_IsBase(true);
@@ -1407,7 +1407,7 @@ bool KSelectionProxyModel_InsertColumns(KSelectionProxyModel* self, int column, 
 }
 
 // Base class handler implementation
-bool KSelectionProxyModel_QBaseInsertColumns(KSelectionProxyModel* self, int column, int count, const QModelIndex* parent) {
+bool KSelectionProxyModel_SuperInsertColumns(KSelectionProxyModel* self, int column, int count, const QModelIndex* parent) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_InsertColumns_IsBase(true);
@@ -1436,7 +1436,7 @@ bool KSelectionProxyModel_RemoveRows(KSelectionProxyModel* self, int row, int co
 }
 
 // Base class handler implementation
-bool KSelectionProxyModel_QBaseRemoveRows(KSelectionProxyModel* self, int row, int count, const QModelIndex* parent) {
+bool KSelectionProxyModel_SuperRemoveRows(KSelectionProxyModel* self, int row, int count, const QModelIndex* parent) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_RemoveRows_IsBase(true);
@@ -1465,7 +1465,7 @@ bool KSelectionProxyModel_RemoveColumns(KSelectionProxyModel* self, int column, 
 }
 
 // Base class handler implementation
-bool KSelectionProxyModel_QBaseRemoveColumns(KSelectionProxyModel* self, int column, int count, const QModelIndex* parent) {
+bool KSelectionProxyModel_SuperRemoveColumns(KSelectionProxyModel* self, int column, int count, const QModelIndex* parent) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_RemoveColumns_IsBase(true);
@@ -1494,7 +1494,7 @@ bool KSelectionProxyModel_MoveRows(KSelectionProxyModel* self, const QModelIndex
 }
 
 // Base class handler implementation
-bool KSelectionProxyModel_QBaseMoveRows(KSelectionProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KSelectionProxyModel_SuperMoveRows(KSelectionProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_MoveRows_IsBase(true);
@@ -1523,7 +1523,7 @@ bool KSelectionProxyModel_MoveColumns(KSelectionProxyModel* self, const QModelIn
 }
 
 // Base class handler implementation
-bool KSelectionProxyModel_QBaseMoveColumns(KSelectionProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KSelectionProxyModel_SuperMoveColumns(KSelectionProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_MoveColumns_IsBase(true);
@@ -1552,7 +1552,7 @@ void KSelectionProxyModel_MultiData(const KSelectionProxyModel* self, const QMod
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseMultiData(const KSelectionProxyModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void KSelectionProxyModel_SuperMultiData(const KSelectionProxyModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_MultiData_IsBase(true);
@@ -1581,7 +1581,7 @@ void KSelectionProxyModel_ResetInternalData(KSelectionProxyModel* self) {
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseResetInternalData(KSelectionProxyModel* self) {
+void KSelectionProxyModel_SuperResetInternalData(KSelectionProxyModel* self) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_ResetInternalData_IsBase(true);
@@ -1610,7 +1610,7 @@ bool KSelectionProxyModel_Event(KSelectionProxyModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KSelectionProxyModel_QBaseEvent(KSelectionProxyModel* self, QEvent* event) {
+bool KSelectionProxyModel_SuperEvent(KSelectionProxyModel* self, QEvent* event) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_Event_IsBase(true);
@@ -1639,7 +1639,7 @@ bool KSelectionProxyModel_EventFilter(KSelectionProxyModel* self, QObject* watch
 }
 
 // Base class handler implementation
-bool KSelectionProxyModel_QBaseEventFilter(KSelectionProxyModel* self, QObject* watched, QEvent* event) {
+bool KSelectionProxyModel_SuperEventFilter(KSelectionProxyModel* self, QObject* watched, QEvent* event) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_EventFilter_IsBase(true);
@@ -1668,7 +1668,7 @@ void KSelectionProxyModel_TimerEvent(KSelectionProxyModel* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseTimerEvent(KSelectionProxyModel* self, QTimerEvent* event) {
+void KSelectionProxyModel_SuperTimerEvent(KSelectionProxyModel* self, QTimerEvent* event) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_TimerEvent_IsBase(true);
@@ -1697,7 +1697,7 @@ void KSelectionProxyModel_ChildEvent(KSelectionProxyModel* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseChildEvent(KSelectionProxyModel* self, QChildEvent* event) {
+void KSelectionProxyModel_SuperChildEvent(KSelectionProxyModel* self, QChildEvent* event) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_ChildEvent_IsBase(true);
@@ -1726,7 +1726,7 @@ void KSelectionProxyModel_CustomEvent(KSelectionProxyModel* self, QEvent* event)
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseCustomEvent(KSelectionProxyModel* self, QEvent* event) {
+void KSelectionProxyModel_SuperCustomEvent(KSelectionProxyModel* self, QEvent* event) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_CustomEvent_IsBase(true);
@@ -1755,7 +1755,7 @@ void KSelectionProxyModel_ConnectNotify(KSelectionProxyModel* self, const QMetaM
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseConnectNotify(KSelectionProxyModel* self, const QMetaMethod* signal) {
+void KSelectionProxyModel_SuperConnectNotify(KSelectionProxyModel* self, const QMetaMethod* signal) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_ConnectNotify_IsBase(true);
@@ -1784,7 +1784,7 @@ void KSelectionProxyModel_DisconnectNotify(KSelectionProxyModel* self, const QMe
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseDisconnectNotify(KSelectionProxyModel* self, const QMetaMethod* signal) {
+void KSelectionProxyModel_SuperDisconnectNotify(KSelectionProxyModel* self, const QMetaMethod* signal) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_DisconnectNotify_IsBase(true);
@@ -1831,7 +1831,7 @@ libqt_list /* of QPersistentModelIndex* */ KSelectionProxyModel_SourceRootIndexe
 }
 
 // Base class handler implementation
-libqt_list /* of QPersistentModelIndex* */ KSelectionProxyModel_QBaseSourceRootIndexes(const KSelectionProxyModel* self) {
+libqt_list /* of QPersistentModelIndex* */ KSelectionProxyModel_SuperSourceRootIndexes(const KSelectionProxyModel* self) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_SourceRootIndexes_IsBase(true);
@@ -1877,7 +1877,7 @@ QModelIndex* KSelectionProxyModel_CreateSourceIndex(const KSelectionProxyModel* 
 }
 
 // Base class handler implementation
-QModelIndex* KSelectionProxyModel_QBaseCreateSourceIndex(const KSelectionProxyModel* self, int row, int col, void* internalPtr) {
+QModelIndex* KSelectionProxyModel_SuperCreateSourceIndex(const KSelectionProxyModel* self, int row, int col, void* internalPtr) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_CreateSourceIndex_IsBase(true);
@@ -1904,7 +1904,7 @@ QModelIndex* KSelectionProxyModel_CreateIndex(const KSelectionProxyModel* self, 
 }
 
 // Base class handler implementation
-QModelIndex* KSelectionProxyModel_QBaseCreateIndex(const KSelectionProxyModel* self, int row, int column) {
+QModelIndex* KSelectionProxyModel_SuperCreateIndex(const KSelectionProxyModel* self, int row, int column) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_CreateIndex_IsBase(true);
@@ -1938,7 +1938,7 @@ void KSelectionProxyModel_EncodeData(const KSelectionProxyModel* self, const lib
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseEncodeData(const KSelectionProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void KSelectionProxyModel_SuperEncodeData(const KSelectionProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -1973,7 +1973,7 @@ bool KSelectionProxyModel_DecodeData(KSelectionProxyModel* self, int row, int co
 }
 
 // Base class handler implementation
-bool KSelectionProxyModel_QBaseDecodeData(KSelectionProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool KSelectionProxyModel_SuperDecodeData(KSelectionProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_DecodeData_IsBase(true);
@@ -2002,7 +2002,7 @@ void KSelectionProxyModel_BeginInsertRows(KSelectionProxyModel* self, const QMod
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseBeginInsertRows(KSelectionProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KSelectionProxyModel_SuperBeginInsertRows(KSelectionProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_BeginInsertRows_IsBase(true);
@@ -2031,7 +2031,7 @@ void KSelectionProxyModel_EndInsertRows(KSelectionProxyModel* self) {
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseEndInsertRows(KSelectionProxyModel* self) {
+void KSelectionProxyModel_SuperEndInsertRows(KSelectionProxyModel* self) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_EndInsertRows_IsBase(true);
@@ -2060,7 +2060,7 @@ void KSelectionProxyModel_BeginRemoveRows(KSelectionProxyModel* self, const QMod
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseBeginRemoveRows(KSelectionProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KSelectionProxyModel_SuperBeginRemoveRows(KSelectionProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_BeginRemoveRows_IsBase(true);
@@ -2089,7 +2089,7 @@ void KSelectionProxyModel_EndRemoveRows(KSelectionProxyModel* self) {
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseEndRemoveRows(KSelectionProxyModel* self) {
+void KSelectionProxyModel_SuperEndRemoveRows(KSelectionProxyModel* self) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_EndRemoveRows_IsBase(true);
@@ -2118,7 +2118,7 @@ bool KSelectionProxyModel_BeginMoveRows(KSelectionProxyModel* self, const QModel
 }
 
 // Base class handler implementation
-bool KSelectionProxyModel_QBaseBeginMoveRows(KSelectionProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool KSelectionProxyModel_SuperBeginMoveRows(KSelectionProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_BeginMoveRows_IsBase(true);
@@ -2147,7 +2147,7 @@ void KSelectionProxyModel_EndMoveRows(KSelectionProxyModel* self) {
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseEndMoveRows(KSelectionProxyModel* self) {
+void KSelectionProxyModel_SuperEndMoveRows(KSelectionProxyModel* self) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_EndMoveRows_IsBase(true);
@@ -2176,7 +2176,7 @@ void KSelectionProxyModel_BeginInsertColumns(KSelectionProxyModel* self, const Q
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseBeginInsertColumns(KSelectionProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KSelectionProxyModel_SuperBeginInsertColumns(KSelectionProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_BeginInsertColumns_IsBase(true);
@@ -2205,7 +2205,7 @@ void KSelectionProxyModel_EndInsertColumns(KSelectionProxyModel* self) {
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseEndInsertColumns(KSelectionProxyModel* self) {
+void KSelectionProxyModel_SuperEndInsertColumns(KSelectionProxyModel* self) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_EndInsertColumns_IsBase(true);
@@ -2234,7 +2234,7 @@ void KSelectionProxyModel_BeginRemoveColumns(KSelectionProxyModel* self, const Q
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseBeginRemoveColumns(KSelectionProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KSelectionProxyModel_SuperBeginRemoveColumns(KSelectionProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_BeginRemoveColumns_IsBase(true);
@@ -2263,7 +2263,7 @@ void KSelectionProxyModel_EndRemoveColumns(KSelectionProxyModel* self) {
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseEndRemoveColumns(KSelectionProxyModel* self) {
+void KSelectionProxyModel_SuperEndRemoveColumns(KSelectionProxyModel* self) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_EndRemoveColumns_IsBase(true);
@@ -2292,7 +2292,7 @@ bool KSelectionProxyModel_BeginMoveColumns(KSelectionProxyModel* self, const QMo
 }
 
 // Base class handler implementation
-bool KSelectionProxyModel_QBaseBeginMoveColumns(KSelectionProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool KSelectionProxyModel_SuperBeginMoveColumns(KSelectionProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_BeginMoveColumns_IsBase(true);
@@ -2321,7 +2321,7 @@ void KSelectionProxyModel_EndMoveColumns(KSelectionProxyModel* self) {
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseEndMoveColumns(KSelectionProxyModel* self) {
+void KSelectionProxyModel_SuperEndMoveColumns(KSelectionProxyModel* self) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_EndMoveColumns_IsBase(true);
@@ -2350,7 +2350,7 @@ void KSelectionProxyModel_BeginResetModel(KSelectionProxyModel* self) {
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseBeginResetModel(KSelectionProxyModel* self) {
+void KSelectionProxyModel_SuperBeginResetModel(KSelectionProxyModel* self) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_BeginResetModel_IsBase(true);
@@ -2379,7 +2379,7 @@ void KSelectionProxyModel_EndResetModel(KSelectionProxyModel* self) {
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseEndResetModel(KSelectionProxyModel* self) {
+void KSelectionProxyModel_SuperEndResetModel(KSelectionProxyModel* self) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_EndResetModel_IsBase(true);
@@ -2408,7 +2408,7 @@ void KSelectionProxyModel_ChangePersistentIndex(KSelectionProxyModel* self, cons
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseChangePersistentIndex(KSelectionProxyModel* self, const QModelIndex* from, const QModelIndex* to) {
+void KSelectionProxyModel_SuperChangePersistentIndex(KSelectionProxyModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_ChangePersistentIndex_IsBase(true);
@@ -2449,7 +2449,7 @@ void KSelectionProxyModel_ChangePersistentIndexList(KSelectionProxyModel* self, 
 }
 
 // Base class handler implementation
-void KSelectionProxyModel_QBaseChangePersistentIndexList(KSelectionProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void KSelectionProxyModel_SuperChangePersistentIndexList(KSelectionProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -2508,7 +2508,7 @@ libqt_list /* of QModelIndex* */ KSelectionProxyModel_PersistentIndexList(const 
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KSelectionProxyModel_QBasePersistentIndexList(const KSelectionProxyModel* self) {
+libqt_list /* of QModelIndex* */ KSelectionProxyModel_SuperPersistentIndexList(const KSelectionProxyModel* self) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_PersistentIndexList_IsBase(true);
@@ -2555,7 +2555,7 @@ QObject* KSelectionProxyModel_Sender(const KSelectionProxyModel* self) {
 }
 
 // Base class handler implementation
-QObject* KSelectionProxyModel_QBaseSender(const KSelectionProxyModel* self) {
+QObject* KSelectionProxyModel_SuperSender(const KSelectionProxyModel* self) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_Sender_IsBase(true);
@@ -2584,7 +2584,7 @@ int KSelectionProxyModel_SenderSignalIndex(const KSelectionProxyModel* self) {
 }
 
 // Base class handler implementation
-int KSelectionProxyModel_QBaseSenderSignalIndex(const KSelectionProxyModel* self) {
+int KSelectionProxyModel_SuperSenderSignalIndex(const KSelectionProxyModel* self) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_SenderSignalIndex_IsBase(true);
@@ -2613,7 +2613,7 @@ int KSelectionProxyModel_Receivers(const KSelectionProxyModel* self, const char*
 }
 
 // Base class handler implementation
-int KSelectionProxyModel_QBaseReceivers(const KSelectionProxyModel* self, const char* signal) {
+int KSelectionProxyModel_SuperReceivers(const KSelectionProxyModel* self, const char* signal) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_Receivers_IsBase(true);
@@ -2642,7 +2642,7 @@ bool KSelectionProxyModel_IsSignalConnected(const KSelectionProxyModel* self, co
 }
 
 // Base class handler implementation
-bool KSelectionProxyModel_QBaseIsSignalConnected(const KSelectionProxyModel* self, const QMetaMethod* signal) {
+bool KSelectionProxyModel_SuperIsSignalConnected(const KSelectionProxyModel* self, const QMetaMethod* signal) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         vkselectionproxymodel->setKSelectionProxyModel_IsSignalConnected_IsBase(true);

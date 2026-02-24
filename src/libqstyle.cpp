@@ -326,7 +326,7 @@ int QStyle_CombinedLayoutSpacing5(const QStyle* self, int controls1, int control
 }
 
 // Base class handler implementation
-QMetaObject* QStyle_QBaseMetaObject(const QStyle* self) {
+QMetaObject* QStyle_SuperMetaObject(const QStyle* self) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_MetaObject_IsBase(true);
@@ -345,7 +345,7 @@ void QStyle_OnMetaObject(const QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QStyle_QBaseMetacast(QStyle* self, const char* param1) {
+void* QStyle_SuperMetacast(QStyle* self, const char* param1) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_Metacast_IsBase(true);
@@ -364,7 +364,7 @@ void QStyle_OnMetacast(QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QStyle_QBaseMetacall(QStyle* self, int param1, int param2, void** param3) {
+int QStyle_SuperMetacall(QStyle* self, int param1, int param2, void** param3) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_Metacall_IsBase(true);
@@ -383,7 +383,7 @@ void QStyle_OnMetacall(QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStyle_QBasePolish(QStyle* self, QWidget* widget) {
+void QStyle_SuperPolish(QStyle* self, QWidget* widget) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_Polish_IsBase(true);
@@ -402,7 +402,7 @@ void QStyle_OnPolish(QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStyle_QBaseUnpolish(QStyle* self, QWidget* widget) {
+void QStyle_SuperUnpolish(QStyle* self, QWidget* widget) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_Unpolish_IsBase(true);
@@ -421,7 +421,7 @@ void QStyle_OnUnpolish(QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStyle_QBasePolish2(QStyle* self, QApplication* application) {
+void QStyle_SuperPolish2(QStyle* self, QApplication* application) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_Polish2_IsBase(true);
@@ -440,7 +440,7 @@ void QStyle_OnPolish2(QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStyle_QBaseUnpolish2(QStyle* self, QApplication* application) {
+void QStyle_SuperUnpolish2(QStyle* self, QApplication* application) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_Unpolish2_IsBase(true);
@@ -459,7 +459,7 @@ void QStyle_OnUnpolish2(QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStyle_QBasePolish3(QStyle* self, QPalette* palette) {
+void QStyle_SuperPolish3(QStyle* self, QPalette* palette) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_Polish3_IsBase(true);
@@ -478,7 +478,7 @@ void QStyle_OnPolish3(QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QRect* QStyle_QBaseItemTextRect(const QStyle* self, const QFontMetrics* fm, const QRect* r, int flags, bool enabled, const libqt_string text) {
+QRect* QStyle_SuperItemTextRect(const QStyle* self, const QFontMetrics* fm, const QRect* r, int flags, bool enabled, const libqt_string text) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqstyle && vqstyle->isVirtualQStyle) {
@@ -498,7 +498,7 @@ void QStyle_OnItemTextRect(const QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QRect* QStyle_QBaseItemPixmapRect(const QStyle* self, const QRect* r, int flags, const QPixmap* pixmap) {
+QRect* QStyle_SuperItemPixmapRect(const QStyle* self, const QRect* r, int flags, const QPixmap* pixmap) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_ItemPixmapRect_IsBase(true);
@@ -517,7 +517,7 @@ void QStyle_OnItemPixmapRect(const QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStyle_QBaseDrawItemText(const QStyle* self, QPainter* painter, const QRect* rect, int flags, const QPalette* pal, bool enabled, const libqt_string text, int textRole) {
+void QStyle_SuperDrawItemText(const QStyle* self, QPainter* painter, const QRect* rect, int flags, const QPalette* pal, bool enabled, const libqt_string text, int textRole) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqstyle && vqstyle->isVirtualQStyle) {
@@ -537,7 +537,7 @@ void QStyle_OnDrawItemText(const QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStyle_QBaseDrawItemPixmap(const QStyle* self, QPainter* painter, const QRect* rect, int alignment, const QPixmap* pixmap) {
+void QStyle_SuperDrawItemPixmap(const QStyle* self, QPainter* painter, const QRect* rect, int alignment, const QPixmap* pixmap) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_DrawItemPixmap_IsBase(true);
@@ -556,7 +556,7 @@ void QStyle_OnDrawItemPixmap(const QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPalette* QStyle_QBaseStandardPalette(const QStyle* self) {
+QPalette* QStyle_SuperStandardPalette(const QStyle* self) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_StandardPalette_IsBase(true);
@@ -575,7 +575,7 @@ void QStyle_OnStandardPalette(const QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStyle_QBaseDrawPrimitive(const QStyle* self, int pe, const QStyleOption* opt, QPainter* p, const QWidget* w) {
+void QStyle_SuperDrawPrimitive(const QStyle* self, int pe, const QStyleOption* opt, QPainter* p, const QWidget* w) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_DrawPrimitive_IsBase(true);
@@ -594,7 +594,7 @@ void QStyle_OnDrawPrimitive(const QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStyle_QBaseDrawControl(const QStyle* self, int element, const QStyleOption* opt, QPainter* p, const QWidget* w) {
+void QStyle_SuperDrawControl(const QStyle* self, int element, const QStyleOption* opt, QPainter* p, const QWidget* w) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_DrawControl_IsBase(true);
@@ -613,7 +613,7 @@ void QStyle_OnDrawControl(const QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QRect* QStyle_QBaseSubElementRect(const QStyle* self, int subElement, const QStyleOption* option, const QWidget* widget) {
+QRect* QStyle_SuperSubElementRect(const QStyle* self, int subElement, const QStyleOption* option, const QWidget* widget) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_SubElementRect_IsBase(true);
@@ -632,7 +632,7 @@ void QStyle_OnSubElementRect(const QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStyle_QBaseDrawComplexControl(const QStyle* self, int cc, const QStyleOptionComplex* opt, QPainter* p, const QWidget* widget) {
+void QStyle_SuperDrawComplexControl(const QStyle* self, int cc, const QStyleOptionComplex* opt, QPainter* p, const QWidget* widget) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_DrawComplexControl_IsBase(true);
@@ -651,7 +651,7 @@ void QStyle_OnDrawComplexControl(const QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QStyle_QBaseHitTestComplexControl(const QStyle* self, int cc, const QStyleOptionComplex* opt, const QPoint* pt, const QWidget* widget) {
+int QStyle_SuperHitTestComplexControl(const QStyle* self, int cc, const QStyleOptionComplex* opt, const QPoint* pt, const QWidget* widget) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_HitTestComplexControl_IsBase(true);
@@ -670,7 +670,7 @@ void QStyle_OnHitTestComplexControl(const QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QRect* QStyle_QBaseSubControlRect(const QStyle* self, int cc, const QStyleOptionComplex* opt, int sc, const QWidget* widget) {
+QRect* QStyle_SuperSubControlRect(const QStyle* self, int cc, const QStyleOptionComplex* opt, int sc, const QWidget* widget) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_SubControlRect_IsBase(true);
@@ -689,7 +689,7 @@ void QStyle_OnSubControlRect(const QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QStyle_QBasePixelMetric(const QStyle* self, int metric, const QStyleOption* option, const QWidget* widget) {
+int QStyle_SuperPixelMetric(const QStyle* self, int metric, const QStyleOption* option, const QWidget* widget) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_PixelMetric_IsBase(true);
@@ -708,7 +708,7 @@ void QStyle_OnPixelMetric(const QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QStyle_QBaseSizeFromContents(const QStyle* self, int ct, const QStyleOption* opt, const QSize* contentsSize, const QWidget* w) {
+QSize* QStyle_SuperSizeFromContents(const QStyle* self, int ct, const QStyleOption* opt, const QSize* contentsSize, const QWidget* w) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_SizeFromContents_IsBase(true);
@@ -727,7 +727,7 @@ void QStyle_OnSizeFromContents(const QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QStyle_QBaseStyleHint(const QStyle* self, int stylehint, const QStyleOption* opt, const QWidget* widget, QStyleHintReturn* returnData) {
+int QStyle_SuperStyleHint(const QStyle* self, int stylehint, const QStyleOption* opt, const QWidget* widget, QStyleHintReturn* returnData) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_StyleHint_IsBase(true);
@@ -746,7 +746,7 @@ void QStyle_OnStyleHint(const QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPixmap* QStyle_QBaseStandardPixmap(const QStyle* self, int standardPixmap, const QStyleOption* opt, const QWidget* widget) {
+QPixmap* QStyle_SuperStandardPixmap(const QStyle* self, int standardPixmap, const QStyleOption* opt, const QWidget* widget) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_StandardPixmap_IsBase(true);
@@ -765,7 +765,7 @@ void QStyle_OnStandardPixmap(const QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QIcon* QStyle_QBaseStandardIcon(const QStyle* self, int standardIcon, const QStyleOption* option, const QWidget* widget) {
+QIcon* QStyle_SuperStandardIcon(const QStyle* self, int standardIcon, const QStyleOption* option, const QWidget* widget) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_StandardIcon_IsBase(true);
@@ -784,7 +784,7 @@ void QStyle_OnStandardIcon(const QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPixmap* QStyle_QBaseGeneratedIconPixmap(const QStyle* self, int iconMode, const QPixmap* pixmap, const QStyleOption* opt) {
+QPixmap* QStyle_SuperGeneratedIconPixmap(const QStyle* self, int iconMode, const QPixmap* pixmap, const QStyleOption* opt) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_GeneratedIconPixmap_IsBase(true);
@@ -803,7 +803,7 @@ void QStyle_OnGeneratedIconPixmap(const QStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QStyle_QBaseLayoutSpacing(const QStyle* self, int control1, int control2, int orientation, const QStyleOption* option, const QWidget* widget) {
+int QStyle_SuperLayoutSpacing(const QStyle* self, int control1, int control2, int orientation, const QStyleOption* option, const QWidget* widget) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_LayoutSpacing_IsBase(true);
@@ -832,7 +832,7 @@ bool QStyle_Event(QStyle* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QStyle_QBaseEvent(QStyle* self, QEvent* event) {
+bool QStyle_SuperEvent(QStyle* self, QEvent* event) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_Event_IsBase(true);
@@ -861,7 +861,7 @@ bool QStyle_EventFilter(QStyle* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QStyle_QBaseEventFilter(QStyle* self, QObject* watched, QEvent* event) {
+bool QStyle_SuperEventFilter(QStyle* self, QObject* watched, QEvent* event) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_EventFilter_IsBase(true);
@@ -890,7 +890,7 @@ void QStyle_TimerEvent(QStyle* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QStyle_QBaseTimerEvent(QStyle* self, QTimerEvent* event) {
+void QStyle_SuperTimerEvent(QStyle* self, QTimerEvent* event) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_TimerEvent_IsBase(true);
@@ -919,7 +919,7 @@ void QStyle_ChildEvent(QStyle* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QStyle_QBaseChildEvent(QStyle* self, QChildEvent* event) {
+void QStyle_SuperChildEvent(QStyle* self, QChildEvent* event) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_ChildEvent_IsBase(true);
@@ -948,7 +948,7 @@ void QStyle_CustomEvent(QStyle* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QStyle_QBaseCustomEvent(QStyle* self, QEvent* event) {
+void QStyle_SuperCustomEvent(QStyle* self, QEvent* event) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_CustomEvent_IsBase(true);
@@ -977,7 +977,7 @@ void QStyle_ConnectNotify(QStyle* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QStyle_QBaseConnectNotify(QStyle* self, const QMetaMethod* signal) {
+void QStyle_SuperConnectNotify(QStyle* self, const QMetaMethod* signal) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_ConnectNotify_IsBase(true);
@@ -1006,7 +1006,7 @@ void QStyle_DisconnectNotify(QStyle* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QStyle_QBaseDisconnectNotify(QStyle* self, const QMetaMethod* signal) {
+void QStyle_SuperDisconnectNotify(QStyle* self, const QMetaMethod* signal) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_DisconnectNotify_IsBase(true);
@@ -1035,7 +1035,7 @@ QObject* QStyle_Sender(const QStyle* self) {
 }
 
 // Base class handler implementation
-QObject* QStyle_QBaseSender(const QStyle* self) {
+QObject* QStyle_SuperSender(const QStyle* self) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_Sender_IsBase(true);
@@ -1064,7 +1064,7 @@ int QStyle_SenderSignalIndex(const QStyle* self) {
 }
 
 // Base class handler implementation
-int QStyle_QBaseSenderSignalIndex(const QStyle* self) {
+int QStyle_SuperSenderSignalIndex(const QStyle* self) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_SenderSignalIndex_IsBase(true);
@@ -1093,7 +1093,7 @@ int QStyle_Receivers(const QStyle* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QStyle_QBaseReceivers(const QStyle* self, const char* signal) {
+int QStyle_SuperReceivers(const QStyle* self, const char* signal) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_Receivers_IsBase(true);
@@ -1122,7 +1122,7 @@ bool QStyle_IsSignalConnected(const QStyle* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QStyle_QBaseIsSignalConnected(const QStyle* self, const QMetaMethod* signal) {
+bool QStyle_SuperIsSignalConnected(const QStyle* self, const QMetaMethod* signal) {
     auto* vqstyle = const_cast<VirtualQStyle*>(dynamic_cast<const VirtualQStyle*>(self));
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->setQStyle_IsSignalConnected_IsBase(true);

@@ -1970,13 +1970,17 @@ pub const ktexteditor__attribute = struct {
         qtc.QTextFormat_ClearForeground(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KTextEditor__Attribute `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KTextEditor__Attribute_Delete(@ptrCast(self));
     }
 };
@@ -2049,13 +2053,17 @@ pub const ktexteditor__attributeblock = struct {
         qtc.KTextEditor__AttributeBlock_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KTextEditor__AttributeBlock `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KTextEditor__AttributeBlock_Delete(@ptrCast(self));
     }
 };

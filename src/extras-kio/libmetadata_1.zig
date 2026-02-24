@@ -220,13 +220,17 @@ pub const kio__metadata = struct {
         qtc.KIO__MetaData_OperatorAssign2(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KIO__MetaData `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KIO__MetaData_Delete(@ptrCast(self));
     }
 };

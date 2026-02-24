@@ -1144,6 +1144,10 @@ pub const qbytearrayview = struct {
         return qtc.QByteArrayView_Compare2(@ptrCast(self), a_str, @bitCast(cs));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#dtor.QByteArrayView)
     ///
     /// Delete this object from C++ memory.
@@ -1152,7 +1156,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QByteArrayView_Delete(@ptrCast(self));
     }
 };

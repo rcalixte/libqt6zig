@@ -509,37 +509,37 @@ class VirtualQGeoCodeReply final : public QGeoCodeReply {
 
     // Friend functions
     friend void QGeoCodeReply_TimerEvent(QGeoCodeReply* self, QTimerEvent* event);
-    friend void QGeoCodeReply_QBaseTimerEvent(QGeoCodeReply* self, QTimerEvent* event);
+    friend void QGeoCodeReply_SuperTimerEvent(QGeoCodeReply* self, QTimerEvent* event);
     friend void QGeoCodeReply_ChildEvent(QGeoCodeReply* self, QChildEvent* event);
-    friend void QGeoCodeReply_QBaseChildEvent(QGeoCodeReply* self, QChildEvent* event);
+    friend void QGeoCodeReply_SuperChildEvent(QGeoCodeReply* self, QChildEvent* event);
     friend void QGeoCodeReply_CustomEvent(QGeoCodeReply* self, QEvent* event);
-    friend void QGeoCodeReply_QBaseCustomEvent(QGeoCodeReply* self, QEvent* event);
+    friend void QGeoCodeReply_SuperCustomEvent(QGeoCodeReply* self, QEvent* event);
     friend void QGeoCodeReply_ConnectNotify(QGeoCodeReply* self, const QMetaMethod* signal);
-    friend void QGeoCodeReply_QBaseConnectNotify(QGeoCodeReply* self, const QMetaMethod* signal);
+    friend void QGeoCodeReply_SuperConnectNotify(QGeoCodeReply* self, const QMetaMethod* signal);
     friend void QGeoCodeReply_DisconnectNotify(QGeoCodeReply* self, const QMetaMethod* signal);
-    friend void QGeoCodeReply_QBaseDisconnectNotify(QGeoCodeReply* self, const QMetaMethod* signal);
+    friend void QGeoCodeReply_SuperDisconnectNotify(QGeoCodeReply* self, const QMetaMethod* signal);
     friend void QGeoCodeReply_SetError(QGeoCodeReply* self, int errorVal, const libqt_string errorString);
-    friend void QGeoCodeReply_QBaseSetError(QGeoCodeReply* self, int errorVal, const libqt_string errorString);
+    friend void QGeoCodeReply_SuperSetError(QGeoCodeReply* self, int errorVal, const libqt_string errorString);
     friend void QGeoCodeReply_SetFinished(QGeoCodeReply* self, bool finished);
-    friend void QGeoCodeReply_QBaseSetFinished(QGeoCodeReply* self, bool finished);
+    friend void QGeoCodeReply_SuperSetFinished(QGeoCodeReply* self, bool finished);
     friend void QGeoCodeReply_SetViewport(QGeoCodeReply* self, const QGeoShape* viewport);
-    friend void QGeoCodeReply_QBaseSetViewport(QGeoCodeReply* self, const QGeoShape* viewport);
+    friend void QGeoCodeReply_SuperSetViewport(QGeoCodeReply* self, const QGeoShape* viewport);
     friend void QGeoCodeReply_AddLocation(QGeoCodeReply* self, const QGeoLocation* location);
-    friend void QGeoCodeReply_QBaseAddLocation(QGeoCodeReply* self, const QGeoLocation* location);
+    friend void QGeoCodeReply_SuperAddLocation(QGeoCodeReply* self, const QGeoLocation* location);
     friend void QGeoCodeReply_SetLocations(QGeoCodeReply* self, const libqt_list /* of QGeoLocation* */ locations);
-    friend void QGeoCodeReply_QBaseSetLocations(QGeoCodeReply* self, const libqt_list /* of QGeoLocation* */ locations);
+    friend void QGeoCodeReply_SuperSetLocations(QGeoCodeReply* self, const libqt_list /* of QGeoLocation* */ locations);
     friend void QGeoCodeReply_SetLimit(QGeoCodeReply* self, ptrdiff_t limit);
-    friend void QGeoCodeReply_QBaseSetLimit(QGeoCodeReply* self, ptrdiff_t limit);
+    friend void QGeoCodeReply_SuperSetLimit(QGeoCodeReply* self, ptrdiff_t limit);
     friend void QGeoCodeReply_SetOffset(QGeoCodeReply* self, ptrdiff_t offset);
-    friend void QGeoCodeReply_QBaseSetOffset(QGeoCodeReply* self, ptrdiff_t offset);
+    friend void QGeoCodeReply_SuperSetOffset(QGeoCodeReply* self, ptrdiff_t offset);
     friend QObject* QGeoCodeReply_Sender(const QGeoCodeReply* self);
-    friend QObject* QGeoCodeReply_QBaseSender(const QGeoCodeReply* self);
+    friend QObject* QGeoCodeReply_SuperSender(const QGeoCodeReply* self);
     friend int QGeoCodeReply_SenderSignalIndex(const QGeoCodeReply* self);
-    friend int QGeoCodeReply_QBaseSenderSignalIndex(const QGeoCodeReply* self);
+    friend int QGeoCodeReply_SuperSenderSignalIndex(const QGeoCodeReply* self);
     friend int QGeoCodeReply_Receivers(const QGeoCodeReply* self, const char* signal);
-    friend int QGeoCodeReply_QBaseReceivers(const QGeoCodeReply* self, const char* signal);
+    friend int QGeoCodeReply_SuperReceivers(const QGeoCodeReply* self, const char* signal);
     friend bool QGeoCodeReply_IsSignalConnected(const QGeoCodeReply* self, const QMetaMethod* signal);
-    friend bool QGeoCodeReply_QBaseIsSignalConnected(const QGeoCodeReply* self, const QMetaMethod* signal);
+    friend bool QGeoCodeReply_SuperIsSignalConnected(const QGeoCodeReply* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -332,23 +332,23 @@ class VirtualKHelpMenu final : public KHelpMenu {
 
     // Friend functions
     friend void KHelpMenu_TimerEvent(KHelpMenu* self, QTimerEvent* event);
-    friend void KHelpMenu_QBaseTimerEvent(KHelpMenu* self, QTimerEvent* event);
+    friend void KHelpMenu_SuperTimerEvent(KHelpMenu* self, QTimerEvent* event);
     friend void KHelpMenu_ChildEvent(KHelpMenu* self, QChildEvent* event);
-    friend void KHelpMenu_QBaseChildEvent(KHelpMenu* self, QChildEvent* event);
+    friend void KHelpMenu_SuperChildEvent(KHelpMenu* self, QChildEvent* event);
     friend void KHelpMenu_CustomEvent(KHelpMenu* self, QEvent* event);
-    friend void KHelpMenu_QBaseCustomEvent(KHelpMenu* self, QEvent* event);
+    friend void KHelpMenu_SuperCustomEvent(KHelpMenu* self, QEvent* event);
     friend void KHelpMenu_ConnectNotify(KHelpMenu* self, const QMetaMethod* signal);
-    friend void KHelpMenu_QBaseConnectNotify(KHelpMenu* self, const QMetaMethod* signal);
+    friend void KHelpMenu_SuperConnectNotify(KHelpMenu* self, const QMetaMethod* signal);
     friend void KHelpMenu_DisconnectNotify(KHelpMenu* self, const QMetaMethod* signal);
-    friend void KHelpMenu_QBaseDisconnectNotify(KHelpMenu* self, const QMetaMethod* signal);
+    friend void KHelpMenu_SuperDisconnectNotify(KHelpMenu* self, const QMetaMethod* signal);
     friend QObject* KHelpMenu_Sender(const KHelpMenu* self);
-    friend QObject* KHelpMenu_QBaseSender(const KHelpMenu* self);
+    friend QObject* KHelpMenu_SuperSender(const KHelpMenu* self);
     friend int KHelpMenu_SenderSignalIndex(const KHelpMenu* self);
-    friend int KHelpMenu_QBaseSenderSignalIndex(const KHelpMenu* self);
+    friend int KHelpMenu_SuperSenderSignalIndex(const KHelpMenu* self);
     friend int KHelpMenu_Receivers(const KHelpMenu* self, const char* signal);
-    friend int KHelpMenu_QBaseReceivers(const KHelpMenu* self, const char* signal);
+    friend int KHelpMenu_SuperReceivers(const KHelpMenu* self, const char* signal);
     friend bool KHelpMenu_IsSignalConnected(const KHelpMenu* self, const QMetaMethod* signal);
-    friend bool KHelpMenu_QBaseIsSignalConnected(const KHelpMenu* self, const QMetaMethod* signal);
+    friend bool KHelpMenu_SuperIsSignalConnected(const KHelpMenu* self, const QMetaMethod* signal);
 };
 
 #endif

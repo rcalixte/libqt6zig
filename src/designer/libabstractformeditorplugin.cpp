@@ -46,7 +46,7 @@ QDesignerFormEditorInterface* QDesignerFormEditorPluginInterface_Core(const QDes
 }
 
 // Base class handler implementation
-bool QDesignerFormEditorPluginInterface_QBaseIsInitialized(const QDesignerFormEditorPluginInterface* self) {
+bool QDesignerFormEditorPluginInterface_SuperIsInitialized(const QDesignerFormEditorPluginInterface* self) {
     auto* vqdesignerformeditorplugininterface = const_cast<VirtualQDesignerFormEditorPluginInterface*>(dynamic_cast<const VirtualQDesignerFormEditorPluginInterface*>(self));
     if (vqdesignerformeditorplugininterface && vqdesignerformeditorplugininterface->isVirtualQDesignerFormEditorPluginInterface) {
         vqdesignerformeditorplugininterface->setQDesignerFormEditorPluginInterface_IsInitialized_IsBase(true);
@@ -65,7 +65,7 @@ void QDesignerFormEditorPluginInterface_OnIsInitialized(const QDesignerFormEdito
 }
 
 // Base class handler implementation
-void QDesignerFormEditorPluginInterface_QBaseInitialize(QDesignerFormEditorPluginInterface* self, QDesignerFormEditorInterface* core) {
+void QDesignerFormEditorPluginInterface_SuperInitialize(QDesignerFormEditorPluginInterface* self, QDesignerFormEditorInterface* core) {
     auto* vqdesignerformeditorplugininterface = dynamic_cast<VirtualQDesignerFormEditorPluginInterface*>(self);
     if (vqdesignerformeditorplugininterface && vqdesignerformeditorplugininterface->isVirtualQDesignerFormEditorPluginInterface) {
         vqdesignerformeditorplugininterface->setQDesignerFormEditorPluginInterface_Initialize_IsBase(true);
@@ -84,7 +84,7 @@ void QDesignerFormEditorPluginInterface_OnInitialize(QDesignerFormEditorPluginIn
 }
 
 // Base class handler implementation
-QAction* QDesignerFormEditorPluginInterface_QBaseAction(const QDesignerFormEditorPluginInterface* self) {
+QAction* QDesignerFormEditorPluginInterface_SuperAction(const QDesignerFormEditorPluginInterface* self) {
     auto* vqdesignerformeditorplugininterface = const_cast<VirtualQDesignerFormEditorPluginInterface*>(dynamic_cast<const VirtualQDesignerFormEditorPluginInterface*>(self));
     if (vqdesignerformeditorplugininterface && vqdesignerformeditorplugininterface->isVirtualQDesignerFormEditorPluginInterface) {
         vqdesignerformeditorplugininterface->setQDesignerFormEditorPluginInterface_Action_IsBase(true);
@@ -103,7 +103,7 @@ void QDesignerFormEditorPluginInterface_OnAction(const QDesignerFormEditorPlugin
 }
 
 // Base class handler implementation
-QDesignerFormEditorInterface* QDesignerFormEditorPluginInterface_QBaseCore(const QDesignerFormEditorPluginInterface* self) {
+QDesignerFormEditorInterface* QDesignerFormEditorPluginInterface_SuperCore(const QDesignerFormEditorPluginInterface* self) {
     auto* vqdesignerformeditorplugininterface = const_cast<VirtualQDesignerFormEditorPluginInterface*>(dynamic_cast<const VirtualQDesignerFormEditorPluginInterface*>(self));
     if (vqdesignerformeditorplugininterface && vqdesignerformeditorplugininterface->isVirtualQDesignerFormEditorPluginInterface) {
         vqdesignerformeditorplugininterface->setQDesignerFormEditorPluginInterface_Core_IsBase(true);

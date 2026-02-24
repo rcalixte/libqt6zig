@@ -347,23 +347,23 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
 
     // Friend functions
     friend void QCategoryAxis_TimerEvent(QCategoryAxis* self, QTimerEvent* event);
-    friend void QCategoryAxis_QBaseTimerEvent(QCategoryAxis* self, QTimerEvent* event);
+    friend void QCategoryAxis_SuperTimerEvent(QCategoryAxis* self, QTimerEvent* event);
     friend void QCategoryAxis_ChildEvent(QCategoryAxis* self, QChildEvent* event);
-    friend void QCategoryAxis_QBaseChildEvent(QCategoryAxis* self, QChildEvent* event);
+    friend void QCategoryAxis_SuperChildEvent(QCategoryAxis* self, QChildEvent* event);
     friend void QCategoryAxis_CustomEvent(QCategoryAxis* self, QEvent* event);
-    friend void QCategoryAxis_QBaseCustomEvent(QCategoryAxis* self, QEvent* event);
+    friend void QCategoryAxis_SuperCustomEvent(QCategoryAxis* self, QEvent* event);
     friend void QCategoryAxis_ConnectNotify(QCategoryAxis* self, const QMetaMethod* signal);
-    friend void QCategoryAxis_QBaseConnectNotify(QCategoryAxis* self, const QMetaMethod* signal);
+    friend void QCategoryAxis_SuperConnectNotify(QCategoryAxis* self, const QMetaMethod* signal);
     friend void QCategoryAxis_DisconnectNotify(QCategoryAxis* self, const QMetaMethod* signal);
-    friend void QCategoryAxis_QBaseDisconnectNotify(QCategoryAxis* self, const QMetaMethod* signal);
+    friend void QCategoryAxis_SuperDisconnectNotify(QCategoryAxis* self, const QMetaMethod* signal);
     friend QObject* QCategoryAxis_Sender(const QCategoryAxis* self);
-    friend QObject* QCategoryAxis_QBaseSender(const QCategoryAxis* self);
+    friend QObject* QCategoryAxis_SuperSender(const QCategoryAxis* self);
     friend int QCategoryAxis_SenderSignalIndex(const QCategoryAxis* self);
-    friend int QCategoryAxis_QBaseSenderSignalIndex(const QCategoryAxis* self);
+    friend int QCategoryAxis_SuperSenderSignalIndex(const QCategoryAxis* self);
     friend int QCategoryAxis_Receivers(const QCategoryAxis* self, const char* signal);
-    friend int QCategoryAxis_QBaseReceivers(const QCategoryAxis* self, const char* signal);
+    friend int QCategoryAxis_SuperReceivers(const QCategoryAxis* self, const char* signal);
     friend bool QCategoryAxis_IsSignalConnected(const QCategoryAxis* self, const QMetaMethod* signal);
-    friend bool QCategoryAxis_QBaseIsSignalConnected(const QCategoryAxis* self, const QMetaMethod* signal);
+    friend bool QCategoryAxis_SuperIsSignalConnected(const QCategoryAxis* self, const QMetaMethod* signal);
 };
 
 #endif

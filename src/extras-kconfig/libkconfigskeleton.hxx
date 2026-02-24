@@ -444,31 +444,31 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
 
     // Friend functions
     friend bool KConfigSkeleton_UsrUseDefaults(KConfigSkeleton* self, bool b);
-    friend bool KConfigSkeleton_QBaseUsrUseDefaults(KConfigSkeleton* self, bool b);
+    friend bool KConfigSkeleton_SuperUsrUseDefaults(KConfigSkeleton* self, bool b);
     friend void KConfigSkeleton_UsrSetDefaults(KConfigSkeleton* self);
-    friend void KConfigSkeleton_QBaseUsrSetDefaults(KConfigSkeleton* self);
+    friend void KConfigSkeleton_SuperUsrSetDefaults(KConfigSkeleton* self);
     friend void KConfigSkeleton_UsrRead(KConfigSkeleton* self);
-    friend void KConfigSkeleton_QBaseUsrRead(KConfigSkeleton* self);
+    friend void KConfigSkeleton_SuperUsrRead(KConfigSkeleton* self);
     friend bool KConfigSkeleton_UsrSave(KConfigSkeleton* self);
-    friend bool KConfigSkeleton_QBaseUsrSave(KConfigSkeleton* self);
+    friend bool KConfigSkeleton_SuperUsrSave(KConfigSkeleton* self);
     friend void KConfigSkeleton_TimerEvent(KConfigSkeleton* self, QTimerEvent* event);
-    friend void KConfigSkeleton_QBaseTimerEvent(KConfigSkeleton* self, QTimerEvent* event);
+    friend void KConfigSkeleton_SuperTimerEvent(KConfigSkeleton* self, QTimerEvent* event);
     friend void KConfigSkeleton_ChildEvent(KConfigSkeleton* self, QChildEvent* event);
-    friend void KConfigSkeleton_QBaseChildEvent(KConfigSkeleton* self, QChildEvent* event);
+    friend void KConfigSkeleton_SuperChildEvent(KConfigSkeleton* self, QChildEvent* event);
     friend void KConfigSkeleton_CustomEvent(KConfigSkeleton* self, QEvent* event);
-    friend void KConfigSkeleton_QBaseCustomEvent(KConfigSkeleton* self, QEvent* event);
+    friend void KConfigSkeleton_SuperCustomEvent(KConfigSkeleton* self, QEvent* event);
     friend void KConfigSkeleton_ConnectNotify(KConfigSkeleton* self, const QMetaMethod* signal);
-    friend void KConfigSkeleton_QBaseConnectNotify(KConfigSkeleton* self, const QMetaMethod* signal);
+    friend void KConfigSkeleton_SuperConnectNotify(KConfigSkeleton* self, const QMetaMethod* signal);
     friend void KConfigSkeleton_DisconnectNotify(KConfigSkeleton* self, const QMetaMethod* signal);
-    friend void KConfigSkeleton_QBaseDisconnectNotify(KConfigSkeleton* self, const QMetaMethod* signal);
+    friend void KConfigSkeleton_SuperDisconnectNotify(KConfigSkeleton* self, const QMetaMethod* signal);
     friend QObject* KConfigSkeleton_Sender(const KConfigSkeleton* self);
-    friend QObject* KConfigSkeleton_QBaseSender(const KConfigSkeleton* self);
+    friend QObject* KConfigSkeleton_SuperSender(const KConfigSkeleton* self);
     friend int KConfigSkeleton_SenderSignalIndex(const KConfigSkeleton* self);
-    friend int KConfigSkeleton_QBaseSenderSignalIndex(const KConfigSkeleton* self);
+    friend int KConfigSkeleton_SuperSenderSignalIndex(const KConfigSkeleton* self);
     friend int KConfigSkeleton_Receivers(const KConfigSkeleton* self, const char* signal);
-    friend int KConfigSkeleton_QBaseReceivers(const KConfigSkeleton* self, const char* signal);
+    friend int KConfigSkeleton_SuperReceivers(const KConfigSkeleton* self, const char* signal);
     friend bool KConfigSkeleton_IsSignalConnected(const KConfigSkeleton* self, const QMetaMethod* signal);
-    friend bool KConfigSkeleton_QBaseIsSignalConnected(const KConfigSkeleton* self, const QMetaMethod* signal);
+    friend bool KConfigSkeleton_SuperIsSignalConnected(const KConfigSkeleton* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of KConfigSkeleton::ItemColor so that we can call protected methods

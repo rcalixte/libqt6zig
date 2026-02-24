@@ -350,25 +350,25 @@ class VirtualQOpenGLContext final : public QOpenGLContext {
 
     // Friend functions
     friend void QOpenGLContext_TimerEvent(QOpenGLContext* self, QTimerEvent* event);
-    friend void QOpenGLContext_QBaseTimerEvent(QOpenGLContext* self, QTimerEvent* event);
+    friend void QOpenGLContext_SuperTimerEvent(QOpenGLContext* self, QTimerEvent* event);
     friend void QOpenGLContext_ChildEvent(QOpenGLContext* self, QChildEvent* event);
-    friend void QOpenGLContext_QBaseChildEvent(QOpenGLContext* self, QChildEvent* event);
+    friend void QOpenGLContext_SuperChildEvent(QOpenGLContext* self, QChildEvent* event);
     friend void QOpenGLContext_CustomEvent(QOpenGLContext* self, QEvent* event);
-    friend void QOpenGLContext_QBaseCustomEvent(QOpenGLContext* self, QEvent* event);
+    friend void QOpenGLContext_SuperCustomEvent(QOpenGLContext* self, QEvent* event);
     friend void QOpenGLContext_ConnectNotify(QOpenGLContext* self, const QMetaMethod* signal);
-    friend void QOpenGLContext_QBaseConnectNotify(QOpenGLContext* self, const QMetaMethod* signal);
+    friend void QOpenGLContext_SuperConnectNotify(QOpenGLContext* self, const QMetaMethod* signal);
     friend void QOpenGLContext_DisconnectNotify(QOpenGLContext* self, const QMetaMethod* signal);
-    friend void QOpenGLContext_QBaseDisconnectNotify(QOpenGLContext* self, const QMetaMethod* signal);
+    friend void QOpenGLContext_SuperDisconnectNotify(QOpenGLContext* self, const QMetaMethod* signal);
     friend void* QOpenGLContext_ResolveInterface(const QOpenGLContext* self, const char* name, int revision);
-    friend void* QOpenGLContext_QBaseResolveInterface(const QOpenGLContext* self, const char* name, int revision);
+    friend void* QOpenGLContext_SuperResolveInterface(const QOpenGLContext* self, const char* name, int revision);
     friend QObject* QOpenGLContext_Sender(const QOpenGLContext* self);
-    friend QObject* QOpenGLContext_QBaseSender(const QOpenGLContext* self);
+    friend QObject* QOpenGLContext_SuperSender(const QOpenGLContext* self);
     friend int QOpenGLContext_SenderSignalIndex(const QOpenGLContext* self);
-    friend int QOpenGLContext_QBaseSenderSignalIndex(const QOpenGLContext* self);
+    friend int QOpenGLContext_SuperSenderSignalIndex(const QOpenGLContext* self);
     friend int QOpenGLContext_Receivers(const QOpenGLContext* self, const char* signal);
-    friend int QOpenGLContext_QBaseReceivers(const QOpenGLContext* self, const char* signal);
+    friend int QOpenGLContext_SuperReceivers(const QOpenGLContext* self, const char* signal);
     friend bool QOpenGLContext_IsSignalConnected(const QOpenGLContext* self, const QMetaMethod* signal);
-    friend bool QOpenGLContext_QBaseIsSignalConnected(const QOpenGLContext* self, const QMetaMethod* signal);
+    friend bool QOpenGLContext_SuperIsSignalConnected(const QOpenGLContext* self, const QMetaMethod* signal);
 };
 
 #endif

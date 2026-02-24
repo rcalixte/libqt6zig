@@ -158,7 +158,7 @@ bool KPixmapRegionSelectorWidget_EventFilter(KPixmapRegionSelectorWidget* self, 
 }
 
 // Base class handler implementation
-QMetaObject* KPixmapRegionSelectorWidget_QBaseMetaObject(const KPixmapRegionSelectorWidget* self) {
+QMetaObject* KPixmapRegionSelectorWidget_SuperMetaObject(const KPixmapRegionSelectorWidget* self) {
     auto* vkpixmapregionselectorwidget = const_cast<VirtualKPixmapRegionSelectorWidget*>(dynamic_cast<const VirtualKPixmapRegionSelectorWidget*>(self));
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_MetaObject_IsBase(true);
@@ -177,7 +177,7 @@ void KPixmapRegionSelectorWidget_OnMetaObject(const KPixmapRegionSelectorWidget*
 }
 
 // Base class handler implementation
-void* KPixmapRegionSelectorWidget_QBaseMetacast(KPixmapRegionSelectorWidget* self, const char* param1) {
+void* KPixmapRegionSelectorWidget_SuperMetacast(KPixmapRegionSelectorWidget* self, const char* param1) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_Metacast_IsBase(true);
@@ -196,7 +196,7 @@ void KPixmapRegionSelectorWidget_OnMetacast(KPixmapRegionSelectorWidget* self, i
 }
 
 // Base class handler implementation
-int KPixmapRegionSelectorWidget_QBaseMetacall(KPixmapRegionSelectorWidget* self, int param1, int param2, void** param3) {
+int KPixmapRegionSelectorWidget_SuperMetacall(KPixmapRegionSelectorWidget* self, int param1, int param2, void** param3) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_Metacall_IsBase(true);
@@ -215,7 +215,7 @@ void KPixmapRegionSelectorWidget_OnMetacall(KPixmapRegionSelectorWidget* self, i
 }
 
 // Base class handler implementation
-QMenu* KPixmapRegionSelectorWidget_QBaseCreatePopupMenu(KPixmapRegionSelectorWidget* self) {
+QMenu* KPixmapRegionSelectorWidget_SuperCreatePopupMenu(KPixmapRegionSelectorWidget* self) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_CreatePopupMenu_IsBase(true);
@@ -234,7 +234,7 @@ void KPixmapRegionSelectorWidget_OnCreatePopupMenu(KPixmapRegionSelectorWidget* 
 }
 
 // Base class handler implementation
-bool KPixmapRegionSelectorWidget_QBaseEventFilter(KPixmapRegionSelectorWidget* self, QObject* obj, QEvent* ev) {
+bool KPixmapRegionSelectorWidget_SuperEventFilter(KPixmapRegionSelectorWidget* self, QObject* obj, QEvent* ev) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_EventFilter_IsBase(true);
@@ -263,7 +263,7 @@ int KPixmapRegionSelectorWidget_DevType(const KPixmapRegionSelectorWidget* self)
 }
 
 // Base class handler implementation
-int KPixmapRegionSelectorWidget_QBaseDevType(const KPixmapRegionSelectorWidget* self) {
+int KPixmapRegionSelectorWidget_SuperDevType(const KPixmapRegionSelectorWidget* self) {
     auto* vkpixmapregionselectorwidget = const_cast<VirtualKPixmapRegionSelectorWidget*>(dynamic_cast<const VirtualKPixmapRegionSelectorWidget*>(self));
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_DevType_IsBase(true);
@@ -292,7 +292,7 @@ void KPixmapRegionSelectorWidget_SetVisible(KPixmapRegionSelectorWidget* self, b
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseSetVisible(KPixmapRegionSelectorWidget* self, bool visible) {
+void KPixmapRegionSelectorWidget_SuperSetVisible(KPixmapRegionSelectorWidget* self, bool visible) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_SetVisible_IsBase(true);
@@ -321,7 +321,7 @@ QSize* KPixmapRegionSelectorWidget_SizeHint(const KPixmapRegionSelectorWidget* s
 }
 
 // Base class handler implementation
-QSize* KPixmapRegionSelectorWidget_QBaseSizeHint(const KPixmapRegionSelectorWidget* self) {
+QSize* KPixmapRegionSelectorWidget_SuperSizeHint(const KPixmapRegionSelectorWidget* self) {
     auto* vkpixmapregionselectorwidget = const_cast<VirtualKPixmapRegionSelectorWidget*>(dynamic_cast<const VirtualKPixmapRegionSelectorWidget*>(self));
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_SizeHint_IsBase(true);
@@ -350,7 +350,7 @@ QSize* KPixmapRegionSelectorWidget_MinimumSizeHint(const KPixmapRegionSelectorWi
 }
 
 // Base class handler implementation
-QSize* KPixmapRegionSelectorWidget_QBaseMinimumSizeHint(const KPixmapRegionSelectorWidget* self) {
+QSize* KPixmapRegionSelectorWidget_SuperMinimumSizeHint(const KPixmapRegionSelectorWidget* self) {
     auto* vkpixmapregionselectorwidget = const_cast<VirtualKPixmapRegionSelectorWidget*>(dynamic_cast<const VirtualKPixmapRegionSelectorWidget*>(self));
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_MinimumSizeHint_IsBase(true);
@@ -379,7 +379,7 @@ int KPixmapRegionSelectorWidget_HeightForWidth(const KPixmapRegionSelectorWidget
 }
 
 // Base class handler implementation
-int KPixmapRegionSelectorWidget_QBaseHeightForWidth(const KPixmapRegionSelectorWidget* self, int param1) {
+int KPixmapRegionSelectorWidget_SuperHeightForWidth(const KPixmapRegionSelectorWidget* self, int param1) {
     auto* vkpixmapregionselectorwidget = const_cast<VirtualKPixmapRegionSelectorWidget*>(dynamic_cast<const VirtualKPixmapRegionSelectorWidget*>(self));
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_HeightForWidth_IsBase(true);
@@ -408,7 +408,7 @@ bool KPixmapRegionSelectorWidget_HasHeightForWidth(const KPixmapRegionSelectorWi
 }
 
 // Base class handler implementation
-bool KPixmapRegionSelectorWidget_QBaseHasHeightForWidth(const KPixmapRegionSelectorWidget* self) {
+bool KPixmapRegionSelectorWidget_SuperHasHeightForWidth(const KPixmapRegionSelectorWidget* self) {
     auto* vkpixmapregionselectorwidget = const_cast<VirtualKPixmapRegionSelectorWidget*>(dynamic_cast<const VirtualKPixmapRegionSelectorWidget*>(self));
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_HasHeightForWidth_IsBase(true);
@@ -437,7 +437,7 @@ QPaintEngine* KPixmapRegionSelectorWidget_PaintEngine(const KPixmapRegionSelecto
 }
 
 // Base class handler implementation
-QPaintEngine* KPixmapRegionSelectorWidget_QBasePaintEngine(const KPixmapRegionSelectorWidget* self) {
+QPaintEngine* KPixmapRegionSelectorWidget_SuperPaintEngine(const KPixmapRegionSelectorWidget* self) {
     auto* vkpixmapregionselectorwidget = const_cast<VirtualKPixmapRegionSelectorWidget*>(dynamic_cast<const VirtualKPixmapRegionSelectorWidget*>(self));
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_PaintEngine_IsBase(true);
@@ -466,7 +466,7 @@ bool KPixmapRegionSelectorWidget_Event(KPixmapRegionSelectorWidget* self, QEvent
 }
 
 // Base class handler implementation
-bool KPixmapRegionSelectorWidget_QBaseEvent(KPixmapRegionSelectorWidget* self, QEvent* event) {
+bool KPixmapRegionSelectorWidget_SuperEvent(KPixmapRegionSelectorWidget* self, QEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_Event_IsBase(true);
@@ -495,7 +495,7 @@ void KPixmapRegionSelectorWidget_MousePressEvent(KPixmapRegionSelectorWidget* se
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseMousePressEvent(KPixmapRegionSelectorWidget* self, QMouseEvent* event) {
+void KPixmapRegionSelectorWidget_SuperMousePressEvent(KPixmapRegionSelectorWidget* self, QMouseEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_MousePressEvent_IsBase(true);
@@ -524,7 +524,7 @@ void KPixmapRegionSelectorWidget_MouseReleaseEvent(KPixmapRegionSelectorWidget* 
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseMouseReleaseEvent(KPixmapRegionSelectorWidget* self, QMouseEvent* event) {
+void KPixmapRegionSelectorWidget_SuperMouseReleaseEvent(KPixmapRegionSelectorWidget* self, QMouseEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_MouseReleaseEvent_IsBase(true);
@@ -553,7 +553,7 @@ void KPixmapRegionSelectorWidget_MouseDoubleClickEvent(KPixmapRegionSelectorWidg
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseMouseDoubleClickEvent(KPixmapRegionSelectorWidget* self, QMouseEvent* event) {
+void KPixmapRegionSelectorWidget_SuperMouseDoubleClickEvent(KPixmapRegionSelectorWidget* self, QMouseEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_MouseDoubleClickEvent_IsBase(true);
@@ -582,7 +582,7 @@ void KPixmapRegionSelectorWidget_MouseMoveEvent(KPixmapRegionSelectorWidget* sel
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseMouseMoveEvent(KPixmapRegionSelectorWidget* self, QMouseEvent* event) {
+void KPixmapRegionSelectorWidget_SuperMouseMoveEvent(KPixmapRegionSelectorWidget* self, QMouseEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_MouseMoveEvent_IsBase(true);
@@ -611,7 +611,7 @@ void KPixmapRegionSelectorWidget_WheelEvent(KPixmapRegionSelectorWidget* self, Q
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseWheelEvent(KPixmapRegionSelectorWidget* self, QWheelEvent* event) {
+void KPixmapRegionSelectorWidget_SuperWheelEvent(KPixmapRegionSelectorWidget* self, QWheelEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_WheelEvent_IsBase(true);
@@ -640,7 +640,7 @@ void KPixmapRegionSelectorWidget_KeyPressEvent(KPixmapRegionSelectorWidget* self
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseKeyPressEvent(KPixmapRegionSelectorWidget* self, QKeyEvent* event) {
+void KPixmapRegionSelectorWidget_SuperKeyPressEvent(KPixmapRegionSelectorWidget* self, QKeyEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_KeyPressEvent_IsBase(true);
@@ -669,7 +669,7 @@ void KPixmapRegionSelectorWidget_KeyReleaseEvent(KPixmapRegionSelectorWidget* se
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseKeyReleaseEvent(KPixmapRegionSelectorWidget* self, QKeyEvent* event) {
+void KPixmapRegionSelectorWidget_SuperKeyReleaseEvent(KPixmapRegionSelectorWidget* self, QKeyEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_KeyReleaseEvent_IsBase(true);
@@ -698,7 +698,7 @@ void KPixmapRegionSelectorWidget_FocusInEvent(KPixmapRegionSelectorWidget* self,
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseFocusInEvent(KPixmapRegionSelectorWidget* self, QFocusEvent* event) {
+void KPixmapRegionSelectorWidget_SuperFocusInEvent(KPixmapRegionSelectorWidget* self, QFocusEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_FocusInEvent_IsBase(true);
@@ -727,7 +727,7 @@ void KPixmapRegionSelectorWidget_FocusOutEvent(KPixmapRegionSelectorWidget* self
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseFocusOutEvent(KPixmapRegionSelectorWidget* self, QFocusEvent* event) {
+void KPixmapRegionSelectorWidget_SuperFocusOutEvent(KPixmapRegionSelectorWidget* self, QFocusEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_FocusOutEvent_IsBase(true);
@@ -756,7 +756,7 @@ void KPixmapRegionSelectorWidget_EnterEvent(KPixmapRegionSelectorWidget* self, Q
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseEnterEvent(KPixmapRegionSelectorWidget* self, QEnterEvent* event) {
+void KPixmapRegionSelectorWidget_SuperEnterEvent(KPixmapRegionSelectorWidget* self, QEnterEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_EnterEvent_IsBase(true);
@@ -785,7 +785,7 @@ void KPixmapRegionSelectorWidget_LeaveEvent(KPixmapRegionSelectorWidget* self, Q
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseLeaveEvent(KPixmapRegionSelectorWidget* self, QEvent* event) {
+void KPixmapRegionSelectorWidget_SuperLeaveEvent(KPixmapRegionSelectorWidget* self, QEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_LeaveEvent_IsBase(true);
@@ -814,7 +814,7 @@ void KPixmapRegionSelectorWidget_PaintEvent(KPixmapRegionSelectorWidget* self, Q
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBasePaintEvent(KPixmapRegionSelectorWidget* self, QPaintEvent* event) {
+void KPixmapRegionSelectorWidget_SuperPaintEvent(KPixmapRegionSelectorWidget* self, QPaintEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_PaintEvent_IsBase(true);
@@ -843,7 +843,7 @@ void KPixmapRegionSelectorWidget_MoveEvent(KPixmapRegionSelectorWidget* self, QM
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseMoveEvent(KPixmapRegionSelectorWidget* self, QMoveEvent* event) {
+void KPixmapRegionSelectorWidget_SuperMoveEvent(KPixmapRegionSelectorWidget* self, QMoveEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_MoveEvent_IsBase(true);
@@ -872,7 +872,7 @@ void KPixmapRegionSelectorWidget_ResizeEvent(KPixmapRegionSelectorWidget* self, 
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseResizeEvent(KPixmapRegionSelectorWidget* self, QResizeEvent* event) {
+void KPixmapRegionSelectorWidget_SuperResizeEvent(KPixmapRegionSelectorWidget* self, QResizeEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_ResizeEvent_IsBase(true);
@@ -901,7 +901,7 @@ void KPixmapRegionSelectorWidget_CloseEvent(KPixmapRegionSelectorWidget* self, Q
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseCloseEvent(KPixmapRegionSelectorWidget* self, QCloseEvent* event) {
+void KPixmapRegionSelectorWidget_SuperCloseEvent(KPixmapRegionSelectorWidget* self, QCloseEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_CloseEvent_IsBase(true);
@@ -930,7 +930,7 @@ void KPixmapRegionSelectorWidget_ContextMenuEvent(KPixmapRegionSelectorWidget* s
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseContextMenuEvent(KPixmapRegionSelectorWidget* self, QContextMenuEvent* event) {
+void KPixmapRegionSelectorWidget_SuperContextMenuEvent(KPixmapRegionSelectorWidget* self, QContextMenuEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_ContextMenuEvent_IsBase(true);
@@ -959,7 +959,7 @@ void KPixmapRegionSelectorWidget_TabletEvent(KPixmapRegionSelectorWidget* self, 
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseTabletEvent(KPixmapRegionSelectorWidget* self, QTabletEvent* event) {
+void KPixmapRegionSelectorWidget_SuperTabletEvent(KPixmapRegionSelectorWidget* self, QTabletEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_TabletEvent_IsBase(true);
@@ -988,7 +988,7 @@ void KPixmapRegionSelectorWidget_ActionEvent(KPixmapRegionSelectorWidget* self, 
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseActionEvent(KPixmapRegionSelectorWidget* self, QActionEvent* event) {
+void KPixmapRegionSelectorWidget_SuperActionEvent(KPixmapRegionSelectorWidget* self, QActionEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_ActionEvent_IsBase(true);
@@ -1017,7 +1017,7 @@ void KPixmapRegionSelectorWidget_DragEnterEvent(KPixmapRegionSelectorWidget* sel
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseDragEnterEvent(KPixmapRegionSelectorWidget* self, QDragEnterEvent* event) {
+void KPixmapRegionSelectorWidget_SuperDragEnterEvent(KPixmapRegionSelectorWidget* self, QDragEnterEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_DragEnterEvent_IsBase(true);
@@ -1046,7 +1046,7 @@ void KPixmapRegionSelectorWidget_DragMoveEvent(KPixmapRegionSelectorWidget* self
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseDragMoveEvent(KPixmapRegionSelectorWidget* self, QDragMoveEvent* event) {
+void KPixmapRegionSelectorWidget_SuperDragMoveEvent(KPixmapRegionSelectorWidget* self, QDragMoveEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_DragMoveEvent_IsBase(true);
@@ -1075,7 +1075,7 @@ void KPixmapRegionSelectorWidget_DragLeaveEvent(KPixmapRegionSelectorWidget* sel
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseDragLeaveEvent(KPixmapRegionSelectorWidget* self, QDragLeaveEvent* event) {
+void KPixmapRegionSelectorWidget_SuperDragLeaveEvent(KPixmapRegionSelectorWidget* self, QDragLeaveEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_DragLeaveEvent_IsBase(true);
@@ -1104,7 +1104,7 @@ void KPixmapRegionSelectorWidget_DropEvent(KPixmapRegionSelectorWidget* self, QD
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseDropEvent(KPixmapRegionSelectorWidget* self, QDropEvent* event) {
+void KPixmapRegionSelectorWidget_SuperDropEvent(KPixmapRegionSelectorWidget* self, QDropEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_DropEvent_IsBase(true);
@@ -1133,7 +1133,7 @@ void KPixmapRegionSelectorWidget_ShowEvent(KPixmapRegionSelectorWidget* self, QS
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseShowEvent(KPixmapRegionSelectorWidget* self, QShowEvent* event) {
+void KPixmapRegionSelectorWidget_SuperShowEvent(KPixmapRegionSelectorWidget* self, QShowEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_ShowEvent_IsBase(true);
@@ -1162,7 +1162,7 @@ void KPixmapRegionSelectorWidget_HideEvent(KPixmapRegionSelectorWidget* self, QH
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseHideEvent(KPixmapRegionSelectorWidget* self, QHideEvent* event) {
+void KPixmapRegionSelectorWidget_SuperHideEvent(KPixmapRegionSelectorWidget* self, QHideEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_HideEvent_IsBase(true);
@@ -1192,7 +1192,7 @@ bool KPixmapRegionSelectorWidget_NativeEvent(KPixmapRegionSelectorWidget* self, 
 }
 
 // Base class handler implementation
-bool KPixmapRegionSelectorWidget_QBaseNativeEvent(KPixmapRegionSelectorWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KPixmapRegionSelectorWidget_SuperNativeEvent(KPixmapRegionSelectorWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
@@ -1222,7 +1222,7 @@ void KPixmapRegionSelectorWidget_ChangeEvent(KPixmapRegionSelectorWidget* self, 
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseChangeEvent(KPixmapRegionSelectorWidget* self, QEvent* param1) {
+void KPixmapRegionSelectorWidget_SuperChangeEvent(KPixmapRegionSelectorWidget* self, QEvent* param1) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_ChangeEvent_IsBase(true);
@@ -1251,7 +1251,7 @@ int KPixmapRegionSelectorWidget_Metric(const KPixmapRegionSelectorWidget* self, 
 }
 
 // Base class handler implementation
-int KPixmapRegionSelectorWidget_QBaseMetric(const KPixmapRegionSelectorWidget* self, int param1) {
+int KPixmapRegionSelectorWidget_SuperMetric(const KPixmapRegionSelectorWidget* self, int param1) {
     auto* vkpixmapregionselectorwidget = const_cast<VirtualKPixmapRegionSelectorWidget*>(dynamic_cast<const VirtualKPixmapRegionSelectorWidget*>(self));
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_Metric_IsBase(true);
@@ -1280,7 +1280,7 @@ void KPixmapRegionSelectorWidget_InitPainter(const KPixmapRegionSelectorWidget* 
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseInitPainter(const KPixmapRegionSelectorWidget* self, QPainter* painter) {
+void KPixmapRegionSelectorWidget_SuperInitPainter(const KPixmapRegionSelectorWidget* self, QPainter* painter) {
     auto* vkpixmapregionselectorwidget = const_cast<VirtualKPixmapRegionSelectorWidget*>(dynamic_cast<const VirtualKPixmapRegionSelectorWidget*>(self));
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_InitPainter_IsBase(true);
@@ -1309,7 +1309,7 @@ QPaintDevice* KPixmapRegionSelectorWidget_Redirected(const KPixmapRegionSelector
 }
 
 // Base class handler implementation
-QPaintDevice* KPixmapRegionSelectorWidget_QBaseRedirected(const KPixmapRegionSelectorWidget* self, QPoint* offset) {
+QPaintDevice* KPixmapRegionSelectorWidget_SuperRedirected(const KPixmapRegionSelectorWidget* self, QPoint* offset) {
     auto* vkpixmapregionselectorwidget = const_cast<VirtualKPixmapRegionSelectorWidget*>(dynamic_cast<const VirtualKPixmapRegionSelectorWidget*>(self));
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_Redirected_IsBase(true);
@@ -1338,7 +1338,7 @@ QPainter* KPixmapRegionSelectorWidget_SharedPainter(const KPixmapRegionSelectorW
 }
 
 // Base class handler implementation
-QPainter* KPixmapRegionSelectorWidget_QBaseSharedPainter(const KPixmapRegionSelectorWidget* self) {
+QPainter* KPixmapRegionSelectorWidget_SuperSharedPainter(const KPixmapRegionSelectorWidget* self) {
     auto* vkpixmapregionselectorwidget = const_cast<VirtualKPixmapRegionSelectorWidget*>(dynamic_cast<const VirtualKPixmapRegionSelectorWidget*>(self));
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_SharedPainter_IsBase(true);
@@ -1367,7 +1367,7 @@ void KPixmapRegionSelectorWidget_InputMethodEvent(KPixmapRegionSelectorWidget* s
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseInputMethodEvent(KPixmapRegionSelectorWidget* self, QInputMethodEvent* param1) {
+void KPixmapRegionSelectorWidget_SuperInputMethodEvent(KPixmapRegionSelectorWidget* self, QInputMethodEvent* param1) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_InputMethodEvent_IsBase(true);
@@ -1396,7 +1396,7 @@ QVariant* KPixmapRegionSelectorWidget_InputMethodQuery(const KPixmapRegionSelect
 }
 
 // Base class handler implementation
-QVariant* KPixmapRegionSelectorWidget_QBaseInputMethodQuery(const KPixmapRegionSelectorWidget* self, int param1) {
+QVariant* KPixmapRegionSelectorWidget_SuperInputMethodQuery(const KPixmapRegionSelectorWidget* self, int param1) {
     auto* vkpixmapregionselectorwidget = const_cast<VirtualKPixmapRegionSelectorWidget*>(dynamic_cast<const VirtualKPixmapRegionSelectorWidget*>(self));
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_InputMethodQuery_IsBase(true);
@@ -1425,7 +1425,7 @@ bool KPixmapRegionSelectorWidget_FocusNextPrevChild(KPixmapRegionSelectorWidget*
 }
 
 // Base class handler implementation
-bool KPixmapRegionSelectorWidget_QBaseFocusNextPrevChild(KPixmapRegionSelectorWidget* self, bool next) {
+bool KPixmapRegionSelectorWidget_SuperFocusNextPrevChild(KPixmapRegionSelectorWidget* self, bool next) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_FocusNextPrevChild_IsBase(true);
@@ -1454,7 +1454,7 @@ void KPixmapRegionSelectorWidget_TimerEvent(KPixmapRegionSelectorWidget* self, Q
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseTimerEvent(KPixmapRegionSelectorWidget* self, QTimerEvent* event) {
+void KPixmapRegionSelectorWidget_SuperTimerEvent(KPixmapRegionSelectorWidget* self, QTimerEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_TimerEvent_IsBase(true);
@@ -1483,7 +1483,7 @@ void KPixmapRegionSelectorWidget_ChildEvent(KPixmapRegionSelectorWidget* self, Q
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseChildEvent(KPixmapRegionSelectorWidget* self, QChildEvent* event) {
+void KPixmapRegionSelectorWidget_SuperChildEvent(KPixmapRegionSelectorWidget* self, QChildEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_ChildEvent_IsBase(true);
@@ -1512,7 +1512,7 @@ void KPixmapRegionSelectorWidget_CustomEvent(KPixmapRegionSelectorWidget* self, 
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseCustomEvent(KPixmapRegionSelectorWidget* self, QEvent* event) {
+void KPixmapRegionSelectorWidget_SuperCustomEvent(KPixmapRegionSelectorWidget* self, QEvent* event) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_CustomEvent_IsBase(true);
@@ -1541,7 +1541,7 @@ void KPixmapRegionSelectorWidget_ConnectNotify(KPixmapRegionSelectorWidget* self
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseConnectNotify(KPixmapRegionSelectorWidget* self, const QMetaMethod* signal) {
+void KPixmapRegionSelectorWidget_SuperConnectNotify(KPixmapRegionSelectorWidget* self, const QMetaMethod* signal) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_ConnectNotify_IsBase(true);
@@ -1570,7 +1570,7 @@ void KPixmapRegionSelectorWidget_DisconnectNotify(KPixmapRegionSelectorWidget* s
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseDisconnectNotify(KPixmapRegionSelectorWidget* self, const QMetaMethod* signal) {
+void KPixmapRegionSelectorWidget_SuperDisconnectNotify(KPixmapRegionSelectorWidget* self, const QMetaMethod* signal) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_DisconnectNotify_IsBase(true);
@@ -1599,7 +1599,7 @@ void KPixmapRegionSelectorWidget_UpdateMicroFocus(KPixmapRegionSelectorWidget* s
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseUpdateMicroFocus(KPixmapRegionSelectorWidget* self) {
+void KPixmapRegionSelectorWidget_SuperUpdateMicroFocus(KPixmapRegionSelectorWidget* self) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_UpdateMicroFocus_IsBase(true);
@@ -1628,7 +1628,7 @@ void KPixmapRegionSelectorWidget_Create(KPixmapRegionSelectorWidget* self) {
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseCreate(KPixmapRegionSelectorWidget* self) {
+void KPixmapRegionSelectorWidget_SuperCreate(KPixmapRegionSelectorWidget* self) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_Create_IsBase(true);
@@ -1657,7 +1657,7 @@ void KPixmapRegionSelectorWidget_Destroy(KPixmapRegionSelectorWidget* self) {
 }
 
 // Base class handler implementation
-void KPixmapRegionSelectorWidget_QBaseDestroy(KPixmapRegionSelectorWidget* self) {
+void KPixmapRegionSelectorWidget_SuperDestroy(KPixmapRegionSelectorWidget* self) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_Destroy_IsBase(true);
@@ -1686,7 +1686,7 @@ bool KPixmapRegionSelectorWidget_FocusNextChild(KPixmapRegionSelectorWidget* sel
 }
 
 // Base class handler implementation
-bool KPixmapRegionSelectorWidget_QBaseFocusNextChild(KPixmapRegionSelectorWidget* self) {
+bool KPixmapRegionSelectorWidget_SuperFocusNextChild(KPixmapRegionSelectorWidget* self) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_FocusNextChild_IsBase(true);
@@ -1715,7 +1715,7 @@ bool KPixmapRegionSelectorWidget_FocusPreviousChild(KPixmapRegionSelectorWidget*
 }
 
 // Base class handler implementation
-bool KPixmapRegionSelectorWidget_QBaseFocusPreviousChild(KPixmapRegionSelectorWidget* self) {
+bool KPixmapRegionSelectorWidget_SuperFocusPreviousChild(KPixmapRegionSelectorWidget* self) {
     auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_FocusPreviousChild_IsBase(true);
@@ -1744,7 +1744,7 @@ QObject* KPixmapRegionSelectorWidget_Sender(const KPixmapRegionSelectorWidget* s
 }
 
 // Base class handler implementation
-QObject* KPixmapRegionSelectorWidget_QBaseSender(const KPixmapRegionSelectorWidget* self) {
+QObject* KPixmapRegionSelectorWidget_SuperSender(const KPixmapRegionSelectorWidget* self) {
     auto* vkpixmapregionselectorwidget = const_cast<VirtualKPixmapRegionSelectorWidget*>(dynamic_cast<const VirtualKPixmapRegionSelectorWidget*>(self));
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_Sender_IsBase(true);
@@ -1773,7 +1773,7 @@ int KPixmapRegionSelectorWidget_SenderSignalIndex(const KPixmapRegionSelectorWid
 }
 
 // Base class handler implementation
-int KPixmapRegionSelectorWidget_QBaseSenderSignalIndex(const KPixmapRegionSelectorWidget* self) {
+int KPixmapRegionSelectorWidget_SuperSenderSignalIndex(const KPixmapRegionSelectorWidget* self) {
     auto* vkpixmapregionselectorwidget = const_cast<VirtualKPixmapRegionSelectorWidget*>(dynamic_cast<const VirtualKPixmapRegionSelectorWidget*>(self));
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_SenderSignalIndex_IsBase(true);
@@ -1802,7 +1802,7 @@ int KPixmapRegionSelectorWidget_Receivers(const KPixmapRegionSelectorWidget* sel
 }
 
 // Base class handler implementation
-int KPixmapRegionSelectorWidget_QBaseReceivers(const KPixmapRegionSelectorWidget* self, const char* signal) {
+int KPixmapRegionSelectorWidget_SuperReceivers(const KPixmapRegionSelectorWidget* self, const char* signal) {
     auto* vkpixmapregionselectorwidget = const_cast<VirtualKPixmapRegionSelectorWidget*>(dynamic_cast<const VirtualKPixmapRegionSelectorWidget*>(self));
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_Receivers_IsBase(true);
@@ -1831,7 +1831,7 @@ bool KPixmapRegionSelectorWidget_IsSignalConnected(const KPixmapRegionSelectorWi
 }
 
 // Base class handler implementation
-bool KPixmapRegionSelectorWidget_QBaseIsSignalConnected(const KPixmapRegionSelectorWidget* self, const QMetaMethod* signal) {
+bool KPixmapRegionSelectorWidget_SuperIsSignalConnected(const KPixmapRegionSelectorWidget* self, const QMetaMethod* signal) {
     auto* vkpixmapregionselectorwidget = const_cast<VirtualKPixmapRegionSelectorWidget*>(dynamic_cast<const VirtualKPixmapRegionSelectorWidget*>(self));
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_IsSignalConnected_IsBase(true);
@@ -1860,7 +1860,7 @@ double KPixmapRegionSelectorWidget_GetDecodedMetricF(const KPixmapRegionSelector
 }
 
 // Base class handler implementation
-double KPixmapRegionSelectorWidget_QBaseGetDecodedMetricF(const KPixmapRegionSelectorWidget* self, int metricA, int metricB) {
+double KPixmapRegionSelectorWidget_SuperGetDecodedMetricF(const KPixmapRegionSelectorWidget* self, int metricA, int metricB) {
     auto* vkpixmapregionselectorwidget = const_cast<VirtualKPixmapRegionSelectorWidget*>(dynamic_cast<const VirtualKPixmapRegionSelectorWidget*>(self));
     if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
         vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_GetDecodedMetricF_IsBase(true);

@@ -94,6 +94,10 @@ pub const kuitsetup = struct {
         qtc.KuitSetup_SetFormatForMarker(@ptrCast(self), marker_str, @bitCast(format));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kuitsetup.html#dtor.KuitSetup)
     ///
     /// Delete this object from C++ memory.
@@ -102,7 +106,7 @@ pub const kuitsetup = struct {
     ///
     /// ` self: QtC.KuitSetup `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KuitSetup_Delete(@ptrCast(self));
     }
 };

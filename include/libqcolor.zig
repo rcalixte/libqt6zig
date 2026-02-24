@@ -1836,6 +1836,10 @@ pub const qcolor = struct {
         return qtc.QColor_Darker1(@ptrCast(self), @bitCast(f));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#dtor.QColor)
     ///
     /// Delete this object from C++ memory.
@@ -1844,7 +1848,7 @@ pub const qcolor = struct {
     ///
     /// ` self: QtC.QColor `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QColor_Delete(@ptrCast(self));
     }
 };

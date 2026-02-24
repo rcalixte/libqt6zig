@@ -288,7 +288,7 @@ void QPdfView_MouseReleaseEvent(QPdfView* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-QMetaObject* QPdfView_QBaseMetaObject(const QPdfView* self) {
+QMetaObject* QPdfView_SuperMetaObject(const QPdfView* self) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_MetaObject_IsBase(true);
@@ -307,7 +307,7 @@ void QPdfView_OnMetaObject(const QPdfView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QPdfView_QBaseMetacast(QPdfView* self, const char* param1) {
+void* QPdfView_SuperMetacast(QPdfView* self, const char* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_Metacast_IsBase(true);
@@ -326,7 +326,7 @@ void QPdfView_OnMetacast(QPdfView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPdfView_QBaseMetacall(QPdfView* self, int param1, int param2, void** param3) {
+int QPdfView_SuperMetacall(QPdfView* self, int param1, int param2, void** param3) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_Metacall_IsBase(true);
@@ -345,7 +345,7 @@ void QPdfView_OnMetacall(QPdfView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPdfView_QBasePaintEvent(QPdfView* self, QPaintEvent* event) {
+void QPdfView_SuperPaintEvent(QPdfView* self, QPaintEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_PaintEvent_IsBase(true);
@@ -364,7 +364,7 @@ void QPdfView_OnPaintEvent(QPdfView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseResizeEvent(QPdfView* self, QResizeEvent* event) {
+void QPdfView_SuperResizeEvent(QPdfView* self, QResizeEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_ResizeEvent_IsBase(true);
@@ -383,7 +383,7 @@ void QPdfView_OnResizeEvent(QPdfView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseScrollContentsBy(QPdfView* self, int dx, int dy) {
+void QPdfView_SuperScrollContentsBy(QPdfView* self, int dx, int dy) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_ScrollContentsBy_IsBase(true);
@@ -402,7 +402,7 @@ void QPdfView_OnScrollContentsBy(QPdfView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseMousePressEvent(QPdfView* self, QMouseEvent* event) {
+void QPdfView_SuperMousePressEvent(QPdfView* self, QMouseEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_MousePressEvent_IsBase(true);
@@ -421,7 +421,7 @@ void QPdfView_OnMousePressEvent(QPdfView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseMouseMoveEvent(QPdfView* self, QMouseEvent* event) {
+void QPdfView_SuperMouseMoveEvent(QPdfView* self, QMouseEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_MouseMoveEvent_IsBase(true);
@@ -440,7 +440,7 @@ void QPdfView_OnMouseMoveEvent(QPdfView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseMouseReleaseEvent(QPdfView* self, QMouseEvent* event) {
+void QPdfView_SuperMouseReleaseEvent(QPdfView* self, QMouseEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_MouseReleaseEvent_IsBase(true);
@@ -469,7 +469,7 @@ QSize* QPdfView_MinimumSizeHint(const QPdfView* self) {
 }
 
 // Base class handler implementation
-QSize* QPdfView_QBaseMinimumSizeHint(const QPdfView* self) {
+QSize* QPdfView_SuperMinimumSizeHint(const QPdfView* self) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_MinimumSizeHint_IsBase(true);
@@ -498,7 +498,7 @@ QSize* QPdfView_SizeHint(const QPdfView* self) {
 }
 
 // Base class handler implementation
-QSize* QPdfView_QBaseSizeHint(const QPdfView* self) {
+QSize* QPdfView_SuperSizeHint(const QPdfView* self) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_SizeHint_IsBase(true);
@@ -527,7 +527,7 @@ void QPdfView_SetupViewport(QPdfView* self, QWidget* viewport) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseSetupViewport(QPdfView* self, QWidget* viewport) {
+void QPdfView_SuperSetupViewport(QPdfView* self, QWidget* viewport) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_SetupViewport_IsBase(true);
@@ -556,7 +556,7 @@ bool QPdfView_EventFilter(QPdfView* self, QObject* param1, QEvent* param2) {
 }
 
 // Base class handler implementation
-bool QPdfView_QBaseEventFilter(QPdfView* self, QObject* param1, QEvent* param2) {
+bool QPdfView_SuperEventFilter(QPdfView* self, QObject* param1, QEvent* param2) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_EventFilter_IsBase(true);
@@ -585,7 +585,7 @@ bool QPdfView_Event(QPdfView* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-bool QPdfView_QBaseEvent(QPdfView* self, QEvent* param1) {
+bool QPdfView_SuperEvent(QPdfView* self, QEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_Event_IsBase(true);
@@ -614,7 +614,7 @@ bool QPdfView_ViewportEvent(QPdfView* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-bool QPdfView_QBaseViewportEvent(QPdfView* self, QEvent* param1) {
+bool QPdfView_SuperViewportEvent(QPdfView* self, QEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_ViewportEvent_IsBase(true);
@@ -643,7 +643,7 @@ void QPdfView_MouseDoubleClickEvent(QPdfView* self, QMouseEvent* param1) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseMouseDoubleClickEvent(QPdfView* self, QMouseEvent* param1) {
+void QPdfView_SuperMouseDoubleClickEvent(QPdfView* self, QMouseEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_MouseDoubleClickEvent_IsBase(true);
@@ -672,7 +672,7 @@ void QPdfView_WheelEvent(QPdfView* self, QWheelEvent* param1) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseWheelEvent(QPdfView* self, QWheelEvent* param1) {
+void QPdfView_SuperWheelEvent(QPdfView* self, QWheelEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_WheelEvent_IsBase(true);
@@ -701,7 +701,7 @@ void QPdfView_ContextMenuEvent(QPdfView* self, QContextMenuEvent* param1) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseContextMenuEvent(QPdfView* self, QContextMenuEvent* param1) {
+void QPdfView_SuperContextMenuEvent(QPdfView* self, QContextMenuEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_ContextMenuEvent_IsBase(true);
@@ -730,7 +730,7 @@ void QPdfView_DragEnterEvent(QPdfView* self, QDragEnterEvent* param1) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseDragEnterEvent(QPdfView* self, QDragEnterEvent* param1) {
+void QPdfView_SuperDragEnterEvent(QPdfView* self, QDragEnterEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_DragEnterEvent_IsBase(true);
@@ -759,7 +759,7 @@ void QPdfView_DragMoveEvent(QPdfView* self, QDragMoveEvent* param1) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseDragMoveEvent(QPdfView* self, QDragMoveEvent* param1) {
+void QPdfView_SuperDragMoveEvent(QPdfView* self, QDragMoveEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_DragMoveEvent_IsBase(true);
@@ -788,7 +788,7 @@ void QPdfView_DragLeaveEvent(QPdfView* self, QDragLeaveEvent* param1) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseDragLeaveEvent(QPdfView* self, QDragLeaveEvent* param1) {
+void QPdfView_SuperDragLeaveEvent(QPdfView* self, QDragLeaveEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_DragLeaveEvent_IsBase(true);
@@ -817,7 +817,7 @@ void QPdfView_DropEvent(QPdfView* self, QDropEvent* param1) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseDropEvent(QPdfView* self, QDropEvent* param1) {
+void QPdfView_SuperDropEvent(QPdfView* self, QDropEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_DropEvent_IsBase(true);
@@ -846,7 +846,7 @@ void QPdfView_KeyPressEvent(QPdfView* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseKeyPressEvent(QPdfView* self, QKeyEvent* param1) {
+void QPdfView_SuperKeyPressEvent(QPdfView* self, QKeyEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_KeyPressEvent_IsBase(true);
@@ -874,7 +874,7 @@ QSize* QPdfView_ViewportSizeHint(const QPdfView* self) {
 }
 
 // Base class handler implementation
-QSize* QPdfView_QBaseViewportSizeHint(const QPdfView* self) {
+QSize* QPdfView_SuperViewportSizeHint(const QPdfView* self) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_ViewportSizeHint_IsBase(true);
@@ -902,7 +902,7 @@ void QPdfView_ChangeEvent(QPdfView* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseChangeEvent(QPdfView* self, QEvent* param1) {
+void QPdfView_SuperChangeEvent(QPdfView* self, QEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_ChangeEvent_IsBase(true);
@@ -931,7 +931,7 @@ void QPdfView_InitStyleOption(const QPdfView* self, QStyleOptionFrame* option) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseInitStyleOption(const QPdfView* self, QStyleOptionFrame* option) {
+void QPdfView_SuperInitStyleOption(const QPdfView* self, QStyleOptionFrame* option) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_InitStyleOption_IsBase(true);
@@ -960,7 +960,7 @@ int QPdfView_DevType(const QPdfView* self) {
 }
 
 // Base class handler implementation
-int QPdfView_QBaseDevType(const QPdfView* self) {
+int QPdfView_SuperDevType(const QPdfView* self) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_DevType_IsBase(true);
@@ -989,7 +989,7 @@ void QPdfView_SetVisible(QPdfView* self, bool visible) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseSetVisible(QPdfView* self, bool visible) {
+void QPdfView_SuperSetVisible(QPdfView* self, bool visible) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_SetVisible_IsBase(true);
@@ -1018,7 +1018,7 @@ int QPdfView_HeightForWidth(const QPdfView* self, int param1) {
 }
 
 // Base class handler implementation
-int QPdfView_QBaseHeightForWidth(const QPdfView* self, int param1) {
+int QPdfView_SuperHeightForWidth(const QPdfView* self, int param1) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_HeightForWidth_IsBase(true);
@@ -1047,7 +1047,7 @@ bool QPdfView_HasHeightForWidth(const QPdfView* self) {
 }
 
 // Base class handler implementation
-bool QPdfView_QBaseHasHeightForWidth(const QPdfView* self) {
+bool QPdfView_SuperHasHeightForWidth(const QPdfView* self) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_HasHeightForWidth_IsBase(true);
@@ -1076,7 +1076,7 @@ QPaintEngine* QPdfView_PaintEngine(const QPdfView* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QPdfView_QBasePaintEngine(const QPdfView* self) {
+QPaintEngine* QPdfView_SuperPaintEngine(const QPdfView* self) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_PaintEngine_IsBase(true);
@@ -1105,7 +1105,7 @@ void QPdfView_KeyReleaseEvent(QPdfView* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseKeyReleaseEvent(QPdfView* self, QKeyEvent* event) {
+void QPdfView_SuperKeyReleaseEvent(QPdfView* self, QKeyEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_KeyReleaseEvent_IsBase(true);
@@ -1134,7 +1134,7 @@ void QPdfView_FocusInEvent(QPdfView* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseFocusInEvent(QPdfView* self, QFocusEvent* event) {
+void QPdfView_SuperFocusInEvent(QPdfView* self, QFocusEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_FocusInEvent_IsBase(true);
@@ -1163,7 +1163,7 @@ void QPdfView_FocusOutEvent(QPdfView* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseFocusOutEvent(QPdfView* self, QFocusEvent* event) {
+void QPdfView_SuperFocusOutEvent(QPdfView* self, QFocusEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_FocusOutEvent_IsBase(true);
@@ -1192,7 +1192,7 @@ void QPdfView_EnterEvent(QPdfView* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseEnterEvent(QPdfView* self, QEnterEvent* event) {
+void QPdfView_SuperEnterEvent(QPdfView* self, QEnterEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_EnterEvent_IsBase(true);
@@ -1221,7 +1221,7 @@ void QPdfView_LeaveEvent(QPdfView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseLeaveEvent(QPdfView* self, QEvent* event) {
+void QPdfView_SuperLeaveEvent(QPdfView* self, QEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_LeaveEvent_IsBase(true);
@@ -1250,7 +1250,7 @@ void QPdfView_MoveEvent(QPdfView* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseMoveEvent(QPdfView* self, QMoveEvent* event) {
+void QPdfView_SuperMoveEvent(QPdfView* self, QMoveEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_MoveEvent_IsBase(true);
@@ -1279,7 +1279,7 @@ void QPdfView_CloseEvent(QPdfView* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseCloseEvent(QPdfView* self, QCloseEvent* event) {
+void QPdfView_SuperCloseEvent(QPdfView* self, QCloseEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_CloseEvent_IsBase(true);
@@ -1308,7 +1308,7 @@ void QPdfView_TabletEvent(QPdfView* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseTabletEvent(QPdfView* self, QTabletEvent* event) {
+void QPdfView_SuperTabletEvent(QPdfView* self, QTabletEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_TabletEvent_IsBase(true);
@@ -1337,7 +1337,7 @@ void QPdfView_ActionEvent(QPdfView* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseActionEvent(QPdfView* self, QActionEvent* event) {
+void QPdfView_SuperActionEvent(QPdfView* self, QActionEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_ActionEvent_IsBase(true);
@@ -1366,7 +1366,7 @@ void QPdfView_ShowEvent(QPdfView* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseShowEvent(QPdfView* self, QShowEvent* event) {
+void QPdfView_SuperShowEvent(QPdfView* self, QShowEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_ShowEvent_IsBase(true);
@@ -1395,7 +1395,7 @@ void QPdfView_HideEvent(QPdfView* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseHideEvent(QPdfView* self, QHideEvent* event) {
+void QPdfView_SuperHideEvent(QPdfView* self, QHideEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_HideEvent_IsBase(true);
@@ -1425,7 +1425,7 @@ bool QPdfView_NativeEvent(QPdfView* self, const libqt_string eventType, void* me
 }
 
 // Base class handler implementation
-bool QPdfView_QBaseNativeEvent(QPdfView* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QPdfView_SuperNativeEvent(QPdfView* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
@@ -1455,7 +1455,7 @@ int QPdfView_Metric(const QPdfView* self, int param1) {
 }
 
 // Base class handler implementation
-int QPdfView_QBaseMetric(const QPdfView* self, int param1) {
+int QPdfView_SuperMetric(const QPdfView* self, int param1) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_Metric_IsBase(true);
@@ -1484,7 +1484,7 @@ void QPdfView_InitPainter(const QPdfView* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseInitPainter(const QPdfView* self, QPainter* painter) {
+void QPdfView_SuperInitPainter(const QPdfView* self, QPainter* painter) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_InitPainter_IsBase(true);
@@ -1513,7 +1513,7 @@ QPaintDevice* QPdfView_Redirected(const QPdfView* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QPdfView_QBaseRedirected(const QPdfView* self, QPoint* offset) {
+QPaintDevice* QPdfView_SuperRedirected(const QPdfView* self, QPoint* offset) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_Redirected_IsBase(true);
@@ -1542,7 +1542,7 @@ QPainter* QPdfView_SharedPainter(const QPdfView* self) {
 }
 
 // Base class handler implementation
-QPainter* QPdfView_QBaseSharedPainter(const QPdfView* self) {
+QPainter* QPdfView_SuperSharedPainter(const QPdfView* self) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_SharedPainter_IsBase(true);
@@ -1571,7 +1571,7 @@ void QPdfView_InputMethodEvent(QPdfView* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseInputMethodEvent(QPdfView* self, QInputMethodEvent* param1) {
+void QPdfView_SuperInputMethodEvent(QPdfView* self, QInputMethodEvent* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_InputMethodEvent_IsBase(true);
@@ -1600,7 +1600,7 @@ QVariant* QPdfView_InputMethodQuery(const QPdfView* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QPdfView_QBaseInputMethodQuery(const QPdfView* self, int param1) {
+QVariant* QPdfView_SuperInputMethodQuery(const QPdfView* self, int param1) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_InputMethodQuery_IsBase(true);
@@ -1629,7 +1629,7 @@ bool QPdfView_FocusNextPrevChild(QPdfView* self, bool next) {
 }
 
 // Base class handler implementation
-bool QPdfView_QBaseFocusNextPrevChild(QPdfView* self, bool next) {
+bool QPdfView_SuperFocusNextPrevChild(QPdfView* self, bool next) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_FocusNextPrevChild_IsBase(true);
@@ -1658,7 +1658,7 @@ void QPdfView_TimerEvent(QPdfView* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseTimerEvent(QPdfView* self, QTimerEvent* event) {
+void QPdfView_SuperTimerEvent(QPdfView* self, QTimerEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_TimerEvent_IsBase(true);
@@ -1687,7 +1687,7 @@ void QPdfView_ChildEvent(QPdfView* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseChildEvent(QPdfView* self, QChildEvent* event) {
+void QPdfView_SuperChildEvent(QPdfView* self, QChildEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_ChildEvent_IsBase(true);
@@ -1716,7 +1716,7 @@ void QPdfView_CustomEvent(QPdfView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseCustomEvent(QPdfView* self, QEvent* event) {
+void QPdfView_SuperCustomEvent(QPdfView* self, QEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_CustomEvent_IsBase(true);
@@ -1745,7 +1745,7 @@ void QPdfView_ConnectNotify(QPdfView* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseConnectNotify(QPdfView* self, const QMetaMethod* signal) {
+void QPdfView_SuperConnectNotify(QPdfView* self, const QMetaMethod* signal) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_ConnectNotify_IsBase(true);
@@ -1774,7 +1774,7 @@ void QPdfView_DisconnectNotify(QPdfView* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseDisconnectNotify(QPdfView* self, const QMetaMethod* signal) {
+void QPdfView_SuperDisconnectNotify(QPdfView* self, const QMetaMethod* signal) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_DisconnectNotify_IsBase(true);
@@ -1803,7 +1803,7 @@ void QPdfView_SetViewportMargins(QPdfView* self, int left, int top, int right, i
 }
 
 // Base class handler implementation
-void QPdfView_QBaseSetViewportMargins(QPdfView* self, int left, int top, int right, int bottom) {
+void QPdfView_SuperSetViewportMargins(QPdfView* self, int left, int top, int right, int bottom) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_SetViewportMargins_IsBase(true);
@@ -1831,7 +1831,7 @@ QMargins* QPdfView_ViewportMargins(const QPdfView* self) {
 }
 
 // Base class handler implementation
-QMargins* QPdfView_QBaseViewportMargins(const QPdfView* self) {
+QMargins* QPdfView_SuperViewportMargins(const QPdfView* self) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_ViewportMargins_IsBase(true);
@@ -1859,7 +1859,7 @@ void QPdfView_DrawFrame(QPdfView* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseDrawFrame(QPdfView* self, QPainter* param1) {
+void QPdfView_SuperDrawFrame(QPdfView* self, QPainter* param1) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_DrawFrame_IsBase(true);
@@ -1888,7 +1888,7 @@ void QPdfView_UpdateMicroFocus(QPdfView* self) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseUpdateMicroFocus(QPdfView* self) {
+void QPdfView_SuperUpdateMicroFocus(QPdfView* self) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_UpdateMicroFocus_IsBase(true);
@@ -1917,7 +1917,7 @@ void QPdfView_Create(QPdfView* self) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseCreate(QPdfView* self) {
+void QPdfView_SuperCreate(QPdfView* self) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_Create_IsBase(true);
@@ -1946,7 +1946,7 @@ void QPdfView_Destroy(QPdfView* self) {
 }
 
 // Base class handler implementation
-void QPdfView_QBaseDestroy(QPdfView* self) {
+void QPdfView_SuperDestroy(QPdfView* self) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_Destroy_IsBase(true);
@@ -1975,7 +1975,7 @@ bool QPdfView_FocusNextChild(QPdfView* self) {
 }
 
 // Base class handler implementation
-bool QPdfView_QBaseFocusNextChild(QPdfView* self) {
+bool QPdfView_SuperFocusNextChild(QPdfView* self) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_FocusNextChild_IsBase(true);
@@ -2004,7 +2004,7 @@ bool QPdfView_FocusPreviousChild(QPdfView* self) {
 }
 
 // Base class handler implementation
-bool QPdfView_QBaseFocusPreviousChild(QPdfView* self) {
+bool QPdfView_SuperFocusPreviousChild(QPdfView* self) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_FocusPreviousChild_IsBase(true);
@@ -2033,7 +2033,7 @@ QObject* QPdfView_Sender(const QPdfView* self) {
 }
 
 // Base class handler implementation
-QObject* QPdfView_QBaseSender(const QPdfView* self) {
+QObject* QPdfView_SuperSender(const QPdfView* self) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_Sender_IsBase(true);
@@ -2062,7 +2062,7 @@ int QPdfView_SenderSignalIndex(const QPdfView* self) {
 }
 
 // Base class handler implementation
-int QPdfView_QBaseSenderSignalIndex(const QPdfView* self) {
+int QPdfView_SuperSenderSignalIndex(const QPdfView* self) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_SenderSignalIndex_IsBase(true);
@@ -2091,7 +2091,7 @@ int QPdfView_Receivers(const QPdfView* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QPdfView_QBaseReceivers(const QPdfView* self, const char* signal) {
+int QPdfView_SuperReceivers(const QPdfView* self, const char* signal) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_Receivers_IsBase(true);
@@ -2120,7 +2120,7 @@ bool QPdfView_IsSignalConnected(const QPdfView* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-bool QPdfView_QBaseIsSignalConnected(const QPdfView* self, const QMetaMethod* signal) {
+bool QPdfView_SuperIsSignalConnected(const QPdfView* self, const QMetaMethod* signal) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_IsSignalConnected_IsBase(true);
@@ -2149,7 +2149,7 @@ double QPdfView_GetDecodedMetricF(const QPdfView* self, int metricA, int metricB
 }
 
 // Base class handler implementation
-double QPdfView_QBaseGetDecodedMetricF(const QPdfView* self, int metricA, int metricB) {
+double QPdfView_SuperGetDecodedMetricF(const QPdfView* self, int metricA, int metricB) {
     auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->setQPdfView_GetDecodedMetricF_IsBase(true);

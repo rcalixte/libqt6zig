@@ -123,7 +123,7 @@ void QOffscreenSurface_Connect_ScreenChanged(QOffscreenSurface* self, intptr_t s
 }
 
 // Base class handler implementation
-QMetaObject* QOffscreenSurface_QBaseMetaObject(const QOffscreenSurface* self) {
+QMetaObject* QOffscreenSurface_SuperMetaObject(const QOffscreenSurface* self) {
     auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
     if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
         vqoffscreensurface->setQOffscreenSurface_MetaObject_IsBase(true);
@@ -142,7 +142,7 @@ void QOffscreenSurface_OnMetaObject(const QOffscreenSurface* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* QOffscreenSurface_QBaseMetacast(QOffscreenSurface* self, const char* param1) {
+void* QOffscreenSurface_SuperMetacast(QOffscreenSurface* self, const char* param1) {
     auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
     if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
         vqoffscreensurface->setQOffscreenSurface_Metacast_IsBase(true);
@@ -161,7 +161,7 @@ void QOffscreenSurface_OnMetacast(QOffscreenSurface* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QOffscreenSurface_QBaseMetacall(QOffscreenSurface* self, int param1, int param2, void** param3) {
+int QOffscreenSurface_SuperMetacall(QOffscreenSurface* self, int param1, int param2, void** param3) {
     auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
     if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
         vqoffscreensurface->setQOffscreenSurface_Metacall_IsBase(true);
@@ -180,7 +180,7 @@ void QOffscreenSurface_OnMetacall(QOffscreenSurface* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QOffscreenSurface_QBaseSurfaceType(const QOffscreenSurface* self) {
+int QOffscreenSurface_SuperSurfaceType(const QOffscreenSurface* self) {
     auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
     if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
         vqoffscreensurface->setQOffscreenSurface_SurfaceType_IsBase(true);
@@ -199,7 +199,7 @@ void QOffscreenSurface_OnSurfaceType(const QOffscreenSurface* self, intptr_t slo
 }
 
 // Base class handler implementation
-QSurfaceFormat* QOffscreenSurface_QBaseFormat(const QOffscreenSurface* self) {
+QSurfaceFormat* QOffscreenSurface_SuperFormat(const QOffscreenSurface* self) {
     auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
     if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
         vqoffscreensurface->setQOffscreenSurface_Format_IsBase(true);
@@ -218,7 +218,7 @@ void QOffscreenSurface_OnFormat(const QOffscreenSurface* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QOffscreenSurface_QBaseSize(const QOffscreenSurface* self) {
+QSize* QOffscreenSurface_SuperSize(const QOffscreenSurface* self) {
     auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
     if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
         vqoffscreensurface->setQOffscreenSurface_Size_IsBase(true);
@@ -247,7 +247,7 @@ bool QOffscreenSurface_Event(QOffscreenSurface* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QOffscreenSurface_QBaseEvent(QOffscreenSurface* self, QEvent* event) {
+bool QOffscreenSurface_SuperEvent(QOffscreenSurface* self, QEvent* event) {
     auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
     if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
         vqoffscreensurface->setQOffscreenSurface_Event_IsBase(true);
@@ -276,7 +276,7 @@ bool QOffscreenSurface_EventFilter(QOffscreenSurface* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool QOffscreenSurface_QBaseEventFilter(QOffscreenSurface* self, QObject* watched, QEvent* event) {
+bool QOffscreenSurface_SuperEventFilter(QOffscreenSurface* self, QObject* watched, QEvent* event) {
     auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
     if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
         vqoffscreensurface->setQOffscreenSurface_EventFilter_IsBase(true);
@@ -305,7 +305,7 @@ void QOffscreenSurface_TimerEvent(QOffscreenSurface* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QOffscreenSurface_QBaseTimerEvent(QOffscreenSurface* self, QTimerEvent* event) {
+void QOffscreenSurface_SuperTimerEvent(QOffscreenSurface* self, QTimerEvent* event) {
     auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
     if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
         vqoffscreensurface->setQOffscreenSurface_TimerEvent_IsBase(true);
@@ -334,7 +334,7 @@ void QOffscreenSurface_ChildEvent(QOffscreenSurface* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QOffscreenSurface_QBaseChildEvent(QOffscreenSurface* self, QChildEvent* event) {
+void QOffscreenSurface_SuperChildEvent(QOffscreenSurface* self, QChildEvent* event) {
     auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
     if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
         vqoffscreensurface->setQOffscreenSurface_ChildEvent_IsBase(true);
@@ -363,7 +363,7 @@ void QOffscreenSurface_CustomEvent(QOffscreenSurface* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QOffscreenSurface_QBaseCustomEvent(QOffscreenSurface* self, QEvent* event) {
+void QOffscreenSurface_SuperCustomEvent(QOffscreenSurface* self, QEvent* event) {
     auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
     if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
         vqoffscreensurface->setQOffscreenSurface_CustomEvent_IsBase(true);
@@ -392,7 +392,7 @@ void QOffscreenSurface_ConnectNotify(QOffscreenSurface* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void QOffscreenSurface_QBaseConnectNotify(QOffscreenSurface* self, const QMetaMethod* signal) {
+void QOffscreenSurface_SuperConnectNotify(QOffscreenSurface* self, const QMetaMethod* signal) {
     auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
     if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
         vqoffscreensurface->setQOffscreenSurface_ConnectNotify_IsBase(true);
@@ -421,7 +421,7 @@ void QOffscreenSurface_DisconnectNotify(QOffscreenSurface* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void QOffscreenSurface_QBaseDisconnectNotify(QOffscreenSurface* self, const QMetaMethod* signal) {
+void QOffscreenSurface_SuperDisconnectNotify(QOffscreenSurface* self, const QMetaMethod* signal) {
     auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
     if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
         vqoffscreensurface->setQOffscreenSurface_DisconnectNotify_IsBase(true);
@@ -450,7 +450,7 @@ void* QOffscreenSurface_ResolveInterface(const QOffscreenSurface* self, const ch
 }
 
 // Base class handler implementation
-void* QOffscreenSurface_QBaseResolveInterface(const QOffscreenSurface* self, const char* name, int revision) {
+void* QOffscreenSurface_SuperResolveInterface(const QOffscreenSurface* self, const char* name, int revision) {
     auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
     if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
         vqoffscreensurface->setQOffscreenSurface_ResolveInterface_IsBase(true);
@@ -479,7 +479,7 @@ QObject* QOffscreenSurface_Sender(const QOffscreenSurface* self) {
 }
 
 // Base class handler implementation
-QObject* QOffscreenSurface_QBaseSender(const QOffscreenSurface* self) {
+QObject* QOffscreenSurface_SuperSender(const QOffscreenSurface* self) {
     auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
     if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
         vqoffscreensurface->setQOffscreenSurface_Sender_IsBase(true);
@@ -508,7 +508,7 @@ int QOffscreenSurface_SenderSignalIndex(const QOffscreenSurface* self) {
 }
 
 // Base class handler implementation
-int QOffscreenSurface_QBaseSenderSignalIndex(const QOffscreenSurface* self) {
+int QOffscreenSurface_SuperSenderSignalIndex(const QOffscreenSurface* self) {
     auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
     if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
         vqoffscreensurface->setQOffscreenSurface_SenderSignalIndex_IsBase(true);
@@ -537,7 +537,7 @@ int QOffscreenSurface_Receivers(const QOffscreenSurface* self, const char* signa
 }
 
 // Base class handler implementation
-int QOffscreenSurface_QBaseReceivers(const QOffscreenSurface* self, const char* signal) {
+int QOffscreenSurface_SuperReceivers(const QOffscreenSurface* self, const char* signal) {
     auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
     if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
         vqoffscreensurface->setQOffscreenSurface_Receivers_IsBase(true);
@@ -566,7 +566,7 @@ bool QOffscreenSurface_IsSignalConnected(const QOffscreenSurface* self, const QM
 }
 
 // Base class handler implementation
-bool QOffscreenSurface_QBaseIsSignalConnected(const QOffscreenSurface* self, const QMetaMethod* signal) {
+bool QOffscreenSurface_SuperIsSignalConnected(const QOffscreenSurface* self, const QMetaMethod* signal) {
     auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
     if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
         vqoffscreensurface->setQOffscreenSurface_IsSignalConnected_IsBase(true);

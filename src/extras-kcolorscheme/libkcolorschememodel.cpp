@@ -78,7 +78,7 @@ int KColorSchemeModel_RowCount(const KColorSchemeModel* self, const QModelIndex*
 }
 
 // Base class handler implementation
-QMetaObject* KColorSchemeModel_QBaseMetaObject(const KColorSchemeModel* self) {
+QMetaObject* KColorSchemeModel_SuperMetaObject(const KColorSchemeModel* self) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_MetaObject_IsBase(true);
@@ -97,7 +97,7 @@ void KColorSchemeModel_OnMetaObject(const KColorSchemeModel* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* KColorSchemeModel_QBaseMetacast(KColorSchemeModel* self, const char* param1) {
+void* KColorSchemeModel_SuperMetacast(KColorSchemeModel* self, const char* param1) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_Metacast_IsBase(true);
@@ -116,7 +116,7 @@ void KColorSchemeModel_OnMetacast(KColorSchemeModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KColorSchemeModel_QBaseMetacall(KColorSchemeModel* self, int param1, int param2, void** param3) {
+int KColorSchemeModel_SuperMetacall(KColorSchemeModel* self, int param1, int param2, void** param3) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_Metacall_IsBase(true);
@@ -135,7 +135,7 @@ void KColorSchemeModel_OnMetacall(KColorSchemeModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* KColorSchemeModel_QBaseData(const KColorSchemeModel* self, const QModelIndex* index, int role) {
+QVariant* KColorSchemeModel_SuperData(const KColorSchemeModel* self, const QModelIndex* index, int role) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_Data_IsBase(true);
@@ -154,7 +154,7 @@ void KColorSchemeModel_OnData(const KColorSchemeModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KColorSchemeModel_QBaseRowCount(const KColorSchemeModel* self, const QModelIndex* parent) {
+int KColorSchemeModel_SuperRowCount(const KColorSchemeModel* self, const QModelIndex* parent) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_RowCount_IsBase(true);
@@ -183,7 +183,7 @@ QModelIndex* KColorSchemeModel_Index(const KColorSchemeModel* self, int row, int
 }
 
 // Base class handler implementation
-QModelIndex* KColorSchemeModel_QBaseIndex(const KColorSchemeModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* KColorSchemeModel_SuperIndex(const KColorSchemeModel* self, int row, int column, const QModelIndex* parent) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_Index_IsBase(true);
@@ -212,7 +212,7 @@ QModelIndex* KColorSchemeModel_Sibling(const KColorSchemeModel* self, int row, i
 }
 
 // Base class handler implementation
-QModelIndex* KColorSchemeModel_QBaseSibling(const KColorSchemeModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* KColorSchemeModel_SuperSibling(const KColorSchemeModel* self, int row, int column, const QModelIndex* idx) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_Sibling_IsBase(true);
@@ -241,7 +241,7 @@ bool KColorSchemeModel_DropMimeData(KColorSchemeModel* self, const QMimeData* da
 }
 
 // Base class handler implementation
-bool KColorSchemeModel_QBaseDropMimeData(KColorSchemeModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KColorSchemeModel_SuperDropMimeData(KColorSchemeModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_DropMimeData_IsBase(true);
@@ -270,7 +270,7 @@ int KColorSchemeModel_Flags(const KColorSchemeModel* self, const QModelIndex* in
 }
 
 // Base class handler implementation
-int KColorSchemeModel_QBaseFlags(const KColorSchemeModel* self, const QModelIndex* index) {
+int KColorSchemeModel_SuperFlags(const KColorSchemeModel* self, const QModelIndex* index) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_Flags_IsBase(true);
@@ -299,7 +299,7 @@ bool KColorSchemeModel_SetData(KColorSchemeModel* self, const QModelIndex* index
 }
 
 // Base class handler implementation
-bool KColorSchemeModel_QBaseSetData(KColorSchemeModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool KColorSchemeModel_SuperSetData(KColorSchemeModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_SetData_IsBase(true);
@@ -328,7 +328,7 @@ QVariant* KColorSchemeModel_HeaderData(const KColorSchemeModel* self, int sectio
 }
 
 // Base class handler implementation
-QVariant* KColorSchemeModel_QBaseHeaderData(const KColorSchemeModel* self, int section, int orientation, int role) {
+QVariant* KColorSchemeModel_SuperHeaderData(const KColorSchemeModel* self, int section, int orientation, int role) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_HeaderData_IsBase(true);
@@ -357,7 +357,7 @@ bool KColorSchemeModel_SetHeaderData(KColorSchemeModel* self, int section, int o
 }
 
 // Base class handler implementation
-bool KColorSchemeModel_QBaseSetHeaderData(KColorSchemeModel* self, int section, int orientation, const QVariant* value, int role) {
+bool KColorSchemeModel_SuperSetHeaderData(KColorSchemeModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_SetHeaderData_IsBase(true);
@@ -414,7 +414,7 @@ libqt_map /* of int to QVariant* */ KColorSchemeModel_ItemData(const KColorSchem
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ KColorSchemeModel_QBaseItemData(const KColorSchemeModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ KColorSchemeModel_SuperItemData(const KColorSchemeModel* self, const QModelIndex* index) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_ItemData_IsBase(true);
@@ -477,7 +477,7 @@ bool KColorSchemeModel_SetItemData(KColorSchemeModel* self, const QModelIndex* i
 }
 
 // Base class handler implementation
-bool KColorSchemeModel_QBaseSetItemData(KColorSchemeModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool KColorSchemeModel_SuperSetItemData(KColorSchemeModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -512,7 +512,7 @@ bool KColorSchemeModel_ClearItemData(KColorSchemeModel* self, const QModelIndex*
 }
 
 // Base class handler implementation
-bool KColorSchemeModel_QBaseClearItemData(KColorSchemeModel* self, const QModelIndex* index) {
+bool KColorSchemeModel_SuperClearItemData(KColorSchemeModel* self, const QModelIndex* index) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_ClearItemData_IsBase(true);
@@ -575,7 +575,7 @@ libqt_list /* of libqt_string */ KColorSchemeModel_MimeTypes(const KColorSchemeM
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KColorSchemeModel_QBaseMimeTypes(const KColorSchemeModel* self) {
+libqt_list /* of libqt_string */ KColorSchemeModel_SuperMimeTypes(const KColorSchemeModel* self) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_MimeTypes_IsBase(true);
@@ -644,7 +644,7 @@ QMimeData* KColorSchemeModel_MimeData(const KColorSchemeModel* self, const libqt
 }
 
 // Base class handler implementation
-QMimeData* KColorSchemeModel_QBaseMimeData(const KColorSchemeModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* KColorSchemeModel_SuperMimeData(const KColorSchemeModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -679,7 +679,7 @@ bool KColorSchemeModel_CanDropMimeData(const KColorSchemeModel* self, const QMim
 }
 
 // Base class handler implementation
-bool KColorSchemeModel_QBaseCanDropMimeData(const KColorSchemeModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KColorSchemeModel_SuperCanDropMimeData(const KColorSchemeModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_CanDropMimeData_IsBase(true);
@@ -708,7 +708,7 @@ int KColorSchemeModel_SupportedDropActions(const KColorSchemeModel* self) {
 }
 
 // Base class handler implementation
-int KColorSchemeModel_QBaseSupportedDropActions(const KColorSchemeModel* self) {
+int KColorSchemeModel_SuperSupportedDropActions(const KColorSchemeModel* self) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_SupportedDropActions_IsBase(true);
@@ -737,7 +737,7 @@ int KColorSchemeModel_SupportedDragActions(const KColorSchemeModel* self) {
 }
 
 // Base class handler implementation
-int KColorSchemeModel_QBaseSupportedDragActions(const KColorSchemeModel* self) {
+int KColorSchemeModel_SuperSupportedDragActions(const KColorSchemeModel* self) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_SupportedDragActions_IsBase(true);
@@ -766,7 +766,7 @@ bool KColorSchemeModel_InsertRows(KColorSchemeModel* self, int row, int count, c
 }
 
 // Base class handler implementation
-bool KColorSchemeModel_QBaseInsertRows(KColorSchemeModel* self, int row, int count, const QModelIndex* parent) {
+bool KColorSchemeModel_SuperInsertRows(KColorSchemeModel* self, int row, int count, const QModelIndex* parent) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_InsertRows_IsBase(true);
@@ -795,7 +795,7 @@ bool KColorSchemeModel_InsertColumns(KColorSchemeModel* self, int column, int co
 }
 
 // Base class handler implementation
-bool KColorSchemeModel_QBaseInsertColumns(KColorSchemeModel* self, int column, int count, const QModelIndex* parent) {
+bool KColorSchemeModel_SuperInsertColumns(KColorSchemeModel* self, int column, int count, const QModelIndex* parent) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_InsertColumns_IsBase(true);
@@ -824,7 +824,7 @@ bool KColorSchemeModel_RemoveRows(KColorSchemeModel* self, int row, int count, c
 }
 
 // Base class handler implementation
-bool KColorSchemeModel_QBaseRemoveRows(KColorSchemeModel* self, int row, int count, const QModelIndex* parent) {
+bool KColorSchemeModel_SuperRemoveRows(KColorSchemeModel* self, int row, int count, const QModelIndex* parent) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_RemoveRows_IsBase(true);
@@ -853,7 +853,7 @@ bool KColorSchemeModel_RemoveColumns(KColorSchemeModel* self, int column, int co
 }
 
 // Base class handler implementation
-bool KColorSchemeModel_QBaseRemoveColumns(KColorSchemeModel* self, int column, int count, const QModelIndex* parent) {
+bool KColorSchemeModel_SuperRemoveColumns(KColorSchemeModel* self, int column, int count, const QModelIndex* parent) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_RemoveColumns_IsBase(true);
@@ -882,7 +882,7 @@ bool KColorSchemeModel_MoveRows(KColorSchemeModel* self, const QModelIndex* sour
 }
 
 // Base class handler implementation
-bool KColorSchemeModel_QBaseMoveRows(KColorSchemeModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KColorSchemeModel_SuperMoveRows(KColorSchemeModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_MoveRows_IsBase(true);
@@ -911,7 +911,7 @@ bool KColorSchemeModel_MoveColumns(KColorSchemeModel* self, const QModelIndex* s
 }
 
 // Base class handler implementation
-bool KColorSchemeModel_QBaseMoveColumns(KColorSchemeModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KColorSchemeModel_SuperMoveColumns(KColorSchemeModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_MoveColumns_IsBase(true);
@@ -940,7 +940,7 @@ void KColorSchemeModel_FetchMore(KColorSchemeModel* self, const QModelIndex* par
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseFetchMore(KColorSchemeModel* self, const QModelIndex* parent) {
+void KColorSchemeModel_SuperFetchMore(KColorSchemeModel* self, const QModelIndex* parent) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_FetchMore_IsBase(true);
@@ -969,7 +969,7 @@ bool KColorSchemeModel_CanFetchMore(const KColorSchemeModel* self, const QModelI
 }
 
 // Base class handler implementation
-bool KColorSchemeModel_QBaseCanFetchMore(const KColorSchemeModel* self, const QModelIndex* parent) {
+bool KColorSchemeModel_SuperCanFetchMore(const KColorSchemeModel* self, const QModelIndex* parent) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_CanFetchMore_IsBase(true);
@@ -998,7 +998,7 @@ void KColorSchemeModel_Sort(KColorSchemeModel* self, int column, int order) {
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseSort(KColorSchemeModel* self, int column, int order) {
+void KColorSchemeModel_SuperSort(KColorSchemeModel* self, int column, int order) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_Sort_IsBase(true);
@@ -1027,7 +1027,7 @@ QModelIndex* KColorSchemeModel_Buddy(const KColorSchemeModel* self, const QModel
 }
 
 // Base class handler implementation
-QModelIndex* KColorSchemeModel_QBaseBuddy(const KColorSchemeModel* self, const QModelIndex* index) {
+QModelIndex* KColorSchemeModel_SuperBuddy(const KColorSchemeModel* self, const QModelIndex* index) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_Buddy_IsBase(true);
@@ -1074,7 +1074,7 @@ libqt_list /* of QModelIndex* */ KColorSchemeModel_Match(const KColorSchemeModel
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KColorSchemeModel_QBaseMatch(const KColorSchemeModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ KColorSchemeModel_SuperMatch(const KColorSchemeModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_Match_IsBase(true);
@@ -1121,7 +1121,7 @@ QSize* KColorSchemeModel_Span(const KColorSchemeModel* self, const QModelIndex* 
 }
 
 // Base class handler implementation
-QSize* KColorSchemeModel_QBaseSpan(const KColorSchemeModel* self, const QModelIndex* index) {
+QSize* KColorSchemeModel_SuperSpan(const KColorSchemeModel* self, const QModelIndex* index) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_Span_IsBase(true);
@@ -1188,7 +1188,7 @@ libqt_map /* of int to libqt_string */ KColorSchemeModel_RoleNames(const KColorS
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ KColorSchemeModel_QBaseRoleNames(const KColorSchemeModel* self) {
+libqt_map /* of int to libqt_string */ KColorSchemeModel_SuperRoleNames(const KColorSchemeModel* self) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_RoleNames_IsBase(true);
@@ -1255,7 +1255,7 @@ void KColorSchemeModel_MultiData(const KColorSchemeModel* self, const QModelInde
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseMultiData(const KColorSchemeModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void KColorSchemeModel_SuperMultiData(const KColorSchemeModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_MultiData_IsBase(true);
@@ -1284,7 +1284,7 @@ bool KColorSchemeModel_Submit(KColorSchemeModel* self) {
 }
 
 // Base class handler implementation
-bool KColorSchemeModel_QBaseSubmit(KColorSchemeModel* self) {
+bool KColorSchemeModel_SuperSubmit(KColorSchemeModel* self) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_Submit_IsBase(true);
@@ -1313,7 +1313,7 @@ void KColorSchemeModel_Revert(KColorSchemeModel* self) {
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseRevert(KColorSchemeModel* self) {
+void KColorSchemeModel_SuperRevert(KColorSchemeModel* self) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_Revert_IsBase(true);
@@ -1342,7 +1342,7 @@ void KColorSchemeModel_ResetInternalData(KColorSchemeModel* self) {
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseResetInternalData(KColorSchemeModel* self) {
+void KColorSchemeModel_SuperResetInternalData(KColorSchemeModel* self) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_ResetInternalData_IsBase(true);
@@ -1371,7 +1371,7 @@ bool KColorSchemeModel_Event(KColorSchemeModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KColorSchemeModel_QBaseEvent(KColorSchemeModel* self, QEvent* event) {
+bool KColorSchemeModel_SuperEvent(KColorSchemeModel* self, QEvent* event) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_Event_IsBase(true);
@@ -1400,7 +1400,7 @@ bool KColorSchemeModel_EventFilter(KColorSchemeModel* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool KColorSchemeModel_QBaseEventFilter(KColorSchemeModel* self, QObject* watched, QEvent* event) {
+bool KColorSchemeModel_SuperEventFilter(KColorSchemeModel* self, QObject* watched, QEvent* event) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_EventFilter_IsBase(true);
@@ -1429,7 +1429,7 @@ void KColorSchemeModel_TimerEvent(KColorSchemeModel* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseTimerEvent(KColorSchemeModel* self, QTimerEvent* event) {
+void KColorSchemeModel_SuperTimerEvent(KColorSchemeModel* self, QTimerEvent* event) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_TimerEvent_IsBase(true);
@@ -1458,7 +1458,7 @@ void KColorSchemeModel_ChildEvent(KColorSchemeModel* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseChildEvent(KColorSchemeModel* self, QChildEvent* event) {
+void KColorSchemeModel_SuperChildEvent(KColorSchemeModel* self, QChildEvent* event) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_ChildEvent_IsBase(true);
@@ -1487,7 +1487,7 @@ void KColorSchemeModel_CustomEvent(KColorSchemeModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseCustomEvent(KColorSchemeModel* self, QEvent* event) {
+void KColorSchemeModel_SuperCustomEvent(KColorSchemeModel* self, QEvent* event) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_CustomEvent_IsBase(true);
@@ -1516,7 +1516,7 @@ void KColorSchemeModel_ConnectNotify(KColorSchemeModel* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseConnectNotify(KColorSchemeModel* self, const QMetaMethod* signal) {
+void KColorSchemeModel_SuperConnectNotify(KColorSchemeModel* self, const QMetaMethod* signal) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_ConnectNotify_IsBase(true);
@@ -1545,7 +1545,7 @@ void KColorSchemeModel_DisconnectNotify(KColorSchemeModel* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseDisconnectNotify(KColorSchemeModel* self, const QMetaMethod* signal) {
+void KColorSchemeModel_SuperDisconnectNotify(KColorSchemeModel* self, const QMetaMethod* signal) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_DisconnectNotify_IsBase(true);
@@ -1573,7 +1573,7 @@ QModelIndex* KColorSchemeModel_CreateIndex(const KColorSchemeModel* self, int ro
 }
 
 // Base class handler implementation
-QModelIndex* KColorSchemeModel_QBaseCreateIndex(const KColorSchemeModel* self, int row, int column) {
+QModelIndex* KColorSchemeModel_SuperCreateIndex(const KColorSchemeModel* self, int row, int column) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_CreateIndex_IsBase(true);
@@ -1607,7 +1607,7 @@ void KColorSchemeModel_EncodeData(const KColorSchemeModel* self, const libqt_lis
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseEncodeData(const KColorSchemeModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void KColorSchemeModel_SuperEncodeData(const KColorSchemeModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -1642,7 +1642,7 @@ bool KColorSchemeModel_DecodeData(KColorSchemeModel* self, int row, int column, 
 }
 
 // Base class handler implementation
-bool KColorSchemeModel_QBaseDecodeData(KColorSchemeModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool KColorSchemeModel_SuperDecodeData(KColorSchemeModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_DecodeData_IsBase(true);
@@ -1671,7 +1671,7 @@ void KColorSchemeModel_BeginInsertRows(KColorSchemeModel* self, const QModelInde
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseBeginInsertRows(KColorSchemeModel* self, const QModelIndex* parent, int first, int last) {
+void KColorSchemeModel_SuperBeginInsertRows(KColorSchemeModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_BeginInsertRows_IsBase(true);
@@ -1700,7 +1700,7 @@ void KColorSchemeModel_EndInsertRows(KColorSchemeModel* self) {
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseEndInsertRows(KColorSchemeModel* self) {
+void KColorSchemeModel_SuperEndInsertRows(KColorSchemeModel* self) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_EndInsertRows_IsBase(true);
@@ -1729,7 +1729,7 @@ void KColorSchemeModel_BeginRemoveRows(KColorSchemeModel* self, const QModelInde
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseBeginRemoveRows(KColorSchemeModel* self, const QModelIndex* parent, int first, int last) {
+void KColorSchemeModel_SuperBeginRemoveRows(KColorSchemeModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_BeginRemoveRows_IsBase(true);
@@ -1758,7 +1758,7 @@ void KColorSchemeModel_EndRemoveRows(KColorSchemeModel* self) {
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseEndRemoveRows(KColorSchemeModel* self) {
+void KColorSchemeModel_SuperEndRemoveRows(KColorSchemeModel* self) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_EndRemoveRows_IsBase(true);
@@ -1787,7 +1787,7 @@ bool KColorSchemeModel_BeginMoveRows(KColorSchemeModel* self, const QModelIndex*
 }
 
 // Base class handler implementation
-bool KColorSchemeModel_QBaseBeginMoveRows(KColorSchemeModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool KColorSchemeModel_SuperBeginMoveRows(KColorSchemeModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_BeginMoveRows_IsBase(true);
@@ -1816,7 +1816,7 @@ void KColorSchemeModel_EndMoveRows(KColorSchemeModel* self) {
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseEndMoveRows(KColorSchemeModel* self) {
+void KColorSchemeModel_SuperEndMoveRows(KColorSchemeModel* self) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_EndMoveRows_IsBase(true);
@@ -1845,7 +1845,7 @@ void KColorSchemeModel_BeginInsertColumns(KColorSchemeModel* self, const QModelI
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseBeginInsertColumns(KColorSchemeModel* self, const QModelIndex* parent, int first, int last) {
+void KColorSchemeModel_SuperBeginInsertColumns(KColorSchemeModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_BeginInsertColumns_IsBase(true);
@@ -1874,7 +1874,7 @@ void KColorSchemeModel_EndInsertColumns(KColorSchemeModel* self) {
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseEndInsertColumns(KColorSchemeModel* self) {
+void KColorSchemeModel_SuperEndInsertColumns(KColorSchemeModel* self) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_EndInsertColumns_IsBase(true);
@@ -1903,7 +1903,7 @@ void KColorSchemeModel_BeginRemoveColumns(KColorSchemeModel* self, const QModelI
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseBeginRemoveColumns(KColorSchemeModel* self, const QModelIndex* parent, int first, int last) {
+void KColorSchemeModel_SuperBeginRemoveColumns(KColorSchemeModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_BeginRemoveColumns_IsBase(true);
@@ -1932,7 +1932,7 @@ void KColorSchemeModel_EndRemoveColumns(KColorSchemeModel* self) {
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseEndRemoveColumns(KColorSchemeModel* self) {
+void KColorSchemeModel_SuperEndRemoveColumns(KColorSchemeModel* self) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_EndRemoveColumns_IsBase(true);
@@ -1961,7 +1961,7 @@ bool KColorSchemeModel_BeginMoveColumns(KColorSchemeModel* self, const QModelInd
 }
 
 // Base class handler implementation
-bool KColorSchemeModel_QBaseBeginMoveColumns(KColorSchemeModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool KColorSchemeModel_SuperBeginMoveColumns(KColorSchemeModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_BeginMoveColumns_IsBase(true);
@@ -1990,7 +1990,7 @@ void KColorSchemeModel_EndMoveColumns(KColorSchemeModel* self) {
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseEndMoveColumns(KColorSchemeModel* self) {
+void KColorSchemeModel_SuperEndMoveColumns(KColorSchemeModel* self) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_EndMoveColumns_IsBase(true);
@@ -2019,7 +2019,7 @@ void KColorSchemeModel_BeginResetModel(KColorSchemeModel* self) {
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseBeginResetModel(KColorSchemeModel* self) {
+void KColorSchemeModel_SuperBeginResetModel(KColorSchemeModel* self) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_BeginResetModel_IsBase(true);
@@ -2048,7 +2048,7 @@ void KColorSchemeModel_EndResetModel(KColorSchemeModel* self) {
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseEndResetModel(KColorSchemeModel* self) {
+void KColorSchemeModel_SuperEndResetModel(KColorSchemeModel* self) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_EndResetModel_IsBase(true);
@@ -2077,7 +2077,7 @@ void KColorSchemeModel_ChangePersistentIndex(KColorSchemeModel* self, const QMod
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseChangePersistentIndex(KColorSchemeModel* self, const QModelIndex* from, const QModelIndex* to) {
+void KColorSchemeModel_SuperChangePersistentIndex(KColorSchemeModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_ChangePersistentIndex_IsBase(true);
@@ -2118,7 +2118,7 @@ void KColorSchemeModel_ChangePersistentIndexList(KColorSchemeModel* self, const 
 }
 
 // Base class handler implementation
-void KColorSchemeModel_QBaseChangePersistentIndexList(KColorSchemeModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void KColorSchemeModel_SuperChangePersistentIndexList(KColorSchemeModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -2177,7 +2177,7 @@ libqt_list /* of QModelIndex* */ KColorSchemeModel_PersistentIndexList(const KCo
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KColorSchemeModel_QBasePersistentIndexList(const KColorSchemeModel* self) {
+libqt_list /* of QModelIndex* */ KColorSchemeModel_SuperPersistentIndexList(const KColorSchemeModel* self) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_PersistentIndexList_IsBase(true);
@@ -2224,7 +2224,7 @@ QObject* KColorSchemeModel_Sender(const KColorSchemeModel* self) {
 }
 
 // Base class handler implementation
-QObject* KColorSchemeModel_QBaseSender(const KColorSchemeModel* self) {
+QObject* KColorSchemeModel_SuperSender(const KColorSchemeModel* self) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_Sender_IsBase(true);
@@ -2253,7 +2253,7 @@ int KColorSchemeModel_SenderSignalIndex(const KColorSchemeModel* self) {
 }
 
 // Base class handler implementation
-int KColorSchemeModel_QBaseSenderSignalIndex(const KColorSchemeModel* self) {
+int KColorSchemeModel_SuperSenderSignalIndex(const KColorSchemeModel* self) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_SenderSignalIndex_IsBase(true);
@@ -2282,7 +2282,7 @@ int KColorSchemeModel_Receivers(const KColorSchemeModel* self, const char* signa
 }
 
 // Base class handler implementation
-int KColorSchemeModel_QBaseReceivers(const KColorSchemeModel* self, const char* signal) {
+int KColorSchemeModel_SuperReceivers(const KColorSchemeModel* self, const char* signal) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_Receivers_IsBase(true);
@@ -2311,7 +2311,7 @@ bool KColorSchemeModel_IsSignalConnected(const KColorSchemeModel* self, const QM
 }
 
 // Base class handler implementation
-bool KColorSchemeModel_QBaseIsSignalConnected(const KColorSchemeModel* self, const QMetaMethod* signal) {
+bool KColorSchemeModel_SuperIsSignalConnected(const KColorSchemeModel* self, const QMetaMethod* signal) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_IsSignalConnected_IsBase(true);

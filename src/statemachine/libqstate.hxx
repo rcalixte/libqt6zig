@@ -370,29 +370,29 @@ class VirtualQState final : public QState {
 
     // Friend functions
     friend void QState_OnEntry(QState* self, QEvent* event);
-    friend void QState_QBaseOnEntry(QState* self, QEvent* event);
+    friend void QState_SuperOnEntry(QState* self, QEvent* event);
     friend void QState_OnExit(QState* self, QEvent* event);
-    friend void QState_QBaseOnExit(QState* self, QEvent* event);
+    friend void QState_SuperOnExit(QState* self, QEvent* event);
     friend bool QState_Event(QState* self, QEvent* e);
-    friend bool QState_QBaseEvent(QState* self, QEvent* e);
+    friend bool QState_SuperEvent(QState* self, QEvent* e);
     friend void QState_TimerEvent(QState* self, QTimerEvent* event);
-    friend void QState_QBaseTimerEvent(QState* self, QTimerEvent* event);
+    friend void QState_SuperTimerEvent(QState* self, QTimerEvent* event);
     friend void QState_ChildEvent(QState* self, QChildEvent* event);
-    friend void QState_QBaseChildEvent(QState* self, QChildEvent* event);
+    friend void QState_SuperChildEvent(QState* self, QChildEvent* event);
     friend void QState_CustomEvent(QState* self, QEvent* event);
-    friend void QState_QBaseCustomEvent(QState* self, QEvent* event);
+    friend void QState_SuperCustomEvent(QState* self, QEvent* event);
     friend void QState_ConnectNotify(QState* self, const QMetaMethod* signal);
-    friend void QState_QBaseConnectNotify(QState* self, const QMetaMethod* signal);
+    friend void QState_SuperConnectNotify(QState* self, const QMetaMethod* signal);
     friend void QState_DisconnectNotify(QState* self, const QMetaMethod* signal);
-    friend void QState_QBaseDisconnectNotify(QState* self, const QMetaMethod* signal);
+    friend void QState_SuperDisconnectNotify(QState* self, const QMetaMethod* signal);
     friend QObject* QState_Sender(const QState* self);
-    friend QObject* QState_QBaseSender(const QState* self);
+    friend QObject* QState_SuperSender(const QState* self);
     friend int QState_SenderSignalIndex(const QState* self);
-    friend int QState_QBaseSenderSignalIndex(const QState* self);
+    friend int QState_SuperSenderSignalIndex(const QState* self);
     friend int QState_Receivers(const QState* self, const char* signal);
-    friend int QState_QBaseReceivers(const QState* self, const char* signal);
+    friend int QState_SuperReceivers(const QState* self, const char* signal);
     friend bool QState_IsSignalConnected(const QState* self, const QMetaMethod* signal);
-    friend bool QState_QBaseIsSignalConnected(const QState* self, const QMetaMethod* signal);
+    friend bool QState_SuperIsSignalConnected(const QState* self, const QMetaMethod* signal);
 };
 
 #endif

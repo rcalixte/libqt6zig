@@ -786,6 +786,10 @@ pub const kservice = struct {
         return qtc.KSycocaEntry_IsSeparator(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kservice.html#dtor.KService)
     ///
     /// Delete this object from C++ memory.
@@ -794,7 +798,7 @@ pub const kservice = struct {
     ///
     /// ` self: QtC.KService `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KService_Delete(@ptrCast(self));
     }
 };

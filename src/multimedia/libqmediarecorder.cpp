@@ -417,7 +417,7 @@ void QMediaRecorder_Connect_AutoStopChanged(QMediaRecorder* self, intptr_t slot)
 }
 
 // Base class handler implementation
-QMetaObject* QMediaRecorder_QBaseMetaObject(const QMediaRecorder* self) {
+QMetaObject* QMediaRecorder_SuperMetaObject(const QMediaRecorder* self) {
     auto* vqmediarecorder = const_cast<VirtualQMediaRecorder*>(dynamic_cast<const VirtualQMediaRecorder*>(self));
     if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
         vqmediarecorder->setQMediaRecorder_MetaObject_IsBase(true);
@@ -436,7 +436,7 @@ void QMediaRecorder_OnMetaObject(const QMediaRecorder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QMediaRecorder_QBaseMetacast(QMediaRecorder* self, const char* param1) {
+void* QMediaRecorder_SuperMetacast(QMediaRecorder* self, const char* param1) {
     auto* vqmediarecorder = dynamic_cast<VirtualQMediaRecorder*>(self);
     if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
         vqmediarecorder->setQMediaRecorder_Metacast_IsBase(true);
@@ -455,7 +455,7 @@ void QMediaRecorder_OnMetacast(QMediaRecorder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QMediaRecorder_QBaseMetacall(QMediaRecorder* self, int param1, int param2, void** param3) {
+int QMediaRecorder_SuperMetacall(QMediaRecorder* self, int param1, int param2, void** param3) {
     auto* vqmediarecorder = dynamic_cast<VirtualQMediaRecorder*>(self);
     if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
         vqmediarecorder->setQMediaRecorder_Metacall_IsBase(true);
@@ -484,7 +484,7 @@ bool QMediaRecorder_Event(QMediaRecorder* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QMediaRecorder_QBaseEvent(QMediaRecorder* self, QEvent* event) {
+bool QMediaRecorder_SuperEvent(QMediaRecorder* self, QEvent* event) {
     auto* vqmediarecorder = dynamic_cast<VirtualQMediaRecorder*>(self);
     if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
         vqmediarecorder->setQMediaRecorder_Event_IsBase(true);
@@ -513,7 +513,7 @@ bool QMediaRecorder_EventFilter(QMediaRecorder* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QMediaRecorder_QBaseEventFilter(QMediaRecorder* self, QObject* watched, QEvent* event) {
+bool QMediaRecorder_SuperEventFilter(QMediaRecorder* self, QObject* watched, QEvent* event) {
     auto* vqmediarecorder = dynamic_cast<VirtualQMediaRecorder*>(self);
     if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
         vqmediarecorder->setQMediaRecorder_EventFilter_IsBase(true);
@@ -542,7 +542,7 @@ void QMediaRecorder_TimerEvent(QMediaRecorder* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QMediaRecorder_QBaseTimerEvent(QMediaRecorder* self, QTimerEvent* event) {
+void QMediaRecorder_SuperTimerEvent(QMediaRecorder* self, QTimerEvent* event) {
     auto* vqmediarecorder = dynamic_cast<VirtualQMediaRecorder*>(self);
     if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
         vqmediarecorder->setQMediaRecorder_TimerEvent_IsBase(true);
@@ -571,7 +571,7 @@ void QMediaRecorder_ChildEvent(QMediaRecorder* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QMediaRecorder_QBaseChildEvent(QMediaRecorder* self, QChildEvent* event) {
+void QMediaRecorder_SuperChildEvent(QMediaRecorder* self, QChildEvent* event) {
     auto* vqmediarecorder = dynamic_cast<VirtualQMediaRecorder*>(self);
     if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
         vqmediarecorder->setQMediaRecorder_ChildEvent_IsBase(true);
@@ -600,7 +600,7 @@ void QMediaRecorder_CustomEvent(QMediaRecorder* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QMediaRecorder_QBaseCustomEvent(QMediaRecorder* self, QEvent* event) {
+void QMediaRecorder_SuperCustomEvent(QMediaRecorder* self, QEvent* event) {
     auto* vqmediarecorder = dynamic_cast<VirtualQMediaRecorder*>(self);
     if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
         vqmediarecorder->setQMediaRecorder_CustomEvent_IsBase(true);
@@ -629,7 +629,7 @@ void QMediaRecorder_ConnectNotify(QMediaRecorder* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QMediaRecorder_QBaseConnectNotify(QMediaRecorder* self, const QMetaMethod* signal) {
+void QMediaRecorder_SuperConnectNotify(QMediaRecorder* self, const QMetaMethod* signal) {
     auto* vqmediarecorder = dynamic_cast<VirtualQMediaRecorder*>(self);
     if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
         vqmediarecorder->setQMediaRecorder_ConnectNotify_IsBase(true);
@@ -658,7 +658,7 @@ void QMediaRecorder_DisconnectNotify(QMediaRecorder* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QMediaRecorder_QBaseDisconnectNotify(QMediaRecorder* self, const QMetaMethod* signal) {
+void QMediaRecorder_SuperDisconnectNotify(QMediaRecorder* self, const QMetaMethod* signal) {
     auto* vqmediarecorder = dynamic_cast<VirtualQMediaRecorder*>(self);
     if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
         vqmediarecorder->setQMediaRecorder_DisconnectNotify_IsBase(true);
@@ -687,7 +687,7 @@ QObject* QMediaRecorder_Sender(const QMediaRecorder* self) {
 }
 
 // Base class handler implementation
-QObject* QMediaRecorder_QBaseSender(const QMediaRecorder* self) {
+QObject* QMediaRecorder_SuperSender(const QMediaRecorder* self) {
     auto* vqmediarecorder = const_cast<VirtualQMediaRecorder*>(dynamic_cast<const VirtualQMediaRecorder*>(self));
     if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
         vqmediarecorder->setQMediaRecorder_Sender_IsBase(true);
@@ -716,7 +716,7 @@ int QMediaRecorder_SenderSignalIndex(const QMediaRecorder* self) {
 }
 
 // Base class handler implementation
-int QMediaRecorder_QBaseSenderSignalIndex(const QMediaRecorder* self) {
+int QMediaRecorder_SuperSenderSignalIndex(const QMediaRecorder* self) {
     auto* vqmediarecorder = const_cast<VirtualQMediaRecorder*>(dynamic_cast<const VirtualQMediaRecorder*>(self));
     if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
         vqmediarecorder->setQMediaRecorder_SenderSignalIndex_IsBase(true);
@@ -745,7 +745,7 @@ int QMediaRecorder_Receivers(const QMediaRecorder* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QMediaRecorder_QBaseReceivers(const QMediaRecorder* self, const char* signal) {
+int QMediaRecorder_SuperReceivers(const QMediaRecorder* self, const char* signal) {
     auto* vqmediarecorder = const_cast<VirtualQMediaRecorder*>(dynamic_cast<const VirtualQMediaRecorder*>(self));
     if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
         vqmediarecorder->setQMediaRecorder_Receivers_IsBase(true);
@@ -774,7 +774,7 @@ bool QMediaRecorder_IsSignalConnected(const QMediaRecorder* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QMediaRecorder_QBaseIsSignalConnected(const QMediaRecorder* self, const QMetaMethod* signal) {
+bool QMediaRecorder_SuperIsSignalConnected(const QMediaRecorder* self, const QMetaMethod* signal) {
     auto* vqmediarecorder = const_cast<VirtualQMediaRecorder*>(dynamic_cast<const VirtualQMediaRecorder*>(self));
     if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
         vqmediarecorder->setQMediaRecorder_IsSignalConnected_IsBase(true);

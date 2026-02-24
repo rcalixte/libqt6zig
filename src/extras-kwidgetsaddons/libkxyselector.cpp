@@ -173,7 +173,7 @@ void KXYSelector_WheelEvent(KXYSelector* self, QWheelEvent* param1) {
 }
 
 // Base class handler implementation
-QMetaObject* KXYSelector_QBaseMetaObject(const KXYSelector* self) {
+QMetaObject* KXYSelector_SuperMetaObject(const KXYSelector* self) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_MetaObject_IsBase(true);
@@ -192,7 +192,7 @@ void KXYSelector_OnMetaObject(const KXYSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KXYSelector_QBaseMetacast(KXYSelector* self, const char* param1) {
+void* KXYSelector_SuperMetacast(KXYSelector* self, const char* param1) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_Metacast_IsBase(true);
@@ -211,7 +211,7 @@ void KXYSelector_OnMetacast(KXYSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KXYSelector_QBaseMetacall(KXYSelector* self, int param1, int param2, void** param3) {
+int KXYSelector_SuperMetacall(KXYSelector* self, int param1, int param2, void** param3) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_Metacall_IsBase(true);
@@ -230,7 +230,7 @@ void KXYSelector_OnMetacall(KXYSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* KXYSelector_QBaseMinimumSizeHint(const KXYSelector* self) {
+QSize* KXYSelector_SuperMinimumSizeHint(const KXYSelector* self) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_MinimumSizeHint_IsBase(true);
@@ -249,7 +249,7 @@ void KXYSelector_OnMinimumSizeHint(const KXYSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseDrawContents(KXYSelector* self, QPainter* param1) {
+void KXYSelector_SuperDrawContents(KXYSelector* self, QPainter* param1) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_DrawContents_IsBase(true);
@@ -268,7 +268,7 @@ void KXYSelector_OnDrawContents(KXYSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseDrawMarker(KXYSelector* self, QPainter* p, int xp, int yp) {
+void KXYSelector_SuperDrawMarker(KXYSelector* self, QPainter* p, int xp, int yp) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_DrawMarker_IsBase(true);
@@ -287,7 +287,7 @@ void KXYSelector_OnDrawMarker(KXYSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBasePaintEvent(KXYSelector* self, QPaintEvent* e) {
+void KXYSelector_SuperPaintEvent(KXYSelector* self, QPaintEvent* e) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_PaintEvent_IsBase(true);
@@ -306,7 +306,7 @@ void KXYSelector_OnPaintEvent(KXYSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseMousePressEvent(KXYSelector* self, QMouseEvent* e) {
+void KXYSelector_SuperMousePressEvent(KXYSelector* self, QMouseEvent* e) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_MousePressEvent_IsBase(true);
@@ -325,7 +325,7 @@ void KXYSelector_OnMousePressEvent(KXYSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseMouseMoveEvent(KXYSelector* self, QMouseEvent* e) {
+void KXYSelector_SuperMouseMoveEvent(KXYSelector* self, QMouseEvent* e) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_MouseMoveEvent_IsBase(true);
@@ -344,7 +344,7 @@ void KXYSelector_OnMouseMoveEvent(KXYSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseWheelEvent(KXYSelector* self, QWheelEvent* param1) {
+void KXYSelector_SuperWheelEvent(KXYSelector* self, QWheelEvent* param1) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_WheelEvent_IsBase(true);
@@ -373,7 +373,7 @@ int KXYSelector_DevType(const KXYSelector* self) {
 }
 
 // Base class handler implementation
-int KXYSelector_QBaseDevType(const KXYSelector* self) {
+int KXYSelector_SuperDevType(const KXYSelector* self) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_DevType_IsBase(true);
@@ -402,7 +402,7 @@ void KXYSelector_SetVisible(KXYSelector* self, bool visible) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseSetVisible(KXYSelector* self, bool visible) {
+void KXYSelector_SuperSetVisible(KXYSelector* self, bool visible) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_SetVisible_IsBase(true);
@@ -431,7 +431,7 @@ QSize* KXYSelector_SizeHint(const KXYSelector* self) {
 }
 
 // Base class handler implementation
-QSize* KXYSelector_QBaseSizeHint(const KXYSelector* self) {
+QSize* KXYSelector_SuperSizeHint(const KXYSelector* self) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_SizeHint_IsBase(true);
@@ -460,7 +460,7 @@ int KXYSelector_HeightForWidth(const KXYSelector* self, int param1) {
 }
 
 // Base class handler implementation
-int KXYSelector_QBaseHeightForWidth(const KXYSelector* self, int param1) {
+int KXYSelector_SuperHeightForWidth(const KXYSelector* self, int param1) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_HeightForWidth_IsBase(true);
@@ -489,7 +489,7 @@ bool KXYSelector_HasHeightForWidth(const KXYSelector* self) {
 }
 
 // Base class handler implementation
-bool KXYSelector_QBaseHasHeightForWidth(const KXYSelector* self) {
+bool KXYSelector_SuperHasHeightForWidth(const KXYSelector* self) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_HasHeightForWidth_IsBase(true);
@@ -518,7 +518,7 @@ QPaintEngine* KXYSelector_PaintEngine(const KXYSelector* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KXYSelector_QBasePaintEngine(const KXYSelector* self) {
+QPaintEngine* KXYSelector_SuperPaintEngine(const KXYSelector* self) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_PaintEngine_IsBase(true);
@@ -547,7 +547,7 @@ bool KXYSelector_Event(KXYSelector* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KXYSelector_QBaseEvent(KXYSelector* self, QEvent* event) {
+bool KXYSelector_SuperEvent(KXYSelector* self, QEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_Event_IsBase(true);
@@ -576,7 +576,7 @@ void KXYSelector_MouseReleaseEvent(KXYSelector* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseMouseReleaseEvent(KXYSelector* self, QMouseEvent* event) {
+void KXYSelector_SuperMouseReleaseEvent(KXYSelector* self, QMouseEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_MouseReleaseEvent_IsBase(true);
@@ -605,7 +605,7 @@ void KXYSelector_MouseDoubleClickEvent(KXYSelector* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseMouseDoubleClickEvent(KXYSelector* self, QMouseEvent* event) {
+void KXYSelector_SuperMouseDoubleClickEvent(KXYSelector* self, QMouseEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_MouseDoubleClickEvent_IsBase(true);
@@ -634,7 +634,7 @@ void KXYSelector_KeyPressEvent(KXYSelector* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseKeyPressEvent(KXYSelector* self, QKeyEvent* event) {
+void KXYSelector_SuperKeyPressEvent(KXYSelector* self, QKeyEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_KeyPressEvent_IsBase(true);
@@ -663,7 +663,7 @@ void KXYSelector_KeyReleaseEvent(KXYSelector* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseKeyReleaseEvent(KXYSelector* self, QKeyEvent* event) {
+void KXYSelector_SuperKeyReleaseEvent(KXYSelector* self, QKeyEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_KeyReleaseEvent_IsBase(true);
@@ -692,7 +692,7 @@ void KXYSelector_FocusInEvent(KXYSelector* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseFocusInEvent(KXYSelector* self, QFocusEvent* event) {
+void KXYSelector_SuperFocusInEvent(KXYSelector* self, QFocusEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_FocusInEvent_IsBase(true);
@@ -721,7 +721,7 @@ void KXYSelector_FocusOutEvent(KXYSelector* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseFocusOutEvent(KXYSelector* self, QFocusEvent* event) {
+void KXYSelector_SuperFocusOutEvent(KXYSelector* self, QFocusEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_FocusOutEvent_IsBase(true);
@@ -750,7 +750,7 @@ void KXYSelector_EnterEvent(KXYSelector* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseEnterEvent(KXYSelector* self, QEnterEvent* event) {
+void KXYSelector_SuperEnterEvent(KXYSelector* self, QEnterEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_EnterEvent_IsBase(true);
@@ -779,7 +779,7 @@ void KXYSelector_LeaveEvent(KXYSelector* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseLeaveEvent(KXYSelector* self, QEvent* event) {
+void KXYSelector_SuperLeaveEvent(KXYSelector* self, QEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_LeaveEvent_IsBase(true);
@@ -808,7 +808,7 @@ void KXYSelector_MoveEvent(KXYSelector* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseMoveEvent(KXYSelector* self, QMoveEvent* event) {
+void KXYSelector_SuperMoveEvent(KXYSelector* self, QMoveEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_MoveEvent_IsBase(true);
@@ -837,7 +837,7 @@ void KXYSelector_ResizeEvent(KXYSelector* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseResizeEvent(KXYSelector* self, QResizeEvent* event) {
+void KXYSelector_SuperResizeEvent(KXYSelector* self, QResizeEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_ResizeEvent_IsBase(true);
@@ -866,7 +866,7 @@ void KXYSelector_CloseEvent(KXYSelector* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseCloseEvent(KXYSelector* self, QCloseEvent* event) {
+void KXYSelector_SuperCloseEvent(KXYSelector* self, QCloseEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_CloseEvent_IsBase(true);
@@ -895,7 +895,7 @@ void KXYSelector_ContextMenuEvent(KXYSelector* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseContextMenuEvent(KXYSelector* self, QContextMenuEvent* event) {
+void KXYSelector_SuperContextMenuEvent(KXYSelector* self, QContextMenuEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_ContextMenuEvent_IsBase(true);
@@ -924,7 +924,7 @@ void KXYSelector_TabletEvent(KXYSelector* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseTabletEvent(KXYSelector* self, QTabletEvent* event) {
+void KXYSelector_SuperTabletEvent(KXYSelector* self, QTabletEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_TabletEvent_IsBase(true);
@@ -953,7 +953,7 @@ void KXYSelector_ActionEvent(KXYSelector* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseActionEvent(KXYSelector* self, QActionEvent* event) {
+void KXYSelector_SuperActionEvent(KXYSelector* self, QActionEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_ActionEvent_IsBase(true);
@@ -982,7 +982,7 @@ void KXYSelector_DragEnterEvent(KXYSelector* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseDragEnterEvent(KXYSelector* self, QDragEnterEvent* event) {
+void KXYSelector_SuperDragEnterEvent(KXYSelector* self, QDragEnterEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_DragEnterEvent_IsBase(true);
@@ -1011,7 +1011,7 @@ void KXYSelector_DragMoveEvent(KXYSelector* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseDragMoveEvent(KXYSelector* self, QDragMoveEvent* event) {
+void KXYSelector_SuperDragMoveEvent(KXYSelector* self, QDragMoveEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_DragMoveEvent_IsBase(true);
@@ -1040,7 +1040,7 @@ void KXYSelector_DragLeaveEvent(KXYSelector* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseDragLeaveEvent(KXYSelector* self, QDragLeaveEvent* event) {
+void KXYSelector_SuperDragLeaveEvent(KXYSelector* self, QDragLeaveEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_DragLeaveEvent_IsBase(true);
@@ -1069,7 +1069,7 @@ void KXYSelector_DropEvent(KXYSelector* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseDropEvent(KXYSelector* self, QDropEvent* event) {
+void KXYSelector_SuperDropEvent(KXYSelector* self, QDropEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_DropEvent_IsBase(true);
@@ -1098,7 +1098,7 @@ void KXYSelector_ShowEvent(KXYSelector* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseShowEvent(KXYSelector* self, QShowEvent* event) {
+void KXYSelector_SuperShowEvent(KXYSelector* self, QShowEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_ShowEvent_IsBase(true);
@@ -1127,7 +1127,7 @@ void KXYSelector_HideEvent(KXYSelector* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseHideEvent(KXYSelector* self, QHideEvent* event) {
+void KXYSelector_SuperHideEvent(KXYSelector* self, QHideEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_HideEvent_IsBase(true);
@@ -1157,7 +1157,7 @@ bool KXYSelector_NativeEvent(KXYSelector* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool KXYSelector_QBaseNativeEvent(KXYSelector* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KXYSelector_SuperNativeEvent(KXYSelector* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
@@ -1187,7 +1187,7 @@ void KXYSelector_ChangeEvent(KXYSelector* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseChangeEvent(KXYSelector* self, QEvent* param1) {
+void KXYSelector_SuperChangeEvent(KXYSelector* self, QEvent* param1) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_ChangeEvent_IsBase(true);
@@ -1216,7 +1216,7 @@ int KXYSelector_Metric(const KXYSelector* self, int param1) {
 }
 
 // Base class handler implementation
-int KXYSelector_QBaseMetric(const KXYSelector* self, int param1) {
+int KXYSelector_SuperMetric(const KXYSelector* self, int param1) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_Metric_IsBase(true);
@@ -1245,7 +1245,7 @@ void KXYSelector_InitPainter(const KXYSelector* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseInitPainter(const KXYSelector* self, QPainter* painter) {
+void KXYSelector_SuperInitPainter(const KXYSelector* self, QPainter* painter) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_InitPainter_IsBase(true);
@@ -1274,7 +1274,7 @@ QPaintDevice* KXYSelector_Redirected(const KXYSelector* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KXYSelector_QBaseRedirected(const KXYSelector* self, QPoint* offset) {
+QPaintDevice* KXYSelector_SuperRedirected(const KXYSelector* self, QPoint* offset) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_Redirected_IsBase(true);
@@ -1303,7 +1303,7 @@ QPainter* KXYSelector_SharedPainter(const KXYSelector* self) {
 }
 
 // Base class handler implementation
-QPainter* KXYSelector_QBaseSharedPainter(const KXYSelector* self) {
+QPainter* KXYSelector_SuperSharedPainter(const KXYSelector* self) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_SharedPainter_IsBase(true);
@@ -1332,7 +1332,7 @@ void KXYSelector_InputMethodEvent(KXYSelector* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseInputMethodEvent(KXYSelector* self, QInputMethodEvent* param1) {
+void KXYSelector_SuperInputMethodEvent(KXYSelector* self, QInputMethodEvent* param1) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_InputMethodEvent_IsBase(true);
@@ -1361,7 +1361,7 @@ QVariant* KXYSelector_InputMethodQuery(const KXYSelector* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KXYSelector_QBaseInputMethodQuery(const KXYSelector* self, int param1) {
+QVariant* KXYSelector_SuperInputMethodQuery(const KXYSelector* self, int param1) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_InputMethodQuery_IsBase(true);
@@ -1390,7 +1390,7 @@ bool KXYSelector_FocusNextPrevChild(KXYSelector* self, bool next) {
 }
 
 // Base class handler implementation
-bool KXYSelector_QBaseFocusNextPrevChild(KXYSelector* self, bool next) {
+bool KXYSelector_SuperFocusNextPrevChild(KXYSelector* self, bool next) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_FocusNextPrevChild_IsBase(true);
@@ -1419,7 +1419,7 @@ bool KXYSelector_EventFilter(KXYSelector* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool KXYSelector_QBaseEventFilter(KXYSelector* self, QObject* watched, QEvent* event) {
+bool KXYSelector_SuperEventFilter(KXYSelector* self, QObject* watched, QEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_EventFilter_IsBase(true);
@@ -1448,7 +1448,7 @@ void KXYSelector_TimerEvent(KXYSelector* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseTimerEvent(KXYSelector* self, QTimerEvent* event) {
+void KXYSelector_SuperTimerEvent(KXYSelector* self, QTimerEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_TimerEvent_IsBase(true);
@@ -1477,7 +1477,7 @@ void KXYSelector_ChildEvent(KXYSelector* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseChildEvent(KXYSelector* self, QChildEvent* event) {
+void KXYSelector_SuperChildEvent(KXYSelector* self, QChildEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_ChildEvent_IsBase(true);
@@ -1506,7 +1506,7 @@ void KXYSelector_CustomEvent(KXYSelector* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseCustomEvent(KXYSelector* self, QEvent* event) {
+void KXYSelector_SuperCustomEvent(KXYSelector* self, QEvent* event) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_CustomEvent_IsBase(true);
@@ -1535,7 +1535,7 @@ void KXYSelector_ConnectNotify(KXYSelector* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseConnectNotify(KXYSelector* self, const QMetaMethod* signal) {
+void KXYSelector_SuperConnectNotify(KXYSelector* self, const QMetaMethod* signal) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_ConnectNotify_IsBase(true);
@@ -1564,7 +1564,7 @@ void KXYSelector_DisconnectNotify(KXYSelector* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseDisconnectNotify(KXYSelector* self, const QMetaMethod* signal) {
+void KXYSelector_SuperDisconnectNotify(KXYSelector* self, const QMetaMethod* signal) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_DisconnectNotify_IsBase(true);
@@ -1593,7 +1593,7 @@ void KXYSelector_ValuesFromPosition(const KXYSelector* self, int x, int y, int* 
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseValuesFromPosition(const KXYSelector* self, int x, int y, int* xVal, int* yVal) {
+void KXYSelector_SuperValuesFromPosition(const KXYSelector* self, int x, int y, int* xVal, int* yVal) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_ValuesFromPosition_IsBase(true);
@@ -1622,7 +1622,7 @@ void KXYSelector_UpdateMicroFocus(KXYSelector* self) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseUpdateMicroFocus(KXYSelector* self) {
+void KXYSelector_SuperUpdateMicroFocus(KXYSelector* self) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_UpdateMicroFocus_IsBase(true);
@@ -1651,7 +1651,7 @@ void KXYSelector_Create(KXYSelector* self) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseCreate(KXYSelector* self) {
+void KXYSelector_SuperCreate(KXYSelector* self) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_Create_IsBase(true);
@@ -1680,7 +1680,7 @@ void KXYSelector_Destroy(KXYSelector* self) {
 }
 
 // Base class handler implementation
-void KXYSelector_QBaseDestroy(KXYSelector* self) {
+void KXYSelector_SuperDestroy(KXYSelector* self) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_Destroy_IsBase(true);
@@ -1709,7 +1709,7 @@ bool KXYSelector_FocusNextChild(KXYSelector* self) {
 }
 
 // Base class handler implementation
-bool KXYSelector_QBaseFocusNextChild(KXYSelector* self) {
+bool KXYSelector_SuperFocusNextChild(KXYSelector* self) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_FocusNextChild_IsBase(true);
@@ -1738,7 +1738,7 @@ bool KXYSelector_FocusPreviousChild(KXYSelector* self) {
 }
 
 // Base class handler implementation
-bool KXYSelector_QBaseFocusPreviousChild(KXYSelector* self) {
+bool KXYSelector_SuperFocusPreviousChild(KXYSelector* self) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_FocusPreviousChild_IsBase(true);
@@ -1767,7 +1767,7 @@ QObject* KXYSelector_Sender(const KXYSelector* self) {
 }
 
 // Base class handler implementation
-QObject* KXYSelector_QBaseSender(const KXYSelector* self) {
+QObject* KXYSelector_SuperSender(const KXYSelector* self) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_Sender_IsBase(true);
@@ -1796,7 +1796,7 @@ int KXYSelector_SenderSignalIndex(const KXYSelector* self) {
 }
 
 // Base class handler implementation
-int KXYSelector_QBaseSenderSignalIndex(const KXYSelector* self) {
+int KXYSelector_SuperSenderSignalIndex(const KXYSelector* self) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_SenderSignalIndex_IsBase(true);
@@ -1825,7 +1825,7 @@ int KXYSelector_Receivers(const KXYSelector* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KXYSelector_QBaseReceivers(const KXYSelector* self, const char* signal) {
+int KXYSelector_SuperReceivers(const KXYSelector* self, const char* signal) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_Receivers_IsBase(true);
@@ -1854,7 +1854,7 @@ bool KXYSelector_IsSignalConnected(const KXYSelector* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool KXYSelector_QBaseIsSignalConnected(const KXYSelector* self, const QMetaMethod* signal) {
+bool KXYSelector_SuperIsSignalConnected(const KXYSelector* self, const QMetaMethod* signal) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_IsSignalConnected_IsBase(true);
@@ -1883,7 +1883,7 @@ double KXYSelector_GetDecodedMetricF(const KXYSelector* self, int metricA, int m
 }
 
 // Base class handler implementation
-double KXYSelector_QBaseGetDecodedMetricF(const KXYSelector* self, int metricA, int metricB) {
+double KXYSelector_SuperGetDecodedMetricF(const KXYSelector* self, int metricA, int metricB) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->setKXYSelector_GetDecodedMetricF_IsBase(true);

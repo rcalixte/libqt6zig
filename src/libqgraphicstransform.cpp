@@ -61,7 +61,7 @@ void QGraphicsTransform_ApplyTo(const QGraphicsTransform* self, QMatrix4x4* matr
 }
 
 // Base class handler implementation
-QMetaObject* QGraphicsTransform_QBaseMetaObject(const QGraphicsTransform* self) {
+QMetaObject* QGraphicsTransform_SuperMetaObject(const QGraphicsTransform* self) {
     auto* vqgraphicstransform = const_cast<VirtualQGraphicsTransform*>(dynamic_cast<const VirtualQGraphicsTransform*>(self));
     if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
         vqgraphicstransform->setQGraphicsTransform_MetaObject_IsBase(true);
@@ -80,7 +80,7 @@ void QGraphicsTransform_OnMetaObject(const QGraphicsTransform* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* QGraphicsTransform_QBaseMetacast(QGraphicsTransform* self, const char* param1) {
+void* QGraphicsTransform_SuperMetacast(QGraphicsTransform* self, const char* param1) {
     auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
     if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
         vqgraphicstransform->setQGraphicsTransform_Metacast_IsBase(true);
@@ -99,7 +99,7 @@ void QGraphicsTransform_OnMetacast(QGraphicsTransform* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QGraphicsTransform_QBaseMetacall(QGraphicsTransform* self, int param1, int param2, void** param3) {
+int QGraphicsTransform_SuperMetacall(QGraphicsTransform* self, int param1, int param2, void** param3) {
     auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
     if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
         vqgraphicstransform->setQGraphicsTransform_Metacall_IsBase(true);
@@ -118,7 +118,7 @@ void QGraphicsTransform_OnMetacall(QGraphicsTransform* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsTransform_QBaseApplyTo(const QGraphicsTransform* self, QMatrix4x4* matrix) {
+void QGraphicsTransform_SuperApplyTo(const QGraphicsTransform* self, QMatrix4x4* matrix) {
     auto* vqgraphicstransform = const_cast<VirtualQGraphicsTransform*>(dynamic_cast<const VirtualQGraphicsTransform*>(self));
     if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
         vqgraphicstransform->setQGraphicsTransform_ApplyTo_IsBase(true);
@@ -147,7 +147,7 @@ bool QGraphicsTransform_Event(QGraphicsTransform* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QGraphicsTransform_QBaseEvent(QGraphicsTransform* self, QEvent* event) {
+bool QGraphicsTransform_SuperEvent(QGraphicsTransform* self, QEvent* event) {
     auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
     if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
         vqgraphicstransform->setQGraphicsTransform_Event_IsBase(true);
@@ -176,7 +176,7 @@ bool QGraphicsTransform_EventFilter(QGraphicsTransform* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool QGraphicsTransform_QBaseEventFilter(QGraphicsTransform* self, QObject* watched, QEvent* event) {
+bool QGraphicsTransform_SuperEventFilter(QGraphicsTransform* self, QObject* watched, QEvent* event) {
     auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
     if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
         vqgraphicstransform->setQGraphicsTransform_EventFilter_IsBase(true);
@@ -205,7 +205,7 @@ void QGraphicsTransform_TimerEvent(QGraphicsTransform* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void QGraphicsTransform_QBaseTimerEvent(QGraphicsTransform* self, QTimerEvent* event) {
+void QGraphicsTransform_SuperTimerEvent(QGraphicsTransform* self, QTimerEvent* event) {
     auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
     if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
         vqgraphicstransform->setQGraphicsTransform_TimerEvent_IsBase(true);
@@ -234,7 +234,7 @@ void QGraphicsTransform_ChildEvent(QGraphicsTransform* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void QGraphicsTransform_QBaseChildEvent(QGraphicsTransform* self, QChildEvent* event) {
+void QGraphicsTransform_SuperChildEvent(QGraphicsTransform* self, QChildEvent* event) {
     auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
     if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
         vqgraphicstransform->setQGraphicsTransform_ChildEvent_IsBase(true);
@@ -263,7 +263,7 @@ void QGraphicsTransform_CustomEvent(QGraphicsTransform* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QGraphicsTransform_QBaseCustomEvent(QGraphicsTransform* self, QEvent* event) {
+void QGraphicsTransform_SuperCustomEvent(QGraphicsTransform* self, QEvent* event) {
     auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
     if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
         vqgraphicstransform->setQGraphicsTransform_CustomEvent_IsBase(true);
@@ -292,7 +292,7 @@ void QGraphicsTransform_ConnectNotify(QGraphicsTransform* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void QGraphicsTransform_QBaseConnectNotify(QGraphicsTransform* self, const QMetaMethod* signal) {
+void QGraphicsTransform_SuperConnectNotify(QGraphicsTransform* self, const QMetaMethod* signal) {
     auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
     if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
         vqgraphicstransform->setQGraphicsTransform_ConnectNotify_IsBase(true);
@@ -321,7 +321,7 @@ void QGraphicsTransform_DisconnectNotify(QGraphicsTransform* self, const QMetaMe
 }
 
 // Base class handler implementation
-void QGraphicsTransform_QBaseDisconnectNotify(QGraphicsTransform* self, const QMetaMethod* signal) {
+void QGraphicsTransform_SuperDisconnectNotify(QGraphicsTransform* self, const QMetaMethod* signal) {
     auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
     if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
         vqgraphicstransform->setQGraphicsTransform_DisconnectNotify_IsBase(true);
@@ -350,7 +350,7 @@ void QGraphicsTransform_Update(QGraphicsTransform* self) {
 }
 
 // Base class handler implementation
-void QGraphicsTransform_QBaseUpdate(QGraphicsTransform* self) {
+void QGraphicsTransform_SuperUpdate(QGraphicsTransform* self) {
     auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
     if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
         vqgraphicstransform->setQGraphicsTransform_Update_IsBase(true);
@@ -379,7 +379,7 @@ QObject* QGraphicsTransform_Sender(const QGraphicsTransform* self) {
 }
 
 // Base class handler implementation
-QObject* QGraphicsTransform_QBaseSender(const QGraphicsTransform* self) {
+QObject* QGraphicsTransform_SuperSender(const QGraphicsTransform* self) {
     auto* vqgraphicstransform = const_cast<VirtualQGraphicsTransform*>(dynamic_cast<const VirtualQGraphicsTransform*>(self));
     if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
         vqgraphicstransform->setQGraphicsTransform_Sender_IsBase(true);
@@ -408,7 +408,7 @@ int QGraphicsTransform_SenderSignalIndex(const QGraphicsTransform* self) {
 }
 
 // Base class handler implementation
-int QGraphicsTransform_QBaseSenderSignalIndex(const QGraphicsTransform* self) {
+int QGraphicsTransform_SuperSenderSignalIndex(const QGraphicsTransform* self) {
     auto* vqgraphicstransform = const_cast<VirtualQGraphicsTransform*>(dynamic_cast<const VirtualQGraphicsTransform*>(self));
     if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
         vqgraphicstransform->setQGraphicsTransform_SenderSignalIndex_IsBase(true);
@@ -437,7 +437,7 @@ int QGraphicsTransform_Receivers(const QGraphicsTransform* self, const char* sig
 }
 
 // Base class handler implementation
-int QGraphicsTransform_QBaseReceivers(const QGraphicsTransform* self, const char* signal) {
+int QGraphicsTransform_SuperReceivers(const QGraphicsTransform* self, const char* signal) {
     auto* vqgraphicstransform = const_cast<VirtualQGraphicsTransform*>(dynamic_cast<const VirtualQGraphicsTransform*>(self));
     if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
         vqgraphicstransform->setQGraphicsTransform_Receivers_IsBase(true);
@@ -466,7 +466,7 @@ bool QGraphicsTransform_IsSignalConnected(const QGraphicsTransform* self, const 
 }
 
 // Base class handler implementation
-bool QGraphicsTransform_QBaseIsSignalConnected(const QGraphicsTransform* self, const QMetaMethod* signal) {
+bool QGraphicsTransform_SuperIsSignalConnected(const QGraphicsTransform* self, const QMetaMethod* signal) {
     auto* vqgraphicstransform = const_cast<VirtualQGraphicsTransform*>(dynamic_cast<const VirtualQGraphicsTransform*>(self));
     if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
         vqgraphicstransform->setQGraphicsTransform_IsSignalConnected_IsBase(true);
@@ -620,7 +620,7 @@ void QGraphicsScale_Connect_ScaleChanged(QGraphicsScale* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QGraphicsScale_QBaseMetaObject(const QGraphicsScale* self) {
+QMetaObject* QGraphicsScale_SuperMetaObject(const QGraphicsScale* self) {
     auto* vqgraphicsscale = const_cast<VirtualQGraphicsScale*>(dynamic_cast<const VirtualQGraphicsScale*>(self));
     if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
         vqgraphicsscale->setQGraphicsScale_MetaObject_IsBase(true);
@@ -639,7 +639,7 @@ void QGraphicsScale_OnMetaObject(const QGraphicsScale* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QGraphicsScale_QBaseMetacast(QGraphicsScale* self, const char* param1) {
+void* QGraphicsScale_SuperMetacast(QGraphicsScale* self, const char* param1) {
     auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
     if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
         vqgraphicsscale->setQGraphicsScale_Metacast_IsBase(true);
@@ -658,7 +658,7 @@ void QGraphicsScale_OnMetacast(QGraphicsScale* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QGraphicsScale_QBaseMetacall(QGraphicsScale* self, int param1, int param2, void** param3) {
+int QGraphicsScale_SuperMetacall(QGraphicsScale* self, int param1, int param2, void** param3) {
     auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
     if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
         vqgraphicsscale->setQGraphicsScale_Metacall_IsBase(true);
@@ -677,7 +677,7 @@ void QGraphicsScale_OnMetacall(QGraphicsScale* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsScale_QBaseApplyTo(const QGraphicsScale* self, QMatrix4x4* matrix) {
+void QGraphicsScale_SuperApplyTo(const QGraphicsScale* self, QMatrix4x4* matrix) {
     auto* vqgraphicsscale = const_cast<VirtualQGraphicsScale*>(dynamic_cast<const VirtualQGraphicsScale*>(self));
     if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
         vqgraphicsscale->setQGraphicsScale_ApplyTo_IsBase(true);
@@ -706,7 +706,7 @@ bool QGraphicsScale_Event(QGraphicsScale* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QGraphicsScale_QBaseEvent(QGraphicsScale* self, QEvent* event) {
+bool QGraphicsScale_SuperEvent(QGraphicsScale* self, QEvent* event) {
     auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
     if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
         vqgraphicsscale->setQGraphicsScale_Event_IsBase(true);
@@ -735,7 +735,7 @@ bool QGraphicsScale_EventFilter(QGraphicsScale* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QGraphicsScale_QBaseEventFilter(QGraphicsScale* self, QObject* watched, QEvent* event) {
+bool QGraphicsScale_SuperEventFilter(QGraphicsScale* self, QObject* watched, QEvent* event) {
     auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
     if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
         vqgraphicsscale->setQGraphicsScale_EventFilter_IsBase(true);
@@ -764,7 +764,7 @@ void QGraphicsScale_TimerEvent(QGraphicsScale* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QGraphicsScale_QBaseTimerEvent(QGraphicsScale* self, QTimerEvent* event) {
+void QGraphicsScale_SuperTimerEvent(QGraphicsScale* self, QTimerEvent* event) {
     auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
     if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
         vqgraphicsscale->setQGraphicsScale_TimerEvent_IsBase(true);
@@ -793,7 +793,7 @@ void QGraphicsScale_ChildEvent(QGraphicsScale* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QGraphicsScale_QBaseChildEvent(QGraphicsScale* self, QChildEvent* event) {
+void QGraphicsScale_SuperChildEvent(QGraphicsScale* self, QChildEvent* event) {
     auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
     if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
         vqgraphicsscale->setQGraphicsScale_ChildEvent_IsBase(true);
@@ -822,7 +822,7 @@ void QGraphicsScale_CustomEvent(QGraphicsScale* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QGraphicsScale_QBaseCustomEvent(QGraphicsScale* self, QEvent* event) {
+void QGraphicsScale_SuperCustomEvent(QGraphicsScale* self, QEvent* event) {
     auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
     if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
         vqgraphicsscale->setQGraphicsScale_CustomEvent_IsBase(true);
@@ -851,7 +851,7 @@ void QGraphicsScale_ConnectNotify(QGraphicsScale* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QGraphicsScale_QBaseConnectNotify(QGraphicsScale* self, const QMetaMethod* signal) {
+void QGraphicsScale_SuperConnectNotify(QGraphicsScale* self, const QMetaMethod* signal) {
     auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
     if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
         vqgraphicsscale->setQGraphicsScale_ConnectNotify_IsBase(true);
@@ -880,7 +880,7 @@ void QGraphicsScale_DisconnectNotify(QGraphicsScale* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QGraphicsScale_QBaseDisconnectNotify(QGraphicsScale* self, const QMetaMethod* signal) {
+void QGraphicsScale_SuperDisconnectNotify(QGraphicsScale* self, const QMetaMethod* signal) {
     auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
     if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
         vqgraphicsscale->setQGraphicsScale_DisconnectNotify_IsBase(true);
@@ -909,7 +909,7 @@ void QGraphicsScale_Update(QGraphicsScale* self) {
 }
 
 // Base class handler implementation
-void QGraphicsScale_QBaseUpdate(QGraphicsScale* self) {
+void QGraphicsScale_SuperUpdate(QGraphicsScale* self) {
     auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
     if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
         vqgraphicsscale->setQGraphicsScale_Update_IsBase(true);
@@ -938,7 +938,7 @@ QObject* QGraphicsScale_Sender(const QGraphicsScale* self) {
 }
 
 // Base class handler implementation
-QObject* QGraphicsScale_QBaseSender(const QGraphicsScale* self) {
+QObject* QGraphicsScale_SuperSender(const QGraphicsScale* self) {
     auto* vqgraphicsscale = const_cast<VirtualQGraphicsScale*>(dynamic_cast<const VirtualQGraphicsScale*>(self));
     if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
         vqgraphicsscale->setQGraphicsScale_Sender_IsBase(true);
@@ -967,7 +967,7 @@ int QGraphicsScale_SenderSignalIndex(const QGraphicsScale* self) {
 }
 
 // Base class handler implementation
-int QGraphicsScale_QBaseSenderSignalIndex(const QGraphicsScale* self) {
+int QGraphicsScale_SuperSenderSignalIndex(const QGraphicsScale* self) {
     auto* vqgraphicsscale = const_cast<VirtualQGraphicsScale*>(dynamic_cast<const VirtualQGraphicsScale*>(self));
     if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
         vqgraphicsscale->setQGraphicsScale_SenderSignalIndex_IsBase(true);
@@ -996,7 +996,7 @@ int QGraphicsScale_Receivers(const QGraphicsScale* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QGraphicsScale_QBaseReceivers(const QGraphicsScale* self, const char* signal) {
+int QGraphicsScale_SuperReceivers(const QGraphicsScale* self, const char* signal) {
     auto* vqgraphicsscale = const_cast<VirtualQGraphicsScale*>(dynamic_cast<const VirtualQGraphicsScale*>(self));
     if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
         vqgraphicsscale->setQGraphicsScale_Receivers_IsBase(true);
@@ -1025,7 +1025,7 @@ bool QGraphicsScale_IsSignalConnected(const QGraphicsScale* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QGraphicsScale_QBaseIsSignalConnected(const QGraphicsScale* self, const QMetaMethod* signal) {
+bool QGraphicsScale_SuperIsSignalConnected(const QGraphicsScale* self, const QMetaMethod* signal) {
     auto* vqgraphicsscale = const_cast<VirtualQGraphicsScale*>(dynamic_cast<const VirtualQGraphicsScale*>(self));
     if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
         vqgraphicsscale->setQGraphicsScale_IsSignalConnected_IsBase(true);
@@ -1153,7 +1153,7 @@ void QGraphicsRotation_Connect_AxisChanged(QGraphicsRotation* self, intptr_t slo
 }
 
 // Base class handler implementation
-QMetaObject* QGraphicsRotation_QBaseMetaObject(const QGraphicsRotation* self) {
+QMetaObject* QGraphicsRotation_SuperMetaObject(const QGraphicsRotation* self) {
     auto* vqgraphicsrotation = const_cast<VirtualQGraphicsRotation*>(dynamic_cast<const VirtualQGraphicsRotation*>(self));
     if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
         vqgraphicsrotation->setQGraphicsRotation_MetaObject_IsBase(true);
@@ -1172,7 +1172,7 @@ void QGraphicsRotation_OnMetaObject(const QGraphicsRotation* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* QGraphicsRotation_QBaseMetacast(QGraphicsRotation* self, const char* param1) {
+void* QGraphicsRotation_SuperMetacast(QGraphicsRotation* self, const char* param1) {
     auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
     if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
         vqgraphicsrotation->setQGraphicsRotation_Metacast_IsBase(true);
@@ -1191,7 +1191,7 @@ void QGraphicsRotation_OnMetacast(QGraphicsRotation* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QGraphicsRotation_QBaseMetacall(QGraphicsRotation* self, int param1, int param2, void** param3) {
+int QGraphicsRotation_SuperMetacall(QGraphicsRotation* self, int param1, int param2, void** param3) {
     auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
     if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
         vqgraphicsrotation->setQGraphicsRotation_Metacall_IsBase(true);
@@ -1210,7 +1210,7 @@ void QGraphicsRotation_OnMetacall(QGraphicsRotation* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsRotation_QBaseApplyTo(const QGraphicsRotation* self, QMatrix4x4* matrix) {
+void QGraphicsRotation_SuperApplyTo(const QGraphicsRotation* self, QMatrix4x4* matrix) {
     auto* vqgraphicsrotation = const_cast<VirtualQGraphicsRotation*>(dynamic_cast<const VirtualQGraphicsRotation*>(self));
     if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
         vqgraphicsrotation->setQGraphicsRotation_ApplyTo_IsBase(true);
@@ -1239,7 +1239,7 @@ bool QGraphicsRotation_Event(QGraphicsRotation* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QGraphicsRotation_QBaseEvent(QGraphicsRotation* self, QEvent* event) {
+bool QGraphicsRotation_SuperEvent(QGraphicsRotation* self, QEvent* event) {
     auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
     if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
         vqgraphicsrotation->setQGraphicsRotation_Event_IsBase(true);
@@ -1268,7 +1268,7 @@ bool QGraphicsRotation_EventFilter(QGraphicsRotation* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool QGraphicsRotation_QBaseEventFilter(QGraphicsRotation* self, QObject* watched, QEvent* event) {
+bool QGraphicsRotation_SuperEventFilter(QGraphicsRotation* self, QObject* watched, QEvent* event) {
     auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
     if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
         vqgraphicsrotation->setQGraphicsRotation_EventFilter_IsBase(true);
@@ -1297,7 +1297,7 @@ void QGraphicsRotation_TimerEvent(QGraphicsRotation* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QGraphicsRotation_QBaseTimerEvent(QGraphicsRotation* self, QTimerEvent* event) {
+void QGraphicsRotation_SuperTimerEvent(QGraphicsRotation* self, QTimerEvent* event) {
     auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
     if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
         vqgraphicsrotation->setQGraphicsRotation_TimerEvent_IsBase(true);
@@ -1326,7 +1326,7 @@ void QGraphicsRotation_ChildEvent(QGraphicsRotation* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QGraphicsRotation_QBaseChildEvent(QGraphicsRotation* self, QChildEvent* event) {
+void QGraphicsRotation_SuperChildEvent(QGraphicsRotation* self, QChildEvent* event) {
     auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
     if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
         vqgraphicsrotation->setQGraphicsRotation_ChildEvent_IsBase(true);
@@ -1355,7 +1355,7 @@ void QGraphicsRotation_CustomEvent(QGraphicsRotation* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QGraphicsRotation_QBaseCustomEvent(QGraphicsRotation* self, QEvent* event) {
+void QGraphicsRotation_SuperCustomEvent(QGraphicsRotation* self, QEvent* event) {
     auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
     if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
         vqgraphicsrotation->setQGraphicsRotation_CustomEvent_IsBase(true);
@@ -1384,7 +1384,7 @@ void QGraphicsRotation_ConnectNotify(QGraphicsRotation* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void QGraphicsRotation_QBaseConnectNotify(QGraphicsRotation* self, const QMetaMethod* signal) {
+void QGraphicsRotation_SuperConnectNotify(QGraphicsRotation* self, const QMetaMethod* signal) {
     auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
     if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
         vqgraphicsrotation->setQGraphicsRotation_ConnectNotify_IsBase(true);
@@ -1413,7 +1413,7 @@ void QGraphicsRotation_DisconnectNotify(QGraphicsRotation* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void QGraphicsRotation_QBaseDisconnectNotify(QGraphicsRotation* self, const QMetaMethod* signal) {
+void QGraphicsRotation_SuperDisconnectNotify(QGraphicsRotation* self, const QMetaMethod* signal) {
     auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
     if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
         vqgraphicsrotation->setQGraphicsRotation_DisconnectNotify_IsBase(true);
@@ -1442,7 +1442,7 @@ void QGraphicsRotation_Update(QGraphicsRotation* self) {
 }
 
 // Base class handler implementation
-void QGraphicsRotation_QBaseUpdate(QGraphicsRotation* self) {
+void QGraphicsRotation_SuperUpdate(QGraphicsRotation* self) {
     auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
     if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
         vqgraphicsrotation->setQGraphicsRotation_Update_IsBase(true);
@@ -1471,7 +1471,7 @@ QObject* QGraphicsRotation_Sender(const QGraphicsRotation* self) {
 }
 
 // Base class handler implementation
-QObject* QGraphicsRotation_QBaseSender(const QGraphicsRotation* self) {
+QObject* QGraphicsRotation_SuperSender(const QGraphicsRotation* self) {
     auto* vqgraphicsrotation = const_cast<VirtualQGraphicsRotation*>(dynamic_cast<const VirtualQGraphicsRotation*>(self));
     if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
         vqgraphicsrotation->setQGraphicsRotation_Sender_IsBase(true);
@@ -1500,7 +1500,7 @@ int QGraphicsRotation_SenderSignalIndex(const QGraphicsRotation* self) {
 }
 
 // Base class handler implementation
-int QGraphicsRotation_QBaseSenderSignalIndex(const QGraphicsRotation* self) {
+int QGraphicsRotation_SuperSenderSignalIndex(const QGraphicsRotation* self) {
     auto* vqgraphicsrotation = const_cast<VirtualQGraphicsRotation*>(dynamic_cast<const VirtualQGraphicsRotation*>(self));
     if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
         vqgraphicsrotation->setQGraphicsRotation_SenderSignalIndex_IsBase(true);
@@ -1529,7 +1529,7 @@ int QGraphicsRotation_Receivers(const QGraphicsRotation* self, const char* signa
 }
 
 // Base class handler implementation
-int QGraphicsRotation_QBaseReceivers(const QGraphicsRotation* self, const char* signal) {
+int QGraphicsRotation_SuperReceivers(const QGraphicsRotation* self, const char* signal) {
     auto* vqgraphicsrotation = const_cast<VirtualQGraphicsRotation*>(dynamic_cast<const VirtualQGraphicsRotation*>(self));
     if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
         vqgraphicsrotation->setQGraphicsRotation_Receivers_IsBase(true);
@@ -1558,7 +1558,7 @@ bool QGraphicsRotation_IsSignalConnected(const QGraphicsRotation* self, const QM
 }
 
 // Base class handler implementation
-bool QGraphicsRotation_QBaseIsSignalConnected(const QGraphicsRotation* self, const QMetaMethod* signal) {
+bool QGraphicsRotation_SuperIsSignalConnected(const QGraphicsRotation* self, const QMetaMethod* signal) {
     auto* vqgraphicsrotation = const_cast<VirtualQGraphicsRotation*>(dynamic_cast<const VirtualQGraphicsRotation*>(self));
     if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
         vqgraphicsrotation->setQGraphicsRotation_IsSignalConnected_IsBase(true);

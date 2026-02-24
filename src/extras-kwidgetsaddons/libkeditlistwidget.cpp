@@ -303,7 +303,7 @@ void KEditListWidget_InsertItem2(KEditListWidget* self, const libqt_string text,
 }
 
 // Base class handler implementation
-QMetaObject* KEditListWidget_QBaseMetaObject(const KEditListWidget* self) {
+QMetaObject* KEditListWidget_SuperMetaObject(const KEditListWidget* self) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_MetaObject_IsBase(true);
@@ -322,7 +322,7 @@ void KEditListWidget_OnMetaObject(const KEditListWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KEditListWidget_QBaseMetacast(KEditListWidget* self, const char* param1) {
+void* KEditListWidget_SuperMetacast(KEditListWidget* self, const char* param1) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_Metacast_IsBase(true);
@@ -341,7 +341,7 @@ void KEditListWidget_OnMetacast(KEditListWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KEditListWidget_QBaseMetacall(KEditListWidget* self, int param1, int param2, void** param3) {
+int KEditListWidget_SuperMetacall(KEditListWidget* self, int param1, int param2, void** param3) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_Metacall_IsBase(true);
@@ -360,7 +360,7 @@ void KEditListWidget_OnMetacall(KEditListWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KEditListWidget_QBaseEventFilter(KEditListWidget* self, QObject* o, QEvent* e) {
+bool KEditListWidget_SuperEventFilter(KEditListWidget* self, QObject* o, QEvent* e) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_EventFilter_IsBase(true);
@@ -389,7 +389,7 @@ int KEditListWidget_DevType(const KEditListWidget* self) {
 }
 
 // Base class handler implementation
-int KEditListWidget_QBaseDevType(const KEditListWidget* self) {
+int KEditListWidget_SuperDevType(const KEditListWidget* self) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_DevType_IsBase(true);
@@ -418,7 +418,7 @@ void KEditListWidget_SetVisible(KEditListWidget* self, bool visible) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseSetVisible(KEditListWidget* self, bool visible) {
+void KEditListWidget_SuperSetVisible(KEditListWidget* self, bool visible) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_SetVisible_IsBase(true);
@@ -447,7 +447,7 @@ QSize* KEditListWidget_SizeHint(const KEditListWidget* self) {
 }
 
 // Base class handler implementation
-QSize* KEditListWidget_QBaseSizeHint(const KEditListWidget* self) {
+QSize* KEditListWidget_SuperSizeHint(const KEditListWidget* self) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_SizeHint_IsBase(true);
@@ -476,7 +476,7 @@ QSize* KEditListWidget_MinimumSizeHint(const KEditListWidget* self) {
 }
 
 // Base class handler implementation
-QSize* KEditListWidget_QBaseMinimumSizeHint(const KEditListWidget* self) {
+QSize* KEditListWidget_SuperMinimumSizeHint(const KEditListWidget* self) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_MinimumSizeHint_IsBase(true);
@@ -505,7 +505,7 @@ int KEditListWidget_HeightForWidth(const KEditListWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int KEditListWidget_QBaseHeightForWidth(const KEditListWidget* self, int param1) {
+int KEditListWidget_SuperHeightForWidth(const KEditListWidget* self, int param1) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_HeightForWidth_IsBase(true);
@@ -534,7 +534,7 @@ bool KEditListWidget_HasHeightForWidth(const KEditListWidget* self) {
 }
 
 // Base class handler implementation
-bool KEditListWidget_QBaseHasHeightForWidth(const KEditListWidget* self) {
+bool KEditListWidget_SuperHasHeightForWidth(const KEditListWidget* self) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_HasHeightForWidth_IsBase(true);
@@ -563,7 +563,7 @@ QPaintEngine* KEditListWidget_PaintEngine(const KEditListWidget* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KEditListWidget_QBasePaintEngine(const KEditListWidget* self) {
+QPaintEngine* KEditListWidget_SuperPaintEngine(const KEditListWidget* self) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_PaintEngine_IsBase(true);
@@ -592,7 +592,7 @@ bool KEditListWidget_Event(KEditListWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KEditListWidget_QBaseEvent(KEditListWidget* self, QEvent* event) {
+bool KEditListWidget_SuperEvent(KEditListWidget* self, QEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_Event_IsBase(true);
@@ -621,7 +621,7 @@ void KEditListWidget_MousePressEvent(KEditListWidget* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseMousePressEvent(KEditListWidget* self, QMouseEvent* event) {
+void KEditListWidget_SuperMousePressEvent(KEditListWidget* self, QMouseEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_MousePressEvent_IsBase(true);
@@ -650,7 +650,7 @@ void KEditListWidget_MouseReleaseEvent(KEditListWidget* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseMouseReleaseEvent(KEditListWidget* self, QMouseEvent* event) {
+void KEditListWidget_SuperMouseReleaseEvent(KEditListWidget* self, QMouseEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_MouseReleaseEvent_IsBase(true);
@@ -679,7 +679,7 @@ void KEditListWidget_MouseDoubleClickEvent(KEditListWidget* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseMouseDoubleClickEvent(KEditListWidget* self, QMouseEvent* event) {
+void KEditListWidget_SuperMouseDoubleClickEvent(KEditListWidget* self, QMouseEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_MouseDoubleClickEvent_IsBase(true);
@@ -708,7 +708,7 @@ void KEditListWidget_MouseMoveEvent(KEditListWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseMouseMoveEvent(KEditListWidget* self, QMouseEvent* event) {
+void KEditListWidget_SuperMouseMoveEvent(KEditListWidget* self, QMouseEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_MouseMoveEvent_IsBase(true);
@@ -737,7 +737,7 @@ void KEditListWidget_WheelEvent(KEditListWidget* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseWheelEvent(KEditListWidget* self, QWheelEvent* event) {
+void KEditListWidget_SuperWheelEvent(KEditListWidget* self, QWheelEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_WheelEvent_IsBase(true);
@@ -766,7 +766,7 @@ void KEditListWidget_KeyPressEvent(KEditListWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseKeyPressEvent(KEditListWidget* self, QKeyEvent* event) {
+void KEditListWidget_SuperKeyPressEvent(KEditListWidget* self, QKeyEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_KeyPressEvent_IsBase(true);
@@ -795,7 +795,7 @@ void KEditListWidget_KeyReleaseEvent(KEditListWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseKeyReleaseEvent(KEditListWidget* self, QKeyEvent* event) {
+void KEditListWidget_SuperKeyReleaseEvent(KEditListWidget* self, QKeyEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_KeyReleaseEvent_IsBase(true);
@@ -824,7 +824,7 @@ void KEditListWidget_FocusInEvent(KEditListWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseFocusInEvent(KEditListWidget* self, QFocusEvent* event) {
+void KEditListWidget_SuperFocusInEvent(KEditListWidget* self, QFocusEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_FocusInEvent_IsBase(true);
@@ -853,7 +853,7 @@ void KEditListWidget_FocusOutEvent(KEditListWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseFocusOutEvent(KEditListWidget* self, QFocusEvent* event) {
+void KEditListWidget_SuperFocusOutEvent(KEditListWidget* self, QFocusEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_FocusOutEvent_IsBase(true);
@@ -882,7 +882,7 @@ void KEditListWidget_EnterEvent(KEditListWidget* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseEnterEvent(KEditListWidget* self, QEnterEvent* event) {
+void KEditListWidget_SuperEnterEvent(KEditListWidget* self, QEnterEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_EnterEvent_IsBase(true);
@@ -911,7 +911,7 @@ void KEditListWidget_LeaveEvent(KEditListWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseLeaveEvent(KEditListWidget* self, QEvent* event) {
+void KEditListWidget_SuperLeaveEvent(KEditListWidget* self, QEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_LeaveEvent_IsBase(true);
@@ -940,7 +940,7 @@ void KEditListWidget_PaintEvent(KEditListWidget* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBasePaintEvent(KEditListWidget* self, QPaintEvent* event) {
+void KEditListWidget_SuperPaintEvent(KEditListWidget* self, QPaintEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_PaintEvent_IsBase(true);
@@ -969,7 +969,7 @@ void KEditListWidget_MoveEvent(KEditListWidget* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseMoveEvent(KEditListWidget* self, QMoveEvent* event) {
+void KEditListWidget_SuperMoveEvent(KEditListWidget* self, QMoveEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_MoveEvent_IsBase(true);
@@ -998,7 +998,7 @@ void KEditListWidget_ResizeEvent(KEditListWidget* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseResizeEvent(KEditListWidget* self, QResizeEvent* event) {
+void KEditListWidget_SuperResizeEvent(KEditListWidget* self, QResizeEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_ResizeEvent_IsBase(true);
@@ -1027,7 +1027,7 @@ void KEditListWidget_CloseEvent(KEditListWidget* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseCloseEvent(KEditListWidget* self, QCloseEvent* event) {
+void KEditListWidget_SuperCloseEvent(KEditListWidget* self, QCloseEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_CloseEvent_IsBase(true);
@@ -1056,7 +1056,7 @@ void KEditListWidget_ContextMenuEvent(KEditListWidget* self, QContextMenuEvent* 
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseContextMenuEvent(KEditListWidget* self, QContextMenuEvent* event) {
+void KEditListWidget_SuperContextMenuEvent(KEditListWidget* self, QContextMenuEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_ContextMenuEvent_IsBase(true);
@@ -1085,7 +1085,7 @@ void KEditListWidget_TabletEvent(KEditListWidget* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseTabletEvent(KEditListWidget* self, QTabletEvent* event) {
+void KEditListWidget_SuperTabletEvent(KEditListWidget* self, QTabletEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_TabletEvent_IsBase(true);
@@ -1114,7 +1114,7 @@ void KEditListWidget_ActionEvent(KEditListWidget* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseActionEvent(KEditListWidget* self, QActionEvent* event) {
+void KEditListWidget_SuperActionEvent(KEditListWidget* self, QActionEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_ActionEvent_IsBase(true);
@@ -1143,7 +1143,7 @@ void KEditListWidget_DragEnterEvent(KEditListWidget* self, QDragEnterEvent* even
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseDragEnterEvent(KEditListWidget* self, QDragEnterEvent* event) {
+void KEditListWidget_SuperDragEnterEvent(KEditListWidget* self, QDragEnterEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_DragEnterEvent_IsBase(true);
@@ -1172,7 +1172,7 @@ void KEditListWidget_DragMoveEvent(KEditListWidget* self, QDragMoveEvent* event)
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseDragMoveEvent(KEditListWidget* self, QDragMoveEvent* event) {
+void KEditListWidget_SuperDragMoveEvent(KEditListWidget* self, QDragMoveEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_DragMoveEvent_IsBase(true);
@@ -1201,7 +1201,7 @@ void KEditListWidget_DragLeaveEvent(KEditListWidget* self, QDragLeaveEvent* even
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseDragLeaveEvent(KEditListWidget* self, QDragLeaveEvent* event) {
+void KEditListWidget_SuperDragLeaveEvent(KEditListWidget* self, QDragLeaveEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_DragLeaveEvent_IsBase(true);
@@ -1230,7 +1230,7 @@ void KEditListWidget_DropEvent(KEditListWidget* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseDropEvent(KEditListWidget* self, QDropEvent* event) {
+void KEditListWidget_SuperDropEvent(KEditListWidget* self, QDropEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_DropEvent_IsBase(true);
@@ -1259,7 +1259,7 @@ void KEditListWidget_ShowEvent(KEditListWidget* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseShowEvent(KEditListWidget* self, QShowEvent* event) {
+void KEditListWidget_SuperShowEvent(KEditListWidget* self, QShowEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_ShowEvent_IsBase(true);
@@ -1288,7 +1288,7 @@ void KEditListWidget_HideEvent(KEditListWidget* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseHideEvent(KEditListWidget* self, QHideEvent* event) {
+void KEditListWidget_SuperHideEvent(KEditListWidget* self, QHideEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_HideEvent_IsBase(true);
@@ -1318,7 +1318,7 @@ bool KEditListWidget_NativeEvent(KEditListWidget* self, const libqt_string event
 }
 
 // Base class handler implementation
-bool KEditListWidget_QBaseNativeEvent(KEditListWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KEditListWidget_SuperNativeEvent(KEditListWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
@@ -1348,7 +1348,7 @@ void KEditListWidget_ChangeEvent(KEditListWidget* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseChangeEvent(KEditListWidget* self, QEvent* param1) {
+void KEditListWidget_SuperChangeEvent(KEditListWidget* self, QEvent* param1) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_ChangeEvent_IsBase(true);
@@ -1377,7 +1377,7 @@ int KEditListWidget_Metric(const KEditListWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int KEditListWidget_QBaseMetric(const KEditListWidget* self, int param1) {
+int KEditListWidget_SuperMetric(const KEditListWidget* self, int param1) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_Metric_IsBase(true);
@@ -1406,7 +1406,7 @@ void KEditListWidget_InitPainter(const KEditListWidget* self, QPainter* painter)
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseInitPainter(const KEditListWidget* self, QPainter* painter) {
+void KEditListWidget_SuperInitPainter(const KEditListWidget* self, QPainter* painter) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_InitPainter_IsBase(true);
@@ -1435,7 +1435,7 @@ QPaintDevice* KEditListWidget_Redirected(const KEditListWidget* self, QPoint* of
 }
 
 // Base class handler implementation
-QPaintDevice* KEditListWidget_QBaseRedirected(const KEditListWidget* self, QPoint* offset) {
+QPaintDevice* KEditListWidget_SuperRedirected(const KEditListWidget* self, QPoint* offset) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_Redirected_IsBase(true);
@@ -1464,7 +1464,7 @@ QPainter* KEditListWidget_SharedPainter(const KEditListWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* KEditListWidget_QBaseSharedPainter(const KEditListWidget* self) {
+QPainter* KEditListWidget_SuperSharedPainter(const KEditListWidget* self) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_SharedPainter_IsBase(true);
@@ -1493,7 +1493,7 @@ void KEditListWidget_InputMethodEvent(KEditListWidget* self, QInputMethodEvent* 
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseInputMethodEvent(KEditListWidget* self, QInputMethodEvent* param1) {
+void KEditListWidget_SuperInputMethodEvent(KEditListWidget* self, QInputMethodEvent* param1) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_InputMethodEvent_IsBase(true);
@@ -1522,7 +1522,7 @@ QVariant* KEditListWidget_InputMethodQuery(const KEditListWidget* self, int para
 }
 
 // Base class handler implementation
-QVariant* KEditListWidget_QBaseInputMethodQuery(const KEditListWidget* self, int param1) {
+QVariant* KEditListWidget_SuperInputMethodQuery(const KEditListWidget* self, int param1) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_InputMethodQuery_IsBase(true);
@@ -1551,7 +1551,7 @@ bool KEditListWidget_FocusNextPrevChild(KEditListWidget* self, bool next) {
 }
 
 // Base class handler implementation
-bool KEditListWidget_QBaseFocusNextPrevChild(KEditListWidget* self, bool next) {
+bool KEditListWidget_SuperFocusNextPrevChild(KEditListWidget* self, bool next) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_FocusNextPrevChild_IsBase(true);
@@ -1580,7 +1580,7 @@ void KEditListWidget_TimerEvent(KEditListWidget* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseTimerEvent(KEditListWidget* self, QTimerEvent* event) {
+void KEditListWidget_SuperTimerEvent(KEditListWidget* self, QTimerEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_TimerEvent_IsBase(true);
@@ -1609,7 +1609,7 @@ void KEditListWidget_ChildEvent(KEditListWidget* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseChildEvent(KEditListWidget* self, QChildEvent* event) {
+void KEditListWidget_SuperChildEvent(KEditListWidget* self, QChildEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_ChildEvent_IsBase(true);
@@ -1638,7 +1638,7 @@ void KEditListWidget_CustomEvent(KEditListWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseCustomEvent(KEditListWidget* self, QEvent* event) {
+void KEditListWidget_SuperCustomEvent(KEditListWidget* self, QEvent* event) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_CustomEvent_IsBase(true);
@@ -1667,7 +1667,7 @@ void KEditListWidget_ConnectNotify(KEditListWidget* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseConnectNotify(KEditListWidget* self, const QMetaMethod* signal) {
+void KEditListWidget_SuperConnectNotify(KEditListWidget* self, const QMetaMethod* signal) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_ConnectNotify_IsBase(true);
@@ -1696,7 +1696,7 @@ void KEditListWidget_DisconnectNotify(KEditListWidget* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseDisconnectNotify(KEditListWidget* self, const QMetaMethod* signal) {
+void KEditListWidget_SuperDisconnectNotify(KEditListWidget* self, const QMetaMethod* signal) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_DisconnectNotify_IsBase(true);
@@ -1725,7 +1725,7 @@ void KEditListWidget_UpdateMicroFocus(KEditListWidget* self) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseUpdateMicroFocus(KEditListWidget* self) {
+void KEditListWidget_SuperUpdateMicroFocus(KEditListWidget* self) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_UpdateMicroFocus_IsBase(true);
@@ -1754,7 +1754,7 @@ void KEditListWidget_Create(KEditListWidget* self) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseCreate(KEditListWidget* self) {
+void KEditListWidget_SuperCreate(KEditListWidget* self) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_Create_IsBase(true);
@@ -1783,7 +1783,7 @@ void KEditListWidget_Destroy(KEditListWidget* self) {
 }
 
 // Base class handler implementation
-void KEditListWidget_QBaseDestroy(KEditListWidget* self) {
+void KEditListWidget_SuperDestroy(KEditListWidget* self) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_Destroy_IsBase(true);
@@ -1812,7 +1812,7 @@ bool KEditListWidget_FocusNextChild(KEditListWidget* self) {
 }
 
 // Base class handler implementation
-bool KEditListWidget_QBaseFocusNextChild(KEditListWidget* self) {
+bool KEditListWidget_SuperFocusNextChild(KEditListWidget* self) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_FocusNextChild_IsBase(true);
@@ -1841,7 +1841,7 @@ bool KEditListWidget_FocusPreviousChild(KEditListWidget* self) {
 }
 
 // Base class handler implementation
-bool KEditListWidget_QBaseFocusPreviousChild(KEditListWidget* self) {
+bool KEditListWidget_SuperFocusPreviousChild(KEditListWidget* self) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_FocusPreviousChild_IsBase(true);
@@ -1870,7 +1870,7 @@ QObject* KEditListWidget_Sender(const KEditListWidget* self) {
 }
 
 // Base class handler implementation
-QObject* KEditListWidget_QBaseSender(const KEditListWidget* self) {
+QObject* KEditListWidget_SuperSender(const KEditListWidget* self) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_Sender_IsBase(true);
@@ -1899,7 +1899,7 @@ int KEditListWidget_SenderSignalIndex(const KEditListWidget* self) {
 }
 
 // Base class handler implementation
-int KEditListWidget_QBaseSenderSignalIndex(const KEditListWidget* self) {
+int KEditListWidget_SuperSenderSignalIndex(const KEditListWidget* self) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_SenderSignalIndex_IsBase(true);
@@ -1928,7 +1928,7 @@ int KEditListWidget_Receivers(const KEditListWidget* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KEditListWidget_QBaseReceivers(const KEditListWidget* self, const char* signal) {
+int KEditListWidget_SuperReceivers(const KEditListWidget* self, const char* signal) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_Receivers_IsBase(true);
@@ -1957,7 +1957,7 @@ bool KEditListWidget_IsSignalConnected(const KEditListWidget* self, const QMetaM
 }
 
 // Base class handler implementation
-bool KEditListWidget_QBaseIsSignalConnected(const KEditListWidget* self, const QMetaMethod* signal) {
+bool KEditListWidget_SuperIsSignalConnected(const KEditListWidget* self, const QMetaMethod* signal) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_IsSignalConnected_IsBase(true);
@@ -1986,7 +1986,7 @@ double KEditListWidget_GetDecodedMetricF(const KEditListWidget* self, int metric
 }
 
 // Base class handler implementation
-double KEditListWidget_QBaseGetDecodedMetricF(const KEditListWidget* self, int metricA, int metricB) {
+double KEditListWidget_SuperGetDecodedMetricF(const KEditListWidget* self, int metricA, int metricB) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
     if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
         vkeditlistwidget->setKEditListWidget_GetDecodedMetricF_IsBase(true);
@@ -2047,7 +2047,7 @@ QLineEdit* KEditListWidget__CustomEditor_LineEdit(const KEditListWidget__CustomE
 }
 
 // Base class handler implementation
-QWidget* KEditListWidget__CustomEditor_QBaseRepresentationWidget(const KEditListWidget__CustomEditor* self) {
+QWidget* KEditListWidget__CustomEditor_SuperRepresentationWidget(const KEditListWidget__CustomEditor* self) {
     auto* vkeditlistwidgetcustomeditor = const_cast<VirtualKEditListWidgetCustomEditor*>(dynamic_cast<const VirtualKEditListWidgetCustomEditor*>(self));
     if (vkeditlistwidgetcustomeditor && vkeditlistwidgetcustomeditor->isVirtualKEditListWidgetCustomEditor) {
         vkeditlistwidgetcustomeditor->setKEditListWidget__CustomEditor_RepresentationWidget_IsBase(true);
@@ -2066,7 +2066,7 @@ void KEditListWidget__CustomEditor_OnRepresentationWidget(const KEditListWidget_
 }
 
 // Base class handler implementation
-QLineEdit* KEditListWidget__CustomEditor_QBaseLineEdit(const KEditListWidget__CustomEditor* self) {
+QLineEdit* KEditListWidget__CustomEditor_SuperLineEdit(const KEditListWidget__CustomEditor* self) {
     auto* vkeditlistwidgetcustomeditor = const_cast<VirtualKEditListWidgetCustomEditor*>(dynamic_cast<const VirtualKEditListWidgetCustomEditor*>(self));
     if (vkeditlistwidgetcustomeditor && vkeditlistwidgetcustomeditor->isVirtualKEditListWidgetCustomEditor) {
         vkeditlistwidgetcustomeditor->setKEditListWidget__CustomEditor_LineEdit_IsBase(true);

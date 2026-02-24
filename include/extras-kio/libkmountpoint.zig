@@ -170,6 +170,10 @@ pub const kmountpoint = struct {
         return qtc.KMountPoint_CurrentMountPoints1(@bitCast(infoNeeded));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kmountpoint.html#dtor.KMountPoint)
     ///
     /// Delete this object from C++ memory.
@@ -178,7 +182,7 @@ pub const kmountpoint = struct {
     ///
     /// ` self: QtC.KMountPoint `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KMountPoint_Delete(@ptrCast(self));
     }
 };
@@ -193,13 +197,17 @@ pub const kmountpoint__list = struct {
         return qtc.KMountPoint__List_new();
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KMountPoint__List `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KMountPoint__List_Delete(@ptrCast(self));
     }
 };

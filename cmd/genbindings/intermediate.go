@@ -179,6 +179,7 @@ var (
 		"QSpan",
 		"QStack",
 		"QVector",
+		"std::vector",
 	}
 
 	qtMapTypes = []string{

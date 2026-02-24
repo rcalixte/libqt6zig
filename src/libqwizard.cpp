@@ -409,7 +409,7 @@ void QWizard_SetOption2(QWizard* self, int option, bool on) {
 }
 
 // Base class handler implementation
-QMetaObject* QWizard_QBaseMetaObject(const QWizard* self) {
+QMetaObject* QWizard_SuperMetaObject(const QWizard* self) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_MetaObject_IsBase(true);
@@ -428,7 +428,7 @@ void QWizard_OnMetaObject(const QWizard* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QWizard_QBaseMetacast(QWizard* self, const char* param1) {
+void* QWizard_SuperMetacast(QWizard* self, const char* param1) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_Metacast_IsBase(true);
@@ -447,7 +447,7 @@ void QWizard_OnMetacast(QWizard* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QWizard_QBaseMetacall(QWizard* self, int param1, int param2, void** param3) {
+int QWizard_SuperMetacall(QWizard* self, int param1, int param2, void** param3) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_Metacall_IsBase(true);
@@ -466,7 +466,7 @@ void QWizard_OnMetacall(QWizard* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QWizard_QBaseValidateCurrentPage(QWizard* self) {
+bool QWizard_SuperValidateCurrentPage(QWizard* self) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_ValidateCurrentPage_IsBase(true);
@@ -485,7 +485,7 @@ void QWizard_OnValidateCurrentPage(QWizard* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QWizard_QBaseNextId(const QWizard* self) {
+int QWizard_SuperNextId(const QWizard* self) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_NextId_IsBase(true);
@@ -504,7 +504,7 @@ void QWizard_OnNextId(const QWizard* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseSetVisible(QWizard* self, bool visible) {
+void QWizard_SuperSetVisible(QWizard* self, bool visible) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_SetVisible_IsBase(true);
@@ -523,7 +523,7 @@ void QWizard_OnSetVisible(QWizard* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QWizard_QBaseSizeHint(const QWizard* self) {
+QSize* QWizard_SuperSizeHint(const QWizard* self) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_SizeHint_IsBase(true);
@@ -542,7 +542,7 @@ void QWizard_OnSizeHint(const QWizard* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QWizard_QBaseEvent(QWizard* self, QEvent* event) {
+bool QWizard_SuperEvent(QWizard* self, QEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_Event_IsBase(true);
@@ -561,7 +561,7 @@ void QWizard_OnEvent(QWizard* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseResizeEvent(QWizard* self, QResizeEvent* event) {
+void QWizard_SuperResizeEvent(QWizard* self, QResizeEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_ResizeEvent_IsBase(true);
@@ -580,7 +580,7 @@ void QWizard_OnResizeEvent(QWizard* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QWizard_QBasePaintEvent(QWizard* self, QPaintEvent* event) {
+void QWizard_SuperPaintEvent(QWizard* self, QPaintEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_PaintEvent_IsBase(true);
@@ -599,7 +599,7 @@ void QWizard_OnPaintEvent(QWizard* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseDone(QWizard* self, int result) {
+void QWizard_SuperDone(QWizard* self, int result) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_Done_IsBase(true);
@@ -618,7 +618,7 @@ void QWizard_OnDone(QWizard* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseInitializePage(QWizard* self, int id) {
+void QWizard_SuperInitializePage(QWizard* self, int id) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_InitializePage_IsBase(true);
@@ -637,7 +637,7 @@ void QWizard_OnInitializePage(QWizard* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseCleanupPage(QWizard* self, int id) {
+void QWizard_SuperCleanupPage(QWizard* self, int id) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_CleanupPage_IsBase(true);
@@ -666,7 +666,7 @@ QSize* QWizard_MinimumSizeHint(const QWizard* self) {
 }
 
 // Base class handler implementation
-QSize* QWizard_QBaseMinimumSizeHint(const QWizard* self) {
+QSize* QWizard_SuperMinimumSizeHint(const QWizard* self) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_MinimumSizeHint_IsBase(true);
@@ -695,7 +695,7 @@ void QWizard_Open(QWizard* self) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseOpen(QWizard* self) {
+void QWizard_SuperOpen(QWizard* self) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_Open_IsBase(true);
@@ -724,7 +724,7 @@ int QWizard_Exec(QWizard* self) {
 }
 
 // Base class handler implementation
-int QWizard_QBaseExec(QWizard* self) {
+int QWizard_SuperExec(QWizard* self) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_Exec_IsBase(true);
@@ -753,7 +753,7 @@ void QWizard_Accept(QWizard* self) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseAccept(QWizard* self) {
+void QWizard_SuperAccept(QWizard* self) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_Accept_IsBase(true);
@@ -782,7 +782,7 @@ void QWizard_Reject(QWizard* self) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseReject(QWizard* self) {
+void QWizard_SuperReject(QWizard* self) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_Reject_IsBase(true);
@@ -811,7 +811,7 @@ void QWizard_KeyPressEvent(QWizard* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseKeyPressEvent(QWizard* self, QKeyEvent* param1) {
+void QWizard_SuperKeyPressEvent(QWizard* self, QKeyEvent* param1) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_KeyPressEvent_IsBase(true);
@@ -840,7 +840,7 @@ void QWizard_CloseEvent(QWizard* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseCloseEvent(QWizard* self, QCloseEvent* param1) {
+void QWizard_SuperCloseEvent(QWizard* self, QCloseEvent* param1) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_CloseEvent_IsBase(true);
@@ -869,7 +869,7 @@ void QWizard_ShowEvent(QWizard* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseShowEvent(QWizard* self, QShowEvent* param1) {
+void QWizard_SuperShowEvent(QWizard* self, QShowEvent* param1) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_ShowEvent_IsBase(true);
@@ -898,7 +898,7 @@ void QWizard_ContextMenuEvent(QWizard* self, QContextMenuEvent* param1) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseContextMenuEvent(QWizard* self, QContextMenuEvent* param1) {
+void QWizard_SuperContextMenuEvent(QWizard* self, QContextMenuEvent* param1) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_ContextMenuEvent_IsBase(true);
@@ -927,7 +927,7 @@ bool QWizard_EventFilter(QWizard* self, QObject* param1, QEvent* param2) {
 }
 
 // Base class handler implementation
-bool QWizard_QBaseEventFilter(QWizard* self, QObject* param1, QEvent* param2) {
+bool QWizard_SuperEventFilter(QWizard* self, QObject* param1, QEvent* param2) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_EventFilter_IsBase(true);
@@ -956,7 +956,7 @@ int QWizard_DevType(const QWizard* self) {
 }
 
 // Base class handler implementation
-int QWizard_QBaseDevType(const QWizard* self) {
+int QWizard_SuperDevType(const QWizard* self) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_DevType_IsBase(true);
@@ -985,7 +985,7 @@ int QWizard_HeightForWidth(const QWizard* self, int param1) {
 }
 
 // Base class handler implementation
-int QWizard_QBaseHeightForWidth(const QWizard* self, int param1) {
+int QWizard_SuperHeightForWidth(const QWizard* self, int param1) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_HeightForWidth_IsBase(true);
@@ -1014,7 +1014,7 @@ bool QWizard_HasHeightForWidth(const QWizard* self) {
 }
 
 // Base class handler implementation
-bool QWizard_QBaseHasHeightForWidth(const QWizard* self) {
+bool QWizard_SuperHasHeightForWidth(const QWizard* self) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_HasHeightForWidth_IsBase(true);
@@ -1043,7 +1043,7 @@ QPaintEngine* QWizard_PaintEngine(const QWizard* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QWizard_QBasePaintEngine(const QWizard* self) {
+QPaintEngine* QWizard_SuperPaintEngine(const QWizard* self) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_PaintEngine_IsBase(true);
@@ -1072,7 +1072,7 @@ void QWizard_MousePressEvent(QWizard* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseMousePressEvent(QWizard* self, QMouseEvent* event) {
+void QWizard_SuperMousePressEvent(QWizard* self, QMouseEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_MousePressEvent_IsBase(true);
@@ -1101,7 +1101,7 @@ void QWizard_MouseReleaseEvent(QWizard* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseMouseReleaseEvent(QWizard* self, QMouseEvent* event) {
+void QWizard_SuperMouseReleaseEvent(QWizard* self, QMouseEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_MouseReleaseEvent_IsBase(true);
@@ -1130,7 +1130,7 @@ void QWizard_MouseDoubleClickEvent(QWizard* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseMouseDoubleClickEvent(QWizard* self, QMouseEvent* event) {
+void QWizard_SuperMouseDoubleClickEvent(QWizard* self, QMouseEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_MouseDoubleClickEvent_IsBase(true);
@@ -1159,7 +1159,7 @@ void QWizard_MouseMoveEvent(QWizard* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseMouseMoveEvent(QWizard* self, QMouseEvent* event) {
+void QWizard_SuperMouseMoveEvent(QWizard* self, QMouseEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_MouseMoveEvent_IsBase(true);
@@ -1188,7 +1188,7 @@ void QWizard_WheelEvent(QWizard* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseWheelEvent(QWizard* self, QWheelEvent* event) {
+void QWizard_SuperWheelEvent(QWizard* self, QWheelEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_WheelEvent_IsBase(true);
@@ -1217,7 +1217,7 @@ void QWizard_KeyReleaseEvent(QWizard* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseKeyReleaseEvent(QWizard* self, QKeyEvent* event) {
+void QWizard_SuperKeyReleaseEvent(QWizard* self, QKeyEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_KeyReleaseEvent_IsBase(true);
@@ -1246,7 +1246,7 @@ void QWizard_FocusInEvent(QWizard* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseFocusInEvent(QWizard* self, QFocusEvent* event) {
+void QWizard_SuperFocusInEvent(QWizard* self, QFocusEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_FocusInEvent_IsBase(true);
@@ -1275,7 +1275,7 @@ void QWizard_FocusOutEvent(QWizard* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseFocusOutEvent(QWizard* self, QFocusEvent* event) {
+void QWizard_SuperFocusOutEvent(QWizard* self, QFocusEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_FocusOutEvent_IsBase(true);
@@ -1304,7 +1304,7 @@ void QWizard_EnterEvent(QWizard* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseEnterEvent(QWizard* self, QEnterEvent* event) {
+void QWizard_SuperEnterEvent(QWizard* self, QEnterEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_EnterEvent_IsBase(true);
@@ -1333,7 +1333,7 @@ void QWizard_LeaveEvent(QWizard* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseLeaveEvent(QWizard* self, QEvent* event) {
+void QWizard_SuperLeaveEvent(QWizard* self, QEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_LeaveEvent_IsBase(true);
@@ -1362,7 +1362,7 @@ void QWizard_MoveEvent(QWizard* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseMoveEvent(QWizard* self, QMoveEvent* event) {
+void QWizard_SuperMoveEvent(QWizard* self, QMoveEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_MoveEvent_IsBase(true);
@@ -1391,7 +1391,7 @@ void QWizard_TabletEvent(QWizard* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseTabletEvent(QWizard* self, QTabletEvent* event) {
+void QWizard_SuperTabletEvent(QWizard* self, QTabletEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_TabletEvent_IsBase(true);
@@ -1420,7 +1420,7 @@ void QWizard_ActionEvent(QWizard* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseActionEvent(QWizard* self, QActionEvent* event) {
+void QWizard_SuperActionEvent(QWizard* self, QActionEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_ActionEvent_IsBase(true);
@@ -1449,7 +1449,7 @@ void QWizard_DragEnterEvent(QWizard* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseDragEnterEvent(QWizard* self, QDragEnterEvent* event) {
+void QWizard_SuperDragEnterEvent(QWizard* self, QDragEnterEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_DragEnterEvent_IsBase(true);
@@ -1478,7 +1478,7 @@ void QWizard_DragMoveEvent(QWizard* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseDragMoveEvent(QWizard* self, QDragMoveEvent* event) {
+void QWizard_SuperDragMoveEvent(QWizard* self, QDragMoveEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_DragMoveEvent_IsBase(true);
@@ -1507,7 +1507,7 @@ void QWizard_DragLeaveEvent(QWizard* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseDragLeaveEvent(QWizard* self, QDragLeaveEvent* event) {
+void QWizard_SuperDragLeaveEvent(QWizard* self, QDragLeaveEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_DragLeaveEvent_IsBase(true);
@@ -1536,7 +1536,7 @@ void QWizard_DropEvent(QWizard* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseDropEvent(QWizard* self, QDropEvent* event) {
+void QWizard_SuperDropEvent(QWizard* self, QDropEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_DropEvent_IsBase(true);
@@ -1565,7 +1565,7 @@ void QWizard_HideEvent(QWizard* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseHideEvent(QWizard* self, QHideEvent* event) {
+void QWizard_SuperHideEvent(QWizard* self, QHideEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_HideEvent_IsBase(true);
@@ -1595,7 +1595,7 @@ bool QWizard_NativeEvent(QWizard* self, const libqt_string eventType, void* mess
 }
 
 // Base class handler implementation
-bool QWizard_QBaseNativeEvent(QWizard* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QWizard_SuperNativeEvent(QWizard* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqwizard && vqwizard->isVirtualQWizard) {
@@ -1625,7 +1625,7 @@ void QWizard_ChangeEvent(QWizard* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseChangeEvent(QWizard* self, QEvent* param1) {
+void QWizard_SuperChangeEvent(QWizard* self, QEvent* param1) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_ChangeEvent_IsBase(true);
@@ -1654,7 +1654,7 @@ int QWizard_Metric(const QWizard* self, int param1) {
 }
 
 // Base class handler implementation
-int QWizard_QBaseMetric(const QWizard* self, int param1) {
+int QWizard_SuperMetric(const QWizard* self, int param1) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_Metric_IsBase(true);
@@ -1683,7 +1683,7 @@ void QWizard_InitPainter(const QWizard* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseInitPainter(const QWizard* self, QPainter* painter) {
+void QWizard_SuperInitPainter(const QWizard* self, QPainter* painter) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_InitPainter_IsBase(true);
@@ -1712,7 +1712,7 @@ QPaintDevice* QWizard_Redirected(const QWizard* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QWizard_QBaseRedirected(const QWizard* self, QPoint* offset) {
+QPaintDevice* QWizard_SuperRedirected(const QWizard* self, QPoint* offset) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_Redirected_IsBase(true);
@@ -1741,7 +1741,7 @@ QPainter* QWizard_SharedPainter(const QWizard* self) {
 }
 
 // Base class handler implementation
-QPainter* QWizard_QBaseSharedPainter(const QWizard* self) {
+QPainter* QWizard_SuperSharedPainter(const QWizard* self) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_SharedPainter_IsBase(true);
@@ -1770,7 +1770,7 @@ void QWizard_InputMethodEvent(QWizard* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseInputMethodEvent(QWizard* self, QInputMethodEvent* param1) {
+void QWizard_SuperInputMethodEvent(QWizard* self, QInputMethodEvent* param1) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_InputMethodEvent_IsBase(true);
@@ -1799,7 +1799,7 @@ QVariant* QWizard_InputMethodQuery(const QWizard* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QWizard_QBaseInputMethodQuery(const QWizard* self, int param1) {
+QVariant* QWizard_SuperInputMethodQuery(const QWizard* self, int param1) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_InputMethodQuery_IsBase(true);
@@ -1828,7 +1828,7 @@ bool QWizard_FocusNextPrevChild(QWizard* self, bool next) {
 }
 
 // Base class handler implementation
-bool QWizard_QBaseFocusNextPrevChild(QWizard* self, bool next) {
+bool QWizard_SuperFocusNextPrevChild(QWizard* self, bool next) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_FocusNextPrevChild_IsBase(true);
@@ -1857,7 +1857,7 @@ void QWizard_TimerEvent(QWizard* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseTimerEvent(QWizard* self, QTimerEvent* event) {
+void QWizard_SuperTimerEvent(QWizard* self, QTimerEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_TimerEvent_IsBase(true);
@@ -1886,7 +1886,7 @@ void QWizard_ChildEvent(QWizard* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseChildEvent(QWizard* self, QChildEvent* event) {
+void QWizard_SuperChildEvent(QWizard* self, QChildEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_ChildEvent_IsBase(true);
@@ -1915,7 +1915,7 @@ void QWizard_CustomEvent(QWizard* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseCustomEvent(QWizard* self, QEvent* event) {
+void QWizard_SuperCustomEvent(QWizard* self, QEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_CustomEvent_IsBase(true);
@@ -1944,7 +1944,7 @@ void QWizard_ConnectNotify(QWizard* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseConnectNotify(QWizard* self, const QMetaMethod* signal) {
+void QWizard_SuperConnectNotify(QWizard* self, const QMetaMethod* signal) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_ConnectNotify_IsBase(true);
@@ -1973,7 +1973,7 @@ void QWizard_DisconnectNotify(QWizard* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseDisconnectNotify(QWizard* self, const QMetaMethod* signal) {
+void QWizard_SuperDisconnectNotify(QWizard* self, const QMetaMethod* signal) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_DisconnectNotify_IsBase(true);
@@ -2002,7 +2002,7 @@ void QWizard_AdjustPosition(QWizard* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseAdjustPosition(QWizard* self, QWidget* param1) {
+void QWizard_SuperAdjustPosition(QWizard* self, QWidget* param1) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_AdjustPosition_IsBase(true);
@@ -2031,7 +2031,7 @@ void QWizard_UpdateMicroFocus(QWizard* self) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseUpdateMicroFocus(QWizard* self) {
+void QWizard_SuperUpdateMicroFocus(QWizard* self) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_UpdateMicroFocus_IsBase(true);
@@ -2060,7 +2060,7 @@ void QWizard_Create(QWizard* self) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseCreate(QWizard* self) {
+void QWizard_SuperCreate(QWizard* self) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_Create_IsBase(true);
@@ -2089,7 +2089,7 @@ void QWizard_Destroy(QWizard* self) {
 }
 
 // Base class handler implementation
-void QWizard_QBaseDestroy(QWizard* self) {
+void QWizard_SuperDestroy(QWizard* self) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_Destroy_IsBase(true);
@@ -2118,7 +2118,7 @@ bool QWizard_FocusNextChild(QWizard* self) {
 }
 
 // Base class handler implementation
-bool QWizard_QBaseFocusNextChild(QWizard* self) {
+bool QWizard_SuperFocusNextChild(QWizard* self) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_FocusNextChild_IsBase(true);
@@ -2147,7 +2147,7 @@ bool QWizard_FocusPreviousChild(QWizard* self) {
 }
 
 // Base class handler implementation
-bool QWizard_QBaseFocusPreviousChild(QWizard* self) {
+bool QWizard_SuperFocusPreviousChild(QWizard* self) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_FocusPreviousChild_IsBase(true);
@@ -2176,7 +2176,7 @@ QObject* QWizard_Sender(const QWizard* self) {
 }
 
 // Base class handler implementation
-QObject* QWizard_QBaseSender(const QWizard* self) {
+QObject* QWizard_SuperSender(const QWizard* self) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_Sender_IsBase(true);
@@ -2205,7 +2205,7 @@ int QWizard_SenderSignalIndex(const QWizard* self) {
 }
 
 // Base class handler implementation
-int QWizard_QBaseSenderSignalIndex(const QWizard* self) {
+int QWizard_SuperSenderSignalIndex(const QWizard* self) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_SenderSignalIndex_IsBase(true);
@@ -2234,7 +2234,7 @@ int QWizard_Receivers(const QWizard* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QWizard_QBaseReceivers(const QWizard* self, const char* signal) {
+int QWizard_SuperReceivers(const QWizard* self, const char* signal) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_Receivers_IsBase(true);
@@ -2263,7 +2263,7 @@ bool QWizard_IsSignalConnected(const QWizard* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QWizard_QBaseIsSignalConnected(const QWizard* self, const QMetaMethod* signal) {
+bool QWizard_SuperIsSignalConnected(const QWizard* self, const QMetaMethod* signal) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_IsSignalConnected_IsBase(true);
@@ -2292,7 +2292,7 @@ double QWizard_GetDecodedMetricF(const QWizard* self, int metricA, int metricB) 
 }
 
 // Base class handler implementation
-double QWizard_QBaseGetDecodedMetricF(const QWizard* self, int metricA, int metricB) {
+double QWizard_SuperGetDecodedMetricF(const QWizard* self, int metricA, int metricB) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
     if (vqwizard && vqwizard->isVirtualQWizard) {
         vqwizard->setQWizard_GetDecodedMetricF_IsBase(true);
@@ -2481,7 +2481,7 @@ void QWizardPage_Connect_CompleteChanged(QWizardPage* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QWizardPage_QBaseMetaObject(const QWizardPage* self) {
+QMetaObject* QWizardPage_SuperMetaObject(const QWizardPage* self) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_MetaObject_IsBase(true);
@@ -2500,7 +2500,7 @@ void QWizardPage_OnMetaObject(const QWizardPage* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QWizardPage_QBaseMetacast(QWizardPage* self, const char* param1) {
+void* QWizardPage_SuperMetacast(QWizardPage* self, const char* param1) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_Metacast_IsBase(true);
@@ -2519,7 +2519,7 @@ void QWizardPage_OnMetacast(QWizardPage* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QWizardPage_QBaseMetacall(QWizardPage* self, int param1, int param2, void** param3) {
+int QWizardPage_SuperMetacall(QWizardPage* self, int param1, int param2, void** param3) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_Metacall_IsBase(true);
@@ -2538,7 +2538,7 @@ void QWizardPage_OnMetacall(QWizardPage* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseInitializePage(QWizardPage* self) {
+void QWizardPage_SuperInitializePage(QWizardPage* self) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_InitializePage_IsBase(true);
@@ -2557,7 +2557,7 @@ void QWizardPage_OnInitializePage(QWizardPage* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseCleanupPage(QWizardPage* self) {
+void QWizardPage_SuperCleanupPage(QWizardPage* self) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_CleanupPage_IsBase(true);
@@ -2576,7 +2576,7 @@ void QWizardPage_OnCleanupPage(QWizardPage* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QWizardPage_QBaseValidatePage(QWizardPage* self) {
+bool QWizardPage_SuperValidatePage(QWizardPage* self) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_ValidatePage_IsBase(true);
@@ -2595,7 +2595,7 @@ void QWizardPage_OnValidatePage(QWizardPage* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QWizardPage_QBaseIsComplete(const QWizardPage* self) {
+bool QWizardPage_SuperIsComplete(const QWizardPage* self) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_IsComplete_IsBase(true);
@@ -2614,7 +2614,7 @@ void QWizardPage_OnIsComplete(const QWizardPage* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QWizardPage_QBaseNextId(const QWizardPage* self) {
+int QWizardPage_SuperNextId(const QWizardPage* self) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_NextId_IsBase(true);
@@ -2643,7 +2643,7 @@ int QWizardPage_DevType(const QWizardPage* self) {
 }
 
 // Base class handler implementation
-int QWizardPage_QBaseDevType(const QWizardPage* self) {
+int QWizardPage_SuperDevType(const QWizardPage* self) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_DevType_IsBase(true);
@@ -2672,7 +2672,7 @@ void QWizardPage_SetVisible(QWizardPage* self, bool visible) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseSetVisible(QWizardPage* self, bool visible) {
+void QWizardPage_SuperSetVisible(QWizardPage* self, bool visible) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_SetVisible_IsBase(true);
@@ -2701,7 +2701,7 @@ QSize* QWizardPage_SizeHint(const QWizardPage* self) {
 }
 
 // Base class handler implementation
-QSize* QWizardPage_QBaseSizeHint(const QWizardPage* self) {
+QSize* QWizardPage_SuperSizeHint(const QWizardPage* self) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_SizeHint_IsBase(true);
@@ -2730,7 +2730,7 @@ QSize* QWizardPage_MinimumSizeHint(const QWizardPage* self) {
 }
 
 // Base class handler implementation
-QSize* QWizardPage_QBaseMinimumSizeHint(const QWizardPage* self) {
+QSize* QWizardPage_SuperMinimumSizeHint(const QWizardPage* self) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_MinimumSizeHint_IsBase(true);
@@ -2759,7 +2759,7 @@ int QWizardPage_HeightForWidth(const QWizardPage* self, int param1) {
 }
 
 // Base class handler implementation
-int QWizardPage_QBaseHeightForWidth(const QWizardPage* self, int param1) {
+int QWizardPage_SuperHeightForWidth(const QWizardPage* self, int param1) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_HeightForWidth_IsBase(true);
@@ -2788,7 +2788,7 @@ bool QWizardPage_HasHeightForWidth(const QWizardPage* self) {
 }
 
 // Base class handler implementation
-bool QWizardPage_QBaseHasHeightForWidth(const QWizardPage* self) {
+bool QWizardPage_SuperHasHeightForWidth(const QWizardPage* self) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_HasHeightForWidth_IsBase(true);
@@ -2817,7 +2817,7 @@ QPaintEngine* QWizardPage_PaintEngine(const QWizardPage* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QWizardPage_QBasePaintEngine(const QWizardPage* self) {
+QPaintEngine* QWizardPage_SuperPaintEngine(const QWizardPage* self) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_PaintEngine_IsBase(true);
@@ -2846,7 +2846,7 @@ bool QWizardPage_Event(QWizardPage* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QWizardPage_QBaseEvent(QWizardPage* self, QEvent* event) {
+bool QWizardPage_SuperEvent(QWizardPage* self, QEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_Event_IsBase(true);
@@ -2875,7 +2875,7 @@ void QWizardPage_MousePressEvent(QWizardPage* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseMousePressEvent(QWizardPage* self, QMouseEvent* event) {
+void QWizardPage_SuperMousePressEvent(QWizardPage* self, QMouseEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_MousePressEvent_IsBase(true);
@@ -2904,7 +2904,7 @@ void QWizardPage_MouseReleaseEvent(QWizardPage* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseMouseReleaseEvent(QWizardPage* self, QMouseEvent* event) {
+void QWizardPage_SuperMouseReleaseEvent(QWizardPage* self, QMouseEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_MouseReleaseEvent_IsBase(true);
@@ -2933,7 +2933,7 @@ void QWizardPage_MouseDoubleClickEvent(QWizardPage* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseMouseDoubleClickEvent(QWizardPage* self, QMouseEvent* event) {
+void QWizardPage_SuperMouseDoubleClickEvent(QWizardPage* self, QMouseEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_MouseDoubleClickEvent_IsBase(true);
@@ -2962,7 +2962,7 @@ void QWizardPage_MouseMoveEvent(QWizardPage* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseMouseMoveEvent(QWizardPage* self, QMouseEvent* event) {
+void QWizardPage_SuperMouseMoveEvent(QWizardPage* self, QMouseEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_MouseMoveEvent_IsBase(true);
@@ -2991,7 +2991,7 @@ void QWizardPage_WheelEvent(QWizardPage* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseWheelEvent(QWizardPage* self, QWheelEvent* event) {
+void QWizardPage_SuperWheelEvent(QWizardPage* self, QWheelEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_WheelEvent_IsBase(true);
@@ -3020,7 +3020,7 @@ void QWizardPage_KeyPressEvent(QWizardPage* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseKeyPressEvent(QWizardPage* self, QKeyEvent* event) {
+void QWizardPage_SuperKeyPressEvent(QWizardPage* self, QKeyEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_KeyPressEvent_IsBase(true);
@@ -3049,7 +3049,7 @@ void QWizardPage_KeyReleaseEvent(QWizardPage* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseKeyReleaseEvent(QWizardPage* self, QKeyEvent* event) {
+void QWizardPage_SuperKeyReleaseEvent(QWizardPage* self, QKeyEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_KeyReleaseEvent_IsBase(true);
@@ -3078,7 +3078,7 @@ void QWizardPage_FocusInEvent(QWizardPage* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseFocusInEvent(QWizardPage* self, QFocusEvent* event) {
+void QWizardPage_SuperFocusInEvent(QWizardPage* self, QFocusEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_FocusInEvent_IsBase(true);
@@ -3107,7 +3107,7 @@ void QWizardPage_FocusOutEvent(QWizardPage* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseFocusOutEvent(QWizardPage* self, QFocusEvent* event) {
+void QWizardPage_SuperFocusOutEvent(QWizardPage* self, QFocusEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_FocusOutEvent_IsBase(true);
@@ -3136,7 +3136,7 @@ void QWizardPage_EnterEvent(QWizardPage* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseEnterEvent(QWizardPage* self, QEnterEvent* event) {
+void QWizardPage_SuperEnterEvent(QWizardPage* self, QEnterEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_EnterEvent_IsBase(true);
@@ -3165,7 +3165,7 @@ void QWizardPage_LeaveEvent(QWizardPage* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseLeaveEvent(QWizardPage* self, QEvent* event) {
+void QWizardPage_SuperLeaveEvent(QWizardPage* self, QEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_LeaveEvent_IsBase(true);
@@ -3194,7 +3194,7 @@ void QWizardPage_PaintEvent(QWizardPage* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBasePaintEvent(QWizardPage* self, QPaintEvent* event) {
+void QWizardPage_SuperPaintEvent(QWizardPage* self, QPaintEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_PaintEvent_IsBase(true);
@@ -3223,7 +3223,7 @@ void QWizardPage_MoveEvent(QWizardPage* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseMoveEvent(QWizardPage* self, QMoveEvent* event) {
+void QWizardPage_SuperMoveEvent(QWizardPage* self, QMoveEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_MoveEvent_IsBase(true);
@@ -3252,7 +3252,7 @@ void QWizardPage_ResizeEvent(QWizardPage* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseResizeEvent(QWizardPage* self, QResizeEvent* event) {
+void QWizardPage_SuperResizeEvent(QWizardPage* self, QResizeEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_ResizeEvent_IsBase(true);
@@ -3281,7 +3281,7 @@ void QWizardPage_CloseEvent(QWizardPage* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseCloseEvent(QWizardPage* self, QCloseEvent* event) {
+void QWizardPage_SuperCloseEvent(QWizardPage* self, QCloseEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_CloseEvent_IsBase(true);
@@ -3310,7 +3310,7 @@ void QWizardPage_ContextMenuEvent(QWizardPage* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseContextMenuEvent(QWizardPage* self, QContextMenuEvent* event) {
+void QWizardPage_SuperContextMenuEvent(QWizardPage* self, QContextMenuEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_ContextMenuEvent_IsBase(true);
@@ -3339,7 +3339,7 @@ void QWizardPage_TabletEvent(QWizardPage* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseTabletEvent(QWizardPage* self, QTabletEvent* event) {
+void QWizardPage_SuperTabletEvent(QWizardPage* self, QTabletEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_TabletEvent_IsBase(true);
@@ -3368,7 +3368,7 @@ void QWizardPage_ActionEvent(QWizardPage* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseActionEvent(QWizardPage* self, QActionEvent* event) {
+void QWizardPage_SuperActionEvent(QWizardPage* self, QActionEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_ActionEvent_IsBase(true);
@@ -3397,7 +3397,7 @@ void QWizardPage_DragEnterEvent(QWizardPage* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseDragEnterEvent(QWizardPage* self, QDragEnterEvent* event) {
+void QWizardPage_SuperDragEnterEvent(QWizardPage* self, QDragEnterEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_DragEnterEvent_IsBase(true);
@@ -3426,7 +3426,7 @@ void QWizardPage_DragMoveEvent(QWizardPage* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseDragMoveEvent(QWizardPage* self, QDragMoveEvent* event) {
+void QWizardPage_SuperDragMoveEvent(QWizardPage* self, QDragMoveEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_DragMoveEvent_IsBase(true);
@@ -3455,7 +3455,7 @@ void QWizardPage_DragLeaveEvent(QWizardPage* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseDragLeaveEvent(QWizardPage* self, QDragLeaveEvent* event) {
+void QWizardPage_SuperDragLeaveEvent(QWizardPage* self, QDragLeaveEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_DragLeaveEvent_IsBase(true);
@@ -3484,7 +3484,7 @@ void QWizardPage_DropEvent(QWizardPage* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseDropEvent(QWizardPage* self, QDropEvent* event) {
+void QWizardPage_SuperDropEvent(QWizardPage* self, QDropEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_DropEvent_IsBase(true);
@@ -3513,7 +3513,7 @@ void QWizardPage_ShowEvent(QWizardPage* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseShowEvent(QWizardPage* self, QShowEvent* event) {
+void QWizardPage_SuperShowEvent(QWizardPage* self, QShowEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_ShowEvent_IsBase(true);
@@ -3542,7 +3542,7 @@ void QWizardPage_HideEvent(QWizardPage* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseHideEvent(QWizardPage* self, QHideEvent* event) {
+void QWizardPage_SuperHideEvent(QWizardPage* self, QHideEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_HideEvent_IsBase(true);
@@ -3572,7 +3572,7 @@ bool QWizardPage_NativeEvent(QWizardPage* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool QWizardPage_QBaseNativeEvent(QWizardPage* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QWizardPage_SuperNativeEvent(QWizardPage* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
@@ -3602,7 +3602,7 @@ void QWizardPage_ChangeEvent(QWizardPage* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseChangeEvent(QWizardPage* self, QEvent* param1) {
+void QWizardPage_SuperChangeEvent(QWizardPage* self, QEvent* param1) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_ChangeEvent_IsBase(true);
@@ -3631,7 +3631,7 @@ int QWizardPage_Metric(const QWizardPage* self, int param1) {
 }
 
 // Base class handler implementation
-int QWizardPage_QBaseMetric(const QWizardPage* self, int param1) {
+int QWizardPage_SuperMetric(const QWizardPage* self, int param1) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_Metric_IsBase(true);
@@ -3660,7 +3660,7 @@ void QWizardPage_InitPainter(const QWizardPage* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseInitPainter(const QWizardPage* self, QPainter* painter) {
+void QWizardPage_SuperInitPainter(const QWizardPage* self, QPainter* painter) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_InitPainter_IsBase(true);
@@ -3689,7 +3689,7 @@ QPaintDevice* QWizardPage_Redirected(const QWizardPage* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QWizardPage_QBaseRedirected(const QWizardPage* self, QPoint* offset) {
+QPaintDevice* QWizardPage_SuperRedirected(const QWizardPage* self, QPoint* offset) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_Redirected_IsBase(true);
@@ -3718,7 +3718,7 @@ QPainter* QWizardPage_SharedPainter(const QWizardPage* self) {
 }
 
 // Base class handler implementation
-QPainter* QWizardPage_QBaseSharedPainter(const QWizardPage* self) {
+QPainter* QWizardPage_SuperSharedPainter(const QWizardPage* self) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_SharedPainter_IsBase(true);
@@ -3747,7 +3747,7 @@ void QWizardPage_InputMethodEvent(QWizardPage* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseInputMethodEvent(QWizardPage* self, QInputMethodEvent* param1) {
+void QWizardPage_SuperInputMethodEvent(QWizardPage* self, QInputMethodEvent* param1) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_InputMethodEvent_IsBase(true);
@@ -3776,7 +3776,7 @@ QVariant* QWizardPage_InputMethodQuery(const QWizardPage* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QWizardPage_QBaseInputMethodQuery(const QWizardPage* self, int param1) {
+QVariant* QWizardPage_SuperInputMethodQuery(const QWizardPage* self, int param1) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_InputMethodQuery_IsBase(true);
@@ -3805,7 +3805,7 @@ bool QWizardPage_FocusNextPrevChild(QWizardPage* self, bool next) {
 }
 
 // Base class handler implementation
-bool QWizardPage_QBaseFocusNextPrevChild(QWizardPage* self, bool next) {
+bool QWizardPage_SuperFocusNextPrevChild(QWizardPage* self, bool next) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_FocusNextPrevChild_IsBase(true);
@@ -3834,7 +3834,7 @@ bool QWizardPage_EventFilter(QWizardPage* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QWizardPage_QBaseEventFilter(QWizardPage* self, QObject* watched, QEvent* event) {
+bool QWizardPage_SuperEventFilter(QWizardPage* self, QObject* watched, QEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_EventFilter_IsBase(true);
@@ -3863,7 +3863,7 @@ void QWizardPage_TimerEvent(QWizardPage* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseTimerEvent(QWizardPage* self, QTimerEvent* event) {
+void QWizardPage_SuperTimerEvent(QWizardPage* self, QTimerEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_TimerEvent_IsBase(true);
@@ -3892,7 +3892,7 @@ void QWizardPage_ChildEvent(QWizardPage* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseChildEvent(QWizardPage* self, QChildEvent* event) {
+void QWizardPage_SuperChildEvent(QWizardPage* self, QChildEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_ChildEvent_IsBase(true);
@@ -3921,7 +3921,7 @@ void QWizardPage_CustomEvent(QWizardPage* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseCustomEvent(QWizardPage* self, QEvent* event) {
+void QWizardPage_SuperCustomEvent(QWizardPage* self, QEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_CustomEvent_IsBase(true);
@@ -3950,7 +3950,7 @@ void QWizardPage_ConnectNotify(QWizardPage* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseConnectNotify(QWizardPage* self, const QMetaMethod* signal) {
+void QWizardPage_SuperConnectNotify(QWizardPage* self, const QMetaMethod* signal) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_ConnectNotify_IsBase(true);
@@ -3979,7 +3979,7 @@ void QWizardPage_DisconnectNotify(QWizardPage* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseDisconnectNotify(QWizardPage* self, const QMetaMethod* signal) {
+void QWizardPage_SuperDisconnectNotify(QWizardPage* self, const QMetaMethod* signal) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_DisconnectNotify_IsBase(true);
@@ -4009,7 +4009,7 @@ void QWizardPage_SetField(QWizardPage* self, const libqt_string name, const QVar
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseSetField(QWizardPage* self, const libqt_string name, const QVariant* value) {
+void QWizardPage_SuperSetField(QWizardPage* self, const libqt_string name, const QVariant* value) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
@@ -4039,7 +4039,7 @@ QVariant* QWizardPage_Field(const QWizardPage* self, const libqt_string name) {
 }
 
 // Base class handler implementation
-QVariant* QWizardPage_QBaseField(const QWizardPage* self, const libqt_string name) {
+QVariant* QWizardPage_SuperField(const QWizardPage* self, const libqt_string name) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
@@ -4069,7 +4069,7 @@ void QWizardPage_RegisterField(QWizardPage* self, const libqt_string name, QWidg
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseRegisterField(QWizardPage* self, const libqt_string name, QWidget* widget) {
+void QWizardPage_SuperRegisterField(QWizardPage* self, const libqt_string name, QWidget* widget) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
@@ -4099,7 +4099,7 @@ QWizard* QWizardPage_Wizard(const QWizardPage* self) {
 }
 
 // Base class handler implementation
-QWizard* QWizardPage_QBaseWizard(const QWizardPage* self) {
+QWizard* QWizardPage_SuperWizard(const QWizardPage* self) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_Wizard_IsBase(true);
@@ -4129,7 +4129,7 @@ void QWizardPage_RegisterField3(QWizardPage* self, const libqt_string name, QWid
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseRegisterField3(QWizardPage* self, const libqt_string name, QWidget* widget, const char* property) {
+void QWizardPage_SuperRegisterField3(QWizardPage* self, const libqt_string name, QWidget* widget, const char* property) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
@@ -4160,7 +4160,7 @@ void QWizardPage_RegisterField4(QWizardPage* self, const libqt_string name, QWid
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseRegisterField4(QWizardPage* self, const libqt_string name, QWidget* widget, const char* property, const char* changedSignal) {
+void QWizardPage_SuperRegisterField4(QWizardPage* self, const libqt_string name, QWidget* widget, const char* property, const char* changedSignal) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
@@ -4190,7 +4190,7 @@ void QWizardPage_UpdateMicroFocus(QWizardPage* self) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseUpdateMicroFocus(QWizardPage* self) {
+void QWizardPage_SuperUpdateMicroFocus(QWizardPage* self) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_UpdateMicroFocus_IsBase(true);
@@ -4219,7 +4219,7 @@ void QWizardPage_Create(QWizardPage* self) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseCreate(QWizardPage* self) {
+void QWizardPage_SuperCreate(QWizardPage* self) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_Create_IsBase(true);
@@ -4248,7 +4248,7 @@ void QWizardPage_Destroy(QWizardPage* self) {
 }
 
 // Base class handler implementation
-void QWizardPage_QBaseDestroy(QWizardPage* self) {
+void QWizardPage_SuperDestroy(QWizardPage* self) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_Destroy_IsBase(true);
@@ -4277,7 +4277,7 @@ bool QWizardPage_FocusNextChild(QWizardPage* self) {
 }
 
 // Base class handler implementation
-bool QWizardPage_QBaseFocusNextChild(QWizardPage* self) {
+bool QWizardPage_SuperFocusNextChild(QWizardPage* self) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_FocusNextChild_IsBase(true);
@@ -4306,7 +4306,7 @@ bool QWizardPage_FocusPreviousChild(QWizardPage* self) {
 }
 
 // Base class handler implementation
-bool QWizardPage_QBaseFocusPreviousChild(QWizardPage* self) {
+bool QWizardPage_SuperFocusPreviousChild(QWizardPage* self) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_FocusPreviousChild_IsBase(true);
@@ -4335,7 +4335,7 @@ QObject* QWizardPage_Sender(const QWizardPage* self) {
 }
 
 // Base class handler implementation
-QObject* QWizardPage_QBaseSender(const QWizardPage* self) {
+QObject* QWizardPage_SuperSender(const QWizardPage* self) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_Sender_IsBase(true);
@@ -4364,7 +4364,7 @@ int QWizardPage_SenderSignalIndex(const QWizardPage* self) {
 }
 
 // Base class handler implementation
-int QWizardPage_QBaseSenderSignalIndex(const QWizardPage* self) {
+int QWizardPage_SuperSenderSignalIndex(const QWizardPage* self) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_SenderSignalIndex_IsBase(true);
@@ -4393,7 +4393,7 @@ int QWizardPage_Receivers(const QWizardPage* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QWizardPage_QBaseReceivers(const QWizardPage* self, const char* signal) {
+int QWizardPage_SuperReceivers(const QWizardPage* self, const char* signal) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_Receivers_IsBase(true);
@@ -4422,7 +4422,7 @@ bool QWizardPage_IsSignalConnected(const QWizardPage* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QWizardPage_QBaseIsSignalConnected(const QWizardPage* self, const QMetaMethod* signal) {
+bool QWizardPage_SuperIsSignalConnected(const QWizardPage* self, const QMetaMethod* signal) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_IsSignalConnected_IsBase(true);
@@ -4451,7 +4451,7 @@ double QWizardPage_GetDecodedMetricF(const QWizardPage* self, int metricA, int m
 }
 
 // Base class handler implementation
-double QWizardPage_QBaseGetDecodedMetricF(const QWizardPage* self, int metricA, int metricB) {
+double QWizardPage_SuperGetDecodedMetricF(const QWizardPage* self, int metricA, int metricB) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
     if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
         vqwizardpage->setQWizardPage_GetDecodedMetricF_IsBase(true);

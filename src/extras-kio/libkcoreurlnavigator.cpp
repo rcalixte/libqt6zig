@@ -126,7 +126,7 @@ QVariant* KCoreUrlNavigator_LocationState1(const KCoreUrlNavigator* self, int hi
 }
 
 // Base class handler implementation
-QMetaObject* KCoreUrlNavigator_QBaseMetaObject(const KCoreUrlNavigator* self) {
+QMetaObject* KCoreUrlNavigator_SuperMetaObject(const KCoreUrlNavigator* self) {
     auto* vkcoreurlnavigator = const_cast<VirtualKCoreUrlNavigator*>(dynamic_cast<const VirtualKCoreUrlNavigator*>(self));
     if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
         vkcoreurlnavigator->setKCoreUrlNavigator_MetaObject_IsBase(true);
@@ -145,7 +145,7 @@ void KCoreUrlNavigator_OnMetaObject(const KCoreUrlNavigator* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* KCoreUrlNavigator_QBaseMetacast(KCoreUrlNavigator* self, const char* param1) {
+void* KCoreUrlNavigator_SuperMetacast(KCoreUrlNavigator* self, const char* param1) {
     auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
     if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
         vkcoreurlnavigator->setKCoreUrlNavigator_Metacast_IsBase(true);
@@ -164,7 +164,7 @@ void KCoreUrlNavigator_OnMetacast(KCoreUrlNavigator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KCoreUrlNavigator_QBaseMetacall(KCoreUrlNavigator* self, int param1, int param2, void** param3) {
+int KCoreUrlNavigator_SuperMetacall(KCoreUrlNavigator* self, int param1, int param2, void** param3) {
     auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
     if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
         vkcoreurlnavigator->setKCoreUrlNavigator_Metacall_IsBase(true);
@@ -193,7 +193,7 @@ bool KCoreUrlNavigator_Event(KCoreUrlNavigator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KCoreUrlNavigator_QBaseEvent(KCoreUrlNavigator* self, QEvent* event) {
+bool KCoreUrlNavigator_SuperEvent(KCoreUrlNavigator* self, QEvent* event) {
     auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
     if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
         vkcoreurlnavigator->setKCoreUrlNavigator_Event_IsBase(true);
@@ -222,7 +222,7 @@ bool KCoreUrlNavigator_EventFilter(KCoreUrlNavigator* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool KCoreUrlNavigator_QBaseEventFilter(KCoreUrlNavigator* self, QObject* watched, QEvent* event) {
+bool KCoreUrlNavigator_SuperEventFilter(KCoreUrlNavigator* self, QObject* watched, QEvent* event) {
     auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
     if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
         vkcoreurlnavigator->setKCoreUrlNavigator_EventFilter_IsBase(true);
@@ -251,7 +251,7 @@ void KCoreUrlNavigator_TimerEvent(KCoreUrlNavigator* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KCoreUrlNavigator_QBaseTimerEvent(KCoreUrlNavigator* self, QTimerEvent* event) {
+void KCoreUrlNavigator_SuperTimerEvent(KCoreUrlNavigator* self, QTimerEvent* event) {
     auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
     if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
         vkcoreurlnavigator->setKCoreUrlNavigator_TimerEvent_IsBase(true);
@@ -280,7 +280,7 @@ void KCoreUrlNavigator_ChildEvent(KCoreUrlNavigator* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KCoreUrlNavigator_QBaseChildEvent(KCoreUrlNavigator* self, QChildEvent* event) {
+void KCoreUrlNavigator_SuperChildEvent(KCoreUrlNavigator* self, QChildEvent* event) {
     auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
     if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
         vkcoreurlnavigator->setKCoreUrlNavigator_ChildEvent_IsBase(true);
@@ -309,7 +309,7 @@ void KCoreUrlNavigator_CustomEvent(KCoreUrlNavigator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KCoreUrlNavigator_QBaseCustomEvent(KCoreUrlNavigator* self, QEvent* event) {
+void KCoreUrlNavigator_SuperCustomEvent(KCoreUrlNavigator* self, QEvent* event) {
     auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
     if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
         vkcoreurlnavigator->setKCoreUrlNavigator_CustomEvent_IsBase(true);
@@ -338,7 +338,7 @@ void KCoreUrlNavigator_ConnectNotify(KCoreUrlNavigator* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void KCoreUrlNavigator_QBaseConnectNotify(KCoreUrlNavigator* self, const QMetaMethod* signal) {
+void KCoreUrlNavigator_SuperConnectNotify(KCoreUrlNavigator* self, const QMetaMethod* signal) {
     auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
     if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
         vkcoreurlnavigator->setKCoreUrlNavigator_ConnectNotify_IsBase(true);
@@ -367,7 +367,7 @@ void KCoreUrlNavigator_DisconnectNotify(KCoreUrlNavigator* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void KCoreUrlNavigator_QBaseDisconnectNotify(KCoreUrlNavigator* self, const QMetaMethod* signal) {
+void KCoreUrlNavigator_SuperDisconnectNotify(KCoreUrlNavigator* self, const QMetaMethod* signal) {
     auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
     if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
         vkcoreurlnavigator->setKCoreUrlNavigator_DisconnectNotify_IsBase(true);
@@ -396,7 +396,7 @@ QObject* KCoreUrlNavigator_Sender(const KCoreUrlNavigator* self) {
 }
 
 // Base class handler implementation
-QObject* KCoreUrlNavigator_QBaseSender(const KCoreUrlNavigator* self) {
+QObject* KCoreUrlNavigator_SuperSender(const KCoreUrlNavigator* self) {
     auto* vkcoreurlnavigator = const_cast<VirtualKCoreUrlNavigator*>(dynamic_cast<const VirtualKCoreUrlNavigator*>(self));
     if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
         vkcoreurlnavigator->setKCoreUrlNavigator_Sender_IsBase(true);
@@ -425,7 +425,7 @@ int KCoreUrlNavigator_SenderSignalIndex(const KCoreUrlNavigator* self) {
 }
 
 // Base class handler implementation
-int KCoreUrlNavigator_QBaseSenderSignalIndex(const KCoreUrlNavigator* self) {
+int KCoreUrlNavigator_SuperSenderSignalIndex(const KCoreUrlNavigator* self) {
     auto* vkcoreurlnavigator = const_cast<VirtualKCoreUrlNavigator*>(dynamic_cast<const VirtualKCoreUrlNavigator*>(self));
     if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
         vkcoreurlnavigator->setKCoreUrlNavigator_SenderSignalIndex_IsBase(true);
@@ -454,7 +454,7 @@ int KCoreUrlNavigator_Receivers(const KCoreUrlNavigator* self, const char* signa
 }
 
 // Base class handler implementation
-int KCoreUrlNavigator_QBaseReceivers(const KCoreUrlNavigator* self, const char* signal) {
+int KCoreUrlNavigator_SuperReceivers(const KCoreUrlNavigator* self, const char* signal) {
     auto* vkcoreurlnavigator = const_cast<VirtualKCoreUrlNavigator*>(dynamic_cast<const VirtualKCoreUrlNavigator*>(self));
     if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
         vkcoreurlnavigator->setKCoreUrlNavigator_Receivers_IsBase(true);
@@ -483,7 +483,7 @@ bool KCoreUrlNavigator_IsSignalConnected(const KCoreUrlNavigator* self, const QM
 }
 
 // Base class handler implementation
-bool KCoreUrlNavigator_QBaseIsSignalConnected(const KCoreUrlNavigator* self, const QMetaMethod* signal) {
+bool KCoreUrlNavigator_SuperIsSignalConnected(const KCoreUrlNavigator* self, const QMetaMethod* signal) {
     auto* vkcoreurlnavigator = const_cast<VirtualKCoreUrlNavigator*>(dynamic_cast<const VirtualKCoreUrlNavigator*>(self));
     if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
         vkcoreurlnavigator->setKCoreUrlNavigator_IsSignalConnected_IsBase(true);

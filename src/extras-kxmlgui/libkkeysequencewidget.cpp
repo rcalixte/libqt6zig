@@ -210,7 +210,7 @@ void KKeySequenceWidget_SetKeySequence2(KKeySequenceWidget* self, const QKeySequ
 }
 
 // Base class handler implementation
-QMetaObject* KKeySequenceWidget_QBaseMetaObject(const KKeySequenceWidget* self) {
+QMetaObject* KKeySequenceWidget_SuperMetaObject(const KKeySequenceWidget* self) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_MetaObject_IsBase(true);
@@ -229,7 +229,7 @@ void KKeySequenceWidget_OnMetaObject(const KKeySequenceWidget* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* KKeySequenceWidget_QBaseMetacast(KKeySequenceWidget* self, const char* param1) {
+void* KKeySequenceWidget_SuperMetacast(KKeySequenceWidget* self, const char* param1) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_Metacast_IsBase(true);
@@ -248,7 +248,7 @@ void KKeySequenceWidget_OnMetacast(KKeySequenceWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KKeySequenceWidget_QBaseMetacall(KKeySequenceWidget* self, int param1, int param2, void** param3) {
+int KKeySequenceWidget_SuperMetacall(KKeySequenceWidget* self, int param1, int param2, void** param3) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_Metacall_IsBase(true);
@@ -277,7 +277,7 @@ int KKeySequenceWidget_DevType(const KKeySequenceWidget* self) {
 }
 
 // Base class handler implementation
-int KKeySequenceWidget_QBaseDevType(const KKeySequenceWidget* self) {
+int KKeySequenceWidget_SuperDevType(const KKeySequenceWidget* self) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_DevType_IsBase(true);
@@ -306,7 +306,7 @@ void KKeySequenceWidget_SetVisible(KKeySequenceWidget* self, bool visible) {
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseSetVisible(KKeySequenceWidget* self, bool visible) {
+void KKeySequenceWidget_SuperSetVisible(KKeySequenceWidget* self, bool visible) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_SetVisible_IsBase(true);
@@ -335,7 +335,7 @@ QSize* KKeySequenceWidget_SizeHint(const KKeySequenceWidget* self) {
 }
 
 // Base class handler implementation
-QSize* KKeySequenceWidget_QBaseSizeHint(const KKeySequenceWidget* self) {
+QSize* KKeySequenceWidget_SuperSizeHint(const KKeySequenceWidget* self) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_SizeHint_IsBase(true);
@@ -364,7 +364,7 @@ QSize* KKeySequenceWidget_MinimumSizeHint(const KKeySequenceWidget* self) {
 }
 
 // Base class handler implementation
-QSize* KKeySequenceWidget_QBaseMinimumSizeHint(const KKeySequenceWidget* self) {
+QSize* KKeySequenceWidget_SuperMinimumSizeHint(const KKeySequenceWidget* self) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_MinimumSizeHint_IsBase(true);
@@ -393,7 +393,7 @@ int KKeySequenceWidget_HeightForWidth(const KKeySequenceWidget* self, int param1
 }
 
 // Base class handler implementation
-int KKeySequenceWidget_QBaseHeightForWidth(const KKeySequenceWidget* self, int param1) {
+int KKeySequenceWidget_SuperHeightForWidth(const KKeySequenceWidget* self, int param1) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_HeightForWidth_IsBase(true);
@@ -422,7 +422,7 @@ bool KKeySequenceWidget_HasHeightForWidth(const KKeySequenceWidget* self) {
 }
 
 // Base class handler implementation
-bool KKeySequenceWidget_QBaseHasHeightForWidth(const KKeySequenceWidget* self) {
+bool KKeySequenceWidget_SuperHasHeightForWidth(const KKeySequenceWidget* self) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_HasHeightForWidth_IsBase(true);
@@ -451,7 +451,7 @@ QPaintEngine* KKeySequenceWidget_PaintEngine(const KKeySequenceWidget* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KKeySequenceWidget_QBasePaintEngine(const KKeySequenceWidget* self) {
+QPaintEngine* KKeySequenceWidget_SuperPaintEngine(const KKeySequenceWidget* self) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_PaintEngine_IsBase(true);
@@ -480,7 +480,7 @@ void KKeySequenceWidget_MousePressEvent(KKeySequenceWidget* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseMousePressEvent(KKeySequenceWidget* self, QMouseEvent* event) {
+void KKeySequenceWidget_SuperMousePressEvent(KKeySequenceWidget* self, QMouseEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_MousePressEvent_IsBase(true);
@@ -509,7 +509,7 @@ void KKeySequenceWidget_MouseReleaseEvent(KKeySequenceWidget* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseMouseReleaseEvent(KKeySequenceWidget* self, QMouseEvent* event) {
+void KKeySequenceWidget_SuperMouseReleaseEvent(KKeySequenceWidget* self, QMouseEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_MouseReleaseEvent_IsBase(true);
@@ -538,7 +538,7 @@ void KKeySequenceWidget_MouseDoubleClickEvent(KKeySequenceWidget* self, QMouseEv
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseMouseDoubleClickEvent(KKeySequenceWidget* self, QMouseEvent* event) {
+void KKeySequenceWidget_SuperMouseDoubleClickEvent(KKeySequenceWidget* self, QMouseEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_MouseDoubleClickEvent_IsBase(true);
@@ -567,7 +567,7 @@ void KKeySequenceWidget_MouseMoveEvent(KKeySequenceWidget* self, QMouseEvent* ev
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseMouseMoveEvent(KKeySequenceWidget* self, QMouseEvent* event) {
+void KKeySequenceWidget_SuperMouseMoveEvent(KKeySequenceWidget* self, QMouseEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_MouseMoveEvent_IsBase(true);
@@ -596,7 +596,7 @@ void KKeySequenceWidget_WheelEvent(KKeySequenceWidget* self, QWheelEvent* event)
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseWheelEvent(KKeySequenceWidget* self, QWheelEvent* event) {
+void KKeySequenceWidget_SuperWheelEvent(KKeySequenceWidget* self, QWheelEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_WheelEvent_IsBase(true);
@@ -625,7 +625,7 @@ void KKeySequenceWidget_KeyPressEvent(KKeySequenceWidget* self, QKeyEvent* event
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseKeyPressEvent(KKeySequenceWidget* self, QKeyEvent* event) {
+void KKeySequenceWidget_SuperKeyPressEvent(KKeySequenceWidget* self, QKeyEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_KeyPressEvent_IsBase(true);
@@ -654,7 +654,7 @@ void KKeySequenceWidget_KeyReleaseEvent(KKeySequenceWidget* self, QKeyEvent* eve
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseKeyReleaseEvent(KKeySequenceWidget* self, QKeyEvent* event) {
+void KKeySequenceWidget_SuperKeyReleaseEvent(KKeySequenceWidget* self, QKeyEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_KeyReleaseEvent_IsBase(true);
@@ -683,7 +683,7 @@ void KKeySequenceWidget_FocusInEvent(KKeySequenceWidget* self, QFocusEvent* even
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseFocusInEvent(KKeySequenceWidget* self, QFocusEvent* event) {
+void KKeySequenceWidget_SuperFocusInEvent(KKeySequenceWidget* self, QFocusEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_FocusInEvent_IsBase(true);
@@ -712,7 +712,7 @@ void KKeySequenceWidget_FocusOutEvent(KKeySequenceWidget* self, QFocusEvent* eve
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseFocusOutEvent(KKeySequenceWidget* self, QFocusEvent* event) {
+void KKeySequenceWidget_SuperFocusOutEvent(KKeySequenceWidget* self, QFocusEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_FocusOutEvent_IsBase(true);
@@ -741,7 +741,7 @@ void KKeySequenceWidget_EnterEvent(KKeySequenceWidget* self, QEnterEvent* event)
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseEnterEvent(KKeySequenceWidget* self, QEnterEvent* event) {
+void KKeySequenceWidget_SuperEnterEvent(KKeySequenceWidget* self, QEnterEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_EnterEvent_IsBase(true);
@@ -770,7 +770,7 @@ void KKeySequenceWidget_LeaveEvent(KKeySequenceWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseLeaveEvent(KKeySequenceWidget* self, QEvent* event) {
+void KKeySequenceWidget_SuperLeaveEvent(KKeySequenceWidget* self, QEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_LeaveEvent_IsBase(true);
@@ -799,7 +799,7 @@ void KKeySequenceWidget_PaintEvent(KKeySequenceWidget* self, QPaintEvent* event)
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBasePaintEvent(KKeySequenceWidget* self, QPaintEvent* event) {
+void KKeySequenceWidget_SuperPaintEvent(KKeySequenceWidget* self, QPaintEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_PaintEvent_IsBase(true);
@@ -828,7 +828,7 @@ void KKeySequenceWidget_MoveEvent(KKeySequenceWidget* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseMoveEvent(KKeySequenceWidget* self, QMoveEvent* event) {
+void KKeySequenceWidget_SuperMoveEvent(KKeySequenceWidget* self, QMoveEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_MoveEvent_IsBase(true);
@@ -857,7 +857,7 @@ void KKeySequenceWidget_ResizeEvent(KKeySequenceWidget* self, QResizeEvent* even
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseResizeEvent(KKeySequenceWidget* self, QResizeEvent* event) {
+void KKeySequenceWidget_SuperResizeEvent(KKeySequenceWidget* self, QResizeEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_ResizeEvent_IsBase(true);
@@ -886,7 +886,7 @@ void KKeySequenceWidget_CloseEvent(KKeySequenceWidget* self, QCloseEvent* event)
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseCloseEvent(KKeySequenceWidget* self, QCloseEvent* event) {
+void KKeySequenceWidget_SuperCloseEvent(KKeySequenceWidget* self, QCloseEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_CloseEvent_IsBase(true);
@@ -915,7 +915,7 @@ void KKeySequenceWidget_ContextMenuEvent(KKeySequenceWidget* self, QContextMenuE
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseContextMenuEvent(KKeySequenceWidget* self, QContextMenuEvent* event) {
+void KKeySequenceWidget_SuperContextMenuEvent(KKeySequenceWidget* self, QContextMenuEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_ContextMenuEvent_IsBase(true);
@@ -944,7 +944,7 @@ void KKeySequenceWidget_TabletEvent(KKeySequenceWidget* self, QTabletEvent* even
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseTabletEvent(KKeySequenceWidget* self, QTabletEvent* event) {
+void KKeySequenceWidget_SuperTabletEvent(KKeySequenceWidget* self, QTabletEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_TabletEvent_IsBase(true);
@@ -973,7 +973,7 @@ void KKeySequenceWidget_ActionEvent(KKeySequenceWidget* self, QActionEvent* even
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseActionEvent(KKeySequenceWidget* self, QActionEvent* event) {
+void KKeySequenceWidget_SuperActionEvent(KKeySequenceWidget* self, QActionEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_ActionEvent_IsBase(true);
@@ -1002,7 +1002,7 @@ void KKeySequenceWidget_DragEnterEvent(KKeySequenceWidget* self, QDragEnterEvent
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseDragEnterEvent(KKeySequenceWidget* self, QDragEnterEvent* event) {
+void KKeySequenceWidget_SuperDragEnterEvent(KKeySequenceWidget* self, QDragEnterEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_DragEnterEvent_IsBase(true);
@@ -1031,7 +1031,7 @@ void KKeySequenceWidget_DragMoveEvent(KKeySequenceWidget* self, QDragMoveEvent* 
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseDragMoveEvent(KKeySequenceWidget* self, QDragMoveEvent* event) {
+void KKeySequenceWidget_SuperDragMoveEvent(KKeySequenceWidget* self, QDragMoveEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_DragMoveEvent_IsBase(true);
@@ -1060,7 +1060,7 @@ void KKeySequenceWidget_DragLeaveEvent(KKeySequenceWidget* self, QDragLeaveEvent
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseDragLeaveEvent(KKeySequenceWidget* self, QDragLeaveEvent* event) {
+void KKeySequenceWidget_SuperDragLeaveEvent(KKeySequenceWidget* self, QDragLeaveEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_DragLeaveEvent_IsBase(true);
@@ -1089,7 +1089,7 @@ void KKeySequenceWidget_DropEvent(KKeySequenceWidget* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseDropEvent(KKeySequenceWidget* self, QDropEvent* event) {
+void KKeySequenceWidget_SuperDropEvent(KKeySequenceWidget* self, QDropEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_DropEvent_IsBase(true);
@@ -1118,7 +1118,7 @@ void KKeySequenceWidget_ShowEvent(KKeySequenceWidget* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseShowEvent(KKeySequenceWidget* self, QShowEvent* event) {
+void KKeySequenceWidget_SuperShowEvent(KKeySequenceWidget* self, QShowEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_ShowEvent_IsBase(true);
@@ -1147,7 +1147,7 @@ void KKeySequenceWidget_HideEvent(KKeySequenceWidget* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseHideEvent(KKeySequenceWidget* self, QHideEvent* event) {
+void KKeySequenceWidget_SuperHideEvent(KKeySequenceWidget* self, QHideEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_HideEvent_IsBase(true);
@@ -1177,7 +1177,7 @@ bool KKeySequenceWidget_NativeEvent(KKeySequenceWidget* self, const libqt_string
 }
 
 // Base class handler implementation
-bool KKeySequenceWidget_QBaseNativeEvent(KKeySequenceWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KKeySequenceWidget_SuperNativeEvent(KKeySequenceWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
@@ -1207,7 +1207,7 @@ void KKeySequenceWidget_ChangeEvent(KKeySequenceWidget* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseChangeEvent(KKeySequenceWidget* self, QEvent* param1) {
+void KKeySequenceWidget_SuperChangeEvent(KKeySequenceWidget* self, QEvent* param1) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_ChangeEvent_IsBase(true);
@@ -1236,7 +1236,7 @@ int KKeySequenceWidget_Metric(const KKeySequenceWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int KKeySequenceWidget_QBaseMetric(const KKeySequenceWidget* self, int param1) {
+int KKeySequenceWidget_SuperMetric(const KKeySequenceWidget* self, int param1) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_Metric_IsBase(true);
@@ -1265,7 +1265,7 @@ void KKeySequenceWidget_InitPainter(const KKeySequenceWidget* self, QPainter* pa
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseInitPainter(const KKeySequenceWidget* self, QPainter* painter) {
+void KKeySequenceWidget_SuperInitPainter(const KKeySequenceWidget* self, QPainter* painter) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_InitPainter_IsBase(true);
@@ -1294,7 +1294,7 @@ QPaintDevice* KKeySequenceWidget_Redirected(const KKeySequenceWidget* self, QPoi
 }
 
 // Base class handler implementation
-QPaintDevice* KKeySequenceWidget_QBaseRedirected(const KKeySequenceWidget* self, QPoint* offset) {
+QPaintDevice* KKeySequenceWidget_SuperRedirected(const KKeySequenceWidget* self, QPoint* offset) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_Redirected_IsBase(true);
@@ -1323,7 +1323,7 @@ QPainter* KKeySequenceWidget_SharedPainter(const KKeySequenceWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* KKeySequenceWidget_QBaseSharedPainter(const KKeySequenceWidget* self) {
+QPainter* KKeySequenceWidget_SuperSharedPainter(const KKeySequenceWidget* self) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_SharedPainter_IsBase(true);
@@ -1352,7 +1352,7 @@ void KKeySequenceWidget_InputMethodEvent(KKeySequenceWidget* self, QInputMethodE
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseInputMethodEvent(KKeySequenceWidget* self, QInputMethodEvent* param1) {
+void KKeySequenceWidget_SuperInputMethodEvent(KKeySequenceWidget* self, QInputMethodEvent* param1) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_InputMethodEvent_IsBase(true);
@@ -1381,7 +1381,7 @@ QVariant* KKeySequenceWidget_InputMethodQuery(const KKeySequenceWidget* self, in
 }
 
 // Base class handler implementation
-QVariant* KKeySequenceWidget_QBaseInputMethodQuery(const KKeySequenceWidget* self, int param1) {
+QVariant* KKeySequenceWidget_SuperInputMethodQuery(const KKeySequenceWidget* self, int param1) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_InputMethodQuery_IsBase(true);
@@ -1410,7 +1410,7 @@ bool KKeySequenceWidget_FocusNextPrevChild(KKeySequenceWidget* self, bool next) 
 }
 
 // Base class handler implementation
-bool KKeySequenceWidget_QBaseFocusNextPrevChild(KKeySequenceWidget* self, bool next) {
+bool KKeySequenceWidget_SuperFocusNextPrevChild(KKeySequenceWidget* self, bool next) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_FocusNextPrevChild_IsBase(true);
@@ -1439,7 +1439,7 @@ bool KKeySequenceWidget_EventFilter(KKeySequenceWidget* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool KKeySequenceWidget_QBaseEventFilter(KKeySequenceWidget* self, QObject* watched, QEvent* event) {
+bool KKeySequenceWidget_SuperEventFilter(KKeySequenceWidget* self, QObject* watched, QEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_EventFilter_IsBase(true);
@@ -1468,7 +1468,7 @@ void KKeySequenceWidget_TimerEvent(KKeySequenceWidget* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseTimerEvent(KKeySequenceWidget* self, QTimerEvent* event) {
+void KKeySequenceWidget_SuperTimerEvent(KKeySequenceWidget* self, QTimerEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_TimerEvent_IsBase(true);
@@ -1497,7 +1497,7 @@ void KKeySequenceWidget_ChildEvent(KKeySequenceWidget* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseChildEvent(KKeySequenceWidget* self, QChildEvent* event) {
+void KKeySequenceWidget_SuperChildEvent(KKeySequenceWidget* self, QChildEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_ChildEvent_IsBase(true);
@@ -1526,7 +1526,7 @@ void KKeySequenceWidget_CustomEvent(KKeySequenceWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseCustomEvent(KKeySequenceWidget* self, QEvent* event) {
+void KKeySequenceWidget_SuperCustomEvent(KKeySequenceWidget* self, QEvent* event) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_CustomEvent_IsBase(true);
@@ -1555,7 +1555,7 @@ void KKeySequenceWidget_ConnectNotify(KKeySequenceWidget* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseConnectNotify(KKeySequenceWidget* self, const QMetaMethod* signal) {
+void KKeySequenceWidget_SuperConnectNotify(KKeySequenceWidget* self, const QMetaMethod* signal) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_ConnectNotify_IsBase(true);
@@ -1584,7 +1584,7 @@ void KKeySequenceWidget_DisconnectNotify(KKeySequenceWidget* self, const QMetaMe
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseDisconnectNotify(KKeySequenceWidget* self, const QMetaMethod* signal) {
+void KKeySequenceWidget_SuperDisconnectNotify(KKeySequenceWidget* self, const QMetaMethod* signal) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_DisconnectNotify_IsBase(true);
@@ -1613,7 +1613,7 @@ void KKeySequenceWidget_UpdateMicroFocus(KKeySequenceWidget* self) {
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseUpdateMicroFocus(KKeySequenceWidget* self) {
+void KKeySequenceWidget_SuperUpdateMicroFocus(KKeySequenceWidget* self) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_UpdateMicroFocus_IsBase(true);
@@ -1642,7 +1642,7 @@ void KKeySequenceWidget_Create(KKeySequenceWidget* self) {
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseCreate(KKeySequenceWidget* self) {
+void KKeySequenceWidget_SuperCreate(KKeySequenceWidget* self) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_Create_IsBase(true);
@@ -1671,7 +1671,7 @@ void KKeySequenceWidget_Destroy(KKeySequenceWidget* self) {
 }
 
 // Base class handler implementation
-void KKeySequenceWidget_QBaseDestroy(KKeySequenceWidget* self) {
+void KKeySequenceWidget_SuperDestroy(KKeySequenceWidget* self) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_Destroy_IsBase(true);
@@ -1700,7 +1700,7 @@ bool KKeySequenceWidget_FocusNextChild(KKeySequenceWidget* self) {
 }
 
 // Base class handler implementation
-bool KKeySequenceWidget_QBaseFocusNextChild(KKeySequenceWidget* self) {
+bool KKeySequenceWidget_SuperFocusNextChild(KKeySequenceWidget* self) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_FocusNextChild_IsBase(true);
@@ -1729,7 +1729,7 @@ bool KKeySequenceWidget_FocusPreviousChild(KKeySequenceWidget* self) {
 }
 
 // Base class handler implementation
-bool KKeySequenceWidget_QBaseFocusPreviousChild(KKeySequenceWidget* self) {
+bool KKeySequenceWidget_SuperFocusPreviousChild(KKeySequenceWidget* self) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_FocusPreviousChild_IsBase(true);
@@ -1758,7 +1758,7 @@ QObject* KKeySequenceWidget_Sender(const KKeySequenceWidget* self) {
 }
 
 // Base class handler implementation
-QObject* KKeySequenceWidget_QBaseSender(const KKeySequenceWidget* self) {
+QObject* KKeySequenceWidget_SuperSender(const KKeySequenceWidget* self) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_Sender_IsBase(true);
@@ -1787,7 +1787,7 @@ int KKeySequenceWidget_SenderSignalIndex(const KKeySequenceWidget* self) {
 }
 
 // Base class handler implementation
-int KKeySequenceWidget_QBaseSenderSignalIndex(const KKeySequenceWidget* self) {
+int KKeySequenceWidget_SuperSenderSignalIndex(const KKeySequenceWidget* self) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_SenderSignalIndex_IsBase(true);
@@ -1816,7 +1816,7 @@ int KKeySequenceWidget_Receivers(const KKeySequenceWidget* self, const char* sig
 }
 
 // Base class handler implementation
-int KKeySequenceWidget_QBaseReceivers(const KKeySequenceWidget* self, const char* signal) {
+int KKeySequenceWidget_SuperReceivers(const KKeySequenceWidget* self, const char* signal) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_Receivers_IsBase(true);
@@ -1845,7 +1845,7 @@ bool KKeySequenceWidget_IsSignalConnected(const KKeySequenceWidget* self, const 
 }
 
 // Base class handler implementation
-bool KKeySequenceWidget_QBaseIsSignalConnected(const KKeySequenceWidget* self, const QMetaMethod* signal) {
+bool KKeySequenceWidget_SuperIsSignalConnected(const KKeySequenceWidget* self, const QMetaMethod* signal) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_IsSignalConnected_IsBase(true);
@@ -1874,7 +1874,7 @@ double KKeySequenceWidget_GetDecodedMetricF(const KKeySequenceWidget* self, int 
 }
 
 // Base class handler implementation
-double KKeySequenceWidget_QBaseGetDecodedMetricF(const KKeySequenceWidget* self, int metricA, int metricB) {
+double KKeySequenceWidget_SuperGetDecodedMetricF(const KKeySequenceWidget* self, int metricA, int metricB) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
     if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
         vkkeysequencewidget->setKKeySequenceWidget_GetDecodedMetricF_IsBase(true);

@@ -129,7 +129,7 @@ libqt_list /* of QAbstractAxis* */ QPolarChart_Axes2(const QPolarChart* self, in
 }
 
 // Base class handler implementation
-QMetaObject* QPolarChart_QBaseMetaObject(const QPolarChart* self) {
+QMetaObject* QPolarChart_SuperMetaObject(const QPolarChart* self) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_MetaObject_IsBase(true);
@@ -148,7 +148,7 @@ void QPolarChart_OnMetaObject(const QPolarChart* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QPolarChart_QBaseMetacast(QPolarChart* self, const char* param1) {
+void* QPolarChart_SuperMetacast(QPolarChart* self, const char* param1) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_Metacast_IsBase(true);
@@ -167,7 +167,7 @@ void QPolarChart_OnMetacast(QPolarChart* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPolarChart_QBaseMetacall(QPolarChart* self, int param1, int param2, void** param3) {
+int QPolarChart_SuperMetacall(QPolarChart* self, int param1, int param2, void** param3) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_Metacall_IsBase(true);
@@ -196,7 +196,7 @@ void QPolarChart_SetGeometry(QPolarChart* self, const QRectF* rect) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseSetGeometry(QPolarChart* self, const QRectF* rect) {
+void QPolarChart_SuperSetGeometry(QPolarChart* self, const QRectF* rect) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_SetGeometry_IsBase(true);
@@ -225,7 +225,7 @@ void QPolarChart_GetContentsMargins(const QPolarChart* self, double* left, doubl
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseGetContentsMargins(const QPolarChart* self, double* left, double* top, double* right, double* bottom) {
+void QPolarChart_SuperGetContentsMargins(const QPolarChart* self, double* left, double* top, double* right, double* bottom) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_GetContentsMargins_IsBase(true);
@@ -254,7 +254,7 @@ int QPolarChart_Type(const QPolarChart* self) {
 }
 
 // Base class handler implementation
-int QPolarChart_QBaseType(const QPolarChart* self) {
+int QPolarChart_SuperType(const QPolarChart* self) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_Type_IsBase(true);
@@ -283,7 +283,7 @@ void QPolarChart_Paint(QPolarChart* self, QPainter* painter, const QStyleOptionG
 }
 
 // Base class handler implementation
-void QPolarChart_QBasePaint(QPolarChart* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void QPolarChart_SuperPaint(QPolarChart* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_Paint_IsBase(true);
@@ -312,7 +312,7 @@ void QPolarChart_PaintWindowFrame(QPolarChart* self, QPainter* painter, const QS
 }
 
 // Base class handler implementation
-void QPolarChart_QBasePaintWindowFrame(QPolarChart* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void QPolarChart_SuperPaintWindowFrame(QPolarChart* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_PaintWindowFrame_IsBase(true);
@@ -341,7 +341,7 @@ QRectF* QPolarChart_BoundingRect(const QPolarChart* self) {
 }
 
 // Base class handler implementation
-QRectF* QPolarChart_QBaseBoundingRect(const QPolarChart* self) {
+QRectF* QPolarChart_SuperBoundingRect(const QPolarChart* self) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_BoundingRect_IsBase(true);
@@ -370,7 +370,7 @@ QPainterPath* QPolarChart_Shape(const QPolarChart* self) {
 }
 
 // Base class handler implementation
-QPainterPath* QPolarChart_QBaseShape(const QPolarChart* self) {
+QPainterPath* QPolarChart_SuperShape(const QPolarChart* self) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_Shape_IsBase(true);
@@ -399,7 +399,7 @@ void QPolarChart_InitStyleOption(const QPolarChart* self, QStyleOption* option) 
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseInitStyleOption(const QPolarChart* self, QStyleOption* option) {
+void QPolarChart_SuperInitStyleOption(const QPolarChart* self, QStyleOption* option) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_InitStyleOption_IsBase(true);
@@ -427,7 +427,7 @@ QSizeF* QPolarChart_SizeHint(const QPolarChart* self, int which, const QSizeF* c
 }
 
 // Base class handler implementation
-QSizeF* QPolarChart_QBaseSizeHint(const QPolarChart* self, int which, const QSizeF* constraint) {
+QSizeF* QPolarChart_SuperSizeHint(const QPolarChart* self, int which, const QSizeF* constraint) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_SizeHint_IsBase(true);
@@ -455,7 +455,7 @@ void QPolarChart_UpdateGeometry(QPolarChart* self) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseUpdateGeometry(QPolarChart* self) {
+void QPolarChart_SuperUpdateGeometry(QPolarChart* self) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_UpdateGeometry_IsBase(true);
@@ -483,7 +483,7 @@ QVariant* QPolarChart_ItemChange(QPolarChart* self, int change, const QVariant* 
 }
 
 // Base class handler implementation
-QVariant* QPolarChart_QBaseItemChange(QPolarChart* self, int change, const QVariant* value) {
+QVariant* QPolarChart_SuperItemChange(QPolarChart* self, int change, const QVariant* value) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_ItemChange_IsBase(true);
@@ -511,7 +511,7 @@ QVariant* QPolarChart_PropertyChange(QPolarChart* self, const libqt_string prope
 }
 
 // Base class handler implementation
-QVariant* QPolarChart_QBasePropertyChange(QPolarChart* self, const libqt_string propertyName, const QVariant* value) {
+QVariant* QPolarChart_SuperPropertyChange(QPolarChart* self, const libqt_string propertyName, const QVariant* value) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     QString propertyName_QString = QString::fromUtf8(propertyName.data, propertyName.len);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
@@ -540,7 +540,7 @@ bool QPolarChart_SceneEvent(QPolarChart* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QPolarChart_QBaseSceneEvent(QPolarChart* self, QEvent* event) {
+bool QPolarChart_SuperSceneEvent(QPolarChart* self, QEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_SceneEvent_IsBase(true);
@@ -569,7 +569,7 @@ bool QPolarChart_WindowFrameEvent(QPolarChart* self, QEvent* e) {
 }
 
 // Base class handler implementation
-bool QPolarChart_QBaseWindowFrameEvent(QPolarChart* self, QEvent* e) {
+bool QPolarChart_SuperWindowFrameEvent(QPolarChart* self, QEvent* e) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_WindowFrameEvent_IsBase(true);
@@ -598,7 +598,7 @@ int QPolarChart_WindowFrameSectionAt(const QPolarChart* self, const QPointF* pos
 }
 
 // Base class handler implementation
-int QPolarChart_QBaseWindowFrameSectionAt(const QPolarChart* self, const QPointF* pos) {
+int QPolarChart_SuperWindowFrameSectionAt(const QPolarChart* self, const QPointF* pos) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_WindowFrameSectionAt_IsBase(true);
@@ -627,7 +627,7 @@ bool QPolarChart_Event(QPolarChart* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QPolarChart_QBaseEvent(QPolarChart* self, QEvent* event) {
+bool QPolarChart_SuperEvent(QPolarChart* self, QEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_Event_IsBase(true);
@@ -656,7 +656,7 @@ void QPolarChart_ChangeEvent(QPolarChart* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseChangeEvent(QPolarChart* self, QEvent* event) {
+void QPolarChart_SuperChangeEvent(QPolarChart* self, QEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_ChangeEvent_IsBase(true);
@@ -685,7 +685,7 @@ void QPolarChart_CloseEvent(QPolarChart* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseCloseEvent(QPolarChart* self, QCloseEvent* event) {
+void QPolarChart_SuperCloseEvent(QPolarChart* self, QCloseEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_CloseEvent_IsBase(true);
@@ -714,7 +714,7 @@ void QPolarChart_FocusInEvent(QPolarChart* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseFocusInEvent(QPolarChart* self, QFocusEvent* event) {
+void QPolarChart_SuperFocusInEvent(QPolarChart* self, QFocusEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_FocusInEvent_IsBase(true);
@@ -743,7 +743,7 @@ bool QPolarChart_FocusNextPrevChild(QPolarChart* self, bool next) {
 }
 
 // Base class handler implementation
-bool QPolarChart_QBaseFocusNextPrevChild(QPolarChart* self, bool next) {
+bool QPolarChart_SuperFocusNextPrevChild(QPolarChart* self, bool next) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_FocusNextPrevChild_IsBase(true);
@@ -772,7 +772,7 @@ void QPolarChart_FocusOutEvent(QPolarChart* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseFocusOutEvent(QPolarChart* self, QFocusEvent* event) {
+void QPolarChart_SuperFocusOutEvent(QPolarChart* self, QFocusEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_FocusOutEvent_IsBase(true);
@@ -801,7 +801,7 @@ void QPolarChart_HideEvent(QPolarChart* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseHideEvent(QPolarChart* self, QHideEvent* event) {
+void QPolarChart_SuperHideEvent(QPolarChart* self, QHideEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_HideEvent_IsBase(true);
@@ -830,7 +830,7 @@ void QPolarChart_MoveEvent(QPolarChart* self, QGraphicsSceneMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseMoveEvent(QPolarChart* self, QGraphicsSceneMoveEvent* event) {
+void QPolarChart_SuperMoveEvent(QPolarChart* self, QGraphicsSceneMoveEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_MoveEvent_IsBase(true);
@@ -859,7 +859,7 @@ void QPolarChart_PolishEvent(QPolarChart* self) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBasePolishEvent(QPolarChart* self) {
+void QPolarChart_SuperPolishEvent(QPolarChart* self) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_PolishEvent_IsBase(true);
@@ -888,7 +888,7 @@ void QPolarChart_ResizeEvent(QPolarChart* self, QGraphicsSceneResizeEvent* event
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseResizeEvent(QPolarChart* self, QGraphicsSceneResizeEvent* event) {
+void QPolarChart_SuperResizeEvent(QPolarChart* self, QGraphicsSceneResizeEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_ResizeEvent_IsBase(true);
@@ -917,7 +917,7 @@ void QPolarChart_ShowEvent(QPolarChart* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseShowEvent(QPolarChart* self, QShowEvent* event) {
+void QPolarChart_SuperShowEvent(QPolarChart* self, QShowEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_ShowEvent_IsBase(true);
@@ -946,7 +946,7 @@ void QPolarChart_HoverMoveEvent(QPolarChart* self, QGraphicsSceneHoverEvent* eve
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseHoverMoveEvent(QPolarChart* self, QGraphicsSceneHoverEvent* event) {
+void QPolarChart_SuperHoverMoveEvent(QPolarChart* self, QGraphicsSceneHoverEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_HoverMoveEvent_IsBase(true);
@@ -975,7 +975,7 @@ void QPolarChart_HoverLeaveEvent(QPolarChart* self, QGraphicsSceneHoverEvent* ev
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseHoverLeaveEvent(QPolarChart* self, QGraphicsSceneHoverEvent* event) {
+void QPolarChart_SuperHoverLeaveEvent(QPolarChart* self, QGraphicsSceneHoverEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_HoverLeaveEvent_IsBase(true);
@@ -1004,7 +1004,7 @@ void QPolarChart_GrabMouseEvent(QPolarChart* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseGrabMouseEvent(QPolarChart* self, QEvent* event) {
+void QPolarChart_SuperGrabMouseEvent(QPolarChart* self, QEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_GrabMouseEvent_IsBase(true);
@@ -1033,7 +1033,7 @@ void QPolarChart_UngrabMouseEvent(QPolarChart* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseUngrabMouseEvent(QPolarChart* self, QEvent* event) {
+void QPolarChart_SuperUngrabMouseEvent(QPolarChart* self, QEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_UngrabMouseEvent_IsBase(true);
@@ -1062,7 +1062,7 @@ void QPolarChart_GrabKeyboardEvent(QPolarChart* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseGrabKeyboardEvent(QPolarChart* self, QEvent* event) {
+void QPolarChart_SuperGrabKeyboardEvent(QPolarChart* self, QEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_GrabKeyboardEvent_IsBase(true);
@@ -1091,7 +1091,7 @@ void QPolarChart_UngrabKeyboardEvent(QPolarChart* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseUngrabKeyboardEvent(QPolarChart* self, QEvent* event) {
+void QPolarChart_SuperUngrabKeyboardEvent(QPolarChart* self, QEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_UngrabKeyboardEvent_IsBase(true);
@@ -1120,7 +1120,7 @@ bool QPolarChart_EventFilter(QPolarChart* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QPolarChart_QBaseEventFilter(QPolarChart* self, QObject* watched, QEvent* event) {
+bool QPolarChart_SuperEventFilter(QPolarChart* self, QObject* watched, QEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_EventFilter_IsBase(true);
@@ -1149,7 +1149,7 @@ void QPolarChart_TimerEvent(QPolarChart* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseTimerEvent(QPolarChart* self, QTimerEvent* event) {
+void QPolarChart_SuperTimerEvent(QPolarChart* self, QTimerEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_TimerEvent_IsBase(true);
@@ -1178,7 +1178,7 @@ void QPolarChart_ChildEvent(QPolarChart* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseChildEvent(QPolarChart* self, QChildEvent* event) {
+void QPolarChart_SuperChildEvent(QPolarChart* self, QChildEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_ChildEvent_IsBase(true);
@@ -1207,7 +1207,7 @@ void QPolarChart_CustomEvent(QPolarChart* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseCustomEvent(QPolarChart* self, QEvent* event) {
+void QPolarChart_SuperCustomEvent(QPolarChart* self, QEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_CustomEvent_IsBase(true);
@@ -1236,7 +1236,7 @@ void QPolarChart_ConnectNotify(QPolarChart* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseConnectNotify(QPolarChart* self, const QMetaMethod* signal) {
+void QPolarChart_SuperConnectNotify(QPolarChart* self, const QMetaMethod* signal) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_ConnectNotify_IsBase(true);
@@ -1265,7 +1265,7 @@ void QPolarChart_DisconnectNotify(QPolarChart* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseDisconnectNotify(QPolarChart* self, const QMetaMethod* signal) {
+void QPolarChart_SuperDisconnectNotify(QPolarChart* self, const QMetaMethod* signal) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_DisconnectNotify_IsBase(true);
@@ -1294,7 +1294,7 @@ void QPolarChart_Advance(QPolarChart* self, int phase) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseAdvance(QPolarChart* self, int phase) {
+void QPolarChart_SuperAdvance(QPolarChart* self, int phase) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_Advance_IsBase(true);
@@ -1323,7 +1323,7 @@ bool QPolarChart_Contains(const QPolarChart* self, const QPointF* point) {
 }
 
 // Base class handler implementation
-bool QPolarChart_QBaseContains(const QPolarChart* self, const QPointF* point) {
+bool QPolarChart_SuperContains(const QPolarChart* self, const QPointF* point) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_Contains_IsBase(true);
@@ -1352,7 +1352,7 @@ bool QPolarChart_CollidesWithItem(const QPolarChart* self, const QGraphicsItem* 
 }
 
 // Base class handler implementation
-bool QPolarChart_QBaseCollidesWithItem(const QPolarChart* self, const QGraphicsItem* other, int mode) {
+bool QPolarChart_SuperCollidesWithItem(const QPolarChart* self, const QGraphicsItem* other, int mode) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_CollidesWithItem_IsBase(true);
@@ -1381,7 +1381,7 @@ bool QPolarChart_CollidesWithPath(const QPolarChart* self, const QPainterPath* p
 }
 
 // Base class handler implementation
-bool QPolarChart_QBaseCollidesWithPath(const QPolarChart* self, const QPainterPath* path, int mode) {
+bool QPolarChart_SuperCollidesWithPath(const QPolarChart* self, const QPainterPath* path, int mode) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_CollidesWithPath_IsBase(true);
@@ -1410,7 +1410,7 @@ bool QPolarChart_IsObscuredBy(const QPolarChart* self, const QGraphicsItem* item
 }
 
 // Base class handler implementation
-bool QPolarChart_QBaseIsObscuredBy(const QPolarChart* self, const QGraphicsItem* item) {
+bool QPolarChart_SuperIsObscuredBy(const QPolarChart* self, const QGraphicsItem* item) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_IsObscuredBy_IsBase(true);
@@ -1439,7 +1439,7 @@ QPainterPath* QPolarChart_OpaqueArea(const QPolarChart* self) {
 }
 
 // Base class handler implementation
-QPainterPath* QPolarChart_QBaseOpaqueArea(const QPolarChart* self) {
+QPainterPath* QPolarChart_SuperOpaqueArea(const QPolarChart* self) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_OpaqueArea_IsBase(true);
@@ -1468,7 +1468,7 @@ bool QPolarChart_SceneEventFilter(QPolarChart* self, QGraphicsItem* watched, QEv
 }
 
 // Base class handler implementation
-bool QPolarChart_QBaseSceneEventFilter(QPolarChart* self, QGraphicsItem* watched, QEvent* event) {
+bool QPolarChart_SuperSceneEventFilter(QPolarChart* self, QGraphicsItem* watched, QEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_SceneEventFilter_IsBase(true);
@@ -1497,7 +1497,7 @@ void QPolarChart_ContextMenuEvent(QPolarChart* self, QGraphicsSceneContextMenuEv
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseContextMenuEvent(QPolarChart* self, QGraphicsSceneContextMenuEvent* event) {
+void QPolarChart_SuperContextMenuEvent(QPolarChart* self, QGraphicsSceneContextMenuEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_ContextMenuEvent_IsBase(true);
@@ -1526,7 +1526,7 @@ void QPolarChart_DragEnterEvent(QPolarChart* self, QGraphicsSceneDragDropEvent* 
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseDragEnterEvent(QPolarChart* self, QGraphicsSceneDragDropEvent* event) {
+void QPolarChart_SuperDragEnterEvent(QPolarChart* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_DragEnterEvent_IsBase(true);
@@ -1555,7 +1555,7 @@ void QPolarChart_DragLeaveEvent(QPolarChart* self, QGraphicsSceneDragDropEvent* 
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseDragLeaveEvent(QPolarChart* self, QGraphicsSceneDragDropEvent* event) {
+void QPolarChart_SuperDragLeaveEvent(QPolarChart* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_DragLeaveEvent_IsBase(true);
@@ -1584,7 +1584,7 @@ void QPolarChart_DragMoveEvent(QPolarChart* self, QGraphicsSceneDragDropEvent* e
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseDragMoveEvent(QPolarChart* self, QGraphicsSceneDragDropEvent* event) {
+void QPolarChart_SuperDragMoveEvent(QPolarChart* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_DragMoveEvent_IsBase(true);
@@ -1613,7 +1613,7 @@ void QPolarChart_DropEvent(QPolarChart* self, QGraphicsSceneDragDropEvent* event
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseDropEvent(QPolarChart* self, QGraphicsSceneDragDropEvent* event) {
+void QPolarChart_SuperDropEvent(QPolarChart* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_DropEvent_IsBase(true);
@@ -1642,7 +1642,7 @@ void QPolarChart_HoverEnterEvent(QPolarChart* self, QGraphicsSceneHoverEvent* ev
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseHoverEnterEvent(QPolarChart* self, QGraphicsSceneHoverEvent* event) {
+void QPolarChart_SuperHoverEnterEvent(QPolarChart* self, QGraphicsSceneHoverEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_HoverEnterEvent_IsBase(true);
@@ -1671,7 +1671,7 @@ void QPolarChart_KeyPressEvent(QPolarChart* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseKeyPressEvent(QPolarChart* self, QKeyEvent* event) {
+void QPolarChart_SuperKeyPressEvent(QPolarChart* self, QKeyEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_KeyPressEvent_IsBase(true);
@@ -1700,7 +1700,7 @@ void QPolarChart_KeyReleaseEvent(QPolarChart* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseKeyReleaseEvent(QPolarChart* self, QKeyEvent* event) {
+void QPolarChart_SuperKeyReleaseEvent(QPolarChart* self, QKeyEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_KeyReleaseEvent_IsBase(true);
@@ -1729,7 +1729,7 @@ void QPolarChart_MousePressEvent(QPolarChart* self, QGraphicsSceneMouseEvent* ev
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseMousePressEvent(QPolarChart* self, QGraphicsSceneMouseEvent* event) {
+void QPolarChart_SuperMousePressEvent(QPolarChart* self, QGraphicsSceneMouseEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_MousePressEvent_IsBase(true);
@@ -1758,7 +1758,7 @@ void QPolarChart_MouseMoveEvent(QPolarChart* self, QGraphicsSceneMouseEvent* eve
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseMouseMoveEvent(QPolarChart* self, QGraphicsSceneMouseEvent* event) {
+void QPolarChart_SuperMouseMoveEvent(QPolarChart* self, QGraphicsSceneMouseEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_MouseMoveEvent_IsBase(true);
@@ -1787,7 +1787,7 @@ void QPolarChart_MouseReleaseEvent(QPolarChart* self, QGraphicsSceneMouseEvent* 
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseMouseReleaseEvent(QPolarChart* self, QGraphicsSceneMouseEvent* event) {
+void QPolarChart_SuperMouseReleaseEvent(QPolarChart* self, QGraphicsSceneMouseEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_MouseReleaseEvent_IsBase(true);
@@ -1816,7 +1816,7 @@ void QPolarChart_MouseDoubleClickEvent(QPolarChart* self, QGraphicsSceneMouseEve
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseMouseDoubleClickEvent(QPolarChart* self, QGraphicsSceneMouseEvent* event) {
+void QPolarChart_SuperMouseDoubleClickEvent(QPolarChart* self, QGraphicsSceneMouseEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_MouseDoubleClickEvent_IsBase(true);
@@ -1845,7 +1845,7 @@ void QPolarChart_WheelEvent(QPolarChart* self, QGraphicsSceneWheelEvent* event) 
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseWheelEvent(QPolarChart* self, QGraphicsSceneWheelEvent* event) {
+void QPolarChart_SuperWheelEvent(QPolarChart* self, QGraphicsSceneWheelEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_WheelEvent_IsBase(true);
@@ -1874,7 +1874,7 @@ void QPolarChart_InputMethodEvent(QPolarChart* self, QInputMethodEvent* event) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseInputMethodEvent(QPolarChart* self, QInputMethodEvent* event) {
+void QPolarChart_SuperInputMethodEvent(QPolarChart* self, QInputMethodEvent* event) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_InputMethodEvent_IsBase(true);
@@ -1902,7 +1902,7 @@ QVariant* QPolarChart_InputMethodQuery(const QPolarChart* self, int query) {
 }
 
 // Base class handler implementation
-QVariant* QPolarChart_QBaseInputMethodQuery(const QPolarChart* self, int query) {
+QVariant* QPolarChart_SuperInputMethodQuery(const QPolarChart* self, int query) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_InputMethodQuery_IsBase(true);
@@ -1930,7 +1930,7 @@ bool QPolarChart_SupportsExtension(const QPolarChart* self, int extension) {
 }
 
 // Base class handler implementation
-bool QPolarChart_QBaseSupportsExtension(const QPolarChart* self, int extension) {
+bool QPolarChart_SuperSupportsExtension(const QPolarChart* self, int extension) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_SupportsExtension_IsBase(true);
@@ -1959,7 +1959,7 @@ void QPolarChart_SetExtension(QPolarChart* self, int extension, const QVariant* 
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseSetExtension(QPolarChart* self, int extension, const QVariant* variant) {
+void QPolarChart_SuperSetExtension(QPolarChart* self, int extension, const QVariant* variant) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_SetExtension_IsBase(true);
@@ -1987,7 +1987,7 @@ QVariant* QPolarChart_Extension(const QPolarChart* self, const QVariant* variant
 }
 
 // Base class handler implementation
-QVariant* QPolarChart_QBaseExtension(const QPolarChart* self, const QVariant* variant) {
+QVariant* QPolarChart_SuperExtension(const QPolarChart* self, const QVariant* variant) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_Extension_IsBase(true);
@@ -2015,7 +2015,7 @@ bool QPolarChart_IsEmpty(const QPolarChart* self) {
 }
 
 // Base class handler implementation
-bool QPolarChart_QBaseIsEmpty(const QPolarChart* self) {
+bool QPolarChart_SuperIsEmpty(const QPolarChart* self) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_IsEmpty_IsBase(true);
@@ -2044,7 +2044,7 @@ void QPolarChart_UpdateMicroFocus(QPolarChart* self) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseUpdateMicroFocus(QPolarChart* self) {
+void QPolarChart_SuperUpdateMicroFocus(QPolarChart* self) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_UpdateMicroFocus_IsBase(true);
@@ -2073,7 +2073,7 @@ QObject* QPolarChart_Sender(const QPolarChart* self) {
 }
 
 // Base class handler implementation
-QObject* QPolarChart_QBaseSender(const QPolarChart* self) {
+QObject* QPolarChart_SuperSender(const QPolarChart* self) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_Sender_IsBase(true);
@@ -2102,7 +2102,7 @@ int QPolarChart_SenderSignalIndex(const QPolarChart* self) {
 }
 
 // Base class handler implementation
-int QPolarChart_QBaseSenderSignalIndex(const QPolarChart* self) {
+int QPolarChart_SuperSenderSignalIndex(const QPolarChart* self) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_SenderSignalIndex_IsBase(true);
@@ -2131,7 +2131,7 @@ int QPolarChart_Receivers(const QPolarChart* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QPolarChart_QBaseReceivers(const QPolarChart* self, const char* signal) {
+int QPolarChart_SuperReceivers(const QPolarChart* self, const char* signal) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_Receivers_IsBase(true);
@@ -2160,7 +2160,7 @@ bool QPolarChart_IsSignalConnected(const QPolarChart* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QPolarChart_QBaseIsSignalConnected(const QPolarChart* self, const QMetaMethod* signal) {
+bool QPolarChart_SuperIsSignalConnected(const QPolarChart* self, const QMetaMethod* signal) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_IsSignalConnected_IsBase(true);
@@ -2189,7 +2189,7 @@ void QPolarChart_AddToIndex(QPolarChart* self) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseAddToIndex(QPolarChart* self) {
+void QPolarChart_SuperAddToIndex(QPolarChart* self) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_AddToIndex_IsBase(true);
@@ -2218,7 +2218,7 @@ void QPolarChart_RemoveFromIndex(QPolarChart* self) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseRemoveFromIndex(QPolarChart* self) {
+void QPolarChart_SuperRemoveFromIndex(QPolarChart* self) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_RemoveFromIndex_IsBase(true);
@@ -2247,7 +2247,7 @@ void QPolarChart_PrepareGeometryChange(QPolarChart* self) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBasePrepareGeometryChange(QPolarChart* self) {
+void QPolarChart_SuperPrepareGeometryChange(QPolarChart* self) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_PrepareGeometryChange_IsBase(true);
@@ -2276,7 +2276,7 @@ void QPolarChart_SetGraphicsItem(QPolarChart* self, QGraphicsItem* item) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseSetGraphicsItem(QPolarChart* self, QGraphicsItem* item) {
+void QPolarChart_SuperSetGraphicsItem(QPolarChart* self, QGraphicsItem* item) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_SetGraphicsItem_IsBase(true);
@@ -2305,7 +2305,7 @@ void QPolarChart_SetOwnedByLayout(QPolarChart* self, bool ownedByLayout) {
 }
 
 // Base class handler implementation
-void QPolarChart_QBaseSetOwnedByLayout(QPolarChart* self, bool ownedByLayout) {
+void QPolarChart_SuperSetOwnedByLayout(QPolarChart* self, bool ownedByLayout) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
     if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
         vqpolarchart->setQPolarChart_SetOwnedByLayout_IsBase(true);

@@ -79,6 +79,10 @@ pub const kcompressiondevice = struct {
         qtc.KCompressionDevice_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -87,8 +91,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` self: QtC.KCompressionDevice `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KCompressionDevice_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KCompressionDevice_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -114,6 +118,10 @@ pub const kcompressiondevice = struct {
         qtc.KCompressionDevice_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -122,9 +130,9 @@ pub const kcompressiondevice = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KCompressionDevice_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KCompressionDevice_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -153,6 +161,10 @@ pub const kcompressiondevice = struct {
         qtc.KCompressionDevice_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -165,8 +177,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KCompressionDevice_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KCompressionDevice_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -226,6 +238,10 @@ pub const kcompressiondevice = struct {
         qtc.KCompressionDevice_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperOpen` instead
+    ///
+    pub const QBaseOpen = SuperOpen;
+
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#open)
     ///
     /// Base class method implementation
@@ -236,8 +252,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn QBaseOpen(self: ?*anyopaque, mode: i32) bool {
-        return qtc.KCompressionDevice_QBaseOpen(@ptrCast(self), @bitCast(mode));
+    pub fn SuperOpen(self: ?*anyopaque, mode: i32) bool {
+        return qtc.KCompressionDevice_SuperOpen(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#close)
@@ -264,6 +280,10 @@ pub const kcompressiondevice = struct {
         qtc.KCompressionDevice_OnClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClose` instead
+    ///
+    pub const QBaseClose = SuperClose;
+
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#close)
     ///
     /// Base class method implementation
@@ -272,8 +292,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` self: QtC.KCompressionDevice `
     ///
-    pub fn QBaseClose(self: ?*anyopaque) void {
-        qtc.KCompressionDevice_QBaseClose(@ptrCast(self));
+    pub fn SuperClose(self: ?*anyopaque) void {
+        qtc.KCompressionDevice_SuperClose(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#setOrigFileName)
@@ -328,6 +348,10 @@ pub const kcompressiondevice = struct {
         qtc.KCompressionDevice_OnSeek(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSeek` instead
+    ///
+    pub const QBaseSeek = SuperSeek;
+
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#seek)
     ///
     /// Base class method implementation
@@ -338,8 +362,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` param1: i64 `
     ///
-    pub fn QBaseSeek(self: ?*anyopaque, param1: i64) bool {
-        return qtc.KCompressionDevice_QBaseSeek(@ptrCast(self), @bitCast(param1));
+    pub fn SuperSeek(self: ?*anyopaque, param1: i64) bool {
+        return qtc.KCompressionDevice_SuperSeek(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#atEnd)
@@ -366,6 +390,10 @@ pub const kcompressiondevice = struct {
         qtc.KCompressionDevice_OnAtEnd(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAtEnd` instead
+    ///
+    pub const QBaseAtEnd = SuperAtEnd;
+
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#atEnd)
     ///
     /// Base class method implementation
@@ -374,8 +402,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` self: QtC.KCompressionDevice `
     ///
-    pub fn QBaseAtEnd(self: ?*anyopaque) bool {
-        return qtc.KCompressionDevice_QBaseAtEnd(@ptrCast(self));
+    pub fn SuperAtEnd(self: ?*anyopaque) bool {
+        return qtc.KCompressionDevice_SuperAtEnd(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#filterForCompressionType)
@@ -449,6 +477,10 @@ pub const kcompressiondevice = struct {
         qtc.KCompressionDevice_OnReadData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperReadData` instead
+    ///
+    pub const QBaseReadData = SuperReadData;
+
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#readData)
     ///
     /// Base class method implementation
@@ -461,9 +493,9 @@ pub const kcompressiondevice = struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn QBaseReadData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn SuperReadData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.KCompressionDevice_QBaseReadData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.KCompressionDevice_SuperReadData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#writeData)
@@ -495,6 +527,10 @@ pub const kcompressiondevice = struct {
         qtc.KCompressionDevice_OnWriteData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWriteData` instead
+    ///
+    pub const QBaseWriteData = SuperWriteData;
+
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#writeData)
     ///
     /// Base class method implementation
@@ -507,9 +543,9 @@ pub const kcompressiondevice = struct {
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn QBaseWriteData(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn SuperWriteData(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.KCompressionDevice_QBaseWriteData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
+        return qtc.KCompressionDevice_SuperWriteData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#filterBase)
@@ -536,6 +572,10 @@ pub const kcompressiondevice = struct {
         qtc.KCompressionDevice_OnFilterBase(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFilterBase` instead
+    ///
+    pub const QBaseFilterBase = SuperFilterBase;
+
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#filterBase)
     ///
     /// Base class method implementation
@@ -544,8 +584,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` self: QtC.KCompressionDevice `
     ///
-    pub fn QBaseFilterBase(self: ?*anyopaque) QtC.KFilterBase {
-        return qtc.KCompressionDevice_QBaseFilterBase(@ptrCast(self));
+    pub fn SuperFilterBase(self: ?*anyopaque) QtC.KFilterBase {
+        return qtc.KCompressionDevice_SuperFilterBase(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1980,6 +2020,10 @@ pub const kcompressiondevice = struct {
         return qtc.KCompressionDevice_IsSequential(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSequential` instead
+    ///
+    pub const QBaseIsSequential = SuperIsSequential;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isSequential)
@@ -1990,8 +2034,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` self: QtC.KCompressionDevice `
     ///
-    pub fn QBaseIsSequential(self: ?*anyopaque) bool {
-        return qtc.KCompressionDevice_QBaseIsSequential(@ptrCast(self));
+    pub fn SuperIsSequential(self: ?*anyopaque) bool {
+        return qtc.KCompressionDevice_SuperIsSequential(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -2024,6 +2068,10 @@ pub const kcompressiondevice = struct {
         return qtc.KCompressionDevice_Pos(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPos` instead
+    ///
+    pub const QBasePos = SuperPos;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#pos)
@@ -2034,8 +2082,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` self: QtC.KCompressionDevice `
     ///
-    pub fn QBasePos(self: ?*anyopaque) i64 {
-        return qtc.KCompressionDevice_QBasePos(@ptrCast(self));
+    pub fn SuperPos(self: ?*anyopaque) i64 {
+        return qtc.KCompressionDevice_SuperPos(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -2068,6 +2116,10 @@ pub const kcompressiondevice = struct {
         return qtc.KCompressionDevice_Size(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSize` instead
+    ///
+    pub const QBaseSize = SuperSize;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#size)
@@ -2078,8 +2130,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` self: QtC.KCompressionDevice `
     ///
-    pub fn QBaseSize(self: ?*anyopaque) i64 {
-        return qtc.KCompressionDevice_QBaseSize(@ptrCast(self));
+    pub fn SuperSize(self: ?*anyopaque) i64 {
+        return qtc.KCompressionDevice_SuperSize(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -2112,6 +2164,10 @@ pub const kcompressiondevice = struct {
         return qtc.KCompressionDevice_Reset(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperReset` instead
+    ///
+    pub const QBaseReset = SuperReset;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
@@ -2122,8 +2178,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` self: QtC.KCompressionDevice `
     ///
-    pub fn QBaseReset(self: ?*anyopaque) bool {
-        return qtc.KCompressionDevice_QBaseReset(@ptrCast(self));
+    pub fn SuperReset(self: ?*anyopaque) bool {
+        return qtc.KCompressionDevice_SuperReset(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -2156,6 +2212,10 @@ pub const kcompressiondevice = struct {
         return qtc.KCompressionDevice_BytesAvailable(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperBytesAvailable` instead
+    ///
+    pub const QBaseBytesAvailable = SuperBytesAvailable;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
@@ -2166,8 +2226,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` self: QtC.KCompressionDevice `
     ///
-    pub fn QBaseBytesAvailable(self: ?*anyopaque) i64 {
-        return qtc.KCompressionDevice_QBaseBytesAvailable(@ptrCast(self));
+    pub fn SuperBytesAvailable(self: ?*anyopaque) i64 {
+        return qtc.KCompressionDevice_SuperBytesAvailable(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -2200,6 +2260,10 @@ pub const kcompressiondevice = struct {
         return qtc.KCompressionDevice_BytesToWrite(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperBytesToWrite` instead
+    ///
+    pub const QBaseBytesToWrite = SuperBytesToWrite;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
@@ -2210,8 +2274,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` self: QtC.KCompressionDevice `
     ///
-    pub fn QBaseBytesToWrite(self: ?*anyopaque) i64 {
-        return qtc.KCompressionDevice_QBaseBytesToWrite(@ptrCast(self));
+    pub fn SuperBytesToWrite(self: ?*anyopaque) i64 {
+        return qtc.KCompressionDevice_SuperBytesToWrite(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -2244,6 +2308,10 @@ pub const kcompressiondevice = struct {
         return qtc.KCompressionDevice_CanReadLine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCanReadLine` instead
+    ///
+    pub const QBaseCanReadLine = SuperCanReadLine;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
@@ -2254,8 +2322,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` self: QtC.KCompressionDevice `
     ///
-    pub fn QBaseCanReadLine(self: ?*anyopaque) bool {
-        return qtc.KCompressionDevice_QBaseCanReadLine(@ptrCast(self));
+    pub fn SuperCanReadLine(self: ?*anyopaque) bool {
+        return qtc.KCompressionDevice_SuperCanReadLine(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -2290,6 +2358,10 @@ pub const kcompressiondevice = struct {
         return qtc.KCompressionDevice_WaitForReadyRead(@ptrCast(self), @bitCast(msecs));
     }
 
+    /// ### DEPRECATED: Use `SuperWaitForReadyRead` instead
+    ///
+    pub const QBaseWaitForReadyRead = SuperWaitForReadyRead;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
@@ -2302,8 +2374,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn QBaseWaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.KCompressionDevice_QBaseWaitForReadyRead(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
+        return qtc.KCompressionDevice_SuperWaitForReadyRead(@ptrCast(self), @bitCast(msecs));
     }
 
     /// Inherited from QIODevice
@@ -2338,6 +2410,10 @@ pub const kcompressiondevice = struct {
         return qtc.KCompressionDevice_WaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
     }
 
+    /// ### DEPRECATED: Use `SuperWaitForBytesWritten` instead
+    ///
+    pub const QBaseWaitForBytesWritten = SuperWaitForBytesWritten;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
@@ -2350,8 +2426,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn QBaseWaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.KCompressionDevice_QBaseWaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
+        return qtc.KCompressionDevice_SuperWaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
     }
 
     /// Inherited from QIODevice
@@ -2389,6 +2465,10 @@ pub const kcompressiondevice = struct {
         return qtc.KCompressionDevice_ReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
+    /// ### DEPRECATED: Use `SuperReadLineData` instead
+    ///
+    pub const QBaseReadLineData = SuperReadLineData;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLineData)
@@ -2403,9 +2483,9 @@ pub const kcompressiondevice = struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn QBaseReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn SuperReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.KCompressionDevice_QBaseReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.KCompressionDevice_SuperReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -2440,6 +2520,10 @@ pub const kcompressiondevice = struct {
         return qtc.KCompressionDevice_SkipData(@ptrCast(self), @bitCast(maxSize));
     }
 
+    /// ### DEPRECATED: Use `SuperSkipData` instead
+    ///
+    pub const QBaseSkipData = SuperSkipData;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skipData)
@@ -2452,8 +2536,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn QBaseSkipData(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.KCompressionDevice_QBaseSkipData(@ptrCast(self), @bitCast(maxSize));
+    pub fn SuperSkipData(self: ?*anyopaque, maxSize: i64) i64 {
+        return qtc.KCompressionDevice_SuperSkipData(@ptrCast(self), @bitCast(maxSize));
     }
 
     /// Inherited from QIODevice
@@ -2488,6 +2572,10 @@ pub const kcompressiondevice = struct {
         return qtc.KCompressionDevice_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -2500,8 +2588,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KCompressionDevice_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KCompressionDevice_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2538,6 +2626,10 @@ pub const kcompressiondevice = struct {
         return qtc.KCompressionDevice_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -2552,8 +2644,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KCompressionDevice_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KCompressionDevice_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2588,6 +2680,10 @@ pub const kcompressiondevice = struct {
         qtc.KCompressionDevice_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -2600,8 +2696,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KCompressionDevice_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KCompressionDevice_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2636,6 +2732,10 @@ pub const kcompressiondevice = struct {
         qtc.KCompressionDevice_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -2648,8 +2748,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KCompressionDevice_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KCompressionDevice_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2684,6 +2784,10 @@ pub const kcompressiondevice = struct {
         qtc.KCompressionDevice_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -2696,8 +2800,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KCompressionDevice_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KCompressionDevice_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2732,6 +2836,10 @@ pub const kcompressiondevice = struct {
         qtc.KCompressionDevice_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2744,8 +2852,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KCompressionDevice_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KCompressionDevice_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2780,6 +2888,10 @@ pub const kcompressiondevice = struct {
         qtc.KCompressionDevice_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -2792,8 +2904,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KCompressionDevice_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KCompressionDevice_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2828,6 +2940,10 @@ pub const kcompressiondevice = struct {
         qtc.KCompressionDevice_SetOpenMode(@ptrCast(self), @bitCast(openMode));
     }
 
+    /// ### DEPRECATED: Use `SuperSetOpenMode` instead
+    ///
+    pub const QBaseSetOpenMode = SuperSetOpenMode;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
@@ -2840,8 +2956,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i32) void {
-        qtc.KCompressionDevice_QBaseSetOpenMode(@ptrCast(self), @bitCast(openMode));
+    pub fn SuperSetOpenMode(self: ?*anyopaque, openMode: i32) void {
+        qtc.KCompressionDevice_SuperSetOpenMode(@ptrCast(self), @bitCast(openMode));
     }
 
     /// Inherited from QIODevice
@@ -2880,6 +2996,10 @@ pub const kcompressiondevice = struct {
         qtc.KCompressionDevice_SetErrorString(@ptrCast(self), errorString_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSetErrorString` instead
+    ///
+    pub const QBaseSetErrorString = SuperSetErrorString;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
@@ -2892,12 +3012,12 @@ pub const kcompressiondevice = struct {
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn QBaseSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
+    pub fn SuperSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.KCompressionDevice_QBaseSetErrorString(@ptrCast(self), errorString_str);
+        qtc.KCompressionDevice_SuperSetErrorString(@ptrCast(self), errorString_str);
     }
 
     /// Inherited from QIODevice
@@ -2930,6 +3050,10 @@ pub const kcompressiondevice = struct {
         return qtc.KCompressionDevice_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2940,8 +3064,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` self: QtC.KCompressionDevice `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KCompressionDevice_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KCompressionDevice_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2974,6 +3098,10 @@ pub const kcompressiondevice = struct {
         return qtc.KCompressionDevice_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2984,8 +3112,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` self: QtC.KCompressionDevice `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KCompressionDevice_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KCompressionDevice_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3021,6 +3149,10 @@ pub const kcompressiondevice = struct {
         return qtc.KCompressionDevice_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -3033,9 +3165,9 @@ pub const kcompressiondevice = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KCompressionDevice_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KCompressionDevice_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3070,6 +3202,10 @@ pub const kcompressiondevice = struct {
         return qtc.KCompressionDevice_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -3082,8 +3218,8 @@ pub const kcompressiondevice = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KCompressionDevice_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KCompressionDevice_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3117,6 +3253,9 @@ pub const kcompressiondevice = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#dtor.KCompressionDevice)
     ///
@@ -3126,7 +3265,7 @@ pub const kcompressiondevice = struct {
     ///
     /// ` self: QtC.KCompressionDevice `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KCompressionDevice_Delete(@ptrCast(self));
     }
 };

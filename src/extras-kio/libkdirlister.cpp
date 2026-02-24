@@ -70,7 +70,7 @@ void KDirLister_JobStarted(KDirLister* self, KIO__ListJob* param1) {
 }
 
 // Base class handler implementation
-QMetaObject* KDirLister_QBaseMetaObject(const KDirLister* self) {
+QMetaObject* KDirLister_SuperMetaObject(const KDirLister* self) {
     auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
     if (vkdirlister && vkdirlister->isVirtualKDirLister) {
         vkdirlister->setKDirLister_MetaObject_IsBase(true);
@@ -89,7 +89,7 @@ void KDirLister_OnMetaObject(const KDirLister* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KDirLister_QBaseMetacast(KDirLister* self, const char* param1) {
+void* KDirLister_SuperMetacast(KDirLister* self, const char* param1) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
     if (vkdirlister && vkdirlister->isVirtualKDirLister) {
         vkdirlister->setKDirLister_Metacast_IsBase(true);
@@ -108,7 +108,7 @@ void KDirLister_OnMetacast(KDirLister* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KDirLister_QBaseMetacall(KDirLister* self, int param1, int param2, void** param3) {
+int KDirLister_SuperMetacall(KDirLister* self, int param1, int param2, void** param3) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
     if (vkdirlister && vkdirlister->isVirtualKDirLister) {
         vkdirlister->setKDirLister_Metacall_IsBase(true);
@@ -127,7 +127,7 @@ void KDirLister_OnMetacall(KDirLister* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirLister_QBaseJobStarted(KDirLister* self, KIO__ListJob* param1) {
+void KDirLister_SuperJobStarted(KDirLister* self, KIO__ListJob* param1) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
     if (vkdirlister && vkdirlister->isVirtualKDirLister) {
         vkdirlister->setKDirLister_JobStarted_IsBase(true);
@@ -156,7 +156,7 @@ bool KDirLister_Event(KDirLister* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KDirLister_QBaseEvent(KDirLister* self, QEvent* event) {
+bool KDirLister_SuperEvent(KDirLister* self, QEvent* event) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
     if (vkdirlister && vkdirlister->isVirtualKDirLister) {
         vkdirlister->setKDirLister_Event_IsBase(true);
@@ -185,7 +185,7 @@ bool KDirLister_EventFilter(KDirLister* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KDirLister_QBaseEventFilter(KDirLister* self, QObject* watched, QEvent* event) {
+bool KDirLister_SuperEventFilter(KDirLister* self, QObject* watched, QEvent* event) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
     if (vkdirlister && vkdirlister->isVirtualKDirLister) {
         vkdirlister->setKDirLister_EventFilter_IsBase(true);
@@ -214,7 +214,7 @@ void KDirLister_TimerEvent(KDirLister* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KDirLister_QBaseTimerEvent(KDirLister* self, QTimerEvent* event) {
+void KDirLister_SuperTimerEvent(KDirLister* self, QTimerEvent* event) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
     if (vkdirlister && vkdirlister->isVirtualKDirLister) {
         vkdirlister->setKDirLister_TimerEvent_IsBase(true);
@@ -243,7 +243,7 @@ void KDirLister_ChildEvent(KDirLister* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KDirLister_QBaseChildEvent(KDirLister* self, QChildEvent* event) {
+void KDirLister_SuperChildEvent(KDirLister* self, QChildEvent* event) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
     if (vkdirlister && vkdirlister->isVirtualKDirLister) {
         vkdirlister->setKDirLister_ChildEvent_IsBase(true);
@@ -272,7 +272,7 @@ void KDirLister_CustomEvent(KDirLister* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KDirLister_QBaseCustomEvent(KDirLister* self, QEvent* event) {
+void KDirLister_SuperCustomEvent(KDirLister* self, QEvent* event) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
     if (vkdirlister && vkdirlister->isVirtualKDirLister) {
         vkdirlister->setKDirLister_CustomEvent_IsBase(true);
@@ -301,7 +301,7 @@ void KDirLister_ConnectNotify(KDirLister* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KDirLister_QBaseConnectNotify(KDirLister* self, const QMetaMethod* signal) {
+void KDirLister_SuperConnectNotify(KDirLister* self, const QMetaMethod* signal) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
     if (vkdirlister && vkdirlister->isVirtualKDirLister) {
         vkdirlister->setKDirLister_ConnectNotify_IsBase(true);
@@ -330,7 +330,7 @@ void KDirLister_DisconnectNotify(KDirLister* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KDirLister_QBaseDisconnectNotify(KDirLister* self, const QMetaMethod* signal) {
+void KDirLister_SuperDisconnectNotify(KDirLister* self, const QMetaMethod* signal) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
     if (vkdirlister && vkdirlister->isVirtualKDirLister) {
         vkdirlister->setKDirLister_DisconnectNotify_IsBase(true);
@@ -359,7 +359,7 @@ QObject* KDirLister_Sender(const KDirLister* self) {
 }
 
 // Base class handler implementation
-QObject* KDirLister_QBaseSender(const KDirLister* self) {
+QObject* KDirLister_SuperSender(const KDirLister* self) {
     auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
     if (vkdirlister && vkdirlister->isVirtualKDirLister) {
         vkdirlister->setKDirLister_Sender_IsBase(true);
@@ -388,7 +388,7 @@ int KDirLister_SenderSignalIndex(const KDirLister* self) {
 }
 
 // Base class handler implementation
-int KDirLister_QBaseSenderSignalIndex(const KDirLister* self) {
+int KDirLister_SuperSenderSignalIndex(const KDirLister* self) {
     auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
     if (vkdirlister && vkdirlister->isVirtualKDirLister) {
         vkdirlister->setKDirLister_SenderSignalIndex_IsBase(true);
@@ -417,7 +417,7 @@ int KDirLister_Receivers(const KDirLister* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KDirLister_QBaseReceivers(const KDirLister* self, const char* signal) {
+int KDirLister_SuperReceivers(const KDirLister* self, const char* signal) {
     auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
     if (vkdirlister && vkdirlister->isVirtualKDirLister) {
         vkdirlister->setKDirLister_Receivers_IsBase(true);
@@ -446,7 +446,7 @@ bool KDirLister_IsSignalConnected(const KDirLister* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool KDirLister_QBaseIsSignalConnected(const KDirLister* self, const QMetaMethod* signal) {
+bool KDirLister_SuperIsSignalConnected(const KDirLister* self, const QMetaMethod* signal) {
     auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
     if (vkdirlister && vkdirlister->isVirtualKDirLister) {
         vkdirlister->setKDirLister_IsSignalConnected_IsBase(true);

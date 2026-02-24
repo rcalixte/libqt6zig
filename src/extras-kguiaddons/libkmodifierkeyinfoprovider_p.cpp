@@ -172,7 +172,7 @@ void KModifierKeyInfoProvider_Connect_KeyRemoved(KModifierKeyInfoProvider* self,
 }
 
 // Base class handler implementation
-QMetaObject* KModifierKeyInfoProvider_QBaseMetaObject(const KModifierKeyInfoProvider* self) {
+QMetaObject* KModifierKeyInfoProvider_SuperMetaObject(const KModifierKeyInfoProvider* self) {
     auto* vkmodifierkeyinfoprovider = const_cast<VirtualKModifierKeyInfoProvider*>(dynamic_cast<const VirtualKModifierKeyInfoProvider*>(self));
     if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_MetaObject_IsBase(true);
@@ -191,7 +191,7 @@ void KModifierKeyInfoProvider_OnMetaObject(const KModifierKeyInfoProvider* self,
 }
 
 // Base class handler implementation
-void* KModifierKeyInfoProvider_QBaseMetacast(KModifierKeyInfoProvider* self, const char* param1) {
+void* KModifierKeyInfoProvider_SuperMetacast(KModifierKeyInfoProvider* self, const char* param1) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
     if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_Metacast_IsBase(true);
@@ -210,7 +210,7 @@ void KModifierKeyInfoProvider_OnMetacast(KModifierKeyInfoProvider* self, intptr_
 }
 
 // Base class handler implementation
-int KModifierKeyInfoProvider_QBaseMetacall(KModifierKeyInfoProvider* self, int param1, int param2, void** param3) {
+int KModifierKeyInfoProvider_SuperMetacall(KModifierKeyInfoProvider* self, int param1, int param2, void** param3) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
     if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_Metacall_IsBase(true);
@@ -229,7 +229,7 @@ void KModifierKeyInfoProvider_OnMetacall(KModifierKeyInfoProvider* self, intptr_
 }
 
 // Base class handler implementation
-bool KModifierKeyInfoProvider_QBaseSetKeyLatched(KModifierKeyInfoProvider* self, int key, bool latched) {
+bool KModifierKeyInfoProvider_SuperSetKeyLatched(KModifierKeyInfoProvider* self, int key, bool latched) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
     if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_SetKeyLatched_IsBase(true);
@@ -248,7 +248,7 @@ void KModifierKeyInfoProvider_OnSetKeyLatched(KModifierKeyInfoProvider* self, in
 }
 
 // Base class handler implementation
-bool KModifierKeyInfoProvider_QBaseSetKeyLocked(KModifierKeyInfoProvider* self, int key, bool locked) {
+bool KModifierKeyInfoProvider_SuperSetKeyLocked(KModifierKeyInfoProvider* self, int key, bool locked) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
     if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_SetKeyLocked_IsBase(true);
@@ -277,7 +277,7 @@ bool KModifierKeyInfoProvider_Event(KModifierKeyInfoProvider* self, QEvent* even
 }
 
 // Base class handler implementation
-bool KModifierKeyInfoProvider_QBaseEvent(KModifierKeyInfoProvider* self, QEvent* event) {
+bool KModifierKeyInfoProvider_SuperEvent(KModifierKeyInfoProvider* self, QEvent* event) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
     if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_Event_IsBase(true);
@@ -306,7 +306,7 @@ bool KModifierKeyInfoProvider_EventFilter(KModifierKeyInfoProvider* self, QObjec
 }
 
 // Base class handler implementation
-bool KModifierKeyInfoProvider_QBaseEventFilter(KModifierKeyInfoProvider* self, QObject* watched, QEvent* event) {
+bool KModifierKeyInfoProvider_SuperEventFilter(KModifierKeyInfoProvider* self, QObject* watched, QEvent* event) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
     if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_EventFilter_IsBase(true);
@@ -335,7 +335,7 @@ void KModifierKeyInfoProvider_TimerEvent(KModifierKeyInfoProvider* self, QTimerE
 }
 
 // Base class handler implementation
-void KModifierKeyInfoProvider_QBaseTimerEvent(KModifierKeyInfoProvider* self, QTimerEvent* event) {
+void KModifierKeyInfoProvider_SuperTimerEvent(KModifierKeyInfoProvider* self, QTimerEvent* event) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
     if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_TimerEvent_IsBase(true);
@@ -364,7 +364,7 @@ void KModifierKeyInfoProvider_ChildEvent(KModifierKeyInfoProvider* self, QChildE
 }
 
 // Base class handler implementation
-void KModifierKeyInfoProvider_QBaseChildEvent(KModifierKeyInfoProvider* self, QChildEvent* event) {
+void KModifierKeyInfoProvider_SuperChildEvent(KModifierKeyInfoProvider* self, QChildEvent* event) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
     if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_ChildEvent_IsBase(true);
@@ -393,7 +393,7 @@ void KModifierKeyInfoProvider_CustomEvent(KModifierKeyInfoProvider* self, QEvent
 }
 
 // Base class handler implementation
-void KModifierKeyInfoProvider_QBaseCustomEvent(KModifierKeyInfoProvider* self, QEvent* event) {
+void KModifierKeyInfoProvider_SuperCustomEvent(KModifierKeyInfoProvider* self, QEvent* event) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
     if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_CustomEvent_IsBase(true);
@@ -422,7 +422,7 @@ void KModifierKeyInfoProvider_ConnectNotify(KModifierKeyInfoProvider* self, cons
 }
 
 // Base class handler implementation
-void KModifierKeyInfoProvider_QBaseConnectNotify(KModifierKeyInfoProvider* self, const QMetaMethod* signal) {
+void KModifierKeyInfoProvider_SuperConnectNotify(KModifierKeyInfoProvider* self, const QMetaMethod* signal) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
     if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_ConnectNotify_IsBase(true);
@@ -451,7 +451,7 @@ void KModifierKeyInfoProvider_DisconnectNotify(KModifierKeyInfoProvider* self, c
 }
 
 // Base class handler implementation
-void KModifierKeyInfoProvider_QBaseDisconnectNotify(KModifierKeyInfoProvider* self, const QMetaMethod* signal) {
+void KModifierKeyInfoProvider_SuperDisconnectNotify(KModifierKeyInfoProvider* self, const QMetaMethod* signal) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
     if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_DisconnectNotify_IsBase(true);
@@ -480,7 +480,7 @@ void KModifierKeyInfoProvider_StateUpdated(KModifierKeyInfoProvider* self, int k
 }
 
 // Base class handler implementation
-void KModifierKeyInfoProvider_QBaseStateUpdated(KModifierKeyInfoProvider* self, int key, int state) {
+void KModifierKeyInfoProvider_SuperStateUpdated(KModifierKeyInfoProvider* self, int key, int state) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
     if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_StateUpdated_IsBase(true);
@@ -509,7 +509,7 @@ QObject* KModifierKeyInfoProvider_Sender(const KModifierKeyInfoProvider* self) {
 }
 
 // Base class handler implementation
-QObject* KModifierKeyInfoProvider_QBaseSender(const KModifierKeyInfoProvider* self) {
+QObject* KModifierKeyInfoProvider_SuperSender(const KModifierKeyInfoProvider* self) {
     auto* vkmodifierkeyinfoprovider = const_cast<VirtualKModifierKeyInfoProvider*>(dynamic_cast<const VirtualKModifierKeyInfoProvider*>(self));
     if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_Sender_IsBase(true);
@@ -538,7 +538,7 @@ int KModifierKeyInfoProvider_SenderSignalIndex(const KModifierKeyInfoProvider* s
 }
 
 // Base class handler implementation
-int KModifierKeyInfoProvider_QBaseSenderSignalIndex(const KModifierKeyInfoProvider* self) {
+int KModifierKeyInfoProvider_SuperSenderSignalIndex(const KModifierKeyInfoProvider* self) {
     auto* vkmodifierkeyinfoprovider = const_cast<VirtualKModifierKeyInfoProvider*>(dynamic_cast<const VirtualKModifierKeyInfoProvider*>(self));
     if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_SenderSignalIndex_IsBase(true);
@@ -567,7 +567,7 @@ int KModifierKeyInfoProvider_Receivers(const KModifierKeyInfoProvider* self, con
 }
 
 // Base class handler implementation
-int KModifierKeyInfoProvider_QBaseReceivers(const KModifierKeyInfoProvider* self, const char* signal) {
+int KModifierKeyInfoProvider_SuperReceivers(const KModifierKeyInfoProvider* self, const char* signal) {
     auto* vkmodifierkeyinfoprovider = const_cast<VirtualKModifierKeyInfoProvider*>(dynamic_cast<const VirtualKModifierKeyInfoProvider*>(self));
     if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_Receivers_IsBase(true);
@@ -596,7 +596,7 @@ bool KModifierKeyInfoProvider_IsSignalConnected(const KModifierKeyInfoProvider* 
 }
 
 // Base class handler implementation
-bool KModifierKeyInfoProvider_QBaseIsSignalConnected(const KModifierKeyInfoProvider* self, const QMetaMethod* signal) {
+bool KModifierKeyInfoProvider_SuperIsSignalConnected(const KModifierKeyInfoProvider* self, const QMetaMethod* signal) {
     auto* vkmodifierkeyinfoprovider = const_cast<VirtualKModifierKeyInfoProvider*>(dynamic_cast<const VirtualKModifierKeyInfoProvider*>(self));
     if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_IsSignalConnected_IsBase(true);

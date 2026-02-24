@@ -493,7 +493,7 @@ void QDateTimeEdit_InitStyleOption(const QDateTimeEdit* self, QStyleOptionSpinBo
 }
 
 // Base class handler implementation
-QMetaObject* QDateTimeEdit_QBaseMetaObject(const QDateTimeEdit* self) {
+QMetaObject* QDateTimeEdit_SuperMetaObject(const QDateTimeEdit* self) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_MetaObject_IsBase(true);
@@ -512,7 +512,7 @@ void QDateTimeEdit_OnMetaObject(const QDateTimeEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QDateTimeEdit_QBaseMetacast(QDateTimeEdit* self, const char* param1) {
+void* QDateTimeEdit_SuperMetacast(QDateTimeEdit* self, const char* param1) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_Metacast_IsBase(true);
@@ -531,7 +531,7 @@ void QDateTimeEdit_OnMetacast(QDateTimeEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QDateTimeEdit_QBaseMetacall(QDateTimeEdit* self, int param1, int param2, void** param3) {
+int QDateTimeEdit_SuperMetacall(QDateTimeEdit* self, int param1, int param2, void** param3) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_Metacall_IsBase(true);
@@ -550,7 +550,7 @@ void QDateTimeEdit_OnMetacall(QDateTimeEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QDateTimeEdit_QBaseSizeHint(const QDateTimeEdit* self) {
+QSize* QDateTimeEdit_SuperSizeHint(const QDateTimeEdit* self) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_SizeHint_IsBase(true);
@@ -569,7 +569,7 @@ void QDateTimeEdit_OnSizeHint(const QDateTimeEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseClear(QDateTimeEdit* self) {
+void QDateTimeEdit_SuperClear(QDateTimeEdit* self) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_Clear_IsBase(true);
@@ -588,7 +588,7 @@ void QDateTimeEdit_OnClear(QDateTimeEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseStepBy(QDateTimeEdit* self, int steps) {
+void QDateTimeEdit_SuperStepBy(QDateTimeEdit* self, int steps) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_StepBy_IsBase(true);
@@ -607,7 +607,7 @@ void QDateTimeEdit_OnStepBy(QDateTimeEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QDateTimeEdit_QBaseEvent(QDateTimeEdit* self, QEvent* event) {
+bool QDateTimeEdit_SuperEvent(QDateTimeEdit* self, QEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_Event_IsBase(true);
@@ -626,7 +626,7 @@ void QDateTimeEdit_OnEvent(QDateTimeEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseKeyPressEvent(QDateTimeEdit* self, QKeyEvent* event) {
+void QDateTimeEdit_SuperKeyPressEvent(QDateTimeEdit* self, QKeyEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_KeyPressEvent_IsBase(true);
@@ -645,7 +645,7 @@ void QDateTimeEdit_OnKeyPressEvent(QDateTimeEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseWheelEvent(QDateTimeEdit* self, QWheelEvent* event) {
+void QDateTimeEdit_SuperWheelEvent(QDateTimeEdit* self, QWheelEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_WheelEvent_IsBase(true);
@@ -664,7 +664,7 @@ void QDateTimeEdit_OnWheelEvent(QDateTimeEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseFocusInEvent(QDateTimeEdit* self, QFocusEvent* event) {
+void QDateTimeEdit_SuperFocusInEvent(QDateTimeEdit* self, QFocusEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_FocusInEvent_IsBase(true);
@@ -683,7 +683,7 @@ void QDateTimeEdit_OnFocusInEvent(QDateTimeEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QDateTimeEdit_QBaseFocusNextPrevChild(QDateTimeEdit* self, bool next) {
+bool QDateTimeEdit_SuperFocusNextPrevChild(QDateTimeEdit* self, bool next) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_FocusNextPrevChild_IsBase(true);
@@ -702,7 +702,7 @@ void QDateTimeEdit_OnFocusNextPrevChild(QDateTimeEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QDateTimeEdit_QBaseValidate(const QDateTimeEdit* self, libqt_string input, int* pos) {
+int QDateTimeEdit_SuperValidate(const QDateTimeEdit* self, libqt_string input, int* pos) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
@@ -722,7 +722,7 @@ void QDateTimeEdit_OnValidate(const QDateTimeEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseFixup(const QDateTimeEdit* self, libqt_string input) {
+void QDateTimeEdit_SuperFixup(const QDateTimeEdit* self, libqt_string input) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
@@ -742,7 +742,7 @@ void QDateTimeEdit_OnFixup(const QDateTimeEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QDateTime* QDateTimeEdit_QBaseDateTimeFromText(const QDateTimeEdit* self, const libqt_string text) {
+QDateTime* QDateTimeEdit_SuperDateTimeFromText(const QDateTimeEdit* self, const libqt_string text) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
@@ -761,7 +761,7 @@ void QDateTimeEdit_OnDateTimeFromText(const QDateTimeEdit* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-libqt_string QDateTimeEdit_QBaseTextFromDateTime(const QDateTimeEdit* self, const QDateTime* dt) {
+libqt_string QDateTimeEdit_SuperTextFromDateTime(const QDateTimeEdit* self, const QDateTime* dt) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_TextFromDateTime_IsBase(true);
@@ -796,7 +796,7 @@ void QDateTimeEdit_OnTextFromDateTime(const QDateTimeEdit* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int QDateTimeEdit_QBaseStepEnabled(const QDateTimeEdit* self) {
+int QDateTimeEdit_SuperStepEnabled(const QDateTimeEdit* self) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_StepEnabled_IsBase(true);
@@ -815,7 +815,7 @@ void QDateTimeEdit_OnStepEnabled(const QDateTimeEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseMousePressEvent(QDateTimeEdit* self, QMouseEvent* event) {
+void QDateTimeEdit_SuperMousePressEvent(QDateTimeEdit* self, QMouseEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_MousePressEvent_IsBase(true);
@@ -834,7 +834,7 @@ void QDateTimeEdit_OnMousePressEvent(QDateTimeEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBasePaintEvent(QDateTimeEdit* self, QPaintEvent* event) {
+void QDateTimeEdit_SuperPaintEvent(QDateTimeEdit* self, QPaintEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_PaintEvent_IsBase(true);
@@ -853,7 +853,7 @@ void QDateTimeEdit_OnPaintEvent(QDateTimeEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseInitStyleOption(const QDateTimeEdit* self, QStyleOptionSpinBox* option) {
+void QDateTimeEdit_SuperInitStyleOption(const QDateTimeEdit* self, QStyleOptionSpinBox* option) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_InitStyleOption_IsBase(true);
@@ -882,7 +882,7 @@ QSize* QDateTimeEdit_MinimumSizeHint(const QDateTimeEdit* self) {
 }
 
 // Base class handler implementation
-QSize* QDateTimeEdit_QBaseMinimumSizeHint(const QDateTimeEdit* self) {
+QSize* QDateTimeEdit_SuperMinimumSizeHint(const QDateTimeEdit* self) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_MinimumSizeHint_IsBase(true);
@@ -911,7 +911,7 @@ QVariant* QDateTimeEdit_InputMethodQuery(const QDateTimeEdit* self, int param1) 
 }
 
 // Base class handler implementation
-QVariant* QDateTimeEdit_QBaseInputMethodQuery(const QDateTimeEdit* self, int param1) {
+QVariant* QDateTimeEdit_SuperInputMethodQuery(const QDateTimeEdit* self, int param1) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_InputMethodQuery_IsBase(true);
@@ -940,7 +940,7 @@ void QDateTimeEdit_ResizeEvent(QDateTimeEdit* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseResizeEvent(QDateTimeEdit* self, QResizeEvent* event) {
+void QDateTimeEdit_SuperResizeEvent(QDateTimeEdit* self, QResizeEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_ResizeEvent_IsBase(true);
@@ -969,7 +969,7 @@ void QDateTimeEdit_KeyReleaseEvent(QDateTimeEdit* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseKeyReleaseEvent(QDateTimeEdit* self, QKeyEvent* event) {
+void QDateTimeEdit_SuperKeyReleaseEvent(QDateTimeEdit* self, QKeyEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_KeyReleaseEvent_IsBase(true);
@@ -998,7 +998,7 @@ void QDateTimeEdit_FocusOutEvent(QDateTimeEdit* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseFocusOutEvent(QDateTimeEdit* self, QFocusEvent* event) {
+void QDateTimeEdit_SuperFocusOutEvent(QDateTimeEdit* self, QFocusEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_FocusOutEvent_IsBase(true);
@@ -1027,7 +1027,7 @@ void QDateTimeEdit_ContextMenuEvent(QDateTimeEdit* self, QContextMenuEvent* even
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseContextMenuEvent(QDateTimeEdit* self, QContextMenuEvent* event) {
+void QDateTimeEdit_SuperContextMenuEvent(QDateTimeEdit* self, QContextMenuEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_ContextMenuEvent_IsBase(true);
@@ -1056,7 +1056,7 @@ void QDateTimeEdit_ChangeEvent(QDateTimeEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseChangeEvent(QDateTimeEdit* self, QEvent* event) {
+void QDateTimeEdit_SuperChangeEvent(QDateTimeEdit* self, QEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_ChangeEvent_IsBase(true);
@@ -1085,7 +1085,7 @@ void QDateTimeEdit_CloseEvent(QDateTimeEdit* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseCloseEvent(QDateTimeEdit* self, QCloseEvent* event) {
+void QDateTimeEdit_SuperCloseEvent(QDateTimeEdit* self, QCloseEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_CloseEvent_IsBase(true);
@@ -1114,7 +1114,7 @@ void QDateTimeEdit_HideEvent(QDateTimeEdit* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseHideEvent(QDateTimeEdit* self, QHideEvent* event) {
+void QDateTimeEdit_SuperHideEvent(QDateTimeEdit* self, QHideEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_HideEvent_IsBase(true);
@@ -1143,7 +1143,7 @@ void QDateTimeEdit_MouseReleaseEvent(QDateTimeEdit* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseMouseReleaseEvent(QDateTimeEdit* self, QMouseEvent* event) {
+void QDateTimeEdit_SuperMouseReleaseEvent(QDateTimeEdit* self, QMouseEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_MouseReleaseEvent_IsBase(true);
@@ -1172,7 +1172,7 @@ void QDateTimeEdit_MouseMoveEvent(QDateTimeEdit* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseMouseMoveEvent(QDateTimeEdit* self, QMouseEvent* event) {
+void QDateTimeEdit_SuperMouseMoveEvent(QDateTimeEdit* self, QMouseEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_MouseMoveEvent_IsBase(true);
@@ -1201,7 +1201,7 @@ void QDateTimeEdit_TimerEvent(QDateTimeEdit* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseTimerEvent(QDateTimeEdit* self, QTimerEvent* event) {
+void QDateTimeEdit_SuperTimerEvent(QDateTimeEdit* self, QTimerEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_TimerEvent_IsBase(true);
@@ -1230,7 +1230,7 @@ void QDateTimeEdit_ShowEvent(QDateTimeEdit* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseShowEvent(QDateTimeEdit* self, QShowEvent* event) {
+void QDateTimeEdit_SuperShowEvent(QDateTimeEdit* self, QShowEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_ShowEvent_IsBase(true);
@@ -1259,7 +1259,7 @@ int QDateTimeEdit_DevType(const QDateTimeEdit* self) {
 }
 
 // Base class handler implementation
-int QDateTimeEdit_QBaseDevType(const QDateTimeEdit* self) {
+int QDateTimeEdit_SuperDevType(const QDateTimeEdit* self) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_DevType_IsBase(true);
@@ -1288,7 +1288,7 @@ void QDateTimeEdit_SetVisible(QDateTimeEdit* self, bool visible) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseSetVisible(QDateTimeEdit* self, bool visible) {
+void QDateTimeEdit_SuperSetVisible(QDateTimeEdit* self, bool visible) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_SetVisible_IsBase(true);
@@ -1317,7 +1317,7 @@ int QDateTimeEdit_HeightForWidth(const QDateTimeEdit* self, int param1) {
 }
 
 // Base class handler implementation
-int QDateTimeEdit_QBaseHeightForWidth(const QDateTimeEdit* self, int param1) {
+int QDateTimeEdit_SuperHeightForWidth(const QDateTimeEdit* self, int param1) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_HeightForWidth_IsBase(true);
@@ -1346,7 +1346,7 @@ bool QDateTimeEdit_HasHeightForWidth(const QDateTimeEdit* self) {
 }
 
 // Base class handler implementation
-bool QDateTimeEdit_QBaseHasHeightForWidth(const QDateTimeEdit* self) {
+bool QDateTimeEdit_SuperHasHeightForWidth(const QDateTimeEdit* self) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_HasHeightForWidth_IsBase(true);
@@ -1375,7 +1375,7 @@ QPaintEngine* QDateTimeEdit_PaintEngine(const QDateTimeEdit* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QDateTimeEdit_QBasePaintEngine(const QDateTimeEdit* self) {
+QPaintEngine* QDateTimeEdit_SuperPaintEngine(const QDateTimeEdit* self) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_PaintEngine_IsBase(true);
@@ -1404,7 +1404,7 @@ void QDateTimeEdit_MouseDoubleClickEvent(QDateTimeEdit* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseMouseDoubleClickEvent(QDateTimeEdit* self, QMouseEvent* event) {
+void QDateTimeEdit_SuperMouseDoubleClickEvent(QDateTimeEdit* self, QMouseEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_MouseDoubleClickEvent_IsBase(true);
@@ -1433,7 +1433,7 @@ void QDateTimeEdit_EnterEvent(QDateTimeEdit* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseEnterEvent(QDateTimeEdit* self, QEnterEvent* event) {
+void QDateTimeEdit_SuperEnterEvent(QDateTimeEdit* self, QEnterEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_EnterEvent_IsBase(true);
@@ -1462,7 +1462,7 @@ void QDateTimeEdit_LeaveEvent(QDateTimeEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseLeaveEvent(QDateTimeEdit* self, QEvent* event) {
+void QDateTimeEdit_SuperLeaveEvent(QDateTimeEdit* self, QEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_LeaveEvent_IsBase(true);
@@ -1491,7 +1491,7 @@ void QDateTimeEdit_MoveEvent(QDateTimeEdit* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseMoveEvent(QDateTimeEdit* self, QMoveEvent* event) {
+void QDateTimeEdit_SuperMoveEvent(QDateTimeEdit* self, QMoveEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_MoveEvent_IsBase(true);
@@ -1520,7 +1520,7 @@ void QDateTimeEdit_TabletEvent(QDateTimeEdit* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseTabletEvent(QDateTimeEdit* self, QTabletEvent* event) {
+void QDateTimeEdit_SuperTabletEvent(QDateTimeEdit* self, QTabletEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_TabletEvent_IsBase(true);
@@ -1549,7 +1549,7 @@ void QDateTimeEdit_ActionEvent(QDateTimeEdit* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseActionEvent(QDateTimeEdit* self, QActionEvent* event) {
+void QDateTimeEdit_SuperActionEvent(QDateTimeEdit* self, QActionEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_ActionEvent_IsBase(true);
@@ -1578,7 +1578,7 @@ void QDateTimeEdit_DragEnterEvent(QDateTimeEdit* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseDragEnterEvent(QDateTimeEdit* self, QDragEnterEvent* event) {
+void QDateTimeEdit_SuperDragEnterEvent(QDateTimeEdit* self, QDragEnterEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_DragEnterEvent_IsBase(true);
@@ -1607,7 +1607,7 @@ void QDateTimeEdit_DragMoveEvent(QDateTimeEdit* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseDragMoveEvent(QDateTimeEdit* self, QDragMoveEvent* event) {
+void QDateTimeEdit_SuperDragMoveEvent(QDateTimeEdit* self, QDragMoveEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_DragMoveEvent_IsBase(true);
@@ -1636,7 +1636,7 @@ void QDateTimeEdit_DragLeaveEvent(QDateTimeEdit* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseDragLeaveEvent(QDateTimeEdit* self, QDragLeaveEvent* event) {
+void QDateTimeEdit_SuperDragLeaveEvent(QDateTimeEdit* self, QDragLeaveEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_DragLeaveEvent_IsBase(true);
@@ -1665,7 +1665,7 @@ void QDateTimeEdit_DropEvent(QDateTimeEdit* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseDropEvent(QDateTimeEdit* self, QDropEvent* event) {
+void QDateTimeEdit_SuperDropEvent(QDateTimeEdit* self, QDropEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_DropEvent_IsBase(true);
@@ -1695,7 +1695,7 @@ bool QDateTimeEdit_NativeEvent(QDateTimeEdit* self, const libqt_string eventType
 }
 
 // Base class handler implementation
-bool QDateTimeEdit_QBaseNativeEvent(QDateTimeEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QDateTimeEdit_SuperNativeEvent(QDateTimeEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
@@ -1725,7 +1725,7 @@ int QDateTimeEdit_Metric(const QDateTimeEdit* self, int param1) {
 }
 
 // Base class handler implementation
-int QDateTimeEdit_QBaseMetric(const QDateTimeEdit* self, int param1) {
+int QDateTimeEdit_SuperMetric(const QDateTimeEdit* self, int param1) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_Metric_IsBase(true);
@@ -1754,7 +1754,7 @@ void QDateTimeEdit_InitPainter(const QDateTimeEdit* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseInitPainter(const QDateTimeEdit* self, QPainter* painter) {
+void QDateTimeEdit_SuperInitPainter(const QDateTimeEdit* self, QPainter* painter) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_InitPainter_IsBase(true);
@@ -1783,7 +1783,7 @@ QPaintDevice* QDateTimeEdit_Redirected(const QDateTimeEdit* self, QPoint* offset
 }
 
 // Base class handler implementation
-QPaintDevice* QDateTimeEdit_QBaseRedirected(const QDateTimeEdit* self, QPoint* offset) {
+QPaintDevice* QDateTimeEdit_SuperRedirected(const QDateTimeEdit* self, QPoint* offset) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_Redirected_IsBase(true);
@@ -1812,7 +1812,7 @@ QPainter* QDateTimeEdit_SharedPainter(const QDateTimeEdit* self) {
 }
 
 // Base class handler implementation
-QPainter* QDateTimeEdit_QBaseSharedPainter(const QDateTimeEdit* self) {
+QPainter* QDateTimeEdit_SuperSharedPainter(const QDateTimeEdit* self) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_SharedPainter_IsBase(true);
@@ -1841,7 +1841,7 @@ void QDateTimeEdit_InputMethodEvent(QDateTimeEdit* self, QInputMethodEvent* para
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseInputMethodEvent(QDateTimeEdit* self, QInputMethodEvent* param1) {
+void QDateTimeEdit_SuperInputMethodEvent(QDateTimeEdit* self, QInputMethodEvent* param1) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_InputMethodEvent_IsBase(true);
@@ -1870,7 +1870,7 @@ bool QDateTimeEdit_EventFilter(QDateTimeEdit* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QDateTimeEdit_QBaseEventFilter(QDateTimeEdit* self, QObject* watched, QEvent* event) {
+bool QDateTimeEdit_SuperEventFilter(QDateTimeEdit* self, QObject* watched, QEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_EventFilter_IsBase(true);
@@ -1899,7 +1899,7 @@ void QDateTimeEdit_ChildEvent(QDateTimeEdit* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseChildEvent(QDateTimeEdit* self, QChildEvent* event) {
+void QDateTimeEdit_SuperChildEvent(QDateTimeEdit* self, QChildEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_ChildEvent_IsBase(true);
@@ -1928,7 +1928,7 @@ void QDateTimeEdit_CustomEvent(QDateTimeEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseCustomEvent(QDateTimeEdit* self, QEvent* event) {
+void QDateTimeEdit_SuperCustomEvent(QDateTimeEdit* self, QEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_CustomEvent_IsBase(true);
@@ -1957,7 +1957,7 @@ void QDateTimeEdit_ConnectNotify(QDateTimeEdit* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseConnectNotify(QDateTimeEdit* self, const QMetaMethod* signal) {
+void QDateTimeEdit_SuperConnectNotify(QDateTimeEdit* self, const QMetaMethod* signal) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_ConnectNotify_IsBase(true);
@@ -1986,7 +1986,7 @@ void QDateTimeEdit_DisconnectNotify(QDateTimeEdit* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseDisconnectNotify(QDateTimeEdit* self, const QMetaMethod* signal) {
+void QDateTimeEdit_SuperDisconnectNotify(QDateTimeEdit* self, const QMetaMethod* signal) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_DisconnectNotify_IsBase(true);
@@ -2015,7 +2015,7 @@ QLineEdit* QDateTimeEdit_LineEdit(const QDateTimeEdit* self) {
 }
 
 // Base class handler implementation
-QLineEdit* QDateTimeEdit_QBaseLineEdit(const QDateTimeEdit* self) {
+QLineEdit* QDateTimeEdit_SuperLineEdit(const QDateTimeEdit* self) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_LineEdit_IsBase(true);
@@ -2044,7 +2044,7 @@ void QDateTimeEdit_SetLineEdit(QDateTimeEdit* self, QLineEdit* edit) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseSetLineEdit(QDateTimeEdit* self, QLineEdit* edit) {
+void QDateTimeEdit_SuperSetLineEdit(QDateTimeEdit* self, QLineEdit* edit) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_SetLineEdit_IsBase(true);
@@ -2073,7 +2073,7 @@ void QDateTimeEdit_UpdateMicroFocus(QDateTimeEdit* self) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseUpdateMicroFocus(QDateTimeEdit* self) {
+void QDateTimeEdit_SuperUpdateMicroFocus(QDateTimeEdit* self) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_UpdateMicroFocus_IsBase(true);
@@ -2102,7 +2102,7 @@ void QDateTimeEdit_Create(QDateTimeEdit* self) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseCreate(QDateTimeEdit* self) {
+void QDateTimeEdit_SuperCreate(QDateTimeEdit* self) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_Create_IsBase(true);
@@ -2131,7 +2131,7 @@ void QDateTimeEdit_Destroy(QDateTimeEdit* self) {
 }
 
 // Base class handler implementation
-void QDateTimeEdit_QBaseDestroy(QDateTimeEdit* self) {
+void QDateTimeEdit_SuperDestroy(QDateTimeEdit* self) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_Destroy_IsBase(true);
@@ -2160,7 +2160,7 @@ bool QDateTimeEdit_FocusNextChild(QDateTimeEdit* self) {
 }
 
 // Base class handler implementation
-bool QDateTimeEdit_QBaseFocusNextChild(QDateTimeEdit* self) {
+bool QDateTimeEdit_SuperFocusNextChild(QDateTimeEdit* self) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_FocusNextChild_IsBase(true);
@@ -2189,7 +2189,7 @@ bool QDateTimeEdit_FocusPreviousChild(QDateTimeEdit* self) {
 }
 
 // Base class handler implementation
-bool QDateTimeEdit_QBaseFocusPreviousChild(QDateTimeEdit* self) {
+bool QDateTimeEdit_SuperFocusPreviousChild(QDateTimeEdit* self) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_FocusPreviousChild_IsBase(true);
@@ -2218,7 +2218,7 @@ QObject* QDateTimeEdit_Sender(const QDateTimeEdit* self) {
 }
 
 // Base class handler implementation
-QObject* QDateTimeEdit_QBaseSender(const QDateTimeEdit* self) {
+QObject* QDateTimeEdit_SuperSender(const QDateTimeEdit* self) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_Sender_IsBase(true);
@@ -2247,7 +2247,7 @@ int QDateTimeEdit_SenderSignalIndex(const QDateTimeEdit* self) {
 }
 
 // Base class handler implementation
-int QDateTimeEdit_QBaseSenderSignalIndex(const QDateTimeEdit* self) {
+int QDateTimeEdit_SuperSenderSignalIndex(const QDateTimeEdit* self) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_SenderSignalIndex_IsBase(true);
@@ -2276,7 +2276,7 @@ int QDateTimeEdit_Receivers(const QDateTimeEdit* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QDateTimeEdit_QBaseReceivers(const QDateTimeEdit* self, const char* signal) {
+int QDateTimeEdit_SuperReceivers(const QDateTimeEdit* self, const char* signal) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_Receivers_IsBase(true);
@@ -2305,7 +2305,7 @@ bool QDateTimeEdit_IsSignalConnected(const QDateTimeEdit* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QDateTimeEdit_QBaseIsSignalConnected(const QDateTimeEdit* self, const QMetaMethod* signal) {
+bool QDateTimeEdit_SuperIsSignalConnected(const QDateTimeEdit* self, const QMetaMethod* signal) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_IsSignalConnected_IsBase(true);
@@ -2334,7 +2334,7 @@ double QDateTimeEdit_GetDecodedMetricF(const QDateTimeEdit* self, int metricA, i
 }
 
 // Base class handler implementation
-double QDateTimeEdit_QBaseGetDecodedMetricF(const QDateTimeEdit* self, int metricA, int metricB) {
+double QDateTimeEdit_SuperGetDecodedMetricF(const QDateTimeEdit* self, int metricA, int metricB) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_GetDecodedMetricF_IsBase(true);
@@ -2412,7 +2412,7 @@ void QTimeEdit_Connect_UserTimeChanged(QTimeEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QTimeEdit_QBaseMetaObject(const QTimeEdit* self) {
+QMetaObject* QTimeEdit_SuperMetaObject(const QTimeEdit* self) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_MetaObject_IsBase(true);
@@ -2431,7 +2431,7 @@ void QTimeEdit_OnMetaObject(const QTimeEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QTimeEdit_QBaseMetacast(QTimeEdit* self, const char* param1) {
+void* QTimeEdit_SuperMetacast(QTimeEdit* self, const char* param1) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_Metacast_IsBase(true);
@@ -2450,7 +2450,7 @@ void QTimeEdit_OnMetacast(QTimeEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTimeEdit_QBaseMetacall(QTimeEdit* self, int param1, int param2, void** param3) {
+int QTimeEdit_SuperMetacall(QTimeEdit* self, int param1, int param2, void** param3) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_Metacall_IsBase(true);
@@ -2479,7 +2479,7 @@ QSize* QTimeEdit_SizeHint(const QTimeEdit* self) {
 }
 
 // Base class handler implementation
-QSize* QTimeEdit_QBaseSizeHint(const QTimeEdit* self) {
+QSize* QTimeEdit_SuperSizeHint(const QTimeEdit* self) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_SizeHint_IsBase(true);
@@ -2508,7 +2508,7 @@ void QTimeEdit_Clear(QTimeEdit* self) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseClear(QTimeEdit* self) {
+void QTimeEdit_SuperClear(QTimeEdit* self) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_Clear_IsBase(true);
@@ -2537,7 +2537,7 @@ void QTimeEdit_StepBy(QTimeEdit* self, int steps) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseStepBy(QTimeEdit* self, int steps) {
+void QTimeEdit_SuperStepBy(QTimeEdit* self, int steps) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_StepBy_IsBase(true);
@@ -2566,7 +2566,7 @@ bool QTimeEdit_Event(QTimeEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTimeEdit_QBaseEvent(QTimeEdit* self, QEvent* event) {
+bool QTimeEdit_SuperEvent(QTimeEdit* self, QEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_Event_IsBase(true);
@@ -2595,7 +2595,7 @@ void QTimeEdit_KeyPressEvent(QTimeEdit* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseKeyPressEvent(QTimeEdit* self, QKeyEvent* event) {
+void QTimeEdit_SuperKeyPressEvent(QTimeEdit* self, QKeyEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_KeyPressEvent_IsBase(true);
@@ -2624,7 +2624,7 @@ void QTimeEdit_WheelEvent(QTimeEdit* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseWheelEvent(QTimeEdit* self, QWheelEvent* event) {
+void QTimeEdit_SuperWheelEvent(QTimeEdit* self, QWheelEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_WheelEvent_IsBase(true);
@@ -2653,7 +2653,7 @@ void QTimeEdit_FocusInEvent(QTimeEdit* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseFocusInEvent(QTimeEdit* self, QFocusEvent* event) {
+void QTimeEdit_SuperFocusInEvent(QTimeEdit* self, QFocusEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_FocusInEvent_IsBase(true);
@@ -2682,7 +2682,7 @@ bool QTimeEdit_FocusNextPrevChild(QTimeEdit* self, bool next) {
 }
 
 // Base class handler implementation
-bool QTimeEdit_QBaseFocusNextPrevChild(QTimeEdit* self, bool next) {
+bool QTimeEdit_SuperFocusNextPrevChild(QTimeEdit* self, bool next) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_FocusNextPrevChild_IsBase(true);
@@ -2712,7 +2712,7 @@ int QTimeEdit_Validate(const QTimeEdit* self, libqt_string input, int* pos) {
 }
 
 // Base class handler implementation
-int QTimeEdit_QBaseValidate(const QTimeEdit* self, libqt_string input, int* pos) {
+int QTimeEdit_SuperValidate(const QTimeEdit* self, libqt_string input, int* pos) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
@@ -2743,7 +2743,7 @@ void QTimeEdit_Fixup(const QTimeEdit* self, libqt_string input) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseFixup(const QTimeEdit* self, libqt_string input) {
+void QTimeEdit_SuperFixup(const QTimeEdit* self, libqt_string input) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
@@ -2773,7 +2773,7 @@ QDateTime* QTimeEdit_DateTimeFromText(const QTimeEdit* self, const libqt_string 
 }
 
 // Base class handler implementation
-QDateTime* QTimeEdit_QBaseDateTimeFromText(const QTimeEdit* self, const libqt_string text) {
+QDateTime* QTimeEdit_SuperDateTimeFromText(const QTimeEdit* self, const libqt_string text) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
@@ -2818,7 +2818,7 @@ libqt_string QTimeEdit_TextFromDateTime(const QTimeEdit* self, const QDateTime* 
 }
 
 // Base class handler implementation
-libqt_string QTimeEdit_QBaseTextFromDateTime(const QTimeEdit* self, const QDateTime* dt) {
+libqt_string QTimeEdit_SuperTextFromDateTime(const QTimeEdit* self, const QDateTime* dt) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_TextFromDateTime_IsBase(true);
@@ -2863,7 +2863,7 @@ int QTimeEdit_StepEnabled(const QTimeEdit* self) {
 }
 
 // Base class handler implementation
-int QTimeEdit_QBaseStepEnabled(const QTimeEdit* self) {
+int QTimeEdit_SuperStepEnabled(const QTimeEdit* self) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_StepEnabled_IsBase(true);
@@ -2892,7 +2892,7 @@ void QTimeEdit_MousePressEvent(QTimeEdit* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseMousePressEvent(QTimeEdit* self, QMouseEvent* event) {
+void QTimeEdit_SuperMousePressEvent(QTimeEdit* self, QMouseEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_MousePressEvent_IsBase(true);
@@ -2921,7 +2921,7 @@ void QTimeEdit_PaintEvent(QTimeEdit* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBasePaintEvent(QTimeEdit* self, QPaintEvent* event) {
+void QTimeEdit_SuperPaintEvent(QTimeEdit* self, QPaintEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_PaintEvent_IsBase(true);
@@ -2950,7 +2950,7 @@ void QTimeEdit_InitStyleOption(const QTimeEdit* self, QStyleOptionSpinBox* optio
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseInitStyleOption(const QTimeEdit* self, QStyleOptionSpinBox* option) {
+void QTimeEdit_SuperInitStyleOption(const QTimeEdit* self, QStyleOptionSpinBox* option) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_InitStyleOption_IsBase(true);
@@ -2979,7 +2979,7 @@ QSize* QTimeEdit_MinimumSizeHint(const QTimeEdit* self) {
 }
 
 // Base class handler implementation
-QSize* QTimeEdit_QBaseMinimumSizeHint(const QTimeEdit* self) {
+QSize* QTimeEdit_SuperMinimumSizeHint(const QTimeEdit* self) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_MinimumSizeHint_IsBase(true);
@@ -3008,7 +3008,7 @@ QVariant* QTimeEdit_InputMethodQuery(const QTimeEdit* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QTimeEdit_QBaseInputMethodQuery(const QTimeEdit* self, int param1) {
+QVariant* QTimeEdit_SuperInputMethodQuery(const QTimeEdit* self, int param1) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_InputMethodQuery_IsBase(true);
@@ -3037,7 +3037,7 @@ void QTimeEdit_ResizeEvent(QTimeEdit* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseResizeEvent(QTimeEdit* self, QResizeEvent* event) {
+void QTimeEdit_SuperResizeEvent(QTimeEdit* self, QResizeEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_ResizeEvent_IsBase(true);
@@ -3066,7 +3066,7 @@ void QTimeEdit_KeyReleaseEvent(QTimeEdit* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseKeyReleaseEvent(QTimeEdit* self, QKeyEvent* event) {
+void QTimeEdit_SuperKeyReleaseEvent(QTimeEdit* self, QKeyEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_KeyReleaseEvent_IsBase(true);
@@ -3095,7 +3095,7 @@ void QTimeEdit_FocusOutEvent(QTimeEdit* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseFocusOutEvent(QTimeEdit* self, QFocusEvent* event) {
+void QTimeEdit_SuperFocusOutEvent(QTimeEdit* self, QFocusEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_FocusOutEvent_IsBase(true);
@@ -3124,7 +3124,7 @@ void QTimeEdit_ContextMenuEvent(QTimeEdit* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseContextMenuEvent(QTimeEdit* self, QContextMenuEvent* event) {
+void QTimeEdit_SuperContextMenuEvent(QTimeEdit* self, QContextMenuEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_ContextMenuEvent_IsBase(true);
@@ -3153,7 +3153,7 @@ void QTimeEdit_ChangeEvent(QTimeEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseChangeEvent(QTimeEdit* self, QEvent* event) {
+void QTimeEdit_SuperChangeEvent(QTimeEdit* self, QEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_ChangeEvent_IsBase(true);
@@ -3182,7 +3182,7 @@ void QTimeEdit_CloseEvent(QTimeEdit* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseCloseEvent(QTimeEdit* self, QCloseEvent* event) {
+void QTimeEdit_SuperCloseEvent(QTimeEdit* self, QCloseEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_CloseEvent_IsBase(true);
@@ -3211,7 +3211,7 @@ void QTimeEdit_HideEvent(QTimeEdit* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseHideEvent(QTimeEdit* self, QHideEvent* event) {
+void QTimeEdit_SuperHideEvent(QTimeEdit* self, QHideEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_HideEvent_IsBase(true);
@@ -3240,7 +3240,7 @@ void QTimeEdit_MouseReleaseEvent(QTimeEdit* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseMouseReleaseEvent(QTimeEdit* self, QMouseEvent* event) {
+void QTimeEdit_SuperMouseReleaseEvent(QTimeEdit* self, QMouseEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_MouseReleaseEvent_IsBase(true);
@@ -3269,7 +3269,7 @@ void QTimeEdit_MouseMoveEvent(QTimeEdit* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseMouseMoveEvent(QTimeEdit* self, QMouseEvent* event) {
+void QTimeEdit_SuperMouseMoveEvent(QTimeEdit* self, QMouseEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_MouseMoveEvent_IsBase(true);
@@ -3298,7 +3298,7 @@ void QTimeEdit_TimerEvent(QTimeEdit* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseTimerEvent(QTimeEdit* self, QTimerEvent* event) {
+void QTimeEdit_SuperTimerEvent(QTimeEdit* self, QTimerEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_TimerEvent_IsBase(true);
@@ -3327,7 +3327,7 @@ void QTimeEdit_ShowEvent(QTimeEdit* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseShowEvent(QTimeEdit* self, QShowEvent* event) {
+void QTimeEdit_SuperShowEvent(QTimeEdit* self, QShowEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_ShowEvent_IsBase(true);
@@ -3356,7 +3356,7 @@ int QTimeEdit_DevType(const QTimeEdit* self) {
 }
 
 // Base class handler implementation
-int QTimeEdit_QBaseDevType(const QTimeEdit* self) {
+int QTimeEdit_SuperDevType(const QTimeEdit* self) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_DevType_IsBase(true);
@@ -3385,7 +3385,7 @@ void QTimeEdit_SetVisible(QTimeEdit* self, bool visible) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseSetVisible(QTimeEdit* self, bool visible) {
+void QTimeEdit_SuperSetVisible(QTimeEdit* self, bool visible) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_SetVisible_IsBase(true);
@@ -3414,7 +3414,7 @@ int QTimeEdit_HeightForWidth(const QTimeEdit* self, int param1) {
 }
 
 // Base class handler implementation
-int QTimeEdit_QBaseHeightForWidth(const QTimeEdit* self, int param1) {
+int QTimeEdit_SuperHeightForWidth(const QTimeEdit* self, int param1) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_HeightForWidth_IsBase(true);
@@ -3443,7 +3443,7 @@ bool QTimeEdit_HasHeightForWidth(const QTimeEdit* self) {
 }
 
 // Base class handler implementation
-bool QTimeEdit_QBaseHasHeightForWidth(const QTimeEdit* self) {
+bool QTimeEdit_SuperHasHeightForWidth(const QTimeEdit* self) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_HasHeightForWidth_IsBase(true);
@@ -3472,7 +3472,7 @@ QPaintEngine* QTimeEdit_PaintEngine(const QTimeEdit* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QTimeEdit_QBasePaintEngine(const QTimeEdit* self) {
+QPaintEngine* QTimeEdit_SuperPaintEngine(const QTimeEdit* self) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_PaintEngine_IsBase(true);
@@ -3501,7 +3501,7 @@ void QTimeEdit_MouseDoubleClickEvent(QTimeEdit* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseMouseDoubleClickEvent(QTimeEdit* self, QMouseEvent* event) {
+void QTimeEdit_SuperMouseDoubleClickEvent(QTimeEdit* self, QMouseEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_MouseDoubleClickEvent_IsBase(true);
@@ -3530,7 +3530,7 @@ void QTimeEdit_EnterEvent(QTimeEdit* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseEnterEvent(QTimeEdit* self, QEnterEvent* event) {
+void QTimeEdit_SuperEnterEvent(QTimeEdit* self, QEnterEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_EnterEvent_IsBase(true);
@@ -3559,7 +3559,7 @@ void QTimeEdit_LeaveEvent(QTimeEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseLeaveEvent(QTimeEdit* self, QEvent* event) {
+void QTimeEdit_SuperLeaveEvent(QTimeEdit* self, QEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_LeaveEvent_IsBase(true);
@@ -3588,7 +3588,7 @@ void QTimeEdit_MoveEvent(QTimeEdit* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseMoveEvent(QTimeEdit* self, QMoveEvent* event) {
+void QTimeEdit_SuperMoveEvent(QTimeEdit* self, QMoveEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_MoveEvent_IsBase(true);
@@ -3617,7 +3617,7 @@ void QTimeEdit_TabletEvent(QTimeEdit* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseTabletEvent(QTimeEdit* self, QTabletEvent* event) {
+void QTimeEdit_SuperTabletEvent(QTimeEdit* self, QTabletEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_TabletEvent_IsBase(true);
@@ -3646,7 +3646,7 @@ void QTimeEdit_ActionEvent(QTimeEdit* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseActionEvent(QTimeEdit* self, QActionEvent* event) {
+void QTimeEdit_SuperActionEvent(QTimeEdit* self, QActionEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_ActionEvent_IsBase(true);
@@ -3675,7 +3675,7 @@ void QTimeEdit_DragEnterEvent(QTimeEdit* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseDragEnterEvent(QTimeEdit* self, QDragEnterEvent* event) {
+void QTimeEdit_SuperDragEnterEvent(QTimeEdit* self, QDragEnterEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_DragEnterEvent_IsBase(true);
@@ -3704,7 +3704,7 @@ void QTimeEdit_DragMoveEvent(QTimeEdit* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseDragMoveEvent(QTimeEdit* self, QDragMoveEvent* event) {
+void QTimeEdit_SuperDragMoveEvent(QTimeEdit* self, QDragMoveEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_DragMoveEvent_IsBase(true);
@@ -3733,7 +3733,7 @@ void QTimeEdit_DragLeaveEvent(QTimeEdit* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseDragLeaveEvent(QTimeEdit* self, QDragLeaveEvent* event) {
+void QTimeEdit_SuperDragLeaveEvent(QTimeEdit* self, QDragLeaveEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_DragLeaveEvent_IsBase(true);
@@ -3762,7 +3762,7 @@ void QTimeEdit_DropEvent(QTimeEdit* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseDropEvent(QTimeEdit* self, QDropEvent* event) {
+void QTimeEdit_SuperDropEvent(QTimeEdit* self, QDropEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_DropEvent_IsBase(true);
@@ -3792,7 +3792,7 @@ bool QTimeEdit_NativeEvent(QTimeEdit* self, const libqt_string eventType, void* 
 }
 
 // Base class handler implementation
-bool QTimeEdit_QBaseNativeEvent(QTimeEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QTimeEdit_SuperNativeEvent(QTimeEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
@@ -3822,7 +3822,7 @@ int QTimeEdit_Metric(const QTimeEdit* self, int param1) {
 }
 
 // Base class handler implementation
-int QTimeEdit_QBaseMetric(const QTimeEdit* self, int param1) {
+int QTimeEdit_SuperMetric(const QTimeEdit* self, int param1) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_Metric_IsBase(true);
@@ -3851,7 +3851,7 @@ void QTimeEdit_InitPainter(const QTimeEdit* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseInitPainter(const QTimeEdit* self, QPainter* painter) {
+void QTimeEdit_SuperInitPainter(const QTimeEdit* self, QPainter* painter) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_InitPainter_IsBase(true);
@@ -3880,7 +3880,7 @@ QPaintDevice* QTimeEdit_Redirected(const QTimeEdit* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QTimeEdit_QBaseRedirected(const QTimeEdit* self, QPoint* offset) {
+QPaintDevice* QTimeEdit_SuperRedirected(const QTimeEdit* self, QPoint* offset) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_Redirected_IsBase(true);
@@ -3909,7 +3909,7 @@ QPainter* QTimeEdit_SharedPainter(const QTimeEdit* self) {
 }
 
 // Base class handler implementation
-QPainter* QTimeEdit_QBaseSharedPainter(const QTimeEdit* self) {
+QPainter* QTimeEdit_SuperSharedPainter(const QTimeEdit* self) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_SharedPainter_IsBase(true);
@@ -3938,7 +3938,7 @@ void QTimeEdit_InputMethodEvent(QTimeEdit* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseInputMethodEvent(QTimeEdit* self, QInputMethodEvent* param1) {
+void QTimeEdit_SuperInputMethodEvent(QTimeEdit* self, QInputMethodEvent* param1) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_InputMethodEvent_IsBase(true);
@@ -3967,7 +3967,7 @@ bool QTimeEdit_EventFilter(QTimeEdit* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTimeEdit_QBaseEventFilter(QTimeEdit* self, QObject* watched, QEvent* event) {
+bool QTimeEdit_SuperEventFilter(QTimeEdit* self, QObject* watched, QEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_EventFilter_IsBase(true);
@@ -3996,7 +3996,7 @@ void QTimeEdit_ChildEvent(QTimeEdit* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseChildEvent(QTimeEdit* self, QChildEvent* event) {
+void QTimeEdit_SuperChildEvent(QTimeEdit* self, QChildEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_ChildEvent_IsBase(true);
@@ -4025,7 +4025,7 @@ void QTimeEdit_CustomEvent(QTimeEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseCustomEvent(QTimeEdit* self, QEvent* event) {
+void QTimeEdit_SuperCustomEvent(QTimeEdit* self, QEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_CustomEvent_IsBase(true);
@@ -4054,7 +4054,7 @@ void QTimeEdit_ConnectNotify(QTimeEdit* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseConnectNotify(QTimeEdit* self, const QMetaMethod* signal) {
+void QTimeEdit_SuperConnectNotify(QTimeEdit* self, const QMetaMethod* signal) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_ConnectNotify_IsBase(true);
@@ -4083,7 +4083,7 @@ void QTimeEdit_DisconnectNotify(QTimeEdit* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseDisconnectNotify(QTimeEdit* self, const QMetaMethod* signal) {
+void QTimeEdit_SuperDisconnectNotify(QTimeEdit* self, const QMetaMethod* signal) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_DisconnectNotify_IsBase(true);
@@ -4112,7 +4112,7 @@ QLineEdit* QTimeEdit_LineEdit(const QTimeEdit* self) {
 }
 
 // Base class handler implementation
-QLineEdit* QTimeEdit_QBaseLineEdit(const QTimeEdit* self) {
+QLineEdit* QTimeEdit_SuperLineEdit(const QTimeEdit* self) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_LineEdit_IsBase(true);
@@ -4141,7 +4141,7 @@ void QTimeEdit_SetLineEdit(QTimeEdit* self, QLineEdit* edit) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseSetLineEdit(QTimeEdit* self, QLineEdit* edit) {
+void QTimeEdit_SuperSetLineEdit(QTimeEdit* self, QLineEdit* edit) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_SetLineEdit_IsBase(true);
@@ -4170,7 +4170,7 @@ void QTimeEdit_UpdateMicroFocus(QTimeEdit* self) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseUpdateMicroFocus(QTimeEdit* self) {
+void QTimeEdit_SuperUpdateMicroFocus(QTimeEdit* self) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_UpdateMicroFocus_IsBase(true);
@@ -4199,7 +4199,7 @@ void QTimeEdit_Create(QTimeEdit* self) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseCreate(QTimeEdit* self) {
+void QTimeEdit_SuperCreate(QTimeEdit* self) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_Create_IsBase(true);
@@ -4228,7 +4228,7 @@ void QTimeEdit_Destroy(QTimeEdit* self) {
 }
 
 // Base class handler implementation
-void QTimeEdit_QBaseDestroy(QTimeEdit* self) {
+void QTimeEdit_SuperDestroy(QTimeEdit* self) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_Destroy_IsBase(true);
@@ -4257,7 +4257,7 @@ bool QTimeEdit_FocusNextChild(QTimeEdit* self) {
 }
 
 // Base class handler implementation
-bool QTimeEdit_QBaseFocusNextChild(QTimeEdit* self) {
+bool QTimeEdit_SuperFocusNextChild(QTimeEdit* self) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_FocusNextChild_IsBase(true);
@@ -4286,7 +4286,7 @@ bool QTimeEdit_FocusPreviousChild(QTimeEdit* self) {
 }
 
 // Base class handler implementation
-bool QTimeEdit_QBaseFocusPreviousChild(QTimeEdit* self) {
+bool QTimeEdit_SuperFocusPreviousChild(QTimeEdit* self) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_FocusPreviousChild_IsBase(true);
@@ -4315,7 +4315,7 @@ QObject* QTimeEdit_Sender(const QTimeEdit* self) {
 }
 
 // Base class handler implementation
-QObject* QTimeEdit_QBaseSender(const QTimeEdit* self) {
+QObject* QTimeEdit_SuperSender(const QTimeEdit* self) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_Sender_IsBase(true);
@@ -4344,7 +4344,7 @@ int QTimeEdit_SenderSignalIndex(const QTimeEdit* self) {
 }
 
 // Base class handler implementation
-int QTimeEdit_QBaseSenderSignalIndex(const QTimeEdit* self) {
+int QTimeEdit_SuperSenderSignalIndex(const QTimeEdit* self) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_SenderSignalIndex_IsBase(true);
@@ -4373,7 +4373,7 @@ int QTimeEdit_Receivers(const QTimeEdit* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QTimeEdit_QBaseReceivers(const QTimeEdit* self, const char* signal) {
+int QTimeEdit_SuperReceivers(const QTimeEdit* self, const char* signal) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_Receivers_IsBase(true);
@@ -4402,7 +4402,7 @@ bool QTimeEdit_IsSignalConnected(const QTimeEdit* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool QTimeEdit_QBaseIsSignalConnected(const QTimeEdit* self, const QMetaMethod* signal) {
+bool QTimeEdit_SuperIsSignalConnected(const QTimeEdit* self, const QMetaMethod* signal) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_IsSignalConnected_IsBase(true);
@@ -4431,7 +4431,7 @@ double QTimeEdit_GetDecodedMetricF(const QTimeEdit* self, int metricA, int metri
 }
 
 // Base class handler implementation
-double QTimeEdit_QBaseGetDecodedMetricF(const QTimeEdit* self, int metricA, int metricB) {
+double QTimeEdit_SuperGetDecodedMetricF(const QTimeEdit* self, int metricA, int metricB) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_GetDecodedMetricF_IsBase(true);
@@ -4509,7 +4509,7 @@ void QDateEdit_Connect_UserDateChanged(QDateEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QDateEdit_QBaseMetaObject(const QDateEdit* self) {
+QMetaObject* QDateEdit_SuperMetaObject(const QDateEdit* self) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_MetaObject_IsBase(true);
@@ -4528,7 +4528,7 @@ void QDateEdit_OnMetaObject(const QDateEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QDateEdit_QBaseMetacast(QDateEdit* self, const char* param1) {
+void* QDateEdit_SuperMetacast(QDateEdit* self, const char* param1) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_Metacast_IsBase(true);
@@ -4547,7 +4547,7 @@ void QDateEdit_OnMetacast(QDateEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QDateEdit_QBaseMetacall(QDateEdit* self, int param1, int param2, void** param3) {
+int QDateEdit_SuperMetacall(QDateEdit* self, int param1, int param2, void** param3) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_Metacall_IsBase(true);
@@ -4576,7 +4576,7 @@ QSize* QDateEdit_SizeHint(const QDateEdit* self) {
 }
 
 // Base class handler implementation
-QSize* QDateEdit_QBaseSizeHint(const QDateEdit* self) {
+QSize* QDateEdit_SuperSizeHint(const QDateEdit* self) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_SizeHint_IsBase(true);
@@ -4605,7 +4605,7 @@ void QDateEdit_Clear(QDateEdit* self) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseClear(QDateEdit* self) {
+void QDateEdit_SuperClear(QDateEdit* self) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_Clear_IsBase(true);
@@ -4634,7 +4634,7 @@ void QDateEdit_StepBy(QDateEdit* self, int steps) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseStepBy(QDateEdit* self, int steps) {
+void QDateEdit_SuperStepBy(QDateEdit* self, int steps) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_StepBy_IsBase(true);
@@ -4663,7 +4663,7 @@ bool QDateEdit_Event(QDateEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QDateEdit_QBaseEvent(QDateEdit* self, QEvent* event) {
+bool QDateEdit_SuperEvent(QDateEdit* self, QEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_Event_IsBase(true);
@@ -4692,7 +4692,7 @@ void QDateEdit_KeyPressEvent(QDateEdit* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseKeyPressEvent(QDateEdit* self, QKeyEvent* event) {
+void QDateEdit_SuperKeyPressEvent(QDateEdit* self, QKeyEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_KeyPressEvent_IsBase(true);
@@ -4721,7 +4721,7 @@ void QDateEdit_WheelEvent(QDateEdit* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseWheelEvent(QDateEdit* self, QWheelEvent* event) {
+void QDateEdit_SuperWheelEvent(QDateEdit* self, QWheelEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_WheelEvent_IsBase(true);
@@ -4750,7 +4750,7 @@ void QDateEdit_FocusInEvent(QDateEdit* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseFocusInEvent(QDateEdit* self, QFocusEvent* event) {
+void QDateEdit_SuperFocusInEvent(QDateEdit* self, QFocusEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_FocusInEvent_IsBase(true);
@@ -4779,7 +4779,7 @@ bool QDateEdit_FocusNextPrevChild(QDateEdit* self, bool next) {
 }
 
 // Base class handler implementation
-bool QDateEdit_QBaseFocusNextPrevChild(QDateEdit* self, bool next) {
+bool QDateEdit_SuperFocusNextPrevChild(QDateEdit* self, bool next) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_FocusNextPrevChild_IsBase(true);
@@ -4809,7 +4809,7 @@ int QDateEdit_Validate(const QDateEdit* self, libqt_string input, int* pos) {
 }
 
 // Base class handler implementation
-int QDateEdit_QBaseValidate(const QDateEdit* self, libqt_string input, int* pos) {
+int QDateEdit_SuperValidate(const QDateEdit* self, libqt_string input, int* pos) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
@@ -4840,7 +4840,7 @@ void QDateEdit_Fixup(const QDateEdit* self, libqt_string input) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseFixup(const QDateEdit* self, libqt_string input) {
+void QDateEdit_SuperFixup(const QDateEdit* self, libqt_string input) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
@@ -4870,7 +4870,7 @@ QDateTime* QDateEdit_DateTimeFromText(const QDateEdit* self, const libqt_string 
 }
 
 // Base class handler implementation
-QDateTime* QDateEdit_QBaseDateTimeFromText(const QDateEdit* self, const libqt_string text) {
+QDateTime* QDateEdit_SuperDateTimeFromText(const QDateEdit* self, const libqt_string text) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
@@ -4915,7 +4915,7 @@ libqt_string QDateEdit_TextFromDateTime(const QDateEdit* self, const QDateTime* 
 }
 
 // Base class handler implementation
-libqt_string QDateEdit_QBaseTextFromDateTime(const QDateEdit* self, const QDateTime* dt) {
+libqt_string QDateEdit_SuperTextFromDateTime(const QDateEdit* self, const QDateTime* dt) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_TextFromDateTime_IsBase(true);
@@ -4960,7 +4960,7 @@ int QDateEdit_StepEnabled(const QDateEdit* self) {
 }
 
 // Base class handler implementation
-int QDateEdit_QBaseStepEnabled(const QDateEdit* self) {
+int QDateEdit_SuperStepEnabled(const QDateEdit* self) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_StepEnabled_IsBase(true);
@@ -4989,7 +4989,7 @@ void QDateEdit_MousePressEvent(QDateEdit* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseMousePressEvent(QDateEdit* self, QMouseEvent* event) {
+void QDateEdit_SuperMousePressEvent(QDateEdit* self, QMouseEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_MousePressEvent_IsBase(true);
@@ -5018,7 +5018,7 @@ void QDateEdit_PaintEvent(QDateEdit* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBasePaintEvent(QDateEdit* self, QPaintEvent* event) {
+void QDateEdit_SuperPaintEvent(QDateEdit* self, QPaintEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_PaintEvent_IsBase(true);
@@ -5047,7 +5047,7 @@ void QDateEdit_InitStyleOption(const QDateEdit* self, QStyleOptionSpinBox* optio
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseInitStyleOption(const QDateEdit* self, QStyleOptionSpinBox* option) {
+void QDateEdit_SuperInitStyleOption(const QDateEdit* self, QStyleOptionSpinBox* option) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_InitStyleOption_IsBase(true);
@@ -5076,7 +5076,7 @@ QSize* QDateEdit_MinimumSizeHint(const QDateEdit* self) {
 }
 
 // Base class handler implementation
-QSize* QDateEdit_QBaseMinimumSizeHint(const QDateEdit* self) {
+QSize* QDateEdit_SuperMinimumSizeHint(const QDateEdit* self) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_MinimumSizeHint_IsBase(true);
@@ -5105,7 +5105,7 @@ QVariant* QDateEdit_InputMethodQuery(const QDateEdit* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QDateEdit_QBaseInputMethodQuery(const QDateEdit* self, int param1) {
+QVariant* QDateEdit_SuperInputMethodQuery(const QDateEdit* self, int param1) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_InputMethodQuery_IsBase(true);
@@ -5134,7 +5134,7 @@ void QDateEdit_ResizeEvent(QDateEdit* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseResizeEvent(QDateEdit* self, QResizeEvent* event) {
+void QDateEdit_SuperResizeEvent(QDateEdit* self, QResizeEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_ResizeEvent_IsBase(true);
@@ -5163,7 +5163,7 @@ void QDateEdit_KeyReleaseEvent(QDateEdit* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseKeyReleaseEvent(QDateEdit* self, QKeyEvent* event) {
+void QDateEdit_SuperKeyReleaseEvent(QDateEdit* self, QKeyEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_KeyReleaseEvent_IsBase(true);
@@ -5192,7 +5192,7 @@ void QDateEdit_FocusOutEvent(QDateEdit* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseFocusOutEvent(QDateEdit* self, QFocusEvent* event) {
+void QDateEdit_SuperFocusOutEvent(QDateEdit* self, QFocusEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_FocusOutEvent_IsBase(true);
@@ -5221,7 +5221,7 @@ void QDateEdit_ContextMenuEvent(QDateEdit* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseContextMenuEvent(QDateEdit* self, QContextMenuEvent* event) {
+void QDateEdit_SuperContextMenuEvent(QDateEdit* self, QContextMenuEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_ContextMenuEvent_IsBase(true);
@@ -5250,7 +5250,7 @@ void QDateEdit_ChangeEvent(QDateEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseChangeEvent(QDateEdit* self, QEvent* event) {
+void QDateEdit_SuperChangeEvent(QDateEdit* self, QEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_ChangeEvent_IsBase(true);
@@ -5279,7 +5279,7 @@ void QDateEdit_CloseEvent(QDateEdit* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseCloseEvent(QDateEdit* self, QCloseEvent* event) {
+void QDateEdit_SuperCloseEvent(QDateEdit* self, QCloseEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_CloseEvent_IsBase(true);
@@ -5308,7 +5308,7 @@ void QDateEdit_HideEvent(QDateEdit* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseHideEvent(QDateEdit* self, QHideEvent* event) {
+void QDateEdit_SuperHideEvent(QDateEdit* self, QHideEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_HideEvent_IsBase(true);
@@ -5337,7 +5337,7 @@ void QDateEdit_MouseReleaseEvent(QDateEdit* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseMouseReleaseEvent(QDateEdit* self, QMouseEvent* event) {
+void QDateEdit_SuperMouseReleaseEvent(QDateEdit* self, QMouseEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_MouseReleaseEvent_IsBase(true);
@@ -5366,7 +5366,7 @@ void QDateEdit_MouseMoveEvent(QDateEdit* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseMouseMoveEvent(QDateEdit* self, QMouseEvent* event) {
+void QDateEdit_SuperMouseMoveEvent(QDateEdit* self, QMouseEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_MouseMoveEvent_IsBase(true);
@@ -5395,7 +5395,7 @@ void QDateEdit_TimerEvent(QDateEdit* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseTimerEvent(QDateEdit* self, QTimerEvent* event) {
+void QDateEdit_SuperTimerEvent(QDateEdit* self, QTimerEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_TimerEvent_IsBase(true);
@@ -5424,7 +5424,7 @@ void QDateEdit_ShowEvent(QDateEdit* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseShowEvent(QDateEdit* self, QShowEvent* event) {
+void QDateEdit_SuperShowEvent(QDateEdit* self, QShowEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_ShowEvent_IsBase(true);
@@ -5453,7 +5453,7 @@ int QDateEdit_DevType(const QDateEdit* self) {
 }
 
 // Base class handler implementation
-int QDateEdit_QBaseDevType(const QDateEdit* self) {
+int QDateEdit_SuperDevType(const QDateEdit* self) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_DevType_IsBase(true);
@@ -5482,7 +5482,7 @@ void QDateEdit_SetVisible(QDateEdit* self, bool visible) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseSetVisible(QDateEdit* self, bool visible) {
+void QDateEdit_SuperSetVisible(QDateEdit* self, bool visible) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_SetVisible_IsBase(true);
@@ -5511,7 +5511,7 @@ int QDateEdit_HeightForWidth(const QDateEdit* self, int param1) {
 }
 
 // Base class handler implementation
-int QDateEdit_QBaseHeightForWidth(const QDateEdit* self, int param1) {
+int QDateEdit_SuperHeightForWidth(const QDateEdit* self, int param1) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_HeightForWidth_IsBase(true);
@@ -5540,7 +5540,7 @@ bool QDateEdit_HasHeightForWidth(const QDateEdit* self) {
 }
 
 // Base class handler implementation
-bool QDateEdit_QBaseHasHeightForWidth(const QDateEdit* self) {
+bool QDateEdit_SuperHasHeightForWidth(const QDateEdit* self) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_HasHeightForWidth_IsBase(true);
@@ -5569,7 +5569,7 @@ QPaintEngine* QDateEdit_PaintEngine(const QDateEdit* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QDateEdit_QBasePaintEngine(const QDateEdit* self) {
+QPaintEngine* QDateEdit_SuperPaintEngine(const QDateEdit* self) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_PaintEngine_IsBase(true);
@@ -5598,7 +5598,7 @@ void QDateEdit_MouseDoubleClickEvent(QDateEdit* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseMouseDoubleClickEvent(QDateEdit* self, QMouseEvent* event) {
+void QDateEdit_SuperMouseDoubleClickEvent(QDateEdit* self, QMouseEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_MouseDoubleClickEvent_IsBase(true);
@@ -5627,7 +5627,7 @@ void QDateEdit_EnterEvent(QDateEdit* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseEnterEvent(QDateEdit* self, QEnterEvent* event) {
+void QDateEdit_SuperEnterEvent(QDateEdit* self, QEnterEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_EnterEvent_IsBase(true);
@@ -5656,7 +5656,7 @@ void QDateEdit_LeaveEvent(QDateEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseLeaveEvent(QDateEdit* self, QEvent* event) {
+void QDateEdit_SuperLeaveEvent(QDateEdit* self, QEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_LeaveEvent_IsBase(true);
@@ -5685,7 +5685,7 @@ void QDateEdit_MoveEvent(QDateEdit* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseMoveEvent(QDateEdit* self, QMoveEvent* event) {
+void QDateEdit_SuperMoveEvent(QDateEdit* self, QMoveEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_MoveEvent_IsBase(true);
@@ -5714,7 +5714,7 @@ void QDateEdit_TabletEvent(QDateEdit* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseTabletEvent(QDateEdit* self, QTabletEvent* event) {
+void QDateEdit_SuperTabletEvent(QDateEdit* self, QTabletEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_TabletEvent_IsBase(true);
@@ -5743,7 +5743,7 @@ void QDateEdit_ActionEvent(QDateEdit* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseActionEvent(QDateEdit* self, QActionEvent* event) {
+void QDateEdit_SuperActionEvent(QDateEdit* self, QActionEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_ActionEvent_IsBase(true);
@@ -5772,7 +5772,7 @@ void QDateEdit_DragEnterEvent(QDateEdit* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseDragEnterEvent(QDateEdit* self, QDragEnterEvent* event) {
+void QDateEdit_SuperDragEnterEvent(QDateEdit* self, QDragEnterEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_DragEnterEvent_IsBase(true);
@@ -5801,7 +5801,7 @@ void QDateEdit_DragMoveEvent(QDateEdit* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseDragMoveEvent(QDateEdit* self, QDragMoveEvent* event) {
+void QDateEdit_SuperDragMoveEvent(QDateEdit* self, QDragMoveEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_DragMoveEvent_IsBase(true);
@@ -5830,7 +5830,7 @@ void QDateEdit_DragLeaveEvent(QDateEdit* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseDragLeaveEvent(QDateEdit* self, QDragLeaveEvent* event) {
+void QDateEdit_SuperDragLeaveEvent(QDateEdit* self, QDragLeaveEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_DragLeaveEvent_IsBase(true);
@@ -5859,7 +5859,7 @@ void QDateEdit_DropEvent(QDateEdit* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseDropEvent(QDateEdit* self, QDropEvent* event) {
+void QDateEdit_SuperDropEvent(QDateEdit* self, QDropEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_DropEvent_IsBase(true);
@@ -5889,7 +5889,7 @@ bool QDateEdit_NativeEvent(QDateEdit* self, const libqt_string eventType, void* 
 }
 
 // Base class handler implementation
-bool QDateEdit_QBaseNativeEvent(QDateEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QDateEdit_SuperNativeEvent(QDateEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
@@ -5919,7 +5919,7 @@ int QDateEdit_Metric(const QDateEdit* self, int param1) {
 }
 
 // Base class handler implementation
-int QDateEdit_QBaseMetric(const QDateEdit* self, int param1) {
+int QDateEdit_SuperMetric(const QDateEdit* self, int param1) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_Metric_IsBase(true);
@@ -5948,7 +5948,7 @@ void QDateEdit_InitPainter(const QDateEdit* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseInitPainter(const QDateEdit* self, QPainter* painter) {
+void QDateEdit_SuperInitPainter(const QDateEdit* self, QPainter* painter) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_InitPainter_IsBase(true);
@@ -5977,7 +5977,7 @@ QPaintDevice* QDateEdit_Redirected(const QDateEdit* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QDateEdit_QBaseRedirected(const QDateEdit* self, QPoint* offset) {
+QPaintDevice* QDateEdit_SuperRedirected(const QDateEdit* self, QPoint* offset) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_Redirected_IsBase(true);
@@ -6006,7 +6006,7 @@ QPainter* QDateEdit_SharedPainter(const QDateEdit* self) {
 }
 
 // Base class handler implementation
-QPainter* QDateEdit_QBaseSharedPainter(const QDateEdit* self) {
+QPainter* QDateEdit_SuperSharedPainter(const QDateEdit* self) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_SharedPainter_IsBase(true);
@@ -6035,7 +6035,7 @@ void QDateEdit_InputMethodEvent(QDateEdit* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseInputMethodEvent(QDateEdit* self, QInputMethodEvent* param1) {
+void QDateEdit_SuperInputMethodEvent(QDateEdit* self, QInputMethodEvent* param1) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_InputMethodEvent_IsBase(true);
@@ -6064,7 +6064,7 @@ bool QDateEdit_EventFilter(QDateEdit* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QDateEdit_QBaseEventFilter(QDateEdit* self, QObject* watched, QEvent* event) {
+bool QDateEdit_SuperEventFilter(QDateEdit* self, QObject* watched, QEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_EventFilter_IsBase(true);
@@ -6093,7 +6093,7 @@ void QDateEdit_ChildEvent(QDateEdit* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseChildEvent(QDateEdit* self, QChildEvent* event) {
+void QDateEdit_SuperChildEvent(QDateEdit* self, QChildEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_ChildEvent_IsBase(true);
@@ -6122,7 +6122,7 @@ void QDateEdit_CustomEvent(QDateEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseCustomEvent(QDateEdit* self, QEvent* event) {
+void QDateEdit_SuperCustomEvent(QDateEdit* self, QEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_CustomEvent_IsBase(true);
@@ -6151,7 +6151,7 @@ void QDateEdit_ConnectNotify(QDateEdit* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseConnectNotify(QDateEdit* self, const QMetaMethod* signal) {
+void QDateEdit_SuperConnectNotify(QDateEdit* self, const QMetaMethod* signal) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_ConnectNotify_IsBase(true);
@@ -6180,7 +6180,7 @@ void QDateEdit_DisconnectNotify(QDateEdit* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseDisconnectNotify(QDateEdit* self, const QMetaMethod* signal) {
+void QDateEdit_SuperDisconnectNotify(QDateEdit* self, const QMetaMethod* signal) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_DisconnectNotify_IsBase(true);
@@ -6209,7 +6209,7 @@ QLineEdit* QDateEdit_LineEdit(const QDateEdit* self) {
 }
 
 // Base class handler implementation
-QLineEdit* QDateEdit_QBaseLineEdit(const QDateEdit* self) {
+QLineEdit* QDateEdit_SuperLineEdit(const QDateEdit* self) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_LineEdit_IsBase(true);
@@ -6238,7 +6238,7 @@ void QDateEdit_SetLineEdit(QDateEdit* self, QLineEdit* edit) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseSetLineEdit(QDateEdit* self, QLineEdit* edit) {
+void QDateEdit_SuperSetLineEdit(QDateEdit* self, QLineEdit* edit) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_SetLineEdit_IsBase(true);
@@ -6267,7 +6267,7 @@ void QDateEdit_UpdateMicroFocus(QDateEdit* self) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseUpdateMicroFocus(QDateEdit* self) {
+void QDateEdit_SuperUpdateMicroFocus(QDateEdit* self) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_UpdateMicroFocus_IsBase(true);
@@ -6296,7 +6296,7 @@ void QDateEdit_Create(QDateEdit* self) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseCreate(QDateEdit* self) {
+void QDateEdit_SuperCreate(QDateEdit* self) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_Create_IsBase(true);
@@ -6325,7 +6325,7 @@ void QDateEdit_Destroy(QDateEdit* self) {
 }
 
 // Base class handler implementation
-void QDateEdit_QBaseDestroy(QDateEdit* self) {
+void QDateEdit_SuperDestroy(QDateEdit* self) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_Destroy_IsBase(true);
@@ -6354,7 +6354,7 @@ bool QDateEdit_FocusNextChild(QDateEdit* self) {
 }
 
 // Base class handler implementation
-bool QDateEdit_QBaseFocusNextChild(QDateEdit* self) {
+bool QDateEdit_SuperFocusNextChild(QDateEdit* self) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_FocusNextChild_IsBase(true);
@@ -6383,7 +6383,7 @@ bool QDateEdit_FocusPreviousChild(QDateEdit* self) {
 }
 
 // Base class handler implementation
-bool QDateEdit_QBaseFocusPreviousChild(QDateEdit* self) {
+bool QDateEdit_SuperFocusPreviousChild(QDateEdit* self) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_FocusPreviousChild_IsBase(true);
@@ -6412,7 +6412,7 @@ QObject* QDateEdit_Sender(const QDateEdit* self) {
 }
 
 // Base class handler implementation
-QObject* QDateEdit_QBaseSender(const QDateEdit* self) {
+QObject* QDateEdit_SuperSender(const QDateEdit* self) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_Sender_IsBase(true);
@@ -6441,7 +6441,7 @@ int QDateEdit_SenderSignalIndex(const QDateEdit* self) {
 }
 
 // Base class handler implementation
-int QDateEdit_QBaseSenderSignalIndex(const QDateEdit* self) {
+int QDateEdit_SuperSenderSignalIndex(const QDateEdit* self) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_SenderSignalIndex_IsBase(true);
@@ -6470,7 +6470,7 @@ int QDateEdit_Receivers(const QDateEdit* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QDateEdit_QBaseReceivers(const QDateEdit* self, const char* signal) {
+int QDateEdit_SuperReceivers(const QDateEdit* self, const char* signal) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_Receivers_IsBase(true);
@@ -6499,7 +6499,7 @@ bool QDateEdit_IsSignalConnected(const QDateEdit* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool QDateEdit_QBaseIsSignalConnected(const QDateEdit* self, const QMetaMethod* signal) {
+bool QDateEdit_SuperIsSignalConnected(const QDateEdit* self, const QMetaMethod* signal) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_IsSignalConnected_IsBase(true);
@@ -6528,7 +6528,7 @@ double QDateEdit_GetDecodedMetricF(const QDateEdit* self, int metricA, int metri
 }
 
 // Base class handler implementation
-double QDateEdit_QBaseGetDecodedMetricF(const QDateEdit* self, int metricA, int metricB) {
+double QDateEdit_SuperGetDecodedMetricF(const QDateEdit* self, int metricA, int metricB) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_GetDecodedMetricF_IsBase(true);

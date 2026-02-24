@@ -64,7 +64,7 @@ const char* QsciLexerOctave_Keywords(const QsciLexerOctave* self, int set) {
 }
 
 // Base class handler implementation
-QMetaObject* QsciLexerOctave_QBaseMetaObject(const QsciLexerOctave* self) {
+QMetaObject* QsciLexerOctave_SuperMetaObject(const QsciLexerOctave* self) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_MetaObject_IsBase(true);
@@ -83,7 +83,7 @@ void QsciLexerOctave_OnMetaObject(const QsciLexerOctave* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QsciLexerOctave_QBaseMetacast(QsciLexerOctave* self, const char* param1) {
+void* QsciLexerOctave_SuperMetacast(QsciLexerOctave* self, const char* param1) {
     auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_Metacast_IsBase(true);
@@ -102,7 +102,7 @@ void QsciLexerOctave_OnMetacast(QsciLexerOctave* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QsciLexerOctave_QBaseMetacall(QsciLexerOctave* self, int param1, int param2, void** param3) {
+int QsciLexerOctave_SuperMetacall(QsciLexerOctave* self, int param1, int param2, void** param3) {
     auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_Metacall_IsBase(true);
@@ -131,7 +131,7 @@ int QsciLexerOctave_LexerId(const QsciLexerOctave* self) {
 }
 
 // Base class handler implementation
-int QsciLexerOctave_QBaseLexerId(const QsciLexerOctave* self) {
+int QsciLexerOctave_SuperLexerId(const QsciLexerOctave* self) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_LexerId_IsBase(true);
@@ -160,7 +160,7 @@ const char* QsciLexerOctave_AutoCompletionFillups(const QsciLexerOctave* self) {
 }
 
 // Base class handler implementation
-const char* QsciLexerOctave_QBaseAutoCompletionFillups(const QsciLexerOctave* self) {
+const char* QsciLexerOctave_SuperAutoCompletionFillups(const QsciLexerOctave* self) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_AutoCompletionFillups_IsBase(true);
@@ -223,7 +223,7 @@ libqt_list /* of libqt_string */ QsciLexerOctave_AutoCompletionWordSeparators(co
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QsciLexerOctave_QBaseAutoCompletionWordSeparators(const QsciLexerOctave* self) {
+libqt_list /* of libqt_string */ QsciLexerOctave_SuperAutoCompletionWordSeparators(const QsciLexerOctave* self) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_AutoCompletionWordSeparators_IsBase(true);
@@ -286,7 +286,7 @@ const char* QsciLexerOctave_BlockEnd(const QsciLexerOctave* self, int* style) {
 }
 
 // Base class handler implementation
-const char* QsciLexerOctave_QBaseBlockEnd(const QsciLexerOctave* self, int* style) {
+const char* QsciLexerOctave_SuperBlockEnd(const QsciLexerOctave* self, int* style) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_BlockEnd_IsBase(true);
@@ -315,7 +315,7 @@ int QsciLexerOctave_BlockLookback(const QsciLexerOctave* self) {
 }
 
 // Base class handler implementation
-int QsciLexerOctave_QBaseBlockLookback(const QsciLexerOctave* self) {
+int QsciLexerOctave_SuperBlockLookback(const QsciLexerOctave* self) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_BlockLookback_IsBase(true);
@@ -344,7 +344,7 @@ const char* QsciLexerOctave_BlockStart(const QsciLexerOctave* self, int* style) 
 }
 
 // Base class handler implementation
-const char* QsciLexerOctave_QBaseBlockStart(const QsciLexerOctave* self, int* style) {
+const char* QsciLexerOctave_SuperBlockStart(const QsciLexerOctave* self, int* style) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_BlockStart_IsBase(true);
@@ -373,7 +373,7 @@ const char* QsciLexerOctave_BlockStartKeyword(const QsciLexerOctave* self, int* 
 }
 
 // Base class handler implementation
-const char* QsciLexerOctave_QBaseBlockStartKeyword(const QsciLexerOctave* self, int* style) {
+const char* QsciLexerOctave_SuperBlockStartKeyword(const QsciLexerOctave* self, int* style) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_BlockStartKeyword_IsBase(true);
@@ -402,7 +402,7 @@ int QsciLexerOctave_BraceStyle(const QsciLexerOctave* self) {
 }
 
 // Base class handler implementation
-int QsciLexerOctave_QBaseBraceStyle(const QsciLexerOctave* self) {
+int QsciLexerOctave_SuperBraceStyle(const QsciLexerOctave* self) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_BraceStyle_IsBase(true);
@@ -431,7 +431,7 @@ bool QsciLexerOctave_CaseSensitive(const QsciLexerOctave* self) {
 }
 
 // Base class handler implementation
-bool QsciLexerOctave_QBaseCaseSensitive(const QsciLexerOctave* self) {
+bool QsciLexerOctave_SuperCaseSensitive(const QsciLexerOctave* self) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_CaseSensitive_IsBase(true);
@@ -460,7 +460,7 @@ QColor* QsciLexerOctave_Color(const QsciLexerOctave* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerOctave_QBaseColor(const QsciLexerOctave* self, int style) {
+QColor* QsciLexerOctave_SuperColor(const QsciLexerOctave* self, int style) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_Color_IsBase(true);
@@ -489,7 +489,7 @@ bool QsciLexerOctave_EolFill(const QsciLexerOctave* self, int style) {
 }
 
 // Base class handler implementation
-bool QsciLexerOctave_QBaseEolFill(const QsciLexerOctave* self, int style) {
+bool QsciLexerOctave_SuperEolFill(const QsciLexerOctave* self, int style) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_EolFill_IsBase(true);
@@ -518,7 +518,7 @@ QFont* QsciLexerOctave_Font(const QsciLexerOctave* self, int style) {
 }
 
 // Base class handler implementation
-QFont* QsciLexerOctave_QBaseFont(const QsciLexerOctave* self, int style) {
+QFont* QsciLexerOctave_SuperFont(const QsciLexerOctave* self, int style) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_Font_IsBase(true);
@@ -547,7 +547,7 @@ int QsciLexerOctave_IndentationGuideView(const QsciLexerOctave* self) {
 }
 
 // Base class handler implementation
-int QsciLexerOctave_QBaseIndentationGuideView(const QsciLexerOctave* self) {
+int QsciLexerOctave_SuperIndentationGuideView(const QsciLexerOctave* self) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_IndentationGuideView_IsBase(true);
@@ -576,7 +576,7 @@ int QsciLexerOctave_DefaultStyle(const QsciLexerOctave* self) {
 }
 
 // Base class handler implementation
-int QsciLexerOctave_QBaseDefaultStyle(const QsciLexerOctave* self) {
+int QsciLexerOctave_SuperDefaultStyle(const QsciLexerOctave* self) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_DefaultStyle_IsBase(true);
@@ -621,7 +621,7 @@ libqt_string QsciLexerOctave_Description(const QsciLexerOctave* self, int style)
 }
 
 // Base class handler implementation
-libqt_string QsciLexerOctave_QBaseDescription(const QsciLexerOctave* self, int style) {
+libqt_string QsciLexerOctave_SuperDescription(const QsciLexerOctave* self, int style) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_Description_IsBase(true);
@@ -666,7 +666,7 @@ QColor* QsciLexerOctave_Paper(const QsciLexerOctave* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerOctave_QBasePaper(const QsciLexerOctave* self, int style) {
+QColor* QsciLexerOctave_SuperPaper(const QsciLexerOctave* self, int style) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_Paper_IsBase(true);
@@ -695,7 +695,7 @@ QColor* QsciLexerOctave_DefaultColor2(const QsciLexerOctave* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerOctave_QBaseDefaultColor2(const QsciLexerOctave* self, int style) {
+QColor* QsciLexerOctave_SuperDefaultColor2(const QsciLexerOctave* self, int style) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_DefaultColor2_IsBase(true);
@@ -724,7 +724,7 @@ bool QsciLexerOctave_DefaultEolFill(const QsciLexerOctave* self, int style) {
 }
 
 // Base class handler implementation
-bool QsciLexerOctave_QBaseDefaultEolFill(const QsciLexerOctave* self, int style) {
+bool QsciLexerOctave_SuperDefaultEolFill(const QsciLexerOctave* self, int style) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_DefaultEolFill_IsBase(true);
@@ -753,7 +753,7 @@ QFont* QsciLexerOctave_DefaultFont2(const QsciLexerOctave* self, int style) {
 }
 
 // Base class handler implementation
-QFont* QsciLexerOctave_QBaseDefaultFont2(const QsciLexerOctave* self, int style) {
+QFont* QsciLexerOctave_SuperDefaultFont2(const QsciLexerOctave* self, int style) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_DefaultFont2_IsBase(true);
@@ -782,7 +782,7 @@ QColor* QsciLexerOctave_DefaultPaper2(const QsciLexerOctave* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerOctave_QBaseDefaultPaper2(const QsciLexerOctave* self, int style) {
+QColor* QsciLexerOctave_SuperDefaultPaper2(const QsciLexerOctave* self, int style) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_DefaultPaper2_IsBase(true);
@@ -811,7 +811,7 @@ void QsciLexerOctave_SetEditor(QsciLexerOctave* self, QsciScintilla* editor) {
 }
 
 // Base class handler implementation
-void QsciLexerOctave_QBaseSetEditor(QsciLexerOctave* self, QsciScintilla* editor) {
+void QsciLexerOctave_SuperSetEditor(QsciLexerOctave* self, QsciScintilla* editor) {
     auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_SetEditor_IsBase(true);
@@ -840,7 +840,7 @@ void QsciLexerOctave_RefreshProperties(QsciLexerOctave* self) {
 }
 
 // Base class handler implementation
-void QsciLexerOctave_QBaseRefreshProperties(QsciLexerOctave* self) {
+void QsciLexerOctave_SuperRefreshProperties(QsciLexerOctave* self) {
     auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_RefreshProperties_IsBase(true);
@@ -869,7 +869,7 @@ int QsciLexerOctave_StyleBitsNeeded(const QsciLexerOctave* self) {
 }
 
 // Base class handler implementation
-int QsciLexerOctave_QBaseStyleBitsNeeded(const QsciLexerOctave* self) {
+int QsciLexerOctave_SuperStyleBitsNeeded(const QsciLexerOctave* self) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_StyleBitsNeeded_IsBase(true);
@@ -898,7 +898,7 @@ const char* QsciLexerOctave_WordCharacters(const QsciLexerOctave* self) {
 }
 
 // Base class handler implementation
-const char* QsciLexerOctave_QBaseWordCharacters(const QsciLexerOctave* self) {
+const char* QsciLexerOctave_SuperWordCharacters(const QsciLexerOctave* self) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_WordCharacters_IsBase(true);
@@ -927,7 +927,7 @@ void QsciLexerOctave_SetAutoIndentStyle(QsciLexerOctave* self, int autoindentsty
 }
 
 // Base class handler implementation
-void QsciLexerOctave_QBaseSetAutoIndentStyle(QsciLexerOctave* self, int autoindentstyle) {
+void QsciLexerOctave_SuperSetAutoIndentStyle(QsciLexerOctave* self, int autoindentstyle) {
     auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_SetAutoIndentStyle_IsBase(true);
@@ -956,7 +956,7 @@ void QsciLexerOctave_SetColor(QsciLexerOctave* self, const QColor* c, int style)
 }
 
 // Base class handler implementation
-void QsciLexerOctave_QBaseSetColor(QsciLexerOctave* self, const QColor* c, int style) {
+void QsciLexerOctave_SuperSetColor(QsciLexerOctave* self, const QColor* c, int style) {
     auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_SetColor_IsBase(true);
@@ -985,7 +985,7 @@ void QsciLexerOctave_SetEolFill(QsciLexerOctave* self, bool eoffill, int style) 
 }
 
 // Base class handler implementation
-void QsciLexerOctave_QBaseSetEolFill(QsciLexerOctave* self, bool eoffill, int style) {
+void QsciLexerOctave_SuperSetEolFill(QsciLexerOctave* self, bool eoffill, int style) {
     auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_SetEolFill_IsBase(true);
@@ -1014,7 +1014,7 @@ void QsciLexerOctave_SetFont(QsciLexerOctave* self, const QFont* f, int style) {
 }
 
 // Base class handler implementation
-void QsciLexerOctave_QBaseSetFont(QsciLexerOctave* self, const QFont* f, int style) {
+void QsciLexerOctave_SuperSetFont(QsciLexerOctave* self, const QFont* f, int style) {
     auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_SetFont_IsBase(true);
@@ -1043,7 +1043,7 @@ void QsciLexerOctave_SetPaper(QsciLexerOctave* self, const QColor* c, int style)
 }
 
 // Base class handler implementation
-void QsciLexerOctave_QBaseSetPaper(QsciLexerOctave* self, const QColor* c, int style) {
+void QsciLexerOctave_SuperSetPaper(QsciLexerOctave* self, const QColor* c, int style) {
     auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_SetPaper_IsBase(true);
@@ -1073,7 +1073,7 @@ bool QsciLexerOctave_ReadProperties(QsciLexerOctave* self, QSettings* qs, const 
 }
 
 // Base class handler implementation
-bool QsciLexerOctave_QBaseReadProperties(QsciLexerOctave* self, QSettings* qs, const libqt_string prefix) {
+bool QsciLexerOctave_SuperReadProperties(QsciLexerOctave* self, QSettings* qs, const libqt_string prefix) {
     auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
@@ -1104,7 +1104,7 @@ bool QsciLexerOctave_WriteProperties(const QsciLexerOctave* self, QSettings* qs,
 }
 
 // Base class handler implementation
-bool QsciLexerOctave_QBaseWriteProperties(const QsciLexerOctave* self, QSettings* qs, const libqt_string prefix) {
+bool QsciLexerOctave_SuperWriteProperties(const QsciLexerOctave* self, QSettings* qs, const libqt_string prefix) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
@@ -1134,7 +1134,7 @@ bool QsciLexerOctave_Event(QsciLexerOctave* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QsciLexerOctave_QBaseEvent(QsciLexerOctave* self, QEvent* event) {
+bool QsciLexerOctave_SuperEvent(QsciLexerOctave* self, QEvent* event) {
     auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_Event_IsBase(true);
@@ -1163,7 +1163,7 @@ bool QsciLexerOctave_EventFilter(QsciLexerOctave* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool QsciLexerOctave_QBaseEventFilter(QsciLexerOctave* self, QObject* watched, QEvent* event) {
+bool QsciLexerOctave_SuperEventFilter(QsciLexerOctave* self, QObject* watched, QEvent* event) {
     auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_EventFilter_IsBase(true);
@@ -1192,7 +1192,7 @@ void QsciLexerOctave_TimerEvent(QsciLexerOctave* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerOctave_QBaseTimerEvent(QsciLexerOctave* self, QTimerEvent* event) {
+void QsciLexerOctave_SuperTimerEvent(QsciLexerOctave* self, QTimerEvent* event) {
     auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_TimerEvent_IsBase(true);
@@ -1221,7 +1221,7 @@ void QsciLexerOctave_ChildEvent(QsciLexerOctave* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerOctave_QBaseChildEvent(QsciLexerOctave* self, QChildEvent* event) {
+void QsciLexerOctave_SuperChildEvent(QsciLexerOctave* self, QChildEvent* event) {
     auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_ChildEvent_IsBase(true);
@@ -1250,7 +1250,7 @@ void QsciLexerOctave_CustomEvent(QsciLexerOctave* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerOctave_QBaseCustomEvent(QsciLexerOctave* self, QEvent* event) {
+void QsciLexerOctave_SuperCustomEvent(QsciLexerOctave* self, QEvent* event) {
     auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_CustomEvent_IsBase(true);
@@ -1279,7 +1279,7 @@ void QsciLexerOctave_ConnectNotify(QsciLexerOctave* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void QsciLexerOctave_QBaseConnectNotify(QsciLexerOctave* self, const QMetaMethod* signal) {
+void QsciLexerOctave_SuperConnectNotify(QsciLexerOctave* self, const QMetaMethod* signal) {
     auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_ConnectNotify_IsBase(true);
@@ -1308,7 +1308,7 @@ void QsciLexerOctave_DisconnectNotify(QsciLexerOctave* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void QsciLexerOctave_QBaseDisconnectNotify(QsciLexerOctave* self, const QMetaMethod* signal) {
+void QsciLexerOctave_SuperDisconnectNotify(QsciLexerOctave* self, const QMetaMethod* signal) {
     auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_DisconnectNotify_IsBase(true);
@@ -1348,7 +1348,7 @@ libqt_string QsciLexerOctave_TextAsBytes(const QsciLexerOctave* self, const libq
 }
 
 // Base class handler implementation
-libqt_string QsciLexerOctave_QBaseTextAsBytes(const QsciLexerOctave* self, const libqt_string text) {
+libqt_string QsciLexerOctave_SuperTextAsBytes(const QsciLexerOctave* self, const libqt_string text) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
@@ -1404,7 +1404,7 @@ libqt_string QsciLexerOctave_BytesAsText(const QsciLexerOctave* self, const char
 }
 
 // Base class handler implementation
-libqt_string QsciLexerOctave_QBaseBytesAsText(const QsciLexerOctave* self, const char* bytes, int size) {
+libqt_string QsciLexerOctave_SuperBytesAsText(const QsciLexerOctave* self, const char* bytes, int size) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_BytesAsText_IsBase(true);
@@ -1449,7 +1449,7 @@ QObject* QsciLexerOctave_Sender(const QsciLexerOctave* self) {
 }
 
 // Base class handler implementation
-QObject* QsciLexerOctave_QBaseSender(const QsciLexerOctave* self) {
+QObject* QsciLexerOctave_SuperSender(const QsciLexerOctave* self) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_Sender_IsBase(true);
@@ -1478,7 +1478,7 @@ int QsciLexerOctave_SenderSignalIndex(const QsciLexerOctave* self) {
 }
 
 // Base class handler implementation
-int QsciLexerOctave_QBaseSenderSignalIndex(const QsciLexerOctave* self) {
+int QsciLexerOctave_SuperSenderSignalIndex(const QsciLexerOctave* self) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_SenderSignalIndex_IsBase(true);
@@ -1507,7 +1507,7 @@ int QsciLexerOctave_Receivers(const QsciLexerOctave* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QsciLexerOctave_QBaseReceivers(const QsciLexerOctave* self, const char* signal) {
+int QsciLexerOctave_SuperReceivers(const QsciLexerOctave* self, const char* signal) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_Receivers_IsBase(true);
@@ -1536,7 +1536,7 @@ bool QsciLexerOctave_IsSignalConnected(const QsciLexerOctave* self, const QMetaM
 }
 
 // Base class handler implementation
-bool QsciLexerOctave_QBaseIsSignalConnected(const QsciLexerOctave* self, const QMetaMethod* signal) {
+bool QsciLexerOctave_SuperIsSignalConnected(const QsciLexerOctave* self, const QMetaMethod* signal) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_IsSignalConnected_IsBase(true);

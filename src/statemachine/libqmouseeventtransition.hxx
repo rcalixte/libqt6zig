@@ -371,29 +371,29 @@ class VirtualQMouseEventTransition final : public QMouseEventTransition {
 
     // Friend functions
     friend void QMouseEventTransition_OnTransition(QMouseEventTransition* self, QEvent* event);
-    friend void QMouseEventTransition_QBaseOnTransition(QMouseEventTransition* self, QEvent* event);
+    friend void QMouseEventTransition_SuperOnTransition(QMouseEventTransition* self, QEvent* event);
     friend bool QMouseEventTransition_EventTest(QMouseEventTransition* self, QEvent* event);
-    friend bool QMouseEventTransition_QBaseEventTest(QMouseEventTransition* self, QEvent* event);
+    friend bool QMouseEventTransition_SuperEventTest(QMouseEventTransition* self, QEvent* event);
     friend bool QMouseEventTransition_Event(QMouseEventTransition* self, QEvent* e);
-    friend bool QMouseEventTransition_QBaseEvent(QMouseEventTransition* self, QEvent* e);
+    friend bool QMouseEventTransition_SuperEvent(QMouseEventTransition* self, QEvent* e);
     friend void QMouseEventTransition_TimerEvent(QMouseEventTransition* self, QTimerEvent* event);
-    friend void QMouseEventTransition_QBaseTimerEvent(QMouseEventTransition* self, QTimerEvent* event);
+    friend void QMouseEventTransition_SuperTimerEvent(QMouseEventTransition* self, QTimerEvent* event);
     friend void QMouseEventTransition_ChildEvent(QMouseEventTransition* self, QChildEvent* event);
-    friend void QMouseEventTransition_QBaseChildEvent(QMouseEventTransition* self, QChildEvent* event);
+    friend void QMouseEventTransition_SuperChildEvent(QMouseEventTransition* self, QChildEvent* event);
     friend void QMouseEventTransition_CustomEvent(QMouseEventTransition* self, QEvent* event);
-    friend void QMouseEventTransition_QBaseCustomEvent(QMouseEventTransition* self, QEvent* event);
+    friend void QMouseEventTransition_SuperCustomEvent(QMouseEventTransition* self, QEvent* event);
     friend void QMouseEventTransition_ConnectNotify(QMouseEventTransition* self, const QMetaMethod* signal);
-    friend void QMouseEventTransition_QBaseConnectNotify(QMouseEventTransition* self, const QMetaMethod* signal);
+    friend void QMouseEventTransition_SuperConnectNotify(QMouseEventTransition* self, const QMetaMethod* signal);
     friend void QMouseEventTransition_DisconnectNotify(QMouseEventTransition* self, const QMetaMethod* signal);
-    friend void QMouseEventTransition_QBaseDisconnectNotify(QMouseEventTransition* self, const QMetaMethod* signal);
+    friend void QMouseEventTransition_SuperDisconnectNotify(QMouseEventTransition* self, const QMetaMethod* signal);
     friend QObject* QMouseEventTransition_Sender(const QMouseEventTransition* self);
-    friend QObject* QMouseEventTransition_QBaseSender(const QMouseEventTransition* self);
+    friend QObject* QMouseEventTransition_SuperSender(const QMouseEventTransition* self);
     friend int QMouseEventTransition_SenderSignalIndex(const QMouseEventTransition* self);
-    friend int QMouseEventTransition_QBaseSenderSignalIndex(const QMouseEventTransition* self);
+    friend int QMouseEventTransition_SuperSenderSignalIndex(const QMouseEventTransition* self);
     friend int QMouseEventTransition_Receivers(const QMouseEventTransition* self, const char* signal);
-    friend int QMouseEventTransition_QBaseReceivers(const QMouseEventTransition* self, const char* signal);
+    friend int QMouseEventTransition_SuperReceivers(const QMouseEventTransition* self, const char* signal);
     friend bool QMouseEventTransition_IsSignalConnected(const QMouseEventTransition* self, const QMetaMethod* signal);
-    friend bool QMouseEventTransition_QBaseIsSignalConnected(const QMouseEventTransition* self, const QMetaMethod* signal);
+    friend bool QMouseEventTransition_SuperIsSignalConnected(const QMouseEventTransition* self, const QMetaMethod* signal);
 };
 
 #endif

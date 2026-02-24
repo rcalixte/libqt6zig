@@ -170,7 +170,7 @@ void KRecentFilesMenu_AddUrl2(KRecentFilesMenu* self, const QUrl* url, const lib
 }
 
 // Base class handler implementation
-QMetaObject* KRecentFilesMenu_QBaseMetaObject(const KRecentFilesMenu* self) {
+QMetaObject* KRecentFilesMenu_SuperMetaObject(const KRecentFilesMenu* self) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_MetaObject_IsBase(true);
@@ -189,7 +189,7 @@ void KRecentFilesMenu_OnMetaObject(const KRecentFilesMenu* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* KRecentFilesMenu_QBaseMetacast(KRecentFilesMenu* self, const char* param1) {
+void* KRecentFilesMenu_SuperMetacast(KRecentFilesMenu* self, const char* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_Metacast_IsBase(true);
@@ -208,7 +208,7 @@ void KRecentFilesMenu_OnMetacast(KRecentFilesMenu* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KRecentFilesMenu_QBaseMetacall(KRecentFilesMenu* self, int param1, int param2, void** param3) {
+int KRecentFilesMenu_SuperMetacall(KRecentFilesMenu* self, int param1, int param2, void** param3) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_Metacall_IsBase(true);
@@ -237,7 +237,7 @@ QSize* KRecentFilesMenu_SizeHint(const KRecentFilesMenu* self) {
 }
 
 // Base class handler implementation
-QSize* KRecentFilesMenu_QBaseSizeHint(const KRecentFilesMenu* self) {
+QSize* KRecentFilesMenu_SuperSizeHint(const KRecentFilesMenu* self) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_SizeHint_IsBase(true);
@@ -266,7 +266,7 @@ void KRecentFilesMenu_ChangeEvent(KRecentFilesMenu* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseChangeEvent(KRecentFilesMenu* self, QEvent* param1) {
+void KRecentFilesMenu_SuperChangeEvent(KRecentFilesMenu* self, QEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_ChangeEvent_IsBase(true);
@@ -295,7 +295,7 @@ void KRecentFilesMenu_KeyPressEvent(KRecentFilesMenu* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseKeyPressEvent(KRecentFilesMenu* self, QKeyEvent* param1) {
+void KRecentFilesMenu_SuperKeyPressEvent(KRecentFilesMenu* self, QKeyEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_KeyPressEvent_IsBase(true);
@@ -324,7 +324,7 @@ void KRecentFilesMenu_MouseReleaseEvent(KRecentFilesMenu* self, QMouseEvent* par
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseMouseReleaseEvent(KRecentFilesMenu* self, QMouseEvent* param1) {
+void KRecentFilesMenu_SuperMouseReleaseEvent(KRecentFilesMenu* self, QMouseEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_MouseReleaseEvent_IsBase(true);
@@ -353,7 +353,7 @@ void KRecentFilesMenu_MousePressEvent(KRecentFilesMenu* self, QMouseEvent* param
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseMousePressEvent(KRecentFilesMenu* self, QMouseEvent* param1) {
+void KRecentFilesMenu_SuperMousePressEvent(KRecentFilesMenu* self, QMouseEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_MousePressEvent_IsBase(true);
@@ -382,7 +382,7 @@ void KRecentFilesMenu_MouseMoveEvent(KRecentFilesMenu* self, QMouseEvent* param1
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseMouseMoveEvent(KRecentFilesMenu* self, QMouseEvent* param1) {
+void KRecentFilesMenu_SuperMouseMoveEvent(KRecentFilesMenu* self, QMouseEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_MouseMoveEvent_IsBase(true);
@@ -411,7 +411,7 @@ void KRecentFilesMenu_WheelEvent(KRecentFilesMenu* self, QWheelEvent* param1) {
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseWheelEvent(KRecentFilesMenu* self, QWheelEvent* param1) {
+void KRecentFilesMenu_SuperWheelEvent(KRecentFilesMenu* self, QWheelEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_WheelEvent_IsBase(true);
@@ -440,7 +440,7 @@ void KRecentFilesMenu_EnterEvent(KRecentFilesMenu* self, QEnterEvent* param1) {
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseEnterEvent(KRecentFilesMenu* self, QEnterEvent* param1) {
+void KRecentFilesMenu_SuperEnterEvent(KRecentFilesMenu* self, QEnterEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_EnterEvent_IsBase(true);
@@ -469,7 +469,7 @@ void KRecentFilesMenu_LeaveEvent(KRecentFilesMenu* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseLeaveEvent(KRecentFilesMenu* self, QEvent* param1) {
+void KRecentFilesMenu_SuperLeaveEvent(KRecentFilesMenu* self, QEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_LeaveEvent_IsBase(true);
@@ -498,7 +498,7 @@ void KRecentFilesMenu_HideEvent(KRecentFilesMenu* self, QHideEvent* param1) {
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseHideEvent(KRecentFilesMenu* self, QHideEvent* param1) {
+void KRecentFilesMenu_SuperHideEvent(KRecentFilesMenu* self, QHideEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_HideEvent_IsBase(true);
@@ -527,7 +527,7 @@ void KRecentFilesMenu_PaintEvent(KRecentFilesMenu* self, QPaintEvent* param1) {
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBasePaintEvent(KRecentFilesMenu* self, QPaintEvent* param1) {
+void KRecentFilesMenu_SuperPaintEvent(KRecentFilesMenu* self, QPaintEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_PaintEvent_IsBase(true);
@@ -556,7 +556,7 @@ void KRecentFilesMenu_ActionEvent(KRecentFilesMenu* self, QActionEvent* param1) 
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseActionEvent(KRecentFilesMenu* self, QActionEvent* param1) {
+void KRecentFilesMenu_SuperActionEvent(KRecentFilesMenu* self, QActionEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_ActionEvent_IsBase(true);
@@ -585,7 +585,7 @@ void KRecentFilesMenu_TimerEvent(KRecentFilesMenu* self, QTimerEvent* param1) {
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseTimerEvent(KRecentFilesMenu* self, QTimerEvent* param1) {
+void KRecentFilesMenu_SuperTimerEvent(KRecentFilesMenu* self, QTimerEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_TimerEvent_IsBase(true);
@@ -614,7 +614,7 @@ bool KRecentFilesMenu_Event(KRecentFilesMenu* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-bool KRecentFilesMenu_QBaseEvent(KRecentFilesMenu* self, QEvent* param1) {
+bool KRecentFilesMenu_SuperEvent(KRecentFilesMenu* self, QEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_Event_IsBase(true);
@@ -643,7 +643,7 @@ bool KRecentFilesMenu_FocusNextPrevChild(KRecentFilesMenu* self, bool next) {
 }
 
 // Base class handler implementation
-bool KRecentFilesMenu_QBaseFocusNextPrevChild(KRecentFilesMenu* self, bool next) {
+bool KRecentFilesMenu_SuperFocusNextPrevChild(KRecentFilesMenu* self, bool next) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_FocusNextPrevChild_IsBase(true);
@@ -672,7 +672,7 @@ void KRecentFilesMenu_InitStyleOption(const KRecentFilesMenu* self, QStyleOption
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseInitStyleOption(const KRecentFilesMenu* self, QStyleOptionMenuItem* option, const QAction* action) {
+void KRecentFilesMenu_SuperInitStyleOption(const KRecentFilesMenu* self, QStyleOptionMenuItem* option, const QAction* action) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_InitStyleOption_IsBase(true);
@@ -701,7 +701,7 @@ int KRecentFilesMenu_DevType(const KRecentFilesMenu* self) {
 }
 
 // Base class handler implementation
-int KRecentFilesMenu_QBaseDevType(const KRecentFilesMenu* self) {
+int KRecentFilesMenu_SuperDevType(const KRecentFilesMenu* self) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_DevType_IsBase(true);
@@ -730,7 +730,7 @@ void KRecentFilesMenu_SetVisible(KRecentFilesMenu* self, bool visible) {
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseSetVisible(KRecentFilesMenu* self, bool visible) {
+void KRecentFilesMenu_SuperSetVisible(KRecentFilesMenu* self, bool visible) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_SetVisible_IsBase(true);
@@ -759,7 +759,7 @@ QSize* KRecentFilesMenu_MinimumSizeHint(const KRecentFilesMenu* self) {
 }
 
 // Base class handler implementation
-QSize* KRecentFilesMenu_QBaseMinimumSizeHint(const KRecentFilesMenu* self) {
+QSize* KRecentFilesMenu_SuperMinimumSizeHint(const KRecentFilesMenu* self) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_MinimumSizeHint_IsBase(true);
@@ -788,7 +788,7 @@ int KRecentFilesMenu_HeightForWidth(const KRecentFilesMenu* self, int param1) {
 }
 
 // Base class handler implementation
-int KRecentFilesMenu_QBaseHeightForWidth(const KRecentFilesMenu* self, int param1) {
+int KRecentFilesMenu_SuperHeightForWidth(const KRecentFilesMenu* self, int param1) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_HeightForWidth_IsBase(true);
@@ -817,7 +817,7 @@ bool KRecentFilesMenu_HasHeightForWidth(const KRecentFilesMenu* self) {
 }
 
 // Base class handler implementation
-bool KRecentFilesMenu_QBaseHasHeightForWidth(const KRecentFilesMenu* self) {
+bool KRecentFilesMenu_SuperHasHeightForWidth(const KRecentFilesMenu* self) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_HasHeightForWidth_IsBase(true);
@@ -846,7 +846,7 @@ QPaintEngine* KRecentFilesMenu_PaintEngine(const KRecentFilesMenu* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KRecentFilesMenu_QBasePaintEngine(const KRecentFilesMenu* self) {
+QPaintEngine* KRecentFilesMenu_SuperPaintEngine(const KRecentFilesMenu* self) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_PaintEngine_IsBase(true);
@@ -875,7 +875,7 @@ void KRecentFilesMenu_MouseDoubleClickEvent(KRecentFilesMenu* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseMouseDoubleClickEvent(KRecentFilesMenu* self, QMouseEvent* event) {
+void KRecentFilesMenu_SuperMouseDoubleClickEvent(KRecentFilesMenu* self, QMouseEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_MouseDoubleClickEvent_IsBase(true);
@@ -904,7 +904,7 @@ void KRecentFilesMenu_KeyReleaseEvent(KRecentFilesMenu* self, QKeyEvent* event) 
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseKeyReleaseEvent(KRecentFilesMenu* self, QKeyEvent* event) {
+void KRecentFilesMenu_SuperKeyReleaseEvent(KRecentFilesMenu* self, QKeyEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_KeyReleaseEvent_IsBase(true);
@@ -933,7 +933,7 @@ void KRecentFilesMenu_FocusInEvent(KRecentFilesMenu* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseFocusInEvent(KRecentFilesMenu* self, QFocusEvent* event) {
+void KRecentFilesMenu_SuperFocusInEvent(KRecentFilesMenu* self, QFocusEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_FocusInEvent_IsBase(true);
@@ -962,7 +962,7 @@ void KRecentFilesMenu_FocusOutEvent(KRecentFilesMenu* self, QFocusEvent* event) 
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseFocusOutEvent(KRecentFilesMenu* self, QFocusEvent* event) {
+void KRecentFilesMenu_SuperFocusOutEvent(KRecentFilesMenu* self, QFocusEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_FocusOutEvent_IsBase(true);
@@ -991,7 +991,7 @@ void KRecentFilesMenu_MoveEvent(KRecentFilesMenu* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseMoveEvent(KRecentFilesMenu* self, QMoveEvent* event) {
+void KRecentFilesMenu_SuperMoveEvent(KRecentFilesMenu* self, QMoveEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_MoveEvent_IsBase(true);
@@ -1020,7 +1020,7 @@ void KRecentFilesMenu_ResizeEvent(KRecentFilesMenu* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseResizeEvent(KRecentFilesMenu* self, QResizeEvent* event) {
+void KRecentFilesMenu_SuperResizeEvent(KRecentFilesMenu* self, QResizeEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_ResizeEvent_IsBase(true);
@@ -1049,7 +1049,7 @@ void KRecentFilesMenu_CloseEvent(KRecentFilesMenu* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseCloseEvent(KRecentFilesMenu* self, QCloseEvent* event) {
+void KRecentFilesMenu_SuperCloseEvent(KRecentFilesMenu* self, QCloseEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_CloseEvent_IsBase(true);
@@ -1078,7 +1078,7 @@ void KRecentFilesMenu_ContextMenuEvent(KRecentFilesMenu* self, QContextMenuEvent
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseContextMenuEvent(KRecentFilesMenu* self, QContextMenuEvent* event) {
+void KRecentFilesMenu_SuperContextMenuEvent(KRecentFilesMenu* self, QContextMenuEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_ContextMenuEvent_IsBase(true);
@@ -1107,7 +1107,7 @@ void KRecentFilesMenu_TabletEvent(KRecentFilesMenu* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseTabletEvent(KRecentFilesMenu* self, QTabletEvent* event) {
+void KRecentFilesMenu_SuperTabletEvent(KRecentFilesMenu* self, QTabletEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_TabletEvent_IsBase(true);
@@ -1136,7 +1136,7 @@ void KRecentFilesMenu_DragEnterEvent(KRecentFilesMenu* self, QDragEnterEvent* ev
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseDragEnterEvent(KRecentFilesMenu* self, QDragEnterEvent* event) {
+void KRecentFilesMenu_SuperDragEnterEvent(KRecentFilesMenu* self, QDragEnterEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_DragEnterEvent_IsBase(true);
@@ -1165,7 +1165,7 @@ void KRecentFilesMenu_DragMoveEvent(KRecentFilesMenu* self, QDragMoveEvent* even
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseDragMoveEvent(KRecentFilesMenu* self, QDragMoveEvent* event) {
+void KRecentFilesMenu_SuperDragMoveEvent(KRecentFilesMenu* self, QDragMoveEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_DragMoveEvent_IsBase(true);
@@ -1194,7 +1194,7 @@ void KRecentFilesMenu_DragLeaveEvent(KRecentFilesMenu* self, QDragLeaveEvent* ev
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseDragLeaveEvent(KRecentFilesMenu* self, QDragLeaveEvent* event) {
+void KRecentFilesMenu_SuperDragLeaveEvent(KRecentFilesMenu* self, QDragLeaveEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_DragLeaveEvent_IsBase(true);
@@ -1223,7 +1223,7 @@ void KRecentFilesMenu_DropEvent(KRecentFilesMenu* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseDropEvent(KRecentFilesMenu* self, QDropEvent* event) {
+void KRecentFilesMenu_SuperDropEvent(KRecentFilesMenu* self, QDropEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_DropEvent_IsBase(true);
@@ -1252,7 +1252,7 @@ void KRecentFilesMenu_ShowEvent(KRecentFilesMenu* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseShowEvent(KRecentFilesMenu* self, QShowEvent* event) {
+void KRecentFilesMenu_SuperShowEvent(KRecentFilesMenu* self, QShowEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_ShowEvent_IsBase(true);
@@ -1282,7 +1282,7 @@ bool KRecentFilesMenu_NativeEvent(KRecentFilesMenu* self, const libqt_string eve
 }
 
 // Base class handler implementation
-bool KRecentFilesMenu_QBaseNativeEvent(KRecentFilesMenu* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KRecentFilesMenu_SuperNativeEvent(KRecentFilesMenu* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
@@ -1312,7 +1312,7 @@ int KRecentFilesMenu_Metric(const KRecentFilesMenu* self, int param1) {
 }
 
 // Base class handler implementation
-int KRecentFilesMenu_QBaseMetric(const KRecentFilesMenu* self, int param1) {
+int KRecentFilesMenu_SuperMetric(const KRecentFilesMenu* self, int param1) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_Metric_IsBase(true);
@@ -1341,7 +1341,7 @@ void KRecentFilesMenu_InitPainter(const KRecentFilesMenu* self, QPainter* painte
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseInitPainter(const KRecentFilesMenu* self, QPainter* painter) {
+void KRecentFilesMenu_SuperInitPainter(const KRecentFilesMenu* self, QPainter* painter) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_InitPainter_IsBase(true);
@@ -1370,7 +1370,7 @@ QPaintDevice* KRecentFilesMenu_Redirected(const KRecentFilesMenu* self, QPoint* 
 }
 
 // Base class handler implementation
-QPaintDevice* KRecentFilesMenu_QBaseRedirected(const KRecentFilesMenu* self, QPoint* offset) {
+QPaintDevice* KRecentFilesMenu_SuperRedirected(const KRecentFilesMenu* self, QPoint* offset) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_Redirected_IsBase(true);
@@ -1399,7 +1399,7 @@ QPainter* KRecentFilesMenu_SharedPainter(const KRecentFilesMenu* self) {
 }
 
 // Base class handler implementation
-QPainter* KRecentFilesMenu_QBaseSharedPainter(const KRecentFilesMenu* self) {
+QPainter* KRecentFilesMenu_SuperSharedPainter(const KRecentFilesMenu* self) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_SharedPainter_IsBase(true);
@@ -1428,7 +1428,7 @@ void KRecentFilesMenu_InputMethodEvent(KRecentFilesMenu* self, QInputMethodEvent
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseInputMethodEvent(KRecentFilesMenu* self, QInputMethodEvent* param1) {
+void KRecentFilesMenu_SuperInputMethodEvent(KRecentFilesMenu* self, QInputMethodEvent* param1) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_InputMethodEvent_IsBase(true);
@@ -1457,7 +1457,7 @@ QVariant* KRecentFilesMenu_InputMethodQuery(const KRecentFilesMenu* self, int pa
 }
 
 // Base class handler implementation
-QVariant* KRecentFilesMenu_QBaseInputMethodQuery(const KRecentFilesMenu* self, int param1) {
+QVariant* KRecentFilesMenu_SuperInputMethodQuery(const KRecentFilesMenu* self, int param1) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_InputMethodQuery_IsBase(true);
@@ -1486,7 +1486,7 @@ bool KRecentFilesMenu_EventFilter(KRecentFilesMenu* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool KRecentFilesMenu_QBaseEventFilter(KRecentFilesMenu* self, QObject* watched, QEvent* event) {
+bool KRecentFilesMenu_SuperEventFilter(KRecentFilesMenu* self, QObject* watched, QEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_EventFilter_IsBase(true);
@@ -1515,7 +1515,7 @@ void KRecentFilesMenu_ChildEvent(KRecentFilesMenu* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseChildEvent(KRecentFilesMenu* self, QChildEvent* event) {
+void KRecentFilesMenu_SuperChildEvent(KRecentFilesMenu* self, QChildEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_ChildEvent_IsBase(true);
@@ -1544,7 +1544,7 @@ void KRecentFilesMenu_CustomEvent(KRecentFilesMenu* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseCustomEvent(KRecentFilesMenu* self, QEvent* event) {
+void KRecentFilesMenu_SuperCustomEvent(KRecentFilesMenu* self, QEvent* event) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_CustomEvent_IsBase(true);
@@ -1573,7 +1573,7 @@ void KRecentFilesMenu_ConnectNotify(KRecentFilesMenu* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseConnectNotify(KRecentFilesMenu* self, const QMetaMethod* signal) {
+void KRecentFilesMenu_SuperConnectNotify(KRecentFilesMenu* self, const QMetaMethod* signal) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_ConnectNotify_IsBase(true);
@@ -1602,7 +1602,7 @@ void KRecentFilesMenu_DisconnectNotify(KRecentFilesMenu* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseDisconnectNotify(KRecentFilesMenu* self, const QMetaMethod* signal) {
+void KRecentFilesMenu_SuperDisconnectNotify(KRecentFilesMenu* self, const QMetaMethod* signal) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_DisconnectNotify_IsBase(true);
@@ -1631,7 +1631,7 @@ int KRecentFilesMenu_ColumnCount(const KRecentFilesMenu* self) {
 }
 
 // Base class handler implementation
-int KRecentFilesMenu_QBaseColumnCount(const KRecentFilesMenu* self) {
+int KRecentFilesMenu_SuperColumnCount(const KRecentFilesMenu* self) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_ColumnCount_IsBase(true);
@@ -1660,7 +1660,7 @@ void KRecentFilesMenu_UpdateMicroFocus(KRecentFilesMenu* self) {
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseUpdateMicroFocus(KRecentFilesMenu* self) {
+void KRecentFilesMenu_SuperUpdateMicroFocus(KRecentFilesMenu* self) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_UpdateMicroFocus_IsBase(true);
@@ -1689,7 +1689,7 @@ void KRecentFilesMenu_Create(KRecentFilesMenu* self) {
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseCreate(KRecentFilesMenu* self) {
+void KRecentFilesMenu_SuperCreate(KRecentFilesMenu* self) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_Create_IsBase(true);
@@ -1718,7 +1718,7 @@ void KRecentFilesMenu_Destroy(KRecentFilesMenu* self) {
 }
 
 // Base class handler implementation
-void KRecentFilesMenu_QBaseDestroy(KRecentFilesMenu* self) {
+void KRecentFilesMenu_SuperDestroy(KRecentFilesMenu* self) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_Destroy_IsBase(true);
@@ -1747,7 +1747,7 @@ bool KRecentFilesMenu_FocusNextChild(KRecentFilesMenu* self) {
 }
 
 // Base class handler implementation
-bool KRecentFilesMenu_QBaseFocusNextChild(KRecentFilesMenu* self) {
+bool KRecentFilesMenu_SuperFocusNextChild(KRecentFilesMenu* self) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_FocusNextChild_IsBase(true);
@@ -1776,7 +1776,7 @@ bool KRecentFilesMenu_FocusPreviousChild(KRecentFilesMenu* self) {
 }
 
 // Base class handler implementation
-bool KRecentFilesMenu_QBaseFocusPreviousChild(KRecentFilesMenu* self) {
+bool KRecentFilesMenu_SuperFocusPreviousChild(KRecentFilesMenu* self) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_FocusPreviousChild_IsBase(true);
@@ -1805,7 +1805,7 @@ QObject* KRecentFilesMenu_Sender(const KRecentFilesMenu* self) {
 }
 
 // Base class handler implementation
-QObject* KRecentFilesMenu_QBaseSender(const KRecentFilesMenu* self) {
+QObject* KRecentFilesMenu_SuperSender(const KRecentFilesMenu* self) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_Sender_IsBase(true);
@@ -1834,7 +1834,7 @@ int KRecentFilesMenu_SenderSignalIndex(const KRecentFilesMenu* self) {
 }
 
 // Base class handler implementation
-int KRecentFilesMenu_QBaseSenderSignalIndex(const KRecentFilesMenu* self) {
+int KRecentFilesMenu_SuperSenderSignalIndex(const KRecentFilesMenu* self) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_SenderSignalIndex_IsBase(true);
@@ -1863,7 +1863,7 @@ int KRecentFilesMenu_Receivers(const KRecentFilesMenu* self, const char* signal)
 }
 
 // Base class handler implementation
-int KRecentFilesMenu_QBaseReceivers(const KRecentFilesMenu* self, const char* signal) {
+int KRecentFilesMenu_SuperReceivers(const KRecentFilesMenu* self, const char* signal) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_Receivers_IsBase(true);
@@ -1892,7 +1892,7 @@ bool KRecentFilesMenu_IsSignalConnected(const KRecentFilesMenu* self, const QMet
 }
 
 // Base class handler implementation
-bool KRecentFilesMenu_QBaseIsSignalConnected(const KRecentFilesMenu* self, const QMetaMethod* signal) {
+bool KRecentFilesMenu_SuperIsSignalConnected(const KRecentFilesMenu* self, const QMetaMethod* signal) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_IsSignalConnected_IsBase(true);
@@ -1921,7 +1921,7 @@ double KRecentFilesMenu_GetDecodedMetricF(const KRecentFilesMenu* self, int metr
 }
 
 // Base class handler implementation
-double KRecentFilesMenu_QBaseGetDecodedMetricF(const KRecentFilesMenu* self, int metricA, int metricB) {
+double KRecentFilesMenu_SuperGetDecodedMetricF(const KRecentFilesMenu* self, int metricA, int metricB) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
     if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
         vkrecentfilesmenu->setKRecentFilesMenu_GetDecodedMetricF_IsBase(true);

@@ -299,6 +299,10 @@ pub const qpagedpaintdevice = struct {
         return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#dtor.QPagedPaintDevice)
     ///
     /// Delete this object from C++ memory.
@@ -307,7 +311,7 @@ pub const qpagedpaintdevice = struct {
     ///
     /// ` self: QtC.QPagedPaintDevice `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPagedPaintDevice_Delete(@ptrCast(self));
     }
 };

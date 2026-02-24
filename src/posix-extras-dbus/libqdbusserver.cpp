@@ -102,7 +102,7 @@ void QDBusServer_Connect_NewConnection(QDBusServer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QDBusServer_QBaseMetaObject(const QDBusServer* self) {
+QMetaObject* QDBusServer_SuperMetaObject(const QDBusServer* self) {
     auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
     if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
         vqdbusserver->setQDBusServer_MetaObject_IsBase(true);
@@ -121,7 +121,7 @@ void QDBusServer_OnMetaObject(const QDBusServer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QDBusServer_QBaseMetacast(QDBusServer* self, const char* param1) {
+void* QDBusServer_SuperMetacast(QDBusServer* self, const char* param1) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
     if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
         vqdbusserver->setQDBusServer_Metacast_IsBase(true);
@@ -140,7 +140,7 @@ void QDBusServer_OnMetacast(QDBusServer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QDBusServer_QBaseMetacall(QDBusServer* self, int param1, int param2, void** param3) {
+int QDBusServer_SuperMetacall(QDBusServer* self, int param1, int param2, void** param3) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
     if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
         vqdbusserver->setQDBusServer_Metacall_IsBase(true);
@@ -169,7 +169,7 @@ bool QDBusServer_Event(QDBusServer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QDBusServer_QBaseEvent(QDBusServer* self, QEvent* event) {
+bool QDBusServer_SuperEvent(QDBusServer* self, QEvent* event) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
     if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
         vqdbusserver->setQDBusServer_Event_IsBase(true);
@@ -198,7 +198,7 @@ bool QDBusServer_EventFilter(QDBusServer* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QDBusServer_QBaseEventFilter(QDBusServer* self, QObject* watched, QEvent* event) {
+bool QDBusServer_SuperEventFilter(QDBusServer* self, QObject* watched, QEvent* event) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
     if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
         vqdbusserver->setQDBusServer_EventFilter_IsBase(true);
@@ -227,7 +227,7 @@ void QDBusServer_TimerEvent(QDBusServer* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QDBusServer_QBaseTimerEvent(QDBusServer* self, QTimerEvent* event) {
+void QDBusServer_SuperTimerEvent(QDBusServer* self, QTimerEvent* event) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
     if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
         vqdbusserver->setQDBusServer_TimerEvent_IsBase(true);
@@ -256,7 +256,7 @@ void QDBusServer_ChildEvent(QDBusServer* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QDBusServer_QBaseChildEvent(QDBusServer* self, QChildEvent* event) {
+void QDBusServer_SuperChildEvent(QDBusServer* self, QChildEvent* event) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
     if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
         vqdbusserver->setQDBusServer_ChildEvent_IsBase(true);
@@ -285,7 +285,7 @@ void QDBusServer_CustomEvent(QDBusServer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QDBusServer_QBaseCustomEvent(QDBusServer* self, QEvent* event) {
+void QDBusServer_SuperCustomEvent(QDBusServer* self, QEvent* event) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
     if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
         vqdbusserver->setQDBusServer_CustomEvent_IsBase(true);
@@ -314,7 +314,7 @@ void QDBusServer_ConnectNotify(QDBusServer* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QDBusServer_QBaseConnectNotify(QDBusServer* self, const QMetaMethod* signal) {
+void QDBusServer_SuperConnectNotify(QDBusServer* self, const QMetaMethod* signal) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
     if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
         vqdbusserver->setQDBusServer_ConnectNotify_IsBase(true);
@@ -343,7 +343,7 @@ void QDBusServer_DisconnectNotify(QDBusServer* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QDBusServer_QBaseDisconnectNotify(QDBusServer* self, const QMetaMethod* signal) {
+void QDBusServer_SuperDisconnectNotify(QDBusServer* self, const QMetaMethod* signal) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
     if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
         vqdbusserver->setQDBusServer_DisconnectNotify_IsBase(true);
@@ -372,7 +372,7 @@ QObject* QDBusServer_Sender(const QDBusServer* self) {
 }
 
 // Base class handler implementation
-QObject* QDBusServer_QBaseSender(const QDBusServer* self) {
+QObject* QDBusServer_SuperSender(const QDBusServer* self) {
     auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
     if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
         vqdbusserver->setQDBusServer_Sender_IsBase(true);
@@ -401,7 +401,7 @@ int QDBusServer_SenderSignalIndex(const QDBusServer* self) {
 }
 
 // Base class handler implementation
-int QDBusServer_QBaseSenderSignalIndex(const QDBusServer* self) {
+int QDBusServer_SuperSenderSignalIndex(const QDBusServer* self) {
     auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
     if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
         vqdbusserver->setQDBusServer_SenderSignalIndex_IsBase(true);
@@ -430,7 +430,7 @@ int QDBusServer_Receivers(const QDBusServer* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QDBusServer_QBaseReceivers(const QDBusServer* self, const char* signal) {
+int QDBusServer_SuperReceivers(const QDBusServer* self, const char* signal) {
     auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
     if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
         vqdbusserver->setQDBusServer_Receivers_IsBase(true);
@@ -459,7 +459,7 @@ bool QDBusServer_IsSignalConnected(const QDBusServer* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QDBusServer_QBaseIsSignalConnected(const QDBusServer* self, const QMetaMethod* signal) {
+bool QDBusServer_SuperIsSignalConnected(const QDBusServer* self, const QMetaMethod* signal) {
     auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
     if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
         vqdbusserver->setQDBusServer_IsSignalConnected_IsBase(true);

@@ -142,7 +142,7 @@ void QMediaDevices_ConnectNotify(QMediaDevices* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-QMetaObject* QMediaDevices_QBaseMetaObject(const QMediaDevices* self) {
+QMetaObject* QMediaDevices_SuperMetaObject(const QMediaDevices* self) {
     auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
     if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_MetaObject_IsBase(true);
@@ -161,7 +161,7 @@ void QMediaDevices_OnMetaObject(const QMediaDevices* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QMediaDevices_QBaseMetacast(QMediaDevices* self, const char* param1) {
+void* QMediaDevices_SuperMetacast(QMediaDevices* self, const char* param1) {
     auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
     if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_Metacast_IsBase(true);
@@ -180,7 +180,7 @@ void QMediaDevices_OnMetacast(QMediaDevices* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QMediaDevices_QBaseMetacall(QMediaDevices* self, int param1, int param2, void** param3) {
+int QMediaDevices_SuperMetacall(QMediaDevices* self, int param1, int param2, void** param3) {
     auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
     if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_Metacall_IsBase(true);
@@ -199,7 +199,7 @@ void QMediaDevices_OnMetacall(QMediaDevices* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMediaDevices_QBaseConnectNotify(QMediaDevices* self, const QMetaMethod* signal) {
+void QMediaDevices_SuperConnectNotify(QMediaDevices* self, const QMetaMethod* signal) {
     auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
     if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_ConnectNotify_IsBase(true);
@@ -228,7 +228,7 @@ bool QMediaDevices_Event(QMediaDevices* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QMediaDevices_QBaseEvent(QMediaDevices* self, QEvent* event) {
+bool QMediaDevices_SuperEvent(QMediaDevices* self, QEvent* event) {
     auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
     if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_Event_IsBase(true);
@@ -257,7 +257,7 @@ bool QMediaDevices_EventFilter(QMediaDevices* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QMediaDevices_QBaseEventFilter(QMediaDevices* self, QObject* watched, QEvent* event) {
+bool QMediaDevices_SuperEventFilter(QMediaDevices* self, QObject* watched, QEvent* event) {
     auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
     if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_EventFilter_IsBase(true);
@@ -286,7 +286,7 @@ void QMediaDevices_TimerEvent(QMediaDevices* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QMediaDevices_QBaseTimerEvent(QMediaDevices* self, QTimerEvent* event) {
+void QMediaDevices_SuperTimerEvent(QMediaDevices* self, QTimerEvent* event) {
     auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
     if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_TimerEvent_IsBase(true);
@@ -315,7 +315,7 @@ void QMediaDevices_ChildEvent(QMediaDevices* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QMediaDevices_QBaseChildEvent(QMediaDevices* self, QChildEvent* event) {
+void QMediaDevices_SuperChildEvent(QMediaDevices* self, QChildEvent* event) {
     auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
     if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_ChildEvent_IsBase(true);
@@ -344,7 +344,7 @@ void QMediaDevices_CustomEvent(QMediaDevices* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QMediaDevices_QBaseCustomEvent(QMediaDevices* self, QEvent* event) {
+void QMediaDevices_SuperCustomEvent(QMediaDevices* self, QEvent* event) {
     auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
     if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_CustomEvent_IsBase(true);
@@ -373,7 +373,7 @@ void QMediaDevices_DisconnectNotify(QMediaDevices* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QMediaDevices_QBaseDisconnectNotify(QMediaDevices* self, const QMetaMethod* signal) {
+void QMediaDevices_SuperDisconnectNotify(QMediaDevices* self, const QMetaMethod* signal) {
     auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
     if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_DisconnectNotify_IsBase(true);
@@ -402,7 +402,7 @@ QObject* QMediaDevices_Sender(const QMediaDevices* self) {
 }
 
 // Base class handler implementation
-QObject* QMediaDevices_QBaseSender(const QMediaDevices* self) {
+QObject* QMediaDevices_SuperSender(const QMediaDevices* self) {
     auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
     if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_Sender_IsBase(true);
@@ -431,7 +431,7 @@ int QMediaDevices_SenderSignalIndex(const QMediaDevices* self) {
 }
 
 // Base class handler implementation
-int QMediaDevices_QBaseSenderSignalIndex(const QMediaDevices* self) {
+int QMediaDevices_SuperSenderSignalIndex(const QMediaDevices* self) {
     auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
     if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_SenderSignalIndex_IsBase(true);
@@ -460,7 +460,7 @@ int QMediaDevices_Receivers(const QMediaDevices* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QMediaDevices_QBaseReceivers(const QMediaDevices* self, const char* signal) {
+int QMediaDevices_SuperReceivers(const QMediaDevices* self, const char* signal) {
     auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
     if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_Receivers_IsBase(true);
@@ -489,7 +489,7 @@ bool QMediaDevices_IsSignalConnected(const QMediaDevices* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QMediaDevices_QBaseIsSignalConnected(const QMediaDevices* self, const QMetaMethod* signal) {
+bool QMediaDevices_SuperIsSignalConnected(const QMediaDevices* self, const QMetaMethod* signal) {
     auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
     if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_IsSignalConnected_IsBase(true);

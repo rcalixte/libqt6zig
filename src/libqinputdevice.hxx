@@ -331,23 +331,23 @@ class VirtualQInputDevice final : public QInputDevice {
 
     // Friend functions
     friend void QInputDevice_TimerEvent(QInputDevice* self, QTimerEvent* event);
-    friend void QInputDevice_QBaseTimerEvent(QInputDevice* self, QTimerEvent* event);
+    friend void QInputDevice_SuperTimerEvent(QInputDevice* self, QTimerEvent* event);
     friend void QInputDevice_ChildEvent(QInputDevice* self, QChildEvent* event);
-    friend void QInputDevice_QBaseChildEvent(QInputDevice* self, QChildEvent* event);
+    friend void QInputDevice_SuperChildEvent(QInputDevice* self, QChildEvent* event);
     friend void QInputDevice_CustomEvent(QInputDevice* self, QEvent* event);
-    friend void QInputDevice_QBaseCustomEvent(QInputDevice* self, QEvent* event);
+    friend void QInputDevice_SuperCustomEvent(QInputDevice* self, QEvent* event);
     friend void QInputDevice_ConnectNotify(QInputDevice* self, const QMetaMethod* signal);
-    friend void QInputDevice_QBaseConnectNotify(QInputDevice* self, const QMetaMethod* signal);
+    friend void QInputDevice_SuperConnectNotify(QInputDevice* self, const QMetaMethod* signal);
     friend void QInputDevice_DisconnectNotify(QInputDevice* self, const QMetaMethod* signal);
-    friend void QInputDevice_QBaseDisconnectNotify(QInputDevice* self, const QMetaMethod* signal);
+    friend void QInputDevice_SuperDisconnectNotify(QInputDevice* self, const QMetaMethod* signal);
     friend QObject* QInputDevice_Sender(const QInputDevice* self);
-    friend QObject* QInputDevice_QBaseSender(const QInputDevice* self);
+    friend QObject* QInputDevice_SuperSender(const QInputDevice* self);
     friend int QInputDevice_SenderSignalIndex(const QInputDevice* self);
-    friend int QInputDevice_QBaseSenderSignalIndex(const QInputDevice* self);
+    friend int QInputDevice_SuperSenderSignalIndex(const QInputDevice* self);
     friend int QInputDevice_Receivers(const QInputDevice* self, const char* signal);
-    friend int QInputDevice_QBaseReceivers(const QInputDevice* self, const char* signal);
+    friend int QInputDevice_SuperReceivers(const QInputDevice* self, const char* signal);
     friend bool QInputDevice_IsSignalConnected(const QInputDevice* self, const QMetaMethod* signal);
-    friend bool QInputDevice_QBaseIsSignalConnected(const QInputDevice* self, const QMetaMethod* signal);
+    friend bool QInputDevice_SuperIsSignalConnected(const QInputDevice* self, const QMetaMethod* signal);
 };
 
 #endif

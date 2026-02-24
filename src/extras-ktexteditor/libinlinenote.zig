@@ -103,13 +103,17 @@ pub const ktexteditor__inlinenote = struct {
         return qtc.KTextEditor__InlineNote_LineHeight(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KTextEditor__InlineNote `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KTextEditor__InlineNote_Delete(@ptrCast(self));
     }
 };

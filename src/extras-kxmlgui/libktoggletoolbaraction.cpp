@@ -61,7 +61,7 @@ bool KToggleToolBarAction_EventFilter(KToggleToolBarAction* self, QObject* watch
 }
 
 // Base class handler implementation
-QMetaObject* KToggleToolBarAction_QBaseMetaObject(const KToggleToolBarAction* self) {
+QMetaObject* KToggleToolBarAction_SuperMetaObject(const KToggleToolBarAction* self) {
     auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
     if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
         vktoggletoolbaraction->setKToggleToolBarAction_MetaObject_IsBase(true);
@@ -80,7 +80,7 @@ void KToggleToolBarAction_OnMetaObject(const KToggleToolBarAction* self, intptr_
 }
 
 // Base class handler implementation
-void* KToggleToolBarAction_QBaseMetacast(KToggleToolBarAction* self, const char* param1) {
+void* KToggleToolBarAction_SuperMetacast(KToggleToolBarAction* self, const char* param1) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
     if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
         vktoggletoolbaraction->setKToggleToolBarAction_Metacast_IsBase(true);
@@ -99,7 +99,7 @@ void KToggleToolBarAction_OnMetacast(KToggleToolBarAction* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int KToggleToolBarAction_QBaseMetacall(KToggleToolBarAction* self, int param1, int param2, void** param3) {
+int KToggleToolBarAction_SuperMetacall(KToggleToolBarAction* self, int param1, int param2, void** param3) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
     if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
         vktoggletoolbaraction->setKToggleToolBarAction_Metacall_IsBase(true);
@@ -118,7 +118,7 @@ void KToggleToolBarAction_OnMetacall(KToggleToolBarAction* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-bool KToggleToolBarAction_QBaseEventFilter(KToggleToolBarAction* self, QObject* watched, QEvent* event) {
+bool KToggleToolBarAction_SuperEventFilter(KToggleToolBarAction* self, QObject* watched, QEvent* event) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
     if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
         vktoggletoolbaraction->setKToggleToolBarAction_EventFilter_IsBase(true);
@@ -147,7 +147,7 @@ bool KToggleToolBarAction_Event(KToggleToolBarAction* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-bool KToggleToolBarAction_QBaseEvent(KToggleToolBarAction* self, QEvent* param1) {
+bool KToggleToolBarAction_SuperEvent(KToggleToolBarAction* self, QEvent* param1) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
     if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
         vktoggletoolbaraction->setKToggleToolBarAction_Event_IsBase(true);
@@ -176,7 +176,7 @@ void KToggleToolBarAction_TimerEvent(KToggleToolBarAction* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void KToggleToolBarAction_QBaseTimerEvent(KToggleToolBarAction* self, QTimerEvent* event) {
+void KToggleToolBarAction_SuperTimerEvent(KToggleToolBarAction* self, QTimerEvent* event) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
     if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
         vktoggletoolbaraction->setKToggleToolBarAction_TimerEvent_IsBase(true);
@@ -205,7 +205,7 @@ void KToggleToolBarAction_ChildEvent(KToggleToolBarAction* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void KToggleToolBarAction_QBaseChildEvent(KToggleToolBarAction* self, QChildEvent* event) {
+void KToggleToolBarAction_SuperChildEvent(KToggleToolBarAction* self, QChildEvent* event) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
     if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
         vktoggletoolbaraction->setKToggleToolBarAction_ChildEvent_IsBase(true);
@@ -234,7 +234,7 @@ void KToggleToolBarAction_CustomEvent(KToggleToolBarAction* self, QEvent* event)
 }
 
 // Base class handler implementation
-void KToggleToolBarAction_QBaseCustomEvent(KToggleToolBarAction* self, QEvent* event) {
+void KToggleToolBarAction_SuperCustomEvent(KToggleToolBarAction* self, QEvent* event) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
     if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
         vktoggletoolbaraction->setKToggleToolBarAction_CustomEvent_IsBase(true);
@@ -263,7 +263,7 @@ void KToggleToolBarAction_ConnectNotify(KToggleToolBarAction* self, const QMetaM
 }
 
 // Base class handler implementation
-void KToggleToolBarAction_QBaseConnectNotify(KToggleToolBarAction* self, const QMetaMethod* signal) {
+void KToggleToolBarAction_SuperConnectNotify(KToggleToolBarAction* self, const QMetaMethod* signal) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
     if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
         vktoggletoolbaraction->setKToggleToolBarAction_ConnectNotify_IsBase(true);
@@ -292,7 +292,7 @@ void KToggleToolBarAction_DisconnectNotify(KToggleToolBarAction* self, const QMe
 }
 
 // Base class handler implementation
-void KToggleToolBarAction_QBaseDisconnectNotify(KToggleToolBarAction* self, const QMetaMethod* signal) {
+void KToggleToolBarAction_SuperDisconnectNotify(KToggleToolBarAction* self, const QMetaMethod* signal) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
     if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
         vktoggletoolbaraction->setKToggleToolBarAction_DisconnectNotify_IsBase(true);
@@ -321,7 +321,7 @@ QObject* KToggleToolBarAction_Sender(const KToggleToolBarAction* self) {
 }
 
 // Base class handler implementation
-QObject* KToggleToolBarAction_QBaseSender(const KToggleToolBarAction* self) {
+QObject* KToggleToolBarAction_SuperSender(const KToggleToolBarAction* self) {
     auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
     if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
         vktoggletoolbaraction->setKToggleToolBarAction_Sender_IsBase(true);
@@ -350,7 +350,7 @@ int KToggleToolBarAction_SenderSignalIndex(const KToggleToolBarAction* self) {
 }
 
 // Base class handler implementation
-int KToggleToolBarAction_QBaseSenderSignalIndex(const KToggleToolBarAction* self) {
+int KToggleToolBarAction_SuperSenderSignalIndex(const KToggleToolBarAction* self) {
     auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
     if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
         vktoggletoolbaraction->setKToggleToolBarAction_SenderSignalIndex_IsBase(true);
@@ -379,7 +379,7 @@ int KToggleToolBarAction_Receivers(const KToggleToolBarAction* self, const char*
 }
 
 // Base class handler implementation
-int KToggleToolBarAction_QBaseReceivers(const KToggleToolBarAction* self, const char* signal) {
+int KToggleToolBarAction_SuperReceivers(const KToggleToolBarAction* self, const char* signal) {
     auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
     if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
         vktoggletoolbaraction->setKToggleToolBarAction_Receivers_IsBase(true);
@@ -408,7 +408,7 @@ bool KToggleToolBarAction_IsSignalConnected(const KToggleToolBarAction* self, co
 }
 
 // Base class handler implementation
-bool KToggleToolBarAction_QBaseIsSignalConnected(const KToggleToolBarAction* self, const QMetaMethod* signal) {
+bool KToggleToolBarAction_SuperIsSignalConnected(const KToggleToolBarAction* self, const QMetaMethod* signal) {
     auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
     if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
         vktoggletoolbaraction->setKToggleToolBarAction_IsSignalConnected_IsBase(true);

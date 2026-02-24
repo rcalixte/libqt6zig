@@ -330,23 +330,23 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
 
     // Friend functions
     friend void QVideoFrameInput_TimerEvent(QVideoFrameInput* self, QTimerEvent* event);
-    friend void QVideoFrameInput_QBaseTimerEvent(QVideoFrameInput* self, QTimerEvent* event);
+    friend void QVideoFrameInput_SuperTimerEvent(QVideoFrameInput* self, QTimerEvent* event);
     friend void QVideoFrameInput_ChildEvent(QVideoFrameInput* self, QChildEvent* event);
-    friend void QVideoFrameInput_QBaseChildEvent(QVideoFrameInput* self, QChildEvent* event);
+    friend void QVideoFrameInput_SuperChildEvent(QVideoFrameInput* self, QChildEvent* event);
     friend void QVideoFrameInput_CustomEvent(QVideoFrameInput* self, QEvent* event);
-    friend void QVideoFrameInput_QBaseCustomEvent(QVideoFrameInput* self, QEvent* event);
+    friend void QVideoFrameInput_SuperCustomEvent(QVideoFrameInput* self, QEvent* event);
     friend void QVideoFrameInput_ConnectNotify(QVideoFrameInput* self, const QMetaMethod* signal);
-    friend void QVideoFrameInput_QBaseConnectNotify(QVideoFrameInput* self, const QMetaMethod* signal);
+    friend void QVideoFrameInput_SuperConnectNotify(QVideoFrameInput* self, const QMetaMethod* signal);
     friend void QVideoFrameInput_DisconnectNotify(QVideoFrameInput* self, const QMetaMethod* signal);
-    friend void QVideoFrameInput_QBaseDisconnectNotify(QVideoFrameInput* self, const QMetaMethod* signal);
+    friend void QVideoFrameInput_SuperDisconnectNotify(QVideoFrameInput* self, const QMetaMethod* signal);
     friend QObject* QVideoFrameInput_Sender(const QVideoFrameInput* self);
-    friend QObject* QVideoFrameInput_QBaseSender(const QVideoFrameInput* self);
+    friend QObject* QVideoFrameInput_SuperSender(const QVideoFrameInput* self);
     friend int QVideoFrameInput_SenderSignalIndex(const QVideoFrameInput* self);
-    friend int QVideoFrameInput_QBaseSenderSignalIndex(const QVideoFrameInput* self);
+    friend int QVideoFrameInput_SuperSenderSignalIndex(const QVideoFrameInput* self);
     friend int QVideoFrameInput_Receivers(const QVideoFrameInput* self, const char* signal);
-    friend int QVideoFrameInput_QBaseReceivers(const QVideoFrameInput* self, const char* signal);
+    friend int QVideoFrameInput_SuperReceivers(const QVideoFrameInput* self, const char* signal);
     friend bool QVideoFrameInput_IsSignalConnected(const QVideoFrameInput* self, const QMetaMethod* signal);
-    friend bool QVideoFrameInput_QBaseIsSignalConnected(const QVideoFrameInput* self, const QMetaMethod* signal);
+    friend bool QVideoFrameInput_SuperIsSignalConnected(const QVideoFrameInput* self, const QMetaMethod* signal);
 };
 
 #endif

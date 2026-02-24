@@ -407,27 +407,27 @@ class VirtualQTcpServer final : public QTcpServer {
 
     // Friend functions
     friend void QTcpServer_IncomingConnection(QTcpServer* self, intptr_t handle);
-    friend void QTcpServer_QBaseIncomingConnection(QTcpServer* self, intptr_t handle);
+    friend void QTcpServer_SuperIncomingConnection(QTcpServer* self, intptr_t handle);
     friend void QTcpServer_TimerEvent(QTcpServer* self, QTimerEvent* event);
-    friend void QTcpServer_QBaseTimerEvent(QTcpServer* self, QTimerEvent* event);
+    friend void QTcpServer_SuperTimerEvent(QTcpServer* self, QTimerEvent* event);
     friend void QTcpServer_ChildEvent(QTcpServer* self, QChildEvent* event);
-    friend void QTcpServer_QBaseChildEvent(QTcpServer* self, QChildEvent* event);
+    friend void QTcpServer_SuperChildEvent(QTcpServer* self, QChildEvent* event);
     friend void QTcpServer_CustomEvent(QTcpServer* self, QEvent* event);
-    friend void QTcpServer_QBaseCustomEvent(QTcpServer* self, QEvent* event);
+    friend void QTcpServer_SuperCustomEvent(QTcpServer* self, QEvent* event);
     friend void QTcpServer_ConnectNotify(QTcpServer* self, const QMetaMethod* signal);
-    friend void QTcpServer_QBaseConnectNotify(QTcpServer* self, const QMetaMethod* signal);
+    friend void QTcpServer_SuperConnectNotify(QTcpServer* self, const QMetaMethod* signal);
     friend void QTcpServer_DisconnectNotify(QTcpServer* self, const QMetaMethod* signal);
-    friend void QTcpServer_QBaseDisconnectNotify(QTcpServer* self, const QMetaMethod* signal);
+    friend void QTcpServer_SuperDisconnectNotify(QTcpServer* self, const QMetaMethod* signal);
     friend void QTcpServer_AddPendingConnection(QTcpServer* self, QTcpSocket* socket);
-    friend void QTcpServer_QBaseAddPendingConnection(QTcpServer* self, QTcpSocket* socket);
+    friend void QTcpServer_SuperAddPendingConnection(QTcpServer* self, QTcpSocket* socket);
     friend QObject* QTcpServer_Sender(const QTcpServer* self);
-    friend QObject* QTcpServer_QBaseSender(const QTcpServer* self);
+    friend QObject* QTcpServer_SuperSender(const QTcpServer* self);
     friend int QTcpServer_SenderSignalIndex(const QTcpServer* self);
-    friend int QTcpServer_QBaseSenderSignalIndex(const QTcpServer* self);
+    friend int QTcpServer_SuperSenderSignalIndex(const QTcpServer* self);
     friend int QTcpServer_Receivers(const QTcpServer* self, const char* signal);
-    friend int QTcpServer_QBaseReceivers(const QTcpServer* self, const char* signal);
+    friend int QTcpServer_SuperReceivers(const QTcpServer* self, const char* signal);
     friend bool QTcpServer_IsSignalConnected(const QTcpServer* self, const QMetaMethod* signal);
-    friend bool QTcpServer_QBaseIsSignalConnected(const QTcpServer* self, const QMetaMethod* signal);
+    friend bool QTcpServer_SuperIsSignalConnected(const QTcpServer* self, const QMetaMethod* signal);
 };
 
 #endif

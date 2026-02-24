@@ -46,7 +46,7 @@ Konsole__Filter__HotSpot* Konsole__Filter_HotSpotAt(const Konsole__Filter* self,
 }
 
 // Base class handler implementation
-void Konsole__Filter_QBaseProcess(Konsole__Filter* self) {
+void Konsole__Filter_SuperProcess(Konsole__Filter* self) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
     if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
         vkonsolefilter->setKonsole__Filter_Process_IsBase(true);
@@ -75,7 +75,7 @@ QMetaObject* Konsole__Filter_MetaObject(const Konsole__Filter* self) {
 }
 
 // Base class handler implementation
-QMetaObject* Konsole__Filter_QBaseMetaObject(const Konsole__Filter* self) {
+QMetaObject* Konsole__Filter_SuperMetaObject(const Konsole__Filter* self) {
     auto* vkonsolefilter = const_cast<VirtualKonsoleFilter*>(dynamic_cast<const VirtualKonsoleFilter*>(self));
     if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
         vkonsolefilter->setKonsole__Filter_MetaObject_IsBase(true);
@@ -104,7 +104,7 @@ void* Konsole__Filter_Metacast(Konsole__Filter* self, const char* param1) {
 }
 
 // Base class handler implementation
-void* Konsole__Filter_QBaseMetacast(Konsole__Filter* self, const char* param1) {
+void* Konsole__Filter_SuperMetacast(Konsole__Filter* self, const char* param1) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
     if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
         vkonsolefilter->setKonsole__Filter_Metacast_IsBase(true);
@@ -133,7 +133,7 @@ int Konsole__Filter_Metacall(Konsole__Filter* self, int param1, int param2, void
 }
 
 // Base class handler implementation
-int Konsole__Filter_QBaseMetacall(Konsole__Filter* self, int param1, int param2, void** param3) {
+int Konsole__Filter_SuperMetacall(Konsole__Filter* self, int param1, int param2, void** param3) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
     if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
         vkonsolefilter->setKonsole__Filter_Metacall_IsBase(true);
@@ -162,7 +162,7 @@ bool Konsole__Filter_Event(Konsole__Filter* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool Konsole__Filter_QBaseEvent(Konsole__Filter* self, QEvent* event) {
+bool Konsole__Filter_SuperEvent(Konsole__Filter* self, QEvent* event) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
     if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
         vkonsolefilter->setKonsole__Filter_Event_IsBase(true);
@@ -191,7 +191,7 @@ bool Konsole__Filter_EventFilter(Konsole__Filter* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool Konsole__Filter_QBaseEventFilter(Konsole__Filter* self, QObject* watched, QEvent* event) {
+bool Konsole__Filter_SuperEventFilter(Konsole__Filter* self, QObject* watched, QEvent* event) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
     if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
         vkonsolefilter->setKonsole__Filter_EventFilter_IsBase(true);
@@ -220,7 +220,7 @@ void Konsole__Filter_TimerEvent(Konsole__Filter* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void Konsole__Filter_QBaseTimerEvent(Konsole__Filter* self, QTimerEvent* event) {
+void Konsole__Filter_SuperTimerEvent(Konsole__Filter* self, QTimerEvent* event) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
     if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
         vkonsolefilter->setKonsole__Filter_TimerEvent_IsBase(true);
@@ -249,7 +249,7 @@ void Konsole__Filter_ChildEvent(Konsole__Filter* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void Konsole__Filter_QBaseChildEvent(Konsole__Filter* self, QChildEvent* event) {
+void Konsole__Filter_SuperChildEvent(Konsole__Filter* self, QChildEvent* event) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
     if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
         vkonsolefilter->setKonsole__Filter_ChildEvent_IsBase(true);
@@ -278,7 +278,7 @@ void Konsole__Filter_CustomEvent(Konsole__Filter* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void Konsole__Filter_QBaseCustomEvent(Konsole__Filter* self, QEvent* event) {
+void Konsole__Filter_SuperCustomEvent(Konsole__Filter* self, QEvent* event) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
     if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
         vkonsolefilter->setKonsole__Filter_CustomEvent_IsBase(true);
@@ -307,7 +307,7 @@ void Konsole__Filter_ConnectNotify(Konsole__Filter* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void Konsole__Filter_QBaseConnectNotify(Konsole__Filter* self, const QMetaMethod* signal) {
+void Konsole__Filter_SuperConnectNotify(Konsole__Filter* self, const QMetaMethod* signal) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
     if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
         vkonsolefilter->setKonsole__Filter_ConnectNotify_IsBase(true);
@@ -336,7 +336,7 @@ void Konsole__Filter_DisconnectNotify(Konsole__Filter* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void Konsole__Filter_QBaseDisconnectNotify(Konsole__Filter* self, const QMetaMethod* signal) {
+void Konsole__Filter_SuperDisconnectNotify(Konsole__Filter* self, const QMetaMethod* signal) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
     if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
         vkonsolefilter->setKonsole__Filter_DisconnectNotify_IsBase(true);
@@ -365,7 +365,7 @@ void Konsole__Filter_AddHotSpot(Konsole__Filter* self, Konsole__Filter__HotSpot*
 }
 
 // Base class handler implementation
-void Konsole__Filter_QBaseAddHotSpot(Konsole__Filter* self, Konsole__Filter__HotSpot* param1) {
+void Konsole__Filter_SuperAddHotSpot(Konsole__Filter* self, Konsole__Filter__HotSpot* param1) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
     if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
         vkonsolefilter->setKonsole__Filter_AddHotSpot_IsBase(true);
@@ -410,7 +410,7 @@ libqt_string Konsole__Filter_Buffer(Konsole__Filter* self) {
 }
 
 // Base class handler implementation
-libqt_string Konsole__Filter_QBaseBuffer(Konsole__Filter* self) {
+libqt_string Konsole__Filter_SuperBuffer(Konsole__Filter* self) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
     if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
         vkonsolefilter->setKonsole__Filter_Buffer_IsBase(true);
@@ -455,7 +455,7 @@ void Konsole__Filter_GetLineColumn(Konsole__Filter* self, int position, int* sta
 }
 
 // Base class handler implementation
-void Konsole__Filter_QBaseGetLineColumn(Konsole__Filter* self, int position, int* startLine, int* startColumn) {
+void Konsole__Filter_SuperGetLineColumn(Konsole__Filter* self, int position, int* startLine, int* startColumn) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
     if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
         vkonsolefilter->setKonsole__Filter_GetLineColumn_IsBase(true);
@@ -484,7 +484,7 @@ QObject* Konsole__Filter_Sender(const Konsole__Filter* self) {
 }
 
 // Base class handler implementation
-QObject* Konsole__Filter_QBaseSender(const Konsole__Filter* self) {
+QObject* Konsole__Filter_SuperSender(const Konsole__Filter* self) {
     auto* vkonsolefilter = const_cast<VirtualKonsoleFilter*>(dynamic_cast<const VirtualKonsoleFilter*>(self));
     if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
         vkonsolefilter->setKonsole__Filter_Sender_IsBase(true);
@@ -513,7 +513,7 @@ int Konsole__Filter_SenderSignalIndex(const Konsole__Filter* self) {
 }
 
 // Base class handler implementation
-int Konsole__Filter_QBaseSenderSignalIndex(const Konsole__Filter* self) {
+int Konsole__Filter_SuperSenderSignalIndex(const Konsole__Filter* self) {
     auto* vkonsolefilter = const_cast<VirtualKonsoleFilter*>(dynamic_cast<const VirtualKonsoleFilter*>(self));
     if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
         vkonsolefilter->setKonsole__Filter_SenderSignalIndex_IsBase(true);
@@ -542,7 +542,7 @@ int Konsole__Filter_Receivers(const Konsole__Filter* self, const char* signal) {
 }
 
 // Base class handler implementation
-int Konsole__Filter_QBaseReceivers(const Konsole__Filter* self, const char* signal) {
+int Konsole__Filter_SuperReceivers(const Konsole__Filter* self, const char* signal) {
     auto* vkonsolefilter = const_cast<VirtualKonsoleFilter*>(dynamic_cast<const VirtualKonsoleFilter*>(self));
     if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
         vkonsolefilter->setKonsole__Filter_Receivers_IsBase(true);
@@ -571,7 +571,7 @@ bool Konsole__Filter_IsSignalConnected(const Konsole__Filter* self, const QMetaM
 }
 
 // Base class handler implementation
-bool Konsole__Filter_QBaseIsSignalConnected(const Konsole__Filter* self, const QMetaMethod* signal) {
+bool Konsole__Filter_SuperIsSignalConnected(const Konsole__Filter* self, const QMetaMethod* signal) {
     auto* vkonsolefilter = const_cast<VirtualKonsoleFilter*>(dynamic_cast<const VirtualKonsoleFilter*>(self));
     if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
         vkonsolefilter->setKonsole__Filter_IsSignalConnected_IsBase(true);
@@ -623,7 +623,7 @@ Konsole__RegExpFilter__HotSpot* Konsole__RegExpFilter_NewHotSpot(Konsole__RegExp
 }
 
 // Base class handler implementation
-void Konsole__RegExpFilter_QBaseProcess(Konsole__RegExpFilter* self) {
+void Konsole__RegExpFilter_SuperProcess(Konsole__RegExpFilter* self) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
     if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
         vkonsoleregexpfilter->setKonsole__RegExpFilter_Process_IsBase(true);
@@ -642,7 +642,7 @@ void Konsole__RegExpFilter_OnProcess(Konsole__RegExpFilter* self, intptr_t slot)
 }
 
 // Base class handler implementation
-Konsole__RegExpFilter__HotSpot* Konsole__RegExpFilter_QBaseNewHotSpot(Konsole__RegExpFilter* self, int startLine, int startColumn, int endLine, int endColumn) {
+Konsole__RegExpFilter__HotSpot* Konsole__RegExpFilter_SuperNewHotSpot(Konsole__RegExpFilter* self, int startLine, int startColumn, int endLine, int endColumn) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
     if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
         vkonsoleregexpfilter->setKonsole__RegExpFilter_NewHotSpot_IsBase(true);
@@ -671,7 +671,7 @@ QMetaObject* Konsole__RegExpFilter_MetaObject(const Konsole__RegExpFilter* self)
 }
 
 // Base class handler implementation
-QMetaObject* Konsole__RegExpFilter_QBaseMetaObject(const Konsole__RegExpFilter* self) {
+QMetaObject* Konsole__RegExpFilter_SuperMetaObject(const Konsole__RegExpFilter* self) {
     auto* vkonsoleregexpfilter = const_cast<VirtualKonsoleRegExpFilter*>(dynamic_cast<const VirtualKonsoleRegExpFilter*>(self));
     if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
         vkonsoleregexpfilter->setKonsole__RegExpFilter_MetaObject_IsBase(true);
@@ -700,7 +700,7 @@ void* Konsole__RegExpFilter_Metacast(Konsole__RegExpFilter* self, const char* pa
 }
 
 // Base class handler implementation
-void* Konsole__RegExpFilter_QBaseMetacast(Konsole__RegExpFilter* self, const char* param1) {
+void* Konsole__RegExpFilter_SuperMetacast(Konsole__RegExpFilter* self, const char* param1) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
     if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
         vkonsoleregexpfilter->setKonsole__RegExpFilter_Metacast_IsBase(true);
@@ -729,7 +729,7 @@ int Konsole__RegExpFilter_Metacall(Konsole__RegExpFilter* self, int param1, int 
 }
 
 // Base class handler implementation
-int Konsole__RegExpFilter_QBaseMetacall(Konsole__RegExpFilter* self, int param1, int param2, void** param3) {
+int Konsole__RegExpFilter_SuperMetacall(Konsole__RegExpFilter* self, int param1, int param2, void** param3) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
     if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
         vkonsoleregexpfilter->setKonsole__RegExpFilter_Metacall_IsBase(true);
@@ -758,7 +758,7 @@ bool Konsole__RegExpFilter_Event(Konsole__RegExpFilter* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool Konsole__RegExpFilter_QBaseEvent(Konsole__RegExpFilter* self, QEvent* event) {
+bool Konsole__RegExpFilter_SuperEvent(Konsole__RegExpFilter* self, QEvent* event) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
     if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
         vkonsoleregexpfilter->setKonsole__RegExpFilter_Event_IsBase(true);
@@ -787,7 +787,7 @@ bool Konsole__RegExpFilter_EventFilter(Konsole__RegExpFilter* self, QObject* wat
 }
 
 // Base class handler implementation
-bool Konsole__RegExpFilter_QBaseEventFilter(Konsole__RegExpFilter* self, QObject* watched, QEvent* event) {
+bool Konsole__RegExpFilter_SuperEventFilter(Konsole__RegExpFilter* self, QObject* watched, QEvent* event) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
     if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
         vkonsoleregexpfilter->setKonsole__RegExpFilter_EventFilter_IsBase(true);
@@ -816,7 +816,7 @@ void Konsole__RegExpFilter_TimerEvent(Konsole__RegExpFilter* self, QTimerEvent* 
 }
 
 // Base class handler implementation
-void Konsole__RegExpFilter_QBaseTimerEvent(Konsole__RegExpFilter* self, QTimerEvent* event) {
+void Konsole__RegExpFilter_SuperTimerEvent(Konsole__RegExpFilter* self, QTimerEvent* event) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
     if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
         vkonsoleregexpfilter->setKonsole__RegExpFilter_TimerEvent_IsBase(true);
@@ -845,7 +845,7 @@ void Konsole__RegExpFilter_ChildEvent(Konsole__RegExpFilter* self, QChildEvent* 
 }
 
 // Base class handler implementation
-void Konsole__RegExpFilter_QBaseChildEvent(Konsole__RegExpFilter* self, QChildEvent* event) {
+void Konsole__RegExpFilter_SuperChildEvent(Konsole__RegExpFilter* self, QChildEvent* event) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
     if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
         vkonsoleregexpfilter->setKonsole__RegExpFilter_ChildEvent_IsBase(true);
@@ -874,7 +874,7 @@ void Konsole__RegExpFilter_CustomEvent(Konsole__RegExpFilter* self, QEvent* even
 }
 
 // Base class handler implementation
-void Konsole__RegExpFilter_QBaseCustomEvent(Konsole__RegExpFilter* self, QEvent* event) {
+void Konsole__RegExpFilter_SuperCustomEvent(Konsole__RegExpFilter* self, QEvent* event) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
     if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
         vkonsoleregexpfilter->setKonsole__RegExpFilter_CustomEvent_IsBase(true);
@@ -903,7 +903,7 @@ void Konsole__RegExpFilter_ConnectNotify(Konsole__RegExpFilter* self, const QMet
 }
 
 // Base class handler implementation
-void Konsole__RegExpFilter_QBaseConnectNotify(Konsole__RegExpFilter* self, const QMetaMethod* signal) {
+void Konsole__RegExpFilter_SuperConnectNotify(Konsole__RegExpFilter* self, const QMetaMethod* signal) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
     if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
         vkonsoleregexpfilter->setKonsole__RegExpFilter_ConnectNotify_IsBase(true);
@@ -932,7 +932,7 @@ void Konsole__RegExpFilter_DisconnectNotify(Konsole__RegExpFilter* self, const Q
 }
 
 // Base class handler implementation
-void Konsole__RegExpFilter_QBaseDisconnectNotify(Konsole__RegExpFilter* self, const QMetaMethod* signal) {
+void Konsole__RegExpFilter_SuperDisconnectNotify(Konsole__RegExpFilter* self, const QMetaMethod* signal) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
     if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
         vkonsoleregexpfilter->setKonsole__RegExpFilter_DisconnectNotify_IsBase(true);
@@ -961,7 +961,7 @@ void Konsole__RegExpFilter_AddHotSpot(Konsole__RegExpFilter* self, Konsole__Filt
 }
 
 // Base class handler implementation
-void Konsole__RegExpFilter_QBaseAddHotSpot(Konsole__RegExpFilter* self, Konsole__Filter__HotSpot* param1) {
+void Konsole__RegExpFilter_SuperAddHotSpot(Konsole__RegExpFilter* self, Konsole__Filter__HotSpot* param1) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
     if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
         vkonsoleregexpfilter->setKonsole__RegExpFilter_AddHotSpot_IsBase(true);
@@ -1006,7 +1006,7 @@ libqt_string Konsole__RegExpFilter_Buffer(Konsole__RegExpFilter* self) {
 }
 
 // Base class handler implementation
-libqt_string Konsole__RegExpFilter_QBaseBuffer(Konsole__RegExpFilter* self) {
+libqt_string Konsole__RegExpFilter_SuperBuffer(Konsole__RegExpFilter* self) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
     if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
         vkonsoleregexpfilter->setKonsole__RegExpFilter_Buffer_IsBase(true);
@@ -1051,7 +1051,7 @@ void Konsole__RegExpFilter_GetLineColumn(Konsole__RegExpFilter* self, int positi
 }
 
 // Base class handler implementation
-void Konsole__RegExpFilter_QBaseGetLineColumn(Konsole__RegExpFilter* self, int position, int* startLine, int* startColumn) {
+void Konsole__RegExpFilter_SuperGetLineColumn(Konsole__RegExpFilter* self, int position, int* startLine, int* startColumn) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
     if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
         vkonsoleregexpfilter->setKonsole__RegExpFilter_GetLineColumn_IsBase(true);
@@ -1080,7 +1080,7 @@ QObject* Konsole__RegExpFilter_Sender(const Konsole__RegExpFilter* self) {
 }
 
 // Base class handler implementation
-QObject* Konsole__RegExpFilter_QBaseSender(const Konsole__RegExpFilter* self) {
+QObject* Konsole__RegExpFilter_SuperSender(const Konsole__RegExpFilter* self) {
     auto* vkonsoleregexpfilter = const_cast<VirtualKonsoleRegExpFilter*>(dynamic_cast<const VirtualKonsoleRegExpFilter*>(self));
     if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
         vkonsoleregexpfilter->setKonsole__RegExpFilter_Sender_IsBase(true);
@@ -1109,7 +1109,7 @@ int Konsole__RegExpFilter_SenderSignalIndex(const Konsole__RegExpFilter* self) {
 }
 
 // Base class handler implementation
-int Konsole__RegExpFilter_QBaseSenderSignalIndex(const Konsole__RegExpFilter* self) {
+int Konsole__RegExpFilter_SuperSenderSignalIndex(const Konsole__RegExpFilter* self) {
     auto* vkonsoleregexpfilter = const_cast<VirtualKonsoleRegExpFilter*>(dynamic_cast<const VirtualKonsoleRegExpFilter*>(self));
     if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
         vkonsoleregexpfilter->setKonsole__RegExpFilter_SenderSignalIndex_IsBase(true);
@@ -1138,7 +1138,7 @@ int Konsole__RegExpFilter_Receivers(const Konsole__RegExpFilter* self, const cha
 }
 
 // Base class handler implementation
-int Konsole__RegExpFilter_QBaseReceivers(const Konsole__RegExpFilter* self, const char* signal) {
+int Konsole__RegExpFilter_SuperReceivers(const Konsole__RegExpFilter* self, const char* signal) {
     auto* vkonsoleregexpfilter = const_cast<VirtualKonsoleRegExpFilter*>(dynamic_cast<const VirtualKonsoleRegExpFilter*>(self));
     if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
         vkonsoleregexpfilter->setKonsole__RegExpFilter_Receivers_IsBase(true);
@@ -1167,7 +1167,7 @@ bool Konsole__RegExpFilter_IsSignalConnected(const Konsole__RegExpFilter* self, 
 }
 
 // Base class handler implementation
-bool Konsole__RegExpFilter_QBaseIsSignalConnected(const Konsole__RegExpFilter* self, const QMetaMethod* signal) {
+bool Konsole__RegExpFilter_SuperIsSignalConnected(const Konsole__RegExpFilter* self, const QMetaMethod* signal) {
     auto* vkonsoleregexpfilter = const_cast<VirtualKonsoleRegExpFilter*>(dynamic_cast<const VirtualKonsoleRegExpFilter*>(self));
     if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
         vkonsoleregexpfilter->setKonsole__RegExpFilter_IsSignalConnected_IsBase(true);
@@ -1244,7 +1244,7 @@ void Konsole__UrlFilter_Connect_Activated(Konsole__UrlFilter* self, intptr_t slo
 }
 
 // Base class handler implementation
-QMetaObject* Konsole__UrlFilter_QBaseMetaObject(const Konsole__UrlFilter* self) {
+QMetaObject* Konsole__UrlFilter_SuperMetaObject(const Konsole__UrlFilter* self) {
     auto* vkonsoleurlfilter = const_cast<VirtualKonsoleUrlFilter*>(dynamic_cast<const VirtualKonsoleUrlFilter*>(self));
     if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
         vkonsoleurlfilter->setKonsole__UrlFilter_MetaObject_IsBase(true);
@@ -1263,7 +1263,7 @@ void Konsole__UrlFilter_OnMetaObject(const Konsole__UrlFilter* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* Konsole__UrlFilter_QBaseMetacast(Konsole__UrlFilter* self, const char* param1) {
+void* Konsole__UrlFilter_SuperMetacast(Konsole__UrlFilter* self, const char* param1) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
     if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
         vkonsoleurlfilter->setKonsole__UrlFilter_Metacast_IsBase(true);
@@ -1282,7 +1282,7 @@ void Konsole__UrlFilter_OnMetacast(Konsole__UrlFilter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int Konsole__UrlFilter_QBaseMetacall(Konsole__UrlFilter* self, int param1, int param2, void** param3) {
+int Konsole__UrlFilter_SuperMetacall(Konsole__UrlFilter* self, int param1, int param2, void** param3) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
     if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
         vkonsoleurlfilter->setKonsole__UrlFilter_Metacall_IsBase(true);
@@ -1301,7 +1301,7 @@ void Konsole__UrlFilter_OnMetacall(Konsole__UrlFilter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-Konsole__RegExpFilter__HotSpot* Konsole__UrlFilter_QBaseNewHotSpot(Konsole__UrlFilter* self, int param1, int param2, int param3, int param4) {
+Konsole__RegExpFilter__HotSpot* Konsole__UrlFilter_SuperNewHotSpot(Konsole__UrlFilter* self, int param1, int param2, int param3, int param4) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
     if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
         vkonsoleurlfilter->setKonsole__UrlFilter_NewHotSpot_IsBase(true);
@@ -1330,7 +1330,7 @@ void Konsole__UrlFilter_Process(Konsole__UrlFilter* self) {
 }
 
 // Base class handler implementation
-void Konsole__UrlFilter_QBaseProcess(Konsole__UrlFilter* self) {
+void Konsole__UrlFilter_SuperProcess(Konsole__UrlFilter* self) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
     if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
         vkonsoleurlfilter->setKonsole__UrlFilter_Process_IsBase(true);
@@ -1359,7 +1359,7 @@ bool Konsole__UrlFilter_Event(Konsole__UrlFilter* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool Konsole__UrlFilter_QBaseEvent(Konsole__UrlFilter* self, QEvent* event) {
+bool Konsole__UrlFilter_SuperEvent(Konsole__UrlFilter* self, QEvent* event) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
     if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
         vkonsoleurlfilter->setKonsole__UrlFilter_Event_IsBase(true);
@@ -1388,7 +1388,7 @@ bool Konsole__UrlFilter_EventFilter(Konsole__UrlFilter* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool Konsole__UrlFilter_QBaseEventFilter(Konsole__UrlFilter* self, QObject* watched, QEvent* event) {
+bool Konsole__UrlFilter_SuperEventFilter(Konsole__UrlFilter* self, QObject* watched, QEvent* event) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
     if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
         vkonsoleurlfilter->setKonsole__UrlFilter_EventFilter_IsBase(true);
@@ -1417,7 +1417,7 @@ void Konsole__UrlFilter_TimerEvent(Konsole__UrlFilter* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void Konsole__UrlFilter_QBaseTimerEvent(Konsole__UrlFilter* self, QTimerEvent* event) {
+void Konsole__UrlFilter_SuperTimerEvent(Konsole__UrlFilter* self, QTimerEvent* event) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
     if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
         vkonsoleurlfilter->setKonsole__UrlFilter_TimerEvent_IsBase(true);
@@ -1446,7 +1446,7 @@ void Konsole__UrlFilter_ChildEvent(Konsole__UrlFilter* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void Konsole__UrlFilter_QBaseChildEvent(Konsole__UrlFilter* self, QChildEvent* event) {
+void Konsole__UrlFilter_SuperChildEvent(Konsole__UrlFilter* self, QChildEvent* event) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
     if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
         vkonsoleurlfilter->setKonsole__UrlFilter_ChildEvent_IsBase(true);
@@ -1475,7 +1475,7 @@ void Konsole__UrlFilter_CustomEvent(Konsole__UrlFilter* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void Konsole__UrlFilter_QBaseCustomEvent(Konsole__UrlFilter* self, QEvent* event) {
+void Konsole__UrlFilter_SuperCustomEvent(Konsole__UrlFilter* self, QEvent* event) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
     if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
         vkonsoleurlfilter->setKonsole__UrlFilter_CustomEvent_IsBase(true);
@@ -1504,7 +1504,7 @@ void Konsole__UrlFilter_ConnectNotify(Konsole__UrlFilter* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void Konsole__UrlFilter_QBaseConnectNotify(Konsole__UrlFilter* self, const QMetaMethod* signal) {
+void Konsole__UrlFilter_SuperConnectNotify(Konsole__UrlFilter* self, const QMetaMethod* signal) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
     if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
         vkonsoleurlfilter->setKonsole__UrlFilter_ConnectNotify_IsBase(true);
@@ -1533,7 +1533,7 @@ void Konsole__UrlFilter_DisconnectNotify(Konsole__UrlFilter* self, const QMetaMe
 }
 
 // Base class handler implementation
-void Konsole__UrlFilter_QBaseDisconnectNotify(Konsole__UrlFilter* self, const QMetaMethod* signal) {
+void Konsole__UrlFilter_SuperDisconnectNotify(Konsole__UrlFilter* self, const QMetaMethod* signal) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
     if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
         vkonsoleurlfilter->setKonsole__UrlFilter_DisconnectNotify_IsBase(true);
@@ -1562,7 +1562,7 @@ void Konsole__UrlFilter_AddHotSpot(Konsole__UrlFilter* self, Konsole__Filter__Ho
 }
 
 // Base class handler implementation
-void Konsole__UrlFilter_QBaseAddHotSpot(Konsole__UrlFilter* self, Konsole__Filter__HotSpot* param1) {
+void Konsole__UrlFilter_SuperAddHotSpot(Konsole__UrlFilter* self, Konsole__Filter__HotSpot* param1) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
     if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
         vkonsoleurlfilter->setKonsole__UrlFilter_AddHotSpot_IsBase(true);
@@ -1607,7 +1607,7 @@ libqt_string Konsole__UrlFilter_Buffer(Konsole__UrlFilter* self) {
 }
 
 // Base class handler implementation
-libqt_string Konsole__UrlFilter_QBaseBuffer(Konsole__UrlFilter* self) {
+libqt_string Konsole__UrlFilter_SuperBuffer(Konsole__UrlFilter* self) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
     if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
         vkonsoleurlfilter->setKonsole__UrlFilter_Buffer_IsBase(true);
@@ -1652,7 +1652,7 @@ void Konsole__UrlFilter_GetLineColumn(Konsole__UrlFilter* self, int position, in
 }
 
 // Base class handler implementation
-void Konsole__UrlFilter_QBaseGetLineColumn(Konsole__UrlFilter* self, int position, int* startLine, int* startColumn) {
+void Konsole__UrlFilter_SuperGetLineColumn(Konsole__UrlFilter* self, int position, int* startLine, int* startColumn) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
     if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
         vkonsoleurlfilter->setKonsole__UrlFilter_GetLineColumn_IsBase(true);
@@ -1681,7 +1681,7 @@ QObject* Konsole__UrlFilter_Sender(const Konsole__UrlFilter* self) {
 }
 
 // Base class handler implementation
-QObject* Konsole__UrlFilter_QBaseSender(const Konsole__UrlFilter* self) {
+QObject* Konsole__UrlFilter_SuperSender(const Konsole__UrlFilter* self) {
     auto* vkonsoleurlfilter = const_cast<VirtualKonsoleUrlFilter*>(dynamic_cast<const VirtualKonsoleUrlFilter*>(self));
     if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
         vkonsoleurlfilter->setKonsole__UrlFilter_Sender_IsBase(true);
@@ -1710,7 +1710,7 @@ int Konsole__UrlFilter_SenderSignalIndex(const Konsole__UrlFilter* self) {
 }
 
 // Base class handler implementation
-int Konsole__UrlFilter_QBaseSenderSignalIndex(const Konsole__UrlFilter* self) {
+int Konsole__UrlFilter_SuperSenderSignalIndex(const Konsole__UrlFilter* self) {
     auto* vkonsoleurlfilter = const_cast<VirtualKonsoleUrlFilter*>(dynamic_cast<const VirtualKonsoleUrlFilter*>(self));
     if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
         vkonsoleurlfilter->setKonsole__UrlFilter_SenderSignalIndex_IsBase(true);
@@ -1739,7 +1739,7 @@ int Konsole__UrlFilter_Receivers(const Konsole__UrlFilter* self, const char* sig
 }
 
 // Base class handler implementation
-int Konsole__UrlFilter_QBaseReceivers(const Konsole__UrlFilter* self, const char* signal) {
+int Konsole__UrlFilter_SuperReceivers(const Konsole__UrlFilter* self, const char* signal) {
     auto* vkonsoleurlfilter = const_cast<VirtualKonsoleUrlFilter*>(dynamic_cast<const VirtualKonsoleUrlFilter*>(self));
     if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
         vkonsoleurlfilter->setKonsole__UrlFilter_Receivers_IsBase(true);
@@ -1768,7 +1768,7 @@ bool Konsole__UrlFilter_IsSignalConnected(const Konsole__UrlFilter* self, const 
 }
 
 // Base class handler implementation
-bool Konsole__UrlFilter_QBaseIsSignalConnected(const Konsole__UrlFilter* self, const QMetaMethod* signal) {
+bool Konsole__UrlFilter_SuperIsSignalConnected(const Konsole__UrlFilter* self, const QMetaMethod* signal) {
     auto* vkonsoleurlfilter = const_cast<VirtualKonsoleUrlFilter*>(dynamic_cast<const VirtualKonsoleUrlFilter*>(self));
     if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
         vkonsoleurlfilter->setKonsole__UrlFilter_IsSignalConnected_IsBase(true);
@@ -1845,7 +1845,7 @@ void Konsole__FilterObject_Connect_Activated(Konsole__FilterObject* self, intptr
 }
 
 // Base class handler implementation
-QMetaObject* Konsole__FilterObject_QBaseMetaObject(const Konsole__FilterObject* self) {
+QMetaObject* Konsole__FilterObject_SuperMetaObject(const Konsole__FilterObject* self) {
     auto* vkonsolefilterobject = const_cast<VirtualKonsoleFilterObject*>(dynamic_cast<const VirtualKonsoleFilterObject*>(self));
     if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
         vkonsolefilterobject->setKonsole__FilterObject_MetaObject_IsBase(true);
@@ -1864,7 +1864,7 @@ void Konsole__FilterObject_OnMetaObject(const Konsole__FilterObject* self, intpt
 }
 
 // Base class handler implementation
-void* Konsole__FilterObject_QBaseMetacast(Konsole__FilterObject* self, const char* param1) {
+void* Konsole__FilterObject_SuperMetacast(Konsole__FilterObject* self, const char* param1) {
     auto* vkonsolefilterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
     if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
         vkonsolefilterobject->setKonsole__FilterObject_Metacast_IsBase(true);
@@ -1883,7 +1883,7 @@ void Konsole__FilterObject_OnMetacast(Konsole__FilterObject* self, intptr_t slot
 }
 
 // Base class handler implementation
-int Konsole__FilterObject_QBaseMetacall(Konsole__FilterObject* self, int param1, int param2, void** param3) {
+int Konsole__FilterObject_SuperMetacall(Konsole__FilterObject* self, int param1, int param2, void** param3) {
     auto* vkonsolefilterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
     if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
         vkonsolefilterobject->setKonsole__FilterObject_Metacall_IsBase(true);
@@ -1912,7 +1912,7 @@ bool Konsole__FilterObject_Event(Konsole__FilterObject* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool Konsole__FilterObject_QBaseEvent(Konsole__FilterObject* self, QEvent* event) {
+bool Konsole__FilterObject_SuperEvent(Konsole__FilterObject* self, QEvent* event) {
     auto* vkonsolefilterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
     if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
         vkonsolefilterobject->setKonsole__FilterObject_Event_IsBase(true);
@@ -1941,7 +1941,7 @@ bool Konsole__FilterObject_EventFilter(Konsole__FilterObject* self, QObject* wat
 }
 
 // Base class handler implementation
-bool Konsole__FilterObject_QBaseEventFilter(Konsole__FilterObject* self, QObject* watched, QEvent* event) {
+bool Konsole__FilterObject_SuperEventFilter(Konsole__FilterObject* self, QObject* watched, QEvent* event) {
     auto* vkonsolefilterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
     if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
         vkonsolefilterobject->setKonsole__FilterObject_EventFilter_IsBase(true);
@@ -1970,7 +1970,7 @@ void Konsole__FilterObject_TimerEvent(Konsole__FilterObject* self, QTimerEvent* 
 }
 
 // Base class handler implementation
-void Konsole__FilterObject_QBaseTimerEvent(Konsole__FilterObject* self, QTimerEvent* event) {
+void Konsole__FilterObject_SuperTimerEvent(Konsole__FilterObject* self, QTimerEvent* event) {
     auto* vkonsolefilterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
     if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
         vkonsolefilterobject->setKonsole__FilterObject_TimerEvent_IsBase(true);
@@ -1999,7 +1999,7 @@ void Konsole__FilterObject_ChildEvent(Konsole__FilterObject* self, QChildEvent* 
 }
 
 // Base class handler implementation
-void Konsole__FilterObject_QBaseChildEvent(Konsole__FilterObject* self, QChildEvent* event) {
+void Konsole__FilterObject_SuperChildEvent(Konsole__FilterObject* self, QChildEvent* event) {
     auto* vkonsolefilterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
     if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
         vkonsolefilterobject->setKonsole__FilterObject_ChildEvent_IsBase(true);
@@ -2028,7 +2028,7 @@ void Konsole__FilterObject_CustomEvent(Konsole__FilterObject* self, QEvent* even
 }
 
 // Base class handler implementation
-void Konsole__FilterObject_QBaseCustomEvent(Konsole__FilterObject* self, QEvent* event) {
+void Konsole__FilterObject_SuperCustomEvent(Konsole__FilterObject* self, QEvent* event) {
     auto* vkonsolefilterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
     if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
         vkonsolefilterobject->setKonsole__FilterObject_CustomEvent_IsBase(true);
@@ -2057,7 +2057,7 @@ void Konsole__FilterObject_ConnectNotify(Konsole__FilterObject* self, const QMet
 }
 
 // Base class handler implementation
-void Konsole__FilterObject_QBaseConnectNotify(Konsole__FilterObject* self, const QMetaMethod* signal) {
+void Konsole__FilterObject_SuperConnectNotify(Konsole__FilterObject* self, const QMetaMethod* signal) {
     auto* vkonsolefilterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
     if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
         vkonsolefilterobject->setKonsole__FilterObject_ConnectNotify_IsBase(true);
@@ -2086,7 +2086,7 @@ void Konsole__FilterObject_DisconnectNotify(Konsole__FilterObject* self, const Q
 }
 
 // Base class handler implementation
-void Konsole__FilterObject_QBaseDisconnectNotify(Konsole__FilterObject* self, const QMetaMethod* signal) {
+void Konsole__FilterObject_SuperDisconnectNotify(Konsole__FilterObject* self, const QMetaMethod* signal) {
     auto* vkonsolefilterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
     if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
         vkonsolefilterobject->setKonsole__FilterObject_DisconnectNotify_IsBase(true);
@@ -2115,7 +2115,7 @@ QObject* Konsole__FilterObject_Sender(const Konsole__FilterObject* self) {
 }
 
 // Base class handler implementation
-QObject* Konsole__FilterObject_QBaseSender(const Konsole__FilterObject* self) {
+QObject* Konsole__FilterObject_SuperSender(const Konsole__FilterObject* self) {
     auto* vkonsolefilterobject = const_cast<VirtualKonsoleFilterObject*>(dynamic_cast<const VirtualKonsoleFilterObject*>(self));
     if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
         vkonsolefilterobject->setKonsole__FilterObject_Sender_IsBase(true);
@@ -2144,7 +2144,7 @@ int Konsole__FilterObject_SenderSignalIndex(const Konsole__FilterObject* self) {
 }
 
 // Base class handler implementation
-int Konsole__FilterObject_QBaseSenderSignalIndex(const Konsole__FilterObject* self) {
+int Konsole__FilterObject_SuperSenderSignalIndex(const Konsole__FilterObject* self) {
     auto* vkonsolefilterobject = const_cast<VirtualKonsoleFilterObject*>(dynamic_cast<const VirtualKonsoleFilterObject*>(self));
     if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
         vkonsolefilterobject->setKonsole__FilterObject_SenderSignalIndex_IsBase(true);
@@ -2173,7 +2173,7 @@ int Konsole__FilterObject_Receivers(const Konsole__FilterObject* self, const cha
 }
 
 // Base class handler implementation
-int Konsole__FilterObject_QBaseReceivers(const Konsole__FilterObject* self, const char* signal) {
+int Konsole__FilterObject_SuperReceivers(const Konsole__FilterObject* self, const char* signal) {
     auto* vkonsolefilterobject = const_cast<VirtualKonsoleFilterObject*>(dynamic_cast<const VirtualKonsoleFilterObject*>(self));
     if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
         vkonsolefilterobject->setKonsole__FilterObject_Receivers_IsBase(true);
@@ -2202,7 +2202,7 @@ bool Konsole__FilterObject_IsSignalConnected(const Konsole__FilterObject* self, 
 }
 
 // Base class handler implementation
-bool Konsole__FilterObject_QBaseIsSignalConnected(const Konsole__FilterObject* self, const QMetaMethod* signal) {
+bool Konsole__FilterObject_SuperIsSignalConnected(const Konsole__FilterObject* self, const QMetaMethod* signal) {
     auto* vkonsolefilterobject = const_cast<VirtualKonsoleFilterObject*>(dynamic_cast<const VirtualKonsoleFilterObject*>(self));
     if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
         vkonsolefilterobject->setKonsole__FilterObject_IsSignalConnected_IsBase(true);
@@ -2355,7 +2355,7 @@ libqt_list /* of QAction* */ Konsole__Filter__HotSpot_Actions(Konsole__Filter__H
 }
 
 // Base class handler implementation
-void Konsole__Filter__HotSpot_QBaseActivate(Konsole__Filter__HotSpot* self, const libqt_string action) {
+void Konsole__Filter__HotSpot_SuperActivate(Konsole__Filter__HotSpot* self, const libqt_string action) {
     auto* vkonsolefilterhotspot = dynamic_cast<VirtualKonsoleFilterHotSpot*>(self);
     QString action_QString = QString::fromUtf8(action.data, action.len);
     if (vkonsolefilterhotspot && vkonsolefilterhotspot->isVirtualKonsoleFilterHotSpot) {
@@ -2375,7 +2375,7 @@ void Konsole__Filter__HotSpot_OnActivate(Konsole__Filter__HotSpot* self, intptr_
 }
 
 // Base class handler implementation
-libqt_list /* of QAction* */ Konsole__Filter__HotSpot_QBaseActions(Konsole__Filter__HotSpot* self) {
+libqt_list /* of QAction* */ Konsole__Filter__HotSpot_SuperActions(Konsole__Filter__HotSpot* self) {
     auto* vkonsolefilterhotspot = dynamic_cast<VirtualKonsoleFilterHotSpot*>(self);
     if (vkonsolefilterhotspot && vkonsolefilterhotspot->isVirtualKonsoleFilterHotSpot) {
         vkonsolefilterhotspot->setKonsole__Filter__HotSpot_Actions_IsBase(true);
@@ -2422,7 +2422,7 @@ void Konsole__Filter__HotSpot_SetType(Konsole__Filter__HotSpot* self, int typeVa
 }
 
 // Base class handler implementation
-void Konsole__Filter__HotSpot_QBaseSetType(Konsole__Filter__HotSpot* self, int typeVal) {
+void Konsole__Filter__HotSpot_SuperSetType(Konsole__Filter__HotSpot* self, int typeVal) {
     auto* vkonsolefilterhotspot = dynamic_cast<VirtualKonsoleFilterHotSpot*>(self);
     if (vkonsolefilterhotspot && vkonsolefilterhotspot->isVirtualKonsoleFilterHotSpot) {
         vkonsolefilterhotspot->setKonsole__Filter__HotSpot_SetType_IsBase(true);
@@ -2495,7 +2495,7 @@ libqt_list /* of libqt_string */ Konsole__RegExpFilter__HotSpot_CapturedTexts(co
 }
 
 // Base class handler implementation
-void Konsole__RegExpFilter__HotSpot_QBaseActivate(Konsole__RegExpFilter__HotSpot* self, const libqt_string action) {
+void Konsole__RegExpFilter__HotSpot_SuperActivate(Konsole__RegExpFilter__HotSpot* self, const libqt_string action) {
     auto* vkonsoleregexpfilterhotspot = dynamic_cast<VirtualKonsoleRegExpFilterHotSpot*>(self);
     QString action_QString = QString::fromUtf8(action.data, action.len);
     if (vkonsoleregexpfilterhotspot && vkonsoleregexpfilterhotspot->isVirtualKonsoleRegExpFilterHotSpot) {
@@ -2543,7 +2543,7 @@ libqt_list /* of QAction* */ Konsole__RegExpFilter__HotSpot_Actions(Konsole__Reg
 }
 
 // Base class handler implementation
-libqt_list /* of QAction* */ Konsole__RegExpFilter__HotSpot_QBaseActions(Konsole__RegExpFilter__HotSpot* self) {
+libqt_list /* of QAction* */ Konsole__RegExpFilter__HotSpot_SuperActions(Konsole__RegExpFilter__HotSpot* self) {
     auto* vkonsoleregexpfilterhotspot = dynamic_cast<VirtualKonsoleRegExpFilterHotSpot*>(self);
     if (vkonsoleregexpfilterhotspot && vkonsoleregexpfilterhotspot->isVirtualKonsoleRegExpFilterHotSpot) {
         vkonsoleregexpfilterhotspot->setKonsole__RegExpFilter__HotSpot_Actions_IsBase(true);
@@ -2590,7 +2590,7 @@ void Konsole__RegExpFilter__HotSpot_SetType(Konsole__RegExpFilter__HotSpot* self
 }
 
 // Base class handler implementation
-void Konsole__RegExpFilter__HotSpot_QBaseSetType(Konsole__RegExpFilter__HotSpot* self, int typeVal) {
+void Konsole__RegExpFilter__HotSpot_SuperSetType(Konsole__RegExpFilter__HotSpot* self, int typeVal) {
     auto* vkonsoleregexpfilterhotspot = dynamic_cast<VirtualKonsoleRegExpFilterHotSpot*>(self);
     if (vkonsoleregexpfilterhotspot && vkonsoleregexpfilterhotspot->isVirtualKonsoleRegExpFilterHotSpot) {
         vkonsoleregexpfilterhotspot->setKonsole__RegExpFilter__HotSpot_SetType_IsBase(true);
@@ -2658,7 +2658,7 @@ void Konsole__UrlFilter__HotSpot_Activate(Konsole__UrlFilter__HotSpot* self, con
 }
 
 // Base class handler implementation
-libqt_list /* of QAction* */ Konsole__UrlFilter__HotSpot_QBaseActions(Konsole__UrlFilter__HotSpot* self) {
+libqt_list /* of QAction* */ Konsole__UrlFilter__HotSpot_SuperActions(Konsole__UrlFilter__HotSpot* self) {
     auto* vkonsoleurlfilterhotspot = dynamic_cast<VirtualKonsoleUrlFilterHotSpot*>(self);
     if (vkonsoleurlfilterhotspot && vkonsoleurlfilterhotspot->isVirtualKonsoleUrlFilterHotSpot) {
         vkonsoleurlfilterhotspot->setKonsole__UrlFilter__HotSpot_Actions_IsBase(true);
@@ -2695,7 +2695,7 @@ void Konsole__UrlFilter__HotSpot_OnActions(Konsole__UrlFilter__HotSpot* self, in
 }
 
 // Base class handler implementation
-void Konsole__UrlFilter__HotSpot_QBaseActivate(Konsole__UrlFilter__HotSpot* self, const libqt_string action) {
+void Konsole__UrlFilter__HotSpot_SuperActivate(Konsole__UrlFilter__HotSpot* self, const libqt_string action) {
     auto* vkonsoleurlfilterhotspot = dynamic_cast<VirtualKonsoleUrlFilterHotSpot*>(self);
     QString action_QString = QString::fromUtf8(action.data, action.len);
     if (vkonsoleurlfilterhotspot && vkonsoleurlfilterhotspot->isVirtualKonsoleUrlFilterHotSpot) {
@@ -2725,7 +2725,7 @@ void Konsole__UrlFilter__HotSpot_SetType(Konsole__UrlFilter__HotSpot* self, int 
 }
 
 // Base class handler implementation
-void Konsole__UrlFilter__HotSpot_QBaseSetType(Konsole__UrlFilter__HotSpot* self, int typeVal) {
+void Konsole__UrlFilter__HotSpot_SuperSetType(Konsole__UrlFilter__HotSpot* self, int typeVal) {
     auto* vkonsoleurlfilterhotspot = dynamic_cast<VirtualKonsoleUrlFilterHotSpot*>(self);
     if (vkonsoleurlfilterhotspot && vkonsoleurlfilterhotspot->isVirtualKonsoleUrlFilterHotSpot) {
         vkonsoleurlfilterhotspot->setKonsole__UrlFilter__HotSpot_SetType_IsBase(true);

@@ -44,6 +44,10 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_OnCurrentTitle(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCurrentTitle` instead
+    ///
+    pub const QBaseCurrentTitle = SuperCurrentTitle;
+
     /// ### [Upstream resources](https://api.kde.org/kbookmarkowner.html#currentTitle)
     ///
     /// Base class method implementation
@@ -54,8 +58,8 @@ pub const kbookmarkowner = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseCurrentTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KBookmarkOwner_QBaseCurrentTitle(@ptrCast(self));
+    pub fn SuperCurrentTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KBookmarkOwner_SuperCurrentTitle(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkowner.CurrentTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -86,6 +90,10 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_OnCurrentUrl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCurrentUrl` instead
+    ///
+    pub const QBaseCurrentUrl = SuperCurrentUrl;
+
     /// ### [Upstream resources](https://api.kde.org/kbookmarkowner.html#currentUrl)
     ///
     /// Base class method implementation
@@ -94,8 +102,8 @@ pub const kbookmarkowner = struct {
     ///
     /// ` self: QtC.KBookmarkOwner `
     ///
-    pub fn QBaseCurrentUrl(self: ?*anyopaque) QtC.QUrl {
-        return qtc.KBookmarkOwner_QBaseCurrentUrl(@ptrCast(self));
+    pub fn SuperCurrentUrl(self: ?*anyopaque) QtC.QUrl {
+        return qtc.KBookmarkOwner_SuperCurrentUrl(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkowner.html#currentIcon)
@@ -130,6 +138,10 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_OnCurrentIcon(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCurrentIcon` instead
+    ///
+    pub const QBaseCurrentIcon = SuperCurrentIcon;
+
     /// ### [Upstream resources](https://api.kde.org/kbookmarkowner.html#currentIcon)
     ///
     /// Base class method implementation
@@ -140,8 +152,8 @@ pub const kbookmarkowner = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseCurrentIcon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KBookmarkOwner_QBaseCurrentIcon(@ptrCast(self));
+    pub fn SuperCurrentIcon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KBookmarkOwner_SuperCurrentIcon(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkowner.CurrentIcon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -172,6 +184,10 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_OnSupportsTabs(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSupportsTabs` instead
+    ///
+    pub const QBaseSupportsTabs = SuperSupportsTabs;
+
     /// ### [Upstream resources](https://api.kde.org/kbookmarkowner.html#supportsTabs)
     ///
     /// Base class method implementation
@@ -180,8 +196,8 @@ pub const kbookmarkowner = struct {
     ///
     /// ` self: QtC.KBookmarkOwner `
     ///
-    pub fn QBaseSupportsTabs(self: ?*anyopaque) bool {
-        return qtc.KBookmarkOwner_QBaseSupportsTabs(@ptrCast(self));
+    pub fn SuperSupportsTabs(self: ?*anyopaque) bool {
+        return qtc.KBookmarkOwner_SuperSupportsTabs(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkowner.html#currentBookmarkList)
@@ -221,6 +237,10 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_OnCurrentBookmarkList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCurrentBookmarkList` instead
+    ///
+    pub const QBaseCurrentBookmarkList = SuperCurrentBookmarkList;
+
     /// ### [Upstream resources](https://api.kde.org/kbookmarkowner.html#currentBookmarkList)
     ///
     /// Base class method implementation
@@ -231,8 +251,8 @@ pub const kbookmarkowner = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseCurrentBookmarkList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KBookmarkOwner__FutureBookmark {
-        const _arr: qtc.libqt_list = qtc.KBookmarkOwner_QBaseCurrentBookmarkList(@ptrCast(self));
+    pub fn SuperCurrentBookmarkList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KBookmarkOwner__FutureBookmark {
+        const _arr: qtc.libqt_list = qtc.KBookmarkOwner_SuperCurrentBookmarkList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.KBookmarkOwner__FutureBookmark, _arr.len) catch @panic("kbookmarkowner.CurrentBookmarkList: Memory allocation failed");
         const _data: [*]QtC.KBookmarkOwner__FutureBookmark = @ptrCast(@alignCast(_arr.data));
@@ -266,6 +286,10 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_OnEnableOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEnableOption` instead
+    ///
+    pub const QBaseEnableOption = SuperEnableOption;
+
     /// ### [Upstream resources](https://api.kde.org/kbookmarkowner.html#enableOption)
     ///
     /// Base class method implementation
@@ -276,8 +300,8 @@ pub const kbookmarkowner = struct {
     ///
     /// ` option: kbookmarkowner_enums.BookmarkOption `
     ///
-    pub fn QBaseEnableOption(self: ?*anyopaque, option: i32) bool {
-        return qtc.KBookmarkOwner_QBaseEnableOption(@ptrCast(self), @bitCast(option));
+    pub fn SuperEnableOption(self: ?*anyopaque, option: i32) bool {
+        return qtc.KBookmarkOwner_SuperEnableOption(@ptrCast(self), @bitCast(option));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkowner.html#openBookmark)
@@ -310,6 +334,10 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_OnOpenBookmark(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperOpenBookmark` instead
+    ///
+    pub const QBaseOpenBookmark = SuperOpenBookmark;
+
     /// ### [Upstream resources](https://api.kde.org/kbookmarkowner.html#openBookmark)
     ///
     /// Base class method implementation
@@ -324,8 +352,8 @@ pub const kbookmarkowner = struct {
     ///
     /// ` km: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn QBaseOpenBookmark(self: ?*anyopaque, bm: ?*anyopaque, mb: i32, km: i32) void {
-        qtc.KBookmarkOwner_QBaseOpenBookmark(@ptrCast(self), @ptrCast(bm), @bitCast(mb), @bitCast(km));
+    pub fn SuperOpenBookmark(self: ?*anyopaque, bm: ?*anyopaque, mb: i32, km: i32) void {
+        qtc.KBookmarkOwner_SuperOpenBookmark(@ptrCast(self), @ptrCast(bm), @bitCast(mb), @bitCast(km));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkowner.html#openFolderinTabs)
@@ -354,6 +382,10 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_OnOpenFolderinTabs(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperOpenFolderinTabs` instead
+    ///
+    pub const QBaseOpenFolderinTabs = SuperOpenFolderinTabs;
+
     /// ### [Upstream resources](https://api.kde.org/kbookmarkowner.html#openFolderinTabs)
     ///
     /// Base class method implementation
@@ -364,8 +396,8 @@ pub const kbookmarkowner = struct {
     ///
     /// ` bm: QtC.KBookmarkGroup `
     ///
-    pub fn QBaseOpenFolderinTabs(self: ?*anyopaque, bm: ?*anyopaque) void {
-        qtc.KBookmarkOwner_QBaseOpenFolderinTabs(@ptrCast(self), @ptrCast(bm));
+    pub fn SuperOpenFolderinTabs(self: ?*anyopaque, bm: ?*anyopaque) void {
+        qtc.KBookmarkOwner_SuperOpenFolderinTabs(@ptrCast(self), @ptrCast(bm));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkowner.html#openInNewTab)
@@ -394,6 +426,10 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_OnOpenInNewTab(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperOpenInNewTab` instead
+    ///
+    pub const QBaseOpenInNewTab = SuperOpenInNewTab;
+
     /// ### [Upstream resources](https://api.kde.org/kbookmarkowner.html#openInNewTab)
     ///
     /// Base class method implementation
@@ -404,8 +440,8 @@ pub const kbookmarkowner = struct {
     ///
     /// ` bm: QtC.KBookmark `
     ///
-    pub fn QBaseOpenInNewTab(self: ?*anyopaque, bm: ?*anyopaque) void {
-        qtc.KBookmarkOwner_QBaseOpenInNewTab(@ptrCast(self), @ptrCast(bm));
+    pub fn SuperOpenInNewTab(self: ?*anyopaque, bm: ?*anyopaque) void {
+        qtc.KBookmarkOwner_SuperOpenInNewTab(@ptrCast(self), @ptrCast(bm));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkowner.html#openInNewWindow)
@@ -434,6 +470,10 @@ pub const kbookmarkowner = struct {
         qtc.KBookmarkOwner_OnOpenInNewWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperOpenInNewWindow` instead
+    ///
+    pub const QBaseOpenInNewWindow = SuperOpenInNewWindow;
+
     /// ### [Upstream resources](https://api.kde.org/kbookmarkowner.html#openInNewWindow)
     ///
     /// Base class method implementation
@@ -444,9 +484,12 @@ pub const kbookmarkowner = struct {
     ///
     /// ` bm: QtC.KBookmark `
     ///
-    pub fn QBaseOpenInNewWindow(self: ?*anyopaque, bm: ?*anyopaque) void {
-        qtc.KBookmarkOwner_QBaseOpenInNewWindow(@ptrCast(self), @ptrCast(bm));
+    pub fn SuperOpenInNewWindow(self: ?*anyopaque, bm: ?*anyopaque) void {
+        qtc.KBookmarkOwner_SuperOpenInNewWindow(@ptrCast(self), @ptrCast(bm));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkowner.html#dtor.KBookmarkOwner)
     ///
@@ -456,7 +499,7 @@ pub const kbookmarkowner = struct {
     ///
     /// ` self: QtC.KBookmarkOwner `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KBookmarkOwner_Delete(@ptrCast(self));
     }
 };
@@ -550,13 +593,17 @@ pub const kbookmarkowner__futurebookmark = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KBookmarkOwner__FutureBookmark `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KBookmarkOwner__FutureBookmark_Delete(@ptrCast(self));
     }
 };

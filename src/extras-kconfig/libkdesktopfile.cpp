@@ -262,7 +262,7 @@ bool KDesktopFile_Sync(KDesktopFile* self) {
 }
 
 // Base class handler implementation
-bool KDesktopFile_QBaseSync(KDesktopFile* self) {
+bool KDesktopFile_SuperSync(KDesktopFile* self) {
     auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
     if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
         vkdesktopfile->setKDesktopFile_Sync_IsBase(true);
@@ -291,7 +291,7 @@ void KDesktopFile_MarkAsClean(KDesktopFile* self) {
 }
 
 // Base class handler implementation
-void KDesktopFile_QBaseMarkAsClean(KDesktopFile* self) {
+void KDesktopFile_SuperMarkAsClean(KDesktopFile* self) {
     auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
     if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
         vkdesktopfile->setKDesktopFile_MarkAsClean_IsBase(true);
@@ -320,7 +320,7 @@ int KDesktopFile_AccessMode(const KDesktopFile* self) {
 }
 
 // Base class handler implementation
-int KDesktopFile_QBaseAccessMode(const KDesktopFile* self) {
+int KDesktopFile_SuperAccessMode(const KDesktopFile* self) {
     auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
     if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
         vkdesktopfile->setKDesktopFile_AccessMode_IsBase(true);
@@ -349,7 +349,7 @@ bool KDesktopFile_IsImmutable(const KDesktopFile* self) {
 }
 
 // Base class handler implementation
-bool KDesktopFile_QBaseIsImmutable(const KDesktopFile* self) {
+bool KDesktopFile_SuperIsImmutable(const KDesktopFile* self) {
     auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
     if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
         vkdesktopfile->setKDesktopFile_IsImmutable_IsBase(true);
@@ -412,7 +412,7 @@ libqt_list /* of libqt_string */ KDesktopFile_GroupList(const KDesktopFile* self
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KDesktopFile_QBaseGroupList(const KDesktopFile* self) {
+libqt_list /* of libqt_string */ KDesktopFile_SuperGroupList(const KDesktopFile* self) {
     auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
     if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
         vkdesktopfile->setKDesktopFile_GroupList_IsBase(true);
@@ -476,7 +476,7 @@ bool KDesktopFile_HasGroupImpl(const KDesktopFile* self, const libqt_string grou
 }
 
 // Base class handler implementation
-bool KDesktopFile_QBaseHasGroupImpl(const KDesktopFile* self, const libqt_string groupName) {
+bool KDesktopFile_SuperHasGroupImpl(const KDesktopFile* self, const libqt_string groupName) {
     auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
     QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
     if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
@@ -506,7 +506,7 @@ KConfigGroup* KDesktopFile_GroupImpl(KDesktopFile* self, const libqt_string grou
 }
 
 // Base class handler implementation
-KConfigGroup* KDesktopFile_QBaseGroupImpl(KDesktopFile* self, const libqt_string groupName) {
+KConfigGroup* KDesktopFile_SuperGroupImpl(KDesktopFile* self, const libqt_string groupName) {
     auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
     QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
     if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
@@ -536,7 +536,7 @@ void KDesktopFile_DeleteGroupImpl(KDesktopFile* self, const libqt_string groupNa
 }
 
 // Base class handler implementation
-void KDesktopFile_QBaseDeleteGroupImpl(KDesktopFile* self, const libqt_string groupName, int flags) {
+void KDesktopFile_SuperDeleteGroupImpl(KDesktopFile* self, const libqt_string groupName, int flags) {
     auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
     QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
     if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
@@ -567,7 +567,7 @@ bool KDesktopFile_IsGroupImmutableImpl(const KDesktopFile* self, const libqt_str
 }
 
 // Base class handler implementation
-bool KDesktopFile_QBaseIsGroupImmutableImpl(const KDesktopFile* self, const libqt_string groupName) {
+bool KDesktopFile_SuperIsGroupImmutableImpl(const KDesktopFile* self, const libqt_string groupName) {
     auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
     QString groupName_QString = QString::fromUtf8(groupName.data, groupName.len);
     if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
@@ -597,7 +597,7 @@ void KDesktopFile_VirtualHook(KDesktopFile* self, int id, void* data) {
 }
 
 // Base class handler implementation
-void KDesktopFile_QBaseVirtualHook(KDesktopFile* self, int id, void* data) {
+void KDesktopFile_SuperVirtualHook(KDesktopFile* self, int id, void* data) {
     auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
     if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
         vkdesktopfile->setKDesktopFile_VirtualHook_IsBase(true);

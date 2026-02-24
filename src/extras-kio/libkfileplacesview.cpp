@@ -363,7 +363,7 @@ void KFilePlacesView_Connect_UrlsDropped(KFilePlacesView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* KFilePlacesView_QBaseMetaObject(const KFilePlacesView* self) {
+QMetaObject* KFilePlacesView_SuperMetaObject(const KFilePlacesView* self) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_MetaObject_IsBase(true);
@@ -382,7 +382,7 @@ void KFilePlacesView_OnMetaObject(const KFilePlacesView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KFilePlacesView_QBaseMetacast(KFilePlacesView* self, const char* param1) {
+void* KFilePlacesView_SuperMetacast(KFilePlacesView* self, const char* param1) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_Metacast_IsBase(true);
@@ -401,7 +401,7 @@ void KFilePlacesView_OnMetacast(KFilePlacesView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KFilePlacesView_QBaseMetacall(KFilePlacesView* self, int param1, int param2, void** param3) {
+int KFilePlacesView_SuperMetacall(KFilePlacesView* self, int param1, int param2, void** param3) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_Metacall_IsBase(true);
@@ -420,7 +420,7 @@ void KFilePlacesView_OnMetacall(KFilePlacesView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* KFilePlacesView_QBaseSizeHint(const KFilePlacesView* self) {
+QSize* KFilePlacesView_SuperSizeHint(const KFilePlacesView* self) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_SizeHint_IsBase(true);
@@ -439,7 +439,7 @@ void KFilePlacesView_OnSizeHint(const KFilePlacesView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseSetModel(KFilePlacesView* self, QAbstractItemModel* model) {
+void KFilePlacesView_SuperSetModel(KFilePlacesView* self, QAbstractItemModel* model) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_SetModel_IsBase(true);
@@ -458,7 +458,7 @@ void KFilePlacesView_OnSetModel(KFilePlacesView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseKeyPressEvent(KFilePlacesView* self, QKeyEvent* event) {
+void KFilePlacesView_SuperKeyPressEvent(KFilePlacesView* self, QKeyEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_KeyPressEvent_IsBase(true);
@@ -477,7 +477,7 @@ void KFilePlacesView_OnKeyPressEvent(KFilePlacesView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseContextMenuEvent(KFilePlacesView* self, QContextMenuEvent* event) {
+void KFilePlacesView_SuperContextMenuEvent(KFilePlacesView* self, QContextMenuEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_ContextMenuEvent_IsBase(true);
@@ -496,7 +496,7 @@ void KFilePlacesView_OnContextMenuEvent(KFilePlacesView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseResizeEvent(KFilePlacesView* self, QResizeEvent* event) {
+void KFilePlacesView_SuperResizeEvent(KFilePlacesView* self, QResizeEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_ResizeEvent_IsBase(true);
@@ -515,7 +515,7 @@ void KFilePlacesView_OnResizeEvent(KFilePlacesView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseShowEvent(KFilePlacesView* self, QShowEvent* event) {
+void KFilePlacesView_SuperShowEvent(KFilePlacesView* self, QShowEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_ShowEvent_IsBase(true);
@@ -534,7 +534,7 @@ void KFilePlacesView_OnShowEvent(KFilePlacesView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseHideEvent(KFilePlacesView* self, QHideEvent* event) {
+void KFilePlacesView_SuperHideEvent(KFilePlacesView* self, QHideEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_HideEvent_IsBase(true);
@@ -553,7 +553,7 @@ void KFilePlacesView_OnHideEvent(KFilePlacesView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseDragEnterEvent(KFilePlacesView* self, QDragEnterEvent* event) {
+void KFilePlacesView_SuperDragEnterEvent(KFilePlacesView* self, QDragEnterEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_DragEnterEvent_IsBase(true);
@@ -572,7 +572,7 @@ void KFilePlacesView_OnDragEnterEvent(KFilePlacesView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseDragLeaveEvent(KFilePlacesView* self, QDragLeaveEvent* event) {
+void KFilePlacesView_SuperDragLeaveEvent(KFilePlacesView* self, QDragLeaveEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_DragLeaveEvent_IsBase(true);
@@ -591,7 +591,7 @@ void KFilePlacesView_OnDragLeaveEvent(KFilePlacesView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseDragMoveEvent(KFilePlacesView* self, QDragMoveEvent* event) {
+void KFilePlacesView_SuperDragMoveEvent(KFilePlacesView* self, QDragMoveEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_DragMoveEvent_IsBase(true);
@@ -610,7 +610,7 @@ void KFilePlacesView_OnDragMoveEvent(KFilePlacesView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseDropEvent(KFilePlacesView* self, QDropEvent* event) {
+void KFilePlacesView_SuperDropEvent(KFilePlacesView* self, QDropEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_DropEvent_IsBase(true);
@@ -629,7 +629,7 @@ void KFilePlacesView_OnDropEvent(KFilePlacesView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBasePaintEvent(KFilePlacesView* self, QPaintEvent* event) {
+void KFilePlacesView_SuperPaintEvent(KFilePlacesView* self, QPaintEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_PaintEvent_IsBase(true);
@@ -648,7 +648,7 @@ void KFilePlacesView_OnPaintEvent(KFilePlacesView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseStartDrag(KFilePlacesView* self, int supportedActions) {
+void KFilePlacesView_SuperStartDrag(KFilePlacesView* self, int supportedActions) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_StartDrag_IsBase(true);
@@ -667,7 +667,7 @@ void KFilePlacesView_OnStartDrag(KFilePlacesView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseMousePressEvent(KFilePlacesView* self, QMouseEvent* event) {
+void KFilePlacesView_SuperMousePressEvent(KFilePlacesView* self, QMouseEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_MousePressEvent_IsBase(true);
@@ -686,7 +686,7 @@ void KFilePlacesView_OnMousePressEvent(KFilePlacesView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseRowsInserted(KFilePlacesView* self, const QModelIndex* parent, int start, int end) {
+void KFilePlacesView_SuperRowsInserted(KFilePlacesView* self, const QModelIndex* parent, int start, int end) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_RowsInserted_IsBase(true);
@@ -705,7 +705,7 @@ void KFilePlacesView_OnRowsInserted(KFilePlacesView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseDataChanged(KFilePlacesView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
+void KFilePlacesView_SuperDataChanged(KFilePlacesView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     QList<int> roles_QList;
     roles_QList.reserve(roles.len);
@@ -740,7 +740,7 @@ QRect* KFilePlacesView_VisualRect(const KFilePlacesView* self, const QModelIndex
 }
 
 // Base class handler implementation
-QRect* KFilePlacesView_QBaseVisualRect(const KFilePlacesView* self, const QModelIndex* index) {
+QRect* KFilePlacesView_SuperVisualRect(const KFilePlacesView* self, const QModelIndex* index) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_VisualRect_IsBase(true);
@@ -769,7 +769,7 @@ void KFilePlacesView_ScrollTo(KFilePlacesView* self, const QModelIndex* index, i
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseScrollTo(KFilePlacesView* self, const QModelIndex* index, int hint) {
+void KFilePlacesView_SuperScrollTo(KFilePlacesView* self, const QModelIndex* index, int hint) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_ScrollTo_IsBase(true);
@@ -798,7 +798,7 @@ QModelIndex* KFilePlacesView_IndexAt(const KFilePlacesView* self, const QPoint* 
 }
 
 // Base class handler implementation
-QModelIndex* KFilePlacesView_QBaseIndexAt(const KFilePlacesView* self, const QPoint* p) {
+QModelIndex* KFilePlacesView_SuperIndexAt(const KFilePlacesView* self, const QPoint* p) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_IndexAt_IsBase(true);
@@ -827,7 +827,7 @@ void KFilePlacesView_DoItemsLayout(KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseDoItemsLayout(KFilePlacesView* self) {
+void KFilePlacesView_SuperDoItemsLayout(KFilePlacesView* self) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_DoItemsLayout_IsBase(true);
@@ -856,7 +856,7 @@ void KFilePlacesView_Reset(KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseReset(KFilePlacesView* self) {
+void KFilePlacesView_SuperReset(KFilePlacesView* self) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_Reset_IsBase(true);
@@ -885,7 +885,7 @@ void KFilePlacesView_SetRootIndex(KFilePlacesView* self, const QModelIndex* inde
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseSetRootIndex(KFilePlacesView* self, const QModelIndex* index) {
+void KFilePlacesView_SuperSetRootIndex(KFilePlacesView* self, const QModelIndex* index) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_SetRootIndex_IsBase(true);
@@ -914,7 +914,7 @@ bool KFilePlacesView_Event(KFilePlacesView* self, QEvent* e) {
 }
 
 // Base class handler implementation
-bool KFilePlacesView_QBaseEvent(KFilePlacesView* self, QEvent* e) {
+bool KFilePlacesView_SuperEvent(KFilePlacesView* self, QEvent* e) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_Event_IsBase(true);
@@ -943,7 +943,7 @@ void KFilePlacesView_ScrollContentsBy(KFilePlacesView* self, int dx, int dy) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseScrollContentsBy(KFilePlacesView* self, int dx, int dy) {
+void KFilePlacesView_SuperScrollContentsBy(KFilePlacesView* self, int dx, int dy) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_ScrollContentsBy_IsBase(true);
@@ -972,7 +972,7 @@ void KFilePlacesView_RowsAboutToBeRemoved(KFilePlacesView* self, const QModelInd
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseRowsAboutToBeRemoved(KFilePlacesView* self, const QModelIndex* parent, int start, int end) {
+void KFilePlacesView_SuperRowsAboutToBeRemoved(KFilePlacesView* self, const QModelIndex* parent, int start, int end) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_RowsAboutToBeRemoved_IsBase(true);
@@ -1001,7 +1001,7 @@ void KFilePlacesView_MouseMoveEvent(KFilePlacesView* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseMouseMoveEvent(KFilePlacesView* self, QMouseEvent* e) {
+void KFilePlacesView_SuperMouseMoveEvent(KFilePlacesView* self, QMouseEvent* e) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_MouseMoveEvent_IsBase(true);
@@ -1030,7 +1030,7 @@ void KFilePlacesView_MouseReleaseEvent(KFilePlacesView* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseMouseReleaseEvent(KFilePlacesView* self, QMouseEvent* e) {
+void KFilePlacesView_SuperMouseReleaseEvent(KFilePlacesView* self, QMouseEvent* e) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_MouseReleaseEvent_IsBase(true);
@@ -1059,7 +1059,7 @@ void KFilePlacesView_WheelEvent(KFilePlacesView* self, QWheelEvent* e) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseWheelEvent(KFilePlacesView* self, QWheelEvent* e) {
+void KFilePlacesView_SuperWheelEvent(KFilePlacesView* self, QWheelEvent* e) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_WheelEvent_IsBase(true);
@@ -1088,7 +1088,7 @@ void KFilePlacesView_TimerEvent(KFilePlacesView* self, QTimerEvent* e) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseTimerEvent(KFilePlacesView* self, QTimerEvent* e) {
+void KFilePlacesView_SuperTimerEvent(KFilePlacesView* self, QTimerEvent* e) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_TimerEvent_IsBase(true);
@@ -1117,7 +1117,7 @@ void KFilePlacesView_InitViewItemOption(const KFilePlacesView* self, QStyleOptio
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseInitViewItemOption(const KFilePlacesView* self, QStyleOptionViewItem* option) {
+void KFilePlacesView_SuperInitViewItemOption(const KFilePlacesView* self, QStyleOptionViewItem* option) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_InitViewItemOption_IsBase(true);
@@ -1146,7 +1146,7 @@ int KFilePlacesView_HorizontalOffset(const KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-int KFilePlacesView_QBaseHorizontalOffset(const KFilePlacesView* self) {
+int KFilePlacesView_SuperHorizontalOffset(const KFilePlacesView* self) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_HorizontalOffset_IsBase(true);
@@ -1175,7 +1175,7 @@ int KFilePlacesView_VerticalOffset(const KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-int KFilePlacesView_QBaseVerticalOffset(const KFilePlacesView* self) {
+int KFilePlacesView_SuperVerticalOffset(const KFilePlacesView* self) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_VerticalOffset_IsBase(true);
@@ -1203,7 +1203,7 @@ QModelIndex* KFilePlacesView_MoveCursor(KFilePlacesView* self, int cursorAction,
 }
 
 // Base class handler implementation
-QModelIndex* KFilePlacesView_QBaseMoveCursor(KFilePlacesView* self, int cursorAction, int modifiers) {
+QModelIndex* KFilePlacesView_SuperMoveCursor(KFilePlacesView* self, int cursorAction, int modifiers) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_MoveCursor_IsBase(true);
@@ -1231,7 +1231,7 @@ void KFilePlacesView_SetSelection(KFilePlacesView* self, const QRect* rect, int 
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseSetSelection(KFilePlacesView* self, const QRect* rect, int command) {
+void KFilePlacesView_SuperSetSelection(KFilePlacesView* self, const QRect* rect, int command) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_SetSelection_IsBase(true);
@@ -1259,7 +1259,7 @@ QRegion* KFilePlacesView_VisualRegionForSelection(const KFilePlacesView* self, c
 }
 
 // Base class handler implementation
-QRegion* KFilePlacesView_QBaseVisualRegionForSelection(const KFilePlacesView* self, const QItemSelection* selection) {
+QRegion* KFilePlacesView_SuperVisualRegionForSelection(const KFilePlacesView* self, const QItemSelection* selection) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_VisualRegionForSelection_IsBase(true);
@@ -1305,7 +1305,7 @@ libqt_list /* of QModelIndex* */ KFilePlacesView_SelectedIndexes(const KFilePlac
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KFilePlacesView_QBaseSelectedIndexes(const KFilePlacesView* self) {
+libqt_list /* of QModelIndex* */ KFilePlacesView_SuperSelectedIndexes(const KFilePlacesView* self) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_SelectedIndexes_IsBase(true);
@@ -1352,7 +1352,7 @@ void KFilePlacesView_UpdateGeometries(KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseUpdateGeometries(KFilePlacesView* self) {
+void KFilePlacesView_SuperUpdateGeometries(KFilePlacesView* self) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_UpdateGeometries_IsBase(true);
@@ -1381,7 +1381,7 @@ bool KFilePlacesView_IsIndexHidden(const KFilePlacesView* self, const QModelInde
 }
 
 // Base class handler implementation
-bool KFilePlacesView_QBaseIsIndexHidden(const KFilePlacesView* self, const QModelIndex* index) {
+bool KFilePlacesView_SuperIsIndexHidden(const KFilePlacesView* self, const QModelIndex* index) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_IsIndexHidden_IsBase(true);
@@ -1410,7 +1410,7 @@ void KFilePlacesView_SelectionChanged(KFilePlacesView* self, const QItemSelectio
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseSelectionChanged(KFilePlacesView* self, const QItemSelection* selected, const QItemSelection* deselected) {
+void KFilePlacesView_SuperSelectionChanged(KFilePlacesView* self, const QItemSelection* selected, const QItemSelection* deselected) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_SelectionChanged_IsBase(true);
@@ -1439,7 +1439,7 @@ void KFilePlacesView_CurrentChanged(KFilePlacesView* self, const QModelIndex* cu
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseCurrentChanged(KFilePlacesView* self, const QModelIndex* current, const QModelIndex* previous) {
+void KFilePlacesView_SuperCurrentChanged(KFilePlacesView* self, const QModelIndex* current, const QModelIndex* previous) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_CurrentChanged_IsBase(true);
@@ -1467,7 +1467,7 @@ QSize* KFilePlacesView_ViewportSizeHint(const KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-QSize* KFilePlacesView_QBaseViewportSizeHint(const KFilePlacesView* self) {
+QSize* KFilePlacesView_SuperViewportSizeHint(const KFilePlacesView* self) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_ViewportSizeHint_IsBase(true);
@@ -1495,7 +1495,7 @@ void KFilePlacesView_SetSelectionModel(KFilePlacesView* self, QItemSelectionMode
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseSetSelectionModel(KFilePlacesView* self, QItemSelectionModel* selectionModel) {
+void KFilePlacesView_SuperSetSelectionModel(KFilePlacesView* self, QItemSelectionModel* selectionModel) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_SetSelectionModel_IsBase(true);
@@ -1525,7 +1525,7 @@ void KFilePlacesView_KeyboardSearch(KFilePlacesView* self, const libqt_string se
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseKeyboardSearch(KFilePlacesView* self, const libqt_string search) {
+void KFilePlacesView_SuperKeyboardSearch(KFilePlacesView* self, const libqt_string search) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     QString search_QString = QString::fromUtf8(search.data, search.len);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
@@ -1555,7 +1555,7 @@ int KFilePlacesView_SizeHintForRow(const KFilePlacesView* self, int row) {
 }
 
 // Base class handler implementation
-int KFilePlacesView_QBaseSizeHintForRow(const KFilePlacesView* self, int row) {
+int KFilePlacesView_SuperSizeHintForRow(const KFilePlacesView* self, int row) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_SizeHintForRow_IsBase(true);
@@ -1584,7 +1584,7 @@ int KFilePlacesView_SizeHintForColumn(const KFilePlacesView* self, int column) {
 }
 
 // Base class handler implementation
-int KFilePlacesView_QBaseSizeHintForColumn(const KFilePlacesView* self, int column) {
+int KFilePlacesView_SuperSizeHintForColumn(const KFilePlacesView* self, int column) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_SizeHintForColumn_IsBase(true);
@@ -1613,7 +1613,7 @@ QAbstractItemDelegate* KFilePlacesView_ItemDelegateForIndex(const KFilePlacesVie
 }
 
 // Base class handler implementation
-QAbstractItemDelegate* KFilePlacesView_QBaseItemDelegateForIndex(const KFilePlacesView* self, const QModelIndex* index) {
+QAbstractItemDelegate* KFilePlacesView_SuperItemDelegateForIndex(const KFilePlacesView* self, const QModelIndex* index) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_ItemDelegateForIndex_IsBase(true);
@@ -1642,7 +1642,7 @@ QVariant* KFilePlacesView_InputMethodQuery(const KFilePlacesView* self, int quer
 }
 
 // Base class handler implementation
-QVariant* KFilePlacesView_QBaseInputMethodQuery(const KFilePlacesView* self, int query) {
+QVariant* KFilePlacesView_SuperInputMethodQuery(const KFilePlacesView* self, int query) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_InputMethodQuery_IsBase(true);
@@ -1671,7 +1671,7 @@ void KFilePlacesView_SelectAll(KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseSelectAll(KFilePlacesView* self) {
+void KFilePlacesView_SuperSelectAll(KFilePlacesView* self) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_SelectAll_IsBase(true);
@@ -1700,7 +1700,7 @@ void KFilePlacesView_UpdateEditorData(KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseUpdateEditorData(KFilePlacesView* self) {
+void KFilePlacesView_SuperUpdateEditorData(KFilePlacesView* self) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_UpdateEditorData_IsBase(true);
@@ -1729,7 +1729,7 @@ void KFilePlacesView_UpdateEditorGeometries(KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseUpdateEditorGeometries(KFilePlacesView* self) {
+void KFilePlacesView_SuperUpdateEditorGeometries(KFilePlacesView* self) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_UpdateEditorGeometries_IsBase(true);
@@ -1758,7 +1758,7 @@ void KFilePlacesView_VerticalScrollbarAction(KFilePlacesView* self, int action) 
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseVerticalScrollbarAction(KFilePlacesView* self, int action) {
+void KFilePlacesView_SuperVerticalScrollbarAction(KFilePlacesView* self, int action) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_VerticalScrollbarAction_IsBase(true);
@@ -1787,7 +1787,7 @@ void KFilePlacesView_HorizontalScrollbarAction(KFilePlacesView* self, int action
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseHorizontalScrollbarAction(KFilePlacesView* self, int action) {
+void KFilePlacesView_SuperHorizontalScrollbarAction(KFilePlacesView* self, int action) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_HorizontalScrollbarAction_IsBase(true);
@@ -1816,7 +1816,7 @@ void KFilePlacesView_VerticalScrollbarValueChanged(KFilePlacesView* self, int va
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseVerticalScrollbarValueChanged(KFilePlacesView* self, int value) {
+void KFilePlacesView_SuperVerticalScrollbarValueChanged(KFilePlacesView* self, int value) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_VerticalScrollbarValueChanged_IsBase(true);
@@ -1845,7 +1845,7 @@ void KFilePlacesView_HorizontalScrollbarValueChanged(KFilePlacesView* self, int 
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseHorizontalScrollbarValueChanged(KFilePlacesView* self, int value) {
+void KFilePlacesView_SuperHorizontalScrollbarValueChanged(KFilePlacesView* self, int value) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_HorizontalScrollbarValueChanged_IsBase(true);
@@ -1874,7 +1874,7 @@ void KFilePlacesView_CloseEditor(KFilePlacesView* self, QWidget* editor, int hin
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseCloseEditor(KFilePlacesView* self, QWidget* editor, int hint) {
+void KFilePlacesView_SuperCloseEditor(KFilePlacesView* self, QWidget* editor, int hint) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_CloseEditor_IsBase(true);
@@ -1903,7 +1903,7 @@ void KFilePlacesView_CommitData(KFilePlacesView* self, QWidget* editor) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseCommitData(KFilePlacesView* self, QWidget* editor) {
+void KFilePlacesView_SuperCommitData(KFilePlacesView* self, QWidget* editor) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_CommitData_IsBase(true);
@@ -1932,7 +1932,7 @@ void KFilePlacesView_EditorDestroyed(KFilePlacesView* self, QObject* editor) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseEditorDestroyed(KFilePlacesView* self, QObject* editor) {
+void KFilePlacesView_SuperEditorDestroyed(KFilePlacesView* self, QObject* editor) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_EditorDestroyed_IsBase(true);
@@ -1961,7 +1961,7 @@ bool KFilePlacesView_Edit2(KFilePlacesView* self, const QModelIndex* index, int 
 }
 
 // Base class handler implementation
-bool KFilePlacesView_QBaseEdit2(KFilePlacesView* self, const QModelIndex* index, int trigger, QEvent* event) {
+bool KFilePlacesView_SuperEdit2(KFilePlacesView* self, const QModelIndex* index, int trigger, QEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_Edit2_IsBase(true);
@@ -1990,7 +1990,7 @@ int KFilePlacesView_SelectionCommand(const KFilePlacesView* self, const QModelIn
 }
 
 // Base class handler implementation
-int KFilePlacesView_QBaseSelectionCommand(const KFilePlacesView* self, const QModelIndex* index, const QEvent* event) {
+int KFilePlacesView_SuperSelectionCommand(const KFilePlacesView* self, const QModelIndex* index, const QEvent* event) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_SelectionCommand_IsBase(true);
@@ -2019,7 +2019,7 @@ bool KFilePlacesView_FocusNextPrevChild(KFilePlacesView* self, bool next) {
 }
 
 // Base class handler implementation
-bool KFilePlacesView_QBaseFocusNextPrevChild(KFilePlacesView* self, bool next) {
+bool KFilePlacesView_SuperFocusNextPrevChild(KFilePlacesView* self, bool next) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_FocusNextPrevChild_IsBase(true);
@@ -2048,7 +2048,7 @@ bool KFilePlacesView_ViewportEvent(KFilePlacesView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KFilePlacesView_QBaseViewportEvent(KFilePlacesView* self, QEvent* event) {
+bool KFilePlacesView_SuperViewportEvent(KFilePlacesView* self, QEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_ViewportEvent_IsBase(true);
@@ -2077,7 +2077,7 @@ void KFilePlacesView_MouseDoubleClickEvent(KFilePlacesView* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseMouseDoubleClickEvent(KFilePlacesView* self, QMouseEvent* event) {
+void KFilePlacesView_SuperMouseDoubleClickEvent(KFilePlacesView* self, QMouseEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_MouseDoubleClickEvent_IsBase(true);
@@ -2106,7 +2106,7 @@ void KFilePlacesView_FocusInEvent(KFilePlacesView* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseFocusInEvent(KFilePlacesView* self, QFocusEvent* event) {
+void KFilePlacesView_SuperFocusInEvent(KFilePlacesView* self, QFocusEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_FocusInEvent_IsBase(true);
@@ -2135,7 +2135,7 @@ void KFilePlacesView_FocusOutEvent(KFilePlacesView* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseFocusOutEvent(KFilePlacesView* self, QFocusEvent* event) {
+void KFilePlacesView_SuperFocusOutEvent(KFilePlacesView* self, QFocusEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_FocusOutEvent_IsBase(true);
@@ -2164,7 +2164,7 @@ void KFilePlacesView_InputMethodEvent(KFilePlacesView* self, QInputMethodEvent* 
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseInputMethodEvent(KFilePlacesView* self, QInputMethodEvent* event) {
+void KFilePlacesView_SuperInputMethodEvent(KFilePlacesView* self, QInputMethodEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_InputMethodEvent_IsBase(true);
@@ -2193,7 +2193,7 @@ bool KFilePlacesView_EventFilter(KFilePlacesView* self, QObject* object, QEvent*
 }
 
 // Base class handler implementation
-bool KFilePlacesView_QBaseEventFilter(KFilePlacesView* self, QObject* object, QEvent* event) {
+bool KFilePlacesView_SuperEventFilter(KFilePlacesView* self, QObject* object, QEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_EventFilter_IsBase(true);
@@ -2222,7 +2222,7 @@ QSize* KFilePlacesView_MinimumSizeHint(const KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-QSize* KFilePlacesView_QBaseMinimumSizeHint(const KFilePlacesView* self) {
+QSize* KFilePlacesView_SuperMinimumSizeHint(const KFilePlacesView* self) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_MinimumSizeHint_IsBase(true);
@@ -2251,7 +2251,7 @@ void KFilePlacesView_SetupViewport(KFilePlacesView* self, QWidget* viewport) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseSetupViewport(KFilePlacesView* self, QWidget* viewport) {
+void KFilePlacesView_SuperSetupViewport(KFilePlacesView* self, QWidget* viewport) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_SetupViewport_IsBase(true);
@@ -2280,7 +2280,7 @@ void KFilePlacesView_ChangeEvent(KFilePlacesView* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseChangeEvent(KFilePlacesView* self, QEvent* param1) {
+void KFilePlacesView_SuperChangeEvent(KFilePlacesView* self, QEvent* param1) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_ChangeEvent_IsBase(true);
@@ -2309,7 +2309,7 @@ void KFilePlacesView_InitStyleOption(const KFilePlacesView* self, QStyleOptionFr
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseInitStyleOption(const KFilePlacesView* self, QStyleOptionFrame* option) {
+void KFilePlacesView_SuperInitStyleOption(const KFilePlacesView* self, QStyleOptionFrame* option) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_InitStyleOption_IsBase(true);
@@ -2338,7 +2338,7 @@ int KFilePlacesView_DevType(const KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-int KFilePlacesView_QBaseDevType(const KFilePlacesView* self) {
+int KFilePlacesView_SuperDevType(const KFilePlacesView* self) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_DevType_IsBase(true);
@@ -2367,7 +2367,7 @@ void KFilePlacesView_SetVisible(KFilePlacesView* self, bool visible) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseSetVisible(KFilePlacesView* self, bool visible) {
+void KFilePlacesView_SuperSetVisible(KFilePlacesView* self, bool visible) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_SetVisible_IsBase(true);
@@ -2396,7 +2396,7 @@ int KFilePlacesView_HeightForWidth(const KFilePlacesView* self, int param1) {
 }
 
 // Base class handler implementation
-int KFilePlacesView_QBaseHeightForWidth(const KFilePlacesView* self, int param1) {
+int KFilePlacesView_SuperHeightForWidth(const KFilePlacesView* self, int param1) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_HeightForWidth_IsBase(true);
@@ -2425,7 +2425,7 @@ bool KFilePlacesView_HasHeightForWidth(const KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-bool KFilePlacesView_QBaseHasHeightForWidth(const KFilePlacesView* self) {
+bool KFilePlacesView_SuperHasHeightForWidth(const KFilePlacesView* self) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_HasHeightForWidth_IsBase(true);
@@ -2454,7 +2454,7 @@ QPaintEngine* KFilePlacesView_PaintEngine(const KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KFilePlacesView_QBasePaintEngine(const KFilePlacesView* self) {
+QPaintEngine* KFilePlacesView_SuperPaintEngine(const KFilePlacesView* self) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_PaintEngine_IsBase(true);
@@ -2483,7 +2483,7 @@ void KFilePlacesView_KeyReleaseEvent(KFilePlacesView* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseKeyReleaseEvent(KFilePlacesView* self, QKeyEvent* event) {
+void KFilePlacesView_SuperKeyReleaseEvent(KFilePlacesView* self, QKeyEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_KeyReleaseEvent_IsBase(true);
@@ -2512,7 +2512,7 @@ void KFilePlacesView_EnterEvent(KFilePlacesView* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseEnterEvent(KFilePlacesView* self, QEnterEvent* event) {
+void KFilePlacesView_SuperEnterEvent(KFilePlacesView* self, QEnterEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_EnterEvent_IsBase(true);
@@ -2541,7 +2541,7 @@ void KFilePlacesView_LeaveEvent(KFilePlacesView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseLeaveEvent(KFilePlacesView* self, QEvent* event) {
+void KFilePlacesView_SuperLeaveEvent(KFilePlacesView* self, QEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_LeaveEvent_IsBase(true);
@@ -2570,7 +2570,7 @@ void KFilePlacesView_MoveEvent(KFilePlacesView* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseMoveEvent(KFilePlacesView* self, QMoveEvent* event) {
+void KFilePlacesView_SuperMoveEvent(KFilePlacesView* self, QMoveEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_MoveEvent_IsBase(true);
@@ -2599,7 +2599,7 @@ void KFilePlacesView_CloseEvent(KFilePlacesView* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseCloseEvent(KFilePlacesView* self, QCloseEvent* event) {
+void KFilePlacesView_SuperCloseEvent(KFilePlacesView* self, QCloseEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_CloseEvent_IsBase(true);
@@ -2628,7 +2628,7 @@ void KFilePlacesView_TabletEvent(KFilePlacesView* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseTabletEvent(KFilePlacesView* self, QTabletEvent* event) {
+void KFilePlacesView_SuperTabletEvent(KFilePlacesView* self, QTabletEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_TabletEvent_IsBase(true);
@@ -2657,7 +2657,7 @@ void KFilePlacesView_ActionEvent(KFilePlacesView* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseActionEvent(KFilePlacesView* self, QActionEvent* event) {
+void KFilePlacesView_SuperActionEvent(KFilePlacesView* self, QActionEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_ActionEvent_IsBase(true);
@@ -2687,7 +2687,7 @@ bool KFilePlacesView_NativeEvent(KFilePlacesView* self, const libqt_string event
 }
 
 // Base class handler implementation
-bool KFilePlacesView_QBaseNativeEvent(KFilePlacesView* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KFilePlacesView_SuperNativeEvent(KFilePlacesView* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
@@ -2717,7 +2717,7 @@ int KFilePlacesView_Metric(const KFilePlacesView* self, int param1) {
 }
 
 // Base class handler implementation
-int KFilePlacesView_QBaseMetric(const KFilePlacesView* self, int param1) {
+int KFilePlacesView_SuperMetric(const KFilePlacesView* self, int param1) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_Metric_IsBase(true);
@@ -2746,7 +2746,7 @@ void KFilePlacesView_InitPainter(const KFilePlacesView* self, QPainter* painter)
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseInitPainter(const KFilePlacesView* self, QPainter* painter) {
+void KFilePlacesView_SuperInitPainter(const KFilePlacesView* self, QPainter* painter) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_InitPainter_IsBase(true);
@@ -2775,7 +2775,7 @@ QPaintDevice* KFilePlacesView_Redirected(const KFilePlacesView* self, QPoint* of
 }
 
 // Base class handler implementation
-QPaintDevice* KFilePlacesView_QBaseRedirected(const KFilePlacesView* self, QPoint* offset) {
+QPaintDevice* KFilePlacesView_SuperRedirected(const KFilePlacesView* self, QPoint* offset) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_Redirected_IsBase(true);
@@ -2804,7 +2804,7 @@ QPainter* KFilePlacesView_SharedPainter(const KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-QPainter* KFilePlacesView_QBaseSharedPainter(const KFilePlacesView* self) {
+QPainter* KFilePlacesView_SuperSharedPainter(const KFilePlacesView* self) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_SharedPainter_IsBase(true);
@@ -2833,7 +2833,7 @@ void KFilePlacesView_ChildEvent(KFilePlacesView* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseChildEvent(KFilePlacesView* self, QChildEvent* event) {
+void KFilePlacesView_SuperChildEvent(KFilePlacesView* self, QChildEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_ChildEvent_IsBase(true);
@@ -2862,7 +2862,7 @@ void KFilePlacesView_CustomEvent(KFilePlacesView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseCustomEvent(KFilePlacesView* self, QEvent* event) {
+void KFilePlacesView_SuperCustomEvent(KFilePlacesView* self, QEvent* event) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_CustomEvent_IsBase(true);
@@ -2891,7 +2891,7 @@ void KFilePlacesView_ConnectNotify(KFilePlacesView* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseConnectNotify(KFilePlacesView* self, const QMetaMethod* signal) {
+void KFilePlacesView_SuperConnectNotify(KFilePlacesView* self, const QMetaMethod* signal) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_ConnectNotify_IsBase(true);
@@ -2920,7 +2920,7 @@ void KFilePlacesView_DisconnectNotify(KFilePlacesView* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseDisconnectNotify(KFilePlacesView* self, const QMetaMethod* signal) {
+void KFilePlacesView_SuperDisconnectNotify(KFilePlacesView* self, const QMetaMethod* signal) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_DisconnectNotify_IsBase(true);
@@ -2949,7 +2949,7 @@ void KFilePlacesView_ResizeContents(KFilePlacesView* self, int width, int height
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseResizeContents(KFilePlacesView* self, int width, int height) {
+void KFilePlacesView_SuperResizeContents(KFilePlacesView* self, int width, int height) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_ResizeContents_IsBase(true);
@@ -2977,7 +2977,7 @@ QSize* KFilePlacesView_ContentsSize(const KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-QSize* KFilePlacesView_QBaseContentsSize(const KFilePlacesView* self) {
+QSize* KFilePlacesView_SuperContentsSize(const KFilePlacesView* self) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_ContentsSize_IsBase(true);
@@ -3004,7 +3004,7 @@ QRect* KFilePlacesView_RectForIndex(const KFilePlacesView* self, const QModelInd
 }
 
 // Base class handler implementation
-QRect* KFilePlacesView_QBaseRectForIndex(const KFilePlacesView* self, const QModelIndex* index) {
+QRect* KFilePlacesView_SuperRectForIndex(const KFilePlacesView* self, const QModelIndex* index) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_RectForIndex_IsBase(true);
@@ -3032,7 +3032,7 @@ void KFilePlacesView_SetPositionForIndex(KFilePlacesView* self, const QPoint* po
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseSetPositionForIndex(KFilePlacesView* self, const QPoint* position, const QModelIndex* index) {
+void KFilePlacesView_SuperSetPositionForIndex(KFilePlacesView* self, const QPoint* position, const QModelIndex* index) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_SetPositionForIndex_IsBase(true);
@@ -3061,7 +3061,7 @@ int KFilePlacesView_State(const KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-int KFilePlacesView_QBaseState(const KFilePlacesView* self) {
+int KFilePlacesView_SuperState(const KFilePlacesView* self) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_State_IsBase(true);
@@ -3090,7 +3090,7 @@ void KFilePlacesView_SetState(KFilePlacesView* self, int state) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseSetState(KFilePlacesView* self, int state) {
+void KFilePlacesView_SuperSetState(KFilePlacesView* self, int state) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_SetState_IsBase(true);
@@ -3119,7 +3119,7 @@ void KFilePlacesView_ScheduleDelayedItemsLayout(KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseScheduleDelayedItemsLayout(KFilePlacesView* self) {
+void KFilePlacesView_SuperScheduleDelayedItemsLayout(KFilePlacesView* self) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_ScheduleDelayedItemsLayout_IsBase(true);
@@ -3148,7 +3148,7 @@ void KFilePlacesView_ExecuteDelayedItemsLayout(KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseExecuteDelayedItemsLayout(KFilePlacesView* self) {
+void KFilePlacesView_SuperExecuteDelayedItemsLayout(KFilePlacesView* self) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_ExecuteDelayedItemsLayout_IsBase(true);
@@ -3177,7 +3177,7 @@ void KFilePlacesView_SetDirtyRegion(KFilePlacesView* self, const QRegion* region
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseSetDirtyRegion(KFilePlacesView* self, const QRegion* region) {
+void KFilePlacesView_SuperSetDirtyRegion(KFilePlacesView* self, const QRegion* region) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_SetDirtyRegion_IsBase(true);
@@ -3206,7 +3206,7 @@ void KFilePlacesView_ScrollDirtyRegion(KFilePlacesView* self, int dx, int dy) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseScrollDirtyRegion(KFilePlacesView* self, int dx, int dy) {
+void KFilePlacesView_SuperScrollDirtyRegion(KFilePlacesView* self, int dx, int dy) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_ScrollDirtyRegion_IsBase(true);
@@ -3234,7 +3234,7 @@ QPoint* KFilePlacesView_DirtyRegionOffset(const KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-QPoint* KFilePlacesView_QBaseDirtyRegionOffset(const KFilePlacesView* self) {
+QPoint* KFilePlacesView_SuperDirtyRegionOffset(const KFilePlacesView* self) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_DirtyRegionOffset_IsBase(true);
@@ -3262,7 +3262,7 @@ void KFilePlacesView_StartAutoScroll(KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseStartAutoScroll(KFilePlacesView* self) {
+void KFilePlacesView_SuperStartAutoScroll(KFilePlacesView* self) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_StartAutoScroll_IsBase(true);
@@ -3291,7 +3291,7 @@ void KFilePlacesView_StopAutoScroll(KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseStopAutoScroll(KFilePlacesView* self) {
+void KFilePlacesView_SuperStopAutoScroll(KFilePlacesView* self) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_StopAutoScroll_IsBase(true);
@@ -3320,7 +3320,7 @@ void KFilePlacesView_DoAutoScroll(KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseDoAutoScroll(KFilePlacesView* self) {
+void KFilePlacesView_SuperDoAutoScroll(KFilePlacesView* self) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_DoAutoScroll_IsBase(true);
@@ -3349,7 +3349,7 @@ int KFilePlacesView_DropIndicatorPosition(const KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-int KFilePlacesView_QBaseDropIndicatorPosition(const KFilePlacesView* self) {
+int KFilePlacesView_SuperDropIndicatorPosition(const KFilePlacesView* self) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_DropIndicatorPosition_IsBase(true);
@@ -3378,7 +3378,7 @@ void KFilePlacesView_SetViewportMargins(KFilePlacesView* self, int left, int top
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseSetViewportMargins(KFilePlacesView* self, int left, int top, int right, int bottom) {
+void KFilePlacesView_SuperSetViewportMargins(KFilePlacesView* self, int left, int top, int right, int bottom) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_SetViewportMargins_IsBase(true);
@@ -3406,7 +3406,7 @@ QMargins* KFilePlacesView_ViewportMargins(const KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-QMargins* KFilePlacesView_QBaseViewportMargins(const KFilePlacesView* self) {
+QMargins* KFilePlacesView_SuperViewportMargins(const KFilePlacesView* self) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_ViewportMargins_IsBase(true);
@@ -3434,7 +3434,7 @@ void KFilePlacesView_DrawFrame(KFilePlacesView* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseDrawFrame(KFilePlacesView* self, QPainter* param1) {
+void KFilePlacesView_SuperDrawFrame(KFilePlacesView* self, QPainter* param1) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_DrawFrame_IsBase(true);
@@ -3463,7 +3463,7 @@ void KFilePlacesView_UpdateMicroFocus(KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseUpdateMicroFocus(KFilePlacesView* self) {
+void KFilePlacesView_SuperUpdateMicroFocus(KFilePlacesView* self) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_UpdateMicroFocus_IsBase(true);
@@ -3492,7 +3492,7 @@ void KFilePlacesView_Create(KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseCreate(KFilePlacesView* self) {
+void KFilePlacesView_SuperCreate(KFilePlacesView* self) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_Create_IsBase(true);
@@ -3521,7 +3521,7 @@ void KFilePlacesView_Destroy(KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-void KFilePlacesView_QBaseDestroy(KFilePlacesView* self) {
+void KFilePlacesView_SuperDestroy(KFilePlacesView* self) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_Destroy_IsBase(true);
@@ -3550,7 +3550,7 @@ bool KFilePlacesView_FocusNextChild(KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-bool KFilePlacesView_QBaseFocusNextChild(KFilePlacesView* self) {
+bool KFilePlacesView_SuperFocusNextChild(KFilePlacesView* self) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_FocusNextChild_IsBase(true);
@@ -3579,7 +3579,7 @@ bool KFilePlacesView_FocusPreviousChild(KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-bool KFilePlacesView_QBaseFocusPreviousChild(KFilePlacesView* self) {
+bool KFilePlacesView_SuperFocusPreviousChild(KFilePlacesView* self) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_FocusPreviousChild_IsBase(true);
@@ -3608,7 +3608,7 @@ QObject* KFilePlacesView_Sender(const KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-QObject* KFilePlacesView_QBaseSender(const KFilePlacesView* self) {
+QObject* KFilePlacesView_SuperSender(const KFilePlacesView* self) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_Sender_IsBase(true);
@@ -3637,7 +3637,7 @@ int KFilePlacesView_SenderSignalIndex(const KFilePlacesView* self) {
 }
 
 // Base class handler implementation
-int KFilePlacesView_QBaseSenderSignalIndex(const KFilePlacesView* self) {
+int KFilePlacesView_SuperSenderSignalIndex(const KFilePlacesView* self) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_SenderSignalIndex_IsBase(true);
@@ -3666,7 +3666,7 @@ int KFilePlacesView_Receivers(const KFilePlacesView* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KFilePlacesView_QBaseReceivers(const KFilePlacesView* self, const char* signal) {
+int KFilePlacesView_SuperReceivers(const KFilePlacesView* self, const char* signal) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_Receivers_IsBase(true);
@@ -3695,7 +3695,7 @@ bool KFilePlacesView_IsSignalConnected(const KFilePlacesView* self, const QMetaM
 }
 
 // Base class handler implementation
-bool KFilePlacesView_QBaseIsSignalConnected(const KFilePlacesView* self, const QMetaMethod* signal) {
+bool KFilePlacesView_SuperIsSignalConnected(const KFilePlacesView* self, const QMetaMethod* signal) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_IsSignalConnected_IsBase(true);
@@ -3724,7 +3724,7 @@ double KFilePlacesView_GetDecodedMetricF(const KFilePlacesView* self, int metric
 }
 
 // Base class handler implementation
-double KFilePlacesView_QBaseGetDecodedMetricF(const KFilePlacesView* self, int metricA, int metricB) {
+double KFilePlacesView_SuperGetDecodedMetricF(const KFilePlacesView* self, int metricA, int metricB) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         vkfileplacesview->setKFilePlacesView_GetDecodedMetricF_IsBase(true);

@@ -152,7 +152,7 @@ void QDesignerResourceBrowserInterface_Connect_PathActivated(QDesignerResourceBr
 }
 
 // Base class handler implementation
-QMetaObject* QDesignerResourceBrowserInterface_QBaseMetaObject(const QDesignerResourceBrowserInterface* self) {
+QMetaObject* QDesignerResourceBrowserInterface_SuperMetaObject(const QDesignerResourceBrowserInterface* self) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_MetaObject_IsBase(true);
@@ -171,7 +171,7 @@ void QDesignerResourceBrowserInterface_OnMetaObject(const QDesignerResourceBrows
 }
 
 // Base class handler implementation
-void* QDesignerResourceBrowserInterface_QBaseMetacast(QDesignerResourceBrowserInterface* self, const char* param1) {
+void* QDesignerResourceBrowserInterface_SuperMetacast(QDesignerResourceBrowserInterface* self, const char* param1) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_Metacast_IsBase(true);
@@ -190,7 +190,7 @@ void QDesignerResourceBrowserInterface_OnMetacast(QDesignerResourceBrowserInterf
 }
 
 // Base class handler implementation
-int QDesignerResourceBrowserInterface_QBaseMetacall(QDesignerResourceBrowserInterface* self, int param1, int param2, void** param3) {
+int QDesignerResourceBrowserInterface_SuperMetacall(QDesignerResourceBrowserInterface* self, int param1, int param2, void** param3) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_Metacall_IsBase(true);
@@ -209,7 +209,7 @@ void QDesignerResourceBrowserInterface_OnMetacall(QDesignerResourceBrowserInterf
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseSetCurrentPath(QDesignerResourceBrowserInterface* self, const libqt_string filePath) {
+void QDesignerResourceBrowserInterface_SuperSetCurrentPath(QDesignerResourceBrowserInterface* self, const libqt_string filePath) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     QString filePath_QString = QString::fromUtf8(filePath.data, filePath.len);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
@@ -229,7 +229,7 @@ void QDesignerResourceBrowserInterface_OnSetCurrentPath(QDesignerResourceBrowser
 }
 
 // Base class handler implementation
-libqt_string QDesignerResourceBrowserInterface_QBaseCurrentPath(const QDesignerResourceBrowserInterface* self) {
+libqt_string QDesignerResourceBrowserInterface_SuperCurrentPath(const QDesignerResourceBrowserInterface* self) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_CurrentPath_IsBase(true);
@@ -274,7 +274,7 @@ int QDesignerResourceBrowserInterface_DevType(const QDesignerResourceBrowserInte
 }
 
 // Base class handler implementation
-int QDesignerResourceBrowserInterface_QBaseDevType(const QDesignerResourceBrowserInterface* self) {
+int QDesignerResourceBrowserInterface_SuperDevType(const QDesignerResourceBrowserInterface* self) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_DevType_IsBase(true);
@@ -303,7 +303,7 @@ void QDesignerResourceBrowserInterface_SetVisible(QDesignerResourceBrowserInterf
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseSetVisible(QDesignerResourceBrowserInterface* self, bool visible) {
+void QDesignerResourceBrowserInterface_SuperSetVisible(QDesignerResourceBrowserInterface* self, bool visible) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_SetVisible_IsBase(true);
@@ -332,7 +332,7 @@ QSize* QDesignerResourceBrowserInterface_SizeHint(const QDesignerResourceBrowser
 }
 
 // Base class handler implementation
-QSize* QDesignerResourceBrowserInterface_QBaseSizeHint(const QDesignerResourceBrowserInterface* self) {
+QSize* QDesignerResourceBrowserInterface_SuperSizeHint(const QDesignerResourceBrowserInterface* self) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_SizeHint_IsBase(true);
@@ -361,7 +361,7 @@ QSize* QDesignerResourceBrowserInterface_MinimumSizeHint(const QDesignerResource
 }
 
 // Base class handler implementation
-QSize* QDesignerResourceBrowserInterface_QBaseMinimumSizeHint(const QDesignerResourceBrowserInterface* self) {
+QSize* QDesignerResourceBrowserInterface_SuperMinimumSizeHint(const QDesignerResourceBrowserInterface* self) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_MinimumSizeHint_IsBase(true);
@@ -390,7 +390,7 @@ int QDesignerResourceBrowserInterface_HeightForWidth(const QDesignerResourceBrow
 }
 
 // Base class handler implementation
-int QDesignerResourceBrowserInterface_QBaseHeightForWidth(const QDesignerResourceBrowserInterface* self, int param1) {
+int QDesignerResourceBrowserInterface_SuperHeightForWidth(const QDesignerResourceBrowserInterface* self, int param1) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_HeightForWidth_IsBase(true);
@@ -419,7 +419,7 @@ bool QDesignerResourceBrowserInterface_HasHeightForWidth(const QDesignerResource
 }
 
 // Base class handler implementation
-bool QDesignerResourceBrowserInterface_QBaseHasHeightForWidth(const QDesignerResourceBrowserInterface* self) {
+bool QDesignerResourceBrowserInterface_SuperHasHeightForWidth(const QDesignerResourceBrowserInterface* self) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_HasHeightForWidth_IsBase(true);
@@ -448,7 +448,7 @@ QPaintEngine* QDesignerResourceBrowserInterface_PaintEngine(const QDesignerResou
 }
 
 // Base class handler implementation
-QPaintEngine* QDesignerResourceBrowserInterface_QBasePaintEngine(const QDesignerResourceBrowserInterface* self) {
+QPaintEngine* QDesignerResourceBrowserInterface_SuperPaintEngine(const QDesignerResourceBrowserInterface* self) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_PaintEngine_IsBase(true);
@@ -477,7 +477,7 @@ bool QDesignerResourceBrowserInterface_Event(QDesignerResourceBrowserInterface* 
 }
 
 // Base class handler implementation
-bool QDesignerResourceBrowserInterface_QBaseEvent(QDesignerResourceBrowserInterface* self, QEvent* event) {
+bool QDesignerResourceBrowserInterface_SuperEvent(QDesignerResourceBrowserInterface* self, QEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_Event_IsBase(true);
@@ -506,7 +506,7 @@ void QDesignerResourceBrowserInterface_MousePressEvent(QDesignerResourceBrowserI
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseMousePressEvent(QDesignerResourceBrowserInterface* self, QMouseEvent* event) {
+void QDesignerResourceBrowserInterface_SuperMousePressEvent(QDesignerResourceBrowserInterface* self, QMouseEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_MousePressEvent_IsBase(true);
@@ -535,7 +535,7 @@ void QDesignerResourceBrowserInterface_MouseReleaseEvent(QDesignerResourceBrowse
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseMouseReleaseEvent(QDesignerResourceBrowserInterface* self, QMouseEvent* event) {
+void QDesignerResourceBrowserInterface_SuperMouseReleaseEvent(QDesignerResourceBrowserInterface* self, QMouseEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_MouseReleaseEvent_IsBase(true);
@@ -564,7 +564,7 @@ void QDesignerResourceBrowserInterface_MouseDoubleClickEvent(QDesignerResourceBr
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseMouseDoubleClickEvent(QDesignerResourceBrowserInterface* self, QMouseEvent* event) {
+void QDesignerResourceBrowserInterface_SuperMouseDoubleClickEvent(QDesignerResourceBrowserInterface* self, QMouseEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_MouseDoubleClickEvent_IsBase(true);
@@ -593,7 +593,7 @@ void QDesignerResourceBrowserInterface_MouseMoveEvent(QDesignerResourceBrowserIn
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseMouseMoveEvent(QDesignerResourceBrowserInterface* self, QMouseEvent* event) {
+void QDesignerResourceBrowserInterface_SuperMouseMoveEvent(QDesignerResourceBrowserInterface* self, QMouseEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_MouseMoveEvent_IsBase(true);
@@ -622,7 +622,7 @@ void QDesignerResourceBrowserInterface_WheelEvent(QDesignerResourceBrowserInterf
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseWheelEvent(QDesignerResourceBrowserInterface* self, QWheelEvent* event) {
+void QDesignerResourceBrowserInterface_SuperWheelEvent(QDesignerResourceBrowserInterface* self, QWheelEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_WheelEvent_IsBase(true);
@@ -651,7 +651,7 @@ void QDesignerResourceBrowserInterface_KeyPressEvent(QDesignerResourceBrowserInt
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseKeyPressEvent(QDesignerResourceBrowserInterface* self, QKeyEvent* event) {
+void QDesignerResourceBrowserInterface_SuperKeyPressEvent(QDesignerResourceBrowserInterface* self, QKeyEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_KeyPressEvent_IsBase(true);
@@ -680,7 +680,7 @@ void QDesignerResourceBrowserInterface_KeyReleaseEvent(QDesignerResourceBrowserI
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseKeyReleaseEvent(QDesignerResourceBrowserInterface* self, QKeyEvent* event) {
+void QDesignerResourceBrowserInterface_SuperKeyReleaseEvent(QDesignerResourceBrowserInterface* self, QKeyEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_KeyReleaseEvent_IsBase(true);
@@ -709,7 +709,7 @@ void QDesignerResourceBrowserInterface_FocusInEvent(QDesignerResourceBrowserInte
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseFocusInEvent(QDesignerResourceBrowserInterface* self, QFocusEvent* event) {
+void QDesignerResourceBrowserInterface_SuperFocusInEvent(QDesignerResourceBrowserInterface* self, QFocusEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_FocusInEvent_IsBase(true);
@@ -738,7 +738,7 @@ void QDesignerResourceBrowserInterface_FocusOutEvent(QDesignerResourceBrowserInt
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseFocusOutEvent(QDesignerResourceBrowserInterface* self, QFocusEvent* event) {
+void QDesignerResourceBrowserInterface_SuperFocusOutEvent(QDesignerResourceBrowserInterface* self, QFocusEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_FocusOutEvent_IsBase(true);
@@ -767,7 +767,7 @@ void QDesignerResourceBrowserInterface_EnterEvent(QDesignerResourceBrowserInterf
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseEnterEvent(QDesignerResourceBrowserInterface* self, QEnterEvent* event) {
+void QDesignerResourceBrowserInterface_SuperEnterEvent(QDesignerResourceBrowserInterface* self, QEnterEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_EnterEvent_IsBase(true);
@@ -796,7 +796,7 @@ void QDesignerResourceBrowserInterface_LeaveEvent(QDesignerResourceBrowserInterf
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseLeaveEvent(QDesignerResourceBrowserInterface* self, QEvent* event) {
+void QDesignerResourceBrowserInterface_SuperLeaveEvent(QDesignerResourceBrowserInterface* self, QEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_LeaveEvent_IsBase(true);
@@ -825,7 +825,7 @@ void QDesignerResourceBrowserInterface_PaintEvent(QDesignerResourceBrowserInterf
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBasePaintEvent(QDesignerResourceBrowserInterface* self, QPaintEvent* event) {
+void QDesignerResourceBrowserInterface_SuperPaintEvent(QDesignerResourceBrowserInterface* self, QPaintEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_PaintEvent_IsBase(true);
@@ -854,7 +854,7 @@ void QDesignerResourceBrowserInterface_MoveEvent(QDesignerResourceBrowserInterfa
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseMoveEvent(QDesignerResourceBrowserInterface* self, QMoveEvent* event) {
+void QDesignerResourceBrowserInterface_SuperMoveEvent(QDesignerResourceBrowserInterface* self, QMoveEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_MoveEvent_IsBase(true);
@@ -883,7 +883,7 @@ void QDesignerResourceBrowserInterface_ResizeEvent(QDesignerResourceBrowserInter
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseResizeEvent(QDesignerResourceBrowserInterface* self, QResizeEvent* event) {
+void QDesignerResourceBrowserInterface_SuperResizeEvent(QDesignerResourceBrowserInterface* self, QResizeEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_ResizeEvent_IsBase(true);
@@ -912,7 +912,7 @@ void QDesignerResourceBrowserInterface_CloseEvent(QDesignerResourceBrowserInterf
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseCloseEvent(QDesignerResourceBrowserInterface* self, QCloseEvent* event) {
+void QDesignerResourceBrowserInterface_SuperCloseEvent(QDesignerResourceBrowserInterface* self, QCloseEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_CloseEvent_IsBase(true);
@@ -941,7 +941,7 @@ void QDesignerResourceBrowserInterface_ContextMenuEvent(QDesignerResourceBrowser
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseContextMenuEvent(QDesignerResourceBrowserInterface* self, QContextMenuEvent* event) {
+void QDesignerResourceBrowserInterface_SuperContextMenuEvent(QDesignerResourceBrowserInterface* self, QContextMenuEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_ContextMenuEvent_IsBase(true);
@@ -970,7 +970,7 @@ void QDesignerResourceBrowserInterface_TabletEvent(QDesignerResourceBrowserInter
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseTabletEvent(QDesignerResourceBrowserInterface* self, QTabletEvent* event) {
+void QDesignerResourceBrowserInterface_SuperTabletEvent(QDesignerResourceBrowserInterface* self, QTabletEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_TabletEvent_IsBase(true);
@@ -999,7 +999,7 @@ void QDesignerResourceBrowserInterface_ActionEvent(QDesignerResourceBrowserInter
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseActionEvent(QDesignerResourceBrowserInterface* self, QActionEvent* event) {
+void QDesignerResourceBrowserInterface_SuperActionEvent(QDesignerResourceBrowserInterface* self, QActionEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_ActionEvent_IsBase(true);
@@ -1028,7 +1028,7 @@ void QDesignerResourceBrowserInterface_DragEnterEvent(QDesignerResourceBrowserIn
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseDragEnterEvent(QDesignerResourceBrowserInterface* self, QDragEnterEvent* event) {
+void QDesignerResourceBrowserInterface_SuperDragEnterEvent(QDesignerResourceBrowserInterface* self, QDragEnterEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_DragEnterEvent_IsBase(true);
@@ -1057,7 +1057,7 @@ void QDesignerResourceBrowserInterface_DragMoveEvent(QDesignerResourceBrowserInt
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseDragMoveEvent(QDesignerResourceBrowserInterface* self, QDragMoveEvent* event) {
+void QDesignerResourceBrowserInterface_SuperDragMoveEvent(QDesignerResourceBrowserInterface* self, QDragMoveEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_DragMoveEvent_IsBase(true);
@@ -1086,7 +1086,7 @@ void QDesignerResourceBrowserInterface_DragLeaveEvent(QDesignerResourceBrowserIn
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseDragLeaveEvent(QDesignerResourceBrowserInterface* self, QDragLeaveEvent* event) {
+void QDesignerResourceBrowserInterface_SuperDragLeaveEvent(QDesignerResourceBrowserInterface* self, QDragLeaveEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_DragLeaveEvent_IsBase(true);
@@ -1115,7 +1115,7 @@ void QDesignerResourceBrowserInterface_DropEvent(QDesignerResourceBrowserInterfa
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseDropEvent(QDesignerResourceBrowserInterface* self, QDropEvent* event) {
+void QDesignerResourceBrowserInterface_SuperDropEvent(QDesignerResourceBrowserInterface* self, QDropEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_DropEvent_IsBase(true);
@@ -1144,7 +1144,7 @@ void QDesignerResourceBrowserInterface_ShowEvent(QDesignerResourceBrowserInterfa
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseShowEvent(QDesignerResourceBrowserInterface* self, QShowEvent* event) {
+void QDesignerResourceBrowserInterface_SuperShowEvent(QDesignerResourceBrowserInterface* self, QShowEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_ShowEvent_IsBase(true);
@@ -1173,7 +1173,7 @@ void QDesignerResourceBrowserInterface_HideEvent(QDesignerResourceBrowserInterfa
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseHideEvent(QDesignerResourceBrowserInterface* self, QHideEvent* event) {
+void QDesignerResourceBrowserInterface_SuperHideEvent(QDesignerResourceBrowserInterface* self, QHideEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_HideEvent_IsBase(true);
@@ -1203,7 +1203,7 @@ bool QDesignerResourceBrowserInterface_NativeEvent(QDesignerResourceBrowserInter
 }
 
 // Base class handler implementation
-bool QDesignerResourceBrowserInterface_QBaseNativeEvent(QDesignerResourceBrowserInterface* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QDesignerResourceBrowserInterface_SuperNativeEvent(QDesignerResourceBrowserInterface* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
@@ -1233,7 +1233,7 @@ void QDesignerResourceBrowserInterface_ChangeEvent(QDesignerResourceBrowserInter
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseChangeEvent(QDesignerResourceBrowserInterface* self, QEvent* param1) {
+void QDesignerResourceBrowserInterface_SuperChangeEvent(QDesignerResourceBrowserInterface* self, QEvent* param1) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_ChangeEvent_IsBase(true);
@@ -1262,7 +1262,7 @@ int QDesignerResourceBrowserInterface_Metric(const QDesignerResourceBrowserInter
 }
 
 // Base class handler implementation
-int QDesignerResourceBrowserInterface_QBaseMetric(const QDesignerResourceBrowserInterface* self, int param1) {
+int QDesignerResourceBrowserInterface_SuperMetric(const QDesignerResourceBrowserInterface* self, int param1) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_Metric_IsBase(true);
@@ -1291,7 +1291,7 @@ void QDesignerResourceBrowserInterface_InitPainter(const QDesignerResourceBrowse
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseInitPainter(const QDesignerResourceBrowserInterface* self, QPainter* painter) {
+void QDesignerResourceBrowserInterface_SuperInitPainter(const QDesignerResourceBrowserInterface* self, QPainter* painter) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_InitPainter_IsBase(true);
@@ -1320,7 +1320,7 @@ QPaintDevice* QDesignerResourceBrowserInterface_Redirected(const QDesignerResour
 }
 
 // Base class handler implementation
-QPaintDevice* QDesignerResourceBrowserInterface_QBaseRedirected(const QDesignerResourceBrowserInterface* self, QPoint* offset) {
+QPaintDevice* QDesignerResourceBrowserInterface_SuperRedirected(const QDesignerResourceBrowserInterface* self, QPoint* offset) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_Redirected_IsBase(true);
@@ -1349,7 +1349,7 @@ QPainter* QDesignerResourceBrowserInterface_SharedPainter(const QDesignerResourc
 }
 
 // Base class handler implementation
-QPainter* QDesignerResourceBrowserInterface_QBaseSharedPainter(const QDesignerResourceBrowserInterface* self) {
+QPainter* QDesignerResourceBrowserInterface_SuperSharedPainter(const QDesignerResourceBrowserInterface* self) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_SharedPainter_IsBase(true);
@@ -1378,7 +1378,7 @@ void QDesignerResourceBrowserInterface_InputMethodEvent(QDesignerResourceBrowser
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseInputMethodEvent(QDesignerResourceBrowserInterface* self, QInputMethodEvent* param1) {
+void QDesignerResourceBrowserInterface_SuperInputMethodEvent(QDesignerResourceBrowserInterface* self, QInputMethodEvent* param1) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_InputMethodEvent_IsBase(true);
@@ -1407,7 +1407,7 @@ QVariant* QDesignerResourceBrowserInterface_InputMethodQuery(const QDesignerReso
 }
 
 // Base class handler implementation
-QVariant* QDesignerResourceBrowserInterface_QBaseInputMethodQuery(const QDesignerResourceBrowserInterface* self, int param1) {
+QVariant* QDesignerResourceBrowserInterface_SuperInputMethodQuery(const QDesignerResourceBrowserInterface* self, int param1) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_InputMethodQuery_IsBase(true);
@@ -1436,7 +1436,7 @@ bool QDesignerResourceBrowserInterface_FocusNextPrevChild(QDesignerResourceBrows
 }
 
 // Base class handler implementation
-bool QDesignerResourceBrowserInterface_QBaseFocusNextPrevChild(QDesignerResourceBrowserInterface* self, bool next) {
+bool QDesignerResourceBrowserInterface_SuperFocusNextPrevChild(QDesignerResourceBrowserInterface* self, bool next) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_FocusNextPrevChild_IsBase(true);
@@ -1465,7 +1465,7 @@ bool QDesignerResourceBrowserInterface_EventFilter(QDesignerResourceBrowserInter
 }
 
 // Base class handler implementation
-bool QDesignerResourceBrowserInterface_QBaseEventFilter(QDesignerResourceBrowserInterface* self, QObject* watched, QEvent* event) {
+bool QDesignerResourceBrowserInterface_SuperEventFilter(QDesignerResourceBrowserInterface* self, QObject* watched, QEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_EventFilter_IsBase(true);
@@ -1494,7 +1494,7 @@ void QDesignerResourceBrowserInterface_TimerEvent(QDesignerResourceBrowserInterf
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseTimerEvent(QDesignerResourceBrowserInterface* self, QTimerEvent* event) {
+void QDesignerResourceBrowserInterface_SuperTimerEvent(QDesignerResourceBrowserInterface* self, QTimerEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_TimerEvent_IsBase(true);
@@ -1523,7 +1523,7 @@ void QDesignerResourceBrowserInterface_ChildEvent(QDesignerResourceBrowserInterf
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseChildEvent(QDesignerResourceBrowserInterface* self, QChildEvent* event) {
+void QDesignerResourceBrowserInterface_SuperChildEvent(QDesignerResourceBrowserInterface* self, QChildEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_ChildEvent_IsBase(true);
@@ -1552,7 +1552,7 @@ void QDesignerResourceBrowserInterface_CustomEvent(QDesignerResourceBrowserInter
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseCustomEvent(QDesignerResourceBrowserInterface* self, QEvent* event) {
+void QDesignerResourceBrowserInterface_SuperCustomEvent(QDesignerResourceBrowserInterface* self, QEvent* event) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_CustomEvent_IsBase(true);
@@ -1581,7 +1581,7 @@ void QDesignerResourceBrowserInterface_ConnectNotify(QDesignerResourceBrowserInt
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseConnectNotify(QDesignerResourceBrowserInterface* self, const QMetaMethod* signal) {
+void QDesignerResourceBrowserInterface_SuperConnectNotify(QDesignerResourceBrowserInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_ConnectNotify_IsBase(true);
@@ -1610,7 +1610,7 @@ void QDesignerResourceBrowserInterface_DisconnectNotify(QDesignerResourceBrowser
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseDisconnectNotify(QDesignerResourceBrowserInterface* self, const QMetaMethod* signal) {
+void QDesignerResourceBrowserInterface_SuperDisconnectNotify(QDesignerResourceBrowserInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_DisconnectNotify_IsBase(true);
@@ -1639,7 +1639,7 @@ void QDesignerResourceBrowserInterface_UpdateMicroFocus(QDesignerResourceBrowser
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseUpdateMicroFocus(QDesignerResourceBrowserInterface* self) {
+void QDesignerResourceBrowserInterface_SuperUpdateMicroFocus(QDesignerResourceBrowserInterface* self) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_UpdateMicroFocus_IsBase(true);
@@ -1668,7 +1668,7 @@ void QDesignerResourceBrowserInterface_Create(QDesignerResourceBrowserInterface*
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseCreate(QDesignerResourceBrowserInterface* self) {
+void QDesignerResourceBrowserInterface_SuperCreate(QDesignerResourceBrowserInterface* self) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_Create_IsBase(true);
@@ -1697,7 +1697,7 @@ void QDesignerResourceBrowserInterface_Destroy(QDesignerResourceBrowserInterface
 }
 
 // Base class handler implementation
-void QDesignerResourceBrowserInterface_QBaseDestroy(QDesignerResourceBrowserInterface* self) {
+void QDesignerResourceBrowserInterface_SuperDestroy(QDesignerResourceBrowserInterface* self) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_Destroy_IsBase(true);
@@ -1726,7 +1726,7 @@ bool QDesignerResourceBrowserInterface_FocusNextChild(QDesignerResourceBrowserIn
 }
 
 // Base class handler implementation
-bool QDesignerResourceBrowserInterface_QBaseFocusNextChild(QDesignerResourceBrowserInterface* self) {
+bool QDesignerResourceBrowserInterface_SuperFocusNextChild(QDesignerResourceBrowserInterface* self) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_FocusNextChild_IsBase(true);
@@ -1755,7 +1755,7 @@ bool QDesignerResourceBrowserInterface_FocusPreviousChild(QDesignerResourceBrows
 }
 
 // Base class handler implementation
-bool QDesignerResourceBrowserInterface_QBaseFocusPreviousChild(QDesignerResourceBrowserInterface* self) {
+bool QDesignerResourceBrowserInterface_SuperFocusPreviousChild(QDesignerResourceBrowserInterface* self) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_FocusPreviousChild_IsBase(true);
@@ -1784,7 +1784,7 @@ QObject* QDesignerResourceBrowserInterface_Sender(const QDesignerResourceBrowser
 }
 
 // Base class handler implementation
-QObject* QDesignerResourceBrowserInterface_QBaseSender(const QDesignerResourceBrowserInterface* self) {
+QObject* QDesignerResourceBrowserInterface_SuperSender(const QDesignerResourceBrowserInterface* self) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_Sender_IsBase(true);
@@ -1813,7 +1813,7 @@ int QDesignerResourceBrowserInterface_SenderSignalIndex(const QDesignerResourceB
 }
 
 // Base class handler implementation
-int QDesignerResourceBrowserInterface_QBaseSenderSignalIndex(const QDesignerResourceBrowserInterface* self) {
+int QDesignerResourceBrowserInterface_SuperSenderSignalIndex(const QDesignerResourceBrowserInterface* self) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_SenderSignalIndex_IsBase(true);
@@ -1842,7 +1842,7 @@ int QDesignerResourceBrowserInterface_Receivers(const QDesignerResourceBrowserIn
 }
 
 // Base class handler implementation
-int QDesignerResourceBrowserInterface_QBaseReceivers(const QDesignerResourceBrowserInterface* self, const char* signal) {
+int QDesignerResourceBrowserInterface_SuperReceivers(const QDesignerResourceBrowserInterface* self, const char* signal) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_Receivers_IsBase(true);
@@ -1871,7 +1871,7 @@ bool QDesignerResourceBrowserInterface_IsSignalConnected(const QDesignerResource
 }
 
 // Base class handler implementation
-bool QDesignerResourceBrowserInterface_QBaseIsSignalConnected(const QDesignerResourceBrowserInterface* self, const QMetaMethod* signal) {
+bool QDesignerResourceBrowserInterface_SuperIsSignalConnected(const QDesignerResourceBrowserInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_IsSignalConnected_IsBase(true);
@@ -1900,7 +1900,7 @@ double QDesignerResourceBrowserInterface_GetDecodedMetricF(const QDesignerResour
 }
 
 // Base class handler implementation
-double QDesignerResourceBrowserInterface_QBaseGetDecodedMetricF(const QDesignerResourceBrowserInterface* self, int metricA, int metricB) {
+double QDesignerResourceBrowserInterface_SuperGetDecodedMetricF(const QDesignerResourceBrowserInterface* self, int metricA, int metricB) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_GetDecodedMetricF_IsBase(true);

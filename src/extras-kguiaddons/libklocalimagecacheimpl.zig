@@ -57,6 +57,10 @@ pub const klocalimagecacheimplementation = struct {
         qtc.KLocalImageCacheImplementation_SetPixmapCacheLimit(@ptrCast(self), @bitCast(size));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/klocalimagecacheimplementation.html#dtor.KLocalImageCacheImplementation)
     ///
     /// Delete this object from C++ memory.
@@ -65,7 +69,7 @@ pub const klocalimagecacheimplementation = struct {
     ///
     /// ` self: QtC.KLocalImageCacheImplementation `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KLocalImageCacheImplementation_Delete(@ptrCast(self));
     }
 };

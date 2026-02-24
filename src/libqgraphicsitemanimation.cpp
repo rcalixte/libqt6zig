@@ -238,7 +238,7 @@ void QGraphicsItemAnimation_AfterAnimationStep(QGraphicsItemAnimation* self, dou
 }
 
 // Base class handler implementation
-QMetaObject* QGraphicsItemAnimation_QBaseMetaObject(const QGraphicsItemAnimation* self) {
+QMetaObject* QGraphicsItemAnimation_SuperMetaObject(const QGraphicsItemAnimation* self) {
     auto* vqgraphicsitemanimation = const_cast<VirtualQGraphicsItemAnimation*>(dynamic_cast<const VirtualQGraphicsItemAnimation*>(self));
     if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
         vqgraphicsitemanimation->setQGraphicsItemAnimation_MetaObject_IsBase(true);
@@ -257,7 +257,7 @@ void QGraphicsItemAnimation_OnMetaObject(const QGraphicsItemAnimation* self, int
 }
 
 // Base class handler implementation
-void* QGraphicsItemAnimation_QBaseMetacast(QGraphicsItemAnimation* self, const char* param1) {
+void* QGraphicsItemAnimation_SuperMetacast(QGraphicsItemAnimation* self, const char* param1) {
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
     if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
         vqgraphicsitemanimation->setQGraphicsItemAnimation_Metacast_IsBase(true);
@@ -276,7 +276,7 @@ void QGraphicsItemAnimation_OnMetacast(QGraphicsItemAnimation* self, intptr_t sl
 }
 
 // Base class handler implementation
-int QGraphicsItemAnimation_QBaseMetacall(QGraphicsItemAnimation* self, int param1, int param2, void** param3) {
+int QGraphicsItemAnimation_SuperMetacall(QGraphicsItemAnimation* self, int param1, int param2, void** param3) {
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
     if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
         vqgraphicsitemanimation->setQGraphicsItemAnimation_Metacall_IsBase(true);
@@ -295,7 +295,7 @@ void QGraphicsItemAnimation_OnMetacall(QGraphicsItemAnimation* self, intptr_t sl
 }
 
 // Base class handler implementation
-void QGraphicsItemAnimation_QBaseBeforeAnimationStep(QGraphicsItemAnimation* self, double step) {
+void QGraphicsItemAnimation_SuperBeforeAnimationStep(QGraphicsItemAnimation* self, double step) {
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
     if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
         vqgraphicsitemanimation->setQGraphicsItemAnimation_BeforeAnimationStep_IsBase(true);
@@ -314,7 +314,7 @@ void QGraphicsItemAnimation_OnBeforeAnimationStep(QGraphicsItemAnimation* self, 
 }
 
 // Base class handler implementation
-void QGraphicsItemAnimation_QBaseAfterAnimationStep(QGraphicsItemAnimation* self, double step) {
+void QGraphicsItemAnimation_SuperAfterAnimationStep(QGraphicsItemAnimation* self, double step) {
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
     if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
         vqgraphicsitemanimation->setQGraphicsItemAnimation_AfterAnimationStep_IsBase(true);
@@ -343,7 +343,7 @@ bool QGraphicsItemAnimation_Event(QGraphicsItemAnimation* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QGraphicsItemAnimation_QBaseEvent(QGraphicsItemAnimation* self, QEvent* event) {
+bool QGraphicsItemAnimation_SuperEvent(QGraphicsItemAnimation* self, QEvent* event) {
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
     if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
         vqgraphicsitemanimation->setQGraphicsItemAnimation_Event_IsBase(true);
@@ -372,7 +372,7 @@ bool QGraphicsItemAnimation_EventFilter(QGraphicsItemAnimation* self, QObject* w
 }
 
 // Base class handler implementation
-bool QGraphicsItemAnimation_QBaseEventFilter(QGraphicsItemAnimation* self, QObject* watched, QEvent* event) {
+bool QGraphicsItemAnimation_SuperEventFilter(QGraphicsItemAnimation* self, QObject* watched, QEvent* event) {
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
     if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
         vqgraphicsitemanimation->setQGraphicsItemAnimation_EventFilter_IsBase(true);
@@ -401,7 +401,7 @@ void QGraphicsItemAnimation_TimerEvent(QGraphicsItemAnimation* self, QTimerEvent
 }
 
 // Base class handler implementation
-void QGraphicsItemAnimation_QBaseTimerEvent(QGraphicsItemAnimation* self, QTimerEvent* event) {
+void QGraphicsItemAnimation_SuperTimerEvent(QGraphicsItemAnimation* self, QTimerEvent* event) {
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
     if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
         vqgraphicsitemanimation->setQGraphicsItemAnimation_TimerEvent_IsBase(true);
@@ -430,7 +430,7 @@ void QGraphicsItemAnimation_ChildEvent(QGraphicsItemAnimation* self, QChildEvent
 }
 
 // Base class handler implementation
-void QGraphicsItemAnimation_QBaseChildEvent(QGraphicsItemAnimation* self, QChildEvent* event) {
+void QGraphicsItemAnimation_SuperChildEvent(QGraphicsItemAnimation* self, QChildEvent* event) {
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
     if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
         vqgraphicsitemanimation->setQGraphicsItemAnimation_ChildEvent_IsBase(true);
@@ -459,7 +459,7 @@ void QGraphicsItemAnimation_CustomEvent(QGraphicsItemAnimation* self, QEvent* ev
 }
 
 // Base class handler implementation
-void QGraphicsItemAnimation_QBaseCustomEvent(QGraphicsItemAnimation* self, QEvent* event) {
+void QGraphicsItemAnimation_SuperCustomEvent(QGraphicsItemAnimation* self, QEvent* event) {
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
     if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
         vqgraphicsitemanimation->setQGraphicsItemAnimation_CustomEvent_IsBase(true);
@@ -488,7 +488,7 @@ void QGraphicsItemAnimation_ConnectNotify(QGraphicsItemAnimation* self, const QM
 }
 
 // Base class handler implementation
-void QGraphicsItemAnimation_QBaseConnectNotify(QGraphicsItemAnimation* self, const QMetaMethod* signal) {
+void QGraphicsItemAnimation_SuperConnectNotify(QGraphicsItemAnimation* self, const QMetaMethod* signal) {
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
     if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
         vqgraphicsitemanimation->setQGraphicsItemAnimation_ConnectNotify_IsBase(true);
@@ -517,7 +517,7 @@ void QGraphicsItemAnimation_DisconnectNotify(QGraphicsItemAnimation* self, const
 }
 
 // Base class handler implementation
-void QGraphicsItemAnimation_QBaseDisconnectNotify(QGraphicsItemAnimation* self, const QMetaMethod* signal) {
+void QGraphicsItemAnimation_SuperDisconnectNotify(QGraphicsItemAnimation* self, const QMetaMethod* signal) {
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
     if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
         vqgraphicsitemanimation->setQGraphicsItemAnimation_DisconnectNotify_IsBase(true);
@@ -546,7 +546,7 @@ QObject* QGraphicsItemAnimation_Sender(const QGraphicsItemAnimation* self) {
 }
 
 // Base class handler implementation
-QObject* QGraphicsItemAnimation_QBaseSender(const QGraphicsItemAnimation* self) {
+QObject* QGraphicsItemAnimation_SuperSender(const QGraphicsItemAnimation* self) {
     auto* vqgraphicsitemanimation = const_cast<VirtualQGraphicsItemAnimation*>(dynamic_cast<const VirtualQGraphicsItemAnimation*>(self));
     if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
         vqgraphicsitemanimation->setQGraphicsItemAnimation_Sender_IsBase(true);
@@ -575,7 +575,7 @@ int QGraphicsItemAnimation_SenderSignalIndex(const QGraphicsItemAnimation* self)
 }
 
 // Base class handler implementation
-int QGraphicsItemAnimation_QBaseSenderSignalIndex(const QGraphicsItemAnimation* self) {
+int QGraphicsItemAnimation_SuperSenderSignalIndex(const QGraphicsItemAnimation* self) {
     auto* vqgraphicsitemanimation = const_cast<VirtualQGraphicsItemAnimation*>(dynamic_cast<const VirtualQGraphicsItemAnimation*>(self));
     if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
         vqgraphicsitemanimation->setQGraphicsItemAnimation_SenderSignalIndex_IsBase(true);
@@ -604,7 +604,7 @@ int QGraphicsItemAnimation_Receivers(const QGraphicsItemAnimation* self, const c
 }
 
 // Base class handler implementation
-int QGraphicsItemAnimation_QBaseReceivers(const QGraphicsItemAnimation* self, const char* signal) {
+int QGraphicsItemAnimation_SuperReceivers(const QGraphicsItemAnimation* self, const char* signal) {
     auto* vqgraphicsitemanimation = const_cast<VirtualQGraphicsItemAnimation*>(dynamic_cast<const VirtualQGraphicsItemAnimation*>(self));
     if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
         vqgraphicsitemanimation->setQGraphicsItemAnimation_Receivers_IsBase(true);
@@ -633,7 +633,7 @@ bool QGraphicsItemAnimation_IsSignalConnected(const QGraphicsItemAnimation* self
 }
 
 // Base class handler implementation
-bool QGraphicsItemAnimation_QBaseIsSignalConnected(const QGraphicsItemAnimation* self, const QMetaMethod* signal) {
+bool QGraphicsItemAnimation_SuperIsSignalConnected(const QGraphicsItemAnimation* self, const QMetaMethod* signal) {
     auto* vqgraphicsitemanimation = const_cast<VirtualQGraphicsItemAnimation*>(dynamic_cast<const VirtualQGraphicsItemAnimation*>(self));
     if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
         vqgraphicsitemanimation->setQGraphicsItemAnimation_IsSignalConnected_IsBase(true);

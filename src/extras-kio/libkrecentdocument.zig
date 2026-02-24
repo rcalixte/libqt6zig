@@ -174,6 +174,10 @@ pub const krecentdocument = struct {
         return qtc.KRecentDocument_MaximumItems();
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#dtor.KRecentDocument)
     ///
     /// Delete this object from C++ memory.
@@ -182,7 +186,7 @@ pub const krecentdocument = struct {
     ///
     /// ` self: QtC.KRecentDocument `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KRecentDocument_Delete(@ptrCast(self));
     }
 };

@@ -75,6 +75,10 @@ pub const qopenglversionfunctionsfactory = struct {
         return qtc.QOpenGLVersionFunctionsFactory_Get2(@ptrCast(versionProfile), @ptrCast(context));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsfactory.html#dtor.QOpenGLVersionFunctionsFactory)
     ///
     /// Delete this object from C++ memory.
@@ -83,7 +87,7 @@ pub const qopenglversionfunctionsfactory = struct {
     ///
     /// ` self: QtC.QOpenGLVersionFunctionsFactory `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QOpenGLVersionFunctionsFactory_Delete(@ptrCast(self));
     }
 };

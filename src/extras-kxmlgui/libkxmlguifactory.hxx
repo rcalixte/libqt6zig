@@ -328,23 +328,23 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
 
     // Friend functions
     friend void KXMLGUIFactory_TimerEvent(KXMLGUIFactory* self, QTimerEvent* event);
-    friend void KXMLGUIFactory_QBaseTimerEvent(KXMLGUIFactory* self, QTimerEvent* event);
+    friend void KXMLGUIFactory_SuperTimerEvent(KXMLGUIFactory* self, QTimerEvent* event);
     friend void KXMLGUIFactory_ChildEvent(KXMLGUIFactory* self, QChildEvent* event);
-    friend void KXMLGUIFactory_QBaseChildEvent(KXMLGUIFactory* self, QChildEvent* event);
+    friend void KXMLGUIFactory_SuperChildEvent(KXMLGUIFactory* self, QChildEvent* event);
     friend void KXMLGUIFactory_CustomEvent(KXMLGUIFactory* self, QEvent* event);
-    friend void KXMLGUIFactory_QBaseCustomEvent(KXMLGUIFactory* self, QEvent* event);
+    friend void KXMLGUIFactory_SuperCustomEvent(KXMLGUIFactory* self, QEvent* event);
     friend void KXMLGUIFactory_ConnectNotify(KXMLGUIFactory* self, const QMetaMethod* signal);
-    friend void KXMLGUIFactory_QBaseConnectNotify(KXMLGUIFactory* self, const QMetaMethod* signal);
+    friend void KXMLGUIFactory_SuperConnectNotify(KXMLGUIFactory* self, const QMetaMethod* signal);
     friend void KXMLGUIFactory_DisconnectNotify(KXMLGUIFactory* self, const QMetaMethod* signal);
-    friend void KXMLGUIFactory_QBaseDisconnectNotify(KXMLGUIFactory* self, const QMetaMethod* signal);
+    friend void KXMLGUIFactory_SuperDisconnectNotify(KXMLGUIFactory* self, const QMetaMethod* signal);
     friend QObject* KXMLGUIFactory_Sender(const KXMLGUIFactory* self);
-    friend QObject* KXMLGUIFactory_QBaseSender(const KXMLGUIFactory* self);
+    friend QObject* KXMLGUIFactory_SuperSender(const KXMLGUIFactory* self);
     friend int KXMLGUIFactory_SenderSignalIndex(const KXMLGUIFactory* self);
-    friend int KXMLGUIFactory_QBaseSenderSignalIndex(const KXMLGUIFactory* self);
+    friend int KXMLGUIFactory_SuperSenderSignalIndex(const KXMLGUIFactory* self);
     friend int KXMLGUIFactory_Receivers(const KXMLGUIFactory* self, const char* signal);
-    friend int KXMLGUIFactory_QBaseReceivers(const KXMLGUIFactory* self, const char* signal);
+    friend int KXMLGUIFactory_SuperReceivers(const KXMLGUIFactory* self, const char* signal);
     friend bool KXMLGUIFactory_IsSignalConnected(const KXMLGUIFactory* self, const QMetaMethod* signal);
-    friend bool KXMLGUIFactory_QBaseIsSignalConnected(const KXMLGUIFactory* self, const QMetaMethod* signal);
+    friend bool KXMLGUIFactory_SuperIsSignalConnected(const KXMLGUIFactory* self, const QMetaMethod* signal);
 };
 
 #endif

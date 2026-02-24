@@ -218,13 +218,17 @@ pub const ktexteditor__cursor = struct {
         qtc.KTextEditor__Cursor_Position(@ptrCast(self), @ptrCast(line), @ptrCast(column));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KTextEditor__Cursor `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KTextEditor__Cursor_Delete(@ptrCast(self));
     }
 };

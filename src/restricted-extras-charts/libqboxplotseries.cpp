@@ -313,7 +313,7 @@ void QBoxPlotSeries_Connect_BoxsetsRemoved(QBoxPlotSeries* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-QMetaObject* QBoxPlotSeries_QBaseMetaObject(const QBoxPlotSeries* self) {
+QMetaObject* QBoxPlotSeries_SuperMetaObject(const QBoxPlotSeries* self) {
     auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
     if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
         vqboxplotseries->setQBoxPlotSeries_MetaObject_IsBase(true);
@@ -332,7 +332,7 @@ void QBoxPlotSeries_OnMetaObject(const QBoxPlotSeries* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QBoxPlotSeries_QBaseMetacast(QBoxPlotSeries* self, const char* param1) {
+void* QBoxPlotSeries_SuperMetacast(QBoxPlotSeries* self, const char* param1) {
     auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
     if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
         vqboxplotseries->setQBoxPlotSeries_Metacast_IsBase(true);
@@ -351,7 +351,7 @@ void QBoxPlotSeries_OnMetacast(QBoxPlotSeries* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QBoxPlotSeries_QBaseMetacall(QBoxPlotSeries* self, int param1, int param2, void** param3) {
+int QBoxPlotSeries_SuperMetacall(QBoxPlotSeries* self, int param1, int param2, void** param3) {
     auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
     if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
         vqboxplotseries->setQBoxPlotSeries_Metacall_IsBase(true);
@@ -370,7 +370,7 @@ void QBoxPlotSeries_OnMetacall(QBoxPlotSeries* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QBoxPlotSeries_QBaseType(const QBoxPlotSeries* self) {
+int QBoxPlotSeries_SuperType(const QBoxPlotSeries* self) {
     auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
     if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
         vqboxplotseries->setQBoxPlotSeries_Type_IsBase(true);
@@ -399,7 +399,7 @@ bool QBoxPlotSeries_Event(QBoxPlotSeries* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QBoxPlotSeries_QBaseEvent(QBoxPlotSeries* self, QEvent* event) {
+bool QBoxPlotSeries_SuperEvent(QBoxPlotSeries* self, QEvent* event) {
     auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
     if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
         vqboxplotseries->setQBoxPlotSeries_Event_IsBase(true);
@@ -428,7 +428,7 @@ bool QBoxPlotSeries_EventFilter(QBoxPlotSeries* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QBoxPlotSeries_QBaseEventFilter(QBoxPlotSeries* self, QObject* watched, QEvent* event) {
+bool QBoxPlotSeries_SuperEventFilter(QBoxPlotSeries* self, QObject* watched, QEvent* event) {
     auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
     if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
         vqboxplotseries->setQBoxPlotSeries_EventFilter_IsBase(true);
@@ -457,7 +457,7 @@ void QBoxPlotSeries_TimerEvent(QBoxPlotSeries* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QBoxPlotSeries_QBaseTimerEvent(QBoxPlotSeries* self, QTimerEvent* event) {
+void QBoxPlotSeries_SuperTimerEvent(QBoxPlotSeries* self, QTimerEvent* event) {
     auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
     if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
         vqboxplotseries->setQBoxPlotSeries_TimerEvent_IsBase(true);
@@ -486,7 +486,7 @@ void QBoxPlotSeries_ChildEvent(QBoxPlotSeries* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QBoxPlotSeries_QBaseChildEvent(QBoxPlotSeries* self, QChildEvent* event) {
+void QBoxPlotSeries_SuperChildEvent(QBoxPlotSeries* self, QChildEvent* event) {
     auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
     if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
         vqboxplotseries->setQBoxPlotSeries_ChildEvent_IsBase(true);
@@ -515,7 +515,7 @@ void QBoxPlotSeries_CustomEvent(QBoxPlotSeries* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QBoxPlotSeries_QBaseCustomEvent(QBoxPlotSeries* self, QEvent* event) {
+void QBoxPlotSeries_SuperCustomEvent(QBoxPlotSeries* self, QEvent* event) {
     auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
     if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
         vqboxplotseries->setQBoxPlotSeries_CustomEvent_IsBase(true);
@@ -544,7 +544,7 @@ void QBoxPlotSeries_ConnectNotify(QBoxPlotSeries* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QBoxPlotSeries_QBaseConnectNotify(QBoxPlotSeries* self, const QMetaMethod* signal) {
+void QBoxPlotSeries_SuperConnectNotify(QBoxPlotSeries* self, const QMetaMethod* signal) {
     auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
     if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
         vqboxplotseries->setQBoxPlotSeries_ConnectNotify_IsBase(true);
@@ -573,7 +573,7 @@ void QBoxPlotSeries_DisconnectNotify(QBoxPlotSeries* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QBoxPlotSeries_QBaseDisconnectNotify(QBoxPlotSeries* self, const QMetaMethod* signal) {
+void QBoxPlotSeries_SuperDisconnectNotify(QBoxPlotSeries* self, const QMetaMethod* signal) {
     auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
     if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
         vqboxplotseries->setQBoxPlotSeries_DisconnectNotify_IsBase(true);
@@ -602,7 +602,7 @@ QObject* QBoxPlotSeries_Sender(const QBoxPlotSeries* self) {
 }
 
 // Base class handler implementation
-QObject* QBoxPlotSeries_QBaseSender(const QBoxPlotSeries* self) {
+QObject* QBoxPlotSeries_SuperSender(const QBoxPlotSeries* self) {
     auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
     if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
         vqboxplotseries->setQBoxPlotSeries_Sender_IsBase(true);
@@ -631,7 +631,7 @@ int QBoxPlotSeries_SenderSignalIndex(const QBoxPlotSeries* self) {
 }
 
 // Base class handler implementation
-int QBoxPlotSeries_QBaseSenderSignalIndex(const QBoxPlotSeries* self) {
+int QBoxPlotSeries_SuperSenderSignalIndex(const QBoxPlotSeries* self) {
     auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
     if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
         vqboxplotseries->setQBoxPlotSeries_SenderSignalIndex_IsBase(true);
@@ -660,7 +660,7 @@ int QBoxPlotSeries_Receivers(const QBoxPlotSeries* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QBoxPlotSeries_QBaseReceivers(const QBoxPlotSeries* self, const char* signal) {
+int QBoxPlotSeries_SuperReceivers(const QBoxPlotSeries* self, const char* signal) {
     auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
     if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
         vqboxplotseries->setQBoxPlotSeries_Receivers_IsBase(true);
@@ -689,7 +689,7 @@ bool QBoxPlotSeries_IsSignalConnected(const QBoxPlotSeries* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QBoxPlotSeries_QBaseIsSignalConnected(const QBoxPlotSeries* self, const QMetaMethod* signal) {
+bool QBoxPlotSeries_SuperIsSignalConnected(const QBoxPlotSeries* self, const QMetaMethod* signal) {
     auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
     if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
         vqboxplotseries->setQBoxPlotSeries_IsSignalConnected_IsBase(true);

@@ -208,7 +208,7 @@ void KNotificationReplyAction_Connect_FallbackBehaviorChanged(KNotificationReply
 }
 
 // Base class handler implementation
-QMetaObject* KNotificationReplyAction_QBaseMetaObject(const KNotificationReplyAction* self) {
+QMetaObject* KNotificationReplyAction_SuperMetaObject(const KNotificationReplyAction* self) {
     auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
     if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
         vknotificationreplyaction->setKNotificationReplyAction_MetaObject_IsBase(true);
@@ -227,7 +227,7 @@ void KNotificationReplyAction_OnMetaObject(const KNotificationReplyAction* self,
 }
 
 // Base class handler implementation
-void* KNotificationReplyAction_QBaseMetacast(KNotificationReplyAction* self, const char* param1) {
+void* KNotificationReplyAction_SuperMetacast(KNotificationReplyAction* self, const char* param1) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
     if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
         vknotificationreplyaction->setKNotificationReplyAction_Metacast_IsBase(true);
@@ -246,7 +246,7 @@ void KNotificationReplyAction_OnMetacast(KNotificationReplyAction* self, intptr_
 }
 
 // Base class handler implementation
-int KNotificationReplyAction_QBaseMetacall(KNotificationReplyAction* self, int param1, int param2, void** param3) {
+int KNotificationReplyAction_SuperMetacall(KNotificationReplyAction* self, int param1, int param2, void** param3) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
     if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
         vknotificationreplyaction->setKNotificationReplyAction_Metacall_IsBase(true);
@@ -275,7 +275,7 @@ bool KNotificationReplyAction_Event(KNotificationReplyAction* self, QEvent* even
 }
 
 // Base class handler implementation
-bool KNotificationReplyAction_QBaseEvent(KNotificationReplyAction* self, QEvent* event) {
+bool KNotificationReplyAction_SuperEvent(KNotificationReplyAction* self, QEvent* event) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
     if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
         vknotificationreplyaction->setKNotificationReplyAction_Event_IsBase(true);
@@ -304,7 +304,7 @@ bool KNotificationReplyAction_EventFilter(KNotificationReplyAction* self, QObjec
 }
 
 // Base class handler implementation
-bool KNotificationReplyAction_QBaseEventFilter(KNotificationReplyAction* self, QObject* watched, QEvent* event) {
+bool KNotificationReplyAction_SuperEventFilter(KNotificationReplyAction* self, QObject* watched, QEvent* event) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
     if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
         vknotificationreplyaction->setKNotificationReplyAction_EventFilter_IsBase(true);
@@ -333,7 +333,7 @@ void KNotificationReplyAction_TimerEvent(KNotificationReplyAction* self, QTimerE
 }
 
 // Base class handler implementation
-void KNotificationReplyAction_QBaseTimerEvent(KNotificationReplyAction* self, QTimerEvent* event) {
+void KNotificationReplyAction_SuperTimerEvent(KNotificationReplyAction* self, QTimerEvent* event) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
     if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
         vknotificationreplyaction->setKNotificationReplyAction_TimerEvent_IsBase(true);
@@ -362,7 +362,7 @@ void KNotificationReplyAction_ChildEvent(KNotificationReplyAction* self, QChildE
 }
 
 // Base class handler implementation
-void KNotificationReplyAction_QBaseChildEvent(KNotificationReplyAction* self, QChildEvent* event) {
+void KNotificationReplyAction_SuperChildEvent(KNotificationReplyAction* self, QChildEvent* event) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
     if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
         vknotificationreplyaction->setKNotificationReplyAction_ChildEvent_IsBase(true);
@@ -391,7 +391,7 @@ void KNotificationReplyAction_CustomEvent(KNotificationReplyAction* self, QEvent
 }
 
 // Base class handler implementation
-void KNotificationReplyAction_QBaseCustomEvent(KNotificationReplyAction* self, QEvent* event) {
+void KNotificationReplyAction_SuperCustomEvent(KNotificationReplyAction* self, QEvent* event) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
     if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
         vknotificationreplyaction->setKNotificationReplyAction_CustomEvent_IsBase(true);
@@ -420,7 +420,7 @@ void KNotificationReplyAction_ConnectNotify(KNotificationReplyAction* self, cons
 }
 
 // Base class handler implementation
-void KNotificationReplyAction_QBaseConnectNotify(KNotificationReplyAction* self, const QMetaMethod* signal) {
+void KNotificationReplyAction_SuperConnectNotify(KNotificationReplyAction* self, const QMetaMethod* signal) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
     if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
         vknotificationreplyaction->setKNotificationReplyAction_ConnectNotify_IsBase(true);
@@ -449,7 +449,7 @@ void KNotificationReplyAction_DisconnectNotify(KNotificationReplyAction* self, c
 }
 
 // Base class handler implementation
-void KNotificationReplyAction_QBaseDisconnectNotify(KNotificationReplyAction* self, const QMetaMethod* signal) {
+void KNotificationReplyAction_SuperDisconnectNotify(KNotificationReplyAction* self, const QMetaMethod* signal) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
     if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
         vknotificationreplyaction->setKNotificationReplyAction_DisconnectNotify_IsBase(true);
@@ -478,7 +478,7 @@ QObject* KNotificationReplyAction_Sender(const KNotificationReplyAction* self) {
 }
 
 // Base class handler implementation
-QObject* KNotificationReplyAction_QBaseSender(const KNotificationReplyAction* self) {
+QObject* KNotificationReplyAction_SuperSender(const KNotificationReplyAction* self) {
     auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
     if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
         vknotificationreplyaction->setKNotificationReplyAction_Sender_IsBase(true);
@@ -507,7 +507,7 @@ int KNotificationReplyAction_SenderSignalIndex(const KNotificationReplyAction* s
 }
 
 // Base class handler implementation
-int KNotificationReplyAction_QBaseSenderSignalIndex(const KNotificationReplyAction* self) {
+int KNotificationReplyAction_SuperSenderSignalIndex(const KNotificationReplyAction* self) {
     auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
     if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
         vknotificationreplyaction->setKNotificationReplyAction_SenderSignalIndex_IsBase(true);
@@ -536,7 +536,7 @@ int KNotificationReplyAction_Receivers(const KNotificationReplyAction* self, con
 }
 
 // Base class handler implementation
-int KNotificationReplyAction_QBaseReceivers(const KNotificationReplyAction* self, const char* signal) {
+int KNotificationReplyAction_SuperReceivers(const KNotificationReplyAction* self, const char* signal) {
     auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
     if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
         vknotificationreplyaction->setKNotificationReplyAction_Receivers_IsBase(true);
@@ -565,7 +565,7 @@ bool KNotificationReplyAction_IsSignalConnected(const KNotificationReplyAction* 
 }
 
 // Base class handler implementation
-bool KNotificationReplyAction_QBaseIsSignalConnected(const KNotificationReplyAction* self, const QMetaMethod* signal) {
+bool KNotificationReplyAction_SuperIsSignalConnected(const KNotificationReplyAction* self, const QMetaMethod* signal) {
     auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
     if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
         vknotificationreplyaction->setKNotificationReplyAction_IsSignalConnected_IsBase(true);

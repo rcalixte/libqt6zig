@@ -124,7 +124,7 @@ long long QSaveFile_WriteData(QSaveFile* self, const char* data, long long lenVa
 }
 
 // Base class handler implementation
-QMetaObject* QSaveFile_QBaseMetaObject(const QSaveFile* self) {
+QMetaObject* QSaveFile_SuperMetaObject(const QSaveFile* self) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_MetaObject_IsBase(true);
@@ -143,7 +143,7 @@ void QSaveFile_OnMetaObject(const QSaveFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QSaveFile_QBaseMetacast(QSaveFile* self, const char* param1) {
+void* QSaveFile_SuperMetacast(QSaveFile* self, const char* param1) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_Metacast_IsBase(true);
@@ -162,7 +162,7 @@ void QSaveFile_OnMetacast(QSaveFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSaveFile_QBaseMetacall(QSaveFile* self, int param1, int param2, void** param3) {
+int QSaveFile_SuperMetacall(QSaveFile* self, int param1, int param2, void** param3) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_Metacall_IsBase(true);
@@ -181,7 +181,7 @@ void QSaveFile_OnMetacall(QSaveFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string QSaveFile_QBaseFileName(const QSaveFile* self) {
+libqt_string QSaveFile_SuperFileName(const QSaveFile* self) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_FileName_IsBase(true);
@@ -216,7 +216,7 @@ void QSaveFile_OnFileName(const QSaveFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSaveFile_QBaseOpen(QSaveFile* self, int flags) {
+bool QSaveFile_SuperOpen(QSaveFile* self, int flags) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_Open_IsBase(true);
@@ -235,7 +235,7 @@ void QSaveFile_OnOpen(QSaveFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QSaveFile_QBaseWriteData(QSaveFile* self, const char* data, long long lenVal) {
+long long QSaveFile_SuperWriteData(QSaveFile* self, const char* data, long long lenVal) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_WriteData_IsBase(true);
@@ -264,7 +264,7 @@ bool QSaveFile_IsSequential(const QSaveFile* self) {
 }
 
 // Base class handler implementation
-bool QSaveFile_QBaseIsSequential(const QSaveFile* self) {
+bool QSaveFile_SuperIsSequential(const QSaveFile* self) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_IsSequential_IsBase(true);
@@ -293,7 +293,7 @@ long long QSaveFile_Pos(const QSaveFile* self) {
 }
 
 // Base class handler implementation
-long long QSaveFile_QBasePos(const QSaveFile* self) {
+long long QSaveFile_SuperPos(const QSaveFile* self) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_Pos_IsBase(true);
@@ -322,7 +322,7 @@ bool QSaveFile_Seek(QSaveFile* self, long long offset) {
 }
 
 // Base class handler implementation
-bool QSaveFile_QBaseSeek(QSaveFile* self, long long offset) {
+bool QSaveFile_SuperSeek(QSaveFile* self, long long offset) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_Seek_IsBase(true);
@@ -351,7 +351,7 @@ bool QSaveFile_AtEnd(const QSaveFile* self) {
 }
 
 // Base class handler implementation
-bool QSaveFile_QBaseAtEnd(const QSaveFile* self) {
+bool QSaveFile_SuperAtEnd(const QSaveFile* self) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_AtEnd_IsBase(true);
@@ -380,7 +380,7 @@ long long QSaveFile_Size(const QSaveFile* self) {
 }
 
 // Base class handler implementation
-long long QSaveFile_QBaseSize(const QSaveFile* self) {
+long long QSaveFile_SuperSize(const QSaveFile* self) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_Size_IsBase(true);
@@ -409,7 +409,7 @@ bool QSaveFile_Resize(QSaveFile* self, long long sz) {
 }
 
 // Base class handler implementation
-bool QSaveFile_QBaseResize(QSaveFile* self, long long sz) {
+bool QSaveFile_SuperResize(QSaveFile* self, long long sz) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_Resize_IsBase(true);
@@ -438,7 +438,7 @@ int QSaveFile_Permissions(const QSaveFile* self) {
 }
 
 // Base class handler implementation
-int QSaveFile_QBasePermissions(const QSaveFile* self) {
+int QSaveFile_SuperPermissions(const QSaveFile* self) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_Permissions_IsBase(true);
@@ -467,7 +467,7 @@ bool QSaveFile_SetPermissions(QSaveFile* self, int permissionSpec) {
 }
 
 // Base class handler implementation
-bool QSaveFile_QBaseSetPermissions(QSaveFile* self, int permissionSpec) {
+bool QSaveFile_SuperSetPermissions(QSaveFile* self, int permissionSpec) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_SetPermissions_IsBase(true);
@@ -496,7 +496,7 @@ long long QSaveFile_ReadData(QSaveFile* self, char* data, long long maxlen) {
 }
 
 // Base class handler implementation
-long long QSaveFile_QBaseReadData(QSaveFile* self, char* data, long long maxlen) {
+long long QSaveFile_SuperReadData(QSaveFile* self, char* data, long long maxlen) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_ReadData_IsBase(true);
@@ -525,7 +525,7 @@ long long QSaveFile_ReadLineData(QSaveFile* self, char* data, long long maxlen) 
 }
 
 // Base class handler implementation
-long long QSaveFile_QBaseReadLineData(QSaveFile* self, char* data, long long maxlen) {
+long long QSaveFile_SuperReadLineData(QSaveFile* self, char* data, long long maxlen) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_ReadLineData_IsBase(true);
@@ -554,7 +554,7 @@ bool QSaveFile_Reset(QSaveFile* self) {
 }
 
 // Base class handler implementation
-bool QSaveFile_QBaseReset(QSaveFile* self) {
+bool QSaveFile_SuperReset(QSaveFile* self) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_Reset_IsBase(true);
@@ -583,7 +583,7 @@ long long QSaveFile_BytesAvailable(const QSaveFile* self) {
 }
 
 // Base class handler implementation
-long long QSaveFile_QBaseBytesAvailable(const QSaveFile* self) {
+long long QSaveFile_SuperBytesAvailable(const QSaveFile* self) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_BytesAvailable_IsBase(true);
@@ -612,7 +612,7 @@ long long QSaveFile_BytesToWrite(const QSaveFile* self) {
 }
 
 // Base class handler implementation
-long long QSaveFile_QBaseBytesToWrite(const QSaveFile* self) {
+long long QSaveFile_SuperBytesToWrite(const QSaveFile* self) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_BytesToWrite_IsBase(true);
@@ -641,7 +641,7 @@ bool QSaveFile_CanReadLine(const QSaveFile* self) {
 }
 
 // Base class handler implementation
-bool QSaveFile_QBaseCanReadLine(const QSaveFile* self) {
+bool QSaveFile_SuperCanReadLine(const QSaveFile* self) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_CanReadLine_IsBase(true);
@@ -670,7 +670,7 @@ bool QSaveFile_WaitForReadyRead(QSaveFile* self, int msecs) {
 }
 
 // Base class handler implementation
-bool QSaveFile_QBaseWaitForReadyRead(QSaveFile* self, int msecs) {
+bool QSaveFile_SuperWaitForReadyRead(QSaveFile* self, int msecs) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_WaitForReadyRead_IsBase(true);
@@ -699,7 +699,7 @@ bool QSaveFile_WaitForBytesWritten(QSaveFile* self, int msecs) {
 }
 
 // Base class handler implementation
-bool QSaveFile_QBaseWaitForBytesWritten(QSaveFile* self, int msecs) {
+bool QSaveFile_SuperWaitForBytesWritten(QSaveFile* self, int msecs) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_WaitForBytesWritten_IsBase(true);
@@ -728,7 +728,7 @@ long long QSaveFile_SkipData(QSaveFile* self, long long maxSize) {
 }
 
 // Base class handler implementation
-long long QSaveFile_QBaseSkipData(QSaveFile* self, long long maxSize) {
+long long QSaveFile_SuperSkipData(QSaveFile* self, long long maxSize) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_SkipData_IsBase(true);
@@ -757,7 +757,7 @@ bool QSaveFile_Event(QSaveFile* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QSaveFile_QBaseEvent(QSaveFile* self, QEvent* event) {
+bool QSaveFile_SuperEvent(QSaveFile* self, QEvent* event) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_Event_IsBase(true);
@@ -786,7 +786,7 @@ bool QSaveFile_EventFilter(QSaveFile* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QSaveFile_QBaseEventFilter(QSaveFile* self, QObject* watched, QEvent* event) {
+bool QSaveFile_SuperEventFilter(QSaveFile* self, QObject* watched, QEvent* event) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_EventFilter_IsBase(true);
@@ -815,7 +815,7 @@ void QSaveFile_TimerEvent(QSaveFile* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QSaveFile_QBaseTimerEvent(QSaveFile* self, QTimerEvent* event) {
+void QSaveFile_SuperTimerEvent(QSaveFile* self, QTimerEvent* event) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_TimerEvent_IsBase(true);
@@ -844,7 +844,7 @@ void QSaveFile_ChildEvent(QSaveFile* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QSaveFile_QBaseChildEvent(QSaveFile* self, QChildEvent* event) {
+void QSaveFile_SuperChildEvent(QSaveFile* self, QChildEvent* event) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_ChildEvent_IsBase(true);
@@ -873,7 +873,7 @@ void QSaveFile_CustomEvent(QSaveFile* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSaveFile_QBaseCustomEvent(QSaveFile* self, QEvent* event) {
+void QSaveFile_SuperCustomEvent(QSaveFile* self, QEvent* event) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_CustomEvent_IsBase(true);
@@ -902,7 +902,7 @@ void QSaveFile_ConnectNotify(QSaveFile* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QSaveFile_QBaseConnectNotify(QSaveFile* self, const QMetaMethod* signal) {
+void QSaveFile_SuperConnectNotify(QSaveFile* self, const QMetaMethod* signal) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_ConnectNotify_IsBase(true);
@@ -931,7 +931,7 @@ void QSaveFile_DisconnectNotify(QSaveFile* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QSaveFile_QBaseDisconnectNotify(QSaveFile* self, const QMetaMethod* signal) {
+void QSaveFile_SuperDisconnectNotify(QSaveFile* self, const QMetaMethod* signal) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_DisconnectNotify_IsBase(true);
@@ -960,7 +960,7 @@ void QSaveFile_SetOpenMode(QSaveFile* self, int openMode) {
 }
 
 // Base class handler implementation
-void QSaveFile_QBaseSetOpenMode(QSaveFile* self, int openMode) {
+void QSaveFile_SuperSetOpenMode(QSaveFile* self, int openMode) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_SetOpenMode_IsBase(true);
@@ -990,7 +990,7 @@ void QSaveFile_SetErrorString(QSaveFile* self, const libqt_string errorString) {
 }
 
 // Base class handler implementation
-void QSaveFile_QBaseSetErrorString(QSaveFile* self, const libqt_string errorString) {
+void QSaveFile_SuperSetErrorString(QSaveFile* self, const libqt_string errorString) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
@@ -1020,7 +1020,7 @@ QObject* QSaveFile_Sender(const QSaveFile* self) {
 }
 
 // Base class handler implementation
-QObject* QSaveFile_QBaseSender(const QSaveFile* self) {
+QObject* QSaveFile_SuperSender(const QSaveFile* self) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_Sender_IsBase(true);
@@ -1049,7 +1049,7 @@ int QSaveFile_SenderSignalIndex(const QSaveFile* self) {
 }
 
 // Base class handler implementation
-int QSaveFile_QBaseSenderSignalIndex(const QSaveFile* self) {
+int QSaveFile_SuperSenderSignalIndex(const QSaveFile* self) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_SenderSignalIndex_IsBase(true);
@@ -1078,7 +1078,7 @@ int QSaveFile_Receivers(const QSaveFile* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QSaveFile_QBaseReceivers(const QSaveFile* self, const char* signal) {
+int QSaveFile_SuperReceivers(const QSaveFile* self, const char* signal) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_Receivers_IsBase(true);
@@ -1107,7 +1107,7 @@ bool QSaveFile_IsSignalConnected(const QSaveFile* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool QSaveFile_QBaseIsSignalConnected(const QSaveFile* self, const QMetaMethod* signal) {
+bool QSaveFile_SuperIsSignalConnected(const QSaveFile* self, const QMetaMethod* signal) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_IsSignalConnected_IsBase(true);

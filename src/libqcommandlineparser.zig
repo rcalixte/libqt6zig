@@ -573,6 +573,10 @@ pub const qcommandlineparser = struct {
         qtc.QCommandLineParser_ShowHelp1(@ptrCast(self), @bitCast(exitCode));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html#dtor.QCommandLineParser)
     ///
     /// Delete this object from C++ memory.
@@ -581,7 +585,7 @@ pub const qcommandlineparser = struct {
     ///
     /// ` self: QtC.QCommandLineParser `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCommandLineParser_Delete(@ptrCast(self));
     }
 };

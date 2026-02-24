@@ -416,23 +416,23 @@ class VirtualQExtensionManager final : public QExtensionManager {
 
     // Friend functions
     friend void QExtensionManager_TimerEvent(QExtensionManager* self, QTimerEvent* event);
-    friend void QExtensionManager_QBaseTimerEvent(QExtensionManager* self, QTimerEvent* event);
+    friend void QExtensionManager_SuperTimerEvent(QExtensionManager* self, QTimerEvent* event);
     friend void QExtensionManager_ChildEvent(QExtensionManager* self, QChildEvent* event);
-    friend void QExtensionManager_QBaseChildEvent(QExtensionManager* self, QChildEvent* event);
+    friend void QExtensionManager_SuperChildEvent(QExtensionManager* self, QChildEvent* event);
     friend void QExtensionManager_CustomEvent(QExtensionManager* self, QEvent* event);
-    friend void QExtensionManager_QBaseCustomEvent(QExtensionManager* self, QEvent* event);
+    friend void QExtensionManager_SuperCustomEvent(QExtensionManager* self, QEvent* event);
     friend void QExtensionManager_ConnectNotify(QExtensionManager* self, const QMetaMethod* signal);
-    friend void QExtensionManager_QBaseConnectNotify(QExtensionManager* self, const QMetaMethod* signal);
+    friend void QExtensionManager_SuperConnectNotify(QExtensionManager* self, const QMetaMethod* signal);
     friend void QExtensionManager_DisconnectNotify(QExtensionManager* self, const QMetaMethod* signal);
-    friend void QExtensionManager_QBaseDisconnectNotify(QExtensionManager* self, const QMetaMethod* signal);
+    friend void QExtensionManager_SuperDisconnectNotify(QExtensionManager* self, const QMetaMethod* signal);
     friend QObject* QExtensionManager_Sender(const QExtensionManager* self);
-    friend QObject* QExtensionManager_QBaseSender(const QExtensionManager* self);
+    friend QObject* QExtensionManager_SuperSender(const QExtensionManager* self);
     friend int QExtensionManager_SenderSignalIndex(const QExtensionManager* self);
-    friend int QExtensionManager_QBaseSenderSignalIndex(const QExtensionManager* self);
+    friend int QExtensionManager_SuperSenderSignalIndex(const QExtensionManager* self);
     friend int QExtensionManager_Receivers(const QExtensionManager* self, const char* signal);
-    friend int QExtensionManager_QBaseReceivers(const QExtensionManager* self, const char* signal);
+    friend int QExtensionManager_SuperReceivers(const QExtensionManager* self, const char* signal);
     friend bool QExtensionManager_IsSignalConnected(const QExtensionManager* self, const QMetaMethod* signal);
-    friend bool QExtensionManager_QBaseIsSignalConnected(const QExtensionManager* self, const QMetaMethod* signal);
+    friend bool QExtensionManager_SuperIsSignalConnected(const QExtensionManager* self, const QMetaMethod* signal);
 };
 
 #endif

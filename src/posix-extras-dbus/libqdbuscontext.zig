@@ -130,6 +130,10 @@ pub const qdbuscontext = struct {
         qtc.QDBusContext_SendErrorReply23(@ptrCast(self), @bitCast(typeVal), msg_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuscontext.html#dtor.QDBusContext)
     ///
     /// Delete this object from C++ memory.
@@ -138,7 +142,7 @@ pub const qdbuscontext = struct {
     ///
     /// ` self: QtC.QDBusContext `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDBusContext_Delete(@ptrCast(self));
     }
 };

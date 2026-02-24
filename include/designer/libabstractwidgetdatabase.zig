@@ -44,6 +44,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperName` instead
+    ///
+    pub const QBaseName = SuperName;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#name)
     ///
     /// Base class method implementation
@@ -54,8 +58,8 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerWidgetDataBaseItemInterface_QBaseName(@ptrCast(self));
+    pub fn SuperName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerWidgetDataBaseItemInterface_SuperName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseiteminterface.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -92,6 +96,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnSetName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetName` instead
+    ///
+    pub const QBaseSetName = SuperSetName;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setName)
     ///
     /// Base class method implementation
@@ -102,12 +110,12 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn QBaseSetName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SuperSetName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerWidgetDataBaseItemInterface_QBaseSetName(@ptrCast(self), name_str);
+        qtc.QDesignerWidgetDataBaseItemInterface_SuperSetName(@ptrCast(self), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#group)
@@ -142,6 +150,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnGroup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGroup` instead
+    ///
+    pub const QBaseGroup = SuperGroup;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#group)
     ///
     /// Base class method implementation
@@ -152,8 +164,8 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseGroup(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerWidgetDataBaseItemInterface_QBaseGroup(@ptrCast(self));
+    pub fn SuperGroup(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerWidgetDataBaseItemInterface_SuperGroup(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseiteminterface.Group: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -190,6 +202,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnSetGroup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetGroup` instead
+    ///
+    pub const QBaseSetGroup = SuperSetGroup;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setGroup)
     ///
     /// Base class method implementation
@@ -200,12 +216,12 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` group: []const u8 `
     ///
-    pub fn QBaseSetGroup(self: ?*anyopaque, group: []const u8) void {
+    pub fn SuperSetGroup(self: ?*anyopaque, group: []const u8) void {
         const group_str = qtc.libqt_string{
             .len = group.len,
             .data = group.ptr,
         };
-        qtc.QDesignerWidgetDataBaseItemInterface_QBaseSetGroup(@ptrCast(self), group_str);
+        qtc.QDesignerWidgetDataBaseItemInterface_SuperSetGroup(@ptrCast(self), group_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#toolTip)
@@ -240,6 +256,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnToolTip(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperToolTip` instead
+    ///
+    pub const QBaseToolTip = SuperToolTip;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#toolTip)
     ///
     /// Base class method implementation
@@ -250,8 +270,8 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerWidgetDataBaseItemInterface_QBaseToolTip(@ptrCast(self));
+    pub fn SuperToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerWidgetDataBaseItemInterface_SuperToolTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseiteminterface.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -288,6 +308,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnSetToolTip(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetToolTip` instead
+    ///
+    pub const QBaseSetToolTip = SuperSetToolTip;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setToolTip)
     ///
     /// Base class method implementation
@@ -298,12 +322,12 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn QBaseSetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SuperSetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QDesignerWidgetDataBaseItemInterface_QBaseSetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QDesignerWidgetDataBaseItemInterface_SuperSetToolTip(@ptrCast(self), toolTip_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#whatsThis)
@@ -338,6 +362,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnWhatsThis(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWhatsThis` instead
+    ///
+    pub const QBaseWhatsThis = SuperWhatsThis;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#whatsThis)
     ///
     /// Base class method implementation
@@ -348,8 +376,8 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseWhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerWidgetDataBaseItemInterface_QBaseWhatsThis(@ptrCast(self));
+    pub fn SuperWhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerWidgetDataBaseItemInterface_SuperWhatsThis(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseiteminterface.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -386,6 +414,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnSetWhatsThis(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetWhatsThis` instead
+    ///
+    pub const QBaseSetWhatsThis = SuperSetWhatsThis;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setWhatsThis)
     ///
     /// Base class method implementation
@@ -396,12 +428,12 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn QBaseSetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SuperSetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QDesignerWidgetDataBaseItemInterface_QBaseSetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QDesignerWidgetDataBaseItemInterface_SuperSetWhatsThis(@ptrCast(self), whatsThis_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#includeFile)
@@ -436,6 +468,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnIncludeFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIncludeFile` instead
+    ///
+    pub const QBaseIncludeFile = SuperIncludeFile;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#includeFile)
     ///
     /// Base class method implementation
@@ -446,8 +482,8 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseIncludeFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerWidgetDataBaseItemInterface_QBaseIncludeFile(@ptrCast(self));
+    pub fn SuperIncludeFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerWidgetDataBaseItemInterface_SuperIncludeFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseiteminterface.IncludeFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -484,6 +520,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnSetIncludeFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetIncludeFile` instead
+    ///
+    pub const QBaseSetIncludeFile = SuperSetIncludeFile;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setIncludeFile)
     ///
     /// Base class method implementation
@@ -494,12 +534,12 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` includeFile: []const u8 `
     ///
-    pub fn QBaseSetIncludeFile(self: ?*anyopaque, includeFile: []const u8) void {
+    pub fn SuperSetIncludeFile(self: ?*anyopaque, includeFile: []const u8) void {
         const includeFile_str = qtc.libqt_string{
             .len = includeFile.len,
             .data = includeFile.ptr,
         };
-        qtc.QDesignerWidgetDataBaseItemInterface_QBaseSetIncludeFile(@ptrCast(self), includeFile_str);
+        qtc.QDesignerWidgetDataBaseItemInterface_SuperSetIncludeFile(@ptrCast(self), includeFile_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#icon)
@@ -526,6 +566,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnIcon(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIcon` instead
+    ///
+    pub const QBaseIcon = SuperIcon;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#icon)
     ///
     /// Base class method implementation
@@ -534,8 +578,8 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` self: QtC.QDesignerWidgetDataBaseItemInterface `
     ///
-    pub fn QBaseIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QDesignerWidgetDataBaseItemInterface_QBaseIcon(@ptrCast(self));
+    pub fn SuperIcon(self: ?*anyopaque) QtC.QIcon {
+        return qtc.QDesignerWidgetDataBaseItemInterface_SuperIcon(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setIcon)
@@ -564,6 +608,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnSetIcon(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetIcon` instead
+    ///
+    pub const QBaseSetIcon = SuperSetIcon;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setIcon)
     ///
     /// Base class method implementation
@@ -574,8 +622,8 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` icon: QtC.QIcon `
     ///
-    pub fn QBaseSetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_QBaseSetIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SuperSetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
+        qtc.QDesignerWidgetDataBaseItemInterface_SuperSetIcon(@ptrCast(self), @ptrCast(icon));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#isCompat)
@@ -602,6 +650,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnIsCompat(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsCompat` instead
+    ///
+    pub const QBaseIsCompat = SuperIsCompat;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#isCompat)
     ///
     /// Base class method implementation
@@ -610,8 +662,8 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` self: QtC.QDesignerWidgetDataBaseItemInterface `
     ///
-    pub fn QBaseIsCompat(self: ?*anyopaque) bool {
-        return qtc.QDesignerWidgetDataBaseItemInterface_QBaseIsCompat(@ptrCast(self));
+    pub fn SuperIsCompat(self: ?*anyopaque) bool {
+        return qtc.QDesignerWidgetDataBaseItemInterface_SuperIsCompat(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setCompat)
@@ -640,6 +692,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnSetCompat(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCompat` instead
+    ///
+    pub const QBaseSetCompat = SuperSetCompat;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setCompat)
     ///
     /// Base class method implementation
@@ -650,8 +706,8 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` compat: bool `
     ///
-    pub fn QBaseSetCompat(self: ?*anyopaque, compat: bool) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_QBaseSetCompat(@ptrCast(self), compat);
+    pub fn SuperSetCompat(self: ?*anyopaque, compat: bool) void {
+        qtc.QDesignerWidgetDataBaseItemInterface_SuperSetCompat(@ptrCast(self), compat);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#isContainer)
@@ -678,6 +734,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnIsContainer(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsContainer` instead
+    ///
+    pub const QBaseIsContainer = SuperIsContainer;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#isContainer)
     ///
     /// Base class method implementation
@@ -686,8 +746,8 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` self: QtC.QDesignerWidgetDataBaseItemInterface `
     ///
-    pub fn QBaseIsContainer(self: ?*anyopaque) bool {
-        return qtc.QDesignerWidgetDataBaseItemInterface_QBaseIsContainer(@ptrCast(self));
+    pub fn SuperIsContainer(self: ?*anyopaque) bool {
+        return qtc.QDesignerWidgetDataBaseItemInterface_SuperIsContainer(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setContainer)
@@ -716,6 +776,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnSetContainer(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetContainer` instead
+    ///
+    pub const QBaseSetContainer = SuperSetContainer;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setContainer)
     ///
     /// Base class method implementation
@@ -726,8 +790,8 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` container: bool `
     ///
-    pub fn QBaseSetContainer(self: ?*anyopaque, container: bool) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_QBaseSetContainer(@ptrCast(self), container);
+    pub fn SuperSetContainer(self: ?*anyopaque, container: bool) void {
+        qtc.QDesignerWidgetDataBaseItemInterface_SuperSetContainer(@ptrCast(self), container);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#isCustom)
@@ -754,6 +818,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnIsCustom(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsCustom` instead
+    ///
+    pub const QBaseIsCustom = SuperIsCustom;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#isCustom)
     ///
     /// Base class method implementation
@@ -762,8 +830,8 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` self: QtC.QDesignerWidgetDataBaseItemInterface `
     ///
-    pub fn QBaseIsCustom(self: ?*anyopaque) bool {
-        return qtc.QDesignerWidgetDataBaseItemInterface_QBaseIsCustom(@ptrCast(self));
+    pub fn SuperIsCustom(self: ?*anyopaque) bool {
+        return qtc.QDesignerWidgetDataBaseItemInterface_SuperIsCustom(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setCustom)
@@ -792,6 +860,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnSetCustom(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCustom` instead
+    ///
+    pub const QBaseSetCustom = SuperSetCustom;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setCustom)
     ///
     /// Base class method implementation
@@ -802,8 +874,8 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` custom: bool `
     ///
-    pub fn QBaseSetCustom(self: ?*anyopaque, custom: bool) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_QBaseSetCustom(@ptrCast(self), custom);
+    pub fn SuperSetCustom(self: ?*anyopaque, custom: bool) void {
+        qtc.QDesignerWidgetDataBaseItemInterface_SuperSetCustom(@ptrCast(self), custom);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#pluginPath)
@@ -838,6 +910,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnPluginPath(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPluginPath` instead
+    ///
+    pub const QBasePluginPath = SuperPluginPath;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#pluginPath)
     ///
     /// Base class method implementation
@@ -848,8 +924,8 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBasePluginPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerWidgetDataBaseItemInterface_QBasePluginPath(@ptrCast(self));
+    pub fn SuperPluginPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerWidgetDataBaseItemInterface_SuperPluginPath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseiteminterface.PluginPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -886,6 +962,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnSetPluginPath(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPluginPath` instead
+    ///
+    pub const QBaseSetPluginPath = SuperSetPluginPath;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setPluginPath)
     ///
     /// Base class method implementation
@@ -896,12 +976,12 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn QBaseSetPluginPath(self: ?*anyopaque, path: []const u8) void {
+    pub fn SuperSetPluginPath(self: ?*anyopaque, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        qtc.QDesignerWidgetDataBaseItemInterface_QBaseSetPluginPath(@ptrCast(self), path_str);
+        qtc.QDesignerWidgetDataBaseItemInterface_SuperSetPluginPath(@ptrCast(self), path_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#isPromoted)
@@ -928,6 +1008,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnIsPromoted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsPromoted` instead
+    ///
+    pub const QBaseIsPromoted = SuperIsPromoted;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#isPromoted)
     ///
     /// Base class method implementation
@@ -936,8 +1020,8 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` self: QtC.QDesignerWidgetDataBaseItemInterface `
     ///
-    pub fn QBaseIsPromoted(self: ?*anyopaque) bool {
-        return qtc.QDesignerWidgetDataBaseItemInterface_QBaseIsPromoted(@ptrCast(self));
+    pub fn SuperIsPromoted(self: ?*anyopaque) bool {
+        return qtc.QDesignerWidgetDataBaseItemInterface_SuperIsPromoted(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setPromoted)
@@ -966,6 +1050,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnSetPromoted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPromoted` instead
+    ///
+    pub const QBaseSetPromoted = SuperSetPromoted;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setPromoted)
     ///
     /// Base class method implementation
@@ -976,8 +1064,8 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` b: bool `
     ///
-    pub fn QBaseSetPromoted(self: ?*anyopaque, b: bool) void {
-        qtc.QDesignerWidgetDataBaseItemInterface_QBaseSetPromoted(@ptrCast(self), b);
+    pub fn SuperSetPromoted(self: ?*anyopaque, b: bool) void {
+        qtc.QDesignerWidgetDataBaseItemInterface_SuperSetPromoted(@ptrCast(self), b);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#extends)
@@ -1012,6 +1100,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnExtends(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperExtends` instead
+    ///
+    pub const QBaseExtends = SuperExtends;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#extends)
     ///
     /// Base class method implementation
@@ -1022,8 +1114,8 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseExtends(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerWidgetDataBaseItemInterface_QBaseExtends(@ptrCast(self));
+    pub fn SuperExtends(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerWidgetDataBaseItemInterface_SuperExtends(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseiteminterface.Extends: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1060,6 +1152,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnSetExtends(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetExtends` instead
+    ///
+    pub const QBaseSetExtends = SuperSetExtends;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setExtends)
     ///
     /// Base class method implementation
@@ -1070,12 +1166,12 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` s: []const u8 `
     ///
-    pub fn QBaseSetExtends(self: ?*anyopaque, s: []const u8) void {
+    pub fn SuperSetExtends(self: ?*anyopaque, s: []const u8) void {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
-        qtc.QDesignerWidgetDataBaseItemInterface_QBaseSetExtends(@ptrCast(self), s_str);
+        qtc.QDesignerWidgetDataBaseItemInterface_SuperSetExtends(@ptrCast(self), s_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setDefaultPropertyValues)
@@ -1108,6 +1204,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnSetDefaultPropertyValues(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetDefaultPropertyValues` instead
+    ///
+    pub const QBaseSetDefaultPropertyValues = SuperSetDefaultPropertyValues;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#setDefaultPropertyValues)
     ///
     /// Base class method implementation
@@ -1118,12 +1218,12 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` list: []QtC.QVariant `
     ///
-    pub fn QBaseSetDefaultPropertyValues(self: ?*anyopaque, list: []QtC.QVariant) void {
+    pub fn SuperSetDefaultPropertyValues(self: ?*anyopaque, list: []QtC.QVariant) void {
         const list_list = qtc.libqt_list{
             .len = list.len,
             .data = @ptrCast(list.ptr),
         };
-        qtc.QDesignerWidgetDataBaseItemInterface_QBaseSetDefaultPropertyValues(@ptrCast(self), list_list);
+        qtc.QDesignerWidgetDataBaseItemInterface_SuperSetDefaultPropertyValues(@ptrCast(self), list_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#defaultPropertyValues)
@@ -1163,6 +1263,10 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
         qtc.QDesignerWidgetDataBaseItemInterface_OnDefaultPropertyValues(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDefaultPropertyValues` instead
+    ///
+    pub const QBaseDefaultPropertyValues = SuperDefaultPropertyValues;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#defaultPropertyValues)
     ///
     /// Base class method implementation
@@ -1173,14 +1277,17 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseDefaultPropertyValues(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QVariant {
-        const _arr: qtc.libqt_list = qtc.QDesignerWidgetDataBaseItemInterface_QBaseDefaultPropertyValues(@ptrCast(self));
+    pub fn SuperDefaultPropertyValues(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QVariant {
+        const _arr: qtc.libqt_list = qtc.QDesignerWidgetDataBaseItemInterface_SuperDefaultPropertyValues(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QVariant, _arr.len) catch @panic("qdesignerwidgetdatabaseiteminterface.DefaultPropertyValues: Memory allocation failed");
         const _data: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#dtor.QDesignerWidgetDataBaseItemInterface)
     ///
@@ -1190,7 +1297,7 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` self: QtC.QDesignerWidgetDataBaseItemInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDesignerWidgetDataBaseItemInterface_Delete(@ptrCast(self));
     }
 };
@@ -1237,6 +1344,10 @@ pub const qdesignerwidgetdatabaseinterface = struct {
         qtc.QDesignerWidgetDataBaseInterface_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -1245,8 +1356,8 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` self: QtC.QDesignerWidgetDataBaseInterface `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QDesignerWidgetDataBaseInterface_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QDesignerWidgetDataBaseInterface_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -1272,6 +1383,10 @@ pub const qdesignerwidgetdatabaseinterface = struct {
         qtc.QDesignerWidgetDataBaseInterface_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -1280,9 +1395,9 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QDesignerWidgetDataBaseInterface_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QDesignerWidgetDataBaseInterface_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -1311,6 +1426,10 @@ pub const qdesignerwidgetdatabaseinterface = struct {
         qtc.QDesignerWidgetDataBaseInterface_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -1323,8 +1442,8 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDesignerWidgetDataBaseInterface_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QDesignerWidgetDataBaseInterface_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1368,6 +1487,10 @@ pub const qdesignerwidgetdatabaseinterface = struct {
         qtc.QDesignerWidgetDataBaseInterface_OnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCount` instead
+    ///
+    pub const QBaseCount = SuperCount;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#count)
     ///
     /// Base class method implementation
@@ -1376,8 +1499,8 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` self: QtC.QDesignerWidgetDataBaseInterface `
     ///
-    pub fn QBaseCount(self: ?*anyopaque) i32 {
-        return qtc.QDesignerWidgetDataBaseInterface_QBaseCount(@ptrCast(self));
+    pub fn SuperCount(self: ?*anyopaque) i32 {
+        return qtc.QDesignerWidgetDataBaseInterface_SuperCount(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#item)
@@ -1406,6 +1529,10 @@ pub const qdesignerwidgetdatabaseinterface = struct {
         qtc.QDesignerWidgetDataBaseInterface_OnItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperItem` instead
+    ///
+    pub const QBaseItem = SuperItem;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#item)
     ///
     /// Base class method implementation
@@ -1416,8 +1543,8 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn QBaseItem(self: ?*anyopaque, index: i32) QtC.QDesignerWidgetDataBaseItemInterface {
-        return qtc.QDesignerWidgetDataBaseInterface_QBaseItem(@ptrCast(self), @bitCast(index));
+    pub fn SuperItem(self: ?*anyopaque, index: i32) QtC.QDesignerWidgetDataBaseItemInterface {
+        return qtc.QDesignerWidgetDataBaseInterface_SuperItem(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#indexOf)
@@ -1446,6 +1573,10 @@ pub const qdesignerwidgetdatabaseinterface = struct {
         qtc.QDesignerWidgetDataBaseInterface_OnIndexOf(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIndexOf` instead
+    ///
+    pub const QBaseIndexOf = SuperIndexOf;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#indexOf)
     ///
     /// Base class method implementation
@@ -1456,8 +1587,8 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` item: QtC.QDesignerWidgetDataBaseItemInterface `
     ///
-    pub fn QBaseIndexOf(self: ?*anyopaque, item: ?*anyopaque) i32 {
-        return qtc.QDesignerWidgetDataBaseInterface_QBaseIndexOf(@ptrCast(self), @ptrCast(item));
+    pub fn SuperIndexOf(self: ?*anyopaque, item: ?*anyopaque) i32 {
+        return qtc.QDesignerWidgetDataBaseInterface_SuperIndexOf(@ptrCast(self), @ptrCast(item));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#insert)
@@ -1488,6 +1619,10 @@ pub const qdesignerwidgetdatabaseinterface = struct {
         qtc.QDesignerWidgetDataBaseInterface_OnInsert(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInsert` instead
+    ///
+    pub const QBaseInsert = SuperInsert;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#insert)
     ///
     /// Base class method implementation
@@ -1500,8 +1635,8 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` item: QtC.QDesignerWidgetDataBaseItemInterface `
     ///
-    pub fn QBaseInsert(self: ?*anyopaque, index: i32, item: ?*anyopaque) void {
-        qtc.QDesignerWidgetDataBaseInterface_QBaseInsert(@ptrCast(self), @bitCast(index), @ptrCast(item));
+    pub fn SuperInsert(self: ?*anyopaque, index: i32, item: ?*anyopaque) void {
+        qtc.QDesignerWidgetDataBaseInterface_SuperInsert(@ptrCast(self), @bitCast(index), @ptrCast(item));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#append)
@@ -1530,6 +1665,10 @@ pub const qdesignerwidgetdatabaseinterface = struct {
         qtc.QDesignerWidgetDataBaseInterface_OnAppend(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAppend` instead
+    ///
+    pub const QBaseAppend = SuperAppend;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#append)
     ///
     /// Base class method implementation
@@ -1540,8 +1679,8 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` item: QtC.QDesignerWidgetDataBaseItemInterface `
     ///
-    pub fn QBaseAppend(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QDesignerWidgetDataBaseInterface_QBaseAppend(@ptrCast(self), @ptrCast(item));
+    pub fn SuperAppend(self: ?*anyopaque, item: ?*anyopaque) void {
+        qtc.QDesignerWidgetDataBaseInterface_SuperAppend(@ptrCast(self), @ptrCast(item));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#indexOfObject)
@@ -1572,6 +1711,10 @@ pub const qdesignerwidgetdatabaseinterface = struct {
         qtc.QDesignerWidgetDataBaseInterface_OnIndexOfObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIndexOfObject` instead
+    ///
+    pub const QBaseIndexOfObject = SuperIndexOfObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#indexOfObject)
     ///
     /// Base class method implementation
@@ -1584,8 +1727,8 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` resolveName: bool `
     ///
-    pub fn QBaseIndexOfObject(self: ?*anyopaque, object: ?*anyopaque, resolveName: bool) i32 {
-        return qtc.QDesignerWidgetDataBaseInterface_QBaseIndexOfObject(@ptrCast(self), @ptrCast(object), resolveName);
+    pub fn SuperIndexOfObject(self: ?*anyopaque, object: ?*anyopaque, resolveName: bool) i32 {
+        return qtc.QDesignerWidgetDataBaseInterface_SuperIndexOfObject(@ptrCast(self), @ptrCast(object), resolveName);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#indexOfClassName)
@@ -1620,6 +1763,10 @@ pub const qdesignerwidgetdatabaseinterface = struct {
         qtc.QDesignerWidgetDataBaseInterface_OnIndexOfClassName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIndexOfClassName` instead
+    ///
+    pub const QBaseIndexOfClassName = SuperIndexOfClassName;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#indexOfClassName)
     ///
     /// Base class method implementation
@@ -1632,12 +1779,12 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` resolveName: bool `
     ///
-    pub fn QBaseIndexOfClassName(self: ?*anyopaque, className: []const u8, resolveName: bool) i32 {
+    pub fn SuperIndexOfClassName(self: ?*anyopaque, className: []const u8, resolveName: bool) i32 {
         const className_str = qtc.libqt_string{
             .len = className.len,
             .data = className.ptr,
         };
-        return qtc.QDesignerWidgetDataBaseInterface_QBaseIndexOfClassName(@ptrCast(self), className_str, resolveName);
+        return qtc.QDesignerWidgetDataBaseInterface_SuperIndexOfClassName(@ptrCast(self), className_str, resolveName);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#core)
@@ -1664,6 +1811,10 @@ pub const qdesignerwidgetdatabaseinterface = struct {
         qtc.QDesignerWidgetDataBaseInterface_OnCore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCore` instead
+    ///
+    pub const QBaseCore = SuperCore;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#core)
     ///
     /// Base class method implementation
@@ -1672,8 +1823,8 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` self: QtC.QDesignerWidgetDataBaseInterface `
     ///
-    pub fn QBaseCore(self: ?*anyopaque) QtC.QDesignerFormEditorInterface {
-        return qtc.QDesignerWidgetDataBaseInterface_QBaseCore(@ptrCast(self));
+    pub fn SuperCore(self: ?*anyopaque) QtC.QDesignerFormEditorInterface {
+        return qtc.QDesignerWidgetDataBaseInterface_SuperCore(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#isContainer)
@@ -2546,6 +2697,10 @@ pub const qdesignerwidgetdatabaseinterface = struct {
         return qtc.QDesignerWidgetDataBaseInterface_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -2558,8 +2713,8 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QDesignerWidgetDataBaseInterface_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QDesignerWidgetDataBaseInterface_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2596,6 +2751,10 @@ pub const qdesignerwidgetdatabaseinterface = struct {
         return qtc.QDesignerWidgetDataBaseInterface_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -2610,8 +2769,8 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QDesignerWidgetDataBaseInterface_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QDesignerWidgetDataBaseInterface_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2646,6 +2805,10 @@ pub const qdesignerwidgetdatabaseinterface = struct {
         qtc.QDesignerWidgetDataBaseInterface_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -2658,8 +2821,8 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerWidgetDataBaseInterface_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QDesignerWidgetDataBaseInterface_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2694,6 +2857,10 @@ pub const qdesignerwidgetdatabaseinterface = struct {
         qtc.QDesignerWidgetDataBaseInterface_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -2706,8 +2873,8 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerWidgetDataBaseInterface_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QDesignerWidgetDataBaseInterface_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2742,6 +2909,10 @@ pub const qdesignerwidgetdatabaseinterface = struct {
         qtc.QDesignerWidgetDataBaseInterface_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -2754,8 +2925,8 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerWidgetDataBaseInterface_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QDesignerWidgetDataBaseInterface_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2790,6 +2961,10 @@ pub const qdesignerwidgetdatabaseinterface = struct {
         qtc.QDesignerWidgetDataBaseInterface_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2802,8 +2977,8 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QDesignerWidgetDataBaseInterface_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QDesignerWidgetDataBaseInterface_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2838,6 +3013,10 @@ pub const qdesignerwidgetdatabaseinterface = struct {
         qtc.QDesignerWidgetDataBaseInterface_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -2850,8 +3029,8 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QDesignerWidgetDataBaseInterface_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QDesignerWidgetDataBaseInterface_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2884,6 +3063,10 @@ pub const qdesignerwidgetdatabaseinterface = struct {
         return qtc.QDesignerWidgetDataBaseInterface_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2894,8 +3077,8 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` self: QtC.QDesignerWidgetDataBaseInterface `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QDesignerWidgetDataBaseInterface_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QDesignerWidgetDataBaseInterface_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2928,6 +3111,10 @@ pub const qdesignerwidgetdatabaseinterface = struct {
         return qtc.QDesignerWidgetDataBaseInterface_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2938,8 +3125,8 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` self: QtC.QDesignerWidgetDataBaseInterface `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QDesignerWidgetDataBaseInterface_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QDesignerWidgetDataBaseInterface_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2975,6 +3162,10 @@ pub const qdesignerwidgetdatabaseinterface = struct {
         return qtc.QDesignerWidgetDataBaseInterface_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2987,9 +3178,9 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QDesignerWidgetDataBaseInterface_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QDesignerWidgetDataBaseInterface_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3024,6 +3215,10 @@ pub const qdesignerwidgetdatabaseinterface = struct {
         return qtc.QDesignerWidgetDataBaseInterface_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -3036,8 +3231,8 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QDesignerWidgetDataBaseInterface_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QDesignerWidgetDataBaseInterface_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3071,6 +3266,9 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseinterface.html#dtor.QDesignerWidgetDataBaseInterface)
     ///
@@ -3080,7 +3278,7 @@ pub const qdesignerwidgetdatabaseinterface = struct {
     ///
     /// ` self: QtC.QDesignerWidgetDataBaseInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDesignerWidgetDataBaseInterface_Delete(@ptrCast(self));
     }
 };

@@ -117,13 +117,17 @@ pub const qtest__qtoucheventsequence = struct {
         return qtc.QTest__QTouchEventSequence_Release3(@ptrCast(self), @bitCast(touchId), @ptrCast(pt), @ptrCast(window));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QTest__QTouchEventSequence `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTest__QTouchEventSequence_Delete(@ptrCast(self));
     }
 };

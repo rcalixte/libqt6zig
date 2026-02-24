@@ -444,6 +444,10 @@ pub const qjsonvalue = struct {
         return qtc.QJsonValue_ToDouble1(@ptrCast(self), @bitCast(defaultValue));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#dtor.QJsonValue)
     ///
     /// Delete this object from C++ memory.
@@ -452,7 +456,7 @@ pub const qjsonvalue = struct {
     ///
     /// ` self: QtC.QJsonValue `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QJsonValue_Delete(@ptrCast(self));
     }
 };
@@ -741,6 +745,10 @@ pub const qjsonvalueconstref = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#dtor.QJsonValueConstRef)
     ///
     /// Delete this object from C++ memory.
@@ -749,7 +757,7 @@ pub const qjsonvalueconstref = struct {
     ///
     /// ` self: QtC.QJsonValueConstRef `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QJsonValueConstRef_Delete(@ptrCast(self));
     }
 };
@@ -1086,6 +1094,10 @@ pub const qjsonvalueref = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#dtor.QJsonValueRef)
     ///
     /// Delete this object from C++ memory.
@@ -1094,7 +1106,7 @@ pub const qjsonvalueref = struct {
     ///
     /// ` self: QtC.QJsonValueRef `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QJsonValueRef_Delete(@ptrCast(self));
     }
 };

@@ -179,7 +179,7 @@ void KHistoryComboBox_WheelEvent(KHistoryComboBox* self, QWheelEvent* ev) {
 }
 
 // Base class handler implementation
-QMetaObject* KHistoryComboBox_QBaseMetaObject(const KHistoryComboBox* self) {
+QMetaObject* KHistoryComboBox_SuperMetaObject(const KHistoryComboBox* self) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_MetaObject_IsBase(true);
@@ -198,7 +198,7 @@ void KHistoryComboBox_OnMetaObject(const KHistoryComboBox* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* KHistoryComboBox_QBaseMetacast(KHistoryComboBox* self, const char* param1) {
+void* KHistoryComboBox_SuperMetacast(KHistoryComboBox* self, const char* param1) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_Metacast_IsBase(true);
@@ -217,7 +217,7 @@ void KHistoryComboBox_OnMetacast(KHistoryComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KHistoryComboBox_QBaseMetacall(KHistoryComboBox* self, int param1, int param2, void** param3) {
+int KHistoryComboBox_SuperMetacall(KHistoryComboBox* self, int param1, int param2, void** param3) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_Metacall_IsBase(true);
@@ -236,7 +236,7 @@ void KHistoryComboBox_OnMetacall(KHistoryComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseKeyPressEvent(KHistoryComboBox* self, QKeyEvent* param1) {
+void KHistoryComboBox_SuperKeyPressEvent(KHistoryComboBox* self, QKeyEvent* param1) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_KeyPressEvent_IsBase(true);
@@ -255,7 +255,7 @@ void KHistoryComboBox_OnKeyPressEvent(KHistoryComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseWheelEvent(KHistoryComboBox* self, QWheelEvent* ev) {
+void KHistoryComboBox_SuperWheelEvent(KHistoryComboBox* self, QWheelEvent* ev) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_WheelEvent_IsBase(true);
@@ -284,7 +284,7 @@ void KHistoryComboBox_SetAutoCompletion(KHistoryComboBox* self, bool autocomplet
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseSetAutoCompletion(KHistoryComboBox* self, bool autocomplete) {
+void KHistoryComboBox_SuperSetAutoCompletion(KHistoryComboBox* self, bool autocomplete) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_SetAutoCompletion_IsBase(true);
@@ -313,7 +313,7 @@ void KHistoryComboBox_SetLineEdit(KHistoryComboBox* self, QLineEdit* lineEdit) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseSetLineEdit(KHistoryComboBox* self, QLineEdit* lineEdit) {
+void KHistoryComboBox_SuperSetLineEdit(KHistoryComboBox* self, QLineEdit* lineEdit) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_SetLineEdit_IsBase(true);
@@ -342,7 +342,7 @@ QSize* KHistoryComboBox_MinimumSizeHint(const KHistoryComboBox* self) {
 }
 
 // Base class handler implementation
-QSize* KHistoryComboBox_QBaseMinimumSizeHint(const KHistoryComboBox* self) {
+QSize* KHistoryComboBox_SuperMinimumSizeHint(const KHistoryComboBox* self) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_MinimumSizeHint_IsBase(true);
@@ -372,7 +372,7 @@ void KHistoryComboBox_SetCompletedText(KHistoryComboBox* self, const libqt_strin
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseSetCompletedText(KHistoryComboBox* self, const libqt_string completedText) {
+void KHistoryComboBox_SuperSetCompletedText(KHistoryComboBox* self, const libqt_string completedText) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     QString completedText_QString = QString::fromUtf8(completedText.data, completedText.len);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
@@ -409,7 +409,7 @@ void KHistoryComboBox_SetCompletedItems(KHistoryComboBox* self, const libqt_list
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseSetCompletedItems(KHistoryComboBox* self, const libqt_list /* of libqt_string */ items, bool autoSuggest) {
+void KHistoryComboBox_SuperSetCompletedItems(KHistoryComboBox* self, const libqt_list /* of libqt_string */ items, bool autoSuggest) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     QList<QString> items_QList;
     items_QList.reserve(items.len);
@@ -446,7 +446,7 @@ void KHistoryComboBox_MakeCompletion(KHistoryComboBox* self, const libqt_string 
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseMakeCompletion(KHistoryComboBox* self, const libqt_string param1) {
+void KHistoryComboBox_SuperMakeCompletion(KHistoryComboBox* self, const libqt_string param1) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
@@ -476,7 +476,7 @@ void KHistoryComboBox_SetModel(KHistoryComboBox* self, QAbstractItemModel* model
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseSetModel(KHistoryComboBox* self, QAbstractItemModel* model) {
+void KHistoryComboBox_SuperSetModel(KHistoryComboBox* self, QAbstractItemModel* model) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_SetModel_IsBase(true);
@@ -505,7 +505,7 @@ QSize* KHistoryComboBox_SizeHint(const KHistoryComboBox* self) {
 }
 
 // Base class handler implementation
-QSize* KHistoryComboBox_QBaseSizeHint(const KHistoryComboBox* self) {
+QSize* KHistoryComboBox_SuperSizeHint(const KHistoryComboBox* self) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_SizeHint_IsBase(true);
@@ -534,7 +534,7 @@ void KHistoryComboBox_ShowPopup(KHistoryComboBox* self) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseShowPopup(KHistoryComboBox* self) {
+void KHistoryComboBox_SuperShowPopup(KHistoryComboBox* self) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_ShowPopup_IsBase(true);
@@ -563,7 +563,7 @@ void KHistoryComboBox_HidePopup(KHistoryComboBox* self) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseHidePopup(KHistoryComboBox* self) {
+void KHistoryComboBox_SuperHidePopup(KHistoryComboBox* self) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_HidePopup_IsBase(true);
@@ -592,7 +592,7 @@ bool KHistoryComboBox_Event(KHistoryComboBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KHistoryComboBox_QBaseEvent(KHistoryComboBox* self, QEvent* event) {
+bool KHistoryComboBox_SuperEvent(KHistoryComboBox* self, QEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_Event_IsBase(true);
@@ -621,7 +621,7 @@ QVariant* KHistoryComboBox_InputMethodQuery(const KHistoryComboBox* self, int pa
 }
 
 // Base class handler implementation
-QVariant* KHistoryComboBox_QBaseInputMethodQuery(const KHistoryComboBox* self, int param1) {
+QVariant* KHistoryComboBox_SuperInputMethodQuery(const KHistoryComboBox* self, int param1) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_InputMethodQuery_IsBase(true);
@@ -650,7 +650,7 @@ void KHistoryComboBox_FocusInEvent(KHistoryComboBox* self, QFocusEvent* e) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseFocusInEvent(KHistoryComboBox* self, QFocusEvent* e) {
+void KHistoryComboBox_SuperFocusInEvent(KHistoryComboBox* self, QFocusEvent* e) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_FocusInEvent_IsBase(true);
@@ -679,7 +679,7 @@ void KHistoryComboBox_FocusOutEvent(KHistoryComboBox* self, QFocusEvent* e) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseFocusOutEvent(KHistoryComboBox* self, QFocusEvent* e) {
+void KHistoryComboBox_SuperFocusOutEvent(KHistoryComboBox* self, QFocusEvent* e) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_FocusOutEvent_IsBase(true);
@@ -708,7 +708,7 @@ void KHistoryComboBox_ChangeEvent(KHistoryComboBox* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseChangeEvent(KHistoryComboBox* self, QEvent* e) {
+void KHistoryComboBox_SuperChangeEvent(KHistoryComboBox* self, QEvent* e) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_ChangeEvent_IsBase(true);
@@ -737,7 +737,7 @@ void KHistoryComboBox_ResizeEvent(KHistoryComboBox* self, QResizeEvent* e) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseResizeEvent(KHistoryComboBox* self, QResizeEvent* e) {
+void KHistoryComboBox_SuperResizeEvent(KHistoryComboBox* self, QResizeEvent* e) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_ResizeEvent_IsBase(true);
@@ -766,7 +766,7 @@ void KHistoryComboBox_PaintEvent(KHistoryComboBox* self, QPaintEvent* e) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBasePaintEvent(KHistoryComboBox* self, QPaintEvent* e) {
+void KHistoryComboBox_SuperPaintEvent(KHistoryComboBox* self, QPaintEvent* e) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_PaintEvent_IsBase(true);
@@ -795,7 +795,7 @@ void KHistoryComboBox_ShowEvent(KHistoryComboBox* self, QShowEvent* e) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseShowEvent(KHistoryComboBox* self, QShowEvent* e) {
+void KHistoryComboBox_SuperShowEvent(KHistoryComboBox* self, QShowEvent* e) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_ShowEvent_IsBase(true);
@@ -824,7 +824,7 @@ void KHistoryComboBox_HideEvent(KHistoryComboBox* self, QHideEvent* e) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseHideEvent(KHistoryComboBox* self, QHideEvent* e) {
+void KHistoryComboBox_SuperHideEvent(KHistoryComboBox* self, QHideEvent* e) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_HideEvent_IsBase(true);
@@ -853,7 +853,7 @@ void KHistoryComboBox_MousePressEvent(KHistoryComboBox* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseMousePressEvent(KHistoryComboBox* self, QMouseEvent* e) {
+void KHistoryComboBox_SuperMousePressEvent(KHistoryComboBox* self, QMouseEvent* e) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_MousePressEvent_IsBase(true);
@@ -882,7 +882,7 @@ void KHistoryComboBox_MouseReleaseEvent(KHistoryComboBox* self, QMouseEvent* e) 
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseMouseReleaseEvent(KHistoryComboBox* self, QMouseEvent* e) {
+void KHistoryComboBox_SuperMouseReleaseEvent(KHistoryComboBox* self, QMouseEvent* e) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_MouseReleaseEvent_IsBase(true);
@@ -911,7 +911,7 @@ void KHistoryComboBox_KeyReleaseEvent(KHistoryComboBox* self, QKeyEvent* e) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseKeyReleaseEvent(KHistoryComboBox* self, QKeyEvent* e) {
+void KHistoryComboBox_SuperKeyReleaseEvent(KHistoryComboBox* self, QKeyEvent* e) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_KeyReleaseEvent_IsBase(true);
@@ -940,7 +940,7 @@ void KHistoryComboBox_ContextMenuEvent(KHistoryComboBox* self, QContextMenuEvent
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseContextMenuEvent(KHistoryComboBox* self, QContextMenuEvent* e) {
+void KHistoryComboBox_SuperContextMenuEvent(KHistoryComboBox* self, QContextMenuEvent* e) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_ContextMenuEvent_IsBase(true);
@@ -969,7 +969,7 @@ void KHistoryComboBox_InputMethodEvent(KHistoryComboBox* self, QInputMethodEvent
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseInputMethodEvent(KHistoryComboBox* self, QInputMethodEvent* param1) {
+void KHistoryComboBox_SuperInputMethodEvent(KHistoryComboBox* self, QInputMethodEvent* param1) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_InputMethodEvent_IsBase(true);
@@ -998,7 +998,7 @@ void KHistoryComboBox_InitStyleOption(const KHistoryComboBox* self, QStyleOption
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseInitStyleOption(const KHistoryComboBox* self, QStyleOptionComboBox* option) {
+void KHistoryComboBox_SuperInitStyleOption(const KHistoryComboBox* self, QStyleOptionComboBox* option) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_InitStyleOption_IsBase(true);
@@ -1027,7 +1027,7 @@ int KHistoryComboBox_DevType(const KHistoryComboBox* self) {
 }
 
 // Base class handler implementation
-int KHistoryComboBox_QBaseDevType(const KHistoryComboBox* self) {
+int KHistoryComboBox_SuperDevType(const KHistoryComboBox* self) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_DevType_IsBase(true);
@@ -1056,7 +1056,7 @@ void KHistoryComboBox_SetVisible(KHistoryComboBox* self, bool visible) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseSetVisible(KHistoryComboBox* self, bool visible) {
+void KHistoryComboBox_SuperSetVisible(KHistoryComboBox* self, bool visible) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_SetVisible_IsBase(true);
@@ -1085,7 +1085,7 @@ int KHistoryComboBox_HeightForWidth(const KHistoryComboBox* self, int param1) {
 }
 
 // Base class handler implementation
-int KHistoryComboBox_QBaseHeightForWidth(const KHistoryComboBox* self, int param1) {
+int KHistoryComboBox_SuperHeightForWidth(const KHistoryComboBox* self, int param1) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_HeightForWidth_IsBase(true);
@@ -1114,7 +1114,7 @@ bool KHistoryComboBox_HasHeightForWidth(const KHistoryComboBox* self) {
 }
 
 // Base class handler implementation
-bool KHistoryComboBox_QBaseHasHeightForWidth(const KHistoryComboBox* self) {
+bool KHistoryComboBox_SuperHasHeightForWidth(const KHistoryComboBox* self) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_HasHeightForWidth_IsBase(true);
@@ -1143,7 +1143,7 @@ QPaintEngine* KHistoryComboBox_PaintEngine(const KHistoryComboBox* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KHistoryComboBox_QBasePaintEngine(const KHistoryComboBox* self) {
+QPaintEngine* KHistoryComboBox_SuperPaintEngine(const KHistoryComboBox* self) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_PaintEngine_IsBase(true);
@@ -1172,7 +1172,7 @@ void KHistoryComboBox_MouseDoubleClickEvent(KHistoryComboBox* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseMouseDoubleClickEvent(KHistoryComboBox* self, QMouseEvent* event) {
+void KHistoryComboBox_SuperMouseDoubleClickEvent(KHistoryComboBox* self, QMouseEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_MouseDoubleClickEvent_IsBase(true);
@@ -1201,7 +1201,7 @@ void KHistoryComboBox_MouseMoveEvent(KHistoryComboBox* self, QMouseEvent* event)
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseMouseMoveEvent(KHistoryComboBox* self, QMouseEvent* event) {
+void KHistoryComboBox_SuperMouseMoveEvent(KHistoryComboBox* self, QMouseEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_MouseMoveEvent_IsBase(true);
@@ -1230,7 +1230,7 @@ void KHistoryComboBox_EnterEvent(KHistoryComboBox* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseEnterEvent(KHistoryComboBox* self, QEnterEvent* event) {
+void KHistoryComboBox_SuperEnterEvent(KHistoryComboBox* self, QEnterEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_EnterEvent_IsBase(true);
@@ -1259,7 +1259,7 @@ void KHistoryComboBox_LeaveEvent(KHistoryComboBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseLeaveEvent(KHistoryComboBox* self, QEvent* event) {
+void KHistoryComboBox_SuperLeaveEvent(KHistoryComboBox* self, QEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_LeaveEvent_IsBase(true);
@@ -1288,7 +1288,7 @@ void KHistoryComboBox_MoveEvent(KHistoryComboBox* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseMoveEvent(KHistoryComboBox* self, QMoveEvent* event) {
+void KHistoryComboBox_SuperMoveEvent(KHistoryComboBox* self, QMoveEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_MoveEvent_IsBase(true);
@@ -1317,7 +1317,7 @@ void KHistoryComboBox_CloseEvent(KHistoryComboBox* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseCloseEvent(KHistoryComboBox* self, QCloseEvent* event) {
+void KHistoryComboBox_SuperCloseEvent(KHistoryComboBox* self, QCloseEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_CloseEvent_IsBase(true);
@@ -1346,7 +1346,7 @@ void KHistoryComboBox_TabletEvent(KHistoryComboBox* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseTabletEvent(KHistoryComboBox* self, QTabletEvent* event) {
+void KHistoryComboBox_SuperTabletEvent(KHistoryComboBox* self, QTabletEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_TabletEvent_IsBase(true);
@@ -1375,7 +1375,7 @@ void KHistoryComboBox_ActionEvent(KHistoryComboBox* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseActionEvent(KHistoryComboBox* self, QActionEvent* event) {
+void KHistoryComboBox_SuperActionEvent(KHistoryComboBox* self, QActionEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_ActionEvent_IsBase(true);
@@ -1404,7 +1404,7 @@ void KHistoryComboBox_DragEnterEvent(KHistoryComboBox* self, QDragEnterEvent* ev
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseDragEnterEvent(KHistoryComboBox* self, QDragEnterEvent* event) {
+void KHistoryComboBox_SuperDragEnterEvent(KHistoryComboBox* self, QDragEnterEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_DragEnterEvent_IsBase(true);
@@ -1433,7 +1433,7 @@ void KHistoryComboBox_DragMoveEvent(KHistoryComboBox* self, QDragMoveEvent* even
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseDragMoveEvent(KHistoryComboBox* self, QDragMoveEvent* event) {
+void KHistoryComboBox_SuperDragMoveEvent(KHistoryComboBox* self, QDragMoveEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_DragMoveEvent_IsBase(true);
@@ -1462,7 +1462,7 @@ void KHistoryComboBox_DragLeaveEvent(KHistoryComboBox* self, QDragLeaveEvent* ev
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseDragLeaveEvent(KHistoryComboBox* self, QDragLeaveEvent* event) {
+void KHistoryComboBox_SuperDragLeaveEvent(KHistoryComboBox* self, QDragLeaveEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_DragLeaveEvent_IsBase(true);
@@ -1491,7 +1491,7 @@ void KHistoryComboBox_DropEvent(KHistoryComboBox* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseDropEvent(KHistoryComboBox* self, QDropEvent* event) {
+void KHistoryComboBox_SuperDropEvent(KHistoryComboBox* self, QDropEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_DropEvent_IsBase(true);
@@ -1521,7 +1521,7 @@ bool KHistoryComboBox_NativeEvent(KHistoryComboBox* self, const libqt_string eve
 }
 
 // Base class handler implementation
-bool KHistoryComboBox_QBaseNativeEvent(KHistoryComboBox* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KHistoryComboBox_SuperNativeEvent(KHistoryComboBox* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
@@ -1551,7 +1551,7 @@ int KHistoryComboBox_Metric(const KHistoryComboBox* self, int param1) {
 }
 
 // Base class handler implementation
-int KHistoryComboBox_QBaseMetric(const KHistoryComboBox* self, int param1) {
+int KHistoryComboBox_SuperMetric(const KHistoryComboBox* self, int param1) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_Metric_IsBase(true);
@@ -1580,7 +1580,7 @@ void KHistoryComboBox_InitPainter(const KHistoryComboBox* self, QPainter* painte
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseInitPainter(const KHistoryComboBox* self, QPainter* painter) {
+void KHistoryComboBox_SuperInitPainter(const KHistoryComboBox* self, QPainter* painter) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_InitPainter_IsBase(true);
@@ -1609,7 +1609,7 @@ QPaintDevice* KHistoryComboBox_Redirected(const KHistoryComboBox* self, QPoint* 
 }
 
 // Base class handler implementation
-QPaintDevice* KHistoryComboBox_QBaseRedirected(const KHistoryComboBox* self, QPoint* offset) {
+QPaintDevice* KHistoryComboBox_SuperRedirected(const KHistoryComboBox* self, QPoint* offset) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_Redirected_IsBase(true);
@@ -1638,7 +1638,7 @@ QPainter* KHistoryComboBox_SharedPainter(const KHistoryComboBox* self) {
 }
 
 // Base class handler implementation
-QPainter* KHistoryComboBox_QBaseSharedPainter(const KHistoryComboBox* self) {
+QPainter* KHistoryComboBox_SuperSharedPainter(const KHistoryComboBox* self) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_SharedPainter_IsBase(true);
@@ -1667,7 +1667,7 @@ bool KHistoryComboBox_FocusNextPrevChild(KHistoryComboBox* self, bool next) {
 }
 
 // Base class handler implementation
-bool KHistoryComboBox_QBaseFocusNextPrevChild(KHistoryComboBox* self, bool next) {
+bool KHistoryComboBox_SuperFocusNextPrevChild(KHistoryComboBox* self, bool next) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_FocusNextPrevChild_IsBase(true);
@@ -1696,7 +1696,7 @@ bool KHistoryComboBox_EventFilter(KHistoryComboBox* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool KHistoryComboBox_QBaseEventFilter(KHistoryComboBox* self, QObject* watched, QEvent* event) {
+bool KHistoryComboBox_SuperEventFilter(KHistoryComboBox* self, QObject* watched, QEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_EventFilter_IsBase(true);
@@ -1725,7 +1725,7 @@ void KHistoryComboBox_TimerEvent(KHistoryComboBox* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseTimerEvent(KHistoryComboBox* self, QTimerEvent* event) {
+void KHistoryComboBox_SuperTimerEvent(KHistoryComboBox* self, QTimerEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_TimerEvent_IsBase(true);
@@ -1754,7 +1754,7 @@ void KHistoryComboBox_ChildEvent(KHistoryComboBox* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseChildEvent(KHistoryComboBox* self, QChildEvent* event) {
+void KHistoryComboBox_SuperChildEvent(KHistoryComboBox* self, QChildEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_ChildEvent_IsBase(true);
@@ -1783,7 +1783,7 @@ void KHistoryComboBox_CustomEvent(KHistoryComboBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseCustomEvent(KHistoryComboBox* self, QEvent* event) {
+void KHistoryComboBox_SuperCustomEvent(KHistoryComboBox* self, QEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_CustomEvent_IsBase(true);
@@ -1812,7 +1812,7 @@ void KHistoryComboBox_ConnectNotify(KHistoryComboBox* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseConnectNotify(KHistoryComboBox* self, const QMetaMethod* signal) {
+void KHistoryComboBox_SuperConnectNotify(KHistoryComboBox* self, const QMetaMethod* signal) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_ConnectNotify_IsBase(true);
@@ -1841,7 +1841,7 @@ void KHistoryComboBox_DisconnectNotify(KHistoryComboBox* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseDisconnectNotify(KHistoryComboBox* self, const QMetaMethod* signal) {
+void KHistoryComboBox_SuperDisconnectNotify(KHistoryComboBox* self, const QMetaMethod* signal) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_DisconnectNotify_IsBase(true);
@@ -1870,7 +1870,7 @@ void KHistoryComboBox_SetCompletionObject(KHistoryComboBox* self, KCompletion* c
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseSetCompletionObject(KHistoryComboBox* self, KCompletion* completionObject, bool handleSignals) {
+void KHistoryComboBox_SuperSetCompletionObject(KHistoryComboBox* self, KCompletion* completionObject, bool handleSignals) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_SetCompletionObject_IsBase(true);
@@ -1899,7 +1899,7 @@ void KHistoryComboBox_SetHandleSignals(KHistoryComboBox* self, bool handle) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseSetHandleSignals(KHistoryComboBox* self, bool handle) {
+void KHistoryComboBox_SuperSetHandleSignals(KHistoryComboBox* self, bool handle) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_SetHandleSignals_IsBase(true);
@@ -1928,7 +1928,7 @@ void KHistoryComboBox_SetCompletionMode(KHistoryComboBox* self, int mode) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseSetCompletionMode(KHistoryComboBox* self, int mode) {
+void KHistoryComboBox_SuperSetCompletionMode(KHistoryComboBox* self, int mode) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_SetCompletionMode_IsBase(true);
@@ -1957,7 +1957,7 @@ void KHistoryComboBox_VirtualHook(KHistoryComboBox* self, int id, void* data) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseVirtualHook(KHistoryComboBox* self, int id, void* data) {
+void KHistoryComboBox_SuperVirtualHook(KHistoryComboBox* self, int id, void* data) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_VirtualHook_IsBase(true);
@@ -1993,7 +1993,7 @@ void KHistoryComboBox_InsertItems(KHistoryComboBox* self, const libqt_list /* of
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseInsertItems(KHistoryComboBox* self, const libqt_list /* of libqt_string */ items) {
+void KHistoryComboBox_SuperInsertItems(KHistoryComboBox* self, const libqt_list /* of libqt_string */ items) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     QList<QString> items_QList;
     items_QList.reserve(items.len);
@@ -2029,7 +2029,7 @@ bool KHistoryComboBox_UseCompletion(const KHistoryComboBox* self) {
 }
 
 // Base class handler implementation
-bool KHistoryComboBox_QBaseUseCompletion(const KHistoryComboBox* self) {
+bool KHistoryComboBox_SuperUseCompletion(const KHistoryComboBox* self) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_UseCompletion_IsBase(true);
@@ -2058,7 +2058,7 @@ void KHistoryComboBox_UpdateMicroFocus(KHistoryComboBox* self) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseUpdateMicroFocus(KHistoryComboBox* self) {
+void KHistoryComboBox_SuperUpdateMicroFocus(KHistoryComboBox* self) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_UpdateMicroFocus_IsBase(true);
@@ -2087,7 +2087,7 @@ void KHistoryComboBox_Create(KHistoryComboBox* self) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseCreate(KHistoryComboBox* self) {
+void KHistoryComboBox_SuperCreate(KHistoryComboBox* self) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_Create_IsBase(true);
@@ -2116,7 +2116,7 @@ void KHistoryComboBox_Destroy(KHistoryComboBox* self) {
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseDestroy(KHistoryComboBox* self) {
+void KHistoryComboBox_SuperDestroy(KHistoryComboBox* self) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_Destroy_IsBase(true);
@@ -2145,7 +2145,7 @@ bool KHistoryComboBox_FocusNextChild(KHistoryComboBox* self) {
 }
 
 // Base class handler implementation
-bool KHistoryComboBox_QBaseFocusNextChild(KHistoryComboBox* self) {
+bool KHistoryComboBox_SuperFocusNextChild(KHistoryComboBox* self) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_FocusNextChild_IsBase(true);
@@ -2174,7 +2174,7 @@ bool KHistoryComboBox_FocusPreviousChild(KHistoryComboBox* self) {
 }
 
 // Base class handler implementation
-bool KHistoryComboBox_QBaseFocusPreviousChild(KHistoryComboBox* self) {
+bool KHistoryComboBox_SuperFocusPreviousChild(KHistoryComboBox* self) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_FocusPreviousChild_IsBase(true);
@@ -2203,7 +2203,7 @@ QObject* KHistoryComboBox_Sender(const KHistoryComboBox* self) {
 }
 
 // Base class handler implementation
-QObject* KHistoryComboBox_QBaseSender(const KHistoryComboBox* self) {
+QObject* KHistoryComboBox_SuperSender(const KHistoryComboBox* self) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_Sender_IsBase(true);
@@ -2232,7 +2232,7 @@ int KHistoryComboBox_SenderSignalIndex(const KHistoryComboBox* self) {
 }
 
 // Base class handler implementation
-int KHistoryComboBox_QBaseSenderSignalIndex(const KHistoryComboBox* self) {
+int KHistoryComboBox_SuperSenderSignalIndex(const KHistoryComboBox* self) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_SenderSignalIndex_IsBase(true);
@@ -2261,7 +2261,7 @@ int KHistoryComboBox_Receivers(const KHistoryComboBox* self, const char* signal)
 }
 
 // Base class handler implementation
-int KHistoryComboBox_QBaseReceivers(const KHistoryComboBox* self, const char* signal) {
+int KHistoryComboBox_SuperReceivers(const KHistoryComboBox* self, const char* signal) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_Receivers_IsBase(true);
@@ -2290,7 +2290,7 @@ bool KHistoryComboBox_IsSignalConnected(const KHistoryComboBox* self, const QMet
 }
 
 // Base class handler implementation
-bool KHistoryComboBox_QBaseIsSignalConnected(const KHistoryComboBox* self, const QMetaMethod* signal) {
+bool KHistoryComboBox_SuperIsSignalConnected(const KHistoryComboBox* self, const QMetaMethod* signal) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_IsSignalConnected_IsBase(true);
@@ -2319,7 +2319,7 @@ double KHistoryComboBox_GetDecodedMetricF(const KHistoryComboBox* self, int metr
 }
 
 // Base class handler implementation
-double KHistoryComboBox_QBaseGetDecodedMetricF(const KHistoryComboBox* self, int metricA, int metricB) {
+double KHistoryComboBox_SuperGetDecodedMetricF(const KHistoryComboBox* self, int metricA, int metricB) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_GetDecodedMetricF_IsBase(true);
@@ -2394,7 +2394,7 @@ libqt_map /* of int to libqt_list of QKeySequence* */ KHistoryComboBox_KeyBindin
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_list of QKeySequence* */ KHistoryComboBox_QBaseKeyBindingMap(const KHistoryComboBox* self) {
+libqt_map /* of int to libqt_list of QKeySequence* */ KHistoryComboBox_SuperKeyBindingMap(const KHistoryComboBox* self) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_KeyBindingMap_IsBase(true);
@@ -2481,7 +2481,7 @@ void KHistoryComboBox_SetKeyBindingMap(KHistoryComboBox* self, libqt_map /* of i
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseSetKeyBindingMap(KHistoryComboBox* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
+void KHistoryComboBox_SuperSetKeyBindingMap(KHistoryComboBox* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_QMap;
     int* keyBindingMap_karr = static_cast<int*>(keyBindingMap.keys);
@@ -2522,7 +2522,7 @@ void KHistoryComboBox_SetDelegate(KHistoryComboBox* self, KCompletionBase* deleg
 }
 
 // Base class handler implementation
-void KHistoryComboBox_QBaseSetDelegate(KHistoryComboBox* self, KCompletionBase* delegate) {
+void KHistoryComboBox_SuperSetDelegate(KHistoryComboBox* self, KCompletionBase* delegate) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_SetDelegate_IsBase(true);
@@ -2551,7 +2551,7 @@ KCompletionBase* KHistoryComboBox_Delegate(const KHistoryComboBox* self) {
 }
 
 // Base class handler implementation
-KCompletionBase* KHistoryComboBox_QBaseDelegate(const KHistoryComboBox* self) {
+KCompletionBase* KHistoryComboBox_SuperDelegate(const KHistoryComboBox* self) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_Delegate_IsBase(true);

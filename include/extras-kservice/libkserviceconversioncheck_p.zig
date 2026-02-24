@@ -47,13 +47,17 @@ pub const kserviceconversioncheck__supported = struct {
         qtc.KServiceConversionCheck__supported_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KServiceConversionCheck__supported `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KServiceConversionCheck__supported_Delete(@ptrCast(self));
     }
 };
@@ -104,13 +108,17 @@ pub const kserviceconversioncheck__unsupported = struct {
         qtc.KServiceConversionCheck__unsupported_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KServiceConversionCheck__unsupported `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KServiceConversionCheck__unsupported_Delete(@ptrCast(self));
     }
 };

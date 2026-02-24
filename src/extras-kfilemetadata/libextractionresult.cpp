@@ -110,7 +110,7 @@ libqt_map /* of int to libqt_string */ KFileMetaData__ExtractionResult_ImageData
 }
 
 // Base class handler implementation
-void KFileMetaData__ExtractionResult_QBaseAppend(KFileMetaData__ExtractionResult* self, const libqt_string text) {
+void KFileMetaData__ExtractionResult_SuperAppend(KFileMetaData__ExtractionResult* self, const libqt_string text) {
     auto* vkfilemetadataextractionresult = dynamic_cast<VirtualKFileMetaDataExtractionResult*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vkfilemetadataextractionresult && vkfilemetadataextractionresult->isVirtualKFileMetaDataExtractionResult) {
@@ -130,7 +130,7 @@ void KFileMetaData__ExtractionResult_OnAppend(KFileMetaData__ExtractionResult* s
 }
 
 // Base class handler implementation
-void KFileMetaData__ExtractionResult_QBaseAdd(KFileMetaData__ExtractionResult* self, int property, const QVariant* value) {
+void KFileMetaData__ExtractionResult_SuperAdd(KFileMetaData__ExtractionResult* self, int property, const QVariant* value) {
     auto* vkfilemetadataextractionresult = dynamic_cast<VirtualKFileMetaDataExtractionResult*>(self);
     if (vkfilemetadataextractionresult && vkfilemetadataextractionresult->isVirtualKFileMetaDataExtractionResult) {
         vkfilemetadataextractionresult->setKFileMetaData__ExtractionResult_Add_IsBase(true);
@@ -149,7 +149,7 @@ void KFileMetaData__ExtractionResult_OnAdd(KFileMetaData__ExtractionResult* self
 }
 
 // Base class handler implementation
-void KFileMetaData__ExtractionResult_QBaseAddType(KFileMetaData__ExtractionResult* self, int typeVal) {
+void KFileMetaData__ExtractionResult_SuperAddType(KFileMetaData__ExtractionResult* self, int typeVal) {
     auto* vkfilemetadataextractionresult = dynamic_cast<VirtualKFileMetaDataExtractionResult*>(self);
     if (vkfilemetadataextractionresult && vkfilemetadataextractionresult->isVirtualKFileMetaDataExtractionResult) {
         vkfilemetadataextractionresult->setKFileMetaData__ExtractionResult_AddType_IsBase(true);

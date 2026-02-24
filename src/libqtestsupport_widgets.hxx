@@ -119,9 +119,9 @@ class VirtualQTestQTouchEventWidgetSequence final : public QTest::QTouchEventWid
 
     // Friend functions
     friend QEventPoint* QTest__QTouchEventWidgetSequence_Point(QTest::QTouchEventWidgetSequence* self, int touchId);
-    friend QEventPoint* QTest__QTouchEventWidgetSequence_QBasePoint(QTest::QTouchEventWidgetSequence* self, int touchId);
+    friend QEventPoint* QTest__QTouchEventWidgetSequence_SuperPoint(QTest::QTouchEventWidgetSequence* self, int touchId);
     friend QEventPoint* QTest__QTouchEventWidgetSequence_PointOrPreviousPoint(QTest::QTouchEventWidgetSequence* self, int touchId);
-    friend QEventPoint* QTest__QTouchEventWidgetSequence_QBasePointOrPreviousPoint(QTest::QTouchEventWidgetSequence* self, int touchId);
+    friend QEventPoint* QTest__QTouchEventWidgetSequence_SuperPointOrPreviousPoint(QTest::QTouchEventWidgetSequence* self, int touchId);
 };
 
 #endif

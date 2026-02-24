@@ -154,7 +154,7 @@ void KColorCombo_PaintEvent(KColorCombo* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-QMetaObject* KColorCombo_QBaseMetaObject(const KColorCombo* self) {
+QMetaObject* KColorCombo_SuperMetaObject(const KColorCombo* self) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_MetaObject_IsBase(true);
@@ -173,7 +173,7 @@ void KColorCombo_OnMetaObject(const KColorCombo* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KColorCombo_QBaseMetacast(KColorCombo* self, const char* param1) {
+void* KColorCombo_SuperMetacast(KColorCombo* self, const char* param1) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_Metacast_IsBase(true);
@@ -192,7 +192,7 @@ void KColorCombo_OnMetacast(KColorCombo* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KColorCombo_QBaseMetacall(KColorCombo* self, int param1, int param2, void** param3) {
+int KColorCombo_SuperMetacall(KColorCombo* self, int param1, int param2, void** param3) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_Metacall_IsBase(true);
@@ -211,7 +211,7 @@ void KColorCombo_OnMetacall(KColorCombo* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBasePaintEvent(KColorCombo* self, QPaintEvent* event) {
+void KColorCombo_SuperPaintEvent(KColorCombo* self, QPaintEvent* event) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_PaintEvent_IsBase(true);
@@ -240,7 +240,7 @@ void KColorCombo_SetModel(KColorCombo* self, QAbstractItemModel* model) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseSetModel(KColorCombo* self, QAbstractItemModel* model) {
+void KColorCombo_SuperSetModel(KColorCombo* self, QAbstractItemModel* model) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_SetModel_IsBase(true);
@@ -269,7 +269,7 @@ QSize* KColorCombo_SizeHint(const KColorCombo* self) {
 }
 
 // Base class handler implementation
-QSize* KColorCombo_QBaseSizeHint(const KColorCombo* self) {
+QSize* KColorCombo_SuperSizeHint(const KColorCombo* self) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_SizeHint_IsBase(true);
@@ -298,7 +298,7 @@ QSize* KColorCombo_MinimumSizeHint(const KColorCombo* self) {
 }
 
 // Base class handler implementation
-QSize* KColorCombo_QBaseMinimumSizeHint(const KColorCombo* self) {
+QSize* KColorCombo_SuperMinimumSizeHint(const KColorCombo* self) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_MinimumSizeHint_IsBase(true);
@@ -327,7 +327,7 @@ void KColorCombo_ShowPopup(KColorCombo* self) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseShowPopup(KColorCombo* self) {
+void KColorCombo_SuperShowPopup(KColorCombo* self) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_ShowPopup_IsBase(true);
@@ -356,7 +356,7 @@ void KColorCombo_HidePopup(KColorCombo* self) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseHidePopup(KColorCombo* self) {
+void KColorCombo_SuperHidePopup(KColorCombo* self) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_HidePopup_IsBase(true);
@@ -385,7 +385,7 @@ bool KColorCombo_Event(KColorCombo* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KColorCombo_QBaseEvent(KColorCombo* self, QEvent* event) {
+bool KColorCombo_SuperEvent(KColorCombo* self, QEvent* event) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_Event_IsBase(true);
@@ -414,7 +414,7 @@ QVariant* KColorCombo_InputMethodQuery(const KColorCombo* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KColorCombo_QBaseInputMethodQuery(const KColorCombo* self, int param1) {
+QVariant* KColorCombo_SuperInputMethodQuery(const KColorCombo* self, int param1) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_InputMethodQuery_IsBase(true);
@@ -443,7 +443,7 @@ void KColorCombo_FocusInEvent(KColorCombo* self, QFocusEvent* e) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseFocusInEvent(KColorCombo* self, QFocusEvent* e) {
+void KColorCombo_SuperFocusInEvent(KColorCombo* self, QFocusEvent* e) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_FocusInEvent_IsBase(true);
@@ -472,7 +472,7 @@ void KColorCombo_FocusOutEvent(KColorCombo* self, QFocusEvent* e) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseFocusOutEvent(KColorCombo* self, QFocusEvent* e) {
+void KColorCombo_SuperFocusOutEvent(KColorCombo* self, QFocusEvent* e) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_FocusOutEvent_IsBase(true);
@@ -501,7 +501,7 @@ void KColorCombo_ChangeEvent(KColorCombo* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseChangeEvent(KColorCombo* self, QEvent* e) {
+void KColorCombo_SuperChangeEvent(KColorCombo* self, QEvent* e) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_ChangeEvent_IsBase(true);
@@ -530,7 +530,7 @@ void KColorCombo_ResizeEvent(KColorCombo* self, QResizeEvent* e) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseResizeEvent(KColorCombo* self, QResizeEvent* e) {
+void KColorCombo_SuperResizeEvent(KColorCombo* self, QResizeEvent* e) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_ResizeEvent_IsBase(true);
@@ -559,7 +559,7 @@ void KColorCombo_ShowEvent(KColorCombo* self, QShowEvent* e) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseShowEvent(KColorCombo* self, QShowEvent* e) {
+void KColorCombo_SuperShowEvent(KColorCombo* self, QShowEvent* e) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_ShowEvent_IsBase(true);
@@ -588,7 +588,7 @@ void KColorCombo_HideEvent(KColorCombo* self, QHideEvent* e) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseHideEvent(KColorCombo* self, QHideEvent* e) {
+void KColorCombo_SuperHideEvent(KColorCombo* self, QHideEvent* e) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_HideEvent_IsBase(true);
@@ -617,7 +617,7 @@ void KColorCombo_MousePressEvent(KColorCombo* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseMousePressEvent(KColorCombo* self, QMouseEvent* e) {
+void KColorCombo_SuperMousePressEvent(KColorCombo* self, QMouseEvent* e) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_MousePressEvent_IsBase(true);
@@ -646,7 +646,7 @@ void KColorCombo_MouseReleaseEvent(KColorCombo* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseMouseReleaseEvent(KColorCombo* self, QMouseEvent* e) {
+void KColorCombo_SuperMouseReleaseEvent(KColorCombo* self, QMouseEvent* e) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_MouseReleaseEvent_IsBase(true);
@@ -675,7 +675,7 @@ void KColorCombo_KeyPressEvent(KColorCombo* self, QKeyEvent* e) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseKeyPressEvent(KColorCombo* self, QKeyEvent* e) {
+void KColorCombo_SuperKeyPressEvent(KColorCombo* self, QKeyEvent* e) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_KeyPressEvent_IsBase(true);
@@ -704,7 +704,7 @@ void KColorCombo_KeyReleaseEvent(KColorCombo* self, QKeyEvent* e) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseKeyReleaseEvent(KColorCombo* self, QKeyEvent* e) {
+void KColorCombo_SuperKeyReleaseEvent(KColorCombo* self, QKeyEvent* e) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_KeyReleaseEvent_IsBase(true);
@@ -733,7 +733,7 @@ void KColorCombo_WheelEvent(KColorCombo* self, QWheelEvent* e) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseWheelEvent(KColorCombo* self, QWheelEvent* e) {
+void KColorCombo_SuperWheelEvent(KColorCombo* self, QWheelEvent* e) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_WheelEvent_IsBase(true);
@@ -762,7 +762,7 @@ void KColorCombo_ContextMenuEvent(KColorCombo* self, QContextMenuEvent* e) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseContextMenuEvent(KColorCombo* self, QContextMenuEvent* e) {
+void KColorCombo_SuperContextMenuEvent(KColorCombo* self, QContextMenuEvent* e) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_ContextMenuEvent_IsBase(true);
@@ -791,7 +791,7 @@ void KColorCombo_InputMethodEvent(KColorCombo* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseInputMethodEvent(KColorCombo* self, QInputMethodEvent* param1) {
+void KColorCombo_SuperInputMethodEvent(KColorCombo* self, QInputMethodEvent* param1) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_InputMethodEvent_IsBase(true);
@@ -820,7 +820,7 @@ void KColorCombo_InitStyleOption(const KColorCombo* self, QStyleOptionComboBox* 
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseInitStyleOption(const KColorCombo* self, QStyleOptionComboBox* option) {
+void KColorCombo_SuperInitStyleOption(const KColorCombo* self, QStyleOptionComboBox* option) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_InitStyleOption_IsBase(true);
@@ -849,7 +849,7 @@ int KColorCombo_DevType(const KColorCombo* self) {
 }
 
 // Base class handler implementation
-int KColorCombo_QBaseDevType(const KColorCombo* self) {
+int KColorCombo_SuperDevType(const KColorCombo* self) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_DevType_IsBase(true);
@@ -878,7 +878,7 @@ void KColorCombo_SetVisible(KColorCombo* self, bool visible) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseSetVisible(KColorCombo* self, bool visible) {
+void KColorCombo_SuperSetVisible(KColorCombo* self, bool visible) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_SetVisible_IsBase(true);
@@ -907,7 +907,7 @@ int KColorCombo_HeightForWidth(const KColorCombo* self, int param1) {
 }
 
 // Base class handler implementation
-int KColorCombo_QBaseHeightForWidth(const KColorCombo* self, int param1) {
+int KColorCombo_SuperHeightForWidth(const KColorCombo* self, int param1) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_HeightForWidth_IsBase(true);
@@ -936,7 +936,7 @@ bool KColorCombo_HasHeightForWidth(const KColorCombo* self) {
 }
 
 // Base class handler implementation
-bool KColorCombo_QBaseHasHeightForWidth(const KColorCombo* self) {
+bool KColorCombo_SuperHasHeightForWidth(const KColorCombo* self) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_HasHeightForWidth_IsBase(true);
@@ -965,7 +965,7 @@ QPaintEngine* KColorCombo_PaintEngine(const KColorCombo* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KColorCombo_QBasePaintEngine(const KColorCombo* self) {
+QPaintEngine* KColorCombo_SuperPaintEngine(const KColorCombo* self) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_PaintEngine_IsBase(true);
@@ -994,7 +994,7 @@ void KColorCombo_MouseDoubleClickEvent(KColorCombo* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseMouseDoubleClickEvent(KColorCombo* self, QMouseEvent* event) {
+void KColorCombo_SuperMouseDoubleClickEvent(KColorCombo* self, QMouseEvent* event) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_MouseDoubleClickEvent_IsBase(true);
@@ -1023,7 +1023,7 @@ void KColorCombo_MouseMoveEvent(KColorCombo* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseMouseMoveEvent(KColorCombo* self, QMouseEvent* event) {
+void KColorCombo_SuperMouseMoveEvent(KColorCombo* self, QMouseEvent* event) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_MouseMoveEvent_IsBase(true);
@@ -1052,7 +1052,7 @@ void KColorCombo_EnterEvent(KColorCombo* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseEnterEvent(KColorCombo* self, QEnterEvent* event) {
+void KColorCombo_SuperEnterEvent(KColorCombo* self, QEnterEvent* event) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_EnterEvent_IsBase(true);
@@ -1081,7 +1081,7 @@ void KColorCombo_LeaveEvent(KColorCombo* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseLeaveEvent(KColorCombo* self, QEvent* event) {
+void KColorCombo_SuperLeaveEvent(KColorCombo* self, QEvent* event) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_LeaveEvent_IsBase(true);
@@ -1110,7 +1110,7 @@ void KColorCombo_MoveEvent(KColorCombo* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseMoveEvent(KColorCombo* self, QMoveEvent* event) {
+void KColorCombo_SuperMoveEvent(KColorCombo* self, QMoveEvent* event) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_MoveEvent_IsBase(true);
@@ -1139,7 +1139,7 @@ void KColorCombo_CloseEvent(KColorCombo* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseCloseEvent(KColorCombo* self, QCloseEvent* event) {
+void KColorCombo_SuperCloseEvent(KColorCombo* self, QCloseEvent* event) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_CloseEvent_IsBase(true);
@@ -1168,7 +1168,7 @@ void KColorCombo_TabletEvent(KColorCombo* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseTabletEvent(KColorCombo* self, QTabletEvent* event) {
+void KColorCombo_SuperTabletEvent(KColorCombo* self, QTabletEvent* event) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_TabletEvent_IsBase(true);
@@ -1197,7 +1197,7 @@ void KColorCombo_ActionEvent(KColorCombo* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseActionEvent(KColorCombo* self, QActionEvent* event) {
+void KColorCombo_SuperActionEvent(KColorCombo* self, QActionEvent* event) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_ActionEvent_IsBase(true);
@@ -1226,7 +1226,7 @@ void KColorCombo_DragEnterEvent(KColorCombo* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseDragEnterEvent(KColorCombo* self, QDragEnterEvent* event) {
+void KColorCombo_SuperDragEnterEvent(KColorCombo* self, QDragEnterEvent* event) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_DragEnterEvent_IsBase(true);
@@ -1255,7 +1255,7 @@ void KColorCombo_DragMoveEvent(KColorCombo* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseDragMoveEvent(KColorCombo* self, QDragMoveEvent* event) {
+void KColorCombo_SuperDragMoveEvent(KColorCombo* self, QDragMoveEvent* event) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_DragMoveEvent_IsBase(true);
@@ -1284,7 +1284,7 @@ void KColorCombo_DragLeaveEvent(KColorCombo* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseDragLeaveEvent(KColorCombo* self, QDragLeaveEvent* event) {
+void KColorCombo_SuperDragLeaveEvent(KColorCombo* self, QDragLeaveEvent* event) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_DragLeaveEvent_IsBase(true);
@@ -1313,7 +1313,7 @@ void KColorCombo_DropEvent(KColorCombo* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseDropEvent(KColorCombo* self, QDropEvent* event) {
+void KColorCombo_SuperDropEvent(KColorCombo* self, QDropEvent* event) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_DropEvent_IsBase(true);
@@ -1343,7 +1343,7 @@ bool KColorCombo_NativeEvent(KColorCombo* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool KColorCombo_QBaseNativeEvent(KColorCombo* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KColorCombo_SuperNativeEvent(KColorCombo* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
@@ -1373,7 +1373,7 @@ int KColorCombo_Metric(const KColorCombo* self, int param1) {
 }
 
 // Base class handler implementation
-int KColorCombo_QBaseMetric(const KColorCombo* self, int param1) {
+int KColorCombo_SuperMetric(const KColorCombo* self, int param1) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_Metric_IsBase(true);
@@ -1402,7 +1402,7 @@ void KColorCombo_InitPainter(const KColorCombo* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseInitPainter(const KColorCombo* self, QPainter* painter) {
+void KColorCombo_SuperInitPainter(const KColorCombo* self, QPainter* painter) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_InitPainter_IsBase(true);
@@ -1431,7 +1431,7 @@ QPaintDevice* KColorCombo_Redirected(const KColorCombo* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KColorCombo_QBaseRedirected(const KColorCombo* self, QPoint* offset) {
+QPaintDevice* KColorCombo_SuperRedirected(const KColorCombo* self, QPoint* offset) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_Redirected_IsBase(true);
@@ -1460,7 +1460,7 @@ QPainter* KColorCombo_SharedPainter(const KColorCombo* self) {
 }
 
 // Base class handler implementation
-QPainter* KColorCombo_QBaseSharedPainter(const KColorCombo* self) {
+QPainter* KColorCombo_SuperSharedPainter(const KColorCombo* self) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_SharedPainter_IsBase(true);
@@ -1489,7 +1489,7 @@ bool KColorCombo_FocusNextPrevChild(KColorCombo* self, bool next) {
 }
 
 // Base class handler implementation
-bool KColorCombo_QBaseFocusNextPrevChild(KColorCombo* self, bool next) {
+bool KColorCombo_SuperFocusNextPrevChild(KColorCombo* self, bool next) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_FocusNextPrevChild_IsBase(true);
@@ -1518,7 +1518,7 @@ bool KColorCombo_EventFilter(KColorCombo* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool KColorCombo_QBaseEventFilter(KColorCombo* self, QObject* watched, QEvent* event) {
+bool KColorCombo_SuperEventFilter(KColorCombo* self, QObject* watched, QEvent* event) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_EventFilter_IsBase(true);
@@ -1547,7 +1547,7 @@ void KColorCombo_TimerEvent(KColorCombo* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseTimerEvent(KColorCombo* self, QTimerEvent* event) {
+void KColorCombo_SuperTimerEvent(KColorCombo* self, QTimerEvent* event) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_TimerEvent_IsBase(true);
@@ -1576,7 +1576,7 @@ void KColorCombo_ChildEvent(KColorCombo* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseChildEvent(KColorCombo* self, QChildEvent* event) {
+void KColorCombo_SuperChildEvent(KColorCombo* self, QChildEvent* event) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_ChildEvent_IsBase(true);
@@ -1605,7 +1605,7 @@ void KColorCombo_CustomEvent(KColorCombo* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseCustomEvent(KColorCombo* self, QEvent* event) {
+void KColorCombo_SuperCustomEvent(KColorCombo* self, QEvent* event) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_CustomEvent_IsBase(true);
@@ -1634,7 +1634,7 @@ void KColorCombo_ConnectNotify(KColorCombo* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseConnectNotify(KColorCombo* self, const QMetaMethod* signal) {
+void KColorCombo_SuperConnectNotify(KColorCombo* self, const QMetaMethod* signal) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_ConnectNotify_IsBase(true);
@@ -1663,7 +1663,7 @@ void KColorCombo_DisconnectNotify(KColorCombo* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseDisconnectNotify(KColorCombo* self, const QMetaMethod* signal) {
+void KColorCombo_SuperDisconnectNotify(KColorCombo* self, const QMetaMethod* signal) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_DisconnectNotify_IsBase(true);
@@ -1692,7 +1692,7 @@ void KColorCombo_UpdateMicroFocus(KColorCombo* self) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseUpdateMicroFocus(KColorCombo* self) {
+void KColorCombo_SuperUpdateMicroFocus(KColorCombo* self) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_UpdateMicroFocus_IsBase(true);
@@ -1721,7 +1721,7 @@ void KColorCombo_Create(KColorCombo* self) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseCreate(KColorCombo* self) {
+void KColorCombo_SuperCreate(KColorCombo* self) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_Create_IsBase(true);
@@ -1750,7 +1750,7 @@ void KColorCombo_Destroy(KColorCombo* self) {
 }
 
 // Base class handler implementation
-void KColorCombo_QBaseDestroy(KColorCombo* self) {
+void KColorCombo_SuperDestroy(KColorCombo* self) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_Destroy_IsBase(true);
@@ -1779,7 +1779,7 @@ bool KColorCombo_FocusNextChild(KColorCombo* self) {
 }
 
 // Base class handler implementation
-bool KColorCombo_QBaseFocusNextChild(KColorCombo* self) {
+bool KColorCombo_SuperFocusNextChild(KColorCombo* self) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_FocusNextChild_IsBase(true);
@@ -1808,7 +1808,7 @@ bool KColorCombo_FocusPreviousChild(KColorCombo* self) {
 }
 
 // Base class handler implementation
-bool KColorCombo_QBaseFocusPreviousChild(KColorCombo* self) {
+bool KColorCombo_SuperFocusPreviousChild(KColorCombo* self) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_FocusPreviousChild_IsBase(true);
@@ -1837,7 +1837,7 @@ QObject* KColorCombo_Sender(const KColorCombo* self) {
 }
 
 // Base class handler implementation
-QObject* KColorCombo_QBaseSender(const KColorCombo* self) {
+QObject* KColorCombo_SuperSender(const KColorCombo* self) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_Sender_IsBase(true);
@@ -1866,7 +1866,7 @@ int KColorCombo_SenderSignalIndex(const KColorCombo* self) {
 }
 
 // Base class handler implementation
-int KColorCombo_QBaseSenderSignalIndex(const KColorCombo* self) {
+int KColorCombo_SuperSenderSignalIndex(const KColorCombo* self) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_SenderSignalIndex_IsBase(true);
@@ -1895,7 +1895,7 @@ int KColorCombo_Receivers(const KColorCombo* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KColorCombo_QBaseReceivers(const KColorCombo* self, const char* signal) {
+int KColorCombo_SuperReceivers(const KColorCombo* self, const char* signal) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_Receivers_IsBase(true);
@@ -1924,7 +1924,7 @@ bool KColorCombo_IsSignalConnected(const KColorCombo* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool KColorCombo_QBaseIsSignalConnected(const KColorCombo* self, const QMetaMethod* signal) {
+bool KColorCombo_SuperIsSignalConnected(const KColorCombo* self, const QMetaMethod* signal) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_IsSignalConnected_IsBase(true);
@@ -1953,7 +1953,7 @@ double KColorCombo_GetDecodedMetricF(const KColorCombo* self, int metricA, int m
 }
 
 // Base class handler implementation
-double KColorCombo_QBaseGetDecodedMetricF(const KColorCombo* self, int metricA, int metricB) {
+double KColorCombo_SuperGetDecodedMetricF(const KColorCombo* self, int metricA, int metricB) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->setKColorCombo_GetDecodedMetricF_IsBase(true);

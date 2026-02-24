@@ -120,13 +120,17 @@ pub const ksyntaxhighlighting__foldingregion = struct {
         return qtc.KSyntaxHighlighting__FoldingRegion_Sibling(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KSyntaxHighlighting__FoldingRegion `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KSyntaxHighlighting__FoldingRegion_Delete(@ptrCast(self));
     }
 };

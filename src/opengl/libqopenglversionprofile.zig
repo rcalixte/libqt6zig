@@ -124,6 +124,10 @@ pub const qopenglversionprofile = struct {
         return qtc.QOpenGLVersionProfile_IsValid(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionprofile.html#dtor.QOpenGLVersionProfile)
     ///
     /// Delete this object from C++ memory.
@@ -132,7 +136,7 @@ pub const qopenglversionprofile = struct {
     ///
     /// ` self: QtC.QOpenGLVersionProfile `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QOpenGLVersionProfile_Delete(@ptrCast(self));
     }
 };

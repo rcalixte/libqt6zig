@@ -355,6 +355,10 @@ pub const qrandomgenerator = struct {
         qtc.QRandomGenerator_Seed1(@ptrCast(self), @bitCast(s));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#dtor.QRandomGenerator)
     ///
     /// Delete this object from C++ memory.
@@ -363,7 +367,7 @@ pub const qrandomgenerator = struct {
     ///
     /// ` self: QtC.QRandomGenerator `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QRandomGenerator_Delete(@ptrCast(self));
     }
 };
@@ -768,6 +772,10 @@ pub const qrandomgenerator64 = struct {
         qtc.QRandomGenerator_Seed1(@ptrCast(self), @bitCast(s));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator64.html#dtor.QRandomGenerator64)
     ///
     /// Delete this object from C++ memory.
@@ -776,7 +784,7 @@ pub const qrandomgenerator64 = struct {
     ///
     /// ` self: QtC.QRandomGenerator64 `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QRandomGenerator64_Delete(@ptrCast(self));
     }
 };

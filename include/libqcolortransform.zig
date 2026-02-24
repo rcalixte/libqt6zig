@@ -89,6 +89,10 @@ pub const qcolortransform = struct {
         return qtc.QColorTransform_Map5(@ptrCast(self), @ptrCast(color));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolortransform.html#dtor.QColorTransform)
     ///
     /// Delete this object from C++ memory.
@@ -97,7 +101,7 @@ pub const qcolortransform = struct {
     ///
     /// ` self: QtC.QColorTransform `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QColorTransform_Delete(@ptrCast(self));
     }
 };

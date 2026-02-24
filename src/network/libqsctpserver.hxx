@@ -407,27 +407,27 @@ class VirtualQSctpServer final : public QSctpServer {
 
     // Friend functions
     friend void QSctpServer_IncomingConnection(QSctpServer* self, intptr_t handle);
-    friend void QSctpServer_QBaseIncomingConnection(QSctpServer* self, intptr_t handle);
+    friend void QSctpServer_SuperIncomingConnection(QSctpServer* self, intptr_t handle);
     friend void QSctpServer_TimerEvent(QSctpServer* self, QTimerEvent* event);
-    friend void QSctpServer_QBaseTimerEvent(QSctpServer* self, QTimerEvent* event);
+    friend void QSctpServer_SuperTimerEvent(QSctpServer* self, QTimerEvent* event);
     friend void QSctpServer_ChildEvent(QSctpServer* self, QChildEvent* event);
-    friend void QSctpServer_QBaseChildEvent(QSctpServer* self, QChildEvent* event);
+    friend void QSctpServer_SuperChildEvent(QSctpServer* self, QChildEvent* event);
     friend void QSctpServer_CustomEvent(QSctpServer* self, QEvent* event);
-    friend void QSctpServer_QBaseCustomEvent(QSctpServer* self, QEvent* event);
+    friend void QSctpServer_SuperCustomEvent(QSctpServer* self, QEvent* event);
     friend void QSctpServer_ConnectNotify(QSctpServer* self, const QMetaMethod* signal);
-    friend void QSctpServer_QBaseConnectNotify(QSctpServer* self, const QMetaMethod* signal);
+    friend void QSctpServer_SuperConnectNotify(QSctpServer* self, const QMetaMethod* signal);
     friend void QSctpServer_DisconnectNotify(QSctpServer* self, const QMetaMethod* signal);
-    friend void QSctpServer_QBaseDisconnectNotify(QSctpServer* self, const QMetaMethod* signal);
+    friend void QSctpServer_SuperDisconnectNotify(QSctpServer* self, const QMetaMethod* signal);
     friend void QSctpServer_AddPendingConnection(QSctpServer* self, QTcpSocket* socket);
-    friend void QSctpServer_QBaseAddPendingConnection(QSctpServer* self, QTcpSocket* socket);
+    friend void QSctpServer_SuperAddPendingConnection(QSctpServer* self, QTcpSocket* socket);
     friend QObject* QSctpServer_Sender(const QSctpServer* self);
-    friend QObject* QSctpServer_QBaseSender(const QSctpServer* self);
+    friend QObject* QSctpServer_SuperSender(const QSctpServer* self);
     friend int QSctpServer_SenderSignalIndex(const QSctpServer* self);
-    friend int QSctpServer_QBaseSenderSignalIndex(const QSctpServer* self);
+    friend int QSctpServer_SuperSenderSignalIndex(const QSctpServer* self);
     friend int QSctpServer_Receivers(const QSctpServer* self, const char* signal);
-    friend int QSctpServer_QBaseReceivers(const QSctpServer* self, const char* signal);
+    friend int QSctpServer_SuperReceivers(const QSctpServer* self, const char* signal);
     friend bool QSctpServer_IsSignalConnected(const QSctpServer* self, const QMetaMethod* signal);
-    friend bool QSctpServer_QBaseIsSignalConnected(const QSctpServer* self, const QMetaMethod* signal);
+    friend bool QSctpServer_SuperIsSignalConnected(const QSctpServer* self, const QMetaMethod* signal);
 };
 
 #endif

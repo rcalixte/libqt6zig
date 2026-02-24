@@ -73,7 +73,7 @@ int KMacroExpanderBase_ExpandEscapedMacro(KMacroExpanderBase* self, const libqt_
 }
 
 // Base class handler implementation
-int KMacroExpanderBase_QBaseExpandPlainMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
+int KMacroExpanderBase_SuperExpandPlainMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
     auto* vkmacroexpanderbase = dynamic_cast<VirtualKMacroExpanderBase*>(self);
     QString str_QString = QString::fromUtf8(str.data, str.len);
     QList<QString> retVal_QList;
@@ -100,7 +100,7 @@ void KMacroExpanderBase_OnExpandPlainMacro(KMacroExpanderBase* self, intptr_t sl
 }
 
 // Base class handler implementation
-int KMacroExpanderBase_QBaseExpandEscapedMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
+int KMacroExpanderBase_SuperExpandEscapedMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
     auto* vkmacroexpanderbase = dynamic_cast<VirtualKMacroExpanderBase*>(self);
     QString str_QString = QString::fromUtf8(str.data, str.len);
     QList<QString> retVal_QList;
@@ -187,7 +187,7 @@ bool KWordMacroExpander_ExpandMacro(KWordMacroExpander* self, const libqt_string
 }
 
 // Base class handler implementation
-int KWordMacroExpander_QBaseExpandPlainMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
+int KWordMacroExpander_SuperExpandPlainMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
     auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self);
     QString str_QString = QString::fromUtf8(str.data, str.len);
     QList<QString> retVal_QList;
@@ -214,7 +214,7 @@ void KWordMacroExpander_OnExpandPlainMacro(KWordMacroExpander* self, intptr_t sl
 }
 
 // Base class handler implementation
-int KWordMacroExpander_QBaseExpandEscapedMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
+int KWordMacroExpander_SuperExpandEscapedMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
     auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self);
     QString str_QString = QString::fromUtf8(str.data, str.len);
     QList<QString> retVal_QList;
@@ -241,7 +241,7 @@ void KWordMacroExpander_OnExpandEscapedMacro(KWordMacroExpander* self, intptr_t 
 }
 
 // Base class handler implementation
-bool KWordMacroExpander_QBaseExpandMacro(KWordMacroExpander* self, const libqt_string str, libqt_list /* of libqt_string */ retVal) {
+bool KWordMacroExpander_SuperExpandMacro(KWordMacroExpander* self, const libqt_string str, libqt_list /* of libqt_string */ retVal) {
     auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self);
     QString str_QString = QString::fromUtf8(str.data, str.len);
     QList<QString> retVal_QList;
@@ -327,7 +327,7 @@ bool KCharMacroExpander_ExpandMacro(KCharMacroExpander* self, QChar* chr, libqt_
 }
 
 // Base class handler implementation
-int KCharMacroExpander_QBaseExpandPlainMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
+int KCharMacroExpander_SuperExpandPlainMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
     auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self);
     QString str_QString = QString::fromUtf8(str.data, str.len);
     QList<QString> retVal_QList;
@@ -354,7 +354,7 @@ void KCharMacroExpander_OnExpandPlainMacro(KCharMacroExpander* self, intptr_t sl
 }
 
 // Base class handler implementation
-int KCharMacroExpander_QBaseExpandEscapedMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
+int KCharMacroExpander_SuperExpandEscapedMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal) {
     auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self);
     QString str_QString = QString::fromUtf8(str.data, str.len);
     QList<QString> retVal_QList;
@@ -381,7 +381,7 @@ void KCharMacroExpander_OnExpandEscapedMacro(KCharMacroExpander* self, intptr_t 
 }
 
 // Base class handler implementation
-bool KCharMacroExpander_QBaseExpandMacro(KCharMacroExpander* self, QChar* chr, libqt_list /* of libqt_string */ retVal) {
+bool KCharMacroExpander_SuperExpandMacro(KCharMacroExpander* self, QChar* chr, libqt_list /* of libqt_string */ retVal) {
     auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self);
     QList<QString> retVal_QList;
     retVal_QList.reserve(retVal.len);

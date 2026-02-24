@@ -82,7 +82,7 @@ void QVideoFrameInput_Connect_ReadyToSendVideoFrame(QVideoFrameInput* self, intp
 }
 
 // Base class handler implementation
-QMetaObject* QVideoFrameInput_QBaseMetaObject(const QVideoFrameInput* self) {
+QMetaObject* QVideoFrameInput_SuperMetaObject(const QVideoFrameInput* self) {
     auto* vqvideoframeinput = const_cast<VirtualQVideoFrameInput*>(dynamic_cast<const VirtualQVideoFrameInput*>(self));
     if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
         vqvideoframeinput->setQVideoFrameInput_MetaObject_IsBase(true);
@@ -101,7 +101,7 @@ void QVideoFrameInput_OnMetaObject(const QVideoFrameInput* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* QVideoFrameInput_QBaseMetacast(QVideoFrameInput* self, const char* param1) {
+void* QVideoFrameInput_SuperMetacast(QVideoFrameInput* self, const char* param1) {
     auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
     if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
         vqvideoframeinput->setQVideoFrameInput_Metacast_IsBase(true);
@@ -120,7 +120,7 @@ void QVideoFrameInput_OnMetacast(QVideoFrameInput* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QVideoFrameInput_QBaseMetacall(QVideoFrameInput* self, int param1, int param2, void** param3) {
+int QVideoFrameInput_SuperMetacall(QVideoFrameInput* self, int param1, int param2, void** param3) {
     auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
     if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
         vqvideoframeinput->setQVideoFrameInput_Metacall_IsBase(true);
@@ -149,7 +149,7 @@ bool QVideoFrameInput_Event(QVideoFrameInput* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QVideoFrameInput_QBaseEvent(QVideoFrameInput* self, QEvent* event) {
+bool QVideoFrameInput_SuperEvent(QVideoFrameInput* self, QEvent* event) {
     auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
     if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
         vqvideoframeinput->setQVideoFrameInput_Event_IsBase(true);
@@ -178,7 +178,7 @@ bool QVideoFrameInput_EventFilter(QVideoFrameInput* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool QVideoFrameInput_QBaseEventFilter(QVideoFrameInput* self, QObject* watched, QEvent* event) {
+bool QVideoFrameInput_SuperEventFilter(QVideoFrameInput* self, QObject* watched, QEvent* event) {
     auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
     if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
         vqvideoframeinput->setQVideoFrameInput_EventFilter_IsBase(true);
@@ -207,7 +207,7 @@ void QVideoFrameInput_TimerEvent(QVideoFrameInput* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoFrameInput_QBaseTimerEvent(QVideoFrameInput* self, QTimerEvent* event) {
+void QVideoFrameInput_SuperTimerEvent(QVideoFrameInput* self, QTimerEvent* event) {
     auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
     if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
         vqvideoframeinput->setQVideoFrameInput_TimerEvent_IsBase(true);
@@ -236,7 +236,7 @@ void QVideoFrameInput_ChildEvent(QVideoFrameInput* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoFrameInput_QBaseChildEvent(QVideoFrameInput* self, QChildEvent* event) {
+void QVideoFrameInput_SuperChildEvent(QVideoFrameInput* self, QChildEvent* event) {
     auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
     if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
         vqvideoframeinput->setQVideoFrameInput_ChildEvent_IsBase(true);
@@ -265,7 +265,7 @@ void QVideoFrameInput_CustomEvent(QVideoFrameInput* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoFrameInput_QBaseCustomEvent(QVideoFrameInput* self, QEvent* event) {
+void QVideoFrameInput_SuperCustomEvent(QVideoFrameInput* self, QEvent* event) {
     auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
     if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
         vqvideoframeinput->setQVideoFrameInput_CustomEvent_IsBase(true);
@@ -294,7 +294,7 @@ void QVideoFrameInput_ConnectNotify(QVideoFrameInput* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void QVideoFrameInput_QBaseConnectNotify(QVideoFrameInput* self, const QMetaMethod* signal) {
+void QVideoFrameInput_SuperConnectNotify(QVideoFrameInput* self, const QMetaMethod* signal) {
     auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
     if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
         vqvideoframeinput->setQVideoFrameInput_ConnectNotify_IsBase(true);
@@ -323,7 +323,7 @@ void QVideoFrameInput_DisconnectNotify(QVideoFrameInput* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void QVideoFrameInput_QBaseDisconnectNotify(QVideoFrameInput* self, const QMetaMethod* signal) {
+void QVideoFrameInput_SuperDisconnectNotify(QVideoFrameInput* self, const QMetaMethod* signal) {
     auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
     if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
         vqvideoframeinput->setQVideoFrameInput_DisconnectNotify_IsBase(true);
@@ -352,7 +352,7 @@ QObject* QVideoFrameInput_Sender(const QVideoFrameInput* self) {
 }
 
 // Base class handler implementation
-QObject* QVideoFrameInput_QBaseSender(const QVideoFrameInput* self) {
+QObject* QVideoFrameInput_SuperSender(const QVideoFrameInput* self) {
     auto* vqvideoframeinput = const_cast<VirtualQVideoFrameInput*>(dynamic_cast<const VirtualQVideoFrameInput*>(self));
     if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
         vqvideoframeinput->setQVideoFrameInput_Sender_IsBase(true);
@@ -381,7 +381,7 @@ int QVideoFrameInput_SenderSignalIndex(const QVideoFrameInput* self) {
 }
 
 // Base class handler implementation
-int QVideoFrameInput_QBaseSenderSignalIndex(const QVideoFrameInput* self) {
+int QVideoFrameInput_SuperSenderSignalIndex(const QVideoFrameInput* self) {
     auto* vqvideoframeinput = const_cast<VirtualQVideoFrameInput*>(dynamic_cast<const VirtualQVideoFrameInput*>(self));
     if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
         vqvideoframeinput->setQVideoFrameInput_SenderSignalIndex_IsBase(true);
@@ -410,7 +410,7 @@ int QVideoFrameInput_Receivers(const QVideoFrameInput* self, const char* signal)
 }
 
 // Base class handler implementation
-int QVideoFrameInput_QBaseReceivers(const QVideoFrameInput* self, const char* signal) {
+int QVideoFrameInput_SuperReceivers(const QVideoFrameInput* self, const char* signal) {
     auto* vqvideoframeinput = const_cast<VirtualQVideoFrameInput*>(dynamic_cast<const VirtualQVideoFrameInput*>(self));
     if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
         vqvideoframeinput->setQVideoFrameInput_Receivers_IsBase(true);
@@ -439,7 +439,7 @@ bool QVideoFrameInput_IsSignalConnected(const QVideoFrameInput* self, const QMet
 }
 
 // Base class handler implementation
-bool QVideoFrameInput_QBaseIsSignalConnected(const QVideoFrameInput* self, const QMetaMethod* signal) {
+bool QVideoFrameInput_SuperIsSignalConnected(const QVideoFrameInput* self, const QMetaMethod* signal) {
     auto* vqvideoframeinput = const_cast<VirtualQVideoFrameInput*>(dynamic_cast<const VirtualQVideoFrameInput*>(self));
     if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
         vqvideoframeinput->setQVideoFrameInput_IsSignalConnected_IsBase(true);

@@ -346,23 +346,23 @@ class VirtualKPartsListingNotificationExtension final : public KParts::ListingNo
 
     // Friend functions
     friend void KParts__ListingNotificationExtension_TimerEvent(KParts::ListingNotificationExtension* self, QTimerEvent* event);
-    friend void KParts__ListingNotificationExtension_QBaseTimerEvent(KParts::ListingNotificationExtension* self, QTimerEvent* event);
+    friend void KParts__ListingNotificationExtension_SuperTimerEvent(KParts::ListingNotificationExtension* self, QTimerEvent* event);
     friend void KParts__ListingNotificationExtension_ChildEvent(KParts::ListingNotificationExtension* self, QChildEvent* event);
-    friend void KParts__ListingNotificationExtension_QBaseChildEvent(KParts::ListingNotificationExtension* self, QChildEvent* event);
+    friend void KParts__ListingNotificationExtension_SuperChildEvent(KParts::ListingNotificationExtension* self, QChildEvent* event);
     friend void KParts__ListingNotificationExtension_CustomEvent(KParts::ListingNotificationExtension* self, QEvent* event);
-    friend void KParts__ListingNotificationExtension_QBaseCustomEvent(KParts::ListingNotificationExtension* self, QEvent* event);
+    friend void KParts__ListingNotificationExtension_SuperCustomEvent(KParts::ListingNotificationExtension* self, QEvent* event);
     friend void KParts__ListingNotificationExtension_ConnectNotify(KParts::ListingNotificationExtension* self, const QMetaMethod* signal);
-    friend void KParts__ListingNotificationExtension_QBaseConnectNotify(KParts::ListingNotificationExtension* self, const QMetaMethod* signal);
+    friend void KParts__ListingNotificationExtension_SuperConnectNotify(KParts::ListingNotificationExtension* self, const QMetaMethod* signal);
     friend void KParts__ListingNotificationExtension_DisconnectNotify(KParts::ListingNotificationExtension* self, const QMetaMethod* signal);
-    friend void KParts__ListingNotificationExtension_QBaseDisconnectNotify(KParts::ListingNotificationExtension* self, const QMetaMethod* signal);
+    friend void KParts__ListingNotificationExtension_SuperDisconnectNotify(KParts::ListingNotificationExtension* self, const QMetaMethod* signal);
     friend QObject* KParts__ListingNotificationExtension_Sender(const KParts::ListingNotificationExtension* self);
-    friend QObject* KParts__ListingNotificationExtension_QBaseSender(const KParts::ListingNotificationExtension* self);
+    friend QObject* KParts__ListingNotificationExtension_SuperSender(const KParts::ListingNotificationExtension* self);
     friend int KParts__ListingNotificationExtension_SenderSignalIndex(const KParts::ListingNotificationExtension* self);
-    friend int KParts__ListingNotificationExtension_QBaseSenderSignalIndex(const KParts::ListingNotificationExtension* self);
+    friend int KParts__ListingNotificationExtension_SuperSenderSignalIndex(const KParts::ListingNotificationExtension* self);
     friend int KParts__ListingNotificationExtension_Receivers(const KParts::ListingNotificationExtension* self, const char* signal);
-    friend int KParts__ListingNotificationExtension_QBaseReceivers(const KParts::ListingNotificationExtension* self, const char* signal);
+    friend int KParts__ListingNotificationExtension_SuperReceivers(const KParts::ListingNotificationExtension* self, const char* signal);
     friend bool KParts__ListingNotificationExtension_IsSignalConnected(const KParts::ListingNotificationExtension* self, const QMetaMethod* signal);
-    friend bool KParts__ListingNotificationExtension_QBaseIsSignalConnected(const KParts::ListingNotificationExtension* self, const QMetaMethod* signal);
+    friend bool KParts__ListingNotificationExtension_SuperIsSignalConnected(const KParts::ListingNotificationExtension* self, const QMetaMethod* signal);
 };
 
 #endif

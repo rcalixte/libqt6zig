@@ -499,33 +499,33 @@ class VirtualKZip final : public KZip {
 
     // Friend functions
     friend bool KZip_DoWriteSymLink(KZip* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
-    friend bool KZip_QBaseDoWriteSymLink(KZip* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
+    friend bool KZip_SuperDoWriteSymLink(KZip* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
     friend bool KZip_DoPrepareWriting(KZip* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* creationTime);
-    friend bool KZip_QBaseDoPrepareWriting(KZip* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* creationTime);
+    friend bool KZip_SuperDoPrepareWriting(KZip* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* creationTime);
     friend bool KZip_DoFinishWriting(KZip* self, long long size);
-    friend bool KZip_QBaseDoFinishWriting(KZip* self, long long size);
+    friend bool KZip_SuperDoFinishWriting(KZip* self, long long size);
     friend bool KZip_DoWriteData(KZip* self, const char* data, long long size);
-    friend bool KZip_QBaseDoWriteData(KZip* self, const char* data, long long size);
+    friend bool KZip_SuperDoWriteData(KZip* self, const char* data, long long size);
     friend bool KZip_OpenArchive(KZip* self, int mode);
-    friend bool KZip_QBaseOpenArchive(KZip* self, int mode);
+    friend bool KZip_SuperOpenArchive(KZip* self, int mode);
     friend bool KZip_CloseArchive(KZip* self);
-    friend bool KZip_QBaseCloseArchive(KZip* self);
+    friend bool KZip_SuperCloseArchive(KZip* self);
     friend bool KZip_DoWriteDir(KZip* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
-    friend bool KZip_QBaseDoWriteDir(KZip* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
+    friend bool KZip_SuperDoWriteDir(KZip* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
     friend void KZip_VirtualHook(KZip* self, int id, void* data);
-    friend void KZip_QBaseVirtualHook(KZip* self, int id, void* data);
+    friend void KZip_SuperVirtualHook(KZip* self, int id, void* data);
     friend KArchiveDirectory* KZip_RootDir(KZip* self);
-    friend KArchiveDirectory* KZip_QBaseRootDir(KZip* self);
+    friend KArchiveDirectory* KZip_SuperRootDir(KZip* self);
     friend bool KZip_CreateDevice(KZip* self, int mode);
-    friend bool KZip_QBaseCreateDevice(KZip* self, int mode);
+    friend bool KZip_SuperCreateDevice(KZip* self, int mode);
     friend void KZip_SetErrorString(KZip* self, const libqt_string errorStr);
-    friend void KZip_QBaseSetErrorString(KZip* self, const libqt_string errorStr);
+    friend void KZip_SuperSetErrorString(KZip* self, const libqt_string errorStr);
     friend KArchiveDirectory* KZip_FindOrCreate(KZip* self, const libqt_string path);
-    friend KArchiveDirectory* KZip_QBaseFindOrCreate(KZip* self, const libqt_string path);
+    friend KArchiveDirectory* KZip_SuperFindOrCreate(KZip* self, const libqt_string path);
     friend void KZip_SetDevice(KZip* self, QIODevice* dev);
-    friend void KZip_QBaseSetDevice(KZip* self, QIODevice* dev);
+    friend void KZip_SuperSetDevice(KZip* self, QIODevice* dev);
     friend void KZip_SetRootDir(KZip* self, KArchiveDirectory* rootDir);
-    friend void KZip_QBaseSetRootDir(KZip* self, KArchiveDirectory* rootDir);
+    friend void KZip_SuperSetRootDir(KZip* self, KArchiveDirectory* rootDir);
 };
 
 #endif

@@ -328,23 +328,23 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
 
     // Friend functions
     friend void KSyntaxHighlighting__DefinitionDownloader_TimerEvent(KSyntaxHighlighting::DefinitionDownloader* self, QTimerEvent* event);
-    friend void KSyntaxHighlighting__DefinitionDownloader_QBaseTimerEvent(KSyntaxHighlighting::DefinitionDownloader* self, QTimerEvent* event);
+    friend void KSyntaxHighlighting__DefinitionDownloader_SuperTimerEvent(KSyntaxHighlighting::DefinitionDownloader* self, QTimerEvent* event);
     friend void KSyntaxHighlighting__DefinitionDownloader_ChildEvent(KSyntaxHighlighting::DefinitionDownloader* self, QChildEvent* event);
-    friend void KSyntaxHighlighting__DefinitionDownloader_QBaseChildEvent(KSyntaxHighlighting::DefinitionDownloader* self, QChildEvent* event);
+    friend void KSyntaxHighlighting__DefinitionDownloader_SuperChildEvent(KSyntaxHighlighting::DefinitionDownloader* self, QChildEvent* event);
     friend void KSyntaxHighlighting__DefinitionDownloader_CustomEvent(KSyntaxHighlighting::DefinitionDownloader* self, QEvent* event);
-    friend void KSyntaxHighlighting__DefinitionDownloader_QBaseCustomEvent(KSyntaxHighlighting::DefinitionDownloader* self, QEvent* event);
+    friend void KSyntaxHighlighting__DefinitionDownloader_SuperCustomEvent(KSyntaxHighlighting::DefinitionDownloader* self, QEvent* event);
     friend void KSyntaxHighlighting__DefinitionDownloader_ConnectNotify(KSyntaxHighlighting::DefinitionDownloader* self, const QMetaMethod* signal);
-    friend void KSyntaxHighlighting__DefinitionDownloader_QBaseConnectNotify(KSyntaxHighlighting::DefinitionDownloader* self, const QMetaMethod* signal);
+    friend void KSyntaxHighlighting__DefinitionDownloader_SuperConnectNotify(KSyntaxHighlighting::DefinitionDownloader* self, const QMetaMethod* signal);
     friend void KSyntaxHighlighting__DefinitionDownloader_DisconnectNotify(KSyntaxHighlighting::DefinitionDownloader* self, const QMetaMethod* signal);
-    friend void KSyntaxHighlighting__DefinitionDownloader_QBaseDisconnectNotify(KSyntaxHighlighting::DefinitionDownloader* self, const QMetaMethod* signal);
+    friend void KSyntaxHighlighting__DefinitionDownloader_SuperDisconnectNotify(KSyntaxHighlighting::DefinitionDownloader* self, const QMetaMethod* signal);
     friend QObject* KSyntaxHighlighting__DefinitionDownloader_Sender(const KSyntaxHighlighting::DefinitionDownloader* self);
-    friend QObject* KSyntaxHighlighting__DefinitionDownloader_QBaseSender(const KSyntaxHighlighting::DefinitionDownloader* self);
+    friend QObject* KSyntaxHighlighting__DefinitionDownloader_SuperSender(const KSyntaxHighlighting::DefinitionDownloader* self);
     friend int KSyntaxHighlighting__DefinitionDownloader_SenderSignalIndex(const KSyntaxHighlighting::DefinitionDownloader* self);
-    friend int KSyntaxHighlighting__DefinitionDownloader_QBaseSenderSignalIndex(const KSyntaxHighlighting::DefinitionDownloader* self);
+    friend int KSyntaxHighlighting__DefinitionDownloader_SuperSenderSignalIndex(const KSyntaxHighlighting::DefinitionDownloader* self);
     friend int KSyntaxHighlighting__DefinitionDownloader_Receivers(const KSyntaxHighlighting::DefinitionDownloader* self, const char* signal);
-    friend int KSyntaxHighlighting__DefinitionDownloader_QBaseReceivers(const KSyntaxHighlighting::DefinitionDownloader* self, const char* signal);
+    friend int KSyntaxHighlighting__DefinitionDownloader_SuperReceivers(const KSyntaxHighlighting::DefinitionDownloader* self, const char* signal);
     friend bool KSyntaxHighlighting__DefinitionDownloader_IsSignalConnected(const KSyntaxHighlighting::DefinitionDownloader* self, const QMetaMethod* signal);
-    friend bool KSyntaxHighlighting__DefinitionDownloader_QBaseIsSignalConnected(const KSyntaxHighlighting::DefinitionDownloader* self, const QMetaMethod* signal);
+    friend bool KSyntaxHighlighting__DefinitionDownloader_SuperIsSignalConnected(const KSyntaxHighlighting::DefinitionDownloader* self, const QMetaMethod* signal);
 };
 
 #endif

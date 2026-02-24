@@ -328,23 +328,23 @@ class VirtualKWindowShadow final : public KWindowShadow {
 
     // Friend functions
     friend void KWindowShadow_TimerEvent(KWindowShadow* self, QTimerEvent* event);
-    friend void KWindowShadow_QBaseTimerEvent(KWindowShadow* self, QTimerEvent* event);
+    friend void KWindowShadow_SuperTimerEvent(KWindowShadow* self, QTimerEvent* event);
     friend void KWindowShadow_ChildEvent(KWindowShadow* self, QChildEvent* event);
-    friend void KWindowShadow_QBaseChildEvent(KWindowShadow* self, QChildEvent* event);
+    friend void KWindowShadow_SuperChildEvent(KWindowShadow* self, QChildEvent* event);
     friend void KWindowShadow_CustomEvent(KWindowShadow* self, QEvent* event);
-    friend void KWindowShadow_QBaseCustomEvent(KWindowShadow* self, QEvent* event);
+    friend void KWindowShadow_SuperCustomEvent(KWindowShadow* self, QEvent* event);
     friend void KWindowShadow_ConnectNotify(KWindowShadow* self, const QMetaMethod* signal);
-    friend void KWindowShadow_QBaseConnectNotify(KWindowShadow* self, const QMetaMethod* signal);
+    friend void KWindowShadow_SuperConnectNotify(KWindowShadow* self, const QMetaMethod* signal);
     friend void KWindowShadow_DisconnectNotify(KWindowShadow* self, const QMetaMethod* signal);
-    friend void KWindowShadow_QBaseDisconnectNotify(KWindowShadow* self, const QMetaMethod* signal);
+    friend void KWindowShadow_SuperDisconnectNotify(KWindowShadow* self, const QMetaMethod* signal);
     friend QObject* KWindowShadow_Sender(const KWindowShadow* self);
-    friend QObject* KWindowShadow_QBaseSender(const KWindowShadow* self);
+    friend QObject* KWindowShadow_SuperSender(const KWindowShadow* self);
     friend int KWindowShadow_SenderSignalIndex(const KWindowShadow* self);
-    friend int KWindowShadow_QBaseSenderSignalIndex(const KWindowShadow* self);
+    friend int KWindowShadow_SuperSenderSignalIndex(const KWindowShadow* self);
     friend int KWindowShadow_Receivers(const KWindowShadow* self, const char* signal);
-    friend int KWindowShadow_QBaseReceivers(const KWindowShadow* self, const char* signal);
+    friend int KWindowShadow_SuperReceivers(const KWindowShadow* self, const char* signal);
     friend bool KWindowShadow_IsSignalConnected(const KWindowShadow* self, const QMetaMethod* signal);
-    friend bool KWindowShadow_QBaseIsSignalConnected(const KWindowShadow* self, const QMetaMethod* signal);
+    friend bool KWindowShadow_SuperIsSignalConnected(const KWindowShadow* self, const QMetaMethod* signal);
 };
 
 #endif

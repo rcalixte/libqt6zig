@@ -332,25 +332,25 @@ class VirtualQAction final : public QAction {
 
     // Friend functions
     friend bool QAction_Event(QAction* self, QEvent* param1);
-    friend bool QAction_QBaseEvent(QAction* self, QEvent* param1);
+    friend bool QAction_SuperEvent(QAction* self, QEvent* param1);
     friend void QAction_TimerEvent(QAction* self, QTimerEvent* event);
-    friend void QAction_QBaseTimerEvent(QAction* self, QTimerEvent* event);
+    friend void QAction_SuperTimerEvent(QAction* self, QTimerEvent* event);
     friend void QAction_ChildEvent(QAction* self, QChildEvent* event);
-    friend void QAction_QBaseChildEvent(QAction* self, QChildEvent* event);
+    friend void QAction_SuperChildEvent(QAction* self, QChildEvent* event);
     friend void QAction_CustomEvent(QAction* self, QEvent* event);
-    friend void QAction_QBaseCustomEvent(QAction* self, QEvent* event);
+    friend void QAction_SuperCustomEvent(QAction* self, QEvent* event);
     friend void QAction_ConnectNotify(QAction* self, const QMetaMethod* signal);
-    friend void QAction_QBaseConnectNotify(QAction* self, const QMetaMethod* signal);
+    friend void QAction_SuperConnectNotify(QAction* self, const QMetaMethod* signal);
     friend void QAction_DisconnectNotify(QAction* self, const QMetaMethod* signal);
-    friend void QAction_QBaseDisconnectNotify(QAction* self, const QMetaMethod* signal);
+    friend void QAction_SuperDisconnectNotify(QAction* self, const QMetaMethod* signal);
     friend QObject* QAction_Sender(const QAction* self);
-    friend QObject* QAction_QBaseSender(const QAction* self);
+    friend QObject* QAction_SuperSender(const QAction* self);
     friend int QAction_SenderSignalIndex(const QAction* self);
-    friend int QAction_QBaseSenderSignalIndex(const QAction* self);
+    friend int QAction_SuperSenderSignalIndex(const QAction* self);
     friend int QAction_Receivers(const QAction* self, const char* signal);
-    friend int QAction_QBaseReceivers(const QAction* self, const char* signal);
+    friend int QAction_SuperReceivers(const QAction* self, const char* signal);
     friend bool QAction_IsSignalConnected(const QAction* self, const QMetaMethod* signal);
-    friend bool QAction_QBaseIsSignalConnected(const QAction* self, const QMetaMethod* signal);
+    friend bool QAction_SuperIsSignalConnected(const QAction* self, const QMetaMethod* signal);
 };
 
 #endif

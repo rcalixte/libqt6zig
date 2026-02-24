@@ -328,23 +328,23 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
 
     // Friend functions
     friend void KKeySequenceRecorder_TimerEvent(KKeySequenceRecorder* self, QTimerEvent* event);
-    friend void KKeySequenceRecorder_QBaseTimerEvent(KKeySequenceRecorder* self, QTimerEvent* event);
+    friend void KKeySequenceRecorder_SuperTimerEvent(KKeySequenceRecorder* self, QTimerEvent* event);
     friend void KKeySequenceRecorder_ChildEvent(KKeySequenceRecorder* self, QChildEvent* event);
-    friend void KKeySequenceRecorder_QBaseChildEvent(KKeySequenceRecorder* self, QChildEvent* event);
+    friend void KKeySequenceRecorder_SuperChildEvent(KKeySequenceRecorder* self, QChildEvent* event);
     friend void KKeySequenceRecorder_CustomEvent(KKeySequenceRecorder* self, QEvent* event);
-    friend void KKeySequenceRecorder_QBaseCustomEvent(KKeySequenceRecorder* self, QEvent* event);
+    friend void KKeySequenceRecorder_SuperCustomEvent(KKeySequenceRecorder* self, QEvent* event);
     friend void KKeySequenceRecorder_ConnectNotify(KKeySequenceRecorder* self, const QMetaMethod* signal);
-    friend void KKeySequenceRecorder_QBaseConnectNotify(KKeySequenceRecorder* self, const QMetaMethod* signal);
+    friend void KKeySequenceRecorder_SuperConnectNotify(KKeySequenceRecorder* self, const QMetaMethod* signal);
     friend void KKeySequenceRecorder_DisconnectNotify(KKeySequenceRecorder* self, const QMetaMethod* signal);
-    friend void KKeySequenceRecorder_QBaseDisconnectNotify(KKeySequenceRecorder* self, const QMetaMethod* signal);
+    friend void KKeySequenceRecorder_SuperDisconnectNotify(KKeySequenceRecorder* self, const QMetaMethod* signal);
     friend QObject* KKeySequenceRecorder_Sender(const KKeySequenceRecorder* self);
-    friend QObject* KKeySequenceRecorder_QBaseSender(const KKeySequenceRecorder* self);
+    friend QObject* KKeySequenceRecorder_SuperSender(const KKeySequenceRecorder* self);
     friend int KKeySequenceRecorder_SenderSignalIndex(const KKeySequenceRecorder* self);
-    friend int KKeySequenceRecorder_QBaseSenderSignalIndex(const KKeySequenceRecorder* self);
+    friend int KKeySequenceRecorder_SuperSenderSignalIndex(const KKeySequenceRecorder* self);
     friend int KKeySequenceRecorder_Receivers(const KKeySequenceRecorder* self, const char* signal);
-    friend int KKeySequenceRecorder_QBaseReceivers(const KKeySequenceRecorder* self, const char* signal);
+    friend int KKeySequenceRecorder_SuperReceivers(const KKeySequenceRecorder* self, const char* signal);
     friend bool KKeySequenceRecorder_IsSignalConnected(const KKeySequenceRecorder* self, const QMetaMethod* signal);
-    friend bool KKeySequenceRecorder_QBaseIsSignalConnected(const KKeySequenceRecorder* self, const QMetaMethod* signal);
+    friend bool KKeySequenceRecorder_SuperIsSignalConnected(const KKeySequenceRecorder* self, const QMetaMethod* signal);
 };
 
 #endif

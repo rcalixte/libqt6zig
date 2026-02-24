@@ -41,6 +41,10 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -49,8 +53,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` self: QtC.KExtendableItemDelegate `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KExtendableItemDelegate_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KExtendableItemDelegate_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -76,6 +80,10 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -84,9 +92,9 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KExtendableItemDelegate_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KExtendableItemDelegate_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -115,6 +123,10 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -127,8 +139,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KExtendableItemDelegate_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KExtendableItemDelegate_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -176,6 +188,10 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#sizeHint)
     ///
     /// Base class method implementation
@@ -188,8 +204,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
-        return qtc.KExtendableItemDelegate_QBaseSizeHint(@ptrCast(self), @ptrCast(option), @ptrCast(index));
+    pub fn SuperSizeHint(self: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
+        return qtc.KExtendableItemDelegate_SuperSizeHint(@ptrCast(self), @ptrCast(option), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#paint)
@@ -222,6 +238,10 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_OnPaint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPaint` instead
+    ///
+    pub const QBasePaint = SuperPaint;
+
     /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#paint)
     ///
     /// Base class method implementation
@@ -236,8 +256,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBasePaint(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.KExtendableItemDelegate_QBasePaint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(index));
+    pub fn SuperPaint(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
+        qtc.KExtendableItemDelegate_SuperPaint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#extendItem)
@@ -318,6 +338,10 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_OnUpdateExtenderGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateExtenderGeometry` instead
+    ///
+    pub const QBaseUpdateExtenderGeometry = SuperUpdateExtenderGeometry;
+
     /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#updateExtenderGeometry)
     ///
     /// Base class method implementation
@@ -332,8 +356,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseUpdateExtenderGeometry(self: ?*anyopaque, extender: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.KExtendableItemDelegate_QBaseUpdateExtenderGeometry(@ptrCast(self), @ptrCast(extender), @ptrCast(option), @ptrCast(index));
+    pub fn SuperUpdateExtenderGeometry(self: ?*anyopaque, extender: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
+        qtc.KExtendableItemDelegate_SuperUpdateExtenderGeometry(@ptrCast(self), @ptrCast(extender), @ptrCast(option), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#extenderCreated)
@@ -418,6 +442,10 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_OnExtenderRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperExtenderRect` instead
+    ///
+    pub const QBaseExtenderRect = SuperExtenderRect;
+
     /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#extenderRect)
     ///
     /// Base class method implementation
@@ -432,8 +460,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseExtenderRect(self: ?*anyopaque, extender: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
-        return qtc.KExtendableItemDelegate_QBaseExtenderRect(@ptrCast(self), @ptrCast(extender), @ptrCast(option), @ptrCast(index));
+    pub fn SuperExtenderRect(self: ?*anyopaque, extender: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
+        return qtc.KExtendableItemDelegate_SuperExtenderRect(@ptrCast(self), @ptrCast(extender), @ptrCast(option), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#setExtendPixmap)
@@ -462,6 +490,10 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_OnSetExtendPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetExtendPixmap` instead
+    ///
+    pub const QBaseSetExtendPixmap = SuperSetExtendPixmap;
+
     /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#setExtendPixmap)
     ///
     /// Base class method implementation
@@ -472,8 +504,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` pixmap: QtC.QPixmap `
     ///
-    pub fn QBaseSetExtendPixmap(self: ?*anyopaque, pixmap: ?*anyopaque) void {
-        qtc.KExtendableItemDelegate_QBaseSetExtendPixmap(@ptrCast(self), @ptrCast(pixmap));
+    pub fn SuperSetExtendPixmap(self: ?*anyopaque, pixmap: ?*anyopaque) void {
+        qtc.KExtendableItemDelegate_SuperSetExtendPixmap(@ptrCast(self), @ptrCast(pixmap));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#setContractPixmap)
@@ -502,6 +534,10 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_OnSetContractPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetContractPixmap` instead
+    ///
+    pub const QBaseSetContractPixmap = SuperSetContractPixmap;
+
     /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#setContractPixmap)
     ///
     /// Base class method implementation
@@ -512,8 +548,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` pixmap: QtC.QPixmap `
     ///
-    pub fn QBaseSetContractPixmap(self: ?*anyopaque, pixmap: ?*anyopaque) void {
-        qtc.KExtendableItemDelegate_QBaseSetContractPixmap(@ptrCast(self), @ptrCast(pixmap));
+    pub fn SuperSetContractPixmap(self: ?*anyopaque, pixmap: ?*anyopaque) void {
+        qtc.KExtendableItemDelegate_SuperSetContractPixmap(@ptrCast(self), @ptrCast(pixmap));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#extendPixmap)
@@ -540,6 +576,10 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_OnExtendPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperExtendPixmap` instead
+    ///
+    pub const QBaseExtendPixmap = SuperExtendPixmap;
+
     /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#extendPixmap)
     ///
     /// Base class method implementation
@@ -548,8 +588,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` self: QtC.KExtendableItemDelegate `
     ///
-    pub fn QBaseExtendPixmap(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.KExtendableItemDelegate_QBaseExtendPixmap(@ptrCast(self));
+    pub fn SuperExtendPixmap(self: ?*anyopaque) QtC.QPixmap {
+        return qtc.KExtendableItemDelegate_SuperExtendPixmap(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#contractPixmap)
@@ -576,6 +616,10 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_OnContractPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperContractPixmap` instead
+    ///
+    pub const QBaseContractPixmap = SuperContractPixmap;
+
     /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#contractPixmap)
     ///
     /// Base class method implementation
@@ -584,8 +628,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` self: QtC.KExtendableItemDelegate `
     ///
-    pub fn QBaseContractPixmap(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.KExtendableItemDelegate_QBaseContractPixmap(@ptrCast(self));
+    pub fn SuperContractPixmap(self: ?*anyopaque) QtC.QPixmap {
+        return qtc.KExtendableItemDelegate_SuperContractPixmap(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1528,6 +1572,10 @@ pub const kextendableitemdelegate = struct {
         return qtc.KExtendableItemDelegate_CreateEditor(@ptrCast(self), @ptrCast(parent), @ptrCast(option), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateEditor` instead
+    ///
+    pub const QBaseCreateEditor = SuperCreateEditor;
+
     /// Inherited from QStyledItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleditemdelegate.html#createEditor)
@@ -1544,8 +1592,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseCreateEditor(self: ?*anyopaque, parent: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QWidget {
-        return qtc.KExtendableItemDelegate_QBaseCreateEditor(@ptrCast(self), @ptrCast(parent), @ptrCast(option), @ptrCast(index));
+    pub fn SuperCreateEditor(self: ?*anyopaque, parent: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QWidget {
+        return qtc.KExtendableItemDelegate_SuperCreateEditor(@ptrCast(self), @ptrCast(parent), @ptrCast(option), @ptrCast(index));
     }
 
     /// Inherited from QStyledItemDelegate
@@ -1582,6 +1630,10 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_SetEditorData(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperSetEditorData` instead
+    ///
+    pub const QBaseSetEditorData = SuperSetEditorData;
+
     /// Inherited from QStyledItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleditemdelegate.html#setEditorData)
@@ -1596,8 +1648,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseSetEditorData(self: ?*anyopaque, editor: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.KExtendableItemDelegate_QBaseSetEditorData(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
+    pub fn SuperSetEditorData(self: ?*anyopaque, editor: ?*anyopaque, index: ?*anyopaque) void {
+        qtc.KExtendableItemDelegate_SuperSetEditorData(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
     }
 
     /// Inherited from QStyledItemDelegate
@@ -1636,6 +1688,10 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_SetModelData(@ptrCast(self), @ptrCast(editor), @ptrCast(model), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperSetModelData` instead
+    ///
+    pub const QBaseSetModelData = SuperSetModelData;
+
     /// Inherited from QStyledItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleditemdelegate.html#setModelData)
@@ -1652,8 +1708,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseSetModelData(self: ?*anyopaque, editor: ?*anyopaque, model: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.KExtendableItemDelegate_QBaseSetModelData(@ptrCast(self), @ptrCast(editor), @ptrCast(model), @ptrCast(index));
+    pub fn SuperSetModelData(self: ?*anyopaque, editor: ?*anyopaque, model: ?*anyopaque, index: ?*anyopaque) void {
+        qtc.KExtendableItemDelegate_SuperSetModelData(@ptrCast(self), @ptrCast(editor), @ptrCast(model), @ptrCast(index));
     }
 
     /// Inherited from QStyledItemDelegate
@@ -1692,6 +1748,10 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_UpdateEditorGeometry(@ptrCast(self), @ptrCast(editor), @ptrCast(option), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateEditorGeometry` instead
+    ///
+    pub const QBaseUpdateEditorGeometry = SuperUpdateEditorGeometry;
+
     /// Inherited from QStyledItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleditemdelegate.html#updateEditorGeometry)
@@ -1708,8 +1768,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseUpdateEditorGeometry(self: ?*anyopaque, editor: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.KExtendableItemDelegate_QBaseUpdateEditorGeometry(@ptrCast(self), @ptrCast(editor), @ptrCast(option), @ptrCast(index));
+    pub fn SuperUpdateEditorGeometry(self: ?*anyopaque, editor: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
+        qtc.KExtendableItemDelegate_SuperUpdateEditorGeometry(@ptrCast(self), @ptrCast(editor), @ptrCast(option), @ptrCast(index));
     }
 
     /// Inherited from QStyledItemDelegate
@@ -1752,6 +1812,10 @@ pub const kextendableitemdelegate = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperDisplayText` instead
+    ///
+    pub const QBaseDisplayText = SuperDisplayText;
+
     /// Inherited from QStyledItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleditemdelegate.html#displayText)
@@ -1768,8 +1832,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseDisplayText(self: ?*anyopaque, value: ?*anyopaque, locale: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KExtendableItemDelegate_QBaseDisplayText(@ptrCast(self), @ptrCast(value), @ptrCast(locale));
+    pub fn SuperDisplayText(self: ?*anyopaque, value: ?*anyopaque, locale: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KExtendableItemDelegate_SuperDisplayText(@ptrCast(self), @ptrCast(value), @ptrCast(locale));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kextendableitemdelegate.DisplayText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1812,6 +1876,10 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_InitStyleOption(@ptrCast(self), @ptrCast(option), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    ///
+    pub const QBaseInitStyleOption = SuperInitStyleOption;
+
     /// Inherited from QStyledItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleditemdelegate.html#initStyleOption)
@@ -1826,8 +1894,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseInitStyleOption(self: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.KExtendableItemDelegate_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option), @ptrCast(index));
+    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
+        qtc.KExtendableItemDelegate_SuperInitStyleOption(@ptrCast(self), @ptrCast(option), @ptrCast(index));
     }
 
     /// Inherited from QStyledItemDelegate
@@ -1864,6 +1932,10 @@ pub const kextendableitemdelegate = struct {
         return qtc.KExtendableItemDelegate_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QStyledItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleditemdelegate.html#eventFilter)
@@ -1878,8 +1950,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KExtendableItemDelegate_QBaseEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KExtendableItemDelegate_SuperEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
     /// Inherited from QStyledItemDelegate
@@ -1920,6 +1992,10 @@ pub const kextendableitemdelegate = struct {
         return qtc.KExtendableItemDelegate_EditorEvent(@ptrCast(self), @ptrCast(event), @ptrCast(model), @ptrCast(option), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperEditorEvent` instead
+    ///
+    pub const QBaseEditorEvent = SuperEditorEvent;
+
     /// Inherited from QStyledItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleditemdelegate.html#editorEvent)
@@ -1938,8 +2014,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseEditorEvent(self: ?*anyopaque, event: ?*anyopaque, model: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.KExtendableItemDelegate_QBaseEditorEvent(@ptrCast(self), @ptrCast(event), @ptrCast(model), @ptrCast(option), @ptrCast(index));
+    pub fn SuperEditorEvent(self: ?*anyopaque, event: ?*anyopaque, model: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) bool {
+        return qtc.KExtendableItemDelegate_SuperEditorEvent(@ptrCast(self), @ptrCast(event), @ptrCast(model), @ptrCast(option), @ptrCast(index));
     }
 
     /// Inherited from QStyledItemDelegate
@@ -1976,6 +2052,10 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_DestroyEditor(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperDestroyEditor` instead
+    ///
+    pub const QBaseDestroyEditor = SuperDestroyEditor;
+
     /// Inherited from QAbstractItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#destroyEditor)
@@ -1990,8 +2070,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseDestroyEditor(self: ?*anyopaque, editor: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.KExtendableItemDelegate_QBaseDestroyEditor(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
+    pub fn SuperDestroyEditor(self: ?*anyopaque, editor: ?*anyopaque, index: ?*anyopaque) void {
+        qtc.KExtendableItemDelegate_SuperDestroyEditor(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -2032,6 +2112,10 @@ pub const kextendableitemdelegate = struct {
         return qtc.KExtendableItemDelegate_HelpEvent(@ptrCast(self), @ptrCast(event), @ptrCast(view), @ptrCast(option), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperHelpEvent` instead
+    ///
+    pub const QBaseHelpEvent = SuperHelpEvent;
+
     /// Inherited from QAbstractItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#helpEvent)
@@ -2050,8 +2134,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseHelpEvent(self: ?*anyopaque, event: ?*anyopaque, view: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.KExtendableItemDelegate_QBaseHelpEvent(@ptrCast(self), @ptrCast(event), @ptrCast(view), @ptrCast(option), @ptrCast(index));
+    pub fn SuperHelpEvent(self: ?*anyopaque, event: ?*anyopaque, view: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) bool {
+        return qtc.KExtendableItemDelegate_SuperHelpEvent(@ptrCast(self), @ptrCast(event), @ptrCast(view), @ptrCast(option), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -2091,6 +2175,10 @@ pub const kextendableitemdelegate = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperPaintingRoles` instead
+    ///
+    pub const QBasePaintingRoles = SuperPaintingRoles;
+
     /// Inherited from QAbstractItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paintingRoles)
@@ -2103,8 +2191,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBasePaintingRoles(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.libqt_list = qtc.KExtendableItemDelegate_QBasePaintingRoles(@ptrCast(self));
+    pub fn SuperPaintingRoles(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
+        const _arr: qtc.libqt_list = qtc.KExtendableItemDelegate_SuperPaintingRoles(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("kextendableitemdelegate.PaintingRoles: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -2150,6 +2238,10 @@ pub const kextendableitemdelegate = struct {
         return qtc.KExtendableItemDelegate_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -2162,8 +2254,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KExtendableItemDelegate_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KExtendableItemDelegate_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2198,6 +2290,10 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -2210,8 +2306,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KExtendableItemDelegate_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KExtendableItemDelegate_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2246,6 +2342,10 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -2258,8 +2358,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KExtendableItemDelegate_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KExtendableItemDelegate_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2294,6 +2394,10 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -2306,8 +2410,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KExtendableItemDelegate_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KExtendableItemDelegate_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2342,6 +2446,10 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2354,8 +2462,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KExtendableItemDelegate_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KExtendableItemDelegate_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2390,6 +2498,10 @@ pub const kextendableitemdelegate = struct {
         qtc.KExtendableItemDelegate_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -2402,8 +2514,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KExtendableItemDelegate_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KExtendableItemDelegate_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2436,6 +2548,10 @@ pub const kextendableitemdelegate = struct {
         return qtc.KExtendableItemDelegate_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2446,8 +2562,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` self: QtC.KExtendableItemDelegate `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KExtendableItemDelegate_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KExtendableItemDelegate_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2480,6 +2596,10 @@ pub const kextendableitemdelegate = struct {
         return qtc.KExtendableItemDelegate_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2490,8 +2610,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` self: QtC.KExtendableItemDelegate `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KExtendableItemDelegate_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KExtendableItemDelegate_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2527,6 +2647,10 @@ pub const kextendableitemdelegate = struct {
         return qtc.KExtendableItemDelegate_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2539,9 +2663,9 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KExtendableItemDelegate_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KExtendableItemDelegate_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2576,6 +2700,10 @@ pub const kextendableitemdelegate = struct {
         return qtc.KExtendableItemDelegate_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2588,8 +2716,8 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KExtendableItemDelegate_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KExtendableItemDelegate_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2623,6 +2751,9 @@ pub const kextendableitemdelegate = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#dtor.KExtendableItemDelegate)
     ///
@@ -2632,7 +2763,7 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` self: QtC.KExtendableItemDelegate `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KExtendableItemDelegate_Delete(@ptrCast(self));
     }
 };

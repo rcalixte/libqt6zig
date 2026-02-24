@@ -46,6 +46,10 @@ pub const quiloader = struct {
         qtc.QUiLoader_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -54,8 +58,8 @@ pub const quiloader = struct {
     ///
     /// ` self: QtC.QUiLoader `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QUiLoader_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QUiLoader_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -81,6 +85,10 @@ pub const quiloader = struct {
         qtc.QUiLoader_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -89,9 +97,9 @@ pub const quiloader = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QUiLoader_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QUiLoader_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -120,6 +128,10 @@ pub const quiloader = struct {
         qtc.QUiLoader_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -132,8 +144,8 @@ pub const quiloader = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QUiLoader_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QUiLoader_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -310,6 +322,10 @@ pub const quiloader = struct {
         qtc.QUiLoader_OnCreateWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateWidget` instead
+    ///
+    pub const QBaseCreateWidget = SuperCreateWidget;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quiloader.html#createWidget)
     ///
     /// Base class method implementation
@@ -324,7 +340,7 @@ pub const quiloader = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn QBaseCreateWidget(self: ?*anyopaque, className: []const u8, parent: ?*anyopaque, name: []const u8) QtC.QWidget {
+    pub fn SuperCreateWidget(self: ?*anyopaque, className: []const u8, parent: ?*anyopaque, name: []const u8) QtC.QWidget {
         const className_str = qtc.libqt_string{
             .len = className.len,
             .data = className.ptr,
@@ -333,7 +349,7 @@ pub const quiloader = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QUiLoader_QBaseCreateWidget(@ptrCast(self), className_str, @ptrCast(parent), name_str);
+        return qtc.QUiLoader_SuperCreateWidget(@ptrCast(self), className_str, @ptrCast(parent), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quiloader.html#createLayout)
@@ -374,6 +390,10 @@ pub const quiloader = struct {
         qtc.QUiLoader_OnCreateLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateLayout` instead
+    ///
+    pub const QBaseCreateLayout = SuperCreateLayout;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quiloader.html#createLayout)
     ///
     /// Base class method implementation
@@ -388,7 +408,7 @@ pub const quiloader = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn QBaseCreateLayout(self: ?*anyopaque, className: []const u8, parent: ?*anyopaque, name: []const u8) QtC.QLayout {
+    pub fn SuperCreateLayout(self: ?*anyopaque, className: []const u8, parent: ?*anyopaque, name: []const u8) QtC.QLayout {
         const className_str = qtc.libqt_string{
             .len = className.len,
             .data = className.ptr,
@@ -397,7 +417,7 @@ pub const quiloader = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QUiLoader_QBaseCreateLayout(@ptrCast(self), className_str, @ptrCast(parent), name_str);
+        return qtc.QUiLoader_SuperCreateLayout(@ptrCast(self), className_str, @ptrCast(parent), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quiloader.html#createActionGroup)
@@ -432,6 +452,10 @@ pub const quiloader = struct {
         qtc.QUiLoader_OnCreateActionGroup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateActionGroup` instead
+    ///
+    pub const QBaseCreateActionGroup = SuperCreateActionGroup;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quiloader.html#createActionGroup)
     ///
     /// Base class method implementation
@@ -444,12 +468,12 @@ pub const quiloader = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn QBaseCreateActionGroup(self: ?*anyopaque, parent: ?*anyopaque, name: []const u8) QtC.QActionGroup {
+    pub fn SuperCreateActionGroup(self: ?*anyopaque, parent: ?*anyopaque, name: []const u8) QtC.QActionGroup {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QUiLoader_QBaseCreateActionGroup(@ptrCast(self), @ptrCast(parent), name_str);
+        return qtc.QUiLoader_SuperCreateActionGroup(@ptrCast(self), @ptrCast(parent), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quiloader.html#createAction)
@@ -484,6 +508,10 @@ pub const quiloader = struct {
         qtc.QUiLoader_OnCreateAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateAction` instead
+    ///
+    pub const QBaseCreateAction = SuperCreateAction;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quiloader.html#createAction)
     ///
     /// Base class method implementation
@@ -496,12 +524,12 @@ pub const quiloader = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn QBaseCreateAction(self: ?*anyopaque, parent: ?*anyopaque, name: []const u8) QtC.QAction {
+    pub fn SuperCreateAction(self: ?*anyopaque, parent: ?*anyopaque, name: []const u8) QtC.QAction {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QUiLoader_QBaseCreateAction(@ptrCast(self), @ptrCast(parent), name_str);
+        return qtc.QUiLoader_SuperCreateAction(@ptrCast(self), @ptrCast(parent), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quiloader.html#setWorkingDirectory)
@@ -1396,6 +1424,10 @@ pub const quiloader = struct {
         return qtc.QUiLoader_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1408,8 +1440,8 @@ pub const quiloader = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QUiLoader_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QUiLoader_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1446,6 +1478,10 @@ pub const quiloader = struct {
         return qtc.QUiLoader_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1460,8 +1496,8 @@ pub const quiloader = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QUiLoader_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QUiLoader_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1496,6 +1532,10 @@ pub const quiloader = struct {
         qtc.QUiLoader_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1508,8 +1548,8 @@ pub const quiloader = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QUiLoader_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QUiLoader_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1544,6 +1584,10 @@ pub const quiloader = struct {
         qtc.QUiLoader_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1556,8 +1600,8 @@ pub const quiloader = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QUiLoader_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QUiLoader_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1592,6 +1636,10 @@ pub const quiloader = struct {
         qtc.QUiLoader_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1604,8 +1652,8 @@ pub const quiloader = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QUiLoader_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QUiLoader_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1640,6 +1688,10 @@ pub const quiloader = struct {
         qtc.QUiLoader_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1652,8 +1704,8 @@ pub const quiloader = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QUiLoader_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QUiLoader_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1688,6 +1740,10 @@ pub const quiloader = struct {
         qtc.QUiLoader_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1700,8 +1756,8 @@ pub const quiloader = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QUiLoader_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QUiLoader_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1734,6 +1790,10 @@ pub const quiloader = struct {
         return qtc.QUiLoader_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1744,8 +1804,8 @@ pub const quiloader = struct {
     ///
     /// ` self: QtC.QUiLoader `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QUiLoader_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QUiLoader_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1778,6 +1838,10 @@ pub const quiloader = struct {
         return qtc.QUiLoader_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1788,8 +1852,8 @@ pub const quiloader = struct {
     ///
     /// ` self: QtC.QUiLoader `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QUiLoader_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QUiLoader_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1825,6 +1889,10 @@ pub const quiloader = struct {
         return qtc.QUiLoader_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1837,9 +1905,9 @@ pub const quiloader = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QUiLoader_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QUiLoader_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1874,6 +1942,10 @@ pub const quiloader = struct {
         return qtc.QUiLoader_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -1886,8 +1958,8 @@ pub const quiloader = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QUiLoader_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QUiLoader_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1921,6 +1993,9 @@ pub const quiloader = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quiloader.html#dtor.QUiLoader)
     ///
@@ -1930,7 +2005,7 @@ pub const quiloader = struct {
     ///
     /// ` self: QtC.QUiLoader `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QUiLoader_Delete(@ptrCast(self));
     }
 };

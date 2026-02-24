@@ -406,7 +406,7 @@ void KDirModel_OpenUrl2(KDirModel* self, const QUrl* url, int flags) {
 }
 
 // Base class handler implementation
-QMetaObject* KDirModel_QBaseMetaObject(const KDirModel* self) {
+QMetaObject* KDirModel_SuperMetaObject(const KDirModel* self) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_MetaObject_IsBase(true);
@@ -425,7 +425,7 @@ void KDirModel_OnMetaObject(const KDirModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KDirModel_QBaseMetacast(KDirModel* self, const char* param1) {
+void* KDirModel_SuperMetacast(KDirModel* self, const char* param1) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_Metacast_IsBase(true);
@@ -444,7 +444,7 @@ void KDirModel_OnMetacast(KDirModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KDirModel_QBaseMetacall(KDirModel* self, int param1, int param2, void** param3) {
+int KDirModel_SuperMetacall(KDirModel* self, int param1, int param2, void** param3) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_Metacall_IsBase(true);
@@ -463,7 +463,7 @@ void KDirModel_OnMetacall(KDirModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KDirModel_QBaseCanFetchMore(const KDirModel* self, const QModelIndex* parent) {
+bool KDirModel_SuperCanFetchMore(const KDirModel* self, const QModelIndex* parent) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_CanFetchMore_IsBase(true);
@@ -482,7 +482,7 @@ void KDirModel_OnCanFetchMore(const KDirModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KDirModel_QBaseColumnCount(const KDirModel* self, const QModelIndex* parent) {
+int KDirModel_SuperColumnCount(const KDirModel* self, const QModelIndex* parent) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_ColumnCount_IsBase(true);
@@ -501,7 +501,7 @@ void KDirModel_OnColumnCount(const KDirModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* KDirModel_QBaseData(const KDirModel* self, const QModelIndex* index, int role) {
+QVariant* KDirModel_SuperData(const KDirModel* self, const QModelIndex* index, int role) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_Data_IsBase(true);
@@ -520,7 +520,7 @@ void KDirModel_OnData(const KDirModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KDirModel_QBaseDropMimeData(KDirModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KDirModel_SuperDropMimeData(KDirModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_DropMimeData_IsBase(true);
@@ -539,7 +539,7 @@ void KDirModel_OnDropMimeData(KDirModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirModel_QBaseFetchMore(KDirModel* self, const QModelIndex* parent) {
+void KDirModel_SuperFetchMore(KDirModel* self, const QModelIndex* parent) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_FetchMore_IsBase(true);
@@ -558,7 +558,7 @@ void KDirModel_OnFetchMore(KDirModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KDirModel_QBaseFlags(const KDirModel* self, const QModelIndex* index) {
+int KDirModel_SuperFlags(const KDirModel* self, const QModelIndex* index) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_Flags_IsBase(true);
@@ -577,7 +577,7 @@ void KDirModel_OnFlags(const KDirModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KDirModel_QBaseHasChildren(const KDirModel* self, const QModelIndex* parent) {
+bool KDirModel_SuperHasChildren(const KDirModel* self, const QModelIndex* parent) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_HasChildren_IsBase(true);
@@ -596,7 +596,7 @@ void KDirModel_OnHasChildren(const KDirModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* KDirModel_QBaseHeaderData(const KDirModel* self, int section, int orientation, int role) {
+QVariant* KDirModel_SuperHeaderData(const KDirModel* self, int section, int orientation, int role) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_HeaderData_IsBase(true);
@@ -615,7 +615,7 @@ void KDirModel_OnHeaderData(const KDirModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QModelIndex* KDirModel_QBaseIndex(const KDirModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* KDirModel_SuperIndex(const KDirModel* self, int row, int column, const QModelIndex* parent) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_Index_IsBase(true);
@@ -634,7 +634,7 @@ void KDirModel_OnIndex(const KDirModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMimeData* KDirModel_QBaseMimeData(const KDirModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* KDirModel_SuperMimeData(const KDirModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -659,7 +659,7 @@ void KDirModel_OnMimeData(const KDirModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KDirModel_QBaseMimeTypes(const KDirModel* self) {
+libqt_list /* of libqt_string */ KDirModel_SuperMimeTypes(const KDirModel* self) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_MimeTypes_IsBase(true);
@@ -712,7 +712,7 @@ void KDirModel_OnMimeTypes(const KDirModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QModelIndex* KDirModel_QBaseParent(const KDirModel* self, const QModelIndex* index) {
+QModelIndex* KDirModel_SuperParent(const KDirModel* self, const QModelIndex* index) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_Parent_IsBase(true);
@@ -731,7 +731,7 @@ void KDirModel_OnParent(const KDirModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QModelIndex* KDirModel_QBaseSibling(const KDirModel* self, int row, int column, const QModelIndex* index) {
+QModelIndex* KDirModel_SuperSibling(const KDirModel* self, int row, int column, const QModelIndex* index) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_Sibling_IsBase(true);
@@ -750,7 +750,7 @@ void KDirModel_OnSibling(const KDirModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KDirModel_QBaseRowCount(const KDirModel* self, const QModelIndex* parent) {
+int KDirModel_SuperRowCount(const KDirModel* self, const QModelIndex* parent) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_RowCount_IsBase(true);
@@ -769,7 +769,7 @@ void KDirModel_OnRowCount(const KDirModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KDirModel_QBaseSetData(KDirModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool KDirModel_SuperSetData(KDirModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_SetData_IsBase(true);
@@ -788,7 +788,7 @@ void KDirModel_OnSetData(KDirModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirModel_QBaseSort(KDirModel* self, int column, int order) {
+void KDirModel_SuperSort(KDirModel* self, int column, int order) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_Sort_IsBase(true);
@@ -807,7 +807,7 @@ void KDirModel_OnSort(KDirModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ KDirModel_QBaseRoleNames(const KDirModel* self) {
+libqt_map /* of int to libqt_string */ KDirModel_SuperRoleNames(const KDirModel* self) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_RoleNames_IsBase(true);
@@ -864,7 +864,7 @@ void KDirModel_OnRoleNames(const KDirModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KDirModel_QBaseSupportedDropActions(const KDirModel* self) {
+int KDirModel_SuperSupportedDropActions(const KDirModel* self) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_SupportedDropActions_IsBase(true);
@@ -893,7 +893,7 @@ bool KDirModel_SetHeaderData(KDirModel* self, int section, int orientation, cons
 }
 
 // Base class handler implementation
-bool KDirModel_QBaseSetHeaderData(KDirModel* self, int section, int orientation, const QVariant* value, int role) {
+bool KDirModel_SuperSetHeaderData(KDirModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_SetHeaderData_IsBase(true);
@@ -950,7 +950,7 @@ libqt_map /* of int to QVariant* */ KDirModel_ItemData(const KDirModel* self, co
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ KDirModel_QBaseItemData(const KDirModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ KDirModel_SuperItemData(const KDirModel* self, const QModelIndex* index) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_ItemData_IsBase(true);
@@ -1013,7 +1013,7 @@ bool KDirModel_SetItemData(KDirModel* self, const QModelIndex* index, const libq
 }
 
 // Base class handler implementation
-bool KDirModel_QBaseSetItemData(KDirModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool KDirModel_SuperSetItemData(KDirModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -1048,7 +1048,7 @@ bool KDirModel_ClearItemData(KDirModel* self, const QModelIndex* index) {
 }
 
 // Base class handler implementation
-bool KDirModel_QBaseClearItemData(KDirModel* self, const QModelIndex* index) {
+bool KDirModel_SuperClearItemData(KDirModel* self, const QModelIndex* index) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_ClearItemData_IsBase(true);
@@ -1077,7 +1077,7 @@ bool KDirModel_CanDropMimeData(const KDirModel* self, const QMimeData* data, int
 }
 
 // Base class handler implementation
-bool KDirModel_QBaseCanDropMimeData(const KDirModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KDirModel_SuperCanDropMimeData(const KDirModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_CanDropMimeData_IsBase(true);
@@ -1106,7 +1106,7 @@ int KDirModel_SupportedDragActions(const KDirModel* self) {
 }
 
 // Base class handler implementation
-int KDirModel_QBaseSupportedDragActions(const KDirModel* self) {
+int KDirModel_SuperSupportedDragActions(const KDirModel* self) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_SupportedDragActions_IsBase(true);
@@ -1135,7 +1135,7 @@ bool KDirModel_MoveRows(KDirModel* self, const QModelIndex* sourceParent, int so
 }
 
 // Base class handler implementation
-bool KDirModel_QBaseMoveRows(KDirModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KDirModel_SuperMoveRows(KDirModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_MoveRows_IsBase(true);
@@ -1164,7 +1164,7 @@ bool KDirModel_MoveColumns(KDirModel* self, const QModelIndex* sourceParent, int
 }
 
 // Base class handler implementation
-bool KDirModel_QBaseMoveColumns(KDirModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KDirModel_SuperMoveColumns(KDirModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_MoveColumns_IsBase(true);
@@ -1193,7 +1193,7 @@ QModelIndex* KDirModel_Buddy(const KDirModel* self, const QModelIndex* index) {
 }
 
 // Base class handler implementation
-QModelIndex* KDirModel_QBaseBuddy(const KDirModel* self, const QModelIndex* index) {
+QModelIndex* KDirModel_SuperBuddy(const KDirModel* self, const QModelIndex* index) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_Buddy_IsBase(true);
@@ -1240,7 +1240,7 @@ libqt_list /* of QModelIndex* */ KDirModel_Match(const KDirModel* self, const QM
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KDirModel_QBaseMatch(const KDirModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ KDirModel_SuperMatch(const KDirModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_Match_IsBase(true);
@@ -1287,7 +1287,7 @@ QSize* KDirModel_Span(const KDirModel* self, const QModelIndex* index) {
 }
 
 // Base class handler implementation
-QSize* KDirModel_QBaseSpan(const KDirModel* self, const QModelIndex* index) {
+QSize* KDirModel_SuperSpan(const KDirModel* self, const QModelIndex* index) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_Span_IsBase(true);
@@ -1316,7 +1316,7 @@ void KDirModel_MultiData(const KDirModel* self, const QModelIndex* index, QModel
 }
 
 // Base class handler implementation
-void KDirModel_QBaseMultiData(const KDirModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void KDirModel_SuperMultiData(const KDirModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_MultiData_IsBase(true);
@@ -1345,7 +1345,7 @@ bool KDirModel_Submit(KDirModel* self) {
 }
 
 // Base class handler implementation
-bool KDirModel_QBaseSubmit(KDirModel* self) {
+bool KDirModel_SuperSubmit(KDirModel* self) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_Submit_IsBase(true);
@@ -1374,7 +1374,7 @@ void KDirModel_Revert(KDirModel* self) {
 }
 
 // Base class handler implementation
-void KDirModel_QBaseRevert(KDirModel* self) {
+void KDirModel_SuperRevert(KDirModel* self) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_Revert_IsBase(true);
@@ -1403,7 +1403,7 @@ void KDirModel_ResetInternalData(KDirModel* self) {
 }
 
 // Base class handler implementation
-void KDirModel_QBaseResetInternalData(KDirModel* self) {
+void KDirModel_SuperResetInternalData(KDirModel* self) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_ResetInternalData_IsBase(true);
@@ -1432,7 +1432,7 @@ bool KDirModel_Event(KDirModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KDirModel_QBaseEvent(KDirModel* self, QEvent* event) {
+bool KDirModel_SuperEvent(KDirModel* self, QEvent* event) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_Event_IsBase(true);
@@ -1461,7 +1461,7 @@ bool KDirModel_EventFilter(KDirModel* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KDirModel_QBaseEventFilter(KDirModel* self, QObject* watched, QEvent* event) {
+bool KDirModel_SuperEventFilter(KDirModel* self, QObject* watched, QEvent* event) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_EventFilter_IsBase(true);
@@ -1490,7 +1490,7 @@ void KDirModel_TimerEvent(KDirModel* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KDirModel_QBaseTimerEvent(KDirModel* self, QTimerEvent* event) {
+void KDirModel_SuperTimerEvent(KDirModel* self, QTimerEvent* event) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_TimerEvent_IsBase(true);
@@ -1519,7 +1519,7 @@ void KDirModel_ChildEvent(KDirModel* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KDirModel_QBaseChildEvent(KDirModel* self, QChildEvent* event) {
+void KDirModel_SuperChildEvent(KDirModel* self, QChildEvent* event) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_ChildEvent_IsBase(true);
@@ -1548,7 +1548,7 @@ void KDirModel_CustomEvent(KDirModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KDirModel_QBaseCustomEvent(KDirModel* self, QEvent* event) {
+void KDirModel_SuperCustomEvent(KDirModel* self, QEvent* event) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_CustomEvent_IsBase(true);
@@ -1577,7 +1577,7 @@ void KDirModel_ConnectNotify(KDirModel* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KDirModel_QBaseConnectNotify(KDirModel* self, const QMetaMethod* signal) {
+void KDirModel_SuperConnectNotify(KDirModel* self, const QMetaMethod* signal) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_ConnectNotify_IsBase(true);
@@ -1606,7 +1606,7 @@ void KDirModel_DisconnectNotify(KDirModel* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KDirModel_QBaseDisconnectNotify(KDirModel* self, const QMetaMethod* signal) {
+void KDirModel_SuperDisconnectNotify(KDirModel* self, const QMetaMethod* signal) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_DisconnectNotify_IsBase(true);
@@ -1634,7 +1634,7 @@ QModelIndex* KDirModel_CreateIndex(const KDirModel* self, int row, int column) {
 }
 
 // Base class handler implementation
-QModelIndex* KDirModel_QBaseCreateIndex(const KDirModel* self, int row, int column) {
+QModelIndex* KDirModel_SuperCreateIndex(const KDirModel* self, int row, int column) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_CreateIndex_IsBase(true);
@@ -1668,7 +1668,7 @@ void KDirModel_EncodeData(const KDirModel* self, const libqt_list /* of QModelIn
 }
 
 // Base class handler implementation
-void KDirModel_QBaseEncodeData(const KDirModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void KDirModel_SuperEncodeData(const KDirModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -1703,7 +1703,7 @@ bool KDirModel_DecodeData(KDirModel* self, int row, int column, const QModelInde
 }
 
 // Base class handler implementation
-bool KDirModel_QBaseDecodeData(KDirModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool KDirModel_SuperDecodeData(KDirModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_DecodeData_IsBase(true);
@@ -1732,7 +1732,7 @@ void KDirModel_BeginInsertRows(KDirModel* self, const QModelIndex* parent, int f
 }
 
 // Base class handler implementation
-void KDirModel_QBaseBeginInsertRows(KDirModel* self, const QModelIndex* parent, int first, int last) {
+void KDirModel_SuperBeginInsertRows(KDirModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_BeginInsertRows_IsBase(true);
@@ -1761,7 +1761,7 @@ void KDirModel_EndInsertRows(KDirModel* self) {
 }
 
 // Base class handler implementation
-void KDirModel_QBaseEndInsertRows(KDirModel* self) {
+void KDirModel_SuperEndInsertRows(KDirModel* self) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_EndInsertRows_IsBase(true);
@@ -1790,7 +1790,7 @@ void KDirModel_BeginRemoveRows(KDirModel* self, const QModelIndex* parent, int f
 }
 
 // Base class handler implementation
-void KDirModel_QBaseBeginRemoveRows(KDirModel* self, const QModelIndex* parent, int first, int last) {
+void KDirModel_SuperBeginRemoveRows(KDirModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_BeginRemoveRows_IsBase(true);
@@ -1819,7 +1819,7 @@ void KDirModel_EndRemoveRows(KDirModel* self) {
 }
 
 // Base class handler implementation
-void KDirModel_QBaseEndRemoveRows(KDirModel* self) {
+void KDirModel_SuperEndRemoveRows(KDirModel* self) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_EndRemoveRows_IsBase(true);
@@ -1848,7 +1848,7 @@ bool KDirModel_BeginMoveRows(KDirModel* self, const QModelIndex* sourceParent, i
 }
 
 // Base class handler implementation
-bool KDirModel_QBaseBeginMoveRows(KDirModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool KDirModel_SuperBeginMoveRows(KDirModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_BeginMoveRows_IsBase(true);
@@ -1877,7 +1877,7 @@ void KDirModel_EndMoveRows(KDirModel* self) {
 }
 
 // Base class handler implementation
-void KDirModel_QBaseEndMoveRows(KDirModel* self) {
+void KDirModel_SuperEndMoveRows(KDirModel* self) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_EndMoveRows_IsBase(true);
@@ -1906,7 +1906,7 @@ void KDirModel_BeginInsertColumns(KDirModel* self, const QModelIndex* parent, in
 }
 
 // Base class handler implementation
-void KDirModel_QBaseBeginInsertColumns(KDirModel* self, const QModelIndex* parent, int first, int last) {
+void KDirModel_SuperBeginInsertColumns(KDirModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_BeginInsertColumns_IsBase(true);
@@ -1935,7 +1935,7 @@ void KDirModel_EndInsertColumns(KDirModel* self) {
 }
 
 // Base class handler implementation
-void KDirModel_QBaseEndInsertColumns(KDirModel* self) {
+void KDirModel_SuperEndInsertColumns(KDirModel* self) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_EndInsertColumns_IsBase(true);
@@ -1964,7 +1964,7 @@ void KDirModel_BeginRemoveColumns(KDirModel* self, const QModelIndex* parent, in
 }
 
 // Base class handler implementation
-void KDirModel_QBaseBeginRemoveColumns(KDirModel* self, const QModelIndex* parent, int first, int last) {
+void KDirModel_SuperBeginRemoveColumns(KDirModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_BeginRemoveColumns_IsBase(true);
@@ -1993,7 +1993,7 @@ void KDirModel_EndRemoveColumns(KDirModel* self) {
 }
 
 // Base class handler implementation
-void KDirModel_QBaseEndRemoveColumns(KDirModel* self) {
+void KDirModel_SuperEndRemoveColumns(KDirModel* self) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_EndRemoveColumns_IsBase(true);
@@ -2022,7 +2022,7 @@ bool KDirModel_BeginMoveColumns(KDirModel* self, const QModelIndex* sourceParent
 }
 
 // Base class handler implementation
-bool KDirModel_QBaseBeginMoveColumns(KDirModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool KDirModel_SuperBeginMoveColumns(KDirModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_BeginMoveColumns_IsBase(true);
@@ -2051,7 +2051,7 @@ void KDirModel_EndMoveColumns(KDirModel* self) {
 }
 
 // Base class handler implementation
-void KDirModel_QBaseEndMoveColumns(KDirModel* self) {
+void KDirModel_SuperEndMoveColumns(KDirModel* self) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_EndMoveColumns_IsBase(true);
@@ -2080,7 +2080,7 @@ void KDirModel_BeginResetModel(KDirModel* self) {
 }
 
 // Base class handler implementation
-void KDirModel_QBaseBeginResetModel(KDirModel* self) {
+void KDirModel_SuperBeginResetModel(KDirModel* self) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_BeginResetModel_IsBase(true);
@@ -2109,7 +2109,7 @@ void KDirModel_EndResetModel(KDirModel* self) {
 }
 
 // Base class handler implementation
-void KDirModel_QBaseEndResetModel(KDirModel* self) {
+void KDirModel_SuperEndResetModel(KDirModel* self) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_EndResetModel_IsBase(true);
@@ -2138,7 +2138,7 @@ void KDirModel_ChangePersistentIndex(KDirModel* self, const QModelIndex* from, c
 }
 
 // Base class handler implementation
-void KDirModel_QBaseChangePersistentIndex(KDirModel* self, const QModelIndex* from, const QModelIndex* to) {
+void KDirModel_SuperChangePersistentIndex(KDirModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_ChangePersistentIndex_IsBase(true);
@@ -2179,7 +2179,7 @@ void KDirModel_ChangePersistentIndexList(KDirModel* self, const libqt_list /* of
 }
 
 // Base class handler implementation
-void KDirModel_QBaseChangePersistentIndexList(KDirModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void KDirModel_SuperChangePersistentIndexList(KDirModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -2238,7 +2238,7 @@ libqt_list /* of QModelIndex* */ KDirModel_PersistentIndexList(const KDirModel* 
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KDirModel_QBasePersistentIndexList(const KDirModel* self) {
+libqt_list /* of QModelIndex* */ KDirModel_SuperPersistentIndexList(const KDirModel* self) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_PersistentIndexList_IsBase(true);
@@ -2285,7 +2285,7 @@ QObject* KDirModel_Sender(const KDirModel* self) {
 }
 
 // Base class handler implementation
-QObject* KDirModel_QBaseSender(const KDirModel* self) {
+QObject* KDirModel_SuperSender(const KDirModel* self) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_Sender_IsBase(true);
@@ -2314,7 +2314,7 @@ int KDirModel_SenderSignalIndex(const KDirModel* self) {
 }
 
 // Base class handler implementation
-int KDirModel_QBaseSenderSignalIndex(const KDirModel* self) {
+int KDirModel_SuperSenderSignalIndex(const KDirModel* self) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_SenderSignalIndex_IsBase(true);
@@ -2343,7 +2343,7 @@ int KDirModel_Receivers(const KDirModel* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KDirModel_QBaseReceivers(const KDirModel* self, const char* signal) {
+int KDirModel_SuperReceivers(const KDirModel* self, const char* signal) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_Receivers_IsBase(true);
@@ -2372,7 +2372,7 @@ bool KDirModel_IsSignalConnected(const KDirModel* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool KDirModel_QBaseIsSignalConnected(const KDirModel* self, const QMetaMethod* signal) {
+bool KDirModel_SuperIsSignalConnected(const KDirModel* self, const QMetaMethod* signal) {
     auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
     if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
         vkdirmodel->setKDirModel_IsSignalConnected_IsBase(true);

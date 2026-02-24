@@ -1098,31 +1098,31 @@ class VirtualQsciLexerMakefile final : public QsciLexerMakefile {
 
     // Friend functions
     friend bool QsciLexerMakefile_ReadProperties(QsciLexerMakefile* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerMakefile_QBaseReadProperties(QsciLexerMakefile* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerMakefile_SuperReadProperties(QsciLexerMakefile* self, QSettings* qs, const libqt_string prefix);
     friend bool QsciLexerMakefile_WriteProperties(const QsciLexerMakefile* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerMakefile_QBaseWriteProperties(const QsciLexerMakefile* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerMakefile_SuperWriteProperties(const QsciLexerMakefile* self, QSettings* qs, const libqt_string prefix);
     friend void QsciLexerMakefile_TimerEvent(QsciLexerMakefile* self, QTimerEvent* event);
-    friend void QsciLexerMakefile_QBaseTimerEvent(QsciLexerMakefile* self, QTimerEvent* event);
+    friend void QsciLexerMakefile_SuperTimerEvent(QsciLexerMakefile* self, QTimerEvent* event);
     friend void QsciLexerMakefile_ChildEvent(QsciLexerMakefile* self, QChildEvent* event);
-    friend void QsciLexerMakefile_QBaseChildEvent(QsciLexerMakefile* self, QChildEvent* event);
+    friend void QsciLexerMakefile_SuperChildEvent(QsciLexerMakefile* self, QChildEvent* event);
     friend void QsciLexerMakefile_CustomEvent(QsciLexerMakefile* self, QEvent* event);
-    friend void QsciLexerMakefile_QBaseCustomEvent(QsciLexerMakefile* self, QEvent* event);
+    friend void QsciLexerMakefile_SuperCustomEvent(QsciLexerMakefile* self, QEvent* event);
     friend void QsciLexerMakefile_ConnectNotify(QsciLexerMakefile* self, const QMetaMethod* signal);
-    friend void QsciLexerMakefile_QBaseConnectNotify(QsciLexerMakefile* self, const QMetaMethod* signal);
+    friend void QsciLexerMakefile_SuperConnectNotify(QsciLexerMakefile* self, const QMetaMethod* signal);
     friend void QsciLexerMakefile_DisconnectNotify(QsciLexerMakefile* self, const QMetaMethod* signal);
-    friend void QsciLexerMakefile_QBaseDisconnectNotify(QsciLexerMakefile* self, const QMetaMethod* signal);
+    friend void QsciLexerMakefile_SuperDisconnectNotify(QsciLexerMakefile* self, const QMetaMethod* signal);
     friend libqt_string QsciLexerMakefile_TextAsBytes(const QsciLexerMakefile* self, const libqt_string text);
-    friend libqt_string QsciLexerMakefile_QBaseTextAsBytes(const QsciLexerMakefile* self, const libqt_string text);
+    friend libqt_string QsciLexerMakefile_SuperTextAsBytes(const QsciLexerMakefile* self, const libqt_string text);
     friend libqt_string QsciLexerMakefile_BytesAsText(const QsciLexerMakefile* self, const char* bytes, int size);
-    friend libqt_string QsciLexerMakefile_QBaseBytesAsText(const QsciLexerMakefile* self, const char* bytes, int size);
+    friend libqt_string QsciLexerMakefile_SuperBytesAsText(const QsciLexerMakefile* self, const char* bytes, int size);
     friend QObject* QsciLexerMakefile_Sender(const QsciLexerMakefile* self);
-    friend QObject* QsciLexerMakefile_QBaseSender(const QsciLexerMakefile* self);
+    friend QObject* QsciLexerMakefile_SuperSender(const QsciLexerMakefile* self);
     friend int QsciLexerMakefile_SenderSignalIndex(const QsciLexerMakefile* self);
-    friend int QsciLexerMakefile_QBaseSenderSignalIndex(const QsciLexerMakefile* self);
+    friend int QsciLexerMakefile_SuperSenderSignalIndex(const QsciLexerMakefile* self);
     friend int QsciLexerMakefile_Receivers(const QsciLexerMakefile* self, const char* signal);
-    friend int QsciLexerMakefile_QBaseReceivers(const QsciLexerMakefile* self, const char* signal);
+    friend int QsciLexerMakefile_SuperReceivers(const QsciLexerMakefile* self, const char* signal);
     friend bool QsciLexerMakefile_IsSignalConnected(const QsciLexerMakefile* self, const QMetaMethod* signal);
-    friend bool QsciLexerMakefile_QBaseIsSignalConnected(const QsciLexerMakefile* self, const QMetaMethod* signal);
+    friend bool QsciLexerMakefile_SuperIsSignalConnected(const QsciLexerMakefile* self, const QMetaMethod* signal);
 };
 
 #endif

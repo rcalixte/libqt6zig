@@ -1306,7 +1306,7 @@ void QOpenGLFunctions_4_0_Core_GlMinSampleShading(QOpenGLFunctions_4_0_Core* sel
 }
 
 // Base class handler implementation
-bool QOpenGLFunctions_4_0_Core_QBaseInitializeOpenGLFunctions(QOpenGLFunctions_4_0_Core* self) {
+bool QOpenGLFunctions_4_0_Core_SuperInitializeOpenGLFunctions(QOpenGLFunctions_4_0_Core* self) {
     auto* vqopenglfunctions_4_0_core = dynamic_cast<VirtualQOpenGLFunctions_4_0_Core*>(self);
     if (vqopenglfunctions_4_0_core && vqopenglfunctions_4_0_core->isVirtualQOpenGLFunctions_4_0_Core) {
         vqopenglfunctions_4_0_core->setQOpenGLFunctions_4_0_Core_InitializeOpenGLFunctions_IsBase(true);
@@ -1335,7 +1335,7 @@ bool QOpenGLFunctions_4_0_Core_IsInitialized(const QOpenGLFunctions_4_0_Core* se
 }
 
 // Base class handler implementation
-bool QOpenGLFunctions_4_0_Core_QBaseIsInitialized(const QOpenGLFunctions_4_0_Core* self) {
+bool QOpenGLFunctions_4_0_Core_SuperIsInitialized(const QOpenGLFunctions_4_0_Core* self) {
     auto* vqopenglfunctions_4_0_core = const_cast<VirtualQOpenGLFunctions_4_0_Core*>(dynamic_cast<const VirtualQOpenGLFunctions_4_0_Core*>(self));
     if (vqopenglfunctions_4_0_core && vqopenglfunctions_4_0_core->isVirtualQOpenGLFunctions_4_0_Core) {
         vqopenglfunctions_4_0_core->setQOpenGLFunctions_4_0_Core_IsInitialized_IsBase(true);
@@ -1364,7 +1364,7 @@ void QOpenGLFunctions_4_0_Core_SetOwningContext(QOpenGLFunctions_4_0_Core* self,
 }
 
 // Base class handler implementation
-void QOpenGLFunctions_4_0_Core_QBaseSetOwningContext(QOpenGLFunctions_4_0_Core* self, const QOpenGLContext* context) {
+void QOpenGLFunctions_4_0_Core_SuperSetOwningContext(QOpenGLFunctions_4_0_Core* self, const QOpenGLContext* context) {
     auto* vqopenglfunctions_4_0_core = dynamic_cast<VirtualQOpenGLFunctions_4_0_Core*>(self);
     if (vqopenglfunctions_4_0_core && vqopenglfunctions_4_0_core->isVirtualQOpenGLFunctions_4_0_Core) {
         vqopenglfunctions_4_0_core->setQOpenGLFunctions_4_0_Core_SetOwningContext_IsBase(true);
@@ -1393,7 +1393,7 @@ QOpenGLContext* QOpenGLFunctions_4_0_Core_OwningContext(const QOpenGLFunctions_4
 }
 
 // Base class handler implementation
-QOpenGLContext* QOpenGLFunctions_4_0_Core_QBaseOwningContext(const QOpenGLFunctions_4_0_Core* self) {
+QOpenGLContext* QOpenGLFunctions_4_0_Core_SuperOwningContext(const QOpenGLFunctions_4_0_Core* self) {
     auto* vqopenglfunctions_4_0_core = const_cast<VirtualQOpenGLFunctions_4_0_Core*>(dynamic_cast<const VirtualQOpenGLFunctions_4_0_Core*>(self));
     if (vqopenglfunctions_4_0_core && vqopenglfunctions_4_0_core->isVirtualQOpenGLFunctions_4_0_Core) {
         vqopenglfunctions_4_0_core->setQOpenGLFunctions_4_0_Core_OwningContext_IsBase(true);

@@ -208,6 +208,10 @@ pub const qhstspolicy = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhstspolicy.html#dtor.QHstsPolicy)
     ///
     /// Delete this object from C++ memory.
@@ -216,7 +220,7 @@ pub const qhstspolicy = struct {
     ///
     /// ` self: QtC.QHstsPolicy `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QHstsPolicy_Delete(@ptrCast(self));
     }
 };

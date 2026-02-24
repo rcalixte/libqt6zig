@@ -1415,6 +1415,10 @@ pub const qurl = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qurl.html#dtor.QUrl)
     ///
     /// Delete this object from C++ memory.
@@ -1423,7 +1427,7 @@ pub const qurl = struct {
     ///
     /// ` self: QtC.QUrl `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QUrl_Delete(@ptrCast(self));
     }
 };

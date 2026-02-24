@@ -167,6 +167,10 @@ pub const qplacecategory = struct {
         return qtc.QPlaceCategory_IsEmpty(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecategory.html#dtor.QPlaceCategory)
     ///
     /// Delete this object from C++ memory.
@@ -175,7 +179,7 @@ pub const qplacecategory = struct {
     ///
     /// ` self: QtC.QPlaceCategory `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPlaceCategory_Delete(@ptrCast(self));
     }
 };

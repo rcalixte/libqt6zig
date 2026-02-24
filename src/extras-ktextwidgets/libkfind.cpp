@@ -244,7 +244,7 @@ QDialog* KFind_FindNextDialog1(KFind* self, bool create) {
 }
 
 // Base class handler implementation
-QMetaObject* KFind_QBaseMetaObject(const KFind* self) {
+QMetaObject* KFind_SuperMetaObject(const KFind* self) {
     auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
     if (vkfind && vkfind->isVirtualKFind) {
         vkfind->setKFind_MetaObject_IsBase(true);
@@ -263,7 +263,7 @@ void KFind_OnMetaObject(const KFind* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KFind_QBaseMetacast(KFind* self, const char* param1) {
+void* KFind_SuperMetacast(KFind* self, const char* param1) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
     if (vkfind && vkfind->isVirtualKFind) {
         vkfind->setKFind_Metacast_IsBase(true);
@@ -282,7 +282,7 @@ void KFind_OnMetacast(KFind* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KFind_QBaseMetacall(KFind* self, int param1, int param2, void** param3) {
+int KFind_SuperMetacall(KFind* self, int param1, int param2, void** param3) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
     if (vkfind && vkfind->isVirtualKFind) {
         vkfind->setKFind_Metacall_IsBase(true);
@@ -301,7 +301,7 @@ void KFind_OnMetacall(KFind* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFind_QBaseSetOptions(KFind* self, long options) {
+void KFind_SuperSetOptions(KFind* self, long options) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
     if (vkfind && vkfind->isVirtualKFind) {
         vkfind->setKFind_SetOptions_IsBase(true);
@@ -320,7 +320,7 @@ void KFind_OnSetOptions(KFind* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFind_QBaseResetCounts(KFind* self) {
+void KFind_SuperResetCounts(KFind* self) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
     if (vkfind && vkfind->isVirtualKFind) {
         vkfind->setKFind_ResetCounts_IsBase(true);
@@ -339,7 +339,7 @@ void KFind_OnResetCounts(KFind* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KFind_QBaseValidateMatch(KFind* self, const libqt_string text, int index, int matchedlength) {
+bool KFind_SuperValidateMatch(KFind* self, const libqt_string text, int index, int matchedlength) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vkfind && vkfind->isVirtualKFind) {
@@ -359,7 +359,7 @@ void KFind_OnValidateMatch(KFind* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KFind_QBaseShouldRestart(const KFind* self, bool forceAsking, bool showNumMatches) {
+bool KFind_SuperShouldRestart(const KFind* self, bool forceAsking, bool showNumMatches) {
     auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
     if (vkfind && vkfind->isVirtualKFind) {
         vkfind->setKFind_ShouldRestart_IsBase(true);
@@ -378,7 +378,7 @@ void KFind_OnShouldRestart(const KFind* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFind_QBaseDisplayFinalDialog(const KFind* self) {
+void KFind_SuperDisplayFinalDialog(const KFind* self) {
     auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
     if (vkfind && vkfind->isVirtualKFind) {
         vkfind->setKFind_DisplayFinalDialog_IsBase(true);
@@ -407,7 +407,7 @@ bool KFind_Event(KFind* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KFind_QBaseEvent(KFind* self, QEvent* event) {
+bool KFind_SuperEvent(KFind* self, QEvent* event) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
     if (vkfind && vkfind->isVirtualKFind) {
         vkfind->setKFind_Event_IsBase(true);
@@ -436,7 +436,7 @@ bool KFind_EventFilter(KFind* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KFind_QBaseEventFilter(KFind* self, QObject* watched, QEvent* event) {
+bool KFind_SuperEventFilter(KFind* self, QObject* watched, QEvent* event) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
     if (vkfind && vkfind->isVirtualKFind) {
         vkfind->setKFind_EventFilter_IsBase(true);
@@ -465,7 +465,7 @@ void KFind_TimerEvent(KFind* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KFind_QBaseTimerEvent(KFind* self, QTimerEvent* event) {
+void KFind_SuperTimerEvent(KFind* self, QTimerEvent* event) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
     if (vkfind && vkfind->isVirtualKFind) {
         vkfind->setKFind_TimerEvent_IsBase(true);
@@ -494,7 +494,7 @@ void KFind_ChildEvent(KFind* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KFind_QBaseChildEvent(KFind* self, QChildEvent* event) {
+void KFind_SuperChildEvent(KFind* self, QChildEvent* event) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
     if (vkfind && vkfind->isVirtualKFind) {
         vkfind->setKFind_ChildEvent_IsBase(true);
@@ -523,7 +523,7 @@ void KFind_CustomEvent(KFind* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFind_QBaseCustomEvent(KFind* self, QEvent* event) {
+void KFind_SuperCustomEvent(KFind* self, QEvent* event) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
     if (vkfind && vkfind->isVirtualKFind) {
         vkfind->setKFind_CustomEvent_IsBase(true);
@@ -552,7 +552,7 @@ void KFind_ConnectNotify(KFind* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KFind_QBaseConnectNotify(KFind* self, const QMetaMethod* signal) {
+void KFind_SuperConnectNotify(KFind* self, const QMetaMethod* signal) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
     if (vkfind && vkfind->isVirtualKFind) {
         vkfind->setKFind_ConnectNotify_IsBase(true);
@@ -581,7 +581,7 @@ void KFind_DisconnectNotify(KFind* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KFind_QBaseDisconnectNotify(KFind* self, const QMetaMethod* signal) {
+void KFind_SuperDisconnectNotify(KFind* self, const QMetaMethod* signal) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
     if (vkfind && vkfind->isVirtualKFind) {
         vkfind->setKFind_DisconnectNotify_IsBase(true);
@@ -610,7 +610,7 @@ QWidget* KFind_ParentWidget(const KFind* self) {
 }
 
 // Base class handler implementation
-QWidget* KFind_QBaseParentWidget(const KFind* self) {
+QWidget* KFind_SuperParentWidget(const KFind* self) {
     auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
     if (vkfind && vkfind->isVirtualKFind) {
         vkfind->setKFind_ParentWidget_IsBase(true);
@@ -639,7 +639,7 @@ QWidget* KFind_DialogsParent(const KFind* self) {
 }
 
 // Base class handler implementation
-QWidget* KFind_QBaseDialogsParent(const KFind* self) {
+QWidget* KFind_SuperDialogsParent(const KFind* self) {
     auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
     if (vkfind && vkfind->isVirtualKFind) {
         vkfind->setKFind_DialogsParent_IsBase(true);
@@ -668,7 +668,7 @@ QObject* KFind_Sender(const KFind* self) {
 }
 
 // Base class handler implementation
-QObject* KFind_QBaseSender(const KFind* self) {
+QObject* KFind_SuperSender(const KFind* self) {
     auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
     if (vkfind && vkfind->isVirtualKFind) {
         vkfind->setKFind_Sender_IsBase(true);
@@ -697,7 +697,7 @@ int KFind_SenderSignalIndex(const KFind* self) {
 }
 
 // Base class handler implementation
-int KFind_QBaseSenderSignalIndex(const KFind* self) {
+int KFind_SuperSenderSignalIndex(const KFind* self) {
     auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
     if (vkfind && vkfind->isVirtualKFind) {
         vkfind->setKFind_SenderSignalIndex_IsBase(true);
@@ -726,7 +726,7 @@ int KFind_Receivers(const KFind* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KFind_QBaseReceivers(const KFind* self, const char* signal) {
+int KFind_SuperReceivers(const KFind* self, const char* signal) {
     auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
     if (vkfind && vkfind->isVirtualKFind) {
         vkfind->setKFind_Receivers_IsBase(true);
@@ -755,7 +755,7 @@ bool KFind_IsSignalConnected(const KFind* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool KFind_QBaseIsSignalConnected(const KFind* self, const QMetaMethod* signal) {
+bool KFind_SuperIsSignalConnected(const KFind* self, const QMetaMethod* signal) {
     auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
     if (vkfind && vkfind->isVirtualKFind) {
         vkfind->setKFind_IsSignalConnected_IsBase(true);

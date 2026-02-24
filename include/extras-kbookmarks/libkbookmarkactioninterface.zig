@@ -33,6 +33,10 @@ pub const kbookmarkactioninterface = struct {
         return qtc.KBookmarkActionInterface_Bookmark(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kbookmarkactioninterface.html#dtor.KBookmarkActionInterface)
     ///
     /// Delete this object from C++ memory.
@@ -41,7 +45,7 @@ pub const kbookmarkactioninterface = struct {
     ///
     /// ` self: QtC.KBookmarkActionInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KBookmarkActionInterface_Delete(@ptrCast(self));
     }
 };

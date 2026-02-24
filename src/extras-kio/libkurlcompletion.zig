@@ -48,6 +48,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -56,8 +60,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` self: QtC.KUrlCompletion `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KUrlCompletion_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KUrlCompletion_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -83,6 +87,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -91,9 +99,9 @@ pub const kurlcompletion = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KUrlCompletion_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KUrlCompletion_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -122,6 +130,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -134,8 +146,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KUrlCompletion_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KUrlCompletion_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -193,6 +205,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_OnMakeCompletion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMakeCompletion` instead
+    ///
+    pub const QBaseMakeCompletion = SuperMakeCompletion;
+
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#makeCompletion)
     ///
     /// Base class method implementation
@@ -205,12 +221,12 @@ pub const kurlcompletion = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseMakeCompletion(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn SuperMakeCompletion(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        var _str = qtc.KUrlCompletion_QBaseMakeCompletion(@ptrCast(self), text_str);
+        var _str = qtc.KUrlCompletion_SuperMakeCompletion(@ptrCast(self), text_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.MakeCompletion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -243,6 +259,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_OnSetDir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetDir` instead
+    ///
+    pub const QBaseSetDir = SuperSetDir;
+
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#setDir)
     ///
     /// Base class method implementation
@@ -253,8 +273,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` dir: QtC.QUrl `
     ///
-    pub fn QBaseSetDir(self: ?*anyopaque, dir: ?*anyopaque) void {
-        qtc.KUrlCompletion_QBaseSetDir(@ptrCast(self), @ptrCast(dir));
+    pub fn SuperSetDir(self: ?*anyopaque, dir: ?*anyopaque) void {
+        qtc.KUrlCompletion_SuperSetDir(@ptrCast(self), @ptrCast(dir));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#dir)
@@ -281,6 +301,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_OnDir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDir` instead
+    ///
+    pub const QBaseDir = SuperDir;
+
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#dir)
     ///
     /// Base class method implementation
@@ -289,8 +313,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` self: QtC.KUrlCompletion `
     ///
-    pub fn QBaseDir(self: ?*anyopaque) QtC.QUrl {
-        return qtc.KUrlCompletion_QBaseDir(@ptrCast(self));
+    pub fn SuperDir(self: ?*anyopaque) QtC.QUrl {
+        return qtc.KUrlCompletion_SuperDir(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#isRunning)
@@ -317,6 +341,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_OnIsRunning(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsRunning` instead
+    ///
+    pub const QBaseIsRunning = SuperIsRunning;
+
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#isRunning)
     ///
     /// Base class method implementation
@@ -325,8 +353,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` self: QtC.KUrlCompletion `
     ///
-    pub fn QBaseIsRunning(self: ?*anyopaque) bool {
-        return qtc.KUrlCompletion_QBaseIsRunning(@ptrCast(self));
+    pub fn SuperIsRunning(self: ?*anyopaque) bool {
+        return qtc.KUrlCompletion_SuperIsRunning(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#stop)
@@ -353,6 +381,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_OnStop(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperStop` instead
+    ///
+    pub const QBaseStop = SuperStop;
+
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#stop)
     ///
     /// Base class method implementation
@@ -361,8 +393,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` self: QtC.KUrlCompletion `
     ///
-    pub fn QBaseStop(self: ?*anyopaque) void {
-        qtc.KUrlCompletion_QBaseStop(@ptrCast(self));
+    pub fn SuperStop(self: ?*anyopaque) void {
+        qtc.KUrlCompletion_SuperStop(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#mode)
@@ -393,6 +425,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_OnMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMode` instead
+    ///
+    pub const QBaseMode = SuperMode;
+
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#mode)
     ///
     /// Base class method implementation
@@ -405,8 +441,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` kurlcompletion_enums.Mode `
     ///
-    pub fn QBaseMode(self: ?*anyopaque) i32 {
-        return qtc.KUrlCompletion_QBaseMode(@ptrCast(self));
+    pub fn SuperMode(self: ?*anyopaque) i32 {
+        return qtc.KUrlCompletion_SuperMode(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#setMode)
@@ -435,6 +471,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_OnSetMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetMode` instead
+    ///
+    pub const QBaseSetMode = SuperSetMode;
+
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#setMode)
     ///
     /// Base class method implementation
@@ -445,8 +485,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` mode: kurlcompletion_enums.Mode `
     ///
-    pub fn QBaseSetMode(self: ?*anyopaque, mode: i32) void {
-        qtc.KUrlCompletion_QBaseSetMode(@ptrCast(self), @bitCast(mode));
+    pub fn SuperSetMode(self: ?*anyopaque, mode: i32) void {
+        qtc.KUrlCompletion_SuperSetMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#replaceEnv)
@@ -473,6 +513,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_OnReplaceEnv(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperReplaceEnv` instead
+    ///
+    pub const QBaseReplaceEnv = SuperReplaceEnv;
+
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#replaceEnv)
     ///
     /// Base class method implementation
@@ -481,8 +525,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` self: QtC.KUrlCompletion `
     ///
-    pub fn QBaseReplaceEnv(self: ?*anyopaque) bool {
-        return qtc.KUrlCompletion_QBaseReplaceEnv(@ptrCast(self));
+    pub fn SuperReplaceEnv(self: ?*anyopaque) bool {
+        return qtc.KUrlCompletion_SuperReplaceEnv(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#setReplaceEnv)
@@ -511,6 +555,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_OnSetReplaceEnv(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetReplaceEnv` instead
+    ///
+    pub const QBaseSetReplaceEnv = SuperSetReplaceEnv;
+
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#setReplaceEnv)
     ///
     /// Base class method implementation
@@ -521,8 +569,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` replace: bool `
     ///
-    pub fn QBaseSetReplaceEnv(self: ?*anyopaque, replace: bool) void {
-        qtc.KUrlCompletion_QBaseSetReplaceEnv(@ptrCast(self), replace);
+    pub fn SuperSetReplaceEnv(self: ?*anyopaque, replace: bool) void {
+        qtc.KUrlCompletion_SuperSetReplaceEnv(@ptrCast(self), replace);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#replaceHome)
@@ -549,6 +597,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_OnReplaceHome(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperReplaceHome` instead
+    ///
+    pub const QBaseReplaceHome = SuperReplaceHome;
+
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#replaceHome)
     ///
     /// Base class method implementation
@@ -557,8 +609,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` self: QtC.KUrlCompletion `
     ///
-    pub fn QBaseReplaceHome(self: ?*anyopaque) bool {
-        return qtc.KUrlCompletion_QBaseReplaceHome(@ptrCast(self));
+    pub fn SuperReplaceHome(self: ?*anyopaque) bool {
+        return qtc.KUrlCompletion_SuperReplaceHome(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#setReplaceHome)
@@ -587,6 +639,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_OnSetReplaceHome(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetReplaceHome` instead
+    ///
+    pub const QBaseSetReplaceHome = SuperSetReplaceHome;
+
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#setReplaceHome)
     ///
     /// Base class method implementation
@@ -597,8 +653,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` replace: bool `
     ///
-    pub fn QBaseSetReplaceHome(self: ?*anyopaque, replace: bool) void {
-        qtc.KUrlCompletion_QBaseSetReplaceHome(@ptrCast(self), replace);
+    pub fn SuperSetReplaceHome(self: ?*anyopaque, replace: bool) void {
+        qtc.KUrlCompletion_SuperSetReplaceHome(@ptrCast(self), replace);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#replacedPath)
@@ -738,6 +794,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_OnPostProcessMatches(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPostProcessMatches` instead
+    ///
+    pub const QBasePostProcessMatches = SuperPostProcessMatches;
+
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#postProcessMatches)
     ///
     /// Base class method implementation
@@ -750,7 +810,7 @@ pub const kurlcompletion = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBasePostProcessMatches(self: ?*anyopaque, matches: []const []const u8, allocator: std.mem.Allocator) void {
+    pub fn SuperPostProcessMatches(self: ?*anyopaque, matches: []const []const u8, allocator: std.mem.Allocator) void {
         const matches_arr = allocator.alloc(qtc.libqt_string, matches.len) catch @panic("kurlcompletion.PostProcessMatches: Memory allocation failed");
         defer allocator.free(matches_arr);
         for (matches, 0..matches.len) |item, i| {
@@ -763,7 +823,7 @@ pub const kurlcompletion = struct {
             .len = matches.len,
             .data = matches_arr.ptr,
         };
-        qtc.KUrlCompletion_QBasePostProcessMatches(@ptrCast(self), matches_list);
+        qtc.KUrlCompletion_SuperPostProcessMatches(@ptrCast(self), matches_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#postProcessMatches)
@@ -792,6 +852,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_OnPostProcessMatches2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPostProcessMatches2` instead
+    ///
+    pub const QBasePostProcessMatches2 = SuperPostProcessMatches2;
+
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#postProcessMatches)
     ///
     /// Base class method implementation
@@ -802,8 +866,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` matches: QtC.KCompletionMatches `
     ///
-    pub fn QBasePostProcessMatches2(self: ?*anyopaque, matches: ?*anyopaque) void {
-        qtc.KUrlCompletion_QBasePostProcessMatches2(@ptrCast(self), @ptrCast(matches));
+    pub fn SuperPostProcessMatches2(self: ?*anyopaque, matches: ?*anyopaque) void {
+        qtc.KUrlCompletion_SuperPostProcessMatches2(@ptrCast(self), @ptrCast(matches));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2100,6 +2164,10 @@ pub const kurlcompletion = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperLastMatch` instead
+    ///
+    pub const QBaseLastMatch = SuperLastMatch;
+
     /// Inherited from KCompletion
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#lastMatch)
@@ -2112,8 +2180,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseLastMatch(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KUrlCompletion_QBaseLastMatch(@ptrCast(self));
+    pub fn SuperLastMatch(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KUrlCompletion_SuperLastMatch(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.LastMatch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2154,6 +2222,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_SetCompletionMode(@ptrCast(self), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCompletionMode` instead
+    ///
+    pub const QBaseSetCompletionMode = SuperSetCompletionMode;
+
     /// Inherited from KCompletion
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setCompletionMode)
@@ -2166,8 +2238,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` mode: kcompletion_enums.CompletionMode `
     ///
-    pub fn QBaseSetCompletionMode(self: ?*anyopaque, mode: i32) void {
-        qtc.KUrlCompletion_QBaseSetCompletionMode(@ptrCast(self), @bitCast(mode));
+    pub fn SuperSetCompletionMode(self: ?*anyopaque, mode: i32) void {
+        qtc.KUrlCompletion_SuperSetCompletionMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from KCompletion
@@ -2202,6 +2274,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_SetOrder(@ptrCast(self), @bitCast(order));
     }
 
+    /// ### DEPRECATED: Use `SuperSetOrder` instead
+    ///
+    pub const QBaseSetOrder = SuperSetOrder;
+
     /// Inherited from KCompletion
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setOrder)
@@ -2214,8 +2290,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` order: kcompletion_enums.CompOrder `
     ///
-    pub fn QBaseSetOrder(self: ?*anyopaque, order: i32) void {
-        qtc.KUrlCompletion_QBaseSetOrder(@ptrCast(self), @bitCast(order));
+    pub fn SuperSetOrder(self: ?*anyopaque, order: i32) void {
+        qtc.KUrlCompletion_SuperSetOrder(@ptrCast(self), @bitCast(order));
     }
 
     /// Inherited from KCompletion
@@ -2250,6 +2326,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_SetIgnoreCase(@ptrCast(self), ignoreCase);
     }
 
+    /// ### DEPRECATED: Use `SuperSetIgnoreCase` instead
+    ///
+    pub const QBaseSetIgnoreCase = SuperSetIgnoreCase;
+
     /// Inherited from KCompletion
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setIgnoreCase)
@@ -2262,8 +2342,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` ignoreCase: bool `
     ///
-    pub fn QBaseSetIgnoreCase(self: ?*anyopaque, ignoreCase: bool) void {
-        qtc.KUrlCompletion_QBaseSetIgnoreCase(@ptrCast(self), ignoreCase);
+    pub fn SuperSetIgnoreCase(self: ?*anyopaque, ignoreCase: bool) void {
+        qtc.KUrlCompletion_SuperSetIgnoreCase(@ptrCast(self), ignoreCase);
     }
 
     /// Inherited from KCompletion
@@ -2298,6 +2378,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_SetSoundsEnabled(@ptrCast(self), enable);
     }
 
+    /// ### DEPRECATED: Use `SuperSetSoundsEnabled` instead
+    ///
+    pub const QBaseSetSoundsEnabled = SuperSetSoundsEnabled;
+
     /// Inherited from KCompletion
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setSoundsEnabled)
@@ -2310,8 +2394,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn QBaseSetSoundsEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.KUrlCompletion_QBaseSetSoundsEnabled(@ptrCast(self), enable);
+    pub fn SuperSetSoundsEnabled(self: ?*anyopaque, enable: bool) void {
+        qtc.KUrlCompletion_SuperSetSoundsEnabled(@ptrCast(self), enable);
     }
 
     /// Inherited from KCompletion
@@ -2360,6 +2444,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_SetItems(@ptrCast(self), itemList_list);
     }
 
+    /// ### DEPRECATED: Use `SuperSetItems` instead
+    ///
+    pub const QBaseSetItems = SuperSetItems;
+
     /// Inherited from KCompletion
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setItems)
@@ -2374,7 +2462,7 @@ pub const kurlcompletion = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetItems(self: ?*anyopaque, itemList: []const []const u8, allocator: std.mem.Allocator) void {
+    pub fn SuperSetItems(self: ?*anyopaque, itemList: []const []const u8, allocator: std.mem.Allocator) void {
         const itemList_arr = allocator.alloc(qtc.libqt_string, itemList.len) catch @panic("kurlcompletion.SetItems: Memory allocation failed");
         defer allocator.free(itemList_arr);
         for (itemList, 0..itemList.len) |item, i| {
@@ -2387,7 +2475,7 @@ pub const kurlcompletion = struct {
             .len = itemList.len,
             .data = itemList_arr.ptr,
         };
-        qtc.KUrlCompletion_QBaseSetItems(@ptrCast(self), itemList_list);
+        qtc.KUrlCompletion_SuperSetItems(@ptrCast(self), itemList_list);
     }
 
     /// Inherited from KCompletion
@@ -2420,6 +2508,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_Clear(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperClear` instead
+    ///
+    pub const QBaseClear = SuperClear;
+
     /// Inherited from KCompletion
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#clear)
@@ -2430,8 +2522,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` self: QtC.KUrlCompletion `
     ///
-    pub fn QBaseClear(self: ?*anyopaque) void {
-        qtc.KUrlCompletion_QBaseClear(@ptrCast(self));
+    pub fn SuperClear(self: ?*anyopaque) void {
+        qtc.KUrlCompletion_SuperClear(@ptrCast(self));
     }
 
     /// Inherited from KCompletion
@@ -2466,6 +2558,10 @@ pub const kurlcompletion = struct {
         return qtc.KUrlCompletion_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -2478,8 +2574,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KUrlCompletion_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KUrlCompletion_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2516,6 +2612,10 @@ pub const kurlcompletion = struct {
         return qtc.KUrlCompletion_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -2530,8 +2630,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KUrlCompletion_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KUrlCompletion_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2566,6 +2666,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -2578,8 +2682,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlCompletion_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlCompletion_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2614,6 +2718,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -2626,8 +2734,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlCompletion_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlCompletion_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2662,6 +2770,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -2674,8 +2786,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlCompletion_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KUrlCompletion_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2710,6 +2822,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2722,8 +2838,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KUrlCompletion_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KUrlCompletion_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2758,6 +2874,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -2770,8 +2890,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KUrlCompletion_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KUrlCompletion_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2806,6 +2926,10 @@ pub const kurlcompletion = struct {
         qtc.KUrlCompletion_SetShouldAutoSuggest(@ptrCast(self), shouldAutosuggest);
     }
 
+    /// ### DEPRECATED: Use `SuperSetShouldAutoSuggest` instead
+    ///
+    pub const QBaseSetShouldAutoSuggest = SuperSetShouldAutoSuggest;
+
     /// Inherited from KCompletion
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setShouldAutoSuggest)
@@ -2818,8 +2942,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` shouldAutosuggest: bool `
     ///
-    pub fn QBaseSetShouldAutoSuggest(self: ?*anyopaque, shouldAutosuggest: bool) void {
-        qtc.KUrlCompletion_QBaseSetShouldAutoSuggest(@ptrCast(self), shouldAutosuggest);
+    pub fn SuperSetShouldAutoSuggest(self: ?*anyopaque, shouldAutosuggest: bool) void {
+        qtc.KUrlCompletion_SuperSetShouldAutoSuggest(@ptrCast(self), shouldAutosuggest);
     }
 
     /// Inherited from KCompletion
@@ -2852,6 +2976,10 @@ pub const kurlcompletion = struct {
         return qtc.KUrlCompletion_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2862,8 +2990,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` self: QtC.KUrlCompletion `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KUrlCompletion_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KUrlCompletion_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2896,6 +3024,10 @@ pub const kurlcompletion = struct {
         return qtc.KUrlCompletion_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2906,8 +3038,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` self: QtC.KUrlCompletion `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KUrlCompletion_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KUrlCompletion_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2943,6 +3075,10 @@ pub const kurlcompletion = struct {
         return qtc.KUrlCompletion_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2955,9 +3091,9 @@ pub const kurlcompletion = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KUrlCompletion_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KUrlCompletion_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2992,6 +3128,10 @@ pub const kurlcompletion = struct {
         return qtc.KUrlCompletion_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -3004,8 +3144,8 @@ pub const kurlcompletion = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KUrlCompletion_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KUrlCompletion_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3039,6 +3179,9 @@ pub const kurlcompletion = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#dtor.KUrlCompletion)
     ///
@@ -3048,7 +3191,7 @@ pub const kurlcompletion = struct {
     ///
     /// ` self: QtC.KUrlCompletion `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KUrlCompletion_Delete(@ptrCast(self));
     }
 };

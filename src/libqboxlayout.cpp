@@ -295,7 +295,7 @@ void QBoxLayout_InsertLayout3(QBoxLayout* self, int index, QLayout* layout, int 
 }
 
 // Base class handler implementation
-QMetaObject* QBoxLayout_QBaseMetaObject(const QBoxLayout* self) {
+QMetaObject* QBoxLayout_SuperMetaObject(const QBoxLayout* self) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_MetaObject_IsBase(true);
@@ -314,7 +314,7 @@ void QBoxLayout_OnMetaObject(const QBoxLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QBoxLayout_QBaseMetacast(QBoxLayout* self, const char* param1) {
+void* QBoxLayout_SuperMetacast(QBoxLayout* self, const char* param1) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_Metacast_IsBase(true);
@@ -333,7 +333,7 @@ void QBoxLayout_OnMetacast(QBoxLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QBoxLayout_QBaseMetacall(QBoxLayout* self, int param1, int param2, void** param3) {
+int QBoxLayout_SuperMetacall(QBoxLayout* self, int param1, int param2, void** param3) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_Metacall_IsBase(true);
@@ -352,7 +352,7 @@ void QBoxLayout_OnMetacall(QBoxLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QBoxLayout_QBaseAddItem(QBoxLayout* self, QLayoutItem* param1) {
+void QBoxLayout_SuperAddItem(QBoxLayout* self, QLayoutItem* param1) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_AddItem_IsBase(true);
@@ -371,7 +371,7 @@ void QBoxLayout_OnAddItem(QBoxLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QBoxLayout_QBaseSpacing(const QBoxLayout* self) {
+int QBoxLayout_SuperSpacing(const QBoxLayout* self) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_Spacing_IsBase(true);
@@ -390,7 +390,7 @@ void QBoxLayout_OnSpacing(const QBoxLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QBoxLayout_QBaseSetSpacing(QBoxLayout* self, int spacing) {
+void QBoxLayout_SuperSetSpacing(QBoxLayout* self, int spacing) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_SetSpacing_IsBase(true);
@@ -409,7 +409,7 @@ void QBoxLayout_OnSetSpacing(QBoxLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QBoxLayout_QBaseSizeHint(const QBoxLayout* self) {
+QSize* QBoxLayout_SuperSizeHint(const QBoxLayout* self) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_SizeHint_IsBase(true);
@@ -428,7 +428,7 @@ void QBoxLayout_OnSizeHint(const QBoxLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QBoxLayout_QBaseMinimumSize(const QBoxLayout* self) {
+QSize* QBoxLayout_SuperMinimumSize(const QBoxLayout* self) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_MinimumSize_IsBase(true);
@@ -447,7 +447,7 @@ void QBoxLayout_OnMinimumSize(const QBoxLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QBoxLayout_QBaseMaximumSize(const QBoxLayout* self) {
+QSize* QBoxLayout_SuperMaximumSize(const QBoxLayout* self) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_MaximumSize_IsBase(true);
@@ -466,7 +466,7 @@ void QBoxLayout_OnMaximumSize(const QBoxLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QBoxLayout_QBaseHasHeightForWidth(const QBoxLayout* self) {
+bool QBoxLayout_SuperHasHeightForWidth(const QBoxLayout* self) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_HasHeightForWidth_IsBase(true);
@@ -485,7 +485,7 @@ void QBoxLayout_OnHasHeightForWidth(const QBoxLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QBoxLayout_QBaseHeightForWidth(const QBoxLayout* self, int param1) {
+int QBoxLayout_SuperHeightForWidth(const QBoxLayout* self, int param1) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_HeightForWidth_IsBase(true);
@@ -504,7 +504,7 @@ void QBoxLayout_OnHeightForWidth(const QBoxLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QBoxLayout_QBaseMinimumHeightForWidth(const QBoxLayout* self, int param1) {
+int QBoxLayout_SuperMinimumHeightForWidth(const QBoxLayout* self, int param1) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_MinimumHeightForWidth_IsBase(true);
@@ -523,7 +523,7 @@ void QBoxLayout_OnMinimumHeightForWidth(const QBoxLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QBoxLayout_QBaseExpandingDirections(const QBoxLayout* self) {
+int QBoxLayout_SuperExpandingDirections(const QBoxLayout* self) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_ExpandingDirections_IsBase(true);
@@ -542,7 +542,7 @@ void QBoxLayout_OnExpandingDirections(const QBoxLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QBoxLayout_QBaseInvalidate(QBoxLayout* self) {
+void QBoxLayout_SuperInvalidate(QBoxLayout* self) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_Invalidate_IsBase(true);
@@ -561,7 +561,7 @@ void QBoxLayout_OnInvalidate(QBoxLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QLayoutItem* QBoxLayout_QBaseItemAt(const QBoxLayout* self, int param1) {
+QLayoutItem* QBoxLayout_SuperItemAt(const QBoxLayout* self, int param1) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_ItemAt_IsBase(true);
@@ -580,7 +580,7 @@ void QBoxLayout_OnItemAt(const QBoxLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QLayoutItem* QBoxLayout_QBaseTakeAt(QBoxLayout* self, int param1) {
+QLayoutItem* QBoxLayout_SuperTakeAt(QBoxLayout* self, int param1) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_TakeAt_IsBase(true);
@@ -599,7 +599,7 @@ void QBoxLayout_OnTakeAt(QBoxLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QBoxLayout_QBaseCount(const QBoxLayout* self) {
+int QBoxLayout_SuperCount(const QBoxLayout* self) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_Count_IsBase(true);
@@ -618,7 +618,7 @@ void QBoxLayout_OnCount(const QBoxLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QBoxLayout_QBaseSetGeometry(QBoxLayout* self, const QRect* geometry) {
+void QBoxLayout_SuperSetGeometry(QBoxLayout* self, const QRect* geometry) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_SetGeometry_IsBase(true);
@@ -647,7 +647,7 @@ QRect* QBoxLayout_Geometry(const QBoxLayout* self) {
 }
 
 // Base class handler implementation
-QRect* QBoxLayout_QBaseGeometry(const QBoxLayout* self) {
+QRect* QBoxLayout_SuperGeometry(const QBoxLayout* self) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_Geometry_IsBase(true);
@@ -676,7 +676,7 @@ int QBoxLayout_IndexOf(const QBoxLayout* self, const QWidget* param1) {
 }
 
 // Base class handler implementation
-int QBoxLayout_QBaseIndexOf(const QBoxLayout* self, const QWidget* param1) {
+int QBoxLayout_SuperIndexOf(const QBoxLayout* self, const QWidget* param1) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_IndexOf_IsBase(true);
@@ -705,7 +705,7 @@ bool QBoxLayout_IsEmpty(const QBoxLayout* self) {
 }
 
 // Base class handler implementation
-bool QBoxLayout_QBaseIsEmpty(const QBoxLayout* self) {
+bool QBoxLayout_SuperIsEmpty(const QBoxLayout* self) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_IsEmpty_IsBase(true);
@@ -734,7 +734,7 @@ int QBoxLayout_ControlTypes(const QBoxLayout* self) {
 }
 
 // Base class handler implementation
-int QBoxLayout_QBaseControlTypes(const QBoxLayout* self) {
+int QBoxLayout_SuperControlTypes(const QBoxLayout* self) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_ControlTypes_IsBase(true);
@@ -763,7 +763,7 @@ QLayoutItem* QBoxLayout_ReplaceWidget(QBoxLayout* self, QWidget* from, QWidget* 
 }
 
 // Base class handler implementation
-QLayoutItem* QBoxLayout_QBaseReplaceWidget(QBoxLayout* self, QWidget* from, QWidget* to, int options) {
+QLayoutItem* QBoxLayout_SuperReplaceWidget(QBoxLayout* self, QWidget* from, QWidget* to, int options) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_ReplaceWidget_IsBase(true);
@@ -792,7 +792,7 @@ QLayout* QBoxLayout_Layout(QBoxLayout* self) {
 }
 
 // Base class handler implementation
-QLayout* QBoxLayout_QBaseLayout(QBoxLayout* self) {
+QLayout* QBoxLayout_SuperLayout(QBoxLayout* self) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_Layout_IsBase(true);
@@ -821,7 +821,7 @@ void QBoxLayout_ChildEvent(QBoxLayout* self, QChildEvent* e) {
 }
 
 // Base class handler implementation
-void QBoxLayout_QBaseChildEvent(QBoxLayout* self, QChildEvent* e) {
+void QBoxLayout_SuperChildEvent(QBoxLayout* self, QChildEvent* e) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_ChildEvent_IsBase(true);
@@ -850,7 +850,7 @@ bool QBoxLayout_Event(QBoxLayout* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QBoxLayout_QBaseEvent(QBoxLayout* self, QEvent* event) {
+bool QBoxLayout_SuperEvent(QBoxLayout* self, QEvent* event) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_Event_IsBase(true);
@@ -879,7 +879,7 @@ bool QBoxLayout_EventFilter(QBoxLayout* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QBoxLayout_QBaseEventFilter(QBoxLayout* self, QObject* watched, QEvent* event) {
+bool QBoxLayout_SuperEventFilter(QBoxLayout* self, QObject* watched, QEvent* event) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_EventFilter_IsBase(true);
@@ -908,7 +908,7 @@ void QBoxLayout_TimerEvent(QBoxLayout* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QBoxLayout_QBaseTimerEvent(QBoxLayout* self, QTimerEvent* event) {
+void QBoxLayout_SuperTimerEvent(QBoxLayout* self, QTimerEvent* event) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_TimerEvent_IsBase(true);
@@ -937,7 +937,7 @@ void QBoxLayout_CustomEvent(QBoxLayout* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QBoxLayout_QBaseCustomEvent(QBoxLayout* self, QEvent* event) {
+void QBoxLayout_SuperCustomEvent(QBoxLayout* self, QEvent* event) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_CustomEvent_IsBase(true);
@@ -966,7 +966,7 @@ void QBoxLayout_ConnectNotify(QBoxLayout* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QBoxLayout_QBaseConnectNotify(QBoxLayout* self, const QMetaMethod* signal) {
+void QBoxLayout_SuperConnectNotify(QBoxLayout* self, const QMetaMethod* signal) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_ConnectNotify_IsBase(true);
@@ -995,7 +995,7 @@ void QBoxLayout_DisconnectNotify(QBoxLayout* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QBoxLayout_QBaseDisconnectNotify(QBoxLayout* self, const QMetaMethod* signal) {
+void QBoxLayout_SuperDisconnectNotify(QBoxLayout* self, const QMetaMethod* signal) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_DisconnectNotify_IsBase(true);
@@ -1024,7 +1024,7 @@ QWidget* QBoxLayout_Widget(const QBoxLayout* self) {
 }
 
 // Base class handler implementation
-QWidget* QBoxLayout_QBaseWidget(const QBoxLayout* self) {
+QWidget* QBoxLayout_SuperWidget(const QBoxLayout* self) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_Widget_IsBase(true);
@@ -1053,7 +1053,7 @@ QSpacerItem* QBoxLayout_SpacerItem(QBoxLayout* self) {
 }
 
 // Base class handler implementation
-QSpacerItem* QBoxLayout_QBaseSpacerItem(QBoxLayout* self) {
+QSpacerItem* QBoxLayout_SuperSpacerItem(QBoxLayout* self) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_SpacerItem_IsBase(true);
@@ -1082,7 +1082,7 @@ void QBoxLayout_WidgetEvent(QBoxLayout* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QBoxLayout_QBaseWidgetEvent(QBoxLayout* self, QEvent* param1) {
+void QBoxLayout_SuperWidgetEvent(QBoxLayout* self, QEvent* param1) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_WidgetEvent_IsBase(true);
@@ -1111,7 +1111,7 @@ void QBoxLayout_AddChildLayout(QBoxLayout* self, QLayout* l) {
 }
 
 // Base class handler implementation
-void QBoxLayout_QBaseAddChildLayout(QBoxLayout* self, QLayout* l) {
+void QBoxLayout_SuperAddChildLayout(QBoxLayout* self, QLayout* l) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_AddChildLayout_IsBase(true);
@@ -1140,7 +1140,7 @@ void QBoxLayout_AddChildWidget(QBoxLayout* self, QWidget* w) {
 }
 
 // Base class handler implementation
-void QBoxLayout_QBaseAddChildWidget(QBoxLayout* self, QWidget* w) {
+void QBoxLayout_SuperAddChildWidget(QBoxLayout* self, QWidget* w) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_AddChildWidget_IsBase(true);
@@ -1169,7 +1169,7 @@ bool QBoxLayout_AdoptLayout(QBoxLayout* self, QLayout* layout) {
 }
 
 // Base class handler implementation
-bool QBoxLayout_QBaseAdoptLayout(QBoxLayout* self, QLayout* layout) {
+bool QBoxLayout_SuperAdoptLayout(QBoxLayout* self, QLayout* layout) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_AdoptLayout_IsBase(true);
@@ -1197,7 +1197,7 @@ QRect* QBoxLayout_AlignmentRect(const QBoxLayout* self, const QRect* param1) {
 }
 
 // Base class handler implementation
-QRect* QBoxLayout_QBaseAlignmentRect(const QBoxLayout* self, const QRect* param1) {
+QRect* QBoxLayout_SuperAlignmentRect(const QBoxLayout* self, const QRect* param1) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_AlignmentRect_IsBase(true);
@@ -1225,7 +1225,7 @@ QObject* QBoxLayout_Sender(const QBoxLayout* self) {
 }
 
 // Base class handler implementation
-QObject* QBoxLayout_QBaseSender(const QBoxLayout* self) {
+QObject* QBoxLayout_SuperSender(const QBoxLayout* self) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_Sender_IsBase(true);
@@ -1254,7 +1254,7 @@ int QBoxLayout_SenderSignalIndex(const QBoxLayout* self) {
 }
 
 // Base class handler implementation
-int QBoxLayout_QBaseSenderSignalIndex(const QBoxLayout* self) {
+int QBoxLayout_SuperSenderSignalIndex(const QBoxLayout* self) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_SenderSignalIndex_IsBase(true);
@@ -1283,7 +1283,7 @@ int QBoxLayout_Receivers(const QBoxLayout* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QBoxLayout_QBaseReceivers(const QBoxLayout* self, const char* signal) {
+int QBoxLayout_SuperReceivers(const QBoxLayout* self, const char* signal) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_Receivers_IsBase(true);
@@ -1312,7 +1312,7 @@ bool QBoxLayout_IsSignalConnected(const QBoxLayout* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QBoxLayout_QBaseIsSignalConnected(const QBoxLayout* self, const QMetaMethod* signal) {
+bool QBoxLayout_SuperIsSignalConnected(const QBoxLayout* self, const QMetaMethod* signal) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
     if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
         vqboxlayout->setQBoxLayout_IsSignalConnected_IsBase(true);
@@ -1370,7 +1370,7 @@ int QHBoxLayout_Metacall(QHBoxLayout* self, int param1, int param2, void** param
 }
 
 // Base class handler implementation
-QMetaObject* QHBoxLayout_QBaseMetaObject(const QHBoxLayout* self) {
+QMetaObject* QHBoxLayout_SuperMetaObject(const QHBoxLayout* self) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_MetaObject_IsBase(true);
@@ -1389,7 +1389,7 @@ void QHBoxLayout_OnMetaObject(const QHBoxLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QHBoxLayout_QBaseMetacast(QHBoxLayout* self, const char* param1) {
+void* QHBoxLayout_SuperMetacast(QHBoxLayout* self, const char* param1) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_Metacast_IsBase(true);
@@ -1408,7 +1408,7 @@ void QHBoxLayout_OnMetacast(QHBoxLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QHBoxLayout_QBaseMetacall(QHBoxLayout* self, int param1, int param2, void** param3) {
+int QHBoxLayout_SuperMetacall(QHBoxLayout* self, int param1, int param2, void** param3) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_Metacall_IsBase(true);
@@ -1437,7 +1437,7 @@ void QHBoxLayout_AddItem(QHBoxLayout* self, QLayoutItem* param1) {
 }
 
 // Base class handler implementation
-void QHBoxLayout_QBaseAddItem(QHBoxLayout* self, QLayoutItem* param1) {
+void QHBoxLayout_SuperAddItem(QHBoxLayout* self, QLayoutItem* param1) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_AddItem_IsBase(true);
@@ -1466,7 +1466,7 @@ int QHBoxLayout_Spacing(const QHBoxLayout* self) {
 }
 
 // Base class handler implementation
-int QHBoxLayout_QBaseSpacing(const QHBoxLayout* self) {
+int QHBoxLayout_SuperSpacing(const QHBoxLayout* self) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_Spacing_IsBase(true);
@@ -1495,7 +1495,7 @@ void QHBoxLayout_SetSpacing(QHBoxLayout* self, int spacing) {
 }
 
 // Base class handler implementation
-void QHBoxLayout_QBaseSetSpacing(QHBoxLayout* self, int spacing) {
+void QHBoxLayout_SuperSetSpacing(QHBoxLayout* self, int spacing) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_SetSpacing_IsBase(true);
@@ -1524,7 +1524,7 @@ QSize* QHBoxLayout_SizeHint(const QHBoxLayout* self) {
 }
 
 // Base class handler implementation
-QSize* QHBoxLayout_QBaseSizeHint(const QHBoxLayout* self) {
+QSize* QHBoxLayout_SuperSizeHint(const QHBoxLayout* self) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_SizeHint_IsBase(true);
@@ -1553,7 +1553,7 @@ QSize* QHBoxLayout_MinimumSize(const QHBoxLayout* self) {
 }
 
 // Base class handler implementation
-QSize* QHBoxLayout_QBaseMinimumSize(const QHBoxLayout* self) {
+QSize* QHBoxLayout_SuperMinimumSize(const QHBoxLayout* self) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_MinimumSize_IsBase(true);
@@ -1582,7 +1582,7 @@ QSize* QHBoxLayout_MaximumSize(const QHBoxLayout* self) {
 }
 
 // Base class handler implementation
-QSize* QHBoxLayout_QBaseMaximumSize(const QHBoxLayout* self) {
+QSize* QHBoxLayout_SuperMaximumSize(const QHBoxLayout* self) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_MaximumSize_IsBase(true);
@@ -1611,7 +1611,7 @@ bool QHBoxLayout_HasHeightForWidth(const QHBoxLayout* self) {
 }
 
 // Base class handler implementation
-bool QHBoxLayout_QBaseHasHeightForWidth(const QHBoxLayout* self) {
+bool QHBoxLayout_SuperHasHeightForWidth(const QHBoxLayout* self) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_HasHeightForWidth_IsBase(true);
@@ -1640,7 +1640,7 @@ int QHBoxLayout_HeightForWidth(const QHBoxLayout* self, int param1) {
 }
 
 // Base class handler implementation
-int QHBoxLayout_QBaseHeightForWidth(const QHBoxLayout* self, int param1) {
+int QHBoxLayout_SuperHeightForWidth(const QHBoxLayout* self, int param1) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_HeightForWidth_IsBase(true);
@@ -1669,7 +1669,7 @@ int QHBoxLayout_MinimumHeightForWidth(const QHBoxLayout* self, int param1) {
 }
 
 // Base class handler implementation
-int QHBoxLayout_QBaseMinimumHeightForWidth(const QHBoxLayout* self, int param1) {
+int QHBoxLayout_SuperMinimumHeightForWidth(const QHBoxLayout* self, int param1) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_MinimumHeightForWidth_IsBase(true);
@@ -1698,7 +1698,7 @@ int QHBoxLayout_ExpandingDirections(const QHBoxLayout* self) {
 }
 
 // Base class handler implementation
-int QHBoxLayout_QBaseExpandingDirections(const QHBoxLayout* self) {
+int QHBoxLayout_SuperExpandingDirections(const QHBoxLayout* self) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_ExpandingDirections_IsBase(true);
@@ -1727,7 +1727,7 @@ void QHBoxLayout_Invalidate(QHBoxLayout* self) {
 }
 
 // Base class handler implementation
-void QHBoxLayout_QBaseInvalidate(QHBoxLayout* self) {
+void QHBoxLayout_SuperInvalidate(QHBoxLayout* self) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_Invalidate_IsBase(true);
@@ -1756,7 +1756,7 @@ QLayoutItem* QHBoxLayout_ItemAt(const QHBoxLayout* self, int param1) {
 }
 
 // Base class handler implementation
-QLayoutItem* QHBoxLayout_QBaseItemAt(const QHBoxLayout* self, int param1) {
+QLayoutItem* QHBoxLayout_SuperItemAt(const QHBoxLayout* self, int param1) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_ItemAt_IsBase(true);
@@ -1785,7 +1785,7 @@ QLayoutItem* QHBoxLayout_TakeAt(QHBoxLayout* self, int param1) {
 }
 
 // Base class handler implementation
-QLayoutItem* QHBoxLayout_QBaseTakeAt(QHBoxLayout* self, int param1) {
+QLayoutItem* QHBoxLayout_SuperTakeAt(QHBoxLayout* self, int param1) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_TakeAt_IsBase(true);
@@ -1814,7 +1814,7 @@ int QHBoxLayout_Count(const QHBoxLayout* self) {
 }
 
 // Base class handler implementation
-int QHBoxLayout_QBaseCount(const QHBoxLayout* self) {
+int QHBoxLayout_SuperCount(const QHBoxLayout* self) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_Count_IsBase(true);
@@ -1843,7 +1843,7 @@ void QHBoxLayout_SetGeometry(QHBoxLayout* self, const QRect* geometry) {
 }
 
 // Base class handler implementation
-void QHBoxLayout_QBaseSetGeometry(QHBoxLayout* self, const QRect* geometry) {
+void QHBoxLayout_SuperSetGeometry(QHBoxLayout* self, const QRect* geometry) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_SetGeometry_IsBase(true);
@@ -1872,7 +1872,7 @@ QRect* QHBoxLayout_Geometry(const QHBoxLayout* self) {
 }
 
 // Base class handler implementation
-QRect* QHBoxLayout_QBaseGeometry(const QHBoxLayout* self) {
+QRect* QHBoxLayout_SuperGeometry(const QHBoxLayout* self) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_Geometry_IsBase(true);
@@ -1901,7 +1901,7 @@ int QHBoxLayout_IndexOf(const QHBoxLayout* self, const QWidget* param1) {
 }
 
 // Base class handler implementation
-int QHBoxLayout_QBaseIndexOf(const QHBoxLayout* self, const QWidget* param1) {
+int QHBoxLayout_SuperIndexOf(const QHBoxLayout* self, const QWidget* param1) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_IndexOf_IsBase(true);
@@ -1930,7 +1930,7 @@ bool QHBoxLayout_IsEmpty(const QHBoxLayout* self) {
 }
 
 // Base class handler implementation
-bool QHBoxLayout_QBaseIsEmpty(const QHBoxLayout* self) {
+bool QHBoxLayout_SuperIsEmpty(const QHBoxLayout* self) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_IsEmpty_IsBase(true);
@@ -1959,7 +1959,7 @@ int QHBoxLayout_ControlTypes(const QHBoxLayout* self) {
 }
 
 // Base class handler implementation
-int QHBoxLayout_QBaseControlTypes(const QHBoxLayout* self) {
+int QHBoxLayout_SuperControlTypes(const QHBoxLayout* self) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_ControlTypes_IsBase(true);
@@ -1988,7 +1988,7 @@ QLayoutItem* QHBoxLayout_ReplaceWidget(QHBoxLayout* self, QWidget* from, QWidget
 }
 
 // Base class handler implementation
-QLayoutItem* QHBoxLayout_QBaseReplaceWidget(QHBoxLayout* self, QWidget* from, QWidget* to, int options) {
+QLayoutItem* QHBoxLayout_SuperReplaceWidget(QHBoxLayout* self, QWidget* from, QWidget* to, int options) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_ReplaceWidget_IsBase(true);
@@ -2017,7 +2017,7 @@ QLayout* QHBoxLayout_Layout(QHBoxLayout* self) {
 }
 
 // Base class handler implementation
-QLayout* QHBoxLayout_QBaseLayout(QHBoxLayout* self) {
+QLayout* QHBoxLayout_SuperLayout(QHBoxLayout* self) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_Layout_IsBase(true);
@@ -2046,7 +2046,7 @@ void QHBoxLayout_ChildEvent(QHBoxLayout* self, QChildEvent* e) {
 }
 
 // Base class handler implementation
-void QHBoxLayout_QBaseChildEvent(QHBoxLayout* self, QChildEvent* e) {
+void QHBoxLayout_SuperChildEvent(QHBoxLayout* self, QChildEvent* e) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_ChildEvent_IsBase(true);
@@ -2075,7 +2075,7 @@ bool QHBoxLayout_Event(QHBoxLayout* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QHBoxLayout_QBaseEvent(QHBoxLayout* self, QEvent* event) {
+bool QHBoxLayout_SuperEvent(QHBoxLayout* self, QEvent* event) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_Event_IsBase(true);
@@ -2104,7 +2104,7 @@ bool QHBoxLayout_EventFilter(QHBoxLayout* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QHBoxLayout_QBaseEventFilter(QHBoxLayout* self, QObject* watched, QEvent* event) {
+bool QHBoxLayout_SuperEventFilter(QHBoxLayout* self, QObject* watched, QEvent* event) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_EventFilter_IsBase(true);
@@ -2133,7 +2133,7 @@ void QHBoxLayout_TimerEvent(QHBoxLayout* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QHBoxLayout_QBaseTimerEvent(QHBoxLayout* self, QTimerEvent* event) {
+void QHBoxLayout_SuperTimerEvent(QHBoxLayout* self, QTimerEvent* event) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_TimerEvent_IsBase(true);
@@ -2162,7 +2162,7 @@ void QHBoxLayout_CustomEvent(QHBoxLayout* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QHBoxLayout_QBaseCustomEvent(QHBoxLayout* self, QEvent* event) {
+void QHBoxLayout_SuperCustomEvent(QHBoxLayout* self, QEvent* event) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_CustomEvent_IsBase(true);
@@ -2191,7 +2191,7 @@ void QHBoxLayout_ConnectNotify(QHBoxLayout* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QHBoxLayout_QBaseConnectNotify(QHBoxLayout* self, const QMetaMethod* signal) {
+void QHBoxLayout_SuperConnectNotify(QHBoxLayout* self, const QMetaMethod* signal) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_ConnectNotify_IsBase(true);
@@ -2220,7 +2220,7 @@ void QHBoxLayout_DisconnectNotify(QHBoxLayout* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QHBoxLayout_QBaseDisconnectNotify(QHBoxLayout* self, const QMetaMethod* signal) {
+void QHBoxLayout_SuperDisconnectNotify(QHBoxLayout* self, const QMetaMethod* signal) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_DisconnectNotify_IsBase(true);
@@ -2249,7 +2249,7 @@ QWidget* QHBoxLayout_Widget(const QHBoxLayout* self) {
 }
 
 // Base class handler implementation
-QWidget* QHBoxLayout_QBaseWidget(const QHBoxLayout* self) {
+QWidget* QHBoxLayout_SuperWidget(const QHBoxLayout* self) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_Widget_IsBase(true);
@@ -2278,7 +2278,7 @@ QSpacerItem* QHBoxLayout_SpacerItem(QHBoxLayout* self) {
 }
 
 // Base class handler implementation
-QSpacerItem* QHBoxLayout_QBaseSpacerItem(QHBoxLayout* self) {
+QSpacerItem* QHBoxLayout_SuperSpacerItem(QHBoxLayout* self) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_SpacerItem_IsBase(true);
@@ -2307,7 +2307,7 @@ void QHBoxLayout_WidgetEvent(QHBoxLayout* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QHBoxLayout_QBaseWidgetEvent(QHBoxLayout* self, QEvent* param1) {
+void QHBoxLayout_SuperWidgetEvent(QHBoxLayout* self, QEvent* param1) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_WidgetEvent_IsBase(true);
@@ -2336,7 +2336,7 @@ void QHBoxLayout_AddChildLayout(QHBoxLayout* self, QLayout* l) {
 }
 
 // Base class handler implementation
-void QHBoxLayout_QBaseAddChildLayout(QHBoxLayout* self, QLayout* l) {
+void QHBoxLayout_SuperAddChildLayout(QHBoxLayout* self, QLayout* l) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_AddChildLayout_IsBase(true);
@@ -2365,7 +2365,7 @@ void QHBoxLayout_AddChildWidget(QHBoxLayout* self, QWidget* w) {
 }
 
 // Base class handler implementation
-void QHBoxLayout_QBaseAddChildWidget(QHBoxLayout* self, QWidget* w) {
+void QHBoxLayout_SuperAddChildWidget(QHBoxLayout* self, QWidget* w) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_AddChildWidget_IsBase(true);
@@ -2394,7 +2394,7 @@ bool QHBoxLayout_AdoptLayout(QHBoxLayout* self, QLayout* layout) {
 }
 
 // Base class handler implementation
-bool QHBoxLayout_QBaseAdoptLayout(QHBoxLayout* self, QLayout* layout) {
+bool QHBoxLayout_SuperAdoptLayout(QHBoxLayout* self, QLayout* layout) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_AdoptLayout_IsBase(true);
@@ -2422,7 +2422,7 @@ QRect* QHBoxLayout_AlignmentRect(const QHBoxLayout* self, const QRect* param1) {
 }
 
 // Base class handler implementation
-QRect* QHBoxLayout_QBaseAlignmentRect(const QHBoxLayout* self, const QRect* param1) {
+QRect* QHBoxLayout_SuperAlignmentRect(const QHBoxLayout* self, const QRect* param1) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_AlignmentRect_IsBase(true);
@@ -2450,7 +2450,7 @@ QObject* QHBoxLayout_Sender(const QHBoxLayout* self) {
 }
 
 // Base class handler implementation
-QObject* QHBoxLayout_QBaseSender(const QHBoxLayout* self) {
+QObject* QHBoxLayout_SuperSender(const QHBoxLayout* self) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_Sender_IsBase(true);
@@ -2479,7 +2479,7 @@ int QHBoxLayout_SenderSignalIndex(const QHBoxLayout* self) {
 }
 
 // Base class handler implementation
-int QHBoxLayout_QBaseSenderSignalIndex(const QHBoxLayout* self) {
+int QHBoxLayout_SuperSenderSignalIndex(const QHBoxLayout* self) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_SenderSignalIndex_IsBase(true);
@@ -2508,7 +2508,7 @@ int QHBoxLayout_Receivers(const QHBoxLayout* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QHBoxLayout_QBaseReceivers(const QHBoxLayout* self, const char* signal) {
+int QHBoxLayout_SuperReceivers(const QHBoxLayout* self, const char* signal) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_Receivers_IsBase(true);
@@ -2537,7 +2537,7 @@ bool QHBoxLayout_IsSignalConnected(const QHBoxLayout* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QHBoxLayout_QBaseIsSignalConnected(const QHBoxLayout* self, const QMetaMethod* signal) {
+bool QHBoxLayout_SuperIsSignalConnected(const QHBoxLayout* self, const QMetaMethod* signal) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
     if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
         vqhboxlayout->setQHBoxLayout_IsSignalConnected_IsBase(true);
@@ -2595,7 +2595,7 @@ int QVBoxLayout_Metacall(QVBoxLayout* self, int param1, int param2, void** param
 }
 
 // Base class handler implementation
-QMetaObject* QVBoxLayout_QBaseMetaObject(const QVBoxLayout* self) {
+QMetaObject* QVBoxLayout_SuperMetaObject(const QVBoxLayout* self) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_MetaObject_IsBase(true);
@@ -2614,7 +2614,7 @@ void QVBoxLayout_OnMetaObject(const QVBoxLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QVBoxLayout_QBaseMetacast(QVBoxLayout* self, const char* param1) {
+void* QVBoxLayout_SuperMetacast(QVBoxLayout* self, const char* param1) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_Metacast_IsBase(true);
@@ -2633,7 +2633,7 @@ void QVBoxLayout_OnMetacast(QVBoxLayout* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QVBoxLayout_QBaseMetacall(QVBoxLayout* self, int param1, int param2, void** param3) {
+int QVBoxLayout_SuperMetacall(QVBoxLayout* self, int param1, int param2, void** param3) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_Metacall_IsBase(true);
@@ -2662,7 +2662,7 @@ void QVBoxLayout_AddItem(QVBoxLayout* self, QLayoutItem* param1) {
 }
 
 // Base class handler implementation
-void QVBoxLayout_QBaseAddItem(QVBoxLayout* self, QLayoutItem* param1) {
+void QVBoxLayout_SuperAddItem(QVBoxLayout* self, QLayoutItem* param1) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_AddItem_IsBase(true);
@@ -2691,7 +2691,7 @@ int QVBoxLayout_Spacing(const QVBoxLayout* self) {
 }
 
 // Base class handler implementation
-int QVBoxLayout_QBaseSpacing(const QVBoxLayout* self) {
+int QVBoxLayout_SuperSpacing(const QVBoxLayout* self) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_Spacing_IsBase(true);
@@ -2720,7 +2720,7 @@ void QVBoxLayout_SetSpacing(QVBoxLayout* self, int spacing) {
 }
 
 // Base class handler implementation
-void QVBoxLayout_QBaseSetSpacing(QVBoxLayout* self, int spacing) {
+void QVBoxLayout_SuperSetSpacing(QVBoxLayout* self, int spacing) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_SetSpacing_IsBase(true);
@@ -2749,7 +2749,7 @@ QSize* QVBoxLayout_SizeHint(const QVBoxLayout* self) {
 }
 
 // Base class handler implementation
-QSize* QVBoxLayout_QBaseSizeHint(const QVBoxLayout* self) {
+QSize* QVBoxLayout_SuperSizeHint(const QVBoxLayout* self) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_SizeHint_IsBase(true);
@@ -2778,7 +2778,7 @@ QSize* QVBoxLayout_MinimumSize(const QVBoxLayout* self) {
 }
 
 // Base class handler implementation
-QSize* QVBoxLayout_QBaseMinimumSize(const QVBoxLayout* self) {
+QSize* QVBoxLayout_SuperMinimumSize(const QVBoxLayout* self) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_MinimumSize_IsBase(true);
@@ -2807,7 +2807,7 @@ QSize* QVBoxLayout_MaximumSize(const QVBoxLayout* self) {
 }
 
 // Base class handler implementation
-QSize* QVBoxLayout_QBaseMaximumSize(const QVBoxLayout* self) {
+QSize* QVBoxLayout_SuperMaximumSize(const QVBoxLayout* self) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_MaximumSize_IsBase(true);
@@ -2836,7 +2836,7 @@ bool QVBoxLayout_HasHeightForWidth(const QVBoxLayout* self) {
 }
 
 // Base class handler implementation
-bool QVBoxLayout_QBaseHasHeightForWidth(const QVBoxLayout* self) {
+bool QVBoxLayout_SuperHasHeightForWidth(const QVBoxLayout* self) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_HasHeightForWidth_IsBase(true);
@@ -2865,7 +2865,7 @@ int QVBoxLayout_HeightForWidth(const QVBoxLayout* self, int param1) {
 }
 
 // Base class handler implementation
-int QVBoxLayout_QBaseHeightForWidth(const QVBoxLayout* self, int param1) {
+int QVBoxLayout_SuperHeightForWidth(const QVBoxLayout* self, int param1) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_HeightForWidth_IsBase(true);
@@ -2894,7 +2894,7 @@ int QVBoxLayout_MinimumHeightForWidth(const QVBoxLayout* self, int param1) {
 }
 
 // Base class handler implementation
-int QVBoxLayout_QBaseMinimumHeightForWidth(const QVBoxLayout* self, int param1) {
+int QVBoxLayout_SuperMinimumHeightForWidth(const QVBoxLayout* self, int param1) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_MinimumHeightForWidth_IsBase(true);
@@ -2923,7 +2923,7 @@ int QVBoxLayout_ExpandingDirections(const QVBoxLayout* self) {
 }
 
 // Base class handler implementation
-int QVBoxLayout_QBaseExpandingDirections(const QVBoxLayout* self) {
+int QVBoxLayout_SuperExpandingDirections(const QVBoxLayout* self) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_ExpandingDirections_IsBase(true);
@@ -2952,7 +2952,7 @@ void QVBoxLayout_Invalidate(QVBoxLayout* self) {
 }
 
 // Base class handler implementation
-void QVBoxLayout_QBaseInvalidate(QVBoxLayout* self) {
+void QVBoxLayout_SuperInvalidate(QVBoxLayout* self) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_Invalidate_IsBase(true);
@@ -2981,7 +2981,7 @@ QLayoutItem* QVBoxLayout_ItemAt(const QVBoxLayout* self, int param1) {
 }
 
 // Base class handler implementation
-QLayoutItem* QVBoxLayout_QBaseItemAt(const QVBoxLayout* self, int param1) {
+QLayoutItem* QVBoxLayout_SuperItemAt(const QVBoxLayout* self, int param1) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_ItemAt_IsBase(true);
@@ -3010,7 +3010,7 @@ QLayoutItem* QVBoxLayout_TakeAt(QVBoxLayout* self, int param1) {
 }
 
 // Base class handler implementation
-QLayoutItem* QVBoxLayout_QBaseTakeAt(QVBoxLayout* self, int param1) {
+QLayoutItem* QVBoxLayout_SuperTakeAt(QVBoxLayout* self, int param1) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_TakeAt_IsBase(true);
@@ -3039,7 +3039,7 @@ int QVBoxLayout_Count(const QVBoxLayout* self) {
 }
 
 // Base class handler implementation
-int QVBoxLayout_QBaseCount(const QVBoxLayout* self) {
+int QVBoxLayout_SuperCount(const QVBoxLayout* self) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_Count_IsBase(true);
@@ -3068,7 +3068,7 @@ void QVBoxLayout_SetGeometry(QVBoxLayout* self, const QRect* geometry) {
 }
 
 // Base class handler implementation
-void QVBoxLayout_QBaseSetGeometry(QVBoxLayout* self, const QRect* geometry) {
+void QVBoxLayout_SuperSetGeometry(QVBoxLayout* self, const QRect* geometry) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_SetGeometry_IsBase(true);
@@ -3097,7 +3097,7 @@ QRect* QVBoxLayout_Geometry(const QVBoxLayout* self) {
 }
 
 // Base class handler implementation
-QRect* QVBoxLayout_QBaseGeometry(const QVBoxLayout* self) {
+QRect* QVBoxLayout_SuperGeometry(const QVBoxLayout* self) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_Geometry_IsBase(true);
@@ -3126,7 +3126,7 @@ int QVBoxLayout_IndexOf(const QVBoxLayout* self, const QWidget* param1) {
 }
 
 // Base class handler implementation
-int QVBoxLayout_QBaseIndexOf(const QVBoxLayout* self, const QWidget* param1) {
+int QVBoxLayout_SuperIndexOf(const QVBoxLayout* self, const QWidget* param1) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_IndexOf_IsBase(true);
@@ -3155,7 +3155,7 @@ bool QVBoxLayout_IsEmpty(const QVBoxLayout* self) {
 }
 
 // Base class handler implementation
-bool QVBoxLayout_QBaseIsEmpty(const QVBoxLayout* self) {
+bool QVBoxLayout_SuperIsEmpty(const QVBoxLayout* self) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_IsEmpty_IsBase(true);
@@ -3184,7 +3184,7 @@ int QVBoxLayout_ControlTypes(const QVBoxLayout* self) {
 }
 
 // Base class handler implementation
-int QVBoxLayout_QBaseControlTypes(const QVBoxLayout* self) {
+int QVBoxLayout_SuperControlTypes(const QVBoxLayout* self) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_ControlTypes_IsBase(true);
@@ -3213,7 +3213,7 @@ QLayoutItem* QVBoxLayout_ReplaceWidget(QVBoxLayout* self, QWidget* from, QWidget
 }
 
 // Base class handler implementation
-QLayoutItem* QVBoxLayout_QBaseReplaceWidget(QVBoxLayout* self, QWidget* from, QWidget* to, int options) {
+QLayoutItem* QVBoxLayout_SuperReplaceWidget(QVBoxLayout* self, QWidget* from, QWidget* to, int options) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_ReplaceWidget_IsBase(true);
@@ -3242,7 +3242,7 @@ QLayout* QVBoxLayout_Layout(QVBoxLayout* self) {
 }
 
 // Base class handler implementation
-QLayout* QVBoxLayout_QBaseLayout(QVBoxLayout* self) {
+QLayout* QVBoxLayout_SuperLayout(QVBoxLayout* self) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_Layout_IsBase(true);
@@ -3271,7 +3271,7 @@ void QVBoxLayout_ChildEvent(QVBoxLayout* self, QChildEvent* e) {
 }
 
 // Base class handler implementation
-void QVBoxLayout_QBaseChildEvent(QVBoxLayout* self, QChildEvent* e) {
+void QVBoxLayout_SuperChildEvent(QVBoxLayout* self, QChildEvent* e) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_ChildEvent_IsBase(true);
@@ -3300,7 +3300,7 @@ bool QVBoxLayout_Event(QVBoxLayout* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QVBoxLayout_QBaseEvent(QVBoxLayout* self, QEvent* event) {
+bool QVBoxLayout_SuperEvent(QVBoxLayout* self, QEvent* event) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_Event_IsBase(true);
@@ -3329,7 +3329,7 @@ bool QVBoxLayout_EventFilter(QVBoxLayout* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QVBoxLayout_QBaseEventFilter(QVBoxLayout* self, QObject* watched, QEvent* event) {
+bool QVBoxLayout_SuperEventFilter(QVBoxLayout* self, QObject* watched, QEvent* event) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_EventFilter_IsBase(true);
@@ -3358,7 +3358,7 @@ void QVBoxLayout_TimerEvent(QVBoxLayout* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QVBoxLayout_QBaseTimerEvent(QVBoxLayout* self, QTimerEvent* event) {
+void QVBoxLayout_SuperTimerEvent(QVBoxLayout* self, QTimerEvent* event) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_TimerEvent_IsBase(true);
@@ -3387,7 +3387,7 @@ void QVBoxLayout_CustomEvent(QVBoxLayout* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QVBoxLayout_QBaseCustomEvent(QVBoxLayout* self, QEvent* event) {
+void QVBoxLayout_SuperCustomEvent(QVBoxLayout* self, QEvent* event) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_CustomEvent_IsBase(true);
@@ -3416,7 +3416,7 @@ void QVBoxLayout_ConnectNotify(QVBoxLayout* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QVBoxLayout_QBaseConnectNotify(QVBoxLayout* self, const QMetaMethod* signal) {
+void QVBoxLayout_SuperConnectNotify(QVBoxLayout* self, const QMetaMethod* signal) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_ConnectNotify_IsBase(true);
@@ -3445,7 +3445,7 @@ void QVBoxLayout_DisconnectNotify(QVBoxLayout* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QVBoxLayout_QBaseDisconnectNotify(QVBoxLayout* self, const QMetaMethod* signal) {
+void QVBoxLayout_SuperDisconnectNotify(QVBoxLayout* self, const QMetaMethod* signal) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_DisconnectNotify_IsBase(true);
@@ -3474,7 +3474,7 @@ QWidget* QVBoxLayout_Widget(const QVBoxLayout* self) {
 }
 
 // Base class handler implementation
-QWidget* QVBoxLayout_QBaseWidget(const QVBoxLayout* self) {
+QWidget* QVBoxLayout_SuperWidget(const QVBoxLayout* self) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_Widget_IsBase(true);
@@ -3503,7 +3503,7 @@ QSpacerItem* QVBoxLayout_SpacerItem(QVBoxLayout* self) {
 }
 
 // Base class handler implementation
-QSpacerItem* QVBoxLayout_QBaseSpacerItem(QVBoxLayout* self) {
+QSpacerItem* QVBoxLayout_SuperSpacerItem(QVBoxLayout* self) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_SpacerItem_IsBase(true);
@@ -3532,7 +3532,7 @@ void QVBoxLayout_WidgetEvent(QVBoxLayout* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QVBoxLayout_QBaseWidgetEvent(QVBoxLayout* self, QEvent* param1) {
+void QVBoxLayout_SuperWidgetEvent(QVBoxLayout* self, QEvent* param1) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_WidgetEvent_IsBase(true);
@@ -3561,7 +3561,7 @@ void QVBoxLayout_AddChildLayout(QVBoxLayout* self, QLayout* l) {
 }
 
 // Base class handler implementation
-void QVBoxLayout_QBaseAddChildLayout(QVBoxLayout* self, QLayout* l) {
+void QVBoxLayout_SuperAddChildLayout(QVBoxLayout* self, QLayout* l) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_AddChildLayout_IsBase(true);
@@ -3590,7 +3590,7 @@ void QVBoxLayout_AddChildWidget(QVBoxLayout* self, QWidget* w) {
 }
 
 // Base class handler implementation
-void QVBoxLayout_QBaseAddChildWidget(QVBoxLayout* self, QWidget* w) {
+void QVBoxLayout_SuperAddChildWidget(QVBoxLayout* self, QWidget* w) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_AddChildWidget_IsBase(true);
@@ -3619,7 +3619,7 @@ bool QVBoxLayout_AdoptLayout(QVBoxLayout* self, QLayout* layout) {
 }
 
 // Base class handler implementation
-bool QVBoxLayout_QBaseAdoptLayout(QVBoxLayout* self, QLayout* layout) {
+bool QVBoxLayout_SuperAdoptLayout(QVBoxLayout* self, QLayout* layout) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_AdoptLayout_IsBase(true);
@@ -3647,7 +3647,7 @@ QRect* QVBoxLayout_AlignmentRect(const QVBoxLayout* self, const QRect* param1) {
 }
 
 // Base class handler implementation
-QRect* QVBoxLayout_QBaseAlignmentRect(const QVBoxLayout* self, const QRect* param1) {
+QRect* QVBoxLayout_SuperAlignmentRect(const QVBoxLayout* self, const QRect* param1) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_AlignmentRect_IsBase(true);
@@ -3675,7 +3675,7 @@ QObject* QVBoxLayout_Sender(const QVBoxLayout* self) {
 }
 
 // Base class handler implementation
-QObject* QVBoxLayout_QBaseSender(const QVBoxLayout* self) {
+QObject* QVBoxLayout_SuperSender(const QVBoxLayout* self) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_Sender_IsBase(true);
@@ -3704,7 +3704,7 @@ int QVBoxLayout_SenderSignalIndex(const QVBoxLayout* self) {
 }
 
 // Base class handler implementation
-int QVBoxLayout_QBaseSenderSignalIndex(const QVBoxLayout* self) {
+int QVBoxLayout_SuperSenderSignalIndex(const QVBoxLayout* self) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_SenderSignalIndex_IsBase(true);
@@ -3733,7 +3733,7 @@ int QVBoxLayout_Receivers(const QVBoxLayout* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QVBoxLayout_QBaseReceivers(const QVBoxLayout* self, const char* signal) {
+int QVBoxLayout_SuperReceivers(const QVBoxLayout* self, const char* signal) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_Receivers_IsBase(true);
@@ -3762,7 +3762,7 @@ bool QVBoxLayout_IsSignalConnected(const QVBoxLayout* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QVBoxLayout_QBaseIsSignalConnected(const QVBoxLayout* self, const QMetaMethod* signal) {
+bool QVBoxLayout_SuperIsSignalConnected(const QVBoxLayout* self, const QMetaMethod* signal) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
     if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
         vqvboxlayout->setQVBoxLayout_IsSignalConnected_IsBase(true);

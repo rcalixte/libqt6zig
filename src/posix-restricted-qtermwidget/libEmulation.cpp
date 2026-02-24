@@ -410,7 +410,7 @@ void Konsole__Emulation_ResetMode(Konsole__Emulation* self, int mode) {
 }
 
 // Base class handler implementation
-QMetaObject* Konsole__Emulation_QBaseMetaObject(const Konsole__Emulation* self) {
+QMetaObject* Konsole__Emulation_SuperMetaObject(const Konsole__Emulation* self) {
     auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self));
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_MetaObject_IsBase(true);
@@ -429,7 +429,7 @@ void Konsole__Emulation_OnMetaObject(const Konsole__Emulation* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* Konsole__Emulation_QBaseMetacast(Konsole__Emulation* self, const char* param1) {
+void* Konsole__Emulation_SuperMetacast(Konsole__Emulation* self, const char* param1) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_Metacast_IsBase(true);
@@ -448,7 +448,7 @@ void Konsole__Emulation_OnMetacast(Konsole__Emulation* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int Konsole__Emulation_QBaseMetacall(Konsole__Emulation* self, int param1, int param2, void** param3) {
+int Konsole__Emulation_SuperMetacall(Konsole__Emulation* self, int param1, int param2, void** param3) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_Metacall_IsBase(true);
@@ -467,7 +467,7 @@ void Konsole__Emulation_OnMetacall(Konsole__Emulation* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-char Konsole__Emulation_QBaseEraseChar(const Konsole__Emulation* self) {
+char Konsole__Emulation_SuperEraseChar(const Konsole__Emulation* self) {
     auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self));
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_EraseChar_IsBase(true);
@@ -486,7 +486,7 @@ void Konsole__Emulation_OnEraseChar(const Konsole__Emulation* self, intptr_t slo
 }
 
 // Base class handler implementation
-void Konsole__Emulation_QBaseClearEntireScreen(Konsole__Emulation* self) {
+void Konsole__Emulation_SuperClearEntireScreen(Konsole__Emulation* self) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_ClearEntireScreen_IsBase(true);
@@ -505,7 +505,7 @@ void Konsole__Emulation_OnClearEntireScreen(Konsole__Emulation* self, intptr_t s
 }
 
 // Base class handler implementation
-void Konsole__Emulation_QBaseReset(Konsole__Emulation* self) {
+void Konsole__Emulation_SuperReset(Konsole__Emulation* self) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_Reset_IsBase(true);
@@ -524,7 +524,7 @@ void Konsole__Emulation_OnReset(Konsole__Emulation* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void Konsole__Emulation_QBaseSetImageSize(Konsole__Emulation* self, int lines, int columns) {
+void Konsole__Emulation_SuperSetImageSize(Konsole__Emulation* self, int lines, int columns) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_SetImageSize_IsBase(true);
@@ -543,7 +543,7 @@ void Konsole__Emulation_OnSetImageSize(Konsole__Emulation* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void Konsole__Emulation_QBaseSendText(Konsole__Emulation* self, const libqt_string text) {
+void Konsole__Emulation_SuperSendText(Konsole__Emulation* self, const libqt_string text) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
@@ -563,7 +563,7 @@ void Konsole__Emulation_OnSendText(Konsole__Emulation* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void Konsole__Emulation_QBaseSendKeyEvent(Konsole__Emulation* self, QKeyEvent* param1, bool fromPaste) {
+void Konsole__Emulation_SuperSendKeyEvent(Konsole__Emulation* self, QKeyEvent* param1, bool fromPaste) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_SendKeyEvent_IsBase(true);
@@ -582,7 +582,7 @@ void Konsole__Emulation_OnSendKeyEvent(Konsole__Emulation* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void Konsole__Emulation_QBaseSendMouseEvent(Konsole__Emulation* self, int buttons, int column, int line, int eventType) {
+void Konsole__Emulation_SuperSendMouseEvent(Konsole__Emulation* self, int buttons, int column, int line, int eventType) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_SendMouseEvent_IsBase(true);
@@ -601,7 +601,7 @@ void Konsole__Emulation_OnSendMouseEvent(Konsole__Emulation* self, intptr_t slot
 }
 
 // Base class handler implementation
-void Konsole__Emulation_QBaseSendString(Konsole__Emulation* self, const char* stringVal, int length) {
+void Konsole__Emulation_SuperSendString(Konsole__Emulation* self, const char* stringVal, int length) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_SendString_IsBase(true);
@@ -620,7 +620,7 @@ void Konsole__Emulation_OnSendString(Konsole__Emulation* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void Konsole__Emulation_QBaseSetMode(Konsole__Emulation* self, int mode) {
+void Konsole__Emulation_SuperSetMode(Konsole__Emulation* self, int mode) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_SetMode_IsBase(true);
@@ -639,7 +639,7 @@ void Konsole__Emulation_OnSetMode(Konsole__Emulation* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void Konsole__Emulation_QBaseResetMode(Konsole__Emulation* self, int mode) {
+void Konsole__Emulation_SuperResetMode(Konsole__Emulation* self, int mode) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_ResetMode_IsBase(true);
@@ -668,7 +668,7 @@ bool Konsole__Emulation_Event(Konsole__Emulation* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool Konsole__Emulation_QBaseEvent(Konsole__Emulation* self, QEvent* event) {
+bool Konsole__Emulation_SuperEvent(Konsole__Emulation* self, QEvent* event) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_Event_IsBase(true);
@@ -697,7 +697,7 @@ bool Konsole__Emulation_EventFilter(Konsole__Emulation* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool Konsole__Emulation_QBaseEventFilter(Konsole__Emulation* self, QObject* watched, QEvent* event) {
+bool Konsole__Emulation_SuperEventFilter(Konsole__Emulation* self, QObject* watched, QEvent* event) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_EventFilter_IsBase(true);
@@ -726,7 +726,7 @@ void Konsole__Emulation_TimerEvent(Konsole__Emulation* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void Konsole__Emulation_QBaseTimerEvent(Konsole__Emulation* self, QTimerEvent* event) {
+void Konsole__Emulation_SuperTimerEvent(Konsole__Emulation* self, QTimerEvent* event) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_TimerEvent_IsBase(true);
@@ -755,7 +755,7 @@ void Konsole__Emulation_ChildEvent(Konsole__Emulation* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void Konsole__Emulation_QBaseChildEvent(Konsole__Emulation* self, QChildEvent* event) {
+void Konsole__Emulation_SuperChildEvent(Konsole__Emulation* self, QChildEvent* event) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_ChildEvent_IsBase(true);
@@ -784,7 +784,7 @@ void Konsole__Emulation_CustomEvent(Konsole__Emulation* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void Konsole__Emulation_QBaseCustomEvent(Konsole__Emulation* self, QEvent* event) {
+void Konsole__Emulation_SuperCustomEvent(Konsole__Emulation* self, QEvent* event) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_CustomEvent_IsBase(true);
@@ -813,7 +813,7 @@ void Konsole__Emulation_ConnectNotify(Konsole__Emulation* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void Konsole__Emulation_QBaseConnectNotify(Konsole__Emulation* self, const QMetaMethod* signal) {
+void Konsole__Emulation_SuperConnectNotify(Konsole__Emulation* self, const QMetaMethod* signal) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_ConnectNotify_IsBase(true);
@@ -842,7 +842,7 @@ void Konsole__Emulation_DisconnectNotify(Konsole__Emulation* self, const QMetaMe
 }
 
 // Base class handler implementation
-void Konsole__Emulation_QBaseDisconnectNotify(Konsole__Emulation* self, const QMetaMethod* signal) {
+void Konsole__Emulation_SuperDisconnectNotify(Konsole__Emulation* self, const QMetaMethod* signal) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_DisconnectNotify_IsBase(true);
@@ -871,7 +871,7 @@ void Konsole__Emulation_SetScreen(Konsole__Emulation* self, int index) {
 }
 
 // Base class handler implementation
-void Konsole__Emulation_QBaseSetScreen(Konsole__Emulation* self, int index) {
+void Konsole__Emulation_SuperSetScreen(Konsole__Emulation* self, int index) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_SetScreen_IsBase(true);
@@ -900,7 +900,7 @@ void Konsole__Emulation_SetCodec(Konsole__Emulation* self, int codec) {
 }
 
 // Base class handler implementation
-void Konsole__Emulation_QBaseSetCodec(Konsole__Emulation* self, int codec) {
+void Konsole__Emulation_SuperSetCodec(Konsole__Emulation* self, int codec) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_SetCodec_IsBase(true);
@@ -929,7 +929,7 @@ void Konsole__Emulation_BufferedUpdate(Konsole__Emulation* self) {
 }
 
 // Base class handler implementation
-void Konsole__Emulation_QBaseBufferedUpdate(Konsole__Emulation* self) {
+void Konsole__Emulation_SuperBufferedUpdate(Konsole__Emulation* self) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_BufferedUpdate_IsBase(true);
@@ -958,7 +958,7 @@ QObject* Konsole__Emulation_Sender(const Konsole__Emulation* self) {
 }
 
 // Base class handler implementation
-QObject* Konsole__Emulation_QBaseSender(const Konsole__Emulation* self) {
+QObject* Konsole__Emulation_SuperSender(const Konsole__Emulation* self) {
     auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self));
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_Sender_IsBase(true);
@@ -987,7 +987,7 @@ int Konsole__Emulation_SenderSignalIndex(const Konsole__Emulation* self) {
 }
 
 // Base class handler implementation
-int Konsole__Emulation_QBaseSenderSignalIndex(const Konsole__Emulation* self) {
+int Konsole__Emulation_SuperSenderSignalIndex(const Konsole__Emulation* self) {
     auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self));
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_SenderSignalIndex_IsBase(true);
@@ -1016,7 +1016,7 @@ int Konsole__Emulation_Receivers(const Konsole__Emulation* self, const char* sig
 }
 
 // Base class handler implementation
-int Konsole__Emulation_QBaseReceivers(const Konsole__Emulation* self, const char* signal) {
+int Konsole__Emulation_SuperReceivers(const Konsole__Emulation* self, const char* signal) {
     auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self));
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_Receivers_IsBase(true);
@@ -1045,7 +1045,7 @@ bool Konsole__Emulation_IsSignalConnected(const Konsole__Emulation* self, const 
 }
 
 // Base class handler implementation
-bool Konsole__Emulation_QBaseIsSignalConnected(const Konsole__Emulation* self, const QMetaMethod* signal) {
+bool Konsole__Emulation_SuperIsSignalConnected(const Konsole__Emulation* self, const QMetaMethod* signal) {
     auto* vkonsoleemulation = const_cast<VirtualKonsoleEmulation*>(dynamic_cast<const VirtualKonsoleEmulation*>(self));
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_IsSignalConnected_IsBase(true);

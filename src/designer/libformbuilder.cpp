@@ -103,7 +103,7 @@ void QFormBuilder_UpdateCustomWidgets(QFormBuilder* self) {
 }
 
 // Base class handler implementation
-QWidget* QFormBuilder_QBaseCreateWidget(QFormBuilder* self, const libqt_string widgetName, QWidget* parentWidget, const libqt_string name) {
+QWidget* QFormBuilder_SuperCreateWidget(QFormBuilder* self, const libqt_string widgetName, QWidget* parentWidget, const libqt_string name) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
     QString widgetName_QString = QString::fromUtf8(widgetName.data, widgetName.len);
     QString name_QString = QString::fromUtf8(name.data, name.len);
@@ -124,7 +124,7 @@ void QFormBuilder_OnCreateWidget(QFormBuilder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QLayout* QFormBuilder_QBaseCreateLayout(QFormBuilder* self, const libqt_string layoutName, QObject* parent, const libqt_string name) {
+QLayout* QFormBuilder_SuperCreateLayout(QFormBuilder* self, const libqt_string layoutName, QObject* parent, const libqt_string name) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
     QString layoutName_QString = QString::fromUtf8(layoutName.data, layoutName.len);
     QString name_QString = QString::fromUtf8(name.data, name.len);
@@ -145,7 +145,7 @@ void QFormBuilder_OnCreateLayout(QFormBuilder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QFormBuilder_QBaseUpdateCustomWidgets(QFormBuilder* self) {
+void QFormBuilder_SuperUpdateCustomWidgets(QFormBuilder* self) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
     if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
         vqformbuilder->setQFormBuilder_UpdateCustomWidgets_IsBase(true);
@@ -174,7 +174,7 @@ QWidget* QFormBuilder_Load(QFormBuilder* self, QIODevice* dev, QWidget* parentWi
 }
 
 // Base class handler implementation
-QWidget* QFormBuilder_QBaseLoad(QFormBuilder* self, QIODevice* dev, QWidget* parentWidget) {
+QWidget* QFormBuilder_SuperLoad(QFormBuilder* self, QIODevice* dev, QWidget* parentWidget) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
     if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
         vqformbuilder->setQFormBuilder_Load_IsBase(true);
@@ -203,7 +203,7 @@ void QFormBuilder_Save(QFormBuilder* self, QIODevice* dev, QWidget* widget) {
 }
 
 // Base class handler implementation
-void QFormBuilder_QBaseSave(QFormBuilder* self, QIODevice* dev, QWidget* widget) {
+void QFormBuilder_SuperSave(QFormBuilder* self, QIODevice* dev, QWidget* widget) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
     if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
         vqformbuilder->setQFormBuilder_Save_IsBase(true);
@@ -232,7 +232,7 @@ void QFormBuilder_AddMenuAction(QFormBuilder* self, QAction* action) {
 }
 
 // Base class handler implementation
-void QFormBuilder_QBaseAddMenuAction(QFormBuilder* self, QAction* action) {
+void QFormBuilder_SuperAddMenuAction(QFormBuilder* self, QAction* action) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
     if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
         vqformbuilder->setQFormBuilder_AddMenuAction_IsBase(true);
@@ -262,7 +262,7 @@ QAction* QFormBuilder_CreateAction(QFormBuilder* self, QObject* parent, const li
 }
 
 // Base class handler implementation
-QAction* QFormBuilder_QBaseCreateAction(QFormBuilder* self, QObject* parent, const libqt_string name) {
+QAction* QFormBuilder_SuperCreateAction(QFormBuilder* self, QObject* parent, const libqt_string name) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
@@ -293,7 +293,7 @@ QActionGroup* QFormBuilder_CreateActionGroup(QFormBuilder* self, QObject* parent
 }
 
 // Base class handler implementation
-QActionGroup* QFormBuilder_QBaseCreateActionGroup(QFormBuilder* self, QObject* parent, const libqt_string name) {
+QActionGroup* QFormBuilder_SuperCreateActionGroup(QFormBuilder* self, QObject* parent, const libqt_string name) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
@@ -324,7 +324,7 @@ bool QFormBuilder_CheckProperty(const QFormBuilder* self, QObject* obj, const li
 }
 
 // Base class handler implementation
-bool QFormBuilder_QBaseCheckProperty(const QFormBuilder* self, QObject* obj, const libqt_string prop) {
+bool QFormBuilder_SuperCheckProperty(const QFormBuilder* self, QObject* obj, const libqt_string prop) {
     auto* vqformbuilder = const_cast<VirtualQFormBuilder*>(dynamic_cast<const VirtualQFormBuilder*>(self));
     QString prop_QString = QString::fromUtf8(prop.data, prop.len);
     if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
@@ -355,7 +355,7 @@ QWidget* QFormBuilder_WidgetByName(QFormBuilder* self, QWidget* topLevel, const 
 }
 
 // Base class handler implementation
-QWidget* QFormBuilder_QBaseWidgetByName(QFormBuilder* self, QWidget* topLevel, const libqt_string name) {
+QWidget* QFormBuilder_SuperWidgetByName(QFormBuilder* self, QWidget* topLevel, const libqt_string name) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
@@ -386,7 +386,7 @@ bool QFormBuilder_ApplyPropertyInternally(QFormBuilder* self, QObject* o, const 
 }
 
 // Base class handler implementation
-bool QFormBuilder_QBaseApplyPropertyInternally(QFormBuilder* self, QObject* o, const libqt_string propertyName, const QVariant* value) {
+bool QFormBuilder_SuperApplyPropertyInternally(QFormBuilder* self, QObject* o, const libqt_string propertyName, const QVariant* value) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
     QString propertyName_QString = QString::fromUtf8(propertyName.data, propertyName.len);
     if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
@@ -416,7 +416,7 @@ void QFormBuilder_Reset(QFormBuilder* self) {
 }
 
 // Base class handler implementation
-void QFormBuilder_QBaseReset(QFormBuilder* self) {
+void QFormBuilder_SuperReset(QFormBuilder* self) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
     if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
         vqformbuilder->setQFormBuilder_Reset_IsBase(true);
@@ -444,7 +444,7 @@ QMetaEnum* QFormBuilder_ToolBarAreaMetaEnum(QFormBuilder* self) {
 }
 
 // Base class handler implementation
-QMetaEnum* QFormBuilder_QBaseToolBarAreaMetaEnum(QFormBuilder* self) {
+QMetaEnum* QFormBuilder_SuperToolBarAreaMetaEnum(QFormBuilder* self) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
     if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
         vqformbuilder->setQFormBuilder_ToolBarAreaMetaEnum_IsBase(true);

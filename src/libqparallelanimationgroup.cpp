@@ -88,7 +88,7 @@ void QParallelAnimationGroup_UpdateDirection(QParallelAnimationGroup* self, int 
 }
 
 // Base class handler implementation
-QMetaObject* QParallelAnimationGroup_QBaseMetaObject(const QParallelAnimationGroup* self) {
+QMetaObject* QParallelAnimationGroup_SuperMetaObject(const QParallelAnimationGroup* self) {
     auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
     if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
         vqparallelanimationgroup->setQParallelAnimationGroup_MetaObject_IsBase(true);
@@ -107,7 +107,7 @@ void QParallelAnimationGroup_OnMetaObject(const QParallelAnimationGroup* self, i
 }
 
 // Base class handler implementation
-void* QParallelAnimationGroup_QBaseMetacast(QParallelAnimationGroup* self, const char* param1) {
+void* QParallelAnimationGroup_SuperMetacast(QParallelAnimationGroup* self, const char* param1) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
     if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
         vqparallelanimationgroup->setQParallelAnimationGroup_Metacast_IsBase(true);
@@ -126,7 +126,7 @@ void QParallelAnimationGroup_OnMetacast(QParallelAnimationGroup* self, intptr_t 
 }
 
 // Base class handler implementation
-int QParallelAnimationGroup_QBaseMetacall(QParallelAnimationGroup* self, int param1, int param2, void** param3) {
+int QParallelAnimationGroup_SuperMetacall(QParallelAnimationGroup* self, int param1, int param2, void** param3) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
     if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
         vqparallelanimationgroup->setQParallelAnimationGroup_Metacall_IsBase(true);
@@ -145,7 +145,7 @@ void QParallelAnimationGroup_OnMetacall(QParallelAnimationGroup* self, intptr_t 
 }
 
 // Base class handler implementation
-int QParallelAnimationGroup_QBaseDuration(const QParallelAnimationGroup* self) {
+int QParallelAnimationGroup_SuperDuration(const QParallelAnimationGroup* self) {
     auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
     if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
         vqparallelanimationgroup->setQParallelAnimationGroup_Duration_IsBase(true);
@@ -164,7 +164,7 @@ void QParallelAnimationGroup_OnDuration(const QParallelAnimationGroup* self, int
 }
 
 // Base class handler implementation
-bool QParallelAnimationGroup_QBaseEvent(QParallelAnimationGroup* self, QEvent* event) {
+bool QParallelAnimationGroup_SuperEvent(QParallelAnimationGroup* self, QEvent* event) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
     if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
         vqparallelanimationgroup->setQParallelAnimationGroup_Event_IsBase(true);
@@ -183,7 +183,7 @@ void QParallelAnimationGroup_OnEvent(QParallelAnimationGroup* self, intptr_t slo
 }
 
 // Base class handler implementation
-void QParallelAnimationGroup_QBaseUpdateCurrentTime(QParallelAnimationGroup* self, int currentTime) {
+void QParallelAnimationGroup_SuperUpdateCurrentTime(QParallelAnimationGroup* self, int currentTime) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
     if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
         vqparallelanimationgroup->setQParallelAnimationGroup_UpdateCurrentTime_IsBase(true);
@@ -202,7 +202,7 @@ void QParallelAnimationGroup_OnUpdateCurrentTime(QParallelAnimationGroup* self, 
 }
 
 // Base class handler implementation
-void QParallelAnimationGroup_QBaseUpdateState(QParallelAnimationGroup* self, int newState, int oldState) {
+void QParallelAnimationGroup_SuperUpdateState(QParallelAnimationGroup* self, int newState, int oldState) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
     if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
         vqparallelanimationgroup->setQParallelAnimationGroup_UpdateState_IsBase(true);
@@ -221,7 +221,7 @@ void QParallelAnimationGroup_OnUpdateState(QParallelAnimationGroup* self, intptr
 }
 
 // Base class handler implementation
-void QParallelAnimationGroup_QBaseUpdateDirection(QParallelAnimationGroup* self, int direction) {
+void QParallelAnimationGroup_SuperUpdateDirection(QParallelAnimationGroup* self, int direction) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
     if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
         vqparallelanimationgroup->setQParallelAnimationGroup_UpdateDirection_IsBase(true);
@@ -250,7 +250,7 @@ bool QParallelAnimationGroup_EventFilter(QParallelAnimationGroup* self, QObject*
 }
 
 // Base class handler implementation
-bool QParallelAnimationGroup_QBaseEventFilter(QParallelAnimationGroup* self, QObject* watched, QEvent* event) {
+bool QParallelAnimationGroup_SuperEventFilter(QParallelAnimationGroup* self, QObject* watched, QEvent* event) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
     if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
         vqparallelanimationgroup->setQParallelAnimationGroup_EventFilter_IsBase(true);
@@ -279,7 +279,7 @@ void QParallelAnimationGroup_TimerEvent(QParallelAnimationGroup* self, QTimerEve
 }
 
 // Base class handler implementation
-void QParallelAnimationGroup_QBaseTimerEvent(QParallelAnimationGroup* self, QTimerEvent* event) {
+void QParallelAnimationGroup_SuperTimerEvent(QParallelAnimationGroup* self, QTimerEvent* event) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
     if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
         vqparallelanimationgroup->setQParallelAnimationGroup_TimerEvent_IsBase(true);
@@ -308,7 +308,7 @@ void QParallelAnimationGroup_ChildEvent(QParallelAnimationGroup* self, QChildEve
 }
 
 // Base class handler implementation
-void QParallelAnimationGroup_QBaseChildEvent(QParallelAnimationGroup* self, QChildEvent* event) {
+void QParallelAnimationGroup_SuperChildEvent(QParallelAnimationGroup* self, QChildEvent* event) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
     if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
         vqparallelanimationgroup->setQParallelAnimationGroup_ChildEvent_IsBase(true);
@@ -337,7 +337,7 @@ void QParallelAnimationGroup_CustomEvent(QParallelAnimationGroup* self, QEvent* 
 }
 
 // Base class handler implementation
-void QParallelAnimationGroup_QBaseCustomEvent(QParallelAnimationGroup* self, QEvent* event) {
+void QParallelAnimationGroup_SuperCustomEvent(QParallelAnimationGroup* self, QEvent* event) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
     if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
         vqparallelanimationgroup->setQParallelAnimationGroup_CustomEvent_IsBase(true);
@@ -366,7 +366,7 @@ void QParallelAnimationGroup_ConnectNotify(QParallelAnimationGroup* self, const 
 }
 
 // Base class handler implementation
-void QParallelAnimationGroup_QBaseConnectNotify(QParallelAnimationGroup* self, const QMetaMethod* signal) {
+void QParallelAnimationGroup_SuperConnectNotify(QParallelAnimationGroup* self, const QMetaMethod* signal) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
     if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
         vqparallelanimationgroup->setQParallelAnimationGroup_ConnectNotify_IsBase(true);
@@ -395,7 +395,7 @@ void QParallelAnimationGroup_DisconnectNotify(QParallelAnimationGroup* self, con
 }
 
 // Base class handler implementation
-void QParallelAnimationGroup_QBaseDisconnectNotify(QParallelAnimationGroup* self, const QMetaMethod* signal) {
+void QParallelAnimationGroup_SuperDisconnectNotify(QParallelAnimationGroup* self, const QMetaMethod* signal) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
     if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
         vqparallelanimationgroup->setQParallelAnimationGroup_DisconnectNotify_IsBase(true);
@@ -424,7 +424,7 @@ QObject* QParallelAnimationGroup_Sender(const QParallelAnimationGroup* self) {
 }
 
 // Base class handler implementation
-QObject* QParallelAnimationGroup_QBaseSender(const QParallelAnimationGroup* self) {
+QObject* QParallelAnimationGroup_SuperSender(const QParallelAnimationGroup* self) {
     auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
     if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
         vqparallelanimationgroup->setQParallelAnimationGroup_Sender_IsBase(true);
@@ -453,7 +453,7 @@ int QParallelAnimationGroup_SenderSignalIndex(const QParallelAnimationGroup* sel
 }
 
 // Base class handler implementation
-int QParallelAnimationGroup_QBaseSenderSignalIndex(const QParallelAnimationGroup* self) {
+int QParallelAnimationGroup_SuperSenderSignalIndex(const QParallelAnimationGroup* self) {
     auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
     if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
         vqparallelanimationgroup->setQParallelAnimationGroup_SenderSignalIndex_IsBase(true);
@@ -482,7 +482,7 @@ int QParallelAnimationGroup_Receivers(const QParallelAnimationGroup* self, const
 }
 
 // Base class handler implementation
-int QParallelAnimationGroup_QBaseReceivers(const QParallelAnimationGroup* self, const char* signal) {
+int QParallelAnimationGroup_SuperReceivers(const QParallelAnimationGroup* self, const char* signal) {
     auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
     if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
         vqparallelanimationgroup->setQParallelAnimationGroup_Receivers_IsBase(true);
@@ -511,7 +511,7 @@ bool QParallelAnimationGroup_IsSignalConnected(const QParallelAnimationGroup* se
 }
 
 // Base class handler implementation
-bool QParallelAnimationGroup_QBaseIsSignalConnected(const QParallelAnimationGroup* self, const QMetaMethod* signal) {
+bool QParallelAnimationGroup_SuperIsSignalConnected(const QParallelAnimationGroup* self, const QMetaMethod* signal) {
     auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
     if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
         vqparallelanimationgroup->setQParallelAnimationGroup_IsSignalConnected_IsBase(true);

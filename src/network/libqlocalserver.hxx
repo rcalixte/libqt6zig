@@ -406,27 +406,27 @@ class VirtualQLocalServer final : public QLocalServer {
 
     // Friend functions
     friend void QLocalServer_IncomingConnection(QLocalServer* self, uintptr_t socketDescriptor);
-    friend void QLocalServer_QBaseIncomingConnection(QLocalServer* self, uintptr_t socketDescriptor);
+    friend void QLocalServer_SuperIncomingConnection(QLocalServer* self, uintptr_t socketDescriptor);
     friend void QLocalServer_TimerEvent(QLocalServer* self, QTimerEvent* event);
-    friend void QLocalServer_QBaseTimerEvent(QLocalServer* self, QTimerEvent* event);
+    friend void QLocalServer_SuperTimerEvent(QLocalServer* self, QTimerEvent* event);
     friend void QLocalServer_ChildEvent(QLocalServer* self, QChildEvent* event);
-    friend void QLocalServer_QBaseChildEvent(QLocalServer* self, QChildEvent* event);
+    friend void QLocalServer_SuperChildEvent(QLocalServer* self, QChildEvent* event);
     friend void QLocalServer_CustomEvent(QLocalServer* self, QEvent* event);
-    friend void QLocalServer_QBaseCustomEvent(QLocalServer* self, QEvent* event);
+    friend void QLocalServer_SuperCustomEvent(QLocalServer* self, QEvent* event);
     friend void QLocalServer_ConnectNotify(QLocalServer* self, const QMetaMethod* signal);
-    friend void QLocalServer_QBaseConnectNotify(QLocalServer* self, const QMetaMethod* signal);
+    friend void QLocalServer_SuperConnectNotify(QLocalServer* self, const QMetaMethod* signal);
     friend void QLocalServer_DisconnectNotify(QLocalServer* self, const QMetaMethod* signal);
-    friend void QLocalServer_QBaseDisconnectNotify(QLocalServer* self, const QMetaMethod* signal);
+    friend void QLocalServer_SuperDisconnectNotify(QLocalServer* self, const QMetaMethod* signal);
     friend void QLocalServer_AddPendingConnection(QLocalServer* self, QLocalSocket* socket);
-    friend void QLocalServer_QBaseAddPendingConnection(QLocalServer* self, QLocalSocket* socket);
+    friend void QLocalServer_SuperAddPendingConnection(QLocalServer* self, QLocalSocket* socket);
     friend QObject* QLocalServer_Sender(const QLocalServer* self);
-    friend QObject* QLocalServer_QBaseSender(const QLocalServer* self);
+    friend QObject* QLocalServer_SuperSender(const QLocalServer* self);
     friend int QLocalServer_SenderSignalIndex(const QLocalServer* self);
-    friend int QLocalServer_QBaseSenderSignalIndex(const QLocalServer* self);
+    friend int QLocalServer_SuperSenderSignalIndex(const QLocalServer* self);
     friend int QLocalServer_Receivers(const QLocalServer* self, const char* signal);
-    friend int QLocalServer_QBaseReceivers(const QLocalServer* self, const char* signal);
+    friend int QLocalServer_SuperReceivers(const QLocalServer* self, const char* signal);
     friend bool QLocalServer_IsSignalConnected(const QLocalServer* self, const QMetaMethod* signal);
-    friend bool QLocalServer_QBaseIsSignalConnected(const QLocalServer* self, const QMetaMethod* signal);
+    friend bool QLocalServer_SuperIsSignalConnected(const QLocalServer* self, const QMetaMethod* signal);
 };
 
 #endif

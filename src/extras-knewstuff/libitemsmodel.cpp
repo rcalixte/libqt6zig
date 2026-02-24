@@ -156,7 +156,7 @@ void KNSCore__ItemsModel_SlotEntryPreviewLoaded(KNSCore__ItemsModel* self, const
 }
 
 // Base class handler implementation
-QMetaObject* KNSCore__ItemsModel_QBaseMetaObject(const KNSCore__ItemsModel* self) {
+QMetaObject* KNSCore__ItemsModel_SuperMetaObject(const KNSCore__ItemsModel* self) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_MetaObject_IsBase(true);
@@ -175,7 +175,7 @@ void KNSCore__ItemsModel_OnMetaObject(const KNSCore__ItemsModel* self, intptr_t 
 }
 
 // Base class handler implementation
-void* KNSCore__ItemsModel_QBaseMetacast(KNSCore__ItemsModel* self, const char* param1) {
+void* KNSCore__ItemsModel_SuperMetacast(KNSCore__ItemsModel* self, const char* param1) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_Metacast_IsBase(true);
@@ -194,7 +194,7 @@ void KNSCore__ItemsModel_OnMetacast(KNSCore__ItemsModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KNSCore__ItemsModel_QBaseMetacall(KNSCore__ItemsModel* self, int param1, int param2, void** param3) {
+int KNSCore__ItemsModel_SuperMetacall(KNSCore__ItemsModel* self, int param1, int param2, void** param3) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_Metacall_IsBase(true);
@@ -213,7 +213,7 @@ void KNSCore__ItemsModel_OnMetacall(KNSCore__ItemsModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KNSCore__ItemsModel_QBaseRowCount(const KNSCore__ItemsModel* self, const QModelIndex* parent) {
+int KNSCore__ItemsModel_SuperRowCount(const KNSCore__ItemsModel* self, const QModelIndex* parent) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_RowCount_IsBase(true);
@@ -232,7 +232,7 @@ void KNSCore__ItemsModel_OnRowCount(const KNSCore__ItemsModel* self, intptr_t sl
 }
 
 // Base class handler implementation
-QVariant* KNSCore__ItemsModel_QBaseData(const KNSCore__ItemsModel* self, const QModelIndex* index, int role) {
+QVariant* KNSCore__ItemsModel_SuperData(const KNSCore__ItemsModel* self, const QModelIndex* index, int role) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_Data_IsBase(true);
@@ -261,7 +261,7 @@ QModelIndex* KNSCore__ItemsModel_Index(const KNSCore__ItemsModel* self, int row,
 }
 
 // Base class handler implementation
-QModelIndex* KNSCore__ItemsModel_QBaseIndex(const KNSCore__ItemsModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* KNSCore__ItemsModel_SuperIndex(const KNSCore__ItemsModel* self, int row, int column, const QModelIndex* parent) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_Index_IsBase(true);
@@ -290,7 +290,7 @@ QModelIndex* KNSCore__ItemsModel_Sibling(const KNSCore__ItemsModel* self, int ro
 }
 
 // Base class handler implementation
-QModelIndex* KNSCore__ItemsModel_QBaseSibling(const KNSCore__ItemsModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* KNSCore__ItemsModel_SuperSibling(const KNSCore__ItemsModel* self, int row, int column, const QModelIndex* idx) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_Sibling_IsBase(true);
@@ -319,7 +319,7 @@ bool KNSCore__ItemsModel_DropMimeData(KNSCore__ItemsModel* self, const QMimeData
 }
 
 // Base class handler implementation
-bool KNSCore__ItemsModel_QBaseDropMimeData(KNSCore__ItemsModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KNSCore__ItemsModel_SuperDropMimeData(KNSCore__ItemsModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_DropMimeData_IsBase(true);
@@ -348,7 +348,7 @@ int KNSCore__ItemsModel_Flags(const KNSCore__ItemsModel* self, const QModelIndex
 }
 
 // Base class handler implementation
-int KNSCore__ItemsModel_QBaseFlags(const KNSCore__ItemsModel* self, const QModelIndex* index) {
+int KNSCore__ItemsModel_SuperFlags(const KNSCore__ItemsModel* self, const QModelIndex* index) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_Flags_IsBase(true);
@@ -377,7 +377,7 @@ bool KNSCore__ItemsModel_SetData(KNSCore__ItemsModel* self, const QModelIndex* i
 }
 
 // Base class handler implementation
-bool KNSCore__ItemsModel_QBaseSetData(KNSCore__ItemsModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool KNSCore__ItemsModel_SuperSetData(KNSCore__ItemsModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_SetData_IsBase(true);
@@ -406,7 +406,7 @@ QVariant* KNSCore__ItemsModel_HeaderData(const KNSCore__ItemsModel* self, int se
 }
 
 // Base class handler implementation
-QVariant* KNSCore__ItemsModel_QBaseHeaderData(const KNSCore__ItemsModel* self, int section, int orientation, int role) {
+QVariant* KNSCore__ItemsModel_SuperHeaderData(const KNSCore__ItemsModel* self, int section, int orientation, int role) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_HeaderData_IsBase(true);
@@ -435,7 +435,7 @@ bool KNSCore__ItemsModel_SetHeaderData(KNSCore__ItemsModel* self, int section, i
 }
 
 // Base class handler implementation
-bool KNSCore__ItemsModel_QBaseSetHeaderData(KNSCore__ItemsModel* self, int section, int orientation, const QVariant* value, int role) {
+bool KNSCore__ItemsModel_SuperSetHeaderData(KNSCore__ItemsModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_SetHeaderData_IsBase(true);
@@ -492,7 +492,7 @@ libqt_map /* of int to QVariant* */ KNSCore__ItemsModel_ItemData(const KNSCore__
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ KNSCore__ItemsModel_QBaseItemData(const KNSCore__ItemsModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ KNSCore__ItemsModel_SuperItemData(const KNSCore__ItemsModel* self, const QModelIndex* index) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_ItemData_IsBase(true);
@@ -555,7 +555,7 @@ bool KNSCore__ItemsModel_SetItemData(KNSCore__ItemsModel* self, const QModelInde
 }
 
 // Base class handler implementation
-bool KNSCore__ItemsModel_QBaseSetItemData(KNSCore__ItemsModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool KNSCore__ItemsModel_SuperSetItemData(KNSCore__ItemsModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -590,7 +590,7 @@ bool KNSCore__ItemsModel_ClearItemData(KNSCore__ItemsModel* self, const QModelIn
 }
 
 // Base class handler implementation
-bool KNSCore__ItemsModel_QBaseClearItemData(KNSCore__ItemsModel* self, const QModelIndex* index) {
+bool KNSCore__ItemsModel_SuperClearItemData(KNSCore__ItemsModel* self, const QModelIndex* index) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_ClearItemData_IsBase(true);
@@ -653,7 +653,7 @@ libqt_list /* of libqt_string */ KNSCore__ItemsModel_MimeTypes(const KNSCore__It
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KNSCore__ItemsModel_QBaseMimeTypes(const KNSCore__ItemsModel* self) {
+libqt_list /* of libqt_string */ KNSCore__ItemsModel_SuperMimeTypes(const KNSCore__ItemsModel* self) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_MimeTypes_IsBase(true);
@@ -722,7 +722,7 @@ QMimeData* KNSCore__ItemsModel_MimeData(const KNSCore__ItemsModel* self, const l
 }
 
 // Base class handler implementation
-QMimeData* KNSCore__ItemsModel_QBaseMimeData(const KNSCore__ItemsModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* KNSCore__ItemsModel_SuperMimeData(const KNSCore__ItemsModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -757,7 +757,7 @@ bool KNSCore__ItemsModel_CanDropMimeData(const KNSCore__ItemsModel* self, const 
 }
 
 // Base class handler implementation
-bool KNSCore__ItemsModel_QBaseCanDropMimeData(const KNSCore__ItemsModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KNSCore__ItemsModel_SuperCanDropMimeData(const KNSCore__ItemsModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_CanDropMimeData_IsBase(true);
@@ -786,7 +786,7 @@ int KNSCore__ItemsModel_SupportedDropActions(const KNSCore__ItemsModel* self) {
 }
 
 // Base class handler implementation
-int KNSCore__ItemsModel_QBaseSupportedDropActions(const KNSCore__ItemsModel* self) {
+int KNSCore__ItemsModel_SuperSupportedDropActions(const KNSCore__ItemsModel* self) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_SupportedDropActions_IsBase(true);
@@ -815,7 +815,7 @@ int KNSCore__ItemsModel_SupportedDragActions(const KNSCore__ItemsModel* self) {
 }
 
 // Base class handler implementation
-int KNSCore__ItemsModel_QBaseSupportedDragActions(const KNSCore__ItemsModel* self) {
+int KNSCore__ItemsModel_SuperSupportedDragActions(const KNSCore__ItemsModel* self) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_SupportedDragActions_IsBase(true);
@@ -844,7 +844,7 @@ bool KNSCore__ItemsModel_InsertRows(KNSCore__ItemsModel* self, int row, int coun
 }
 
 // Base class handler implementation
-bool KNSCore__ItemsModel_QBaseInsertRows(KNSCore__ItemsModel* self, int row, int count, const QModelIndex* parent) {
+bool KNSCore__ItemsModel_SuperInsertRows(KNSCore__ItemsModel* self, int row, int count, const QModelIndex* parent) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_InsertRows_IsBase(true);
@@ -873,7 +873,7 @@ bool KNSCore__ItemsModel_InsertColumns(KNSCore__ItemsModel* self, int column, in
 }
 
 // Base class handler implementation
-bool KNSCore__ItemsModel_QBaseInsertColumns(KNSCore__ItemsModel* self, int column, int count, const QModelIndex* parent) {
+bool KNSCore__ItemsModel_SuperInsertColumns(KNSCore__ItemsModel* self, int column, int count, const QModelIndex* parent) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_InsertColumns_IsBase(true);
@@ -902,7 +902,7 @@ bool KNSCore__ItemsModel_RemoveRows(KNSCore__ItemsModel* self, int row, int coun
 }
 
 // Base class handler implementation
-bool KNSCore__ItemsModel_QBaseRemoveRows(KNSCore__ItemsModel* self, int row, int count, const QModelIndex* parent) {
+bool KNSCore__ItemsModel_SuperRemoveRows(KNSCore__ItemsModel* self, int row, int count, const QModelIndex* parent) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_RemoveRows_IsBase(true);
@@ -931,7 +931,7 @@ bool KNSCore__ItemsModel_RemoveColumns(KNSCore__ItemsModel* self, int column, in
 }
 
 // Base class handler implementation
-bool KNSCore__ItemsModel_QBaseRemoveColumns(KNSCore__ItemsModel* self, int column, int count, const QModelIndex* parent) {
+bool KNSCore__ItemsModel_SuperRemoveColumns(KNSCore__ItemsModel* self, int column, int count, const QModelIndex* parent) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_RemoveColumns_IsBase(true);
@@ -960,7 +960,7 @@ bool KNSCore__ItemsModel_MoveRows(KNSCore__ItemsModel* self, const QModelIndex* 
 }
 
 // Base class handler implementation
-bool KNSCore__ItemsModel_QBaseMoveRows(KNSCore__ItemsModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KNSCore__ItemsModel_SuperMoveRows(KNSCore__ItemsModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_MoveRows_IsBase(true);
@@ -989,7 +989,7 @@ bool KNSCore__ItemsModel_MoveColumns(KNSCore__ItemsModel* self, const QModelInde
 }
 
 // Base class handler implementation
-bool KNSCore__ItemsModel_QBaseMoveColumns(KNSCore__ItemsModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KNSCore__ItemsModel_SuperMoveColumns(KNSCore__ItemsModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_MoveColumns_IsBase(true);
@@ -1018,7 +1018,7 @@ void KNSCore__ItemsModel_FetchMore(KNSCore__ItemsModel* self, const QModelIndex*
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseFetchMore(KNSCore__ItemsModel* self, const QModelIndex* parent) {
+void KNSCore__ItemsModel_SuperFetchMore(KNSCore__ItemsModel* self, const QModelIndex* parent) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_FetchMore_IsBase(true);
@@ -1047,7 +1047,7 @@ bool KNSCore__ItemsModel_CanFetchMore(const KNSCore__ItemsModel* self, const QMo
 }
 
 // Base class handler implementation
-bool KNSCore__ItemsModel_QBaseCanFetchMore(const KNSCore__ItemsModel* self, const QModelIndex* parent) {
+bool KNSCore__ItemsModel_SuperCanFetchMore(const KNSCore__ItemsModel* self, const QModelIndex* parent) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_CanFetchMore_IsBase(true);
@@ -1076,7 +1076,7 @@ void KNSCore__ItemsModel_Sort(KNSCore__ItemsModel* self, int column, int order) 
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseSort(KNSCore__ItemsModel* self, int column, int order) {
+void KNSCore__ItemsModel_SuperSort(KNSCore__ItemsModel* self, int column, int order) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_Sort_IsBase(true);
@@ -1105,7 +1105,7 @@ QModelIndex* KNSCore__ItemsModel_Buddy(const KNSCore__ItemsModel* self, const QM
 }
 
 // Base class handler implementation
-QModelIndex* KNSCore__ItemsModel_QBaseBuddy(const KNSCore__ItemsModel* self, const QModelIndex* index) {
+QModelIndex* KNSCore__ItemsModel_SuperBuddy(const KNSCore__ItemsModel* self, const QModelIndex* index) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_Buddy_IsBase(true);
@@ -1152,7 +1152,7 @@ libqt_list /* of QModelIndex* */ KNSCore__ItemsModel_Match(const KNSCore__ItemsM
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KNSCore__ItemsModel_QBaseMatch(const KNSCore__ItemsModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ KNSCore__ItemsModel_SuperMatch(const KNSCore__ItemsModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_Match_IsBase(true);
@@ -1199,7 +1199,7 @@ QSize* KNSCore__ItemsModel_Span(const KNSCore__ItemsModel* self, const QModelInd
 }
 
 // Base class handler implementation
-QSize* KNSCore__ItemsModel_QBaseSpan(const KNSCore__ItemsModel* self, const QModelIndex* index) {
+QSize* KNSCore__ItemsModel_SuperSpan(const KNSCore__ItemsModel* self, const QModelIndex* index) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_Span_IsBase(true);
@@ -1266,7 +1266,7 @@ libqt_map /* of int to libqt_string */ KNSCore__ItemsModel_RoleNames(const KNSCo
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ KNSCore__ItemsModel_QBaseRoleNames(const KNSCore__ItemsModel* self) {
+libqt_map /* of int to libqt_string */ KNSCore__ItemsModel_SuperRoleNames(const KNSCore__ItemsModel* self) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_RoleNames_IsBase(true);
@@ -1333,7 +1333,7 @@ void KNSCore__ItemsModel_MultiData(const KNSCore__ItemsModel* self, const QModel
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseMultiData(const KNSCore__ItemsModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void KNSCore__ItemsModel_SuperMultiData(const KNSCore__ItemsModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_MultiData_IsBase(true);
@@ -1362,7 +1362,7 @@ bool KNSCore__ItemsModel_Submit(KNSCore__ItemsModel* self) {
 }
 
 // Base class handler implementation
-bool KNSCore__ItemsModel_QBaseSubmit(KNSCore__ItemsModel* self) {
+bool KNSCore__ItemsModel_SuperSubmit(KNSCore__ItemsModel* self) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_Submit_IsBase(true);
@@ -1391,7 +1391,7 @@ void KNSCore__ItemsModel_Revert(KNSCore__ItemsModel* self) {
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseRevert(KNSCore__ItemsModel* self) {
+void KNSCore__ItemsModel_SuperRevert(KNSCore__ItemsModel* self) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_Revert_IsBase(true);
@@ -1420,7 +1420,7 @@ void KNSCore__ItemsModel_ResetInternalData(KNSCore__ItemsModel* self) {
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseResetInternalData(KNSCore__ItemsModel* self) {
+void KNSCore__ItemsModel_SuperResetInternalData(KNSCore__ItemsModel* self) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_ResetInternalData_IsBase(true);
@@ -1449,7 +1449,7 @@ bool KNSCore__ItemsModel_Event(KNSCore__ItemsModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KNSCore__ItemsModel_QBaseEvent(KNSCore__ItemsModel* self, QEvent* event) {
+bool KNSCore__ItemsModel_SuperEvent(KNSCore__ItemsModel* self, QEvent* event) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_Event_IsBase(true);
@@ -1478,7 +1478,7 @@ bool KNSCore__ItemsModel_EventFilter(KNSCore__ItemsModel* self, QObject* watched
 }
 
 // Base class handler implementation
-bool KNSCore__ItemsModel_QBaseEventFilter(KNSCore__ItemsModel* self, QObject* watched, QEvent* event) {
+bool KNSCore__ItemsModel_SuperEventFilter(KNSCore__ItemsModel* self, QObject* watched, QEvent* event) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_EventFilter_IsBase(true);
@@ -1507,7 +1507,7 @@ void KNSCore__ItemsModel_TimerEvent(KNSCore__ItemsModel* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseTimerEvent(KNSCore__ItemsModel* self, QTimerEvent* event) {
+void KNSCore__ItemsModel_SuperTimerEvent(KNSCore__ItemsModel* self, QTimerEvent* event) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_TimerEvent_IsBase(true);
@@ -1536,7 +1536,7 @@ void KNSCore__ItemsModel_ChildEvent(KNSCore__ItemsModel* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseChildEvent(KNSCore__ItemsModel* self, QChildEvent* event) {
+void KNSCore__ItemsModel_SuperChildEvent(KNSCore__ItemsModel* self, QChildEvent* event) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_ChildEvent_IsBase(true);
@@ -1565,7 +1565,7 @@ void KNSCore__ItemsModel_CustomEvent(KNSCore__ItemsModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseCustomEvent(KNSCore__ItemsModel* self, QEvent* event) {
+void KNSCore__ItemsModel_SuperCustomEvent(KNSCore__ItemsModel* self, QEvent* event) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_CustomEvent_IsBase(true);
@@ -1594,7 +1594,7 @@ void KNSCore__ItemsModel_ConnectNotify(KNSCore__ItemsModel* self, const QMetaMet
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseConnectNotify(KNSCore__ItemsModel* self, const QMetaMethod* signal) {
+void KNSCore__ItemsModel_SuperConnectNotify(KNSCore__ItemsModel* self, const QMetaMethod* signal) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_ConnectNotify_IsBase(true);
@@ -1623,7 +1623,7 @@ void KNSCore__ItemsModel_DisconnectNotify(KNSCore__ItemsModel* self, const QMeta
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseDisconnectNotify(KNSCore__ItemsModel* self, const QMetaMethod* signal) {
+void KNSCore__ItemsModel_SuperDisconnectNotify(KNSCore__ItemsModel* self, const QMetaMethod* signal) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_DisconnectNotify_IsBase(true);
@@ -1651,7 +1651,7 @@ QModelIndex* KNSCore__ItemsModel_CreateIndex(const KNSCore__ItemsModel* self, in
 }
 
 // Base class handler implementation
-QModelIndex* KNSCore__ItemsModel_QBaseCreateIndex(const KNSCore__ItemsModel* self, int row, int column) {
+QModelIndex* KNSCore__ItemsModel_SuperCreateIndex(const KNSCore__ItemsModel* self, int row, int column) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_CreateIndex_IsBase(true);
@@ -1685,7 +1685,7 @@ void KNSCore__ItemsModel_EncodeData(const KNSCore__ItemsModel* self, const libqt
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseEncodeData(const KNSCore__ItemsModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void KNSCore__ItemsModel_SuperEncodeData(const KNSCore__ItemsModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -1720,7 +1720,7 @@ bool KNSCore__ItemsModel_DecodeData(KNSCore__ItemsModel* self, int row, int colu
 }
 
 // Base class handler implementation
-bool KNSCore__ItemsModel_QBaseDecodeData(KNSCore__ItemsModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool KNSCore__ItemsModel_SuperDecodeData(KNSCore__ItemsModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_DecodeData_IsBase(true);
@@ -1749,7 +1749,7 @@ void KNSCore__ItemsModel_BeginInsertRows(KNSCore__ItemsModel* self, const QModel
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseBeginInsertRows(KNSCore__ItemsModel* self, const QModelIndex* parent, int first, int last) {
+void KNSCore__ItemsModel_SuperBeginInsertRows(KNSCore__ItemsModel* self, const QModelIndex* parent, int first, int last) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_BeginInsertRows_IsBase(true);
@@ -1778,7 +1778,7 @@ void KNSCore__ItemsModel_EndInsertRows(KNSCore__ItemsModel* self) {
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseEndInsertRows(KNSCore__ItemsModel* self) {
+void KNSCore__ItemsModel_SuperEndInsertRows(KNSCore__ItemsModel* self) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_EndInsertRows_IsBase(true);
@@ -1807,7 +1807,7 @@ void KNSCore__ItemsModel_BeginRemoveRows(KNSCore__ItemsModel* self, const QModel
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseBeginRemoveRows(KNSCore__ItemsModel* self, const QModelIndex* parent, int first, int last) {
+void KNSCore__ItemsModel_SuperBeginRemoveRows(KNSCore__ItemsModel* self, const QModelIndex* parent, int first, int last) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_BeginRemoveRows_IsBase(true);
@@ -1836,7 +1836,7 @@ void KNSCore__ItemsModel_EndRemoveRows(KNSCore__ItemsModel* self) {
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseEndRemoveRows(KNSCore__ItemsModel* self) {
+void KNSCore__ItemsModel_SuperEndRemoveRows(KNSCore__ItemsModel* self) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_EndRemoveRows_IsBase(true);
@@ -1865,7 +1865,7 @@ bool KNSCore__ItemsModel_BeginMoveRows(KNSCore__ItemsModel* self, const QModelIn
 }
 
 // Base class handler implementation
-bool KNSCore__ItemsModel_QBaseBeginMoveRows(KNSCore__ItemsModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool KNSCore__ItemsModel_SuperBeginMoveRows(KNSCore__ItemsModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_BeginMoveRows_IsBase(true);
@@ -1894,7 +1894,7 @@ void KNSCore__ItemsModel_EndMoveRows(KNSCore__ItemsModel* self) {
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseEndMoveRows(KNSCore__ItemsModel* self) {
+void KNSCore__ItemsModel_SuperEndMoveRows(KNSCore__ItemsModel* self) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_EndMoveRows_IsBase(true);
@@ -1923,7 +1923,7 @@ void KNSCore__ItemsModel_BeginInsertColumns(KNSCore__ItemsModel* self, const QMo
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseBeginInsertColumns(KNSCore__ItemsModel* self, const QModelIndex* parent, int first, int last) {
+void KNSCore__ItemsModel_SuperBeginInsertColumns(KNSCore__ItemsModel* self, const QModelIndex* parent, int first, int last) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_BeginInsertColumns_IsBase(true);
@@ -1952,7 +1952,7 @@ void KNSCore__ItemsModel_EndInsertColumns(KNSCore__ItemsModel* self) {
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseEndInsertColumns(KNSCore__ItemsModel* self) {
+void KNSCore__ItemsModel_SuperEndInsertColumns(KNSCore__ItemsModel* self) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_EndInsertColumns_IsBase(true);
@@ -1981,7 +1981,7 @@ void KNSCore__ItemsModel_BeginRemoveColumns(KNSCore__ItemsModel* self, const QMo
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseBeginRemoveColumns(KNSCore__ItemsModel* self, const QModelIndex* parent, int first, int last) {
+void KNSCore__ItemsModel_SuperBeginRemoveColumns(KNSCore__ItemsModel* self, const QModelIndex* parent, int first, int last) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_BeginRemoveColumns_IsBase(true);
@@ -2010,7 +2010,7 @@ void KNSCore__ItemsModel_EndRemoveColumns(KNSCore__ItemsModel* self) {
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseEndRemoveColumns(KNSCore__ItemsModel* self) {
+void KNSCore__ItemsModel_SuperEndRemoveColumns(KNSCore__ItemsModel* self) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_EndRemoveColumns_IsBase(true);
@@ -2039,7 +2039,7 @@ bool KNSCore__ItemsModel_BeginMoveColumns(KNSCore__ItemsModel* self, const QMode
 }
 
 // Base class handler implementation
-bool KNSCore__ItemsModel_QBaseBeginMoveColumns(KNSCore__ItemsModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool KNSCore__ItemsModel_SuperBeginMoveColumns(KNSCore__ItemsModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_BeginMoveColumns_IsBase(true);
@@ -2068,7 +2068,7 @@ void KNSCore__ItemsModel_EndMoveColumns(KNSCore__ItemsModel* self) {
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseEndMoveColumns(KNSCore__ItemsModel* self) {
+void KNSCore__ItemsModel_SuperEndMoveColumns(KNSCore__ItemsModel* self) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_EndMoveColumns_IsBase(true);
@@ -2097,7 +2097,7 @@ void KNSCore__ItemsModel_BeginResetModel(KNSCore__ItemsModel* self) {
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseBeginResetModel(KNSCore__ItemsModel* self) {
+void KNSCore__ItemsModel_SuperBeginResetModel(KNSCore__ItemsModel* self) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_BeginResetModel_IsBase(true);
@@ -2126,7 +2126,7 @@ void KNSCore__ItemsModel_EndResetModel(KNSCore__ItemsModel* self) {
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseEndResetModel(KNSCore__ItemsModel* self) {
+void KNSCore__ItemsModel_SuperEndResetModel(KNSCore__ItemsModel* self) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_EndResetModel_IsBase(true);
@@ -2155,7 +2155,7 @@ void KNSCore__ItemsModel_ChangePersistentIndex(KNSCore__ItemsModel* self, const 
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseChangePersistentIndex(KNSCore__ItemsModel* self, const QModelIndex* from, const QModelIndex* to) {
+void KNSCore__ItemsModel_SuperChangePersistentIndex(KNSCore__ItemsModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_ChangePersistentIndex_IsBase(true);
@@ -2196,7 +2196,7 @@ void KNSCore__ItemsModel_ChangePersistentIndexList(KNSCore__ItemsModel* self, co
 }
 
 // Base class handler implementation
-void KNSCore__ItemsModel_QBaseChangePersistentIndexList(KNSCore__ItemsModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void KNSCore__ItemsModel_SuperChangePersistentIndexList(KNSCore__ItemsModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -2255,7 +2255,7 @@ libqt_list /* of QModelIndex* */ KNSCore__ItemsModel_PersistentIndexList(const K
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KNSCore__ItemsModel_QBasePersistentIndexList(const KNSCore__ItemsModel* self) {
+libqt_list /* of QModelIndex* */ KNSCore__ItemsModel_SuperPersistentIndexList(const KNSCore__ItemsModel* self) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_PersistentIndexList_IsBase(true);
@@ -2302,7 +2302,7 @@ QObject* KNSCore__ItemsModel_Sender(const KNSCore__ItemsModel* self) {
 }
 
 // Base class handler implementation
-QObject* KNSCore__ItemsModel_QBaseSender(const KNSCore__ItemsModel* self) {
+QObject* KNSCore__ItemsModel_SuperSender(const KNSCore__ItemsModel* self) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_Sender_IsBase(true);
@@ -2331,7 +2331,7 @@ int KNSCore__ItemsModel_SenderSignalIndex(const KNSCore__ItemsModel* self) {
 }
 
 // Base class handler implementation
-int KNSCore__ItemsModel_QBaseSenderSignalIndex(const KNSCore__ItemsModel* self) {
+int KNSCore__ItemsModel_SuperSenderSignalIndex(const KNSCore__ItemsModel* self) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_SenderSignalIndex_IsBase(true);
@@ -2360,7 +2360,7 @@ int KNSCore__ItemsModel_Receivers(const KNSCore__ItemsModel* self, const char* s
 }
 
 // Base class handler implementation
-int KNSCore__ItemsModel_QBaseReceivers(const KNSCore__ItemsModel* self, const char* signal) {
+int KNSCore__ItemsModel_SuperReceivers(const KNSCore__ItemsModel* self, const char* signal) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_Receivers_IsBase(true);
@@ -2389,7 +2389,7 @@ bool KNSCore__ItemsModel_IsSignalConnected(const KNSCore__ItemsModel* self, cons
 }
 
 // Base class handler implementation
-bool KNSCore__ItemsModel_QBaseIsSignalConnected(const KNSCore__ItemsModel* self, const QMetaMethod* signal) {
+bool KNSCore__ItemsModel_SuperIsSignalConnected(const KNSCore__ItemsModel* self, const QMetaMethod* signal) {
     auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_IsSignalConnected_IsBase(true);

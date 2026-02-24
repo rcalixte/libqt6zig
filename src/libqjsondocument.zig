@@ -113,6 +113,10 @@ pub const qjsonparseerror = struct {
         qtc.QJsonParseError_SetError(@ptrCast(self), @bitCast(_error));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonparseerror.html#dtor.QJsonParseError)
     ///
     /// Delete this object from C++ memory.
@@ -121,7 +125,7 @@ pub const qjsonparseerror = struct {
     ///
     /// ` self: QtC.QJsonParseError `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QJsonParseError_Delete(@ptrCast(self));
     }
 };
@@ -384,6 +388,10 @@ pub const qjsondocument = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#dtor.QJsonDocument)
     ///
     /// Delete this object from C++ memory.
@@ -392,7 +400,7 @@ pub const qjsondocument = struct {
     ///
     /// ` self: QtC.QJsonDocument `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QJsonDocument_Delete(@ptrCast(self));
     }
 };

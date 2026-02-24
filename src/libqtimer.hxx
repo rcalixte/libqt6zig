@@ -328,23 +328,23 @@ class VirtualQTimer final : public QTimer {
 
     // Friend functions
     friend void QTimer_TimerEvent(QTimer* self, QTimerEvent* param1);
-    friend void QTimer_QBaseTimerEvent(QTimer* self, QTimerEvent* param1);
+    friend void QTimer_SuperTimerEvent(QTimer* self, QTimerEvent* param1);
     friend void QTimer_ChildEvent(QTimer* self, QChildEvent* event);
-    friend void QTimer_QBaseChildEvent(QTimer* self, QChildEvent* event);
+    friend void QTimer_SuperChildEvent(QTimer* self, QChildEvent* event);
     friend void QTimer_CustomEvent(QTimer* self, QEvent* event);
-    friend void QTimer_QBaseCustomEvent(QTimer* self, QEvent* event);
+    friend void QTimer_SuperCustomEvent(QTimer* self, QEvent* event);
     friend void QTimer_ConnectNotify(QTimer* self, const QMetaMethod* signal);
-    friend void QTimer_QBaseConnectNotify(QTimer* self, const QMetaMethod* signal);
+    friend void QTimer_SuperConnectNotify(QTimer* self, const QMetaMethod* signal);
     friend void QTimer_DisconnectNotify(QTimer* self, const QMetaMethod* signal);
-    friend void QTimer_QBaseDisconnectNotify(QTimer* self, const QMetaMethod* signal);
+    friend void QTimer_SuperDisconnectNotify(QTimer* self, const QMetaMethod* signal);
     friend QObject* QTimer_Sender(const QTimer* self);
-    friend QObject* QTimer_QBaseSender(const QTimer* self);
+    friend QObject* QTimer_SuperSender(const QTimer* self);
     friend int QTimer_SenderSignalIndex(const QTimer* self);
-    friend int QTimer_QBaseSenderSignalIndex(const QTimer* self);
+    friend int QTimer_SuperSenderSignalIndex(const QTimer* self);
     friend int QTimer_Receivers(const QTimer* self, const char* signal);
-    friend int QTimer_QBaseReceivers(const QTimer* self, const char* signal);
+    friend int QTimer_SuperReceivers(const QTimer* self, const char* signal);
     friend bool QTimer_IsSignalConnected(const QTimer* self, const QMetaMethod* signal);
-    friend bool QTimer_QBaseIsSignalConnected(const QTimer* self, const QMetaMethod* signal);
+    friend bool QTimer_SuperIsSignalConnected(const QTimer* self, const QMetaMethod* signal);
 };
 
 #endif

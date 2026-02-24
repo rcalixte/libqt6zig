@@ -138,6 +138,10 @@ pub const qtilerules = struct {
         qtc.QTileRules_SetVertical(@ptrCast(self), @bitCast(vertical));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtilerules.html#dtor.QTileRules)
     ///
     /// Delete this object from C++ memory.
@@ -146,7 +150,7 @@ pub const qtilerules = struct {
     ///
     /// ` self: QtC.QTileRules `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTileRules_Delete(@ptrCast(self));
     }
 };

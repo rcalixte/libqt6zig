@@ -189,7 +189,7 @@ libqt_string KViewStateSerializer_IndexToConfigString(const KViewStateSerializer
 }
 
 // Base class handler implementation
-QMetaObject* KViewStateSerializer_QBaseMetaObject(const KViewStateSerializer* self) {
+QMetaObject* KViewStateSerializer_SuperMetaObject(const KViewStateSerializer* self) {
     auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
     if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
         vkviewstateserializer->setKViewStateSerializer_MetaObject_IsBase(true);
@@ -208,7 +208,7 @@ void KViewStateSerializer_OnMetaObject(const KViewStateSerializer* self, intptr_
 }
 
 // Base class handler implementation
-void* KViewStateSerializer_QBaseMetacast(KViewStateSerializer* self, const char* param1) {
+void* KViewStateSerializer_SuperMetacast(KViewStateSerializer* self, const char* param1) {
     auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
     if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
         vkviewstateserializer->setKViewStateSerializer_Metacast_IsBase(true);
@@ -227,7 +227,7 @@ void KViewStateSerializer_OnMetacast(KViewStateSerializer* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int KViewStateSerializer_QBaseMetacall(KViewStateSerializer* self, int param1, int param2, void** param3) {
+int KViewStateSerializer_SuperMetacall(KViewStateSerializer* self, int param1, int param2, void** param3) {
     auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
     if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
         vkviewstateserializer->setKViewStateSerializer_Metacall_IsBase(true);
@@ -246,7 +246,7 @@ void KViewStateSerializer_OnMetacall(KViewStateSerializer* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-QModelIndex* KViewStateSerializer_QBaseIndexFromConfigString(const KViewStateSerializer* self, const QAbstractItemModel* model, const libqt_string key) {
+QModelIndex* KViewStateSerializer_SuperIndexFromConfigString(const KViewStateSerializer* self, const QAbstractItemModel* model, const libqt_string key) {
     auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
     QString key_QString = QString::fromUtf8(key.data, key.len);
     if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
@@ -265,7 +265,7 @@ void KViewStateSerializer_OnIndexFromConfigString(const KViewStateSerializer* se
 }
 
 // Base class handler implementation
-libqt_string KViewStateSerializer_QBaseIndexToConfigString(const KViewStateSerializer* self, const QModelIndex* index) {
+libqt_string KViewStateSerializer_SuperIndexToConfigString(const KViewStateSerializer* self, const QModelIndex* index) {
     auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
     if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
         vkviewstateserializer->setKViewStateSerializer_IndexToConfigString_IsBase(true);
@@ -310,7 +310,7 @@ bool KViewStateSerializer_Event(KViewStateSerializer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KViewStateSerializer_QBaseEvent(KViewStateSerializer* self, QEvent* event) {
+bool KViewStateSerializer_SuperEvent(KViewStateSerializer* self, QEvent* event) {
     auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
     if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
         vkviewstateserializer->setKViewStateSerializer_Event_IsBase(true);
@@ -339,7 +339,7 @@ bool KViewStateSerializer_EventFilter(KViewStateSerializer* self, QObject* watch
 }
 
 // Base class handler implementation
-bool KViewStateSerializer_QBaseEventFilter(KViewStateSerializer* self, QObject* watched, QEvent* event) {
+bool KViewStateSerializer_SuperEventFilter(KViewStateSerializer* self, QObject* watched, QEvent* event) {
     auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
     if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
         vkviewstateserializer->setKViewStateSerializer_EventFilter_IsBase(true);
@@ -368,7 +368,7 @@ void KViewStateSerializer_TimerEvent(KViewStateSerializer* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void KViewStateSerializer_QBaseTimerEvent(KViewStateSerializer* self, QTimerEvent* event) {
+void KViewStateSerializer_SuperTimerEvent(KViewStateSerializer* self, QTimerEvent* event) {
     auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
     if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
         vkviewstateserializer->setKViewStateSerializer_TimerEvent_IsBase(true);
@@ -397,7 +397,7 @@ void KViewStateSerializer_ChildEvent(KViewStateSerializer* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void KViewStateSerializer_QBaseChildEvent(KViewStateSerializer* self, QChildEvent* event) {
+void KViewStateSerializer_SuperChildEvent(KViewStateSerializer* self, QChildEvent* event) {
     auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
     if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
         vkviewstateserializer->setKViewStateSerializer_ChildEvent_IsBase(true);
@@ -426,7 +426,7 @@ void KViewStateSerializer_CustomEvent(KViewStateSerializer* self, QEvent* event)
 }
 
 // Base class handler implementation
-void KViewStateSerializer_QBaseCustomEvent(KViewStateSerializer* self, QEvent* event) {
+void KViewStateSerializer_SuperCustomEvent(KViewStateSerializer* self, QEvent* event) {
     auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
     if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
         vkviewstateserializer->setKViewStateSerializer_CustomEvent_IsBase(true);
@@ -455,7 +455,7 @@ void KViewStateSerializer_ConnectNotify(KViewStateSerializer* self, const QMetaM
 }
 
 // Base class handler implementation
-void KViewStateSerializer_QBaseConnectNotify(KViewStateSerializer* self, const QMetaMethod* signal) {
+void KViewStateSerializer_SuperConnectNotify(KViewStateSerializer* self, const QMetaMethod* signal) {
     auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
     if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
         vkviewstateserializer->setKViewStateSerializer_ConnectNotify_IsBase(true);
@@ -484,7 +484,7 @@ void KViewStateSerializer_DisconnectNotify(KViewStateSerializer* self, const QMe
 }
 
 // Base class handler implementation
-void KViewStateSerializer_QBaseDisconnectNotify(KViewStateSerializer* self, const QMetaMethod* signal) {
+void KViewStateSerializer_SuperDisconnectNotify(KViewStateSerializer* self, const QMetaMethod* signal) {
     auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
     if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
         vkviewstateserializer->setKViewStateSerializer_DisconnectNotify_IsBase(true);
@@ -513,7 +513,7 @@ void KViewStateSerializer_RestoreState(KViewStateSerializer* self) {
 }
 
 // Base class handler implementation
-void KViewStateSerializer_QBaseRestoreState(KViewStateSerializer* self) {
+void KViewStateSerializer_SuperRestoreState(KViewStateSerializer* self) {
     auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
     if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
         vkviewstateserializer->setKViewStateSerializer_RestoreState_IsBase(true);
@@ -542,7 +542,7 @@ QObject* KViewStateSerializer_Sender(const KViewStateSerializer* self) {
 }
 
 // Base class handler implementation
-QObject* KViewStateSerializer_QBaseSender(const KViewStateSerializer* self) {
+QObject* KViewStateSerializer_SuperSender(const KViewStateSerializer* self) {
     auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
     if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
         vkviewstateserializer->setKViewStateSerializer_Sender_IsBase(true);
@@ -571,7 +571,7 @@ int KViewStateSerializer_SenderSignalIndex(const KViewStateSerializer* self) {
 }
 
 // Base class handler implementation
-int KViewStateSerializer_QBaseSenderSignalIndex(const KViewStateSerializer* self) {
+int KViewStateSerializer_SuperSenderSignalIndex(const KViewStateSerializer* self) {
     auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
     if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
         vkviewstateserializer->setKViewStateSerializer_SenderSignalIndex_IsBase(true);
@@ -600,7 +600,7 @@ int KViewStateSerializer_Receivers(const KViewStateSerializer* self, const char*
 }
 
 // Base class handler implementation
-int KViewStateSerializer_QBaseReceivers(const KViewStateSerializer* self, const char* signal) {
+int KViewStateSerializer_SuperReceivers(const KViewStateSerializer* self, const char* signal) {
     auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
     if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
         vkviewstateserializer->setKViewStateSerializer_Receivers_IsBase(true);
@@ -629,7 +629,7 @@ bool KViewStateSerializer_IsSignalConnected(const KViewStateSerializer* self, co
 }
 
 // Base class handler implementation
-bool KViewStateSerializer_QBaseIsSignalConnected(const KViewStateSerializer* self, const QMetaMethod* signal) {
+bool KViewStateSerializer_SuperIsSignalConnected(const KViewStateSerializer* self, const QMetaMethod* signal) {
     auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
     if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
         vkviewstateserializer->setKViewStateSerializer_IsSignalConnected_IsBase(true);
